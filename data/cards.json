@@ -219,5 +219,70 @@
     "sourceUrl": "https://www.hdfc.bank.in/credit-cards/indianoil-hdfc-bank-credit-card",
     "applyUrl": "https://www.hdfc.bank.in/credit-cards/indianoil-hdfc-bank-credit-card",
     "lastVerified": "2026-05-08"
+  },
+  {
+    "id": "hdfc-pixel-play",
+    "issuer": "HDFC Bank",
+    "name": "HDFC Bank PIXEL Play Credit Card",
+    "network": ["Visa", "RuPay"],
+    "joiningFee": 500,
+    "annualFee": 500,
+    "feeWaiverSpend": 100000,
+    "bestFor": ["customizable cashback", "upi", "online shopping", "payzapp"],
+    "rewardType": "PIXEL CashPoints",
+    "rewards": [
+      { "category": "selected packs", "rate": 5, "capMonthly": 500 },
+      { "category": "smartbuy", "rate": 5, "capMonthly": 500 },
+      { "category": "online", "rate": 3, "capMonthly": 500 },
+      { "category": "upi", "rate": 1, "capMonthly": 500 },
+      { "category": "offline", "rate": 1, "capMonthly": null }
+    ],
+    "loungeDomestic": 0,
+    "loungeInternational": 0,
+    "forexMarkup": 3.5,
+    "tags": ["cashback", "rupay", "upi", "payzapp", "online", "customizable"],
+    "exclusions": [
+      "fuel spends",
+      "wallet spends",
+      "rent payments",
+      "government related transactions",
+      "EMI transactions",
+      "purchases converted to EMI post facto",
+      "cash advances",
+      "payment of outstanding balances",
+      "payment of card fees and other charges"
+    ],
+    "milestoneBenefits": [
+      "Joining fee waiver on spending Rs 20,000 within 90 days of issuance",
+      "Renewal fee waived on spending Rs 1 lakh or more in the preceding 12 months"
+    ],
+    "additionalBenefits": [
+      "Choose any two 5% cashback packs: Dining & Entertainment, Travel, Grocery, Electronics, or Fashion",
+      "Choose one 3% cashback ecommerce platform: Amazon, Flipkart, or PayZapp",
+      "1% cashback on UPI spends for PIXEL RuPay Credit Card holders",
+      "Manage card, rewards, EMI, statements, repayments, disputes, and controls through PayZapp",
+      "Choose billing date, merchant partners, and card colour",
+      "Up to 50 days interest-free period",
+      "1% fuel surcharge waiver at fuel stations across India on transactions from Rs 400 to Rs 5,000, capped at Rs 250 per statement cycle"
+    ],
+    "redemption": {
+      "minimumPointsForStatementCredit": 1000,
+      "pointsExpiryYears": 2
+    },
+    "eligibility": {
+      "salaried": [
+        "Indian national",
+        "Age 21 to 60 years",
+        "Monthly income Rs 25,000"
+      ],
+      "selfEmployed": [
+        "Indian national",
+        "Age 21 to 65 years",
+        "Annual ITR greater than Rs 6 lakh"
+      ]
+    },
+    "sourceUrl": "https://www.hdfc.bank.in/credit-cards/pixel-play-credit-card",
+    "applyUrl": "https://www.hdfc.bank.in/credit-cards/pixel-play-credit-card",
+    "lastVerified": "2026-05-08"
   }
 ]
