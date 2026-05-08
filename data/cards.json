@@ -341,5 +341,63 @@
     "sourceUrl": "https://www.hdfc.bank.in/credit-cards/diners-club-black-metal-edition-credit-card",
     "applyUrl": "https://www.hdfc.bank.in/credit-cards/diners-club-black-metal-edition-credit-card",
     "lastVerified": "2026-05-08"
+  },
+  {
+    "id": "hdfc-moneyback-plus",
+    "issuer": "HDFC Bank",
+    "name": "HDFC Bank MoneyBack+ Credit Card",
+    "network": ["Visa", "Mastercard"],
+    "joiningFee": 500,
+    "annualFee": 500,
+    "feeWaiverSpend": 50000,
+    "bestFor": ["household spends", "shopping", "entry level rewards"],
+    "rewardType": "CashPoints",
+    "rewards": [
+      { "category": "select merchants", "rate": 3.3, "capMonthly": null },
+      { "category": "offline", "rate": 0.33, "capMonthly": null }
+    ],
+    "loungeDomestic": 0,
+    "loungeInternational": 0,
+    "forexMarkup": 3.5,
+    "tags": ["shopping", "entry level", "cashpoints", "low fee", "dining"],
+    "exclusions": ["transactions excluded under HDFC Bank MoneyBack+ terms and conditions"],
+    "milestoneBenefits": [
+      "Gift voucher worth Rs 500 on spends of Rs 50,000 per calendar quarter",
+      "Renewal fee waived on spending Rs 50,000 or more in a year before renewal date"
+    ],
+    "additionalBenefits": [
+      "10X CashPoints, up to 3.3% valueback, on Amazon, Flipkart, Swiggy, Reliance Smart SuperStore and BigBasket",
+      "2 CashPoints per Rs 150 spent on other spends",
+      "Pay joining membership fee and get 500 reward points",
+      "1% fuel surcharge waiver on fuel transactions from Rs 400 to Rs 5,000, capped at Rs 250 per statement cycle",
+      "CashPoints can be used for travel redemptions like flight and hotel bookings via SmartBuy",
+      "10% additional discount on Swiggy Dineout using coupon code HDFCCARDS",
+      "Up to 50 days interest-free credit period",
+      "Contactless payments enabled",
+      "Zero lost card liability when reported immediately"
+    ],
+    "redemption": {
+      "statementBalanceValue": 0.2,
+      "smartBuyFlightHotelValue": 0.25,
+      "airMilesValue": 0.25,
+      "minimumPointsForStatementCredit": 500,
+      "cashbackRedemptionCapMonthly": 3000,
+      "pointsExpiryYears": 2
+    },
+    "eligibility": {
+      "salaried": [
+        "Indian national",
+        "Age 21 to 60 years",
+        "Net monthly income greater than Rs 20,000"
+      ],
+      "selfEmployed": [
+        "Indian national",
+        "Age 21 to 65 years",
+        "ITR greater than Rs 6 lakh per annum"
+      ]
+    },
+    "sourceUrl": "https://www.hdfc.bank.in/credit-cards/moneyback-plus-credit-card",
+    "applyUrl": "https://www.hdfc.bank.in/credit-cards/moneyback-plus-credit-card",
+    "lastVerified": "2026-05-08"
   }
 ]
