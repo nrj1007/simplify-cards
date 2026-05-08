@@ -1,0 +1,141 @@
+[
+  {
+    "id": "sbi-cashback",
+    "issuer": "SBI Card",
+    "name": "SBI Cashback Credit Card",
+    "network": ["Visa", "Mastercard"],
+    "joiningFee": 999,
+    "annualFee": 999,
+    "feeWaiverSpend": 200000,
+    "bestFor": ["online", "cashback"],
+    "rewardType": "cashback",
+    "rewards": [
+      { "category": "online", "rate": 5, "capMonthly": 5000 },
+      { "category": "offline", "rate": 1, "capMonthly": 5000 }
+    ],
+    "loungeDomestic": 0,
+    "loungeInternational": 0,
+    "forexMarkup": 3.5,
+    "tags": ["online", "cashback", "shopping"],
+    "exclusions": ["fuel", "wallet load", "rent", "cash withdrawal"],
+    "sourceUrl": "https://www.sbicard.com/",
+    "applyUrl": "https://www.sbicard.com/",
+    "lastVerified": "2026-05-08"
+  },
+  {
+    "id": "hdfc-millennia",
+    "issuer": "HDFC Bank",
+    "name": "HDFC Millennia Credit Card",
+    "network": ["Visa", "Mastercard", "Diners Club"],
+    "joiningFee": 1000,
+    "annualFee": 1000,
+    "feeWaiverSpend": 100000,
+    "bestFor": ["online", "wallets", "cashback"],
+    "rewardType": "cashback",
+    "rewards": [
+      { "category": "online", "rate": 5, "capMonthly": 1000 },
+      { "category": "offline", "rate": 1, "capMonthly": 1000 }
+    ],
+    "loungeDomestic": 4,
+    "loungeInternational": 0,
+    "forexMarkup": 3.5,
+    "tags": ["online", "cashback", "lounge"],
+    "exclusions": ["fuel", "rent", "government payments"],
+    "sourceUrl": "https://www.hdfcbank.com/",
+    "applyUrl": "https://www.hdfcbank.com/",
+    "lastVerified": "2026-05-08"
+  },
+  {
+    "id": "axis-atlas",
+    "issuer": "Axis Bank",
+    "name": "Axis Bank Atlas Credit Card",
+    "network": ["Visa"],
+    "joiningFee": 5000,
+    "annualFee": 5000,
+    "feeWaiverSpend": 1500000,
+    "bestFor": ["travel", "hotels", "flights"],
+    "rewardType": "edge miles",
+    "rewards": [
+      { "category": "travel", "rate": 4, "capMonthly": null },
+      { "category": "offline", "rate": 2, "capMonthly": null }
+    ],
+    "loungeDomestic": 8,
+    "loungeInternational": 4,
+    "forexMarkup": 3.5,
+    "tags": ["travel", "miles", "lounge", "premium"],
+    "exclusions": ["rent", "wallet load", "insurance"],
+    "sourceUrl": "https://www.axisbank.com/",
+    "applyUrl": "https://www.axisbank.com/",
+    "lastVerified": "2026-05-08"
+  },
+  {
+    "id": "idfc-wow",
+    "issuer": "IDFC FIRST Bank",
+    "name": "IDFC FIRST WOW Credit Card",
+    "network": ["Visa"],
+    "joiningFee": 0,
+    "annualFee": 0,
+    "feeWaiverSpend": null,
+    "bestFor": ["secured", "lifetime free", "forex"],
+    "rewardType": "reward points",
+    "rewards": [
+      { "category": "offline", "rate": 0.75, "capMonthly": null },
+      { "category": "online", "rate": 0.75, "capMonthly": null }
+    ],
+    "loungeDomestic": 0,
+    "loungeInternational": 0,
+    "forexMarkup": 0,
+    "tags": ["lifetime free", "secured", "forex", "beginner"],
+    "exclusions": ["cash withdrawal", "fuel surcharge beyond terms"],
+    "sourceUrl": "https://www.idfcfirstbank.com/",
+    "applyUrl": "https://www.idfcfirstbank.com/",
+    "lastVerified": "2026-05-08"
+  },
+  {
+    "id": "icici-amazon-pay",
+    "issuer": "ICICI Bank",
+    "name": "Amazon Pay ICICI Bank Credit Card",
+    "network": ["Visa"],
+    "joiningFee": 0,
+    "annualFee": 0,
+    "feeWaiverSpend": null,
+    "bestFor": ["amazon", "online", "lifetime free"],
+    "rewardType": "cashback",
+    "rewards": [
+      { "category": "amazon", "rate": 5, "capMonthly": null },
+      { "category": "online", "rate": 1, "capMonthly": null },
+      { "category": "offline", "rate": 1, "capMonthly": null }
+    ],
+    "loungeDomestic": 0,
+    "loungeInternational": 0,
+    "forexMarkup": 3.5,
+    "tags": ["amazon", "cashback", "lifetime free", "online"],
+    "exclusions": ["fuel", "emi", "wallet load"],
+    "sourceUrl": "https://www.icicibank.com/",
+    "applyUrl": "https://www.amazon.in/",
+    "lastVerified": "2026-05-08"
+  },
+  {
+    "id": "au-ixigo",
+    "issuer": "AU Small Finance Bank",
+    "name": "AU ixigo Credit Card",
+    "network": ["Visa"],
+    "joiningFee": 999,
+    "annualFee": 999,
+    "feeWaiverSpend": null,
+    "bestFor": ["travel", "rail", "forex"],
+    "rewardType": "reward points",
+    "rewards": [
+      { "category": "travel", "rate": 2.5, "capMonthly": null },
+      { "category": "offline", "rate": 1, "capMonthly": null }
+    ],
+    "loungeDomestic": 8,
+    "loungeInternational": 1,
+    "forexMarkup": 0,
+    "tags": ["travel", "forex", "lounge", "rail"],
+    "exclusions": ["rent", "wallet load", "fuel"],
+    "sourceUrl": "https://www.aubank.in/",
+    "applyUrl": "https://www.aubank.in/",
+    "lastVerified": "2026-05-08"
+  }
+]
