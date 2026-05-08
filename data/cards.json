@@ -595,5 +595,68 @@
     "sourceUrl": "https://www.hdfc.bank.in/credit-cards/phonepe-hdfc-bank-ultimo-credit-card",
     "applyUrl": "https://www.hdfc.bank.in/credit-cards/phonepe-hdfc-bank-ultimo-credit-card",
     "lastVerified": "2026-05-08"
+  },
+  {
+    "id": "hdfc-phonepe-uno",
+    "issuer": "HDFC Bank",
+    "name": "PhonePe HDFC Bank Uno Credit Card",
+    "network": ["RuPay"],
+    "joiningFee": 499,
+    "annualFee": 499,
+    "feeWaiverSpend": 100000,
+    "bestFor": ["phonepe", "upi", "utilities", "online shopping"],
+    "rewardType": "reward points",
+    "rewards": [
+      { "category": "phonepe", "rate": 2, "capMonthly": 500 },
+      { "category": "online", "rate": 1, "capMonthly": 500 },
+      { "category": "upi", "rate": 1, "capMonthly": 500 }
+    ],
+    "loungeDomestic": 0,
+    "loungeInternational": 0,
+    "forexMarkup": 3.5,
+    "tags": ["phonepe", "rupay", "upi", "online", "utilities", "low fee"],
+    "exclusions": [
+      "cash advances",
+      "credit card fees or charges",
+      "EMI spends",
+      "categories excluded under HDFC Bank internal policies"
+    ],
+    "milestoneBenefits": [
+      "Annual fee waived on spending Rs 1,00,000 in the previous year"
+    ],
+    "additionalBenefits": [
+      "PhonePe gift card worth Rs 249 on first RuPay credit-card-on-UPI transaction, for cardholders where joining fee is applicable",
+      "Additional scratch cards worth Rs 25 each on next 10 RuPay credit-card-on-UPI transactions",
+      "2% reward points on select PhonePe categories: recharges, utilities, bill payments and travel",
+      "1% reward points on Amazon, Flipkart, Myntra, Ajio, Swiggy, Zomato and Uber",
+      "1% reward points on all Scan & Pay spends",
+      "1% fuel surcharge waiver on fuel transactions from Rs 400 to Rs 5,000, capped at Rs 250 per statement cycle",
+      "Apply only through the PhonePe app",
+      "Up to 50 days interest-free credit period",
+      "Zero cost card liability when reported immediately"
+    ],
+    "redemption": {
+      "statementBalanceValue": 1,
+      "smartBuyFlightHotelValue": 0.3,
+      "airMilesValue": 0.3,
+      "minimumPointsForStatementCredit": 500,
+      "cashbackRedemptionCapMonthly": 7500,
+      "pointsExpiryYears": 2
+    },
+    "eligibility": {
+      "salaried": [
+        "Indian national",
+        "Age 21 to 60 years",
+        "Gross monthly income greater than Rs 25,000"
+      ],
+      "selfEmployed": [
+        "Indian national",
+        "Age 21 to 65 years",
+        "Income Rs 26 lakh per annum"
+      ]
+    },
+    "sourceUrl": "https://www.hdfc.bank.in/credit-cards/phonepe-hdfc-bank-uno-credit-card",
+    "applyUrl": "https://www.hdfc.bank.in/credit-cards/phonepe-hdfc-bank-uno-credit-card",
+    "lastVerified": "2026-05-08"
   }
 ]
