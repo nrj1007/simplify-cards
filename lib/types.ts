@@ -13,6 +13,16 @@ export type Reward = {
   capMonthly: number | null;
 };
 
+export type Redemption = {
+  statementBalanceValue?: number;
+  smartBuyFlightHotelValue?: number;
+  airMilesValue?: number;
+  minimumPointsForStatementCredit?: number;
+  cashbackRedemptionCapMonthly?: number;
+  pointsExpiryYears?: number;
+  redemptionFee?: number;
+};
+
 export type CreditCard = {
   id: string;
   issuer: string;
@@ -29,6 +39,10 @@ export type CreditCard = {
   forexMarkup: number;
   tags: string[];
   exclusions: string[];
+  milestoneBenefits?: string[];
+  additionalBenefits?: string[];
+  redemption?: Redemption;
+  interestRateMonthly?: number;
   sourceUrl: string;
   applyUrl: string;
   lastVerified: string;

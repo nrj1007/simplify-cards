@@ -33,16 +33,36 @@
     "bestFor": ["online", "wallets", "cashback"],
     "rewardType": "cashback",
     "rewards": [
-      { "category": "online", "rate": 5, "capMonthly": 1000 },
-      { "category": "offline", "rate": 1, "capMonthly": 1000 }
+      { "category": "online", "rate": 5, "capMonthly": 3000 },
+      { "category": "offline", "rate": 1, "capMonthly": 3000 },
+      { "category": "smartbuy", "rate": 10, "capMonthly": 3000 }
     ],
     "loungeDomestic": 4,
     "loungeInternational": 0,
     "forexMarkup": 3.5,
     "tags": ["online", "cashback", "lounge"],
-    "exclusions": ["fuel", "rent", "government payments"],
-    "sourceUrl": "https://www.hdfcbank.com/",
-    "applyUrl": "https://www.hdfcbank.com/",
+    "exclusions": ["fuel", "rent", "government payments", "cash withdrawal"],
+    "milestoneBenefits": [
+      "Either Rs 1,000 gift voucher or 1 domestic lounge access voucher on spends of Rs 1,00,000 and above in each calendar quarter"
+    ],
+    "additionalBenefits": [
+      "5% cashback on Amazon, BookMyShow, Cult.fit, Flipkart, Myntra, Sony LIV, Swiggy, Tata CLiQ, Uber and Zomato",
+      "Up to 10% cashback across 200+ brands via SmartBuy/PayZapp Shop",
+      "10% additional discount on Swiggy Dineout using coupon code HDFCCARDS",
+      "1% fuel surcharge waiver at fuel stations across India on transactions from Rs 400 to Rs 5,000"
+    ],
+    "redemption": {
+      "statementBalanceValue": 1,
+      "smartBuyFlightHotelValue": 0.3,
+      "airMilesValue": 0.3,
+      "minimumPointsForStatementCredit": 500,
+      "cashbackRedemptionCapMonthly": 3000,
+      "pointsExpiryYears": 2,
+      "redemptionFee": 99
+    },
+    "interestRateMonthly": 3.6,
+    "sourceUrl": "https://www.hdfc.bank.in/credit-cards/millennia-credit-card",
+    "applyUrl": "https://www.hdfc.bank.in/credit-cards/millennia-credit-card",
     "lastVerified": "2026-05-08"
   },
   {
