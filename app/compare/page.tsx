@@ -1,5 +1,10 @@
 import { cards } from "@/lib/cards";
 
+function loungeText(card: (typeof cards)[number]) {
+  if (card.loungeDomestic === "unlimited" || card.loungeInternational === "unlimited") return "Unlimited";
+  return `${card.loungeDomestic + card.loungeInternational} visits listed`;
+}
+
 type Props = {
   searchParams: Promise<{
     a?: string;
@@ -69,8 +74,8 @@ export default async function ComparePage({ searchParams }: Props) {
           </tr>
           <tr>
             <td>Lounge access</td>
-            <td>{first.loungeDomestic + first.loungeInternational} visits listed</td>
-            <td>{second.loungeDomestic + second.loungeInternational} visits listed</td>
+            <td>{loungeText(first)}</td>
+            <td>{loungeText(second)}</td>
           </tr>
           <tr>
             <td>Forex markup</td>

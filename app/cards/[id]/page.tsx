@@ -22,6 +22,10 @@ export default async function CardPage({ params }: Props) {
   const { id } = await params;
   const card = getCardById(id);
   if (!card) notFound();
+  const loungeVisits =
+    card.loungeDomestic === "unlimited" || card.loungeInternational === "unlimited"
+      ? "Unlimited"
+      : String(card.loungeDomestic + card.loungeInternational);
 
   return (
     <section className="section">
@@ -43,7 +47,7 @@ export default async function CardPage({ params }: Props) {
               <span>Annual fee</span>
             </div>
             <div className="stat">
-              <strong>{card.loungeDomestic + card.loungeInternational}</strong>
+              <strong>{loungeVisits}</strong>
               <span>Total lounge visits listed</span>
             </div>
             <div className="stat">

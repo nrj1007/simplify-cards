@@ -10,6 +10,10 @@ type Props = {
 export default function CardTile({ card, score }: Props) {
   const resolvedCard = card ?? score?.card;
   if (!resolvedCard) return null;
+  const loungeVisits =
+    resolvedCard.loungeDomestic === "unlimited" || resolvedCard.loungeInternational === "unlimited"
+      ? "Unlimited"
+      : String(resolvedCard.loungeDomestic + resolvedCard.loungeInternational);
 
   return (
     <article className="panel card">
@@ -30,7 +34,7 @@ export default function CardTile({ card, score }: Props) {
           <span>Annual fee</span>
         </div>
         <div className="stat">
-          <strong>{resolvedCard.loungeDomestic + resolvedCard.loungeInternational}</strong>
+          <strong>{loungeVisits}</strong>
           <span>Lounge visits</span>
         </div>
       </div>

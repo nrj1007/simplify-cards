@@ -52,6 +52,11 @@ function feeAfterWaiver(card: CreditCard, spend: SpendProfile) {
   return card.annualFee;
 }
 
+function loungeScore(card: CreditCard) {
+  if (card.loungeDomestic === "unlimited" || card.loungeInternational === "unlimited") return 20;
+  return card.loungeDomestic + card.loungeInternational;
+}
+
 export function scoreCards(input: RecommendationInput): CardScore[] {
   const queryTags = extractQueryTags(input.query);
   const spend = { ...defaultSpend, ...input.spend };
@@ -59,19 +64,21 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
   return cards
     .filter((card) => (input.maxAnnualFee === undefined ? true : card.annualFee <= input.maxAnnualFee))
     .filter((card) => (input.wantsLifetimeFree ? card.annualFee === 0 : true))
-    .filter((card) => (input.wantsLounge ? card.loungeDomestic + card.loungeInternational > 0 : true))
+    .filter((card) => (input.wantsLounge ? loungeScore(card) > 0 : true))
     .map((card) => {
       const matchedTags = card.tags.filter((tag) => queryTags.has(tag));
       const estimatedAnnualRewards = annualRewardForCard(card, spend);
       const estimatedNetValue = estimatedAnnualRewards - feeAfterWaiver(card, spend);
       const tagBoost = matchedTags.length * 500;
-      const loungeBoost = input.wantsLounge ? (card.loungeDomestic + card.loungeInternational) * 100 : 0;
+      const loungeBoost = input.wantsLounge ? loungeScore(card) * 100 : 0;
 
       const reasons = [
         ...matchedTags.map((tag) => `Matches ${tag} intent`),
         card.annualFee === 0 ? "No annual fee" : `Annual fee is Rs ${card.annualFee}`,
-        card.loungeDomestic + card.loungeInternational > 0
-          ? `${card.loungeDomestic + card.loungeInternational} yearly lounge visits listed`
+        loungeScore(card) > 0
+          ? card.loungeDomestic === "unlimited" || card.loungeInternational === "unlimited"
+            ? "Unlimited lounge access listed"
+            : `${loungeScore(card)} yearly lounge visits listed`
           : "No lounge access listed"
       ];
 
