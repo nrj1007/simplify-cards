@@ -658,5 +658,75 @@
     "sourceUrl": "https://www.hdfc.bank.in/credit-cards/phonepe-hdfc-bank-uno-credit-card",
     "applyUrl": "https://www.hdfc.bank.in/credit-cards/phonepe-hdfc-bank-uno-credit-card",
     "lastVerified": "2026-05-08"
+  },
+  {
+    "id": "hdfc-marriott-bonvoy",
+    "issuer": "HDFC Bank",
+    "name": "Marriott Bonvoy HDFC Bank Credit Card",
+    "network": ["Diners Club"],
+    "joiningFee": 3000,
+    "annualFee": 3000,
+    "feeWaiverSpend": null,
+    "bestFor": ["marriott", "hotels", "travel", "lounge", "golf"],
+    "rewardType": "Marriott Bonvoy Points",
+    "rewards": [
+      { "category": "marriott", "rate": 5.33, "capMonthly": null },
+      { "category": "travel", "rate": 2.67, "capMonthly": null },
+      { "category": "dining", "rate": 2.67, "capMonthly": null },
+      { "category": "entertainment", "rate": 2.67, "capMonthly": null },
+      { "category": "offline", "rate": 1.33, "capMonthly": null }
+    ],
+    "loungeDomestic": 12,
+    "loungeInternational": 0,
+    "forexMarkup": 3.5,
+    "tags": ["marriott", "hotel", "travel", "lounge", "golf", "premium"],
+    "exclusions": ["transactions excluded under Marriott Bonvoy HDFC Bank Credit Card terms"],
+    "milestoneBenefits": [
+      "1 Free Night Award on eligible spend of Rs 6 lakh in an anniversary year",
+      "1 Free Night Award on eligible spend of Rs 9 lakh in an anniversary year",
+      "1 Free Night Award on eligible spend of Rs 15 lakh in an anniversary year",
+      "Each Free Night Award is valid for 12 months and redeemable for a one-night stay up to 15,000 Marriott Bonvoy Points"
+    ],
+    "additionalBenefits": [
+      "1 Free Night Award valued at 15,000 Marriott Bonvoy Points on a minimum transaction of Rs 500 within 90 days of card open date or on card fee levy",
+      "10 Elite Night Credits on welcome qualification",
+      "Marriott Bonvoy Silver Elite Status",
+      "Earn 8 Marriott Bonvoy Points per Rs 150 spent at hotels participating in Marriott Bonvoy",
+      "Earn 4 Marriott Bonvoy Points per Rs 150 spent on travel, dining and entertainment",
+      "Earn 2 Marriott Bonvoy Points per Rs 150 spent on all other applicable purchases",
+      "12 complimentary lounge accesses within India each year",
+      "Complimentary international lounge access every year via DCI travel tool app",
+      "2 complimentary golf lessons per quarter at select driving ranges in India",
+      "2 complimentary golf course accesses per quarter at select premium golf courses in India and internationally",
+      "Concierge service from 9 AM to 9 PM",
+      "Delay or loss of checked-in baggage cover up to USD 250",
+      "Loss of travel documents cover up to USD 250",
+      "Flight delay cover up to USD 250",
+      "Air accidental cover up to USD 12,500",
+      "Emergency medical expenses up to USD 18,750",
+      "Credit shield up to Rs 1,00,000",
+      "Loss liability cover up to Rs 9,00,000",
+      "Up to 50 days interest-free credit period",
+      "SmartEMI conversion after purchase",
+      "Contactless payments enabled"
+    ],
+    "redemption": {
+      "pointsExpiryYears": 2
+    },
+    "eligibility": {
+      "salaried": [
+        "Indian national",
+        "Age 21 to 60 years",
+        "Net monthly income greater than Rs 1,00,000"
+      ],
+      "selfEmployed": [
+        "Indian national",
+        "Age 21 to 65 years",
+        "Annual ITR greater than Rs 15 lakh"
+      ]
+    },
+    "sourceUrl": "https://www.hdfc.bank.in/credit-cards/marriott-bonvoy-credit-card",
+    "applyUrl": "https://www.hdfc.bank.in/credit-cards/marriott-bonvoy-credit-card",
+    "lastVerified": "2026-05-08"
   }
 ]
