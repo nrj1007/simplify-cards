@@ -157,5 +157,67 @@
     "sourceUrl": "https://www.aubank.in/",
     "applyUrl": "https://www.aubank.in/",
     "lastVerified": "2026-05-08"
+  },
+  {
+    "id": "hdfc-indianoil",
+    "issuer": "HDFC Bank",
+    "name": "IndianOil HDFC Bank Credit Card",
+    "network": ["Visa", "RuPay"],
+    "joiningFee": 500,
+    "annualFee": 500,
+    "feeWaiverSpend": 50000,
+    "bestFor": ["fuel", "groceries", "bill payments"],
+    "rewardType": "fuel points",
+    "rewards": [
+      { "category": "fuel", "rate": 5, "capMonthly": 150 },
+      { "category": "grocery", "rate": 5, "capMonthly": 100 },
+      { "category": "utilities", "rate": 5, "capMonthly": 100 },
+      { "category": "offline", "rate": 0.7, "capMonthly": null }
+    ],
+    "loungeDomestic": 0,
+    "loungeInternational": 0,
+    "forexMarkup": 3.5,
+    "tags": ["fuel", "grocery", "utilities", "low fee"],
+    "exclusions": [
+      "fuel transactions at non-IndianOil petrol pumps",
+      "wallet loading",
+      "returned purchases",
+      "disputed or fraudulent transactions",
+      "EMI transactions",
+      "account fees and payments",
+      "jewellery or gold purchases",
+      "rental payments",
+      "government payments"
+    ],
+    "milestoneBenefits": [
+      "Renewal membership fee waived on spends of Rs 50,000 or above in the first year"
+    ],
+    "additionalBenefits": [
+      "Complimentary IndianOil XTRAREWARDS Program membership",
+      "Rs 250 voucher on card activation and at least one transaction within 37 days from card issuance",
+      "1% fuel surcharge waiver at all Indian fuel stations on transactions from Rs 400, capped at Rs 250 per statement cycle",
+      "Up to 50 days interest-free credit period",
+      "Contactless payments enabled"
+    ],
+    "redemption": {
+      "statementBalanceValue": 0.2,
+      "pointsExpiryYears": 2,
+      "cashbackRedemptionCapMonthly": 50000
+    },
+    "eligibility": {
+      "salaried": [
+        "Indian national",
+        "Age 21 to 60 years",
+        "Net monthly income greater than Rs 12,000"
+      ],
+      "selfEmployed": [
+        "Indian national",
+        "Age 21 to 65 years",
+        "ITR greater than Rs 6 lakh per annum"
+      ]
+    },
+    "sourceUrl": "https://www.hdfc.bank.in/credit-cards/indianoil-hdfc-bank-credit-card",
+    "applyUrl": "https://www.hdfc.bank.in/credit-cards/indianoil-hdfc-bank-credit-card",
+    "lastVerified": "2026-05-08"
   }
 ]

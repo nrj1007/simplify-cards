@@ -43,6 +43,10 @@ export type CreditCard = {
   additionalBenefits?: string[];
   redemption?: Redemption;
   interestRateMonthly?: number;
+  eligibility?: {
+    salaried?: string[];
+    selfEmployed?: string[];
+  };
   sourceUrl: string;
   applyUrl: string;
   lastVerified: string;
