@@ -857,5 +857,69 @@
     "sourceUrl": "https://www.hdfc.bank.in/credit-cards/diners-privilege-credit-card",
     "applyUrl": "https://www.hdfc.bank.in/credit-cards/diners-privilege-credit-card",
     "lastVerified": "2026-05-09"
+  },
+  {
+    "id": "hdfc-tata-neu-infinity",
+    "issuer": "HDFC Bank",
+    "name": "Tata Neu Infinity HDFC Bank Credit Card",
+    "network": ["Visa", "RuPay"],
+    "joiningFee": 1499,
+    "annualFee": 1499,
+    "feeWaiverSpend": 300000,
+    "bestFor": ["tata neu", "tata brands", "upi", "domestic lounge", "international lounge"],
+    "rewardType": "NeuCoins",
+    "rewards": [
+      { "category": "tata neu", "rate": 10, "capMonthly": null },
+      { "category": "tata brands", "rate": 5, "capMonthly": null },
+      { "category": "online", "rate": 1.5, "capMonthly": null },
+      { "category": "offline", "rate": 1.5, "capMonthly": null },
+      { "category": "upi", "rate": 1.5, "capMonthly": 500 }
+    ],
+    "loungeDomestic": 8,
+    "loungeInternational": 4,
+    "forexMarkup": 3.5,
+    "tags": ["tata neu", "neucoins", "rupay", "upi", "lounge", "shopping", "travel"],
+    "exclusions": [
+      "fuel",
+      "wallet",
+      "rental",
+      "government",
+      "online gaming",
+      "education payments through third-party apps"
+    ],
+    "milestoneBenefits": [
+      "Domestic lounge access is milestone based from 10-Jun-2025: 2 lounge vouchers per calendar quarter on spends of Rs 50,000 or more, up to 8 per year",
+      "Renewal fee waived on spending Rs 3 lakh or more in a year before renewal"
+    ],
+    "additionalBenefits": [
+      "5% back as NeuCoins on non-EMI spends on Tata Neu and partner Tata Brands",
+      "1.5% back as NeuCoins on eligible non-Tata brand spends and merchant EMI spends",
+      "Additional 5% back as NeuCoins on selected categories on Tata Neu App/Website with NeuPass",
+      "Up to 1.5% back as NeuCoins on eligible UPI spends from 01-Aug-2024",
+      "UPI NeuCoins capped at 500 per calendar month",
+      "International lounge access: 4 complimentary lounge accesses per calendar year, 1 per quarter",
+      "NeuCoins can be used on eligible purchases on Tata Neu brands including Air India Express, Bigbasket, Croma, Westside, Tata CLiQ, IHCL, Tata 1MG, Qmin, Titan and Tanishq",
+      "Contactless payments enabled",
+      "Zero cost card liability when reported immediately"
+    ],
+    "redemption": {
+      "statementBalanceValue": 1,
+      "pointsExpiryYears": 1
+    },
+    "eligibility": {
+      "salaried": [
+        "Indian national",
+        "Age 21 to 60 years",
+        "Monthly income Rs 1 lakh"
+      ],
+      "selfEmployed": [
+        "Indian national",
+        "Age 21 to 65 years",
+        "Annual ITR greater than Rs 12 lakh"
+      ]
+    },
+    "sourceUrl": "https://www.hdfc.bank.in/credit-cards/tata-neu-infinity-hdfc-bank-credit-card",
+    "applyUrl": "https://www.hdfc.bank.in/credit-cards/tata-neu-infinity-hdfc-bank-credit-card",
+    "lastVerified": "2026-05-09"
   }
 ]
