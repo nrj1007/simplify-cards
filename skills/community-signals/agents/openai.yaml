@@ -1,0 +1,7 @@
+interface:
+  display_name: "Community Signals"
+  short_description: "Scrape card community signals for review"
+  default_prompt: "Use $community-signals to scrape recent credit-card community posts into a manual review queue."
+
+policy:
+  allow_implicit_invocation: true
