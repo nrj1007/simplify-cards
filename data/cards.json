@@ -5041,5 +5041,100 @@
     "applyUrl": "https://www.sbicard.com/en/personal/credit-cards/travel/ola-money-sbi-card.page",
     "lastVerified": "2026-05-09",
     "verificationStatus": "official-mixed"
+  },
+  {
+    "id": "axis-airtel",
+    "issuer": "Axis Bank",
+    "name": "Airtel Axis Bank Credit Card",
+    "network": [
+      "Mastercard"
+    ],
+    "joiningFee": 500,
+    "annualFee": 500,
+    "feeWaiverSpend": 200000,
+    "bestFor": [
+      "airtel",
+      "utility bills",
+      "food delivery",
+      "bigbasket",
+      "cashback"
+    ],
+    "rewardType": "cashback",
+    "rewards": [
+      {
+        "category": "online",
+        "rate": 25,
+        "capMonthly": 250
+      },
+      {
+        "category": "utility bills",
+        "rate": 10,
+        "capMonthly": 250
+      },
+      {
+        "category": "swiggy zomato",
+        "rate": 10,
+        "capMonthly": 500
+      },
+      {
+        "category": "bigbasket",
+        "rate": 10,
+        "capMonthly": 500
+      },
+      {
+        "category": "offline",
+        "rate": 1,
+        "capMonthly": null
+      }
+    ],
+    "loungeDomestic": 4,
+    "loungeInternational": 0,
+    "forexMarkup": 3.5,
+    "tags": [
+      "airtel",
+      "cashback",
+      "utility bills",
+      "swiggy",
+      "zomato",
+      "bigbasket",
+      "lounge",
+      "low fee"
+    ],
+    "exclusions": [
+      "fuel",
+      "rent",
+      "wallet load",
+      "education payments via third-party apps",
+      "online skill-based gaming",
+      "transactions excluded under Airtel Axis Bank Credit Card cashback terms"
+    ],
+    "milestoneBenefits": [
+      "Annual fee waived on annual spends greater than Rs 2 lakh, excluding rent and wallet load transactions"
+    ],
+    "additionalBenefits": [
+      "Amazon eVoucher worth Rs 500 on first transaction within 30 days of card issuance",
+      "25% cashback on Airtel mobile, broadband, Wi-Fi and DTH bill payments via Airtel Thanks app, capped at Rs 250 per billing cycle",
+      "10% cashback on utility bill payments via Airtel Thanks app, capped at Rs 250 per billing cycle",
+      "10% cashback on Swiggy, Zomato and BigBasket app spends, capped at Rs 500 per billing cycle across preferred merchants",
+      "1% cashback on other eligible spends",
+      "4 complimentary domestic airport lounge visits per calendar year, subject to minimum spends of Rs 50,000 in the previous 3 months",
+      "1% fuel surcharge waiver on fuel purchases from Rs 400 to Rs 4,000, capped at Rs 500 per statement cycle"
+    ],
+    "redemption": {
+      "statementBalanceValue": 1,
+      "pointsExpiryYears": null
+    },
+    "eligibility": {
+      "salaried": [
+        "Primary cardholder should be between 18 and 70 years and resident of India"
+      ],
+      "selfEmployed": [
+        "Primary cardholder should be between 18 and 70 years and resident of India"
+      ]
+    },
+    "sourceUrl": "https://www.axisbank.com/retail/cards/credit-card/airtel-axis-bank-credit-card",
+    "applyUrl": "https://www.axisbank.com/retail/cards/credit-card/airtel-axis-bank-credit-card",
+    "lastVerified": "2026-05-10",
+    "verificationStatus": "official-direct"
   }
 ]
