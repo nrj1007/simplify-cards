@@ -333,8 +333,92 @@ textarea {
   padding: 12px;
 }
 
+.detail-layout {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: minmax(0, 1fr) 320px;
+  margin-top: 18px;
+}
+
+.detail-main {
+  align-content: start;
+}
+
+.detail-aside {
+  align-content: start;
+  display: grid;
+  gap: 16px;
+}
+
+.detail-section {
+  border-top: 1px solid var(--line);
+  display: grid;
+  gap: 10px;
+  padding-top: 14px;
+}
+
+.detail-section h2,
+.detail-aside h2 {
+  font-size: 18px;
+  margin: 0;
+}
+
+.detail-section h3 {
+  font-size: 14px;
+  margin: 0 0 8px;
+}
+
+.detail-list {
+  color: var(--muted);
+  display: grid;
+  gap: 7px;
+  line-height: 1.45;
+  margin: 0;
+  padding-left: 18px;
+}
+
+.split-grid,
+.info-grid {
+  display: grid;
+  gap: 12px;
+}
+
+.split-grid {
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.info-grid {
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+}
+
+.info-row {
+  background: #fafafa;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  display: grid;
+  gap: 4px;
+  padding: 10px;
+}
+
+.info-row span {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.info-row strong {
+  font-size: 14px;
+}
+
+.table-wrap {
+  overflow-x: auto;
+}
+
 @media (max-width: 760px) {
   .hero {
+    grid-template-columns: 1fr;
+  }
+
+  .detail-layout {
     grid-template-columns: 1fr;
   }
 
