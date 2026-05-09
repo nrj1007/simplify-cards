@@ -32,6 +32,7 @@ const allowedRewardCategories = new Set([
   "cleartrip",
   "departmental stores",
   "dining",
+  "dining movies grocery",
   "entertainment",
   "fuel",
   "flipkart",

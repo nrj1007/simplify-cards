@@ -29,8 +29,8 @@ const spendAliases: Record<SpendCategory, string[]> = {
   offline: ["offline", "retail"],
   travel: ["travel", "smartbuy flights", "smartbuy hotels", "smartbuy train", "irctc", "airlines", "hotel", "hotels", "marriott", "cleartrip"],
   fuel: ["fuel"],
-  dining: ["dining", "swiggy zomato"],
-  grocery: ["grocery", "groceries", "bigbasket"],
+  dining: ["dining", "swiggy zomato", "dining movies grocery"],
+  grocery: ["grocery", "groceries", "bigbasket", "dining movies grocery"],
   amazon: ["amazon"],
   upi: ["upi"],
   utilities: ["utilities", "phonepe"]
