@@ -728,5 +728,79 @@
     "sourceUrl": "https://www.hdfc.bank.in/credit-cards/marriott-bonvoy-credit-card",
     "applyUrl": "https://www.hdfc.bank.in/credit-cards/marriott-bonvoy-credit-card",
     "lastVerified": "2026-05-08"
+  },
+  {
+    "id": "hdfc-irctc",
+    "issuer": "HDFC Bank",
+    "name": "IRCTC HDFC Bank Credit Card",
+    "network": ["RuPay"],
+    "joiningFee": 500,
+    "annualFee": 500,
+    "feeWaiverSpend": 150000,
+    "bestFor": ["train travel", "irctc", "smartbuy", "rail lounge"],
+    "rewardType": "reward points",
+    "rewards": [
+      { "category": "irctc", "rate": 5, "capMonthly": 1000 },
+      { "category": "smartbuy train", "rate": 5, "capMonthly": 1000 },
+      { "category": "offline", "rate": 1, "capMonthly": null }
+    ],
+    "loungeDomestic": 4,
+    "loungeInternational": 0,
+    "forexMarkup": 3.5,
+    "tags": ["irctc", "train", "travel", "rupay", "rail lounge", "low fee"],
+    "exclusions": [
+      "fuel spends",
+      "wallet loads",
+      "gift card loads",
+      "prepaid card loads",
+      "voucher purchases",
+      "cash advances",
+      "payment of outstanding balances",
+      "payment of card fees and other charges",
+      "government related transactions",
+      "education",
+      "SmartEMI or Dial an EMI transactions",
+      "rental transactions",
+      "merchant EMI interest"
+    ],
+    "milestoneBenefits": [
+      "Gift voucher worth Rs 500 every calendar quarter on spends of Rs 30,000 or more",
+      "Renewal fee waived on spends of Rs 1,50,000 or more in an anniversary year"
+    ],
+    "additionalBenefits": [
+      "5 Reward Points for every Rs 100 spent on IRCTC ticketing website and Rail Connect App",
+      "Additional 5% cashback on train ticket bookings via HDFC Bank SmartBuy",
+      "1% transaction charge waiver on transactions done on IRCTC ticketing website and Rail Connect App",
+      "Gift voucher worth Rs 500 upon activating the card",
+      "Complimentary access to select IRCTC Executive Lounges",
+      "Rs 1,000 cashback across 200+ brands on the credit card via PayZapp",
+      "1 Reward Point for every Rs 100 spent on other eligible spends",
+      "1% fuel surcharge waiver at fuel stations across India",
+      "Up to 50 days interest-free credit period",
+      "SmartEMI conversion after purchase",
+      "Contactless payments enabled",
+      "Simple card management via HDFC Bank MyCards"
+    ],
+    "redemption": {
+      "smartBuyFlightHotelValue": 1,
+      "minimumPointsForStatementCredit": 100,
+      "cashbackRedemptionCapMonthly": 1000,
+      "pointsExpiryYears": 2
+    },
+    "eligibility": {
+      "salaried": [
+        "Indian national",
+        "Age 21 to 60 years",
+        "Monthly income Rs 25,000"
+      ],
+      "selfEmployed": [
+        "Indian national",
+        "Age 21 to 65 years",
+        "Annual ITR greater than Rs 6 lakh"
+      ]
+    },
+    "sourceUrl": "https://www.hdfc.bank.in/credit-cards/irctc-credit-card",
+    "applyUrl": "https://www.hdfc.bank.in/credit-cards/irctc-credit-card",
+    "lastVerified": "2026-05-09"
   }
 ]
