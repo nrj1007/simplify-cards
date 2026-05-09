@@ -5573,5 +5573,88 @@
     "applyUrl": "https://www.axisbank.com/retail/cards/credit-card/axis-bank-select-credit-card",
     "lastVerified": "2026-05-10",
     "verificationStatus": "official-direct"
+  },
+  {
+    "id": "axis-privilege",
+    "issuer": "Axis Bank",
+    "name": "AXIS BANK PRIVILEGE Credit Card",
+    "network": [
+      "Visa"
+    ],
+    "joiningFee": 1500,
+    "annualFee": 1500,
+    "feeWaiverSpend": 500000,
+    "bestFor": [
+      "shopping",
+      "travel",
+      "movies",
+      "lounge",
+      "fee waiver"
+    ],
+    "rewardType": "edge reward points",
+    "rewards": [
+      {
+        "category": "offline",
+        "rate": 1,
+        "capMonthly": null
+      }
+    ],
+    "loungeDomestic": 8,
+    "loungeInternational": 0,
+    "forexMarkup": 3.5,
+    "tags": [
+      "privilege",
+      "shopping",
+      "travel",
+      "district",
+      "movies",
+      "lounge",
+      "fee waiver",
+      "edge rewards"
+    ],
+    "exclusions": [
+      "fuel",
+      "rent",
+      "insurance",
+      "education",
+      "utilities",
+      "telecom",
+      "wallet",
+      "gold",
+      "jewellery",
+      "government services",
+      "emi transactions",
+      "transactions excluded under Axis Bank Privilege Credit Card terms"
+    ],
+    "milestoneBenefits": [
+      "10,000 EDGE REWARD Points worth Rs 2,000 on spending Rs 2.5 lakh in a card anniversary year",
+      "Annual fee reversal on spends of Rs 5 lakh in the previous card anniversary year"
+    ],
+    "additionalBenefits": [
+      "12,500 EDGE REWARD Points worth Rs 2,500 redeemable against vouchers after joining fee levy and first transaction within 30 days",
+      "Buy one get one movie ticket offer on District app, capped at Rs 250 once per month",
+      "10 EDGE REWARD Points per Rs 200 on eligible domestic and international spends",
+      "2 complimentary domestic airport lounge visits per calendar quarter, subject to Rs 50,000 spends in the previous 3 months",
+      "1% fuel surcharge refund on fuel transactions from Rs 400 to Rs 4,000, capped at Rs 400 per statement cycle",
+      "Purchase protection cover up to Rs 1 lakh",
+      "Credit shield cover of Rs 1 lakh",
+      "Travel inconvenience covers for loss of travel documents, baggage delay and loss of check-in baggage"
+    ],
+    "redemption": {
+      "statementBalanceValue": 0.2,
+      "pointsExpiryYears": 3
+    },
+    "eligibility": {
+      "salaried": [
+        "Eligibility is subject to Axis Bank approval criteria"
+      ],
+      "selfEmployed": [
+        "Eligibility is subject to Axis Bank approval criteria"
+      ]
+    },
+    "sourceUrl": "https://www.axisbank.com/retail/cards/credit-card/privilege-credit-card-with-unlimited-benefits",
+    "applyUrl": "https://www.axisbank.com/retail/cards/credit-card/privilege-credit-card-with-unlimited-benefits",
+    "lastVerified": "2026-05-10",
+    "verificationStatus": "official-direct"
   }
 ]
