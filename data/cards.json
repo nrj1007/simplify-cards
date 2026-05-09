@@ -10,17 +10,45 @@
     "bestFor": ["online", "cashback"],
     "rewardType": "cashback",
     "rewards": [
-      { "category": "online", "rate": 5, "capMonthly": 5000 },
-      { "category": "offline", "rate": 1, "capMonthly": 5000 }
+      { "category": "online", "rate": 5, "capMonthly": 2000 },
+      { "category": "offline", "rate": 1, "capMonthly": 2000 }
     ],
     "loungeDomestic": 0,
     "loungeInternational": 0,
     "forexMarkup": 3.5,
     "tags": ["online", "cashback", "shopping"],
-    "exclusions": ["fuel", "wallet load", "rent", "cash withdrawal"],
-    "sourceUrl": "https://www.sbicard.com/",
-    "applyUrl": "https://www.sbicard.com/",
-    "lastVerified": "2026-05-08"
+    "exclusions": [
+      "fuel",
+      "digital gaming platforms",
+      "tolls",
+      "government related transactions",
+      "utility",
+      "insurance",
+      "rent",
+      "wallet",
+      "school and educational services",
+      "jewelry",
+      "railways",
+      "merchant EMI",
+      "Flexipay EMI"
+    ],
+    "milestoneBenefits": [
+      "Renewal fee waived on annual spends of Rs 2 lakh or more in the preceding year"
+    ],
+    "additionalBenefits": [
+      "5% cashback on eligible online transactions",
+      "1% cashback on eligible offline POS transactions",
+      "Maximum cashback capped at Rs 4,000 per statement cycle from 01-Apr-2026",
+      "Cashback is automatically credited to the SBI Card account within two working days of statement generation",
+      "1% fuel surcharge waiver across petrol pumps in India on fuel transactions from Rs 500 to Rs 3,000, capped at Rs 100 per billing statement"
+    ],
+    "redemption": {
+      "statementBalanceValue": 1,
+      "cashbackRedemptionCapMonthly": 4000
+    },
+    "sourceUrl": "https://www.sbicard.com/en/personal/credit-cards/cashback-sbi-card.html",
+    "applyUrl": "https://www.sbicard.com/en/personal/credit-cards/cashback-sbi-card.html",
+    "lastVerified": "2026-05-09"
   },
   {
     "id": "hdfc-millennia",
