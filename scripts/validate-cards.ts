@@ -33,6 +33,7 @@ const allowedRewardCategories = new Set([
   "departmental stores",
   "dining",
   "dining movies grocery",
+  "pharmacy dining movies",
   "entertainment",
   "fuel",
   "grocery dining movies",
