@@ -2631,5 +2631,94 @@
     "applyUrl": "https://www.sbicard.com/en/personal/credit-cards/tata-neu-plus-sbi-card.html",
     "lastVerified": "2026-05-09",
     "verificationStatus": "official-mixed"
+  },
+  {
+    "id": "tata-neu-infinity-sbi",
+    "issuer": "SBI Card",
+    "name": "Tata Neu Infinity SBI Card",
+    "network": [
+      "Visa",
+      "RuPay"
+    ],
+    "joiningFee": 1499,
+    "annualFee": 1499,
+    "feeWaiverSpend": 300000,
+    "bestFor": [
+      "tata neu",
+      "tata brands",
+      "upi",
+      "domestic lounge",
+      "international lounge",
+      "low forex"
+    ],
+    "rewardType": "NeuCoins",
+    "rewards": [
+      {
+        "category": "tata neu",
+        "rate": 10,
+        "capMonthly": null
+      },
+      {
+        "category": "tata brands",
+        "rate": 5,
+        "capMonthly": null
+      },
+      {
+        "category": "upi",
+        "rate": 1.5,
+        "capMonthly": 500
+      },
+      {
+        "category": "offline",
+        "rate": 1.5,
+        "capMonthly": null
+      }
+    ],
+    "loungeDomestic": 8,
+    "loungeInternational": 4,
+    "forexMarkup": 1.99,
+    "tags": [
+      "tata neu",
+      "neucoins",
+      "rupay",
+      "upi",
+      "lounge",
+      "shopping",
+      "forex"
+    ],
+    "exclusions": [
+      "fuel",
+      "wallet loads",
+      "voucher purchases",
+      "rent payments",
+      "gift card purchases",
+      "cash advances",
+      "merchant EMI",
+      "transactions excluded under Tata Neu Infinity SBI Card terms"
+    ],
+    "milestoneBenefits": [
+      "Annual fee reversal on annual spends of Rs 3 lakh or more",
+      "8 domestic lounge visits per year, 2 per quarter, subject to Rs 75,000 spend in previous quarter"
+    ],
+    "additionalBenefits": [
+      "1,499 NeuCoins as welcome benefit within 15 days of joining fee realization",
+      "Up to 10% NeuCoins on select categories on Tata Neu App/Website",
+      "5% NeuCoins on non-EMI spends at Tata Neu and partner Tata Brands",
+      "1.5% NeuCoins on all other eligible spends including UPI transactions on RuPay variant",
+      "UPI NeuCoins capped at 500 NeuCoins per month",
+      "1 NeuCoin equals Re 1 savings",
+      "4 international lounge visits per year, 1 per quarter, with Priority Pass membership",
+      "Complimentary Priority Pass membership valid for 2 years",
+      "Low forex markup of 1.99%",
+      "1% fuel surcharge waiver on transactions from Rs 500 to Rs 4,000, capped at Rs 500 per statement cycle"
+    ],
+    "redemption": {
+      "statementBalanceValue": 1,
+      "pointsExpiryYears": 2
+    },
+    "sourceUrl": "https://www.sbicard.com/en/personal/sbi-credit-card.page",
+    "applyUrl": "https://www.sbicard.com/en/personal/sbi-credit-card.page",
+    "lastVerified": "2026-05-09",
+    "verificationStatus": "official-mixed"
   }
 ]
