@@ -6342,5 +6342,87 @@
     "applyUrl": "https://www.axis.bank.in/cards/credit-card",
     "lastVerified": "2026-05-10",
     "verificationStatus": "official-catalogue"
+  },
+  {
+    "id": "axis-flipkart-super-elite",
+    "issuer": "Axis Bank",
+    "name": "Flipkart Axis Bank Super Elite Credit Card",
+    "network": [
+      "Visa"
+    ],
+    "joiningFee": 500,
+    "annualFee": 500,
+    "feeWaiverSpend": 200000,
+    "bestFor": [
+      "flipkart",
+      "supercoins",
+      "myntra",
+      "flights",
+      "online shopping"
+    ],
+    "rewardType": "supercoins",
+    "rewards": [
+      {
+        "category": "flipkart",
+        "rate": 12,
+        "capMonthly": null
+      },
+      {
+        "category": "offline",
+        "rate": 2,
+        "capMonthly": null
+      }
+    ],
+    "loungeDomestic": 0,
+    "loungeInternational": 0,
+    "forexMarkup": 3.5,
+    "tags": [
+      "flipkart",
+      "super elite",
+      "supercoins",
+      "myntra",
+      "flights",
+      "youtube premium",
+      "gaana",
+      "lenskart",
+      "low fee"
+    ],
+    "exclusions": [
+      "rent",
+      "wallet load",
+      "fuel",
+      "transactions excluded under Flipkart Axis Bank Super Elite Credit Card terms"
+    ],
+    "milestoneBenefits": [
+      "Annual fee waived on annual spends greater than Rs 2 lakh, excluding rent and wallet load transactions"
+    ],
+    "additionalBenefits": [
+      "500 SuperCoins on card activation",
+      "Additional 12 SuperCoins per Rs 100 spent on Flipkart for Plus members",
+      "Additional 6 SuperCoins per Rs 100 spent on Flipkart for non-Plus members",
+      "2 SuperCoins per Rs 100 on other eligible spends",
+      "2 months trial membership of YouTube Premium",
+      "3 months trial subscription of Gaana Plus",
+      "1 year Lenskart Gold membership",
+      "Extra Rs 500 off on Myntra select styles on maximum 3 transactions above Rs 2,999",
+      "15% off on domestic flight booking via Flipkart Flights, capped at Rs 1,500",
+      "Flat 30% off on first medicine order from Flipkart Health"
+    ],
+    "redemption": {
+      "statementBalanceValue": null,
+      "pointsExpiryYears": null
+    },
+    "eligibility": {
+      "salaried": [
+        "Primary cardholder should be between 18 and 70 years and resident of India"
+      ],
+      "selfEmployed": [
+        "Primary cardholder should be between 18 and 70 years and resident of India"
+      ]
+    },
+    "sourceUrl": "https://www.axis.bank.in/cards/credit-card/flipkart-axis-bank-super-elite-credit-card",
+    "applyUrl": "https://www.axis.bank.in/cards/credit-card/flipkart-axis-bank-super-elite-credit-card",
+    "lastVerified": "2026-05-10",
+    "verificationStatus": "official-direct"
   }
 ]
