@@ -5402,5 +5402,82 @@
     "applyUrl": "https://www.axisbank.com/retail/cards/credit-card/my-zone-credit-card",
     "lastVerified": "2026-05-10",
     "verificationStatus": "official-mixed"
+  },
+  {
+    "id": "axis-neo",
+    "issuer": "Axis Bank",
+    "name": "Neo Credit Card",
+    "network": [
+      "RuPay",
+      "Visa"
+    ],
+    "joiningFee": 0,
+    "annualFee": 0,
+    "feeWaiverSpend": null,
+    "bestFor": [
+      "zomato",
+      "blinkit",
+      "bookmyshow",
+      "utility bills",
+      "lifetime free"
+    ],
+    "rewardType": "edge reward points and merchant discounts",
+    "rewards": [
+      {
+        "category": "offline",
+        "rate": 0.1,
+        "capMonthly": null
+      }
+    ],
+    "loungeDomestic": 0,
+    "loungeInternational": 0,
+    "forexMarkup": 3.5,
+    "tags": [
+      "neo",
+      "zomato",
+      "paytm",
+      "blinkit",
+      "bookmyshow",
+      "myntra",
+      "lifetime free",
+      "low fee"
+    ],
+    "exclusions": [
+      "fuel",
+      "rent",
+      "wallet load",
+      "education payments via third-party apps",
+      "online skill-based gaming",
+      "transactions excluded under Neo Credit Card terms"
+    ],
+    "milestoneBenefits": [],
+    "additionalBenefits": [
+      "Currently listed as nil joining and nil annual fee under limited period offer on Axis official catalogue",
+      "Standard product fee page lists Rs 250 joining fee and Rs 250 annual fee from second year onward, lifetime free for select channels",
+      "100% cashback up to Rs 300 on first utility bill payment within 30 days of card issuance",
+      "Flat Rs 120 off on Zomato food delivery twice per month on minimum order value of Rs 499",
+      "5% off on Paytm mobile recharge, broadband, DTH and utility payments, capped at Rs 150 per month",
+      "10% off on Blinkit, capped at Rs 250 per month on minimum spends of Rs 750",
+      "10% off on BookMyShow movie tickets, capped at Rs 100 per month",
+      "Rs 150 off on Myntra on selected styles with minimum spends of Rs 999",
+      "1 EDGE REWARD Point per Rs 200 on eligible spends",
+      "Dining Delights discounts at participating restaurants"
+    ],
+    "redemption": {
+      "statementBalanceValue": 0.2,
+      "pointsExpiryYears": 3
+    },
+    "eligibility": {
+      "salaried": [
+        "Primary cardholder should be between 18 and 70 years and resident of India or NRI"
+      ],
+      "selfEmployed": [
+        "Primary cardholder should be between 18 and 70 years and resident of India or NRI"
+      ]
+    },
+    "sourceUrl": "https://www.axisbank.com/retail/cards/credit-card/neo-credit-card",
+    "applyUrl": "https://www.axisbank.com/retail/cards/credit-card/neo-credit-card",
+    "lastVerified": "2026-05-10",
+    "verificationStatus": "official-mixed"
   }
 ]
