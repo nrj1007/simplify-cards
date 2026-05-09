@@ -18,6 +18,13 @@ const issues: ValidationIssue[] = [];
 const warnings: ValidationIssue[] = [];
 
 const allowedLoungeValues = new Set(["unlimited"]);
+const allowedVerificationStatuses = new Set([
+  "official-direct",
+  "official-indexed",
+  "official-catalogue",
+  "official-mixed",
+  "needs-review"
+]);
 const allowedRewardCategories = new Set([
   "airlines",
   "amazon",
@@ -137,6 +144,10 @@ if (!Array.isArray(cards)) {
 
     for (const field of ["issuer", "name", "rewardType", "sourceUrl", "applyUrl", "lastVerified"]) {
       if (!isNonEmptyString(card[field])) addIssue("must be a non-empty string", cardId, field);
+    }
+
+    if (!isNonEmptyString(card.verificationStatus) || !allowedVerificationStatuses.has(card.verificationStatus)) {
+      addIssue("must be one of the allowed verification statuses", cardId, "verificationStatus");
     }
 
     for (const field of ["network", "bestFor", "tags", "exclusions"]) {

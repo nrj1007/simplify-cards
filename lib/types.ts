@@ -52,6 +52,7 @@ export type CreditCard = {
   sourceUrl: string;
   applyUrl: string;
   lastVerified: string;
+  verificationStatus: "official-direct" | "official-indexed" | "official-catalogue" | "official-mixed" | "needs-review";
 };
 
 export type SpendProfile = Partial<Record<SpendCategory, number>>;

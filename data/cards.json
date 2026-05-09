@@ -3,20 +3,38 @@
     "id": "sbi-cashback",
     "issuer": "SBI Card",
     "name": "SBI Cashback Credit Card",
-    "network": ["Visa", "Mastercard"],
+    "network": [
+      "Visa",
+      "Mastercard"
+    ],
     "joiningFee": 999,
     "annualFee": 999,
     "feeWaiverSpend": 200000,
-    "bestFor": ["online", "cashback"],
+    "bestFor": [
+      "online",
+      "cashback"
+    ],
     "rewardType": "cashback",
     "rewards": [
-      { "category": "online", "rate": 5, "capMonthly": 2000 },
-      { "category": "offline", "rate": 1, "capMonthly": 2000 }
+      {
+        "category": "online",
+        "rate": 5,
+        "capMonthly": 2000
+      },
+      {
+        "category": "offline",
+        "rate": 1,
+        "capMonthly": 2000
+      }
     ],
     "loungeDomestic": 0,
     "loungeInternational": 0,
     "forexMarkup": 3.5,
-    "tags": ["online", "cashback", "shopping"],
+    "tags": [
+      "online",
+      "cashback",
+      "shopping"
+    ],
     "exclusions": [
       "fuel",
       "digital gaming platforms",
@@ -48,28 +66,58 @@
     },
     "sourceUrl": "https://www.sbicard.com/en/personal/credit-cards/cashback-sbi-card.html",
     "applyUrl": "https://www.sbicard.com/en/personal/credit-cards/cashback-sbi-card.html",
-    "lastVerified": "2026-05-09"
+    "lastVerified": "2026-05-09",
+    "verificationStatus": "official-mixed"
   },
   {
     "id": "hdfc-millennia",
     "issuer": "HDFC Bank",
     "name": "HDFC Millennia Credit Card",
-    "network": ["Visa", "Mastercard", "Diners Club"],
+    "network": [
+      "Visa",
+      "Mastercard",
+      "Diners Club"
+    ],
     "joiningFee": 1000,
     "annualFee": 1000,
     "feeWaiverSpend": 100000,
-    "bestFor": ["online", "wallets", "cashback"],
+    "bestFor": [
+      "online",
+      "wallets",
+      "cashback"
+    ],
     "rewardType": "cashback",
     "rewards": [
-      { "category": "online", "rate": 5, "capMonthly": 3000 },
-      { "category": "offline", "rate": 1, "capMonthly": 3000 },
-      { "category": "smartbuy", "rate": 10, "capMonthly": 3000 }
+      {
+        "category": "online",
+        "rate": 5,
+        "capMonthly": 3000
+      },
+      {
+        "category": "offline",
+        "rate": 1,
+        "capMonthly": 3000
+      },
+      {
+        "category": "smartbuy",
+        "rate": 10,
+        "capMonthly": 3000
+      }
     ],
     "loungeDomestic": 4,
     "loungeInternational": 0,
     "forexMarkup": 3.5,
-    "tags": ["online", "cashback", "lounge"],
-    "exclusions": ["fuel", "rent", "government payments", "cash withdrawal"],
+    "tags": [
+      "online",
+      "cashback",
+      "lounge"
+    ],
+    "exclusions": [
+      "fuel",
+      "rent",
+      "government payments",
+      "cash withdrawal"
+    ],
     "milestoneBenefits": [
       "Either Rs 1,000 gift voucher or 1 domestic lounge access voucher on spends of Rs 1,00,000 and above in each calendar quarter"
     ],
@@ -91,121 +139,249 @@
     "interestRateMonthly": 3.6,
     "sourceUrl": "https://www.hdfc.bank.in/credit-cards/millennia-credit-card",
     "applyUrl": "https://www.hdfc.bank.in/credit-cards/millennia-credit-card",
-    "lastVerified": "2026-05-08"
+    "lastVerified": "2026-05-08",
+    "verificationStatus": "official-indexed"
   },
   {
     "id": "axis-atlas",
     "issuer": "Axis Bank",
     "name": "Axis Bank Atlas Credit Card",
-    "network": ["Visa"],
+    "network": [
+      "Visa"
+    ],
     "joiningFee": 5000,
     "annualFee": 5000,
     "feeWaiverSpend": 1500000,
-    "bestFor": ["travel", "hotels", "flights"],
+    "bestFor": [
+      "travel",
+      "hotels",
+      "flights"
+    ],
     "rewardType": "edge miles",
     "rewards": [
-      { "category": "travel", "rate": 4, "capMonthly": null },
-      { "category": "offline", "rate": 2, "capMonthly": null }
+      {
+        "category": "travel",
+        "rate": 4,
+        "capMonthly": null
+      },
+      {
+        "category": "offline",
+        "rate": 2,
+        "capMonthly": null
+      }
     ],
     "loungeDomestic": 8,
     "loungeInternational": 4,
     "forexMarkup": 3.5,
-    "tags": ["travel", "miles", "lounge", "premium"],
-    "exclusions": ["rent", "wallet load", "insurance"],
+    "tags": [
+      "travel",
+      "miles",
+      "lounge",
+      "premium"
+    ],
+    "exclusions": [
+      "rent",
+      "wallet load",
+      "insurance"
+    ],
     "sourceUrl": "https://www.axisbank.com/",
     "applyUrl": "https://www.axisbank.com/",
-    "lastVerified": "2026-05-08"
+    "lastVerified": "2026-05-08",
+    "verificationStatus": "needs-review"
   },
   {
     "id": "idfc-wow",
     "issuer": "IDFC FIRST Bank",
     "name": "IDFC FIRST WOW Credit Card",
-    "network": ["Visa"],
+    "network": [
+      "Visa"
+    ],
     "joiningFee": 0,
     "annualFee": 0,
     "feeWaiverSpend": null,
-    "bestFor": ["secured", "lifetime free", "forex"],
+    "bestFor": [
+      "secured",
+      "lifetime free",
+      "forex"
+    ],
     "rewardType": "reward points",
     "rewards": [
-      { "category": "offline", "rate": 0.75, "capMonthly": null },
-      { "category": "online", "rate": 0.75, "capMonthly": null }
+      {
+        "category": "offline",
+        "rate": 0.75,
+        "capMonthly": null
+      },
+      {
+        "category": "online",
+        "rate": 0.75,
+        "capMonthly": null
+      }
     ],
     "loungeDomestic": 0,
     "loungeInternational": 0,
     "forexMarkup": 0,
-    "tags": ["lifetime free", "secured", "forex", "beginner"],
-    "exclusions": ["cash withdrawal", "fuel surcharge beyond terms"],
+    "tags": [
+      "lifetime free",
+      "secured",
+      "forex",
+      "beginner"
+    ],
+    "exclusions": [
+      "cash withdrawal",
+      "fuel surcharge beyond terms"
+    ],
     "sourceUrl": "https://www.idfcfirstbank.com/",
     "applyUrl": "https://www.idfcfirstbank.com/",
-    "lastVerified": "2026-05-08"
+    "lastVerified": "2026-05-08",
+    "verificationStatus": "needs-review"
   },
   {
     "id": "icici-amazon-pay",
     "issuer": "ICICI Bank",
     "name": "Amazon Pay ICICI Bank Credit Card",
-    "network": ["Visa"],
+    "network": [
+      "Visa"
+    ],
     "joiningFee": 0,
     "annualFee": 0,
     "feeWaiverSpend": null,
-    "bestFor": ["amazon", "online", "lifetime free"],
+    "bestFor": [
+      "amazon",
+      "online",
+      "lifetime free"
+    ],
     "rewardType": "cashback",
     "rewards": [
-      { "category": "amazon", "rate": 5, "capMonthly": null },
-      { "category": "online", "rate": 1, "capMonthly": null },
-      { "category": "offline", "rate": 1, "capMonthly": null }
+      {
+        "category": "amazon",
+        "rate": 5,
+        "capMonthly": null
+      },
+      {
+        "category": "online",
+        "rate": 1,
+        "capMonthly": null
+      },
+      {
+        "category": "offline",
+        "rate": 1,
+        "capMonthly": null
+      }
     ],
     "loungeDomestic": 0,
     "loungeInternational": 0,
     "forexMarkup": 3.5,
-    "tags": ["amazon", "cashback", "lifetime free", "online"],
-    "exclusions": ["fuel", "emi", "wallet load"],
+    "tags": [
+      "amazon",
+      "cashback",
+      "lifetime free",
+      "online"
+    ],
+    "exclusions": [
+      "fuel",
+      "emi",
+      "wallet load"
+    ],
     "sourceUrl": "https://www.icicibank.com/",
     "applyUrl": "https://www.amazon.in/",
-    "lastVerified": "2026-05-08"
+    "lastVerified": "2026-05-08",
+    "verificationStatus": "needs-review"
   },
   {
     "id": "au-ixigo",
     "issuer": "AU Small Finance Bank",
     "name": "AU ixigo Credit Card",
-    "network": ["Visa"],
+    "network": [
+      "Visa"
+    ],
     "joiningFee": 999,
     "annualFee": 999,
     "feeWaiverSpend": null,
-    "bestFor": ["travel", "rail", "forex"],
+    "bestFor": [
+      "travel",
+      "rail",
+      "forex"
+    ],
     "rewardType": "reward points",
     "rewards": [
-      { "category": "travel", "rate": 2.5, "capMonthly": null },
-      { "category": "offline", "rate": 1, "capMonthly": null }
+      {
+        "category": "travel",
+        "rate": 2.5,
+        "capMonthly": null
+      },
+      {
+        "category": "offline",
+        "rate": 1,
+        "capMonthly": null
+      }
     ],
     "loungeDomestic": 8,
     "loungeInternational": 1,
     "forexMarkup": 0,
-    "tags": ["travel", "forex", "lounge", "rail"],
-    "exclusions": ["rent", "wallet load", "fuel"],
+    "tags": [
+      "travel",
+      "forex",
+      "lounge",
+      "rail"
+    ],
+    "exclusions": [
+      "rent",
+      "wallet load",
+      "fuel"
+    ],
     "sourceUrl": "https://www.aubank.in/",
     "applyUrl": "https://www.aubank.in/",
-    "lastVerified": "2026-05-08"
+    "lastVerified": "2026-05-08",
+    "verificationStatus": "needs-review"
   },
   {
     "id": "hdfc-indianoil",
     "issuer": "HDFC Bank",
     "name": "IndianOil HDFC Bank Credit Card",
-    "network": ["Visa", "RuPay"],
+    "network": [
+      "Visa",
+      "RuPay"
+    ],
     "joiningFee": 500,
     "annualFee": 500,
     "feeWaiverSpend": 50000,
-    "bestFor": ["fuel", "groceries", "bill payments"],
+    "bestFor": [
+      "fuel",
+      "groceries",
+      "bill payments"
+    ],
     "rewardType": "fuel points",
     "rewards": [
-      { "category": "fuel", "rate": 5, "capMonthly": 150 },
-      { "category": "grocery", "rate": 5, "capMonthly": 100 },
-      { "category": "utilities", "rate": 5, "capMonthly": 100 },
-      { "category": "offline", "rate": 0.7, "capMonthly": null }
+      {
+        "category": "fuel",
+        "rate": 5,
+        "capMonthly": 150
+      },
+      {
+        "category": "grocery",
+        "rate": 5,
+        "capMonthly": 100
+      },
+      {
+        "category": "utilities",
+        "rate": 5,
+        "capMonthly": 100
+      },
+      {
+        "category": "offline",
+        "rate": 0.7,
+        "capMonthly": null
+      }
     ],
     "loungeDomestic": 0,
     "loungeInternational": 0,
     "forexMarkup": 3.5,
-    "tags": ["fuel", "grocery", "utilities", "low fee"],
+    "tags": [
+      "fuel",
+      "grocery",
+      "utilities",
+      "low fee"
+    ],
     "exclusions": [
       "fuel transactions at non-IndianOil petrol pumps",
       "wallet loading",
@@ -246,29 +422,65 @@
     },
     "sourceUrl": "https://www.hdfc.bank.in/credit-cards/indianoil-hdfc-bank-credit-card",
     "applyUrl": "https://www.hdfc.bank.in/credit-cards/indianoil-hdfc-bank-credit-card",
-    "lastVerified": "2026-05-08"
+    "lastVerified": "2026-05-08",
+    "verificationStatus": "official-indexed"
   },
   {
     "id": "hdfc-pixel-play",
     "issuer": "HDFC Bank",
     "name": "HDFC Bank PIXEL Play Credit Card",
-    "network": ["Visa", "RuPay"],
+    "network": [
+      "Visa",
+      "RuPay"
+    ],
     "joiningFee": 500,
     "annualFee": 500,
     "feeWaiverSpend": 100000,
-    "bestFor": ["customizable cashback", "upi", "online shopping", "payzapp"],
+    "bestFor": [
+      "customizable cashback",
+      "upi",
+      "online shopping",
+      "payzapp"
+    ],
     "rewardType": "PIXEL CashPoints",
     "rewards": [
-      { "category": "selected packs", "rate": 5, "capMonthly": 500 },
-      { "category": "smartbuy", "rate": 5, "capMonthly": 500 },
-      { "category": "online", "rate": 3, "capMonthly": 500 },
-      { "category": "upi", "rate": 1, "capMonthly": 500 },
-      { "category": "offline", "rate": 1, "capMonthly": null }
+      {
+        "category": "selected packs",
+        "rate": 5,
+        "capMonthly": 500
+      },
+      {
+        "category": "smartbuy",
+        "rate": 5,
+        "capMonthly": 500
+      },
+      {
+        "category": "online",
+        "rate": 3,
+        "capMonthly": 500
+      },
+      {
+        "category": "upi",
+        "rate": 1,
+        "capMonthly": 500
+      },
+      {
+        "category": "offline",
+        "rate": 1,
+        "capMonthly": null
+      }
     ],
     "loungeDomestic": 0,
     "loungeInternational": 0,
     "forexMarkup": 3.5,
-    "tags": ["cashback", "rupay", "upi", "payzapp", "online", "customizable"],
+    "tags": [
+      "cashback",
+      "rupay",
+      "upi",
+      "payzapp",
+      "online",
+      "customizable"
+    ],
     "exclusions": [
       "fuel spends",
       "wallet spends",
@@ -311,29 +523,65 @@
     },
     "sourceUrl": "https://www.hdfc.bank.in/credit-cards/pixel-play-credit-card",
     "applyUrl": "https://www.hdfc.bank.in/credit-cards/pixel-play-credit-card",
-    "lastVerified": "2026-05-08"
+    "lastVerified": "2026-05-08",
+    "verificationStatus": "official-indexed"
   },
   {
     "id": "hdfc-diners-club-black-metal",
     "issuer": "HDFC Bank",
     "name": "HDFC Bank Diners Club Black Metal Edition Credit Card",
-    "network": ["Diners Club"],
+    "network": [
+      "Diners Club"
+    ],
     "joiningFee": 10000,
     "annualFee": 10000,
     "feeWaiverSpend": 800000,
-    "bestFor": ["premium travel", "lounge", "smartbuy", "dining", "golf"],
+    "bestFor": [
+      "premium travel",
+      "lounge",
+      "smartbuy",
+      "dining",
+      "golf"
+    ],
     "rewardType": "reward points",
     "rewards": [
-      { "category": "smartbuy hotels", "rate": 33.33, "capMonthly": null },
-      { "category": "smartbuy flights", "rate": 16.67, "capMonthly": null },
-      { "category": "dining", "rate": 6.67, "capMonthly": null },
-      { "category": "offline", "rate": 3.33, "capMonthly": null }
+      {
+        "category": "smartbuy hotels",
+        "rate": 33.33,
+        "capMonthly": null
+      },
+      {
+        "category": "smartbuy flights",
+        "rate": 16.67,
+        "capMonthly": null
+      },
+      {
+        "category": "dining",
+        "rate": 6.67,
+        "capMonthly": null
+      },
+      {
+        "category": "offline",
+        "rate": 3.33,
+        "capMonthly": null
+      }
     ],
     "loungeDomestic": "unlimited",
     "loungeInternational": "unlimited",
     "forexMarkup": 2,
-    "tags": ["premium", "travel", "lounge", "smartbuy", "dining", "golf", "concierge"],
-    "exclusions": ["fees and charges as per MITC", "transactions excluded under product terms"],
+    "tags": [
+      "premium",
+      "travel",
+      "lounge",
+      "smartbuy",
+      "dining",
+      "golf",
+      "concierge"
+    ],
+    "exclusions": [
+      "fees and charges as per MITC",
+      "transactions excluded under product terms"
+    ],
     "milestoneBenefits": [
       "10,000 bonus reward points per quarter on spends of Rs 4 lakh or more",
       "Renewal fee waived on spending Rs 8 lakh in 12 months"
@@ -368,27 +616,51 @@
     },
     "sourceUrl": "https://www.hdfc.bank.in/credit-cards/diners-club-black-metal-edition-credit-card",
     "applyUrl": "https://www.hdfc.bank.in/credit-cards/diners-club-black-metal-edition-credit-card",
-    "lastVerified": "2026-05-08"
+    "lastVerified": "2026-05-08",
+    "verificationStatus": "official-direct"
   },
   {
     "id": "hdfc-moneyback-plus",
     "issuer": "HDFC Bank",
     "name": "HDFC Bank MoneyBack+ Credit Card",
-    "network": ["Visa", "Mastercard"],
+    "network": [
+      "Visa",
+      "Mastercard"
+    ],
     "joiningFee": 500,
     "annualFee": 500,
     "feeWaiverSpend": 50000,
-    "bestFor": ["household spends", "shopping", "entry level rewards"],
+    "bestFor": [
+      "household spends",
+      "shopping",
+      "entry level rewards"
+    ],
     "rewardType": "CashPoints",
     "rewards": [
-      { "category": "select merchants", "rate": 3.3, "capMonthly": null },
-      { "category": "offline", "rate": 0.33, "capMonthly": null }
+      {
+        "category": "select merchants",
+        "rate": 3.3,
+        "capMonthly": null
+      },
+      {
+        "category": "offline",
+        "rate": 0.33,
+        "capMonthly": null
+      }
     ],
     "loungeDomestic": 0,
     "loungeInternational": 0,
     "forexMarkup": 3.5,
-    "tags": ["shopping", "entry level", "cashpoints", "low fee", "dining"],
-    "exclusions": ["transactions excluded under HDFC Bank MoneyBack+ terms and conditions"],
+    "tags": [
+      "shopping",
+      "entry level",
+      "cashpoints",
+      "low fee",
+      "dining"
+    ],
+    "exclusions": [
+      "transactions excluded under HDFC Bank MoneyBack+ terms and conditions"
+    ],
     "milestoneBenefits": [
       "Gift voucher worth Rs 500 on spends of Rs 50,000 per calendar quarter",
       "Renewal fee waived on spending Rs 50,000 or more in a year before renewal date"
@@ -426,27 +698,56 @@
     },
     "sourceUrl": "https://www.hdfc.bank.in/credit-cards/moneyback-plus-credit-card",
     "applyUrl": "https://www.hdfc.bank.in/credit-cards/moneyback-plus-credit-card",
-    "lastVerified": "2026-05-08"
+    "lastVerified": "2026-05-08",
+    "verificationStatus": "official-direct"
   },
   {
     "id": "hdfc-freedom",
     "issuer": "HDFC Bank",
     "name": "HDFC Bank Freedom Credit Card",
-    "network": ["Visa", "Mastercard", "RuPay"],
+    "network": [
+      "Visa",
+      "Mastercard",
+      "RuPay"
+    ],
     "joiningFee": 500,
     "annualFee": 500,
     "feeWaiverSpend": 50000,
-    "bestFor": ["entry level rewards", "shopping", "dining", "travel"],
+    "bestFor": [
+      "entry level rewards",
+      "shopping",
+      "dining",
+      "travel"
+    ],
     "rewardType": "CashPoints",
     "rewards": [
-      { "category": "select merchants", "rate": 6.67, "capMonthly": 2500 },
-      { "category": "offline", "rate": 0.67, "capMonthly": null },
-      { "category": "upi", "rate": 0.67, "capMonthly": 500 }
+      {
+        "category": "select merchants",
+        "rate": 6.67,
+        "capMonthly": 2500
+      },
+      {
+        "category": "offline",
+        "rate": 0.67,
+        "capMonthly": null
+      },
+      {
+        "category": "upi",
+        "rate": 0.67,
+        "capMonthly": 500
+      }
     ],
     "loungeDomestic": 0,
     "loungeInternational": 0,
     "forexMarkup": 3.5,
-    "tags": ["entry level", "cashpoints", "low fee", "shopping", "dining", "rupay"],
+    "tags": [
+      "entry level",
+      "cashpoints",
+      "low fee",
+      "shopping",
+      "dining",
+      "rupay"
+    ],
     "exclusions": [
       "fuel",
       "EMI transactions",
@@ -495,29 +796,65 @@
     },
     "sourceUrl": "https://www.hdfc.bank.in/credit-cards/freedom-credit-card",
     "applyUrl": "https://www.hdfc.bank.in/credit-cards/freedom-credit-card",
-    "lastVerified": "2026-05-08"
+    "lastVerified": "2026-05-08",
+    "verificationStatus": "official-indexed"
   },
   {
     "id": "hdfc-tata-neu-plus",
     "issuer": "HDFC Bank",
     "name": "Tata Neu Plus HDFC Bank Credit Card",
-    "network": ["Visa", "RuPay"],
+    "network": [
+      "Visa",
+      "RuPay"
+    ],
     "joiningFee": 499,
     "annualFee": 499,
     "feeWaiverSpend": 100000,
-    "bestFor": ["tata neu", "tata brands", "upi", "domestic lounge"],
+    "bestFor": [
+      "tata neu",
+      "tata brands",
+      "upi",
+      "domestic lounge"
+    ],
     "rewardType": "NeuCoins",
     "rewards": [
-      { "category": "tata neu", "rate": 7, "capMonthly": null },
-      { "category": "tata brands", "rate": 2, "capMonthly": null },
-      { "category": "online", "rate": 1, "capMonthly": null },
-      { "category": "offline", "rate": 1, "capMonthly": null },
-      { "category": "upi", "rate": 1, "capMonthly": 500 }
+      {
+        "category": "tata neu",
+        "rate": 7,
+        "capMonthly": null
+      },
+      {
+        "category": "tata brands",
+        "rate": 2,
+        "capMonthly": null
+      },
+      {
+        "category": "online",
+        "rate": 1,
+        "capMonthly": null
+      },
+      {
+        "category": "offline",
+        "rate": 1,
+        "capMonthly": null
+      },
+      {
+        "category": "upi",
+        "rate": 1,
+        "capMonthly": 500
+      }
     ],
     "loungeDomestic": 4,
     "loungeInternational": 0,
     "forexMarkup": 3.5,
-    "tags": ["tata neu", "neucoins", "rupay", "upi", "lounge", "shopping"],
+    "tags": [
+      "tata neu",
+      "neucoins",
+      "rupay",
+      "upi",
+      "lounge",
+      "shopping"
+    ],
     "exclusions": [
       "fuel",
       "wallet",
@@ -558,27 +895,55 @@
     },
     "sourceUrl": "https://www.hdfc.bank.in/credit-cards/tata-neu-plus-hdfc-bank-credit-card",
     "applyUrl": "https://www.hdfc.bank.in/credit-cards/tata-neu-plus-hdfc-bank-credit-card",
-    "lastVerified": "2026-05-08"
+    "lastVerified": "2026-05-08",
+    "verificationStatus": "official-direct"
   },
   {
     "id": "hdfc-phonepe-ultimo",
     "issuer": "HDFC Bank",
     "name": "PhonePe HDFC Bank Ultimo Credit Card",
-    "network": ["RuPay"],
+    "network": [
+      "RuPay"
+    ],
     "joiningFee": 999,
     "annualFee": 999,
     "feeWaiverSpend": 200000,
-    "bestFor": ["phonepe", "upi", "utilities", "online shopping", "lounge"],
+    "bestFor": [
+      "phonepe",
+      "upi",
+      "utilities",
+      "online shopping",
+      "lounge"
+    ],
     "rewardType": "reward points",
     "rewards": [
-      { "category": "phonepe", "rate": 10, "capMonthly": 1000 },
-      { "category": "online", "rate": 5, "capMonthly": 500 },
-      { "category": "upi", "rate": 1, "capMonthly": 500 }
+      {
+        "category": "phonepe",
+        "rate": 10,
+        "capMonthly": 1000
+      },
+      {
+        "category": "online",
+        "rate": 5,
+        "capMonthly": 500
+      },
+      {
+        "category": "upi",
+        "rate": 1,
+        "capMonthly": 500
+      }
     ],
     "loungeDomestic": 8,
     "loungeInternational": 0,
     "forexMarkup": 3.5,
-    "tags": ["phonepe", "rupay", "upi", "online", "utilities", "lounge"],
+    "tags": [
+      "phonepe",
+      "rupay",
+      "upi",
+      "online",
+      "utilities",
+      "lounge"
+    ],
     "exclusions": [
       "cash advances",
       "credit card fees or charges",
@@ -622,27 +987,54 @@
     },
     "sourceUrl": "https://www.hdfc.bank.in/credit-cards/phonepe-hdfc-bank-ultimo-credit-card",
     "applyUrl": "https://www.hdfc.bank.in/credit-cards/phonepe-hdfc-bank-ultimo-credit-card",
-    "lastVerified": "2026-05-08"
+    "lastVerified": "2026-05-08",
+    "verificationStatus": "official-direct"
   },
   {
     "id": "hdfc-phonepe-uno",
     "issuer": "HDFC Bank",
     "name": "PhonePe HDFC Bank Uno Credit Card",
-    "network": ["RuPay"],
+    "network": [
+      "RuPay"
+    ],
     "joiningFee": 499,
     "annualFee": 499,
     "feeWaiverSpend": 100000,
-    "bestFor": ["phonepe", "upi", "utilities", "online shopping"],
+    "bestFor": [
+      "phonepe",
+      "upi",
+      "utilities",
+      "online shopping"
+    ],
     "rewardType": "reward points",
     "rewards": [
-      { "category": "phonepe", "rate": 2, "capMonthly": 500 },
-      { "category": "online", "rate": 1, "capMonthly": 500 },
-      { "category": "upi", "rate": 1, "capMonthly": 500 }
+      {
+        "category": "phonepe",
+        "rate": 2,
+        "capMonthly": 500
+      },
+      {
+        "category": "online",
+        "rate": 1,
+        "capMonthly": 500
+      },
+      {
+        "category": "upi",
+        "rate": 1,
+        "capMonthly": 500
+      }
     ],
     "loungeDomestic": 0,
     "loungeInternational": 0,
     "forexMarkup": 3.5,
-    "tags": ["phonepe", "rupay", "upi", "online", "utilities", "low fee"],
+    "tags": [
+      "phonepe",
+      "rupay",
+      "upi",
+      "online",
+      "utilities",
+      "low fee"
+    ],
     "exclusions": [
       "cash advances",
       "credit card fees or charges",
@@ -685,30 +1077,68 @@
     },
     "sourceUrl": "https://www.hdfc.bank.in/credit-cards/phonepe-hdfc-bank-uno-credit-card",
     "applyUrl": "https://www.hdfc.bank.in/credit-cards/phonepe-hdfc-bank-uno-credit-card",
-    "lastVerified": "2026-05-08"
+    "lastVerified": "2026-05-08",
+    "verificationStatus": "official-direct"
   },
   {
     "id": "hdfc-marriott-bonvoy",
     "issuer": "HDFC Bank",
     "name": "Marriott Bonvoy HDFC Bank Credit Card",
-    "network": ["Diners Club"],
+    "network": [
+      "Diners Club"
+    ],
     "joiningFee": 3000,
     "annualFee": 3000,
     "feeWaiverSpend": null,
-    "bestFor": ["marriott", "hotels", "travel", "lounge", "golf"],
+    "bestFor": [
+      "marriott",
+      "hotels",
+      "travel",
+      "lounge",
+      "golf"
+    ],
     "rewardType": "Marriott Bonvoy Points",
     "rewards": [
-      { "category": "marriott", "rate": 5.33, "capMonthly": null },
-      { "category": "travel", "rate": 2.67, "capMonthly": null },
-      { "category": "dining", "rate": 2.67, "capMonthly": null },
-      { "category": "entertainment", "rate": 2.67, "capMonthly": null },
-      { "category": "offline", "rate": 1.33, "capMonthly": null }
+      {
+        "category": "marriott",
+        "rate": 5.33,
+        "capMonthly": null
+      },
+      {
+        "category": "travel",
+        "rate": 2.67,
+        "capMonthly": null
+      },
+      {
+        "category": "dining",
+        "rate": 2.67,
+        "capMonthly": null
+      },
+      {
+        "category": "entertainment",
+        "rate": 2.67,
+        "capMonthly": null
+      },
+      {
+        "category": "offline",
+        "rate": 1.33,
+        "capMonthly": null
+      }
     ],
     "loungeDomestic": 12,
     "loungeInternational": 0,
     "forexMarkup": 3.5,
-    "tags": ["marriott", "hotel", "travel", "lounge", "golf", "premium"],
-    "exclusions": ["transactions excluded under Marriott Bonvoy HDFC Bank Credit Card terms"],
+    "tags": [
+      "marriott",
+      "hotel",
+      "travel",
+      "lounge",
+      "golf",
+      "premium"
+    ],
+    "exclusions": [
+      "transactions excluded under Marriott Bonvoy HDFC Bank Credit Card terms"
+    ],
     "milestoneBenefits": [
       "1 Free Night Award on eligible spend of Rs 6 lakh in an anniversary year",
       "1 Free Night Award on eligible spend of Rs 9 lakh in an anniversary year",
@@ -755,27 +1185,54 @@
     },
     "sourceUrl": "https://www.hdfc.bank.in/credit-cards/marriott-bonvoy-credit-card",
     "applyUrl": "https://www.hdfc.bank.in/credit-cards/marriott-bonvoy-credit-card",
-    "lastVerified": "2026-05-08"
+    "lastVerified": "2026-05-08",
+    "verificationStatus": "official-direct"
   },
   {
     "id": "hdfc-irctc",
     "issuer": "HDFC Bank",
     "name": "IRCTC HDFC Bank Credit Card",
-    "network": ["RuPay"],
+    "network": [
+      "RuPay"
+    ],
     "joiningFee": 500,
     "annualFee": 500,
     "feeWaiverSpend": 150000,
-    "bestFor": ["train travel", "irctc", "smartbuy", "rail lounge"],
+    "bestFor": [
+      "train travel",
+      "irctc",
+      "smartbuy",
+      "rail lounge"
+    ],
     "rewardType": "reward points",
     "rewards": [
-      { "category": "irctc", "rate": 5, "capMonthly": 1000 },
-      { "category": "smartbuy train", "rate": 5, "capMonthly": 1000 },
-      { "category": "offline", "rate": 1, "capMonthly": null }
+      {
+        "category": "irctc",
+        "rate": 5,
+        "capMonthly": 1000
+      },
+      {
+        "category": "smartbuy train",
+        "rate": 5,
+        "capMonthly": 1000
+      },
+      {
+        "category": "offline",
+        "rate": 1,
+        "capMonthly": null
+      }
     ],
     "loungeDomestic": 4,
     "loungeInternational": 0,
     "forexMarkup": 3.5,
-    "tags": ["irctc", "train", "travel", "rupay", "rail lounge", "low fee"],
+    "tags": [
+      "irctc",
+      "train",
+      "travel",
+      "rupay",
+      "rail lounge",
+      "low fee"
+    ],
     "exclusions": [
       "fuel spends",
       "wallet loads",
@@ -829,28 +1286,58 @@
     },
     "sourceUrl": "https://www.hdfc.bank.in/credit-cards/irctc-credit-card",
     "applyUrl": "https://www.hdfc.bank.in/credit-cards/irctc-credit-card",
-    "lastVerified": "2026-05-09"
+    "lastVerified": "2026-05-09",
+    "verificationStatus": "official-indexed"
   },
   {
     "id": "hdfc-diners-club-privilege",
     "issuer": "HDFC Bank",
     "name": "HDFC Bank Diners Club Privilege Credit Card",
-    "network": ["Diners Club"],
+    "network": [
+      "Diners Club"
+    ],
     "joiningFee": 1000,
     "annualFee": 1000,
     "feeWaiverSpend": 300000,
-    "bestFor": ["dining", "movies", "smartbuy", "lounge", "lifestyle"],
+    "bestFor": [
+      "dining",
+      "movies",
+      "smartbuy",
+      "lounge",
+      "lifestyle"
+    ],
     "rewardType": "reward points",
     "rewards": [
-      { "category": "swiggy zomato", "rate": 13.33, "capMonthly": 2500 },
-      { "category": "smartbuy", "rate": 26.67, "capMonthly": null },
-      { "category": "offline", "rate": 2.67, "capMonthly": null }
+      {
+        "category": "swiggy zomato",
+        "rate": 13.33,
+        "capMonthly": 2500
+      },
+      {
+        "category": "smartbuy",
+        "rate": 26.67,
+        "capMonthly": null
+      },
+      {
+        "category": "offline",
+        "rate": 2.67,
+        "capMonthly": null
+      }
     ],
     "loungeDomestic": 8,
     "loungeInternational": 0,
     "forexMarkup": 3.5,
-    "tags": ["diners", "dining", "movies", "lounge", "smartbuy", "lifestyle"],
-    "exclusions": ["transactions excluded under HDFC Bank Diners Club Privilege terms"],
+    "tags": [
+      "diners",
+      "dining",
+      "movies",
+      "lounge",
+      "smartbuy",
+      "lifestyle"
+    ],
+    "exclusions": [
+      "transactions excluded under HDFC Bank Diners Club Privilege terms"
+    ],
     "milestoneBenefits": [
       "Rs 1,500 worth vouchers on quarterly spends of Rs 1.5 lakh",
       "Renewal fee waiver on annual spends of Rs 3 lakh or more"
@@ -884,29 +1371,67 @@
     },
     "sourceUrl": "https://www.hdfc.bank.in/credit-cards/diners-privilege-credit-card",
     "applyUrl": "https://www.hdfc.bank.in/credit-cards/diners-privilege-credit-card",
-    "lastVerified": "2026-05-09"
+    "lastVerified": "2026-05-09",
+    "verificationStatus": "official-indexed"
   },
   {
     "id": "hdfc-tata-neu-infinity",
     "issuer": "HDFC Bank",
     "name": "Tata Neu Infinity HDFC Bank Credit Card",
-    "network": ["Visa", "RuPay"],
+    "network": [
+      "Visa",
+      "RuPay"
+    ],
     "joiningFee": 1499,
     "annualFee": 1499,
     "feeWaiverSpend": 300000,
-    "bestFor": ["tata neu", "tata brands", "upi", "domestic lounge", "international lounge"],
+    "bestFor": [
+      "tata neu",
+      "tata brands",
+      "upi",
+      "domestic lounge",
+      "international lounge"
+    ],
     "rewardType": "NeuCoins",
     "rewards": [
-      { "category": "tata neu", "rate": 10, "capMonthly": null },
-      { "category": "tata brands", "rate": 5, "capMonthly": null },
-      { "category": "online", "rate": 1.5, "capMonthly": null },
-      { "category": "offline", "rate": 1.5, "capMonthly": null },
-      { "category": "upi", "rate": 1.5, "capMonthly": 500 }
+      {
+        "category": "tata neu",
+        "rate": 10,
+        "capMonthly": null
+      },
+      {
+        "category": "tata brands",
+        "rate": 5,
+        "capMonthly": null
+      },
+      {
+        "category": "online",
+        "rate": 1.5,
+        "capMonthly": null
+      },
+      {
+        "category": "offline",
+        "rate": 1.5,
+        "capMonthly": null
+      },
+      {
+        "category": "upi",
+        "rate": 1.5,
+        "capMonthly": 500
+      }
     ],
     "loungeDomestic": 8,
     "loungeInternational": 4,
     "forexMarkup": 3.5,
-    "tags": ["tata neu", "neucoins", "rupay", "upi", "lounge", "shopping", "travel"],
+    "tags": [
+      "tata neu",
+      "neucoins",
+      "rupay",
+      "upi",
+      "lounge",
+      "shopping",
+      "travel"
+    ],
     "exclusions": [
       "fuel",
       "wallet",
@@ -948,26 +1473,48 @@
     },
     "sourceUrl": "https://www.hdfc.bank.in/credit-cards/tata-neu-infinity-hdfc-bank-credit-card",
     "applyUrl": "https://www.hdfc.bank.in/credit-cards/tata-neu-infinity-hdfc-bank-credit-card",
-    "lastVerified": "2026-05-09"
+    "lastVerified": "2026-05-09",
+    "verificationStatus": "official-indexed"
   },
   {
     "id": "hdfc-shoppers-stop-black",
     "issuer": "HDFC Bank",
     "name": "Shoppers Stop BLACK HDFC Bank Credit Card",
-    "network": ["Visa"],
+    "network": [
+      "Visa"
+    ],
     "joiningFee": 4500,
     "annualFee": 4500,
     "feeWaiverSpend": null,
-    "bestFor": ["shoppers stop", "shopping", "premium lifestyle", "lounge"],
+    "bestFor": [
+      "shoppers stop",
+      "shopping",
+      "premium lifestyle",
+      "lounge"
+    ],
     "rewardType": "reward points",
     "rewards": [
-      { "category": "shoppers stop", "rate": 7, "capMonthly": 2000 },
-      { "category": "offline", "rate": 2, "capMonthly": null }
+      {
+        "category": "shoppers stop",
+        "rate": 7,
+        "capMonthly": 2000
+      },
+      {
+        "category": "offline",
+        "rate": 2,
+        "capMonthly": null
+      }
     ],
     "loungeDomestic": 16,
     "loungeInternational": 8,
     "forexMarkup": 3.5,
-    "tags": ["shoppers stop", "shopping", "premium", "lounge", "lifestyle"],
+    "tags": [
+      "shoppers stop",
+      "shopping",
+      "premium",
+      "lounge",
+      "lifestyle"
+    ],
     "exclusions": [
       "grocery reward accrual capped at 1,000 points per month",
       "rental payments",
@@ -1012,26 +1559,50 @@
     },
     "sourceUrl": "https://www.hdfc.bank.in/credit-cards/shoppers-stop-black-credit-card",
     "applyUrl": "https://www.hdfc.bank.in/credit-cards/shoppers-stop-black-credit-card",
-    "lastVerified": "2026-05-09"
+    "lastVerified": "2026-05-09",
+    "verificationStatus": "official-indexed"
   },
   {
     "id": "hdfc-shoppers-stop",
     "issuer": "HDFC Bank",
     "name": "Shoppers Stop HDFC Bank Credit Card",
-    "network": ["Visa", "RuPay"],
+    "network": [
+      "Visa",
+      "RuPay"
+    ],
     "joiningFee": 299,
     "annualFee": 299,
     "feeWaiverSpend": null,
-    "bestFor": ["shoppers stop", "shopping", "entry level lifestyle", "upi"],
+    "bestFor": [
+      "shoppers stop",
+      "shopping",
+      "entry level lifestyle",
+      "upi"
+    ],
     "rewardType": "reward points",
     "rewards": [
-      { "category": "shoppers stop", "rate": 3, "capMonthly": 500 },
-      { "category": "offline", "rate": 1, "capMonthly": null }
+      {
+        "category": "shoppers stop",
+        "rate": 3,
+        "capMonthly": 500
+      },
+      {
+        "category": "offline",
+        "rate": 1,
+        "capMonthly": null
+      }
     ],
     "loungeDomestic": 0,
     "loungeInternational": 0,
     "forexMarkup": 3.5,
-    "tags": ["shoppers stop", "shopping", "low fee", "lifestyle", "rupay", "upi"],
+    "tags": [
+      "shoppers stop",
+      "shopping",
+      "low fee",
+      "lifestyle",
+      "rupay",
+      "upi"
+    ],
     "exclusions": [
       "grocery reward accrual capped at 1,000 points per month",
       "rental payments",
@@ -1074,28 +1645,60 @@
     },
     "sourceUrl": "https://www.hdfc.bank.in/credit-cards/shoppers-stop-credit-card",
     "applyUrl": "https://www.hdfc.bank.in/credit-cards/shoppers-stop-credit-card",
-    "lastVerified": "2026-05-09"
+    "lastVerified": "2026-05-09",
+    "verificationStatus": "official-indexed"
   },
   {
     "id": "hdfc-regalia-gold",
     "issuer": "HDFC Bank",
     "name": "HDFC Bank Regalia Gold Credit Card",
-    "network": ["Visa", "Mastercard", "Diners Club"],
+    "network": [
+      "Visa",
+      "Mastercard",
+      "Diners Club"
+    ],
     "joiningFee": 2500,
     "annualFee": 2500,
     "feeWaiverSpend": 400000,
-    "bestFor": ["travel", "lounge", "lifestyle", "smartbuy", "premium rewards"],
+    "bestFor": [
+      "travel",
+      "lounge",
+      "lifestyle",
+      "smartbuy",
+      "premium rewards"
+    ],
     "rewardType": "reward points",
     "rewards": [
-      { "category": "select lifestyle brands", "rate": 13.33, "capMonthly": null },
-      { "category": "smartbuy", "rate": 13.33, "capMonthly": null },
-      { "category": "offline", "rate": 2.67, "capMonthly": 50000 }
+      {
+        "category": "select lifestyle brands",
+        "rate": 13.33,
+        "capMonthly": null
+      },
+      {
+        "category": "smartbuy",
+        "rate": 13.33,
+        "capMonthly": null
+      },
+      {
+        "category": "offline",
+        "rate": 2.67,
+        "capMonthly": 50000
+      }
     ],
     "loungeDomestic": 12,
     "loungeInternational": 6,
     "forexMarkup": 2,
-    "tags": ["travel", "lounge", "premium", "smartbuy", "lifestyle", "rewards"],
-    "exclusions": ["transactions excluded under HDFC Bank Regalia Gold terms"],
+    "tags": [
+      "travel",
+      "lounge",
+      "premium",
+      "smartbuy",
+      "lifestyle",
+      "rewards"
+    ],
+    "exclusions": [
+      "transactions excluded under HDFC Bank Regalia Gold terms"
+    ],
     "milestoneBenefits": [
       "Rs 5,000 worth flight vouchers on spends of Rs 5 lakh",
       "Rs 5,000 worth flight vouchers on spends of Rs 7.5 lakh",
@@ -1137,28 +1740,61 @@
     },
     "sourceUrl": "https://www.hdfc.bank.in/credit-cards/regalia-gold-credit-card",
     "applyUrl": "https://www.hdfc.bank.in/credit-cards/regalia-gold-credit-card",
-    "lastVerified": "2026-05-09"
+    "lastVerified": "2026-05-09",
+    "verificationStatus": "official-indexed"
   },
   {
     "id": "hdfc-pixel-go",
     "issuer": "HDFC Bank",
     "name": "HDFC Bank PIXEL Go Credit Card",
-    "network": ["Visa", "RuPay"],
+    "network": [
+      "Visa",
+      "RuPay"
+    ],
     "joiningFee": 250,
     "annualFee": 250,
     "feeWaiverSpend": 50000,
-    "bestFor": ["digital first", "upi", "smartbuy", "payzapp", "cashback"],
+    "bestFor": [
+      "digital first",
+      "upi",
+      "smartbuy",
+      "payzapp",
+      "cashback"
+    ],
     "rewardType": "PIXEL CashPoints",
     "rewards": [
-      { "category": "smartbuy", "rate": 5, "capMonthly": null },
-      { "category": "upi", "rate": 1, "capMonthly": null },
-      { "category": "online", "rate": 1, "capMonthly": null },
-      { "category": "offline", "rate": 1, "capMonthly": null }
+      {
+        "category": "smartbuy",
+        "rate": 5,
+        "capMonthly": null
+      },
+      {
+        "category": "upi",
+        "rate": 1,
+        "capMonthly": null
+      },
+      {
+        "category": "online",
+        "rate": 1,
+        "capMonthly": null
+      },
+      {
+        "category": "offline",
+        "rate": 1,
+        "capMonthly": null
+      }
     ],
     "loungeDomestic": 0,
     "loungeInternational": 0,
     "forexMarkup": 3.5,
-    "tags": ["cashback", "rupay", "upi", "payzapp", "smartbuy", "digital"],
+    "tags": [
+      "cashback",
+      "rupay",
+      "upi",
+      "payzapp",
+      "smartbuy",
+      "digital"
+    ],
     "exclusions": [
       "fuel spends beyond surcharge waiver terms",
       "transactions excluded under PIXEL Go terms and conditions"
@@ -1198,29 +1834,64 @@
     },
     "sourceUrl": "https://www.hdfc.bank.in/credit-cards/pixel-go-credit-card",
     "applyUrl": "https://www.hdfc.bank.in/credit-cards/pixel-go-credit-card",
-    "lastVerified": "2026-05-09"
+    "lastVerified": "2026-05-09",
+    "verificationStatus": "official-indexed"
   },
   {
     "id": "flipkart-sbi",
     "issuer": "SBI Card",
     "name": "Flipkart SBI Card",
-    "network": ["Visa"],
+    "network": [
+      "Visa"
+    ],
     "joiningFee": 500,
     "annualFee": 500,
     "feeWaiverSpend": 350000,
-    "bestFor": ["flipkart", "myntra", "cleartrip", "online shopping"],
+    "bestFor": [
+      "flipkart",
+      "myntra",
+      "cleartrip",
+      "online shopping"
+    ],
     "rewardType": "cashback",
     "rewards": [
-      { "category": "myntra", "rate": 7.5, "capMonthly": 1333 },
-      { "category": "flipkart", "rate": 5, "capMonthly": 1333 },
-      { "category": "cleartrip", "rate": 5, "capMonthly": 1333 },
-      { "category": "partner merchants", "rate": 4, "capMonthly": 1333 },
-      { "category": "offline", "rate": 1, "capMonthly": null }
+      {
+        "category": "myntra",
+        "rate": 7.5,
+        "capMonthly": 1333
+      },
+      {
+        "category": "flipkart",
+        "rate": 5,
+        "capMonthly": 1333
+      },
+      {
+        "category": "cleartrip",
+        "rate": 5,
+        "capMonthly": 1333
+      },
+      {
+        "category": "partner merchants",
+        "rate": 4,
+        "capMonthly": 1333
+      },
+      {
+        "category": "offline",
+        "rate": 1,
+        "capMonthly": null
+      }
     ],
     "loungeDomestic": 0,
     "loungeInternational": 0,
     "forexMarkup": 3.5,
-    "tags": ["flipkart", "myntra", "cleartrip", "cashback", "online", "shopping"],
+    "tags": [
+      "flipkart",
+      "myntra",
+      "cleartrip",
+      "cashback",
+      "online",
+      "shopping"
+    ],
     "exclusions": [
       "fuel spends",
       "cash withdrawals",
@@ -1242,6 +1913,7 @@
     },
     "sourceUrl": "https://www.sbicard.com/en/personal/sbi-credit-card.page",
     "applyUrl": "https://www.sbicard.com/en/personal/sbi-credit-card.page",
-    "lastVerified": "2026-05-09"
+    "lastVerified": "2026-05-09",
+    "verificationStatus": "official-catalogue"
   }
 ]
