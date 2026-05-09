@@ -802,5 +802,60 @@
     "sourceUrl": "https://www.hdfc.bank.in/credit-cards/irctc-credit-card",
     "applyUrl": "https://www.hdfc.bank.in/credit-cards/irctc-credit-card",
     "lastVerified": "2026-05-09"
+  },
+  {
+    "id": "hdfc-diners-club-privilege",
+    "issuer": "HDFC Bank",
+    "name": "HDFC Bank Diners Club Privilege Credit Card",
+    "network": ["Diners Club"],
+    "joiningFee": 1000,
+    "annualFee": 1000,
+    "feeWaiverSpend": 300000,
+    "bestFor": ["dining", "movies", "smartbuy", "lounge", "lifestyle"],
+    "rewardType": "reward points",
+    "rewards": [
+      { "category": "swiggy zomato", "rate": 13.33, "capMonthly": 2500 },
+      { "category": "smartbuy", "rate": 26.67, "capMonthly": null },
+      { "category": "offline", "rate": 2.67, "capMonthly": null }
+    ],
+    "loungeDomestic": 8,
+    "loungeInternational": 0,
+    "forexMarkup": 3.5,
+    "tags": ["diners", "dining", "movies", "lounge", "smartbuy", "lifestyle"],
+    "exclusions": ["transactions excluded under HDFC Bank Diners Club Privilege terms"],
+    "milestoneBenefits": [
+      "Rs 1,500 worth vouchers on quarterly spends of Rs 1.5 lakh",
+      "Renewal fee waiver on annual spends of Rs 3 lakh or more"
+    ],
+    "additionalBenefits": [
+      "Buy 1 Get 1 free on weekend movie and non-movie tickets via BookMyShow, up to 2 free tickets every calendar month, capped at Rs 250 per ticket",
+      "5X Reward Points on online food orders on Swiggy and Zomato",
+      "Up to 10X Reward Points on spends via SmartBuy",
+      "Complimentary annual memberships of Swiggy One and Times Prime as welcome benefit on Rs 75,000 spends in first 90 days",
+      "2 complimentary airport lounge accesses every calendar quarter worldwide",
+      "Extra 10% off on Dineout bills at participating restaurants",
+      "Up to 50 days interest-free credit period",
+      "Contactless payments enabled",
+      "Simple card management via HDFC Bank MyCards"
+    ],
+    "redemption": {
+      "statementBalanceValue": 0.2,
+      "smartBuyFlightHotelValue": 0.5,
+      "airMilesValue": 0.5,
+      "pointsExpiryYears": 2
+    },
+    "eligibility": {
+      "salaried": [
+        "Indian national",
+        "Age 21 to 60 years"
+      ],
+      "selfEmployed": [
+        "Indian national",
+        "Age 21 to 65 years"
+      ]
+    },
+    "sourceUrl": "https://www.hdfc.bank.in/credit-cards/diners-privilege-credit-card",
+    "applyUrl": "https://www.hdfc.bank.in/credit-cards/diners-privilege-credit-card",
+    "lastVerified": "2026-05-09"
   }
 ]
