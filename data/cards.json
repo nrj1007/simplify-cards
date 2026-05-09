@@ -1047,5 +1047,68 @@
     "sourceUrl": "https://www.hdfc.bank.in/credit-cards/shoppers-stop-credit-card",
     "applyUrl": "https://www.hdfc.bank.in/credit-cards/shoppers-stop-credit-card",
     "lastVerified": "2026-05-09"
+  },
+  {
+    "id": "hdfc-regalia-gold",
+    "issuer": "HDFC Bank",
+    "name": "HDFC Bank Regalia Gold Credit Card",
+    "network": ["Visa", "Mastercard", "Diners Club"],
+    "joiningFee": 2500,
+    "annualFee": 2500,
+    "feeWaiverSpend": 400000,
+    "bestFor": ["travel", "lounge", "lifestyle", "smartbuy", "premium rewards"],
+    "rewardType": "reward points",
+    "rewards": [
+      { "category": "select lifestyle brands", "rate": 13.33, "capMonthly": null },
+      { "category": "smartbuy", "rate": 13.33, "capMonthly": null },
+      { "category": "offline", "rate": 2.67, "capMonthly": 50000 }
+    ],
+    "loungeDomestic": 12,
+    "loungeInternational": 6,
+    "forexMarkup": 2,
+    "tags": ["travel", "lounge", "premium", "smartbuy", "lifestyle", "rewards"],
+    "exclusions": ["transactions excluded under HDFC Bank Regalia Gold terms"],
+    "milestoneBenefits": [
+      "Rs 5,000 worth flight vouchers on spends of Rs 5 lakh",
+      "Rs 5,000 worth flight vouchers on spends of Rs 7.5 lakh",
+      "Rs 1,500 worth Myntra or Nykaa vouchers on quarterly spends of Rs 1.5 lakh",
+      "Renewal fee waived on annual spends of Rs 4 lakh"
+    ],
+    "additionalBenefits": [
+      "Complimentary Swiggy One and MMTBLACK Gold membership as welcome benefits on spends of Rs 1 lakh in first 90 days",
+      "12 complimentary domestic lounge accesses within India",
+      "6 complimentary lounge accesses per calendar year outside India using Priority Pass",
+      "5X Reward Points on spends at Myntra, Nykaa, Reliance Digital and more",
+      "4 Reward Points on every Rs 150 spent on retail spends",
+      "Redeem up to 70% of travel bookings using Reward Points",
+      "Rs 1,000 cashback across 200+ brands via PayZapp",
+      "Up to 50 days interest-free credit period",
+      "SmartEMI conversion after purchase",
+      "Dining privileges via Swiggy Dineout",
+      "Zero lost card liability when reported immediately",
+      "Contactless payments enabled"
+    ],
+    "redemption": {
+      "statementBalanceValue": 0.2,
+      "smartBuyFlightHotelValue": 0.5,
+      "airMilesValue": 0.5,
+      "pointsExpiryYears": 2
+    },
+    "eligibility": {
+      "salaried": [
+        "Indian national",
+        "Age 21 to 60 years",
+        "Net monthly income greater than Rs 1 lakh for government employees",
+        "Net monthly income greater than Rs 1.5 lakh for non-government employees"
+      ],
+      "selfEmployed": [
+        "Indian national",
+        "Age 21 to 65 years",
+        "ITR greater than Rs 18 lakh per annum"
+      ]
+    },
+    "sourceUrl": "https://www.hdfc.bank.in/credit-cards/regalia-gold-credit-card",
+    "applyUrl": "https://www.hdfc.bank.in/credit-cards/regalia-gold-credit-card",
+    "lastVerified": "2026-05-09"
   }
 ]
