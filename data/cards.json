@@ -1915,5 +1915,83 @@
     "applyUrl": "https://www.sbicard.com/en/personal/sbi-credit-card.page",
     "lastVerified": "2026-05-09",
     "verificationStatus": "official-catalogue"
+  },
+  {
+    "id": "simplyclick-sbi",
+    "issuer": "SBI Card",
+    "name": "SimplyCLICK SBI Card",
+    "network": [
+      "Visa"
+    ],
+    "joiningFee": 499,
+    "annualFee": 499,
+    "feeWaiverSpend": 100000,
+    "bestFor": [
+      "online shopping",
+      "partner merchants",
+      "entry level rewards"
+    ],
+    "rewardType": "reward points",
+    "rewards": [
+      {
+        "category": "partner merchants",
+        "rate": 2.5,
+        "capMonthly": 2500
+      },
+      {
+        "category": "online",
+        "rate": 1.25,
+        "capMonthly": 2500
+      },
+      {
+        "category": "offline",
+        "rate": 0.25,
+        "capMonthly": null
+      }
+    ],
+    "loungeDomestic": 0,
+    "loungeInternational": 0,
+    "forexMarkup": 3.5,
+    "tags": [
+      "online",
+      "shopping",
+      "entry level",
+      "reward points",
+      "low fee"
+    ],
+    "exclusions": [
+      "fuel",
+      "rent",
+      "cash advance",
+      "balance transfer",
+      "wallet loading",
+      "digital gaming",
+      "utility bill payments",
+      "government transactions",
+      "Flexipay EMI"
+    ],
+    "milestoneBenefits": [
+      "E-voucher worth Rs 2,000 on annual online spends of Rs 1 lakh",
+      "E-voucher worth Rs 2,000 on annual online spends of Rs 2 lakh",
+      "Renewal fee reversal on annual spends of Rs 1 lakh in the preceding year"
+    ],
+    "additionalBenefits": [
+      "Welcome e-gift voucher worth Rs 500 from Amazon",
+      "10X Reward Points on online spends with exclusive partners",
+      "5X Reward Points on other online spends",
+      "1 Reward Point per Rs 100 on other spends",
+      "Reward Points can be redeemed against SBI Card rewards catalogue",
+      "Fuel surcharge waiver on transactions from Rs 500 to Rs 3,000"
+    ],
+    "redemption": {
+      "statementBalanceValue": 0.25,
+      "minimumPointsForStatementCredit": 4000,
+      "pointsExpiryYears": 2,
+      "redemptionFee": 99
+    },
+    "sourceUrl": "https://www.sbicard.com/en/eapply/sbicampaign.page",
+    "applyUrl": "https://www.sbicard.com/en/personal/sbi-credit-card.page",
+    "lastVerified": "2026-05-09",
+    "verificationStatus": "official-mixed"
   }
 ]

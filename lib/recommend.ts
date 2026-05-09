@@ -23,7 +23,8 @@ const spendAliases: Record<SpendCategory, string[]> = {
     "payzapp",
     "flipkart",
     "myntra",
-    "partner merchants"
+    "partner merchants",
+    "departmental stores"
   ],
   offline: ["offline", "retail"],
   travel: ["travel", "smartbuy flights", "smartbuy hotels", "smartbuy train", "irctc", "airlines", "hotel", "hotels", "marriott", "cleartrip"],
