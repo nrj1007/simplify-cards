@@ -5225,5 +5225,100 @@
     "applyUrl": "https://www.axisbank.com/retail/cards/credit-card/axis-bank-ace-credit-card",
     "lastVerified": "2026-05-10",
     "verificationStatus": "official-direct"
+  },
+  {
+    "id": "axis-flipkart",
+    "issuer": "Axis Bank",
+    "name": "FLIPKART AXIS BANK Credit Card",
+    "network": [
+      "Mastercard"
+    ],
+    "joiningFee": 500,
+    "annualFee": 500,
+    "feeWaiverSpend": 350000,
+    "bestFor": [
+      "flipkart",
+      "myntra",
+      "cleartrip",
+      "preferred merchants",
+      "cashback"
+    ],
+    "rewardType": "cashback",
+    "rewards": [
+      {
+        "category": "myntra",
+        "rate": 7.5,
+        "capMonthly": null
+      },
+      {
+        "category": "flipkart",
+        "rate": 5,
+        "capMonthly": null
+      },
+      {
+        "category": "cleartrip",
+        "rate": 5,
+        "capMonthly": null
+      },
+      {
+        "category": "partner merchants",
+        "rate": 4,
+        "capMonthly": null
+      },
+      {
+        "category": "offline",
+        "rate": 1,
+        "capMonthly": null
+      }
+    ],
+    "loungeDomestic": 0,
+    "loungeInternational": 0,
+    "forexMarkup": 3.5,
+    "tags": [
+      "flipkart",
+      "myntra",
+      "cleartrip",
+      "cashback",
+      "shopping",
+      "preferred merchants",
+      "low fee"
+    ],
+    "exclusions": [
+      "fuel",
+      "rent",
+      "wallet load",
+      "education payments via third-party apps",
+      "online skill-based gaming",
+      "transactions excluded under Flipkart Axis Bank Credit Card cashback terms"
+    ],
+    "milestoneBenefits": [
+      "Annual fee waived on annual spends greater than Rs 3.5 lakh, excluding rent and wallet load transactions"
+    ],
+    "additionalBenefits": [
+      "Welcome benefits worth Rs 350 on eligible paid cards and first-time Swiggy user offer",
+      "7.5% cashback on Myntra spends, capped at Rs 4,000 per statement quarter",
+      "5% cashback on Flipkart spends, capped at Rs 4,000 per statement quarter",
+      "5% cashback on Cleartrip spends, capped at Rs 4,000 per statement quarter",
+      "Unlimited 4% cashback on preferred merchants",
+      "Unlimited 1% cashback on other eligible spends",
+      "1% fuel surcharge waiver on fuel transactions from Rs 400 to Rs 4,000, capped at Rs 400 per statement cycle",
+      "Dining Delights discounts at participating restaurants"
+    ],
+    "redemption": {
+      "statementBalanceValue": 1,
+      "pointsExpiryYears": null
+    },
+    "eligibility": {
+      "salaried": [
+        "Primary cardholder should be between 18 and 70 years and resident of India"
+      ],
+      "selfEmployed": [
+        "Primary cardholder should be between 18 and 70 years and resident of India"
+      ]
+    },
+    "sourceUrl": "https://www.axisbank.com/retail/cards/credit-card/flipkart-axisbank-credit-card",
+    "applyUrl": "https://www.axisbank.com/retail/cards/credit-card/flipkart-axisbank-credit-card",
+    "lastVerified": "2026-05-10",
+    "verificationStatus": "official-direct"
   }
 ]
