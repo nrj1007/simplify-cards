@@ -3049,5 +3049,84 @@
     "applyUrl": "https://www.sbicard.com/en/personal/sbi-credit-card.page",
     "lastVerified": "2026-05-09",
     "verificationStatus": "official-mixed"
+  },
+  {
+    "id": "krisflyer-sbi",
+    "issuer": "SBI Card",
+    "name": "KrisFlyer SBI Card",
+    "network": [
+      "Mastercard",
+      "American Express"
+    ],
+    "joiningFee": 2999,
+    "annualFee": 2999,
+    "feeWaiverSpend": null,
+    "bestFor": [
+      "singapore airlines",
+      "international travel",
+      "travel",
+      "lounge"
+    ],
+    "rewardType": "KrisFlyer Miles",
+    "rewards": [
+      {
+        "category": "travel",
+        "rate": 6,
+        "capMonthly": null
+      },
+      {
+        "category": "travel",
+        "rate": 4,
+        "capMonthly": null
+      },
+      {
+        "category": "offline",
+        "rate": 2,
+        "capMonthly": null
+      }
+    ],
+    "loungeDomestic": 4,
+    "loungeInternational": 4,
+    "forexMarkup": 3.5,
+    "tags": [
+      "krisflyer",
+      "singapore airlines",
+      "travel",
+      "international",
+      "lounge",
+      "air miles"
+    ],
+    "exclusions": [
+      "fuel",
+      "rent",
+      "utilities",
+      "government payments",
+      "wallet loading",
+      "cash advance",
+      "transactions excluded under KrisFlyer SBI Card terms"
+    ],
+    "milestoneBenefits": [
+      "4,000 bonus KrisFlyer Miles on annual spends of Rs 3 lakh",
+      "4,000 bonus KrisFlyer Miles on annual spends of Rs 6 lakh"
+    ],
+    "additionalBenefits": [
+      "3,000 KrisFlyer Miles as welcome benefit after joining fee payment and first transaction within 60 days",
+      "6 KrisFlyer Miles per Rs 200 on Singapore Airlines Group spends",
+      "4 KrisFlyer Miles per Rs 200 on eligible international spends",
+      "2 KrisFlyer Miles per Rs 200 on other eligible spends",
+      "KrisFlyer Miles are credited to the linked KrisFlyer account after the statement cycle",
+      "4 complimentary domestic airport lounge visits per year",
+      "4 complimentary international airport lounge visits per year",
+      "Complimentary Priority Pass membership for the first 2 card membership years",
+      "1% fuel surcharge waiver on eligible fuel spends"
+    ],
+    "redemption": {
+      "statementBalanceValue": null,
+      "pointsExpiryYears": 2
+    },
+    "sourceUrl": "https://www.sbicard.com/en/personal/credit-cards/krisflyer-sbi-card.html",
+    "applyUrl": "https://www.sbicard.com/en/personal/credit-cards/krisflyer-sbi-card.html",
+    "lastVerified": "2026-05-09",
+    "verificationStatus": "official-mixed"
   }
 ]
