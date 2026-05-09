@@ -3128,5 +3128,88 @@
     "applyUrl": "https://www.sbicard.com/en/personal/credit-cards/krisflyer-sbi-card.html",
     "lastVerified": "2026-05-09",
     "verificationStatus": "official-mixed"
+  },
+  {
+    "id": "krisflyer-sbi-apex",
+    "issuer": "SBI Card",
+    "name": "KrisFlyer SBI Card Apex",
+    "network": [
+      "Mastercard",
+      "American Express"
+    ],
+    "joiningFee": 9999,
+    "annualFee": 9999,
+    "feeWaiverSpend": null,
+    "bestFor": [
+      "singapore airlines",
+      "international travel",
+      "travel",
+      "lounge",
+      "premium"
+    ],
+    "rewardType": "KrisFlyer Miles",
+    "rewards": [
+      {
+        "category": "travel",
+        "rate": 10,
+        "capMonthly": null
+      },
+      {
+        "category": "travel",
+        "rate": 8,
+        "capMonthly": null
+      },
+      {
+        "category": "offline",
+        "rate": 6,
+        "capMonthly": null
+      }
+    ],
+    "loungeDomestic": 8,
+    "loungeInternational": 8,
+    "forexMarkup": 3.5,
+    "tags": [
+      "krisflyer",
+      "singapore airlines",
+      "travel",
+      "international",
+      "lounge",
+      "premium",
+      "air miles"
+    ],
+    "exclusions": [
+      "fuel",
+      "rent",
+      "utilities",
+      "government payments",
+      "wallet loading",
+      "cash advance",
+      "transactions excluded under KrisFlyer SBI Card Apex terms"
+    ],
+    "milestoneBenefits": [
+      "KrisFlyer Elite Gold upgrade on eligible Singapore Airlines Group spends of Rs 7.5 lakh",
+      "Bonus KrisFlyer Miles on eligible annual spend milestones, subject to product terms"
+    ],
+    "additionalBenefits": [
+      "10,000 KrisFlyer Miles as welcome benefit after joining fee payment and first transaction within 60 days",
+      "10 KrisFlyer Miles per Rs 200 on Singapore Airlines Group spends",
+      "8 KrisFlyer Miles per Rs 200 on eligible international spends",
+      "6 KrisFlyer Miles per Rs 200 on other eligible spends",
+      "KrisFlyer Miles are credited to the linked KrisFlyer account after the statement cycle",
+      "8 complimentary domestic airport lounge visits per year, capped at 2 per quarter",
+      "8 complimentary international airport lounge visits per year, capped at 2 per quarter",
+      "Complimentary Priority Pass membership for the first 2 card membership years",
+      "Baggage delay cover up to Rs 1 lakh",
+      "Fraud loss cover up to Rs 10 lakh",
+      "1% fuel surcharge waiver on eligible fuel spends"
+    ],
+    "redemption": {
+      "statementBalanceValue": null,
+      "pointsExpiryYears": 2
+    },
+    "sourceUrl": "https://www.sbicard.com/sbi-card-en/assets/docs/pdf/tnc/krisFlyer-sbi-card-apex-tnc.pdf",
+    "applyUrl": "https://www.sbicard.com/en/sprint-change-card.page",
+    "lastVerified": "2026-05-09",
+    "verificationStatus": "official-mixed"
   }
 ]
