@@ -2548,5 +2548,88 @@
     "applyUrl": "https://www.sbicard.com/en/personal/sbi-credit-card.page",
     "lastVerified": "2026-05-09",
     "verificationStatus": "official-mixed"
+  },
+  {
+    "id": "tata-neu-plus-sbi",
+    "issuer": "SBI Card",
+    "name": "Tata Neu Plus SBI Card",
+    "network": [
+      "Visa",
+      "RuPay"
+    ],
+    "joiningFee": 499,
+    "annualFee": 499,
+    "feeWaiverSpend": 100000,
+    "bestFor": [
+      "tata neu",
+      "tata brands",
+      "upi",
+      "domestic lounge"
+    ],
+    "rewardType": "NeuCoins",
+    "rewards": [
+      {
+        "category": "tata neu",
+        "rate": 7,
+        "capMonthly": null
+      },
+      {
+        "category": "tata brands",
+        "rate": 2,
+        "capMonthly": null
+      },
+      {
+        "category": "upi",
+        "rate": 1,
+        "capMonthly": 500
+      },
+      {
+        "category": "offline",
+        "rate": 1,
+        "capMonthly": null
+      }
+    ],
+    "loungeDomestic": 4,
+    "loungeInternational": 0,
+    "forexMarkup": 3.5,
+    "tags": [
+      "tata neu",
+      "neucoins",
+      "rupay",
+      "upi",
+      "lounge",
+      "shopping"
+    ],
+    "exclusions": [
+      "fuel spends",
+      "wallet loads",
+      "rental payments",
+      "gift card loads",
+      "prepaid card loads",
+      "voucher purchases",
+      "transactions excluded under Tata Neu Plus SBI Card terms"
+    ],
+    "milestoneBenefits": [
+      "Annual fee reversal on annual spends of Rs 1 lakh or more",
+      "4 complimentary domestic lounge accesses per year, 1 per quarter, subject to Rs 50,000 spend in previous quarter"
+    ],
+    "additionalBenefits": [
+      "499 NeuCoins as welcome benefit on realization of joining fee",
+      "2% value back as NeuCoins on Tata Neu App/Website and partner Tata Brands",
+      "Extra 5% value back as NeuCoins on select category spends on Tata Neu App/Website",
+      "1% value back as NeuCoins on other spends including eligible UPI transactions on RuPay variant",
+      "UPI NeuCoins capped at 500 NeuCoins per statement cycle",
+      "1 NeuCoin equals Re 1 savings",
+      "NeuCoins are posted to the cardholder's NeuPass account",
+      "1% fuel surcharge waiver on transactions from Rs 500 to Rs 4,000, capped at Rs 250 per statement cycle"
+    ],
+    "redemption": {
+      "statementBalanceValue": 1,
+      "pointsExpiryYears": 1
+    },
+    "sourceUrl": "https://www.sbicard.com/en/personal/credit-cards/tata-neu-plus-sbi-card.html",
+    "applyUrl": "https://www.sbicard.com/en/personal/credit-cards/tata-neu-plus-sbi-card.html",
+    "lastVerified": "2026-05-09",
+    "verificationStatus": "official-mixed"
   }
 ]
