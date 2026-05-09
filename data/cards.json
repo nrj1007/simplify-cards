@@ -2964,5 +2964,90 @@
     "applyUrl": "https://www.sbicard.com/en/personal/credit-cards/indigo-sbi-card.html",
     "lastVerified": "2026-05-09",
     "verificationStatus": "official-mixed"
+  },
+  {
+    "id": "indigo-sbi-elite",
+    "issuer": "SBI Card",
+    "name": "IndiGo SBI Card ELITE",
+    "network": [
+      "Mastercard"
+    ],
+    "joiningFee": 4999,
+    "annualFee": 4999,
+    "feeWaiverSpend": null,
+    "bestFor": [
+      "indigo",
+      "flights",
+      "travel",
+      "lounge",
+      "forex"
+    ],
+    "rewardType": "IndiGo BluChips",
+    "rewards": [
+      {
+        "category": "travel",
+        "rate": 7,
+        "capMonthly": null
+      },
+      {
+        "category": "hotels",
+        "rate": 3,
+        "capMonthly": null
+      },
+      {
+        "category": "offline",
+        "rate": 2,
+        "capMonthly": null
+      }
+    ],
+    "loungeDomestic": 8,
+    "loungeInternational": 6,
+    "forexMarkup": 1.99,
+    "tags": [
+      "indigo",
+      "flights",
+      "travel",
+      "lounge",
+      "forex",
+      "bluchips"
+    ],
+    "exclusions": [
+      "fuel",
+      "wallet loading",
+      "rent",
+      "cash advance",
+      "balance transfer",
+      "merchant EMI",
+      "transactions excluded under IndiGo SBI Card ELITE terms"
+    ],
+    "milestoneBenefits": [
+      "6,000 IndiGo BluChips on annual spends of Rs 3 lakh",
+      "6,000 IndiGo BluChips on annual spends of Rs 6 lakh",
+      "6,000 IndiGo BluChips on annual spends of Rs 9 lakh",
+      "6,000 IndiGo BluChips on annual spends of Rs 12 lakh",
+      "5,000 IndiGo BluChips and 1 6E Eats voucher as renewal benefit after annual fee payment"
+    ],
+    "additionalBenefits": [
+      "5,000 IndiGo BluChips and 1 6E Eats voucher as welcome benefit after annual fee payment and first transaction within 60 days",
+      "4 6E Prime passes on spending Rs 1 lakh within 90 days of account opening",
+      "7 IndiGo BluChips per Rs 100 on IndiGo app and website spends",
+      "3 IndiGo BluChips per Rs 100 on hotel, lodging and select travel MCC spends",
+      "2 IndiGo BluChips per Rs 100 on other eligible spends",
+      "IndiGo BluChips can be redeemed on IndiGo website or app against IndiGo flights and other eligible activities",
+      "8 complimentary domestic airport lounge visits per year, capped at 2 per quarter, subject to Rs 1 lakh spend in the previous quarter",
+      "6 complimentary international lounge visits per year, capped at 2 per quarter",
+      "4 flight cancellation covers per year, worth up to Rs 3,000 each",
+      "Lost card liability cover up to Rs 1 lakh",
+      "Check-in baggage loss cover up to Rs 72,000",
+      "1% fuel surcharge waiver on eligible fuel spends from Rs 500 to Rs 4,000, capped at Rs 400 per month"
+    ],
+    "redemption": {
+      "statementBalanceValue": 1,
+      "pointsExpiryYears": 2
+    },
+    "sourceUrl": "https://www.sbicard.com/en/personal/sbi-credit-card.page",
+    "applyUrl": "https://www.sbicard.com/en/personal/sbi-credit-card.page",
+    "lastVerified": "2026-05-09",
+    "verificationStatus": "official-mixed"
   }
 ]
