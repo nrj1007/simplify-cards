@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ExternalLink } from "lucide-react";
 import type { CardScore, CreditCard } from "@/lib/types";
+import VerificationBadge from "./VerificationBadge";
 
 type Props = {
   card?: CreditCard;
@@ -18,7 +19,10 @@ export default function CardTile({ card, score }: Props) {
   return (
     <article className="panel card">
       <div>
-        <div className="meta">{resolvedCard.issuer}</div>
+        <div className="meta">
+          <span>{resolvedCard.issuer}</span>
+          <VerificationBadge status={resolvedCard.verificationStatus} />
+        </div>
         <h3>{resolvedCard.name}</h3>
       </div>
       <div className="meta">

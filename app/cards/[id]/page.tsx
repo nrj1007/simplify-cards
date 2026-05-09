@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import { ExternalLink } from "lucide-react";
 import { cards, getCardById } from "@/lib/cards";
 import type { CreditCard, Redemption } from "@/lib/types";
+import VerificationBadge, { getVerificationMeta } from "@/app/ui/VerificationBadge";
 
 type Props = {
   params: Promise<{ id: string }>;
@@ -67,13 +68,17 @@ export default async function CardPage({ params }: Props) {
   const card = getCardById(id);
   if (!card) notFound();
   const redemptions = redemptionRows(card.redemption);
+  const verification = getVerificationMeta(card.verificationStatus);
 
   return (
     <section className="section">
       <div className="page-title">
         <p>{card.issuer}</p>
         <h1>{card.name}</h1>
-        <p>Last verified: {card.lastVerified}. Always check final terms on the issuer page before applying.</p>
+        <div className="page-title-meta">
+          <VerificationBadge status={card.verificationStatus} />
+          <span>Last verified: {card.lastVerified}</span>
+        </div>
       </div>
 
       <div className="detail-layout">
@@ -190,7 +195,8 @@ export default async function CardPage({ params }: Props) {
 
           <div className="notice">
             Disclosure: this product may earn commission from some links. Recommendations should stay based on card fit,
-            not payout. Final terms are subject to the issuer's latest policies.
+            not payout. Final terms are subject to the issuer's latest policies. Verification status:{" "}
+            {verification.label.toLowerCase()}.
           </div>
 
           <div className="actions">
@@ -206,15 +212,12 @@ export default async function CardPage({ params }: Props) {
         <aside className="detail-aside">
           <div className="ad-slot">Ad slot: card detail page</div>
           <div className="panel card">
-            <h2>Source</h2>
+            <h2>Trust & Source</h2>
+            <VerificationBadge status={card.verificationStatus} lastVerified={card.lastVerified} variant="full" />
             <div className="info-grid">
               <div className="info-row">
                 <span>Issuer</span>
                 <strong>{card.issuer}</strong>
-              </div>
-              <div className="info-row">
-                <span>Last verified</span>
-                <strong>{card.lastVerified}</strong>
               </div>
               <div className="info-row">
                 <span>Reward type</span>
