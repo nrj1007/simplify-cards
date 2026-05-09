@@ -64,6 +64,7 @@ const allowedRewardCategories = new Set([
   "tata brands",
   "tata neu",
   "travel",
+  "travel credits",
   "upi",
   "utilities",
   "utility bills"

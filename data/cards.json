@@ -2302,5 +2302,78 @@
     "applyUrl": "https://www.sbicard.com/en/personal/credit-cards/lifestyle/sbi-card-pulse-sprint.page",
     "lastVerified": "2026-05-09",
     "verificationStatus": "official-direct"
+  },
+  {
+    "id": "sbi-card-miles",
+    "issuer": "SBI Card",
+    "name": "SBI Card MILES",
+    "network": [
+      "Visa"
+    ],
+    "joiningFee": 1499,
+    "annualFee": 1499,
+    "feeWaiverSpend": 600000,
+    "bestFor": [
+      "travel",
+      "air miles",
+      "hotel points",
+      "domestic lounge"
+    ],
+    "rewardType": "Travel Credits",
+    "rewards": [
+      {
+        "category": "travel credits",
+        "rate": 1,
+        "capMonthly": null
+      },
+      {
+        "category": "offline",
+        "rate": 0.5,
+        "capMonthly": null
+      }
+    ],
+    "loungeDomestic": 12,
+    "loungeInternational": 0,
+    "forexMarkup": 3,
+    "tags": [
+      "travel",
+      "miles",
+      "airlines",
+      "hotels",
+      "lounge"
+    ],
+    "exclusions": [
+      "fuel",
+      "cash advance",
+      "balance transfer",
+      "wallet loading",
+      "transactions excluded under SBI Card reward terms"
+    ],
+    "milestoneBenefits": [
+      "1 additional domestic lounge visit on every Rs 1 lakh spend, up to 8 additional visits per year",
+      "5,000 bonus Travel Credits on annual spends of Rs 5 lakh",
+      "Annual fee reversal on annual spends of Rs 6 lakh"
+    ],
+    "additionalBenefits": [
+      "1,500 Travel Credits on spends of Rs 30,000 within 60 days of card issuance after joining fee payment",
+      "2 Travel Credits per Rs 200 spent on travel",
+      "1 Travel Credit per Rs 200 spent on other purchases",
+      "1 Travel Credit worth up to Rs 1 for air miles or hotel points conversion",
+      "1 Travel Credit worth Rs 0.50 for travel bookings",
+      "1 Travel Credit worth Rs 0.25 for Shop & Smile catalogue products",
+      "4 complimentary domestic lounge visits every year, capped at 2 visits per quarter",
+      "Complimentary Priority Pass membership worth USD 99 for first 2 years",
+      "1% fuel surcharge waiver on transactions from Rs 500 to Rs 4,000, capped at Rs 250 per month"
+    ],
+    "redemption": {
+      "statementBalanceValue": 0.25,
+      "smartBuyFlightHotelValue": 0.5,
+      "airMilesValue": 1,
+      "pointsExpiryYears": 2
+    },
+    "sourceUrl": "https://www.sbicard.com/en/personal/credit-cards/travel/sbi-card-miles.page",
+    "applyUrl": "https://www.sbicard.com/en/personal/credit-cards/travel/sbi-card-miles.page",
+    "lastVerified": "2026-05-09",
+    "verificationStatus": "official-mixed"
   }
 ]
