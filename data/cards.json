@@ -5136,5 +5136,94 @@
     "applyUrl": "https://www.axisbank.com/retail/cards/credit-card/airtel-axis-bank-credit-card",
     "lastVerified": "2026-05-10",
     "verificationStatus": "official-direct"
+  },
+  {
+    "id": "axis-ace",
+    "issuer": "Axis Bank",
+    "name": "Axis Bank ACE Credit Card",
+    "network": [
+      "Visa"
+    ],
+    "joiningFee": 499,
+    "annualFee": 499,
+    "feeWaiverSpend": 200000,
+    "bestFor": [
+      "cashback",
+      "utility bills",
+      "food delivery",
+      "ola",
+      "everyday spends"
+    ],
+    "rewardType": "cashback",
+    "rewards": [
+      {
+        "category": "utility bills",
+        "rate": 5,
+        "capMonthly": null
+      },
+      {
+        "category": "swiggy zomato",
+        "rate": 4,
+        "capMonthly": null
+      },
+      {
+        "category": "travel",
+        "rate": 4,
+        "capMonthly": null
+      },
+      {
+        "category": "offline",
+        "rate": 1.5,
+        "capMonthly": null
+      }
+    ],
+    "loungeDomestic": 4,
+    "loungeInternational": 0,
+    "forexMarkup": 3.5,
+    "tags": [
+      "cashback",
+      "google pay",
+      "utility bills",
+      "swiggy",
+      "zomato",
+      "ola",
+      "lounge",
+      "low fee"
+    ],
+    "exclusions": [
+      "fuel",
+      "rent",
+      "wallet load",
+      "education payments via third-party apps",
+      "online skill-based gaming",
+      "transactions excluded under Axis Bank ACE Credit Card cashback terms"
+    ],
+    "milestoneBenefits": [
+      "Annual fee waived on annual spends greater than Rs 2 lakh, excluding rent and wallet load transactions"
+    ],
+    "additionalBenefits": [
+      "5% cashback on utility bill payments and recharges on Google Pay",
+      "4% cashback on Swiggy, Zomato and Ola",
+      "1.5% cashback on other eligible spends",
+      "4 complimentary domestic airport lounge visits at select airports",
+      "1% fuel surcharge waiver on eligible fuel transactions",
+      "Dining Delights discounts at participating restaurants"
+    ],
+    "redemption": {
+      "statementBalanceValue": 1,
+      "pointsExpiryYears": null
+    },
+    "eligibility": {
+      "salaried": [
+        "Primary cardholder should be between 18 and 70 years and resident of India"
+      ],
+      "selfEmployed": [
+        "Primary cardholder should be between 18 and 70 years and resident of India"
+      ]
+    },
+    "sourceUrl": "https://www.axisbank.com/retail/cards/credit-card/axis-bank-ace-credit-card/fees-and-charges",
+    "applyUrl": "https://www.axisbank.com/retail/cards/credit-card/axis-bank-ace-credit-card",
+    "lastVerified": "2026-05-10",
+    "verificationStatus": "official-direct"
   }
 ]
