@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "validate:cards": "tsc --module commonjs --target es2020 --esModuleInterop --resolveJsonModule --skipLibCheck --outDir .tmp scripts/validate-cards.ts && node .tmp/validate-cards.js"
   },
   "dependencies": {
     "next": "16.2.6",
