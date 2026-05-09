@@ -35,6 +35,7 @@ const allowedRewardCategories = new Set([
   "dining movies grocery",
   "entertainment",
   "fuel",
+  "grocery dining movies",
   "flipkart",
   "grocery",
   "groceries",

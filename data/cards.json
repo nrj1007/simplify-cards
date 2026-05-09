@@ -2062,5 +2062,86 @@
     "applyUrl": "https://www.sbicard.com/en/personal/credit-cards/shopping/simplysave-sbi-card-sprint.page",
     "lastVerified": "2026-05-09",
     "verificationStatus": "official-direct"
+  },
+  {
+    "id": "sbi-card-prime",
+    "issuer": "SBI Card",
+    "name": "SBI Card PRIME",
+    "network": [
+      "Visa",
+      "Mastercard",
+      "American Express"
+    ],
+    "joiningFee": 2999,
+    "annualFee": 2999,
+    "feeWaiverSpend": 300000,
+    "bestFor": [
+      "utility bills",
+      "grocery",
+      "dining",
+      "movies",
+      "lounge"
+    ],
+    "rewardType": "reward points",
+    "rewards": [
+      {
+        "category": "utility bills",
+        "rate": 5,
+        "capMonthly": null
+      },
+      {
+        "category": "grocery dining movies",
+        "rate": 2.5,
+        "capMonthly": null
+      },
+      {
+        "category": "offline",
+        "rate": 0.5,
+        "capMonthly": null
+      }
+    ],
+    "loungeDomestic": 8,
+    "loungeInternational": 4,
+    "forexMarkup": 3.5,
+    "tags": [
+      "premium",
+      "lounge",
+      "grocery",
+      "dining",
+      "movies",
+      "utilities"
+    ],
+    "exclusions": [
+      "fuel",
+      "cash advance",
+      "balance transfer",
+      "wallet loading",
+      "transactions excluded under SBI Card reward terms"
+    ],
+    "milestoneBenefits": [
+      "Pizza Hut e-Gift Voucher worth Rs 1,000 on quarterly spends of Rs 50,000",
+      "Renewal fee waived on annual spends of Rs 3 lakh",
+      "E-Gift Voucher worth Rs 7,000 from Yatra.com or Pantaloons on annual spends of Rs 5 lakh"
+    ],
+    "additionalBenefits": [
+      "Welcome e-Gift Voucher worth Rs 3,000 from select brands",
+      "20 Reward Points per Rs 100 spent on standing instructions for utility bill payments",
+      "10 Reward Points per Rs 100 spent on dining, groceries, departmental stores and movies",
+      "2 Reward Points per Rs 100 spent on other retail purchases",
+      "4 Reward Points equal Rs 1",
+      "8 complimentary domestic lounge visits per year, capped at 2 per quarter",
+      "Complimentary Priority Pass membership with 4 international lounge visits per year, capped at 2 per quarter",
+      "1% fuel surcharge waiver on transactions from Rs 500 to Rs 4,000, capped at Rs 250 per statement cycle"
+    ],
+    "redemption": {
+      "statementBalanceValue": 0.25,
+      "minimumPointsForStatementCredit": 4000,
+      "pointsExpiryYears": 2,
+      "redemptionFee": 99
+    },
+    "sourceUrl": "https://www.sbicard.com/en/eapply/sbicampaign.page",
+    "applyUrl": "https://www.sbicard.com/en/personal/credit-cards/sbi-card-prime.html",
+    "lastVerified": "2026-05-09",
+    "verificationStatus": "official-mixed"
   }
 ]

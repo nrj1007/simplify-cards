@@ -29,11 +29,11 @@ const spendAliases: Record<SpendCategory, string[]> = {
   offline: ["offline", "retail"],
   travel: ["travel", "smartbuy flights", "smartbuy hotels", "smartbuy train", "irctc", "airlines", "hotel", "hotels", "marriott", "cleartrip"],
   fuel: ["fuel"],
-  dining: ["dining", "swiggy zomato", "dining movies grocery"],
-  grocery: ["grocery", "groceries", "bigbasket", "dining movies grocery"],
+  dining: ["dining", "swiggy zomato", "dining movies grocery", "grocery dining movies"],
+  grocery: ["grocery", "groceries", "bigbasket", "dining movies grocery", "grocery dining movies"],
   amazon: ["amazon"],
   upi: ["upi"],
-  utilities: ["utilities", "phonepe"]
+  utilities: ["utilities", "phonepe", "utility bills"]
 };
 
 function normalizeText(value = "") {
