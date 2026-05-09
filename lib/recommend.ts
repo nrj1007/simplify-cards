@@ -14,9 +14,19 @@ const defaultSpend: SpendProfile = {
 };
 
 const spendAliases: Record<SpendCategory, string[]> = {
-  online: ["online", "smartbuy", "selected packs", "select merchants", "select lifestyle brands", "payzapp"],
+  online: [
+    "online",
+    "smartbuy",
+    "selected packs",
+    "select merchants",
+    "select lifestyle brands",
+    "payzapp",
+    "flipkart",
+    "myntra",
+    "partner merchants"
+  ],
   offline: ["offline", "retail"],
-  travel: ["travel", "smartbuy flights", "smartbuy hotels", "smartbuy train", "irctc", "airlines", "hotel", "hotels", "marriott"],
+  travel: ["travel", "smartbuy flights", "smartbuy hotels", "smartbuy train", "irctc", "airlines", "hotel", "hotels", "marriott", "cleartrip"],
   fuel: ["fuel"],
   dining: ["dining", "swiggy zomato"],
   grocery: ["grocery", "groceries", "bigbasket"],

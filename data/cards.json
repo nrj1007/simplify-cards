@@ -1199,5 +1199,49 @@
     "sourceUrl": "https://www.hdfc.bank.in/credit-cards/pixel-go-credit-card",
     "applyUrl": "https://www.hdfc.bank.in/credit-cards/pixel-go-credit-card",
     "lastVerified": "2026-05-09"
+  },
+  {
+    "id": "flipkart-sbi",
+    "issuer": "SBI Card",
+    "name": "Flipkart SBI Card",
+    "network": ["Visa"],
+    "joiningFee": 500,
+    "annualFee": 500,
+    "feeWaiverSpend": 350000,
+    "bestFor": ["flipkart", "myntra", "cleartrip", "online shopping"],
+    "rewardType": "cashback",
+    "rewards": [
+      { "category": "myntra", "rate": 7.5, "capMonthly": 1333 },
+      { "category": "flipkart", "rate": 5, "capMonthly": 1333 },
+      { "category": "cleartrip", "rate": 5, "capMonthly": 1333 },
+      { "category": "partner merchants", "rate": 4, "capMonthly": 1333 },
+      { "category": "offline", "rate": 1, "capMonthly": null }
+    ],
+    "loungeDomestic": 0,
+    "loungeInternational": 0,
+    "forexMarkup": 3.5,
+    "tags": ["flipkart", "myntra", "cleartrip", "cashback", "online", "shopping"],
+    "exclusions": [
+      "fuel spends",
+      "cash withdrawals",
+      "balance transfers",
+      "fees and charges",
+      "transactions excluded under SBI Card terms"
+    ],
+    "milestoneBenefits": [
+      "Renewal fee reversal on annual spends of Rs 3.5 lakh in the preceding year"
+    ],
+    "additionalBenefits": [
+      "Earn up to 7.5% cashback on Flipkart, Myntra and Cleartrip",
+      "Rs 250 Flipkart Gift Card on fee realisation",
+      "1% fuel surcharge waiver up to Rs 400 per statement cycle",
+      "Cashback is designed for Flipkart, Myntra, Cleartrip and selected partner merchant spends"
+    ],
+    "redemption": {
+      "statementBalanceValue": 1
+    },
+    "sourceUrl": "https://www.sbicard.com/en/personal/sbi-credit-card.page",
+    "applyUrl": "https://www.sbicard.com/en/personal/sbi-credit-card.page",
+    "lastVerified": "2026-05-09"
   }
 ]
