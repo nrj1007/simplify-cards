@@ -8,7 +8,9 @@ type ApiResult = {
   cards: Array<{
     card: { id: string; name: string; issuer: string; annualFee: number };
     estimatedAnnualRewards: number;
+    estimatedAnnualFee: number;
     estimatedNetValue: number;
+    fitScore: number;
     reasons: string[];
   }>;
 };
@@ -45,10 +47,11 @@ export default function AskBox() {
             <div className="panel card result-card" key={item.card.id}>
               <strong>{item.card.name}</strong>
               <span className="muted">
-                {item.card.issuer} · Rs {item.card.annualFee} annual fee · Rs{" "}
-                {item.estimatedAnnualRewards.toLocaleString("en-IN")} estimated annual rewards
+                {item.card.issuer} · Rs {item.estimatedAnnualRewards.toLocaleString("en-IN")} rewards · Rs{" "}
+                {item.estimatedAnnualFee.toLocaleString("en-IN")} effective fee · Rs{" "}
+                {item.estimatedNetValue.toLocaleString("en-IN")} net value
               </span>
-              <span className="muted">{item.reasons.slice(0, 2).join(" · ")}</span>
+              <span className="muted">{item.reasons.slice(0, 3).join(" · ")}</span>
             </div>
           ))}
         </div>

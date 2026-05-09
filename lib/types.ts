@@ -5,7 +5,9 @@ export type SpendCategory =
   | "fuel"
   | "dining"
   | "grocery"
-  | "amazon";
+  | "amazon"
+  | "upi"
+  | "utilities";
 
 export type Reward = {
   category: SpendCategory | string;
@@ -64,8 +66,18 @@ export type RecommendationInput = {
 
 export type CardScore = {
   card: CreditCard;
+  annualSpend: number;
   estimatedAnnualRewards: number;
+  estimatedAnnualFee: number;
   estimatedNetValue: number;
+  fitScore: number;
   matchedTags: string[];
   reasons: string[];
+  rewardBreakdown: Array<{
+    spendCategory: SpendCategory;
+    monthlySpend: number;
+    rewardCategory: string;
+    monthlyReward: number;
+    annualReward: number;
+  }>;
 };
