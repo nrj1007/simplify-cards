@@ -6504,5 +6504,81 @@
     "applyUrl": "https://www.axis.bank.in/cards/credit-card/axis-bank-aura-credit-card",
     "lastVerified": "2026-05-10",
     "verificationStatus": "official-direct"
+  },
+  {
+    "id": "axis-freecharge",
+    "issuer": "Axis Bank",
+    "name": "Axis Bank Freecharge Credit Card",
+    "network": [
+      "Visa"
+    ],
+    "joiningFee": 250,
+    "annualFee": 250,
+    "feeWaiverSpend": null,
+    "bestFor": [
+      "freecharge",
+      "low fee",
+      "online",
+      "monthly milestones",
+      "edge rewards"
+    ],
+    "rewardType": "edge reward points",
+    "rewards": [
+      {
+        "category": "offline",
+        "rate": 0.1,
+        "capMonthly": null
+      }
+    ],
+    "loungeDomestic": 0,
+    "loungeInternational": 0,
+    "forexMarkup": 3.5,
+    "tags": [
+      "freecharge",
+      "virtual card",
+      "low fee",
+      "monthly milestones",
+      "edge rewards",
+      "myntra",
+      "freshmenu"
+    ],
+    "exclusions": [
+      "rent",
+      "wallet load",
+      "fuel",
+      "education payments via third-party apps",
+      "utilities above fee threshold",
+      "online skill-based gaming above fee threshold",
+      "transactions excluded under Axis Bank Freecharge Credit Card terms"
+    ],
+    "milestoneBenefits": [
+      "100 EDGE REWARD Points on monthly spends from Rs 2,000 to Rs 4,999",
+      "350 EDGE REWARD Points on monthly spends above Rs 5,000"
+    ],
+    "additionalBenefits": [
+      "Virtual card can be issued instantly on the Freecharge app",
+      "1 EDGE REWARD Point per Rs 200 spent",
+      "Bonus EDGE REWARD Points on crossing monthly thresholds of Rs 2,000 and Rs 5,000",
+      "Up to 10% off on Myntra as per product offers",
+      "Up to Rs 100 credit on Shuttl every month as per product offers",
+      "Save up to Rs 120 on FreshMenu every month as per product offers",
+      "50% discount on Eros Now annual subscription as per product offers"
+    ],
+    "redemption": {
+      "statementBalanceValue": 0.2,
+      "pointsExpiryYears": 3
+    },
+    "eligibility": {
+      "salaried": [
+        "Eligibility is subject to Axis Bank approval criteria"
+      ],
+      "selfEmployed": [
+        "Eligibility is subject to Axis Bank approval criteria"
+      ]
+    },
+    "sourceUrl": "https://www.axisbank.com/retail/cards/credit-card/axis-bank-freecharge-credit-card/fees-charges",
+    "applyUrl": "https://www.axisbank.com/retail/cards/credit-card/axis-bank-freecharge-credit-card/features-benefits",
+    "lastVerified": "2026-05-10",
+    "verificationStatus": "official-mixed"
   }
 ]
