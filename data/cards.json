@@ -921,5 +921,69 @@
     "sourceUrl": "https://www.hdfc.bank.in/credit-cards/tata-neu-infinity-hdfc-bank-credit-card",
     "applyUrl": "https://www.hdfc.bank.in/credit-cards/tata-neu-infinity-hdfc-bank-credit-card",
     "lastVerified": "2026-05-09"
+  },
+  {
+    "id": "hdfc-shoppers-stop-black",
+    "issuer": "HDFC Bank",
+    "name": "Shoppers Stop BLACK HDFC Bank Credit Card",
+    "network": ["Visa"],
+    "joiningFee": 4500,
+    "annualFee": 4500,
+    "feeWaiverSpend": null,
+    "bestFor": ["shoppers stop", "shopping", "premium lifestyle", "lounge"],
+    "rewardType": "reward points",
+    "rewards": [
+      { "category": "shoppers stop", "rate": 7, "capMonthly": 2000 },
+      { "category": "offline", "rate": 2, "capMonthly": null }
+    ],
+    "loungeDomestic": 16,
+    "loungeInternational": 8,
+    "forexMarkup": 3.5,
+    "tags": ["shoppers stop", "shopping", "premium", "lounge", "lifestyle"],
+    "exclusions": [
+      "grocery reward accrual capped at 1,000 points per month",
+      "rental payments",
+      "government category payments",
+      "international DCC transactions carry 1% markup"
+    ],
+    "milestoneBenefits": [
+      "Reward Points worth Rs 2,000 per month for a purchase of Rs 50,000 or above on Shoppers Stop on weekends"
+    ],
+    "additionalBenefits": [
+      "Shoppers Stop voucher worth Rs 1,500 as welcome benefit on any transaction at Shoppers Stop",
+      "7% Reward Points on every Shoppers Stop purchase",
+      "2% Reward Points on every non-Shoppers Stop purchase",
+      "Complimentary Shoppers Stop Black membership worth Rs 4,500",
+      "16 domestic lounge accesses, 4 per quarter, per calendar year",
+      "8 international lounge accesses, 2 per quarter, per calendar year",
+      "1% fuel surcharge waiver",
+      "Accidental air death cover worth Rs 3 crore",
+      "Emergency overseas hospitalization cover up to Rs 50 lakh",
+      "Credit liability cover up to Rs 9 lakh",
+      "SmartEMI conversion after purchase",
+      "Contactless payments enabled",
+      "Simple card management via HDFC Bank MyCards"
+    ],
+    "redemption": {
+      "statementBalanceValue": 0.2,
+      "smartBuyFlightHotelValue": 0.5,
+      "airMilesValue": 0.5,
+      "pointsExpiryYears": 2
+    },
+    "eligibility": {
+      "salaried": [
+        "Indian national",
+        "Age 21 to 60 years",
+        "Monthly income Rs 70,000"
+      ],
+      "selfEmployed": [
+        "Indian national",
+        "Age 21 to 65 years",
+        "Annual income greater than Rs 8.4 lakh"
+      ]
+    },
+    "sourceUrl": "https://www.hdfc.bank.in/credit-cards/shoppers-stop-black-credit-card",
+    "applyUrl": "https://www.hdfc.bank.in/credit-cards/shoppers-stop-black-credit-card",
+    "lastVerified": "2026-05-09"
   }
 ]
