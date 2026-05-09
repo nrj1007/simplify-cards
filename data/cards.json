@@ -5656,5 +5656,100 @@
     "applyUrl": "https://www.axisbank.com/retail/cards/credit-card/privilege-credit-card-with-unlimited-benefits",
     "lastVerified": "2026-05-10",
     "verificationStatus": "official-direct"
+  },
+  {
+    "id": "axis-magnus",
+    "issuer": "Axis Bank",
+    "name": "AXIS BANK MAGNUS Credit Card",
+    "network": [
+      "Visa"
+    ],
+    "joiningFee": 12500,
+    "annualFee": 12500,
+    "feeWaiverSpend": 2500000,
+    "bestFor": [
+      "travel",
+      "lounge",
+      "premium",
+      "travel edge",
+      "high spends"
+    ],
+    "rewardType": "edge reward points",
+    "rewards": [
+      {
+        "category": "travel",
+        "rate": 6,
+        "capMonthly": 200000
+      },
+      {
+        "category": "offline",
+        "rate": 1.2,
+        "capMonthly": 150000
+      },
+      {
+        "category": "offline",
+        "rate": 3.5,
+        "capMonthly": null
+      }
+    ],
+    "loungeDomestic": "unlimited",
+    "loungeInternational": "unlimited",
+    "forexMarkup": 2,
+    "tags": [
+      "magnus",
+      "premium",
+      "travel",
+      "travel edge",
+      "lounge",
+      "priority pass",
+      "voucher",
+      "high spends"
+    ],
+    "exclusions": [
+      "fuel",
+      "rent",
+      "wallet",
+      "priority pass spends",
+      "emi transactions",
+      "government institutions",
+      "utilities",
+      "insurance",
+      "gold",
+      "jewellery",
+      "transactions excluded under Axis Bank Magnus Credit Card terms"
+    ],
+    "milestoneBenefits": [
+      "Annual fee waiver on spends of Rs 25 lakh in the preceding card anniversary year",
+      "For eligible older customers, historical waiver thresholds may differ as per Axis terms"
+    ],
+    "additionalBenefits": [
+      "Welcome voucher worth Rs 12,500 from eligible options such as Luxe, The Postcard Hotels or Yatra after card activation with first spend within 30 days",
+      "60 EDGE REWARD Points per Rs 200 spent on Travel EDGE portal up to cumulative transactions of Rs 2 lakh per month",
+      "35 EDGE REWARD Points per Rs 200 on Travel EDGE spends above cumulative transactions of Rs 2 lakh per month",
+      "12 EDGE REWARD Points per Rs 200 on cumulative monthly spends up to Rs 1.5 lakh",
+      "35 EDGE REWARD Points per Rs 200 on eligible incremental monthly spends above Rs 1.5 lakh, subject to product terms",
+      "Unlimited domestic and international lounge access, subject to applicable programme terms",
+      "Reduced forex markup of 2%",
+      "No cash withdrawal charges",
+      "Purchase protection up to Rs 2 lakh",
+      "Credit shield cover up to Rs 5 lakh",
+      "Travel inconvenience cover up to USD 500 for baggage and personal document loss or delay"
+    ],
+    "redemption": {
+      "statementBalanceValue": 0.2,
+      "pointsExpiryYears": 3
+    },
+    "eligibility": {
+      "salaried": [
+        "Eligibility is subject to Axis Bank approval criteria for premium credit cards"
+      ],
+      "selfEmployed": [
+        "Eligibility is subject to Axis Bank approval criteria for premium credit cards"
+      ]
+    },
+    "sourceUrl": "https://www.axisbank.com/retail/cards/credit-card/axis-bank-magnus-card/more-benefits",
+    "applyUrl": "https://www.axisbank.com/retail/cards/credit-card/axis-bank-magnus-card",
+    "lastVerified": "2026-05-10",
+    "verificationStatus": "official-mixed"
   }
 ]
