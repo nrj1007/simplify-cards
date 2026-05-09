@@ -985,5 +985,67 @@
     "sourceUrl": "https://www.hdfc.bank.in/credit-cards/shoppers-stop-black-credit-card",
     "applyUrl": "https://www.hdfc.bank.in/credit-cards/shoppers-stop-black-credit-card",
     "lastVerified": "2026-05-09"
+  },
+  {
+    "id": "hdfc-shoppers-stop",
+    "issuer": "HDFC Bank",
+    "name": "Shoppers Stop HDFC Bank Credit Card",
+    "network": ["Visa", "RuPay"],
+    "joiningFee": 299,
+    "annualFee": 299,
+    "feeWaiverSpend": null,
+    "bestFor": ["shoppers stop", "shopping", "entry level lifestyle", "upi"],
+    "rewardType": "reward points",
+    "rewards": [
+      { "category": "shoppers stop", "rate": 3, "capMonthly": 500 },
+      { "category": "offline", "rate": 1, "capMonthly": null }
+    ],
+    "loungeDomestic": 0,
+    "loungeInternational": 0,
+    "forexMarkup": 3.5,
+    "tags": ["shoppers stop", "shopping", "low fee", "lifestyle", "rupay", "upi"],
+    "exclusions": [
+      "grocery reward accrual capped at 1,000 points per month",
+      "rental payments",
+      "government category payments",
+      "international DCC transactions carry 1% markup"
+    ],
+    "milestoneBenefits": [
+      "Reward Points worth Rs 500 per month for a purchase of Rs 15,000 or above on weekends at Shoppers Stop"
+    ],
+    "additionalBenefits": [
+      "Rs 500 Shoppers Stop voucher as welcome benefit, redeemable on any transaction at Shoppers Stop store",
+      "3% Reward Points on every Shoppers Stop purchase",
+      "1% Reward Points on non-Shoppers Stop spends",
+      "Complimentary Shoppers Stop Silver Edge membership worth Rs 350",
+      "Link RuPay Credit Card to UPI for scan-and-pay transactions",
+      "1% fuel surcharge waiver",
+      "Up to 50 days interest-free credit period",
+      "SmartEMI conversion after purchase",
+      "Contactless payments enabled",
+      "Simple card management via HDFC Bank MyCards",
+      "Protection against fraudulent transactions when reported immediately"
+    ],
+    "redemption": {
+      "statementBalanceValue": 0.2,
+      "smartBuyFlightHotelValue": 0.2,
+      "airMilesValue": 0.25,
+      "pointsExpiryYears": 2
+    },
+    "eligibility": {
+      "salaried": [
+        "Indian national",
+        "Age 21 to 60 years",
+        "Monthly income Rs 20,000"
+      ],
+      "selfEmployed": [
+        "Indian national",
+        "Age 21 to 65 years",
+        "Annual ITR greater than Rs 6 lakh"
+      ]
+    },
+    "sourceUrl": "https://www.hdfc.bank.in/credit-cards/shoppers-stop-credit-card",
+    "applyUrl": "https://www.hdfc.bank.in/credit-cards/shoppers-stop-credit-card",
+    "lastVerified": "2026-05-09"
   }
 ]
