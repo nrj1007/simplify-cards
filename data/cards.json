@@ -5839,5 +5839,91 @@
     "applyUrl": "https://www.axisbank.com/retail/cards/credit-card/reserve-credit-card",
     "lastVerified": "2026-05-10",
     "verificationStatus": "official-mixed"
+  },
+  {
+    "id": "axis-cashback",
+    "issuer": "Axis Bank",
+    "name": "Cashback Credit Card",
+    "network": [
+      "Visa"
+    ],
+    "joiningFee": 1000,
+    "annualFee": 1000,
+    "feeWaiverSpend": 400000,
+    "bestFor": [
+      "cashback",
+      "online spends",
+      "retail",
+      "travel",
+      "utility bills"
+    ],
+    "rewardType": "cashback",
+    "rewards": [
+      {
+        "category": "online",
+        "rate": 7,
+        "capMonthly": null
+      },
+      {
+        "category": "retail",
+        "rate": 0.75,
+        "capMonthly": null
+      },
+      {
+        "category": "travel",
+        "rate": 0.75,
+        "capMonthly": null
+      },
+      {
+        "category": "utility bills",
+        "rate": 0.5,
+        "capMonthly": null
+      }
+    ],
+    "loungeDomestic": 0,
+    "loungeInternational": 0,
+    "forexMarkup": 3.5,
+    "tags": [
+      "cashback",
+      "online",
+      "retail",
+      "travel",
+      "utilities",
+      "fee waiver"
+    ],
+    "exclusions": [
+      "fuel",
+      "rent",
+      "wallet load",
+      "education payments via third-party apps",
+      "online skill-based gaming",
+      "transactions excluded under Cashback Credit Card terms"
+    ],
+    "milestoneBenefits": [
+      "Annual fee waived on spends of Rs 4 lakh or more"
+    ],
+    "additionalBenefits": [
+      "Up to 7% cashback on eligible online spends",
+      "0.75% cashback on eligible retail spends",
+      "0.75% cashback on eligible travel spends, both online and offline",
+      "0.5% cashback on eligible utility spends",
+      "Axis Dining Delights and Wednesday Delight offers may apply as per Axis Bank programme terms"
+    ],
+    "redemption": {
+      "statementBalanceValue": 1,
+      "pointsExpiryYears": null
+    },
+    "eligibility": {
+      "salaried": [
+        "Eligibility is subject to Axis Bank approval criteria"
+      ],
+      "selfEmployed": [
+        "Eligibility is subject to Axis Bank approval criteria"
+      ]
+    },
+    "sourceUrl": "https://www.axisbank.com/retail/cards/credit-card/my-choice-credit-card/features-benefits",
+    "applyUrl": "https://www.axis.bank.in/cards/credit-card/cashback-credit-card",
+    "lastVerified": "2026-05-10",
+    "verificationStatus": "official-catalogue"
   }
 ]
