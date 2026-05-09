@@ -4152,5 +4152,87 @@
     "applyUrl": "https://www.sbicard.com/en/personal/credit-cards/lifestyle/doctors-sbi-card.page",
     "lastVerified": "2026-05-09",
     "verificationStatus": "official-mixed"
+  },
+  {
+    "id": "shaurya-select-sbi",
+    "issuer": "SBI Card",
+    "name": "Shaurya Select SBI Card",
+    "network": [
+      "RuPay"
+    ],
+    "joiningFee": 0,
+    "annualFee": 1499,
+    "feeWaiverSpend": 150000,
+    "bestFor": [
+      "defence",
+      "csd",
+      "grocery",
+      "dining",
+      "lounge"
+    ],
+    "rewardType": "reward points",
+    "rewards": [
+      {
+        "category": "grocery",
+        "rate": 2.5,
+        "capMonthly": null
+      },
+      {
+        "category": "dining",
+        "rate": 2.5,
+        "capMonthly": null
+      },
+      {
+        "category": "offline",
+        "rate": 0.5,
+        "capMonthly": null
+      }
+    ],
+    "loungeDomestic": 4,
+    "loungeInternational": 0,
+    "forexMarkup": 3.5,
+    "tags": [
+      "defence",
+      "csd",
+      "rupay",
+      "grocery",
+      "dining",
+      "lounge"
+    ],
+    "exclusions": [
+      "fuel",
+      "cash withdrawal",
+      "balance transfer",
+      "transactions excluded under Shaurya Select SBI Card terms"
+    ],
+    "milestoneBenefits": [
+      "Pizza Hut e-gift voucher worth Rs 500 on quarterly spends of Rs 50,000",
+      "Yatra or Pantaloons e-gift voucher worth Rs 7,000 on annual spends of Rs 5 lakh",
+      "Renewal fee waiver on annual spends of Rs 1.5 lakh or more in the preceding year"
+    ],
+    "additionalBenefits": [
+      "First-year fee waived for eligible defence personnel, subject to product terms",
+      "1,500 Reward Points on payment of renewal fee",
+      "10 Reward Points per Rs 100 on CSD, dining, movies, departmental stores and grocery spends",
+      "2 Reward Points per Rs 100 on other eligible non-fuel retail purchases",
+      "4 Reward Points equal Re 1",
+      "4 complimentary domestic airport lounge visits per year",
+      "Personal accident insurance cover of Rs 10 lakh, subject to policy terms",
+      "Card can be embossed with service branch such as Army, Navy, Air Force or Paramilitary",
+      "1% fuel surcharge waiver on eligible fuel transactions from Rs 500 to Rs 4,000, capped at Rs 250 per month"
+    ],
+    "redemption": {
+      "statementBalanceValue": 0.25,
+      "pointsExpiryYears": 2
+    },
+    "eligibility": {
+      "salaried": [
+        "Designed for eligible defence, paramilitary and related service personnel"
+      ]
+    },
+    "sourceUrl": "https://www.sbicard.com/sbi-card-en/assets/docs/pdf/personal/credit-cards/rewards/sbi-select-card/shaurya-select-sbi-card.pdf",
+    "applyUrl": "https://www.sbicard.com/en/personal/credit-cards/defense/shaurya-sbi-card.page",
+    "lastVerified": "2026-05-09",
+    "verificationStatus": "official-mixed"
   }
 ]
