@@ -6663,5 +6663,98 @@
     "applyUrl": "https://www.axisbank.com/retail/cards/credit-card/axis-bank-freecharge-plus-credit-card/features-benefits",
     "lastVerified": "2026-05-10",
     "verificationStatus": "official-direct"
+  },
+  {
+    "id": "axis-fibe",
+    "issuer": "Axis Bank",
+    "name": "Fibe Axis Bank Credit Card",
+    "network": [
+      "RuPay"
+    ],
+    "joiningFee": 0,
+    "annualFee": 0,
+    "feeWaiverSpend": null,
+    "bestFor": [
+      "cashback",
+      "food delivery",
+      "entertainment",
+      "local commute",
+      "upi"
+    ],
+    "rewardType": "cashback",
+    "rewards": [
+      {
+        "category": "dining",
+        "rate": 3,
+        "capMonthly": null
+      },
+      {
+        "category": "entertainment",
+        "rate": 3,
+        "capMonthly": null
+      },
+      {
+        "category": "travel",
+        "rate": 3,
+        "capMonthly": null
+      },
+      {
+        "category": "offline",
+        "rate": 1,
+        "capMonthly": null
+      }
+    ],
+    "loungeDomestic": 4,
+    "loungeInternational": 0,
+    "forexMarkup": 3.5,
+    "tags": [
+      "fibe",
+      "cashback",
+      "rupay",
+      "upi",
+      "food delivery",
+      "entertainment",
+      "local commute",
+      "lifetime free",
+      "lounge"
+    ],
+    "exclusions": [
+      "fuel",
+      "rent",
+      "wallet load",
+      "education payments via third-party apps",
+      "online skill-based gaming",
+      "transactions excluded under Fibe Axis Bank Credit Card terms"
+    ],
+    "milestoneBenefits": [],
+    "additionalBenefits": [
+      "Lifetime free card with nil joining fee and nil annual fee",
+      "3% cashback on food delivery, entertainment and local commute",
+      "1% cashback on all other eligible spends",
+      "RuPay credit card on UPI support",
+      "4 complimentary domestic lounge visits per calendar year at select airport lounges",
+      "1% fuel surcharge waiver on fuel spends between Rs 400 and Rs 5,000, capped at Rs 400 per month",
+      "Dining Delights offers through Axis Bank dining programme",
+      "Wednesday Delight offers including MakeMyTrip, Swiggy and Tira offers as per Axis programme terms",
+      "Fibe Axis Bank Credit Card is sourced only to existing Fibe customers"
+    ],
+    "redemption": {
+      "statementBalanceValue": 1,
+      "pointsExpiryYears": null
+    },
+    "eligibility": {
+      "salaried": [
+        "Primary cardholder should be 18 to 70 years of age and resident of India or NRI",
+        "Card is sourced only to existing Fibe customers"
+      ],
+      "selfEmployed": [
+        "Primary cardholder should be 18 to 70 years of age and resident of India or NRI",
+        "Card is sourced only to existing Fibe customers"
+      ]
+    },
+    "sourceUrl": "https://www.axis.bank.in/cards/credit-card/fibe-axis-bank-credit-card",
+    "applyUrl": "https://www.axis.bank.in/cards/credit-card/fibe-axis-bank-credit-card",
+    "lastVerified": "2026-05-10",
+    "verificationStatus": "official-direct"
   }
 ]
