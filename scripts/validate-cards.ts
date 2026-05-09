@@ -64,7 +64,8 @@ const allowedRewardCategories = new Set([
   "tata neu",
   "travel",
   "upi",
-  "utilities"
+  "utilities",
+  "utility bills"
 ]);
 
 function addIssue(message: string, cardId?: string, field?: string) {
