@@ -71,6 +71,7 @@ textarea {
 
 .nav {
   display: flex;
+  flex-wrap: wrap;
   gap: 14px;
   color: var(--muted);
   font-size: 14px;
@@ -302,6 +303,7 @@ textarea {
   background: var(--panel);
   border: 1px solid var(--line);
   border-collapse: collapse;
+  min-width: 640px;
   width: 100%;
 }
 
@@ -411,6 +413,7 @@ textarea {
 
 .table-wrap {
   overflow-x: auto;
+  width: 100%;
 }
 
 @media (max-width: 760px) {

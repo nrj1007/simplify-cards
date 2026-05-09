@@ -50,45 +50,47 @@ export default async function ComparePage({ searchParams }: Props) {
         <button className="button">Compare</button>
       </form>
 
-      <table className="compare-table">
-        <tbody>
-          <tr>
-            <th>Feature</th>
-            <th>{first.name}</th>
-            <th>{second.name}</th>
-          </tr>
-          <tr>
-            <td>Issuer</td>
-            <td>{first.issuer}</td>
-            <td>{second.issuer}</td>
-          </tr>
-          <tr>
-            <td>Annual fee</td>
-            <td>Rs {first.annualFee}</td>
-            <td>Rs {second.annualFee}</td>
-          </tr>
-          <tr>
-            <td>Best for</td>
-            <td>{first.bestFor.join(", ")}</td>
-            <td>{second.bestFor.join(", ")}</td>
-          </tr>
-          <tr>
-            <td>Lounge access</td>
-            <td>{loungeText(first)}</td>
-            <td>{loungeText(second)}</td>
-          </tr>
-          <tr>
-            <td>Forex markup</td>
-            <td>{first.forexMarkup}%</td>
-            <td>{second.forexMarkup}%</td>
-          </tr>
-          <tr>
-            <td>Common exclusions</td>
-            <td>{first.exclusions.join(", ")}</td>
-            <td>{second.exclusions.join(", ")}</td>
-          </tr>
-        </tbody>
-      </table>
+      <div className="table-wrap">
+        <table className="compare-table">
+          <tbody>
+            <tr>
+              <th>Feature</th>
+              <th>{first.name}</th>
+              <th>{second.name}</th>
+            </tr>
+            <tr>
+              <td>Issuer</td>
+              <td>{first.issuer}</td>
+              <td>{second.issuer}</td>
+            </tr>
+            <tr>
+              <td>Annual fee</td>
+              <td>Rs {first.annualFee}</td>
+              <td>Rs {second.annualFee}</td>
+            </tr>
+            <tr>
+              <td>Best for</td>
+              <td>{first.bestFor.join(", ")}</td>
+              <td>{second.bestFor.join(", ")}</td>
+            </tr>
+            <tr>
+              <td>Lounge access</td>
+              <td>{loungeText(first)}</td>
+              <td>{loungeText(second)}</td>
+            </tr>
+            <tr>
+              <td>Forex markup</td>
+              <td>{first.forexMarkup}%</td>
+              <td>{second.forexMarkup}%</td>
+            </tr>
+            <tr>
+              <td>Common exclusions</td>
+              <td>{first.exclusions.join(", ")}</td>
+              <td>{second.exclusions.join(", ")}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </section>
   );
 }
