@@ -7266,5 +7266,87 @@
     "applyUrl": "https://www.axisbank.com/retail/cards/credit-card/lic-axis-bank-platinum-credit-card",
     "lastVerified": "2026-05-10",
     "verificationStatus": "official-direct"
+  },
+  {
+    "id": "axis-lic-signature",
+    "issuer": "Axis Bank",
+    "name": "LIC Axis Bank Signature Credit Card",
+    "network": [
+      "Visa"
+    ],
+    "joiningFee": 0,
+    "annualFee": 0,
+    "feeWaiverSpend": null,
+    "bestFor": [
+      "lic premium",
+      "insurance",
+      "foreign currency",
+      "lounge",
+      "lifetime free"
+    ],
+    "rewardType": "reward points",
+    "rewards": [
+      {
+        "category": "retail",
+        "rate": 2,
+        "capMonthly": null
+      },
+      {
+        "category": "offline",
+        "rate": 1,
+        "capMonthly": null
+      }
+    ],
+    "loungeDomestic": 8,
+    "loungeInternational": 0,
+    "forexMarkup": 3.5,
+    "tags": [
+      "lic",
+      "signature",
+      "insurance",
+      "lic premium",
+      "lifetime free",
+      "lounge",
+      "fuel waiver",
+      "dining"
+    ],
+    "exclusions": [
+      "fuel",
+      "wallet load",
+      "emi conversions",
+      "rent",
+      "education payments via third-party apps",
+      "utilities above fee threshold",
+      "transactions excluded under LIC Axis Bank Signature Credit Card terms"
+    ],
+    "milestoneBenefits": [],
+    "additionalBenefits": [
+      "Nil joining fee and nil annual fee",
+      "100% cashback up to Rs 300 on first utility bill payment within first 30 days of card issuance",
+      "2 Reward Points per Rs 100 on LIC premium payments and foreign currency transactions",
+      "1 Reward Point per Rs 100 on other eligible transactions",
+      "8 complimentary domestic airport lounge visits per calendar year at select domestic airports",
+      "Complimentary lost card liability insurance cover up to credit limit",
+      "1% fuel surcharge waiver on fuel purchases from Rs 400 to Rs 4,000, capped at Rs 400 per month",
+      "Dining Delights discounts at participating restaurants",
+      "Convert purchases of Rs 1,500 or more into EMI",
+      "Wednesday Delight offers as per Axis Bank programme terms"
+    ],
+    "redemption": {
+      "statementBalanceValue": null,
+      "pointsExpiryYears": 3
+    },
+    "eligibility": {
+      "salaried": [
+        "Primary cardholder should be between 18 and 70 years and resident of India"
+      ],
+      "selfEmployed": [
+        "Primary cardholder should be between 18 and 70 years and resident of India"
+      ]
+    },
+    "sourceUrl": "https://www.axisbank.com/retail/cards/credit-card/lic-axis-bank-signature-credit-card",
+    "applyUrl": "https://www.axisbank.com/retail/cards/credit-card/lic-axis-bank-signature-credit-card",
+    "lastVerified": "2026-05-10",
+    "verificationStatus": "official-direct"
   }
 ]
