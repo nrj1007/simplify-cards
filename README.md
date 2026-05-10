@@ -4,7 +4,7 @@ Lean Next.js MVP for an Indian credit-card discovery and Q&A product.
 
 ## What is included
 
-- In-memory credit card data from `data/cards.json`
+- In-memory credit card data from issuer files under `data/cards/`
 - Deterministic recommendation logic in `lib/recommend.ts`
 - Home page with ask interface
 - Card finder page
@@ -40,7 +40,7 @@ This workspace also includes a portable Node.js install under `tools/node`. If g
 The AI should not be the source of truth. The intended flow is:
 
 ```text
-cards.json
+data/cards/*.json
   -> deterministic filtering/scoring
   -> top matching cards
   -> AI explanation layer

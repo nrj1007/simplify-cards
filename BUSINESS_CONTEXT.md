@@ -64,7 +64,7 @@ The AI can:
 The AI should not:
 
 - invent card terms
-- answer without grounding in `cards.json`
+- answer without grounding in verified card JSON
 - overwrite card data automatically without review
 
 ## MVP Architecture Decision
@@ -73,7 +73,7 @@ Chosen MVP architecture:
 
 ```text
 Next.js only
-cards.json loaded in memory
+issuer card JSON files loaded in memory
 no database
 no vector DB
 no separate backend
@@ -318,7 +318,7 @@ official pages
   -> scraper extracts fields
   -> change detector compares old/new
   -> review queue
-  -> approved update to cards.json or database
+  -> approved update to issuer card JSON or database
 ```
 
 Do not auto-overwrite live data without review.
@@ -345,7 +345,7 @@ Phase 3: AI Assistant
 
 - Add OpenAI-backed `/api/ask`.
 - Parse user intent and spend.
-- Retrieve relevant cards from `cards.json`.
+- Retrieve relevant cards from merged issuer JSON files.
 - Use deterministic ranking.
 - Let AI explain recommendations.
 - Include caveats and source dates.

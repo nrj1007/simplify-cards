@@ -10,12 +10,25 @@ type ValidationIssue = {
 type CardLike = Record<string, unknown>;
 
 const root = process.cwd();
-const cardsPath = path.join(root, "data", "cards.json");
-const raw = fs.readFileSync(cardsPath, "utf8");
-const cards = JSON.parse(raw) as unknown;
-
 const issues: ValidationIssue[] = [];
 const warnings: ValidationIssue[] = [];
+const cardsDir = path.join(root, "data", "cards");
+const cardFiles = fs
+  .readdirSync(cardsDir)
+  .filter((file) => file.endsWith(".json"))
+  .sort();
+const cards = cardFiles.flatMap((file) => {
+  const filePath = path.join(cardsDir, file);
+  const raw = fs.readFileSync(filePath, "utf8");
+  const parsed = JSON.parse(raw) as unknown;
+
+  if (!Array.isArray(parsed)) {
+    addIssue(`${path.join("data", "cards", file)} must contain an array`);
+    return [];
+  }
+
+  return parsed.map((card) => ({ card, file }));
+});
 
 const allowedLoungeValues = new Set(["unlimited"]);
 const allowedVerificationStatuses = new Set([
@@ -131,14 +144,14 @@ function validateDate(value: unknown, cardId: string, field: string) {
   if (Number.isNaN(date.getTime())) addIssue("must be a valid date", cardId, field);
 }
 
-if (!Array.isArray(cards)) {
-  addIssue("data/cards.json must contain an array");
+if (cardFiles.length === 0) {
+  addIssue("data/cards must contain at least one JSON file");
 } else {
   const ids = new Set<string>();
 
-  cards.forEach((card, index) => {
+  cards.forEach(({ card, file }, index) => {
     if (!isObject(card)) {
-      addIssue(`card at index ${index} must be an object`);
+      addIssue(`${path.join("data", "cards", file)} card at index ${index} must be an object`);
       return;
     }
 
@@ -221,7 +234,7 @@ if (issues.length > 0) {
   process.exit(1);
 }
 
-console.log(`Card validation passed for ${(cards as unknown[]).length} cards with ${warnings.length} warning(s).`);
+console.log(`Card validation passed for ${cards.length} cards across ${cardFiles.length} file(s) with ${warnings.length} warning(s).`);
 
 function formatIssue(level: "error" | "warning", issue: ValidationIssue) {
   const location = [issue.cardId, issue.field].filter(Boolean).join(".");

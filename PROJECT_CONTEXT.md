@@ -18,14 +18,14 @@ The app is a lean Next.js-only MVP for an Indian credit-card discovery and Q&A p
 
 - Next.js App Router
 - No database
-- Credit card data stored in `data/cards.json`
+- Credit card data stored in issuer files under `data/cards/`
 - Data loaded in memory
 - Each card has a `popularityScore` from 0 to 100 for popularity-first sorting and future ranking features.
 - Deterministic recommendation logic in `lib/recommend.ts`
 - Basic API routes:
   - `POST /api/ask`
   - `GET /api/cards`
-- Card detail pages generated from `cards.json`
+- Card detail pages generated from merged in-memory card data
 - Finder and compare pages included
 
 ## Local Tooling
@@ -68,7 +68,7 @@ Git:
 For each card URL:
 
 1. Read/scrape official issuer page.
-2. Add or update one card in `data/cards.json`.
+2. Add or update one card in the issuer file under `data/cards/`.
 3. Update schema/app code only if required.
 4. Run TypeScript check.
 5. Commit one card per commit.

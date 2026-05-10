@@ -6,7 +6,7 @@ Read the newest daily note first, then read:
 
 - `PROJECT_CONTEXT.md`
 - `BUSINESS_CONTEXT.md`
-- `data/cards.json`
+- `data/cards/`
 
 The journal is intentionally separate from the app source and root context files. It should capture:
 

@@ -1,8 +1,19 @@
 const fs = require("node:fs");
 const path = require("node:path");
 
-const cardsPath = path.join(process.cwd(), "data", "cards.json");
-const cards = JSON.parse(fs.readFileSync(cardsPath, "utf8"));
+const cardsDir = path.join(process.cwd(), "data", "cards");
+const cardFiles = fs
+  .readdirSync(cardsDir)
+  .filter((file) => file.endsWith(".json"))
+  .sort();
+
+const cardsByFile = new Map(
+  cardFiles.map((file) => {
+    const filePath = path.join(cardsDir, file);
+    return [file, JSON.parse(fs.readFileSync(filePath, "utf8"))];
+  })
+);
+const cards = [...cardsByFile.values()].flat();
 
 const issuerWeights = new Map([
   ["HDFC Bank", 15],
@@ -169,11 +180,14 @@ for (const card of cards) {
   card.popularityScore = scoreCard(card);
 }
 
+for (const [file, issuerCards] of cardsByFile) {
+  issuerCards.sort((a, b) => b.popularityScore - a.popularityScore || a.name.localeCompare(b.name));
+  fs.writeFileSync(path.join(cardsDir, file), `${JSON.stringify(issuerCards, null, 2)}\n`);
+}
+
 cards.sort((a, b) => b.popularityScore - a.popularityScore || a.name.localeCompare(b.name));
 
-fs.writeFileSync(cardsPath, `${JSON.stringify(cards, null, 2)}\n`);
-
-console.log(`Updated popularityScore for ${cards.length} cards.`);
+console.log(`Updated popularityScore for ${cards.length} cards across ${cardFiles.length} file(s).`);
 console.log(
   cards
     .slice(0, 15)

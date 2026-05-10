@@ -10,7 +10,7 @@ Use this skill to collect community posts/comments as **signals for manual revie
 Hard rule:
 
 ```text
-Never update data/cards.json from community signals alone.
+Never update issuer card JSON files under data/cards/ from community signals alone.
 ```
 
 Community posts can identify what to verify next. Official issuer pages, PDFs, or bank communications must verify any card data change.
@@ -22,7 +22,7 @@ Community posts can identify what to verify next. Official issuer pages, PDFs, o
 3. Summarize only high-signal items for the user.
 4. Ask the user which signals to verify officially.
 5. After approval, verify against issuer sources.
-6. Only then update `data/cards.json`, validate, commit, and push.
+6. Only then update the relevant issuer file under `data/cards/`, validate, commit, and push.
 
 ## Script
 

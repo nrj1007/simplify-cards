@@ -5,7 +5,7 @@
 Continue adding active Axis cards from official Axis pages. Keep the current workflow:
 
 1. Verify card status and details from official Axis source.
-2. Add one card entry to `data/cards.json`.
+2. Add one card entry to the relevant issuer file under `data/cards/`.
 3. Run validation and TypeScript checks.
 4. Commit and push that card separately.
 
@@ -40,7 +40,7 @@ These are listed or have official pages, but should not be added as active-new-a
 
 - [ ] Improve card detail UI for fees, caps, exclusions, and source trust.
 - [ ] Add filters for issuer, cashback, travel, lounge, fuel, UPI, low-fee, and secured cards.
-- [ ] Add a basic Ask AI flow over `data/cards.json`.
+- [ ] Add a basic Ask AI flow over the merged in-memory card data from `data/cards/`.
 - [ ] Add a manual approval workflow for community/news signals before updating card data.
 - [ ] Add advertisement placements and policy-safe ad slot handling.
 - [ ] Add affiliate link support per card, including tracking metadata and fallback apply URLs.
@@ -93,7 +93,7 @@ High-priority consumer Bank of Baroda / BOBCARD entries added from official Bank
 Saved for later as requested. Before adding, verify active application status from official YES BANK pages and skip discontinued/legacy cards.
 
 - [ ] List active YES BANK consumer credit cards from official source
-- [ ] Add high-priority active cards to `data/cards.json`
+- [ ] Add high-priority active cards to `data/cards/yes-bank.json` when created
 - [ ] Keep invite-only, discontinued, and business-only variants separate unless requested
 
 ## Equitas Card Ingestion
@@ -101,7 +101,7 @@ Saved for later as requested. Before adding, verify active application status fr
 Saved for later as requested. Start by confirming whether Equitas Small Finance Bank currently has active credit-card products or partner/co-branded cards open for application.
 
 - [ ] List active Equitas credit-card products from official source
-- [ ] Add official active products to `data/cards.json`
+- [ ] Add official active products to the relevant issuer file under `data/cards/`
 - [ ] Record unavailable/discontinued status in notes if there are no active cards
 
 ## IDFC FIRST Bank Card Ingestion
