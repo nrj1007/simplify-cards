@@ -7441,5 +7441,90 @@
     "applyUrl": "https://www.axisbank.com/retail/cards/credit-card/miles-more-credit-card",
     "lastVerified": "2026-05-10",
     "verificationStatus": "official-mixed"
+  },
+  {
+    "id": "axis-platinum",
+    "issuer": "Axis Bank",
+    "name": "Platinum Credit Card",
+    "network": [
+      "Visa"
+    ],
+    "joiningFee": 500,
+    "annualFee": 200,
+    "feeWaiverSpend": 100000,
+    "bestFor": [
+      "movies",
+      "dining",
+      "fuel waiver",
+      "low fee",
+      "rewards"
+    ],
+    "rewardType": "edge reward points and cashback",
+    "rewards": [
+      {
+        "category": "entertainment",
+        "rate": 25,
+        "capMonthly": null
+      },
+      {
+        "category": "offline",
+        "rate": 0.6,
+        "capMonthly": null
+      },
+      {
+        "category": "travel",
+        "rate": 1.2,
+        "capMonthly": null
+      }
+    ],
+    "loungeDomestic": 0,
+    "loungeInternational": 0,
+    "forexMarkup": 3.5,
+    "tags": [
+      "platinum",
+      "movies",
+      "cashback",
+      "dining",
+      "fuel waiver",
+      "low fee",
+      "edge rewards"
+    ],
+    "exclusions": [
+      "fuel",
+      "rent",
+      "wallet load",
+      "movie offer transactions for reward points",
+      "transactions excluded under Platinum Credit Card terms"
+    ],
+    "milestoneBenefits": [
+      "Joining fee waived on spends of Rs 5,000 within 45 days of card setup",
+      "Annual fee waived on spends of Rs 1 lakh in the preceding year"
+    ],
+    "additionalBenefits": [
+      "25% cashback on online and box office movie ticket purchases, capped at Rs 1,000 per calendar year",
+      "6 EDGE REWARD Points per Rs 200 spent domestically",
+      "12 EDGE REWARD Points per Rs 200 spent internationally",
+      "100 EDGE REWARD Points on first online transaction",
+      "1% fuel surcharge waiver on fuel transactions from Rs 400 to Rs 4,000, capped at Rs 400 per statement cycle",
+      "Dining Delights discounts at participating restaurants",
+      "Convert purchases over Rs 2,500 into EMI",
+      "Visa International Global Card Assistance Services"
+    ],
+    "redemption": {
+      "statementBalanceValue": 0.2,
+      "pointsExpiryYears": 3
+    },
+    "eligibility": {
+      "salaried": [
+        "Eligibility is subject to Axis Bank approval criteria"
+      ],
+      "selfEmployed": [
+        "Eligibility is subject to Axis Bank approval criteria"
+      ]
+    },
+    "sourceUrl": "https://www.axisbank.com/retail/cards/credit-card/platinum-credit-card",
+    "applyUrl": "https://www.axisbank.com/retail/cards/credit-card/platinum-credit-card",
+    "lastVerified": "2026-05-10",
+    "verificationStatus": "official-direct"
   }
 ]
