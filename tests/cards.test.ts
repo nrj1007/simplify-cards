@@ -1,0 +1,83 @@
+import fs from "node:fs";
+import path from "node:path";
+import { describe, expect, it } from "vitest";
+import { cards, getCardById, getIssuers, getTags } from "../lib/cards";
+import type { CreditCard } from "../lib/types";
+
+const cardsDir = path.join(process.cwd(), "data", "cards");
+
+function readIssuerFiles() {
+  return fs
+    .readdirSync(cardsDir)
+    .filter((file) => file.endsWith(".json"))
+    .sort()
+    .map((file) => ({
+      file,
+      cards: JSON.parse(fs.readFileSync(path.join(cardsDir, file), "utf8")) as CreditCard[]
+    }));
+}
+
+describe("card data files", () => {
+  it("loads all issuer files into the app-level card list", () => {
+    const issuerFiles = readIssuerFiles();
+    const fileCardCount = issuerFiles.reduce((total, issuerFile) => total + issuerFile.cards.length, 0);
+
+    expect(issuerFiles.map((issuerFile) => issuerFile.file)).toEqual([
+      "au-small-finance.json",
+      "axis.json",
+      "bank-of-baroda.json",
+      "hdfc.json",
+      "hsbc.json",
+      "icici.json",
+      "idfc.json",
+      "sbi.json"
+    ]);
+    expect(cards).toHaveLength(fileCardCount);
+    expect(cards.length).toBeGreaterThan(100);
+  });
+
+  it("keeps card IDs unique across all issuer files", () => {
+    const ids = cards.map((card) => card.id);
+    expect(new Set(ids).size).toBe(ids.length);
+  });
+
+  it("keeps cards globally sorted by popularity score", () => {
+    for (let index = 1; index < cards.length; index += 1) {
+      expect(cards[index - 1].popularityScore).toBeGreaterThanOrEqual(cards[index].popularityScore);
+    }
+  });
+
+  it("has required searchable metadata on every card", () => {
+    for (const card of cards) {
+      expect(card.id).toMatch(/^[a-z0-9]+(?:-[a-z0-9]+)*$/);
+      expect(card.issuer).toBeTruthy();
+      expect(card.name).toBeTruthy();
+      expect(card.network.length).toBeGreaterThan(0);
+      expect(card.tags.length).toBeGreaterThan(0);
+      expect(card.rewards.length).toBeGreaterThan(0);
+      expect(card.popularityScore).toBeGreaterThanOrEqual(0);
+      expect(card.popularityScore).toBeLessThanOrEqual(100);
+      expect(new URL(card.sourceUrl).protocol).toBe("https:");
+      expect(new URL(card.applyUrl).protocol).toBe("https:");
+    }
+  });
+});
+
+describe("card lookup helpers", () => {
+  it("finds cards by ID", () => {
+    expect(getCardById("sbi-cashback")?.name).toBe("SBI Cashback Credit Card");
+    expect(getCardById("missing-card")).toBeUndefined();
+  });
+
+  it("returns sorted issuer and tag lists", () => {
+    const issuers = getIssuers();
+    const tags = getTags();
+
+    expect(issuers).toContain("HDFC Bank");
+    expect(issuers).toContain("ICICI Bank");
+    expect(issuers).toEqual([...issuers].sort());
+    expect(tags).toContain("cashback");
+    expect(tags).toContain("lounge");
+    expect(tags).toEqual([...tags].sort());
+  });
+});
