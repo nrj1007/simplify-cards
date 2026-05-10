@@ -6914,5 +6914,97 @@
     "applyUrl": "https://www.axis.bank.in/cards/credit-card",
     "lastVerified": "2026-05-10",
     "verificationStatus": "official-catalogue"
+  },
+  {
+    "id": "axis-indigo",
+    "issuer": "Axis Bank",
+    "name": "Indigo Axis Bank Credit Card",
+    "network": [
+      "Visa"
+    ],
+    "joiningFee": 799,
+    "annualFee": 799,
+    "feeWaiverSpend": null,
+    "bestFor": [
+      "indigo",
+      "flights",
+      "travel",
+      "grocery",
+      "dining"
+    ],
+    "rewardType": "indigo bluchips",
+    "rewards": [
+      {
+        "category": "airlines",
+        "rate": 3,
+        "capMonthly": null
+      },
+      {
+        "category": "grocery",
+        "rate": 2,
+        "capMonthly": null
+      },
+      {
+        "category": "dining",
+        "rate": 2,
+        "capMonthly": null
+      },
+      {
+        "category": "offline",
+        "rate": 1,
+        "capMonthly": null
+      }
+    ],
+    "loungeDomestic": 4,
+    "loungeInternational": 0,
+    "forexMarkup": 3.5,
+    "tags": [
+      "indigo",
+      "bluchips",
+      "flights",
+      "travel",
+      "grocery",
+      "dining",
+      "lounge",
+      "milestone"
+    ],
+    "exclusions": [
+      "fuel above fee threshold",
+      "rent",
+      "wallet load",
+      "education payments via third-party apps",
+      "utilities above fee threshold",
+      "transactions excluded under IndiGo Axis Bank Credit Card terms"
+    ],
+    "milestoneBenefits": [
+      "Voucher worth 1,200 IndiGo BluChips on cumulative annual spends of Rs 1.5 lakh",
+      "Voucher worth 1,200 IndiGo BluChips again on cumulative annual spends of Rs 3 lakh"
+    ],
+    "additionalBenefits": [
+      "Voucher worth 1,200 IndiGo BluChips as welcome benefit on payment of joining fee",
+      "Voucher worth 1,200 IndiGo BluChips every year as renewal benefit on payment of annual fee",
+      "3 IndiGo BluChips per Rs 100 on all IndiGo channels",
+      "2 IndiGo BluChips per Rs 100 on grocery and dining",
+      "1 IndiGo BluChip per Rs 100 on other eligible categories",
+      "1 complimentary domestic airport lounge access per quarter, applicable on spends of Rs 50,000 in the preceding 3 months",
+      "EMI conversion available for transactions exceeding Rs 1,500",
+      "Wednesday Delight offers as per Axis Bank programme terms"
+    ],
+    "redemption": {
+      "statementBalanceValue": null,
+      "pointsExpiryYears": null
+    },
+    "eligibility": {
+      "salaried": [
+        "Primary cardholder should be 18 to 70 years of age and resident of India"
+      ],
+      "selfEmployed": [
+        "Primary cardholder should be 18 to 70 years of age and resident of India"
+      ]
+    },
+    "sourceUrl": "https://www.axis.bank.in/cards/credit-card/indigo-axis-bank-credit-card",
+    "applyUrl": "https://www.axis.bank.in/cards/credit-card/indigo-axis-bank-credit-card",
+    "lastVerified": "2026-05-10",
+    "verificationStatus": "official-direct"
   }
 ]
