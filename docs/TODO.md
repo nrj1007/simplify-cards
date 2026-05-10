@@ -46,6 +46,26 @@ These are listed or have official pages, but should not be added as active-new-a
 - [ ] Add affiliate link support per card, including tracking metadata and fallback apply URLs.
 - [ ] Add reverse indexes for fast lookup by issuer, tags, network, reward category, and popularity.
 
+## ICICI Bank Card Ingestion
+
+Top ICICI cards added: Amazon Pay ICICI Bank Credit Card, Emeralde Private Metal, Emeralde, Sapphiro, Rubyx, Coral, Platinum Chip, MakeMyTrip, HPCL Super Saver, Adani One Signature, and Adani One Platinum.
+
+### Remaining ICICI Cards To Verify Later
+
+- [ ] Times Black ICICI Bank Credit Card
+- [ ] Coral RuPay Credit Card as a separate entry, if needed beyond the combined Coral entry
+- [ ] Sapphiro RuPay Credit Card as a separate entry, if needed beyond the combined Sapphiro entry
+- [ ] MakeMyTrip ICICI Bank Signature Credit Card: official ICICI page says applications are no longer accepted for older Signature variant, verify before adding
+- [ ] MakeMyTrip ICICI Bank Platinum Credit Card: official ICICI page says applications are no longer accepted for older Platinum variant, verify before adding
+- [ ] Manchester United Platinum Credit Card
+- [ ] Manchester United Signature Credit Card
+- [ ] HPCL Coral Credit Card
+- [ ] Accelero Credit Card
+- [ ] Mine Credit Card
+- [ ] Expressions Credit Card
+- [ ] Instant Platinum / Gold / FD-backed ICICI cards
+- [ ] Business, corporate, invite-only, and discontinued ICICI variants
+
 ## Bank of Baroda Card Ingestion
 
 High-priority consumer Bank of Baroda / BOBCARD entries added from official Bank of Baroda pages: ETERNA, PREMIER, SELECT, EASY, HPCL ENERGIE, IRCTC BOBCARD, and Snapdeal BOBCARD.
