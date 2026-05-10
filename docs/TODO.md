@@ -43,6 +43,44 @@ These are listed or have official pages, but should not be added as active-new-a
 - [ ] Add a basic Ask AI flow over `data/cards.json`.
 - [ ] Add a manual approval workflow for community/news signals before updating card data.
 
+## Bank of Baroda Card Ingestion
+
+High-priority consumer Bank of Baroda / BOBCARD entries added from official Bank of Baroda pages: ETERNA, PREMIER, SELECT, EASY, HPCL ENERGIE, IRCTC BOBCARD, and Snapdeal BOBCARD.
+
+### Remaining Bank of Baroda Cards To Verify Later
+
+- [ ] BOBCARD TIARA
+- [ ] BOBCARD PRIME
+- [ ] BOBCARD CORPORATE
+- [ ] BOBCARD EMPOWER
+- [ ] Nainital RENAISSANCE BOBCARD
+- [ ] ICAI Exclusive BOBCARD
+- [ ] ICAI Select BOBCARD
+- [ ] ICSI Diamond BOBCARD
+- [ ] CMA One BOBCARD
+- [ ] Indian Army Yoddha BOBCARD
+- [ ] Indian Navy Varunah BOBCARD
+- [ ] ICG Rakshamah BOBCARD
+- [ ] Assam Rifles The Sentinel BOBCARD
+- [ ] BoB Vikram Card
+- [ ] FD-backed secure variants: EASY Secure, SELECT Secure, PREMIER Secure, ETERNA Secure
+
+## Yes Bank Card Ingestion
+
+Saved for later as requested. Before adding, verify active application status from official YES BANK pages and skip discontinued/legacy cards.
+
+- [ ] List active YES BANK consumer credit cards from official source
+- [ ] Add high-priority active cards to `data/cards.json`
+- [ ] Keep invite-only, discontinued, and business-only variants separate unless requested
+
+## Equitas Card Ingestion
+
+Saved for later as requested. Start by confirming whether Equitas Small Finance Bank currently has active credit-card products or partner/co-branded cards open for application.
+
+- [ ] List active Equitas credit-card products from official source
+- [ ] Add official active products to `data/cards.json`
+- [ ] Record unavailable/discontinued status in notes if there are no active cards
+
 ## IDFC FIRST Bank Card Ingestion
 
 High-priority IDFC batch was added together in commit work after `1774c40`, including FIRST Millennia, FIRST Classic, FIRST Select, FIRST Wealth, FIRST WOW cleanup, FIRST EA₹N, FIRST Power, FIRST Power+, Ashva, Mayura, and IndiGo IDFC FIRST.

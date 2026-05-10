@@ -8997,5 +8997,602 @@
     "applyUrl": "https://www.idfcfirstbank.com/credit-card",
     "lastVerified": "2026-05-10",
     "verificationStatus": "official-mixed"
+  },
+  {
+    "id": "bobcard-eterna",
+    "issuer": "Bank of Baroda",
+    "name": "BOBCARD ETERNA",
+    "network": [
+      "Visa"
+    ],
+    "joiningFee": 2499,
+    "annualFee": 2499,
+    "feeWaiverSpend": null,
+    "bestFor": [
+      "travel",
+      "dining",
+      "online",
+      "lounge",
+      "premium"
+    ],
+    "rewardType": "reward points",
+    "rewards": [
+      {
+        "category": "travel",
+        "rate": 3.75,
+        "capMonthly": 5000
+      },
+      {
+        "category": "dining",
+        "rate": 3.75,
+        "capMonthly": 5000
+      },
+      {
+        "category": "online",
+        "rate": 3.75,
+        "capMonthly": 5000
+      },
+      {
+        "category": "retail",
+        "rate": 0.75,
+        "capMonthly": null
+      }
+    ],
+    "loungeDomestic": "unlimited",
+    "loungeInternational": 0,
+    "forexMarkup": 2,
+    "tags": [
+      "bobcard",
+      "premium",
+      "travel",
+      "dining",
+      "online",
+      "lounge",
+      "movies",
+      "fitness"
+    ],
+    "exclusions": [
+      "fuel transactions do not earn reward points",
+      "accelerated reward points are subject to monthly cap",
+      "taxes and charges excluded as per BOBCARD terms"
+    ],
+    "milestoneBenefits": [
+      "10,000 bonus reward points on spending Rs 50,000 within first 60 days",
+      "20,000 bonus reward points on annual spends of Rs 5,00,000"
+    ],
+    "additionalBenefits": [
+      "15 reward points per Rs 100 on travel, dining, online and international transactions",
+      "3 reward points per Rs 100 on other categories",
+      "Reward points redeemable as cashback at 1 reward point = Rs 0.25",
+      "1% fuel surcharge waiver on fuel transactions between Rs 400 and Rs 5,000, capped at Rs 250 per statement cycle",
+      "Free personal accident death cover: air Rs 1 crore, non-air Rs 10 lakh",
+      "Up to 3 lifetime free add-on cards"
+    ],
+    "redemption": {
+      "statementBalanceValue": 0.25,
+      "pointsExpiryYears": null
+    },
+    "eligibility": {
+      "salaried": [
+        "Resident Indian primary cardholder between 21 and 65 years",
+        "Income of Rs 12 lakh per annum or more"
+      ],
+      "selfEmployed": [
+        "Resident Indian primary cardholder between 21 and 65 years",
+        "Income of Rs 12 lakh per annum or more"
+      ]
+    },
+    "sourceUrl": "https://bankofbaroda.bank.in/personal-banking/digital-products/cards/credit-cards/eterna",
+    "applyUrl": "https://bankofbaroda.bank.in/personal-banking/digital-products/cards/credit-cards/eterna",
+    "lastVerified": "2026-05-10",
+    "verificationStatus": "official-direct"
+  },
+  {
+    "id": "bobcard-premier",
+    "issuer": "Bank of Baroda",
+    "name": "BOBCARD PREMIER",
+    "network": [
+      "Visa"
+    ],
+    "joiningFee": 1000,
+    "annualFee": 1000,
+    "feeWaiverSpend": 120000,
+    "bestFor": [
+      "travel",
+      "dining",
+      "international spends",
+      "lounge"
+    ],
+    "rewardType": "reward points",
+    "rewards": [
+      {
+        "category": "travel",
+        "rate": 2.5,
+        "capMonthly": 2000
+      },
+      {
+        "category": "dining",
+        "rate": 2.5,
+        "capMonthly": 2000
+      },
+      {
+        "category": "retail",
+        "rate": 0.5,
+        "capMonthly": null
+      }
+    ],
+    "loungeDomestic": 4,
+    "loungeInternational": 0,
+    "forexMarkup": 3.5,
+    "tags": [
+      "bobcard",
+      "premium",
+      "travel",
+      "dining",
+      "international spends",
+      "lounge"
+    ],
+    "exclusions": [
+      "fuel transactions do not earn reward points",
+      "accelerated reward points are subject to monthly cap",
+      "taxes and charges excluded as per BOBCARD terms"
+    ],
+    "milestoneBenefits": [
+      "First year fee reversal on spending Rs 10,000 within first 60 days",
+      "Annual fee waiver on spending Rs 1,20,000 in a year"
+    ],
+    "additionalBenefits": [
+      "10 reward points per Rs 100 on travel, dining and international spends",
+      "2 reward points per Rs 100 on other categories",
+      "1 complimentary domestic airport lounge visit every calendar quarter",
+      "1% fuel surcharge waiver on fuel transactions between Rs 400 and Rs 5,000, capped at Rs 250 per statement cycle",
+      "Up to 3 lifetime free add-on cards",
+      "Personal accidental death cover"
+    ],
+    "redemption": {
+      "statementBalanceValue": 0.25,
+      "pointsExpiryYears": null
+    },
+    "eligibility": {
+      "salaried": [
+        "Eligibility details to be confirmed during Bank of Baroda application"
+      ],
+      "selfEmployed": [
+        "Eligibility details to be confirmed during Bank of Baroda application"
+      ]
+    },
+    "sourceUrl": "https://bankofbaroda.bank.in/personal-banking/digital-products/cards/credit-cards/premier",
+    "applyUrl": "https://bankofbaroda.bank.in/personal-banking/digital-products/cards/credit-cards/premier",
+    "lastVerified": "2026-05-10",
+    "verificationStatus": "official-direct"
+  },
+  {
+    "id": "bobcard-select",
+    "issuer": "Bank of Baroda",
+    "name": "BOBCARD SELECT",
+    "network": [
+      "Visa"
+    ],
+    "joiningFee": 750,
+    "annualFee": 750,
+    "feeWaiverSpend": 70000,
+    "bestFor": [
+      "online",
+      "dining",
+      "utility bills",
+      "low fee"
+    ],
+    "rewardType": "reward points",
+    "rewards": [
+      {
+        "category": "dining",
+        "rate": 1.25,
+        "capMonthly": 1000
+      },
+      {
+        "category": "utility bills",
+        "rate": 1.25,
+        "capMonthly": 1000
+      },
+      {
+        "category": "online",
+        "rate": 1.25,
+        "capMonthly": 1000
+      },
+      {
+        "category": "retail",
+        "rate": 0.25,
+        "capMonthly": null
+      }
+    ],
+    "loungeDomestic": 0,
+    "loungeInternational": 0,
+    "forexMarkup": 3.5,
+    "tags": [
+      "bobcard",
+      "online",
+      "dining",
+      "utility bills",
+      "low fee",
+      "fuel surcharge waiver"
+    ],
+    "exclusions": [
+      "fuel transactions do not earn reward points",
+      "accelerated reward points are subject to monthly cap",
+      "taxes and charges excluded as per BOBCARD terms"
+    ],
+    "milestoneBenefits": [
+      "First year fee reversal on spending Rs 7,500 within first 60 days",
+      "Annual fee waiver on spending Rs 70,000 in a year"
+    ],
+    "additionalBenefits": [
+      "5 reward points per Rs 100 on dining, utility bills and online spends",
+      "1 reward point per Rs 100 on other categories",
+      "1% fuel surcharge waiver on fuel transactions between Rs 400 and Rs 5,000, capped at Rs 250 per statement cycle",
+      "Up to 3 lifetime free add-on cards",
+      "Personal accidental death cover"
+    ],
+    "redemption": {
+      "statementBalanceValue": 0.25,
+      "pointsExpiryYears": null
+    },
+    "eligibility": {
+      "salaried": [
+        "Eligibility details to be confirmed during Bank of Baroda application"
+      ],
+      "selfEmployed": [
+        "Eligibility details to be confirmed during Bank of Baroda application"
+      ]
+    },
+    "sourceUrl": "https://bankofbaroda.bank.in/personal-banking/digital-products/cards/credit-cards/select",
+    "applyUrl": "https://bankofbaroda.bank.in/personal-banking/digital-products/cards/credit-cards/select",
+    "lastVerified": "2026-05-10",
+    "verificationStatus": "official-direct"
+  },
+  {
+    "id": "bobcard-easy",
+    "issuer": "Bank of Baroda",
+    "name": "BOBCARD EASY",
+    "network": [
+      "Visa"
+    ],
+    "joiningFee": 500,
+    "annualFee": 500,
+    "feeWaiverSpend": 35000,
+    "bestFor": [
+      "grocery",
+      "departmental stores",
+      "entertainment",
+      "low fee"
+    ],
+    "rewardType": "reward points",
+    "rewards": [
+      {
+        "category": "grocery",
+        "rate": 1.25,
+        "capMonthly": 2000
+      },
+      {
+        "category": "departmental stores",
+        "rate": 1.25,
+        "capMonthly": 2000
+      },
+      {
+        "category": "entertainment",
+        "rate": 1.25,
+        "capMonthly": 2000
+      },
+      {
+        "category": "retail",
+        "rate": 0.25,
+        "capMonthly": null
+      }
+    ],
+    "loungeDomestic": 0,
+    "loungeInternational": 0,
+    "forexMarkup": 3.5,
+    "tags": [
+      "bobcard",
+      "entry level",
+      "grocery",
+      "departmental stores",
+      "movies",
+      "low fee"
+    ],
+    "exclusions": [
+      "fuel transactions do not earn reward points",
+      "accelerated reward points are subject to monthly cap",
+      "taxes and charges excluded as per BOBCARD terms"
+    ],
+    "milestoneBenefits": [
+      "First year fee reversal on spending Rs 6,000 within first 60 days",
+      "Annual fee waiver on spending Rs 35,000 in a year"
+    ],
+    "additionalBenefits": [
+      "5 reward points per Rs 100 on grocery, departmental stores and movie spends",
+      "1 reward point per Rs 100 on other categories",
+      "1% fuel surcharge waiver on fuel transactions between Rs 400 and Rs 5,000, capped at Rs 250 per statement cycle",
+      "Up to 3 lifetime free add-on cards",
+      "Personal accidental death cover"
+    ],
+    "redemption": {
+      "statementBalanceValue": 0.25,
+      "pointsExpiryYears": null
+    },
+    "eligibility": {
+      "salaried": [
+        "Eligibility details to be confirmed during Bank of Baroda application"
+      ],
+      "selfEmployed": [
+        "Eligibility details to be confirmed during Bank of Baroda application"
+      ]
+    },
+    "sourceUrl": "https://bankofbaroda.bank.in/personal-banking/digital-products/cards/credit-cards/easy",
+    "applyUrl": "https://bankofbaroda.bank.in/personal-banking/digital-products/cards/credit-cards/easy",
+    "lastVerified": "2026-05-10",
+    "verificationStatus": "official-direct"
+  },
+  {
+    "id": "bobcard-hpcl-energie",
+    "issuer": "Bank of Baroda",
+    "name": "HPCL ENERGIE BOBCARD",
+    "network": [
+      "RuPay"
+    ],
+    "joiningFee": 499,
+    "annualFee": 499,
+    "feeWaiverSpend": 50000,
+    "bestFor": [
+      "fuel",
+      "hpcl",
+      "grocery",
+      "utility bills",
+      "lounge"
+    ],
+    "rewardType": "reward points",
+    "rewards": [
+      {
+        "category": "fuel",
+        "rate": 4,
+        "capMonthly": null
+      },
+      {
+        "category": "utility bills",
+        "rate": 1.67,
+        "capMonthly": null
+      },
+      {
+        "category": "grocery",
+        "rate": 1.67,
+        "capMonthly": null
+      },
+      {
+        "category": "departmental stores",
+        "rate": 1.67,
+        "capMonthly": null
+      },
+      {
+        "category": "retail",
+        "rate": 0.33,
+        "capMonthly": null
+      }
+    ],
+    "loungeDomestic": 4,
+    "loungeInternational": 0,
+    "forexMarkup": 3.5,
+    "tags": [
+      "bobcard",
+      "hpcl",
+      "fuel",
+      "rupay",
+      "utility bills",
+      "grocery",
+      "lounge"
+    ],
+    "exclusions": [
+      "fuel spends eligible for surcharge waiver do not earn reward points",
+      "HP Pay direct payment mode is not eligible for listed fuel savings",
+      "taxes and charges excluded as per BOBCARD terms"
+    ],
+    "milestoneBenefits": [
+      "2,000 joining reward points on spending Rs 5,000 or more within 60 days",
+      "Renewal fee waiver on annual spends of Rs 50,000"
+    ],
+    "additionalBenefits": [
+      "24 reward points per Rs 150 on HPCL fuel and LPG purchases through eligible modes",
+      "10 reward points per Rs 150 on utility, grocery and departmental store spends",
+      "2 reward points per Rs 150 on other categories",
+      "1% fuel surcharge waiver on HPCL fuel transactions between Rs 400 and Rs 5,000",
+      "4 complimentary domestic airport lounge visits per year",
+      "25% off up to Rs 100 on Paytm Movies on minimum 2 tickets per transaction"
+    ],
+    "redemption": {
+      "statementBalanceValue": 0.25,
+      "pointsExpiryYears": null
+    },
+    "eligibility": {
+      "salaried": [
+        "Resident Indian primary cardholder between 21 and 65 years",
+        "Income of Rs 3.6 lakh per annum or more"
+      ],
+      "selfEmployed": [
+        "Resident Indian primary cardholder between 21 and 65 years",
+        "Income of Rs 4.8 lakh per annum or more"
+      ]
+    },
+    "sourceUrl": "https://bankofbaroda.bank.in/hi-in/personal-banking/digital-products/cards/credit-cards/hpcl-bob-energie-credit-card",
+    "applyUrl": "https://bankofbaroda.bank.in/personal-banking/digital-products/cards/credit-cards",
+    "lastVerified": "2026-05-10",
+    "verificationStatus": "official-direct"
+  },
+  {
+    "id": "bobcard-irctc",
+    "issuer": "Bank of Baroda",
+    "name": "IRCTC BOBCARD",
+    "network": [
+      "RuPay"
+    ],
+    "joiningFee": 500,
+    "annualFee": 350,
+    "feeWaiverSpend": null,
+    "bestFor": [
+      "irctc",
+      "railway lounge",
+      "grocery",
+      "departmental stores",
+      "travel"
+    ],
+    "rewardType": "reward points",
+    "rewards": [
+      {
+        "category": "irctc",
+        "rate": 10,
+        "capMonthly": null
+      },
+      {
+        "category": "grocery",
+        "rate": 1,
+        "capMonthly": null
+      },
+      {
+        "category": "departmental stores",
+        "rate": 1,
+        "capMonthly": null
+      },
+      {
+        "category": "retail",
+        "rate": 0.5,
+        "capMonthly": null
+      }
+    ],
+    "loungeDomestic": 4,
+    "loungeInternational": 0,
+    "forexMarkup": 3.5,
+    "tags": [
+      "bobcard",
+      "irctc",
+      "railway",
+      "railway lounge",
+      "rupay",
+      "train travel"
+    ],
+    "exclusions": [
+      "fuel spends eligible for surcharge waiver do not earn reward points",
+      "IRCTC rewards require linking the card loyalty number with IRCTC login ID",
+      "taxes and charges excluded as per BOBCARD terms"
+    ],
+    "milestoneBenefits": [
+      "1,000 bonus reward points on a single transaction of Rs 1,000 or more within 45 days of card issuance"
+    ],
+    "additionalBenefits": [
+      "Up to 40 reward points per Rs 100 on train ticket bookings through IRCTC website and mobile app",
+      "4 reward points per Rs 100 on grocery and departmental store spends",
+      "2 reward points per Rs 100 on other categories including train ticket purchases on IRCTC",
+      "4 complimentary railway lounge accesses per year",
+      "1% fuel surcharge waiver on fuel transactions between Rs 500 and Rs 3,000, capped at Rs 100 per statement",
+      "Up to 3 lifetime free add-on cards"
+    ],
+    "redemption": {
+      "statementBalanceValue": 0.25,
+      "pointsExpiryYears": null
+    },
+    "eligibility": {
+      "salaried": [
+        "Eligibility details to be confirmed during Bank of Baroda application"
+      ],
+      "selfEmployed": [
+        "Eligibility details to be confirmed during Bank of Baroda application"
+      ]
+    },
+    "sourceUrl": "https://bankofbaroda.bank.in/personal-banking/digital-products/cards/credit-cards/irctc-bob-credit-card",
+    "applyUrl": "https://bankofbaroda.bank.in/personal-banking/digital-products/cards/credit-cards/irctc-bob-credit-card",
+    "lastVerified": "2026-05-10",
+    "verificationStatus": "official-direct"
+  },
+  {
+    "id": "bobcard-snapdeal",
+    "issuer": "Bank of Baroda",
+    "name": "Snapdeal BOBCARD",
+    "network": [
+      "RuPay"
+    ],
+    "joiningFee": 249,
+    "annualFee": 249,
+    "feeWaiverSpend": null,
+    "bestFor": [
+      "snapdeal",
+      "online",
+      "grocery",
+      "departmental stores",
+      "cashback"
+    ],
+    "rewardType": "cashback",
+    "rewards": [
+      {
+        "category": "online",
+        "rate": 5,
+        "capMonthly": null
+      },
+      {
+        "category": "grocery",
+        "rate": 2.5,
+        "capMonthly": null
+      },
+      {
+        "category": "departmental stores",
+        "rate": 2.5,
+        "capMonthly": null
+      },
+      {
+        "category": "retail",
+        "rate": 1,
+        "capMonthly": null
+      }
+    ],
+    "loungeDomestic": 0,
+    "loungeInternational": 0,
+    "forexMarkup": 3.5,
+    "tags": [
+      "bobcard",
+      "snapdeal",
+      "cashback",
+      "online shopping",
+      "rupay",
+      "low fee"
+    ],
+    "exclusions": [
+      "fuel transactions eligible for surcharge waiver do not earn reward points",
+      "Snapdeal cashback applies on eligible Snapdeal website and app purchases",
+      "taxes and charges excluded as per BOBCARD terms"
+    ],
+    "milestoneBenefits": [
+      "Shopping vouchers worth up to Rs 500 on card usage within first 30 days of issuance"
+    ],
+    "additionalBenefits": [
+      "Up to 5% unlimited cashback on Snapdeal website and mobile app purchases",
+      "10 reward points per Rs 100 on online shopping, grocery and departmental stores",
+      "4 reward points per Rs 100 on other categories",
+      "Reward points are auto-credited as cashback to the monthly statement",
+      "1 reward point = Rs 0.25",
+      "1% fuel surcharge waiver on fuel transactions between Rs 400 and Rs 5,000, capped at Rs 250 per month"
+    ],
+    "redemption": {
+      "statementBalanceValue": 0.25,
+      "pointsExpiryYears": null
+    },
+    "eligibility": {
+      "salaried": [
+        "Resident Indian",
+        "Income of Rs 3.6 lakh per annum or more"
+      ],
+      "selfEmployed": [
+        "Resident Indian",
+        "Income of Rs 4.8 lakh per annum or more"
+      ]
+    },
+    "sourceUrl": "https://bankofbaroda.bank.in/personal-banking/digital-products/cards/credit-cards/snapdeal-bob-credit-card",
+    "applyUrl": "https://bankofbaroda.bank.in/personal-banking/digital-products/cards/credit-cards/snapdeal-bob-credit-card",
+    "lastVerified": "2026-05-10",
+    "verificationStatus": "official-direct"
   }
 ]
