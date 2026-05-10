@@ -7006,5 +7006,104 @@
     "applyUrl": "https://www.axis.bank.in/cards/credit-card/indigo-axis-bank-credit-card",
     "lastVerified": "2026-05-10",
     "verificationStatus": "official-direct"
+  },
+  {
+    "id": "axis-indigo-premium",
+    "issuer": "Axis Bank",
+    "name": "IndiGo Axis Bank Premium Credit Card",
+    "network": [
+      "Visa"
+    ],
+    "joiningFee": 5000,
+    "annualFee": 5000,
+    "feeWaiverSpend": null,
+    "bestFor": [
+      "indigo",
+      "flights",
+      "travel",
+      "hotel",
+      "lounge"
+    ],
+    "rewardType": "indigo bluchips",
+    "rewards": [
+      {
+        "category": "airlines",
+        "rate": 7,
+        "capMonthly": null
+      },
+      {
+        "category": "grocery",
+        "rate": 3,
+        "capMonthly": null
+      },
+      {
+        "category": "hotel",
+        "rate": 3,
+        "capMonthly": null
+      },
+      {
+        "category": "offline",
+        "rate": 2,
+        "capMonthly": null
+      }
+    ],
+    "loungeDomestic": 8,
+    "loungeInternational": 2,
+    "forexMarkup": 2.5,
+    "tags": [
+      "indigo",
+      "premium",
+      "bluchips",
+      "flights",
+      "travel",
+      "hotel",
+      "grocery",
+      "lounge",
+      "priority pass",
+      "bookmyshow"
+    ],
+    "exclusions": [
+      "fuel above fee threshold",
+      "rent",
+      "wallet load",
+      "education payments via third-party apps",
+      "utilities above fee threshold",
+      "transactions excluded under IndiGo Axis Bank Premium Credit Card terms"
+    ],
+    "milestoneBenefits": [
+      "Voucher worth 5,000 IndiGo BluChips at annual spends of Rs 2 lakh",
+      "Voucher worth 5,000 IndiGo BluChips at annual spends of Rs 5 lakh",
+      "Voucher worth 5,000 IndiGo BluChips at annual spends of Rs 8 lakh",
+      "Voucher worth 5,000 IndiGo BluChips at annual spends of Rs 12 lakh"
+    ],
+    "additionalBenefits": [
+      "Voucher worth 5,000 IndiGo BluChips plus one complimentary 6E Eats voucher as welcome gift on payment of joining fee",
+      "Voucher worth 5,000 IndiGo BluChips plus one complimentary 6E Eats voucher every year as renewal benefit on payment of annual fee",
+      "7 IndiGo BluChips per Rs 100 on all IndiGo channels",
+      "3 IndiGo BluChips per Rs 100 on groceries and hotel spends",
+      "2 IndiGo BluChips per Rs 100 on other eligible categories",
+      "2 complimentary international lounge visits through Priority Pass",
+      "2 complimentary domestic airport lounge visits per quarter, applicable on spends of Rs 50,000 in the preceding 3 months",
+      "Buy one get one movie ticket offer on BookMyShow once every month",
+      "Low forex markup of 2.5% on foreign currency transactions",
+      "Dining Delights offers through Axis Bank dining programme",
+      "EMI conversion available for transactions exceeding Rs 1,500"
+    ],
+    "redemption": {
+      "statementBalanceValue": null,
+      "pointsExpiryYears": null
+    },
+    "eligibility": {
+      "salaried": [
+        "Primary cardholder should be 18 to 70 years of age, resident of India and have net income of at least Rs 6 lakh per annum"
+      ],
+      "selfEmployed": [
+        "Primary cardholder should be 18 to 70 years of age, resident of India and have net income of at least Rs 6 lakh per annum"
+      ]
+    },
+    "sourceUrl": "https://www.axis.bank.in/cards/credit-card/indigo-axis-bank-premium-credit-card",
+    "applyUrl": "https://www.axis.bank.in/cards/credit-card/indigo-axis-bank-premium-credit-card",
+    "lastVerified": "2026-05-10",
+    "verificationStatus": "official-direct"
   }
 ]
