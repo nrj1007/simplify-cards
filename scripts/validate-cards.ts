@@ -163,6 +163,15 @@ if (!Array.isArray(cards)) {
     for (const field of ["joiningFee", "annualFee", "forexMarkup"]) validateMoney(card, cardId, field);
     validateMoney(card, cardId, "feeWaiverSpend", true);
 
+    if (
+      typeof card.popularityScore !== "number" ||
+      !Number.isInteger(card.popularityScore) ||
+      card.popularityScore < 0 ||
+      card.popularityScore > 100
+    ) {
+      addIssue("must be an integer between 0 and 100", cardId, "popularityScore");
+    }
+
     validateLounge(card.loungeDomestic, cardId, "loungeDomestic");
     validateLounge(card.loungeInternational, cardId, "loungeInternational");
 

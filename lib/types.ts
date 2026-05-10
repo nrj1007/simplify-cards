@@ -36,6 +36,7 @@ export type CreditCard = {
   bestFor: string[];
   rewardType: string;
   rewards: Reward[];
+  popularityScore: number;
   loungeDomestic: number | "unlimited";
   loungeInternational: number | "unlimited";
   forexMarkup: number;

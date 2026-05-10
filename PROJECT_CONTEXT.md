@@ -1,6 +1,6 @@
 # Project Context
 
-Last updated: 2026-05-09
+Last updated: 2026-05-10
 
 ## Project
 
@@ -20,6 +20,7 @@ The app is a lean Next.js-only MVP for an Indian credit-card discovery and Q&A p
 - No database
 - Credit card data stored in `data/cards.json`
 - Data loaded in memory
+- Each card has a `popularityScore` from 0 to 100 for popularity-first sorting and future ranking features.
 - Deterministic recommendation logic in `lib/recommend.ts`
 - Basic API routes:
   - `POST /api/ask`
@@ -48,6 +49,12 @@ Type check:
 
 ```powershell
 .\tools\node\node.exe .\node_modules\typescript\bin\tsc --noEmit
+```
+
+Update card popularity scores:
+
+```powershell
+.\tools\node\node.exe .\scripts\update-popularity-scores.js
 ```
 
 Git:
@@ -98,6 +105,7 @@ Update <issuer> <card name> card data
 - Store clean canonical URLs without tracking query params in `sourceUrl` and `applyUrl`.
 - Do not invent values. If HDFC sources conflict, use conservative values and mention the conflict.
 - `loungeDomestic` and `loungeInternational` support either a number or `"unlimited"`.
+- `popularityScore` is a v1 heuristic, not measured traffic. It combines curated scores for well-known cards, issuer/category demand, fees, lounge access, and niche-card penalties. Refine it later with actual search volume, page views, outbound clicks, affiliate conversions, or community mention counts.
 
 ## Queued HDFC URLs
 
