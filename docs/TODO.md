@@ -104,6 +104,18 @@ Saved for later as requested. Start by confirming whether Equitas Small Finance 
 - [ ] Add official active products to the relevant issuer file under `data/cards/`
 - [ ] Record unavailable/discontinued status in notes if there are no active cards
 
+## Federal Bank Card Ingestion
+
+Scapia Federal Credit Card added from official Federal Bank and Scapia sources.
+
+### Remaining Federal Bank Cards To Verify Later
+
+- [ ] Federal Bank Imperio Credit Card
+- [ ] Federal Bank Celesta Credit Card
+- [ ] Federal Bank Signet Credit Card
+- [ ] Federal Bank Wave Credit Card
+- [ ] Federal Bank OneCard variants, if active and open for application
+
 ## IDFC FIRST Bank Card Ingestion
 
 High-priority IDFC batch was added together in commit work after `1774c40`, including FIRST Millennia, FIRST Classic, FIRST Select, FIRST Wealth, FIRST WOW cleanup, FIRST EA₹N, FIRST Power, FIRST Power+, Ashva, Mayura, and IndiGo IDFC FIRST.
