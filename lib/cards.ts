@@ -1,4 +1,5 @@
 import auSmallFinanceCards from "@/data/cards/au-small-finance.json";
+import americanExpressCards from "@/data/cards/american-express.json";
 import axisCards from "@/data/cards/axis.json";
 import bankOfBarodaCards from "@/data/cards/bank-of-baroda.json";
 import federalBankCards from "@/data/cards/federal-bank.json";
@@ -10,6 +11,7 @@ import sbiCards from "@/data/cards/sbi.json";
 import type { CreditCard } from "./types";
 
 export const cards = [
+  ...americanExpressCards,
   ...iciciCards,
   ...sbiCards,
   ...axisCards,

@@ -23,6 +23,7 @@ describe("card data files", () => {
     const fileCardCount = issuerFiles.reduce((total, issuerFile) => total + issuerFile.cards.length, 0);
 
     expect(issuerFiles.map((issuerFile) => issuerFile.file)).toEqual([
+      "american-express.json",
       "au-small-finance.json",
       "axis.json",
       "bank-of-baroda.json",
@@ -77,6 +78,7 @@ describe("card lookup helpers", () => {
     expect(issuers).toContain("HDFC Bank");
     expect(issuers).toContain("ICICI Bank");
     expect(issuers).toContain("Federal Bank");
+    expect(issuers).toContain("American Express");
     expect(issuers).toEqual([...issuers].sort());
     expect(tags).toContain("cashback");
     expect(tags).toContain("lounge");

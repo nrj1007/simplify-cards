@@ -116,6 +116,15 @@ Scapia Federal Credit Card added from official Federal Bank and Scapia sources.
 - [ ] Federal Bank Wave Credit Card
 - [ ] Federal Bank OneCard variants, if active and open for application
 
+## American Express Card Ingestion
+
+High-priority American Express India personal cards added from official American Express pages: Platinum Travel, Membership Rewards, Gold Card, SmartEarn, Platinum Reserve, and Platinum Card.
+
+### Remaining American Express Cards To Verify Later
+
+- [ ] Any currently open business/corporate American Express cards, only if business-card coverage is requested
+- [ ] Any limited-time proprietary card application pauses or reopenings, because older Amex pages and current index pages can show different availability language
+
 ## IDFC FIRST Bank Card Ingestion
 
 High-priority IDFC batch was added together in commit work after `1774c40`, including FIRST Millennia, FIRST Classic, FIRST Select, FIRST Wealth, FIRST WOW cleanup, FIRST EA₹N, FIRST Power, FIRST Power+, Ashva, Mayura, and IndiGo IDFC FIRST.
