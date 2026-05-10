@@ -42,3 +42,27 @@ These are listed or have official pages, but should not be added as active-new-a
 - [ ] Add filters for issuer, cashback, travel, lounge, fuel, UPI, low-fee, and secured cards.
 - [ ] Add a basic Ask AI flow over `data/cards.json`.
 - [ ] Add a manual approval workflow for community/news signals before updating card data.
+
+## IDFC FIRST Bank Card Ingestion
+
+High-priority IDFC batch was added together in commit work after `1774c40`, including FIRST Millennia, FIRST Classic, FIRST Select, FIRST Wealth, FIRST WOW cleanup, FIRST EA₹N, FIRST Power, FIRST Power+, Ashva, Mayura, and IndiGo IDFC FIRST.
+
+### Remaining IDFC Cards
+
+- [ ] Hello Cashback Credit Card
+- [ ] FIRST Digital Credit Card
+- [ ] FIRST WOW! Black Credit Card
+- [ ] FIRST SWYP Credit Card
+- [ ] LIC Classic Credit Card
+- [ ] LIC Select Credit Card
+- [ ] Diamond Reserve Credit Card
+
+### Skip Unless Specifically Requested
+
+- [ ] Gaj Credit Card: invite-only
+- [ ] FIRST Private Credit Card: invite-only
+- [ ] Business Max Credit Card
+- [ ] Business Multiplier Credit Card
+- [ ] FIRST Corporate Credit Card
+- [ ] FIRST Purchase Credit Card
+- [ ] FIRST Business Credit Card
