@@ -42,6 +42,9 @@ These are listed or have official pages, but should not be added as active-new-a
 - [ ] Add filters for issuer, cashback, travel, lounge, fuel, UPI, low-fee, and secured cards.
 - [ ] Add a basic Ask AI flow over `data/cards.json`.
 - [ ] Add a manual approval workflow for community/news signals before updating card data.
+- [ ] Add advertisement placements and policy-safe ad slot handling.
+- [ ] Add affiliate link support per card, including tracking metadata and fallback apply URLs.
+- [ ] Add reverse indexes for fast lookup by issuer, tags, network, reward category, and popularity.
 
 ## Bank of Baroda Card Ingestion
 
