@@ -35,6 +35,7 @@ describe("card data files", () => {
       "idfc.json",
       "indusind-bank.json",
       "kotak-mahindra.json",
+      "onecard-partners.json",
       "rbl-bank.json",
       "sbi.json",
       "standard-chartered.json",
@@ -88,6 +89,7 @@ describe("card lookup helpers", () => {
     expect(issuers).toContain("Equitas Small Finance Bank");
     expect(issuers).toContain("American Express");
     expect(issuers).toContain("Kotak Mahindra Bank");
+    expect(issuers).toContain("OneCard Partner Banks");
     expect(issuers).toContain("RBL Bank");
     expect(issuers).toContain("Standard Chartered");
     expect(issuers).toContain("YES Bank");

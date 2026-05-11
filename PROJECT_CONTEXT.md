@@ -20,7 +20,7 @@ The app is a lean Next.js-only MVP for an Indian credit-card discovery and Q&A p
 - No database
 - Credit card data stored in issuer files under `data/cards/`
 - Data loaded in memory
-- Current data checkpoint: 194 cards across 16 issuer files.
+- Current data checkpoint: 202 cards across 17 issuer files.
 - Each card has a `popularityScore` from 0 to 100 for popularity-first sorting and future ranking features.
 - Deterministic recommendation logic in `lib/recommend.ts`
 - Vitest test suite covers card data loading, helper lookups, and recommendation filters.
@@ -140,7 +140,10 @@ Update <issuer> <card name> card data
   - Kotak 811
   - 811 Dream Different
   - PVR Kotak Platinum
-- Deferred White Reserve, Air+, PVR Gold, Solitaire, Infinite, and business cards for later
+- Added premium-tail Kotak cards:
+  - White Reserve
+  - PVR Kotak Gold
+- Deferred Air+, Solitaire, Infinite, and business cards for later
 - Marked IndiGo Kotak legacy/discontinued pages as skip-unless-requested for now
 
 ## Recent RBL Work
@@ -171,7 +174,9 @@ Update <issuer> <card name> card data
   - Platinum Aura Edge
   - Celesta
   - Indulge
-- Deferred Crest, Pioneer Legacy, Pioneer Heritage, Samman, Solitaire, and mixed/legacy product tails for later verification
+- Added premium-tail IndusInd card:
+  - PIONEER Heritage Metal
+- Deferred Crest, Pioneer Legacy, Samman, Solitaire, and mixed/legacy product tails for later verification
 
 ## Recent Equitas and Federal Work
 
@@ -200,6 +205,17 @@ Update <issuer> <card name> card data
   - Priority Visa Infinite
   - Beyond
 - Left Emirates World and any instant/pre-approved-only tails for later verification
+
+## Recent Premium-Tail Cleanup
+
+- Added ICICI premium and variant cards:
+  - Times Black
+  - Coral RuPay
+  - Sapphiro RuPay
+  - HPCL Coral
+- Added a generic multi-bank OneCard entry under a separate issuer file:
+  - One Credit Card
+- Current OneCard handling uses a single official mixed-source product entry for partner-bank issuance, with issuer-specific variants left for later only if product differences become material
 
 ## Queued HDFC URLs
 

@@ -290,6 +290,76 @@
     "verificationStatus": "official-mixed"
   },
   {
+    "id": "kotak-white-reserve",
+    "issuer": "Kotak Mahindra Bank",
+    "name": "White Reserve Credit Card",
+    "network": [
+      "Visa"
+    ],
+    "joiningFee": 12500,
+    "annualFee": 12500,
+    "feeWaiverSpend": 1000000,
+    "bestFor": [
+      "premium",
+      "travel",
+      "lounge",
+      "concierge",
+      "milestones"
+    ],
+    "rewardType": "White Pass",
+    "rewards": [
+      {
+        "category": "offline",
+        "rate": 0,
+        "capMonthly": null
+      }
+    ],
+    "popularityScore": 76,
+    "loungeDomestic": "unlimited",
+    "loungeInternational": "unlimited",
+    "forexMarkup": 3.5,
+    "tags": [
+      "kotak",
+      "white reserve",
+      "white pass",
+      "premium",
+      "lounge",
+      "concierge",
+      "travel"
+    ],
+    "exclusions": [
+      "white pass value depends on spend milestones",
+      "as per internal norms, customer can hold only one active White or White Reserve Credit Card",
+      "guest charges apply after complimentary visits are exhausted"
+    ],
+    "milestoneBenefits": [
+      "Annual fee can be waived on annual spends of Rs 10,00,000",
+      "Earn White Pass value at milestone spends up to Rs 2.5 lakhs annually"
+    ],
+    "additionalBenefits": [
+      "Unlimited global airport lounge access for primary and add-on card holders",
+      "Luxury lifestyle concierge",
+      "Annual Club Marriott membership",
+      "Golf privileges",
+      "1 White Pass = Rs 1 on White Pass catalogue and Rs 0.70 for cashback"
+    ],
+    "redemption": {
+      "statementBalanceValue": 0.7
+    },
+    "eligibility": {
+      "salaried": [
+        "Eligibility is subject to Kotak Mahindra Bank approval criteria"
+      ],
+      "selfEmployed": [
+        "Eligibility is subject to Kotak Mahindra Bank approval criteria"
+      ]
+    },
+    "sourceUrl": "https://www.kotak.com/en/personal-banking/cards/credit-cards/white-reserve-credit-card/value.html",
+    "applyUrl": "https://www.kotak.com/en/personal-banking/cards/credit-cards/white-reserve-credit-card.html",
+    "lastVerified": "2026-05-11",
+    "verificationStatus": "official-mixed"
+  },
+  {
     "id": "kotak-zen-signature",
     "issuer": "Kotak Mahindra Bank",
     "name": "Zen Signature Credit Card",
@@ -658,6 +728,65 @@
     "additionalBenefits": [
       "15% cashback on food and beverages at PVR",
       "5% cashback on movie tickets at PVR box office"
+    ],
+    "redemption": {},
+    "eligibility": {
+      "salaried": [
+        "Eligibility is subject to Kotak Mahindra Bank approval criteria"
+      ],
+      "selfEmployed": [
+        "Eligibility is subject to Kotak Mahindra Bank approval criteria"
+      ]
+    },
+    "sourceUrl": "https://www.kotak.com/en/personal-banking/cards/credit-cards.html",
+    "applyUrl": "https://www.kotak.com/en/personal-banking/cards/credit-cards.html",
+    "lastVerified": "2026-05-11",
+    "verificationStatus": "official-indexed"
+  },
+  {
+    "id": "kotak-pvr-gold",
+    "issuer": "Kotak Mahindra Bank",
+    "name": "PVR Kotak Gold Credit Card",
+    "network": [
+      "Visa"
+    ],
+    "joiningFee": 0,
+    "annualFee": 499,
+    "feeWaiverSpend": null,
+    "bestFor": [
+      "movies",
+      "entertainment"
+    ],
+    "rewardType": "movie benefits",
+    "rewards": [
+      {
+        "category": "offline",
+        "rate": 0,
+        "capMonthly": null
+      }
+    ],
+    "popularityScore": 69,
+    "loungeDomestic": 0,
+    "loungeInternational": 0,
+    "forexMarkup": 3.5,
+    "tags": [
+      "kotak",
+      "pvr",
+      "gold",
+      "movies",
+      "entertainment"
+    ],
+    "exclusions": [
+      "movie ticket benefits depend on monthly spend thresholds and claim flow",
+      "benefits are entertainment-focused rather than reward-rate focused"
+    ],
+    "milestoneBenefits": [
+      "Get 1 free PVR ticket every month on spends of Rs 10,000, each ticket up to Rs 400",
+      "Get 2 free PVR tickets every month on spends of Rs 15,000, each ticket up to Rs 400"
+    ],
+    "additionalBenefits": [
+      "15% cashback on food and beverages at PVR",
+      "Entertainment-focused low-fee movie card"
     ],
     "redemption": {},
     "eligibility": {

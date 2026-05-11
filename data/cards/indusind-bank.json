@@ -578,6 +578,85 @@
     "verificationStatus": "official-mixed"
   },
   {
+    "id": "indusind-pioneer-heritage-metal",
+    "issuer": "IndusInd Bank",
+    "name": "PIONEER Heritage Metal Credit Card",
+    "network": [
+      "Mastercard",
+      "Visa"
+    ],
+    "joiningFee": 100000,
+    "annualFee": 25000,
+    "feeWaiverSpend": 1000000,
+    "bestFor": [
+      "luxury",
+      "travel",
+      "lounge",
+      "golf",
+      "zero forex"
+    ],
+    "rewardType": "Pioneer Rewards",
+    "rewards": [
+      {
+        "category": "offline",
+        "rate": 1,
+        "capMonthly": null
+      },
+      {
+        "category": "travel",
+        "rate": 2.5,
+        "capMonthly": null
+      }
+    ],
+    "popularityScore": 75,
+    "loungeDomestic": "unlimited",
+    "loungeInternational": "unlimited",
+    "forexMarkup": 0,
+    "tags": [
+      "indusind",
+      "pioneer",
+      "heritage metal",
+      "luxury",
+      "travel",
+      "lounge",
+      "golf",
+      "zero forex"
+    ],
+    "exclusions": [
+      "reserved for Pioneer customers",
+      "reward programme for select categories revised periodically as per Pioneer terms",
+      "zero forex benefit effective on current variant as per updated official page"
+    ],
+    "milestoneBenefits": [
+      "Join with a fee of Rs 1 lakh and get welcome vouchers worth Rs 1 lakh",
+      "Annual maintenance fee of Rs 25,000 waived upon spending Rs 10 lakhs or more in previous year"
+    ],
+    "additionalBenefits": [
+      "Zero foreign currency mark-up",
+      "Unlimited domestic lounge visits",
+      "Unlimited international lounge visits on eligible network and programme memberships",
+      "Unlimited complimentary golf games and lessons",
+      "No late payment fee, no over-limit fee, and no cash advancement charges",
+      "1 reward point per Rs 100 domestic spend and 2.5 reward points per Rs 100 international spend"
+    ],
+    "redemption": {
+      "statementBalanceValue": 1,
+      "pointsExpiryYears": null
+    },
+    "eligibility": {
+      "salaried": [
+        "Pioneer relationship and bank approval required"
+      ],
+      "selfEmployed": [
+        "Pioneer relationship and bank approval required"
+      ]
+    },
+    "sourceUrl": "https://bank.indusind.com/pioneer/personal-banking/cards/pioneer-heritage-credit-card.html",
+    "applyUrl": "https://bank.indusind.com/pioneer/personal-banking/cards/pioneer-heritage-credit-card.html",
+    "lastVerified": "2026-05-11",
+    "verificationStatus": "official-direct"
+  },
+  {
     "id": "indusind-nexxt",
     "issuer": "IndusInd Bank",
     "name": "IndusInd Bank Nexxt Credit Card",

@@ -52,14 +52,10 @@ Top ICICI cards added: Amazon Pay ICICI Bank Credit Card, Emeralde Private Metal
 
 ### Remaining ICICI Cards To Verify Later
 
-- [ ] Times Black ICICI Bank Credit Card
-- [ ] Coral RuPay Credit Card as a separate entry, if needed beyond the combined Coral entry
-- [ ] Sapphiro RuPay Credit Card as a separate entry, if needed beyond the combined Sapphiro entry
 - [ ] MakeMyTrip ICICI Bank Signature Credit Card: official ICICI page says applications are no longer accepted for older Signature variant, verify before adding
 - [ ] MakeMyTrip ICICI Bank Platinum Credit Card: official ICICI page says applications are no longer accepted for older Platinum variant, verify before adding
 - [ ] Manchester United Platinum Credit Card
 - [ ] Manchester United Signature Credit Card
-- [ ] HPCL Coral Credit Card
 - [ ] Accelero Credit Card
 - [ ] Mine Credit Card
 - [ ] Expressions Credit Card
@@ -115,9 +111,7 @@ Top Kotak cards added from official Kotak pages and official Kotak terms: Indian
 
 ### Remaining Kotak Cards To Verify Later
 
-- [ ] White Reserve Credit Card
 - [ ] Kotak Air+ Credit Card
-- [ ] PVR Kotak Gold Credit Card
 - [ ] Kotak Solitaire Credit Card
 - [ ] Kotak Infinite Credit Card
 - [ ] Solitaire Business Credit Card
@@ -151,7 +145,6 @@ Top IndusInd cards added from official IndusInd pages and current benefit/MITC m
 
 - [ ] Crest Credit Card
 - [ ] Pioneer Legacy Credit Card
-- [ ] Pioneer Heritage Credit Card / Heritage Metal
 - [ ] Samman RuPay Credit Card
 - [ ] Solitaire Credit Card
 - [ ] Duo Card, only if we decide mixed debit-credit products belong in scope
@@ -171,6 +164,14 @@ Scapia Federal Credit Card added from official Federal Bank and Scapia sources. 
 ### Remaining Federal Bank Cards To Verify Later
 
 - [ ] Federal Bank OneCard variants, if active and open for application
+
+## OneCard Partner Issuers
+
+Generic OneCard entry added from official OneCard product and FAQ pages, covering the multi-bank issued One Credit Card currently offered through partner issuers such as BOBCARD, CSB Bank, Federal Bank, SBM Bank, South Indian Bank and Indian Bank.
+
+### Remaining OneCard To Verify Later
+
+- [ ] Add bank-specific OneCard variants separately only if issuer-level product differences become material enough for separate entries
 
 ## Standard Chartered Card Ingestion
 

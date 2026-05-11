@@ -211,6 +211,84 @@
     "verificationStatus": "official-direct"
   },
   {
+    "id": "icici-times-black",
+    "issuer": "ICICI Bank",
+    "name": "Times Black ICICI Bank Credit Card",
+    "network": [
+      "Visa"
+    ],
+    "joiningFee": 20000,
+    "annualFee": 20000,
+    "feeWaiverSpend": 2500000,
+    "bestFor": [
+      "luxury",
+      "travel",
+      "lounge",
+      "low forex",
+      "premium"
+    ],
+    "rewardType": "ICICI Bank Reward Points",
+    "rewards": [
+      {
+        "category": "offline",
+        "rate": 2,
+        "capMonthly": null
+      },
+      {
+        "category": "online",
+        "rate": 2,
+        "capMonthly": null
+      }
+    ],
+    "popularityScore": 84,
+    "loungeDomestic": "unlimited",
+    "loungeInternational": "unlimited",
+    "forexMarkup": 1.49,
+    "tags": [
+      "icici",
+      "times black",
+      "luxury",
+      "travel",
+      "lounge",
+      "low forex",
+      "premium",
+      "metal"
+    ],
+    "exclusions": [
+      "utility payments",
+      "insurance premium payments",
+      "education payments",
+      "government payments are capped at 5,000 reward points per statement cycle"
+    ],
+    "milestoneBenefits": [
+      "Annual fee waived from second year onwards on minimum spends of Rs 25,00,000 made in the previous year"
+    ],
+    "additionalBenefits": [
+      "Luxury stay and lifestyle gift card benefits",
+      "1.49% forex markup",
+      "Unlimited international airport lounge access",
+      "Priority Pass membership for primary and plus cardholder",
+      "Reward points on eligible domestic transactions",
+      "UHNI-focused co-branded card with Times Internet"
+    ],
+    "redemption": {
+      "statementBalanceValue": 0.25,
+      "pointsExpiryYears": null
+    },
+    "eligibility": {
+      "salaried": [
+        "Eligibility is subject to ICICI Bank premium card approval criteria"
+      ],
+      "selfEmployed": [
+        "Eligibility is subject to ICICI Bank premium card approval criteria"
+      ]
+    },
+    "sourceUrl": "https://www.icicibank.com/personal-banking/cards/credit-card/times-black-icici-credit-card.html",
+    "applyUrl": "https://www.icicibank.com/personal-banking/cards/credit-card/times-black-icici-credit-card.html",
+    "lastVerified": "2026-05-11",
+    "verificationStatus": "official-direct"
+  },
+  {
     "id": "icici-makemytrip",
     "issuer": "ICICI Bank",
     "name": "MakeMyTrip ICICI Bank Credit Card",
@@ -525,6 +603,92 @@
     "verificationStatus": "official-direct"
   },
   {
+    "id": "icici-sapphiro-rupay",
+    "issuer": "ICICI Bank",
+    "name": "ICICI Bank Sapphiro RuPay Credit Card",
+    "network": [
+      "RuPay"
+    ],
+    "joiningFee": 6500,
+    "annualFee": 3500,
+    "feeWaiverSpend": null,
+    "bestFor": [
+      "premium",
+      "travel",
+      "lounge",
+      "movies",
+      "golf",
+      "upi"
+    ],
+    "rewardType": "reward points",
+    "rewards": [
+      {
+        "category": "retail",
+        "rate": 0.5,
+        "capMonthly": null
+      },
+      {
+        "category": "travel",
+        "rate": 1,
+        "capMonthly": null
+      },
+      {
+        "category": "utilities",
+        "rate": 0.25,
+        "capMonthly": null
+      },
+      {
+        "category": "upi",
+        "rate": 0.5,
+        "capMonthly": null
+      }
+    ],
+    "popularityScore": 80,
+    "loungeDomestic": 16,
+    "loungeInternational": 2,
+    "forexMarkup": 3.5,
+    "tags": [
+      "icici",
+      "sapphiro",
+      "rupay",
+      "premium",
+      "lounge",
+      "movies",
+      "golf",
+      "upi"
+    ],
+    "exclusions": [
+      "fuel",
+      "transactions excluded under ICICI Bank reward programme terms"
+    ],
+    "milestoneBenefits": [
+      "Welcome vouchers worth Rs 9,000+ listed on ICICI Bank card catalogue",
+      "Up to 20,000 reward points every anniversary year under ICICI Bank milestone rewards"
+    ],
+    "additionalBenefits": [
+      "Complimentary access to domestic and international airport lounges",
+      "Buy one ticket and get up to Rs 500 off on the second ticket twice every month on BookMyShow",
+      "Golf course privileges and dining benefits",
+      "RuPay network support for UPI linking"
+    ],
+    "redemption": {
+      "statementBalanceValue": 0.25,
+      "pointsExpiryYears": null
+    },
+    "eligibility": {
+      "salaried": [
+        "Age 21 years and above, monthly income Rs 75,000 and above"
+      ],
+      "selfEmployed": [
+        "Age 21 years and above, eligibility is subject to ICICI Bank approval criteria"
+      ]
+    },
+    "sourceUrl": "https://www.icicibank.com/personal-banking/cards/credit-card/rupay-credit-card",
+    "applyUrl": "https://www.icicibank.com/personal-banking/cards/credit-card/rupay-credit-card",
+    "lastVerified": "2026-05-11",
+    "verificationStatus": "official-mixed"
+  },
+  {
     "id": "icici-platinum-chip",
     "issuer": "ICICI Bank",
     "name": "ICICI Bank Platinum Chip Credit Card",
@@ -593,6 +757,86 @@
     "applyUrl": "https://www.icicibank.com/personal-banking/cards/credit-card/platinum-chip-credit-card.html",
     "lastVerified": "2026-05-10",
     "verificationStatus": "official-direct"
+  },
+  {
+    "id": "icici-coral-rupay",
+    "issuer": "ICICI Bank",
+    "name": "ICICI Bank Coral RuPay Credit Card",
+    "network": [
+      "RuPay"
+    ],
+    "joiningFee": 500,
+    "annualFee": 500,
+    "feeWaiverSpend": 150000,
+    "bestFor": [
+      "upi",
+      "movies",
+      "railway lounge",
+      "entry level",
+      "rupay"
+    ],
+    "rewardType": "reward points",
+    "rewards": [
+      {
+        "category": "retail",
+        "rate": 0.5,
+        "capMonthly": null
+      },
+      {
+        "category": "utilities",
+        "rate": 0.25,
+        "capMonthly": null
+      },
+      {
+        "category": "upi",
+        "rate": 0.5,
+        "capMonthly": null
+      }
+    ],
+    "popularityScore": 77,
+    "loungeDomestic": 4,
+    "loungeInternational": 0,
+    "forexMarkup": 3.5,
+    "tags": [
+      "icici",
+      "coral",
+      "rupay",
+      "upi",
+      "movies",
+      "railway lounge",
+      "entry level"
+    ],
+    "exclusions": [
+      "fuel",
+      "transactions excluded under ICICI Bank reward programme terms",
+      "UPI is only for merchant payments and restricted categories apply"
+    ],
+    "milestoneBenefits": [
+      "2,000 reward points on spending Rs 2,00,000 and 1,000 reward points each time Rs 1,00,000 spend is crossed thereafter in an anniversary year, capped at 10,000 points per year"
+    ],
+    "additionalBenefits": [
+      "Complimentary domestic airport lounge access",
+      "Complimentary domestic railway lounge access",
+      "25% discount on BookMyShow and INOX movie tickets capped at Rs 100 twice a month",
+      "RuPay network support for UPI linking",
+      "Fuel surcharge waiver"
+    ],
+    "redemption": {
+      "statementBalanceValue": 0.25,
+      "pointsExpiryYears": null
+    },
+    "eligibility": {
+      "salaried": [
+        "Age 21 years and above, monthly income Rs 20,000 and above"
+      ],
+      "selfEmployed": [
+        "Age 21 years and above, eligibility is subject to ICICI Bank approval criteria"
+      ]
+    },
+    "sourceUrl": "https://www.icicibank.com/personal-banking/cards/credit-card/coral-rupay-card",
+    "applyUrl": "https://www.icicibank.com/personal-banking/cards/credit-card/rupay-credit-card",
+    "lastVerified": "2026-05-11",
+    "verificationStatus": "official-mixed"
   },
   {
     "id": "icici-rubyx",
@@ -828,6 +1072,74 @@
     "sourceUrl": "https://www.icicibank.com/personal-banking/cards/credit-card/adani-icici-credit-card/platinum-card",
     "applyUrl": "https://www.icicibank.com/personal-banking/cards/credit-card/adani-icici-credit-card/platinum-card",
     "lastVerified": "2026-05-10",
+    "verificationStatus": "official-direct"
+  },
+  {
+    "id": "icici-hpcl-coral",
+    "issuer": "ICICI Bank",
+    "name": "ICICI Bank HPCL Coral Credit Card",
+    "network": [
+      "Visa"
+    ],
+    "joiningFee": 199,
+    "annualFee": 199,
+    "feeWaiverSpend": null,
+    "bestFor": [
+      "fuel",
+      "hpcl",
+      "movies",
+      "entry level"
+    ],
+    "rewardType": "cashback and reward points",
+    "rewards": [
+      {
+        "category": "fuel",
+        "rate": 2.5,
+        "capMonthly": null
+      },
+      {
+        "category": "retail",
+        "rate": 0.5,
+        "capMonthly": null
+      }
+    ],
+    "popularityScore": 74,
+    "loungeDomestic": 0,
+    "loungeInternational": 0,
+    "forexMarkup": 3.5,
+    "tags": [
+      "icici",
+      "hpcl",
+      "coral",
+      "fuel",
+      "movies",
+      "entry level"
+    ],
+    "exclusions": [
+      "fuel surcharge waiver and cashback apply at HPCL pumps as per ICICI Bank terms"
+    ],
+    "milestoneBenefits": [],
+    "additionalBenefits": [
+      "2.5% cashback on fuel purchases at HPCL pumps",
+      "1% fuel surcharge waiver at HPCL pumps",
+      "2 ICICI Bank reward points on every Rs 100 spent on retail purchases except fuel",
+      "Movie ticket and lifestyle privileges on the Coral platform"
+    ],
+    "redemption": {
+      "statementBalanceValue": 0.25,
+      "pointsExpiryYears": null
+    },
+    "eligibility": {
+      "salaried": [
+        "Eligibility is subject to ICICI Bank approval criteria"
+      ],
+      "selfEmployed": [
+        "Eligibility is subject to ICICI Bank approval criteria"
+      ]
+    },
+    "sourceUrl": "https://www.icicibank.com/personal-banking/cards/credit-card/hpcl-coral-credit-card",
+    "applyUrl": "https://www.icicibank.com/personal-banking/cards/credit-card/hpcl-coral-credit-card",
+    "lastVerified": "2026-05-11",
     "verificationStatus": "official-direct"
   }
 ]

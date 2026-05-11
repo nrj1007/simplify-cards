@@ -10,6 +10,7 @@ import iciciCards from "@/data/cards/icici.json";
 import idfcCards from "@/data/cards/idfc.json";
 import indusIndBankCards from "@/data/cards/indusind-bank.json";
 import kotakMahindraCards from "@/data/cards/kotak-mahindra.json";
+import oneCardPartnersCards from "@/data/cards/onecard-partners.json";
 import rblBankCards from "@/data/cards/rbl-bank.json";
 import sbiCards from "@/data/cards/sbi.json";
 import standardCharteredCards from "@/data/cards/standard-chartered.json";
@@ -30,6 +31,7 @@ export const cards = [
   ...auSmallFinanceCards,
   ...equitasSmallFinanceCards,
   ...kotakMahindraCards,
+  ...oneCardPartnersCards,
   ...rblBankCards,
   ...standardCharteredCards,
   ...yesBankCards
