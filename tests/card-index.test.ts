@@ -2,13 +2,18 @@ import { describe, expect, it } from "vitest";
 import {
   cardIndexes,
   cards,
+  getCardsByCardSegment,
   getCardsByIssuer,
   getCardsByNetwork,
   getCardsByPopularityBand,
+  getCardsByRedemptionBucket,
   getCardsByRewardCategory,
   getCardsByTag,
+  getCardsByUseCase,
+  getCardSegments,
   getNetworks,
   getPopularCards,
+  getRedemptionBuckets,
   getRewardCategories
 } from "../lib/cards";
 
@@ -79,5 +84,52 @@ describe("card indexes", () => {
     expect(rewardCategories).toEqual([...rewardCategories].sort());
     expect(rewardCategories).toContain("fuel");
     expect(rewardCategories).toContain("online");
+  });
+
+  it("indexes derived use cases for cashback and travel", () => {
+    const cashbackCards = getCardsByUseCase("cashback");
+    const travelCards = getCardsByUseCase("travel");
+
+    expect(cashbackCards.length).toBeGreaterThan(0);
+    expect(cashbackCards.some((card) => card.id === "sbi-cashback")).toBe(true);
+
+    expect(travelCards.length).toBeGreaterThan(0);
+    expect(travelCards.some((card) => card.id === "axis-atlas")).toBe(true);
+  });
+
+  it("indexes derived redemption ecosystems", () => {
+    const accorCards = getCardsByRedemptionBucket("accor");
+    const airIndiaCards = getCardsByRedemptionBucket("air-india");
+    const redemptionBuckets = getRedemptionBuckets();
+
+    expect(redemptionBuckets).toContain("accor");
+    expect(redemptionBuckets).toContain("air-india");
+    expect(accorCards.some((card) => card.id === "axis-reserve")).toBe(true);
+    expect(airIndiaCards.some((card) => card.id === "hdfc-tata-neu-infinity")).toBe(true);
+  });
+
+  it("indexes derived card segments", () => {
+    const segments = getCardSegments();
+
+    expect(segments).toContain("super-premium");
+    expect(segments).toContain("premium");
+    expect(segments).toContain("beginner");
+    expect(segments).toContain("ltf");
+
+    expect(getCardsByCardSegment("super-premium").some((card) => card.id === "axis-reserve")).toBe(true);
+    expect(getCardsByCardSegment("premium").some((card) => card.id === "axis-atlas")).toBe(true);
+    expect(getCardsByCardSegment("beginner").some((card) => card.id === "idfc-wow")).toBe(true);
+    expect(getCardsByCardSegment("ltf").some((card) => card.id === "icici-amazon-pay")).toBe(true);
+  });
+
+  it("keeps derived index buckets sorted and duplicate free", () => {
+    for (const groupedCards of Object.values(cardIndexes.byCardSegment)) {
+      const ids = groupedCards.map((card) => card.id);
+      expect(new Set(ids).size).toBe(ids.length);
+
+      for (let index = 1; index < groupedCards.length; index += 1) {
+        expect(groupedCards[index - 1].popularityScore).toBeGreaterThanOrEqual(groupedCards[index].popularityScore);
+      }
+    }
   });
 });

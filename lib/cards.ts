@@ -4,12 +4,18 @@ export {
   getCardById,
   getCardsByIssuer,
   getCardsByNetwork,
+  getCardsByCardSegment,
   getCardsByPopularityBand,
+  getCardsByRedemptionBucket,
   getCardsByRewardCategory,
   getCardsByTag,
+  getCardsByUseCase,
+  getCardSegments,
   getIssuers,
   getNetworks,
   getPopularCards,
+  getRedemptionBuckets,
   getRewardCategories,
+  getUseCases,
   getTags
 } from "./card-index";
