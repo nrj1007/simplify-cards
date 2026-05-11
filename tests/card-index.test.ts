@@ -1,0 +1,83 @@
+import { describe, expect, it } from "vitest";
+import {
+  cardIndexes,
+  cards,
+  getCardsByIssuer,
+  getCardsByNetwork,
+  getCardsByPopularityBand,
+  getCardsByRewardCategory,
+  getCardsByTag,
+  getNetworks,
+  getPopularCards,
+  getRewardCategories
+} from "../lib/cards";
+
+describe("card indexes", () => {
+  it("indexes every card under its issuer", () => {
+    const issuerCards = getCardsByIssuer("ICICI Bank");
+
+    expect(issuerCards.length).toBeGreaterThan(0);
+    expect(issuerCards.every((card) => card.issuer === "ICICI Bank")).toBe(true);
+    expect(issuerCards.find((card) => card.id === "icici-amazon-pay")).toBeTruthy();
+  });
+
+  it("indexes cards by tag, network, and reward category", () => {
+    expect(getCardsByTag("cashback").length).toBeGreaterThan(0);
+    expect(getCardsByTag("cashback").every((card) => card.tags.includes("cashback"))).toBe(true);
+
+    expect(getCardsByNetwork("RuPay").length).toBeGreaterThan(0);
+    expect(getCardsByNetwork("RuPay").every((card) => card.network.includes("RuPay"))).toBe(true);
+
+    expect(getCardsByRewardCategory("fuel").length).toBeGreaterThan(0);
+    expect(getCardsByRewardCategory("fuel").every((card) => card.rewards.some((reward) => reward.category === "fuel"))).toBe(
+      true
+    );
+  });
+
+  it("groups cards into stable popularity bands", () => {
+    const topBand = getCardsByPopularityBand("90-plus");
+    const highBand = getCardsByPopularityBand("80-89");
+    const midBand = getCardsByPopularityBand("70-79");
+    const lowerBand = getCardsByPopularityBand("below-70");
+
+    expect(topBand.length).toBeGreaterThan(0);
+    expect(topBand.every((card) => card.popularityScore >= 90)).toBe(true);
+    expect(highBand.every((card) => card.popularityScore >= 80 && card.popularityScore < 90)).toBe(true);
+    expect(midBand.every((card) => card.popularityScore >= 70 && card.popularityScore < 80)).toBe(true);
+    expect(lowerBand.every((card) => card.popularityScore < 70)).toBe(true);
+  });
+
+  it("keeps index buckets sorted and duplicate free", () => {
+    for (const groupedCards of Object.values(cardIndexes.byIssuer)) {
+      const ids = groupedCards.map((card) => card.id);
+      expect(new Set(ids).size).toBe(ids.length);
+
+      for (let index = 1; index < groupedCards.length; index += 1) {
+        expect(groupedCards[index - 1].popularityScore).toBeGreaterThanOrEqual(groupedCards[index].popularityScore);
+      }
+    }
+  });
+
+  it("returns the most popular cards first", () => {
+    const popularCards = getPopularCards(5);
+
+    expect(popularCards).toHaveLength(5);
+    expect(popularCards).toEqual(cards.slice(0, 5));
+    expect(popularCards[0].popularityScore).toBeGreaterThanOrEqual(popularCards[4].popularityScore);
+  });
+
+  it("exposes sorted network and reward-category vocabularies", () => {
+    const networks = getNetworks();
+    const rewardCategories = getRewardCategories();
+
+    expect(networks.length).toBeGreaterThan(0);
+    expect(networks).toEqual([...networks].sort());
+    expect(networks).toContain("Visa");
+    expect(networks).toContain("RuPay");
+
+    expect(rewardCategories.length).toBeGreaterThan(0);
+    expect(rewardCategories).toEqual([...rewardCategories].sort());
+    expect(rewardCategories).toContain("fuel");
+    expect(rewardCategories).toContain("online");
+  });
+});
