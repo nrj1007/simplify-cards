@@ -6,6 +6,8 @@ Last updated: 2026-05-12
 
 Repository: https://github.com/nrj1007/creditCardAI
 
+Journal repository for saved notes: https://github.com/nrj1007/journal
+
 Local workspace:
 
 ```text
@@ -114,6 +116,11 @@ Update <issuer> <card name> card data
 - Do not invent values. If HDFC sources conflict, use conservative values and mention the conflict.
 - `loungeDomestic` and `loungeInternational` support either a number or `"unlimited"`.
 - `popularityScore` is a v1 heuristic, not measured traffic. It combines curated scores for well-known cards, issuer/category demand, fees, lounge access, and niche-card penalties. Refine it later with actual search volume, page views, outbound clicks, affiliate conversions, or community mention counts.
+
+## Working Convention
+
+- When the user says `save notes`, treat that as a request to save the handoff/journal notes into the separate journal repository: `https://github.com/nrj1007/journal`
+- If that repo is not available in the current workspace/session, note the limitation explicitly and save locally only as a fallback
 
 ## Recent YES BANK Work
 
