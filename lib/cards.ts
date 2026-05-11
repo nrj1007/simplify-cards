@@ -12,6 +12,7 @@ import indusIndBankCards from "@/data/cards/indusind-bank.json";
 import kotakMahindraCards from "@/data/cards/kotak-mahindra.json";
 import rblBankCards from "@/data/cards/rbl-bank.json";
 import sbiCards from "@/data/cards/sbi.json";
+import standardCharteredCards from "@/data/cards/standard-chartered.json";
 import yesBankCards from "@/data/cards/yes-bank.json";
 import type { CreditCard } from "./types";
 
@@ -30,6 +31,7 @@ export const cards = [
   ...equitasSmallFinanceCards,
   ...kotakMahindraCards,
   ...rblBankCards,
+  ...standardCharteredCards,
   ...yesBankCards
 ].sort((a, b) => b.popularityScore - a.popularityScore || a.name.localeCompare(b.name)) as CreditCard[];
 

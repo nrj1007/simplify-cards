@@ -37,6 +37,7 @@ describe("card data files", () => {
       "kotak-mahindra.json",
       "rbl-bank.json",
       "sbi.json",
+      "standard-chartered.json",
       "yes-bank.json"
     ]);
     expect(cards).toHaveLength(fileCardCount);
@@ -88,6 +89,7 @@ describe("card lookup helpers", () => {
     expect(issuers).toContain("American Express");
     expect(issuers).toContain("Kotak Mahindra Bank");
     expect(issuers).toContain("RBL Bank");
+    expect(issuers).toContain("Standard Chartered");
     expect(issuers).toContain("YES Bank");
     expect(issuers).toEqual([...issuers].sort());
     expect(tags).toContain("cashback");

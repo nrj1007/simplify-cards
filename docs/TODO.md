@@ -172,6 +172,16 @@ Scapia Federal Credit Card added from official Federal Bank and Scapia sources. 
 
 - [ ] Federal Bank OneCard variants, if active and open for application
 
+## Standard Chartered Card Ingestion
+
+Top Standard Chartered India cards added from official product pages, FAQs and tariff tables: Rewards, Smart, Ultimate, EaseMyTrip, Platinum Rewards, Super Value Titanium, Manhattan Platinum, DigiSmart, Priority Visa Infinite, and Beyond.
+
+### Remaining Standard Chartered Cards To Verify Later
+
+- [ ] Emirates World Credit Card, only if still actively marketed in India and not legacy-only
+- [ ] Any instant-card-only or pre-approved-only Standard Chartered variants that should be modeled separately from the mainstream cards
+- [ ] Re-verify Manhattan Platinum from a direct product page if Standard Chartered restores a clean dedicated India page instead of only indexed/tariff references
+
 ## American Express Card Ingestion
 
 High-priority American Express India personal cards added from official American Express pages: Platinum Travel, Membership Rewards, Gold Card, SmartEarn, Platinum Reserve, and Platinum Card.

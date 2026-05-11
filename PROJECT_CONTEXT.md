@@ -20,7 +20,7 @@ The app is a lean Next.js-only MVP for an Indian credit-card discovery and Q&A p
 - No database
 - Credit card data stored in issuer files under `data/cards/`
 - Data loaded in memory
-- Current data checkpoint: 184 cards across 15 issuer files.
+- Current data checkpoint: 194 cards across 16 issuer files.
 - Each card has a `popularityScore` from 0 to 100 for popularity-first sorting and future ranking features.
 - Deterministic recommendation logic in `lib/recommend.ts`
 - Vitest test suite covers card data loading, helper lookups, and recommendation filters.
@@ -185,6 +185,21 @@ Update <issuer> <card name> card data
   - Celesta
   - Wave RuPay
 - Left Federal Bank OneCard-style partner variants for later verification
+
+## Recent Standard Chartered Work
+
+- Added first Standard Chartered India batch:
+  - Rewards
+  - Smart
+  - Ultimate
+  - EaseMyTrip
+  - Platinum Rewards
+  - Super Value Titanium
+  - Manhattan Platinum
+  - DigiSmart
+  - Priority Visa Infinite
+  - Beyond
+- Left Emirates World and any instant/pre-approved-only tails for later verification
 
 ## Queued HDFC URLs
 
