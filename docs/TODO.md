@@ -129,6 +129,20 @@ Top Kotak cards added from official Kotak pages and official Kotak terms: Indian
 - [ ] IndiGo Kotak Credit Card: official Kotak page currently labels it discontinued
 - [ ] IndiGo Kotak XL Credit Card and older 6E Rewards naming overlap should be verified before adding
 
+## RBL Bank Card Ingestion
+
+Top RBL cards added from official RBL pages: ShopRite, Cookies, PLAY, World Safari, Platinum Delight, Platinum Maxima Plus, Icon, World Max, Patanjali Swarn, and Patanjali Vishisht.
+
+### Remaining RBL Cards To Verify Later
+
+- [ ] BookMyShow Play Credit Card naming overlap against current RBL PLAY page should be verified before adding as a separate entry
+- [ ] RBL Bank IRCTC Credit Card
+- [ ] RBL Bank World Prime Credit Card
+- [ ] RBL Bank Popcorn Credit Card
+- [ ] RBL Bank SaveMax Credit Card
+- [ ] RBL Bank MyCard and MyCard Plus, if still actively open for new applications
+- [ ] Bajaj Finserv RBL Bank SuperCard variants, if we decide to add card-family / fintech-partner coverage beyond the current mainstream batch
+
 ## Equitas Card Ingestion
 
 Saved for later as requested. Start by confirming whether Equitas Small Finance Bank currently has active credit-card products or partner/co-branded cards open for application.

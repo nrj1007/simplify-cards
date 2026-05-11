@@ -1,0 +1,727 @@
+[
+  {
+    "id": "rbl-world-safari",
+    "issuer": "RBL Bank",
+    "name": "RBL Bank World Safari Credit Card",
+    "network": [
+      "Visa"
+    ],
+    "joiningFee": 3000,
+    "annualFee": 3000,
+    "feeWaiverSpend": null,
+    "bestFor": [
+      "travel",
+      "low forex",
+      "lounge"
+    ],
+    "rewardType": "reward points",
+    "rewards": [
+      {
+        "category": "travel",
+        "rate": 1.25,
+        "capMonthly": null
+      },
+      {
+        "category": "offline",
+        "rate": 0.5,
+        "capMonthly": null
+      }
+    ],
+    "popularityScore": 82,
+    "loungeDomestic": 8,
+    "loungeInternational": 2,
+    "forexMarkup": 0,
+    "tags": [
+      "rbl",
+      "world safari",
+      "travel",
+      "lounge",
+      "low forex"
+    ],
+    "exclusions": [
+      "international transactions do not earn reward points",
+      "fuel",
+      "cash advances"
+    ],
+    "milestoneBenefits": [
+      "Welcome travel voucher / benefit bundle as per current RBL offer set"
+    ],
+    "additionalBenefits": [
+      "Zero forex markup on international transactions",
+      "5 reward points per Rs 100 on travel spends",
+      "2 reward points per Rs 100 on other eligible spends",
+      "Domestic and international airport lounge access"
+    ],
+    "redemption": {
+      "statementBalanceValue": 0.25
+    },
+    "eligibility": {
+      "salaried": [
+        "Eligibility is subject to RBL Bank approval criteria"
+      ],
+      "selfEmployed": [
+        "Eligibility is subject to RBL Bank approval criteria"
+      ]
+    },
+    "sourceUrl": "https://www.rblbank.com/personal-banking/cards/credit-cards/world-safari-credit-card",
+    "applyUrl": "https://www.rblbank.com/personal-banking/cards/credit-cards/world-safari-credit-card",
+    "lastVerified": "2026-05-11",
+    "verificationStatus": "official-direct"
+  },
+  {
+    "id": "rbl-shoprite",
+    "issuer": "RBL Bank",
+    "name": "RBL Bank ShopRite Credit Card",
+    "network": [
+      "Visa",
+      "Mastercard"
+    ],
+    "joiningFee": 500,
+    "annualFee": 500,
+    "feeWaiverSpend": 150000,
+    "bestFor": [
+      "grocery",
+      "movies",
+      "fuel",
+      "entry level"
+    ],
+    "rewardType": "reward points",
+    "rewards": [
+      {
+        "category": "grocery",
+        "rate": 5,
+        "capMonthly": null
+      },
+      {
+        "category": "offline",
+        "rate": 0.25,
+        "capMonthly": null
+      }
+    ],
+    "popularityScore": 79,
+    "loungeDomestic": 0,
+    "loungeInternational": 0,
+    "forexMarkup": 3.5,
+    "tags": [
+      "rbl",
+      "shoprite",
+      "grocery",
+      "movies",
+      "fuel",
+      "entry level"
+    ],
+    "exclusions": [
+      "fuel",
+      "cash advances",
+      "emi transactions",
+      "grocery accelerated rewards follow RBL merchant-category rules"
+    ],
+    "milestoneBenefits": [
+      "Annual fee waiver on spends of Rs 1,50,000 in the previous year"
+    ],
+    "additionalBenefits": [
+      "20 reward points for every Rs 100 spent on grocery",
+      "1 reward point for every Rs 100 on other eligible spends",
+      "Monthly movie discount benefit on BookMyShow",
+      "Fuel surcharge waiver on eligible spends"
+    ],
+    "redemption": {
+      "statementBalanceValue": 0.25
+    },
+    "eligibility": {
+      "salaried": [
+        "Eligibility is subject to RBL Bank approval criteria"
+      ],
+      "selfEmployed": [
+        "Eligibility is subject to RBL Bank approval criteria"
+      ]
+    },
+    "sourceUrl": "https://www.rblbank.com/personal-banking/cards/credit-cards/shoprite-credit-card",
+    "applyUrl": "https://www.rblbank.com/personal-banking/cards/credit-cards/shoprite-credit-card",
+    "lastVerified": "2026-05-11",
+    "verificationStatus": "official-direct"
+  },
+  {
+    "id": "rbl-play",
+    "issuer": "RBL Bank",
+    "name": "RBL Bank PLAY Credit Card",
+    "network": [
+      "Visa"
+    ],
+    "joiningFee": 500,
+    "annualFee": 500,
+    "feeWaiverSpend": 150000,
+    "bestFor": [
+      "movies",
+      "entertainment",
+      "dining"
+    ],
+    "rewardType": "entertainment benefits",
+    "rewards": [
+      {
+        "category": "offline",
+        "rate": 0,
+        "capMonthly": null
+      }
+    ],
+    "popularityScore": 77,
+    "loungeDomestic": 0,
+    "loungeInternational": 0,
+    "forexMarkup": 3.5,
+    "tags": [
+      "rbl",
+      "play",
+      "movies",
+      "entertainment",
+      "dining"
+    ],
+    "exclusions": [
+      "movie and dining benefits depend on partner platforms and monthly caps",
+      "fuel",
+      "cash advances"
+    ],
+    "milestoneBenefits": [
+      "Annual fee waiver on eligible yearly spends of Rs 1,50,000"
+    ],
+    "additionalBenefits": [
+      "Monthly movie benefit on BookMyShow",
+      "Dining savings through restaurant partner programme",
+      "Entertainment-focused RBL entry card"
+    ],
+    "redemption": {},
+    "eligibility": {
+      "salaried": [
+        "Eligibility is subject to RBL Bank approval criteria"
+      ],
+      "selfEmployed": [
+        "Eligibility is subject to RBL Bank approval criteria"
+      ]
+    },
+    "sourceUrl": "https://www.rblbank.com/personal-banking/cards/credit-cards/rbl-bank-play-credit-card",
+    "applyUrl": "https://www.rblbank.com/personal-banking/cards/credit-cards/rbl-bank-play-credit-card",
+    "lastVerified": "2026-05-11",
+    "verificationStatus": "official-direct"
+  },
+  {
+    "id": "rbl-platinum-maxima-plus",
+    "issuer": "RBL Bank",
+    "name": "RBL Bank Platinum Maxima Plus Credit Card",
+    "network": [
+      "Visa"
+    ],
+    "joiningFee": 2500,
+    "annualFee": 2500,
+    "feeWaiverSpend": null,
+    "bestFor": [
+      "dining",
+      "grocery",
+      "entertainment",
+      "lounge"
+    ],
+    "rewardType": "reward points",
+    "rewards": [
+      {
+        "category": "dining",
+        "rate": 2.5,
+        "capMonthly": null
+      },
+      {
+        "category": "grocery",
+        "rate": 2.5,
+        "capMonthly": null
+      },
+      {
+        "category": "online",
+        "rate": 2.5,
+        "capMonthly": null
+      },
+      {
+        "category": "offline",
+        "rate": 0.5,
+        "capMonthly": null
+      }
+    ],
+    "popularityScore": 76,
+    "loungeDomestic": 8,
+    "loungeInternational": 0,
+    "forexMarkup": 3.5,
+    "tags": [
+      "rbl",
+      "platinum maxima plus",
+      "dining",
+      "grocery",
+      "entertainment",
+      "lounge"
+    ],
+    "exclusions": [
+      "accelerated categories follow RBL merchant-category rules",
+      "fuel",
+      "cash advances"
+    ],
+    "milestoneBenefits": [
+      "Bonus reward structure on large annual spend thresholds as per RBL programme"
+    ],
+    "additionalBenefits": [
+      "10 reward points per Rs 100 on dining, entertainment, grocery and international spends",
+      "2 reward points per Rs 100 on other eligible spends",
+      "Domestic lounge access",
+      "Movie benefit on partner platform"
+    ],
+    "redemption": {
+      "statementBalanceValue": 0.25
+    },
+    "eligibility": {
+      "salaried": [
+        "Eligibility is subject to RBL Bank approval criteria"
+      ],
+      "selfEmployed": [
+        "Eligibility is subject to RBL Bank approval criteria"
+      ]
+    },
+    "sourceUrl": "https://www.rblbank.com/personal-banking/cards/credit-cards/platinum-maxima-plus-credit-card",
+    "applyUrl": "https://www.rblbank.com/personal-banking/cards/credit-cards/platinum-maxima-plus-credit-card",
+    "lastVerified": "2026-05-11",
+    "verificationStatus": "official-direct"
+  },
+  {
+    "id": "rbl-icon",
+    "issuer": "RBL Bank",
+    "name": "RBL Bank Icon Credit Card",
+    "network": [
+      "Visa"
+    ],
+    "joiningFee": 5000,
+    "annualFee": 5000,
+    "feeWaiverSpend": null,
+    "bestFor": [
+      "dining",
+      "travel",
+      "lounge",
+      "golf"
+    ],
+    "rewardType": "reward points",
+    "rewards": [
+      {
+        "category": "dining",
+        "rate": 5,
+        "capMonthly": 500
+      },
+      {
+        "category": "travel",
+        "rate": 5,
+        "capMonthly": 500
+      },
+      {
+        "category": "offline",
+        "rate": 0.5,
+        "capMonthly": null
+      }
+    ],
+    "popularityScore": 75,
+    "loungeDomestic": 8,
+    "loungeInternational": 0,
+    "forexMarkup": 2,
+    "tags": [
+      "rbl",
+      "icon",
+      "dining",
+      "travel",
+      "lounge",
+      "golf",
+      "premium"
+    ],
+    "exclusions": [
+      "accelerated rewards on international and weekend dining categories are capped",
+      "fuel",
+      "cash advances"
+    ],
+    "milestoneBenefits": [
+      "Premium welcome / annual benefits as per current RBL offer set"
+    ],
+    "additionalBenefits": [
+      "20 reward points per Rs 100 on weekend dining and international spends",
+      "2 reward points per Rs 100 on other eligible spends",
+      "Domestic lounge access",
+      "Golf programme access",
+      "Lower forex markup than standard RBL cards"
+    ],
+    "redemption": {
+      "statementBalanceValue": 0.25
+    },
+    "eligibility": {
+      "salaried": [
+        "Eligibility is subject to RBL Bank approval criteria"
+      ],
+      "selfEmployed": [
+        "Eligibility is subject to RBL Bank approval criteria"
+      ]
+    },
+    "sourceUrl": "https://www.rblbank.com/personal-banking/cards/credit-cards/icon-credit-card",
+    "applyUrl": "https://www.rblbank.com/personal-banking/cards/credit-cards/icon-credit-card",
+    "lastVerified": "2026-05-11",
+    "verificationStatus": "official-direct"
+  },
+  {
+    "id": "rbl-cookies",
+    "issuer": "RBL Bank",
+    "name": "RBL Bank Cookies Credit Card",
+    "network": [
+      "Visa"
+    ],
+    "joiningFee": 0,
+    "annualFee": 1200,
+    "feeWaiverSpend": null,
+    "bestFor": [
+      "online",
+      "shopping",
+      "entry level"
+    ],
+    "rewardType": "reward points",
+    "rewards": [
+      {
+        "category": "online",
+        "rate": 1,
+        "capMonthly": null
+      },
+      {
+        "category": "offline",
+        "rate": 0.2,
+        "capMonthly": null
+      }
+    ],
+    "popularityScore": 74,
+    "loungeDomestic": 0,
+    "loungeInternational": 0,
+    "forexMarkup": 3.5,
+    "tags": [
+      "rbl",
+      "cookies",
+      "online",
+      "shopping",
+      "entry level"
+    ],
+    "exclusions": [
+      "card uses monthly fee model rather than conventional annual fee",
+      "5x rewards apply on eligible online spend only",
+      "cash advances",
+      "fuel"
+    ],
+    "milestoneBenefits": [
+      "Monthly card fee can be waived on meeting eligible monthly spend threshold as per RBL terms"
+    ],
+    "additionalBenefits": [
+      "5x reward points on online purchases",
+      "1 reward point per Rs 100 on other eligible spends",
+      "Useful for entry-level online spenders who can hit monthly waiver threshold"
+    ],
+    "redemption": {
+      "statementBalanceValue": 0.2
+    },
+    "eligibility": {
+      "salaried": [
+        "Eligibility is subject to RBL Bank approval criteria"
+      ],
+      "selfEmployed": [
+        "Eligibility is subject to RBL Bank approval criteria"
+      ]
+    },
+    "sourceUrl": "https://www.rblbank.com/personal-banking/cards/credit-cards/cookies-credit-card",
+    "applyUrl": "https://www.rblbank.com/personal-banking/cards/credit-cards/cookies-credit-card",
+    "lastVerified": "2026-05-11",
+    "verificationStatus": "official-direct"
+  },
+  {
+    "id": "rbl-patanjali-swarn",
+    "issuer": "RBL Bank",
+    "name": "Patanjali RBL Bank Swarn Credit Card",
+    "network": [
+      "Visa"
+    ],
+    "joiningFee": 499,
+    "annualFee": 499,
+    "feeWaiverSpend": 50000,
+    "bestFor": [
+      "grocery",
+      "dining",
+      "co-branded"
+    ],
+    "rewardType": "cashback",
+    "rewards": [
+      {
+        "category": "grocery",
+        "rate": 5,
+        "capMonthly": 500
+      },
+      {
+        "category": "dining",
+        "rate": 3,
+        "capMonthly": null
+      },
+      {
+        "category": "offline",
+        "rate": 1,
+        "capMonthly": null
+      }
+    ],
+    "popularityScore": 73,
+    "loungeDomestic": 0,
+    "loungeInternational": 0,
+    "forexMarkup": 3.5,
+    "tags": [
+      "rbl",
+      "patanjali",
+      "swarn",
+      "grocery",
+      "dining",
+      "co-branded"
+    ],
+    "exclusions": [
+      "accelerated cashback on Patanjali ecosystem and selected categories follows card terms",
+      "fuel",
+      "cash advances"
+    ],
+    "milestoneBenefits": [
+      "Annual fee waiver on eligible yearly spends of Rs 50,000"
+    ],
+    "additionalBenefits": [
+      "Higher cashback on Patanjali and everyday-use categories",
+      "Base cashback on other eligible spends",
+      "Fuel surcharge waiver on eligible transactions"
+    ],
+    "redemption": {
+      "statementBalanceValue": 1
+    },
+    "eligibility": {
+      "salaried": [
+        "Eligibility is subject to RBL Bank approval criteria"
+      ],
+      "selfEmployed": [
+        "Eligibility is subject to RBL Bank approval criteria"
+      ]
+    },
+    "sourceUrl": "https://www.rblbank.com/personal-banking/cards/credit-cards/patanjali-rbl-bank-swarn-credit-card",
+    "applyUrl": "https://www.rblbank.com/personal-banking/cards/credit-cards/patanjali-rbl-bank-swarn-credit-card",
+    "lastVerified": "2026-05-11",
+    "verificationStatus": "official-direct"
+  },
+  {
+    "id": "rbl-platinum-delight",
+    "issuer": "RBL Bank",
+    "name": "RBL Bank Platinum Delight Credit Card",
+    "network": [
+      "Visa"
+    ],
+    "joiningFee": 1000,
+    "annualFee": 1000,
+    "feeWaiverSpend": null,
+    "bestFor": [
+      "shopping",
+      "weekend rewards",
+      "milestones"
+    ],
+    "rewardType": "reward points",
+    "rewards": [
+      {
+        "category": "offline",
+        "rate": 0.5,
+        "capMonthly": null
+      },
+      {
+        "category": "online",
+        "rate": 1,
+        "capMonthly": null
+      }
+    ],
+    "popularityScore": 73,
+    "loungeDomestic": 0,
+    "loungeInternational": 0,
+    "forexMarkup": 3.5,
+    "tags": [
+      "rbl",
+      "platinum delight",
+      "weekend",
+      "shopping",
+      "reward points"
+    ],
+    "exclusions": [
+      "accelerated weekend / milestone benefits follow RBL thresholds",
+      "fuel",
+      "cash advances"
+    ],
+    "milestoneBenefits": [
+      "Monthly bonus points on completing eligible transaction-count milestone"
+    ],
+    "additionalBenefits": [
+      "2 reward points per Rs 100 on eligible spends",
+      "Higher reward accrual on select spend windows according to current RBL programme",
+      "Fuel surcharge waiver on eligible transactions"
+    ],
+    "redemption": {
+      "statementBalanceValue": 0.25
+    },
+    "eligibility": {
+      "salaried": [
+        "Eligibility is subject to RBL Bank approval criteria"
+      ],
+      "selfEmployed": [
+        "Eligibility is subject to RBL Bank approval criteria"
+      ]
+    },
+    "sourceUrl": "https://www.rblbank.com/personal-banking/cards/credit-cards/platinum-delight-credit-card",
+    "applyUrl": "https://www.rblbank.com/personal-banking/cards/credit-cards/platinum-delight-credit-card",
+    "lastVerified": "2026-05-11",
+    "verificationStatus": "official-direct"
+  },
+  {
+    "id": "rbl-world-max",
+    "issuer": "RBL Bank",
+    "name": "RBL Bank World Max Credit Card",
+    "network": [
+      "Visa"
+    ],
+    "joiningFee": 3000,
+    "annualFee": 3000,
+    "feeWaiverSpend": null,
+    "bestFor": [
+      "dining",
+      "travel",
+      "lounge",
+      "premium"
+    ],
+    "rewardType": "reward points",
+    "rewards": [
+      {
+        "category": "dining",
+        "rate": 5,
+        "capMonthly": 500
+      },
+      {
+        "category": "online",
+        "rate": 1,
+        "capMonthly": null
+      },
+      {
+        "category": "offline",
+        "rate": 0.5,
+        "capMonthly": null
+      }
+    ],
+    "popularityScore": 72,
+    "loungeDomestic": 6,
+    "loungeInternational": 0,
+    "forexMarkup": 2,
+    "tags": [
+      "rbl",
+      "world max",
+      "dining",
+      "travel",
+      "lounge",
+      "premium"
+    ],
+    "exclusions": [
+      "accelerated weekend-dining rewards are capped monthly",
+      "fuel",
+      "cash advances"
+    ],
+    "milestoneBenefits": [
+      "Premium welcome and annual offer bundle as per RBL programme"
+    ],
+    "additionalBenefits": [
+      "20 reward points per Rs 100 on weekend dining",
+      "4 reward points per Rs 100 on online spends",
+      "2 reward points per Rs 100 on other eligible spends",
+      "Domestic lounge access",
+      "Lower forex markup than standard RBL cards"
+    ],
+    "redemption": {
+      "statementBalanceValue": 0.25
+    },
+    "eligibility": {
+      "salaried": [
+        "Eligibility is subject to RBL Bank approval criteria"
+      ],
+      "selfEmployed": [
+        "Eligibility is subject to RBL Bank approval criteria"
+      ]
+    },
+    "sourceUrl": "https://www.rblbank.com/personal-banking/cards/credit-cards/world-max-credit-card",
+    "applyUrl": "https://www.rblbank.com/personal-banking/cards/credit-cards/world-max-credit-card",
+    "lastVerified": "2026-05-11",
+    "verificationStatus": "official-direct"
+  },
+  {
+    "id": "rbl-patanjali-vishisht",
+    "issuer": "RBL Bank",
+    "name": "Patanjali RBL Bank Vishisht Credit Card",
+    "network": [
+      "Visa"
+    ],
+    "joiningFee": 1499,
+    "annualFee": 1499,
+    "feeWaiverSpend": 200000,
+    "bestFor": [
+      "grocery",
+      "dining",
+      "co-branded",
+      "premium everyday"
+    ],
+    "rewardType": "cashback",
+    "rewards": [
+      {
+        "category": "grocery",
+        "rate": 7,
+        "capMonthly": 750
+      },
+      {
+        "category": "dining",
+        "rate": 5,
+        "capMonthly": null
+      },
+      {
+        "category": "offline",
+        "rate": 1,
+        "capMonthly": null
+      }
+    ],
+    "popularityScore": 71,
+    "loungeDomestic": 4,
+    "loungeInternational": 0,
+    "forexMarkup": 3.5,
+    "tags": [
+      "rbl",
+      "patanjali",
+      "vishisht",
+      "grocery",
+      "dining",
+      "co-branded"
+    ],
+    "exclusions": [
+      "accelerated cashback on Patanjali ecosystem and selected categories follows card terms",
+      "fuel",
+      "cash advances"
+    ],
+    "milestoneBenefits": [
+      "Annual fee waiver on eligible yearly spends of Rs 2,00,000"
+    ],
+    "additionalBenefits": [
+      "Higher cashback on Patanjali and everyday-use categories than Swarn variant",
+      "Domestic lounge access",
+      "Fuel surcharge waiver on eligible transactions"
+    ],
+    "redemption": {
+      "statementBalanceValue": 1
+    },
+    "eligibility": {
+      "salaried": [
+        "Eligibility is subject to RBL Bank approval criteria"
+      ],
+      "selfEmployed": [
+        "Eligibility is subject to RBL Bank approval criteria"
+      ]
+    },
+    "sourceUrl": "https://www.rblbank.com/personal-banking/cards/credit-cards/patanjali-rbl-bank-vishisht-credit-card",
+    "applyUrl": "https://www.rblbank.com/personal-banking/cards/credit-cards/patanjali-rbl-bank-vishisht-credit-card",
+    "lastVerified": "2026-05-11",
+    "verificationStatus": "official-direct"
+  }
+]
