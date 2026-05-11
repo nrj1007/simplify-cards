@@ -1,0 +1,573 @@
+[
+  {
+    "id": "yes-marquee",
+    "issuer": "YES Bank",
+    "name": "YES BANK MARQUEE Credit Card",
+    "network": [
+      "Mastercard"
+    ],
+    "joiningFee": 9999,
+    "annualFee": 4999,
+    "feeWaiverSpend": 1000000,
+    "bestFor": [
+      "premium",
+      "travel",
+      "lounge",
+      "movies",
+      "golf"
+    ],
+    "rewardType": "YES Rewardz points",
+    "rewards": [
+      {
+        "category": "online",
+        "rate": 4.5,
+        "capMonthly": 25000
+      },
+      {
+        "category": "offline",
+        "rate": 2.25,
+        "capMonthly": null
+      },
+      {
+        "category": "utilities",
+        "rate": 1.25,
+        "capMonthly": 1500
+      }
+    ],
+    "popularityScore": 84,
+    "loungeDomestic": 24,
+    "loungeInternational": "unlimited",
+    "forexMarkup": 1.75,
+    "tags": [
+      "yes bank",
+      "premium",
+      "travel",
+      "lounge",
+      "movies",
+      "golf",
+      "rewardz"
+    ],
+    "exclusions": [
+      "fuel",
+      "rent",
+      "wallet",
+      "cash withdrawals",
+      "post purchase EMI",
+      "instant EMI"
+    ],
+    "milestoneBenefits": [
+      "40,000 YES Rewardz points credited on fee realization in first year",
+      "20,000 YES Rewardz points credited on renewal fee realization",
+      "Renewal fee waiver on spending Rs 10,00,000 in a card anniversary year"
+    ],
+    "additionalBenefits": [
+      "Economic Times Prime subscription as joining benefit",
+      "Unlimited international lounge access for primary and add-on cardmembers",
+      "Domestic lounge access up to 6 visits per quarter for primary and add-on cardmembers, subject to spend threshold",
+      "Buy one get one movie benefit on BookMyShow with monthly cap",
+      "Purchase protection cover on eligible electronics",
+      "Green fee waiver and golf lessons at select golf courses",
+      "YES Rewardz point value up to Rs 0.25 per point"
+    ],
+    "redemption": {
+      "statementBalanceValue": 0.25,
+      "pointsExpiryYears": null
+    },
+    "eligibility": {
+      "salaried": [
+        "Eligibility is subject to YES BANK approval criteria"
+      ],
+      "selfEmployed": [
+        "Eligibility is subject to YES BANK approval criteria"
+      ]
+    },
+    "sourceUrl": "https://www.yesbank.in/content/published/api/v1.1/assets/CONT49316C1151134FA58F444758AF08712C/native/yesbank_marquee_credit_card.pdf",
+    "applyUrl": "https://www.yesbank.in/personal-banking/yes-individual/cards/credit-cards",
+    "lastVerified": "2026-05-11",
+    "verificationStatus": "official-mixed"
+  },
+  {
+    "id": "yes-kiwi",
+    "issuer": "YES Bank",
+    "name": "YES Bank Kiwi Credit Card",
+    "network": [
+      "RuPay"
+    ],
+    "joiningFee": 0,
+    "annualFee": 0,
+    "feeWaiverSpend": null,
+    "bestFor": [
+      "upi",
+      "lifetime free",
+      "cashback",
+      "kiwi"
+    ],
+    "rewardType": "cashback and reward points",
+    "rewards": [
+      {
+        "category": "upi",
+        "rate": 1.5,
+        "capMonthly": null
+      },
+      {
+        "category": "online",
+        "rate": 0.5,
+        "capMonthly": null
+      },
+      {
+        "category": "retail",
+        "rate": 0.25,
+        "capMonthly": null
+      }
+    ],
+    "popularityScore": 81,
+    "loungeDomestic": 0,
+    "loungeInternational": 0,
+    "forexMarkup": 3.5,
+    "tags": [
+      "yes bank",
+      "kiwi",
+      "upi",
+      "rupay",
+      "cashback",
+      "lifetime free"
+    ],
+    "exclusions": [
+      "enhanced cashback depends on Kiwi app and membership structure",
+      "rewards structure differs across eligible UPI and non-UPI transaction types"
+    ],
+    "milestoneBenefits": [],
+    "additionalBenefits": [
+      "Zero joining fee and zero annual fee",
+      "1.5% cashback on UPI scan and pay through Kiwi",
+      "0.5% cashback on online payments through Kiwi",
+      "2 YES Bank Rewards points for every Rs 200 non-UPI spends",
+      "1% fuel surcharge waiver",
+      "Card is distributed through the Kiwi app with YES Bank as issuing partner"
+    ],
+    "redemption": {
+      "statementBalanceValue": 1,
+      "pointsExpiryYears": null
+    },
+    "eligibility": {
+      "salaried": [
+        "Eligibility is subject to YES BANK and Kiwi approval criteria"
+      ],
+      "selfEmployed": [
+        "Eligibility is subject to YES BANK and Kiwi approval criteria"
+      ]
+    },
+    "sourceUrl": "https://gokiwi.in/cards/yesbank/",
+    "applyUrl": "https://gokiwi.in/cards/yesbank/",
+    "lastVerified": "2026-05-11",
+    "verificationStatus": "official-mixed"
+  },
+  {
+    "id": "yes-reserv",
+    "issuer": "YES Bank",
+    "name": "YES BANK RESERV Credit Card",
+    "network": [
+      "Mastercard"
+    ],
+    "joiningFee": 2499,
+    "annualFee": 2499,
+    "feeWaiverSpend": 300000,
+    "bestFor": [
+      "premium",
+      "travel",
+      "lounge",
+      "movies",
+      "golf"
+    ],
+    "rewardType": "YES Rewardz points",
+    "rewards": [
+      {
+        "category": "online",
+        "rate": 3,
+        "capMonthly": 9000
+      },
+      {
+        "category": "offline",
+        "rate": 1.5,
+        "capMonthly": null
+      },
+      {
+        "category": "utilities",
+        "rate": 0.75,
+        "capMonthly": 750
+      }
+    ],
+    "popularityScore": 80,
+    "loungeDomestic": 12,
+    "loungeInternational": 6,
+    "forexMarkup": 1.75,
+    "tags": [
+      "yes bank",
+      "premium",
+      "travel",
+      "lounge",
+      "movies",
+      "golf",
+      "rewardz"
+    ],
+    "exclusions": [
+      "fuel",
+      "cash withdrawals",
+      "transactions converted into EMI"
+    ],
+    "milestoneBenefits": [
+      "First-year membership fee waived on spending Rs 40,000 within 30 days of card issuance",
+      "Renewal fee waiver on spending Rs 3,00,000 in a card anniversary year",
+      "8,000 YES Rewardz points on renewal fee realization"
+    ],
+    "additionalBenefits": [
+      "Card was earlier known as YES First Exclusive",
+      "6 complimentary international lounge visits in 12 months for primary and add-on cardmembers",
+      "3 complimentary domestic lounge visits per quarter for primary cardmember",
+      "BookMyShow discount up to 25% with monthly cap",
+      "Purchase protection cover on eligible electronics",
+      "Green fee waiver and golf lessons at select golf courses"
+    ],
+    "redemption": {
+      "statementBalanceValue": 0.25,
+      "pointsExpiryYears": null
+    },
+    "eligibility": {
+      "salaried": [
+        "Eligibility is subject to YES BANK approval criteria"
+      ],
+      "selfEmployed": [
+        "Eligibility is subject to YES BANK approval criteria"
+      ]
+    },
+    "sourceUrl": "https://www.yesbank.in/content/published/api/v1.1/assets/CONT4EAD59EF49CE4B8EADB3234B1D9AF541/native/yesbank_credit_card_reserv_value_chart_nov23.pdf",
+    "applyUrl": "https://www.yesbank.in/personal-banking/yes-individual/cards/credit-cards",
+    "lastVerified": "2026-05-11",
+    "verificationStatus": "official-mixed"
+  },
+  {
+    "id": "yes-first-preferred",
+    "issuer": "YES Bank",
+    "name": "YES First Preferred Credit Card",
+    "network": [
+      "Mastercard"
+    ],
+    "joiningFee": 999,
+    "annualFee": 999,
+    "feeWaiverSpend": 250000,
+    "bestFor": [
+      "travel",
+      "dining",
+      "lounge",
+      "movies",
+      "golf"
+    ],
+    "rewardType": "YES Rewardz points",
+    "rewards": [
+      {
+        "category": "travel",
+        "rate": 2,
+        "capMonthly": 3000
+      },
+      {
+        "category": "dining",
+        "rate": 2,
+        "capMonthly": 3000
+      },
+      {
+        "category": "offline",
+        "rate": 1,
+        "capMonthly": null
+      }
+    ],
+    "popularityScore": 79,
+    "loungeDomestic": 8,
+    "loungeInternational": 4,
+    "forexMarkup": 1.75,
+    "tags": [
+      "yes bank",
+      "travel",
+      "dining",
+      "lounge",
+      "movies",
+      "golf",
+      "rewardz"
+    ],
+    "exclusions": [
+      "fuel",
+      "cash withdrawals",
+      "transactions converted into EMI"
+    ],
+    "milestoneBenefits": [
+      "First-year membership fee waived on spending Rs 50,000 within 90 days of card issuance",
+      "Renewal fee waiver on spending Rs 2,50,000 in a card anniversary year",
+      "20,000 annual bonus reward points on spending Rs 7,50,000 in an anniversary year"
+    ],
+    "additionalBenefits": [
+      "Priority Pass or LoungeKey membership for the primary cardmember",
+      "4 complimentary international airport lounge visits per year",
+      "2 complimentary domestic airport lounge visits per quarter",
+      "BookMyShow discount up to 25% with monthly cap",
+      "Green fee waiver and complimentary golf lessons at select golf courses"
+    ],
+    "redemption": {
+      "statementBalanceValue": 0.25,
+      "pointsExpiryYears": null
+    },
+    "eligibility": {
+      "salaried": [
+        "Eligibility is subject to YES BANK approval criteria"
+      ],
+      "selfEmployed": [
+        "Eligibility is subject to YES BANK approval criteria"
+      ]
+    },
+    "sourceUrl": "https://www.yesbank.in/content/published/api/v1.1/assets/CONT245A99A043C042B0B77BE647A6C987DD/native/value_chart_for_yes_first_preferred_credit_card.pdf",
+    "applyUrl": "https://applycc.yesbank.in/creditCardTemplates/yesFirstPreffered.html",
+    "lastVerified": "2026-05-11",
+    "verificationStatus": "official-mixed"
+  },
+  {
+    "id": "yes-elite-plus",
+    "issuer": "YES Bank",
+    "name": "YES BANK ELITE+ Credit Card",
+    "network": [
+      "Mastercard",
+      "Visa",
+      "RuPay"
+    ],
+    "joiningFee": 999,
+    "annualFee": 999,
+    "feeWaiverSpend": 200000,
+    "bestFor": [
+      "online",
+      "lounge",
+      "movies",
+      "golf",
+      "premium"
+    ],
+    "rewardType": "YES Rewardz points",
+    "rewards": [
+      {
+        "category": "online",
+        "rate": 1.5,
+        "capMonthly": 3000
+      },
+      {
+        "category": "offline",
+        "rate": 0.75,
+        "capMonthly": null
+      },
+      {
+        "category": "utilities",
+        "rate": 0.5,
+        "capMonthly": 300
+      }
+    ],
+    "popularityScore": 76,
+    "loungeDomestic": 8,
+    "loungeInternational": 3,
+    "forexMarkup": 2.5,
+    "tags": [
+      "yes bank",
+      "online",
+      "lounge",
+      "movies",
+      "golf",
+      "premium",
+      "rewardz"
+    ],
+    "exclusions": [
+      "fuel",
+      "cash withdrawals",
+      "transactions converted into EMI"
+    ],
+    "milestoneBenefits": [
+      "First-year membership fee waived on spending Rs 20,000 within 30 days of card issuance",
+      "Renewal fee waiver on spending Rs 2,00,000 in a card anniversary year"
+    ],
+    "additionalBenefits": [
+      "Card was earlier known as YES Premia",
+      "3 complimentary international airport lounge visits per year",
+      "2 complimentary domestic airport lounge visits per quarter",
+      "BookMyShow discount up to 25% with monthly cap",
+      "Purchase protection cover on eligible electronics",
+      "Green fee waiver and complimentary golf lessons at select golf courses"
+    ],
+    "redemption": {
+      "statementBalanceValue": 0.25,
+      "pointsExpiryYears": null
+    },
+    "eligibility": {
+      "salaried": [
+        "Eligibility is subject to YES BANK approval criteria"
+      ],
+      "selfEmployed": [
+        "Eligibility is subject to YES BANK approval criteria"
+      ]
+    },
+    "sourceUrl": "https://www.yesbank.in/content/published/api/v1.1/assets/CONT8410175D038545F1BC2EEC7B35DFA756/native/yesbank_credit_card_elite_plus_value_chart.pdf",
+    "applyUrl": "https://www.yesbank.in/content/published/api/v1.1/assets/CONTFE9DC64AC2554126A0B393725E1425A9/native/yes_premia_brochure_pdf.pdf?channelToken=21f7ccfa2fc3401091938f541a6f8f2a&download=false",
+    "lastVerified": "2026-05-11",
+    "verificationStatus": "official-mixed"
+  },
+  {
+    "id": "yes-select",
+    "issuer": "YES Bank",
+    "name": "YES BANK SELECT Credit Card",
+    "network": [
+      "Mastercard",
+      "Visa",
+      "RuPay"
+    ],
+    "joiningFee": 599,
+    "annualFee": 599,
+    "feeWaiverSpend": 100000,
+    "bestFor": [
+      "online",
+      "entry premium",
+      "lounge",
+      "golf"
+    ],
+    "rewardType": "YES Rewardz points",
+    "rewards": [
+      {
+        "category": "online",
+        "rate": 1,
+        "capMonthly": 1250
+      },
+      {
+        "category": "offline",
+        "rate": 0.5,
+        "capMonthly": null
+      },
+      {
+        "category": "utilities",
+        "rate": 0.25,
+        "capMonthly": 150
+      }
+    ],
+    "popularityScore": 74,
+    "loungeDomestic": 4,
+    "loungeInternational": 0,
+    "forexMarkup": 2.5,
+    "tags": [
+      "yes bank",
+      "online",
+      "entry premium",
+      "lounge",
+      "golf",
+      "rewardz"
+    ],
+    "exclusions": [
+      "fuel",
+      "cash withdrawals",
+      "transactions converted into EMI"
+    ],
+    "milestoneBenefits": [
+      "First-year membership fee waived on spending Rs 10,000 within 30 days of card issuance",
+      "Renewal fee waiver on spending Rs 1,00,000 in a card anniversary year"
+    ],
+    "additionalBenefits": [
+      "Card was earlier known as YES Prosperity Edge",
+      "Priority Pass or LoungeKey membership for primary cardmember",
+      "1 complimentary domestic airport lounge visit per quarter",
+      "Purchase protection cover on eligible electronics",
+      "Green fee waiver and golf lessons at select golf courses"
+    ],
+    "redemption": {
+      "statementBalanceValue": 0.25,
+      "pointsExpiryYears": null
+    },
+    "eligibility": {
+      "salaried": [
+        "Eligibility is subject to YES BANK approval criteria"
+      ],
+      "selfEmployed": [
+        "Eligibility is subject to YES BANK approval criteria"
+      ]
+    },
+    "sourceUrl": "https://www.yesbank.in/content/published/api/v1.1/assets/CONT1D928BE3CBD5424AAF1FAEC534E78032/native/yesbank_credit_card_select_value_chart_nov23.pdf",
+    "applyUrl": "https://www.yesbank.in/personal-banking/yes-individual/cards/credit-cards",
+    "lastVerified": "2026-05-11",
+    "verificationStatus": "official-mixed"
+  },
+  {
+    "id": "yes-ace",
+    "issuer": "YES Bank",
+    "name": "YES BANK ACE Credit Card",
+    "network": [
+      "Mastercard",
+      "Visa",
+      "RuPay"
+    ],
+    "joiningFee": 499,
+    "annualFee": 499,
+    "feeWaiverSpend": 50000,
+    "bestFor": [
+      "online",
+      "entry level",
+      "rewardz",
+      "utility bills"
+    ],
+    "rewardType": "YES Rewardz points",
+    "rewards": [
+      {
+        "category": "online",
+        "rate": 1,
+        "capMonthly": 1250
+      },
+      {
+        "category": "offline",
+        "rate": 0.5,
+        "capMonthly": null
+      },
+      {
+        "category": "utilities",
+        "rate": 0.25,
+        "capMonthly": 150
+      }
+    ],
+    "popularityScore": 72,
+    "loungeDomestic": 0,
+    "loungeInternational": 0,
+    "forexMarkup": 3.5,
+    "tags": [
+      "yes bank",
+      "online",
+      "entry level",
+      "rewardz",
+      "utility bills"
+    ],
+    "exclusions": [
+      "fuel",
+      "cash withdrawals",
+      "transactions converted into EMI"
+    ],
+    "milestoneBenefits": [
+      "First-year membership fee waived on spending Rs 5,000 within 30 days of card issuance",
+      "Renewal fee waiver on spending Rs 50,000 in a card anniversary year"
+    ],
+    "additionalBenefits": [
+      "Card was earlier known as YES Prosperity Rewards Plus",
+      "Purchase protection cover on eligible electronics",
+      "Green fee waiver and golf lessons at select golf courses"
+    ],
+    "redemption": {
+      "statementBalanceValue": 0.25,
+      "pointsExpiryYears": null
+    },
+    "eligibility": {
+      "salaried": [
+        "Eligibility is subject to YES BANK approval criteria"
+      ],
+      "selfEmployed": [
+        "Eligibility is subject to YES BANK approval criteria"
+      ]
+    },
+    "sourceUrl": "https://www.yesbank.in/content/published/api/v1.1/assets/CONT088843DCD7EF4481B44CBD56B307F379/native/yesbank_credit_card_ace_value_chart_nov23.pdf",
+    "applyUrl": "https://www.yesbank.in/personal-banking/yes-individual/cards/credit-cards",
+    "lastVerified": "2026-05-11",
+    "verificationStatus": "official-mixed"
+  }
+]

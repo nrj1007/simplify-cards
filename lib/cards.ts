@@ -8,6 +8,7 @@ import hsbcCards from "@/data/cards/hsbc.json";
 import iciciCards from "@/data/cards/icici.json";
 import idfcCards from "@/data/cards/idfc.json";
 import sbiCards from "@/data/cards/sbi.json";
+import yesBankCards from "@/data/cards/yes-bank.json";
 import type { CreditCard } from "./types";
 
 export const cards = [
@@ -20,7 +21,8 @@ export const cards = [
   ...idfcCards,
   ...hsbcCards,
   ...bankOfBarodaCards,
-  ...auSmallFinanceCards
+  ...auSmallFinanceCards,
+  ...yesBankCards
 ].sort((a, b) => b.popularityScore - a.popularityScore || a.name.localeCompare(b.name)) as CreditCard[];
 
 export function getCardById(id: string) {

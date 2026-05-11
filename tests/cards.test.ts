@@ -32,7 +32,8 @@ describe("card data files", () => {
       "hsbc.json",
       "icici.json",
       "idfc.json",
-      "sbi.json"
+      "sbi.json",
+      "yes-bank.json"
     ]);
     expect(cards).toHaveLength(fileCardCount);
     expect(cards.length).toBeGreaterThan(100);
@@ -79,6 +80,7 @@ describe("card lookup helpers", () => {
     expect(issuers).toContain("ICICI Bank");
     expect(issuers).toContain("Federal Bank");
     expect(issuers).toContain("American Express");
+    expect(issuers).toContain("YES Bank");
     expect(issuers).toEqual([...issuers].sort());
     expect(tags).toContain("cashback");
     expect(tags).toContain("lounge");
