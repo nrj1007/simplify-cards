@@ -143,6 +143,20 @@ Top RBL cards added from official RBL pages: ShopRite, Cookies, PLAY, World Safa
 - [ ] RBL Bank MyCard and MyCard Plus, if still actively open for new applications
 - [ ] Bajaj Finserv RBL Bank SuperCard variants, if we decide to add card-family / fintech-partner coverage beyond the current mainstream batch
 
+## IndusInd Bank Card Ingestion
+
+Top IndusInd cards added from official IndusInd pages and current benefit/MITC materials: Platinum RuPay, Legend, EazyDiner, EazyDiner Platinum, Pinnacle, Nexxt, Tiger, Platinum Aura Edge, Celesta, and Indulge.
+
+### Remaining IndusInd Cards To Verify Later
+
+- [ ] Crest Credit Card
+- [ ] Pioneer Legacy Credit Card
+- [ ] Pioneer Heritage Credit Card / Heritage Metal
+- [ ] Samman RuPay Credit Card
+- [ ] Solitaire Credit Card
+- [ ] Duo Card, only if we decide mixed debit-credit products belong in scope
+- [ ] Older Signature / Iconia / Platinum Visa family pages appear to exist for legacy cardholders and should be kept out unless legacy coverage is requested
+
 ## Equitas Card Ingestion
 
 Saved for later as requested. Start by confirming whether Equitas Small Finance Bank currently has active credit-card products or partner/co-branded cards open for application.

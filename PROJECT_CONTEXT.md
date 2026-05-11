@@ -20,7 +20,7 @@ The app is a lean Next.js-only MVP for an Indian credit-card discovery and Q&A p
 - No database
 - Credit card data stored in issuer files under `data/cards/`
 - Data loaded in memory
-- Current data checkpoint: 167 cards across 13 issuer files.
+- Current data checkpoint: 177 cards across 14 issuer files.
 - Each card has a `popularityScore` from 0 to 100 for popularity-first sorting and future ranking features.
 - Deterministic recommendation logic in `lib/recommend.ts`
 - Vitest test suite covers card data loading, helper lookups, and recommendation filters.
@@ -157,6 +157,21 @@ Update <issuer> <card name> card data
   - Patanjali Swarn
   - Patanjali Vishisht
 - Deferred IRCTC, World Prime, Popcorn, SaveMax, MyCard family, and Bajaj Finserv SuperCard variants for later verification
+
+## Recent IndusInd Work
+
+- Added first IndusInd Bank batch:
+  - Platinum RuPay
+  - Legend
+  - EazyDiner
+  - EazyDiner Platinum
+  - Pinnacle
+  - Nexxt
+  - Tiger
+  - Platinum Aura Edge
+  - Celesta
+  - Indulge
+- Deferred Crest, Pioneer Legacy, Pioneer Heritage, Samman, Solitaire, and mixed/legacy product tails for later verification
 
 ## Queued HDFC URLs
 
