@@ -1,6 +1,6 @@
 # Project Context
 
-Last updated: 2026-05-10
+Last updated: 2026-05-11
 
 ## Project
 
@@ -20,8 +20,10 @@ The app is a lean Next.js-only MVP for an Indian credit-card discovery and Q&A p
 - No database
 - Credit card data stored in issuer files under `data/cards/`
 - Data loaded in memory
+- Current data checkpoint: 135 cards across 10 issuer files.
 - Each card has a `popularityScore` from 0 to 100 for popularity-first sorting and future ranking features.
 - Deterministic recommendation logic in `lib/recommend.ts`
+- Vitest test suite covers card data loading, helper lookups, and recommendation filters.
 - Basic API routes:
   - `POST /api/ask`
   - `GET /api/cards`
@@ -49,6 +51,12 @@ Type check:
 
 ```powershell
 .\tools\node\node.exe .\node_modules\typescript\bin\tsc --noEmit
+```
+
+Tests:
+
+```powershell
+.\tools\node\npm.cmd test
 ```
 
 Update card popularity scores:
