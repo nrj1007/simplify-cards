@@ -121,6 +121,7 @@ Update <issuer> <card name> card data
 
 - When the user says `save notes`, treat that as a request to save the handoff/journal notes into the separate journal repository: `https://github.com/nrj1007/journal`
 - If that repo is not available in the current workspace/session, note the limitation explicitly and save locally only as a fallback
+- The durable project journal now lives in the journal repository under `projects/creditCardAI/agent-journal/`
 
 ## Recent YES BANK Work
 

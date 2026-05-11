@@ -1,26 +1,15 @@
-# Agent Journal
+# Agent Journal Moved
 
-This folder is the handoff log for future AI sessions working on CreditCardAI.
-
-Read the newest daily note first, then read:
-
-- `PROJECT_CONTEXT.md`
-- `BUSINESS_CONTEXT.md`
-- `data/cards/`
-
-The journal is intentionally separate from the app source and root context files. It should capture:
-
-- what changed today
-- current repo state
-- important user preferences
-- unresolved work
-- source links and verification notes
-- safe next steps
-
-Daily note naming:
+The durable journal for this project has been moved to the separate repository:
 
 ```text
-YYYY-MM-DD.md
+https://github.com/nrj1007/journal
 ```
 
-When a future session makes meaningful progress, append a new dated note instead of rewriting history.
+Current location inside that repository:
+
+```text
+projects/creditCardAI/agent-journal/
+```
+
+Keep only lightweight pointers in this code repository. New `save notes` requests should write to the journal repository instead of duplicating the full dated history here.
