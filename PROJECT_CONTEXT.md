@@ -20,7 +20,7 @@ The app is a lean Next.js-only MVP for an Indian credit-card discovery and Q&A p
 - No database
 - Credit card data stored in issuer files under `data/cards/`
 - Data loaded in memory
-- Current data checkpoint: 147 cards across 11 issuer files.
+- Current data checkpoint: 157 cards across 12 issuer files.
 - Each card has a `popularityScore` from 0 to 100 for popularity-first sorting and future ranking features.
 - Deterministic recommendation logic in `lib/recommend.ts`
 - Vitest test suite covers card data loading, helper lookups, and recommendation filters.
@@ -126,6 +126,22 @@ Update <issuer> <card name> card data
   - ANQ Phi
   - Klick RuPay
 - Kept Rio, Uni, FREO, ANQ Pi, and FinBooster variants pending for later verification where current product docs or reward details are still fuzzy
+
+## Recent Kotak Work
+
+- Added first Kotak Mahindra Bank batch:
+  - IndianOil Kotak
+  - Kotak Cashback+
+  - Kotak UPI RuPay
+  - League Platinum
+  - Zen Signature
+  - White
+  - PVR INOX Kotak
+  - Kotak 811
+  - 811 Dream Different
+  - PVR Kotak Platinum
+- Deferred White Reserve, Air+, PVR Gold, Solitaire, Infinite, and business cards for later
+- Marked IndiGo Kotak legacy/discontinued pages as skip-unless-requested for now
 
 ## Queued HDFC URLs
 

@@ -95,15 +95,39 @@ High-priority YES BANK cards added from official YES BANK and partner sources: M
 ### Remaining YES BANK Cards To Verify Later
 
 - [ ] YES BANK Uni Credit Card
+- [ ] YES BANK Uni RuPay Credit Card
 - [ ] YES BANK FREO Credit Card
+- [ ] YES BANK FREO RuPay Credit Card
 - [ ] YES BANK Rio Credit Card
+- [ ] YES BANK Rio virtual variant, if it should be modeled separately from the standard Rio entry
 - [ ] YES BANK ANQ Pi Credit Card
 - [ ] FinBooster Credit Card
 - [ ] FinBooster RuPay Credit Card
 - [ ] YES Prosperity Cashback Plus Credit Card
 - [ ] YES Prosperity Cashback Credit Card
+- [ ] YES Prosperity Rewards Credit Card
 - [ ] Re-verify Rio fee structure because current YES docs show conflicting annual-fee treatment across different PDF sets
 - [ ] Keep invite-only, discontinued, legacy-only, and business-only variants separate unless requested
+
+## Kotak Mahindra Bank Card Ingestion
+
+Top Kotak cards added from official Kotak pages and official Kotak terms: IndianOil Kotak, Kotak Cashback+, Kotak UPI RuPay, League Platinum, Zen Signature, White, PVR INOX Kotak, Kotak 811, 811 Dream Different, and PVR Kotak Platinum.
+
+### Remaining Kotak Cards To Verify Later
+
+- [ ] White Reserve Credit Card
+- [ ] Kotak Air+ Credit Card
+- [ ] PVR Kotak Gold Credit Card
+- [ ] Kotak Solitaire Credit Card
+- [ ] Kotak Infinite Credit Card
+- [ ] Solitaire Business Credit Card
+- [ ] Kotak Biz Edge Credit Card
+- [ ] Kotak Purchase Credit Card
+
+### Skip Unless Legacy Coverage Is Requested
+
+- [ ] IndiGo Kotak Credit Card: official Kotak page currently labels it discontinued
+- [ ] IndiGo Kotak XL Credit Card and older 6E Rewards naming overlap should be verified before adding
 
 ## Equitas Card Ingestion
 
