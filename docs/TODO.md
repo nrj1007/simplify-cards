@@ -90,22 +90,19 @@ High-priority consumer Bank of Baroda / BOBCARD entries added from official Bank
 
 ## Yes Bank Card Ingestion
 
-High-priority YES BANK cards added from official YES BANK and Kiwi sources: MARQUEE, RESERV, YES First Preferred, ELITE+, SELECT, ACE, and Kiwi.
+High-priority YES BANK cards added from official YES BANK and partner sources: MARQUEE, RESERV, YES First Preferred, ELITE+, SELECT, ACE, Kiwi, PaisaSave, PaisaSave RuPay, POP-CLUB, ANQ Phi, and Klick RuPay.
 
 ### Remaining YES BANK Cards To Verify Later
 
-- [ ] YES BANK Paisabazaar PaisaSave Credit Card
-- [ ] YES BANK Paisabazaar PaisaSave RuPay Credit Card
-- [ ] YES BANK POP-CLUB Credit Card
 - [ ] YES BANK Uni Credit Card
 - [ ] YES BANK FREO Credit Card
 - [ ] YES BANK Rio Credit Card
-- [ ] YES BANK ANQ Phi Credit Card
 - [ ] YES BANK ANQ Pi Credit Card
 - [ ] FinBooster Credit Card
 - [ ] FinBooster RuPay Credit Card
 - [ ] YES Prosperity Cashback Plus Credit Card
 - [ ] YES Prosperity Cashback Credit Card
+- [ ] Re-verify Rio fee structure because current YES docs show conflicting annual-fee treatment across different PDF sets
 - [ ] Keep invite-only, discontinued, legacy-only, and business-only variants separate unless requested
 
 ## Equitas Card Ingestion

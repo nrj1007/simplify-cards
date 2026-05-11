@@ -87,6 +87,94 @@
     "verificationStatus": "official-mixed"
   },
   {
+    "id": "yes-paisabazaar-paisasave",
+    "issuer": "YES Bank",
+    "name": "YES BANK Paisabazaar PaisaSave Credit Card",
+    "network": [
+      "Mastercard"
+    ],
+    "joiningFee": 0,
+    "annualFee": 499,
+    "feeWaiverSpend": 120000,
+    "bestFor": [
+      "cashback",
+      "travel",
+      "dining",
+      "co-branded"
+    ],
+    "rewardType": "cashback as YES Rewardz points",
+    "rewards": [
+      {
+        "category": "travel",
+        "rate": 6,
+        "capMonthly": 3000
+      },
+      {
+        "category": "dining",
+        "rate": 6,
+        "capMonthly": 3000
+      },
+      {
+        "category": "offline",
+        "rate": 1,
+        "capMonthly": null
+      }
+    ],
+    "popularityScore": 82,
+    "loungeDomestic": 0,
+    "loungeInternational": 0,
+    "forexMarkup": 3.4,
+    "tags": [
+      "yes bank",
+      "paisabazaar",
+      "cashback",
+      "travel",
+      "dining",
+      "mastercard",
+      "rewardz"
+    ],
+    "exclusions": [
+      "emi transactions",
+      "utility",
+      "insurance",
+      "fuel",
+      "rent",
+      "wallet loading",
+      "education",
+      "jewellery",
+      "government services",
+      "hospital and pharmacy",
+      "toll",
+      "cash advance"
+    ],
+    "milestoneBenefits": [
+      "Renewal fee waiver on spending Rs 1,20,000 in a card anniversary year"
+    ],
+    "additionalBenefits": [
+      "6% cashback on eligible dining spends",
+      "6% cashback on eligible travel spends",
+      "1% base cashback on other eligible spends",
+      "Reward points redeem at 1 point = Rs 1 with no redemption fee",
+      "1% fuel surcharge waiver on transactions between Rs 500 and Rs 3,000 with monthly cap"
+    ],
+    "redemption": {
+      "statementBalanceValue": 1,
+      "pointsExpiryYears": 3
+    },
+    "eligibility": {
+      "salaried": [
+        "Eligibility is subject to YES BANK and Paisabazaar approval criteria"
+      ],
+      "selfEmployed": [
+        "Eligibility is subject to YES BANK and Paisabazaar approval criteria"
+      ]
+    },
+    "sourceUrl": "https://www.yesbank.in/content/published/api/v1.1/assets/CONTC46D4F0EE9B04E8296130DCBAB6FC48B/native/ybl_overview_of_features_and_Benefits_on_your_paisasave_card.pdf",
+    "applyUrl": "https://www.paisabazaar.com/yes-bank/paisabazaar-paisasave-credit-card/",
+    "lastVerified": "2026-05-11",
+    "verificationStatus": "official-mixed"
+  },
+  {
     "id": "yes-kiwi",
     "issuer": "YES Bank",
     "name": "YES Bank Kiwi Credit Card",
@@ -159,6 +247,103 @@
     },
     "sourceUrl": "https://gokiwi.in/cards/yesbank/",
     "applyUrl": "https://gokiwi.in/cards/yesbank/",
+    "lastVerified": "2026-05-11",
+    "verificationStatus": "official-mixed"
+  },
+  {
+    "id": "yes-anq-phi",
+    "issuer": "YES Bank",
+    "name": "YES BANK Anq Phi Credit Card",
+    "network": [
+      "Mastercard"
+    ],
+    "joiningFee": 0,
+    "annualFee": 499,
+    "feeWaiverSpend": 120000,
+    "bestFor": [
+      "travel",
+      "dining",
+      "online",
+      "co-branded"
+    ],
+    "rewardType": "YES Rewardz points",
+    "rewards": [
+      {
+        "category": "travel",
+        "rate": 3,
+        "capMonthly": null
+      },
+      {
+        "category": "dining",
+        "rate": 3,
+        "capMonthly": null
+      },
+      {
+        "category": "grocery",
+        "rate": 3,
+        "capMonthly": null
+      },
+      {
+        "category": "online",
+        "rate": 3,
+        "capMonthly": null
+      },
+      {
+        "category": "offline",
+        "rate": 0.5,
+        "capMonthly": null
+      }
+    ],
+    "popularityScore": 80,
+    "loungeDomestic": 0,
+    "loungeInternational": 3,
+    "forexMarkup": 3.4,
+    "tags": [
+      "yes bank",
+      "anq",
+      "mastercard",
+      "travel",
+      "dining",
+      "online",
+      "rewardz"
+    ],
+    "exclusions": [
+      "fuel",
+      "rent",
+      "wallet load",
+      "government services",
+      "atm withdrawal",
+      "utility and telecom bill payments",
+      "insurance",
+      "toll",
+      "education",
+      "hospitals",
+      "transactions converted into EMI"
+    ],
+    "milestoneBenefits": [
+      "Renewal fee waiver on spending Rs 1,20,000 in a card anniversary year"
+    ],
+    "additionalBenefits": [
+      "24 reward points per Rs 200 on groceries, supermarkets, travel, dining and hotels",
+      "24 reward points per Rs 200 on apparels and online entertainment including OTT and digital goods",
+      "4 reward points per Rs 200 on other eligible categories",
+      "3 complimentary international lounge visits per calendar year",
+      "1% fuel surcharge waiver with monthly cap of Rs 300"
+    ],
+    "redemption": {
+      "statementBalanceValue": 0.25,
+      "pointsExpiryYears": 3
+    },
+    "eligibility": {
+      "salaried": [
+        "Eligibility is subject to YES BANK and Anq approval criteria"
+      ],
+      "selfEmployed": [
+        "Eligibility is subject to YES BANK and Anq approval criteria"
+      ]
+    },
+    "sourceUrl": "https://www.yesbank.in/content/published/api/v1.1/assets/CONTF836E5CA21A444F98D273334B61F0900/native/yb_yes_bank_anq_phi_credit_card_one_pager.pdf",
+    "applyUrl": "https://anq.finance/",
     "lastVerified": "2026-05-11",
     "verificationStatus": "official-mixed"
   },
@@ -246,6 +431,74 @@
     "verificationStatus": "official-mixed"
   },
   {
+    "id": "yes-pop-club",
+    "issuer": "YES Bank",
+    "name": "YES BANK POP-CLUB Credit Card",
+    "network": [
+      "RuPay"
+    ],
+    "joiningFee": 0,
+    "annualFee": 399,
+    "feeWaiverSpend": 150000,
+    "bestFor": [
+      "upi",
+      "gen z",
+      "shopping",
+      "co-branded"
+    ],
+    "rewardType": "POPcoins",
+    "rewards": [
+      {
+        "category": "upi",
+        "rate": 2,
+        "capMonthly": null
+      }
+    ],
+    "popularityScore": 79,
+    "loungeDomestic": 0,
+    "loungeInternational": 0,
+    "forexMarkup": 3.4,
+    "tags": [
+      "yes bank",
+      "pop club",
+      "rupay",
+      "upi",
+      "shopping",
+      "cashback",
+      "popcoins"
+    ],
+    "exclusions": [
+      "detailed earn rules depend on POP app and partner campaigns",
+      "cash advance fee applies",
+      "rent",
+      "wallet loading"
+    ],
+    "milestoneBenefits": [
+      "Renewal fee waiver on spending Rs 1,50,000 in a card anniversary year"
+    ],
+    "additionalBenefits": [
+      "2% POPcoins on UPI transactions through POP UPI",
+      "Joining benefits worth about Rs 2,000 highlighted on POP's official site",
+      "1% fuel surcharge waiver on eligible transactions with monthly cap of Rs 300"
+    ],
+    "redemption": {
+      "statementBalanceValue": 1,
+      "pointsExpiryYears": null
+    },
+    "eligibility": {
+      "salaried": [
+        "Eligibility is subject to YES BANK and POP approval criteria"
+      ],
+      "selfEmployed": [
+        "Eligibility is subject to YES BANK and POP approval criteria"
+      ]
+    },
+    "sourceUrl": "https://popclub.co/",
+    "applyUrl": "https://popclub.co/",
+    "lastVerified": "2026-05-11",
+    "verificationStatus": "official-mixed"
+  },
+  {
     "id": "yes-first-preferred",
     "issuer": "YES Bank",
     "name": "YES First Preferred Credit Card",
@@ -324,6 +577,73 @@
     },
     "sourceUrl": "https://www.yesbank.in/content/published/api/v1.1/assets/CONT245A99A043C042B0B77BE647A6C987DD/native/value_chart_for_yes_first_preferred_credit_card.pdf",
     "applyUrl": "https://applycc.yesbank.in/creditCardTemplates/yesFirstPreffered.html",
+    "lastVerified": "2026-05-11",
+    "verificationStatus": "official-mixed"
+  },
+  {
+    "id": "yes-paisabazaar-paisasave-rupay",
+    "issuer": "YES Bank",
+    "name": "YES BANK Paisabazaar PaisaSave RuPay Credit Card",
+    "network": [
+      "RuPay"
+    ],
+    "joiningFee": 0,
+    "annualFee": 0,
+    "feeWaiverSpend": null,
+    "bestFor": [
+      "upi",
+      "cashback",
+      "lifetime free",
+      "co-branded"
+    ],
+    "rewardType": "cashback as YES Rewardz points",
+    "rewards": [
+      {
+        "category": "upi",
+        "rate": 1,
+        "capMonthly": null
+      }
+    ],
+    "popularityScore": 78,
+    "loungeDomestic": 0,
+    "loungeInternational": 0,
+    "forexMarkup": 3.4,
+    "tags": [
+      "yes bank",
+      "paisabazaar",
+      "rupay",
+      "upi",
+      "cashback",
+      "lifetime free",
+      "rewardz"
+    ],
+    "exclusions": [
+      "upi rewards only apply on eligible transactions above Rs 2,000",
+      "cash withdrawal not available",
+      "rent",
+      "wallet loading"
+    ],
+    "milestoneBenefits": [],
+    "additionalBenefits": [
+      "Virtual RuPay accompaniment to the physical PaisaSave card",
+      "1% cashback on eligible UPI transactions above Rs 2,000",
+      "Reward points redeem at 1 point = Rs 1 with no redemption fee",
+      "Lifetime free card with nil joining and annual fee"
+    ],
+    "redemption": {
+      "statementBalanceValue": 1,
+      "pointsExpiryYears": 3
+    },
+    "eligibility": {
+      "salaried": [
+        "Eligibility is subject to YES BANK and Paisabazaar approval criteria"
+      ],
+      "selfEmployed": [
+        "Eligibility is subject to YES BANK and Paisabazaar approval criteria"
+      ]
+    },
+    "sourceUrl": "https://www.yesbank.in/content/published/api/v1.1/assets/CONT07A77C257C7A4BDD85DB97E51D2B5B8F/native/yesbank_key_fact_statement.pdf",
+    "applyUrl": "https://www.paisabazaar.com/yes-bank/paisabazaar-paisasave-credit-card/",
     "lastVerified": "2026-05-11",
     "verificationStatus": "official-mixed"
   },
@@ -408,6 +728,77 @@
     },
     "sourceUrl": "https://www.yesbank.in/content/published/api/v1.1/assets/CONT8410175D038545F1BC2EEC7B35DFA756/native/yesbank_credit_card_elite_plus_value_chart.pdf",
     "applyUrl": "https://www.yesbank.in/content/published/api/v1.1/assets/CONTFE9DC64AC2554126A0B393725E1425A9/native/yes_premia_brochure_pdf.pdf?channelToken=21f7ccfa2fc3401091938f541a6f8f2a&download=false",
+    "lastVerified": "2026-05-11",
+    "verificationStatus": "official-mixed"
+  },
+  {
+    "id": "yes-klick-rupay",
+    "issuer": "YES Bank",
+    "name": "YES BANK Klick RuPay Credit Card",
+    "network": [
+      "RuPay"
+    ],
+    "joiningFee": 0,
+    "annualFee": 0,
+    "feeWaiverSpend": null,
+    "bestFor": [
+      "upi",
+      "virtual card",
+      "lifetime free",
+      "co-branded"
+    ],
+    "rewardType": "YES Rewardz points",
+    "rewards": [
+      {
+        "category": "upi",
+        "rate": 0.5,
+        "capMonthly": null
+      },
+      {
+        "category": "offline",
+        "rate": 0.25,
+        "capMonthly": null
+      }
+    ],
+    "popularityScore": 76,
+    "loungeDomestic": 0,
+    "loungeInternational": 0,
+    "forexMarkup": 2.75,
+    "tags": [
+      "yes bank",
+      "klick",
+      "rupay",
+      "upi",
+      "virtual card",
+      "lifetime free",
+      "rewardz"
+    ],
+    "exclusions": [
+      "upi rewards apply on eligible UPI transactions above Rs 2,000",
+      "cash withdrawal not available",
+      "card is virtual only"
+    ],
+    "milestoneBenefits": [],
+    "additionalBenefits": [
+      "4 reward points per Rs 200 on UPI transactions above Rs 2,000",
+      "2 reward points per Rs 200 on non-UPI transactions",
+      "Lifetime free virtual-only RuPay credit card",
+      "Existing YES BANK credit cardholders are not eligible for this offer"
+    ],
+    "redemption": {
+      "statementBalanceValue": 0.25,
+      "pointsExpiryYears": 3
+    },
+    "eligibility": {
+      "salaried": [
+        "Eligibility is subject to YES BANK approval criteria"
+      ],
+      "selfEmployed": [
+        "Eligibility is subject to YES BANK approval criteria"
+      ]
+    },
+    "sourceUrl": "https://www.yesbank.in/content/published/api/v1.1/assets/CONTEC25C9A4B18F4AA7BA64228D65B6F8F6/native/ybl_user_guide_klick_rupay_credit_card.pdf",
+    "applyUrl": "https://www.yesbank.in/personal-banking/yes-individual/cards/credit-cards",
     "lastVerified": "2026-05-11",
     "verificationStatus": "official-mixed"
   },

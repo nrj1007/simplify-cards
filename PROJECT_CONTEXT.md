@@ -20,7 +20,7 @@ The app is a lean Next.js-only MVP for an Indian credit-card discovery and Q&A p
 - No database
 - Credit card data stored in issuer files under `data/cards/`
 - Data loaded in memory
-- Current data checkpoint: 135 cards across 10 issuer files.
+- Current data checkpoint: 147 cards across 11 issuer files.
 - Each card has a `popularityScore` from 0 to 100 for popularity-first sorting and future ranking features.
 - Deterministic recommendation logic in `lib/recommend.ts`
 - Vitest test suite covers card data loading, helper lookups, and recommendation filters.
@@ -114,6 +114,18 @@ Update <issuer> <card name> card data
 - Do not invent values. If HDFC sources conflict, use conservative values and mention the conflict.
 - `loungeDomestic` and `loungeInternational` support either a number or `"unlimited"`.
 - `popularityScore` is a v1 heuristic, not measured traffic. It combines curated scores for well-known cards, issuer/category demand, fees, lounge access, and niche-card penalties. Refine it later with actual search volume, page views, outbound clicks, affiliate conversions, or community mention counts.
+
+## Recent YES BANK Work
+
+- Added core YES BANK cards: MARQUEE, RESERV, YES First Preferred, ELITE+, SELECT, ACE
+- Added YES BANK co-branded / partner cards with mixed issuer-partner sourcing:
+  - Kiwi
+  - PaisaSave
+  - PaisaSave RuPay
+  - POP-CLUB
+  - ANQ Phi
+  - Klick RuPay
+- Kept Rio, Uni, FREO, ANQ Pi, and FinBooster variants pending for later verification where current product docs or reward details are still fuzzy
 
 ## Queued HDFC URLs
 
