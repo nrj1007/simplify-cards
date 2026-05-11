@@ -89,5 +89,276 @@
     "applyUrl": "https://www.scapia.cards/",
     "lastVerified": "2026-05-10",
     "verificationStatus": "official-direct"
+  },
+  {
+    "id": "federal-celesta",
+    "issuer": "Federal Bank",
+    "name": "Federal Bank Celesta Credit Card",
+    "network": [
+      "Visa"
+    ],
+    "joiningFee": 3000,
+    "annualFee": 3000,
+    "feeWaiverSpend": null,
+    "bestFor": [
+      "travel",
+      "lounge",
+      "movies",
+      "premium"
+    ],
+    "rewardType": "reward points",
+    "rewards": [
+      {
+        "category": "online",
+        "rate": 2,
+        "capMonthly": null
+      },
+      {
+        "category": "travel",
+        "rate": 1.5,
+        "capMonthly": null
+      },
+      {
+        "category": "offline",
+        "rate": 0.75,
+        "capMonthly": null
+      }
+    ],
+    "popularityScore": 75,
+    "loungeDomestic": 8,
+    "loungeInternational": 2,
+    "forexMarkup": 3.5,
+    "tags": [
+      "federal bank",
+      "celesta",
+      "travel",
+      "lounge",
+      "movies",
+      "premium"
+    ],
+    "exclusions": [
+      "fuel",
+      "cash advances",
+      "reward earning follows Federal Bank terms"
+    ],
+    "milestoneBenefits": [
+      "Premium welcome and milestone privileges as per current Federal Bank programme"
+    ],
+    "additionalBenefits": [
+      "Domestic lounge access",
+      "International lounge access via partner programme",
+      "Enhanced rewards on online and travel spends",
+      "Movie and lifestyle benefits"
+    ],
+    "redemption": {
+      "statementBalanceValue": 0.25
+    },
+    "eligibility": {
+      "salaried": [
+        "Eligibility is subject to Federal Bank approval criteria"
+      ],
+      "selfEmployed": [
+        "Eligibility is subject to Federal Bank approval criteria"
+      ]
+    },
+    "sourceUrl": "https://www.federalbank.co.in/celesta-credit-card",
+    "applyUrl": "https://www.federalbank.co.in/credit-cards",
+    "lastVerified": "2026-05-11",
+    "verificationStatus": "official-mixed"
+  },
+  {
+    "id": "federal-imperio",
+    "issuer": "Federal Bank",
+    "name": "Federal Bank Imperio Credit Card",
+    "network": [
+      "Visa"
+    ],
+    "joiningFee": 999,
+    "annualFee": 999,
+    "feeWaiverSpend": null,
+    "bestFor": [
+      "travel",
+      "lounge",
+      "movies"
+    ],
+    "rewardType": "reward points",
+    "rewards": [
+      {
+        "category": "online",
+        "rate": 1,
+        "capMonthly": null
+      },
+      {
+        "category": "offline",
+        "rate": 0.5,
+        "capMonthly": null
+      }
+    ],
+    "popularityScore": 72,
+    "loungeDomestic": 4,
+    "loungeInternational": 0,
+    "forexMarkup": 3.5,
+    "tags": [
+      "federal bank",
+      "imperio",
+      "travel",
+      "lounge",
+      "movies"
+    ],
+    "exclusions": [
+      "fuel",
+      "cash advances",
+      "reward earning follows Federal Bank terms"
+    ],
+    "milestoneBenefits": [
+      "Milestone rewards and welcome benefits as per current Federal Bank programme"
+    ],
+    "additionalBenefits": [
+      "Domestic lounge access",
+      "Movie and lifestyle benefits",
+      "Improved reward earning over Signet"
+    ],
+    "redemption": {
+      "statementBalanceValue": 0.25
+    },
+    "eligibility": {
+      "salaried": [
+        "Eligibility is subject to Federal Bank approval criteria"
+      ],
+      "selfEmployed": [
+        "Eligibility is subject to Federal Bank approval criteria"
+      ]
+    },
+    "sourceUrl": "https://www.federalbank.co.in/imperio-credit-card",
+    "applyUrl": "https://www.federalbank.co.in/credit-cards",
+    "lastVerified": "2026-05-11",
+    "verificationStatus": "official-mixed"
+  },
+  {
+    "id": "federal-wave",
+    "issuer": "Federal Bank",
+    "name": "Federal Bank Wave RuPay Credit Card",
+    "network": [
+      "RuPay"
+    ],
+    "joiningFee": 0,
+    "annualFee": 0,
+    "feeWaiverSpend": null,
+    "bestFor": [
+      "upi",
+      "rupay",
+      "lifetime free"
+    ],
+    "rewardType": "reward points",
+    "rewards": [
+      {
+        "category": "upi",
+        "rate": 0.5,
+        "capMonthly": null
+      },
+      {
+        "category": "offline",
+        "rate": 0.25,
+        "capMonthly": null
+      }
+    ],
+    "popularityScore": 71,
+    "loungeDomestic": 0,
+    "loungeInternational": 0,
+    "forexMarkup": 3.5,
+    "tags": [
+      "federal bank",
+      "wave",
+      "rupay",
+      "upi",
+      "lifetime free"
+    ],
+    "exclusions": [
+      "fuel",
+      "cash advances",
+      "reward earning follows Federal Bank RuPay terms"
+    ],
+    "milestoneBenefits": [],
+    "additionalBenefits": [
+      "RuPay card usable for UPI-linked spends",
+      "Lifetime-free positioning on Federal Bank's RuPay card surface",
+      "Base reward accumulation on UPI and retail transactions"
+    ],
+    "redemption": {
+      "statementBalanceValue": 0.25
+    },
+    "eligibility": {
+      "salaried": [
+        "Eligibility is subject to Federal Bank approval criteria"
+      ],
+      "selfEmployed": [
+        "Eligibility is subject to Federal Bank approval criteria"
+      ]
+    },
+    "sourceUrl": "https://www.federalbank.co.in/wave-credit-card",
+    "applyUrl": "https://www.federalbank.co.in/credit-cards",
+    "lastVerified": "2026-05-11",
+    "verificationStatus": "official-mixed"
+  },
+  {
+    "id": "federal-signet",
+    "issuer": "Federal Bank",
+    "name": "Federal Bank Signet Credit Card",
+    "network": [
+      "Visa"
+    ],
+    "joiningFee": 0,
+    "annualFee": 0,
+    "feeWaiverSpend": null,
+    "bestFor": [
+      "lifetime free",
+      "entry level",
+      "fuel"
+    ],
+    "rewardType": "reward points",
+    "rewards": [
+      {
+        "category": "offline",
+        "rate": 0.25,
+        "capMonthly": null
+      }
+    ],
+    "popularityScore": 70,
+    "loungeDomestic": 0,
+    "loungeInternational": 0,
+    "forexMarkup": 3.5,
+    "tags": [
+      "federal bank",
+      "signet",
+      "lifetime free",
+      "entry level",
+      "fuel surcharge waiver"
+    ],
+    "exclusions": [
+      "fuel",
+      "cash advances",
+      "reward earning follows Federal Bank terms"
+    ],
+    "milestoneBenefits": [],
+    "additionalBenefits": [
+      "Lifetime free Federal Bank core credit card",
+      "1% fuel surcharge waiver on eligible spends",
+      "Base reward accumulation on retail transactions"
+    ],
+    "redemption": {
+      "statementBalanceValue": 0.25
+    },
+    "eligibility": {
+      "salaried": [
+        "Eligibility is subject to Federal Bank approval criteria"
+      ],
+      "selfEmployed": [
+        "Eligibility is subject to Federal Bank approval criteria"
+      ]
+    },
+    "sourceUrl": "https://www.federalbank.co.in/signet-credit-card",
+    "applyUrl": "https://www.federalbank.co.in/credit-cards",
+    "lastVerified": "2026-05-11",
+    "verificationStatus": "official-mixed"
   }
 ]

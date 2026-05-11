@@ -27,6 +27,7 @@ describe("card data files", () => {
       "au-small-finance.json",
       "axis.json",
       "bank-of-baroda.json",
+      "equitas-small-finance.json",
       "federal-bank.json",
       "hdfc.json",
       "hsbc.json",
@@ -83,6 +84,7 @@ describe("card lookup helpers", () => {
     expect(issuers).toContain("ICICI Bank");
     expect(issuers).toContain("Federal Bank");
     expect(issuers).toContain("IndusInd Bank");
+    expect(issuers).toContain("Equitas Small Finance Bank");
     expect(issuers).toContain("American Express");
     expect(issuers).toContain("Kotak Mahindra Bank");
     expect(issuers).toContain("RBL Bank");

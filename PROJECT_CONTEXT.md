@@ -20,7 +20,7 @@ The app is a lean Next.js-only MVP for an Indian credit-card discovery and Q&A p
 - No database
 - Credit card data stored in issuer files under `data/cards/`
 - Data loaded in memory
-- Current data checkpoint: 177 cards across 14 issuer files.
+- Current data checkpoint: 184 cards across 15 issuer files.
 - Each card has a `popularityScore` from 0 to 100 for popularity-first sorting and future ranking features.
 - Deterministic recommendation logic in `lib/recommend.ts`
 - Vitest test suite covers card data loading, helper lookups, and recommendation filters.
@@ -172,6 +172,19 @@ Update <issuer> <card name> card data
   - Celesta
   - Indulge
 - Deferred Crest, Pioneer Legacy, Pioneer Heritage, Samman, Solitaire, and mixed/legacy product tails for later verification
+
+## Recent Equitas and Federal Work
+
+- Added Equitas Small Finance Bank cards:
+  - Ultima
+  - Tiger
+  - Premio
+- Expanded Federal Bank coverage beyond Scapia:
+  - Signet
+  - Imperio
+  - Celesta
+  - Wave RuPay
+- Left Federal Bank OneCard-style partner variants for later verification
 
 ## Queued HDFC URLs
 

@@ -2,6 +2,7 @@ import auSmallFinanceCards from "@/data/cards/au-small-finance.json";
 import americanExpressCards from "@/data/cards/american-express.json";
 import axisCards from "@/data/cards/axis.json";
 import bankOfBarodaCards from "@/data/cards/bank-of-baroda.json";
+import equitasSmallFinanceCards from "@/data/cards/equitas-small-finance.json";
 import federalBankCards from "@/data/cards/federal-bank.json";
 import hdfcCards from "@/data/cards/hdfc.json";
 import hsbcCards from "@/data/cards/hsbc.json";
@@ -26,6 +27,7 @@ export const cards = [
   ...hsbcCards,
   ...bankOfBarodaCards,
   ...auSmallFinanceCards,
+  ...equitasSmallFinanceCards,
   ...kotakMahindraCards,
   ...rblBankCards,
   ...yesBankCards

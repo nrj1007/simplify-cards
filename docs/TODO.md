@@ -159,22 +159,17 @@ Top IndusInd cards added from official IndusInd pages and current benefit/MITC m
 
 ## Equitas Card Ingestion
 
-Saved for later as requested. Start by confirming whether Equitas Small Finance Bank currently has active credit-card products or partner/co-branded cards open for application.
+Active Equitas Small Finance Bank consumer cards added from official Equitas card surfaces: Ultima, Tiger, and Premio.
 
-- [ ] List active Equitas credit-card products from official source
-- [ ] Add official active products to the relevant issuer file under `data/cards/`
-- [ ] Record unavailable/discontinued status in notes if there are no active cards
+- [ ] Re-verify current Equitas fee and benefit docs from official MITC/KFS sources when better public PDFs are surfaced
+- [ ] Add any additional active Equitas card variants only if they are separately marketed and open for application
 
 ## Federal Bank Card Ingestion
 
-Scapia Federal Credit Card added from official Federal Bank and Scapia sources.
+Scapia Federal Credit Card added from official Federal Bank and Scapia sources. Also added Federal Bank Signet, Imperio, Celesta, and Wave from official Federal Bank card surfaces.
 
 ### Remaining Federal Bank Cards To Verify Later
 
-- [ ] Federal Bank Imperio Credit Card
-- [ ] Federal Bank Celesta Credit Card
-- [ ] Federal Bank Signet Credit Card
-- [ ] Federal Bank Wave Credit Card
 - [ ] Federal Bank OneCard variants, if active and open for application
 
 ## American Express Card Ingestion
