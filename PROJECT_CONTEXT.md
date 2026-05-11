@@ -1,6 +1,6 @@
 # Project Context
 
-Last updated: 2026-05-11
+Last updated: 2026-05-12
 
 ## Project
 
@@ -143,7 +143,7 @@ Update <issuer> <card name> card data
 - Added premium-tail Kotak cards:
   - White Reserve
   - PVR Kotak Gold
-- Deferred Air+, Solitaire, Infinite, and business cards for later
+- Deferred Air+ and business cards for later
 - Marked IndiGo Kotak legacy/discontinued pages as skip-unless-requested for now
 
 ## Recent RBL Work
@@ -159,7 +159,7 @@ Update <issuer> <card name> card data
   - World Max
   - Patanjali Swarn
   - Patanjali Vishisht
-- Deferred IRCTC, World Prime, Popcorn, SaveMax, MyCard family, and Bajaj Finserv SuperCard variants for later verification
+- Deferred IRCTC, Popcorn, SaveMax, MyCard family, and Bajaj Finserv SuperCard variants for later verification
 
 ## Recent IndusInd Work
 
@@ -174,9 +174,11 @@ Update <issuer> <card name> card data
   - Platinum Aura Edge
   - Celesta
   - Indulge
-- Added premium-tail IndusInd card:
+- Added premium-tail IndusInd cards:
   - PIONEER Heritage Metal
-- Deferred Crest, Pioneer Legacy, Samman, Solitaire, and mixed/legacy product tails for later verification
+  - PIONEER Legacy
+  - Crest
+- Deferred Samman, Solitaire, and mixed/legacy product tails for later verification
 
 ## Recent Equitas and Federal Work
 
@@ -222,6 +224,17 @@ Update <issuer> <card name> card data
 - Added a generic multi-bank OneCard entry under a separate issuer file:
   - One Credit Card
 - Current OneCard handling uses a single official mixed-source product entry for partner-bank issuance, with issuer-specific variants left for later only if product differences become material
+
+## Recommended Next Build Step
+
+The dataset now covers 207 cards across 17 issuer files, which is enough to shift focus from issuer expansion to product infrastructure.
+
+Recommended next sequence:
+
+1. Build reverse indexes for issuer, tags, network, reward category, and popularity.
+2. Build deterministic retrieval helpers on top of those indexes.
+3. Ground `Ask AI` answers in retrieved card records plus source links.
+4. Add affiliate-link fields and ad-slot plumbing after retrieval is in place.
 
 ## Queued HDFC URLs
 
