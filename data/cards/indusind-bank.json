@@ -720,6 +720,85 @@
     "verificationStatus": "official-direct"
   },
   {
+    "id": "indusind-pioneer-legacy",
+    "issuer": "IndusInd Bank",
+    "name": "PIONEER Legacy Credit Card",
+    "network": [
+      "Mastercard",
+      "Visa"
+    ],
+    "joiningFee": 45000,
+    "annualFee": 0,
+    "feeWaiverSpend": null,
+    "bestFor": [
+      "premium",
+      "travel",
+      "lounge",
+      "golf",
+      "low forex"
+    ],
+    "rewardType": "Pioneer Rewards",
+    "rewards": [
+      {
+        "category": "offline",
+        "rate": 1,
+        "capMonthly": null
+      },
+      {
+        "category": "travel",
+        "rate": 2.5,
+        "capMonthly": null
+      }
+    ],
+    "popularityScore": 73,
+    "loungeDomestic": 4,
+    "loungeInternational": 8,
+    "forexMarkup": 1.8,
+    "tags": [
+      "indusind",
+      "pioneer",
+      "legacy",
+      "premium",
+      "travel",
+      "lounge",
+      "golf",
+      "low forex"
+    ],
+    "exclusions": [
+      "Pioneer relationship positioning applies",
+      "international lounge access is only on the paid variant according to the official page",
+      "IndusInd also markets a lower-fee joining path with different welcome treatment"
+    ],
+    "milestoneBenefits": [
+      "Join at a discounted fee of Rs 45,000 and get welcome vouchers worth Rs 50,000",
+      "Alternative lower-fee joining path at Rs 5,000 with spend-based waiver and no welcome vouchers",
+      "4,000 bonus reward points on spends of Rs 5,00,000 or more within one year from card issue as per revised official note"
+    ],
+    "additionalBenefits": [
+      "1 reward point per Rs 100 on weekday spends and 2 reward points per Rs 100 on weekend spends",
+      "Low forex markup of 1.8% on the paid variant",
+      "1 domestic lounge visit per quarter and 2 international lounge visits per quarter on the paid variant",
+      "No cash advancement or withdrawal charges",
+      "Reward points can be redeemed against statement balance at 1 point = Re 1"
+    ],
+    "redemption": {
+      "statementBalanceValue": 1,
+      "pointsExpiryYears": null
+    },
+    "eligibility": {
+      "salaried": [
+        "Pioneer relationship and bank approval required"
+      ],
+      "selfEmployed": [
+        "Pioneer relationship and bank approval required"
+      ]
+    },
+    "sourceUrl": "https://bank.indusind.com/pioneer/personal-banking/cards/pioneer-legacy-credit-card1.html",
+    "applyUrl": "https://bank.indusind.com/pioneer/personal-banking/cards/pioneer-legacy-credit-card1.html",
+    "lastVerified": "2026-05-11",
+    "verificationStatus": "official-direct"
+  },
+  {
     "id": "indusind-indulge",
     "issuer": "IndusInd Bank",
     "name": "IndusInd Bank Indulge Credit Card",
@@ -785,6 +864,78 @@
     },
     "sourceUrl": "https://www.indusind.com/in/en/personal/cards/credit-card/indulge-credit-card.html",
     "applyUrl": "https://www.indusind.com/in/en/personal/cards/credit-card/indulge-credit-card.html",
+    "lastVerified": "2026-05-11",
+    "verificationStatus": "official-mixed"
+  },
+  {
+    "id": "indusind-crest",
+    "issuer": "IndusInd Bank",
+    "name": "IndusInd Bank Crest Credit Card",
+    "network": [
+      "Mastercard",
+      "Visa"
+    ],
+    "joiningFee": 75000,
+    "annualFee": 10000,
+    "feeWaiverSpend": 1000000,
+    "bestFor": [
+      "luxury",
+      "travel",
+      "lounge",
+      "golf",
+      "wellness"
+    ],
+    "rewardType": "reward points",
+    "rewards": [
+      {
+        "category": "offline",
+        "rate": 1.5,
+        "capMonthly": null
+      }
+    ],
+    "popularityScore": 71,
+    "loungeDomestic": 8,
+    "loungeInternational": 0,
+    "forexMarkup": 1.8,
+    "tags": [
+      "indusind",
+      "crest",
+      "luxury",
+      "travel",
+      "lounge",
+      "golf",
+      "wellness",
+      "premium"
+    ],
+    "exclusions": [
+      "cash redemption of reward points capped monthly as per recent official note",
+      "domestic lounge access becomes spend-unlock based from July 2026 quarter onward",
+      "ITC membership benefit has been discontinued for new customers boarded on or after 15 September 2025 on the Mastercard variant"
+    ],
+    "milestoneBenefits": [
+      "Annual fee reversed if spends during the period are Rs 10,00,000 or more",
+      "Premium golf programme revised to 2 complimentary games and 2 lessons per month effective March 2026"
+    ],
+    "additionalBenefits": [
+      "Get 1.5 reward points for every Rs 100 spent",
+      "Discounted foreign currency markup of 1.8%",
+      "Luxury travel, dining, wellness and lounge positioning",
+      "Fuel surcharge waiver",
+      "Premium Crest microsite and schedule-of-charges programme with concierge-style positioning"
+    ],
+    "redemption": {
+      "statementBalanceValue": 0.7
+    },
+    "eligibility": {
+      "salaried": [
+        "Eligibility is subject to IndusInd Bank approval criteria"
+      ],
+      "selfEmployed": [
+        "Eligibility is subject to IndusInd Bank approval criteria"
+      ]
+    },
+    "sourceUrl": "https://www.indusind.com/in/en/personal/cards/credit-card/crest-credit-card.html",
+    "applyUrl": "https://www.indusind.com/in/en/personal/cards/credit-card/crest-credit-card.html",
     "lastVerified": "2026-05-11",
     "verificationStatus": "official-mixed"
   }

@@ -112,8 +112,6 @@ Top Kotak cards added from official Kotak pages and official Kotak terms: Indian
 ### Remaining Kotak Cards To Verify Later
 
 - [ ] Kotak Air+ Credit Card
-- [ ] Kotak Solitaire Credit Card
-- [ ] Kotak Infinite Credit Card
 - [ ] Solitaire Business Credit Card
 - [ ] Kotak Biz Edge Credit Card
 - [ ] Kotak Purchase Credit Card
@@ -131,7 +129,6 @@ Top RBL cards added from official RBL pages: ShopRite, Cookies, PLAY, World Safa
 
 - [ ] BookMyShow Play Credit Card naming overlap against current RBL PLAY page should be verified before adding as a separate entry
 - [ ] RBL Bank IRCTC Credit Card
-- [ ] RBL Bank World Prime Credit Card
 - [ ] RBL Bank Popcorn Credit Card
 - [ ] RBL Bank SaveMax Credit Card
 - [ ] RBL Bank MyCard and MyCard Plus, if still actively open for new applications
@@ -143,8 +140,6 @@ Top IndusInd cards added from official IndusInd pages and current benefit/MITC m
 
 ### Remaining IndusInd Cards To Verify Later
 
-- [ ] Crest Credit Card
-- [ ] Pioneer Legacy Credit Card
 - [ ] Samman RuPay Credit Card
 - [ ] Solitaire Credit Card
 - [ ] Duo Card, only if we decide mixed debit-credit products belong in scope

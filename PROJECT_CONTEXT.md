@@ -20,7 +20,7 @@ The app is a lean Next.js-only MVP for an Indian credit-card discovery and Q&A p
 - No database
 - Credit card data stored in issuer files under `data/cards/`
 - Data loaded in memory
-- Current data checkpoint: 202 cards across 17 issuer files.
+- Current data checkpoint: 207 cards across 17 issuer files.
 - Each card has a `popularityScore` from 0 to 100 for popularity-first sorting and future ranking features.
 - Deterministic recommendation logic in `lib/recommend.ts`
 - Vitest test suite covers card data loading, helper lookups, and recommendation filters.
@@ -213,6 +213,12 @@ Update <issuer> <card name> card data
   - Coral RuPay
   - Sapphiro RuPay
   - HPCL Coral
+- Added another premium-tail batch:
+  - IndusInd Crest
+  - PIONEER Legacy
+  - Kotak Solitaire
+  - Kotak Infinite
+  - RBL World Prime
 - Added a generic multi-bank OneCard entry under a separate issuer file:
   - One Credit Card
 - Current OneCard handling uses a single official mixed-source product entry for partner-bank issuance, with issuer-specific variants left for later only if product differences become material
