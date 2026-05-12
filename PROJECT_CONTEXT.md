@@ -126,6 +126,12 @@ Update <issuer> <card name> card data
 - If that repo is not available in the current workspace/session, note the limitation explicitly and save locally only as a fallback
 - The durable project journal now lives in the journal repository under `projects/creditCardAI/agent-journal/`
 
+## Latest Session Note
+
+- Added TechnoFino signal review and ingestion support for `data/card-content.json`.
+- User explicitly confirmed that scraper-derived content must be **manually reviewed before anything goes into the database**.
+- If the separate journal repo is unavailable in-session, save fallback notes locally under `docs/agent-journal/`.
+
 ## Recent YES BANK Work
 
 - Added core YES BANK cards: MARQUEE, RESERV, YES First Preferred, ELITE+, SELECT, ACE
