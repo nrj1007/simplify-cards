@@ -6,5 +6,6 @@ tools
 .vercel
 .env
 .env.local
+data/telegram-inbox/*.json
 *.log
 *.tsbuildinfo
