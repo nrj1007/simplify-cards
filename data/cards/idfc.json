@@ -53,7 +53,8 @@
     ],
     "redemption": {
       "statementBalanceValue": 0.25,
-      "pointsExpiryYears": null
+      "pointsExpiryYears": null,
+      "redemptionFee": 99
     },
     "sourceUrl": "https://www.idfcfirstbank.com/credit-card",
     "applyUrl": "https://www.idfcfirstbank.com/credit-card",
@@ -119,7 +120,8 @@
     ],
     "redemption": {
       "statementBalanceValue": 0.25,
-      "pointsExpiryYears": null
+      "pointsExpiryYears": null,
+      "redemptionFee": 99
     },
     "eligibility": {
       "salaried": [
@@ -192,7 +194,8 @@
     ],
     "redemption": {
       "statementBalanceValue": 0.25,
-      "pointsExpiryYears": null
+      "pointsExpiryYears": null,
+      "redemptionFee": 99
     },
     "eligibility": {
       "salaried": [
@@ -265,7 +268,8 @@
     ],
     "redemption": {
       "statementBalanceValue": 0.25,
-      "pointsExpiryYears": null
+      "pointsExpiryYears": null,
+      "redemptionFee": 99
     },
     "eligibility": {
       "salaried": [
@@ -343,7 +347,8 @@
     ],
     "redemption": {
       "statementBalanceValue": 0.25,
-      "pointsExpiryYears": null
+      "pointsExpiryYears": null,
+      "redemptionFee": 99
     },
     "eligibility": {
       "salaried": [
@@ -415,7 +420,8 @@
     ],
     "redemption": {
       "statementBalanceValue": 0.25,
-      "pointsExpiryYears": null
+      "pointsExpiryYears": null,
+      "redemptionFee": 99
     },
     "eligibility": {
       "salaried": [
@@ -483,7 +489,8 @@
     ],
     "redemption": {
       "statementBalanceValue": 0.25,
-      "pointsExpiryYears": null
+      "pointsExpiryYears": null,
+      "redemptionFee": 99
     },
     "eligibility": {
       "salaried": [
@@ -560,7 +567,8 @@
     ],
     "redemption": {
       "statementBalanceValue": 0.25,
-      "pointsExpiryYears": null
+      "pointsExpiryYears": null,
+      "redemptionFee": 99
     },
     "eligibility": {
       "salaried": [
@@ -629,7 +637,8 @@
     ],
     "redemption": {
       "statementBalanceValue": 0.25,
-      "pointsExpiryYears": null
+      "pointsExpiryYears": null,
+      "redemptionFee": 99
     },
     "eligibility": {
       "salaried": [
@@ -702,7 +711,8 @@
     ],
     "redemption": {
       "statementBalanceValue": 1,
-      "pointsExpiryYears": null
+      "pointsExpiryYears": null,
+      "redemptionFee": 99
     },
     "eligibility": {
       "salaried": [
@@ -780,7 +790,8 @@
     ],
     "redemption": {
       "statementBalanceValue": null,
-      "pointsExpiryYears": null
+      "pointsExpiryYears": null,
+      "redemptionFee": 99
     },
     "eligibility": {
       "salaried": [
