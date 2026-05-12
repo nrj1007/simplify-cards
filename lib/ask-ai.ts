@@ -5,29 +5,12 @@ import type { CardScore } from "./types";
 import type { RecommendationInput } from "./types";
 import { unsupportedQuestionLogPath } from "./question-logs";
 import type { UnsupportedQuestionLogEntry } from "./question-logs";
+import { parseQueryIntent } from "./query-intent";
 
 export type AskAiResult = ReturnType<typeof answerFromCards> & {
   needsDatabaseUpdate?: boolean;
   unsupportedReason?: string;
 };
-
-const temporalKeywords = [
-  "latest",
-  "today",
-  "recent",
-  "currently",
-  "current offer",
-  "devaluation",
-  "updated",
-  "update",
-  "changed",
-  "news",
-  "new launch",
-  "launched",
-  "still active",
-  "discontinued",
-  "now"
-];
 
 const defaultAskModel = process.env.OPENAI_ASK_MODEL ?? "gpt-5-mini";
 
@@ -37,10 +20,11 @@ function normalizeQuery(query?: string) {
 
 export function getUnsupportedQuestionReason(input: RecommendationInput) {
   const query = normalizeQuery(input.query);
+  const intent = parseQueryIntent(input);
 
   if (!query) return "Empty question";
 
-  if (temporalKeywords.some((keyword) => query.includes(keyword))) {
+  if (intent.needsLatestInfo) {
     return "Question needs live/latest information that is intentionally not answered via web search";
   }
 
