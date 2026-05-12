@@ -22,6 +22,8 @@ The app is a lean Next.js-only MVP for an Indian credit-card discovery and Q&A p
 - No database
 - Credit card data stored in issuer files under `data/cards/`
 - Data loaded in memory
+- GPT-only AI stack for Q&A
+- No web search in the user-facing Ask AI flow
 - Current data checkpoint: 207 cards across 17 issuer files.
 - Each card has a `popularityScore` from 0 to 100 for popularity-first sorting and future ranking features.
 - Deterministic recommendation logic in `lib/recommend.ts`
@@ -116,6 +118,7 @@ Update <issuer> <card name> card data
 - Do not invent values. If HDFC sources conflict, use conservative values and mention the conflict.
 - `loungeDomestic` and `loungeInternational` support either a number or `"unlimited"`.
 - `popularityScore` is a v1 heuristic, not measured traffic. It combines curated scores for well-known cards, issuer/category demand, fees, lounge access, and niche-card penalties. Refine it later with actual search volume, page views, outbound clicks, affiliate conversions, or community mention counts.
+- User-facing AI answers should not use live web search. If a question cannot be answered confidently from the current in-memory dataset, log the question for manual database enrichment instead.
 
 ## Working Convention
 
@@ -241,8 +244,9 @@ Recommended next sequence:
 
 1. Build reverse indexes for issuer, tags, network, reward category, and popularity.
 2. Build deterministic retrieval helpers on top of those indexes.
-3. Ground `Ask AI` answers in retrieved card records plus source links.
-4. Add affiliate-link fields and ad-slot plumbing after retrieval is in place.
+3. Ground `Ask AI` answers in retrieved card records plus source links, with no web search fallback.
+4. Log unsupported or stale questions for manual database updates by the user.
+5. Add affiliate-link fields and ad-slot plumbing after retrieval is in place.
 
 ## Queued HDFC URLs
 

@@ -40,7 +40,8 @@ These are listed or have official pages, but should not be added as active-new-a
 
 - [ ] Improve card detail UI for fees, caps, exclusions, and source trust.
 - [ ] Add filters for issuer, cashback, travel, lounge, fuel, UPI, low-fee, and secured cards.
-- [ ] Add a basic Ask AI flow over the merged in-memory card data from `data/cards/`.
+- [ ] Add a GPT-only Ask AI flow over the merged in-memory card data from `data/cards/`, with retrieval first and no live web search.
+- [ ] Log unsupported or stale user questions for manual database enrichment instead of answering via web search.
 - [ ] Add a manual approval workflow for community/news signals before updating card data.
 - [ ] Add advertisement placements and policy-safe ad slot handling.
 - [ ] Improve RPM through higher-intent content, ad placement strategy, and better page-level monetization.
