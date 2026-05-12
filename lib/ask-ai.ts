@@ -1,6 +1,7 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 import { answerFromCards } from "./recommend";
+import type { CardScore } from "./types";
 import type { RecommendationInput } from "./types";
 
 export type AskAiResult = ReturnType<typeof answerFromCards> & {
@@ -34,6 +35,7 @@ const temporalKeywords = [
 ];
 
 const unsupportedQuestionLogPath = path.join(process.cwd(), "data", "question-logs", "unsupported-questions.json");
+const defaultAskModel = process.env.OPENAI_ASK_MODEL ?? "gpt-5-mini";
 
 function normalizeQuery(query?: string) {
   return query?.toLowerCase().trim() ?? "";
@@ -77,6 +79,133 @@ export async function logUnsupportedQuestion(input: RecommendationInput, reason:
   return entry;
 }
 
+function buildGroundedAskPrompt(input: RecommendationInput, shortlistedCards: CardScore[]) {
+  const cardFacts = shortlistedCards.slice(0, 3).map((item, index) => ({
+    rank: index + 1,
+    id: item.card.id,
+    name: item.card.name,
+    issuer: item.card.issuer,
+    annualFee: item.card.annualFee,
+    joiningFee: item.card.joiningFee,
+    bestFor: item.card.bestFor,
+    tags: item.card.tags,
+    loungeDomestic: item.card.loungeDomestic,
+    loungeInternational: item.card.loungeInternational,
+    forexMarkup: item.card.forexMarkup,
+    estimatedAnnualRewards: item.estimatedAnnualRewards,
+    estimatedAnnualFee: item.estimatedAnnualFee,
+    estimatedNetValue: item.estimatedNetValue,
+    matchedTags: item.matchedTags,
+    reasons: item.reasons.slice(0, 4),
+    sourceUrl: item.card.sourceUrl
+  }));
+
+  return JSON.stringify(
+    {
+      userQuestion: input.query ?? "",
+      constraints: {
+        maxAnnualFee: input.maxAnnualFee ?? null,
+        wantsLounge: input.wantsLounge ?? false,
+        wantsLifetimeFree: input.wantsLifetimeFree ?? false
+      },
+      shortlistedCards: cardFacts
+    },
+    null,
+    2
+  );
+}
+
+function extractOpenAiText(payload: unknown) {
+  if (!payload || typeof payload !== "object") return null;
+
+  const directOutputText = (payload as { output_text?: unknown }).output_text;
+  if (typeof directOutputText === "string" && directOutputText.trim()) return directOutputText.trim();
+
+  const output = (payload as { output?: unknown }).output;
+  if (!Array.isArray(output)) return null;
+
+  for (const item of output) {
+    if (!item || typeof item !== "object") continue;
+    const content = (item as { content?: unknown }).content;
+    if (!Array.isArray(content)) continue;
+
+    for (const part of content) {
+      if (!part || typeof part !== "object") continue;
+      const text = (part as { text?: unknown }).text;
+      if (typeof text === "string" && text.trim()) return text.trim();
+    }
+  }
+
+  return null;
+}
+
+async function generateGroundedSummary(input: RecommendationInput, shortlistedCards: CardScore[]) {
+  const apiKey = process.env.OPENAI_API_KEY;
+  if (!apiKey) return null;
+
+  const response = await fetch("https://api.openai.com/v1/responses", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${apiKey}`
+    },
+    body: JSON.stringify({
+      model: defaultAskModel,
+      input: [
+        {
+          role: "system",
+          content: [
+            {
+              type: "input_text",
+              text:
+                "You are a grounded credit-card assistant. Use only the provided shortlisted card data. Do not invent facts, do not use live web search, and do not mention cards outside the provided shortlist. Write one concise recommendation paragraph for an Indian credit-card user."
+            }
+          ]
+        },
+        {
+          role: "user",
+          content: [
+            {
+              type: "input_text",
+              text: buildGroundedAskPrompt(input, shortlistedCards)
+            }
+          ]
+        }
+      ],
+      text: {
+        format: {
+          type: "json_schema",
+          name: "grounded_card_answer",
+          strict: true,
+          schema: {
+            type: "object",
+            additionalProperties: false,
+            properties: {
+              summary: {
+                type: "string"
+              }
+            },
+            required: ["summary"]
+          }
+        }
+      }
+    })
+  });
+
+  if (!response.ok) return null;
+
+  const payload = (await response.json()) as unknown;
+  const rawText = extractOpenAiText(payload);
+  if (!rawText) return null;
+
+  try {
+    const parsed = JSON.parse(rawText) as { summary?: unknown };
+    return typeof parsed.summary === "string" && parsed.summary.trim() ? parsed.summary.trim() : null;
+  } catch {
+    return null;
+  }
+}
+
 export async function answerQuestion(input: RecommendationInput): Promise<AskAiResult> {
   const unsupportedReason = getUnsupportedQuestionReason(input);
 
@@ -103,6 +232,15 @@ export async function answerQuestion(input: RecommendationInput): Promise<AskAiR
       ...answer,
       needsDatabaseUpdate: true,
       unsupportedReason: reason
+    };
+  }
+
+  const generatedSummary = await generateGroundedSummary(input, answer.cards);
+
+  if (generatedSummary) {
+    return {
+      ...answer,
+      summary: generatedSummary
     };
   }
 
