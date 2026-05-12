@@ -43,6 +43,7 @@ These are listed or have official pages, but should not be added as active-new-a
 - [ ] Add a basic Ask AI flow over the merged in-memory card data from `data/cards/`.
 - [ ] Add a manual approval workflow for community/news signals before updating card data.
 - [ ] Add advertisement placements and policy-safe ad slot handling.
+- [ ] Improve RPM through higher-intent content, ad placement strategy, and better page-level monetization.
 - [ ] Add affiliate link support per card, including tracking metadata and fallback apply URLs.
 - [ ] Add reverse indexes for fast lookup by issuer, tags, network, reward category, and popularity.
 
