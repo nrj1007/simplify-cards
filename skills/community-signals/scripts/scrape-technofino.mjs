@@ -183,6 +183,7 @@ function summarizeSignals(threads, comments) {
       url: item.url,
       signalType: classifySignal(item.text),
       candidateText: item.text.slice(0, 500),
+      publishedAt: new Date(item.timestamp * 1000).toISOString().slice(0, 10),
       requiresOfficialVerification: true,
       approvedForCardDb: false
     }));

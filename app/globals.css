@@ -411,6 +411,16 @@ textarea {
   margin-top: 10px;
 }
 
+.review-block {
+  display: grid;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.review-block strong {
+  font-size: 14px;
+}
+
 .compare-table {
   background: var(--panel);
   border: 1px solid var(--line);
