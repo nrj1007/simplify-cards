@@ -97,6 +97,7 @@ function extractFeedThreads(html, baseUrl, pageNumber) {
       const title = stripTags(titleMatch[2]);
       const forum = forumMatches.length ? stripTags(forumMatches.at(-1)[1]) : "";
       const latest = timeMatches.length ? timeMatches.at(-1) : undefined;
+      const created = timeMatches.length ? timeMatches[0] : undefined;
 
       return {
         page: pageNumber,
@@ -107,7 +108,9 @@ function extractFeedThreads(html, baseUrl, pageNumber) {
         replies: stats.replies ?? "",
         views: stats.views ?? "",
         latestTime: latest?.[3] ?? "",
-        latestTimestamp: latest ? Number(latest[2]) : 0
+        latestTimestamp: latest ? Number(latest[2]) : 0,
+        createdTime: created?.[3] ?? latest?.[3] ?? "",
+        createdTimestamp: created ? Number(created[2]) : latest ? Number(latest[2]) : 0
       };
     })
     .filter(Boolean);
@@ -168,10 +171,16 @@ async function main() {
     .filter((thread) => thread.latestTimestamp >= cutoffTimestamp)
     .map((thread) => ({
       ...thread,
+      isRecentlyCreatedThread: thread.createdTimestamp >= cutoffTimestamp,
       relevance: scoreCommunityItem({ title: thread.title, forum: thread.forum, text: `${thread.title} ${thread.forum}` })
     }))
     .filter((thread) => thread.relevance.isRelevantCreditCardSignal)
-    .sort((a, b) => b.relevance.score - a.relevance.score || b.latestTimestamp - a.latestTimestamp);
+    .sort(
+      (a, b) =>
+        Number(b.isRecentlyCreatedThread) - Number(a.isRecentlyCreatedThread) ||
+        b.relevance.score - a.relevance.score ||
+        b.latestTimestamp - a.latestTimestamp
+    );
 
   const comments = [];
   for (const thread of recentThreads.slice(0, maxThreads)) {

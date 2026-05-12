@@ -152,4 +152,34 @@ describe("Technofino signal scoring", () => {
     expect(queue[0].discussionDetails).toMatch(/possible terms/i);
     expect(queue[0].discussionDetails).toMatch(/matched cards/i);
   });
+
+  it("prioritizes recently created threads over old threads with fresh comments", async () => {
+    const { summarizeSignals } = await import(scoringModulePath);
+
+    const queue = summarizeSignals(
+      [
+        {
+          title: "PhonePe SBI Card - CVP new SBI CC launching",
+          forum: "Credit Card - General",
+          text: "PhonePe SBI Card new SBI CC launching",
+          url: "https://technofino.in/community/threads/phonepe-sbi-card-cvp-new-sbi-cc-launching.42666/",
+          latestTimestamp: 1778560000,
+          createdTimestamp: 1778560000,
+          isRecentlyCreatedThread: true
+        }
+      ],
+      [
+        {
+          threadTitle: "Kotak Cashback Card LTF Trick",
+          postUrl: "https://technofino.in/community/threads/kotak-cashback-card-ltf-trick.45254/#post-1",
+          timestamp: 1778570000,
+          text: "Kotak Cashback can be made LTF if retention approves after renewal fee posts."
+        }
+      ]
+    );
+
+    expect(queue[0].title).toMatch(/PhonePe SBI/);
+    expect(queue[0].sourceType).toBe("thread");
+    expect(queue[0].isRecentlyCreatedThread).toBe(true);
+  });
 });

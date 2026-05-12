@@ -327,6 +327,12 @@ function discussionDetailsForItem(item, scoring, signalType) {
   return detailParts.join(" ");
 }
 
+function sourcePriority(item) {
+  if (item.sourceType === "thread" && item.isRecentlyCreatedThread) return 2;
+  if (item.sourceType === "thread") return 1;
+  return 0;
+}
+
 export function classifySignal(text) {
   if (/devaluation|effective|validity|reward.*valid|cashback.*credited|revised|charges?|fee|gst|mitc/i.test(text)) {
     return "terms-change";
@@ -350,16 +356,22 @@ export function dedupeByUrl(items) {
 export function summarizeSignals(threads, comments, catalog = loadCardCatalog()) {
   const sourceItems = [
     ...threads.map((thread) => ({
+      sourceType: "thread",
       title: thread.title,
       url: thread.url,
       timestamp: thread.latestTimestamp,
+      createdTimestamp: thread.createdTimestamp,
+      isRecentlyCreatedThread: Boolean(thread.isRecentlyCreatedThread),
       forum: thread.forum,
       text: `${thread.title} ${thread.forum}`
     })),
     ...comments.map((comment) => ({
+      sourceType: "comment",
       title: comment.threadTitle,
       url: comment.postUrl,
       timestamp: comment.timestamp,
+      createdTimestamp: comment.timestamp,
+      isRecentlyCreatedThread: false,
       forum: "",
       text: comment.text
     }))
@@ -374,7 +386,12 @@ export function summarizeSignals(threads, comments, catalog = loadCardCatalog())
       signalType: classifySignal(`${item.title} ${item.text}`)
     }))
     .filter(({ scoring }) => scoring.isRelevantCreditCardSignal)
-    .sort((left, right) => right.scoring.score - left.scoring.score || right.item.timestamp - left.item.timestamp)
+    .sort(
+      (left, right) =>
+        sourcePriority(right.item) - sourcePriority(left.item) ||
+        right.scoring.score - left.scoring.score ||
+        right.item.timestamp - left.item.timestamp
+    )
     .filter(({ item, signalType }) => {
       const key = normalize(item.title);
       if (seen.has(key)) return false;
@@ -388,6 +405,9 @@ export function summarizeSignals(threads, comments, catalog = loadCardCatalog())
       candidateText: String(item.text).slice(0, 500),
       discussionDetails: discussionDetailsForItem(item, scoring, signalType),
       publishedAt: new Date(item.timestamp * 1000).toISOString().slice(0, 10),
+      sourceType: item.sourceType,
+      createdAt: item.createdTimestamp ? new Date(item.createdTimestamp * 1000).toISOString().slice(0, 10) : undefined,
+      isRecentlyCreatedThread: Boolean(item.isRecentlyCreatedThread),
       relevanceScore: scoring.score,
       matchedKeywords: scoring.matchedKeywords,
       candidateCardIds: scoring.cardMatches.map((match) => match.cardId),
