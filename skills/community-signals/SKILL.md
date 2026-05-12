@@ -47,6 +47,7 @@ The script writes JSON with:
 - feed thread summaries
 - recent public comments from selected credit-card threads
 - normalized signal hints
+- relevance score, matched keywords, and candidate card IDs where possible
 - source URLs
 - `requiresOfficialVerification: true`
 

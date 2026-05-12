@@ -2,10 +2,9 @@
 
 import { mkdir, writeFile } from "node:fs/promises";
 import path from "node:path";
+import { dedupeByUrl, scoreCommunityItem, summarizeSignals } from "./technofino-scoring.mjs";
 
 const DEFAULT_FEED = "https://technofino.in/community/whats-new/posts/5982841/";
-const CREDIT_KEYWORDS =
-  /credit|cc|card|cashback|reward|devaluation|lounge|rupay|upi|axis|hdfc|sbi|idfc|kotak|icici|amex|indusind|bob|rbl|hsbc|standard chartered|federal|airtel|millennia|regalia|infinia|merchant|mcc/i;
 
 function getArg(name, fallback) {
   const index = process.argv.indexOf(`--${name}`);
@@ -108,8 +107,7 @@ function extractFeedThreads(html, baseUrl, pageNumber) {
         replies: stats.replies ?? "",
         views: stats.views ?? "",
         latestTime: latest?.[3] ?? "",
-        latestTimestamp: latest ? Number(latest[2]) : 0,
-        isCreditRelated: CREDIT_KEYWORDS.test(`${title} ${forum}`)
+        latestTimestamp: latest ? Number(latest[2]) : 0
       };
     })
     .filter(Boolean);
@@ -142,51 +140,8 @@ function extractRecentComments(html, finalUrl, threadTitle, cutoffTimestamp) {
       if (comment.timestamp < cutoffTimestamp) return false;
       if (!comment.text) return false;
       if (/^[\w .-]+ said:\s*$/i.test(comment.text)) return false;
-      return CREDIT_KEYWORDS.test(`${threadTitle} ${comment.text}`);
+      return scoreCommunityItem({ title: threadTitle, text: comment.text }).isRelevantCreditCardSignal;
     });
-}
-
-function classifySignal(text) {
-  if (/devaluation|effective|validity|reward.*valid|cashback.*credited/i.test(text)) return "terms-change";
-  if (/launched|new .*card|received|ltf|lifetime free/i.test(text)) return "launch-or-offer";
-  if (/merchant|mcc|asspl|cashback issue|reward.*not/i.test(text)) return "merchant-reward-behavior";
-  if (/lounge|priority pass/i.test(text)) return "lounge";
-  return "discussion";
-}
-
-function summarizeSignals(threads, comments) {
-  const sourceItems = [
-    ...threads.map((thread) => ({
-      title: thread.title,
-      url: thread.url,
-      timestamp: thread.latestTimestamp,
-      text: `${thread.title} ${thread.forum}`
-    })),
-    ...comments.map((comment) => ({
-      title: comment.threadTitle,
-      url: comment.postUrl,
-      timestamp: comment.timestamp,
-      text: comment.text
-    }))
-  ];
-
-  const seen = new Set();
-  return sourceItems
-    .filter((item) => {
-      const key = `${item.title}:${classifySignal(item.text)}`;
-      if (seen.has(key)) return false;
-      seen.add(key);
-      return true;
-    })
-    .map((item) => ({
-      title: item.title.replace(/\s+\|\s+TechnoFino.*$/i, ""),
-      url: item.url,
-      signalType: classifySignal(item.text),
-      candidateText: item.text.slice(0, 500),
-      publishedAt: new Date(item.timestamp * 1000).toISOString().slice(0, 10),
-      requiresOfficialVerification: true,
-      approvedForCardDb: false
-    }));
 }
 
 async function main() {
@@ -207,12 +162,17 @@ async function main() {
   }
 
   const cutoffTimestamp = serverTime - hours * 60 * 60;
-  const recentCreditThreads = feedThreads
-    .filter((thread) => thread.isCreditRelated && thread.latestTimestamp >= cutoffTimestamp)
-    .sort((a, b) => b.latestTimestamp - a.latestTimestamp);
+  const recentThreads = dedupeByUrl(feedThreads)
+    .filter((thread) => thread.latestTimestamp >= cutoffTimestamp)
+    .map((thread) => ({
+      ...thread,
+      relevance: scoreCommunityItem({ title: thread.title, forum: thread.forum, text: `${thread.title} ${thread.forum}` })
+    }))
+    .filter((thread) => thread.relevance.isRelevantCreditCardSignal)
+    .sort((a, b) => b.relevance.score - a.relevance.score || b.latestTimestamp - a.latestTimestamp);
 
   const comments = [];
-  for (const thread of recentCreditThreads.slice(0, maxThreads)) {
+  for (const thread of recentThreads.slice(0, maxThreads)) {
     try {
       const latestUrl = `${thread.url.replace(/\/$/, "")}/latest`;
       const { html, url } = await fetchText(latestUrl);
@@ -240,16 +200,16 @@ async function main() {
     cutoffTimestamp,
     requiresManualApproval: true,
     mayUpdateCardDbAutomatically: false,
-    threads: recentCreditThreads,
+    threads: recentThreads,
     comments: comments.sort((a, b) => b.timestamp - a.timestamp),
-    reviewQueue: summarizeSignals(recentCreditThreads, comments)
+    reviewQueue: summarizeSignals(recentThreads, comments)
   };
 
   await mkdir(path.dirname(out), { recursive: true });
   await writeFile(out, `${JSON.stringify(output, null, 2)}\n`, "utf8");
 
   console.log(`Wrote ${out}`);
-  console.log(`Credit threads: ${output.threads.length}`);
+  console.log(`Credit-card signal threads: ${output.threads.length}`);
   console.log(`Recent comments: ${output.comments.length}`);
   console.log(`Review signals: ${output.reviewQueue.length}`);
 }
