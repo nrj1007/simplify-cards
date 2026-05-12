@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import { ExternalLink } from "lucide-react";
 import { cards, getCardById } from "@/lib/cards";
+import { getCardContent } from "@/lib/card-content";
 import type { CreditCard, Redemption } from "@/lib/types";
 import VerificationBadge, { getVerificationMeta } from "@/app/ui/VerificationBadge";
 
@@ -63,10 +64,17 @@ function DetailList({ items }: { items?: string[] }) {
   );
 }
 
+function formatUpdateDate(value: string) {
+  return new Intl.DateTimeFormat("en-IN", {
+    dateStyle: "medium"
+  }).format(new Date(value));
+}
+
 export default async function CardPage({ params }: Props) {
   const { id } = await params;
   const card = getCardById(id);
   if (!card) notFound();
+  const cardContent = getCardContent(card.id);
   const redemptions = redemptionRows(card.redemption);
   const verification = getVerificationMeta(card.verificationStatus);
 
@@ -185,6 +193,52 @@ export default async function CardPage({ params }: Props) {
               <p className="muted">Not listed.</p>
             )}
           </section>
+
+          {cardContent?.updates.length ? (
+            <section className="detail-section">
+              <h2>Latest Updates</h2>
+              <div className="content-list">
+                {cardContent.updates.map((update) => (
+                  <article className="content-item" key={`${update.publishedAt}-${update.title}`}>
+                    <div className="content-item-head">
+                      <strong>{update.title}</strong>
+                      <span className="badge">{formatUpdateDate(update.publishedAt)}</span>
+                    </div>
+                    <p className="muted">{update.summary}</p>
+                    <div className="meta">
+                      <span>Source: {update.sourceLabel}</span>
+                    </div>
+                    {update.sourceUrl ? (
+                      <a className="button secondary" href={update.sourceUrl} rel="nofollow" target="_blank">
+                        Open update <ExternalLink size={15} />
+                      </a>
+                    ) : null}
+                  </article>
+                ))}
+              </div>
+            </section>
+          ) : null}
+
+          {cardContent?.tips.length ? (
+            <section className="detail-section">
+              <h2>Tips</h2>
+              <div className="content-list">
+                {cardContent.tips.map((tip, index) => (
+                  <article className="content-item" key={`${tip.sourceLabel}-${index}`}>
+                    <p className="muted">{tip.text}</p>
+                    <div className="meta">
+                      <span>Source: {tip.sourceLabel}</span>
+                    </div>
+                    {tip.sourceUrl ? (
+                      <a className="button secondary" href={tip.sourceUrl} rel="nofollow" target="_blank">
+                        Open source <ExternalLink size={15} />
+                      </a>
+                    ) : null}
+                  </article>
+                ))}
+              </div>
+            </section>
+          ) : null}
 
           {card.interestRateMonthly ? (
             <section className="detail-section">
