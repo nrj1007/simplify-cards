@@ -3,17 +3,12 @@ import path from "node:path";
 import { answerFromCards } from "./recommend";
 import type { CardScore } from "./types";
 import type { RecommendationInput } from "./types";
+import { unsupportedQuestionLogPath } from "./question-logs";
+import type { UnsupportedQuestionLogEntry } from "./question-logs";
 
 export type AskAiResult = ReturnType<typeof answerFromCards> & {
   needsDatabaseUpdate?: boolean;
   unsupportedReason?: string;
-};
-
-export type UnsupportedQuestionLogEntry = {
-  query: string;
-  loggedAt: string;
-  reason: string;
-  input: RecommendationInput;
 };
 
 const temporalKeywords = [
@@ -34,7 +29,6 @@ const temporalKeywords = [
   "now"
 ];
 
-const unsupportedQuestionLogPath = path.join(process.cwd(), "data", "question-logs", "unsupported-questions.json");
 const defaultAskModel = process.env.OPENAI_ASK_MODEL ?? "gpt-5-mini";
 
 function normalizeQuery(query?: string) {

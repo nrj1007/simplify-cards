@@ -24,6 +24,7 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
             <nav className="nav" aria-label="Primary navigation">
               <Link href="/finder">Finder</Link>
               <Link href="/compare">Compare</Link>
+              <a href="/review/questions">Review</a>
               <Link href="/cards/sbi-cashback">Sample Card</Link>
             </nav>
           </header>

@@ -376,6 +376,41 @@ textarea {
   border-left: 4px solid var(--brand);
 }
 
+.review-summary {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  padding: 16px;
+}
+
+.review-list {
+  display: grid;
+  gap: 14px;
+}
+
+.review-item {
+  padding: 16px;
+}
+
+.review-item-head {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: space-between;
+}
+
+.review-item-head strong {
+  font-size: 16px;
+}
+
+.review-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+
 .compare-table {
   background: var(--panel);
   border: 1px solid var(--line);
