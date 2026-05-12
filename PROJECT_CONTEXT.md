@@ -131,6 +131,8 @@ Update <issuer> <card name> card data
 - Added TechnoFino signal review and ingestion support for `data/card-content.json`.
 - User explicitly confirmed that scraper-derived content must be **manually reviewed before anything goes into the database**.
 - If the separate journal repo is unavailable in-session, save fallback notes locally under `docs/agent-journal/`.
+- The TechnoFino scraper has since been redesigned to prioritize recently created threads, filter old-thread comment drift, and show richer discussion context in review items.
+- Local website sanity check passed on `http://127.0.0.1:3000`.
 
 ## Recent YES BANK Work
 
