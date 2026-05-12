@@ -112,11 +112,45 @@ const GENERIC_ALIASES = new Set([
   "wow"
 ]);
 
+const STOP_WORDS = new Set([
+  "about",
+  "account",
+  "after",
+  "also",
+  "and",
+  "another",
+  "bank",
+  "card",
+  "cards",
+  "credit",
+  "from",
+  "have",
+  "help",
+  "into",
+  "need",
+  "required",
+  "some",
+  "take",
+  "that",
+  "the",
+  "their",
+  "this",
+  "with",
+  "your"
+]);
+
 function normalize(value = "") {
   return value
     .toLowerCase()
     .replace(/[^a-z0-9]+/g, " ")
     .trim();
+}
+
+function tokenize(value = "") {
+  return normalize(value)
+    .split(" ")
+    .filter((token) => token.length >= 3)
+    .filter((token) => !STOP_WORDS.has(token));
 }
 
 function unique(values) {
@@ -244,6 +278,55 @@ export function scoreCommunityItem(item, catalog = loadCardCatalog()) {
   };
 }
 
+export function isCommentRelevantToThread(threadTitle, commentText, catalog = loadCardCatalog()) {
+  const threadMatches = matchCardsForSignal(threadTitle, catalog).map((match) => match.cardId);
+  const commentMatches = matchCardsForSignal(commentText, catalog).map((match) => match.cardId);
+  const sharedCardIds = threadMatches.filter((cardId) => commentMatches.includes(cardId));
+
+  if (sharedCardIds.length > 0) {
+    return {
+      isRelevant: true,
+      overlapReason: "shared-card-match",
+      sharedTerms: sharedCardIds
+    };
+  }
+
+  const titleTokens = tokenize(threadTitle);
+  const commentTokens = tokenize(commentText);
+  const sharedTerms = titleTokens.filter((token) => commentTokens.includes(token));
+
+  if (sharedTerms.length >= 2) {
+    return {
+      isRelevant: true,
+      overlapReason: "shared-topic-terms",
+      sharedTerms
+    };
+  }
+
+  return {
+    isRelevant: false,
+    overlapReason: "comment-topic-mismatch",
+    sharedTerms
+  };
+}
+
+function discussionDetailsForItem(item, scoring, signalType) {
+  const matchedCards = scoring.cardMatches.map((match) => match.cardName);
+  const detailParts = [];
+
+  if (signalType === "terms-change") detailParts.push("Possible terms, fee, reward, or charge change.");
+  if (signalType === "launch-or-offer") detailParts.push("Possible launch, LTF path, approval route, or acquisition offer.");
+  if (signalType === "merchant-reward-behavior") detailParts.push("Possible merchant or MCC reward behavior.");
+  if (signalType === "lounge") detailParts.push("Possible lounge-access change or datapoint.");
+  if (matchedCards.length > 0) detailParts.push(`Matched cards: ${matchedCards.join(", ")}.`);
+  if (scoring.matchedKeywords.length > 0) detailParts.push(`Signals: ${scoring.matchedKeywords.slice(0, 5).join(", ")}.`);
+
+  const snippet = String(item.text).replace(/\s+/g, " ").trim();
+  if (snippet) detailParts.push(`Snippet: ${snippet.slice(0, 260)}${snippet.length > 260 ? "..." : ""}`);
+
+  return detailParts.join(" ");
+}
+
 export function classifySignal(text) {
   if (/devaluation|effective|validity|reward.*valid|cashback.*credited|revised|charges?|fee|gst|mitc/i.test(text)) {
     return "terms-change";
@@ -303,6 +386,7 @@ export function summarizeSignals(threads, comments, catalog = loadCardCatalog())
       url: item.url,
       signalType,
       candidateText: String(item.text).slice(0, 500),
+      discussionDetails: discussionDetailsForItem(item, scoring, signalType),
       publishedAt: new Date(item.timestamp * 1000).toISOString().slice(0, 10),
       relevanceScore: scoring.score,
       matchedKeywords: scoring.matchedKeywords,

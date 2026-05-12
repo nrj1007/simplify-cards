@@ -2,7 +2,7 @@
 
 import { mkdir, writeFile } from "node:fs/promises";
 import path from "node:path";
-import { dedupeByUrl, scoreCommunityItem, summarizeSignals } from "./technofino-scoring.mjs";
+import { dedupeByUrl, isCommentRelevantToThread, scoreCommunityItem, summarizeSignals } from "./technofino-scoring.mjs";
 
 const DEFAULT_FEED = "https://technofino.in/community/whats-new/posts/5982841/";
 
@@ -133,13 +133,15 @@ function extractRecentComments(html, finalUrl, threadTitle, cutoffTimestamp) {
         author: decodeHtml(author),
         time: time?.[3] ?? "",
         timestamp,
-        text: text.length > 1000 ? `${text.slice(0, 1000)}...` : text
+        text: text.length > 1000 ? `${text.slice(0, 1000)}...` : text,
+        topicOverlap: isCommentRelevantToThread(threadTitle, text)
       };
     })
     .filter((comment) => {
       if (comment.timestamp < cutoffTimestamp) return false;
       if (!comment.text) return false;
       if (/^[\w .-]+ said:\s*$/i.test(comment.text)) return false;
+      if (!comment.topicOverlap.isRelevant) return false;
       return scoreCommunityItem({ title: threadTitle, text: comment.text }).isRelevantCreditCardSignal;
     });
 }

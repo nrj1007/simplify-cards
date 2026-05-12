@@ -117,4 +117,39 @@ describe("Technofino signal scoring", () => {
     expect(matches.map((match: { cardId: string }) => match.cardId)).not.toContain("indusind-celesta");
     expect(queue).toHaveLength(0);
   });
+
+  it("checks whether fresh comments still match old thread topics", async () => {
+    const { isCommentRelevantToThread } = await import(scoringModulePath);
+
+    const relevant = isCommentRelevantToThread(
+      "Kotak Cashback Card LTF Trick",
+      "Kotak Cashback can be made LTF if retention approves after renewal fee posts."
+    );
+    const unrelated = isCommentRelevantToThread(
+      "Kotak Cashback Card LTF Trick",
+      "I am planning to apply for Amex points transfer to KrisFlyer."
+    );
+
+    expect(relevant.isRelevant).toBe(true);
+    expect(unrelated.isRelevant).toBe(false);
+  });
+
+  it("adds discussion details to review queue entries", async () => {
+    const { summarizeSignals } = await import(scoringModulePath);
+
+    const queue = summarizeSignals(
+      [
+        {
+          title: "Indusind Legend Credit Card- Devaluation",
+          forum: "Super Premium Credit Cards",
+          url: "https://technofino.in/community/threads/indusind-ledgend-credit-card-devaluation.45690/",
+          latestTimestamp: 1778560000
+        }
+      ],
+      []
+    );
+
+    expect(queue[0].discussionDetails).toMatch(/possible terms/i);
+    expect(queue[0].discussionDetails).toMatch(/matched cards/i);
+  });
 });
