@@ -111,6 +111,13 @@
         "capDaily": 15000
       },
       {
+        "category": "smartbuy giftr",
+        "rate": 16.67,
+        "displayRate": "Up to 5X Reward Points",
+        "capMonthly": 15000,
+        "capDaily": 15000
+      },
+      {
         "category": "offline",
         "displayCategory": "others",
         "rate": 3.33,

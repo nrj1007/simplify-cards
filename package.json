@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "eslint .",
     "test": "vitest run",
-    "validate:cards": "tsc --module commonjs --target es2020 --esModuleInterop --resolveJsonModule --skipLibCheck --outDir .tmp scripts/validate-cards.ts && node .tmp/validate-cards.js",
+    "validate:cards": "tsc --module commonjs --target es2020 --esModuleInterop --resolveJsonModule --skipLibCheck --outDir .tmp scripts/validate-cards.ts && node .tmp/scripts/validate-cards.js",
     "score:popularity": "node scripts/update-popularity-scores.js",
     "ingest:technofino-content": "node scripts/ingest-technofino-content.js",
     "fetch:telegram-inbox": "node scripts/fetch-telegram-inbox.js"

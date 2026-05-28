@@ -75,6 +75,7 @@ const allowedRewardCategories = new Set([
   "smartbuy flights",
   "smartbuy hotels",
   "smartbuy train",
+  "smartbuy giftr",
   "swiggy zomato",
   "tata brands",
   "tata neu",
