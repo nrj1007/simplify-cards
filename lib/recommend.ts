@@ -61,7 +61,7 @@ const blendedSmartbuySpendCategories: SpendCategory[] = ["online"];
 const broadComparisonUpsideWeight = 0.4;
 const defaultTopCardCount = 3;
 const joiningBenefitAmortizationYears = 3;
-const envelopeMonthlySpendTiers = [50000, 100000, 150000, 250000, 300000];
+const envelopeBaselineMonthlyTiers = [50000, 100000, 250000];
 
 // Scoring stage weights: relevance (text/identity match) vs value (economic/preference fit)
 const relevanceWeightExactMatch = 1.0;
@@ -100,6 +100,38 @@ function shouldUseEnvelopeScoring(
     !wantsLifetimeFree &&
     !wantsLounge
   );
+}
+
+function extractHighSpendIncrementalThreshold(card: CreditCard): number | null {
+  const match = [...(card.additionalBenefits ?? []), ...(card.additionalDetails ?? []), ...(card.internalNotes ?? [])]
+    .map((benefit) => benefit.toLowerCase().replace(/,/g, "").replace(/\s+/g, " ").trim())
+    .map((benefit) =>
+      benefit.match(/(\d+(?:\.\d+)?)\s+edge\s+reward\s+points?\s+per\s+rs\s+200.*above\s+rs\s+(\d+(?:\.\d+)?)\s+lakh/)
+    )
+    .find((result): result is RegExpMatchArray => Boolean(result));
+  if (!match) return null;
+  return Math.round(Number(match[2]) * 100000);
+}
+
+function envelopeTiersForCard(card: CreditCard): number[] {
+  const tiers = new Set(envelopeBaselineMonthlyTiers);
+
+  // Add fee waiver threshold (annual → monthly)
+  if (card.feeWaiverSpend && card.feeWaiverSpend > 0) {
+    tiers.add(Math.round(card.feeWaiverSpend / 12));
+  }
+
+  // Add milestone thresholds (annual → monthly)
+  for (const benefit of card.milestoneBenefits ?? []) {
+    const threshold = extractMilestoneThreshold(benefit);
+    if (threshold && threshold > 0) tiers.add(Math.round(threshold / 12));
+  }
+
+  // Add high-spend incremental reward threshold (already monthly)
+  const highSpendThreshold = extractHighSpendIncrementalThreshold(card);
+  if (highSpendThreshold && highSpendThreshold > 0) tiers.add(highSpendThreshold);
+
+  return [...tiers].sort((a, b) => a - b);
 }
 
 function scaleSpendProfileToMonthly(baseSpend: SpendProfile, monthlyTarget: number): SpendProfile {
@@ -1174,7 +1206,10 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
       .map((item) => `${item.spendCategory} uses ${item.rewardCategory} rewards`);
 
     const reasons = [
-      ...(envelopeLabel ? [`Best value at ${envelopeLabel}`] : []),
+      ...(envelopeLabel ? [`Max rewards at ${envelopeLabel}`] : []),
+      ...(envelopeMonthlySpend && envelopeMonthlySpend >= 150000
+        ? [`Only useful for those who can spend ${formatEnvelopeSpendLabel(envelopeMonthlySpend)}`]
+        : []),
       ...(cardNameBoost > 0 ? ["Strong card-name match for the query"] : []),
       ...(issuerBoost > 0 ? [`Matches ${card.issuer} issuer intent`] : []),
       ...matchedTags.map((tag) => `Matches ${tag} intent`),
@@ -1224,6 +1259,7 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
       brandPenalty +
       specialSpendBoost +
       milestoneBoost +
+      // TODO: Review popularity score weight (currently popularityScore * 50)
       card.popularityScore * 50;
 
     // Query-type-dependent blending
@@ -1267,7 +1303,8 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
     .map((card) => {
       if (!useEnvelopeScoring) return scoreCardForSpend(card, spend);
 
-      return envelopeMonthlySpendTiers
+      const tiers = envelopeTiersForCard(card);
+      return tiers
         .map((monthlySpend) => scoreCardForSpend(card, scaleSpendProfileToMonthly(defaultSpendProfile, monthlySpend), monthlySpend))
         .sort((a, b) => b.fitScore - a.fitScore)[0];
     })

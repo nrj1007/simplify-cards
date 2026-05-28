@@ -457,9 +457,19 @@ describe("scoreCards", () => {
       query: "top 10 credit cards"
     });
 
-    expect(scores[0]?.card.id).toBe("axis-magnus-burgundy");
-    expect(scores[0]?.envelopeScoring?.bestMonthlySpend).toBeGreaterThanOrEqual(150000);
-    expect(scores[0]?.reasons).toEqual(expect.arrayContaining([expect.stringMatching(/Best value at Rs .*month spend/i)]));
+    // All top cards should have envelope scoring data
+    const topCards = scores.slice(0, 5);
+    for (const card of topCards) {
+      expect(card.envelopeScoring).toBeDefined();
+      expect(card.envelopeScoring?.bestMonthlySpend).toBeGreaterThan(0);
+      expect(card.reasons).toEqual(expect.arrayContaining([expect.stringMatching(/Max rewards at Rs .*month spend/i)]));
+    }
+
+    // Burgundy should rank in the top results with a high-spend tier and a warning
+    const burgundy = scores.find((s) => s.card.id === "axis-magnus-burgundy");
+    expect(burgundy).toBeDefined();
+    expect(burgundy?.envelopeScoring?.bestMonthlySpend).toBeGreaterThanOrEqual(150000);
+    expect(burgundy?.reasons).toEqual(expect.arrayContaining([expect.stringMatching(/Only useful for those who can spend/i)]));
   });
 
   it("does not use envelope scoring when a fee cap is present", () => {

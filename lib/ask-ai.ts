@@ -263,7 +263,7 @@ function buildTopCardsHighlights(input: RecommendationInput, answerCards: CardSc
     envelopeCards.length > 0
       ? [
           "Ranking uses each card's best spend tier because no spend or fee cap was specified.",
-          ...envelopeCards.map((score) => `${score.card.name}: best value at ${score.envelopeScoring?.bestSpendLabel}.`)
+          ...envelopeCards.map((score) => `${score.card.name}: max rewards at ${score.envelopeScoring?.bestSpendLabel}.`)
         ]
       : [];
 
