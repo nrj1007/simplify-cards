@@ -59,6 +59,8 @@ function redemptionRows(redemption?: Redemption) {
   return [
     ["Statement balance", redemption.statementBalanceValue],
     ["SmartBuy flight/hotel", redemption.smartBuyFlightHotelValue],
+    ["Air miles", redemption.airMilesValue],
+    ["Accor", redemption.accorValue],
     ["Minimum points for statement credit", redemption.minimumPointsForStatementCredit],
     ["Monthly redemption cap", redemption.cashbackRedemptionCapMonthly],
     ["Points validity", redemption.pointsExpiryYears],
