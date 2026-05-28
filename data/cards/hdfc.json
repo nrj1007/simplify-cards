@@ -192,8 +192,12 @@
     ],
     "additionalDetails": [
       "For INFINIA Cards sourced before October 18, 2021: Joining/Renewal Fee is Rs 10,000 + taxes, with waiver at Rs 8 lakh annual spend.",
-      "Redemption for Apple products and Tanishq vouchers via SmartBuy is at 1 RP = Rs 1, capped at 70% of bill value.",
-      "Redemption against statement balance (cashback) is capped at 50,000 points per month.",
+      "Earning is capped at a maximum of 2,00,000 Reward Points per statement cycle.",
+      "Reward points on grocery spends are capped at 2,000 per calendar month, and on insurance spends at 10,000 per calendar month.",
+      "Redemption is allowed a maximum of 5 times per calendar month.",
+      "Redemption against statement balance (cashback) is capped at 50,000 points per calendar month.",
+      "Redemption for travel bookings (flights/hotels) and Air Miles is capped at 1,50,000 Reward Points per calendar month.",
+      "Redemption for Apple products and Tanishq vouchers via SmartBuy is at 1 RP = Rs 1, capped at 70% of bill value, with further caps of 1 Apple product per calendar quarter and 50,000 points per calendar month for Tanishq vouchers.",
       "Accidental Air Death Cover worth Rs 3 Crore, Overseas Emergency Hospitalization up to Rs 50 Lakhs, and Credit Shield Cover up to Rs 9 Lakhs."
     ],
     "alternativeCardIds": [
@@ -208,7 +212,8 @@
     },
     "supportingSourceUrls": [
       "https://offers.smartbuy.hdfc.bank.in/offer_details/smartbuy/15282",
-      "https://www.hdfc.bank.in/credit-cards/infinia-credit-card"
+      "https://www.hdfc.bank.in/credit-cards/infinia-credit-card",
+      "https://www.hdfc.bank.in/content/dam/hdfcbankpws/in/en/personal-banking/discover-products/cards/credit-cards/infinia-credit-card/rewards-points-program-terms-and-conditions.pdf"
     ],
     "eligibility": {
       "salaried": [
