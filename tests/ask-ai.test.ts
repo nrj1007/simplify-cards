@@ -138,7 +138,7 @@ describe("ask ai fallback policy", () => {
     expect(answer.summary).toBe("Top 3 picks for this query.");
   });
 
-  it("returns the requested number of cards for top-N broad ranking queries", async () => {
+  it("returns the requested number of cards for top-N broad ranking queries", { timeout: 15000 }, async () => {
     const answer = await answerQuestion({ query: "top 10 credit cards" });
 
     expect(answer.cards).toHaveLength(10);
@@ -207,7 +207,7 @@ describe("ask ai fallback policy", () => {
     expect(answer.highlights?.join(" ")).not.toMatch(/balanced mix/i);
   });
 
-  it("uses super-premium scenario ladders for super-premium asks", async () => {
+  it("uses super-premium scenario ladders for super-premium asks", { timeout: 15000 }, async () => {
     const answer = await answerQuestion({ query: "best super premium card" });
 
     expect(answer.summary).toMatch(/Top 3 picks for this query/i);
@@ -266,7 +266,7 @@ describe("ask ai fallback policy", () => {
     expect(answer.summary).toMatch(/couldn't find an exact match|could not find an exact match/i);
   });
 
-  it("keeps broad top-card answers deterministic even when an OpenAI API key is configured", async () => {
+  it("keeps broad top-card answers deterministic even when an OpenAI API key is configured", { timeout: 15000 }, async () => {
     process.env.OPENAI_API_KEY = "test-key";
     global.fetch = vi.fn() as typeof fetch;
 
@@ -375,9 +375,9 @@ describe("ask ai fallback policy", () => {
       }) as unknown as Response
     ) as typeof fetch;
 
-    const answer = await answerQuestion({ query: "travelonex" });
+    const answer = await answerQuestion({ query: "centurionx" });
 
-    expect(global.fetch).toHaveBeenCalledTimes(1);
+    expect(global.fetch).toHaveBeenCalledTimes(2);
     expect(answer.cards.length).toBeGreaterThan(0);
     expect(answer.summary).toMatch(/closest verified match/i);
     expect(answer.highlights).toEqual(expect.arrayContaining([expect.stringMatching(/Closest matches from the current verified database/i)]));

@@ -258,7 +258,16 @@ function buildBalancedScenarioHighlights(input: RecommendationInput, answerCards
 }
 
 function buildTopCardsHighlights(input: RecommendationInput, answerCards: CardScore[]) {
-  return buildScenarioHighlights(input, answerCards);
+  const envelopeCards = answerCards.filter((score) => score.envelopeScoring).slice(0, 3);
+  const envelopeHighlights =
+    envelopeCards.length > 0
+      ? [
+          "Ranking uses each card's best spend tier because no spend or fee cap was specified.",
+          ...envelopeCards.map((score) => `${score.card.name}: best value at ${score.envelopeScoring?.bestSpendLabel}.`)
+        ]
+      : [];
+
+  return [...envelopeHighlights, ...buildScenarioHighlights(input, answerCards)];
 }
 
 function getBalancedScenarioWinnerCards(input: RecommendationInput, answerCards: CardScore[]) {

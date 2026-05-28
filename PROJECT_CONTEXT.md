@@ -334,6 +334,7 @@ Recommended next sequence:
 4. Log unsupported or stale questions for manual database updates by the user.
 5. Add affiliate-link fields and ad-slot plumbing after retrieval is in place.
 
+
 ## Queued HDFC URLs
 
 These were provided by the user and still need to be processed, one card per commit:

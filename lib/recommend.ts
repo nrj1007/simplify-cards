@@ -61,6 +61,7 @@ const blendedSmartbuySpendCategories: SpendCategory[] = ["online"];
 const broadComparisonUpsideWeight = 0.4;
 const defaultTopCardCount = 3;
 const joiningBenefitAmortizationYears = 3;
+const envelopeMonthlySpendTiers = [50000, 100000, 150000, 250000, 300000];
 
 // Scoring stage weights: relevance (text/identity match) vs value (economic/preference fit)
 const relevanceWeightExactMatch = 1.0;
@@ -84,6 +85,44 @@ function isBroadGenericRankingQuery(input: RecommendationInput, intent: ReturnTy
   const normalizedQuery = normalizeForMatch(input.query);
   return /\b(top|best|recommend|recommended|suggest)\b/.test(normalizedQuery) &&
     /\bcards?\b/.test(normalizedQuery);
+}
+
+function shouldUseEnvelopeScoring(
+  input: RecommendationInput,
+  intent: ReturnType<typeof parseQueryIntent>,
+  effectiveMaxAnnualFee: number | undefined,
+  wantsLifetimeFree: boolean,
+  wantsLounge: boolean
+) {
+  return (
+    isBroadGenericRankingQuery(input, intent) &&
+    effectiveMaxAnnualFee === undefined &&
+    !wantsLifetimeFree &&
+    !wantsLounge
+  );
+}
+
+function scaleSpendProfileToMonthly(baseSpend: SpendProfile, monthlyTarget: number): SpendProfile {
+  const currentMonthlyTotal = monthlySpendTotal(baseSpend);
+  if (!currentMonthlyTotal) return baseSpend;
+
+  const scale = monthlyTarget / currentMonthlyTotal;
+  return Object.fromEntries(
+    (Object.entries(baseSpend) as Array<[SpendCategory, number]>).map(([category, amount]) => [
+      category,
+      Math.round((amount ?? 0) * scale)
+    ])
+  ) as SpendProfile;
+}
+
+function formatEnvelopeSpendLabel(monthlySpend: number) {
+  if (monthlySpend >= 100000) {
+    const lakhs = monthlySpend / 100000;
+    const formattedLakhs = Number.isInteger(lakhs) ? `${lakhs}` : lakhs.toFixed(1);
+    return `Rs ${formattedLakhs} lakh+/month spend`;
+  }
+
+  return `Rs ${monthlySpend.toLocaleString("en-IN")}/month spend`;
 }
 
 function normalizeText(value = "") {
@@ -455,6 +494,41 @@ function rewardUnitValue(card: CreditCard) {
   }
 
   return 1;
+}
+
+function partnerTransferUnitValue(card: CreditCard) {
+  const haystack = normalizeForMatch([...(card.additionalBenefits ?? []), ...(card.additionalDetails ?? []), ...(card.internalNotes ?? [])].join(" "));
+  const conversionMatch = haystack.match(/(\d+(?:\.\d+)?)\s+edge\s+reward\s+points?\s+convert\s+to\s+(\d+(?:\.\d+)?)\s+partner\s+miles?/);
+  if (!conversionMatch) return 0;
+
+  const rewardPoints = Number(conversionMatch[1]);
+  const partnerMiles = Number(conversionMatch[2]);
+  if (!rewardPoints || Number.isNaN(rewardPoints) || Number.isNaN(partnerMiles)) return 0;
+
+  return partnerMiles / rewardPoints;
+}
+
+function highSpendIncrementalRewardValue(card: CreditCard, spend: SpendProfile, enabled: boolean) {
+  if (!enabled) return 0;
+
+  const match = [...(card.additionalBenefits ?? []), ...(card.additionalDetails ?? []), ...(card.internalNotes ?? [])]
+    .map((benefit) => benefit.toLowerCase().replace(/,/g, "").replace(/\s+/g, " ").trim())
+    .map((benefit) =>
+      benefit.match(/(\d+(?:\.\d+)?)\s+edge\s+reward\s+points?\s+per\s+rs\s+200.*above\s+rs\s+(\d+(?:\.\d+)?)\s+lakh/)
+    )
+    .find((result): result is RegExpMatchArray => Boolean(result));
+  if (!match) return 0;
+
+  const monthlyTotal = monthlySpendTotal(spend);
+  const threshold = Math.round(Number(match[2]) * 100000);
+  if (!monthlyTotal || monthlyTotal <= threshold) return 0;
+
+  const pointsPerRs100 = Number(match[1]) / 2;
+  const unitValue = partnerTransferUnitValue(card) || rewardUnitValue(card);
+  if (!pointsPerRs100 || !unitValue) return 0;
+
+  const incrementalMonthlySpend = monthlyTotal - threshold;
+  return Math.round((incrementalMonthlySpend * pointsPerRs100 * unitValue * 12) / 100);
 }
 
 function estimateFallbackPointUnitValue(card: CreditCard) {
@@ -1035,12 +1109,151 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
   const wantsLifetimeFree = input.wantsLifetimeFree ?? intent.wantsLifetimeFree;
   const wantsLounge = input.wantsLounge ?? intent.wantsLounge;
   const spend = { ...defaultSpendProfile, ...(intent.inferredSpend ?? {}), ...(input.spend ?? {}) };
-  const annualSpend = annualSpendTotal(spend);
   const restrictToIssuer = shouldRestrictToIssuer(intent, input.query);
   const includeSmartbuyLikeRewards = shouldIncludeSmartbuyLikeRewards(input.query);
   const broadMixedSpendQuery = isBroadMixedSpendQuery(input, intent);
   const broadNoSpendRankingQuery = isBroadNoSpendQuery(input, intent);
   const broadGenericRanking = isBroadGenericRankingQuery(input, intent);
+  const useEnvelopeScoring = shouldUseEnvelopeScoring(input, intent, effectiveMaxAnnualFee, wantsLifetimeFree, wantsLounge);
+
+  const scoreCardForSpend = (
+    card: CreditCard,
+    spendForScore: SpendProfile,
+    envelopeMonthlySpend?: number
+  ): CardScore => {
+    const annualSpend = annualSpendTotal(spendForScore);
+    const matchedTags = card.tags.filter((tag) => queryTags.has(tag));
+    const cardNameBoost = computeCardNameBoost(card, input.query);
+    const issuerBoost = intent.issuers.includes(card.issuer) ? 20000 : 0;
+    const rewardBreakdown = rewardBreakdownForCard(card, spendForScore, includeSmartbuyLikeRewards);
+    const highSpendIncrementalValue = highSpendIncrementalRewardValue(card, spendForScore, useEnvelopeScoring);
+    const estimatedAnnualRewards = annualRewardForCard(card, spendForScore, includeSmartbuyLikeRewards) + highSpendIncrementalValue;
+    const estimatedMilestoneValue = milestoneValueForCard(card, annualSpend);
+    const { joiningValue: rawJoiningValue, renewalValue: rawRenewalValue } = joiningAndRenewalBenefitValueForCard(card);
+    const estimatedJoiningAndRenewalValue = Math.round(rawJoiningValue / joiningBenefitAmortizationYears) + rawRenewalValue;
+    const estimatedAnnualFee = feeAfterWaiver(card, spendForScore);
+    const estimatedNetValue = estimatedAnnualRewards + estimatedMilestoneValue + estimatedJoiningAndRenewalValue - estimatedAnnualFee;
+    const currentMilestoneAndWaiverValue = estimatedMilestoneValue + (card.annualFee - estimatedAnnualFee);
+    const maxComparisonMilestoneAndWaiverValue = comparisonMilestoneAndWaiverValue(card);
+    const comparisonMilestoneAndWaiverDelta = broadNoSpendRankingQuery && !useEnvelopeScoring
+      ? Math.round(Math.max(maxComparisonMilestoneAndWaiverValue - currentMilestoneAndWaiverValue, 0) * broadComparisonUpsideWeight)
+      : 0;
+    const tagBoost = matchedTags.length * 500;
+    const keywordBoost = computeQueryKeywordBoost(card, input.query);
+    const useCaseBoost = intent.useCases.reduce((total, useCase) => {
+      const strength = cardUseCaseStrength(card, useCase);
+      return total + (strength > 0 ? strength * 7000 : -12000);
+    }, 0);
+    const segmentBoost = intent.segments.reduce((total, segment) => total + (cardMatchesSegment(card, segment) ? 3000 : 0), 0);
+    const redemptionBoost = intent.redemptionBuckets.reduce(
+      (total, bucket) =>
+        total + (cardMatchesRedemptionBucket(card, bucket) ? 3500 : 0) + redemptionPreferenceValueBoost(card, bucket),
+      0
+    );
+    const networkBoost = intent.networks.some((network) => card.network.includes(network)) ? 3000 : 0;
+    const loungeBoost = loungePreferenceBoost(card, wantsLounge, intent);
+    const forexBoost = forexPreferenceBoost(card, intent);
+    const spendCategoryBoost = categoryFitAdjustment(card, spendForScore, includeSmartbuyLikeRewards, {
+      broadMixedSpendQuery
+    });
+    const ltfQueryBoost = genericLtfAdjustment(card, intent);
+    const relationshipPenalty = genericRelationshipPenalty(card, input, intent);
+    const brandPenalty = brandUtilityPenalty(card, input, intent);
+    const specialSpendBoost = specialSpendFlexibilityBoost(card, input, intent);
+    const milestoneBoost = milestoneSpecialistBoost(card, broadNoSpendRankingQuery);
+    const envelopeLabel = envelopeMonthlySpend ? formatEnvelopeSpendLabel(envelopeMonthlySpend) : null;
+    const feeWaiverReason =
+      card.feeWaiverSpend && annualSpend >= card.feeWaiverSpend
+        ? `Fee waiver likely at Rs ${annualSpend.toLocaleString("en-IN")} yearly spend`
+        : card.feeWaiverSpend
+          ? `Fee waiver needs Rs ${card.feeWaiverSpend.toLocaleString("en-IN")} yearly spend`
+          : "No fee waiver listed";
+    const strongestRewards = [...rewardBreakdown]
+      .sort((a, b) => b.annualReward - a.annualReward)
+      .slice(0, 2)
+      .map((item) => `${item.spendCategory} uses ${item.rewardCategory} rewards`);
+
+    const reasons = [
+      ...(envelopeLabel ? [`Best value at ${envelopeLabel}`] : []),
+      ...(cardNameBoost > 0 ? ["Strong card-name match for the query"] : []),
+      ...(issuerBoost > 0 ? [`Matches ${card.issuer} issuer intent`] : []),
+      ...matchedTags.map((tag) => `Matches ${tag} intent`),
+      ...strongestRewards,
+      ...(highSpendIncrementalValue > 0
+        ? [`High-spend incremental earn adds about Rs ${highSpendIncrementalValue.toLocaleString("en-IN")}`]
+        : []),
+      ...(estimatedMilestoneValue > 0 ? [`Milestone value adds about Rs ${estimatedMilestoneValue.toLocaleString("en-IN")}`] : []),
+      ...(estimatedJoiningAndRenewalValue > 0
+        ? [`Joining and renewal benefits add about Rs ${estimatedJoiningAndRenewalValue.toLocaleString("en-IN")} per year`]
+        : []),
+      ...(comparisonMilestoneAndWaiverDelta > 0
+        ? [`Higher milestone and fee-waiver upside can add about Rs ${comparisonMilestoneAndWaiverDelta.toLocaleString("en-IN")} in broader comparisons`]
+        : []),
+      ...(milestoneBoost > 0 ? ["Strong milestone-led value closer to Rs 7 lakh yearly spend"] : []),
+      ...(specialSpendBoost > 0 ? ["Rewards on usually excluded categories improve broader card utility"] : []),
+      ...(brandPenalty < 0 ? ["Broader ranking reduced for a narrower co-brand ecosystem fit"] : []),
+      card.annualFee === 0 ? "No annual fee" : `Effective annual fee is Rs ${estimatedAnnualFee}`,
+      feeWaiverReason,
+      loungeScore(card) > 0
+        ? card.loungeDomestic === "unlimited" || card.loungeInternational === "unlimited"
+          ? "Unlimited lounge access listed"
+          : `${loungeScore(card)} yearly lounge visits listed`
+        : "No lounge access listed"
+    ];
+
+    // Relevance score: text and identity matching signals
+    const relevanceScore =
+      cardNameBoost +
+      keywordBoost +
+      tagBoost +
+      issuerBoost +
+      networkBoost;
+
+    // Value score: economic quality and preference fit signals
+    const valueScore =
+      estimatedNetValue +
+      useCaseBoost +
+      segmentBoost +
+      redemptionBoost +
+      loungeBoost +
+      forexBoost +
+      spendCategoryBoost +
+      comparisonMilestoneAndWaiverDelta +
+      ltfQueryBoost +
+      relationshipPenalty +
+      brandPenalty +
+      specialSpendBoost +
+      milestoneBoost +
+      card.popularityScore * 50;
+
+    // Query-type-dependent blending
+    const isExactCardLookup = cardNameBoost >= exactCardNameMatchThreshold;
+    const relevanceWeight = isExactCardLookup ? relevanceWeightExactMatch
+      : broadGenericRanking ? relevanceWeightBroadGeneric
+      : relevanceWeightDefault;
+    const fitScore = valueScore + relevanceWeight * relevanceScore;
+
+    return {
+      card,
+      annualSpend,
+      ...(envelopeLabel && envelopeMonthlySpend
+        ? {
+            envelopeScoring: {
+              bestMonthlySpend: envelopeMonthlySpend,
+              bestSpendLabel: envelopeLabel
+            }
+          }
+        : {}),
+      estimatedAnnualRewards,
+      estimatedMilestoneValue,
+      estimatedAnnualFee,
+      estimatedNetValue,
+      fitScore,
+      matchedTags,
+      reasons,
+      rewardBreakdown
+    };
+  };
 
   return cards
     .filter((card) => !shouldHideCardFromGenericRanking(card, input, intent))
@@ -1052,123 +1265,11 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
     .filter((card) => (wantsLounge ? loungeScore(card) > 0 : true))
     .filter((card) => (restrictToIssuer ? normalizeIssuer(card.issuer) === normalizeIssuer(intent.issuers[0]) : true))
     .map((card) => {
-      const matchedTags = card.tags.filter((tag) => queryTags.has(tag));
-      const cardNameBoost = computeCardNameBoost(card, input.query);
-      const issuerBoost = intent.issuers.includes(card.issuer) ? 20000 : 0;
-      const rewardBreakdown = rewardBreakdownForCard(card, spend, includeSmartbuyLikeRewards);
-      const estimatedAnnualRewards = annualRewardForCard(card, spend, includeSmartbuyLikeRewards);
-      const estimatedMilestoneValue = milestoneValueForCard(card, annualSpend);
-      const { joiningValue: rawJoiningValue, renewalValue: rawRenewalValue } = joiningAndRenewalBenefitValueForCard(card);
-      const estimatedJoiningAndRenewalValue = Math.round(rawJoiningValue / joiningBenefitAmortizationYears) + rawRenewalValue;
-      const estimatedAnnualFee = feeAfterWaiver(card, spend);
-      const estimatedNetValue = estimatedAnnualRewards + estimatedMilestoneValue + estimatedJoiningAndRenewalValue - estimatedAnnualFee;
-      const currentMilestoneAndWaiverValue = estimatedMilestoneValue + (card.annualFee - estimatedAnnualFee);
-      const maxComparisonMilestoneAndWaiverValue = comparisonMilestoneAndWaiverValue(card);
-      const comparisonMilestoneAndWaiverDelta = broadNoSpendRankingQuery
-        ? Math.round(Math.max(maxComparisonMilestoneAndWaiverValue - currentMilestoneAndWaiverValue, 0) * broadComparisonUpsideWeight)
-        : 0;
-      const tagBoost = matchedTags.length * 500;
-      const keywordBoost = computeQueryKeywordBoost(card, input.query);
-      const useCaseBoost = intent.useCases.reduce((total, useCase) => {
-        const strength = cardUseCaseStrength(card, useCase);
-        return total + (strength > 0 ? strength * 7000 : -12000);
-      }, 0);
-      const segmentBoost = intent.segments.reduce((total, segment) => total + (cardMatchesSegment(card, segment) ? 3000 : 0), 0);
-      const redemptionBoost = intent.redemptionBuckets.reduce(
-        (total, bucket) =>
-          total + (cardMatchesRedemptionBucket(card, bucket) ? 3500 : 0) + redemptionPreferenceValueBoost(card, bucket),
-        0
-      );
-      const networkBoost = intent.networks.some((network) => card.network.includes(network)) ? 3000 : 0;
-      const loungeBoost = loungePreferenceBoost(card, wantsLounge, intent);
-      const forexBoost = forexPreferenceBoost(card, intent);
-      const spendCategoryBoost = categoryFitAdjustment(card, spend, includeSmartbuyLikeRewards, {
-        broadMixedSpendQuery
-      });
-      const ltfQueryBoost = genericLtfAdjustment(card, intent);
-      const relationshipPenalty = genericRelationshipPenalty(card, input, intent);
-      const brandPenalty = brandUtilityPenalty(card, input, intent);
-      const specialSpendBoost = specialSpendFlexibilityBoost(card, input, intent);
-      const milestoneBoost = milestoneSpecialistBoost(card, broadNoSpendRankingQuery);
-      const feeWaiverReason =
-        card.feeWaiverSpend && annualSpend >= card.feeWaiverSpend
-          ? `Fee waiver likely at Rs ${annualSpend.toLocaleString("en-IN")} yearly spend`
-          : card.feeWaiverSpend
-            ? `Fee waiver needs Rs ${card.feeWaiverSpend.toLocaleString("en-IN")} yearly spend`
-            : "No fee waiver listed";
-      const strongestRewards = [...rewardBreakdown]
-        .sort((a, b) => b.annualReward - a.annualReward)
-        .slice(0, 2)
-        .map((item) => `${item.spendCategory} uses ${item.rewardCategory} rewards`);
+      if (!useEnvelopeScoring) return scoreCardForSpend(card, spend);
 
-      const reasons = [
-        ...(cardNameBoost > 0 ? ["Strong card-name match for the query"] : []),
-        ...(issuerBoost > 0 ? [`Matches ${card.issuer} issuer intent`] : []),
-        ...matchedTags.map((tag) => `Matches ${tag} intent`),
-        ...strongestRewards,
-        ...(estimatedMilestoneValue > 0 ? [`Milestone value adds about Rs ${estimatedMilestoneValue.toLocaleString("en-IN")}`] : []),
-        ...(estimatedJoiningAndRenewalValue > 0
-          ? [`Joining and renewal benefits add about Rs ${estimatedJoiningAndRenewalValue.toLocaleString("en-IN")} per year`]
-          : []),
-        ...(comparisonMilestoneAndWaiverDelta > 0
-          ? [`Higher milestone and fee-waiver upside can add about Rs ${comparisonMilestoneAndWaiverDelta.toLocaleString("en-IN")} in broader comparisons`]
-          : []),
-        ...(milestoneBoost > 0 ? ["Strong milestone-led value closer to Rs 7 lakh yearly spend"] : []),
-        ...(specialSpendBoost > 0 ? ["Rewards on usually excluded categories improve broader card utility"] : []),
-        ...(brandPenalty < 0 ? ["Broader ranking reduced for a narrower co-brand ecosystem fit"] : []),
-        card.annualFee === 0 ? "No annual fee" : `Effective annual fee is Rs ${estimatedAnnualFee}`,
-        feeWaiverReason,
-        loungeScore(card) > 0
-          ? card.loungeDomestic === "unlimited" || card.loungeInternational === "unlimited"
-            ? "Unlimited lounge access listed"
-            : `${loungeScore(card)} yearly lounge visits listed`
-          : "No lounge access listed"
-      ];
-
-      // Relevance score: text and identity matching signals
-      const relevanceScore =
-        cardNameBoost +
-        keywordBoost +
-        tagBoost +
-        issuerBoost +
-        networkBoost;
-
-      // Value score: economic quality and preference fit signals
-      const valueScore =
-        estimatedNetValue +
-        useCaseBoost +
-        segmentBoost +
-        redemptionBoost +
-        loungeBoost +
-        forexBoost +
-        spendCategoryBoost +
-        comparisonMilestoneAndWaiverDelta +
-        ltfQueryBoost +
-        relationshipPenalty +
-        brandPenalty +
-        specialSpendBoost +
-        milestoneBoost +
-        card.popularityScore * 50;
-
-      // Query-type-dependent blending
-      const isExactCardLookup = cardNameBoost >= exactCardNameMatchThreshold;
-      const relevanceWeight = isExactCardLookup ? relevanceWeightExactMatch
-        : broadGenericRanking ? relevanceWeightBroadGeneric
-        : relevanceWeightDefault;
-      const fitScore = valueScore + relevanceWeight * relevanceScore;
-
-      return {
-        card,
-        annualSpend,
-        estimatedAnnualRewards,
-        estimatedMilestoneValue,
-        estimatedAnnualFee,
-        estimatedNetValue,
-        fitScore,
-        matchedTags,
-        reasons,
-        rewardBreakdown
-      };
+      return envelopeMonthlySpendTiers
+        .map((monthlySpend) => scoreCardForSpend(card, scaleSpendProfileToMonthly(defaultSpendProfile, monthlySpend), monthlySpend))
+        .sort((a, b) => b.fitScore - a.fitScore)[0];
     })
     .sort((a, b) => b.fitScore - a.fitScore);
 }

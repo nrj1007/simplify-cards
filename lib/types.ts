@@ -109,6 +109,10 @@ export type RecommendationInput = {
 export type CardScore = {
   card: CreditCard;
   annualSpend: number;
+  envelopeScoring?: {
+    bestMonthlySpend: number;
+    bestSpendLabel: string;
+  };
   estimatedAnnualRewards: number;
   estimatedMilestoneValue: number;
   estimatedAnnualFee: number;

@@ -451,6 +451,25 @@ describe("scoreCards", () => {
       expect.arrayContaining([expect.stringMatching(/Rewards on usually excluded categories improve broader card utility/i)])
     );
   });
+
+  it("uses envelope scoring for broad rankings without spend or fee caps", () => {
+    const scores = scoreCards({
+      query: "top 10 credit cards"
+    });
+
+    expect(scores[0]?.card.id).toBe("axis-magnus-burgundy");
+    expect(scores[0]?.envelopeScoring?.bestMonthlySpend).toBeGreaterThanOrEqual(150000);
+    expect(scores[0]?.reasons).toEqual(expect.arrayContaining([expect.stringMatching(/Best value at Rs .*month spend/i)]));
+  });
+
+  it("does not use envelope scoring when a fee cap is present", () => {
+    const scores = scoreCards({
+      query: "top cards under 5000"
+    });
+
+    expect(scores.some((score) => score.envelopeScoring)).toBe(false);
+    expect(scores.some((score) => score.card.id === "axis-magnus-burgundy")).toBe(false);
+  });
 });
 
 describe("answerFromCards", () => {

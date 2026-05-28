@@ -26,6 +26,7 @@ export async function GET(request: Request) {
       estimatedAnnualFee: Math.round(item.estimatedAnnualFee * 100) / 100,
       estimatedNetValue: Math.round(item.estimatedNetValue * 100) / 100,
       adjustment: Math.round((item.fitScore - item.estimatedNetValue) * 100) / 100,
+      envelopeScoring: item.envelopeScoring ?? null,
       reasons: item.reasons
     }))
   });
