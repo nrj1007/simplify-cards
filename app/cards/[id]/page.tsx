@@ -316,6 +316,13 @@ export default async function CardPage({ params, searchParams }: Props) {
             </section>
           ) : null}
 
+          {card.additionalDetails?.length ? (
+            <section className="detail-section">
+              <h2>Additional Details</h2>
+              <DetailList items={card.additionalDetails} />
+            </section>
+          ) : null}
+
           {hasExclusions ? (
             <section className="detail-section">
               <h2>Exclusions</h2>
