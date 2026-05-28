@@ -240,6 +240,13 @@ if (cardFiles.length === 0) {
       }
     }
 
+    if (card.imageUrl !== undefined) {
+      const isRelative = typeof card.imageUrl === "string" && card.imageUrl.startsWith("/");
+      if (!isRelative && !isValidUrl(card.imageUrl)) {
+        addIssue("must be a valid https URL or relative path starting with '/' when present", cardId, "imageUrl");
+      }
+    }
+
     for (const field of ["joiningFee", "annualFee", "forexMarkup"]) validateMoney(card, cardId, field);
     validateMoney(card, cardId, "feeWaiverSpend", true);
 

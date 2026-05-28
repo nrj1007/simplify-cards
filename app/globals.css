@@ -1062,4 +1062,47 @@ textarea {
     align-items: flex-start;
     flex-direction: column;
   }
+
+  .page-header-wrap {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .page-card-image {
+    width: 200px;
+    height: 126px;
+    align-self: center;
+  }
+}
+
+.page-header-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.page-card-image {
+  flex-shrink: 0;
+  width: 240px;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.page-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.page-card-image img:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.18);
 }

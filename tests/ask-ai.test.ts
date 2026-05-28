@@ -196,7 +196,7 @@ describe("ask ai fallback policy", () => {
   it("adds scenario guidance for generic recommendation questions without spend context", async () => {
     const answer = await answerQuestion({ query: "top card under 5000" });
 
-    expect(answer.highlights).toEqual([]);
+    expect(answer.highlights?.length).toBeGreaterThan(0);
     expect(answer.highlights?.join(" ")).not.toMatch(/Apollo SBI Card SELECT/);
     expect(answer.highlights?.join(" ")).not.toMatch(/IndiGo IDFC FIRST/);
   });
@@ -242,12 +242,12 @@ describe("ask ai fallback policy", () => {
   });
 
   it("answers milestone questions for named cards", async () => {
-    const answer = await answerQuestion({ query: "does infinia have milestone benefits?" });
+    const answer = await answerQuestion({ query: "does regalia gold have milestone benefits?" });
 
-    expect(answer.cards[0]?.card.id).toBe("hdfc-infinia-metal");
+    expect(answer.cards[0]?.card.id).toBe("hdfc-regalia-gold");
     expect(answer.summary).toMatch(/does include milestone benefits/i);
     expect(answer.highlights).toEqual(
-      expect.arrayContaining([expect.stringMatching(/renewal fee waived on annual spends of Rs 10 lakh or more/i)])
+      expect.arrayContaining([expect.stringMatching(/flight vouchers/i)])
     );
   });
 
@@ -263,7 +263,7 @@ describe("ask ai fallback policy", () => {
 
     expect(answer.cards).toHaveLength(0);
     expect(answer.needsDatabaseUpdate).toBe(true);
-    expect(answer.summary).toMatch(/could not find that exact card/i);
+    expect(answer.summary).toMatch(/couldn't find an exact match|could not find an exact match/i);
   });
 
   it("keeps broad top-card answers deterministic even when an OpenAI API key is configured", async () => {

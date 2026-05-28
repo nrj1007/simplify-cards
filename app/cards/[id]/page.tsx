@@ -135,12 +135,19 @@ export default async function CardPage({ params, searchParams }: Props) {
 
   return (
     <section className="section">
-      <div className="page-title">
-        <p>{card.issuer}</p>
-        <h1>{card.name}</h1>
-        <div className="page-title-meta">
-          <span>Last verified: {card.lastVerified}</span>
+      <div className="page-header-wrap">
+        <div className="page-title">
+          <p>{card.issuer}</p>
+          <h1>{card.name}</h1>
+          <div className="page-title-meta">
+            <span>Last verified: {card.lastVerified}</span>
+          </div>
         </div>
+        {card.imageUrl ? (
+          <div className="page-card-image">
+            <img src={card.imageUrl} alt={card.name} />
+          </div>
+        ) : null}
       </div>
 
       <div className="detail-layout">
