@@ -73,7 +73,10 @@ function valueLabel(label: string, value: number) {
   if (label === "Redemption fee") return formatCurrency(value);
   if (label.includes("Minimum") || label.includes("cap")) return value.toLocaleString("en-IN");
   if (label === "Accor") return `upto Rs ${value} per point *considering using accor redemption`;
-  if (label === "Air miles" || label === "Statement balance" || label === "SmartBuy flight/hotel") {
+  if (label === "Air miles") {
+    return `upto ${value} airmile per point`;
+  }
+  if (label === "Statement balance" || label === "SmartBuy flight/hotel") {
     return `upto Rs ${value} per point`;
   }
   return `Rs ${value}`;
