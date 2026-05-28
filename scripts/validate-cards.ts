@@ -183,7 +183,7 @@ if (cardFiles.length === 0) {
       if (!isStringArray(card[field])) addIssue("must be an array of non-empty strings", cardId, field);
     }
 
-    for (const optionalField of ["milestoneBenefits", "joiningBenefits", "additionalBenefits", "additionalDetails", "internalNotes"]) {
+    for (const optionalField of ["milestoneBenefits", "joiningBenefits", "renewalBenefits", "additionalBenefits", "additionalDetails", "internalNotes"]) {
       if (card[optionalField] !== undefined && !isStringArray(card[optionalField])) {
         addIssue("must be an array of non-empty strings when present", cardId, optionalField);
       }

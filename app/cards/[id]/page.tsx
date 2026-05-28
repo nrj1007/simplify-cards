@@ -126,6 +126,8 @@ export default async function CardPage({ params, searchParams }: Props) {
   );
   const hasMilestoneBenefits = Boolean(card.milestoneBenefits?.length);
   const hasJoiningBenefits = Boolean(card.joiningBenefits?.length);
+  const hasRenewalBenefits = Boolean(card.renewalBenefits?.length);
+  const hasJoiningOrRenewalBenefits = hasJoiningBenefits || hasRenewalBenefits;
   const hasAdditionalBenefits = Boolean(card.additionalBenefits?.length);
   const hasExclusions = Boolean(card.exclusions?.length);
   const hasEligibility = Boolean(card.eligibility?.salaried?.length || card.eligibility?.selfEmployed?.length);
@@ -281,10 +283,21 @@ export default async function CardPage({ params, searchParams }: Props) {
             </section>
           ) : null}
 
-          {hasJoiningBenefits ? (
+          {hasJoiningOrRenewalBenefits ? (
             <section className="detail-section">
-              <h2>Joining Benefits</h2>
-              <DetailList items={card.joiningBenefits} />
+              <h2>Joining & Renewal Benefits</h2>
+              {card.joiningBenefits?.length ? (
+                <div style={{ marginBottom: card.renewalBenefits?.length ? "1.5rem" : "0" }}>
+                  {card.renewalBenefits?.length ? <h3 style={{ fontSize: "1.1rem", marginBottom: "0.5rem" }}>Joining Benefits</h3> : null}
+                  <DetailList items={card.joiningBenefits} />
+                </div>
+              ) : null}
+              {card.renewalBenefits?.length ? (
+                <div>
+                  {card.joiningBenefits?.length ? <h3 style={{ fontSize: "1.1rem", marginBottom: "0.5rem" }}>Renewal Benefits</h3> : null}
+                  <DetailList items={card.renewalBenefits} />
+                </div>
+              ) : null}
             </section>
           ) : null}
 

@@ -77,6 +77,7 @@ export type CreditCard = {
   specialSpendRules?: SpecialSpendRule[];
   milestoneBenefits?: string[];
   joiningBenefits?: string[];
+  renewalBenefits?: string[];
   additionalBenefits?: string[];
   additionalDetails?: string[];
   internalNotes?: string[];

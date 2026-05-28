@@ -177,8 +177,10 @@
       "12,500 Reward Points upon joining fee realization and card activation",
       "Complimentary Club Marriott membership for the first year, offering up to 25% discount on dining & stays across Asia-Pacific"
     ],
+    "renewalBenefits": [
+      "12,500 Reward Points as renewal benefit after fee realization"
+    ],
     "additionalBenefits": [
-      "12,500 Reward Points as renewal benefit after fee realization",
       "Unlimited complimentary airport lounge access worldwide via Priority Pass (for both primary and add-on cardholders)",
       "Unlimited complimentary Golf lessons and games at leading courses in India and select courses worldwide",
       "100% green fee waiver at select golf courses worldwide",
