@@ -1,0 +1,132 @@
+[
+  {
+    "query": "top cards under 5000",
+    "submittedAt": "2026-05-27T12:47:47.453Z",
+    "feedback": "up",
+    "summary": "Top 3 picks for this query.",
+    "cardIds": [
+      "axis-atlas",
+      "kotak-cashback-plus",
+      "apollo-sbi-select"
+    ],
+    "input": {
+      "query": "top cards under 5000"
+    }
+  },
+  {
+    "query": "top cards under 5000",
+    "submittedAt": "2026-05-27T12:47:47.496Z",
+    "feedback": "down",
+    "summary": "Top 3 picks for this query.",
+    "cardIds": [
+      "axis-atlas",
+      "kotak-cashback-plus",
+      "apollo-sbi-select"
+    ],
+    "input": {
+      "query": "top cards under 5000"
+    }
+  },
+  {
+    "query": "top cards under 5000",
+    "submittedAt": "2026-05-27T12:47:54.156Z",
+    "feedback": "up",
+    "summary": "Top 3 picks for this query.",
+    "cardIds": [
+      "axis-atlas",
+      "kotak-cashback-plus",
+      "apollo-sbi-select"
+    ],
+    "input": {
+      "query": "top cards under 5000"
+    }
+  },
+  {
+    "query": "top cards under 5000",
+    "submittedAt": "2026-05-27T12:50:51.256Z",
+    "feedback": "up",
+    "summary": "Top 3 picks for this query.",
+    "cardIds": [
+      "axis-atlas",
+      "kotak-cashback-plus",
+      "apollo-sbi-select"
+    ],
+    "input": {
+      "query": "top cards under 5000"
+    }
+  },
+  {
+    "query": "top cards under 5000",
+    "submittedAt": "2026-05-27T12:54:20.955Z",
+    "feedback": "up",
+    "summary": "Top 3 picks for this query.",
+    "cardIds": [
+      "axis-atlas",
+      "kotak-cashback-plus",
+      "apollo-sbi-select"
+    ],
+    "input": {
+      "query": "top cards under 5000"
+    }
+  },
+  {
+    "query": "top cards under 5000",
+    "submittedAt": "2026-05-27T12:54:34.805Z",
+    "feedback": "down",
+    "summary": "Top 3 picks for this query.",
+    "cardIds": [
+      "axis-atlas",
+      "kotak-cashback-plus",
+      "apollo-sbi-select"
+    ],
+    "input": {
+      "query": "top cards under 5000"
+    }
+  },
+  {
+    "query": "top 10 credit cards",
+    "submittedAt": "2026-05-28T08:31:39.827Z",
+    "feedback": "down",
+    "summary": "Top 10 picks for this query.",
+    "cardIds": [
+      "hdfc-infinia-metal",
+      "hdfc-diners-club-black-metal",
+      "hsbc-travelone",
+      "axis-atlas",
+      "hdfc-regalia-gold",
+      "krisflyer-sbi-apex",
+      "reliance-sbi-prime",
+      "titan-sbi",
+      "lifestyle-home-centre-sbi-prime",
+      "max-sbi-prime"
+    ],
+    "input": {
+      "query": "top 10 credit cards"
+    },
+    "comment": "Test feedback",
+    "source": "ask"
+  },
+  {
+    "query": "top 10 credit cards",
+    "submittedAt": "2026-05-28T08:31:48.593Z",
+    "feedback": "down",
+    "summary": "Top 10 picks for this query.",
+    "cardIds": [
+      "hdfc-infinia-metal",
+      "hdfc-diners-club-black-metal",
+      "hsbc-travelone",
+      "axis-atlas",
+      "hdfc-regalia-gold",
+      "krisflyer-sbi-apex",
+      "reliance-sbi-prime",
+      "titan-sbi",
+      "lifestyle-home-centre-sbi-prime",
+      "max-sbi-prime"
+    ],
+    "input": {
+      "query": "top 10 credit cards"
+    },
+    "comment": "Test feedback",
+    "source": "ask"
+  }
+]

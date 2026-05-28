@@ -2,6 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { answerQuestion, getUnsupportedQuestionReason } from "../lib/ask-ai";
+import { scoreCards } from "../lib/recommend";
 
 const logPath = path.join(process.cwd(), "data", "question-logs", "unsupported-questions.json");
 const originalApiKey = process.env.OPENAI_API_KEY;
@@ -47,9 +48,236 @@ describe("ask ai fallback policy", () => {
 
     expect(answer.cards.length).toBeGreaterThan(0);
     expect(answer.needsDatabaseUpdate).toBeUndefined();
+    expect(answer.summary).toMatch(/Top 3 picks for this query/i);
   });
 
-  it("uses gpt-5-mini summary generation when an OpenAI API key is configured", async () => {
+  it("produces a more natural fallback summary for direct card-name queries", async () => {
+    const answer = await answerQuestion({ query: "Axis Atlas", maxAnnualFee: 5000 });
+
+    expect(answer.summary).toMatch(/If you specifically mean Axis Bank Atlas Credit Card/i);
+    expect(answer.highlights).toEqual(
+      expect.arrayContaining([
+        expect.stringMatching(/travel, hotels, and flights/i),
+        expect.stringMatching(/8 domestic lounge visits and 4 international lounge visits/i),
+        expect.stringMatching(/Closest alternative: HSBC TravelOne Credit Card/i)
+      ])
+    );
+    expect(answer.cards[0]?.card.id).toBe("axis-atlas");
+  });
+
+  it("returns Infinia when the exact HDFC card is present in the dataset", async () => {
+    const answer = await answerQuestion({ query: "Infinia" });
+
+    expect(answer.cards[0]?.card.id).toBe("hdfc-infinia-metal");
+    expect(answer.summary).toMatch(/Infinia Metal Edition/i);
+  });
+
+  it("treats spaced brand queries like 'travel one' as HSBC TravelOne instead of One Credit Card", async () => {
+    const answer = await answerQuestion({ query: "travel one" });
+
+    expect(answer.cards[0]?.card.id).toBe("hsbc-travelone");
+    expect(answer.summary).toMatch(/HSBC TravelOne Credit Card/i);
+  });
+
+  it("answers rewards-policy questions when current card rules support an inference", async () => {
+    const answer = await answerQuestion({ query: "do i get rewards on gold purchase using infinia?" });
+
+    expect(answer.cards[0]?.card.id).toBe("hdfc-infinia-metal");
+    expect(answer.needsDatabaseUpdate).toBeUndefined();
+    expect(answer.summary).toMatch(/should earn rewards on gold/i);
+    expect(answer.summary).toMatch(/gold/i);
+    expect(answer.highlights).toEqual(
+      expect.arrayContaining([
+        expect.stringMatching(/not listed in exclusions/i),
+        expect.stringMatching(/3\.33 reward points per Rs 100/i)
+      ])
+    );
+  });
+
+  it("answers exclusion questions from listed exclusions", async () => {
+    const answer = await answerQuestion({ query: "is rent excluded on atlas?" });
+
+    expect(answer.cards[0]?.card.id).toBe("axis-atlas");
+    expect(answer.summary).toMatch(/rent is part of the listed exclusions/i);
+    expect(answer.highlights).toEqual(
+      expect.arrayContaining([
+        expect.stringMatching(/excluded category match found for rent/i),
+        expect.stringMatching(/^Relevant exclusion: rent$/i)
+      ])
+    );
+  });
+
+  it("keeps issuer-led recommendation queries in the requested issuer family", async () => {
+    const answer = await answerQuestion({ query: "top icici card under 5000", maxAnnualFee: 5000 });
+
+    expect(answer.cards.length).toBeGreaterThan(0);
+    expect(answer.cards.every((item) => item.card.issuer === "ICICI Bank")).toBe(true);
+    expect(answer.needsDatabaseUpdate).toBeUndefined();
+  });
+
+  it("prefers the strongest issuer-matched travel card for issuer travel asks", async () => {
+    const answer = await answerQuestion({ query: "best axis travel card" });
+
+    expect(answer.cards[0]?.card.id).toBe("axis-atlas");
+    expect(answer.cards.every((item) => item.card.issuer === "Axis Bank")).toBe(true);
+    expect(answer.summary).toMatch(/Top 3 picks for this query/i);
+  });
+
+  it("respects fee-cap questions even when the cap only appears in the query text", async () => {
+    const answer = await answerQuestion({ query: "top card under 5000" });
+
+    expect(answer.cards.length).toBeGreaterThan(0);
+    expect(answer.cards.every((item) => item.card.annualFee <= 5000)).toBe(true);
+    expect(answer.needsDatabaseUpdate).toBeUndefined();
+  });
+
+  it("mentions three results for broad top-card questions", async () => {
+    const answer = await answerQuestion({ query: "top card under 5000" });
+
+    expect(answer.cards).toHaveLength(3);
+    expect(answer.summary).toBe("Top 3 picks for this query.");
+  });
+
+  it("returns the requested number of cards for top-N broad ranking queries", async () => {
+    const answer = await answerQuestion({ query: "top 10 credit cards" });
+
+    expect(answer.cards).toHaveLength(10);
+    expect(answer.summary).toBe("Top 10 picks for this query.");
+  });
+
+  it("shows the actual top 3 ranked cards for broad top-card questions", async () => {
+    const answer = await answerQuestion({ query: "top cards under 5000" });
+    const rawTopThreeIds = scoreCards({ query: "top cards under 5000" })
+      .slice(0, 3)
+      .map((item) => item.card.id);
+
+    expect(answer.cards.map((item) => item.card.id)).toEqual(rawTopThreeIds);
+  });
+
+  it("handles grocery-spend recommendation questions", async () => {
+    const answer = await answerQuestion({ query: "top card for grocery spends" });
+
+    expect(answer.cards.length).toBeGreaterThan(0);
+    expect(answer.cards[0]?.card.id).not.toBe("landmark-rewards-sbi-prime");
+    expect(answer.needsDatabaseUpdate).toBeUndefined();
+    expect(answer.summary.length).toBeGreaterThan(20);
+  });
+
+  it("handles travel-spend recommendation questions", async () => {
+    const answer = await answerQuestion({ query: "top card for travel spends" });
+
+    expect(answer.cards.length).toBeGreaterThan(0);
+    expect(answer.needsDatabaseUpdate).toBeUndefined();
+    expect(answer.summary.length).toBeGreaterThan(20);
+  });
+
+  it("handles life time free phrasing for ltf recommendations", async () => {
+    const answer = await answerQuestion({ query: "top life time free cards" });
+
+    expect(answer.cards.length).toBeGreaterThan(0);
+    expect(answer.cards.every((item) => item.card.annualFee === 0)).toBe(true);
+    expect(`${answer.cards[0]?.card.bestFor.join(" ")} ${answer.cards[0]?.card.exclusions.join(" ")}`.toLowerCase()).not.toContain(
+      "invite only"
+    );
+    expect(answer.needsDatabaseUpdate).toBeUndefined();
+  });
+
+  it("handles spend-mix recommendation questions", async () => {
+    const answer = await answerQuestion({
+      query: "my spends are 50% travel, 25% grocery, 25% utilities, suggest a card for me"
+    });
+
+    expect(answer.cards.length).toBeGreaterThan(0);
+    expect(answer.cards[0]?.card.id).not.toBe("amex-platinum-travel");
+    expect(answer.needsDatabaseUpdate).toBeUndefined();
+    expect(answer.summary.length).toBeGreaterThan(20);
+  });
+
+  it("adds scenario guidance for generic recommendation questions without spend context", async () => {
+    const answer = await answerQuestion({ query: "top card under 5000" });
+
+    expect(answer.highlights).toEqual([]);
+    expect(answer.highlights?.join(" ")).not.toMatch(/Apollo SBI Card SELECT/);
+    expect(answer.highlights?.join(" ")).not.toMatch(/IndiGo IDFC FIRST/);
+  });
+
+  it("does not show redundant LTF spend ladders when the balanced winner does not change", async () => {
+    const answer = await answerQuestion({ query: "top life time free cards" });
+
+    expect(answer.highlights?.join(" ")).not.toMatch(/balanced mix/i);
+  });
+
+  it("uses super-premium scenario ladders for super-premium asks", async () => {
+    const answer = await answerQuestion({ query: "best super premium card" });
+
+    expect(answer.summary).toMatch(/Top 3 picks for this query/i);
+    expect(answer.highlights?.join(" ")).not.toMatch(/Apollo SBI Card SELECT/);
+  });
+
+  it("answers negative rewards-policy questions from exclusions", async () => {
+    const answer = await answerQuestion({ query: "do i get rewards on rent using atlas?" });
+
+    expect(answer.cards[0]?.card.id).toBe("axis-atlas");
+    expect(answer.summary).toMatch(/does not appear to earn rewards on rent purchases/i);
+    expect(answer.highlights).toEqual(
+      expect.arrayContaining([
+        expect.stringMatching(/excluded category match found for rent/i),
+        expect.stringMatching(/^Relevant exclusion: rent$/i)
+      ])
+    );
+  });
+
+  it("answers lounge questions with the stored counts", async () => {
+    const answer = await answerQuestion({ query: "how many international lounges does regalia gold have?" });
+
+    expect(answer.cards[0]?.card.id).toBe("hdfc-regalia-gold");
+    expect(answer.summary).toMatch(/12 domestic and 6 international lounge accesses/i);
+  });
+
+  it("answers forex questions with the stored markup", async () => {
+    const answer = await answerQuestion({ query: "what is the forex markup on atlas?" });
+
+    expect(answer.cards[0]?.card.id).toBe("axis-atlas");
+    expect(answer.summary).toMatch(/forex markup of 3\.5%/i);
+  });
+
+  it("answers milestone questions for named cards", async () => {
+    const answer = await answerQuestion({ query: "does infinia have milestone benefits?" });
+
+    expect(answer.cards[0]?.card.id).toBe("hdfc-infinia-metal");
+    expect(answer.summary).toMatch(/does include milestone benefits/i);
+    expect(answer.highlights).toEqual(
+      expect.arrayContaining([expect.stringMatching(/renewal fee waived on annual spends of Rs 10 lakh or more/i)])
+    );
+  });
+
+  it("handles alternate exclusion phrasing for named-card questions", async () => {
+    const answer = await answerQuestion({ query: "does atlas exclude rent?" });
+
+    expect(answer.cards[0]?.card.id).toBe("axis-atlas");
+    expect(answer.summary).toMatch(/rent is part of the listed exclusions/i);
+  });
+
+  it("does not guess when a specific card lookup is missing from the dataset", async () => {
+    const answer = await answerQuestion({ query: "Centurion" });
+
+    expect(answer.cards).toHaveLength(0);
+    expect(answer.needsDatabaseUpdate).toBe(true);
+    expect(answer.summary).toMatch(/could not find that exact card/i);
+  });
+
+  it("keeps broad top-card answers deterministic even when an OpenAI API key is configured", async () => {
+    process.env.OPENAI_API_KEY = "test-key";
+    global.fetch = vi.fn() as typeof fetch;
+
+    const answer = await answerQuestion({ query: "best cashback card" });
+
+    expect(global.fetch).not.toHaveBeenCalled();
+    expect(answer.summary).toMatch(/Top 3 picks for this query/i);
+    expect(answer.cards).toHaveLength(3);
+  });
+
+  it("uses gpt-5-mini summary generation for non-ranking recommendation phrasing when an OpenAI API key is configured", async () => {
     process.env.OPENAI_API_KEY = "test-key";
     global.fetch = vi.fn(async () =>
       ({
@@ -70,11 +298,89 @@ describe("ask ai fallback policy", () => {
       }) as unknown as Response
     ) as typeof fetch;
 
-    const answer = await answerQuestion({ query: "best cashback card" });
+    const answer = await answerQuestion({ query: "cashback card for online spends" });
 
     expect(global.fetch).toHaveBeenCalledTimes(1);
     expect(answer.summary).toMatch(/SBI Cashback Credit Card/);
     expect(answer.cards.length).toBeGreaterThan(0);
+  });
+
+  it("uses AI as a fallback for fuzzy specific-card resolution when deterministic matching is weak", async () => {
+    process.env.OPENAI_API_KEY = "test-key";
+    global.fetch = vi
+      .fn()
+      .mockImplementationOnce(
+        async () =>
+          ({
+            ok: true,
+            json: async () => ({
+              output: [
+                {
+                  content: [
+                    {
+                      text: JSON.stringify({
+                        cardId: "hsbc-travelone"
+                      })
+                    }
+                  ]
+                }
+              ]
+            })
+          }) as unknown as Response
+      )
+      .mockImplementationOnce(
+        async () =>
+          ({
+            ok: true,
+            json: async () => ({
+              output: [
+                {
+                  content: [
+                    {
+                      text: JSON.stringify({
+                        summary: "HSBC TravelOne Credit Card looks like the right fit."
+                      })
+                    }
+                  ]
+                }
+              ]
+            })
+          }) as unknown as Response
+      ) as typeof fetch;
+
+    const answer = await answerQuestion({ query: "travel1" });
+
+    expect(global.fetch).toHaveBeenCalledTimes(2);
+    expect(answer.cards[0]?.card.id).toBe("hsbc-travelone");
+  });
+
+  it("tries an AI/database fallback before returning a hard no-answer for unresolved specific lookups", async () => {
+    process.env.OPENAI_API_KEY = "test-key";
+    global.fetch = vi.fn(async () =>
+      ({
+        ok: true,
+        json: async () => ({
+          output: [
+            {
+              content: [
+                {
+                  text: JSON.stringify({
+                    summary: "The closest verified match in the current database is HSBC TravelOne Credit Card."
+                  })
+                }
+              ]
+            }
+          ]
+        })
+      }) as unknown as Response
+    ) as typeof fetch;
+
+    const answer = await answerQuestion({ query: "travelonex" });
+
+    expect(global.fetch).toHaveBeenCalledTimes(1);
+    expect(answer.cards.length).toBeGreaterThan(0);
+    expect(answer.summary).toMatch(/closest verified match/i);
+    expect(answer.highlights).toEqual(expect.arrayContaining([expect.stringMatching(/Closest matches from the current verified database/i)]));
   });
 
   it("logs empty-match questions for later enrichment", async () => {

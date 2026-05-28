@@ -1,5 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
+import { EXCLUSION_CODES, type ExclusionCode } from "../lib/exclusion-constants";
 
 type ValidationIssue = {
   cardId?: string;
@@ -38,6 +39,7 @@ const allowedVerificationStatuses = new Set([
   "official-mixed",
   "needs-review"
 ]);
+const allowedExclusionCodes = new Set(EXCLUSION_CODES);
 const allowedRewardCategories = new Set([
   "airlines",
   "amazon",
@@ -77,10 +79,17 @@ const allowedRewardCategories = new Set([
   "tata brands",
   "tata neu",
   "travel",
+  "travel with points flights",
+  "travel with points hotels",
+  "travel with points car rentals",
   "travel credits",
   "upi",
   "utilities",
-  "utility bills"
+  "utility bills",
+  "rent",
+  "insurance",
+  "education",
+  "gold"
 ]);
 
 function addIssue(message: string, cardId?: string, field?: string) {
@@ -173,6 +182,63 @@ if (cardFiles.length === 0) {
       if (!isStringArray(card[field])) addIssue("must be an array of non-empty strings", cardId, field);
     }
 
+    for (const optionalField of ["milestoneBenefits", "joiningBenefits", "additionalBenefits", "additionalDetails", "internalNotes"]) {
+      if (card[optionalField] !== undefined && !isStringArray(card[optionalField])) {
+        addIssue("must be an array of non-empty strings when present", cardId, optionalField);
+      }
+    }
+
+    if (card.exclusionCodes !== undefined) {
+      if (!Array.isArray(card.exclusionCodes) || !card.exclusionCodes.every(isNonEmptyString)) {
+        addIssue("must be an array of non-empty strings when present", cardId, "exclusionCodes");
+      } else {
+        card.exclusionCodes.forEach((code, codeIndex) => {
+          if (!allowedExclusionCodes.has(code as ExclusionCode)) {
+            addIssue(`exclusionCodes[${codeIndex}] must be one of the allowed exclusion constants`, cardId, "exclusionCodes");
+          }
+        });
+      }
+    }
+
+    if (card.specialSpendRules !== undefined) {
+      if (!Array.isArray(card.specialSpendRules)) {
+        addIssue("must be an array when present", cardId, "specialSpendRules");
+      } else {
+        card.specialSpendRules.forEach((rule, ruleIndex) => {
+          if (!isObject(rule)) {
+            addIssue(`specialSpendRules[${ruleIndex}] must be an object`, cardId, "specialSpendRules");
+            return;
+          }
+
+          if (!isNonEmptyString(rule.category)) {
+            addIssue(`specialSpendRules[${ruleIndex}] category must be a non-empty string`, cardId, "specialSpendRules");
+          }
+
+          if (!isNonEmptyString(rule.treatment) || !["rewarded", "capped", "excluded"].includes(rule.treatment)) {
+            addIssue(`specialSpendRules[${ruleIndex}] treatment must be rewarded, capped or excluded`, cardId, "specialSpendRules");
+          }
+
+          if (rule.capMonthlySpend !== undefined && rule.capMonthlySpend !== null && !isMoneyNumber(rule.capMonthlySpend)) {
+            addIssue(`specialSpendRules[${ruleIndex}] capMonthlySpend must be a non-negative number or null`, cardId, "specialSpendRules");
+          }
+
+          if (rule.capAnnualSpend !== undefined && rule.capAnnualSpend !== null && !isMoneyNumber(rule.capAnnualSpend)) {
+            addIssue(`specialSpendRules[${ruleIndex}] capAnnualSpend must be a non-negative number or null`, cardId, "specialSpendRules");
+          }
+
+          if (rule.notes !== undefined && !isNonEmptyString(rule.notes)) {
+            addIssue(`specialSpendRules[${ruleIndex}] notes must be a non-empty string when present`, cardId, "specialSpendRules");
+          }
+        });
+      }
+    }
+
+    if (card.supportingSourceUrls !== undefined) {
+      if (!Array.isArray(card.supportingSourceUrls) || !card.supportingSourceUrls.every(isValidUrl)) {
+        addIssue("must be an array of valid https URLs", cardId, "supportingSourceUrls");
+      }
+    }
+
     for (const field of ["joiningFee", "annualFee", "forexMarkup"]) validateMoney(card, cardId, field);
     validateMoney(card, cardId, "feeWaiverSpend", true);
 
@@ -214,12 +280,25 @@ if (cardFiles.length === 0) {
         if (reward.capMonthly !== null && !isMoneyNumber(reward.capMonthly)) {
           addIssue(`reward ${rewardIndex} capMonthly must be a non-negative number or null`, cardId, "rewards");
         }
+
+        if (reward.capDaily !== undefined && reward.capDaily !== null && !isMoneyNumber(reward.capDaily)) {
+          addIssue(`reward ${rewardIndex} capDaily must be a non-negative number or null`, cardId, "rewards");
+        }
       });
     }
 
     if (card.sourceUrl !== undefined && isValidUrl(card.sourceUrl)) {
       const sourceUrl = new URL(card.sourceUrl as string);
       if (sourceUrl.search) addWarning("sourceUrl should be canonical without tracking query params", cardId, "sourceUrl");
+    }
+
+    if (Array.isArray(card.supportingSourceUrls)) {
+      card.supportingSourceUrls.forEach((url, urlIndex) => {
+        const supportingUrl = new URL(url);
+        if (supportingUrl.search) {
+          addWarning(`supportingSourceUrls[${urlIndex}] should be canonical without tracking query params`, cardId, "supportingSourceUrls");
+        }
+      });
     }
   });
 }

@@ -16,7 +16,7 @@ const verificationMap: Record<CreditCard["verificationStatus"], VerificationMeta
     Icon: CheckCircle2
   },
   "official-indexed": {
-    label: "Official indexed",
+    label: "Official source",
     tone: "mixed",
     description: "Data was checked against official indexed issuer content where direct scraping was limited.",
     Icon: SearchCheck
@@ -28,7 +28,7 @@ const verificationMap: Record<CreditCard["verificationStatus"], VerificationMeta
     Icon: ClipboardCheck
   },
   "official-mixed": {
-    label: "Official mixed",
+    label: "Official source",
     tone: "mixed",
     description: "Data was checked with official issuer sources plus supporting public references.",
     Icon: ClipboardCheck

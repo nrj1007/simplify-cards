@@ -1,0 +1,2838 @@
+[
+    {
+        "id": "axis-airtel",
+        "issuer": "Axis Bank",
+        "name": "Airtel Axis Bank Credit Card",
+        "network": [
+            "Mastercard"
+        ],
+        "joiningFee": 500,
+        "annualFee": 500,
+        "feeWaiverSpend": 200000,
+        "bestFor": [
+            "airtel",
+            "utility bills",
+            "food delivery",
+            "bigbasket",
+            "cashback"
+        ],
+        "rewardType": "cashback",
+        "rewards": [
+            {
+                "category": "online",
+                "rate": 25,
+                "capMonthly": 250
+            },
+            {
+                "category": "utility bills",
+                "rate": 10,
+                "capMonthly": 250
+            },
+            {
+                "category": "swiggy zomato",
+                "rate": 10,
+                "capMonthly": 500
+            },
+            {
+                "category": "bigbasket",
+                "rate": 10,
+                "capMonthly": 500
+            },
+            {
+                "category": "offline",
+                "rate": 1,
+                "capMonthly": null
+            }
+        ],
+        "loungeDomestic": 4,
+        "loungeInternational": 0,
+        "forexMarkup": 3.5,
+        "tags": [
+            "airtel",
+            "cashback",
+            "utility bills",
+            "swiggy",
+            "zomato",
+            "bigbasket",
+            "lounge",
+            "low fee"
+        ],
+        "exclusions": [
+            "fuel",
+            "rent",
+            "wallet load",
+            "education payments via third-party apps",
+            "online skill-based gaming",
+            "transactions excluded under Airtel Axis Bank Credit Card cashback terms"
+        ],
+        "milestoneBenefits": [
+            "Annual fee waived on annual spends greater than Rs 2 lakh, excluding rent and wallet load transactions"
+        ],
+        "additionalBenefits": [
+            "Amazon eVoucher worth Rs 500 on first transaction within 30 days of card issuance",
+            "25% cashback on Airtel mobile, broadband, Wi-Fi and DTH bill payments via Airtel Thanks app, capped at Rs 250 per billing cycle",
+            "10% cashback on utility bill payments via Airtel Thanks app, capped at Rs 250 per billing cycle",
+            "10% cashback on Swiggy, Zomato and BigBasket app spends, capped at Rs 500 per billing cycle across preferred merchants",
+            "1% cashback on other eligible spends",
+            "4 complimentary domestic airport lounge visits per calendar year, subject to minimum spends of Rs 50,000 in the previous 3 months",
+            "1% fuel surcharge waiver on fuel purchases from Rs 400 to Rs 4,000, capped at Rs 500 per statement cycle"
+        ],
+        "redemption": {
+            "statementBalanceValue": 1,
+            "pointsExpiryYears": null
+        },
+        "eligibility": {
+            "salaried": [
+                "Primary cardholder should be between 18 and 70 years and resident of India"
+            ],
+            "selfEmployed": [
+                "Primary cardholder should be between 18 and 70 years and resident of India"
+            ]
+        },
+        "sourceUrl": "https://www.axisbank.com/retail/cards/credit-card/airtel-axis-bank-credit-card",
+        "applyUrl": "https://www.axisbank.com/retail/cards/credit-card/airtel-axis-bank-credit-card",
+        "lastVerified": "2026-05-10",
+        "verificationStatus": "official-direct",
+        "popularityScore": 94
+    },
+    {
+        "id": "axis-flipkart",
+        "issuer": "Axis Bank",
+        "name": "FLIPKART AXIS BANK Credit Card",
+        "network": [
+            "Mastercard"
+        ],
+        "joiningFee": 500,
+        "annualFee": 500,
+        "feeWaiverSpend": 350000,
+        "bestFor": [
+            "flipkart",
+            "myntra",
+            "cleartrip",
+            "preferred merchants",
+            "cashback"
+        ],
+        "rewardType": "cashback",
+        "rewards": [
+            {
+                "category": "myntra",
+                "rate": 7.5,
+                "capMonthly": null
+            },
+            {
+                "category": "flipkart",
+                "rate": 5,
+                "capMonthly": null
+            },
+            {
+                "category": "cleartrip",
+                "rate": 5,
+                "capMonthly": null
+            },
+            {
+                "category": "partner merchants",
+                "rate": 4,
+                "capMonthly": null
+            },
+            {
+                "category": "offline",
+                "rate": 1,
+                "capMonthly": null
+            }
+        ],
+        "loungeDomestic": 0,
+        "loungeInternational": 0,
+        "forexMarkup": 3.5,
+        "tags": [
+            "flipkart",
+            "myntra",
+            "cleartrip",
+            "cashback",
+            "shopping",
+            "preferred merchants",
+            "low fee"
+        ],
+        "exclusions": [
+            "fuel",
+            "rent",
+            "wallet load",
+            "education payments via third-party apps",
+            "online skill-based gaming",
+            "transactions excluded under Flipkart Axis Bank Credit Card cashback terms"
+        ],
+        "milestoneBenefits": [
+            "Annual fee waived on annual spends greater than Rs 3.5 lakh, excluding rent and wallet load transactions"
+        ],
+        "additionalBenefits": [
+            "Welcome benefits worth Rs 350 on eligible paid cards and first-time Swiggy user offer",
+            "7.5% cashback on Myntra spends, capped at Rs 4,000 per statement quarter",
+            "5% cashback on Flipkart spends, capped at Rs 4,000 per statement quarter",
+            "5% cashback on Cleartrip spends, capped at Rs 4,000 per statement quarter",
+            "Unlimited 4% cashback on preferred merchants",
+            "Unlimited 1% cashback on other eligible spends",
+            "1% fuel surcharge waiver on fuel transactions from Rs 400 to Rs 4,000, capped at Rs 400 per statement cycle",
+            "Dining Delights discounts at participating restaurants"
+        ],
+        "redemption": {
+            "statementBalanceValue": 1,
+            "pointsExpiryYears": null
+        },
+        "eligibility": {
+            "salaried": [
+                "Primary cardholder should be between 18 and 70 years and resident of India"
+            ],
+            "selfEmployed": [
+                "Primary cardholder should be between 18 and 70 years and resident of India"
+            ]
+        },
+        "sourceUrl": "https://www.axisbank.com/retail/cards/credit-card/flipkart-axisbank-credit-card",
+        "applyUrl": "https://www.axisbank.com/retail/cards/credit-card/flipkart-axisbank-credit-card",
+        "lastVerified": "2026-05-10",
+        "verificationStatus": "official-direct",
+        "popularityScore": 91
+    },
+    {
+        "id": "axis-ace",
+        "issuer": "Axis Bank",
+        "name": "Axis Bank ACE Credit Card",
+        "network": [
+            "Visa"
+        ],
+        "joiningFee": 499,
+        "annualFee": 499,
+        "feeWaiverSpend": 200000,
+        "bestFor": [
+            "cashback",
+            "utility bills",
+            "food delivery",
+            "ola",
+            "everyday spends"
+        ],
+        "rewardType": "cashback",
+        "rewards": [
+            {
+                "category": "utility bills",
+                "rate": 5,
+                "capMonthly": null
+            },
+            {
+                "category": "swiggy zomato",
+                "rate": 4,
+                "capMonthly": null
+            },
+            {
+                "category": "travel",
+                "rate": 4,
+                "capMonthly": null
+            },
+            {
+                "category": "offline",
+                "rate": 1.5,
+                "capMonthly": null
+            }
+        ],
+        "loungeDomestic": 4,
+        "loungeInternational": 0,
+        "forexMarkup": 3.5,
+        "tags": [
+            "cashback",
+            "google pay",
+            "utility bills",
+            "swiggy",
+            "zomato",
+            "ola",
+            "lounge",
+            "low fee"
+        ],
+        "exclusions": [
+            "fuel",
+            "rent",
+            "wallet load",
+            "education payments via third-party apps",
+            "online skill-based gaming",
+            "transactions excluded under Axis Bank ACE Credit Card cashback terms"
+        ],
+        "milestoneBenefits": [
+            "Annual fee waived on annual spends greater than Rs 2 lakh, excluding rent and wallet load transactions"
+        ],
+        "additionalBenefits": [
+            "5% cashback on utility bill payments and recharges on Google Pay",
+            "4% cashback on Swiggy, Zomato and Ola",
+            "1.5% cashback on other eligible spends",
+            "4 complimentary domestic airport lounge visits at select airports",
+            "1% fuel surcharge waiver on eligible fuel transactions",
+            "Dining Delights discounts at participating restaurants"
+        ],
+        "redemption": {
+            "statementBalanceValue": 1,
+            "pointsExpiryYears": null
+        },
+        "eligibility": {
+            "salaried": [
+                "Primary cardholder should be between 18 and 70 years and resident of India"
+            ],
+            "selfEmployed": [
+                "Primary cardholder should be between 18 and 70 years and resident of India"
+            ]
+        },
+        "sourceUrl": "https://www.axisbank.com/retail/cards/credit-card/axis-bank-ace-credit-card/fees-and-charges",
+        "applyUrl": "https://www.axisbank.com/retail/cards/credit-card/axis-bank-ace-credit-card",
+        "lastVerified": "2026-05-10",
+        "verificationStatus": "official-direct",
+        "popularityScore": 90
+    },
+    {
+        "id": "axis-atlas",
+        "issuer": "Axis Bank",
+        "name": "Axis Bank Atlas Credit Card",
+        "network": [
+            "Visa"
+        ],
+        "joiningFee": 5000,
+        "annualFee": 5000,
+        "feeWaiverSpend": 1500000,
+        "bestFor": [
+            "travel",
+            "hotels",
+            "flights"
+        ],
+        "rewardType": "edge miles",
+        "rewards": [
+            {
+                "category": "travel",
+                "rate": 10,
+                "capMonthly": null
+            },
+            {
+                "category": "offline",
+                "rate": 4,
+                "capMonthly": null
+            }
+        ],
+        "loungeDomestic": 8,
+        "loungeInternational": 4,
+        "forexMarkup": 3.5,
+        "tags": [
+            "travel",
+            "miles",
+            "lounge",
+            "premium"
+        ],
+        "alternativeCardIds": [
+            "hsbc-travelone"
+        ],
+        "milestoneBenefits": [
+            "2,500 EDGE Miles on annual spend of Rs 3 lakh.",
+            "Additional 2,500 EDGE Miles on annual spend of Rs 7.5 lakh.",
+            "Additional 5,000 EDGE Miles on annual spend of Rs 15 lakh."
+        ],
+        "exclusions": [
+            "rent",
+            "wallet load",
+            "insurance"
+        ],
+        "sourceUrl": "https://www.axis.bank.in/cards/credit-card/axis-bank-atlas-credit-card",
+        "applyUrl": "https://www.axis.bank.in/cards/credit-card/axis-bank-atlas-credit-card",
+        "lastVerified": "2026-05-23",
+        "verificationStatus": "official-direct",
+        "popularityScore": 89
+    },
+    {
+        "id": "axis-magnus",
+        "issuer": "Axis Bank",
+        "name": "AXIS BANK MAGNUS Credit Card",
+        "network": [
+            "Visa"
+        ],
+        "joiningFee": 12500,
+        "annualFee": 12500,
+        "feeWaiverSpend": 2500000,
+        "bestFor": [
+            "travel",
+            "lounge",
+            "premium",
+            "travel edge",
+            "high spends"
+        ],
+        "rewardType": "edge reward points",
+        "rewards": [
+            {
+                "category": "travel",
+                "rate": 6,
+                "capMonthly": 200000
+            },
+            {
+                "category": "offline",
+                "rate": 1.2,
+                "capMonthly": 150000
+            },
+            {
+                "category": "offline",
+                "rate": 3.5,
+                "capMonthly": null
+            }
+        ],
+        "loungeDomestic": "unlimited",
+        "loungeInternational": "unlimited",
+        "forexMarkup": 2,
+        "tags": [
+            "magnus",
+            "premium",
+            "travel",
+            "travel edge",
+            "lounge",
+            "priority pass",
+            "voucher",
+            "high spends"
+        ],
+        "exclusions": [
+            "fuel",
+            "rent",
+            "wallet",
+            "priority pass spends",
+            "emi transactions",
+            "government institutions",
+            "utilities",
+            "insurance",
+            "gold",
+            "jewellery",
+            "transactions excluded under Axis Bank Magnus Credit Card terms"
+        ],
+        "milestoneBenefits": [
+            "Annual fee waiver on spends of Rs 25 lakh in the preceding card anniversary year",
+            "For eligible older customers, historical waiver thresholds may differ as per Axis terms"
+        ],
+        "additionalBenefits": [
+            "Welcome voucher worth Rs 12,500 from eligible options such as Luxe, The Postcard Hotels or Yatra after card activation with first spend within 30 days",
+            "60 EDGE REWARD Points per Rs 200 spent on Travel EDGE portal up to cumulative transactions of Rs 2 lakh per month",
+            "35 EDGE REWARD Points per Rs 200 on Travel EDGE spends above cumulative transactions of Rs 2 lakh per month",
+            "12 EDGE REWARD Points per Rs 200 on cumulative monthly spends up to Rs 1.5 lakh",
+            "35 EDGE REWARD Points per Rs 200 on eligible incremental monthly spends above Rs 1.5 lakh, subject to product terms",
+            "Unlimited domestic and international lounge access, subject to applicable programme terms",
+            "Reduced forex markup of 2%",
+            "No cash withdrawal charges",
+            "Purchase protection up to Rs 2 lakh",
+            "Credit shield cover up to Rs 5 lakh",
+            "Travel inconvenience cover up to USD 500 for baggage and personal document loss or delay"
+        ],
+        "redemption": {
+            "statementBalanceValue": 0.2,
+            "pointsExpiryYears": 3
+        },
+        "eligibility": {
+            "salaried": [
+                "Eligibility is subject to Axis Bank approval criteria for premium credit cards"
+            ],
+            "selfEmployed": [
+                "Eligibility is subject to Axis Bank approval criteria for premium credit cards"
+            ]
+        },
+        "sourceUrl": "https://www.axisbank.com/retail/cards/credit-card/axis-bank-magnus-card/more-benefits",
+        "applyUrl": "https://www.axisbank.com/retail/cards/credit-card/axis-bank-magnus-card",
+        "lastVerified": "2026-05-10",
+        "verificationStatus": "official-mixed",
+        "popularityScore": 85
+    },
+    {
+        "id": "axis-indianoil",
+        "issuer": "Axis Bank",
+        "name": "INDIANOIL AXIS BANK Credit Card",
+        "network": [
+            "RuPay",
+            "Visa"
+        ],
+        "joiningFee": 500,
+        "annualFee": 500,
+        "feeWaiverSpend": 350000,
+        "bestFor": [
+            "fuel",
+            "indianoil",
+            "online shopping",
+            "movies",
+            "upi"
+        ],
+        "rewardType": "edge reward points",
+        "rewards": [
+            {
+                "category": "fuel",
+                "rate": 4,
+                "capMonthly": null
+            },
+            {
+                "category": "online",
+                "rate": 1,
+                "capMonthly": null
+            },
+            {
+                "category": "offline",
+                "rate": 0.2,
+                "capMonthly": null
+            }
+        ],
+        "loungeDomestic": 0,
+        "loungeInternational": 0,
+        "forexMarkup": 3.5,
+        "tags": [
+            "indianoil",
+            "fuel",
+            "rupay",
+            "upi",
+            "online shopping",
+            "bookmyshow",
+            "dining",
+            "low fee"
+        ],
+        "exclusions": [
+            "insurance",
+            "gold",
+            "jewellery",
+            "wallet",
+            "rent",
+            "utilities",
+            "government institutions",
+            "education",
+            "transactions excluded under IndianOil Axis Bank Credit Card terms"
+        ],
+        "milestoneBenefits": [
+            "Annual fee waived on spending more than Rs 3.5 lakh in a card anniversary year, excluding rent, wallet load, EMI, cash withdrawals, fees, charges, GST and other excluded spends"
+        ],
+        "additionalBenefits": [
+            "Up to 1,250 EDGE REWARD Points on first fuel transaction within 30 days of card issuance",
+            "20 EDGE REWARD Points per Rs 100 at IndianOil outlets in India on transactions from Rs 400 to Rs 4,000",
+            "5 EDGE REWARD Points per Rs 100 on online shopping",
+            "1 EDGE REWARD Point per Rs 100 on other eligible spends",
+            "10% instant discount on BookMyShow movie tickets",
+            "1% fuel surcharge waiver on eligible fuel transactions, capped at Rs 50 per statement cycle",
+            "Dining Delights offers through Axis Bank dining programme",
+            "RuPay variant supports credit card UPI payments where enabled"
+        ],
+        "redemption": {
+            "statementBalanceValue": 0.2,
+            "pointsExpiryYears": 3
+        },
+        "eligibility": {
+            "salaried": [
+                "Primary cardholder should be 18 to 70 years of age and resident of India or NRI"
+            ],
+            "selfEmployed": [
+                "Primary cardholder should be 18 to 70 years of age and resident of India or NRI"
+            ]
+        },
+        "sourceUrl": "https://www.axis.bank.in/cards/credit-card/indianoil-axis-bank-credit-card",
+        "applyUrl": "https://www.axis.bank.in/cards/credit-card/indianoil-axis-bank-credit-card",
+        "lastVerified": "2026-05-10",
+        "verificationStatus": "official-direct",
+        "popularityScore": 80
+    },
+    {
+        "id": "axis-magnus-burgundy",
+        "issuer": "Axis Bank",
+        "name": "Axis Bank Magnus Credit Card for Burgundy",
+        "network": [
+            "Visa"
+        ],
+        "joiningFee": 30000,
+        "annualFee": 30000,
+        "feeWaiverSpend": 3000000,
+        "bestFor": [
+            "premium travel",
+            "lounge",
+            "partner miles",
+            "travel edge",
+            "burgundy relationship"
+        ],
+        "rewardType": "edge reward points",
+        "rewards": [
+            {
+                "category": "travel",
+                "rate": 6,
+                "capMonthly": 200000
+            },
+            {
+                "category": "offline",
+                "rate": 1.2,
+                "capMonthly": 150000
+            },
+            {
+                "category": "offline",
+                "rate": 3.5,
+                "capMonthly": null
+            }
+        ],
+        "loungeDomestic": "unlimited",
+        "loungeInternational": "unlimited",
+        "forexMarkup": 2,
+        "tags": [
+            "magnus",
+            "burgundy",
+            "premium",
+            "travel",
+            "travel edge",
+            "lounge",
+            "priority pass",
+            "partner miles",
+            "high spends"
+        ],
+        "exclusions": [
+            "fuel",
+            "rent",
+            "wallet",
+            "priority pass spends",
+            "emi transactions",
+            "government institutions",
+            "utilities",
+            "insurance",
+            "gold",
+            "jewellery",
+            "transactions excluded under Axis Bank Magnus for Burgundy terms"
+        ],
+        "milestoneBenefits": [
+            "Annual fee waiver on spends of Rs 30 lakh in the preceding card anniversary year",
+            "Limited-period fee waivers may apply for eligible Burgundy customers as per Axis Bank offer terms"
+        ],
+        "additionalBenefits": [
+            "New Magnus for Burgundy customers can choose a welcome voucher worth Rs 5,000 from eligible options such as Luxe, The Postcard Hotels or Yatra",
+            "60 EDGE REWARD Points per Rs 200 spent on Travel EDGE portal up to cumulative transactions of Rs 2 lakh per month",
+            "35 EDGE REWARD Points per Rs 200 on eligible incremental monthly spends above Rs 1.5 lakh, subject to product terms",
+            "5 EDGE REWARD Points convert to 4 partner miles across eligible travel partners",
+            "Unlimited domestic and international lounge access, subject to applicable programme terms",
+            "4 airport meet and assist services per calendar year for Burgundy variant as per current Axis terms",
+            "Reduced forex markup of 2%",
+            "No cash withdrawal charges",
+            "Enhanced Burgundy travel and transfer privileges via Axis eDGE Rewards"
+        ],
+        "redemption": {
+            "statementBalanceValue": 0.2,
+            "pointsExpiryYears": 3
+        },
+        "eligibility": {
+            "salaried": [
+                "Requires eligible Axis Burgundy relationship and Axis Bank approval"
+            ],
+            "selfEmployed": [
+                "Requires eligible Axis Burgundy relationship and Axis Bank approval"
+            ]
+        },
+        "sourceUrl": "https://www.axisbank.com/retail/cards/credit-card/axis-bank-magnus-card/more-benefits",
+        "applyUrl": "https://www.axisbank.com/retail/cards/credit-card/axis-bank-magnus-card",
+        "lastVerified": "2026-05-23",
+        "verificationStatus": "official-mixed",
+        "popularityScore": 79
+    },
+    {
+        "id": "axis-select",
+        "issuer": "Axis Bank",
+        "name": "Axis Bank Select Credit Card",
+        "network": [
+            "Visa"
+        ],
+        "joiningFee": 3000,
+        "annualFee": 3000,
+        "feeWaiverSpend": 800000,
+        "bestFor": [
+            "bigbasket",
+            "swiggy",
+            "movies",
+            "lounge",
+            "golf"
+        ],
+        "rewardType": "edge reward points",
+        "rewards": [
+            {
+                "category": "retail",
+                "rate": 2,
+                "capMonthly": 20000
+            },
+            {
+                "category": "offline",
+                "rate": 1,
+                "capMonthly": null
+            }
+        ],
+        "loungeDomestic": 8,
+        "loungeInternational": 12,
+        "forexMarkup": 3.5,
+        "tags": [
+            "select",
+            "premium",
+            "bigbasket",
+            "swiggy",
+            "district",
+            "movies",
+            "priority pass",
+            "lounge",
+            "golf"
+        ],
+        "exclusions": [
+            "fuel",
+            "rent",
+            "insurance",
+            "education",
+            "utilities",
+            "telecom",
+            "wallet",
+            "gold",
+            "jewellery",
+            "government services",
+            "emi transactions",
+            "transactions excluded under Axis Bank Select Credit Card terms"
+        ],
+        "milestoneBenefits": [
+            "5,000 EDGE REWARD Points on spending Rs 3 lakh in a card anniversary year",
+            "Complete annual fee waiver on spending Rs 8 lakh in a card anniversary year",
+            "Priority Pass membership renewal on annual spends of Rs 3 lakh",
+            "Additional 6 complimentary golf rounds after spends of Rs 3 lakh in the same anniversary year"
+        ],
+        "additionalBenefits": [
+            "10,000 EDGE REWARD Points worth Rs 2,000 on first card transaction within 30 days, not applicable for lifetime-free or Burgundy account holders",
+            "Buy one get one movie ticket offer on District app, capped at Rs 250 twice per month",
+            "Flat Rs 500 off once per month on BigBasket on minimum purchase of Rs 2,500",
+            "Flat Rs 200 off on Swiggy twice per month on minimum order value of Rs 1,000",
+            "Up to 12 complimentary international airport lounge visits through Priority Pass",
+            "2 complimentary domestic lounge visits per quarter on spends of Rs 50,000 in the last 3 months",
+            "6 complimentary golf rounds per year",
+            "10 EDGE REWARD Points per Rs 200 on eligible spends",
+            "2X EDGE REWARD Points on retail shopping spends up to cumulative transactions of Rs 20,000 per month",
+            "1% fuel surcharge refund on fuel transactions from Rs 400 to Rs 4,000, capped at Rs 400 per statement cycle",
+            "Complimentary for Burgundy customers while Burgundy status is maintained"
+        ],
+        "redemption": {
+            "statementBalanceValue": 0.2,
+            "pointsExpiryYears": 3
+        },
+        "eligibility": {
+            "salaried": [
+                "Primary cardholder should be between 18 and 70 years, resident of India and have net income of at least Rs 6 lakh per annum"
+            ],
+            "selfEmployed": [
+                "Primary cardholder should be between 18 and 70 years, resident of India and have net income of at least Rs 6 lakh per annum"
+            ]
+        },
+        "sourceUrl": "https://www.axisbank.com/retail/cards/credit-card/axis-bank-select-credit-card",
+        "applyUrl": "https://www.axisbank.com/retail/cards/credit-card/axis-bank-select-credit-card",
+        "lastVerified": "2026-05-10",
+        "verificationStatus": "official-direct",
+        "popularityScore": 78
+    },
+    {
+        "id": "axis-reserve",
+        "issuer": "Axis Bank",
+        "name": "Axis Bank Reserve Credit Card",
+        "network": [
+            "Visa"
+        ],
+        "joiningFee": 50000,
+        "annualFee": 50000,
+        "feeWaiverSpend": 3500000,
+        "bestFor": [
+            "ultra premium",
+            "travel",
+            "hotels",
+            "golf",
+            "lounge"
+        ],
+        "rewardType": "edge reward points",
+        "rewards": [
+            {
+                "category": "offline",
+                "rate": 1.5,
+                "capMonthly": null
+            },
+            {
+                "category": "travel",
+                "rate": 3,
+                "capMonthly": null
+            }
+        ],
+        "loungeDomestic": "unlimited",
+        "loungeInternational": "unlimited",
+        "forexMarkup": 1.5,
+        "tags": [
+            "reserve",
+            "ultra premium",
+            "travel",
+            "hotels",
+            "lounge",
+            "golf",
+            "concierge",
+            "itc culinaire",
+            "accor plus",
+            "club marriott"
+        ],
+        "exclusions": [
+            "fuel",
+            "rent",
+            "wallet",
+            "education payments via third-party apps",
+            "online skill-based gaming",
+            "transactions excluded under Axis Bank Reserve Credit Card terms"
+        ],
+        "milestoneBenefits": [
+            "Annual fee waiver on spends of Rs 35 lakh in the preceding year"
+        ],
+        "additionalBenefits": [
+            "15,000 EDGE REWARD Points on card activation",
+            "15 EDGE REWARD Points per Rs 200 spent on eligible domestic spends",
+            "2X rewards on eligible international spends",
+            "Reduced forex markup of 1.5%",
+            "No cash withdrawal charges",
+            "Complimentary airport concierge services",
+            "ITC Culinaire, Accor Plus and Club Marriott hotel memberships, subject to product terms",
+            "50 complimentary golf rounds per year, subject to product terms",
+            "Unlimited domestic and international lounge access, subject to applicable programme terms",
+            "1% fuel surcharge waiver on transactions from Rs 400 to Rs 4,000, capped at Rs 400 per month",
+            "Purchase protection up to Rs 2 lakh",
+            "Credit shield cover up to Rs 5 lakh",
+            "Travel inconvenience cover up to USD 500 for baggage and personal document loss or delay"
+        ],
+        "redemption": {
+            "statementBalanceValue": 0.2,
+            "pointsExpiryYears": 3
+        },
+        "eligibility": {
+            "salaried": [
+                "Eligibility is subject to Axis Bank approval criteria for ultra-premium credit cards"
+            ],
+            "selfEmployed": [
+                "Eligibility is subject to Axis Bank approval criteria for ultra-premium credit cards"
+            ]
+        },
+        "sourceUrl": "https://www.axisbank.com/retail/cards/credit-card/reserve-credit-card/beyond-expectations-always",
+        "applyUrl": "https://www.axisbank.com/retail/cards/credit-card/reserve-credit-card",
+        "lastVerified": "2026-05-10",
+        "verificationStatus": "official-mixed",
+        "popularityScore": 75
+    },
+    {
+        "id": "axis-indianoil-premium",
+        "issuer": "Axis Bank",
+        "name": "IndianOil Axis Bank Premium Credit Card",
+        "network": [
+            "Mastercard"
+        ],
+        "joiningFee": 1000,
+        "annualFee": 1000,
+        "feeWaiverSpend": 30000,
+        "bestFor": [
+            "fuel",
+            "indianoil",
+            "grocery",
+            "zomato",
+            "lounge"
+        ],
+        "rewardType": "edge miles",
+        "rewards": [
+            {
+                "category": "fuel",
+                "rate": 1.33,
+                "capMonthly": 15000
+            },
+            {
+                "category": "grocery",
+                "rate": 0.44,
+                "capMonthly": 5000
+            },
+            {
+                "category": "offline",
+                "rate": 0.22,
+                "capMonthly": null
+            }
+        ],
+        "loungeDomestic": 8,
+        "loungeInternational": 0,
+        "forexMarkup": 3.5,
+        "tags": [
+            "indianoil",
+            "fuel",
+            "premium",
+            "edge miles",
+            "grocery",
+            "supermarket",
+            "zomato",
+            "lounge",
+            "fee waiver"
+        ],
+        "exclusions": [
+            "fuel transaction charge outside applicable waiver terms",
+            "rent",
+            "wallet load",
+            "education payments via third-party apps",
+            "utilities above fee threshold",
+            "online skill-based gaming above fee threshold",
+            "transactions excluded under IndianOil Axis Bank Premium Credit Card terms"
+        ],
+        "milestoneBenefits": [
+            "Annual fee waived on spends of Rs 30,000 and above in a card anniversary year"
+        ],
+        "additionalBenefits": [
+            "500 EDGE Miles on first spend within 30 days of card issuance",
+            "6 EDGE Miles per Rs 150 at IndianOil fuel outlets up to Rs 15,000 per month",
+            "1 EDGE Mile per Rs 150 on IndianOil fuel spends above Rs 15,000 per month",
+            "2 EDGE Miles per Rs 150 on grocery and supermarket spends up to Rs 5,000 per month",
+            "1 EDGE Mile per Rs 150 on grocery and supermarket spends above Rs 5,000 per month and other eligible spends",
+            "Unlimited 1% fuel surcharge waiver on purchases at IndianOil outlets, GST on surcharge is non-refundable",
+            "30% off on Zomato food delivery, capped at Rs 150 per order and valid twice per month",
+            "Complimentary domestic lounge access, illustrated by Axis as 2 visits per quarter in the value chart",
+            "Axis Dining Delights offers may apply as per programme terms"
+        ],
+        "redemption": {
+            "statementBalanceValue": 0.333,
+            "pointsExpiryYears": 3
+        },
+        "eligibility": {
+            "salaried": [
+                "Primary cardholder should be 18 to 70 years of age and resident of India"
+            ],
+            "selfEmployed": [
+                "Primary cardholder should be 18 to 70 years of age and resident of India"
+            ]
+        },
+        "sourceUrl": "https://www.axis.bank.in/cards/credit-card/indianoil-premium-credit-card",
+        "applyUrl": "https://www.axis.bank.in/cards/credit-card/indianoil-premium-credit-card",
+        "lastVerified": "2026-05-10",
+        "verificationStatus": "official-direct",
+        "popularityScore": 74
+    },
+    {
+        "id": "axis-cashback",
+        "issuer": "Axis Bank",
+        "name": "Cashback Credit Card",
+        "network": [
+            "Visa"
+        ],
+        "joiningFee": 1000,
+        "annualFee": 1000,
+        "feeWaiverSpend": 400000,
+        "bestFor": [
+            "cashback",
+            "online spends",
+            "retail",
+            "travel",
+            "utility bills"
+        ],
+        "rewardType": "cashback",
+        "rewards": [
+            {
+                "category": "online",
+                "rate": 7,
+                "capMonthly": null
+            },
+            {
+                "category": "retail",
+                "rate": 0.75,
+                "capMonthly": null
+            },
+            {
+                "category": "travel",
+                "rate": 0.75,
+                "capMonthly": null
+            },
+            {
+                "category": "utility bills",
+                "rate": 0.5,
+                "capMonthly": null
+            }
+        ],
+        "loungeDomestic": 0,
+        "loungeInternational": 0,
+        "forexMarkup": 3.5,
+        "tags": [
+            "cashback",
+            "online",
+            "retail",
+            "travel",
+            "utilities",
+            "fee waiver"
+        ],
+        "exclusions": [
+            "fuel",
+            "rent",
+            "wallet load",
+            "education payments via third-party apps",
+            "online skill-based gaming",
+            "transactions excluded under Cashback Credit Card terms"
+        ],
+        "milestoneBenefits": [
+            "Annual fee waived on spends of Rs 4 lakh or more"
+        ],
+        "additionalBenefits": [
+            "Up to 7% cashback on eligible online spends",
+            "0.75% cashback on eligible retail spends",
+            "0.75% cashback on eligible travel spends, both online and offline",
+            "0.5% cashback on eligible utility spends",
+            "Axis Dining Delights and Wednesday Delight offers may apply as per Axis Bank programme terms"
+        ],
+        "redemption": {
+            "statementBalanceValue": 1,
+            "pointsExpiryYears": null
+        },
+        "eligibility": {
+            "salaried": [
+                "Eligibility is subject to Axis Bank approval criteria"
+            ],
+            "selfEmployed": [
+                "Eligibility is subject to Axis Bank approval criteria"
+            ]
+        },
+        "sourceUrl": "https://www.axisbank.com/retail/cards/credit-card/my-choice-credit-card/features-benefits",
+        "applyUrl": "https://www.axis.bank.in/cards/credit-card/cashback-credit-card",
+        "lastVerified": "2026-05-10",
+        "verificationStatus": "official-catalogue",
+        "popularityScore": 72
+    },
+    {
+        "id": "axis-rewards",
+        "issuer": "Axis Bank",
+        "name": "Axis Bank REWARDS Credit Card",
+        "network": [
+            "Visa"
+        ],
+        "joiningFee": 1000,
+        "annualFee": 1000,
+        "feeWaiverSpend": 200000,
+        "bestFor": [
+            "apparel",
+            "departmental stores",
+            "swiggy",
+            "lounge",
+            "rewards"
+        ],
+        "rewardType": "edge reward points",
+        "rewards": [
+            {
+                "category": "departmental stores",
+                "rate": 3.2,
+                "capMonthly": 7000
+            },
+            {
+                "category": "offline",
+                "rate": 0.32,
+                "capMonthly": null
+            }
+        ],
+        "loungeDomestic": 8,
+        "loungeInternational": 0,
+        "forexMarkup": 3.5,
+        "tags": [
+            "rewards",
+            "apparel",
+            "departmental stores",
+            "swiggy",
+            "lounge",
+            "fee waiver",
+            "edge rewards"
+        ],
+        "exclusions": [
+            "fuel",
+            "rent",
+            "wallet load",
+            "transactions excluded under Axis Bank REWARDS Credit Card terms"
+        ],
+        "milestoneBenefits": [
+            "1,500 EDGE REWARD Points on net spends of Rs 30,000 per statement cycle",
+            "Annual fee waived on annual spends of Rs 2 lakh or more, excluding rent and wallet load transactions"
+        ],
+        "additionalBenefits": [
+            "5,000 EDGE REWARD Points on cumulative net spends of Rs 1,000 or above within 30 days of card issuance",
+            "2 EDGE REWARD Points per Rs 125 on eligible spends",
+            "10X EDGE REWARD Points per Rs 125 on apparel and departmental store spends up to Rs 7,000 per month",
+            "Bouquet of memberships worth up to Rs 1,000 every anniversary year",
+            "Rs 150 instant discount on Swiggy twice per calendar month on minimum transaction value of Rs 500",
+            "2 complimentary domestic lounge visits per quarter at select airports",
+            "1% fuel surcharge waiver on eligible fuel transactions"
+        ],
+        "redemption": {
+            "statementBalanceValue": 0.2,
+            "pointsExpiryYears": 3
+        },
+        "eligibility": {
+            "salaried": [
+                "Eligibility is subject to Axis Bank approval criteria"
+            ],
+            "selfEmployed": [
+                "Eligibility is subject to Axis Bank approval criteria"
+            ]
+        },
+        "sourceUrl": "https://www.axisbank.com/retail/cards/credit-card/rewards-credit-card",
+        "applyUrl": "https://www.axisbank.com/retail/cards/credit-card/rewards-credit-card",
+        "lastVerified": "2026-05-10",
+        "verificationStatus": "official-direct",
+        "popularityScore": 70
+    },
+    {
+        "id": "axis-my-zone",
+        "issuer": "Axis Bank",
+        "name": "Axis Bank My Zone Credit Card",
+        "network": [
+            "Mastercard"
+        ],
+        "joiningFee": 0,
+        "annualFee": 0,
+        "feeWaiverSpend": null,
+        "bestFor": [
+            "movies",
+            "swiggy",
+            "ajio",
+            "entertainment",
+            "lounge"
+        ],
+        "rewardType": "edge reward points",
+        "rewards": [
+            {
+                "category": "offline",
+                "rate": 0.4,
+                "capMonthly": null
+            }
+        ],
+        "loungeDomestic": 4,
+        "loungeInternational": 0,
+        "forexMarkup": 3.5,
+        "tags": [
+            "my zone",
+            "movies",
+            "district",
+            "sonyliv",
+            "swiggy",
+            "ajio",
+            "lounge",
+            "lifetime free"
+        ],
+        "exclusions": [
+            "fuel",
+            "rent",
+            "wallet load",
+            "movies for reward points",
+            "insurance",
+            "utilities",
+            "jewellery",
+            "education",
+            "government institutions",
+            "transactions excluded under My Zone Credit Card terms"
+        ],
+        "milestoneBenefits": [
+            "1,000 EDGE REWARD Points on annual spends of Rs 1.5 lakh for eligible customers onboarded from 1 April 2025",
+            "SonyLIV Premium membership renewal on spending Rs 1.5 lakh in a card anniversary year for eligible paid-card customers onboarded before 31 March 2025"
+        ],
+        "additionalBenefits": [
+            "Currently listed as nil joining and nil annual fee for Mastercard network on Axis official catalogue",
+            "Standard product fee page lists Rs 500 joining fee and Rs 500 annual fee",
+            "SonyLIV Premium annual subscription worth Rs 1,499 on first purchase within 30 days of issuance",
+            "Buy one get one movie ticket on District app, capped at Rs 200 per month",
+            "Flat Rs 120 off on Swiggy food delivery twice per month on minimum order value of Rs 500",
+            "AJIO discount offers including up to Rs 1,000 off on eligible purchases",
+            "4 EDGE REWARD Points per Rs 200 on eligible spends",
+            "Complimentary domestic airport lounge access, listed as 4 visits per year on Axis catalogue",
+            "1% fuel surcharge waiver on eligible fuel transactions"
+        ],
+        "redemption": {
+            "statementBalanceValue": 0.2,
+            "pointsExpiryYears": 3
+        },
+        "eligibility": {
+            "salaried": [
+                "Primary cardholder should be between 18 and 70 years and resident of India or NRI"
+            ],
+            "selfEmployed": [
+                "Primary cardholder should be between 18 and 70 years and resident of India or NRI"
+            ]
+        },
+        "sourceUrl": "https://www.axisbank.com/retail/cards/credit-card/my-zone-credit-card",
+        "applyUrl": "https://www.axisbank.com/retail/cards/credit-card/my-zone-credit-card",
+        "lastVerified": "2026-05-10",
+        "verificationStatus": "official-mixed",
+        "popularityScore": 69
+    },
+    {
+        "id": "axis-horizon",
+        "issuer": "Axis Bank",
+        "name": "HORIZON Credit Card",
+        "network": [
+            "Visa"
+        ],
+        "joiningFee": 3000,
+        "annualFee": 3000,
+        "feeWaiverSpend": null,
+        "bestFor": [
+            "travel",
+            "airlines",
+            "travel edge",
+            "lounge",
+            "miles"
+        ],
+        "rewardType": "edge miles",
+        "rewards": [
+            {
+                "category": "travel",
+                "rate": 5,
+                "capMonthly": null
+            },
+            {
+                "category": "offline",
+                "rate": 2,
+                "capMonthly": null
+            }
+        ],
+        "loungeDomestic": 24,
+        "loungeInternational": 8,
+        "forexMarkup": 3.5,
+        "tags": [
+            "horizon",
+            "travel",
+            "airlines",
+            "travel edge",
+            "edge miles",
+            "lounge",
+            "miles"
+        ],
+        "exclusions": [
+            "transportation and tolls",
+            "utilities and telecom",
+            "insurance",
+            "education",
+            "government institutions",
+            "wallet",
+            "rent",
+            "fuel",
+            "transactions excluded under Horizon Credit Card terms"
+        ],
+        "milestoneBenefits": [
+            "1,500 EDGE Miles renewal benefit from the second card anniversary year onward"
+        ],
+        "additionalBenefits": [
+            "5,000 EDGE Miles on cumulative net spends of Rs 1,000 or more within 30 days of card issuance",
+            "5 EDGE Miles per Rs 100 on Axis Bank Travel EDGE portal and direct airline website spends",
+            "2 EDGE Miles per Rs 100 on other eligible spends",
+            "1 EDGE Mile equals Re 1 as per Axis Bank HORIZON value chart",
+            "Up to 24 domestic airport lounge visits per year, subject to programme terms",
+            "Up to 8 international airport lounge visits per year, subject to programme terms",
+            "1% fuel surcharge waiver on eligible fuel transactions from Rs 400 to Rs 5,000, capped at Rs 400 per statement month"
+        ],
+        "redemption": {
+            "statementBalanceValue": 1,
+            "pointsExpiryYears": 3
+        },
+        "eligibility": {
+            "salaried": [
+                "Eligibility is subject to Axis Bank approval criteria"
+            ],
+            "selfEmployed": [
+                "Eligibility is subject to Axis Bank approval criteria"
+            ]
+        },
+        "sourceUrl": "https://www.axis.bank.in/cards/credit-card/axis-horizon-credit-card",
+        "applyUrl": "https://www.axis.bank.in/cards/credit-card/axis-horizon-credit-card",
+        "lastVerified": "2026-05-10",
+        "verificationStatus": "official-direct",
+        "popularityScore": 69
+    },
+    {
+        "id": "axis-neo",
+        "issuer": "Axis Bank",
+        "name": "Neo Credit Card",
+        "network": [
+            "RuPay",
+            "Visa"
+        ],
+        "joiningFee": 0,
+        "annualFee": 0,
+        "feeWaiverSpend": null,
+        "bestFor": [
+            "zomato",
+            "blinkit",
+            "bookmyshow",
+            "utility bills",
+            "lifetime free"
+        ],
+        "rewardType": "edge reward points and merchant discounts",
+        "rewards": [
+            {
+                "category": "offline",
+                "rate": 0.1,
+                "capMonthly": null
+            }
+        ],
+        "loungeDomestic": 0,
+        "loungeInternational": 0,
+        "forexMarkup": 3.5,
+        "tags": [
+            "neo",
+            "zomato",
+            "paytm",
+            "blinkit",
+            "bookmyshow",
+            "myntra",
+            "lifetime free",
+            "low fee"
+        ],
+        "exclusions": [
+            "fuel",
+            "rent",
+            "wallet load",
+            "education payments via third-party apps",
+            "online skill-based gaming",
+            "transactions excluded under Neo Credit Card terms"
+        ],
+        "milestoneBenefits": [],
+        "additionalBenefits": [
+            "Currently listed as nil joining and nil annual fee under limited period offer on Axis official catalogue",
+            "Standard product fee page lists Rs 250 joining fee and Rs 250 annual fee from second year onward, lifetime free for select channels",
+            "100% cashback up to Rs 300 on first utility bill payment within 30 days of card issuance",
+            "Flat Rs 120 off on Zomato food delivery twice per month on minimum order value of Rs 499",
+            "5% off on Paytm mobile recharge, broadband, DTH and utility payments, capped at Rs 150 per month",
+            "10% off on Blinkit, capped at Rs 250 per month on minimum spends of Rs 750",
+            "10% off on BookMyShow movie tickets, capped at Rs 100 per month",
+            "Rs 150 off on Myntra on selected styles with minimum spends of Rs 999",
+            "1 EDGE REWARD Point per Rs 200 on eligible spends",
+            "Dining Delights discounts at participating restaurants"
+        ],
+        "redemption": {
+            "statementBalanceValue": 0.2,
+            "pointsExpiryYears": 3
+        },
+        "eligibility": {
+            "salaried": [
+                "Primary cardholder should be between 18 and 70 years and resident of India or NRI"
+            ],
+            "selfEmployed": [
+                "Primary cardholder should be between 18 and 70 years and resident of India or NRI"
+            ]
+        },
+        "sourceUrl": "https://www.axisbank.com/retail/cards/credit-card/neo-credit-card",
+        "applyUrl": "https://www.axisbank.com/retail/cards/credit-card/neo-credit-card",
+        "lastVerified": "2026-05-10",
+        "verificationStatus": "official-mixed",
+        "popularityScore": 68
+    },
+    {
+        "id": "axis-privilege",
+        "issuer": "Axis Bank",
+        "name": "AXIS BANK PRIVILEGE Credit Card",
+        "network": [
+            "Visa"
+        ],
+        "joiningFee": 1500,
+        "annualFee": 1500,
+        "feeWaiverSpend": 500000,
+        "bestFor": [
+            "shopping",
+            "travel",
+            "movies",
+            "lounge",
+            "fee waiver"
+        ],
+        "rewardType": "edge reward points",
+        "rewards": [
+            {
+                "category": "offline",
+                "rate": 1,
+                "capMonthly": null
+            }
+        ],
+        "loungeDomestic": 8,
+        "loungeInternational": 0,
+        "forexMarkup": 3.5,
+        "tags": [
+            "privilege",
+            "shopping",
+            "travel",
+            "district",
+            "movies",
+            "lounge",
+            "fee waiver",
+            "edge rewards"
+        ],
+        "exclusions": [
+            "fuel",
+            "rent",
+            "insurance",
+            "education",
+            "utilities",
+            "telecom",
+            "wallet",
+            "gold",
+            "jewellery",
+            "government services",
+            "emi transactions",
+            "transactions excluded under Axis Bank Privilege Credit Card terms"
+        ],
+        "milestoneBenefits": [
+            "10,000 EDGE REWARD Points worth Rs 2,000 on spending Rs 2.5 lakh in a card anniversary year",
+            "Annual fee reversal on spends of Rs 5 lakh in the previous card anniversary year"
+        ],
+        "additionalBenefits": [
+            "12,500 EDGE REWARD Points worth Rs 2,500 redeemable against vouchers after joining fee levy and first transaction within 30 days",
+            "Buy one get one movie ticket offer on District app, capped at Rs 250 once per month",
+            "10 EDGE REWARD Points per Rs 200 on eligible domestic and international spends",
+            "2 complimentary domestic airport lounge visits per calendar quarter, subject to Rs 50,000 spends in the previous 3 months",
+            "1% fuel surcharge refund on fuel transactions from Rs 400 to Rs 4,000, capped at Rs 400 per statement cycle",
+            "Purchase protection cover up to Rs 1 lakh",
+            "Credit shield cover of Rs 1 lakh",
+            "Travel inconvenience covers for loss of travel documents, baggage delay and loss of check-in baggage"
+        ],
+        "redemption": {
+            "statementBalanceValue": 0.2,
+            "pointsExpiryYears": 3
+        },
+        "eligibility": {
+            "salaried": [
+                "Eligibility is subject to Axis Bank approval criteria"
+            ],
+            "selfEmployed": [
+                "Eligibility is subject to Axis Bank approval criteria"
+            ]
+        },
+        "sourceUrl": "https://www.axisbank.com/retail/cards/credit-card/privilege-credit-card-with-unlimited-benefits",
+        "applyUrl": "https://www.axisbank.com/retail/cards/credit-card/privilege-credit-card-with-unlimited-benefits",
+        "lastVerified": "2026-05-10",
+        "verificationStatus": "official-direct",
+        "popularityScore": 67
+    },
+    {
+        "id": "axis-samsung-signature",
+        "issuer": "Axis Bank",
+        "name": "Samsung Axis Bank Signature Credit Card",
+        "network": [
+            "Visa"
+        ],
+        "joiningFee": 500,
+        "annualFee": 500,
+        "feeWaiverSpend": 200000,
+        "bestFor": [
+            "samsung",
+            "cashback",
+            "shopping",
+            "partner merchants",
+            "lounge"
+        ],
+        "rewardType": "cashback and edge reward points",
+        "rewards": [
+            {
+                "category": "retail",
+                "rate": 10,
+                "capMonthly": 2500
+            },
+            {
+                "category": "partner merchants",
+                "rate": 2,
+                "capMonthly": null
+            },
+            {
+                "category": "offline",
+                "rate": 1,
+                "capMonthly": null
+            }
+        ],
+        "loungeDomestic": 4,
+        "loungeInternational": 0,
+        "forexMarkup": 3.5,
+        "tags": [
+            "samsung",
+            "signature",
+            "cashback",
+            "bigbasket",
+            "tata 1mg",
+            "urban company",
+            "myntra",
+            "zomato",
+            "lounge",
+            "fee waiver"
+        ],
+        "exclusions": [
+            "fuel",
+            "rent",
+            "education payments via third-party apps",
+            "wallet loads above fee threshold",
+            "utilities above fee threshold",
+            "online skill-based gaming above fee threshold",
+            "transactions excluded under Samsung Axis Bank Signature Credit Card terms"
+        ],
+        "milestoneBenefits": [
+            "Annual fee waived on annual spends greater than Rs 2 lakh"
+        ],
+        "additionalBenefits": [
+            "2,500 EDGE REWARD Points on completing 3 transactions within 30 days of card issuance",
+            "10% cashback on Samsung purchases including EMI transactions, capped at Rs 2,500 per month and Rs 10,000 per annum",
+            "10 EDGE REWARD Points per Rs 100 with preferred partners bigbasket, Tata 1mg, Urban Company, Myntra and Zomato",
+            "5 EDGE REWARD Points per Rs 100 on other domestic and international transactions",
+            "4 complimentary domestic airport lounge visits per calendar year, subject to minimum eligible spend of Rs 50,000 in previous 3 months",
+            "1% fuel surcharge waiver on transactions from Rs 400 to Rs 4,000, capped at Rs 500 per statement",
+            "Dining Delights offer of 15% off up to Rs 500 once per month at participating restaurants",
+            "Convert transactions of Rs 2,500 or more into EMI",
+            "Wednesday Delight offers as per Axis Bank programme terms"
+        ],
+        "redemption": {
+            "statementBalanceValue": 0.2,
+            "pointsExpiryYears": 3
+        },
+        "eligibility": {
+            "salaried": [
+                "Primary cardholder should be between 18 and 70 years and resident of India"
+            ],
+            "selfEmployed": [
+                "Primary cardholder should be between 18 and 70 years and resident of India"
+            ]
+        },
+        "sourceUrl": "https://www.axis.bank.in/cards/credit-card/samsung-axis-bank-signature-credit-card",
+        "applyUrl": "https://www.axis.bank.in/cards/credit-card/samsung-axis-bank-signature-credit-card",
+        "lastVerified": "2026-05-10",
+        "verificationStatus": "official-direct",
+        "popularityScore": 67
+    },
+    {
+        "id": "axis-indianoil-easy",
+        "issuer": "Axis Bank",
+        "name": "IndianOil Easy Axis Bank Credit Card",
+        "network": [
+            "Visa"
+        ],
+        "joiningFee": 0,
+        "annualFee": 0,
+        "feeWaiverSpend": null,
+        "bestFor": [
+            "fuel",
+            "indianoil",
+            "secured card",
+            "fee waiver",
+            "low fee"
+        ],
+        "rewardType": "edge reward points",
+        "rewards": [
+            {
+                "category": "fuel",
+                "rate": 4,
+                "capMonthly": null
+            },
+            {
+                "category": "offline",
+                "rate": 0.2,
+                "capMonthly": null
+            }
+        ],
+        "loungeDomestic": 0,
+        "loungeInternational": 0,
+        "forexMarkup": 3.5,
+        "tags": [
+            "indianoil",
+            "fuel",
+            "easy",
+            "secured card",
+            "fixed deposit",
+            "fee waiver",
+            "lifetime free"
+        ],
+        "exclusions": [
+            "insurance",
+            "gold",
+            "jewellery",
+            "wallet",
+            "rent",
+            "utilities",
+            "government institutions",
+            "education",
+            "transactions excluded under IndianOil Easy Axis Bank Credit Card terms"
+        ],
+        "milestoneBenefits": [],
+        "additionalBenefits": [
+            "Nil joining fee and nil annual fee as listed on the Axis Bank credit card catalogue",
+            "Secured credit card offered through Axis Bank fixed deposit journey",
+            "Up to 1,250 EDGE REWARD Points on first fuel transaction",
+            "4% value back on fuel spends at IndianOil outlets",
+            "Fuel-related benefits are expected to follow IndianOil Axis Bank programme terms unless separately specified by Axis"
+        ],
+        "redemption": {
+            "statementBalanceValue": 0.2,
+            "pointsExpiryYears": 3
+        },
+        "eligibility": {
+            "salaried": [
+                "Eligibility is subject to Axis Bank approval criteria and fixed deposit secured card terms"
+            ],
+            "selfEmployed": [
+                "Eligibility is subject to Axis Bank approval criteria and fixed deposit secured card terms"
+            ]
+        },
+        "sourceUrl": "https://www.axis.bank.in/cards/credit-card",
+        "applyUrl": "https://www.axis.bank.in/cards/credit-card",
+        "lastVerified": "2026-05-10",
+        "verificationStatus": "official-catalogue",
+        "popularityScore": 66
+    },
+    {
+        "id": "axis-privilege-easy",
+        "issuer": "Axis Bank",
+        "name": "Privilege Easy Credit Card",
+        "network": [
+            "Mastercard"
+        ],
+        "joiningFee": 1500,
+        "annualFee": 1500,
+        "feeWaiverSpend": 250000,
+        "bestFor": [
+            "secured card",
+            "fixed deposit",
+            "rewards",
+            "lounge",
+            "movies"
+        ],
+        "rewardType": "edge reward points",
+        "rewards": [
+            {
+                "category": "offline",
+                "rate": 1,
+                "capMonthly": null
+            }
+        ],
+        "loungeDomestic": 8,
+        "loungeInternational": 0,
+        "forexMarkup": 3.5,
+        "tags": [
+            "privilege easy",
+            "secured card",
+            "fixed deposit",
+            "lounge",
+            "movies",
+            "dining",
+            "fuel waiver",
+            "edge rewards"
+        ],
+        "exclusions": [
+            "fuel",
+            "rent",
+            "wallet",
+            "education payments via third-party apps",
+            "utilities above fee threshold",
+            "online skill-based gaming above fee threshold",
+            "transactions excluded under Privilege Easy Credit Card terms"
+        ],
+        "milestoneBenefits": [
+            "10,000 EDGE REWARD Points worth Rs 2,000 on achieving spends milestone of Rs 2.5 lakh in a card anniversary year",
+            "Annual fee reversed on achieving spends of Rs 2.5 lakh in the previous card anniversary year, excluding rent and wallet transactions"
+        ],
+        "additionalBenefits": [
+            "Fixed deposit backed secured credit card with minimum fixed deposit of Rs 65,000 and maximum Rs 25 lakh",
+            "12,500 EDGE REWARD Points worth Rs 2,500 as activation benefit after joining fee levy and first transaction within 30 days",
+            "10 EDGE REWARD Points per Rs 200 spent",
+            "2 complimentary domestic airport lounge accesses per calendar quarter",
+            "Buy one get one movie ticket offer through District app",
+            "Dining Delights discounts at participating restaurants",
+            "1% fuel surcharge waiver on fuel transactions from Rs 400 to Rs 4,000, capped at Rs 400 per month",
+            "Purchase protection up to Rs 1 lakh and credit shield cover of Rs 1 lakh",
+            "Convert transactions over Rs 2,500 into EMI"
+        ],
+        "redemption": {
+            "statementBalanceValue": 0.2,
+            "pointsExpiryYears": 3
+        },
+        "eligibility": {
+            "salaried": [
+                "Requires eligible Axis Bank fixed deposit; minors are not eligible"
+            ],
+            "selfEmployed": [
+                "Requires eligible Axis Bank fixed deposit; minors are not eligible"
+            ]
+        },
+        "sourceUrl": "https://www.axis.bank.in/cards/credit-card/privilege-easy-credit-card",
+        "applyUrl": "https://www.axis.bank.in/cards/credit-card/privilege-easy-credit-card",
+        "lastVerified": "2026-05-10",
+        "verificationStatus": "official-direct",
+        "popularityScore": 66
+    },
+    {
+        "id": "axis-google-pay-flex",
+        "issuer": "Axis Bank",
+        "name": "Google Pay Flex Axis Bank Credit Card",
+        "network": [
+            "RuPay"
+        ],
+        "joiningFee": 0,
+        "annualFee": 0,
+        "feeWaiverSpend": null,
+        "bestFor": [
+            "upi",
+            "google pay",
+            "cashback",
+            "dining",
+            "lifetime free"
+        ],
+        "rewardType": "stars",
+        "rewards": [
+            {
+                "category": "upi",
+                "rate": 0.2,
+                "capMonthly": null
+            },
+            {
+                "category": "offline",
+                "rate": 0.2,
+                "capMonthly": null
+            }
+        ],
+        "loungeDomestic": 0,
+        "loungeInternational": 0,
+        "forexMarkup": 3.5,
+        "tags": [
+            "google pay",
+            "flex",
+            "rupay",
+            "upi",
+            "stars",
+            "cashback",
+            "lifetime free",
+            "dining"
+        ],
+        "exclusions": [
+            "wallet load",
+            "rent",
+            "education payments via third-party apps",
+            "online skill-based gaming",
+            "transactions excluded under Google Pay Flex Axis Bank Credit Card terms"
+        ],
+        "milestoneBenefits": [
+            "Unlock 2X stars in the current reward cycle by spending Rs 100 or more in the previous cycle",
+            "Unlock promotional 4X stars after spending more than Rs 15,000 in the current reward period, subject to Google Pay campaign terms",
+            "Unlock promotional 8X stars after spending more than Rs 30,000 in the current reward period, subject to Google Pay campaign terms"
+        ],
+        "additionalBenefits": [
+            "Lifetime free card with waived joining fee and annual fee",
+            "Earn 1 star for every cumulative Rs 500 spent on eligible spends, including fuel",
+            "1 star equals Re 1 and can be redeemed instantly while making UPI payments using this card on Google Pay",
+            "Welcome reward includes Rs 250 gift card and 250 stars on Google Pay, subject to Google Pay offers",
+            "Earn 2 stars per Rs 500 in the first reward period",
+            "Flexible repayment from Google Pay app, including full payment or EMI subject to bill amount and eligibility",
+            "Up to 15% off on dining via EazyDiner, capped at Rs 500 per month",
+            "Convert transactions of Rs 2,500 or more into EMI"
+        ],
+        "redemption": {
+            "statementBalanceValue": 1,
+            "pointsExpiryYears": null
+        },
+        "eligibility": {
+            "salaried": [
+                "Apply through the Money tab on Google Pay under Flex by Google Pay, subject to Axis Bank eligibility"
+            ],
+            "selfEmployed": [
+                "Apply through the Money tab on Google Pay under Flex by Google Pay, subject to Axis Bank eligibility"
+            ]
+        },
+        "sourceUrl": "https://www.axis.bank.in/cards/credit-card/google-pay-flex-axis-bank-credit-card",
+        "applyUrl": "https://www.axis.bank.in/cards/credit-card/google-pay-flex-axis-bank-credit-card",
+        "lastVerified": "2026-05-10",
+        "verificationStatus": "official-direct",
+        "popularityScore": 65
+    },
+    {
+        "id": "axis-freecharge-plus",
+        "issuer": "Axis Bank",
+        "name": "Axis Bank Freecharge Plus Credit Card",
+        "network": [
+            "Visa"
+        ],
+        "joiningFee": 350,
+        "annualFee": 350,
+        "feeWaiverSpend": 50000,
+        "bestFor": [
+            "freecharge",
+            "cashback",
+            "local commute",
+            "dining",
+            "low fee"
+        ],
+        "rewardType": "cashback",
+        "rewards": [
+            {
+                "category": "online",
+                "rate": 5,
+                "capMonthly": null
+            },
+            {
+                "category": "travel",
+                "rate": 2,
+                "capMonthly": null
+            },
+            {
+                "category": "offline",
+                "rate": 1,
+                "capMonthly": null
+            }
+        ],
+        "loungeDomestic": 0,
+        "loungeInternational": 0,
+        "forexMarkup": 3.5,
+        "tags": [
+            "freecharge",
+            "cashback",
+            "local commute",
+            "dining",
+            "low fee",
+            "fee waiver"
+        ],
+        "exclusions": [
+            "rent",
+            "wallet load",
+            "fuel",
+            "education payments via third-party apps",
+            "utilities above fee threshold",
+            "online skill-based gaming above fee threshold",
+            "transactions excluded under Axis Bank Freecharge Plus Credit Card terms"
+        ],
+        "milestoneBenefits": [
+            "Annual fee waived on spends of Rs 50,000 in the preceding card anniversary year, excluding rent and wallet load transactions"
+        ],
+        "additionalBenefits": [
+            "First-year annual fee listed as nil; second year onward annual fee is Rs 350",
+            "5% cashback on Freecharge spends",
+            "2% cashback on local commute spends",
+            "1% cashback on all other eligible spends",
+            "Dining benefits through Axis Bank dining programme",
+            "Foreign currency transaction fee of 3.5% as per Axis Bank fees page"
+        ],
+        "redemption": {
+            "statementBalanceValue": 1,
+            "pointsExpiryYears": null
+        },
+        "eligibility": {
+            "salaried": [
+                "Eligibility is subject to Axis Bank approval criteria"
+            ],
+            "selfEmployed": [
+                "Eligibility is subject to Axis Bank approval criteria"
+            ]
+        },
+        "sourceUrl": "https://www.axisbank.com/retail/cards/credit-card/axis-bank-freecharge-plus-credit-card/features-benefits",
+        "applyUrl": "https://www.axisbank.com/retail/cards/credit-card/axis-bank-freecharge-plus-credit-card/features-benefits",
+        "lastVerified": "2026-05-10",
+        "verificationStatus": "official-direct",
+        "popularityScore": 64
+    },
+    {
+        "id": "axis-platinum",
+        "issuer": "Axis Bank",
+        "name": "Platinum Credit Card",
+        "network": [
+            "Visa"
+        ],
+        "joiningFee": 500,
+        "annualFee": 200,
+        "feeWaiverSpend": 100000,
+        "bestFor": [
+            "movies",
+            "dining",
+            "fuel waiver",
+            "low fee",
+            "rewards"
+        ],
+        "rewardType": "edge reward points and cashback",
+        "rewards": [
+            {
+                "category": "entertainment",
+                "rate": 25,
+                "capMonthly": null
+            },
+            {
+                "category": "offline",
+                "rate": 0.6,
+                "capMonthly": null
+            },
+            {
+                "category": "travel",
+                "rate": 1.2,
+                "capMonthly": null
+            }
+        ],
+        "loungeDomestic": 0,
+        "loungeInternational": 0,
+        "forexMarkup": 3.5,
+        "tags": [
+            "platinum",
+            "movies",
+            "cashback",
+            "dining",
+            "fuel waiver",
+            "low fee",
+            "edge rewards"
+        ],
+        "exclusions": [
+            "fuel",
+            "rent",
+            "wallet load",
+            "movie offer transactions for reward points",
+            "transactions excluded under Platinum Credit Card terms"
+        ],
+        "milestoneBenefits": [
+            "Joining fee waived on spends of Rs 5,000 within 45 days of card setup",
+            "Annual fee waived on spends of Rs 1 lakh in the preceding year"
+        ],
+        "additionalBenefits": [
+            "25% cashback on online and box office movie ticket purchases, capped at Rs 1,000 per calendar year",
+            "6 EDGE REWARD Points per Rs 200 spent domestically",
+            "12 EDGE REWARD Points per Rs 200 spent internationally",
+            "100 EDGE REWARD Points on first online transaction",
+            "1% fuel surcharge waiver on fuel transactions from Rs 400 to Rs 4,000, capped at Rs 400 per statement cycle",
+            "Dining Delights discounts at participating restaurants",
+            "Convert purchases over Rs 2,500 into EMI",
+            "Visa International Global Card Assistance Services"
+        ],
+        "redemption": {
+            "statementBalanceValue": 0.2,
+            "pointsExpiryYears": 3
+        },
+        "eligibility": {
+            "salaried": [
+                "Eligibility is subject to Axis Bank approval criteria"
+            ],
+            "selfEmployed": [
+                "Eligibility is subject to Axis Bank approval criteria"
+            ]
+        },
+        "sourceUrl": "https://www.axisbank.com/retail/cards/credit-card/platinum-credit-card",
+        "applyUrl": "https://www.axisbank.com/retail/cards/credit-card/platinum-credit-card",
+        "lastVerified": "2026-05-10",
+        "verificationStatus": "official-direct",
+        "popularityScore": 64
+    },
+    {
+        "id": "axis-freecharge",
+        "issuer": "Axis Bank",
+        "name": "Axis Bank Freecharge Credit Card",
+        "network": [
+            "Visa"
+        ],
+        "joiningFee": 250,
+        "annualFee": 250,
+        "feeWaiverSpend": null,
+        "bestFor": [
+            "freecharge",
+            "low fee",
+            "online",
+            "monthly milestones",
+            "edge rewards"
+        ],
+        "rewardType": "edge reward points",
+        "rewards": [
+            {
+                "category": "offline",
+                "rate": 0.1,
+                "capMonthly": null
+            }
+        ],
+        "loungeDomestic": 0,
+        "loungeInternational": 0,
+        "forexMarkup": 3.5,
+        "tags": [
+            "freecharge",
+            "virtual card",
+            "low fee",
+            "monthly milestones",
+            "edge rewards",
+            "myntra",
+            "freshmenu"
+        ],
+        "exclusions": [
+            "rent",
+            "wallet load",
+            "fuel",
+            "education payments via third-party apps",
+            "utilities above fee threshold",
+            "online skill-based gaming above fee threshold",
+            "transactions excluded under Axis Bank Freecharge Credit Card terms"
+        ],
+        "milestoneBenefits": [
+            "100 EDGE REWARD Points on monthly spends from Rs 2,000 to Rs 4,999",
+            "350 EDGE REWARD Points on monthly spends above Rs 5,000"
+        ],
+        "additionalBenefits": [
+            "Virtual card can be issued instantly on the Freecharge app",
+            "1 EDGE REWARD Point per Rs 200 spent",
+            "Bonus EDGE REWARD Points on crossing monthly thresholds of Rs 2,000 and Rs 5,000",
+            "Up to 10% off on Myntra as per product offers",
+            "Up to Rs 100 credit on Shuttl every month as per product offers",
+            "Save up to Rs 120 on FreshMenu every month as per product offers",
+            "50% discount on Eros Now annual subscription as per product offers"
+        ],
+        "redemption": {
+            "statementBalanceValue": 0.2,
+            "pointsExpiryYears": 3
+        },
+        "eligibility": {
+            "salaried": [
+                "Eligibility is subject to Axis Bank approval criteria"
+            ],
+            "selfEmployed": [
+                "Eligibility is subject to Axis Bank approval criteria"
+            ]
+        },
+        "sourceUrl": "https://www.axisbank.com/retail/cards/credit-card/axis-bank-freecharge-credit-card/fees-charges",
+        "applyUrl": "https://www.axisbank.com/retail/cards/credit-card/axis-bank-freecharge-credit-card/features-benefits",
+        "lastVerified": "2026-05-10",
+        "verificationStatus": "official-mixed",
+        "popularityScore": 63
+    },
+    {
+        "id": "axis-fibe",
+        "issuer": "Axis Bank",
+        "name": "Fibe Axis Bank Credit Card",
+        "network": [
+            "RuPay"
+        ],
+        "joiningFee": 0,
+        "annualFee": 0,
+        "feeWaiverSpend": null,
+        "bestFor": [
+            "cashback",
+            "food delivery",
+            "entertainment",
+            "local commute",
+            "upi"
+        ],
+        "rewardType": "cashback",
+        "rewards": [
+            {
+                "category": "dining",
+                "rate": 3,
+                "capMonthly": null
+            },
+            {
+                "category": "entertainment",
+                "rate": 3,
+                "capMonthly": null
+            },
+            {
+                "category": "travel",
+                "rate": 3,
+                "capMonthly": null
+            },
+            {
+                "category": "offline",
+                "rate": 1,
+                "capMonthly": null
+            }
+        ],
+        "loungeDomestic": 4,
+        "loungeInternational": 0,
+        "forexMarkup": 3.5,
+        "tags": [
+            "fibe",
+            "cashback",
+            "rupay",
+            "upi",
+            "food delivery",
+            "entertainment",
+            "local commute",
+            "lifetime free",
+            "lounge"
+        ],
+        "exclusions": [
+            "fuel",
+            "rent",
+            "wallet load",
+            "education payments via third-party apps",
+            "online skill-based gaming",
+            "transactions excluded under Fibe Axis Bank Credit Card terms"
+        ],
+        "milestoneBenefits": [],
+        "additionalBenefits": [
+            "Lifetime free card with nil joining fee and nil annual fee",
+            "3% cashback on food delivery, entertainment and local commute",
+            "1% cashback on all other eligible spends",
+            "RuPay credit card on UPI support",
+            "4 complimentary domestic lounge visits per calendar year at select airport lounges",
+            "1% fuel surcharge waiver on fuel spends between Rs 400 and Rs 5,000, capped at Rs 400 per month",
+            "Dining Delights offers through Axis Bank dining programme",
+            "Wednesday Delight offers including MakeMyTrip, Swiggy and Tira offers as per Axis programme terms",
+            "Fibe Axis Bank Credit Card is sourced only to existing Fibe customers"
+        ],
+        "redemption": {
+            "statementBalanceValue": 1,
+            "pointsExpiryYears": null
+        },
+        "eligibility": {
+            "salaried": [
+                "Primary cardholder should be 18 to 70 years of age and resident of India or NRI",
+                "Card is sourced only to existing Fibe customers"
+            ],
+            "selfEmployed": [
+                "Primary cardholder should be 18 to 70 years of age and resident of India or NRI",
+                "Card is sourced only to existing Fibe customers"
+            ]
+        },
+        "sourceUrl": "https://www.axis.bank.in/cards/credit-card/fibe-axis-bank-credit-card",
+        "applyUrl": "https://www.axis.bank.in/cards/credit-card/fibe-axis-bank-credit-card",
+        "lastVerified": "2026-05-10",
+        "verificationStatus": "official-direct",
+        "popularityScore": 62
+    },
+    {
+        "id": "axis-flipkart-super-elite",
+        "issuer": "Axis Bank",
+        "name": "Flipkart Axis Bank Super Elite Credit Card",
+        "network": [
+            "Visa"
+        ],
+        "joiningFee": 500,
+        "annualFee": 500,
+        "feeWaiverSpend": 200000,
+        "bestFor": [
+            "flipkart",
+            "supercoins",
+            "myntra",
+            "flights",
+            "online shopping"
+        ],
+        "rewardType": "supercoins",
+        "rewards": [
+            {
+                "category": "flipkart",
+                "rate": 12,
+                "capMonthly": null
+            },
+            {
+                "category": "offline",
+                "rate": 2,
+                "capMonthly": null
+            }
+        ],
+        "loungeDomestic": 0,
+        "loungeInternational": 0,
+        "forexMarkup": 3.5,
+        "tags": [
+            "flipkart",
+            "super elite",
+            "supercoins",
+            "myntra",
+            "flights",
+            "youtube premium",
+            "gaana",
+            "lenskart",
+            "low fee"
+        ],
+        "exclusions": [
+            "rent",
+            "wallet load",
+            "fuel",
+            "transactions excluded under Flipkart Axis Bank Super Elite Credit Card terms"
+        ],
+        "milestoneBenefits": [
+            "Annual fee waived on annual spends greater than Rs 2 lakh, excluding rent and wallet load transactions"
+        ],
+        "additionalBenefits": [
+            "500 SuperCoins on card activation",
+            "Additional 12 SuperCoins per Rs 100 spent on Flipkart for Plus members",
+            "Additional 6 SuperCoins per Rs 100 spent on Flipkart for non-Plus members",
+            "2 SuperCoins per Rs 100 on other eligible spends",
+            "2 months trial membership of YouTube Premium",
+            "3 months trial subscription of Gaana Plus",
+            "1 year Lenskart Gold membership",
+            "Extra Rs 500 off on Myntra select styles on maximum 3 transactions above Rs 2,999",
+            "15% off on domestic flight booking via Flipkart Flights, capped at Rs 1,500",
+            "Flat 30% off on first medicine order from Flipkart Health"
+        ],
+        "redemption": {
+            "statementBalanceValue": null,
+            "pointsExpiryYears": null
+        },
+        "eligibility": {
+            "salaried": [
+                "Primary cardholder should be between 18 and 70 years and resident of India"
+            ],
+            "selfEmployed": [
+                "Primary cardholder should be between 18 and 70 years and resident of India"
+            ]
+        },
+        "sourceUrl": "https://www.axis.bank.in/cards/credit-card/flipkart-axis-bank-super-elite-credit-card",
+        "applyUrl": "https://www.axis.bank.in/cards/credit-card/flipkart-axis-bank-super-elite-credit-card",
+        "lastVerified": "2026-05-10",
+        "verificationStatus": "official-direct",
+        "popularityScore": 62
+    },
+    {
+        "id": "axis-miles-and-more",
+        "issuer": "Axis Bank",
+        "name": "Miles and More Axis Bank Credit Card",
+        "network": [
+            "Mastercard"
+        ],
+        "joiningFee": 3500,
+        "annualFee": 3500,
+        "feeWaiverSpend": null,
+        "bestFor": [
+            "miles",
+            "lufthansa",
+            "star alliance",
+            "travel",
+            "lounge"
+        ],
+        "rewardType": "miles and more award miles",
+        "rewards": [
+            {
+                "category": "airlines",
+                "rate": 2,
+                "capMonthly": null
+            },
+            {
+                "category": "travel",
+                "rate": 2,
+                "capMonthly": null
+            },
+            {
+                "category": "offline",
+                "rate": 2,
+                "capMonthly": null
+            }
+        ],
+        "loungeDomestic": 16,
+        "loungeInternational": 2,
+        "forexMarkup": 3.5,
+        "tags": [
+            "miles and more",
+            "lufthansa",
+            "star alliance",
+            "miles",
+            "travel",
+            "priority pass",
+            "lounge"
+        ],
+        "exclusions": [
+            "fuel",
+            "wallet",
+            "rent",
+            "insurance",
+            "utilities",
+            "government spends",
+            "gold",
+            "jewellery",
+            "cash withdrawals",
+            "emi transactions",
+            "transactions excluded under Miles and More Axis Bank Credit Card terms"
+        ],
+        "milestoneBenefits": [
+            "3,000 award miles annual renewal bonus for Miles and More Axis Bank World Credit Card",
+            "World Select variant offers 4,000 award miles annual renewal bonus"
+        ],
+        "additionalBenefits": [
+            "5,000 welcome award miles on first transaction for Miles and More Axis Bank World Credit Card",
+            "World Select variant offers 15,000 welcome award miles",
+            "4 award miles per Rs 200 of eligible spends on World Credit Card",
+            "World Select variant earns 6 award miles per Rs 200 of eligible spends",
+            "Award miles do not expire while card terms for activity are met",
+            "2 complimentary Priority Pass lounge visits per card membership year on World Credit Card",
+            "World Select variant offers 4 complimentary Priority Pass lounge visits per card membership year",
+            "4 complimentary domestic Mastercard lounge visits per quarter on World Credit Card, subject to spends criteria",
+            "World Select variant offers 8 complimentary domestic Mastercard lounge visits per quarter, subject to spends criteria",
+            "Dining Delights offers may apply; Axis page lists enhanced dining offers for World Select"
+        ],
+        "redemption": {
+            "statementBalanceValue": null,
+            "pointsExpiryYears": null
+        },
+        "eligibility": {
+            "salaried": [
+                "Primary cardholder should be 18 to 70 years of age and resident of India or NRI"
+            ],
+            "selfEmployed": [
+                "Primary cardholder should be 18 to 70 years of age and resident of India or NRI"
+            ]
+        },
+        "sourceUrl": "https://www.axisbank.com/retail/cards/credit-card/miles-more-credit-card",
+        "applyUrl": "https://www.axisbank.com/retail/cards/credit-card/miles-more-credit-card",
+        "lastVerified": "2026-05-10",
+        "verificationStatus": "official-mixed",
+        "popularityScore": 62
+    },
+    {
+        "id": "axis-kwik",
+        "issuer": "Axis Bank",
+        "name": "Kwik Axis Bank Credit Card",
+        "network": [
+            "RuPay"
+        ],
+        "joiningFee": 0,
+        "annualFee": 0,
+        "feeWaiverSpend": null,
+        "bestFor": [
+            "upi",
+            "rupay",
+            "virtual card",
+            "lifetime free",
+            "edge rewards"
+        ],
+        "rewardType": "edge reward points",
+        "rewards": [
+            {
+                "category": "offline",
+                "rate": 0.2,
+                "capMonthly": null
+            },
+            {
+                "category": "upi",
+                "rate": 0.2,
+                "capMonthly": null
+            }
+        ],
+        "loungeDomestic": 0,
+        "loungeInternational": 0,
+        "forexMarkup": 3.5,
+        "tags": [
+            "kwik",
+            "rupay",
+            "upi",
+            "virtual card",
+            "lifetime free",
+            "edge rewards",
+            "fuel waiver"
+        ],
+        "exclusions": [
+            "wallet load",
+            "fuel",
+            "rental payments",
+            "cash withdrawals",
+            "insurance",
+            "repayments",
+            "jewellery",
+            "education",
+            "government services",
+            "emi transactions",
+            "credit card on UPI transactions less than Rs 2,000",
+            "transactions excluded under Kwik Axis Bank Credit Card terms"
+        ],
+        "milestoneBenefits": [],
+        "additionalBenefits": [
+            "Lifetime free card with nil joining fee and nil annual fee",
+            "Credit card on UPI through RuPay with seamless transaction experience through any UPI app",
+            "Instant virtual card on approval",
+            "2 EDGE REWARD Points per Rs 200 on domestic and international transactions",
+            "1% fuel surcharge waiver on fuel purchases between Rs 400 and Rs 4,000, capped at Rs 150 per month",
+            "Card can be activated by linking to UPI and setting UPI PIN or through Axis Bank mobile/internet banking"
+        ],
+        "redemption": {
+            "statementBalanceValue": 0.2,
+            "pointsExpiryYears": 3
+        },
+        "eligibility": {
+            "salaried": [
+                "Eligibility is subject to Axis Bank approval criteria"
+            ],
+            "selfEmployed": [
+                "Eligibility is subject to Axis Bank approval criteria"
+            ]
+        },
+        "sourceUrl": "https://www.axis.bank.in/cards/credit-card/axis-bank-kwik-credit-card",
+        "applyUrl": "https://www.axis.bank.in/cards/credit-card/axis-bank-kwik-credit-card",
+        "lastVerified": "2026-05-10",
+        "verificationStatus": "official-direct",
+        "popularityScore": 61
+    },
+    {
+        "id": "axis-lic-signature",
+        "issuer": "Axis Bank",
+        "name": "LIC Axis Bank Signature Credit Card",
+        "network": [
+            "Visa"
+        ],
+        "joiningFee": 0,
+        "annualFee": 0,
+        "feeWaiverSpend": null,
+        "bestFor": [
+            "lic premium",
+            "insurance",
+            "foreign currency",
+            "lounge",
+            "lifetime free"
+        ],
+        "rewardType": "reward points",
+        "rewards": [
+            {
+                "category": "retail",
+                "rate": 2,
+                "capMonthly": null
+            },
+            {
+                "category": "offline",
+                "rate": 1,
+                "capMonthly": null
+            }
+        ],
+        "loungeDomestic": 8,
+        "loungeInternational": 0,
+        "forexMarkup": 3.5,
+        "tags": [
+            "lic",
+            "signature",
+            "insurance",
+            "lic premium",
+            "lifetime free",
+            "lounge",
+            "fuel waiver",
+            "dining"
+        ],
+        "exclusions": [
+            "fuel",
+            "wallet load",
+            "emi conversions",
+            "rent",
+            "education payments via third-party apps",
+            "utilities above fee threshold",
+            "transactions excluded under LIC Axis Bank Signature Credit Card terms"
+        ],
+        "milestoneBenefits": [],
+        "additionalBenefits": [
+            "Nil joining fee and nil annual fee",
+            "100% cashback up to Rs 300 on first utility bill payment within first 30 days of card issuance",
+            "2 Reward Points per Rs 100 on LIC premium payments and foreign currency transactions",
+            "1 Reward Point per Rs 100 on other eligible transactions",
+            "8 complimentary domestic airport lounge visits per calendar year at select domestic airports",
+            "Complimentary lost card liability insurance cover up to credit limit",
+            "1% fuel surcharge waiver on fuel purchases from Rs 400 to Rs 4,000, capped at Rs 400 per month",
+            "Dining Delights discounts at participating restaurants",
+            "Convert purchases of Rs 1,500 or more into EMI",
+            "Wednesday Delight offers as per Axis Bank programme terms"
+        ],
+        "redemption": {
+            "statementBalanceValue": null,
+            "pointsExpiryYears": 3
+        },
+        "eligibility": {
+            "salaried": [
+                "Primary cardholder should be between 18 and 70 years and resident of India"
+            ],
+            "selfEmployed": [
+                "Primary cardholder should be between 18 and 70 years and resident of India"
+            ]
+        },
+        "sourceUrl": "https://www.axisbank.com/retail/cards/credit-card/lic-axis-bank-signature-credit-card",
+        "applyUrl": "https://www.axisbank.com/retail/cards/credit-card/lic-axis-bank-signature-credit-card",
+        "lastVerified": "2026-05-10",
+        "verificationStatus": "official-direct",
+        "popularityScore": 56
+    },
+    {
+        "id": "axis-ikea-family",
+        "issuer": "Axis Bank",
+        "name": "Ikea Family Credit Card",
+        "network": [
+            "Visa"
+        ],
+        "joiningFee": 500,
+        "annualFee": 500,
+        "feeWaiverSpend": null,
+        "bestFor": [
+            "ikea",
+            "home furnishing",
+            "shopping",
+            "lounge",
+            "cashback"
+        ],
+        "rewardType": "cashback",
+        "rewards": [
+            {
+                "category": "retail",
+                "rate": 3,
+                "capMonthly": null
+            },
+            {
+                "category": "offline",
+                "rate": 1,
+                "capMonthly": null
+            }
+        ],
+        "loungeDomestic": 4,
+        "loungeInternational": 0,
+        "forexMarkup": 3.5,
+        "tags": [
+            "ikea",
+            "family",
+            "home furnishing",
+            "shopping",
+            "cashback",
+            "lounge",
+            "milestone"
+        ],
+        "exclusions": [
+            "fuel",
+            "rent",
+            "wallet load",
+            "education payments via third-party apps",
+            "online skill-based gaming",
+            "transactions excluded under IKEA Family Credit Card terms"
+        ],
+        "milestoneBenefits": [
+            "IKEA voucher worth Rs 1,000 as milestone benefit, subject to product terms"
+        ],
+        "additionalBenefits": [
+            "Unlimited 3% cashback on IKEA spends as listed on Axis Bank catalogue",
+            "4 complimentary domestic airport lounge visits at select domestic airports",
+            "Dining Delights offers may apply as per Axis Bank programme terms",
+            "1% fuel surcharge waiver on eligible fuel transactions"
+        ],
+        "redemption": {
+            "statementBalanceValue": 1,
+            "pointsExpiryYears": null
+        },
+        "eligibility": {
+            "salaried": [
+                "Eligibility is subject to Axis Bank approval criteria"
+            ],
+            "selfEmployed": [
+                "Eligibility is subject to Axis Bank approval criteria"
+            ]
+        },
+        "sourceUrl": "https://www.axis.bank.in/cards/credit-card",
+        "applyUrl": "https://www.axis.bank.in/cards/credit-card",
+        "lastVerified": "2026-05-10",
+        "verificationStatus": "official-catalogue",
+        "popularityScore": 55
+    },
+    {
+        "id": "axis-indigo-premium",
+        "issuer": "Axis Bank",
+        "name": "IndiGo Axis Bank Premium Credit Card",
+        "network": [
+            "Visa"
+        ],
+        "joiningFee": 5000,
+        "annualFee": 5000,
+        "feeWaiverSpend": null,
+        "bestFor": [
+            "indigo",
+            "flights",
+            "travel",
+            "hotel",
+            "lounge"
+        ],
+        "rewardType": "indigo bluchips",
+        "rewards": [
+            {
+                "category": "airlines",
+                "rate": 7,
+                "capMonthly": null
+            },
+            {
+                "category": "grocery",
+                "rate": 3,
+                "capMonthly": null
+            },
+            {
+                "category": "hotel",
+                "rate": 3,
+                "capMonthly": null
+            },
+            {
+                "category": "offline",
+                "rate": 2,
+                "capMonthly": null
+            }
+        ],
+        "loungeDomestic": 8,
+        "loungeInternational": 2,
+        "forexMarkup": 2.5,
+        "tags": [
+            "indigo",
+            "premium",
+            "bluchips",
+            "flights",
+            "travel",
+            "hotel",
+            "grocery",
+            "lounge",
+            "priority pass",
+            "bookmyshow"
+        ],
+        "exclusions": [
+            "fuel above fee threshold",
+            "rent",
+            "wallet load",
+            "education payments via third-party apps",
+            "utilities above fee threshold",
+            "transactions excluded under IndiGo Axis Bank Premium Credit Card terms"
+        ],
+        "milestoneBenefits": [
+            "Voucher worth 5,000 IndiGo BluChips at annual spends of Rs 2 lakh",
+            "Voucher worth 5,000 IndiGo BluChips at annual spends of Rs 5 lakh",
+            "Voucher worth 5,000 IndiGo BluChips at annual spends of Rs 8 lakh",
+            "Voucher worth 5,000 IndiGo BluChips at annual spends of Rs 12 lakh"
+        ],
+        "additionalBenefits": [
+            "Voucher worth 5,000 IndiGo BluChips plus one complimentary 6E Eats voucher as welcome gift on payment of joining fee",
+            "Voucher worth 5,000 IndiGo BluChips plus one complimentary 6E Eats voucher every year as renewal benefit on payment of annual fee",
+            "7 IndiGo BluChips per Rs 100 on all IndiGo channels",
+            "3 IndiGo BluChips per Rs 100 on groceries and hotel spends",
+            "2 IndiGo BluChips per Rs 100 on other eligible categories",
+            "2 complimentary international lounge visits through Priority Pass",
+            "2 complimentary domestic airport lounge visits per quarter, applicable on spends of Rs 50,000 in the preceding 3 months",
+            "Buy one get one movie ticket offer on BookMyShow once every month",
+            "Low forex markup of 2.5% on foreign currency transactions",
+            "Dining Delights offers through Axis Bank dining programme",
+            "EMI conversion available for transactions exceeding Rs 1,500"
+        ],
+        "redemption": {
+            "statementBalanceValue": null,
+            "pointsExpiryYears": null
+        },
+        "eligibility": {
+            "salaried": [
+                "Primary cardholder should be 18 to 70 years of age, resident of India and have net income of at least Rs 6 lakh per annum"
+            ],
+            "selfEmployed": [
+                "Primary cardholder should be 18 to 70 years of age, resident of India and have net income of at least Rs 6 lakh per annum"
+            ]
+        },
+        "sourceUrl": "https://www.axis.bank.in/cards/credit-card/indigo-axis-bank-premium-credit-card",
+        "applyUrl": "https://www.axis.bank.in/cards/credit-card/indigo-axis-bank-premium-credit-card",
+        "lastVerified": "2026-05-10",
+        "verificationStatus": "official-direct",
+        "popularityScore": 55
+    },
+    {
+        "id": "axis-lic-platinum",
+        "issuer": "Axis Bank",
+        "name": "LIC Axis Bank Platinum Credit Card",
+        "network": [
+            "Visa"
+        ],
+        "joiningFee": 0,
+        "annualFee": 0,
+        "feeWaiverSpend": null,
+        "bestFor": [
+            "lic premium",
+            "insurance",
+            "foreign currency",
+            "lifetime free",
+            "rewards"
+        ],
+        "rewardType": "reward points",
+        "rewards": [
+            {
+                "category": "retail",
+                "rate": 2,
+                "capMonthly": null
+            },
+            {
+                "category": "offline",
+                "rate": 1,
+                "capMonthly": null
+            }
+        ],
+        "loungeDomestic": 0,
+        "loungeInternational": 0,
+        "forexMarkup": 3.5,
+        "tags": [
+            "lic",
+            "platinum",
+            "insurance",
+            "lic premium",
+            "lifetime free",
+            "fuel waiver",
+            "dining"
+        ],
+        "exclusions": [
+            "fuel",
+            "wallet load",
+            "emi conversions",
+            "rent",
+            "education payments via third-party apps",
+            "utilities above fee threshold",
+            "transactions excluded under LIC Axis Bank Platinum Credit Card terms"
+        ],
+        "milestoneBenefits": [],
+        "additionalBenefits": [
+            "Nil joining fee and nil annual fee",
+            "2 Reward Points per Rs 100 on LIC premium payments and foreign currency transactions",
+            "1 Reward Point per Rs 100 on other eligible transactions",
+            "Complimentary lost card liability insurance cover up to credit limit",
+            "1% fuel surcharge waiver on fuel purchases from Rs 400 to Rs 4,000, capped at Rs 400 per month",
+            "Dining Delights discounts at participating restaurants",
+            "Convert purchases of Rs 2,500 or more into EMI",
+            "Wednesday Delight offers as per Axis Bank programme terms"
+        ],
+        "redemption": {
+            "statementBalanceValue": null,
+            "pointsExpiryYears": 3
+        },
+        "eligibility": {
+            "salaried": [
+                "Primary cardholder should be between 18 and 70 years and resident of India or NRI"
+            ],
+            "selfEmployed": [
+                "Primary cardholder should be between 18 and 70 years and resident of India or NRI"
+            ]
+        },
+        "sourceUrl": "https://www.axisbank.com/retail/cards/credit-card/lic-axis-bank-platinum-credit-card",
+        "applyUrl": "https://www.axisbank.com/retail/cards/credit-card/lic-axis-bank-platinum-credit-card",
+        "lastVerified": "2026-05-10",
+        "verificationStatus": "official-direct",
+        "popularityScore": 54
+    },
+    {
+        "id": "axis-indigo",
+        "issuer": "Axis Bank",
+        "name": "Indigo Axis Bank Credit Card",
+        "network": [
+            "Visa"
+        ],
+        "joiningFee": 799,
+        "annualFee": 799,
+        "feeWaiverSpend": null,
+        "bestFor": [
+            "indigo",
+            "flights",
+            "travel",
+            "grocery",
+            "dining"
+        ],
+        "rewardType": "indigo bluchips",
+        "rewards": [
+            {
+                "category": "airlines",
+                "rate": 3,
+                "capMonthly": null
+            },
+            {
+                "category": "grocery",
+                "rate": 2,
+                "capMonthly": null
+            },
+            {
+                "category": "dining",
+                "rate": 2,
+                "capMonthly": null
+            },
+            {
+                "category": "offline",
+                "rate": 1,
+                "capMonthly": null
+            }
+        ],
+        "loungeDomestic": 4,
+        "loungeInternational": 0,
+        "forexMarkup": 3.5,
+        "tags": [
+            "indigo",
+            "bluchips",
+            "flights",
+            "travel",
+            "grocery",
+            "dining",
+            "lounge",
+            "milestone"
+        ],
+        "exclusions": [
+            "fuel above fee threshold",
+            "rent",
+            "wallet load",
+            "education payments via third-party apps",
+            "utilities above fee threshold",
+            "transactions excluded under IndiGo Axis Bank Credit Card terms"
+        ],
+        "milestoneBenefits": [
+            "Voucher worth 1,200 IndiGo BluChips on cumulative annual spends of Rs 1.5 lakh",
+            "Voucher worth 1,200 IndiGo BluChips again on cumulative annual spends of Rs 3 lakh"
+        ],
+        "additionalBenefits": [
+            "Voucher worth 1,200 IndiGo BluChips as welcome benefit on payment of joining fee",
+            "Voucher worth 1,200 IndiGo BluChips every year as renewal benefit on payment of annual fee",
+            "3 IndiGo BluChips per Rs 100 on all IndiGo channels",
+            "2 IndiGo BluChips per Rs 100 on grocery and dining",
+            "1 IndiGo BluChip per Rs 100 on other eligible categories",
+            "1 complimentary domestic airport lounge access per quarter, applicable on spends of Rs 50,000 in the preceding 3 months",
+            "EMI conversion available for transactions exceeding Rs 1,500",
+            "Wednesday Delight offers as per Axis Bank programme terms"
+        ],
+        "redemption": {
+            "statementBalanceValue": null,
+            "pointsExpiryYears": null
+        },
+        "eligibility": {
+            "salaried": [
+                "Primary cardholder should be 18 to 70 years of age and resident of India"
+            ],
+            "selfEmployed": [
+                "Primary cardholder should be 18 to 70 years of age and resident of India"
+            ]
+        },
+        "sourceUrl": "https://www.axis.bank.in/cards/credit-card/indigo-axis-bank-credit-card",
+        "applyUrl": "https://www.axis.bank.in/cards/credit-card/indigo-axis-bank-credit-card",
+        "lastVerified": "2026-05-10",
+        "verificationStatus": "official-direct",
+        "popularityScore": 53
+    },
+    {
+        "id": "axis-aura",
+        "issuer": "Axis Bank",
+        "name": "Axis Bank AURA Credit Card",
+        "network": [
+            "Visa"
+        ],
+        "joiningFee": 749,
+        "annualFee": 749,
+        "feeWaiverSpend": null,
+        "bestFor": [
+            "health",
+            "wellness",
+            "insurance",
+            "fitness",
+            "doctor consultations"
+        ],
+        "rewardType": "edge reward points",
+        "rewards": [
+            {
+                "category": "retail",
+                "rate": 0.2,
+                "capMonthly": null
+            },
+            {
+                "category": "retail",
+                "rate": 1,
+                "capMonthly": 10000
+            }
+        ],
+        "loungeDomestic": 0,
+        "loungeInternational": 0,
+        "forexMarkup": 3.5,
+        "tags": [
+            "aura",
+            "health",
+            "wellness",
+            "decathlon",
+            "practo",
+            "fitternity",
+            "insurance",
+            "health checkup"
+        ],
+        "exclusions": [
+            "fuel",
+            "wallet load",
+            "education payments via third-party apps",
+            "online skill-based gaming",
+            "transactions excluded under Axis Bank AURA Credit Card terms"
+        ],
+        "milestoneBenefits": [],
+        "additionalBenefits": [
+            "Decathlon OMNI Gift Card worth Rs 750 as welcome benefit",
+            "2 EDGE REWARD Points per Rs 200 on eligible spends",
+            "5X EDGE REWARD Points on insurance spends, with maximum transaction capped at Rs 10,000",
+            "4 free video doctor consultations per month via Practo",
+            "4 interactive video fitness sessions per month via Fitternity",
+            "Access to 16 recorded fitness sessions per month",
+            "Annual discount up to Rs 500 on health checkup",
+            "Nutrition and diet subscription discounts as per Axis AURA programme terms",
+            "Dining Delights discounts at participating restaurants",
+            "1% fuel surcharge waiver on eligible fuel transactions"
+        ],
+        "redemption": {
+            "statementBalanceValue": 0.2,
+            "pointsExpiryYears": 3
+        },
+        "eligibility": {
+            "salaried": [
+                "Primary cardholder should be 18 to 70 years of age and resident of India or NRI"
+            ],
+            "selfEmployed": [
+                "Primary cardholder should be 18 to 70 years of age and resident of India or NRI"
+            ]
+        },
+        "sourceUrl": "https://www.axis.bank.in/cards/credit-card/axis-bank-aura-credit-card",
+        "applyUrl": "https://www.axis.bank.in/cards/credit-card/axis-bank-aura-credit-card",
+        "lastVerified": "2026-05-10",
+        "verificationStatus": "official-direct",
+        "popularityScore": 46
+    }
+]

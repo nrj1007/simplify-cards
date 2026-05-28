@@ -1,4 +1,4 @@
-import type { RecommendationInput } from "./types";
+import type { RecommendationInput, SpendCategory, SpendProfile } from "./types";
 import type { CardSegment, RedemptionBucket, UseCaseBucket } from "./card-index";
 
 export type QueryIntent = {
@@ -10,6 +10,7 @@ export type QueryIntent = {
   networks: string[];
   tags: string[];
   maxAnnualFee?: number;
+  inferredSpend?: SpendProfile;
   wantsLounge: boolean;
   wantsLifetimeFree: boolean;
   needsLatestInfo: boolean;
@@ -64,6 +65,11 @@ const tagKeywords = [
   "smartbuy",
   "dining",
   "grocery",
+  "rent",
+  "insurance",
+  "education",
+  "gold",
+  "jewellery",
   "beginner",
   "premium",
   "ltf",
@@ -71,6 +77,40 @@ const tagKeywords = [
   "secured",
   "forex"
 ];
+
+const spendCategoryAliases: Array<{ category: SpendCategory; aliases: string[] }> = [
+  { category: "travel", aliases: ["travel", "flights", "flight", "airline", "airlines", "hotel", "hotels"] },
+  { category: "grocery", aliases: ["grocery", "groceries", "supermarket", "supermarkets"] },
+  { category: "utilities", aliases: ["utilities", "utility", "bill payment", "bill payments", "bills"] },
+  { category: "dining", aliases: ["dining", "restaurant", "restaurants", "food delivery", "swiggy", "zomato"] },
+  { category: "fuel", aliases: ["fuel", "petrol", "diesel"] },
+  { category: "online", aliases: ["online", "shopping", "ecommerce"] },
+  { category: "offline", aliases: ["offline", "retail"] },
+  { category: "amazon", aliases: ["amazon"] },
+  { category: "upi", aliases: ["upi", "rupay upi"] },
+  { category: "rent", aliases: ["rent", "rental", "rental payments", "rent payments"] },
+  { category: "insurance", aliases: ["insurance", "insurance premium", "insurance premiums"] },
+  { category: "education", aliases: ["education", "school fees", "school fee", "education payments", "tuition"] },
+  { category: "gold", aliases: ["gold", "jewellery", "jewelry"] }
+];
+
+const spendCategories: SpendCategory[] = [
+  "online",
+  "offline",
+  "travel",
+  "fuel",
+  "dining",
+  "grocery",
+  "amazon",
+  "upi",
+  "utilities",
+  "rent",
+  "insurance",
+  "education",
+  "gold"
+];
+
+const defaultMonthlySpendTotal = 53000;
 
 function normalizeQuery(query?: string) {
   return query?.toLowerCase().trim() ?? "";
@@ -84,11 +124,11 @@ function extractMaxAnnualFee(query: string, input: RecommendationInput) {
   if (input.maxAnnualFee !== undefined) return input.maxAnnualFee;
 
   const feePatterns = [
-    /under\s+rs\.?\s*([\d,]+)/i,
-    /below\s+rs\.?\s*([\d,]+)/i,
-    /upto\s+rs\.?\s*([\d,]+)/i,
-    /up to\s+rs\.?\s*([\d,]+)/i,
-    /within\s+rs\.?\s*([\d,]+)/i
+    /under\s+(?:rs\.?\s*)?([\d,]+)/i,
+    /below\s+(?:rs\.?\s*)?([\d,]+)/i,
+    /upto\s+(?:rs\.?\s*)?([\d,]+)/i,
+    /up to\s+(?:rs\.?\s*)?([\d,]+)/i,
+    /within\s+(?:rs\.?\s*)?([\d,]+)/i
   ];
 
   for (const pattern of feePatterns) {
@@ -100,6 +140,66 @@ function extractMaxAnnualFee(query: string, input: RecommendationInput) {
   }
 
   return undefined;
+}
+
+function matchSpendCategory(fragment: string) {
+  const normalized = normalizeQuery(fragment);
+  if (!normalized) return null;
+
+  for (const entry of spendCategoryAliases) {
+    if (entry.aliases.some((alias) => normalized.includes(alias))) return entry.category;
+  }
+
+  return null;
+}
+
+function emptySpendProfile() {
+  return Object.fromEntries(spendCategories.map((category) => [category, 0])) as Record<SpendCategory, number>;
+}
+
+function extractSpendMix(query: string) {
+  const allocations = new Map<SpendCategory, number>();
+  const patterns = [
+    /(\d{1,3})\s*%\s*([a-z][a-z\s&-]*?)(?=,| and |$)/g,
+    /([a-z][a-z\s&-]*?)\s*(\d{1,3})\s*%/g
+  ];
+
+  for (const pattern of patterns) {
+    for (const match of query.matchAll(pattern)) {
+      const percentValue = Number(pattern === patterns[0] ? match[1] : match[2]);
+      const subject = pattern === patterns[0] ? match[2] : match[1];
+      const category = matchSpendCategory(subject);
+
+      if (!category || Number.isNaN(percentValue) || percentValue <= 0) continue;
+      allocations.set(category, Math.min(percentValue, 100));
+    }
+  }
+
+  const totalPercentage = [...allocations.values()].reduce((sum, value) => sum + value, 0);
+  if (allocations.size === 0 || totalPercentage <= 0) return undefined;
+
+  const spend = emptySpendProfile();
+  for (const [category, percentage] of allocations) {
+    spend[category] = Math.round((defaultMonthlySpendTotal * percentage) / 100);
+  }
+
+  return spend satisfies SpendProfile;
+}
+
+function extractFocusedSpend(query: string) {
+  const focusedCategory = spendCategoryAliases.find((entry) =>
+    entry.aliases.some((alias) => query.includes(`${alias} spend`) || query.includes(`${alias} spends`) || query.includes(`for ${alias}`))
+  )?.category;
+
+  if (!focusedCategory) return undefined;
+
+  const spend = emptySpendProfile();
+  spend[focusedCategory] = defaultMonthlySpendTotal;
+  return spend satisfies SpendProfile;
+}
+
+function inferSpendProfile(query: string) {
+  return extractSpendMix(query) ?? extractFocusedSpend(query);
 }
 
 export function parseQueryIntent(input: RecommendationInput): QueryIntent {
@@ -144,6 +244,7 @@ export function parseQueryIntent(input: RecommendationInput): QueryIntent {
   if (
     input.wantsLifetimeFree ||
     normalizedQuery.includes("lifetime free") ||
+    normalizedQuery.includes("life time free") ||
     normalizedQuery.includes("ltf") ||
     normalizedQuery.includes("no annual fee")
   ) {
@@ -181,9 +282,13 @@ export function parseQueryIntent(input: RecommendationInput): QueryIntent {
     networks: uniqueSorted([...networks]),
     tags: uniqueSorted([...tags]),
     maxAnnualFee: extractMaxAnnualFee(normalizedQuery, input),
+    inferredSpend: input.spend ?? inferSpendProfile(normalizedQuery),
     wantsLounge: input.wantsLounge ?? normalizedQuery.includes("lounge"),
     wantsLifetimeFree:
-      input.wantsLifetimeFree ?? (normalizedQuery.includes("lifetime free") || normalizedQuery.includes("ltf")),
+      input.wantsLifetimeFree ??
+      (normalizedQuery.includes("lifetime free") ||
+        normalizedQuery.includes("life time free") ||
+        normalizedQuery.includes("ltf")),
     needsLatestInfo: temporalKeywords.some((keyword) => normalizedQuery.includes(keyword))
   };
 }

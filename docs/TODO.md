@@ -42,7 +42,13 @@ These are listed or have official pages, but should not be added as active-new-a
 - [ ] Add filters for issuer, cashback, travel, lounge, fuel, UPI, low-fee, and secured cards.
 - [ ] Add a GPT-only Ask AI flow over the merged in-memory card data from `data/cards/`, with retrieval first and no live web search.
 - [ ] Log unsupported or stale user questions for manual database enrichment instead of answering via web search.
+- [ ] Expand stored card facts toward maximum answerability, so Ask AI can answer most user questions from reviewed card data instead of only handling rankings and broad comparisons.
+- [ ] Improve generic ranking quality for broad asks like `top cards under 5000`, so results reflect stronger user intent and practical fit instead of only raw modeled value.
+- [ ] Build a credit card recommender and calculator that lets users compare cards against their own spend, milestones, fee waivers, and redemption preferences.
+- [ ] Add an internal Ask feedback review page that groups the most-downvoted queries and common losing card combinations, so ranking fixes can be prioritized from real user feedback.
+- [ ] Send a Telegram alert for `No` / downvote feedback as a temporary ops workflow before we scale and move feedback review into a database-backed system.
 - [ ] Add a manual approval workflow for community/news signals before updating card data.
+- [ ] Add card images to key user-facing surfaces such as finder, compare, Ask results, and details pages.
 - [ ] Add advertisement placements and policy-safe ad slot handling.
 - [ ] Improve RPM through higher-intent content, ad placement strategy, and better page-level monetization.
 - [ ] Add affiliate link support per card, including tracking metadata and fallback apply URLs.

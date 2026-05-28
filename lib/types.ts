@@ -1,3 +1,5 @@
+import type { ExclusionCode } from "./exclusion-constants";
+
 export type SpendCategory =
   | "online"
   | "offline"
@@ -7,18 +9,47 @@ export type SpendCategory =
   | "grocery"
   | "amazon"
   | "upi"
-  | "utilities";
+  | "utilities"
+  | "rent"
+  | "insurance"
+  | "education"
+  | "gold";
+
+export type SpecialSpendRule = {
+  category: SpendCategory;
+  treatment: "rewarded" | "capped" | "excluded";
+  capMonthlySpend?: number | null;
+  capAnnualSpend?: number | null;
+  notes?: string;
+};
 
 export type Reward = {
   category: SpendCategory | string;
+  displayCategory?: string;
   rate: number;
+  displayRate?: string;
   capMonthly: number | null;
+  capDaily?: number | null;
+  postCapRate?: number | null;
 };
 
 export type Redemption = {
+  airlinePartners?: Array<{
+    airline: string;
+    programme: string;
+    ratio: string;
+    tatDays?: number;
+  }>;
+  hotelPartners?: Array<{
+    hotelGroup: string;
+    programme: string;
+    ratio: string;
+    tatDays?: number;
+  }>;
   statementBalanceValue?: number;
   smartBuyFlightHotelValue?: number;
   airMilesValue?: number;
+  accorValue?: number;
   minimumPointsForStatementCredit?: number;
   cashbackRedemptionCapMonthly?: number;
   pointsExpiryYears?: number;
@@ -42,10 +73,17 @@ export type CreditCard = {
   forexMarkup: number;
   tags: string[];
   exclusions: string[];
+  exclusionCodes?: ExclusionCode[];
+  specialSpendRules?: SpecialSpendRule[];
   milestoneBenefits?: string[];
+  joiningBenefits?: string[];
   additionalBenefits?: string[];
+  additionalDetails?: string[];
+  internalNotes?: string[];
+  alternativeCardIds?: string[];
   redemption?: Redemption;
   interestRateMonthly?: number;
+  supportingSourceUrls?: string[];
   eligibility?: {
     salaried?: string[];
     selfEmployed?: string[];
@@ -70,6 +108,7 @@ export type CardScore = {
   card: CreditCard;
   annualSpend: number;
   estimatedAnnualRewards: number;
+  estimatedMilestoneValue: number;
   estimatedAnnualFee: number;
   estimatedNetValue: number;
   fitScore: number;

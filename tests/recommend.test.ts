@@ -55,7 +55,7 @@ describe("scoreCards", () => {
   });
 
   it("surfaces fuel cards for fuel-heavy intent", () => {
-    const topIds = scoreCards({
+    const topScores = scoreCards({
       query: "best fuel hpcl indianoil card",
       spend: {
         online: 0,
@@ -68,11 +68,388 @@ describe("scoreCards", () => {
         upi: 0,
         utilities: 0
       }
-    })
-      .slice(0, 12)
-      .map((score) => score.card.id);
+    }).slice(0, 10);
+    const topIds = topScores.map((score) => score.card.id);
 
-    expect(topIds).toEqual(expect.arrayContaining(["idfc-first-power-plus", "bpcl-sbi-octane", "bobcard-hpcl-energie"]));
+    expect(topScores[0]?.card.id).toBe("idfc-first-power-plus");
+    expect(topIds).toEqual(expect.arrayContaining(["axis-indianoil", "axis-indianoil-easy"]));
+  });
+
+  it("prioritizes direct card-name queries ahead of generic ranking", () => {
+    const scores = scoreCards({
+      query: "Axis Atlas",
+      maxAnnualFee: 5000
+    });
+
+    expect(scores[0]?.card.id).toBe("axis-atlas");
+    expect(scores[0]?.reasons).toContain("Strong card-name match for the query");
+  });
+
+  it("restricts issuer-led recommendation queries to the requested issuer", () => {
+    const scores = scoreCards({
+      query: "top icici card under 5000",
+      maxAnnualFee: 5000
+    });
+
+    expect(scores.length).toBeGreaterThan(0);
+    expect(scores.every((score) => score.card.issuer === "ICICI Bank")).toBe(true);
+  });
+
+  it("surfaces Atlas for Axis travel intent", () => {
+    const scores = scoreCards({
+      query: "best axis travel card"
+    });
+
+    expect(scores[0]?.card.id).toBe("axis-atlas");
+    expect(scores.every((score) => score.card.issuer === "Axis Bank")).toBe(true);
+  });
+
+  it("boosts lounge-heavy cards when the query explicitly asks for lounge access", () => {
+    const scores = scoreCards({
+      query: "best hdfc lounge card under 5000"
+    });
+
+    expect(scores[0]?.card.id).toBe("hdfc-regalia-gold");
+  });
+
+  it("boosts lower forex markup cards for explicit forex queries", () => {
+    const scores = scoreCards({
+      query: "best hdfc forex card under 5000"
+    });
+
+    expect(scores[0]?.card.id).toBe("hdfc-regalia-gold");
+  });
+
+  it("applies parsed fee caps from natural-language queries", () => {
+    const scores = scoreCards({
+      query: "top card under 5000"
+    });
+
+    expect(scores.length).toBeGreaterThan(0);
+    expect(scores.every((score) => score.card.annualFee <= 5000)).toBe(true);
+    expect(scores.some((score) => score.card.id === "indusind-pioneer-legacy")).toBe(false);
+  });
+
+  it("builds a grocery-heavy spend profile from grocery-spend queries", () => {
+    const scores = scoreCards({
+      query: "top card for grocery spends"
+    });
+
+    expect(scores[0]?.card.id).not.toBe("landmark-rewards-sbi-prime");
+    expect(scores[0]?.rewardBreakdown.every((item) => item.spendCategory === "grocery")).toBe(true);
+    expect(scores[0]?.annualSpend).toBe(53000 * 12);
+  });
+
+  it("builds a travel-heavy spend profile from travel-spend queries", () => {
+    const scores = scoreCards({
+      query: "top card for travel spends"
+    });
+
+    expect(scores[0]?.rewardBreakdown.every((item) => item.spendCategory === "travel")).toBe(true);
+    expect(scores[0]?.annualSpend).toBe(53000 * 12);
+  });
+
+  it("treats life time free phrasing the same as lifetime free", () => {
+    const scores = scoreCards({
+      query: "top life time free cards"
+    });
+
+    expect(scores.length).toBeGreaterThan(0);
+    expect(scores.every((score) => score.card.annualFee === 0)).toBe(true);
+  });
+
+  it("uses parsed spend mixes as the scoring profile", () => {
+    const scores = scoreCards({
+      query: "my spends are 50% travel, 25% grocery, 25% utilities, suggest a card for me"
+    });
+
+    const spendCategories = new Set(scores[0]?.rewardBreakdown.map((item) => item.spendCategory));
+    expect(scores[0]?.card.id).not.toBe("amex-platinum-travel");
+    expect([...spendCategories].every((category) => ["travel", "grocery", "utilities"].includes(category))).toBe(true);
+    expect(spendCategories.has("travel")).toBe(true);
+    expect(scores[0]?.annualSpend).toBe(53000 * 12);
+  });
+
+  it("uses explicit Accor redemption value when the query asks for Accor-oriented travel cards", () => {
+    const scores = scoreCards({
+      query: "best travel card for accor redemption"
+    });
+
+    const travelOneRank = scores.findIndex((score) => score.card.id === "hsbc-travelone");
+    const travelOne = scores.find((score) => score.card.id === "hsbc-travelone");
+    expect(travelOne?.card.redemption?.accorValue).toBe(2.2);
+    expect(travelOneRank).toBeGreaterThanOrEqual(0);
+  });
+
+  it("applies fee waiver at high annual spend thresholds", () => {
+    const scores = scoreCards({
+      query: "best travel card",
+      spend: {
+        travel: 66667
+      }
+    });
+
+    const travelOne = scores.find((score) => score.card.id === "hsbc-travelone");
+    expect(travelOne?.annualSpend).toBeGreaterThanOrEqual(800000);
+    expect(travelOne?.estimatedAnnualFee).toBe(0);
+  });
+
+  it("adds milestone value once the spend threshold is crossed", () => {
+    const scores = scoreCards({
+      query: "best axis travel card",
+      spend: {
+        travel: 125000
+      }
+    });
+
+    const atlas = scores.find((score) => score.card.id === "axis-atlas");
+    expect(atlas?.annualSpend).toBeGreaterThanOrEqual(1500000);
+    expect(atlas?.estimatedMilestoneValue).toBeGreaterThan(0);
+    expect(atlas?.reasons).toEqual(expect.arrayContaining([expect.stringMatching(/Milestone value adds about Rs/i)]));
+  });
+
+  it("does not double-count voucher milestone wording", () => {
+    const scores = scoreCards({
+      query: "top card under 5000"
+    });
+
+    const reliancePrime = scores.find((score) => score.card.id === "reliance-sbi-prime");
+    expect(reliancePrime?.estimatedMilestoneValue).toBe(8750);
+  });
+
+  it("counts Regalia Gold voucher milestones from 'Rs X worth' wording", () => {
+    const scores = scoreCards({
+      query: "top card under 5000"
+    });
+
+    const regaliaGold = scores.find((score) => score.card.id === "hdfc-regalia-gold");
+    expect(regaliaGold?.estimatedMilestoneValue).toBe(6500);
+  });
+
+  it("uses the best milestone and fee-waiver upside for broad ranking comparisons", () => {
+    const scores = scoreCards({
+      query: "top card under 5000"
+    });
+
+    const travelOne = scores.find((score) => score.card.id === "hsbc-travelone");
+    expect(travelOne?.reasons).toEqual(
+      expect.arrayContaining([expect.stringMatching(/Higher milestone and fee-waiver upside can add about Rs 10,800/i)])
+    );
+    expect((travelOne?.fitScore ?? 0) - (travelOne?.estimatedNetValue ?? 0)).toBeGreaterThan(10000);
+  });
+
+  it("avoids invite-only luxury cards for generic ltf asks", () => {
+    const scores = scoreCards({
+      query: "top life time free cards"
+    });
+
+    const topHaystack = `${scores[0]?.card.bestFor.join(" ")} ${scores[0]?.card.exclusions.join(" ")}`.toLowerCase();
+    expect(topHaystack).not.toContain("invite only");
+  });
+
+  it("penalizes relationship-only cards for broad generic asks", () => {
+    const scores = scoreCards({
+      query: "top card under 5000"
+    });
+
+    const pioneer = scores.find((score) => score.card.id === "indusind-pioneer-legacy");
+    expect(pioneer).toBeUndefined();
+  });
+
+  it("blends SmartBuy-like routing into generic online spend instead of treating it as all-or-nothing", () => {
+    const genericScores = scoreCards({
+      query: "top card under 5000"
+    });
+    const smartbuyScores = scoreCards({
+      query: "best smartbuy card under 5000"
+    });
+
+    const genericDiners = genericScores.find((score) => score.card.id === "hdfc-diners-club-privilege");
+    const genericRegalia = genericScores.find((score) => score.card.id === "hdfc-regalia-gold");
+    const smartbuyDiners = smartbuyScores.find((score) => score.card.id === "hdfc-diners-club-privilege");
+    const genericDinersOnlineRewards = genericDiners?.rewardBreakdown
+      .filter((item) => item.spendCategory === "online")
+      .map((item) => item.rewardCategory);
+    const genericRegaliaOnlineRewards = genericRegalia?.rewardBreakdown
+      .filter((item) => item.spendCategory === "online")
+      .map((item) => item.rewardCategory);
+    const smartbuyDinersOnlineRewards = smartbuyDiners?.rewardBreakdown
+      .filter((item) => item.spendCategory === "online")
+      .map((item) => item.rewardCategory);
+
+    expect(genericDinersOnlineRewards).toEqual(expect.arrayContaining(["smartbuy", "offline"]));
+    expect(genericRegaliaOnlineRewards).toEqual(expect.arrayContaining(["select lifestyle brands", "offline"]));
+    expect(smartbuyDinersOnlineRewards).toEqual(["smartbuy"]);
+  });
+
+  it("treats generic travel spend as fully travel-routed instead of a 50-50 SmartBuy blend", () => {
+    const genericScores = scoreCards({
+      query: "top card under 5000"
+    });
+
+    const travelOne = genericScores.find((score) => score.card.id === "hsbc-travelone");
+    const travelOneTravelRewards = travelOne?.rewardBreakdown
+      .filter((item) => item.spendCategory === "travel")
+      .map((item) => item.rewardCategory);
+
+    expect(travelOneTravelRewards).toEqual(["travel"]);
+  });
+
+  it("treats generic grocery spend as fully SmartBuy-like when a card has that grocery path", () => {
+    const genericScores = scoreCards({
+      query: "top card under 5000"
+    });
+
+    const regalia = genericScores.find((score) => score.card.id === "hdfc-regalia-gold");
+    const regaliaGroceryRewards = regalia?.rewardBreakdown
+      .filter((item) => item.spendCategory === "grocery")
+      .map((item) => item.rewardCategory);
+
+    expect(regaliaGroceryRewards).toEqual(["select lifestyle brands"]);
+  });
+
+  it("does not over-penalize premium travel cards on broad mixed-spend queries", () => {
+    const genericScores = scoreCards({
+      query: "top card under 5000"
+    });
+
+    const travelOne = genericScores.find((score) => score.card.id === "hsbc-travelone");
+    const netAdjustment = (travelOne?.fitScore ?? 0) - (travelOne?.estimatedNetValue ?? 0);
+
+    expect(travelOne).toBeDefined();
+    expect(netAdjustment).toBeGreaterThan(-10000);
+  });
+
+  it("does not count excluded categories into annual rewards before ranking adjustment", () => {
+    const genericScores = scoreCards({
+      query: "top card under 5000"
+    });
+
+    const travelOne = genericScores.find((score) => score.card.id === "hsbc-travelone");
+    const countedCategories = new Set(travelOne?.rewardBreakdown.map((item) => item.spendCategory));
+
+    expect(countedCategories.has("fuel")).toBe(false);
+    expect(countedCategories.has("utilities")).toBe(false);
+  });
+
+  it("models post-cap fallback earn rate instead of hard-stopping TravelOne accelerated rewards", () => {
+    const scores = scoreCards({
+      query: "best travel card",
+      spend: {
+        travel: 2000000
+      }
+    });
+
+    const travelOne = scores.find((score) => score.card.id === "hsbc-travelone");
+    const travelBreakdown = travelOne?.rewardBreakdown.find((item) => item.spendCategory === "travel");
+
+    expect(travelBreakdown).toBeDefined();
+    expect(travelBreakdown?.monthlyReward).toBe(143000);
+    expect(travelBreakdown?.annualReward).toBe(1716000);
+  });
+
+  it("does not treat capped insurance wording as fully excluded when a card explicitly allows insurance rewards", () => {
+    const scores = scoreCards({
+      query: "best card for insurance spends",
+      spend: {
+        online: 0,
+        offline: 0,
+        travel: 0,
+        dining: 0,
+        grocery: 0,
+        fuel: 0,
+        amazon: 0,
+        upi: 0,
+        utilities: 0,
+        rent: 0,
+        insurance: 53000,
+        education: 0,
+        gold: 0
+      }
+    });
+
+    const infinia = scores.find((score) => score.card.id === "hdfc-infinia-metal");
+    expect(infinia?.rewardBreakdown.some((item) => item.spendCategory === "insurance")).toBe(true);
+  });
+
+  it("lets capped rent rules override a generic rent exclusion", () => {
+    const scores = scoreCards({
+      query: "best card for rent spends",
+      spend: {
+        online: 0,
+        offline: 0,
+        travel: 0,
+        dining: 0,
+        grocery: 0,
+        fuel: 0,
+        amazon: 0,
+        upi: 0,
+        utilities: 0,
+        rent: 53000,
+        insurance: 0,
+        education: 0,
+        gold: 0
+      }
+    });
+
+    const hsbcPremier = scores.find((score) => score.card.id === "hsbc-premier");
+    const magnusBurgundy = scores.find((score) => score.card.id === "axis-magnus-burgundy");
+
+    expect(hsbcPremier?.rewardBreakdown.some((item) => item.spendCategory === "rent")).toBe(true);
+    expect(magnusBurgundy?.rewardBreakdown.some((item) => item.spendCategory === "rent")).toBe(true);
+  });
+
+  it("lets Atlas use base rewards for education spend when education is rewarded", () => {
+    const scores = scoreCards({
+      query: "best axis card for education payments",
+      spend: {
+        online: 0,
+        offline: 0,
+        travel: 0,
+        dining: 0,
+        grocery: 0,
+        fuel: 0,
+        amazon: 0,
+        upi: 0,
+        utilities: 0,
+        rent: 0,
+        insurance: 0,
+        education: 53000,
+        gold: 0
+      }
+    });
+
+    const atlas = scores.find((score) => score.card.id === "axis-atlas");
+    const educationBreakdown = atlas?.rewardBreakdown.find((item) => item.spendCategory === "education");
+
+    expect(educationBreakdown?.rewardCategory).toBe("offline");
+  });
+
+  it("counts joining and renewal-style hotel benefits for Marriott Bonvoy HDFC", () => {
+    const scores = scoreCards({
+      query: "top card under 5000"
+    });
+
+    const marriott = scores.find((score) => score.card.id === "hdfc-marriott-bonvoy");
+
+    expect(marriott).toBeDefined();
+    expect(marriott?.estimatedNetValue).toBeGreaterThan(5305);
+    expect(marriott?.reasons).toEqual(
+      expect.arrayContaining([expect.stringMatching(/Joining and renewal benefits add about Rs/i)])
+    );
+  });
+
+  it("adds broad-ranking credit for cards that reward usually excluded categories", () => {
+    const broadScores = scoreCards({
+      query: "top cards"
+    });
+
+    const hsbcPremier = broadScores.find((score) => score.card.id === "hsbc-premier");
+
+    expect(hsbcPremier).toBeDefined();
+    expect(hsbcPremier?.reasons).toEqual(
+      expect.arrayContaining([expect.stringMatching(/Rewards on usually excluded categories improve broader card utility/i)])
+    );
   });
 });
 

@@ -58,8 +58,12 @@ function searchableTextForCard(card: CreditCard) {
     ...card.bestFor,
     ...card.tags,
     ...card.exclusions,
+    ...(card.exclusionCodes ?? []),
+    ...(card.specialSpendRules?.map((rule) => [rule.category, rule.treatment, rule.notes].filter(Boolean).join(" ")) ?? []),
     ...(card.milestoneBenefits ?? []),
-    ...(card.additionalBenefits ?? [])
+    ...(card.additionalBenefits ?? []),
+    ...(card.additionalDetails ?? []),
+    ...(card.internalNotes ?? [])
   ]
     .join(" ")
     .toLowerCase();

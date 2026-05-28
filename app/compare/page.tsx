@@ -1,9 +1,10 @@
+import Link from "next/link";
+import { ExternalLink } from "lucide-react";
 import { cards } from "@/lib/cards";
+import { getLoungeConditions } from "@/lib/lounge";
+import LoungeInfo from "@/app/ui/LoungeInfo";
 
-function loungeText(card: (typeof cards)[number]) {
-  if (card.loungeDomestic === "unlimited" || card.loungeInternational === "unlimited") return "Unlimited";
-  return `${card.loungeDomestic + card.loungeInternational} visits listed`;
-}
+type Card = (typeof cards)[number];
 
 type Props = {
   searchParams: Promise<{
@@ -12,19 +13,166 @@ type Props = {
   }>;
 };
 
+function formatCurrency(value: number | null | undefined) {
+  if (value === null || value === undefined) return "Not listed";
+  return `Rs ${value.toLocaleString("en-IN")}`;
+}
+
+function hasFeeWaiverSpend(value: number | null | undefined) {
+  return typeof value === "number" && value > 0;
+}
+
+function formatRewardCap(value: number | null | undefined, rewardType: string) {
+  if (!value) return "-";
+  return `${value.toLocaleString("en-IN")} ${rewardType}`;
+}
+
+function loungeValue(value: Card["loungeDomestic"] | Card["loungeInternational"]) {
+  return value === "unlimited" ? "Unlimited" : `${value}`;
+}
+
+function rewardRateLabel(card: Card, reward: Card["rewards"][number]) {
+  if (reward.displayRate) return reward.displayRate;
+
+  const rewardType = card.rewardType.toLowerCase();
+  if (rewardType.includes("point") || rewardType.includes("mile")) {
+    return `${reward.rate} ${card.rewardType} / Rs 100`;
+  }
+
+  return `${reward.rate}%`;
+}
+
+function rewardSummary(card: Card) {
+  return card.rewards
+    .slice(0, 3)
+    .map((reward) => `${reward.displayCategory ?? reward.category}: ${rewardRateLabel(card, reward)}`)
+    .join("; ");
+}
+
+function smartbuyCapSummary(card: Card) {
+  const smartbuyRewards = card.rewards.filter((reward) => reward.category.includes("smartbuy"));
+  if (smartbuyRewards.length === 0) return "Not listed";
+
+  const caps = smartbuyRewards.map((reward) => {
+    const parts = [];
+    if (reward.capDaily) parts.push(`daily ${formatRewardCap(reward.capDaily, card.rewardType)}`);
+    if (reward.capMonthly) parts.push(`monthly ${formatRewardCap(reward.capMonthly, card.rewardType)}`);
+    return `${reward.category}: ${parts.length ? parts.join(", ") : "no cap listed"}`;
+  });
+
+  return caps.join("; ");
+}
+
+function redemptionSummary(card: Card) {
+  if (!card.redemption) return "Not listed";
+
+  const parts: string[] = [];
+  if (typeof card.redemption.smartBuyFlightHotelValue === "number") {
+    parts.push(`SmartBuy travel: upto Rs ${card.redemption.smartBuyFlightHotelValue} per point`);
+  }
+  if (typeof card.redemption.airMilesValue === "number") {
+    parts.push(`Air miles: upto Rs ${card.redemption.airMilesValue} per point`);
+  }
+  if (typeof card.redemption.accorValue === "number") {
+    parts.push(`Accor: upto Rs ${card.redemption.accorValue} per point *considering using accor redemption`);
+  }
+  if (typeof card.redemption.statementBalanceValue === "number") {
+    parts.push(`Statement credit: upto Rs ${card.redemption.statementBalanceValue} per point`);
+  }
+
+  return parts.length ? parts.join("; ") : "Not listed";
+}
+
+function listPreview(items: string[] | undefined, count = 4) {
+  if (!items || items.length === 0) return "Not listed";
+  return items.slice(0, count).join(", ");
+}
+
+function milestoneSummary(card: Card) {
+  return listPreview(card.milestoneBenefits, 4);
+}
+
+function CompareOverviewCard({ card }: { card: Card }) {
+  const loungeConditions = getLoungeConditions(card);
+  const showFeeWaiver = hasFeeWaiverSpend(card.feeWaiverSpend);
+
+  return (
+    <article className="panel card compare-card">
+      <div>
+        <div className="meta">
+          <span>{card.issuer}</span>
+        </div>
+        <h2>{card.name}</h2>
+      </div>
+
+      <div className="meta">
+        {card.tags.slice(0, 5).map((tag) => (
+          <span className="badge" key={`${card.id}-${tag}`}>
+            {tag}
+          </span>
+        ))}
+      </div>
+
+      <div className="stats compare-card-stats">
+        <div className="stat">
+          <strong>{formatCurrency(card.annualFee)}</strong>
+          <span>Annual fee</span>
+        </div>
+        {showFeeWaiver ? (
+          <div className="stat">
+            <strong>{formatCurrency(card.feeWaiverSpend)}</strong>
+            <span>Fee waiver spend</span>
+          </div>
+        ) : null}
+        <div className="stat">
+          <strong>{loungeValue(card.loungeDomestic)}</strong>
+          <span className="stat-label">
+            Domestic lounge
+            <LoungeInfo items={loungeConditions} label="Domestic lounge conditions" />
+          </span>
+        </div>
+        <div className="stat">
+          <strong>{card.forexMarkup}%</strong>
+          <span>Forex markup</span>
+        </div>
+      </div>
+
+      <div className="compare-card-section">
+        <strong>Best for</strong>
+        <p className="muted">{card.bestFor.join(", ")}</p>
+      </div>
+
+      <div className="compare-card-section">
+        <strong>Top rewards</strong>
+        <p className="muted">{rewardSummary(card)}</p>
+      </div>
+
+      <div className="actions">
+        <Link className="button secondary" href={`/cards/${card.id}`}>
+          View details
+        </Link>
+        <a className="button" href={card.applyUrl} rel="nofollow sponsored" target="_blank">
+          Apply <ExternalLink size={15} />
+        </a>
+      </div>
+    </article>
+  );
+}
+
 export default async function ComparePage({ searchParams }: Props) {
   const params = await searchParams;
   const first = cards.find((card) => card.id === (params.a ?? "sbi-cashback")) ?? cards[0];
   const second = cards.find((card) => card.id === (params.b ?? "hdfc-millennia")) ?? cards[1];
+  const showFeeWaiverRow = hasFeeWaiverSpend(first.feeWaiverSpend) || hasFeeWaiverSpend(second.feeWaiverSpend);
 
   return (
     <section className="section">
       <div className="page-title">
         <h1>Compare Cards</h1>
-        <p>Side-by-side comparison designed for SEO pages and user decisions.</p>
+        <p>Compare fees, rewards, lounge access, milestone benefits, and exclusions side by side.</p>
       </div>
 
-      <form className="panel card" style={{ margin: "18px 0" }}>
+      <form className="panel card compare-form" style={{ margin: "18px 0" }}>
         <div className="filters">
           <div className="field">
             <label htmlFor="a">First card</label>
@@ -47,49 +195,105 @@ export default async function ComparePage({ searchParams }: Props) {
             </select>
           </div>
         </div>
-        <button className="button">Compare</button>
+        <button className="button compare-submit">Compare</button>
       </form>
 
-      <div className="table-wrap">
-        <table className="compare-table">
-          <tbody>
-            <tr>
-              <th>Feature</th>
-              <th>{first.name}</th>
-              <th>{second.name}</th>
-            </tr>
-            <tr>
-              <td>Issuer</td>
-              <td>{first.issuer}</td>
-              <td>{second.issuer}</td>
-            </tr>
-            <tr>
-              <td>Annual fee</td>
-              <td>Rs {first.annualFee}</td>
-              <td>Rs {second.annualFee}</td>
-            </tr>
-            <tr>
-              <td>Best for</td>
-              <td>{first.bestFor.join(", ")}</td>
-              <td>{second.bestFor.join(", ")}</td>
-            </tr>
-            <tr>
-              <td>Lounge access</td>
-              <td>{loungeText(first)}</td>
-              <td>{loungeText(second)}</td>
-            </tr>
-            <tr>
-              <td>Forex markup</td>
-              <td>{first.forexMarkup}%</td>
-              <td>{second.forexMarkup}%</td>
-            </tr>
-            <tr>
-              <td>Common exclusions</td>
-              <td>{first.exclusions.join(", ")}</td>
-              <td>{second.exclusions.join(", ")}</td>
-            </tr>
-          </tbody>
-        </table>
+      <div className="grid compare-overview">
+        <CompareOverviewCard card={first} />
+        <CompareOverviewCard card={second} />
+      </div>
+
+      <div className="panel compare-table-shell">
+        <div className="table-wrap">
+          <table className="compare-table compare-table-rich">
+            <thead>
+              <tr>
+                <th>Feature</th>
+                <th>{first.name}</th>
+                <th>{second.name}</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Issuer</td>
+                <td>{first.issuer}</td>
+                <td>{second.issuer}</td>
+              </tr>
+              <tr>
+                <td>Network</td>
+                <td>{first.network.join(", ")}</td>
+                <td>{second.network.join(", ")}</td>
+              </tr>
+              <tr>
+                <td>Joining fee</td>
+                <td>{formatCurrency(first.joiningFee)}</td>
+                <td>{formatCurrency(second.joiningFee)}</td>
+              </tr>
+              <tr>
+                <td>Annual fee</td>
+                <td>{formatCurrency(first.annualFee)}</td>
+                <td>{formatCurrency(second.annualFee)}</td>
+              </tr>
+              {showFeeWaiverRow ? (
+                <tr>
+                  <td>Fee waiver spend</td>
+                  <td>{hasFeeWaiverSpend(first.feeWaiverSpend) ? formatCurrency(first.feeWaiverSpend) : "-"}</td>
+                  <td>{hasFeeWaiverSpend(second.feeWaiverSpend) ? formatCurrency(second.feeWaiverSpend) : "-"}</td>
+                </tr>
+              ) : null}
+              <tr>
+                <td>Reward type</td>
+                <td>{first.rewardType}</td>
+                <td>{second.rewardType}</td>
+              </tr>
+              <tr>
+                <td>Best for</td>
+                <td>{first.bestFor.join(", ")}</td>
+                <td>{second.bestFor.join(", ")}</td>
+              </tr>
+              <tr>
+                <td>Top reward categories</td>
+                <td>{rewardSummary(first)}</td>
+                <td>{rewardSummary(second)}</td>
+              </tr>
+              <tr>
+                <td>SmartBuy / accelerated caps</td>
+                <td>{smartbuyCapSummary(first)}</td>
+                <td>{smartbuyCapSummary(second)}</td>
+              </tr>
+              <tr>
+                <td>Domestic lounge</td>
+                <td>{loungeValue(first.loungeDomestic)}</td>
+                <td>{loungeValue(second.loungeDomestic)}</td>
+              </tr>
+              <tr>
+                <td>International lounge</td>
+                <td>{loungeValue(first.loungeInternational)}</td>
+                <td>{loungeValue(second.loungeInternational)}</td>
+              </tr>
+              <tr>
+                <td>Forex markup</td>
+                <td>{first.forexMarkup}%</td>
+                <td>{second.forexMarkup}%</td>
+              </tr>
+              <tr>
+                <td>Milestone benefits</td>
+                <td>{milestoneSummary(first)}</td>
+                <td>{milestoneSummary(second)}</td>
+              </tr>
+              <tr>
+                <td>Redemption</td>
+                <td>{redemptionSummary(first)}</td>
+                <td>{redemptionSummary(second)}</td>
+              </tr>
+              <tr>
+                <td>Key exclusions</td>
+                <td>{listPreview(first.exclusions, 6)}</td>
+                <td>{listPreview(second.exclusions, 6)}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </section>
   );

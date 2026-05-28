@@ -1,4 +1,50 @@
 {
+  "hdfc-infinia-metal": {
+    "tips": [
+      {
+        "text": "Activate HDFC Global Value Program to get an additional 1% cashback on international spends.",
+        "sourceType": "manual",
+        "sourceLabel": "Manual"
+      }
+    ]
+  },
+  "hdfc-regalia-gold": {
+    "tips": [
+      {
+        "text": "Activate HDFC Global Value Program to get an additional 1% cashback on international spends.",
+        "sourceType": "manual",
+        "sourceLabel": "Manual"
+      }
+    ]
+  },
+  "hdfc-diners-club-black-metal": {
+    "tips": [
+      {
+        "text": "Activate HDFC Global Value Program to get an additional 1% cashback on international spends.",
+        "sourceType": "manual",
+        "sourceLabel": "Manual"
+      }
+    ]
+  },
+  "hdfc-diners-club-privilege": {
+    "updates": [
+      {
+        "title": "HDFC revised Diners Privilege rewards, lounge access and DCC rules",
+        "summary": "Reward earnings moved to 4 reward points per Rs 200 on eligible categories from 15 May 2026. Lounge access becomes spend-gated from the quarter starting 1 July 2026, with 2 domestic and 1 international access per quarter available only after Rs 60,000 prior-quarter spend. The official change notice also revises INR DCC markup to 1.75% and the card reissuance fee to Rs 199.",
+        "sourceType": "manual",
+        "sourceLabel": "HDFC official change notice",
+        "sourceUrl": "https://www.hdfc.bank.in/content/dam/hdfcbankpws/in/en/pdf/common/Credit-Cards/Diners-Privilege-Product-Feature-Change.pdf",
+        "publishedAt": "2026-05-15"
+      }
+    ],
+    "tips": [
+      {
+        "text": "Activate HDFC Global Value Program to get an additional 1% cashback on international spends.",
+        "sourceType": "manual",
+        "sourceLabel": "Manual"
+      }
+    ]
+  },
   "indusind-legend": {
     "updates": [
       {

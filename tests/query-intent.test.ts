@@ -51,4 +51,45 @@ describe("query intent parser", () => {
     expect(intent.needsLatestInfo).toBe(true);
     expect(intent.issuers).toContain("SBI Card");
   });
+
+  it("parses issuer-led recommendation questions with fee caps", () => {
+    const intent = parseQueryIntent({
+      query: "top icici card under 5000"
+    });
+
+    expect(intent.issuers).toContain("ICICI Bank");
+    expect(intent.maxAnnualFee).toBe(5000);
+    expect(intent.useCases).toHaveLength(0);
+  });
+
+  it("parses issuer-led travel recommendation questions", () => {
+    const intent = parseQueryIntent({
+      query: "best axis travel card"
+    });
+
+    expect(intent.issuers).toContain("Axis Bank");
+    expect(intent.useCases).toContain("travel");
+  });
+
+  it("parses life time free phrasing and focused spend intent", () => {
+    const intent = parseQueryIntent({
+      query: "top life time free cards for grocery spends"
+    });
+
+    expect(intent.segments).toContain("ltf");
+    expect(intent.inferredSpend?.grocery).toBe(53000);
+    expect(Object.entries(intent.inferredSpend ?? {}).every(([category, amount]) => category === "grocery" || amount === 0)).toBe(true);
+  });
+
+  it("parses spend-mix percentages into a spend profile", () => {
+    const intent = parseQueryIntent({
+      query: "my spends are 50% travel, 25% grocery, 25% utilities, suggest a card for me"
+    });
+
+    expect(intent.inferredSpend).toMatchObject({
+      travel: 26500,
+      grocery: 13250,
+      utilities: 13250
+    });
+  });
 });

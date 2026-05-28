@@ -1,0 +1,80 @@
+[
+    {
+        "id": "onecard",
+        "issuer": "OneCard Partner Banks",
+        "name": "One Credit Card",
+        "network": [
+            "Visa",
+            "Mastercard",
+            "RuPay"
+        ],
+        "joiningFee": 0,
+        "annualFee": 0,
+        "feeWaiverSpend": null,
+        "bestFor": [
+            "lifetime free",
+            "metal card",
+            "low forex",
+            "app control"
+        ],
+        "rewardType": "OneRewards",
+        "rewards": [
+            {
+                "category": "online",
+                "rate": 1,
+                "capMonthly": null
+            },
+            {
+                "category": "offline",
+                "rate": 1,
+                "capMonthly": null
+            }
+        ],
+        "popularityScore": 82,
+        "loungeDomestic": 0,
+        "loungeInternational": 0,
+        "forexMarkup": 1,
+        "tags": [
+            "onecard",
+            "metal",
+            "lifetime free",
+            "low forex",
+            "app control",
+            "partner banks"
+        ],
+        "exclusions": [
+            "reward multipliers depend on top 2 spend categories each month",
+            "issuing bank and network may vary by applicant",
+            "some partner-bank-specific MITC terms differ"
+        ],
+        "milestoneBenefits": [],
+        "additionalBenefits": [
+            "Lifetime-free metal credit card",
+            "5X rewards on top 2 spend categories each month",
+            "Points are credited instantly and do not expire under active-use conditions",
+            "No rewards redemption fee or minimum threshold for standard app redemption",
+            "Low forex fee of 1%",
+            "Managed through the OneCard app"
+        ],
+        "redemption": {
+            "statementBalanceValue": 0.1,
+            "minimumPointsForStatementCredit": 500,
+            "pointsExpiryYears": null,
+            "redemptionFee": 0
+        },
+        "eligibility": {
+            "salaried": [
+                "Minimum age 18 years",
+                "Eligibility is subject to partner-bank approval criteria"
+            ],
+            "selfEmployed": [
+                "Minimum age 18 years",
+                "Eligibility is subject to partner-bank approval criteria"
+            ]
+        },
+        "sourceUrl": "https://www.getonecard.app/credit-card/",
+        "applyUrl": "https://www.getonecard.app/apply/",
+        "lastVerified": "2026-05-11",
+        "verificationStatus": "official-mixed"
+    }
+]

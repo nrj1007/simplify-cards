@@ -2678,28 +2678,44 @@
     "rewards": [
       {
         "category": "online",
-        "rate": 5,
-        "capMonthly": null
+        "rate": 20,
+        "capMonthly": null,
+        "displayCategory": "AJIO and JioMart online",
+        "displayRate": "20 Reward Points / Rs 100"
       },
       {
-        "category": "offline",
-        "rate": 2.5,
-        "capMonthly": null
+        "category": "retail",
+        "rate": 10,
+        "capMonthly": null,
+        "displayCategory": "other participating Reliance Retail stores",
+        "displayRate": "10 Reward Points / Rs 100"
       },
       {
         "category": "dining",
-        "rate": 1.25,
-        "capMonthly": null
+        "rate": 5,
+        "capMonthly": null,
+        "displayRate": "5 Reward Points / Rs 100"
+      },
+      {
+        "category": "entertainment",
+        "rate": 5,
+        "capMonthly": null,
+        "displayCategory": "movies and entertainment",
+        "displayRate": "5 Reward Points / Rs 100"
       },
       {
         "category": "travel",
-        "rate": 1.25,
-        "capMonthly": null
+        "rate": 5,
+        "capMonthly": null,
+        "displayCategory": "domestic airlines and international",
+        "displayRate": "5 Reward Points / Rs 100"
       },
       {
         "category": "offline",
-        "rate": 0.5,
-        "capMonthly": null
+        "rate": 2,
+        "capMonthly": null,
+        "displayRate": "2 Reward Points / Rs 100",
+        "displayCategory": "others"
       }
     ],
     "loungeDomestic": 8,
@@ -2730,9 +2746,9 @@
       "Additional Reliance discount vouchers worth up to Rs 11,999 at participating Reliance Retail stores",
       "20 Reward Points per Rs 100 on AJIO and JioMart online spends, except UPI payments",
       "10 Reward Points per Rs 100 at other participating Reliance Retail stores, except UPI payments",
-      "5 Reward Points per Rs 100 on dining, movies, entertainment, domestic airline and international spends",
+      "5 Reward Points per Rs 100 on dining, movies and entertainment, domestic airline and international spends",
       "2 Reward Points per Rs 100 on other eligible retail purchases",
-      "4 Reward Points equal Re 1",
+      "1 Reward Point equals Rs 0.25",
       "One monthly BookMyShow movie ticket benefit worth up to Rs 250, subject to product terms",
       "8 complimentary domestic airport lounge visits per year, capped at 2 per quarter",
       "4 complimentary international lounge visits per year, capped at 2 per quarter",
