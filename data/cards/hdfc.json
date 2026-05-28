@@ -148,16 +148,22 @@
       }
     ],
     "exclusions": [
-      "rewards on grocery, utilities, telecom and insurance are capped as per product terms",
-      "wallet loads, rent, government transactions, and other excluded categories as per HDFC Bank terms",
-      "fees and charges do not earn reward points"
+      "fuel",
+      "rent",
+      "wallet loads",
+      "government transactions",
+      "cash withdrawal",
+      "emi transactions",
+      "fees and charges"
     ],
     "exclusionCodes": [
+      "fuel",
       "rent",
       "wallet_load",
+      "government",
       "cash_withdrawal",
-      "fees_and_charges",
-      "emi"
+      "emi",
+      "fees_and_charges"
     ],
     "milestoneBenefits": [
       "Renewal fee waived on annual spends of Rs 10 lakh or more"
