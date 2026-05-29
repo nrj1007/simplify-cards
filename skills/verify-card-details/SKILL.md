@@ -106,6 +106,13 @@ Scan the main pages or perform targeted queries to locate notices under:
 - **Client-Side Rendering**: IndusInd pages frequently use dynamic elements or tabbed details (e.g., separating "Benefits" and "Charges" tabs). When using automated readers, trigger full browser page loads (`read_browser_page`) if base HTML lacks the tab contents.
 - **CDN Cache Bypassing**: If the page content appears outdated or doesn't reflect a announced devaluation, append a timestamp query parameter (e.g., `?v=1ea25740`) to force fetching directly from the server.
 
+### 4. Extracting and Saving Card Images
+- To locate the official card face thumbnail image, search the page content for image paths containing the card name or `creditCard` subfolders (e.g., `/content/dam/indusind-platform-images/productCategory/desktopImage/creditCard/`).
+- Use tools or scripts to download the image directly to `public/images/` using a clean name.
+  * *Example PowerShell Command:*
+    `Invoke-WebRequest -Uri "https://www.indusind.bank.in/content/dam/indusind-platform-images/productCategory/desktopImage/creditCard/th-pioneer-heritage-credit-card1.png" -OutFile "public/images/indusind-pioneer-heritage-metal.png"`
+- Add the corresponding `"imageUrl"` attribute to the card's JSON object (e.g., `"imageUrl": "/images/indusind-pioneer-heritage-metal.png"`).
+
 ---
 
 ## HDFC Bank Specific Scraping & Auditing Guidelines
