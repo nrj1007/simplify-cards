@@ -247,20 +247,115 @@
       "airMilesValue": 1,
       "airlinePartners": [
         {
-          "airline": "Turkish Airlines",
-          "programme": "Miles&Smiles",
+          "airline": "Air France / KLM",
+          "programme": "Flying Blue",
+          "ratio": "1:1"
+        },
+        {
+          "airline": "Finnair",
+          "programme": "Finnair Plus",
+          "ratio": "1:1"
+        },
+        {
+          "airline": "AirAsia",
+          "programme": "AirAsia rewards",
+          "ratio": "1:1"
+        },
+        {
+          "airline": "Vietnam Airlines",
+          "programme": "Lotusmiles",
+          "ratio": "1:1"
+        },
+        {
+          "airline": "Air Canada",
+          "programme": "Aeroplan",
+          "ratio": "2:1"
+        },
+        {
+          "airline": "Air India",
+          "programme": "Maharaja Club",
           "ratio": "2:1"
         },
         {
           "airline": "Avianca",
           "programme": "LifeMiles",
           "ratio": "2:1"
+        },
+        {
+          "airline": "British Airways",
+          "programme": "Executive Club",
+          "ratio": "2:1"
+        },
+        {
+          "airline": "Cathay Pacific",
+          "programme": "Asia Miles",
+          "ratio": "2:1"
+        },
+        {
+          "airline": "Etihad Airways",
+          "programme": "Etihad Guest",
+          "ratio": "2:1"
+        },
+        {
+          "airline": "Qatar Airways",
+          "programme": "Privilege Club",
+          "ratio": "2:1"
+        },
+        {
+          "airline": "Singapore Airlines",
+          "programme": "KrisFlyer",
+          "ratio": "2:1"
+        },
+        {
+          "airline": "Thai Airways",
+          "programme": "Royal Orchid Plus",
+          "ratio": "2:1"
+        },
+        {
+          "airline": "Turkish Airlines",
+          "programme": "Miles&Smiles",
+          "ratio": "2:1"
+        },
+        {
+          "airline": "United Airlines",
+          "programme": "MileagePlus",
+          "ratio": "2:1"
+        },
+        {
+          "airline": "SpiceJet",
+          "programme": "SpiceClub",
+          "ratio": "2:1"
         }
       ],
       "hotelPartners": [
         {
+          "hotelGroup": "IHG",
+          "programme": "IHG One Rewards",
+          "ratio": "1:1"
+        },
+        {
+          "hotelGroup": "Wyndham",
+          "programme": "Wyndham Rewards",
+          "ratio": "1:1"
+        },
+        {
+          "hotelGroup": "Radisson",
+          "programme": "Radisson Rewards",
+          "ratio": "1:1"
+        },
+        {
           "hotelGroup": "Accor",
           "programme": "ALL (Accor Live Limitless)",
+          "ratio": "2:1"
+        },
+        {
+          "hotelGroup": "Club ITC",
+          "programme": "Club ITC Green Points",
+          "ratio": "2:1"
+        },
+        {
+          "hotelGroup": "Marriott",
+          "programme": "Marriott Bonvoy",
           "ratio": "2:1"
         }
       ]

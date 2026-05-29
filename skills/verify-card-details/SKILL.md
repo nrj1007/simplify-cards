@@ -105,3 +105,23 @@ Scan the main pages or perform targeted queries to locate notices under:
 ### 3. Scraping Strategy
 - **Client-Side Rendering**: IndusInd pages frequently use dynamic elements or tabbed details (e.g., separating "Benefits" and "Charges" tabs). When using automated readers, trigger full browser page loads (`read_browser_page`) if base HTML lacks the tab contents.
 - **CDN Cache Bypassing**: If the page content appears outdated or doesn't reflect a announced devaluation, append a timestamp query parameter (e.g., `?v=1ea25740`) to force fetching directly from the server.
+
+---
+
+## HDFC Bank Specific Scraping & Auditing Guidelines
+
+When auditing or verifying **HDFC Bank** cards, use the following guidelines:
+
+### 1. Key URLs & Ingestion Targets
+- **SmartBuy Rewards Portal**:
+  `https://offers.smartbuy.hdfcbank.com/` and card-specific transfer pages:
+  - Infinia: `https://offers.reward360.in/infinia/miles_transfer`
+- **Official Terms & Conditions**:
+  Scan for the card's specific Rewards Points Program T&Cs PDF on the official HDFC site:
+  - Example: `https://www.hdfc.bank.in/content/dam/hdfcbankpws/in/en/personal-banking/discover-products/cards/credit-cards/infinia-credit-card/rewards-points-program-terms-and-conditions.pdf`
+
+### 2. Points Transfer & Ratios
+- **1:1 Partners**: Air France/KLM (Flying Blue), Finnair Plus, AirAsia, Vietnam Airlines (Lotusmiles), IHG One Rewards, Wyndham Rewards, Radisson Rewards.
+- **2:1 Partners (100:50)**: Air Canada (Aeroplan), Air India (Maharaja Club), Avianca (LifeMiles), British Airways (Executive Club), Cathay Pacific (Asia Miles), Etihad Guest, Qatar Airways (Privilege Club), Singapore Airlines (KrisFlyer), Thai Airways (Royal Orchid Plus), Turkish Airlines (Miles&Smiles), United (MileagePlus), SpiceJet (SpiceClub), Accor (ALL), Club ITC, Marriott Bonvoy.
+- **Turnaround Time (TAT)**: Leave the `tatDays` field undefined in the JSON file if no turnaround time is verified, which triggers the UI to hide the TAT column.
+- **Avios Transfer Strategy**: Take note that Finnair Plus converts at 1:1, allowing users to link their Finnair accounts and transfer Avios 1:1 to British Airways or Qatar Airways (which are otherwise direct 2:1 partners from HDFC).
