@@ -214,7 +214,7 @@ describe("scoreCards", () => {
     });
 
     const reliancePrime = scores.find((score) => score.card.id === "reliance-sbi-prime");
-    expect(reliancePrime?.estimatedMilestoneValue).toBe(8750);
+    expect(reliancePrime?.estimatedMilestoneValue).toBe(4375);
   });
 
   it("counts Regalia Gold voucher milestones from 'Rs X worth' wording", () => {
@@ -223,7 +223,7 @@ describe("scoreCards", () => {
     });
 
     const regaliaGold = scores.find((score) => score.card.id === "hdfc-regalia-gold");
-    expect(regaliaGold?.estimatedMilestoneValue).toBe(6500);
+    expect(regaliaGold?.estimatedMilestoneValue).toBe(3250);
   });
 
   it("uses the best milestone and fee-waiver upside for broad ranking comparisons", () => {

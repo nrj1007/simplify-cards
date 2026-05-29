@@ -593,20 +593,32 @@ function estimateBenefitLineValue(card: CreditCard, benefit: string) {
 
   let value = 0;
 
-  const rupeePatterns = [
-    /rs ([\d,.]+(?:\.\d+)?) worth/gi,
-    /voucher worth rs ([\d,.]+(?:\.\d+)?)/gi,
-    /vouchers worth rs ([\d,.]+(?:\.\d+)?)/gi,
-    /cashback of rs ([\d,.]+(?:\.\d+)?)/gi,
-    /(?<!voucher )(?<!vouchers )worth rs ([\d,.]+(?:\.\d+)?)/gi
-  ];
+  // Voucher benefits are discounted to 50% of face value — not all vouchers are useful in practice.
+  const voucherDiscount = 0.5;
+  const isVoucherBenefit = /\bvoucher(s)?\b/i.test(benefit);
 
-  for (const pattern of rupeePatterns) {
-    const matches = benefit.matchAll(pattern);
-    for (const match of matches) {
-      const parsed = parseRupeeAmount(match[1]);
-      if (parsed) value += parsed;
-    }
+  // "rs X worth ..." — discounted when the line describes vouchers, full value otherwise
+  for (const match of benefit.matchAll(/rs ([\d,.]+(?:\.\d+)?) worth/gi)) {
+    const parsed = parseRupeeAmount(match[1]);
+    if (parsed) value += isVoucherBenefit ? Math.round(parsed * voucherDiscount) : parsed;
+  }
+
+  // "voucher(s) worth rs X" — always discounted
+  for (const match of benefit.matchAll(/vouchers? worth rs ([\d,.]+(?:\.\d+)?)/gi)) {
+    const parsed = parseRupeeAmount(match[1]);
+    if (parsed) value += Math.round(parsed * voucherDiscount);
+  }
+
+  // "cashback of rs X" — always full value
+  for (const match of benefit.matchAll(/cashback of rs ([\d,.]+(?:\.\d+)?)/gi)) {
+    const parsed = parseRupeeAmount(match[1]);
+    if (parsed) value += parsed;
+  }
+
+  // "worth rs X" not preceded by "voucher(s)" — discounted when the line is a voucher benefit, full value otherwise
+  for (const match of benefit.matchAll(/(?<!vouchers? )worth rs ([\d,.]+(?:\.\d+)?)/gi)) {
+    const parsed = parseRupeeAmount(match[1]);
+    if (parsed) value += isVoucherBenefit ? Math.round(parsed * voucherDiscount) : parsed;
   }
 
   const pointValue = estimatePointUnitValue(card) || estimateFallbackPointUnitValue(card);
