@@ -20,13 +20,25 @@
       {
         "category": "dining",
         "rate": 2,
-        "displayRate": "10 EazyPoints per Rs 100",
+        "displayRate": "Extra 25% off up to Rs 1,000 + 3X EazyPoints",
         "capMonthly": 5000
       },
       {
+        "category": "online",
+        "rate": 2,
+        "displayRate": "10 reward points per Rs 100",
+        "capMonthly": null
+      },
+      {
+        "category": "travel",
+        "rate": 2,
+        "displayRate": "10 reward points per Rs 100",
+        "capMonthly": null
+      },
+      {
         "category": "base",
-        "rate": 0.5,
-        "displayRate": "2 EazyPoints per Rs 100",
+        "rate": 0.8,
+        "displayRate": "4 reward points per Rs 100",
         "capMonthly": null
       }
     ],
@@ -43,19 +55,34 @@
       "travel"
     ],
     "exclusions": [
-      "extra discount works only when booking and paying through EazyDiner app via PayEazy",
       "fuel",
       "cash advances"
     ],
+    "exclusionCodes": [
+      "fuel",
+      "cash_advance"
+    ],
+    "joiningBenefits": [
+      "12-month EazyDiner Prime membership (worth Rs 3,550)",
+      "2,000 welcome EazyPoints",
+      "The Postcard Hotel voucher worth Rs 7,500"
+    ],
+    "renewalBenefits": [
+      "12-month EazyDiner Prime membership renewal (worth Rs 3,550)",
+      "2,000 welcome EazyPoints",
+      "The Postcard Hotel voucher worth Rs 7,500"
+    ],
     "milestoneBenefits": [
-      "Additional monthly dining discount unlocks after eligible non-dining spend threshold"
+      "Additional Rs 3,000 monthly dining discount cap unlocked upon spending Rs 30,000 or more in the previous calendar month on non-dining transactions"
     ],
     "additionalBenefits": [
-      "12-month EazyDiner Prime membership",
-      "Extra 25% off up to Rs 1,000 per dining transaction on EazyDiner app",
-      "Monthly dining discount cap up to Rs 5,000 with spend unlock",
-      "The Postcard Hotel voucher worth Rs 7,500",
-      "8 complimentary domestic lounge visits annually"
+      "Complimentary premium alcoholic beverage for each diner at over 200 select restaurants booked via EazyDiner app",
+      "1% fuel surcharge waiver at all fuel stations in India",
+      "Total Protect insurance cover protecting against fraudulent transactions up to the credit limit"
+    ],
+    "additionalDetails": [
+      "Dining discount is capped at Rs 2,000 per month without spends criteria",
+      "Spend Rs 30,000 or more on non-dining transactions in the previous calendar month to unlock an additional Rs 3,000 dining discount cap (total Rs 5,000 per month)"
     ],
     "redemption": {
       "statementBalanceValue": 0.2,
@@ -69,9 +96,15 @@
         "Eligibility is subject to IndusInd Bank approval criteria"
       ]
     },
-    "sourceUrl": "https://www.indusind.com/in/en/personal/cards/credit-card/eazydiner-credit-card.html",
-    "applyUrl": "https://www.indusind.com/in/en/personal/cards/credit-card/eazydiner-credit-card.html",
-    "lastVerified": "2026-05-11",
+    "internalNotes": [
+      "Card details manually reviewed and verified by user on 2026-05-29",
+      "Extra 25% discount is auto-applied and only applicable when booking and paying through the EazyDiner App via PayEazy. Not applicable for physical card payments, other cards, UPI, or wallets.",
+      "Extra 25% discount is not applicable if consecutive transactions are made at the same restaurant within 120 minutes or less.",
+      "Premium alcoholic beverage brand and serving size are at the sole discretion of the restaurant."
+    ],
+    "sourceUrl": "https://www.indusind.bank.in/in/en/personal/cards/credit-card/eazydiner-credit-card.html",
+    "applyUrl": "https://www.indusind.bank.in/in/en/personal/cards/credit-card/eazydiner-credit-card.html",
+    "lastVerified": "2026-05-29",
     "verificationStatus": "official-direct"
   },
   {
