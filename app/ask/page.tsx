@@ -327,6 +327,7 @@ export default async function AskPage({ searchParams }: Props) {
                     </div>
                   </section>
                 ) : null}
+                {/* Hidden as requested: How This Changes by Spend
                 {topCardsQuery && spendScenarioRows.length > 0 ? (
                   <section className="detail-section">
                     <h2>How This Changes by Spend</h2>
@@ -350,6 +351,7 @@ export default async function AskPage({ searchParams }: Props) {
                     </div>
                   </section>
                 ) : null}
+                */}
                 {!topCardsQuery && topCard ? (
                   <div className="stats answer-stats">
                     <div className="stat">

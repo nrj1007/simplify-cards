@@ -3,6 +3,7 @@ import { ExternalLink } from "lucide-react";
 import { cards } from "@/lib/cards";
 import { getLoungeConditions } from "@/lib/lounge";
 import LoungeInfo from "@/app/ui/LoungeInfo";
+import { stripScoringAnnotations } from "@/lib/card-index";
 
 type Card = (typeof cards)[number];
 
@@ -85,7 +86,7 @@ function redemptionSummary(card: Card) {
 
 function listPreview(items: string[] | undefined, count = 4) {
   if (!items || items.length === 0) return "Not listed";
-  return items.slice(0, count).join(", ");
+  return items.slice(0, count).map(stripScoringAnnotations).join(", ");
 }
 
 function milestoneSummary(card: Card) {

@@ -7,6 +7,8 @@ import LoungeInfo from "@/app/ui/LoungeInfo";
 import AskFeedback from "@/app/ui/AskFeedback";
 import type { CreditCard, Redemption } from "@/lib/types";
 
+import { stripScoringAnnotations } from "@/lib/card-index";
+
 type Props = {
   params: Promise<{ id: string }>;
   searchParams: Promise<{

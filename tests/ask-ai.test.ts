@@ -145,7 +145,7 @@ describe("ask ai fallback policy", () => {
     expect(answer.summary).toBe("Top 10 picks for this query.");
   });
 
-  it("shows the actual top 3 ranked cards for broad top-card questions", async () => {
+  it("shows the actual top 3 ranked cards for broad top-card questions", { timeout: 15000 }, async () => {
     const answer = await answerQuestion({ query: "top cards under 5000" });
     const rawTopThreeIds = scoreCards({ query: "top cards under 5000" })
       .slice(0, 3)

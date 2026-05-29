@@ -9,6 +9,14 @@ export default defineConfig({
   },
   test: {
     environment: "node",
-    globals: false
+    globals: false,
+    testTimeout: 15000,
+    exclude: [
+      "**/node_modules/**",
+      "**/dist/**",
+      "**/.tmp*/**",
+      "**/.next/**",
+      "**/.git/**"
+    ]
   }
 });

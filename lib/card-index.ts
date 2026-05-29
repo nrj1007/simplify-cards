@@ -265,3 +265,12 @@ export function getRedemptionBuckets() {
 export function getCardSegments() {
   return Object.keys(cardIndexes.byCardSegment);
 }
+
+/**
+ * Strips scoring-only value annotations from benefit strings before display.
+ * Annotations like "(worth Rs 12,000)" are embedded for the scoring engine
+ * and must not be shown to users.
+ */
+export function stripScoringAnnotations(benefit: string): string {
+  return benefit.replace(/\s*\(worth Rs[\d,]+\)/gi, "").trim();
+}
