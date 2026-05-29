@@ -28,6 +28,10 @@ These fields are displayed directly on the credit card details page in the UI. K
 *   **`additionalBenefits`**: Bullet points showcasing the high-level features of the card (e.g., unlimited airport lounge access, golf games, concierge desk).
 *   **`additionalDetails`**: Key redemption guidelines, category-level capping summaries, and insurance details (e.g., "Grocery rewards are capped at 2,000 RP per calendar month").
 
+> [!IMPORTANT]
+> **Aesthetic Redundancy Rule**:
+> Do NOT duplicate information in `additionalBenefits` or `additionalDetails` that is already captured in structured fields like the `rewards` array (earning rates), `loungeDomestic` / `loungeInternational` (lounge limits), or `redemption` (point value / conversion rates). Keep visible text arrays focused on perks not represented in the tabular grids.
+
 ### B. Hidden Data (`internalNotes`)
 This is an array of strings in the JSON configuration that is **not** rendered in the UI, but **is** fully indexed by the search and Ask AI engine. 
 
@@ -98,9 +102,44 @@ Map textual exclusions (found in the `"exclusions"` array) into canonical consta
 
 *   **Allowed Exclusion Codes:** `fuel`, `rent`, `insurance`, `education`, `gold`, `jewellery`, `utilities`, `telecom`, `wallet_load`, `government`, `tax`, `real_estate`, `property_management`, `cash_advance`, `balance_transfer`, `emi`, `fees_and_charges`, `cash_withdrawal`
 
+> [!NOTE]
+> **Exclusions vs. Revised Rates**:
+> * If a category is completely excluded from earning rewards, add it to `exclusionCodes`.
+> * If a category still earns points but at a revised lower rate (e.g., 0.7 reward points per ₹100 spent), do **not** add it to `exclusionCodes`. Instead, define it in the `rewards` array with the specific rate and a descriptive `displayCategory` and `displayRate` to ensure proper yield calculations in recommendation scoring.
+
 ---
 
-## 4. Verification & Testing Workflow
+## 4. Latest Updates Configuration
+
+Major card updates (devaluations, golf benefit revisions, or lounge spends tracking) are configured in `data/card-content.json`.
+
+*   **Structure**: Each card has an entry with an `updates` array containing items with these fields:
+    *   `title`: Clear headline of the change.
+    *   `summary`: High-level summary of the revision and its effective date.
+    *   `sourceType`: `"manual"` (for official bank announcements) or `"technofino"`.
+    *   `sourceLabel`: Friendly name of the source (e.g., "IndusInd Bank official notice").
+    *   `sourceUrl`: Direct canonical link to the announcement PDF or official web page.
+    *   `publishedAt`: Release date in `YYYY-MM-DD` format.
+
+**Example entry:**
+```json
+"indusind-pioneer-legacy": {
+  "updates": [
+    {
+      "title": "Domestic Lounge access update",
+      "summary": "Effective 1st April, 2026 spends criteria tracking will be initiated to unlock complimentary domestic lounge access from July, 2026 quarter onwards.",
+      "sourceType": "manual",
+      "sourceLabel": "IndusInd Bank official notice",
+      "sourceUrl": "https://www.indusind.bank.in/content/dam/indusind-corporate/Other/Lounge-Terms-and-Conditions.pdf",
+      "publishedAt": "2026-04-01"
+    }
+  ]
+}
+```
+
+---
+
+## 5. Verification & Testing Workflow
 
 Before committing any card changes, you must ensure that all configurations match the schema and all tests are passing.
 
@@ -124,3 +163,8 @@ npm test
 
 > [!WARNING]
 > Do not skip the tests. A single formatting typo in the JSON card files can break recommendation logic and scorecards.
+
+> [!TIP]
+> **Windows PowerShell Execution Policy Workaround**:
+> If running `npm run validate:cards` or `npm test` fails with a `SecurityError` or `PSSecurityException` because script execution is disabled on the system, bypass it using:
+> `powershell -ExecutionPolicy Bypass -Command "npm run validate:cards"`
