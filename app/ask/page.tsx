@@ -187,6 +187,12 @@ export default async function AskPage({ searchParams }: Props) {
     ? answerHighlights.filter((highlight) => !/^By yearly spend on a balanced mix:/i.test(highlight))
     : answerHighlights;
   const loungeConditions = topCard ? getLoungeConditions(topCard.card) : [];
+  const hasDailyCap = topCard?.card.rewards.some(
+    (reward) => typeof reward.capDaily === "number" && reward.capDaily > 0
+  ) ?? false;
+  const hasMonthlyCap = topCard?.card.rewards.some(
+    (reward) => typeof reward.capMonthly === "number" && reward.capMonthly > 0
+  ) ?? false;
   const returnTo = input
     ? `/ask?query=${encodeURIComponent(input.query ?? "")}${input.maxAnnualFee !== undefined ? `&maxAnnualFee=${input.maxAnnualFee}` : ""}`
     : "/ask";
@@ -390,8 +396,8 @@ export default async function AskPage({ searchParams }: Props) {
                           <tr>
                             <th>Category</th>
                             <th>Rate</th>
-                            <th className="cap-column">Daily cap</th>
-                            <th className="cap-column">Monthly cap</th>
+                            {hasDailyCap && <th className="cap-column">Daily cap</th>}
+                            {hasMonthlyCap && <th className="cap-column">Monthly cap</th>}
                           </tr>
                         </thead>
                         <tbody>
@@ -399,8 +405,8 @@ export default async function AskPage({ searchParams }: Props) {
                             <tr key={`${topCard.card.id}-${reward.category}`}>
                               <td>{reward.displayCategory ?? reward.category}</td>
                               <td>{formatRewardRate(reward, topCard.card.rewardType)}</td>
-                              <td className="cap-column">{formatRewardCap(reward.capDaily, topCard.card.rewardType)}</td>
-                              <td className="cap-column">{formatRewardCap(reward.capMonthly, topCard.card.rewardType)}</td>
+                              {hasDailyCap && <td className="cap-column">{formatRewardCap(reward.capDaily, topCard.card.rewardType)}</td>}
+                              {hasMonthlyCap && <td className="cap-column">{formatRewardCap(reward.capMonthly, topCard.card.rewardType)}</td>}
                             </tr>
                           ))}
                         </tbody>
