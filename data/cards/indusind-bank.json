@@ -647,7 +647,38 @@
         "category": "travel",
         "rate": 2.5,
         "capMonthly": null
+      },
+      {
+        "category": "utilities",
+        "displayCategory": "Utility bill payments",
+        "rate": 0.7,
+        "displayRate": "0.7 reward points per Rs 100",
+        "capMonthly": null
+      },
+      {
+        "category": "insurance",
+        "displayCategory": "Insurance premium payments",
+        "rate": 0.7,
+        "displayRate": "0.7 reward points per Rs 100",
+        "capMonthly": null
+      },
+      {
+        "category": "education",
+        "displayCategory": "Education fees",
+        "rate": 0.7,
+        "displayRate": "0.7 reward points per Rs 100",
+        "capMonthly": null
+      },
+      {
+        "category": "rent",
+        "displayCategory": "Rent payments",
+        "rate": 0.7,
+        "displayRate": "0.7 reward points per Rs 100",
+        "capMonthly": null
       }
+    ],
+    "supportingSourceUrls": [
+      "https://www.indusind.bank.in/in/en/personal/revision-indusInd-bank-credit-card-rewards-program.html"
     ],
     "popularityScore": 75,
     "loungeDomestic": "unlimited",
@@ -664,20 +695,10 @@
       "zero forex"
     ],
     "exclusions": [
-      "fuel",
-      "utilities",
-      "insurance payments",
-      "education fees",
-      "rent payments",
-      "government services"
+      "fuel transactions"
     ],
     "exclusionCodes": [
-      "fuel",
-      "utilities",
-      "insurance",
-      "education",
-      "rent",
-      "government"
+      "fuel"
     ],
     "joiningBenefits": [
       "Welcome vouchers worth Rs 1 lakh upon joining fee payment of Rs 1 lakh"
@@ -686,10 +707,12 @@
       "Annual maintenance fee of Rs 25,000 waived upon spending Rs 10 lakhs or more in previous year"
     ],
     "additionalBenefits": [
-      "Zero foreign currency mark-up",
+      "Zero foreign currency mark-up (reduced from 1.8% to 0% w.e.f 5 October 2024)",
       "Unlimited domestic lounge visits",
       "Unlimited international lounge visits on eligible network and programme memberships",
-      "Unlimited complimentary golf games and lessons",
+      "4 complimentary golf games and 4 complimentary golf lessons per month (effective 10 March 2026)",
+      "Complimentary movie tickets on BookMyShow: 4 free tickets per quarter (capped at Rs 1,000 per ticket) plus 20% off (up to Rs 350) for every 2 tickets on non-movie events",
+      "Complimentary dining benefits via EazyDiner: get Rs 3,000 off on total bill around the year at select restaurants",
       "No late payment fee, no over-limit fee, and no cash advancement charges",
       "1 reward point per Rs 100 domestic spend and 2.5 reward points per Rs 100 international spend"
     ],
@@ -712,9 +735,12 @@
         "Pioneer relationship and bank approval required"
       ]
     },
-    "sourceUrl": "https://bank.indusind.com/pioneer/personal-banking/cards/pioneer-heritage-credit-card.html",
-    "applyUrl": "https://bank.indusind.com/pioneer/personal-banking/cards/pioneer-heritage-credit-card.html",
-    "lastVerified": "2026-05-11",
+    "internalNotes": [
+      "Card details manually reviewed and verified by user on 2026-05-29"
+    ],
+    "sourceUrl": "https://www.indusind.bank.in/in/en/personal/cards/credit-card/pioneer-heritage-credit-card.html",
+    "applyUrl": "https://www.indusind.bank.in/in/en/personal/cards/credit-card/pioneer-heritage-credit-card.html",
+    "lastVerified": "2026-05-29",
     "verificationStatus": "official-direct"
   },
   {
