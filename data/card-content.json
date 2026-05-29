@@ -15,6 +15,11 @@
         "text": "Activate HDFC Global Value Program to get an additional 1% cashback on international spends.",
         "sourceType": "manual",
         "sourceLabel": "Manual"
+      },
+      {
+        "text": "Use the Finnair 1:1 Avios transfer workaround to transfer points to British Airways or Qatar Airways at a 1:1 ratio. Transfer to Finnair Plus (1:1) first, then link accounts to move those Avios 1:1 to British Airways or Qatar Airways, bypassing the direct 2:1 transfer ratio.",
+        "sourceType": "manual",
+        "sourceLabel": "Manual"
       }
     ]
   },
@@ -24,6 +29,11 @@
         "text": "Activate HDFC Global Value Program to get an additional 1% cashback on international spends.",
         "sourceType": "manual",
         "sourceLabel": "Manual"
+      },
+      {
+        "text": "Use the Finnair 1:1 Avios transfer workaround to transfer points to British Airways or Qatar Airways at a 1:1 ratio. Transfer to Finnair Plus (1:1) first, then link accounts to move those Avios 1:1 to British Airways or Qatar Airways, bypassing the direct 2:1 transfer ratio.",
+        "sourceType": "manual",
+        "sourceLabel": "Manual"
       }
     ]
   },
@@ -31,6 +41,11 @@
     "tips": [
       {
         "text": "Activate HDFC Global Value Program to get an additional 1% cashback on international spends.",
+        "sourceType": "manual",
+        "sourceLabel": "Manual"
+      },
+      {
+        "text": "Use the Finnair 1:1 Avios transfer workaround to transfer points to British Airways or Qatar Airways at a 1:1 ratio. Transfer to Finnair Plus (1:1) first, then link accounts to move those Avios 1:1 to British Airways or Qatar Airways, bypassing the direct 2:1 transfer ratio.",
         "sourceType": "manual",
         "sourceLabel": "Manual"
       }
