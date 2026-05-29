@@ -74,3 +74,34 @@ git add data/cards/<issuer>.json
 git commit -m "Update <card name> details from official bank audit"
 git push origin main
 ```
+
+---
+
+## IndusInd Bank Specific Scraping & Auditing Guidelines
+
+When auditing or crawling **IndusInd Bank** cards, use the following directory mapping and scraping strategies:
+
+### 1. Key URLs & Ingestion Targets
+- **Listing Page**:
+  `https://www.indusind.bank.in/in/en/personal/cards/credit-card.html`
+- **Individual Card Pages**:
+  Structured as `https://www.indusind.bank.in/in/en/personal/cards/credit-card/<card-id>-credit-card.html`
+  - Pioneer Legacy: `pioneer-legacy-credit-card.html`
+  - Legend: `legend-credit-card.html`
+  - Pinnacle: `pinnacle-credit-card.html`
+  - Indulge: `indulge-credit-card.html`
+- **General Notice / Revisions Page**:
+  This page details recent rewards exclusions and baseline revisions:
+  `https://www.indusind.bank.in/in/en/personal/revision-indusInd-bank-credit-card-rewards-program.html`
+
+### 2. Identifying Secondary Notice Assets
+IndusInd frequently publishes revisions (like golf clubs lists and lounge access criteria) in standalone PDFs under their corporate media folders.
+Scan the main pages or perform targeted queries to locate notices under:
+- `https://www.indusind.bank.in/content/dam/indusind-corporate/Other/`
+- Key files to look for:
+  * `Lounge-Terms-and-Conditions.pdf` (contains spend thresholds and quarter tracking guidelines)
+  * `List-of-Club-Revised-2.pdf` (contains golf games and lessons access restrictions)
+
+### 3. Scraping Strategy
+- **Client-Side Rendering**: IndusInd pages frequently use dynamic elements or tabbed details (e.g., separating "Benefits" and "Charges" tabs). When using automated readers, trigger full browser page loads (`read_browser_page`) if base HTML lacks the tab contents.
+- **CDN Cache Bypassing**: If the page content appears outdated or doesn't reflect a announced devaluation, append a timestamp query parameter (e.g., `?v=1ea25740`) to force fetching directly from the server.
