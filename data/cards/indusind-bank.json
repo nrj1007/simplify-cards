@@ -149,34 +149,6 @@
         "rate": 2.4,
         "displayRate": "Up to 6 reward points per Rs 100 based on spends",
         "capMonthly": null
-      },
-      {
-        "category": "utilities",
-        "displayCategory": "Utility bill payments",
-        "rate": 0.4,
-        "displayRate": "1 reward point per Rs 100 (flat base rate)",
-        "capMonthly": null
-      },
-      {
-        "category": "insurance",
-        "displayCategory": "Insurance premium payments",
-        "rate": 0.4,
-        "displayRate": "1 reward point per Rs 100 (flat base rate)",
-        "capMonthly": null
-      },
-      {
-        "category": "education",
-        "displayCategory": "Education fees",
-        "rate": 0.4,
-        "displayRate": "1 reward point per Rs 100 (flat base rate)",
-        "capMonthly": null
-      },
-      {
-        "category": "rent",
-        "displayCategory": "Rent payments",
-        "rate": 0.4,
-        "displayRate": "1 reward point per Rs 100 (flat base rate)",
-        "capMonthly": null
       }
     ],
     "popularityScore": 83,
