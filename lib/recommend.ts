@@ -1330,7 +1330,7 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
     .filter((card) =>
       effectiveMaxAnnualFee === undefined || hasExplicitAnnualFeeLanguage(input.query) ? true : card.joiningFee <= effectiveMaxAnnualFee
     )
-    .filter((card) => (wantsLifetimeFree ? card.annualFee === 0 : true))
+    .filter((card) => (wantsLifetimeFree ? (card.annualFee === 0 && card.joiningFee === 0) : true))
     .filter((card) => (wantsLounge ? loungeScore(card) > 0 : true))
     .filter((card) => (restrictToIssuer ? normalizeIssuer(card.issuer) === normalizeIssuer(intent.issuers[0]) : true))
     .map((card) => {
