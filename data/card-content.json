@@ -2,10 +2,18 @@
   "hdfc-infinia-metal": {
     "updates": [
       {
-        "title": "HDFC Infinia program retention criteria and fee exemptions updated",
-        "summary": "Effective 1 April 2026, HDFC introduced new program retention criteria requiring cardholders to maintain a minimum of ₹18 Lakhs in card spends or ₹50 Lakhs in relationship value per financial year. Additionally, HDFC officially clarified that Infinia cardholders are exempt from late payment charges, overlimit fees, cash advance fees, and reward/cashback redemption fees.",
+        "title": "HDFC Infinia program retention criteria updated",
+        "summary": "Effective 1 April 2026, HDFC introduced new program retention criteria requiring cardholders to maintain a minimum of ₹18 Lakhs in card spends or ₹50 Lakhs in relationship value per financial year.",
         "sourceType": "manual",
-        "sourceLabel": "HDFC Bank official updates & MITC",
+        "sourceLabel": "HDFC Bank official updates",
+        "sourceUrl": "https://www.hdfc.bank.in/credit-cards/infinia-credit-card",
+        "publishedAt": "2026-04-01"
+      },
+      {
+        "title": "HDFC Infinia fee exemptions clarified",
+        "summary": "HDFC officially clarified that Infinia cardholders are exempt from late payment charges, overlimit fees, cash advance fees, and reward/cashback redemption fees.",
+        "sourceType": "manual",
+        "sourceLabel": "HDFC Bank official MITC",
         "sourceUrl": "https://www.hdfc.bank.in/credit-cards/infinia-credit-card",
         "publishedAt": "2026-04-01"
       }
