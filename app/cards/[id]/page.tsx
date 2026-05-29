@@ -126,6 +126,12 @@ export default async function CardPage({ params, searchParams }: Props) {
   const hasRedemptionSection = Boolean(
     redemptions.length || card.redemption?.airlinePartners?.length || card.redemption?.hotelPartners?.length
   );
+  const showAirlineTat = card.redemption?.airlinePartners?.some(
+    (partner) => typeof partner.tatDays === "number"
+  ) ?? false;
+  const showHotelTat = card.redemption?.hotelPartners?.some(
+    (partner) => typeof partner.tatDays === "number"
+  ) ?? false;
   const hasMilestoneBenefits = Boolean(card.milestoneBenefits?.length);
   const hasJoiningBenefits = Boolean(card.joiningBenefits?.length);
   const hasRenewalBenefits = Boolean(card.renewalBenefits?.length);
@@ -248,7 +254,7 @@ export default async function CardPage({ params, searchParams }: Props) {
                         <th>Airline</th>
                         <th>Programme</th>
                         <th>Ratio</th>
-                        <th>TAT</th>
+                        {showAirlineTat && <th>TAT</th>}
                       </tr>
                     </thead>
                     <tbody>
@@ -257,7 +263,7 @@ export default async function CardPage({ params, searchParams }: Props) {
                           <td>{partner.airline}</td>
                           <td>{partner.programme}</td>
                           <td>{partner.ratio}</td>
-                          <td>{formatTatDays(partner.tatDays)}</td>
+                          {showAirlineTat && <td>{formatTatDays(partner.tatDays)}</td>}
                         </tr>
                       ))}
                     </tbody>
@@ -273,7 +279,7 @@ export default async function CardPage({ params, searchParams }: Props) {
                         <th>Hotel group</th>
                         <th>Programme</th>
                         <th>Ratio</th>
-                        <th>TAT</th>
+                        {showHotelTat && <th>TAT</th>}
                       </tr>
                     </thead>
                     <tbody>
@@ -282,7 +288,7 @@ export default async function CardPage({ params, searchParams }: Props) {
                           <td>{partner.hotelGroup}</td>
                           <td>{partner.programme}</td>
                           <td>{partner.ratio}</td>
-                          <td>{formatTatDays(partner.tatDays)}</td>
+                          {showHotelTat && <td>{formatTatDays(partner.tatDays)}</td>}
                         </tr>
                       ))}
                     </tbody>
