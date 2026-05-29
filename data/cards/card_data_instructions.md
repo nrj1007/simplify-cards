@@ -103,9 +103,10 @@ Map textual exclusions (found in the `"exclusions"` array) into canonical consta
 *   **Allowed Exclusion Codes:** `fuel`, `rent`, `insurance`, `education`, `gold`, `jewellery`, `utilities`, `telecom`, `wallet_load`, `government`, `tax`, `real_estate`, `property_management`, `cash_advance`, `balance_transfer`, `emi`, `fees_and_charges`, `cash_withdrawal`
 
 > [!NOTE]
-> **Exclusions vs. Revised Rates**:
+> **Exclusions vs. Revised/Capped Rates**:
+> * **Zero Rewards Only**: The `exclusions` text array and `exclusionCodes` array must ONLY contain spend categories that do not earn any rewards at all (i.e., yield 0%).
 > * If a category is completely excluded from earning rewards, add it to `exclusionCodes`.
-> * If a category still earns points but at a revised lower rate (e.g., 0.7 reward points per ₹100 spent), do **not** add it to `exclusionCodes`. Instead, define it in the `rewards` array with the specific rate and a descriptive `displayCategory` and `displayRate` to ensure proper yield calculations in recommendation scoring.
+> * If a category still earns points but at a revised lower rate (e.g., 0.7 reward points per ₹100 spent) or is capped but still rewards up to that cap, do **not** add it to `exclusions` or `exclusionCodes`. Instead, define it in the `rewards` array with the specific rate and a descriptive `displayCategory` and `displayRate` to ensure proper yield calculations in recommendation scoring.
 
 ---
 
