@@ -763,7 +763,11 @@
       "Pioneer relationship positioning applies",
       "international lounge access is only on the paid variant (not applicable for complimentary Pioneer Legacy card)",
       "IndusInd also markets a lower-fee joining path with different welcome treatment",
-      "domestic lounge access moves to spend-based unlock from July 2026 quarter onward (spends criteria tracking initiated from 1 April 2026)"
+      "domestic lounge access moves to spend-based unlock from July 2026 quarter onward (spends criteria tracking initiated from 1 April 2026)",
+      "fuel transactions will not accrue reward points"
+    ],
+    "exclusionCodes": [
+      "fuel"
     ],
     "milestoneBenefits": [
       "Join at a discounted fee of Rs 45,000 and get welcome vouchers worth Rs 50,000",
