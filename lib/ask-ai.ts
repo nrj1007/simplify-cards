@@ -181,6 +181,10 @@ function formatAnnualSpendLabel(annualTarget: number, suffixPlus = false) {
   return `${formattedLakh}L${suffixPlus ? "+" : ""}`;
 }
 
+function formatWaiverRupees(value: number) {
+  return `Rs ${formatAnnualSpendLabel(value)}`;
+}
+
 function determineScenarioTargets(input: RecommendationInput, answerCards: CardScore[]) {
   const intent = parseQueryIntent(input);
   const candidateCards = answerCards.map((item) => item.card);
@@ -354,7 +358,7 @@ function buildScenarioHighlights(
 
     seenThresholdCards.add(score.card.id);
     scenarioHighlights.push(
-      `${score.card.name}: fee waiver kicks in at ${formatRupees(score.card.feeWaiverSpend)}/year spend, making it even better for high spenders.`
+      `${score.card.name}: fee waiver kicks in at ${formatWaiverRupees(score.card.feeWaiverSpend)}/year spend, making it even better for high spenders.`
     );
   }
 
@@ -806,9 +810,9 @@ function buildSpecificQuestionAnswer(input: RecommendationInput, topCard: CardSc
     return {
       summary:
         topCard.card.feeWaiverSpend !== null
-          ? `${topCard.card.name} lists an annual fee waiver spend target of ${formatRupees(topCard.card.feeWaiverSpend)}.`
+          ? `${topCard.card.name} lists an annual fee waiver spend target of ${formatWaiverRupees(topCard.card.feeWaiverSpend)}.`
           : `${topCard.card.name} does not list a fee-waiver spend target.`,
-      highlights: topCard.card.feeWaiverSpend !== null ? [`Fee waiver threshold: ${formatRupees(topCard.card.feeWaiverSpend)}.`] : []
+      highlights: topCard.card.feeWaiverSpend !== null ? [`Fee waiver threshold: ${formatWaiverRupees(topCard.card.feeWaiverSpend)}.`] : []
     };
   }
 
