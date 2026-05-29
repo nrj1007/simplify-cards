@@ -157,6 +157,12 @@ function formatEnvelopeSpendLabel(monthlySpend: number) {
   return `Rs ${monthlySpend.toLocaleString("en-IN")}/month`;
 }
 
+function formatSpendInLakhs(amount: number): string {
+  const lakhs = Math.round(amount / 10000) / 10;
+  const formattedLakhs = Number.isInteger(lakhs) ? `${lakhs}` : lakhs.toFixed(1);
+  return `${formattedLakhs}L`;
+}
+
 function normalizeText(value = "") {
   return value.toLowerCase().trim();
 }
@@ -1196,9 +1202,9 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
     const envelopeLabel = envelopeMonthlySpend ? formatEnvelopeSpendLabel(envelopeMonthlySpend) : null;
     const feeWaiverReason =
       card.feeWaiverSpend && annualSpend >= card.feeWaiverSpend
-        ? `Fee waiver likely at Rs ${annualSpend.toLocaleString("en-IN")} yearly spend`
+        ? `Fee waiver likely at Rs ${formatSpendInLakhs(annualSpend)} yearly spend`
         : card.feeWaiverSpend
-          ? `Fee waiver needs Rs ${card.feeWaiverSpend.toLocaleString("en-IN")} yearly spend`
+          ? `Fee waiver needs Rs ${formatSpendInLakhs(card.feeWaiverSpend)} yearly spend`
           : "No fee waiver listed";
     const strongestRewards = [...rewardBreakdown]
       .sort((a, b) => b.annualReward - a.annualReward)
@@ -1244,9 +1250,8 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
       issuerBoost +
       networkBoost;
 
-    // Value score: economic quality and preference fit signals
-    const valueScore =
-      estimatedNetValue +
+    // Non-economic preference and penalty signals shared by both scoring paths
+    const sharedBoosts =
       useCaseBoost +
       segmentBoost +
       redemptionBoost +
@@ -1262,6 +1267,9 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
       // TODO: Review popularity score weight (currently popularityScore * 50)
       card.popularityScore * 50;
 
+    // Value score: economic quality and preference fit signals
+    const valueScore = estimatedNetValue + sharedBoosts;
+
     // Query-type-dependent blending
     const isExactCardLookup = cardNameBoost >= exactCardNameMatchThreshold;
     const relevanceWeight = isExactCardLookup ? relevanceWeightExactMatch
@@ -1269,26 +1277,17 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
       : relevanceWeightDefault;
     const fitScore = valueScore + relevanceWeight * relevanceScore;
 
-    // Normalize the economic value using net yield scaled to points (1% yield = 10,000 points)
-    const netYield = annualSpend > 0 ? estimatedNetValue / annualSpend : 0;
-    const economicScore = netYield * 1000000;
-
-    const normalizedValueScore =
-      economicScore +
-      useCaseBoost +
-      segmentBoost +
-      redemptionBoost +
-      loungeBoost +
-      forexBoost +
-      spendCategoryBoost +
-      comparisonMilestoneAndWaiverDelta +
-      ltfQueryBoost +
-      relationshipPenalty +
-      brandPenalty +
-      specialSpendBoost +
-      milestoneBoost +
-      card.popularityScore * 50;
-    const normalizedFitScore = normalizedValueScore + relevanceWeight * relevanceScore;
+    // Envelope-only: normalize economic value to net yield so cards scored at different
+    // spend tiers are comparable. Yield (e.g. 0.03 for 3%) is scaled by 1,000,000 to
+    // match the magnitude of the sharedBoosts components (~500–40,000 range).
+    // Guard: skip normalization for very low spend to avoid yield blow-up.
+    const normalizedFitScore = envelopeMonthlySpend
+      ? (() => {
+          const netYield = annualSpend >= 10000 ? estimatedNetValue / annualSpend : 0;
+          const economicScore = netYield * 1000000;
+          return economicScore + sharedBoosts + relevanceWeight * relevanceScore;
+        })()
+      : undefined;
 
     return {
       card,
@@ -1297,7 +1296,8 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
         ? {
             envelopeScoring: {
               bestMonthlySpend: envelopeMonthlySpend,
-              bestSpendLabel: envelopeLabel
+              bestSpendLabel: envelopeLabel,
+              normalizedFitScore: normalizedFitScore!
             }
           }
         : {}),
@@ -1306,7 +1306,6 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
       estimatedAnnualFee,
       estimatedNetValue,
       fitScore,
-      normalizedFitScore,
       matchedTags,
       reasons,
       rewardBreakdown
@@ -1328,9 +1327,13 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
       const tiers = envelopeTiersForCard(card);
       return tiers
         .map((monthlySpend) => scoreCardForSpend(card, scaleSpendProfileToMonthly(defaultSpendProfile, monthlySpend), monthlySpend))
-        .sort((a, b) => b.normalizedFitScore - a.normalizedFitScore)[0];
+        .sort((a, b) => (b.envelopeScoring?.normalizedFitScore ?? 0) - (a.envelopeScoring?.normalizedFitScore ?? 0))[0];
     })
-    .sort((a, b) => useEnvelopeScoring ? b.normalizedFitScore - a.normalizedFitScore : b.fitScore - a.fitScore);
+    .sort((a, b) =>
+      useEnvelopeScoring
+        ? (b.envelopeScoring?.normalizedFitScore ?? 0) - (a.envelopeScoring?.normalizedFitScore ?? 0)
+        : b.fitScore - a.fitScore
+    );
 }
 
 export function answerFromCards(input: RecommendationInput) {

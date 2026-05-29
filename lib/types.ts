@@ -112,13 +112,13 @@ export type CardScore = {
   envelopeScoring?: {
     bestMonthlySpend: number;
     bestSpendLabel: string;
+    normalizedFitScore: number;
   };
   estimatedAnnualRewards: number;
   estimatedMilestoneValue: number;
   estimatedAnnualFee: number;
   estimatedNetValue: number;
   fitScore: number;
-  normalizedFitScore: number;
   matchedTags: string[];
   reasons: string[];
   rewardBreakdown: Array<{
