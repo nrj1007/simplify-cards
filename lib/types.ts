@@ -112,6 +112,7 @@ export type CardScore = {
   envelopeScoring?: {
     bestMonthlySpend: number;
     bestSpendLabel: string;
+    normalizedFitScore: number;
   };
   estimatedAnnualRewards: number;
   estimatedMilestoneValue: number;

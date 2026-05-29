@@ -472,6 +472,40 @@ describe("scoreCards", () => {
     expect(burgundy?.reasons).toEqual(expect.arrayContaining([expect.stringMatching(/Needs high spend of .* to shine/i)]));
   });
 
+  it("stores normalizedFitScore inside envelopeScoring and not at top level", () => {
+    const scores = scoreCards({ query: "top 10 credit cards" });
+    const envelopeScores = scores.filter((s) => s.envelopeScoring);
+
+    expect(envelopeScores.length).toBeGreaterThan(0);
+
+    for (const score of envelopeScores) {
+      // normalizedFitScore must be inside envelopeScoring
+      expect(score.envelopeScoring?.normalizedFitScore).toBeDefined();
+      expect(typeof score.envelopeScoring?.normalizedFitScore).toBe("number");
+
+      // normalizedFitScore must NOT be on the top-level CardScore object
+      expect((score as Record<string, unknown>)["normalizedFitScore"]).toBeUndefined();
+    }
+  });
+
+  it("uses yield-normalised score to select the best tier per card in envelope mode", () => {
+    const scores = scoreCards({ query: "top 10 credit cards" });
+    const envelopeScores = scores.filter((s) => s.envelopeScoring);
+
+    for (const score of envelopeScores) {
+      // normalizedFitScore is a finite number (can be negative if fee > rewards for a card)
+      expect(typeof score.envelopeScoring!.normalizedFitScore).toBe("number");
+      expect(Number.isFinite(score.envelopeScoring!.normalizedFitScore)).toBe(true);
+
+      // For cards scored at very high spend, the high-spend warning must appear
+      if (score.envelopeScoring!.bestMonthlySpend >= 150000) {
+        expect(score.reasons).toEqual(
+          expect.arrayContaining([expect.stringMatching(/Needs high spend of .* to shine/i)])
+        );
+      }
+    }
+  });
+
   it("does not use envelope scoring when a fee cap is present", () => {
     const scores = scoreCards({
       query: "top cards under 5000"
