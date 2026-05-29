@@ -55,7 +55,7 @@ During card reviews, convert raw text into structured rules whenever possible.
 ### A. Special Spend Rules (`specialSpendRules`)
 Use the `specialSpendRules` array to explicitly define caps and treatments for key spending categories:
 
-*   **Allowed Categories (`SpendCategory`):** `online`, `offline`, `travel`, `fuel`, `dining`, `grocery`, `amazon`, `upi`, `utilities`, `rent`, `insurance`, `education`, `gold`
+*   **Allowed Categories (`SpendCategory`):** `online`, `base`, `travel`, `fuel`, `dining`, `grocery`, `amazon`, `upi`, `utilities`, `rent`, `insurance`, `education`, `gold`
 *   **Allowed Treatments:** `rewarded`, `capped`, `excluded`
 
 ```json
