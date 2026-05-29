@@ -168,3 +168,65 @@ npm test
 > **Windows PowerShell Execution Policy Workaround**:
 > If running `npm run validate:cards` or `npm test` fails with a `SecurityError` or `PSSecurityException` because script execution is disabled on the system, bypass it using:
 > `powershell -ExecutionPolicy Bypass -Command "npm run validate:cards"`
+
+---
+
+## 6. Estimated Value Guidelines for Ambiguous Benefits
+
+Some benefits do not state a rupee amount (e.g. "complimentary hotel stay", "golf game", "airport transfer"). The scoring engine can only extract value from benefit strings that contain a recognisable rupee amount or point quantity. When you add such benefits, **append an estimated value in parentheses** so the engine picks it up.
+
+> [!IMPORTANT]
+> Always use the format **`worth Rs X,XXX`** or **`voucher worth Rs X,XXX`** so the parser can extract it. Do not use shorthand like "~₹5K" or "approx 5000".
+
+### Hotel Stays
+
+Use the following value benchmarks when writing benefit strings for complimentary hotel nights. These are rough median rack-rate estimates for the Indian market — adjust up for ultra-luxury and down for business hotels.
+
+| Hotel tier / programme | Estimated value per night | Notes |
+|---|---|---|
+| Budget / 3-star | Rs 3,000 | e.g. Ibis, Lemon Tree |
+| Business / 4-star | Rs 6,000 | e.g. Novotel, Marriott Courtyard |
+| Premium / 5-star | Rs 12,000 | e.g. JW Marriott, Hyatt Regency |
+| Luxury / flagship | Rs 20,000 | e.g. Taj, Oberoi, St. Regis |
+| Marriott Bonvoy free night (up to 15,000 pts) | Rs 7,500 | Already handled by point conversion in code |
+| Marriott Bonvoy free night (up to 35,000 pts) | Rs 17,500 | Already handled by point conversion in code |
+
+**Example benefit string to write:**
+
+```json
+"joiningBenefits": [
+  "Complimentary one-night stay at a premium 5-star hotel (worth Rs 12,000) on first transaction"
+]
+```
+
+```json
+"milestoneBenefits": [
+  "Complimentary luxury hotel stay (worth Rs 20,000) on annual spends of Rs 10 lakh"
+]
+```
+
+> [!NOTE]
+> Hotel stay values are treated as **voucher benefits** by the scoring engine and automatically discounted to **50% of face value** to account for restricted availability, blackout dates, and limited hotel choice. Write the full rack-rate estimate — the discount is applied in code.
+
+---
+
+### Other Common Ambiguous Benefits
+
+| Benefit type | Suggested value to embed | Rationale |
+|---|---|---|
+| Complimentary golf game (domestic) | Rs 3,500 | Typical green fee at a mid-tier Indian course |
+| Complimentary golf game (international) | Rs 8,000 | Premium international course estimate |
+| Airport transfer (one way) | Rs 1,500 | Typical cab/chauffeur rate |
+| Spa / dining credit at a hotel | Rs 2,000 | Standard F&B credit value |
+| Priority Pass membership (no visits included) | Rs 0 | Value comes from lounge count field, not here |
+
+**Example:**
+
+```json
+"additionalBenefits": [
+  "2 complimentary golf games per month at participating domestic courses (worth Rs 3,500 per game)"
+]
+```
+
+> [!TIP]
+> If a benefit has a capped or conditional value (e.g. "up to Rs 5,000"), use the **capped figure**, not an assumed average. The engine sums the stated amount, so overstating leads to inflated scoring.
