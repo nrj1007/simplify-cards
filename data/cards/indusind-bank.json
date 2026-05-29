@@ -132,7 +132,14 @@
     ],
     "redemption": {
       "statementBalanceValue": 0.4,
-      "pointsExpiryYears": null
+      "pointsExpiryYears": null,
+      "airlinePartners": [
+        {
+          "airline": "Singapore Airlines",
+          "programme": "KrisFlyer",
+          "ratio": "2:1"
+        }
+      ]
     },
     "eligibility": {
       "salaried": [
@@ -198,7 +205,14 @@
     ],
     "redemption": {
       "statementBalanceValue": 0.5,
-      "pointsExpiryYears": null
+      "pointsExpiryYears": null,
+      "airlinePartners": [
+        {
+          "airline": "Singapore Airlines",
+          "programme": "KrisFlyer",
+          "ratio": "2:1"
+        }
+      ]
     },
     "eligibility": {
       "salaried": [
@@ -266,7 +280,14 @@
     ],
     "redemption": {
       "statementBalanceValue": 0.25,
-      "pointsExpiryYears": null
+      "pointsExpiryYears": null,
+      "airlinePartners": [
+        {
+          "airline": "Singapore Airlines",
+          "programme": "KrisFlyer",
+          "ratio": "2:1"
+        }
+      ]
     },
     "eligibility": {
       "salaried": [
@@ -415,7 +436,14 @@
     ],
     "redemption": {
       "statementBalanceValue": 0.7,
-      "pointsExpiryYears": null
+      "pointsExpiryYears": null,
+      "airlinePartners": [
+        {
+          "airline": "Singapore Airlines",
+          "programme": "KrisFlyer",
+          "ratio": "2:1"
+        }
+      ]
     },
     "eligibility": {
       "salaried": [
@@ -491,7 +519,14 @@
     ],
     "redemption": {
       "statementBalanceValue": 0.4,
-      "pointsExpiryYears": null
+      "pointsExpiryYears": null,
+      "airlinePartners": [
+        {
+          "airline": "Singapore Airlines",
+          "programme": "KrisFlyer",
+          "ratio": "2:1"
+        }
+      ]
     },
     "eligibility": {
       "salaried": [
@@ -560,7 +595,14 @@
     ],
     "redemption": {
       "statementBalanceValue": 0.7,
-      "redemptionFee": 100
+      "redemptionFee": 100,
+      "airlinePartners": [
+        {
+          "airline": "Singapore Airlines",
+          "programme": "KrisFlyer",
+          "ratio": "2:1"
+        }
+      ]
     },
     "interestRateMonthly": 2.99,
     "eligibility": {
@@ -653,7 +695,14 @@
     ],
     "redemption": {
       "statementBalanceValue": 1,
-      "pointsExpiryYears": null
+      "pointsExpiryYears": null,
+      "airlinePartners": [
+        {
+          "airline": "Singapore Airlines",
+          "programme": "KrisFlyer",
+          "ratio": "2:1"
+        }
+      ]
     },
     "eligibility": {
       "salaried": [
@@ -716,7 +765,14 @@
     ],
     "redemption": {
       "statementBalanceValue": 0.3,
-      "minimumPointsForStatementCredit": 500
+      "minimumPointsForStatementCredit": 500,
+      "airlinePartners": [
+        {
+          "airline": "Singapore Airlines",
+          "programme": "KrisFlyer",
+          "ratio": "2:1"
+        }
+      ]
     },
     "eligibility": {
       "salaried": [
@@ -819,11 +875,10 @@
     ],
     "joiningBenefits": [
       "Welcome vouchers worth Rs 50,000 on joining at a discounted fee of Rs 45,000",
-      "Alternative lower-fee joining path at Rs 5,000 with spend-based waiver and no welcome vouchers"
-    ],
-    "milestoneBenefits": [
+      "Alternative lower-fee joining path at Rs 5,000 with spend-based waiver and no welcome vouchers",
       "4,000 bonus reward points on spends of Rs 5,00,000 or more within one year from card issue as per revised official note"
     ],
+    "milestoneBenefits": [],
     "additionalBenefits": [
       "Low forex markup of 1.8% on foreign currency transactions (not applicable for complimentary Pioneer Legacy card)",
       "Complimentary golf privileges: 2 complimentary games and 2 complimentary lessons per month (effective 10 March 2026)",
@@ -832,7 +887,14 @@
     ],
     "redemption": {
       "statementBalanceValue": 1,
-      "pointsExpiryYears": null
+      "pointsExpiryYears": null,
+      "airlinePartners": [
+        {
+          "airline": "Singapore Airlines",
+          "programme": "KrisFlyer",
+          "ratio": "2:1"
+        }
+      ]
     },
     "eligibility": {
       "salaried": [
@@ -901,7 +963,14 @@
       "Visa Infinite benefits"
     ],
     "redemption": {
-      "statementBalanceValue": 0.7
+      "statementBalanceValue": 0.7,
+      "airlinePartners": [
+        {
+          "airline": "Singapore Airlines",
+          "programme": "KrisFlyer",
+          "ratio": "2:1"
+        }
+      ]
     },
     "eligibility": {
       "salaried": [
@@ -973,7 +1042,14 @@
       "Premium Crest microsite and schedule-of-charges programme with concierge-style positioning"
     ],
     "redemption": {
-      "statementBalanceValue": 0.7
+      "statementBalanceValue": 0.7,
+      "airlinePartners": [
+        {
+          "airline": "Singapore Airlines",
+          "programme": "KrisFlyer",
+          "ratio": "2:1"
+        }
+      ]
     },
     "eligibility": {
       "salaried": [
