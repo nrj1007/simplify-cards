@@ -105,7 +105,8 @@
     "sourceUrl": "https://www.indusind.bank.in/in/en/personal/cards/credit-card/eazydiner-credit-card.html",
     "applyUrl": "https://www.indusind.bank.in/in/en/personal/cards/credit-card/eazydiner-credit-card.html",
     "lastVerified": "2026-05-29",
-    "verificationStatus": "official-direct"
+    "verificationStatus": "official-direct",
+    "imageUrl": "/images/indusind-eazydiner.webp"
   },
   {
     "id": "indusind-tiger",
