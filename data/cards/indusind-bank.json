@@ -644,6 +644,11 @@
         "capMonthly": null
       },
       {
+        "category": "travel",
+        "rate": 2.5,
+        "capMonthly": null
+      },
+      {
         "category": "utilities",
         "displayCategory": "Utility bill payments",
         "rate": 0.7,
