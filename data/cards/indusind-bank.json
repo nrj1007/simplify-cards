@@ -127,15 +127,55 @@
     "rewardType": "reward points",
     "rewards": [
       {
-        "category": "online",
-        "rate": 2.4,
-        "displayRate": "6 reward points per Rs 100",
+        "category": "base",
+        "rate": 0.4,
+        "displayRate": "1 reward point per Rs 100 (accelerates up to 6 reward points based on spends)",
         "capMonthly": null
       },
       {
-        "category": "base",
-        "rate": 0.8,
-        "displayRate": "2 reward points per Rs 100",
+        "category": "online",
+        "rate": 2.4,
+        "displayRate": "Up to 6 reward points per Rs 100 based on spends",
+        "capMonthly": null
+      },
+      {
+        "category": "travel",
+        "rate": 2.4,
+        "displayRate": "Up to 6 reward points per Rs 100 based on spends",
+        "capMonthly": null
+      },
+      {
+        "category": "dining",
+        "rate": 2.4,
+        "displayRate": "Up to 6 reward points per Rs 100 based on spends",
+        "capMonthly": null
+      },
+      {
+        "category": "utilities",
+        "displayCategory": "Utility bill payments",
+        "rate": 0.4,
+        "displayRate": "1 reward point per Rs 100 (flat base rate)",
+        "capMonthly": null
+      },
+      {
+        "category": "insurance",
+        "displayCategory": "Insurance premium payments",
+        "rate": 0.4,
+        "displayRate": "1 reward point per Rs 100 (flat base rate)",
+        "capMonthly": null
+      },
+      {
+        "category": "education",
+        "displayCategory": "Education fees",
+        "rate": 0.4,
+        "displayRate": "1 reward point per Rs 100 (flat base rate)",
+        "capMonthly": null
+      },
+      {
+        "category": "rent",
+        "displayCategory": "Rent payments",
+        "rate": 0.4,
+        "displayRate": "1 reward point per Rs 100 (flat base rate)",
         "capMonthly": null
       }
     ],
@@ -155,17 +195,26 @@
     ],
     "exclusions": [
       "fuel",
-      "cash redemption capped monthly",
-      "accelerated rewards depend on spend slabs and eligible categories"
+      "cash advances"
     ],
-    "milestoneBenefits": [],
+    "exclusionCodes": [
+      "fuel",
+      "cash_advance"
+    ],
+    "milestoneBenefits": [
+      "Earn higher reward multipliers of 2x (1L spends), 4x (2.5L spends), and 6x (5L spends) on incremental spends in card anniversary year"
+    ],
     "additionalBenefits": [
-      "Up to 6 accelerated reward points for every Rs 100 spent",
-      "2 complimentary domestic lounge visits per quarter",
-      "2 complimentary international lounge visits per year via Priority Pass",
       "1 complimentary golf game or lesson per quarter",
-      "1 complimentary movie ticket up to Rs 500 every 6 months",
-      "1.5% forex markup"
+      "1 complimentary movie ticket up to Rs 500 every 6 months on BookMyShow",
+      "Total Protect insurance cover protecting against fraudulent transactions up to the credit limit",
+      "24-hour Concierge assistance for travel, bookings, and reservations",
+      "Auto Assist roadside emergency services (breakdown, key replacement, flat tire)"
+    ],
+    "additionalDetails": [
+      "Rewards multiplier anniversary slabs: Upto 1L (1x / 0.4%), 1.01L-2.5L (2x / 0.8%), 2.51L-5L (4x / 1.6%), and >5L (6x / 2.4%)",
+      "Cash redemption is capped at 5,000 reward points per calendar month",
+      "Utility, insurance, government, education, real estate, and rent spends are excluded from accelerated rewards and earn flat base rate (1 point per Rs 100)"
     ],
     "redemption": {
       "statementBalanceValue": 0.4,
@@ -174,7 +223,7 @@
         {
           "airline": "Singapore Airlines",
           "programme": "KrisFlyer",
-          "ratio": "2:1"
+          "ratio": "4:1"
         }
       ]
     },
@@ -186,10 +235,16 @@
         "Eligibility is subject to IndusInd Bank approval criteria"
       ]
     },
-    "sourceUrl": "https://www.indusind.com/in/en/personal/cards/credit-card/tiger-credit-card.html",
-    "applyUrl": "https://www.indusind.com/in/en/personal/cards/credit-card/tiger-credit-card.html",
-    "lastVerified": "2026-05-11",
-    "verificationStatus": "official-direct"
+    "internalNotes": [
+      "Card details manually reviewed and verified by user on 2026-05-29",
+      "Reward Points redemption towards InterMiles discontinued effective 21st January, 2025.",
+      "Priority Pass membership is complimentary ($99 value), but visits beyond the 2 complimentary visits are charged at standard rates."
+    ],
+    "sourceUrl": "https://www.indusind.bank.in/in/en/personal/cards/credit-card/tiger-credit-card.html",
+    "applyUrl": "https://www.indusind.bank.in/in/en/personal/cards/credit-card/tiger-credit-card.html",
+    "lastVerified": "2026-05-29",
+    "verificationStatus": "official-direct",
+    "imageUrl": "/images/indusind-tiger.webp"
   },
   {
     "id": "indusind-legend",
