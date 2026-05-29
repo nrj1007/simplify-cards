@@ -128,26 +128,51 @@
     "rewards": [
       {
         "category": "base",
+        "displayCategory": "Base spends (up to Rs 1L)",
         "rate": 0.4,
-        "displayRate": "1 reward point per Rs 100 (accelerates up to 6 reward points based on spends)",
+        "displayRate": "1X multiplier (1 point per Rs 100)",
+        "capMonthly": null
+      },
+      {
+        "category": "base",
+        "displayCategory": "Base spends (Rs 1.01L - 2.5L)",
+        "rate": 0.8,
+        "displayRate": "2X multiplier (2 points per Rs 100) on incremental spends",
+        "capMonthly": null
+      },
+      {
+        "category": "base",
+        "displayCategory": "Base spends (Rs 2.51L - 5L)",
+        "rate": 1.6,
+        "displayRate": "4X multiplier (4 points per Rs 100) on incremental spends",
+        "capMonthly": null
+      },
+      {
+        "category": "base",
+        "displayCategory": "Base spends (above Rs 5L)",
+        "rate": 2.4,
+        "displayRate": "6X multiplier (6 points per Rs 100) on incremental spends",
         "capMonthly": null
       },
       {
         "category": "online",
+        "displayCategory": "Online spends",
         "rate": 2.4,
-        "displayRate": "Up to 6 reward points per Rs 100 based on spends",
+        "displayRate": "Up to 6X multiplier based on anniversary spends",
         "capMonthly": null
       },
       {
         "category": "travel",
+        "displayCategory": "Travel spends",
         "rate": 2.4,
-        "displayRate": "Up to 6 reward points per Rs 100 based on spends",
+        "displayRate": "Up to 6X multiplier based on anniversary spends",
         "capMonthly": null
       },
       {
         "category": "dining",
+        "displayCategory": "Dining spends",
         "rate": 2.4,
-        "displayRate": "Up to 6 reward points per Rs 100 based on spends",
+        "displayRate": "Up to 6X multiplier based on anniversary spends",
         "capMonthly": null
       }
     ],
