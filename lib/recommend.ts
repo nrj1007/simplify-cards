@@ -151,10 +151,10 @@ function formatEnvelopeSpendLabel(monthlySpend: number) {
   if (monthlySpend >= 100000) {
     const lakhs = monthlySpend / 100000;
     const formattedLakhs = Number.isInteger(lakhs) ? `${lakhs}` : lakhs.toFixed(1);
-    return `Rs ${formattedLakhs} lakh+/month spend`;
+    return `Rs ${formattedLakhs}L+/month`;
   }
 
-  return `Rs ${monthlySpend.toLocaleString("en-IN")}/month spend`;
+  return `Rs ${monthlySpend.toLocaleString("en-IN")}/month`;
 }
 
 function normalizeText(value = "") {
@@ -1206,9 +1206,9 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
       .map((item) => `${item.spendCategory} uses ${item.rewardCategory} rewards`);
 
     const reasons = [
-      ...(envelopeLabel ? [`Max rewards at ${envelopeLabel}`] : []),
+      ...(envelopeLabel ? [`Best at ${envelopeLabel}`] : []),
       ...(envelopeMonthlySpend && envelopeMonthlySpend >= 150000
-        ? [`Only useful for those who can spend ${formatEnvelopeSpendLabel(envelopeMonthlySpend)}`]
+        ? [`Needs high spend of ${formatEnvelopeSpendLabel(envelopeMonthlySpend)} to shine`]
         : []),
       ...(cardNameBoost > 0 ? ["Strong card-name match for the query"] : []),
       ...(issuerBoost > 0 ? [`Matches ${card.issuer} issuer intent`] : []),

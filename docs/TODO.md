@@ -49,6 +49,7 @@ These are listed or have official pages, but should not be added as active-new-a
 - [ ] Send a Telegram alert for `No` / downvote feedback as a temporary ops workflow before we scale and move feedback review into a database-backed system.
 - [ ] Add a manual approval workflow for community/news signals before updating card data.
 - [ ] Add card images to key user-facing surfaces such as finder, compare, Ask results, and details pages.
+- [ ] Find an AI to generate credit card images.
 - [ ] Add advertisement placements and policy-safe ad slot handling.
 - [ ] Improve RPM through higher-intent content, ad placement strategy, and better page-level monetization.
 - [ ] Add affiliate link support per card, including tracking metadata and fallback apply URLs.

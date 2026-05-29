@@ -262,8 +262,8 @@ function buildTopCardsHighlights(input: RecommendationInput, answerCards: CardSc
   const envelopeHighlights =
     envelopeCards.length > 0
       ? [
-          "Ranking uses each card's best spend tier because no spend or fee cap was specified.",
-          ...envelopeCards.map((score) => `${score.card.name}: max rewards at ${score.envelopeScoring?.bestSpendLabel}.`)
+          "Since no monthly spend was mentioned, each card is ranked at its strongest spend level.",
+          ...envelopeCards.map((score) => `${score.card.name}: best at ${score.envelopeScoring?.bestSpendLabel}.`)
         ]
       : [];
 
@@ -354,7 +354,7 @@ function buildScenarioHighlights(
 
     seenThresholdCards.add(score.card.id);
     scenarioHighlights.push(
-      `${score.card.name} gets another lift closer to ${formatRupees(score.card.feeWaiverSpend)} yearly spend, where its fee waiver can start to matter.`
+      `${score.card.name}: fee waiver kicks in at ${formatRupees(score.card.feeWaiverSpend)}/year spend, making it even better for high spenders.`
     );
   }
 
