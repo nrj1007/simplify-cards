@@ -28,12 +28,12 @@
         "rate": 1,
         "capMonthly": 3000
       },
-        {
-          "category": "smartbuy",
-          "rate": 10,
-          "capMonthly": 1000,
-          "capDaily": 1000
-        }
+      {
+        "category": "smartbuy",
+        "rate": 10,
+        "capMonthly": 1000,
+        "capDaily": 1000
+      }
     ],
     "loungeDomestic": 4,
     "loungeInternational": 0,
@@ -58,19 +58,19 @@
       "10% additional discount on Swiggy Dineout using coupon code HDFCCARDS",
       "1% fuel surcharge waiver at fuel stations across India on transactions from Rs 400 to Rs 5,000"
     ],
-      "redemption": {
-        "statementBalanceValue": 1,
-        "smartBuyFlightHotelValue": 0.3,
-        "airMilesValue": 0.3,
-        "minimumPointsForStatementCredit": 500,
-        "cashbackRedemptionCapMonthly": 3000,
-        "pointsExpiryYears": 2,
-        "redemptionFee": 99
-      },
-      "supportingSourceUrls": [
-        "https://offers.smartbuy.hdfc.bank.in/offer_details/smartbuy/15282"
-      ],
-      "interestRateMonthly": 3.6,
+    "redemption": {
+      "statementBalanceValue": 1,
+      "smartBuyFlightHotelValue": 0.3,
+      "airMilesValue": 0.3,
+      "minimumPointsForStatementCredit": 500,
+      "cashbackRedemptionCapMonthly": 3000,
+      "pointsExpiryYears": 2,
+      "redemptionFee": 99
+    },
+    "supportingSourceUrls": [
+      "https://offers.smartbuy.hdfc.bank.in/offer_details/smartbuy/15282"
+    ],
+    "interestRateMonthly": 3.6,
     "sourceUrl": "https://www.hdfc.bank.in/credit-cards/millennia-credit-card",
     "applyUrl": "https://www.hdfc.bank.in/credit-cards/millennia-credit-card",
     "lastVerified": "2026-05-08",
@@ -254,26 +254,26 @@
     ],
     "rewardType": "reward points",
     "rewards": [
-        {
-          "category": "select lifestyle brands",
-          "rate": 13.33,
-          "displayRate": "Up to 5X Reward Points",
-          "capMonthly": null
-        },
-          {
-            "category": "smartbuy",
-            "rate": 13.33,
-            "displayRate": "Up to 5X Reward Points",
-            "capMonthly": 4000,
-            "capDaily": 2000
-          },
-        {
-          "category": "offline",
-          "displayCategory": "others",
-          "rate": 2.67,
-          "displayRate": "4 Reward Points / Rs 150",
-          "capMonthly": 50000
-        }
+      {
+        "category": "select lifestyle brands",
+        "rate": 13.33,
+        "displayRate": "Up to 5X Reward Points",
+        "capMonthly": null
+      },
+      {
+        "category": "smartbuy",
+        "rate": 13.33,
+        "displayRate": "Up to 5X Reward Points",
+        "capMonthly": 4000,
+        "capDaily": 2000
+      },
+      {
+        "category": "offline",
+        "displayCategory": "others",
+        "rate": 2.67,
+        "displayRate": "4 Reward Points / Rs 150",
+        "capMonthly": 50000
+      }
     ],
     "loungeDomestic": 12,
     "loungeInternational": 6,
@@ -309,16 +309,16 @@
       "Zero lost card liability when reported immediately",
       "Contactless payments enabled"
     ],
-      "redemption": {
-        "statementBalanceValue": 0.2,
-        "smartBuyFlightHotelValue": 0.5,
-        "airMilesValue": 0.5,
-        "pointsExpiryYears": 2
-      },
-      "supportingSourceUrls": [
-        "https://offers.smartbuy.hdfc.bank.in/offer_details/smartbuy/15282"
-      ],
-      "eligibility": {
+    "redemption": {
+      "statementBalanceValue": 0.2,
+      "smartBuyFlightHotelValue": 0.5,
+      "airMilesValue": 0.5,
+      "pointsExpiryYears": 2
+    },
+    "supportingSourceUrls": [
+      "https://offers.smartbuy.hdfc.bank.in/offer_details/smartbuy/15282"
+    ],
+    "eligibility": {
       "salaried": [
         "Indian national",
         "Age 21 to 60 years",
@@ -356,33 +356,33 @@
     ],
     "rewardType": "reward points",
     "rewards": [
-          {
-            "category": "smartbuy hotels",
-            "rate": 33.33,
-            "displayRate": "Up to 10X Reward Points",
-            "capMonthly": 10000,
-            "capDaily": 10000
-          },
-          {
-            "category": "smartbuy flights",
-            "rate": 16.67,
-            "displayRate": "Up to 5X Reward Points",
-            "capMonthly": 10000,
-            "capDaily": 10000
-          },
-        {
-          "category": "dining",
-          "rate": 6.67,
-          "displayRate": "10 Reward Points / Rs 150",
-          "capMonthly": null
-        },
-        {
-          "category": "offline",
-          "displayCategory": "others",
-          "rate": 3.33,
-          "displayRate": "5 Reward Points / Rs 150",
-          "capMonthly": null
-        }
+      {
+        "category": "smartbuy hotels",
+        "rate": 33.33,
+        "displayRate": "Up to 10X Reward Points",
+        "capMonthly": 10000,
+        "capDaily": 10000
+      },
+      {
+        "category": "smartbuy flights",
+        "rate": 16.67,
+        "displayRate": "Up to 5X Reward Points",
+        "capMonthly": 10000,
+        "capDaily": 10000
+      },
+      {
+        "category": "dining",
+        "rate": 6.67,
+        "displayRate": "10 Reward Points / Rs 150",
+        "capMonthly": null
+      },
+      {
+        "category": "offline",
+        "displayCategory": "others",
+        "rate": 3.33,
+        "displayRate": "5 Reward Points / Rs 150",
+        "capMonthly": null
+      }
     ],
     "loungeDomestic": "unlimited",
     "loungeInternational": "unlimited",
@@ -415,15 +415,15 @@
       "SmartEMI conversion after purchase",
       "Contactless payments enabled"
     ],
-      "redemption": {
-        "statementBalanceValue": 0.3,
-        "smartBuyFlightHotelValue": 1,
-        "airMilesValue": 1
-      },
-      "supportingSourceUrls": [
-        "https://offers.smartbuy.hdfc.bank.in/offer_details/smartbuy/15282"
-      ],
-      "eligibility": {
+    "redemption": {
+      "statementBalanceValue": 0.3,
+      "smartBuyFlightHotelValue": 1,
+      "airMilesValue": 1
+    },
+    "supportingSourceUrls": [
+      "https://offers.smartbuy.hdfc.bank.in/offer_details/smartbuy/15282"
+    ],
+    "eligibility": {
       "salaried": [
         "Indian national",
         "Age 21 to 60 years",
@@ -563,91 +563,91 @@
     ],
     "rewardType": "reward points",
     "rewards": [
-        {
-          "category": "swiggy zomato",
-          "rate": 10,
-          "displayRate": "5X Reward Points",
-          "capMonthly": 2500
-        },
-          {
-            "category": "smartbuy",
-            "rate": 20,
-            "displayRate": "Up to 10X Reward Points",
-            "capMonthly": 4000,
-            "capDaily": 2000
-          },
-        {
-          "category": "offline",
-          "displayCategory": "others",
-          "rate": 2,
-          "displayRate": "4 Reward Points / Rs 200",
-          "capMonthly": null
-        }
-      ],
+      {
+        "category": "swiggy zomato",
+        "rate": 10,
+        "displayRate": "5X Reward Points",
+        "capMonthly": 2500
+      },
+      {
+        "category": "smartbuy",
+        "rate": 20,
+        "displayRate": "Up to 10X Reward Points",
+        "capMonthly": 4000,
+        "capDaily": 2000
+      },
+      {
+        "category": "offline",
+        "displayCategory": "others",
+        "rate": 2,
+        "displayRate": "4 Reward Points / Rs 200",
+        "capMonthly": null
+      }
+    ],
     "loungeDomestic": 8,
     "loungeInternational": 4,
     "forexMarkup": 3.5,
-      "tags": [
-        "diners",
-        "dining",
-        "movies",
-        "lounge",
-        "smartbuy",
-        "lifestyle"
+    "tags": [
+      "diners",
+      "dining",
+      "movies",
+      "lounge",
+      "smartbuy",
+      "lifestyle"
+    ],
+    "exclusions": [
+      "Fuel transactions do not accrue Reward Points",
+      "EasyEMI transactions do not accrue Reward Points",
+      "E-wallet loading transactions do not accrue Reward Points",
+      "Rent payments do not earn Reward Points",
+      "Government-related transactions do not earn Reward Points",
+      "Reward Points are reversed if a retail transaction is converted into SmartEMI"
+    ],
+    "milestoneBenefits": [
+      "Rs 1,500 worth vouchers from brands like Marriott Experience, Barbeque Nation, Lakme Salon, O2 Spa, Decathlon, McDonald's or Domino's on quarterly spends of Rs 1.5 lakh",
+      "Renewal fee waiver on annual spends of Rs 3 lakh or more"
+    ],
+    "additionalBenefits": [
+      "Buy 1 Get 1 free on weekend movie and non-movie tickets via BookMyShow, up to 2 free tickets every calendar month, capped at Rs 250 per ticket",
+      "5X Reward Points on online food orders on Swiggy and Zomato, aligned to the current reward structure",
+      "Up to 10X Reward Points on spends via SmartBuy, aligned to the current reward structure",
+      "Complimentary annual memberships of Swiggy One and Times Prime as welcome benefit on Rs 75,000 spends in first 90 days",
+      "Complimentary lounge access of 2 domestic plus 1 international per calendar quarter will be available only on spends of Rs 60,000 or more in the preceding calendar quarter, effective from 1 July 2026",
+      "Extra 10% off on Dineout bills at participating restaurants"
+    ],
+    "additionalDetails": [
+      "Reward Points earnings revised to 4 Reward Points for every Rs 200 spent on eligible categories, effective 15 May 2026",
+      "Reward Points on insurance transactions are capped at 2,000 per day",
+      "Reward Points on grocery transactions are capped at 2,000 per calendar month",
+      "Reward Points on utility transactions are capped at 2,000 per calendar month",
+      "Reward Points on telecom transactions are capped at 2,000 per calendar month",
+      "DCC markup revised to 1.75% on INR-denominated international and overseas-registered merchant transactions, effective 15 May 2026",
+      "Card reissuance fee revised to Rs 199 for lost, stolen or damaged cards, effective 15 May 2026",
+      "Fuel surcharge waiver is not applicable, as listed in HDFC MITC updated on 25 May 2026"
+    ],
+    "redemption": {
+      "statementBalanceValue": 0.2,
+      "smartBuyFlightHotelValue": 0.5,
+      "airMilesValue": 0.5,
+      "pointsExpiryYears": 2
+    },
+    "supportingSourceUrls": [
+      "https://offers.smartbuy.hdfc.bank.in/offer_details/smartbuy/15282",
+      "https://www.hdfc.bank.in/content/dam/hdfcbankpws/in/en/personal-banking/discover-products/cards/credit-cards/personal-mitc/mitc-in-english.pdf",
+      "https://www.hdfc.bank.in/content/dam/hdfcbankpws/in/en/pdf/common/Credit-Cards/Diners-Privilege-Product-Feature-Change.pdf"
+    ],
+    "eligibility": {
+      "salaried": [
+        "Indian national",
+        "Age 21 to 60 years",
+        "Net salary of Rs 35,000 or more per month"
       ],
-      "exclusions": [
-        "Fuel transactions do not accrue Reward Points",
-        "EasyEMI transactions do not accrue Reward Points",
-        "E-wallet loading transactions do not accrue Reward Points",
-        "Rent payments do not earn Reward Points",
-        "Government-related transactions do not earn Reward Points",
-        "Reward Points are reversed if a retail transaction is converted into SmartEMI"
-      ],
-      "milestoneBenefits": [
-        "Rs 1,500 worth vouchers from brands like Marriott Experience, Barbeque Nation, Lakme Salon, O2 Spa, Decathlon, McDonald's or Domino's on quarterly spends of Rs 1.5 lakh",
-        "Renewal fee waiver on annual spends of Rs 3 lakh or more"
-      ],
-      "additionalBenefits": [
-        "Buy 1 Get 1 free on weekend movie and non-movie tickets via BookMyShow, up to 2 free tickets every calendar month, capped at Rs 250 per ticket",
-        "5X Reward Points on online food orders on Swiggy and Zomato, aligned to the current reward structure",
-        "Up to 10X Reward Points on spends via SmartBuy, aligned to the current reward structure",
-        "Complimentary annual memberships of Swiggy One and Times Prime as welcome benefit on Rs 75,000 spends in first 90 days",
-        "Complimentary lounge access of 2 domestic plus 1 international per calendar quarter will be available only on spends of Rs 60,000 or more in the preceding calendar quarter, effective from 1 July 2026",
-        "Extra 10% off on Dineout bills at participating restaurants"
-      ],
-      "additionalDetails": [
-        "Reward Points earnings revised to 4 Reward Points for every Rs 200 spent on eligible categories, effective 15 May 2026",
-        "Reward Points on insurance transactions are capped at 2,000 per day",
-        "Reward Points on grocery transactions are capped at 2,000 per calendar month",
-        "Reward Points on utility transactions are capped at 2,000 per calendar month",
-        "Reward Points on telecom transactions are capped at 2,000 per calendar month",
-        "DCC markup revised to 1.75% on INR-denominated international and overseas-registered merchant transactions, effective 15 May 2026",
-        "Card reissuance fee revised to Rs 199 for lost, stolen or damaged cards, effective 15 May 2026",
-        "Fuel surcharge waiver is not applicable, as listed in HDFC MITC updated on 25 May 2026"
-      ],
-      "redemption": {
-        "statementBalanceValue": 0.2,
-        "smartBuyFlightHotelValue": 0.5,
-        "airMilesValue": 0.5,
-        "pointsExpiryYears": 2
-      },
-        "supportingSourceUrls": [
-          "https://offers.smartbuy.hdfc.bank.in/offer_details/smartbuy/15282",
-          "https://www.hdfc.bank.in/content/dam/hdfcbankpws/in/en/personal-banking/discover-products/cards/credit-cards/personal-mitc/mitc-in-english.pdf",
-          "https://www.hdfc.bank.in/content/dam/hdfcbankpws/in/en/pdf/common/Credit-Cards/Diners-Privilege-Product-Feature-Change.pdf"
-        ],
-      "eligibility": {
-        "salaried": [
-          "Indian national",
-          "Age 21 to 60 years",
-          "Net salary of Rs 35,000 or more per month"
-        ],
-        "selfEmployed": [
-          "Indian national",
-          "Age 21 to 65 years",
-          "Annual ITR above Rs 6,00,000"
-        ]
-      },
+      "selfEmployed": [
+        "Indian national",
+        "Age 21 to 65 years",
+        "Annual ITR above Rs 6,00,000"
+      ]
+    },
     "sourceUrl": "https://www.hdfc.bank.in/credit-cards/diners-privilege-credit-card",
     "applyUrl": "https://www.hdfc.bank.in/credit-cards/diners-privilege-credit-card",
     "lastVerified": "2026-05-26",

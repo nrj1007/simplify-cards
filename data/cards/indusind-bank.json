@@ -743,11 +743,6 @@
         "category": "offline",
         "rate": 1,
         "capMonthly": null
-      },
-      {
-        "category": "travel",
-        "rate": 2.5,
-        "capMonthly": null
       }
     ],
     "popularityScore": 73,
@@ -766,8 +761,9 @@
     ],
     "exclusions": [
       "Pioneer relationship positioning applies",
-      "international lounge access is only on the paid variant according to the official page",
-      "IndusInd also markets a lower-fee joining path with different welcome treatment"
+      "international lounge access is only on the paid variant (not applicable for complimentary Pioneer Legacy card)",
+      "IndusInd also markets a lower-fee joining path with different welcome treatment",
+      "domestic lounge access moves to spend-based unlock from July 2026 quarter onward (spends criteria tracking initiated from 1 April 2026)"
     ],
     "milestoneBenefits": [
       "Join at a discounted fee of Rs 45,000 and get welcome vouchers worth Rs 50,000",
@@ -776,8 +772,10 @@
     ],
     "additionalBenefits": [
       "1 reward point per Rs 100 on weekday spends and 2 reward points per Rs 100 on weekend spends",
-      "Low forex markup of 1.8% on the paid variant",
+      "Low forex markup of 1.8% on foreign currency transactions (not applicable for complimentary Pioneer Legacy card)",
       "1 domestic lounge visit per quarter and 2 international lounge visits per quarter on the paid variant",
+      "Complimentary golf privileges: 2 complimentary games and 2 complimentary lessons per month (effective 10 March 2026)",
+      "Buy 1 Get 1 free movie tickets on BookMyShow: up to 3 free tickets per month (capped at Rs 300 per ticket discount) plus Rs 50 off on F&B (applicable on the paid variant)",
       "No cash advancement or withdrawal charges",
       "Reward points can be redeemed against statement balance at 1 point = Re 1"
     ],
@@ -793,9 +791,9 @@
         "Pioneer relationship and bank approval required"
       ]
     },
-    "sourceUrl": "https://bank.indusind.com/pioneer/personal-banking/cards/pioneer-legacy-credit-card1.html",
-    "applyUrl": "https://bank.indusind.com/pioneer/personal-banking/cards/pioneer-legacy-credit-card1.html",
-    "lastVerified": "2026-05-11",
+    "sourceUrl": "https://www.indusind.bank.in/in/en/personal/cards/credit-card/pioneer-legacy-credit-card.html",
+    "applyUrl": "https://www.indusind.bank.in/in/en/personal/cards/credit-card/pioneer-legacy-credit-card.html",
+    "lastVerified": "2026-05-29",
     "verificationStatus": "official-direct"
   },
   {
