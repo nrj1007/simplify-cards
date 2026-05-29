@@ -34,6 +34,11 @@
         "text": "Use the Finnair 1:1 Avios transfer workaround to transfer points to British Airways or Qatar Airways at a 1:1 ratio. Transfer to Finnair Plus (1:1) first, then link accounts to move those Avios 1:1 to British Airways or Qatar Airways, bypassing the direct 2:1 transfer ratio.",
         "sourceType": "manual",
         "sourceLabel": "Manual"
+      },
+      {
+        "text": "The best redemption option is transferring to Accor Live Limitless (ALL) at a 2:1 ratio. Since 1 Accor point is valued at Rs 2.2, this yields an effective value of Rs 1.1 per HDFC reward point.",
+        "sourceType": "manual",
+        "sourceLabel": "Manual"
       }
     ]
   },
