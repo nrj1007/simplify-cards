@@ -28,7 +28,7 @@
         "capMonthly": null
       },
       {
-        "category": "offline",
+        "category": "base",
         "rate": 0.5,
         "capMonthly": null
       }
@@ -103,7 +103,7 @@
         "capMonthly": null
       },
       {
-        "category": "offline",
+        "category": "base",
         "rate": 0.4,
         "capMonthly": null
       }
@@ -171,7 +171,7 @@
         "capMonthly": null
       },
       {
-        "category": "offline",
+        "category": "base",
         "rate": 0.25,
         "capMonthly": null
       }

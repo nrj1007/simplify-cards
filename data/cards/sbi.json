@@ -22,7 +22,7 @@
         "capMonthly": 2000
       },
       {
-        "category": "offline",
+        "category": "base",
         "rate": 1,
         "capMonthly": 2000
       }
@@ -102,7 +102,7 @@
         "capMonthly": null
       },
       {
-        "category": "offline",
+        "category": "base",
         "rate": 0.5,
         "capMonthly": null
       }
@@ -189,7 +189,7 @@
         "capMonthly": 500
       },
       {
-        "category": "offline",
+        "category": "base",
         "rate": 1.5,
         "capMonthly": null
       }
@@ -281,7 +281,7 @@
         "capMonthly": 1333
       },
       {
-        "category": "offline",
+        "category": "base",
         "rate": 1,
         "capMonthly": null
       }
@@ -362,7 +362,7 @@
         "capMonthly": 1250
       },
       {
-        "category": "offline",
+        "category": "base",
         "rate": 0.25,
         "capMonthly": null
       }
@@ -435,7 +435,7 @@
         "capMonthly": 2500
       },
       {
-        "category": "offline",
+        "category": "base",
         "rate": 0.5,
         "capMonthly": null
       }
@@ -518,7 +518,7 @@
         "capMonthly": 2500
       },
       {
-        "category": "offline",
+        "category": "base",
         "rate": 0.25,
         "capMonthly": null
       }
@@ -594,7 +594,7 @@
         "capMonthly": null
       },
       {
-        "category": "offline",
+        "category": "base",
         "rate": 0.8,
         "capMonthly": null
       }
@@ -658,17 +658,17 @@
     "rewardType": "cashback and reward points",
     "rewards": [
       {
-        "category": "offline",
+        "category": "base",
         "rate": 3,
         "capMonthly": null
       },
       {
-        "category": "offline",
+        "category": "base",
         "rate": 7.5,
         "capMonthly": null
       },
       {
-        "category": "offline",
+        "category": "base",
         "rate": 1.5,
         "capMonthly": null
       }
@@ -738,7 +738,7 @@
     "rewardType": "reward points",
     "rewards": [
       {
-        "category": "offline",
+        "category": "base",
         "rate": 3.75,
         "capMonthly": null
       },
@@ -748,7 +748,7 @@
         "capMonthly": null
       },
       {
-        "category": "offline",
+        "category": "base",
         "rate": 0.5,
         "capMonthly": null
       }
@@ -822,7 +822,7 @@
     "rewardType": "reward points",
     "rewards": [
       {
-        "category": "offline",
+        "category": "base",
         "rate": 3.75,
         "capMonthly": null
       },
@@ -832,7 +832,7 @@
         "capMonthly": null
       },
       {
-        "category": "offline",
+        "category": "base",
         "rate": 0.5,
         "capMonthly": null
       }
@@ -911,7 +911,7 @@
         "capMonthly": null
       },
       {
-        "category": "offline",
+        "category": "base",
         "rate": 1,
         "capMonthly": null
       }
@@ -1005,7 +1005,7 @@
         "capMonthly": null
       },
       {
-        "category": "offline",
+        "category": "base",
         "rate": 1,
         "capMonthly": null
       }
@@ -1085,7 +1085,7 @@
         "capMonthly": null
       },
       {
-        "category": "offline",
+        "category": "base",
         "rate": 0.5,
         "capMonthly": null
       }
@@ -1173,7 +1173,7 @@
         "capMonthly": 500
       },
       {
-        "category": "offline",
+        "category": "base",
         "rate": 1,
         "capMonthly": null
       }
@@ -1247,7 +1247,7 @@
         "capMonthly": null
       },
       {
-        "category": "offline",
+        "category": "base",
         "rate": 0.8,
         "capMonthly": null
       }
@@ -1311,7 +1311,7 @@
     "rewardType": "reward points",
     "rewards": [
       {
-        "category": "offline",
+        "category": "base",
         "rate": 6.25,
         "capMonthly": null
       },
@@ -1326,7 +1326,7 @@
         "capMonthly": null
       },
       {
-        "category": "offline",
+        "category": "base",
         "rate": 0.5,
         "capMonthly": null
       }
@@ -1411,7 +1411,7 @@
         "capMonthly": null
       },
       {
-        "category": "offline",
+        "category": "base",
         "rate": 1,
         "capMonthly": 1000
       }
@@ -1492,7 +1492,7 @@
         "capMonthly": null
       },
       {
-        "category": "offline",
+        "category": "base",
         "rate": 1,
         "capMonthly": 2000
       }
@@ -1569,7 +1569,7 @@
         "capMonthly": null
       },
       {
-        "category": "offline",
+        "category": "base",
         "rate": 0.5,
         "capMonthly": null
       }
@@ -1643,7 +1643,7 @@
         "capMonthly": null
       },
       {
-        "category": "offline",
+        "category": "base",
         "rate": 0.17,
         "capMonthly": null
       }
@@ -1719,7 +1719,7 @@
         "capMonthly": null
       },
       {
-        "category": "offline",
+        "category": "base",
         "rate": 2,
         "capMonthly": null
       }
@@ -1811,7 +1811,7 @@
         "capMonthly": 1250
       },
       {
-        "category": "offline",
+        "category": "base",
         "rate": 0.25,
         "capMonthly": null
       }
@@ -1884,7 +1884,7 @@
         "capMonthly": null
       },
       {
-        "category": "offline",
+        "category": "base",
         "rate": 1,
         "capMonthly": null
       }
@@ -1964,7 +1964,7 @@
         "capMonthly": null
       },
       {
-        "category": "offline",
+        "category": "base",
         "rate": 6,
         "capMonthly": null
       }
@@ -2038,7 +2038,7 @@
     "rewardType": "reward points",
     "rewards": [
       {
-        "category": "offline",
+        "category": "base",
         "rate": 2.5,
         "capMonthly": null
       },
@@ -2048,7 +2048,7 @@
         "capMonthly": null
       },
       {
-        "category": "offline",
+        "category": "base",
         "rate": 0.5,
         "capMonthly": null
       }
@@ -2118,7 +2118,7 @@
     "rewardType": "reward points",
     "rewards": [
       {
-        "category": "offline",
+        "category": "base",
         "rate": 2.5,
         "capMonthly": null
       },
@@ -2128,7 +2128,7 @@
         "capMonthly": null
       },
       {
-        "category": "offline",
+        "category": "base",
         "rate": 0.5,
         "capMonthly": null
       }
@@ -2208,7 +2208,7 @@
         "capMonthly": null
       },
       {
-        "category": "offline",
+        "category": "base",
         "rate": 0.5,
         "capMonthly": null
       }
@@ -2292,7 +2292,7 @@
         "capMonthly": null
       },
       {
-        "category": "offline",
+        "category": "base",
         "rate": 0.25,
         "capMonthly": null
       }
@@ -2360,7 +2360,7 @@
     "rewardType": "reward points",
     "rewards": [
       {
-        "category": "offline",
+        "category": "base",
         "rate": 1.25,
         "capMonthly": null
       },
@@ -2370,7 +2370,7 @@
         "capMonthly": null
       },
       {
-        "category": "offline",
+        "category": "base",
         "rate": 0.25,
         "capMonthly": null
       }
@@ -2451,7 +2451,7 @@
         "capMonthly": null
       },
       {
-        "category": "offline",
+        "category": "base",
         "rate": 0.25,
         "capMonthly": null
       }
@@ -2529,7 +2529,7 @@
         "capMonthly": null
       },
       {
-        "category": "offline",
+        "category": "base",
         "rate": 2,
         "capMonthly": null
       }
@@ -2600,7 +2600,7 @@
     "rewardType": "reward points",
     "rewards": [
       {
-        "category": "offline",
+        "category": "base",
         "rate": 3.75,
         "capMonthly": null
       },
@@ -2610,7 +2610,7 @@
         "capMonthly": null
       },
       {
-        "category": "offline",
+        "category": "base",
         "rate": 0.5,
         "capMonthly": null
       }
@@ -2711,7 +2711,7 @@
         "displayRate": "5 Reward Points / Rs 100"
       },
       {
-        "category": "offline",
+        "category": "base",
         "rate": 2,
         "capMonthly": null,
         "displayRate": "2 Reward Points / Rs 100",
@@ -2785,7 +2785,7 @@
     "rewardType": "reward points",
     "rewards": [
       {
-        "category": "offline",
+        "category": "base",
         "rate": 2.5,
         "capMonthly": null
       },
@@ -2795,7 +2795,7 @@
         "capMonthly": null
       },
       {
-        "category": "offline",
+        "category": "base",
         "rate": 0.25,
         "capMonthly": null
       }
@@ -2865,7 +2865,7 @@
         "capMonthly": 500
       },
       {
-        "category": "offline",
+        "category": "base",
         "rate": 1,
         "capMonthly": null
       }
@@ -2942,7 +2942,7 @@
         "capMonthly": null
       },
       {
-        "category": "offline",
+        "category": "base",
         "rate": 0.25,
         "capMonthly": null
       }
@@ -3017,7 +3017,7 @@
         "capMonthly": null
       },
       {
-        "category": "offline",
+        "category": "base",
         "rate": 1.25,
         "capMonthly": null
       },
@@ -3027,7 +3027,7 @@
         "capMonthly": null
       },
       {
-        "category": "offline",
+        "category": "base",
         "rate": 0.25,
         "capMonthly": null
       }
@@ -3108,7 +3108,7 @@
         "capMonthly": null
       },
       {
-        "category": "offline",
+        "category": "base",
         "rate": 1,
         "capMonthly": null
       }
@@ -3195,7 +3195,7 @@
         "capMonthly": 5000
       },
       {
-        "category": "offline",
+        "category": "base",
         "rate": 0.5,
         "capMonthly": 5000
       }
@@ -3272,7 +3272,7 @@
         "capMonthly": 7500
       },
       {
-        "category": "offline",
+        "category": "base",
         "rate": 0.25,
         "capMonthly": null
       }

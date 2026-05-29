@@ -20,11 +20,13 @@
       {
         "category": "dining",
         "rate": 2,
+        "displayRate": "10 EazyPoints per Rs 100",
         "capMonthly": 5000
       },
       {
-        "category": "offline",
+        "category": "base",
         "rate": 0.5,
+        "displayRate": "2 EazyPoints per Rs 100",
         "capMonthly": null
       }
     ],
@@ -94,11 +96,13 @@
       {
         "category": "online",
         "rate": 2.4,
+        "displayRate": "6 reward points per Rs 100",
         "capMonthly": null
       },
       {
-        "category": "offline",
+        "category": "base",
         "rate": 0.8,
+        "displayRate": "2 reward points per Rs 100",
         "capMonthly": null
       }
     ],
@@ -173,8 +177,9 @@
     "rewardType": "reward points",
     "rewards": [
       {
-        "category": "offline",
+        "category": "base",
         "rate": 0.7,
+        "displayRate": "1 reward point per Rs 100 (weekdays) / 2 reward points (weekends)",
         "capMonthly": null
       }
     ],
@@ -247,11 +252,13 @@
       {
         "category": "upi",
         "rate": 0.6,
+        "displayRate": "2 reward points per Rs 100",
         "capMonthly": null
       },
       {
-        "category": "offline",
+        "category": "base",
         "rate": 0.3,
+        "displayRate": "1 reward point per Rs 100",
         "capMonthly": null
       }
     ],
@@ -322,11 +329,13 @@
       {
         "category": "dining",
         "rate": 1.5,
+        "displayRate": "1.5% valueback",
         "capMonthly": 1500
       },
       {
-        "category": "offline",
+        "category": "base",
         "rate": 0.25,
+        "displayRate": "2 reward points per Rs 100",
         "capMonthly": null
       }
     ],
@@ -394,16 +403,19 @@
       {
         "category": "online",
         "rate": 1.75,
+        "displayRate": "2.5 reward points per Rs 100",
         "capMonthly": null
       },
       {
         "category": "travel",
         "rate": 1.05,
+        "displayRate": "1.5 reward points per Rs 100",
         "capMonthly": null
       },
       {
-        "category": "offline",
+        "category": "base",
         "rate": 0.7,
+        "displayRate": "1 reward point per Rs 100",
         "capMonthly": null
       }
     ],
@@ -480,16 +492,19 @@
       {
         "category": "grocery",
         "rate": 1.6,
+        "displayRate": "4 savings points per Rs 100",
         "capMonthly": null
       },
       {
         "category": "travel",
         "rate": 1.6,
+        "displayRate": "4 savings points per Rs 100",
         "capMonthly": null
       },
       {
-        "category": "offline",
+        "category": "base",
         "rate": 0.2,
+        "displayRate": "0.5 savings points per Rs 100",
         "capMonthly": null
       }
     ],
@@ -560,8 +575,9 @@
     "rewardType": "reward points",
     "rewards": [
       {
-        "category": "offline",
+        "category": "base",
         "rate": 1.05,
+        "displayRate": "1.5 reward points per Rs 100",
         "capMonthly": null
       }
     ],
@@ -639,13 +655,15 @@
     "rewardType": "Pioneer Rewards",
     "rewards": [
       {
-        "category": "offline",
+        "category": "base",
         "rate": 1,
+        "displayRate": "1 reward point per Rs 100",
         "capMonthly": null
       },
       {
         "category": "travel",
         "rate": 2.5,
+        "displayRate": "2.5 reward points per Rs 100",
         "capMonthly": null
       },
       {
@@ -740,7 +758,8 @@
     "sourceUrl": "https://www.indusind.bank.in/in/en/personal/cards/credit-card/pioneer-heritage-credit-card.html",
     "applyUrl": "https://www.indusind.bank.in/in/en/personal/cards/credit-card/pioneer-heritage-credit-card.html",
     "lastVerified": "2026-05-29",
-    "verificationStatus": "official-direct"
+    "verificationStatus": "official-direct",
+    "imageUrl": "/images/indusind-pioneer-heritage-metal.png"
   },
   {
     "id": "indusind-nexxt",
@@ -760,8 +779,9 @@
     "rewardType": "reward points",
     "rewards": [
       {
-        "category": "offline",
+        "category": "base",
         "rate": 0.4,
+        "displayRate": "1 reward point per Rs 150",
         "capMonthly": null
       }
     ],
@@ -833,7 +853,7 @@
     "rewardType": "Pioneer Rewards",
     "rewards": [
       {
-        "category": "offline",
+        "category": "base",
         "displayCategory": "weekday spends",
         "rate": 1,
         "displayRate": "1 reward point per Rs 100",
@@ -957,8 +977,9 @@
     "rewardType": "reward points",
     "rewards": [
       {
-        "category": "offline",
+        "category": "base",
         "rate": 1.05,
+        "displayRate": "1.5 reward points per Rs 100",
         "capMonthly": null
       }
     ],
@@ -1035,8 +1056,9 @@
     "rewardType": "reward points",
     "rewards": [
       {
-        "category": "offline",
+        "category": "base",
         "rate": 1.5,
+        "displayRate": "1.5 reward points per Rs 100",
         "capMonthly": null
       }
     ],

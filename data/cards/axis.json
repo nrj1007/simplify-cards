@@ -39,7 +39,7 @@
         "capMonthly": 500
       },
       {
-        "category": "offline",
+        "category": "base",
         "rate": 1,
         "capMonthly": null
       }
@@ -135,7 +135,7 @@
         "capMonthly": null
       },
       {
-        "category": "offline",
+        "category": "base",
         "rate": 1,
         "capMonthly": null
       }
@@ -226,7 +226,7 @@
         "capMonthly": null
       },
       {
-        "category": "offline",
+        "category": "base",
         "rate": 1.5,
         "capMonthly": null
       }
@@ -304,7 +304,7 @@
         "capMonthly": null
       },
       {
-        "category": "offline",
+        "category": "base",
         "rate": 4,
         "capMonthly": null
       }
@@ -369,12 +369,12 @@
         "capMonthly": 200000
       },
       {
-        "category": "offline",
+        "category": "base",
         "rate": 1.2,
         "capMonthly": 150000
       },
       {
-        "category": "offline",
+        "category": "base",
         "rate": 3.5,
         "capMonthly": null
       }
@@ -471,7 +471,7 @@
         "capMonthly": null
       },
       {
-        "category": "offline",
+        "category": "base",
         "rate": 0.2,
         "capMonthly": null
       }
@@ -556,12 +556,12 @@
         "capMonthly": 200000
       },
       {
-        "category": "offline",
+        "category": "base",
         "rate": 1.2,
         "capMonthly": 150000
       },
       {
-        "category": "offline",
+        "category": "base",
         "rate": 3.5,
         "capMonthly": null
       }
@@ -659,7 +659,7 @@
         "capMonthly": 20000
       },
       {
-        "category": "offline",
+        "category": "base",
         "rate": 1,
         "capMonthly": null
       }
@@ -749,7 +749,7 @@
     "rewardType": "edge reward points",
     "rewards": [
       {
-        "category": "offline",
+        "category": "base",
         "rate": 1.5,
         "capMonthly": null
       },
@@ -848,7 +848,7 @@
         "capMonthly": 5000
       },
       {
-        "category": "offline",
+        "category": "base",
         "rate": 0.22,
         "capMonthly": null
       }
@@ -1020,7 +1020,7 @@
         "capMonthly": 7000
       },
       {
-        "category": "offline",
+        "category": "base",
         "rate": 0.32,
         "capMonthly": null
       }
@@ -1094,7 +1094,7 @@
     "rewardType": "edge reward points",
     "rewards": [
       {
-        "category": "offline",
+        "category": "base",
         "rate": 0.4,
         "capMonthly": null
       }
@@ -1182,7 +1182,7 @@
         "capMonthly": null
       },
       {
-        "category": "offline",
+        "category": "base",
         "rate": 2,
         "capMonthly": null
       }
@@ -1261,7 +1261,7 @@
     "rewardType": "edge reward points and merchant discounts",
     "rewards": [
       {
-        "category": "offline",
+        "category": "base",
         "rate": 0.1,
         "capMonthly": null
       }
@@ -1338,7 +1338,7 @@
     "rewardType": "edge reward points",
     "rewards": [
       {
-        "category": "offline",
+        "category": "base",
         "rate": 1,
         "capMonthly": null
       }
@@ -1432,7 +1432,7 @@
         "capMonthly": null
       },
       {
-        "category": "offline",
+        "category": "base",
         "rate": 1,
         "capMonthly": null
       }
@@ -1518,7 +1518,7 @@
         "capMonthly": null
       },
       {
-        "category": "offline",
+        "category": "base",
         "rate": 0.2,
         "capMonthly": null
       }
@@ -1592,7 +1592,7 @@
     "rewardType": "edge reward points",
     "rewards": [
       {
-        "category": "offline",
+        "category": "base",
         "rate": 1,
         "capMonthly": null
       }
@@ -1677,7 +1677,7 @@
         "capMonthly": null
       },
       {
-        "category": "offline",
+        "category": "base",
         "rate": 0.2,
         "capMonthly": null
       }
@@ -1765,7 +1765,7 @@
         "capMonthly": null
       },
       {
-        "category": "offline",
+        "category": "base",
         "rate": 1,
         "capMonthly": null
       }
@@ -1844,7 +1844,7 @@
         "capMonthly": null
       },
       {
-        "category": "offline",
+        "category": "base",
         "rate": 0.6,
         "capMonthly": null
       },
@@ -1925,7 +1925,7 @@
     "rewardType": "edge reward points",
     "rewards": [
       {
-        "category": "offline",
+        "category": "base",
         "rate": 0.1,
         "capMonthly": null
       }
@@ -2017,7 +2017,7 @@
         "capMonthly": null
       },
       {
-        "category": "offline",
+        "category": "base",
         "rate": 1,
         "capMonthly": null
       }
@@ -2101,7 +2101,7 @@
         "capMonthly": null
       },
       {
-        "category": "offline",
+        "category": "base",
         "rate": 2,
         "capMonthly": null
       }
@@ -2189,7 +2189,7 @@
         "capMonthly": null
       },
       {
-        "category": "offline",
+        "category": "base",
         "rate": 2,
         "capMonthly": null
       }
@@ -2273,7 +2273,7 @@
     "rewardType": "edge reward points",
     "rewards": [
       {
-        "category": "offline",
+        "category": "base",
         "rate": 0.2,
         "capMonthly": null
       },
@@ -2361,7 +2361,7 @@
         "capMonthly": null
       },
       {
-        "category": "offline",
+        "category": "base",
         "rate": 1,
         "capMonthly": null
       }
@@ -2444,7 +2444,7 @@
         "capMonthly": null
       },
       {
-        "category": "offline",
+        "category": "base",
         "rate": 1,
         "capMonthly": null
       }
@@ -2531,7 +2531,7 @@
         "capMonthly": null
       },
       {
-        "category": "offline",
+        "category": "base",
         "rate": 2,
         "capMonthly": null
       }
@@ -2621,7 +2621,7 @@
         "capMonthly": null
       },
       {
-        "category": "offline",
+        "category": "base",
         "rate": 1,
         "capMonthly": null
       }
@@ -2711,7 +2711,7 @@
         "capMonthly": null
       },
       {
-        "category": "offline",
+        "category": "base",
         "rate": 1,
         "capMonthly": null
       }

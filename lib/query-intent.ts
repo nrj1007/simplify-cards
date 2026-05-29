@@ -85,7 +85,7 @@ const spendCategoryAliases: Array<{ category: SpendCategory; aliases: string[] }
   { category: "dining", aliases: ["dining", "restaurant", "restaurants", "food delivery", "swiggy", "zomato"] },
   { category: "fuel", aliases: ["fuel", "petrol", "diesel"] },
   { category: "online", aliases: ["online", "shopping", "ecommerce"] },
-  { category: "offline", aliases: ["offline", "retail"] },
+  { category: "base", aliases: ["offline", "retail", "base"] },
   { category: "amazon", aliases: ["amazon"] },
   { category: "upi", aliases: ["upi", "rupay upi"] },
   { category: "rent", aliases: ["rent", "rental", "rental payments", "rent payments"] },
@@ -96,7 +96,7 @@ const spendCategoryAliases: Array<{ category: SpendCategory; aliases: string[] }
 
 const spendCategories: SpendCategory[] = [
   "online",
-  "offline",
+  "base",
   "travel",
   "fuel",
   "dining",

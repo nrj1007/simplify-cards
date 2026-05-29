@@ -22,7 +22,7 @@
         "capMonthly": null
       },
       {
-        "category": "offline",
+        "category": "base",
         "rate": 0.21,
         "capMonthly": null
       }
@@ -179,7 +179,7 @@
         "capMonthly": null
       },
       {
-        "category": "offline",
+        "category": "base",
         "rate": 0.5,
         "capMonthly": null
       }
@@ -242,7 +242,7 @@
     "rewardType": "Kotak Reward Points",
     "rewards": [
       {
-        "category": "offline",
+        "category": "base",
         "rate": 0.37,
         "capMonthly": null
       }
@@ -309,7 +309,7 @@
     "rewardType": "White Pass",
     "rewards": [
       {
-        "category": "offline",
+        "category": "base",
         "rate": 0,
         "capMonthly": null
       }
@@ -384,7 +384,7 @@
         "capMonthly": 100000
       },
       {
-        "category": "offline",
+        "category": "base",
         "rate": 3,
         "capMonthly": null
       }
@@ -461,7 +461,7 @@
         "capMonthly": null
       },
       {
-        "category": "offline",
+        "category": "base",
         "rate": 0.67,
         "capMonthly": null
       }
@@ -524,7 +524,7 @@
     "rewardType": "movie benefits",
     "rewards": [
       {
-        "category": "offline",
+        "category": "base",
         "rate": 0,
         "capMonthly": null
       }
@@ -585,7 +585,7 @@
     "rewardType": "White Pass",
     "rewards": [
       {
-        "category": "offline",
+        "category": "base",
         "rate": 0,
         "capMonthly": null
       }
@@ -713,7 +713,7 @@
     "rewardType": "Kotak Reward Points",
     "rewards": [
       {
-        "category": "offline",
+        "category": "base",
         "rate": 0.4,
         "capMonthly": null
       }
@@ -788,7 +788,7 @@
         "capMonthly": null
       },
       {
-        "category": "offline",
+        "category": "base",
         "rate": 0.2,
         "capMonthly": null
       }
@@ -852,7 +852,7 @@
     "rewardType": "movie benefits",
     "rewards": [
       {
-        "category": "offline",
+        "category": "base",
         "rate": 0,
         "capMonthly": null
       }
@@ -910,7 +910,7 @@
     "rewardType": "movie benefits",
     "rewards": [
       {
-        "category": "offline",
+        "category": "base",
         "rate": 0,
         "capMonthly": null
       }

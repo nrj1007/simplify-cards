@@ -22,7 +22,7 @@
         "capMonthly": null
       },
       {
-        "category": "offline",
+        "category": "base",
         "rate": 0.5,
         "capMonthly": null
       }
@@ -93,7 +93,7 @@
         "capMonthly": null
       },
       {
-        "category": "offline",
+        "category": "base",
         "rate": 0.25,
         "capMonthly": null
       }
@@ -159,7 +159,7 @@
     "rewardType": "entertainment benefits",
     "rewards": [
       {
-        "category": "offline",
+        "category": "base",
         "rate": 0,
         "capMonthly": null
       }
@@ -236,7 +236,7 @@
         "capMonthly": null
       },
       {
-        "category": "offline",
+        "category": "base",
         "rate": 0.5,
         "capMonthly": null
       }
@@ -312,7 +312,7 @@
         "capMonthly": 500
       },
       {
-        "category": "offline",
+        "category": "base",
         "rate": 0.5,
         "capMonthly": null
       }
@@ -384,7 +384,7 @@
         "capMonthly": null
       },
       {
-        "category": "offline",
+        "category": "base",
         "rate": 0.2,
         "capMonthly": null
       }
@@ -455,7 +455,7 @@
         "capMonthly": 250
       },
       {
-        "category": "offline",
+        "category": "base",
         "rate": 0.5,
         "capMonthly": null
       }
@@ -533,7 +533,7 @@
         "capMonthly": null
       },
       {
-        "category": "offline",
+        "category": "base",
         "rate": 1,
         "capMonthly": null
       }
@@ -597,7 +597,7 @@
     "rewardType": "reward points",
     "rewards": [
       {
-        "category": "offline",
+        "category": "base",
         "rate": 0.5,
         "capMonthly": null
       },
@@ -676,7 +676,7 @@
         "capMonthly": null
       },
       {
-        "category": "offline",
+        "category": "base",
         "rate": 0.5,
         "capMonthly": null
       }
@@ -753,7 +753,7 @@
         "capMonthly": null
       },
       {
-        "category": "offline",
+        "category": "base",
         "rate": 1,
         "capMonthly": null
       }

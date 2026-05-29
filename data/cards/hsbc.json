@@ -24,7 +24,7 @@
         "capMonthly": 1000
       },
       {
-        "category": "offline",
+        "category": "base",
         "rate": 1.5,
         "capMonthly": null
       }
@@ -131,7 +131,7 @@
         "postCapRate": 2
       },
       {
-        "category": "offline",
+        "category": "base",
         "rate": 2,
         "displayCategory": "others",
         "displayRate": "2 Reward Points / Rs 100",
@@ -380,7 +380,7 @@
         "capMonthly": null
       },
       {
-        "category": "offline",
+        "category": "base",
         "rate": 1.5,
         "capMonthly": null
       }
@@ -460,7 +460,7 @@
     "rewardType": "reward points",
     "rewards": [
       {
-        "category": "offline",
+        "category": "base",
         "rate": 3,
         "capMonthly": null
       },
@@ -558,7 +558,7 @@
     "rewardType": "reward points",
     "rewards": [
       {
-        "category": "offline",
+        "category": "base",
         "rate": 2,
         "capMonthly": null
       },
@@ -641,7 +641,7 @@
         "capMonthly": 400
       },
       {
-        "category": "offline",
+        "category": "base",
         "rate": 1,
         "capMonthly": null
       }
@@ -723,7 +723,7 @@
         "capMonthly": null
       },
       {
-        "category": "offline",
+        "category": "base",
         "rate": 2,
         "capMonthly": null
       }

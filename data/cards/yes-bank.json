@@ -24,7 +24,7 @@
         "capMonthly": 25000
       },
       {
-        "category": "offline",
+        "category": "base",
         "rate": 2.25,
         "capMonthly": null
       },
@@ -115,7 +115,7 @@
         "capMonthly": 3000
       },
       {
-        "category": "offline",
+        "category": "base",
         "rate": 1,
         "capMonthly": null
       }
@@ -289,7 +289,7 @@
         "capMonthly": null
       },
       {
-        "category": "offline",
+        "category": "base",
         "rate": 0.5,
         "capMonthly": null
       }
@@ -372,7 +372,7 @@
         "capMonthly": 9000
       },
       {
-        "category": "offline",
+        "category": "base",
         "rate": 1.5,
         "capMonthly": null
       },
@@ -528,7 +528,7 @@
         "capMonthly": 3000
       },
       {
-        "category": "offline",
+        "category": "base",
         "rate": 1,
         "capMonthly": null
       }
@@ -674,7 +674,7 @@
         "capMonthly": 3000
       },
       {
-        "category": "offline",
+        "category": "base",
         "rate": 0.75,
         "capMonthly": null
       },
@@ -755,7 +755,7 @@
         "capMonthly": null
       },
       {
-        "category": "offline",
+        "category": "base",
         "rate": 0.25,
         "capMonthly": null
       }
@@ -828,7 +828,7 @@
         "capMonthly": 1250
       },
       {
-        "category": "offline",
+        "category": "base",
         "rate": 0.5,
         "capMonthly": null
       },
@@ -909,7 +909,7 @@
         "capMonthly": 1250
       },
       {
-        "category": "offline",
+        "category": "base",
         "rate": 0.5,
         "capMonthly": null
       },

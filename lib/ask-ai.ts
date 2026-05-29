@@ -311,7 +311,7 @@ function buildScenarioHighlights(
     online: 32000,
     travel: 10000,
     dining: 5000,
-    offline: 6000,
+    base: 6000,
     grocery: 0,
     fuel: 0,
     amazon: 0,
@@ -323,7 +323,7 @@ function buildScenarioHighlights(
     online: 5000,
     travel: 32000,
     dining: 4000,
-    offline: 6000,
+    base: 6000,
     grocery: 3000,
     fuel: 0,
     amazon: 0,
@@ -686,7 +686,7 @@ function parseSpecificCardQuestion(query?: string): ParsedCardQuestion {
 function inferSpendCategory(subject: string) {
   const normalized = normalizeForMatch(subject);
 
-  if (containsAny(normalized, ["gold", "jewellery", "jewelry", "jewel"])) return "offline";
+  if (containsAny(normalized, ["gold", "jewellery", "jewelry", "jewel"])) return "base";
   if (containsAny(normalized, ["rent", "rental", "landlord"])) return "rent";
   if (containsAny(normalized, ["fuel", "petrol", "diesel"])) return "fuel";
   if (containsAny(normalized, ["grocery", "groceries"])) return "grocery";

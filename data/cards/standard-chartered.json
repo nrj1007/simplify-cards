@@ -18,7 +18,7 @@
     "rewardType": "360° Rewards points",
     "rewards": [
       {
-        "category": "offline",
+        "category": "base",
         "rate": 3.33,
         "capMonthly": null
       }
@@ -95,7 +95,7 @@
         "capMonthly": 1000
       },
       {
-        "category": "offline",
+        "category": "base",
         "rate": 1,
         "capMonthly": 500
       }
@@ -167,7 +167,7 @@
         "capMonthly": 100
       },
       {
-        "category": "offline",
+        "category": "base",
         "rate": 0.17,
         "capMonthly": null
       }
@@ -233,7 +233,7 @@
     "rewardType": "360° Rewards points",
     "rewards": [
       {
-        "category": "offline",
+        "category": "base",
         "rate": 0.67,
         "capMonthly": null
       },
@@ -372,7 +372,7 @@
         "capMonthly": null
       },
       {
-        "category": "offline",
+        "category": "base",
         "rate": 0.25,
         "capMonthly": null
       }
@@ -439,7 +439,7 @@
         "capMonthly": null
       },
       {
-        "category": "offline",
+        "category": "base",
         "rate": 0.5,
         "capMonthly": null
       }
@@ -508,7 +508,7 @@
         "capMonthly": null
       },
       {
-        "category": "offline",
+        "category": "base",
         "rate": 0.17,
         "capMonthly": null
       }
@@ -575,7 +575,7 @@
         "capMonthly": null
       },
       {
-        "category": "offline",
+        "category": "base",
         "rate": 0.5,
         "capMonthly": null
       }
@@ -642,7 +642,7 @@
     "rewardType": "360° Rewards points",
     "rewards": [
       {
-        "category": "offline",
+        "category": "base",
         "rate": 3.33,
         "capMonthly": null
       },

@@ -61,7 +61,7 @@ const allowedRewardCategories = new Set([
   "lifestyle",
   "marriott",
   "myntra",
-  "offline",
+  "base",
   "online",
   "partner merchants",
   "payzapp",

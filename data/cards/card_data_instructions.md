@@ -109,6 +109,18 @@ Define the redemption values for different options, along with transfer ratios f
 > * If a category still earns points but at a revised lower rate (e.g., 0.7 reward points per ₹100 spent) or is capped but still rewards up to that cap, do **not** add it to `exclusions` or `exclusionCodes`. Instead, define it in the `rewards` array with the specific rate and a descriptive `displayCategory` and `displayRate` to ensure proper yield calculations in recommendation scoring.
 
 
+### D. Reward Rates and Display Uniformity (`displayRate` vs. `rate`)
+
+To ensure that the UI renders reward rates exactly as they are advertised on official bank websites (rather than exposing raw yield decimals or default percentage fallbacks), follow these guidelines:
+
+*   **`rate` (Numeric Earning Rate / Net Yield):** This is a decimal number representing the direct yield/percentage for the recommendation scoring calculations.
+    *   *Example:* If a card earns 6 reward points per ₹100 online and each point is worth ₹0.40, the net yield is `2.4%`. Set `"rate": 2.4` for scoring accuracy.
+*   **`displayRate` (Uniform Visual Representation):** Define this string property whenever a card expresses its rewards in terms of reward points, EazyPoints, savings points, or other specific metrics on its official page, rather than flat percentages.
+    *   *Example:* For the card above, set `"displayRate": "6 reward points per Rs 100"`.
+    *   Always use a clear, user-friendly format matching the official website (e.g. `"X reward points per Rs 100"`, `"X EazyPoints per Rs 100"`, or `"X reward points per Rs 150"`).
+    *   Defining `displayRate` prevents the UI from incorrectly defaulting to the raw yield decimal (like displaying `2.4 reward points / Rs 100` instead of `6`) or appending `%` to non-percentage rates.
+
+
 ---
 
 ## 4. Latest Updates Configuration

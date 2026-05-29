@@ -18,7 +18,7 @@
     "rewardType": "reward points",
     "rewards": [
       {
-        "category": "offline",
+        "category": "base",
         "rate": 0.75,
         "capMonthly": null
       },
@@ -87,7 +87,7 @@
         "capMonthly": null
       },
       {
-        "category": "offline",
+        "category": "base",
         "rate": 0.75,
         "capMonthly": null
       }
@@ -162,7 +162,7 @@
         "capMonthly": null
       },
       {
-        "category": "offline",
+        "category": "base",
         "rate": 0.75,
         "capMonthly": null
       }
@@ -236,7 +236,7 @@
         "capMonthly": null
       },
       {
-        "category": "offline",
+        "category": "base",
         "rate": 0.75,
         "capMonthly": null
       }
@@ -389,7 +389,7 @@
         "capMonthly": null
       },
       {
-        "category": "offline",
+        "category": "base",
         "rate": 0.75,
         "capMonthly": null
       }

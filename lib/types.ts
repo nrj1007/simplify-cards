@@ -2,7 +2,7 @@ import type { ExclusionCode } from "./exclusion-constants";
 
 export type SpendCategory =
   | "online"
-  | "offline"
+  | "base"
   | "travel"
   | "fuel"
   | "dining"

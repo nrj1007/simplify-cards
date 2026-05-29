@@ -35,7 +35,7 @@ describe("scoreCards", () => {
       query: "best online cashback card",
       spend: {
         online: 25000,
-        offline: 0,
+        base: 0,
         travel: 0,
         dining: 0,
         grocery: 0,
@@ -59,7 +59,7 @@ describe("scoreCards", () => {
       query: "best fuel hpcl indianoil card",
       spend: {
         online: 0,
-        offline: 0,
+        base: 0,
         travel: 0,
         dining: 0,
         grocery: 0,
@@ -277,8 +277,8 @@ describe("scoreCards", () => {
       .filter((item) => item.spendCategory === "online")
       .map((item) => item.rewardCategory);
 
-    expect(genericDinersOnlineRewards).toEqual(expect.arrayContaining(["smartbuy", "offline"]));
-    expect(genericRegaliaOnlineRewards).toEqual(expect.arrayContaining(["select lifestyle brands", "offline"]));
+    expect(genericDinersOnlineRewards).toEqual(expect.arrayContaining(["smartbuy", "base"]));
+    expect(genericRegaliaOnlineRewards).toEqual(expect.arrayContaining(["select lifestyle brands", "base"]));
     expect(smartbuyDinersOnlineRewards).toEqual(["smartbuy"]);
   });
 
@@ -353,7 +353,7 @@ describe("scoreCards", () => {
       query: "best card for insurance spends",
       spend: {
         online: 0,
-        offline: 0,
+        base: 0,
         travel: 0,
         dining: 0,
         grocery: 0,
@@ -377,7 +377,7 @@ describe("scoreCards", () => {
       query: "best card for rent spends",
       spend: {
         online: 0,
-        offline: 0,
+        base: 0,
         travel: 0,
         dining: 0,
         grocery: 0,
@@ -404,7 +404,7 @@ describe("scoreCards", () => {
       query: "best axis card for education payments",
       spend: {
         online: 0,
-        offline: 0,
+        base: 0,
         travel: 0,
         dining: 0,
         grocery: 0,
@@ -422,7 +422,7 @@ describe("scoreCards", () => {
     const atlas = scores.find((score) => score.card.id === "axis-atlas");
     const educationBreakdown = atlas?.rewardBreakdown.find((item) => item.spendCategory === "education");
 
-    expect(educationBreakdown?.rewardCategory).toBe("offline");
+    expect(educationBreakdown?.rewardCategory).toBe("base");
   });
 
   it("counts joining and renewal-style hotel benefits for Marriott Bonvoy HDFC", () => {

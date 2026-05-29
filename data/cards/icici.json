@@ -27,7 +27,7 @@
         "capMonthly": null
       },
       {
-        "category": "offline",
+        "category": "base",
         "rate": 1,
         "capMonthly": null
       }
@@ -230,7 +230,7 @@
     "rewardType": "ICICI Bank Reward Points",
     "rewards": [
       {
-        "category": "offline",
+        "category": "base",
         "rate": 2,
         "capMonthly": null
       },

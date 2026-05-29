@@ -5,7 +5,7 @@ import type { CardScore, CreditCard, RecommendationInput, SpendCategory, SpendPr
 
 export const defaultSpendProfile: SpendProfile = {
   online: 15000,
-  offline: 8000,
+  base: 8000,
   travel: 5000,
   dining: 4000,
   grocery: 5000,
@@ -21,7 +21,7 @@ export const defaultSpendProfile: SpendProfile = {
 
 const spendAliases: Record<SpendCategory, string[]> = {
   online: ["online"],
-  offline: ["offline", "retail"],
+  base: ["offline", "retail", "base"],
   travel: [
     "travel",
     "travel credits",
@@ -824,7 +824,7 @@ function findBaseRewardForSpend(card: CreditCard, category: SpendCategory) {
   return (
     card.rewards.find((reward) => aliases.includes(reward.category)) ??
     card.rewards.find((reward) => reward.category === category) ??
-    card.rewards.find((reward) => reward.category === "offline")
+    card.rewards.find((reward) => reward.category === "base")
   );
 }
 
@@ -886,7 +886,7 @@ function findRewardForSpend(card: CreditCard, category: SpendCategory, includeSm
   return (
     card.rewards.find((reward) => aliases.includes(reward.category)) ??
     card.rewards.find((reward) => reward.category === category) ??
-    card.rewards.find((reward) => reward.category === "offline")
+    card.rewards.find((reward) => reward.category === "base")
   );
 }
 
@@ -999,7 +999,7 @@ function categoryFitAdjustment(
 
     if (isExcluded) {
       const exclusionPenalty =
-        softenPremiumTravelPenalty && category !== "travel" && category !== "offline"
+        softenPremiumTravelPenalty && category !== "travel" && category !== "base"
           ? (category === "fuel" ? 45000 : 25000)
           : 90000;
       return total - exclusionPenalty * (amount / monthlyTotal);
@@ -1017,12 +1017,12 @@ function categoryFitAdjustment(
 
         if (
           isDirectRewardMatch(category, rewardCategory, includeSmartbuyLikeRewards) ||
-          ((specialRule?.treatment === "rewarded" || specialRule?.treatment === "capped") && rewardCategory === "offline")
+          ((specialRule?.treatment === "rewarded" || specialRule?.treatment === "capped") && rewardCategory === "base")
         ) {
           return categoryTotal + (isFocusedSpendProfile ? 32000 : 14000) * weight;
         }
 
-        if (rewardCategory === "offline" && category !== "offline") {
+        if (rewardCategory === "base" && category !== "base") {
           const fallbackPenalty = softenPremiumTravelPenalty ? (isFocusedSpendProfile ? 28000 : 1500) : isFocusedSpendProfile ? 28000 : 10000;
           return categoryTotal - fallbackPenalty * weight;
         }
