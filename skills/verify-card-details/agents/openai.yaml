@@ -1,0 +1,7 @@
+interface:
+  display_name: "Verify Card Details"
+  short_description: "Audit and update credit card details from official sources"
+  default_prompt: "Use $verify-card-details to systematically audit, verify, and update card details from bank web pages and documentation."
+
+policy:
+  allow_implicit_invocation: true
