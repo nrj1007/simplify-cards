@@ -108,10 +108,11 @@ Scan the main pages or perform targeted queries to locate notices under:
 
 ### 4. Extracting and Saving Card Images
 - To locate the official card face thumbnail image, search the page content for image paths containing the card name or `creditCard` subfolders (e.g., `/content/dam/indusind-platform-images/productCategory/desktopImage/creditCard/`).
-- Use tools or scripts to download the image directly to `public/images/` using a clean name.
+- **Listing Page Fallback**: If the thumbnail image is not found or referenced on the individual card page, fetch/search the main credit cards listing page (e.g., `https://www.indusind.bank.in/in/en/personal/cards/credit-card.html`). Inspect comparison sliders or cards listing elements for the card's name to find its associated data-thumbnail or image source path (e.g., `/content/dam/.../cards-th-image/th-EazyDiner_banner.webp`).
+- Use tools or scripts to download the image directly to `public/images/` using a clean name matching the card's ID (e.g., `indusind-eazydiner.webp`).
   * *Example PowerShell Command:*
-    `Invoke-WebRequest -Uri "https://www.indusind.bank.in/content/dam/indusind-platform-images/productCategory/desktopImage/creditCard/th-pioneer-heritage-credit-card1.png" -OutFile "public/images/indusind-pioneer-heritage-metal.png"`
-- Add the corresponding `"imageUrl"` attribute to the card's JSON object (e.g., `"imageUrl": "/images/indusind-pioneer-heritage-metal.png"`).
+    `Invoke-WebRequest -Uri "https://www.indusind.bank.in/content/dam/indusind-platform-images/carousal-banner-images/credit-card/new-webp-cc-/cards-th-image/th-EazyDiner_banner.webp" -OutFile "public/images/indusind-eazydiner.webp"`
+- Add the corresponding `"imageUrl"` attribute to the card's JSON object (e.g., `"imageUrl": "/images/indusind-eazydiner.webp"`).
 
 ---
 
