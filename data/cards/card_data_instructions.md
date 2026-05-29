@@ -210,25 +210,6 @@ Use the following value benchmarks when writing benefit strings for complimentar
 > [!NOTE]
 > Hotel stay values are treated as **voucher benefits** by the scoring engine and automatically discounted to **50% of face value** to account for restricted availability, blackout dates, and limited hotel choice. Write the full rack-rate estimate — the discount is applied in code.
 
----
-
-### Other Common Ambiguous Benefits
-
-| Benefit type | Suggested value to embed | Rationale |
-|---|---|---|
-| Complimentary golf game (domestic) | Rs 3,500 | Typical green fee at a mid-tier Indian course |
-| Complimentary golf game (international) | Rs 8,000 | Premium international course estimate |
-| Airport transfer (one way) | Rs 1,500 | Typical cab/chauffeur rate |
-| Spa / dining credit at a hotel | Rs 2,000 | Standard F&B credit value |
-| Priority Pass membership (no visits included) | Rs 0 | Value comes from lounge count field, not here |
-
-**Example:**
-
-```json
-"additionalBenefits": [
-  "2 complimentary golf games per month at participating domestic courses (worth Rs 3,500 per game)"
-]
-```
-
 > [!TIP]
 > If a benefit has a capped or conditional value (e.g. "up to Rs 5,000"), use the **capped figure**, not an assumed average. The engine sums the stated amount, so overstating leads to inflated scoring.
+
