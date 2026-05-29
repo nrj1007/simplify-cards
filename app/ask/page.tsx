@@ -5,6 +5,7 @@ import AskFeedback from "../ui/AskFeedback";
 import { answerQuestion } from "@/lib/ask-ai";
 import { getCardById } from "@/lib/cards";
 import { getLoungeConditions } from "@/lib/lounge";
+import { stripScoringAnnotations } from "@/lib/card-index";
 import type { CreditCard, RecommendationInput } from "@/lib/types";
 
 type Props = {
@@ -412,7 +413,7 @@ export default async function AskPage({ searchParams }: Props) {
                     <h2>Milestone benefits</h2>
                     <ul className="detail-list">
                       {topCard.card.milestoneBenefits.map((benefit) => (
-                        <li key={benefit}>{benefit}</li>
+                        <li key={benefit}>{stripScoringAnnotations(benefit)}</li>
                       ))}
                     </ul>
                   </section>

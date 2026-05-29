@@ -17,5 +17,6 @@ export {
   getRedemptionBuckets,
   getRewardCategories,
   getUseCases,
-  getTags
+  getTags,
+  stripScoringAnnotations
 } from "./card-index";
