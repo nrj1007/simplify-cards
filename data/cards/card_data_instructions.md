@@ -97,9 +97,9 @@ Define the redemption values for different options, along with transfer ratios f
 }
 ```
 
-### C. Exclusions (`exclusionCodes`)
-Map textual exclusions (found in the `"exclusions"` array) into canonical constants under `"exclusionCodes"` for deterministic ranking checks.
-
+### C. Exclusions (`exclusions` and `exclusionCodes`)
+*   **`exclusions`**: This array must ONLY contain spend categories, transaction types, or merchants that are **excluded from earning reward points** (i.e., they yield 0% rewards). Do not place general bank policies, eligibility constraints, lounge access conditions, or fee info here; those belong in fields like `eligibility`, `additionalBenefits`, `additionalDetails`, or `internalNotes`.
+*   **`exclusionCodes`**: Map the textual exclusions from the `"exclusions"` array into canonical constants under `"exclusionCodes"` for deterministic ranking checks.
 *   **Allowed Exclusion Codes:** `fuel`, `rent`, `insurance`, `education`, `gold`, `jewellery`, `utilities`, `telecom`, `wallet_load`, `government`, `tax`, `real_estate`, `property_management`, `cash_advance`, `balance_transfer`, `emi`, `fees_and_charges`, `cash_withdrawal`
 
 > [!NOTE]
@@ -107,6 +107,7 @@ Map textual exclusions (found in the `"exclusions"` array) into canonical consta
 > * **Zero Rewards Only**: The `exclusions` text array and `exclusionCodes` array must ONLY contain spend categories that do not earn any rewards at all (i.e., yield 0%).
 > * If a category is completely excluded from earning rewards, add it to `exclusionCodes`.
 > * If a category still earns points but at a revised lower rate (e.g., 0.7 reward points per ₹100 spent) or is capped but still rewards up to that cap, do **not** add it to `exclusions` or `exclusionCodes`. Instead, define it in the `rewards` array with the specific rate and a descriptive `displayCategory` and `displayRate` to ensure proper yield calculations in recommendation scoring.
+
 
 ---
 

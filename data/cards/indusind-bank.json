@@ -622,9 +622,20 @@
       "zero forex"
     ],
     "exclusions": [
-      "reserved for Pioneer customers",
-      "reward programme for select categories revised periodically as per Pioneer terms",
-      "zero forex benefit effective on current variant as per updated official page"
+      "fuel",
+      "utilities",
+      "insurance payments",
+      "education fees",
+      "rent payments",
+      "government services"
+    ],
+    "exclusionCodes": [
+      "fuel",
+      "utilities",
+      "insurance",
+      "education",
+      "rent",
+      "government"
     ],
     "milestoneBenefits": [
       "Join with a fee of Rs 1 lakh and get welcome vouchers worth Rs 1 lakh",
@@ -799,11 +810,7 @@
       "low forex"
     ],
     "exclusions": [
-      "Pioneer relationship positioning applies",
-      "international lounge access is only on the paid variant (not applicable for complimentary Pioneer Legacy card)",
-      "IndusInd also markets a lower-fee joining path with different welcome treatment",
-      "domestic lounge access moves to spend-based unlock from July 2026 quarter onward (spends criteria tracking initiated from 1 April 2026)",
-      "fuel transactions will not accrue reward points"
+      "fuel transactions"
     ],
     "exclusionCodes": [
       "fuel"
