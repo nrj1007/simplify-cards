@@ -118,6 +118,7 @@ export type CardScore = {
   estimatedAnnualFee: number;
   estimatedNetValue: number;
   fitScore: number;
+  normalizedFitScore: number;
   matchedTags: string[];
   reasons: string[];
   rewardBreakdown: Array<{

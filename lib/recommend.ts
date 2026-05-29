@@ -1269,6 +1269,27 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
       : relevanceWeightDefault;
     const fitScore = valueScore + relevanceWeight * relevanceScore;
 
+    // Normalize the economic value using net yield scaled to points (1% yield = 10,000 points)
+    const netYield = annualSpend > 0 ? estimatedNetValue / annualSpend : 0;
+    const economicScore = netYield * 1000000;
+
+    const normalizedValueScore =
+      economicScore +
+      useCaseBoost +
+      segmentBoost +
+      redemptionBoost +
+      loungeBoost +
+      forexBoost +
+      spendCategoryBoost +
+      comparisonMilestoneAndWaiverDelta +
+      ltfQueryBoost +
+      relationshipPenalty +
+      brandPenalty +
+      specialSpendBoost +
+      milestoneBoost +
+      card.popularityScore * 50;
+    const normalizedFitScore = normalizedValueScore + relevanceWeight * relevanceScore;
+
     return {
       card,
       annualSpend,
@@ -1285,6 +1306,7 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
       estimatedAnnualFee,
       estimatedNetValue,
       fitScore,
+      normalizedFitScore,
       matchedTags,
       reasons,
       rewardBreakdown
@@ -1306,9 +1328,9 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
       const tiers = envelopeTiersForCard(card);
       return tiers
         .map((monthlySpend) => scoreCardForSpend(card, scaleSpendProfileToMonthly(defaultSpendProfile, monthlySpend), monthlySpend))
-        .sort((a, b) => b.fitScore - a.fitScore)[0];
+        .sort((a, b) => b.normalizedFitScore - a.normalizedFitScore)[0];
     })
-    .sort((a, b) => b.fitScore - a.fitScore);
+    .sort((a, b) => useEnvelopeScoring ? b.normalizedFitScore - a.normalizedFitScore : b.fitScore - a.fitScore);
 }
 
 export function answerFromCards(input: RecommendationInput) {
