@@ -514,6 +514,41 @@ describe("scoreCards", () => {
     expect(scores.some((score) => score.envelopeScoring)).toBe(false);
     expect(scores.some((score) => score.card.id === "axis-magnus-burgundy")).toBe(false);
   });
+
+  it("rewards IndusInd Tiger utility, insurance, education, and rent spends at base rate (1 point per Rs 100)", () => {
+    const scores = scoreCards({
+      query: "IndusInd Tiger",
+      spend: {
+        utilities: 10000,
+        rent: 20000,
+        insurance: 30000,
+        education: 40000
+      }
+    });
+
+    const tiger = scores.find((score) => score.card.id === "indusind-tiger");
+    expect(tiger).toBeDefined();
+
+    const breakdown = tiger!.rewardBreakdown;
+    console.log("TIGER BREAKDOWN:", JSON.stringify(breakdown, null, 2));
+
+    const utils = breakdown.find((item) => item.spendCategory === "utilities");
+    expect(utils).toBeDefined();
+    const targetCategory = "utilities, insurance, government, education, real estate, rent";
+    expect(utils!.rewardCategory).toBe(targetCategory);
+
+    const rent = breakdown.find((item) => item.spendCategory === "rent");
+    expect(rent).toBeDefined();
+    expect(rent!.rewardCategory).toBe(targetCategory);
+
+    const insurance = breakdown.find((item) => item.spendCategory === "insurance");
+    expect(insurance).toBeDefined();
+    expect(insurance!.rewardCategory).toBe(targetCategory);
+
+    const education = breakdown.find((item) => item.spendCategory === "education");
+    expect(education).toBeDefined();
+    expect(education!.rewardCategory).toBe(targetCategory);
+  });
 });
 
 describe("answerFromCards", () => {

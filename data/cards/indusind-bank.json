@@ -76,8 +76,7 @@
     ],
     "additionalBenefits": [
       "Complimentary premium alcoholic beverage for each diner at over 200 select restaurants booked via EazyDiner app",
-      "1% fuel surcharge waiver at all fuel stations in India",
-      "Total Protect insurance cover protecting against fraudulent transactions up to the credit limit"
+      "1% fuel surcharge waiver at all fuel stations in India"
     ],
     "additionalDetails": [
       "Dining discount is capped at Rs 2,000 per month without spends criteria",
@@ -127,52 +126,38 @@
     "rewardType": "reward points",
     "rewards": [
       {
+        "category": "utilities, insurance, government, education, real estate, rent",
+        "displayCategory": "Utility, insurance, government, education, real estate, and rent spends",
+        "rate": 1.0,
+        "displayRate": "1 point per Rs 100",
+        "capMonthly": null
+      },
+      {
         "category": "base",
         "displayCategory": "Base spends (up to Rs 1L)",
-        "rate": 0.4,
-        "displayRate": "1X multiplier (1 point per Rs 100)",
+        "rate": 1.0,
+        "displayRate": "1 point per Rs 100",
         "capMonthly": null
       },
       {
         "category": "base",
         "displayCategory": "Base spends (Rs 1.01L - 2.5L)",
-        "rate": 0.8,
-        "displayRate": "2X multiplier (2 points per Rs 100) on incremental spends",
+        "rate": 2.0,
+        "displayRate": "2 points per Rs 100",
         "capMonthly": null
       },
       {
         "category": "base",
         "displayCategory": "Base spends (Rs 2.51L - 5L)",
-        "rate": 1.6,
-        "displayRate": "4X multiplier (4 points per Rs 100) on incremental spends",
+        "rate": 4.0,
+        "displayRate": "4 points per Rs 100",
         "capMonthly": null
       },
       {
         "category": "base",
         "displayCategory": "Base spends (above Rs 5L)",
-        "rate": 2.4,
-        "displayRate": "6X multiplier (6 points per Rs 100) on incremental spends",
-        "capMonthly": null
-      },
-      {
-        "category": "online",
-        "displayCategory": "Online spends",
-        "rate": 2.4,
-        "displayRate": "Up to 6X multiplier based on anniversary spends",
-        "capMonthly": null
-      },
-      {
-        "category": "travel",
-        "displayCategory": "Travel spends",
-        "rate": 2.4,
-        "displayRate": "Up to 6X multiplier based on anniversary spends",
-        "capMonthly": null
-      },
-      {
-        "category": "dining",
-        "displayCategory": "Dining spends",
-        "rate": 2.4,
-        "displayRate": "Up to 6X multiplier based on anniversary spends",
+        "rate": 6.0,
+        "displayRate": "6 points per Rs 100",
         "capMonthly": null
       }
     ],
@@ -198,20 +183,15 @@
       "fuel",
       "cash_advance"
     ],
-    "milestoneBenefits": [
-      "Earn higher reward multipliers of 2x (1L spends), 4x (2.5L spends), and 6x (5L spends) on incremental spends in card anniversary year"
-    ],
+    "milestoneBenefits": [],
     "additionalBenefits": [
       "1 complimentary golf game or lesson per quarter",
       "1 complimentary movie ticket up to Rs 500 every 6 months on BookMyShow",
-      "Total Protect insurance cover protecting against fraudulent transactions up to the credit limit",
       "24-hour Concierge assistance for travel, bookings, and reservations",
       "Auto Assist roadside emergency services (breakdown, key replacement, flat tire)"
     ],
     "additionalDetails": [
-      "Rewards multiplier anniversary slabs: Higher multipliers apply only to incremental spends in each slab: 1X (0.4% return) up to Rs 1L spends; 2X (0.8% return) on spends between Rs 1L and 2.5L; 4X (1.6% return) on spends between Rs 2.5L and 5L; and 6X (2.4% return) on spends exceeding Rs 5L.",
-      "Cash redemption is capped at 5,000 reward points per calendar month",
-      "Utility, insurance, government, education, real estate, and rent spends are excluded from accelerated rewards and earn flat base rate (1 point per Rs 100)"
+      "Cash redemption is capped at 5,000 reward points per calendar month"
     ],
     "redemption": {
       "statementBalanceValue": 0.4,

@@ -90,7 +90,9 @@ const allowedRewardCategories = new Set([
   "rent",
   "insurance",
   "education",
-  "gold"
+  "gold",
+  "government",
+  "real estate"
 ]);
 
 function addIssue(message: string, cardId?: string, field?: string) {
@@ -277,8 +279,13 @@ if (cardFiles.length === 0) {
 
         if (!isNonEmptyString(reward.category)) {
           addIssue(`reward ${rewardIndex} category must be a non-empty string`, cardId, "rewards");
-        } else if (!allowedRewardCategories.has(reward.category)) {
-          addWarning(`unknown reward category "${reward.category}"`, cardId, "rewards");
+        } else {
+          const rewardCategories = reward.category.split(",").map((c) => c.trim().toLowerCase());
+          for (const cat of rewardCategories) {
+            if (!allowedRewardCategories.has(cat)) {
+              addWarning(`unknown reward category "${cat}"`, cardId, "rewards");
+            }
+          }
         }
 
         if (typeof reward.rate !== "number" || !Number.isFinite(reward.rate) || reward.rate < 0) {

@@ -821,9 +821,15 @@ function cappedSpendAmountForCategory(card: CreditCard, category: SpendCategory,
 
 function findBaseRewardForSpend(card: CreditCard, category: SpendCategory) {
   const aliases = spendAliases[category];
+  const targetCategoryLower = category.toLowerCase();
   return (
-    card.rewards.find((reward) => aliases.includes(reward.category)) ??
-    card.rewards.find((reward) => reward.category === category) ??
+    card.rewards.find((reward) => {
+      const rewardCategories = reward.category.split(",").map((c) => c.trim().toLowerCase());
+      return (
+        aliases.some((alias) => rewardCategories.includes(alias.toLowerCase())) ||
+        rewardCategories.includes(targetCategoryLower)
+      );
+    }) ??
     card.rewards.find((reward) => reward.category === "base")
   );
 }
@@ -831,7 +837,12 @@ function findBaseRewardForSpend(card: CreditCard, category: SpendCategory) {
 function findSpecialRewardForSpend(card: CreditCard, category: SpendCategory) {
   const aliases = specialAliasesForSpendCategory(category);
   if (aliases.length === 0) return null;
-  return card.rewards.find((reward) => aliases.includes(reward.category)) ?? null;
+  return (
+    card.rewards.find((reward) => {
+      const rewardCategories = reward.category.split(",").map((c) => c.trim().toLowerCase());
+      return aliases.some((alias) => rewardCategories.includes(alias.toLowerCase()));
+    }) ?? null
+  );
 }
 
 function rewardAllocationsForSpend(
@@ -877,24 +888,43 @@ function rewardAllocationsForSpend(
 function isDirectRewardMatch(category: SpendCategory, rewardCategory: string, includeSmartbuyLikeRewards: boolean) {
   const directAliases = aliasesForSpendCategory(category, includeSmartbuyLikeRewards);
   const specialAliases = specialAliasesForSpendCategory(category);
-  return directAliases.includes(rewardCategory) || specialAliases.includes(rewardCategory) || rewardCategory === category;
+  const rewardCategories = rewardCategory.split(",").map((c) => c.trim().toLowerCase());
+  const targetCategoryLower = category.toLowerCase();
+
+  return (
+    rewardCategories.includes(targetCategoryLower) ||
+    directAliases.some((alias) => rewardCategories.includes(alias.toLowerCase())) ||
+    specialAliases.some((alias) => rewardCategories.includes(alias.toLowerCase()))
+  );
 }
 
 function findRewardForSpend(card: CreditCard, category: SpendCategory, includeSmartbuyLikeRewards: boolean) {
   const aliases = aliasesForSpendCategory(category, includeSmartbuyLikeRewards);
+  const targetCategoryLower = category.toLowerCase();
 
   return (
-    card.rewards.find((reward) => aliases.includes(reward.category)) ??
-    card.rewards.find((reward) => reward.category === category) ??
+    card.rewards.find((reward) => {
+      const rewardCategories = reward.category.split(",").map((c) => c.trim().toLowerCase());
+      return (
+        aliases.some((alias) => rewardCategories.includes(alias.toLowerCase())) ||
+        rewardCategories.includes(targetCategoryLower)
+      );
+    }) ??
     card.rewards.find((reward) => reward.category === "base")
   );
 }
 
 function findDirectRewardForSpend(card: CreditCard, category: SpendCategory, includeSmartbuyLikeRewards: boolean) {
   const aliases = aliasesForSpendCategory(category, includeSmartbuyLikeRewards);
+  const targetCategoryLower = category.toLowerCase();
   return (
-    card.rewards.find((reward) => aliases.includes(reward.category)) ??
-    card.rewards.find((reward) => reward.category === category) ??
+    card.rewards.find((reward) => {
+      const rewardCategories = reward.category.split(",").map((c) => c.trim().toLowerCase());
+      return (
+        aliases.some((alias) => rewardCategories.includes(alias.toLowerCase())) ||
+        rewardCategories.includes(targetCategoryLower)
+      );
+    }) ??
     null
   );
 }
