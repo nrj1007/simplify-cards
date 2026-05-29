@@ -637,8 +637,10 @@
       "rent",
       "government"
     ],
+    "joiningBenefits": [
+      "Welcome vouchers worth Rs 1 lakh upon joining fee payment of Rs 1 lakh"
+    ],
     "milestoneBenefits": [
-      "Join with a fee of Rs 1 lakh and get welcome vouchers worth Rs 1 lakh",
       "Annual maintenance fee of Rs 25,000 waived upon spending Rs 10 lakhs or more in previous year"
     ],
     "additionalBenefits": [
@@ -815,9 +817,11 @@
     "exclusionCodes": [
       "fuel"
     ],
+    "joiningBenefits": [
+      "Welcome vouchers worth Rs 50,000 on joining at a discounted fee of Rs 45,000",
+      "Alternative lower-fee joining path at Rs 5,000 with spend-based waiver and no welcome vouchers"
+    ],
     "milestoneBenefits": [
-      "Join at a discounted fee of Rs 45,000 and get welcome vouchers worth Rs 50,000",
-      "Alternative lower-fee joining path at Rs 5,000 with spend-based waiver and no welcome vouchers",
       "4,000 bonus reward points on spends of Rs 5,00,000 or more within one year from card issue as per revised official note"
     ],
     "additionalBenefits": [
