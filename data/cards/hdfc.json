@@ -152,6 +152,16 @@
         "category": "education",
         "treatment": "rewarded",
         "notes": "Education payments can earn rewards subject to current HDFC terms"
+      },
+      {
+        "category": "grocery",
+        "treatment": "capped",
+        "notes": "Grocery spends earn rewards capped at 2,000 Reward Points per calendar month"
+      },
+      {
+        "category": "utilities",
+        "treatment": "capped",
+        "notes": "Utility spends earn rewards capped at 2,000 Reward Points per calendar month"
       }
     ],
     "exclusions": [
@@ -161,7 +171,9 @@
       "government transactions",
       "cash withdrawal",
       "emi transactions",
-      "fees and charges"
+      "fees and charges",
+      "online skill-based gaming",
+      "education payments through third-party apps"
     ],
     "exclusionCodes": [
       "fuel",
@@ -192,15 +204,36 @@
     ],
     "additionalDetails": [
       "Earning is capped at a maximum of 2,00,000 Reward Points per statement cycle.",
-      "Reward points on grocery spends are capped at 2,000 per calendar month, and on insurance spends at 10,000 per calendar month.",
+      "Reward points on grocery spends, utility spends, and telecom spends are capped at 2,000 Reward Points per calendar month individually.",
+      "Reward points on insurance spends are capped at 10,000 Reward Points per calendar month (effective 1st July 2025).",
       "Redemption is allowed a maximum of 5 times per calendar month.",
       "Redemption against statement balance (cashback) is capped at 50,000 points per calendar month.",
       "Redemption for travel bookings (flights/hotels) and Air Miles is capped at 1,50,000 Reward Points per calendar month.",
-      "Redemption for Apple products and Tanishq vouchers via SmartBuy is at 1 RP = Rs 1, capped at 70% of bill value, with further caps of 1 Apple product per calendar quarter and 50,000 points per calendar month for Tanishq vouchers.",
+      "Redemption for Apple products and Tanishq vouchers via SmartBuy is at 1 RP = Rs 1, capped at 70% of bill value, with further caps of 1 Apple product per calendar quarter and 50,000 points per calendar quarter for Tanishq vouchers.",
       "Accidental Air Death Cover worth Rs 3 Crore, Overseas Emergency Hospitalization up to Rs 50 Lakhs, and Credit Shield Cover up to Rs 9 Lakhs."
     ],
     "internalNotes": [
       "For INFINIA Cards sourced before October 18, 2021: Joining/Renewal Fee is Rs 10,000 + taxes, with waiver at Rs 8 lakh annual spend.",
+      "Effective 1st April 2026, continued access to the Infinia programme is aligned to a minimum card spend of Rs 18 Lakhs (Primary + Add-ons) or a Relationship Value (RLV) of Rs 50 Lakhs per financial year.",
+      "Exempt from Late Payment Charges (LPC), Over Limit charges, Cash Advance fees, and Reward/Cashback redemption fees.",
+      "Finance charges/revolving credit interest rate is 1.99% monthly (23.88% annualized), which is lower than the standard HDFC rate of 3.75%.",
+      "Reward points on utility transactions and telecom transactions are capped at 2,00,000 total cycle cap, but specifically capped at 2,000 Reward Points per calendar month for utility and telecom categories individually (effective 1st September 2024).",
+      "Insurance transaction rewards have a maximum cap of 10,000 Reward Points per month (effective 1st July 2025). Prior to this, a daily cap of 5,000 RP was applicable.",
+      "No reward points are earned on online skill-based gaming transactions and wallet loading (excluding PayZapp) (effective 1st July 2025).",
+      "No reward points are earned on education payments made through third-party apps like CRED, Cheq, MobiKwik, etc. (effective 1st September 2024); direct school/college website or POS transactions do earn rewards.",
+      "Airmiles transfer: Effective 15th January 2024, 2 Reward Points convert to 1 Loyalty Point for Turkish Miles, Accor (ALL), and Avianca Life Miles.",
+      "Apple products and Tanishq vouchers: Points can be redeemed for up to 70% of the total value via SmartBuy. Apple product redemption is capped at one product per calendar quarter (effective 1st October 2024). Tanishq voucher redemption is capped at 50,000 points per calendar quarter (effective 1st October 2024).",
+      "A 1.75% markup fee (effective 15th May 2026) is charged on all transactions carried out in Indian Currency at international locations or with merchants registered overseas (DCC / Overseas Markup).",
+      "Priority Pass lounge visits outside India by guests or visits exceeding the complimentary limit are charged at USD 27 + GST per person per visit. Add-on cardholders must use their own Priority Pass card; otherwise they are billed as guests.",
+      "A verification transaction fee of Rs 2 is charged at domestic lounge terminals inside India for Visa cardholders, which is later reversed.",
+      "Golf booking requirements: Domestic bookings must be made 4 clear days in advance. International bookings must be made 15 clear days in advance. All bookings must be routed via HDFC Infinia Concierge.",
+      "Golf cancellation policy: Domestic cancellations must be made 1 clear day in advance. International cancellations must be made 4 clear days in advance. No-shows or late cancellations incur a penalty of Rs 500 + taxes.",
+      "Golf access requires a Rs 5 mandatory authentication transaction at the course on the day of play; otherwise it is treated as a no-show. Max 14 days in advance booking. Only 1 active booking allowed at a time. Add-on cardholders are treated as guests.",
+      "Golf lessons cancellation: Must cancel at least 24 hours in advance, or the lesson is considered delivered.",
+      "Club Marriott dining benefits: Tuesday Member's Day offers 50% off on food bills and 25% off on beverage bills for up to 10 guests. Monday Member's Night offers buy-one-get-one-free on IMFL drinks from 7:00 PM onwards for up to 6 guests.",
+      "Club Marriott stay certificates: Valid in India only. One certificate for 30% off the Best Available Rate on the base category room (max 2 consecutive nights). One certificate for a room upgrade to the next category when booked at full price (max 2 consecutive nights).",
+      "Club Marriott membership is valid for 366 days from card issuance and is eligible only in the first year of cardholding. For support, contact Member Care at +91 11 4316 9650 (9 AM to 9 PM, 7 days a week), email member.care@clubmarriott.in, or WhatsApp +91 97100 82100.",
+      "Accidental Air Death Cover of Rs 3 Crore and Travel Insurance/Emergency Medical Hospitalization of Rs 50 Lakhs (max trip duration 30 days) require travel tickets to be purchased using the card. Credit Shield cover is up to Rs 9 Lakhs. Claims must be intimated to HDFC ERGO within 60 days of loss and documents submitted within 130 days.",
       "Card details manually reviewed and verified by user on 2026-05-29"
     ],
     "alternativeCardIds": [
@@ -211,7 +244,26 @@
     "redemption": {
       "statementBalanceValue": 0.3,
       "smartBuyFlightHotelValue": 1,
-      "airMilesValue": 1
+      "airMilesValue": 1,
+      "airlinePartners": [
+        {
+          "airline": "Turkish Airlines",
+          "programme": "Miles&Smiles",
+          "ratio": "2:1"
+        },
+        {
+          "airline": "Avianca",
+          "programme": "LifeMiles",
+          "ratio": "2:1"
+        }
+      ],
+      "hotelPartners": [
+        {
+          "hotelGroup": "Accor",
+          "programme": "ALL (Accor Live Limitless)",
+          "ratio": "2:1"
+        }
+      ]
     },
     "supportingSourceUrls": [
       "https://offers.smartbuy.hdfc.bank.in/offer_details/smartbuy/15282",

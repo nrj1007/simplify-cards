@@ -401,7 +401,6 @@
     ],
     "exclusions": [
       "fuel",
-      "rent reward points capped",
       "domestic lounge access moves to spend-based unlock from July 2026 quarter onward"
     ],
     "milestoneBenefits": [
@@ -741,9 +740,49 @@
     "rewards": [
       {
         "category": "offline",
+        "displayCategory": "weekday spends",
         "rate": 1,
+        "displayRate": "1 reward point per Rs 100",
+        "capMonthly": null
+      },
+      {
+        "category": "online",
+        "displayCategory": "weekend spends",
+        "rate": 2,
+        "displayRate": "2 reward points per Rs 100",
+        "capMonthly": null
+      },
+      {
+        "category": "utilities",
+        "displayCategory": "Utility bill payments",
+        "rate": 0.7,
+        "displayRate": "0.7 reward points per Rs 100",
+        "capMonthly": null
+      },
+      {
+        "category": "insurance",
+        "displayCategory": "Insurance premium payments",
+        "rate": 0.7,
+        "displayRate": "0.7 reward points per Rs 100",
+        "capMonthly": null
+      },
+      {
+        "category": "education",
+        "displayCategory": "Education fees",
+        "rate": 0.7,
+        "displayRate": "0.7 reward points per Rs 100",
+        "capMonthly": null
+      },
+      {
+        "category": "rent",
+        "displayCategory": "Rent payments",
+        "rate": 0.7,
+        "displayRate": "0.7 reward points per Rs 100",
         "capMonthly": null
       }
+    ],
+    "supportingSourceUrls": [
+      "https://www.indusind.bank.in/in/en/personal/revision-indusInd-bank-credit-card-rewards-program.html"
     ],
     "popularityScore": 73,
     "loungeDomestic": 4,
@@ -775,13 +814,10 @@
       "4,000 bonus reward points on spends of Rs 5,00,000 or more within one year from card issue as per revised official note"
     ],
     "additionalBenefits": [
-      "1 reward point per Rs 100 on weekday spends and 2 reward points per Rs 100 on weekend spends",
       "Low forex markup of 1.8% on foreign currency transactions (not applicable for complimentary Pioneer Legacy card)",
-      "1 domestic lounge visit per quarter and 2 international lounge visits per quarter on the paid variant",
       "Complimentary golf privileges: 2 complimentary games and 2 complimentary lessons per month (effective 10 March 2026)",
       "Buy 1 Get 1 free movie tickets on BookMyShow: up to 3 free tickets per month (capped at Rs 300 per ticket discount) plus Rs 50 off on F&B (applicable on the paid variant)",
-      "No cash advancement or withdrawal charges",
-      "Reward points can be redeemed against statement balance at 1 point = Re 1"
+      "No cash advancement or withdrawal charges"
     ],
     "redemption": {
       "statementBalanceValue": 1,
