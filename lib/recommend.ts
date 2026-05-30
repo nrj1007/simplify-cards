@@ -797,6 +797,10 @@ function isSpendCategoryExcluded(card: CreditCard, category: SpendCategory) {
     const matchesCategory = categoryTerms.some((term) => containsNormalizedPhrase(normalizedLine, term));
     if (!matchesCategory) return false;
 
+    if (category === "online" && /\b(gaming|lottery|gambling|betting|education|school|college|tuition|insurance|rent|wallet|government|tax|utilities|bill)\b/.test(normalizedLine)) {
+      return false;
+    }
+
     if (/\b(cap|capped|upto|up to|up-to|max|max\.?)\b/.test(normalizedLine)) {
       return false;
     }
