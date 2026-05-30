@@ -142,6 +142,14 @@ When auditing or verifying **HDFC Bank** cards, use the following guidelines:
 - **Turnaround Time (TAT)**: Leave the `tatDays` field undefined in the JSON file if no turnaround time is verified, which triggers the UI to hide the TAT column.
 - **Avios Transfer Strategy**: Take note that Finnair Plus converts at 1:1, allowing users to link their Finnair accounts and transfer Avios 1:1 to British Airways or Qatar Airways (which are otherwise direct 2:1 partners from HDFC).
 
+### 3. DCC Revisions & Reward Capping
+- **DCC / Overseas Markup**: HDFC Bank charges a revised **1.75% DCC markup fee** (effective 15 May 2026) on all transactions processed in INR at international locations or with merchants registered overseas.
+  - *Best Practice*: Document this under `internalNotes` and keep it out of `additionalDetails` to avoid visual clutter and duplication.
+- **Spend Category Capping**: Configure the HDFC-specific limits under `specialSpendRules` and summarize them inside `additionalDetails`:
+  - *Grocery Spends*: Capped at 2,000 Reward Points per calendar month.
+  - *Utility Spends*: Capped at 2,000 Reward Points per calendar month.
+  - *Insurance Spends*: Capped at 5,000 Reward Points per calendar month for Diners Black/Metal, and 10,000 Reward Points per calendar month for Infinia (effective 1 July 2025).
+
 ---
 
 ## Key Learnings on Duplication, Lounge Rules, & Image Scraping
@@ -152,10 +160,10 @@ When auditing card details (especially for premium and super-premium cards), pay
    - Avoid listing spend-based lounge tracking rules (e.g., `"Effective April 1, 2026, spends criteria tracking of Rs 1.5 Lakh per quarter is initiated..."`) directly under `additionalBenefits` or `additionalDetails` if the page already renders popover cards for Lounge stats.
    - **Best Practice**: Place these detailed spend-tracking conditions inside `internalNotes`. The frontend popover helper `getLoungeConditions(card, "domestic" | "international")` is configured to read from `internalNotes` and extract details dynamically. This hides the long text block from the general card details page layout while keeping the info accessible on-hover and searchable by Ask AI.
    
-2. **Earning Rates, Exclusions, and DCC/Forex Markup in Benefits**:
+2. **Earning Rates, Exclusions, and Fees in Benefits**:
    - Do not repeat reward point rules (e.g., `"2.5 reward points per Rs 100 on e-commerce"`) or specific categories that are already fully modeled in the card's `rewards` array.
    - Do not repeat zero-reward exclusions (like fuel exclusions) inside `additionalBenefits` when they are already listed under `exclusions`.
-   - Do not repeat DCC markup rates (e.g., `"A 1.75% markup fee (effective 15 May 2026)..."`) inside `additionalDetails` when they are already fully documented inside `internalNotes`. The standard foreign transaction markup is already captured in the structured `forexMarkup` field, and DCC rules should remain in `internalNotes` to keep the UI clean.
+   - Do not duplicate DCC or other transaction markup rates in `additionalDetails` if they are already fully documented inside `internalNotes`.
 
 3. **Card Face Image Selection & Quality**:
    - Automated image scraper tools may return generic banner images (like `generic-benefit-banner.jpeg` or check/eligibility screens). Always review the candidates. Look for images representing the physical card face itself (often having filenames containing the card's name, `diner_black_metal_fascia.png`, `extendedteaser`, or similar card-specific identifiers).
