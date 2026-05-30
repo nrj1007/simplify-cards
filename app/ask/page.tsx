@@ -120,6 +120,7 @@ function buildRewardRateSummary(card: CreditCard) {
   return [baseText, acceleratedText, accorNote].filter(Boolean);
 }
 
+// TODO: Add a 'usp' field to the card schema and pre-compute it for all cards rather than computing at runtime.
 function getCardUsp(card: CreditCard): string {
   // Curated USPs for popular cards
   const curated: Record<string, string> = {
