@@ -40,6 +40,7 @@ Compare the retrieved details against the current card entry in the issuer's JSO
 - **Golf Privileges**: Restrictions on the number of games/lessons, booking slots, and cancellation window policies.
 - **Redemption Partners**: Point transfer ratios and Turnaround Time (TAT) to airline or hotel loyalty programs.
 - **Exclusions**: Specific merchant categories (MCCs) or transactions that yield 0% rewards (e.g., fuel, rent, insurance, government spends, wallet load).
+- **DCC Markup Fees**: Check for Dynamic Currency Conversion fees (e.g., a 1% markup fee on INR spends processed internationally or at foreign-registered merchants).
 
 ### Step 4: Map & Update Card Data
 Apply the rules specified in [card_data_instructions.md](file:///C:/Users/manpr/Documents/Codex/2026-05-08/i-want-to-build-an-ai/data/cards/card_data_instructions.md) to update the JSON card file:
@@ -57,6 +58,8 @@ Apply the rules specified in [card_data_instructions.md](file:///C:/Users/manpr/
 4. **Dates & Status**:
    - Set `"lastVerified"` to today's date in `YYYY-MM-DD` format.
    - Set `"verificationStatus"` to `"official-direct"`.
+5. **Unique Rendering Keys**:
+   - If you split a category row (e.g., splitting unified base spends into weekdays and weekends rows), verify that the combination of `category` and `displayCategory` is unique for each row. This prevents React key duplication errors when the UI maps over rewards.
 
 ### Step 5: Validate & Run Tests
 Always run the validation and testing pipeline after modifying JSON card data:
@@ -66,6 +69,8 @@ Always run the validation and testing pipeline after modifying JSON card data:
    `.\tools\node\node.exe .\node_modules\typescript\bin\tsc --noEmit`
 3. Run vitest test suite:
    `powershell -ExecutionPolicy Bypass -Command "npm test"`
+4. **Git Path Handling**:
+   - If running Git commands in the terminal fails because Git is not in the system %PATH%, locate it in typical install paths (e.g., `C:\Program Files\Git\cmd\git.exe`) and execute using the absolute path (e.g., `& 'C:\Program Files\Git\cmd\git.exe' status`).
 
 ### Step 6: Commit & Push
 Stage only the modified card configuration and push:
@@ -107,7 +112,7 @@ Scan the main pages or perform targeted queries to locate notices under:
 - **CDN Cache Bypassing**: If the page content appears outdated or doesn't reflect a announced devaluation, append a timestamp query parameter (e.g., `?v=1ea25740`) to force fetching directly from the server.
 
 ### 4. Extracting and Saving Card Images
-- To locate the official card face thumbnail image, search the page content for image paths containing the card name or `creditCard` subfolders (e.g., `/content/dam/indusind-platform-images/productCategory/desktopImage/creditCard/`).
+- To locate the official card face thumbnail image, search the page content for image paths containing the card name or `creditCard` subfolders (e.g., `/content/dam/indusind-platform-images/productCategory/desktopImage/creditCard/` and look for files ending in `_card-image_<dims>.png` or similar webp format).
 - **Listing Page Fallback**: If the thumbnail image is not found or referenced on the individual card page, fetch/search the main credit cards listing page (e.g., `https://www.indusind.bank.in/in/en/personal/cards/credit-card.html`). Inspect comparison sliders or cards listing elements for the card's name to find its associated data-thumbnail or image source path (e.g., `/content/dam/.../cards-th-image/th-EazyDiner_banner.webp`).
 - Use tools or scripts to download the image directly to `public/images/` using a clean name matching the card's ID (e.g., `indusind-eazydiner.webp`).
   * *Example PowerShell Command:*
