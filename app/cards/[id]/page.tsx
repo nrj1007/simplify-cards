@@ -226,7 +226,7 @@ export default async function CardPage({ params, searchParams }: Props) {
                 </thead>
                 <tbody>
                   {card.rewards.map((reward) => (
-                    <tr key={reward.category}>
+                    <tr key={`${reward.category}-${reward.displayCategory ?? ""}`}>
                       <td>{reward.displayCategory ?? reward.category}</td>
                       <td>{formatRewardRate(card, reward)}</td>
                       {hasDailyCap && <td className="cap-column">{formatRewardCap(reward.capDaily, card.rewardType)}</td>}

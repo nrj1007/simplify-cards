@@ -212,13 +212,13 @@
       ]
     },
     "internalNotes": [
-      "Card details manually reviewed and verified by user on 2026-05-29",
+      "Card details manually reviewed and verified by user on 2026-05-30",
       "Reward Points redemption towards InterMiles discontinued effective 21st January, 2025.",
       "Priority Pass membership is complimentary ($99 value), but visits beyond the 2 complimentary visits are charged at standard rates."
     ],
     "sourceUrl": "https://www.indusind.bank.in/in/en/personal/cards/credit-card/tiger-credit-card.html",
     "applyUrl": "https://www.indusind.bank.in/in/en/personal/cards/credit-card/tiger-credit-card.html",
-    "lastVerified": "2026-05-29",
+    "lastVerified": "2026-05-30",
     "verificationStatus": "official-direct",
     "imageUrl": "/images/indusind-tiger.webp"
   },
@@ -236,10 +236,18 @@
       "lifetime free",
       "weekend rewards",
       "shopping",
-      "travel"
+      "travel",
+      "golf"
     ],
     "rewardType": "reward points",
     "rewards": [
+      {
+        "category": "utilities, insurance, government, education, real estate, rent",
+        "displayCategory": "Utility, insurance, government, education, real estate, and rent spends",
+        "rate": 0.35,
+        "displayRate": "0.7 reward points per Rs 100",
+        "capMonthly": null
+      },
       {
         "category": "base",
         "rate": 0.7,
@@ -259,21 +267,24 @@
       "low forex"
     ],
     "exclusions": [
-      "lounge access discontinued effective 7 March 2025",
       "fuel",
-      "reward programme follows current IndusInd terms"
+      "cash advances"
+    ],
+    "exclusionCodes": [
+      "fuel",
+      "cash_advance"
     ],
     "milestoneBenefits": [
       "Exclusive bonus rewards on yearly spends as per IndusInd programme"
     ],
     "additionalBenefits": [
-      "1 reward point for every Rs 100 spent on weekdays",
-      "2 reward points for every Rs 100 spent on weekends",
+      "1 complimentary golf game and 1 complimentary golf lesson per quarter",
       "Discounted foreign currency markup of 1.8%",
-      "1% fuel surcharge waiver"
+      "1% fuel surcharge waiver at all fuel stations in India"
     ],
     "redemption": {
       "statementBalanceValue": 0.5,
+      "redemptionFee": 149,
       "pointsExpiryYears": null,
       "airlinePartners": [
         {
@@ -291,10 +302,15 @@
         "Eligibility is subject to IndusInd Bank approval criteria"
       ]
     },
+    "internalNotes": [
+      "Card details manually reviewed and verified by user on 2026-05-30",
+      "Complimentary airport lounge access discontinued effective March 7, 2025.",
+      "Reward redemption fee of Rs 149 applies for cash credit redemptions (w.e.f April 1, 2025). Cash redemption is capped at 50% of the total points balance and 5,000 points per month."
+    ],
     "sourceUrl": "https://www.indusind.com/in/en/personal/cards/credit-card/legend-credit-card.html",
     "applyUrl": "https://www.indusind.com/in/en/personal/cards/credit-card/legend-credit-card.html",
-    "lastVerified": "2026-05-11",
-    "verificationStatus": "official-mixed"
+    "lastVerified": "2026-05-30",
+    "verificationStatus": "official-direct"
   },
   {
     "id": "indusind-platinum-rupay",
