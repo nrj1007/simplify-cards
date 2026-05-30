@@ -54,6 +54,7 @@ These are listed or have official pages, but should not be added as active-new-a
 - [ ] Improve RPM through higher-intent content, ad placement strategy, and better page-level monetization.
 - [ ] Add affiliate link support per card, including tracking metadata and fallback apply URLs.
 - [ ] Add reverse indexes for fast lookup by issuer, tags, network, reward category, and popularity.
+- [ ] Add a 'usp' field to the card schema and pre-compute it for all cards, rather than calculating it at runtime.
 
 ## ICICI Bank Card Ingestion
 

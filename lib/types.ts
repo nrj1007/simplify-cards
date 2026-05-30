@@ -56,7 +56,6 @@ export type Redemption = {
   redemptionFee?: number;
 };
 
-// TODO: Add a 'usp' field to CreditCard type and pre-compute it for all cards in the JSON files rather than computing at runtime.
 export type CreditCard = {
   id: string;
   issuer: string;
