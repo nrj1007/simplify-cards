@@ -510,7 +510,7 @@
       },
       {
         "category": "base",
-        "displayCategory": "PoS, MoTo, IVR transactions and Standing instructions",
+        "displayCategory": "base",
         "rate": 0.75,
         "displayRate": "1 reward point per Rs 100",
         "capMonthly": null
