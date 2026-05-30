@@ -250,6 +250,7 @@
       },
       {
         "category": "base",
+        "displayCategory": "Base spends",
         "rate": 0.7,
         "displayRate": "1 reward point per Rs 100 (weekdays) / 2 reward points (weekends)",
         "capMonthly": null
@@ -310,7 +311,8 @@
     "sourceUrl": "https://www.indusind.com/in/en/personal/cards/credit-card/legend-credit-card.html",
     "applyUrl": "https://www.indusind.com/in/en/personal/cards/credit-card/legend-credit-card.html",
     "lastVerified": "2026-05-30",
-    "verificationStatus": "official-direct"
+    "verificationStatus": "official-direct",
+    "imageUrl": "/images/indusind-legend.png"
   },
   {
     "id": "indusind-platinum-rupay",
