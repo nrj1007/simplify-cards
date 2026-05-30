@@ -5,6 +5,7 @@ import { getCardContent } from "@/lib/card-content";
 import { getLoungeConditions } from "@/lib/lounge";
 import LoungeInfo from "@/app/ui/LoungeInfo";
 import AskFeedback from "@/app/ui/AskFeedback";
+import AskBox from "@/app/ui/AskBox";
 import type { CreditCard, Redemption } from "@/lib/types";
 
 import { stripScoringAnnotations } from "@/lib/card-index";
@@ -446,6 +447,7 @@ export default async function CardPage({ params, searchParams }: Props) {
 
         <aside className="detail-aside">
           <div className="ad-slot">Ad slot: card detail page</div>
+          <AskBox defaultQuery="" showHelperText={false} />
           <div className="panel card">
             <h2>Card facts</h2>
             <div className="info-grid">
