@@ -14,7 +14,12 @@ function conditionWeight(value: string) {
 }
 
 export function getLoungeConditions(card: CreditCard, type?: "domestic" | "international") {
-  const items = [...(card.additionalBenefits ?? []), ...(card.additionalDetails ?? []), ...(card.milestoneBenefits ?? [])]
+  const items = [
+    ...(card.additionalBenefits ?? []),
+    ...(card.additionalDetails ?? []),
+    ...(card.milestoneBenefits ?? []),
+    ...(card.internalNotes ?? [])
+  ]
     .filter(matchesLoungeText)
     .map((text) => ({ text, weight: conditionWeight(text) }))
     .sort((a, b) => b.weight - a.weight || a.text.localeCompare(b.text));

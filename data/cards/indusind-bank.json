@@ -368,10 +368,9 @@
     ],
     "milestoneBenefits": [],
     "additionalBenefits": [
-      "2 reward points per Rs 100 spent via UPI",
-      "1 reward point per Rs 100 on non-UPI transactions",
-      "Travel insurance cover and fuel surcharge waiver",
-      "Marketed by IndusInd as a lifetime-free RuPay UPI card"
+      "Travel insurance cover and comprehensive protection benefits",
+      "1% fuel surcharge waiver at all petrol stations in India",
+      "Marketed by IndusInd as a lifetime-free RuPay UPI credit card"
     ],
     "redemption": {
       "statementBalanceValue": 0.25,
@@ -542,21 +541,24 @@
         "notes": "Reward Points on Rent payment transactions done through third-party merchants will be capped at 500 in a statement cycle."
       }
     ],
-    "milestoneBenefits": [
-      "Premium welcome gifts at eligible fee points"
+    "joiningBenefits": [
+      "Choice of Montblanc luxury merchandise (watches, writing instruments, leather goods, or eyewear)",
+      "Complimentary luxury stays at The Postcard Hotel (worth Rs 12,000)",
+      "Choice of brand and e-commerce vouchers via Vouchagram or Vouchagram Premium (including Amazon, Flipkart, Myntra, Swiggy, Zomato, Uber, Ola, Bata, Titan, Vero Moda, and ALDO)",
+      "Note: Welcome gifts are subject to change and only applicable upon payment of the joining fee at eligible fee points (standard joining fee of Rs 15,000)"
     ],
+    "milestoneBenefits": [],
     "additionalBenefits": [
-      "2.5 reward points per Rs 100 on e-commerce transactions",
-      "1.5 reward points per Rs 100 on travel and airline transactions",
-      "1 reward point per Rs 100 on PoS and other eligible transactions",
-      "1 complimentary golf game and 1 lesson per month",
-      "1 complimentary international lounge visit each calendar quarter via Priority Pass"
+      "1 complimentary golf game and 1 complimentary lesson per month",
+      "Complimentary Hole-in-One insurance worth Rs 20,000",
+      "Complimentary Auto Assist roadside emergency services (breakdown assistance, key replacement, flat tire, emergency fuel)",
+      "1% fuel surcharge waiver at all fuel stations in India",
+      "Travel insurance cover including lost/delayed baggage, passport loss, lost ticket, and missed connection"
     ],
     "additionalDetails": [
       "Cash redemption is capped at 7,500 reward points per calendar month",
       "Minimum 500 reward points required for cash credit redemption",
-      "Rent reward points capped at 500 per statement cycle",
-      "Effective 1st April 2026, spends criteria tracking of Rs 1.5 Lakh per quarter is initiated to unlock complimentary domestic lounge access from July 2026 quarter onwards."
+      "Rent reward points capped at 500 per statement cycle"
     ],
     "redemption": {
       "statementBalanceValue": 0.75,
@@ -724,11 +726,13 @@
       "Annual fee reversed on spends of Rs 10,00,000 or more in the card anniversary year"
     ],
     "additionalBenefits": [
-      "1.5 reward points for every Rs 100 spent",
-      "Unlimited domestic lounge access",
-      "2 complimentary international lounge visits per quarter via Priority Pass",
-      "Premium movie and event benefits",
-      "Comprehensive golf programme"
+      "Complimentary Club Marriott and EazyDiner Prime memberships with dining vouchers worth Rs 3,000 twice a year",
+      "Tablet Plus membership offering VIP upgrades and privileges at luxury hotels worldwide",
+      "Buy 1 Get 1 free movie tickets up to 3 times a month (up to Rs 700 discount per ticket) on BookMyShow plus 20% off on events/theatre",
+      "Complimentary golf games and golf lessons monthly at select courses in India",
+      "24x7 complimentary concierge services and Auto Assist roadside assistance",
+      "Comprehensive insurance cover including Personal Air Accident Cover up to Rs 2.5 Crores and Travel Insurance",
+      "1% fuel surcharge waiver at all petrol pumps in India"
     ],
     "redemption": {
       "statementBalanceValue": 0.7,
@@ -845,8 +849,6 @@
     "milestoneBenefits": [],
     "additionalBenefits": [
       "Zero foreign currency mark-up (reduced from 1.8% to 0% w.e.f 5 October 2024)",
-      "Unlimited domestic lounge visits",
-      "Unlimited international lounge visits on eligible network and programme memberships",
       "4 complimentary golf games and 4 complimentary golf lessons per month (effective 10 March 2026)",
       "Complimentary movie tickets on BookMyShow: 4 free tickets per quarter (capped at Rs 1,000 per ticket) plus 20% off (up to Rs 350) for every 2 tickets on non-movie events",
       "Complimentary dining benefits via EazyDiner: get Rs 3,000 off on total bill around the year at select restaurants",
@@ -1125,11 +1127,12 @@
       "High-touch concierge and premium travel programme"
     ],
     "additionalBenefits": [
-      "22K gold inlay card design",
-      "1.5 reward points for every Rs 100 spent",
-      "4 complimentary international lounge visits each calendar quarter through Priority Pass effective March 2025",
-      "Comprehensive golf programme",
-      "Visa Infinite benefits"
+      "Exclusive 22K gold inlay card design",
+      "Complimentary golf programme with games and lessons monthly",
+      "Buy 1 Get 1 free movie tickets on BookMyShow and discounts on theatre/events",
+      "Complimentary EazyDiner Prime membership and luxury dining privileges",
+      "24x7 concierge services and Auto Assist roadside emergency services",
+      "1% fuel surcharge waiver"
     ],
     "redemption": {
       "statementBalanceValue": 0.7,
@@ -1205,11 +1208,9 @@
       "Premium golf programme revised to 2 complimentary games and 2 lessons per month effective March 2026"
     ],
     "additionalBenefits": [
-      "Get 1.5 reward points for every Rs 100 spent",
-      "Discounted foreign currency markup of 1.8%",
-      "Luxury travel, dining, wellness and lounge positioning",
-      "Fuel surcharge waiver",
-      "Premium Crest microsite and schedule-of-charges programme with concierge-style positioning"
+      "Premium wellness, luxury travel, and concierge-style positioning",
+      "Exclusive access to the curated Crest lifestyle and travel benefits",
+      "1% fuel surcharge waiver at all fuel stations in India"
     ],
     "redemption": {
       "statementBalanceValue": 0.7,
