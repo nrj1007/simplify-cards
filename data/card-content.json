@@ -114,5 +114,32 @@
         "publishedAt": "2026-03-10"
       }
     ]
+  },
+  "indusind-pinnacle": {
+    "updates": [
+      {
+        "title": "Domestic Lounge access update",
+        "summary": "Effective 1st April, 2026 spends criteria tracking of Rs 1.5 Lakh per quarter will be initiated to unlock complimentary domestic lounge access from July, 2026 quarter onwards.",
+        "sourceType": "manual",
+        "sourceLabel": "IndusInd Bank official notice",
+        "sourceUrl": "https://www.indusind.bank.in/content/dam/indusind-corporate/Other/Lounge-Terms-and-Conditions.pdf",
+        "publishedAt": "2026-04-01"
+      },
+      {
+        "title": "Golf and International Lounge updates",
+        "summary": "Effective 13th March 2025, your golf benefit includes 1 complimentary game and 1 complimentary lesson per month, and Priority Pass international lounge access is revised to 1 complimentary visit per quarter.",
+        "sourceType": "manual",
+        "sourceLabel": "IndusInd Bank official notice",
+        "sourceUrl": "https://www.indusind.bank.in/content/dam/indusind-corporate/Other/List-of-Club-Revised-2.pdf",
+        "publishedAt": "2025-03-13"
+      }
+    ],
+    "tips": [
+      {
+        "text": "The cash redemption value for Pinnacle is high at Rs 0.75 per point, but cash redemption is capped at 7,500 points per calendar month, and you can only redeem up to 50% of your total points balance at once.",
+        "sourceType": "manual",
+        "sourceLabel": "Manual"
+      }
+    ]
   }
 }

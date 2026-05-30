@@ -482,25 +482,32 @@
     "rewards": [
       {
         "category": "online",
-        "rate": 1.75,
+        "rate": 1.875,
         "displayRate": "2.5 reward points per Rs 100",
         "capMonthly": null
       },
       {
         "category": "travel",
-        "rate": 1.05,
+        "rate": 1.125,
         "displayRate": "1.5 reward points per Rs 100",
         "capMonthly": null
       },
       {
+        "category": "utilities, insurance, government, education, real estate, rent",
+        "displayCategory": "Utility, insurance, government, education, real estate, and rent spends",
+        "rate": 0.525,
+        "displayRate": "0.7 reward points per Rs 100",
+        "capMonthly": null
+      },
+      {
         "category": "base",
-        "rate": 0.7,
+        "rate": 0.75,
         "displayRate": "1 reward point per Rs 100",
         "capMonthly": null
       }
     ],
     "popularityScore": 78,
-    "loungeDomestic": 8,
+    "loungeDomestic": 4,
     "loungeInternational": 4,
     "forexMarkup": 3.5,
     "tags": [
@@ -514,7 +521,18 @@
     ],
     "exclusions": [
       "fuel",
-      "domestic lounge access moves to spend-based unlock from July 2026 quarter onward"
+      "cash advances"
+    ],
+    "exclusionCodes": [
+      "fuel",
+      "cash_advance"
+    ],
+    "specialSpendRules": [
+      {
+        "category": "rent",
+        "treatment": "capped",
+        "notes": "Reward Points on Rent payment transactions done through third-party merchants will be capped at 500 in a statement cycle."
+      }
     ],
     "milestoneBenefits": [
       "Premium welcome gifts at eligible fee points"
@@ -526,8 +544,13 @@
       "1 complimentary golf game and 1 lesson per month",
       "1 complimentary international lounge visit each calendar quarter via Priority Pass"
     ],
+    "additionalDetails": [
+      "Cash redemption is capped at 7,500 reward points per calendar month",
+      "Minimum 500 reward points required for cash credit redemption",
+      "Rent reward points capped at 500 per statement cycle"
+    ],
     "redemption": {
-      "statementBalanceValue": 0.7,
+      "statementBalanceValue": 0.75,
       "pointsExpiryYears": null,
       "airlinePartners": [
         {
@@ -545,9 +568,17 @@
         "Eligibility is subject to IndusInd Bank approval criteria"
       ]
     },
+    "internalNotes": [
+      "Card details manually reviewed and verified by user on 2026-05-30",
+      "Effective March 13, 2025, Priority Pass lounge benefit is revised to 1 complimentary international visit per quarter.",
+      "Effective March 13, 2025, golf benefit is revised to 1 complimentary game and 1 complimentary lesson per month.",
+      "Effective April 1, 2026, spends criteria tracking of Rs 1.5 Lakh per quarter is initiated to unlock domestic lounge access from July 2026 quarter onwards.",
+      "Reward points on rent transactions capped at 500 per statement cycle.",
+      "Redemption towards Club Vistara discontinued effective Oct 31, 2024. Redemption towards InterMiles discontinued effective Jan 21, 2025."
+    ],
     "sourceUrl": "https://www.indusind.com/in/en/personal/cards/credit-card/pinnacle-world-credit-card.html",
     "applyUrl": "https://www.indusind.com/in/en/personal/cards/credit-card/pinnacle-world-credit-card.html",
-    "lastVerified": "2026-05-11",
+    "lastVerified": "2026-05-30",
     "verificationStatus": "official-direct"
   },
   {
