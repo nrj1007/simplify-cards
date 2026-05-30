@@ -144,17 +144,22 @@ When auditing or verifying **HDFC Bank** cards, use the following guidelines:
 
 ---
 
-## Key Learnings on Duplication & Lounge Rules
+## Key Learnings on Duplication, Lounge Rules, & Image Scraping
 
-When auditing card details (especially for premium and super-premium cards), pay extra attention to avoiding visual redundancies across list views, stats cards, and popovers:
+When auditing card details (especially for premium and super-premium cards), pay extra attention to avoiding visual redundancies across list views, stats cards, and popovers, and ensure high-quality asset ingestion:
 
 1. **Lounge Spends Criteria vs. List Sections**:
    - Avoid listing spend-based lounge tracking rules (e.g., `"Effective April 1, 2026, spends criteria tracking of Rs 1.5 Lakh per quarter is initiated..."`) directly under `additionalBenefits` or `additionalDetails` if the page already renders popover cards for Lounge stats.
    - **Best Practice**: Place these detailed spend-tracking conditions inside `internalNotes`. The frontend popover helper `getLoungeConditions(card, "domestic" | "international")` is configured to read from `internalNotes` and extract details dynamically. This hides the long text block from the general card details page layout while keeping the info accessible on-hover and searchable by Ask AI.
    
-2. **Earning Rates and Exclusions in Benefits**:
+2. **Earning Rates, Exclusions, and DCC/Forex Markup in Benefits**:
    - Do not repeat reward point rules (e.g., `"2.5 reward points per Rs 100 on e-commerce"`) or specific categories that are already fully modeled in the card's `rewards` array.
    - Do not repeat zero-reward exclusions (like fuel exclusions) inside `additionalBenefits` when they are already listed under `exclusions`.
+   - Do not repeat DCC markup rates (e.g., `"A 1.75% markup fee (effective 15 May 2026)..."`) inside `additionalDetails` when they are already fully documented inside `internalNotes`. The standard foreign transaction markup is already captured in the structured `forexMarkup` field, and DCC rules should remain in `internalNotes` to keep the UI clean.
 
-3. **Restoring User-Reviewed Cards**:
+3. **Card Face Image Selection & Quality**:
+   - Automated image scraper tools may return generic banner images (like `generic-benefit-banner.jpeg` or check/eligibility screens). Always review the candidates. Look for images representing the physical card face itself (often having filenames containing the card's name, `diner_black_metal_fascia.png`, `extendedteaser`, or similar card-specific identifiers).
+   - If an automated script downloads a banner or placeholder candidate, delete it from the directory (e.g., `public/images/`) if a better card face image is found and saved afterwards.
+
+4. **Restoring User-Reviewed Cards**:
    - If a card has been manually verified and reviewed by the user (indicated by a verified note in `internalNotes`), do not alter its structured lists or properties unless explicitly asked. Focus changes only on targeted card audits.
