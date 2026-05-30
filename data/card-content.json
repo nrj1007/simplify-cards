@@ -51,6 +51,24 @@
     ]
   },
   "hdfc-diners-club-black-metal": {
+    "updates": [
+      {
+        "title": "HDFC revised Diners Club Black rewards capping",
+        "summary": "Effective 1 July 2025, HDFC Bank revised the reward points capping on insurance spends to 5,000 reward points per calendar month. Grocery and utility transactions remain capped at 2,000 reward points per calendar month.",
+        "sourceType": "manual",
+        "sourceLabel": "HDFC Bank official notice",
+        "sourceUrl": "https://www.hdfc.bank.in/credit-cards/diners-club-black-metal-edition-credit-card",
+        "publishedAt": "2025-07-01"
+      },
+      {
+        "title": "HDFC revised DCC markup fee",
+        "summary": "Effective 15 May 2026, HDFC Bank has revised its Dynamic Currency Conversion (DCC) markup fee to 1.75% on INR-denominated international transactions or transactions with merchants registered overseas.",
+        "sourceType": "manual",
+        "sourceLabel": "HDFC Bank official notice",
+        "sourceUrl": "https://www.hdfc.bank.in/credit-cards/diners-club-black-metal-edition-credit-card",
+        "publishedAt": "2026-05-15"
+      }
+    ],
     "tips": [
       {
         "text": "Activate HDFC Global Value Program to get an additional 1% cashback on international spends.",
