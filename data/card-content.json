@@ -86,12 +86,12 @@
   "indusind-legend": {
     "updates": [
       {
-        "title": "IndusInd credit card charges update discussed for Legend",
-        "summary": "Reviewed community signal and notice image indicate updated credit card charges effective June 15, 2026, including revised late-payment structure plus new fee conditions for fuel, DCC, and some transport transactions. Verify the latest Legend MITC before treating every line item as final card-specific policy.",
-        "sourceType": "technofino",
-        "sourceLabel": "TechnoFino (manually reviewed)",
-        "sourceUrl": "https://technofino.in/community/threads/indusind-ledgend-credit-card-devaluation.45690/",
-        "publishedAt": "2026-05-12"
+        "title": "IndusInd credit card charges revised",
+        "summary": "Effective 15 June 2026, IndusInd Bank has revised credit card charges. Late payment fees now range up to ₹1,300 depending on outstanding balance. Additionally, a 1% fee (plus GST) will be levied on cumulative fuel transactions exceeding ₹30,000 and utility/transport payments exceeding ₹40,000 in a statement cycle.",
+        "sourceType": "manual",
+        "sourceLabel": "IndusInd Bank official notice",
+        "sourceUrl": "https://www.indusind.com/in/en/personal/schedule-of-charges.html",
+        "publishedAt": "2026-05-15"
       },
       {
         "title": "Complimentary airport lounge access discontinued",

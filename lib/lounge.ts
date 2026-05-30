@@ -13,7 +13,7 @@ function conditionWeight(value: string) {
   return conditionKeywords.reduce((score, keyword) => score + (normalized.includes(keyword) ? 1 : 0), 0);
 }
 
-export function getLoungeConditions(card: CreditCard) {
+export function getLoungeConditions(card: CreditCard, type?: "domestic" | "international") {
   const items = [...(card.additionalBenefits ?? []), ...(card.additionalDetails ?? []), ...(card.milestoneBenefits ?? [])]
     .filter(matchesLoungeText)
     .map((text) => ({ text, weight: conditionWeight(text) }))
@@ -24,6 +24,21 @@ export function getLoungeConditions(card: CreditCard) {
   for (const item of items) {
     if (seen.has(item.text)) continue;
     seen.add(item.text);
+
+    if (type === "domestic") {
+      const lower = item.text.toLowerCase();
+      if ((lower.includes("international") || lower.includes("priority pass") || lower.includes("loungekey") || lower.includes("dragonpass") || lower.includes("outside india")) &&
+          !(lower.includes("domestic") || lower.includes("in india") || lower.includes("within india"))) {
+        continue;
+      }
+    } else if (type === "international") {
+      const lower = item.text.toLowerCase();
+      if ((lower.includes("domestic") || lower.includes("in india") || lower.includes("within india")) &&
+          !(lower.includes("international") || lower.includes("priority pass") || lower.includes("loungekey") || lower.includes("dragonpass") || lower.includes("outside india"))) {
+        continue;
+      }
+    }
+
     deduped.push(item.text);
   }
 

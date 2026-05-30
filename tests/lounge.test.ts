@@ -19,4 +19,18 @@ describe("getLoungeConditions", () => {
 
     expect(getLoungeConditions(card!)).toEqual([]);
   });
+
+  it("filters domestic vs international lounge conditions if type is provided", () => {
+    const card = getCardById("indusind-pinnacle");
+    expect(card).toBeTruthy();
+
+    const domesticConditions = getLoungeConditions(card!, "domestic");
+    const internationalConditions = getLoungeConditions(card!, "international");
+
+    expect(domesticConditions.every((item) => !item.toLowerCase().includes("priority pass"))).toBe(true);
+    expect(domesticConditions.some((item) => item.includes("Rs 1.5 Lakh per quarter"))).toBe(true);
+
+    expect(internationalConditions.some((item) => item.toLowerCase().includes("priority pass"))).toBe(true);
+    expect(internationalConditions.every((item) => !item.includes("Rs 1.5 Lakh per quarter"))).toBe(true);
+  });
 });

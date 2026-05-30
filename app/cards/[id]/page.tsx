@@ -145,7 +145,6 @@ export default async function CardPage({ params, searchParams }: Props) {
   const hasAdditionalBenefits = Boolean(card.additionalBenefits?.length);
   const hasExclusions = Boolean(card.exclusions?.length);
   const hasEligibility = Boolean(card.eligibility?.salaried?.length || card.eligibility?.selfEmployed?.length);
-  const loungeConditions = getLoungeConditions(card);
 
   return (
     <section className="section">
@@ -179,14 +178,14 @@ export default async function CardPage({ params, searchParams }: Props) {
               <strong>{card.loungeDomestic === "unlimited" ? "Unlimited" : card.loungeDomestic}</strong>
               <span className="stat-label">
                 Domestic lounge
-                <LoungeInfo items={loungeConditions} label="Domestic lounge conditions" />
+                <LoungeInfo items={getLoungeConditions(card, "domestic")} label="Domestic lounge conditions" />
               </span>
             </div>
             <div className="stat">
               <strong>{card.loungeInternational === "unlimited" ? "Unlimited" : card.loungeInternational}</strong>
               <span className="stat-label">
                 International lounge
-                <LoungeInfo items={loungeConditions} label="International lounge conditions" />
+                <LoungeInfo items={getLoungeConditions(card, "international")} label="International lounge conditions" />
               </span>
             </div>
             <div className="stat">

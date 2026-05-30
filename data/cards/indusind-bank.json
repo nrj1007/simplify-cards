@@ -250,9 +250,16 @@
       },
       {
         "category": "base",
-        "displayCategory": "Base spends",
-        "rate": 0.7,
-        "displayRate": "1 reward point per Rs 100 (weekdays) / 2 reward points (weekends)",
+        "displayCategory": "Base spends (Weekdays)",
+        "rate": 0.5,
+        "displayRate": "1 reward point per Rs 100",
+        "capMonthly": null
+      },
+      {
+        "category": "base",
+        "displayCategory": "Base spends (Weekends)",
+        "rate": 1.0,
+        "displayRate": "2 reward points per Rs 100",
         "capMonthly": null
       }
     ],
@@ -276,11 +283,10 @@
       "cash_advance"
     ],
     "milestoneBenefits": [
-      "Exclusive bonus rewards on yearly spends as per IndusInd programme"
+      "4,000 bonus reward points (worth Rs 2,000) on annual spends of Rs 6,00,000 or more"
     ],
     "additionalBenefits": [
       "1 complimentary golf game and 1 complimentary golf lesson per quarter",
-      "Discounted foreign currency markup of 1.8%",
       "1% fuel surcharge waiver at all fuel stations in India"
     ],
     "redemption": {
@@ -549,7 +555,8 @@
     "additionalDetails": [
       "Cash redemption is capped at 7,500 reward points per calendar month",
       "Minimum 500 reward points required for cash credit redemption",
-      "Rent reward points capped at 500 per statement cycle"
+      "Rent reward points capped at 500 per statement cycle",
+      "Effective 1st April 2026, spends criteria tracking of Rs 1.5 Lakh per quarter is initiated to unlock complimentary domestic lounge access from July 2026 quarter onwards."
     ],
     "redemption": {
       "statementBalanceValue": 0.75,
