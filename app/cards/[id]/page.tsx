@@ -158,7 +158,11 @@ export default async function CardPage({ params, searchParams }: Props) {
         </div>
         {card.imageUrl ? (
           <div className="page-card-image">
-            <img src={card.imageUrl} alt={card.name} />
+            <img 
+              src={card.imageUrl} 
+              alt={card.name} 
+              style={card.id === "hdfc-regalia-gold" ? { objectPosition: "center 25%" } : undefined}
+            />
           </div>
         ) : null}
       </div>
