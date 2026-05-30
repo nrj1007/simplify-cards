@@ -87,7 +87,7 @@
     "updates": [
       {
         "title": "IndusInd credit card charges revised",
-        "summary": "Effective 15 June 2026, IndusInd Bank has revised credit card charges. Late payment fees now range up to ₹1,300 depending on outstanding balance. Additionally, a 1% fee (plus GST) will be levied on cumulative fuel transactions exceeding ₹30,000 and utility/transport payments exceeding ₹40,000 in a statement cycle.",
+        "summary": "Effective 15 June 2026, IndusInd Bank has revised credit card charges. Late payment fees now range up to ₹1,300 depending on outstanding balance. Additionally, a 1% fee (plus GST) applies to Dynamic Currency Conversion (DCC) transactions, cumulative fuel transactions exceeding ₹30,000, and utility/transport payments exceeding ₹40,000 in a statement cycle.",
         "sourceType": "manual",
         "sourceLabel": "IndusInd Bank official notice",
         "sourceUrl": "https://www.indusind.com/in/en/personal/schedule-of-charges.html",
