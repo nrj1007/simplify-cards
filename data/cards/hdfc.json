@@ -416,6 +416,13 @@
         "capDaily": 2000
       },
       {
+        "category": "smartbuy gyftr",
+        "rate": 12.5,
+        "displayRate": "Up to 5X Reward Points (25 RP / Rs 200 spent on instant vouchers via SmartBuy)",
+        "capMonthly": 4000,
+        "capDaily": 2000
+      },
+      {
         "category": "smartbuy train",
         "rate": 7.5,
         "displayRate": "3X Reward Points (15 RP / Rs 200 spent via SmartBuy)",
