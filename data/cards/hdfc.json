@@ -603,8 +603,7 @@
       "Reward Points earnings are capped at 75,000 per statement cycle",
       "Reward Points on grocery transactions are capped at 2,000 per calendar month",
       "Reward Points on utility transactions are capped at 2,000 per calendar month",
-      "Reward Points on insurance transactions are capped at 5,000 per calendar month (effective 1 July 2025)",
-      "A 1.75% markup fee (effective 15 May 2026) is charged on all DCC / international transactions in INR"
+      "Reward Points on insurance transactions are capped at 5,000 per calendar month (effective 1 July 2025)"
     ],
     "redemption": {
       "statementBalanceValue": 0.3,
