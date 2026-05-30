@@ -658,6 +658,13 @@ textarea {
   margin: 0;
 }
 
+.answer-ranked-usp {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.5;
+  margin: 2px 0 0;
+}
+
 .answer-ranked-actions {
   flex-shrink: 0;
 }
