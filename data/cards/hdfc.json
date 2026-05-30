@@ -386,8 +386,7 @@
     "name": "HDFC Bank Regalia Gold Credit Card",
     "network": [
       "Visa",
-      "Mastercard",
-      "Diners Club"
+      "Mastercard"
     ],
     "joiningFee": 2500,
     "annualFee": 2500,
