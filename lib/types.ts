@@ -129,3 +129,21 @@ export type CardScore = {
     annualReward: number;
   }>;
 };
+
+// Trimmed, display-only card result sent to the browser by /api/recommend.
+// Deliberately omits the full card record so the curated dataset stays server-side.
+export type RecommendResult = {
+  id: string;
+  name: string;
+  issuer: string;
+  applyUrl: string;
+  tags: string[];
+  estimatedAnnualRewards: number;
+  estimatedAnnualFee: number;
+  estimatedNetValue: number;
+  breakdown: Array<{
+    spendCategory: SpendCategory;
+    monthlySpend: number;
+    annualReward: number;
+  }>;
+};

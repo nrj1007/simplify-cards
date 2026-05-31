@@ -25,8 +25,25 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: Props) {
   const { id } = await params;
   const card = getCardById(id);
+  if (!card) return { title: "Card Review | Card AI India" };
+
+  const fee = card.annualFee === 0 ? "lifetime free" : `Rs ${card.annualFee.toLocaleString("en-IN")} annual fee`;
+  const lounge = card.loungeDomestic === "unlimited"
+    ? "unlimited lounge access"
+    : card.loungeDomestic > 0
+      ? `${card.loungeDomestic} lounge visits`
+      : null;
+  const descParts = [card.issuer, fee, lounge].filter(Boolean).join(" · ");
+  const description = `${card.name} — ${descParts}. Verified rewards, fees, and benefits.`;
+
   return {
-    title: card ? `${card.name} Review | Card AI India` : "Card Review"
+    title: `${card.name} Review | Card AI India`,
+    description,
+    openGraph: {
+      title: `${card.name} | Card AI India`,
+      description,
+      type: "article"
+    }
   };
 }
 
@@ -446,8 +463,8 @@ export default async function CardPage({ params, searchParams }: Props) {
         </article>
 
         <aside className="detail-aside">
-          <div className="ad-slot">Ad slot: card detail page</div>
-          <AskBox defaultQuery="" showHelperText={false} />
+          {/* ad slot: card detail sidebar — restore when ads integrated */}
+<AskBox defaultQuery="" showHelperText={false} />
           <div className="panel card">
             <h2>Card facts</h2>
             <div className="info-grid">

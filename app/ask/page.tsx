@@ -2,10 +2,12 @@ import Link from "next/link";
 import AskBox from "../ui/AskBox";
 import LoungeInfo from "../ui/LoungeInfo";
 import AskFeedback from "../ui/AskFeedback";
+import CardTile from "../ui/CardTile";
 import { answerQuestion } from "@/lib/ask-ai";
 import { getCardById } from "@/lib/cards";
 import { getLoungeConditions } from "@/lib/lounge";
 import { stripScoringAnnotations } from "@/lib/card-index";
+import { scoreCards } from "@/lib/recommend";
 import type { CreditCard, RecommendationInput } from "@/lib/types";
 
 type Props = {
@@ -241,7 +243,7 @@ export default async function AskPage({ searchParams }: Props) {
     <section className="section">
       <div className="page-title">
         <h1>Ask Card AI</h1>
-        <p>Server-rendered answers, so this keeps working even when the browser is having a strange day.</p>
+        <p>Get answers grounded in verified Indian credit card data.</p>
       </div>
 
       <div className="detail-layout ask-layout" style={{ marginTop: 18 }}>
@@ -306,7 +308,7 @@ export default async function AskPage({ searchParams }: Props) {
                   <section className="detail-section">
                     <h2>Quick comparison</h2>
                     <div className="table-wrap">
-                      <table className="compare-table">
+                      <table className="compare-table compare-table--wide">
                         <thead>
                           <tr>
                             <th>Feature</th>
@@ -380,7 +382,7 @@ export default async function AskPage({ searchParams }: Props) {
                   <section className="detail-section">
                     <h2>How This Changes by Spend</h2>
                     <div className="table-wrap">
-                      <table className="compare-table">
+                      <table className="compare-table compare-table--wide">
                         <thead>
                           <tr>
                             <th>Yearly spend</th>
@@ -432,7 +434,7 @@ export default async function AskPage({ searchParams }: Props) {
                   <section className="detail-section">
                     <h2>Rewards</h2>
                     <div className="table-wrap">
-                      <table className="compare-table">
+                      <table className="compare-table compare-table--wide">
                         <thead>
                           <tr>
                             <th>Category</th>
@@ -497,9 +499,18 @@ export default async function AskPage({ searchParams }: Props) {
 
               {!topCard ? (
                 <div className="panel card">
-                  <p className="muted" style={{ margin: 0 }}>
-                    No matching cards were found in the current database for this question.
+                  <p style={{ margin: "0 0 16px" }}>
+                    We couldn&apos;t find a specific card match for this question in our database yet.
                   </p>
+                  <p className="muted" style={{ margin: "0 0 20px" }}>
+                    Try rephrasing — for example, mention a use case like &ldquo;cashback&rdquo; or &ldquo;lounge access&rdquo; — or browse all cards below.
+                  </p>
+                  <Link className="button secondary" href="/finder">Browse all cards</Link>
+                  <div className="grid cards" style={{ marginTop: 24 }}>
+                    {scoreCards({ query: "best overall" }).slice(0, 2).map((score) => (
+                      <CardTile key={score.card.id} score={score} />
+                    ))}
+                  </div>
                 </div>
               ) : null}
 

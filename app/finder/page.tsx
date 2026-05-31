@@ -23,7 +23,7 @@ export default async function FinderPage({ searchParams }: Props) {
     <section className="section">
       <div className="page-title">
         <h1>Credit Card Finder</h1>
-        <p>Filter the in-memory card dataset by issuer, annual fee, and use case.</p>
+        <p>Filter cards by issuer, annual fee, and use case.</p>
       </div>
 
       <form className="panel card" style={{ margin: "18px 0" }}>
@@ -68,9 +68,7 @@ export default async function FinderPage({ searchParams }: Props) {
         </div>
       </form>
 
-      <div className="ad-slot" style={{ marginBottom: 16 }}>
-        Ad slot: finder page mid banner
-      </div>
+      {/* ad slot: finder page mid banner — restore when ads integrated */}
 
       <div className="grid cards">
         {filteredCards.map((card) => (
