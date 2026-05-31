@@ -5,8 +5,7 @@
     "name": "HDFC Millennia Credit Card",
     "network": [
       "Visa",
-      "Mastercard",
-      "Diners Club"
+      "Mastercard"
     ],
     "joiningFee": 1000,
     "annualFee": 1000,
@@ -20,17 +19,22 @@
     "rewards": [
       {
         "category": "online",
+        "displayCategory": "select online merchants",
         "rate": 5,
-        "capMonthly": 3000
+        "displayRate": "5% CashBack",
+        "capMonthly": 1000
       },
       {
         "category": "base",
+        "displayCategory": "others",
         "rate": 1,
-        "capMonthly": 3000
+        "displayRate": "1% CashBack",
+        "capMonthly": 1000
       },
       {
         "category": "smartbuy",
         "rate": 10,
+        "displayRate": "Up to 10% CashBack",
         "capMonthly": 1000,
         "capDaily": 1000
       }
@@ -43,14 +47,38 @@
       "cashback",
       "lounge"
     ],
+    "specialSpendRules": [
+      {
+        "category": "education",
+        "treatment": "rewarded",
+        "notes": "Education payments made directly through school or college websites or POS machines earn rewards; third-party app payments do not."
+      }
+    ],
     "exclusions": [
       "fuel",
       "rent",
       "government payments",
-      "cash withdrawal"
+      "cash withdrawal",
+      "wallet loads",
+      "emi transactions",
+      "card fees and charges",
+      "payment of outstanding balances",
+      "education payments through third-party apps"
+    ],
+    "exclusionCodes": [
+      "fuel",
+      "rent",
+      "government",
+      "cash_withdrawal",
+      "wallet_load",
+      "emi",
+      "fees_and_charges"
     ],
     "milestoneBenefits": [
       "Either Rs 1,000 gift voucher or 1 domestic lounge access voucher on spends of Rs 1,00,000 and above in each calendar quarter"
+    ],
+    "joiningBenefits": [
+      "1,000 CashPoints on payment of joining or renewal membership fee, equivalent to the fee amount"
     ],
     "additionalBenefits": [
       "5% cashback on Amazon, BookMyShow, Cult.fit, Flipkart, Myntra, Sony LIV, Swiggy, Tata CLiQ, Uber and Zomato",
@@ -58,23 +86,55 @@
       "10% additional discount on Swiggy Dineout using coupon code HDFCCARDS",
       "1% fuel surcharge waiver at fuel stations across India on transactions from Rs 400 to Rs 5,000"
     ],
+    "additionalDetails": [
+      "CashPoints are posted on a calendar-month basis, with settled transactions from the 1st to the 30th/31st posted in the first week of the subsequent calendar month",
+      "Reward Points on flights and hotels via SmartBuy redeem at 1 CashPoint = Rs 1, capped at 50,000 CashPoints per calendar month and up to 50% of booking value",
+      "Reward Points for cashback redemption are capped at 3,000 per calendar month",
+      "Unredeemed CashPoints expire within 2 years of accumulation"
+    ],
+    "internalNotes": [
+      "Card details manually reviewed and verified by user on 2026-05-31",
+      "Audited against official HDFC Bank Millennia product page, terms PDF, lounge voucher PDF, FAQ PDF and fee-waiver page on 2026-05-31.",
+      "Effective 1st December 2023, complimentary domestic airport lounge access is no longer directly available on Millennia Credit Card; lounge access is now integrated into the quarterly milestone choice between a Rs 1,000 voucher and a lounge voucher.",
+      "Effective 1st September 2024, wallet loading and EMI transactions do not earn Reward Points.",
+      "Effective 1st September 2024, education payments made through third-party apps do not earn Reward Points, but direct school or college website and POS transactions do earn rewards.",
+      "Reward points redemption for cashback is capped at 3,000 CashPoints per calendar month.",
+      "Flights and hotels redemption is capped at 50,000 CashPoints per calendar month and up to 50% of booking value."
+    ],
     "redemption": {
       "statementBalanceValue": 1,
-      "smartBuyFlightHotelValue": 0.3,
-      "airMilesValue": 0.3,
+      "smartBuyFlightHotelValue": 1,
+      "smartBuyCatalogueValue": 0.3,
       "minimumPointsForStatementCredit": 500,
       "cashbackRedemptionCapMonthly": 3000,
       "pointsExpiryYears": 2,
       "redemptionFee": 99
     },
     "supportingSourceUrls": [
-      "https://offers.smartbuy.hdfc.bank.in/offer_details/smartbuy/15282"
+      "https://offers.smartbuy.hdfc.bank.in/offer_details/smartbuy/15282",
+      "https://www.hdfc.bank.in/content/dam/hdfcbankpws/in/en/personal-banking/discover-products/cards/credit-cards/millennia-credit-card/Terms-and-Conditions-Millennia-Credit-Card.pdf",
+      "https://www.hdfc.bank.in/content/dam/hdfcbankpws/in/en/personal-banking/discover-products/cards/credit-cards/millennia-credit-card/pdf/lounge-voucher-on-millennia-credit-card.pdf",
+      "https://www.hdfc.bank.in/content/dam/hdfcbankpws/in/en/personal-banking/discover-products/cards/credit-cards/millennia-credit-card/pdf/faq-millennia.pdf",
+      "https://www.hdfc.bank.in/credit-cards/millennia-credit-card/fees-and-charges"
     ],
+    "eligibility": {
+      "salaried": [
+        "Indian national",
+        "Age: 21 to 40 years",
+        "Net monthly income above Rs 35,000"
+      ],
+      "selfEmployed": [
+        "Indian national",
+        "Age: 21 to 40 years",
+        "ITR above Rs 6 lakh per annum"
+      ]
+    },
+    "imageUrl": "/images/hdfc-millennia.webp",
     "interestRateMonthly": 3.6,
     "sourceUrl": "https://www.hdfc.bank.in/credit-cards/millennia-credit-card",
     "applyUrl": "https://www.hdfc.bank.in/credit-cards/millennia-credit-card",
-    "lastVerified": "2026-05-08",
-    "verificationStatus": "official-indexed",
+    "lastVerified": "2026-05-31",
+    "verificationStatus": "official-direct",
     "popularityScore": 92
   },
   {
@@ -378,7 +438,7 @@
     "lastVerified": "2026-05-28",
     "verificationStatus": "official-direct",
     "imageUrl": "/images/infinia-metal-official.webp",
-    "popularityScore": 90
+    "popularityScore": 100
   },
   {
     "id": "hdfc-regalia-gold",
@@ -908,7 +968,7 @@
     "lastVerified": "2026-05-30",
     "verificationStatus": "official-direct",
     "imageUrl": "/images/hdfc-diners-club-black-metal.png",
-    "popularityScore": 87,
+    "popularityScore": 90,
     "internalNotes": [
       "Card details manually reviewed and verified by user on 2026-05-30",
       "Joining/Renewal fee is Rs 10,000 + taxes, with renewal fee waived on Rs 8 Lakh spends in 12 months.",
@@ -949,27 +1009,37 @@
     "rewards": [
       {
         "category": "tata neu",
+        "displayCategory": "Tata Neu and partner Tata brands with NeuPass",
         "rate": 10,
+        "displayRate": "Up to 10% back as NeuCoins",
         "capMonthly": null
       },
       {
         "category": "tata brands",
+        "displayCategory": "partner Tata brands",
         "rate": 5,
+        "displayRate": "5% back as NeuCoins",
         "capMonthly": null
       },
       {
         "category": "online",
+        "displayCategory": "other eligible online spends",
         "rate": 1.5,
+        "displayRate": "1.5% back as NeuCoins",
         "capMonthly": null
       },
       {
         "category": "base",
+        "displayCategory": "other eligible spends",
         "rate": 1.5,
+        "displayRate": "1.5% back as NeuCoins",
         "capMonthly": null
       },
       {
         "category": "upi",
+        "displayCategory": "UPI on RuPay variant",
         "rate": 1.5,
+        "displayRate": "Up to 1.5% back as NeuCoins",
         "capMonthly": 500
       }
     ],
@@ -986,37 +1056,76 @@
       "travel"
     ],
     "exclusions": [
+      "fuel spends",
+      "wallet loads, gift or prepaid card loads, and voucher purchases",
+      "cash advances",
+      "payment of outstanding balances",
+      "payment of card fees and other charges",
+      "Smart EMI and Dial an EMI transactions",
+      "rental transactions",
+      "government related transactions",
+      "education payments through third-party apps",
+      "online skill-based gaming"
+    ],
+    "exclusionCodes": [
       "fuel",
-      "wallet",
-      "rental",
+      "wallet_load",
+      "cash_advance",
+      "fees_and_charges",
+      "emi",
+      "rent",
       "government",
-      "online gaming",
-      "education payments through third-party apps"
+      "education"
+    ],
+    "specialSpendRules": [
+      {
+        "category": "upi",
+        "treatment": "capped",
+        "notes": "Eligible UPI spends on the RuPay variant earn 0.5% via any UPI ID plus an additional 1% via Tata Neu UPI ID, capped at 500 NeuCoins per calendar month."
+      },
+      {
+        "category": "grocery",
+        "treatment": "capped",
+        "notes": "Eligible grocery spends earn 1.5% NeuCoins, capped at 2,000 NeuCoins per calendar month."
+      },
+      {
+        "category": "insurance",
+        "treatment": "capped",
+        "notes": "Eligible insurance spends earn 1.5% NeuCoins, capped at 2,000 NeuCoins per calendar month."
+      },
+      {
+        "category": "utilities",
+        "treatment": "capped",
+        "notes": "Eligible utility, telecom, and cable spends earn 1.5% NeuCoins, capped at 2,000 NeuCoins per calendar month."
+      },
+      {
+        "category": "education",
+        "treatment": "rewarded",
+        "notes": "Education payments made directly on school or college websites or POS machines earn NeuCoins; third-party app payments do not."
+      }
     ],
     "milestoneBenefits": [
-      "Domestic lounge access is milestone based from 10-Jun-2025: 2 lounge vouchers per calendar quarter on spends of Rs 50,000 or more, up to 8 per year",
-      "Renewal fee waived on spending Rs 3 lakh or more in a year before renewal"
+      "2 domestic lounge vouchers per calendar quarter on spends of Rs 50,000 or more, up to 8 per year"
+    ],
+    "joiningBenefits": [
+      "1,499 NeuCoins on Tata Neu app as reversal of first-year membership fee after the first retail transaction within 30 days of card issuance"
     ],
     "additionalBenefits": [
-      "5% back as NeuCoins on non-EMI spends on Tata Neu and partner Tata Brands",
-      "1.5% back as NeuCoins on eligible non-Tata brand spends and merchant EMI spends",
       "Additional 5% back as NeuCoins on selected categories on Tata Neu App/Website with NeuPass",
-      "Up to 1.5% back as NeuCoins on eligible UPI spends from 01-Aug-2024",
-      "UPI NeuCoins capped at 500 per calendar month",
-      "International lounge access: 4 complimentary lounge accesses per calendar year, 1 per quarter",
       "NeuCoins can be used on eligible purchases on Tata Neu brands including Air India Express, Bigbasket, Croma, Westside, Tata CLiQ, IHCL, Tata 1MG, Qmin, Titan and Tanishq",
-      "Contactless payments enabled",
+      "1% fuel surcharge waiver on fuel transactions from Rs 400 to Rs 5,000, capped at Rs 250 per statement cycle",
       "Zero cost card liability when reported immediately"
     ],
     "redemption": {
-      "statementBalanceValue": 1,
+      "ecosystemLabel": "Tata Neu brands",
+      "ecosystemValue": 1,
       "pointsExpiryYears": 1
     },
     "eligibility": {
       "salaried": [
         "Indian national",
         "Age 21 to 60 years",
-        "Monthly income Rs 1 lakh"
+        "Gross monthly income greater than Rs 1 lakh"
       ],
       "selfEmployed": [
         "Indian national",
@@ -1024,10 +1133,33 @@
         "Annual ITR greater than Rs 12 lakh"
       ]
     },
+    "additionalDetails": [
+      "Eligible UPI spends on the RuPay variant earn 0.5% via any UPI ID and an additional 1% via Tata Neu UPI ID, capped at 500 NeuCoins per calendar month.",
+      "Eligible grocery, insurance, utility, telecom, and cable spends earn 1.5% NeuCoins, capped at 2,000 NeuCoins per calendar month for each category."
+    ],
+    "internalNotes": [
+      "Audited against official HDFC Tata Neu Infinity product page, fees page, eligibility page, T&C PDF, FAQ PDF, and domestic lounge revision PDF on 2026-05-31.",
+      "Domestic lounge access became milestone based from 10-Jun-2025: Tata Neu Infinity earns 2 lounge vouchers per calendar quarter on spends of Rs 50,000 or more.",
+      "For the Visa variant, Priority Pass is issued only on request from 01-Jun-2025. You and your add-on member can together avail up to 4 complimentary international lounge visits per calendar year, capped at 1 per quarter.",
+      "For the RuPay variant, international lounge access is 4 complimentary visits per calendar year outside India, capped at 1 per quarter, with a temporary transaction charge reversal flow as per HDFC terms.",
+      "From 01-Aug-2024, eligible UPI spends on RuPay earn 0.5% via any UPI ID and an additional 1% via Tata Neu UPI ID, capped at 500 NeuCoins per calendar month.",
+      "From 01-Sep-2024, education payments through third-party apps do not earn NeuCoins, but direct school or college website and POS transactions do earn NeuCoins.",
+      "From 01-Jul-2025, online skill-based gaming transactions do not earn NeuCoins.",
+      "Partner Tata Brand accelerated rewards are governed by HDFC's fair usage policy and MID/TID mapping controls."
+    ],
+    "supportingSourceUrls": [
+      "https://www.hdfc.bank.in/credit-cards/tata-neu-infinity-hdfc-bank-credit-card",
+      "https://www.hdfc.bank.in/credit-cards/tata-neu-infinity-hdfc-bank-credit-card/fees-and-charges",
+      "https://www.hdfc.bank.in/credit-cards/tata-neu-infinity-hdfc-bank-credit-card/eligibility",
+      "https://www.hdfc.bank.in/content/dam/hdfcbankpws/in/en/personal-banking/discover-products/cards/credit-cards/tata-neu-infinity-credit-card/pdf/tata_neu_infinity_card_tnc.pdf",
+      "https://www.hdfc.bank.in/content/dam/hdfcbankpws/in/en/personal-banking/discover-products/cards/credit-cards/tata-neu-infinity-credit-card/pdf/tata_neu_infinity_card_faq.pdf",
+      "https://www.hdfc.bank.in/content/dam/hdfcbankpws/in/en/personal-banking/discover-products/cards/credit-cards/tata-neu-infinity-credit-card/pdf/milestone_lounge_tataneu-cc.pdf",
+      "https://www.hdfc.bank.in/content/dam/hdfcbankpws/in/en/personal-banking/discover-products/cards/credit-cards/tata-neu-infinity-credit-card/pdf/tata_neu_priority_pass.pdf"
+    ],
     "sourceUrl": "https://www.hdfc.bank.in/credit-cards/tata-neu-infinity-hdfc-bank-credit-card",
     "applyUrl": "https://www.hdfc.bank.in/credit-cards/tata-neu-infinity-hdfc-bank-credit-card",
-    "lastVerified": "2026-05-09",
-    "verificationStatus": "official-indexed",
+    "lastVerified": "2026-05-31",
+    "verificationStatus": "official-direct",
     "popularityScore": 86
   },
   {
@@ -1818,7 +1950,7 @@
     "applyUrl": "https://www.hdfc.bank.in/credit-cards/marriott-bonvoy-credit-card",
     "lastVerified": "2026-05-08",
     "verificationStatus": "official-direct",
-    "popularityScore": 74
+    "popularityScore": 85
   },
   {
     "id": "hdfc-phonepe-ultimo",
