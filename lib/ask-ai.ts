@@ -68,7 +68,17 @@ const genericLookupWords = new Set([
   "transaction",
   "transactions",
   "reward",
-  "rewards"
+  "rewards",
+  "and",
+  "or",
+  "the",
+  "of",
+  "in",
+  "at",
+  "by",
+  "an",
+  "to",
+  "a"
 ]);
 
 const genericCardNameWords = new Set([
@@ -1216,7 +1226,7 @@ export async function answerQuestion(input: RecommendationInput): Promise<AskAiR
   const parsedCardQuestion = parseSpecificCardQuestion(input.query);
   const namedCardQuestionInitial =
     isNamedCardQuestion(input, shortlisted.mentionedCardId) ||
-    (Boolean(shortlisted.mentionedCardId) && parsedCardQuestion.questionType !== "generic");
+    (Boolean(shortlisted.mentionedCardId) && parsedCardQuestion.questionType !== "generic" && !isTopBestCardsQuery(input.query));
 
   if (shouldTryAiCardResolution(input, shortlisted.mentionedCardId)) {
     const aiMentionedCardId = await resolveMentionedCardIdWithAi(input.query);
@@ -1244,7 +1254,7 @@ export async function answerQuestion(input: RecommendationInput): Promise<AskAiR
   const topCard = answer.cards[0];
   const namedCardQuestion =
     isNamedCardQuestion(input, shortlisted.mentionedCardId) ||
-    (Boolean(shortlisted.mentionedCardId) && parsedCardQuestion.questionType !== "generic");
+    (Boolean(shortlisted.mentionedCardId) && parsedCardQuestion.questionType !== "generic" && !isTopBestCardsQuery(input.query));
   const rewardsPolicySubject = extractRewardsPolicySubject(input.query);
   const genericScenarioHighlights = buildScenarioHighlights(input, answer.cards, {
     skip: specificCardLookup || namedCardQuestion
