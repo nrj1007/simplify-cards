@@ -69,7 +69,7 @@ export default function RecommendCalculator({ defaultSpend, initialResults }: Pr
       fetch("/api/recommend", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ spend, maxAnnualFee, wantsLounge, wantsLifetimeFree }),
+        body: JSON.stringify({ spend, maxAnnualFee: maxAnnualFee || null, wantsLounge, wantsLifetimeFree }),
         signal: controller.signal
       })
         .then((res) => res.json())

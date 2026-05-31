@@ -36,7 +36,7 @@ export async function POST(request: Request) {
   }
 
   const wantsLifetimeFree = body.wantsLifetimeFree === true;
-  const rawMaxFee = Number(body.maxAnnualFee);
+  const rawMaxFee = body.maxAnnualFee == null || body.maxAnnualFee === "" ? NaN : Number(body.maxAnnualFee);
   const maxAnnualFee =
     !wantsLifetimeFree && Number.isFinite(rawMaxFee) && rawMaxFee >= 0 ? rawMaxFee : undefined;
 
