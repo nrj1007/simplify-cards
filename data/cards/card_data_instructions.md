@@ -35,6 +35,7 @@ These fields are displayed directly on the credit card details page in the UI. K
 > Before finalizing a card update, do a quick duplication sweep:
 > - remove exclusions repeated in visible text
 > - remove lounge rules repeated across `milestoneBenefits` and `additionalDetails`
+> - do not place lounge counts or lounge-eligibility conditions in `additionalBenefits` or `additionalDetails`; keep lounge counts in `loungeDomestic` / `loungeInternational` / `combinedLoungeAccess`, and keep lounge conditions in `internalNotes` for the lounge info popover
 > - remove redemption values repeated in both `redemption` and visible prose
 > - keep audit or verification wording in `internalNotes`, not user-facing sections
 > - do not surface concierge or lifestyle-assistance details in visible sections unless concierge is a clear USP of the card (for example Amex Platinum or Centurion). Keep those details in `internalNotes` otherwise
@@ -156,6 +157,7 @@ To ensure that the UI renders reward rates exactly as they are advertised on off
     *   *Example:* For the card above, set `"displayRate": "6 reward points per Rs 100"`.
     *   Always use a clear, user-friendly format matching the official website (e.g. `"X reward points per Rs 100"`, `"X EazyPoints per Rs 100"`, or `"X reward points per Rs 150"`).
     *   Defining `displayRate` prevents the UI from incorrectly defaulting to the raw yield decimal (like displaying `2.4 reward points / Rs 100` instead of `6`) or appending `%` to non-percentage rates.
+*   If a reward category has its own issuer-published cap, keep that cap in the reward row itself rather than moving it to `additionalDetails`. If the cap is not representable through `capMonthly` / `capDaily` (for example a statement-quarter cap), include the cap wording directly in `displayRate`.
 *   When an issuer lists multiple capped categories separately (for example grocery, insurance, utility, and telecom/cable each with their own monthly cap), keep them as separate visible reward rows rather than collapsing them into one combined line that implies a shared cap.
 *   If the display needs separate rows but the scoring model only understands a broader canonical category, keep the canonical `category` stable and use distinct `displayCategory` labels for the UI rows.
 
@@ -172,6 +174,9 @@ Some cards redeem into a closed ecosystem rather than statement credit, miles, o
 ## 4. Latest Updates Configuration
 
 Major card updates (devaluations, golf benefit revisions, or lounge spends tracking) are configured in `data/card-content.json`.
+
+*   **Review requirement**: During every official card audit, check whether the issuer has any recent official updates, revision notices, fee changes, lounge-rule changes, reward devaluations, or benefit revisions that should be captured in `data/card-content.json`.
+*   **Freshness rule**: Only add `updates` items that are within the trailing 12 months as of the review date. If an official notice is older than 1 year, do not add it to `Latest Updates` unless the user explicitly asks for historical updates.
 
 *   **Structure**: Each card has an entry with an `updates` array containing items with these fields:
     *   `title`: Clear headline of the change.

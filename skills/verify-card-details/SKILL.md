@@ -38,6 +38,7 @@ Official pages often hide critical restrictions, caps, or devaluations in linked
 Compare the retrieved details against the current card entry in the issuer's JSON file (`data/cards/<issuer>.json`). Look specifically for:
 - **Network Variants**: Confirm the currently offered network(s) and remove stale networks that are no longer shown on the official product page or official documents.
 - **Card Image**: Verify that the card has a good `imageUrl` pointing to the actual card face, not a banner, eligibility artwork, or generic marketing visual.
+- **Latest Updates**: Check whether the issuer has any recent official updates, revision notices, devaluations, fee changes, lounge-rule changes, reward revisions, or benefit changes that should be added to `data/card-content.json`.
 - **Rewards Capping**: Limits on specific categories (e.g., monthly limits on grocery, utilities, insurance, or rent).
 - **Lounge Spends Requirements**: Spend-based lounge unlock criteria (e.g., spending ₹35,000 in the previous quarter to unlock the next quarter's lounge access).
 - **Golf Privileges**: Restrictions on the number of games/lessons, booking slots, and cancellation window policies.
@@ -58,6 +59,7 @@ Apply the rules specified in [card_data_instructions.md](file:///C:/Users/manpr/
 3. **Additional Perks**:
    - Keep `"additionalBenefits"` and `"additionalDetails"` concise and easy to read.
    - Do NOT duplicate details already structured in other properties (like reward rates or lounge count).
+   - If a reward category has its own cap, keep that cap in the reward row itself. Use `capMonthly` / `capDaily` when the schema supports it; for unsupported issuer periods like statement-quarter caps, include the cap wording directly in `displayRate` instead of moving it to `additionalDetails`.
    - Keep `"redemption"` focused on point value and transfer-partner structure. Put operational redemption rules like minimum points, monthly caps, validity windows, and redemption fees into `"additionalDetails"` or `"internalNotes"` instead of treating them as primary redemption rows.
    - If an issuer publishes separate capped categories, preserve them as separate visible reward rows instead of merging them into one combined line that suggests a shared cap.
    - If the UI needs separate rows but the scoring model only supports a broader canonical category, keep the canonical `category` stable and differentiate the rows through `displayCategory`.
@@ -87,6 +89,7 @@ Apply the rules specified in [card_data_instructions.md](file:///C:/Users/manpr/
 7. **Dates & Status**:
    - Set `"lastVerified"` to today's date in `YYYY-MM-DD` format.
    - Set `"verificationStatus"` to `"official-direct"`.
+   - If you add `Latest Updates`, keep them limited to official notices published within the trailing 12 months as of the review date. Older notices should stay out of `Latest Updates` unless the user explicitly asks for historical updates.
 8. **Unique Rendering Keys**:
    - If you split a category row (e.g., splitting unified base spends into weekdays and weekends rows), verify that the combination of `category` and `displayCategory` is unique for each row. This prevents React key duplication errors when the UI maps over rewards.
 
@@ -211,6 +214,45 @@ When auditing or verifying **SBI Card** products, use the following image and as
 - After downloading, still verify the asset visually:
   - it should be the physical card face
   - not a benefits banner, welcome-gift graphic, or Priority Pass/offer image
+  - not awkwardly cropped in the page header
+
+---
+
+## Axis Bank Specific Scraping & Auditing Guidelines
+
+When auditing or verifying **Axis Bank** cards, use the following image workflow:
+
+### 1. Card Image Pattern
+- Axis commonly serves card-face assets from:
+  `https://www.axis.bank.in/images/default-source/creditcard/webp/`
+- Product pages may not expose the best card image directly, so the listing page is often a better fallback than the individual card page.
+
+### 2. Preferred Image Helper
+- Use the Axis-specific helper script:
+  `node scripts/download-axis-card-image.js <card-id> [url-or-local-html-path]`
+- The script:
+  - looks up the card inside `data/cards/axis.json`
+  - defaults to the card's `sourceUrl` or `applyUrl`
+  - scans both the product page and Axis credit-card listing page fallbacks
+  - strongly prefers `/images/default-source/creditcard/webp/` assets
+  - downloads the winning image into `public/images/`
+
+### 3. Example Usage
+- Example:
+  `node scripts/download-axis-card-image.js axis-flipkart`
+- Or with an explicit source page:
+  `node scripts/download-axis-card-image.js axis-flipkart "https://www.axis.bank.in/cards/credit-card/flipkart-axisbank-credit-card"`
+
+### 4. Manual Fallback
+- If the product page does not reveal the card face cleanly, fetch or inspect the Axis credit-card listing pages:
+  - `https://www.axis.bank.in/cards/credit-card`
+  - `https://www.axisbank.com/retail/cards/credit-card`
+- Search for the card name and then inspect nearby image references under `/images/default-source/creditcard/webp/`.
+
+### 5. Final Review
+- After downloading, still verify the asset visually:
+  - it should be the physical card face
+  - not a cashback banner, marketing hero, or logo graphic
   - not awkwardly cropped in the page header
 
 ---

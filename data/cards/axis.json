@@ -21,26 +21,36 @@
       {
         "category": "online",
         "rate": 25,
+        "displayCategory": "Airtel recharges and bill payments via Airtel Thanks App",
+        "displayRate": "25% cashback",
         "capMonthly": 250
       },
       {
         "category": "utility bills",
         "rate": 10,
+        "displayCategory": "Utility bill payments via Airtel Thanks App",
+        "displayRate": "10% cashback",
         "capMonthly": 250
       },
       {
         "category": "swiggy zomato",
         "rate": 10,
+        "displayCategory": "Swiggy and Zomato",
+        "displayRate": "10% cashback",
         "capMonthly": 500
       },
       {
         "category": "bigbasket",
         "rate": 10,
+        "displayCategory": "bigbasket and BBnow",
+        "displayRate": "10% cashback",
         "capMonthly": 500
       },
       {
         "category": "base",
         "rate": 1,
+        "displayCategory": "Other eligible spends",
+        "displayRate": "1% cashback",
         "capMonthly": null
       }
     ],
@@ -60,27 +70,41 @@
     "exclusions": [
       "fuel",
       "rent",
-      "wallet load",
-      "education payments via third-party apps",
-      "online skill-based gaming",
-      "transactions excluded under Airtel Axis Bank Credit Card cashback terms"
+      "wallet loading transactions",
+      "EMI transactions",
+      "purchases converted to EMI post facto",
+      "purchase of jewellery items",
+      "cash advances",
+      "payment of outstanding balances",
+      "payment of card fees and other card charges",
+      "government services",
+      "insurance services",
+      "education services",
+      "utility spends not done on Airtel Thanks App"
     ],
-    "milestoneBenefits": [
-      "Annual fee waived on annual spends greater than Rs 2 lakh, excluding rent and wallet load transactions"
+    "exclusionCodes": [
+      "fuel",
+      "rent",
+      "wallet_load",
+      "emi",
+      "jewellery",
+      "cash_advance",
+      "outstanding_balance_payment",
+      "fees_and_charges",
+      "government",
+      "insurance",
+      "education",
+      "utilities"
+    ],
+    "joiningBenefits": [
+      "Amazon eVoucher worth Rs 500 on first transaction within 30 days of card issuance"
     ],
     "additionalBenefits": [
-      "Amazon eVoucher worth Rs 500 on first transaction within 30 days of card issuance",
-      "25% cashback on Airtel mobile, broadband, Wi-Fi and DTH bill payments via Airtel Thanks app, capped at Rs 250 per billing cycle",
-      "10% cashback on utility bill payments via Airtel Thanks app, capped at Rs 250 per billing cycle",
-      "10% cashback on Swiggy, Zomato and BigBasket app spends, capped at Rs 500 per billing cycle across preferred merchants",
-      "1% cashback on other eligible spends",
-      "4 complimentary domestic airport lounge visits per calendar year, subject to minimum spends of Rs 50,000 in the previous 3 months",
       "1% fuel surcharge waiver on fuel purchases from Rs 400 to Rs 4,000, capped at Rs 500 per statement cycle"
     ],
-    "redemption": {
-      "statementBalanceValue": 1,
-      "pointsExpiryYears": null
-    },
+    "additionalDetails": [
+      "Cashback is directly credited to the credit card statement."
+    ],
     "eligibility": {
       "salaried": [
         "Primary cardholder should be between 18 and 70 years and resident of India"
@@ -89,11 +113,30 @@
         "Primary cardholder should be between 18 and 70 years and resident of India"
       ]
     },
+    "supportingSourceUrls": [
+      "https://www.axisbank.com/retail/cards/credit-card/airtel-axis-bank-credit-card",
+      "https://www.axisbank.com/docs/default-source/default-document-library/credit-cards/terms-and-conditions-for-cashback-for-airtel-axis-bank-credit-card.pdf/1000"
+    ],
+    "imageUrl": "/images/axis-airtel.png",
     "sourceUrl": "https://www.axisbank.com/retail/cards/credit-card/airtel-axis-bank-credit-card",
     "applyUrl": "https://www.axisbank.com/retail/cards/credit-card/airtel-axis-bank-credit-card",
-    "lastVerified": "2026-05-10",
+    "lastVerified": "2026-06-02",
     "verificationStatus": "official-direct",
-    "popularityScore": 94
+    "internalNotes": [
+      "Cashback is credited directly to the credit card statement and not redeemed separately.",
+      "Domestic lounge access is available only if spends in the previous 3 months are at least Rs 50,000.",
+      "The card offers 4 complimentary domestic airport lounge visits per calendar year subject to the spend condition.",
+      "25% cashback on Airtel is applicable only for recharge or bill payment of active Airtel connections via Airtel Thanks App; payments for new or inactive connections, hardware cost, installation charges, advance recharge or similar amounts are not eligible.",
+      "For bigbasket, accelerated cashback is eligible only on bigbasket and BBnow, and not on sub-brands such as the beauty store or fresho meats.",
+      "For Swiggy, accelerated cashback is eligible only on Food Delivery and Dineout, and not on Instamart or Genie.",
+      "For Zomato, accelerated cashback is eligible only on Delivery and Dining, and not on offerings such as Blinkit, District, Zomaland or Money.",
+      "Preferred merchant cashback is capped at Rs 500 per month billing cycle across Swiggy, Zomato and bigbasket combined.",
+      "1% cashback on other eligible spends has no cap.",
+      "Cashback is earned basis merchant IDs / VPA IDs received from merchants, and disputes may take up to 90 days to reconcile.",
+      "Cashback is credited in the next billing cycle 3 days prior to the statement generation date.",
+      "Cashback on individual transactions is rounded down to the nearest rupee."
+    ],
+    "popularityScore": 50
   },
   {
     "id": "axis-flipkart",
@@ -114,29 +157,39 @@
     ],
     "rewardType": "cashback",
     "rewards": [
-      {
-        "category": "myntra",
-        "rate": 7.5,
-        "capMonthly": null
-      },
-      {
-        "category": "flipkart",
-        "rate": 5,
-        "capMonthly": null
-      },
-      {
-        "category": "cleartrip",
-        "rate": 5,
-        "capMonthly": null
-      },
+        {
+          "category": "myntra",
+          "rate": 7.5,
+          "displayCategory": "Myntra",
+          "displayRate": "7.5% cashback, capped at Rs 4,000 per statement quarter",
+          "capMonthly": null
+        },
+        {
+          "category": "flipkart",
+          "rate": 5,
+          "displayCategory": "Flipkart",
+          "displayRate": "5% cashback, capped at Rs 4,000 per statement quarter",
+          "capMonthly": null
+        },
+        {
+          "category": "cleartrip",
+          "rate": 5,
+          "displayCategory": "Cleartrip",
+          "displayRate": "5% cashback, capped at Rs 4,000 per statement quarter",
+          "capMonthly": null
+        },
       {
         "category": "partner merchants",
         "rate": 4,
+        "displayCategory": "Preferred merchants",
+        "displayRate": "4% cashback",
         "capMonthly": null
       },
       {
         "category": "base",
         "rate": 1,
+        "displayCategory": "Other eligible spends",
+        "displayRate": "1% cashback",
         "capMonthly": null
       }
     ],
@@ -156,27 +209,46 @@
       "fuel",
       "rent",
       "wallet load",
+      "EMI transactions and post-purchase EMI conversion",
+      "gold and jewellery purchases",
+      "cash advances",
+      "payment of outstanding balances",
+      "payment of card fees and other charges",
+      "utility and telecom spends",
+      "insurance services",
       "education payments via third-party apps",
+      "government services",
       "online skill-based gaming",
-      "transactions excluded under Flipkart Axis Bank Credit Card cashback terms"
+      "purchases of gift cards on Flipkart and Myntra"
+    ],
+    "exclusionCodes": [
+      "fuel",
+      "rent",
+      "wallet_load",
+      "emi",
+      "gold",
+      "jewellery",
+      "cash_advance",
+      "outstanding_balance_payment",
+      "fees_and_charges",
+      "utilities",
+      "telecom",
+      "insurance",
+      "education",
+      "government",
+      "gaming"
     ],
     "milestoneBenefits": [
       "Annual fee waived on annual spends greater than Rs 3.5 lakh, excluding rent and wallet load transactions"
     ],
     "additionalBenefits": [
       "Welcome benefits worth Rs 350 on eligible paid cards and first-time Swiggy user offer",
-      "7.5% cashback on Myntra spends, capped at Rs 4,000 per statement quarter",
-      "5% cashback on Flipkart spends, capped at Rs 4,000 per statement quarter",
-      "5% cashback on Cleartrip spends, capped at Rs 4,000 per statement quarter",
-      "Unlimited 4% cashback on preferred merchants",
-      "Unlimited 1% cashback on other eligible spends",
       "1% fuel surcharge waiver on fuel transactions from Rs 400 to Rs 4,000, capped at Rs 400 per statement cycle",
       "Dining Delights discounts at participating restaurants"
     ],
-    "redemption": {
-      "statementBalanceValue": 1,
-      "pointsExpiryYears": null
-    },
+      "additionalDetails": [
+        "Cashback is directly credited to the credit card statement within 3 days prior to statement generation in the next billing cycle."
+      ],
     "eligibility": {
       "salaried": [
         "Primary cardholder should be between 18 and 70 years and resident of India"
@@ -185,10 +257,26 @@
         "Primary cardholder should be between 18 and 70 years and resident of India"
       ]
     },
-    "sourceUrl": "https://www.axisbank.com/retail/cards/credit-card/flipkart-axisbank-credit-card",
-    "applyUrl": "https://www.axisbank.com/retail/cards/credit-card/flipkart-axisbank-credit-card",
-    "lastVerified": "2026-05-10",
+    "supportingSourceUrls": [
+      "https://www.axis.bank.in/cards/credit-card/flipkart-axisbank-credit-card",
+      "https://www.axis.bank.in/docs/default-source/default-document-library/cashback-tncs---final.pdf",
+      "https://www.axis.bank.in/docs/default-source/default-document-library/terms-and-conditions-flipkart-axis-bank-credit-card.pdf"
+    ],
+    "imageUrl": "/images/axis-flipkart.webp",
+    "sourceUrl": "https://www.axis.bank.in/cards/credit-card/flipkart-axisbank-credit-card",
+    "applyUrl": "https://www.axis.bank.in/cards/credit-card/flipkart-axisbank-credit-card",
+    "lastVerified": "2026-06-02",
     "verificationStatus": "official-direct",
+    "internalNotes": [
+      "Effective 20 June 2025, cashback on Myntra increased to 7.5% from 1%, capped at Rs 4,000 per statement quarter.",
+      "Flipkart and Cleartrip continue to earn 5% cashback, each capped at Rs 4,000 per statement quarter per merchant.",
+      "Preferred merchants earn unlimited 4% cashback and can change at the bank's discretion.",
+      "Only transactions made towards food delivery on Swiggy are eligible for accelerated cashback; Instamart and Genie are excluded.",
+      "Flipkart cashback excludes Flipkart Health and purchases of gift cards on Flipkart.",
+      "Cashback is directly credited to the credit card statement in the next billing cycle 3 days prior to the statement generation date.",
+      "Cashback is rounded down for each individual transaction.",
+      "Cashback is not applicable on transactions less than Rs 100."
+    ],
     "popularityScore": 91
   },
   {
