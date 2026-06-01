@@ -5,7 +5,7 @@ import { CreditCard } from "lucide-react";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Card AI India",
+  title: "myCards",
   description: "Find the right Indian credit card. Ask in plain English, compare by use case, grounded in verified card data."
 };
 
@@ -13,25 +13,45 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
   return (
     <html lang="en">
       <body>
-        <div className="shell">
-          <header className="topbar">
-            <Link className="brand" href="/">
-              <span className="brand-mark" aria-hidden="true">
-                <CreditCard size={20} />
-              </span>
-              <span>Card AI India</span>
-            </Link>
-            <nav className="nav" aria-label="Primary navigation">
-              <Link href="/ask">Ask</Link>
-              <Link href="/finder">Finder</Link>
-              <Link href="/compare">Compare</Link>
-              <Link href="/recommend">Recommend</Link>
-            </nav>
+        <div className="app-shell">
+          <header className="navbar">
+            <div className="container nav-inner">
+              <Link className="brand" href="/" aria-label="myCards home">
+                <span className="brand-icon" aria-hidden="true">
+                  <CreditCard size={20} />
+                </span>
+                <span>myCards</span>
+              </Link>
+              <nav className="nav-links" aria-label="Primary navigation">
+                <Link href="/ask">Ask</Link>
+                <Link href="/recommend">Recommend</Link>
+                <Link href="/finder">Finder</Link>
+                <Link href="/compare">Compare</Link>
+              </nav>
+              <Link className="nav-cta" href="/ask">
+                Ask myCards
+              </Link>
+            </div>
           </header>
           <main className="main">{children}</main>
           <footer className="footer">
-            <p>Not financial advice. Card details are manually verified and may not reflect the latest issuer changes. Verify terms directly with the issuer before applying.</p>
-            <p>Apply links may be affiliate links. We may earn a commission if you apply and are approved.</p>
+            <div className="container footer-grid">
+              <div>
+                <Link className="brand" href="/" aria-label="myCards home">
+                  <span className="brand-icon" aria-hidden="true">
+                    <CreditCard size={20} />
+                  </span>
+                  <span>myCards</span>
+                </Link>
+              </div>
+              <div>
+                <p>
+                  <strong>Not financial advice.</strong> Card details are manually verified and may not reflect the latest issuer
+                  changes. Verify terms directly with the issuer before applying.
+                </p>
+                <p>Apply links may be affiliate links. We may earn a commission if you apply and are approved.</p>
+              </div>
+            </div>
           </footer>
         </div>
       </body>

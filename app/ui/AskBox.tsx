@@ -8,17 +8,71 @@ const EXAMPLE_QUERIES = [
   "Best card for online shopping",
 ];
 
+const HERO_PROMPTS = [
+  "Best card for Rs 40k online spend?",
+  "Which card gives lounge access?",
+  "Best UPI card for rewards?",
+  "Best travel card under Rs 5000?",
+];
+
 type Props = {
   defaultQuery?: string;
   defaultMaxAnnualFee?: number;
   showHelperText?: boolean;
+  variant?: "default" | "hero";
 };
 
 export default function AskBox({
   defaultQuery = "",
   defaultMaxAnnualFee,
-  showHelperText = true
+  showHelperText = true,
+  variant = "default"
 }: Props) {
+  if (variant === "hero") {
+    return (
+      <form action="/ask" className="ask-card" method="GET">
+        <div className="ask-top">
+          <span className="ask-title">Ask myCards</span>
+          <span className="live-badge">
+            <span className="live-dot" aria-hidden="true" /> Data-backed
+          </span>
+        </div>
+
+        <div className="prompt-grid">
+          {HERO_PROMPTS.map((prompt) => (
+            <Link key={prompt} className="prompt-chip" href={`/ask?query=${encodeURIComponent(prompt)}`}>
+              {prompt}
+            </Link>
+          ))}
+        </div>
+
+        <label htmlFor="query" className="sr-only" style={{ position: "absolute", width: 1, height: 1, overflow: "hidden", clip: "rect(0 0 0 0)" }}>
+          Ask about Indian credit cards
+        </label>
+        <textarea
+          className="ask-input"
+          defaultValue={defaultQuery}
+          id="query"
+          name="query"
+          placeholder="Example: I spend Rs 25k on Amazon/Flipkart, Rs 8k on food delivery, and travel 3 times a year. Which cards should I consider?"
+        />
+
+        {defaultMaxAnnualFee !== undefined ? <input name="maxAnnualFee" type="hidden" value={defaultMaxAnnualFee} /> : null}
+
+        <div className="ask-actions">
+          <button className="btn btn-primary" type="submit">
+            Get my shortlist <ArrowRight size={16} />
+          </button>
+          <Link className="btn btn-ghost" href="#examples">
+            See example questions
+          </Link>
+        </div>
+
+        <div className="micro-note">No guaranteed approvals. We help you evaluate fit before you apply.</div>
+      </form>
+    );
+  }
+
   return (
     <form action="/ask" className="panel ask-panel" method="GET">
       <div className="field">
