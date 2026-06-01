@@ -180,6 +180,40 @@ When auditing or verifying **HDFC Bank** cards, use the following guidelines:
 
 ---
 
+## SBI Card Specific Scraping & Auditing Guidelines
+
+When auditing or verifying **SBI Card** products, use the following image and asset workflow:
+
+### 1. Card Image Pattern
+- SBI commonly serves physical card-face assets from:
+  `https://www.sbicard.com/sbi-card-en/assets/media/images/personal/credit-cards/network-card-images/`
+- Product pages and social/meta tags often point to the right image, but the `network-card-images` asset is usually the cleanest card-face source for details pages.
+
+### 2. Preferred Image Helper
+- Use the SBI-specific helper script:
+  `node scripts/download-sbi-card-image.js <card-id> [url-or-local-html-path]`
+- The script:
+  - looks up the card inside `data/cards/sbi.json`
+  - defaults to the card's `sourceUrl` or `applyUrl`
+  - scans `meta` and `img` tags for SBI image candidates
+  - strongly prefers `network-card-images` assets
+  - falls back to guessed SBI asset URLs derived from the product-page slug
+  - downloads the winning image into `public/images/`
+
+### 3. Example Usage
+- Example:
+  `node scripts/download-sbi-card-image.js max-sbi-prime`
+- Or with an explicit source page:
+  `node scripts/download-sbi-card-image.js max-sbi-prime "https://www.sbicard.com/en/personal/credit-cards/shopping/max-sbi-card-prime.page"`
+
+### 4. Final Review
+- After downloading, still verify the asset visually:
+  - it should be the physical card face
+  - not a benefits banner, welcome-gift graphic, or Priority Pass/offer image
+  - not awkwardly cropped in the page header
+
+---
+
 ## Key Learnings on Duplication, Lounge Rules, & Image Scraping
 
 When auditing card details (especially for premium and super-premium cards), pay extra attention to avoiding visual redundancies across list views, stats cards, and popovers, and ensure high-quality asset ingestion:
