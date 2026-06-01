@@ -56,6 +56,52 @@ This is an array of strings in the JSON configuration that is **not** rendered i
 ]
 ```
 
+### C. Source of Truth: What Goes Where
+
+Use the verified cards as the model. Each fact should have one primary home.
+
+| If the fact is about... | Put it in... | Do not repeat it in... | Example from reviewed cards |
+|---|---|---|---|
+| Earning rates by category | `rewards` | `additionalBenefits`, `additionalDetails` | Flipkart Axis: Myntra / Flipkart / Cleartrip cashback rows |
+| Reward caps tied to a reward row | reward-row cap fields such as `capDaily`, `capMonthly`, `capStatementQuarter` | `additionalDetails` unless the schema cannot express the cap | Flipkart Axis quarterly caps; Tata Neu Infinity separate monthly caps by category |
+| Fee waiver threshold | `feeWaiverSpend` | `milestoneBenefits`, `additionalBenefits`, `additionalDetails` | Flipkart Axis fee waiver moved out of milestone copy |
+| One-time onboarding perk | `joiningBenefits` | `additionalBenefits` | Flipkart Axis welcome benefit; Tata Neu Infinity first-year NeuCoins reversal |
+| Anniversary / renewal perk | `renewalBenefits` | `additionalBenefits` | SBI PRIME renewal points; Marriott Bonvoy renewal points |
+| Spend-threshold unlock | `milestoneBenefits` | `additionalBenefits`, `additionalDetails` | Marriott Bonvoy free-night milestones; Millennia quarterly lounge-or-voucher choice |
+| Lounge visit counts | `loungeDomestic`, `loungeInternational`, `combinedLoungeAccess` | `additionalBenefits`, `additionalDetails` | Marriott Bonvoy combined domestic + international lounge pool |
+| Lounge conditions or access workflow | `internalNotes` | `additionalBenefits`, `additionalDetails` | Tata Neu Infinity Visa / RuPay international lounge nuances |
+| Redemption value or partner ratio | `redemption` | visible prose unless the schema cannot express the nuance | Millennia statement balance / SmartBuy / catalogue values |
+| Zero-reward categories | `exclusions` + `exclusionCodes` | `additionalBenefits`, `additionalDetails` | Amazon Pay ICICI and verified SBI cards |
+| Operational nuance, effective dates, posting timing, caps not meant for the page, partner caveats | `internalNotes` | visible sections unless essential for user understanding | SBI Cashback statement-cycle posting; HDFC lounge-gating dates |
+| Generic ongoing perk not modeled elsewhere | `additionalBenefits` | other structured fields | Fuel surcharge waiver, dining program eligibility |
+| Short support detail that helps users but is not already modeled | `additionalDetails` | structured fields if already represented | Cashback posting timing, point expiry summary |
+
+### D. Quick Decision Tree
+
+When you review a new fact, route it using this order:
+
+1. If it changes how rewards are earned, it belongs in `rewards`.
+2. If it caps a reward row, use the reward-row cap fields.
+3. If it is a fee waiver threshold, use `feeWaiverSpend`.
+4. If it is a welcome / first-use perk, use `joiningBenefits`.
+5. If it is a renewal / anniversary perk, use `renewalBenefits`.
+6. If it unlocks only after reaching a spend threshold, use `milestoneBenefits`.
+7. If it is a lounge count, use the lounge fields.
+8. If it is a lounge condition, booking flow, or access caveat, use `internalNotes`.
+9. If it is redemption value or transfer ratio, use `redemption`.
+10. If it is a zero-reward exclusion, use `exclusions` and `exclusionCodes`.
+11. If it is useful but too detailed for the page, use `internalNotes`.
+12. Only then consider `additionalBenefits` or `additionalDetails`.
+
+### E. No-Repetition Rule
+
+Treat structured fields as the single source of truth.
+
+* If a fact has a structured home, use that structured home first.
+* Do not restate the same fact in visible prose just because the issuer page repeats it in marketing language.
+* `additionalBenefits` and `additionalDetails` should fill gaps in the structured model, not mirror it.
+* If a fact is important for Ask AI but clutters the page, move it to `internalNotes`.
+
 ---
 
 ## 3. Schema & Mapping Conventions
@@ -186,6 +232,7 @@ Major card updates (devaluations, golf benefit revisions, or lounge spends track
 
 *   **Review requirement**: During every official card audit, check whether the issuer has any recent official updates, revision notices, fee changes, lounge-rule changes, reward devaluations, or benefit revisions that should be captured in `data/card-content.json`.
 *   **Freshness rule**: Only add `updates` items that are within the trailing 12 months as of the review date. If an official notice is older than 1 year, do not add it to `Latest Updates` unless the user explicitly asks for historical updates.
+*   **Image fallback rule**: If the issuer-hosted card image cannot be downloaded directly but is visibly present on the official product page, capture the official page hero/banner via a browser screenshot, crop the relevant card visual locally, and save that derived official asset under `public/images/`.
 
 *   **Structure**: Each card has an entry with an `updates` array containing items with these fields:
     *   `title`: Clear headline of the change.

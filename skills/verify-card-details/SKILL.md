@@ -49,6 +49,23 @@ Compare the retrieved details against the current card entry in the issuer's JSO
 ### Step 4: Map & Update Card Data
 Apply the rules specified in [card_data_instructions.md](file:///C:/Users/manpr/Documents/Codex/2026-05-08/i-want-to-build-an-ai/data/cards/card_data_instructions.md) to update the JSON card file:
 
+Before editing, keep this source-of-truth model in mind:
+
+- `rewards`: earning structure only
+- reward-row cap fields: caps tied to those reward rows
+- `feeWaiverSpend`: fee waiver only
+- `joiningBenefits`: welcome / first-use benefits
+- `renewalBenefits`: renewal / anniversary benefits
+- `milestoneBenefits`: spend-threshold unlocks only
+- lounge fields: lounge counts only
+- `redemption`: redemption values and transfer structure only
+- `exclusions` + `exclusionCodes`: zero-reward categories only
+- `internalNotes`: caveats, dates, booking flow, posting timing, issuer nuance, review notes
+- `additionalBenefits`: ongoing perks not already modeled elsewhere
+- `additionalDetails`: short support details not already represented elsewhere
+
+If a fact already has a structured home, do not repeat it in visible prose.
+
 1. **Exclusions**:
    - Zero-reward categories go into `"exclusions"` (array of strings) and `"exclusionCodes"` (exclusion codes array).
    - If a category is rewarded at a lower rate rather than zero, do NOT add to exclusions. Instead, map it inside the `"rewards"` array.
@@ -72,6 +89,7 @@ Apply the rules specified in [card_data_instructions.md](file:///C:/Users/manpr/
    - If a better official image is found, save it under `public/images/` and update `"imageUrl"` in the card JSON.
    - When reviewing the page visually, confirm the image is aligned well and not awkwardly cropped.
    - If the official asset is a portrait/vertical card face but the details-page image slot is horizontal, derive a horizontal local asset on a light beige background with the card centered instead of introducing per-card CSS exceptions.
+   - If the issuer blocks direct asset downloads but the official product page visibly shows the card or hero visual, use a headless browser screenshot of the official page, crop the relevant official visual locally, and save that derived official asset under `public/images/`.
 5. **Internal Nuances**:
    - Store low-level program details, cancel/booking conditions, and specific dates in `"internalNotes"` to keep them indexed by Ask AI without cluttering the UI.
    - Mark the review date inside `internalNotes` as:
@@ -80,6 +98,17 @@ Apply the rules specified in [card_data_instructions.md](file:///C:/Users/manpr/
 6. **Duplication Pass (required before saving)**:
    - Check for the same fact being represented in more than one visible place.
    - If a fact already exists in a structured field, do **not** repeat it in `additionalBenefits` or `additionalDetails`.
+   - Use this reviewer shorthand:
+     - reward rates -> `rewards`
+     - reward caps -> reward-row cap fields
+     - fee waiver -> `feeWaiverSpend`
+     - welcome perk -> `joiningBenefits`
+     - renewal perk -> `renewalBenefits`
+     - spend unlock -> `milestoneBenefits`
+     - lounge count -> lounge fields
+     - lounge condition / access nuance -> `internalNotes`
+     - redemption value / transfer ratio -> `redemption`
+     - zero reward -> `exclusions` / `exclusionCodes`
    - Apply these specific anti-duplication rules:
      - Do not repeat reward rates already modeled in `rewards`.
      - Do not repeat exclusions already listed in `exclusions` / `exclusionCodes`.
