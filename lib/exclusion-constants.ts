@@ -14,8 +14,10 @@ export const EXCLUSION_CODES = [
   "property_management",
   "cash_advance",
   "balance_transfer",
+  "outstanding_balance_payment",
   "emi",
   "fees_and_charges",
+  "gaming",
   "disputed_transactions",
   "priority_pass_spend",
   "cash_withdrawal"

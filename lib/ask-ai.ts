@@ -7,6 +7,7 @@ import type { RecommendationInput } from "./types";
 import { unsupportedQuestionLogPath } from "./question-logs";
 import type { UnsupportedQuestionLogEntry } from "./question-logs";
 import { parseQueryIntent } from "./query-intent";
+import { callAiWithSchema } from "./ai-provider";
 
 export type AskAiResult = ReturnType<typeof answerFromCards> & {
   highlights?: string[];
@@ -28,7 +29,6 @@ type ParsedCardQuestion = {
   spendSubject?: string;
 };
 
-const defaultAskModel = process.env.OPENAI_ASK_MODEL ?? "gpt-5-mini";
 const genericLookupWords = new Set([
   "best",
   "top",
@@ -456,6 +456,40 @@ function getMeaningfulCardTokens(card: { name: string; issuer: string; id: strin
     );
 }
 
+function editDistanceWithinOne(left: string, right: string) {
+  if (left === right) return true;
+  const lengthDelta = Math.abs(left.length - right.length);
+  if (lengthDelta > 1) return false;
+  if (left.length < 5 || right.length < 5) return false;
+
+  let i = 0;
+  let j = 0;
+  let differences = 0;
+
+  while (i < left.length && j < right.length) {
+    if (left[i] === right[j]) {
+      i += 1;
+      j += 1;
+      continue;
+    }
+
+    differences += 1;
+    if (differences > 1) return false;
+
+    if (left.length > right.length) {
+      i += 1;
+    } else if (right.length > left.length) {
+      j += 1;
+    } else {
+      i += 1;
+      j += 1;
+    }
+  }
+
+  if (i < left.length || j < right.length) differences += 1;
+  return differences <= 1;
+}
+
 function findMentionedCardId(query?: string) {
   const normalizedQuery = normalizeForMatch(query);
   const compactQuery = normalizeCompact(query);
@@ -490,8 +524,21 @@ function findMentionedCardId(query?: string) {
     }
 
     for (const token of queryTokens) {
-      if (cardTokens.includes(token)) score += 35;
-      else if (searchTokens.has(token)) score += 8;
+      if (cardTokens.includes(token)) {
+        score += 35;
+        continue;
+      }
+
+      const fuzzyTokenMatch =
+        queryTokens.length === 1 &&
+        cardTokens.some((cardToken) => editDistanceWithinOne(token, cardToken));
+
+      if (fuzzyTokenMatch) {
+        score += 36;
+        continue;
+      }
+
+      if (searchTokens.has(token)) score += 8;
     }
 
     const matchedCardTokens = cardTokens.filter((token) => queryTokens.includes(token)).length;
@@ -976,25 +1023,36 @@ export async function logUnsupportedQuestion(input: RecommendationInput, reason:
 }
 
 function buildGroundedAskPrompt(input: RecommendationInput, shortlistedCards: CardScore[]) {
-  const cardFacts = shortlistedCards.slice(0, 3).map((item, index) => ({
-    rank: index + 1,
-    id: item.card.id,
-    name: item.card.name,
-    issuer: item.card.issuer,
-    annualFee: item.card.annualFee,
-    joiningFee: item.card.joiningFee,
-    bestFor: item.card.bestFor,
-    tags: item.card.tags,
-    loungeDomestic: item.card.loungeDomestic,
-    loungeInternational: item.card.loungeInternational,
-    forexMarkup: item.card.forexMarkup,
-    estimatedAnnualRewards: item.estimatedAnnualRewards,
-    estimatedAnnualFee: item.estimatedAnnualFee,
-    estimatedNetValue: item.estimatedNetValue,
-    matchedTags: item.matchedTags,
-    reasons: item.reasons.slice(0, 4),
-    sourceUrl: item.card.sourceUrl
-  }));
+  const hasUserSpend = Boolean(input.spend);
+  const cardFacts = shortlistedCards.slice(0, 3).map((item, index) => {
+    const base = {
+      rank: index + 1,
+      id: item.card.id,
+      name: item.card.name,
+      issuer: item.card.issuer,
+      annualFee: item.card.annualFee,
+      joiningFee: item.card.joiningFee,
+      feeWaiverSpend: item.card.feeWaiverSpend ?? null,
+      bestFor: item.card.bestFor,
+      tags: item.card.tags,
+      loungeDomestic: item.card.loungeDomestic,
+      loungeInternational: item.card.loungeInternational,
+      forexMarkup: item.card.forexMarkup,
+      milestoneBenefits: item.card.milestoneBenefits ?? [],
+      matchedTags: item.matchedTags,
+      reasons: item.reasons.slice(0, 4),
+      sourceUrl: item.card.sourceUrl
+    };
+    if (hasUserSpend) {
+      return {
+        ...base,
+        estimatedAnnualRewards: item.estimatedAnnualRewards,
+        estimatedAnnualFee: item.estimatedAnnualFee,
+        estimatedNetValue: item.estimatedNetValue
+      };
+    }
+    return base;
+  });
 
   return JSON.stringify(
     {
@@ -1011,95 +1069,23 @@ function buildGroundedAskPrompt(input: RecommendationInput, shortlistedCards: Ca
   );
 }
 
-function extractOpenAiText(payload: unknown) {
-  if (!payload || typeof payload !== "object") return null;
-
-  const directOutputText = (payload as { output_text?: unknown }).output_text;
-  if (typeof directOutputText === "string" && directOutputText.trim()) return directOutputText.trim();
-
-  const output = (payload as { output?: unknown }).output;
-  if (!Array.isArray(output)) return null;
-
-  for (const item of output) {
-    if (!item || typeof item !== "object") continue;
-    const content = (item as { content?: unknown }).content;
-    if (!Array.isArray(content)) continue;
-
-    for (const part of content) {
-      if (!part || typeof part !== "object") continue;
-      const text = (part as { text?: unknown }).text;
-      if (typeof text === "string" && text.trim()) return text.trim();
-    }
-  }
-
-  return null;
-}
-
 async function generateGroundedSummary(input: RecommendationInput, shortlistedCards: CardScore[]) {
-  const apiKey = process.env.OPENAI_API_KEY;
-  if (!apiKey) return null;
-
-  const response = await fetch("https://api.openai.com/v1/responses", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${apiKey}`
-    },
-    body: JSON.stringify({
-      model: defaultAskModel,
-      input: [
-        {
-          role: "system",
-          content: [
-            {
-              type: "input_text",
-              text:
-                "You are a grounded Indian credit-card assistant. Use only the provided shortlisted card data. Do not invent facts, do not use live web search, and do not mention cards outside the provided shortlist. Answer like a helpful expert, not like a scoring engine. In one short paragraph: directly answer the user's query, explain why the top card fits, mention the most important features of that card, mention the fee/tradeoff if relevant, and optionally mention one nearby alternative."
-            }
-          ]
-        },
-        {
-          role: "user",
-          content: [
-            {
-              type: "input_text",
-              text: buildGroundedAskPrompt(input, shortlistedCards)
-            }
-          ]
-        }
-      ],
-      text: {
-        format: {
-          type: "json_schema",
-          name: "grounded_card_answer",
-          strict: true,
-          schema: {
-            type: "object",
-            additionalProperties: false,
-            properties: {
-              summary: {
-                type: "string"
-              }
-            },
-            required: ["summary"]
-          }
-        }
-      }
-    })
+  const result = await callAiWithSchema<{ summary: string }>({
+    systemPrompt:
+      "You are a grounded Indian credit-card assistant. Use only the provided shortlisted card data. Do not invent facts, do not use live web search, and do not mention cards outside the provided shortlist. Answer like a helpful expert, not like a scoring engine. In one short paragraph: directly answer the user's query, explain why the top card fits, mention the most important features of that card, mention the fee/tradeoff if relevant, and optionally mention one nearby alternative. Rules: (1) Only cite estimated annual rewards or net value figures if they are present in the card data — never invent reward amounts. (2) Never make value-judgement claims like 'the fee is worth it' or 'value exceeds the cost' unless spend data was provided by the user. (3) When mentioning milestone benefits, always state the spend threshold required to unlock them.",
+    userPrompt: buildGroundedAskPrompt(input, shortlistedCards),
+    schemaName: "grounded_card_answer",
+    schema: {
+      type: "object",
+      additionalProperties: false,
+      properties: {
+        summary: { type: "string" }
+      },
+      required: ["summary"]
+    }
   });
 
-  if (!response.ok) return null;
-
-  const payload = (await response.json()) as unknown;
-  const rawText = extractOpenAiText(payload);
-  if (!rawText) return null;
-
-  try {
-    const parsed = JSON.parse(rawText) as { summary?: unknown };
-    return typeof parsed.summary === "string" && parsed.summary.trim() ? parsed.summary.trim() : null;
-  } catch {
-    return null;
-  }
+  return typeof result?.summary === "string" && result.summary.trim() ? result.summary.trim() : null;
 }
 
 async function tryAiDatabaseFallback(input: RecommendationInput, scoredCards: CardScore[]) {
@@ -1139,70 +1125,32 @@ function buildCardResolutionPrompt(query: string) {
 }
 
 async function resolveMentionedCardIdWithAi(query?: string) {
-  const apiKey = process.env.OPENAI_API_KEY;
-  if (!apiKey || !query?.trim()) return null;
+  if (!query?.trim()) return null;
 
-  const response = await fetch("https://api.openai.com/v1/responses", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${apiKey}`
-    },
-    body: JSON.stringify({
-      model: defaultAskModel,
-      input: [
-        {
-          role: "system",
-          content: [
-            {
-              type: "input_text",
-              text:
-                "You resolve fuzzy Indian credit-card name mentions to a single stored card id. Use only the provided card list. Return a card id only when the query is likely a specific card lookup; otherwise return null."
-            }
-          ]
-        },
-        {
-          role: "user",
-          content: [
-            {
-              type: "input_text",
-              text: buildCardResolutionPrompt(query)
-            }
-          ]
-        }
-      ],
-      text: {
-        format: {
-          type: "json_schema",
-          name: "card_resolution",
-          strict: true,
-          schema: {
-            type: "object",
-            additionalProperties: false,
-            properties: {
-              cardId: {
-                anyOf: [{ type: "string" }, { type: "null" }]
-              }
-            },
-            required: ["cardId"]
-          }
-        }
-      }
-    })
+  const result = await callAiWithSchema<{ cardId: string | null }>({
+    systemPrompt:
+      "You resolve fuzzy Indian credit-card name mentions to a single stored card id. Use only the provided card list. Return a card id only when the query is likely a specific card lookup; otherwise return null.",
+    userPrompt: buildCardResolutionPrompt(query),
+    schemaName: "card_resolution",
+    schema: {
+      type: "object",
+      additionalProperties: false,
+      properties: {
+        cardId: { anyOf: [{ type: "string" }, { type: "null" }] }
+      },
+      required: ["cardId"]
+    }
   });
 
-  if (!response.ok) return null;
-  const payload = (await response.json()) as unknown;
-  const text = extractOpenAiText(payload);
-  if (!text) return null;
-
-  try {
-    const parsed = JSON.parse(text) as { cardId: string | null };
-    if (!parsed.cardId) return null;
-    return getCardById(parsed.cardId) ? parsed.cardId : null;
-  } catch {
-    return null;
+  if (process.env.DEBUG_AI === "1") {
+    console.warn("[ask-ai] card resolution result", {
+      query,
+      resolvedCardId: result?.cardId ?? null
+    });
   }
+
+  if (!result?.cardId) return null;
+  return getCardById(result.cardId) ? result.cardId : null;
 }
 
 export async function answerQuestion(input: RecommendationInput): Promise<AskAiResult> {

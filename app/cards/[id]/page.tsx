@@ -77,29 +77,31 @@ function redemptionRows(redemption?: Redemption) {
   if (!redemption) return [];
 
   return [
+    [redemption.ecosystemLabel, redemption.ecosystemValue],
     ["Statement balance", redemption.statementBalanceValue],
     ["SmartBuy flight/hotel", redemption.smartBuyFlightHotelValue],
+    ["SmartBuy rewards catalogue", redemption.smartBuyCatalogueValue],
     ["Air miles", redemption.airMilesValue],
-    ["Accor", redemption.accorValue],
-    ["Minimum points for statement credit", redemption.minimumPointsForStatementCredit],
-    ["Monthly redemption cap", redemption.cashbackRedemptionCapMonthly],
-    ["Points validity", redemption.pointsExpiryYears],
-    ["Redemption fee", redemption.redemptionFee]
-  ].filter((row): row is [string, number] => typeof row[1] === "number");
+    ["Accor", redemption.accorValue]
+  ].filter((row): row is [string, number] => typeof row[0] === "string" && typeof row[1] === "number");
 }
 
-function valueLabel(label: string, value: number) {
-  if (label === "Points validity") return `${value} year${value === 1 ? "" : "s"}`;
-  if (label === "Redemption fee") return formatCurrency(value);
-  if (label.includes("Minimum") || label.includes("cap")) return value.toLocaleString("en-IN");
+function singularRewardUnit(rewardType: string) {
+  const trimmed = rewardType.trim();
+  if (!trimmed) return "point";
+  if (trimmed.endsWith("s")) return trimmed.slice(0, -1);
+  return trimmed;
+}
+
+function valueLabel(label: string, value: number, rewardType: string) {
   if (label === "Accor") return `upto Rs ${value} per point *considering using accor redemption`;
   if (label === "Air miles") {
     return `upto ${value} airmile per point`;
   }
-  if (label === "Statement balance" || label === "SmartBuy flight/hotel") {
+  if (label === "Statement balance" || label === "SmartBuy flight/hotel" || label === "SmartBuy rewards catalogue") {
     return `upto Rs ${value} per point`;
   }
-  return `Rs ${value}`;
+  return `upto Rs ${value} per ${singularRewardUnit(rewardType)}`;
 }
 
 function formatTatDays(value: number | undefined) {
@@ -267,7 +269,7 @@ export default async function CardPage({ params, searchParams }: Props) {
                   {redemptions.map(([label, value]) => (
                     <div className="info-row" key={label}>
                       <span>{label}</span>
-                      <strong>{valueLabel(label, value)}</strong>
+                      <strong>{valueLabel(label, value, card.rewardType)}</strong>
                     </div>
                   ))}
                 </div>
@@ -409,13 +411,6 @@ export default async function CardPage({ params, searchParams }: Props) {
                   </article>
                 ))}
               </div>
-            </section>
-          ) : null}
-
-          {card.interestRateMonthly ? (
-            <section className="detail-section">
-              <h2>Interest</h2>
-              <p className="muted">{card.interestRateMonthly}% monthly interest rate listed in source data.</p>
             </section>
           ) : null}
 

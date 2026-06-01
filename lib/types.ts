@@ -46,8 +46,11 @@ export type Redemption = {
     ratio: string;
     tatDays?: number;
   }>;
+  ecosystemLabel?: string;
+  ecosystemValue?: number;
   statementBalanceValue?: number;
   smartBuyFlightHotelValue?: number;
+  smartBuyCatalogueValue?: number;
   airMilesValue?: number;
   accorValue?: number;
   minimumPointsForStatementCredit?: number;
@@ -139,8 +142,17 @@ export type RecommendResult = {
   applyUrl: string;
   tags: string[];
   estimatedAnnualRewards: number;
+  estimatedMilestoneValue: number;
   estimatedAnnualFee: number;
   estimatedNetValue: number;
+  annualFee: number;
+  annualSpend: number;
+  feeWaiverSpend: number | null;
+  feeWaiverHit: boolean;
+  nextFeeWaiverGap: number | null;
+  nextMilestoneThreshold: number | null;
+  nextMilestoneGap: number | null;
+  nextMilestoneLabel: string | null;
   breakdown: Array<{
     spendCategory: SpendCategory;
     monthlySpend: number;

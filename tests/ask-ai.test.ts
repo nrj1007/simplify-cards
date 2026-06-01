@@ -72,6 +72,13 @@ describe("ask ai fallback policy", () => {
     expect(answer.summary).toMatch(/Infinia Metal Edition/i);
   });
 
+  it("resolves common single-token card-name misspellings like millenia to HDFC Millennia", async () => {
+    const answer = await answerQuestion({ query: "millenia" });
+
+    expect(answer.cards[0]?.card.id).toBe("hdfc-millennia");
+    expect(answer.summary).toMatch(/HDFC Millennia Credit Card/i);
+  });
+
   it("treats spaced brand queries like 'travel one' as HSBC TravelOne instead of One Credit Card", async () => {
     const answer = await answerQuestion({ query: "travel one" });
 

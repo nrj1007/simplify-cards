@@ -10,3 +10,5 @@ data/telegram-inbox/*.json
 *.log
 *.tsbuildinfo
 .tmp-debug
+
+.vercel

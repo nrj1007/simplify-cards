@@ -228,7 +228,8 @@ export default async function AskPage({ searchParams }: Props) {
   const visibleAnswerHighlights = topCardsQuery
     ? answerHighlights.filter((highlight) => !/^By yearly spend on a balanced mix:/i.test(highlight))
     : answerHighlights;
-  const loungeConditions = topCard ? getLoungeConditions(topCard.card) : [];
+  const domesticLoungeConditions = topCard ? getLoungeConditions(topCard.card, "domestic") : [];
+  const internationalLoungeConditions = topCard ? getLoungeConditions(topCard.card, "international") : [];
   const hasDailyCap = topCard?.card.rewards.some(
     (reward) => typeof reward.capDaily === "number" && reward.capDaily > 0
   ) ?? false;
@@ -412,7 +413,7 @@ export default async function AskPage({ searchParams }: Props) {
                       <strong>{topCard.card.loungeDomestic === "unlimited" ? "Unlimited" : topCard.card.loungeDomestic}</strong>
                       <span className="stat-label">
                         Domestic lounge
-                        <LoungeInfo items={loungeConditions} label="Domestic lounge conditions" />
+                        <LoungeInfo items={domesticLoungeConditions} label="Domestic lounge conditions" />
                       </span>
                     </div>
                     <div className="stat">
@@ -421,7 +422,7 @@ export default async function AskPage({ searchParams }: Props) {
                       </strong>
                       <span className="stat-label">
                         International lounge
-                        <LoungeInfo items={loungeConditions} label="International lounge conditions" />
+                        <LoungeInfo items={internationalLoungeConditions} label="International lounge conditions" />
                       </span>
                     </div>
                     <div className="stat">

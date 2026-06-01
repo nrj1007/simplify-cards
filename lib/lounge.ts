@@ -2,6 +2,22 @@ import type { CreditCard } from "./types";
 
 const loungeKeywords = ["lounge", "priority pass", "dragonpass", "dreamfolks"];
 const conditionKeywords = ["subject to", "spend", "quarter", "month", "preceding", "programme terms", "fum", "unlock"];
+const dedupeStopwords = new Set([
+  "a",
+  "an",
+  "and",
+  "choose",
+  "complimentary",
+  "either",
+  "for",
+  "in",
+  "instead",
+  "of",
+  "on",
+  "or",
+  "the",
+  "to"
+]);
 
 function matchesLoungeText(value: string) {
   const normalized = value.toLowerCase();
@@ -11,6 +27,17 @@ function matchesLoungeText(value: string) {
 function conditionWeight(value: string) {
   const normalized = value.toLowerCase();
   return conditionKeywords.reduce((score, keyword) => score + (normalized.includes(keyword) ? 1 : 0), 0);
+}
+
+function dedupeKey(value: string) {
+  return value
+    .toLowerCase()
+    .replace(/rs\b/g, "rupees")
+    .replace(/access\b/g, "")
+    .match(/[a-z0-9]+/g)
+    ?.filter((token) => !dedupeStopwords.has(token))
+    .sort()
+    .join(" ") ?? value.toLowerCase();
 }
 
 export function getLoungeConditions(card: CreditCard, type?: "domestic" | "international") {
@@ -27,17 +54,33 @@ export function getLoungeConditions(card: CreditCard, type?: "domestic" | "inter
   const seen = new Set<string>();
   const deduped: string[] = [];
   for (const item of items) {
-    if (seen.has(item.text)) continue;
-    seen.add(item.text);
+    const key = dedupeKey(item.text);
+    if (seen.has(key)) continue;
+    seen.add(key);
+
+    const lower = item.text.toLowerCase();
+
+    if (
+      lower.startsWith("audited against") ||
+      lower.includes("verified by user") ||
+      lower.includes("source-review")
+    ) {
+      continue;
+    }
+
+    if (
+      lower.includes("integrated into") &&
+      items.some((candidate) => candidate.text !== item.text && candidate.text.toLowerCase().includes("lounge voucher"))
+    ) {
+      continue;
+    }
 
     if (type === "domestic") {
-      const lower = item.text.toLowerCase();
       if ((lower.includes("international") || lower.includes("priority pass") || lower.includes("loungekey") || lower.includes("dragonpass") || lower.includes("outside india")) &&
           !(lower.includes("domestic") || lower.includes("in india") || lower.includes("within india"))) {
         continue;
       }
     } else if (type === "international") {
-      const lower = item.text.toLowerCase();
       if ((lower.includes("domestic") || lower.includes("in india") || lower.includes("within india")) &&
           !(lower.includes("international") || lower.includes("priority pass") || lower.includes("loungekey") || lower.includes("dragonpass") || lower.includes("outside india"))) {
         continue;

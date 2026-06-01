@@ -44,7 +44,7 @@ These are listed or have official pages, but should not be added as active-new-a
 - [ ] Log unsupported or stale user questions for manual database enrichment instead of answering via web search.
 - [ ] Expand stored card facts toward maximum answerability, so Ask AI can answer most user questions from reviewed card data instead of only handling rankings and broad comparisons.
 - [ ] Improve generic ranking quality for broad asks like `top cards under 5000`, so results reflect stronger user intent and practical fit instead of only raw modeled value.
-- [ ] Build a credit card recommender and calculator that lets users compare cards against their own spend, milestones, fee waivers, and redemption preferences.
+- [ ] Add redemption preference controls to the recommender/calculator and expose milestone and fee-waiver impact more explicitly in the UI.
 - [ ] Add an internal Ask feedback review page that groups the most-downvoted queries and common losing card combinations, so ranking fixes can be prioritized from real user feedback.
 - [ ] Send a Telegram alert for `No` / downvote feedback as a temporary ops workflow before we scale and move feedback review into a database-backed system.
 - [ ] Add a manual approval workflow for community/news signals before updating card data.

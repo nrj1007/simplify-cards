@@ -31,6 +31,12 @@ These fields are displayed directly on the credit card details page in the UI. K
 > [!IMPORTANT]
 > **Aesthetic Redundancy Rule**:
 > Do NOT duplicate information in `additionalBenefits` or `additionalDetails` that is already captured in structured fields like the `rewards` array (earning rates), `loungeDomestic` / `loungeInternational` (lounge limits), or `redemption` (point value / conversion rates). Keep visible text arrays focused on perks not represented in the tabular grids.
+>
+> Before finalizing a card update, do a quick duplication sweep:
+> - remove exclusions repeated in visible text
+> - remove lounge rules repeated across `milestoneBenefits` and `additionalDetails`
+> - remove redemption values repeated in both `redemption` and visible prose
+> - keep audit or verification wording in `internalNotes`, not user-facing sections
 
 ### B. Hidden Data (`internalNotes`)
 This is an array of strings in the JSON configuration that is **not** rendered in the UI, but **is** fully indexed by the search and Ask AI engine. 
@@ -51,6 +57,14 @@ This is an array of strings in the JSON configuration that is **not** rendered i
 ## 3. Schema & Mapping Conventions
 
 During card reviews, convert raw text into structured rules whenever possible.
+
+### Card Image (`imageUrl`)
+Each reviewed card should also be checked for a good card-face image.
+
+* Prefer an official issuer card-face asset over banners, lifestyle images, or generic illustrations.
+* Save reviewed images under `public/images/` and reference them via `"imageUrl"`.
+* If the current image is low quality, badly cropped, or not the actual card face, replace it during the review.
+* Treat image quality and alignment as part of card verification, not as a separate optional cleanup.
 
 ### A. Special Spend Rules (`specialSpendRules`)
 Use the `specialSpendRules` array to explicitly define caps and treatments for key spending categories:
@@ -74,6 +88,8 @@ Define the redemption values for different options, along with transfer ratios f
 *   **`statementBalanceValue`**: The value of 1 point in INR when redeemed against card statement balance.
 *   **`smartBuyFlightHotelValue`**: The value of 1 point in INR when redeemed for flights/hotels via SmartBuy.
 *   **`airlinePartners`** and **`hotelPartners`**: Arrays describing direct point-to-mile transfer ratios:
+*   Keep the visible **Redemption** section focused on point value and transfer partners only.
+*   Do **not** treat operational rules like minimum points, monthly redemption caps, points validity, or redemption fees as primary redemption rows in the UI. Store those in `additionalDetails` or `internalNotes` instead.
 
 ```json
 "redemption": {
@@ -100,7 +116,7 @@ Define the redemption values for different options, along with transfer ratios f
 ### C. Exclusions (`exclusions` and `exclusionCodes`)
 *   **`exclusions`**: This array must ONLY contain spend categories, transaction types, or merchants that are **excluded from earning reward points** (i.e., they yield 0% rewards). Do not place general bank policies, eligibility constraints, lounge access conditions, or fee info here; those belong in fields like `eligibility`, `additionalBenefits`, `additionalDetails`, or `internalNotes`.
 *   **`exclusionCodes`**: Map the textual exclusions from the `"exclusions"` array into canonical constants under `"exclusionCodes"` for deterministic ranking checks.
-*   **Allowed Exclusion Codes:** `fuel`, `rent`, `insurance`, `education`, `gold`, `jewellery`, `utilities`, `telecom`, `wallet_load`, `government`, `tax`, `real_estate`, `property_management`, `cash_advance`, `balance_transfer`, `emi`, `fees_and_charges`, `cash_withdrawal`
+*   **Allowed Exclusion Codes:** `fuel`, `rent`, `insurance`, `education`, `gold`, `jewellery`, `utilities`, `telecom`, `wallet_load`, `government`, `tax`, `real_estate`, `property_management`, `cash_advance`, `balance_transfer`, `outstanding_balance_payment`, `emi`, `fees_and_charges`, `gaming`, `cash_withdrawal`
 
 > [!NOTE]
 > **Exclusions vs. Revised/Capped Rates**:
@@ -119,6 +135,15 @@ To ensure that the UI renders reward rates exactly as they are advertised on off
     *   *Example:* For the card above, set `"displayRate": "6 reward points per Rs 100"`.
     *   Always use a clear, user-friendly format matching the official website (e.g. `"X reward points per Rs 100"`, `"X EazyPoints per Rs 100"`, or `"X reward points per Rs 150"`).
     *   Defining `displayRate` prevents the UI from incorrectly defaulting to the raw yield decimal (like displaying `2.4 reward points / Rs 100` instead of `6`) or appending `%` to non-percentage rates.
+*   When an issuer lists multiple capped categories separately (for example grocery, insurance, utility, and telecom/cable each with their own monthly cap), keep them as separate visible reward rows rather than collapsing them into one combined line that implies a shared cap.
+*   If the display needs separate rows but the scoring model only understands a broader canonical category, keep the canonical `category` stable and use distinct `displayCategory` labels for the UI rows.
+
+### E. Ecosystem Redemption Labels
+Some cards redeem into a closed ecosystem rather than statement credit, miles, or SmartBuy.
+
+*   When using a custom redemption label like `Tata Neu brands`, make sure the UI wording remains explicit about the reward unit.
+*   Prefer output such as `upto Rs 1 per NeuCoin` rather than vague text like `Rs 1`.
+*   Keep ecosystem value in structured `redemption` data, not only in prose.
 
 
 ---
@@ -224,4 +249,3 @@ Use the following value benchmarks when writing benefit strings for complimentar
 
 > [!TIP]
 > If a benefit has a capped or conditional value (e.g. "up to Rs 5,000"), use the **capped figure**, not an assumed average. The engine sums the stated amount, so overstating leads to inflated scoring.
-

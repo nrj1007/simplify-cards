@@ -419,7 +419,25 @@ textarea {
 }
 
 .recommend-stats {
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+}
+
+.recommend-explain {
+  border-top: 1px solid var(--line);
+  display: grid;
+  gap: 8px;
+  margin-top: 14px;
+  padding-top: 14px;
+}
+
+.recommend-explain p {
+  color: var(--muted);
+  font-size: 14px;
+  margin: 0;
+}
+
+.recommend-explain strong {
+  color: var(--text);
 }
 
 .recommend-breakdown summary {

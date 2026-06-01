@@ -503,6 +503,7 @@ function extractMilestoneThreshold(text: string) {
 
 function estimatePointUnitValue(card: CreditCard) {
   const values = [
+    card.redemption?.ecosystemValue,
     card.redemption?.smartBuyFlightHotelValue,
     card.redemption?.airMilesValue,
     card.redemption?.statementBalanceValue,

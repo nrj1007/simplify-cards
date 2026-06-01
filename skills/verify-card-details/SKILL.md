@@ -23,6 +23,7 @@ graph TD
 - Identify the canonical product page URL from the card's `sourceUrl` property in the JSON file.
 - Use reading tools (e.g., `read_url_content` or `read_browser_page`) to fetch the page content.
 - Capture the high-level features: joining/annual fees, welcome benefits, baseline rewards, domestic/international lounge access, golf games, and milestone benefits.
+- Verify the card network variants explicitly from the official product page or terms (for example `Visa`, `Mastercard`, `RuPay`, `American Express`, `Diners Club`). Do not assume all historical or alternate variants are still active just because older pages or cached summaries mention them.
 
 ### Step 2: Go Through All Links & Secondary Documents
 Official pages often hide critical restrictions, caps, or devaluations in linked terms & conditions PDFs or schedule of charges sheets.
@@ -35,6 +36,8 @@ Official pages often hide critical restrictions, caps, or devaluations in linked
 
 ### Step 3: Find Missing or New Details
 Compare the retrieved details against the current card entry in the issuer's JSON file (`data/cards/<issuer>.json`). Look specifically for:
+- **Network Variants**: Confirm the currently offered network(s) and remove stale networks that are no longer shown on the official product page or official documents.
+- **Card Image**: Verify that the card has a good `imageUrl` pointing to the actual card face, not a banner, eligibility artwork, or generic marketing visual.
 - **Rewards Capping**: Limits on specific categories (e.g., monthly limits on grocery, utilities, insurance, or rent).
 - **Lounge Spends Requirements**: Spend-based lounge unlock criteria (e.g., spending ₹35,000 in the previous quarter to unlock the next quarter's lounge access).
 - **Golf Privileges**: Restrictions on the number of games/lessons, booking slots, and cancellation window policies.
@@ -48,17 +51,42 @@ Apply the rules specified in [card_data_instructions.md](file:///C:/Users/manpr/
 1. **Exclusions**:
    - Zero-reward categories go into `"exclusions"` (array of strings) and `"exclusionCodes"` (exclusion codes array).
    - If a category is rewarded at a lower rate rather than zero, do NOT add to exclusions. Instead, map it inside the `"rewards"` array.
-2. **Additional Perks**:
+2. **Networks**:
+   - Update the `"network"` array only from currently verified official issuer sources.
+   - Remove stale or legacy network variants unless the official page clearly shows they are still offered for the same card.
+   - If issuer materials show multiple active variants, keep only those explicitly supported by the current product page or current official terms.
+3. **Additional Perks**:
    - Keep `"additionalBenefits"` and `"additionalDetails"` concise and easy to read.
    - Do NOT duplicate details already structured in other properties (like reward rates or lounge count).
-3. **Internal Nuances**:
+   - Keep `"redemption"` focused on point value and transfer-partner structure. Put operational redemption rules like minimum points, monthly caps, validity windows, and redemption fees into `"additionalDetails"` or `"internalNotes"` instead of treating them as primary redemption rows.
+   - If an issuer publishes separate capped categories, preserve them as separate visible reward rows instead of merging them into one combined line that suggests a shared cap.
+   - If the UI needs separate rows but the scoring model only supports a broader canonical category, keep the canonical `category` stable and differentiate the rows through `displayCategory`.
+4. **Card Image**:
+   - Check whether `"imageUrl"` exists and whether it still represents the current card face.
+   - Prefer official issuer card-face assets. Do not keep generic banners, landing-page art, cropped lifestyle imagery, or low-quality placeholders when a proper card-face image is available.
+   - If a better official image is found, save it under `public/images/` and update `"imageUrl"` in the card JSON.
+   - When reviewing the page visually, confirm the image is aligned well and not awkwardly cropped.
+5. **Internal Nuances**:
    - Store low-level program details, cancel/booking conditions, and specific dates in `"internalNotes"` to keep them indexed by Ask AI without cluttering the UI.
    - Mark the review date inside `internalNotes` as:
      `"Card details manually reviewed and verified by user on YYYY-MM-DD"`
-4. **Dates & Status**:
+   - Store closed-ecosystem expiry or programme-validity rules (for example NeuCoins expiry) in `internalNotes` unless they need to appear in a structured visible section.
+6. **Duplication Pass (required before saving)**:
+   - Check for the same fact being represented in more than one visible place.
+   - If a fact already exists in a structured field, do **not** repeat it in `additionalBenefits` or `additionalDetails`.
+   - Apply these specific anti-duplication rules:
+     - Do not repeat reward rates already modeled in `rewards`.
+     - Do not repeat exclusions already listed in `exclusions` / `exclusionCodes`.
+     - Do not repeat lounge counts already modeled in `loungeDomestic` / `loungeInternational`.
+     - Do not repeat milestone-triggered lounge rules in both `milestoneBenefits` and `additionalDetails`; keep one clean user-facing version only.
+     - Do not repeat redemption values in free-text notes if they are already modeled in `redemption`.
+     - Do not surface audit wording, verification dates, or source-review notes in visible sections; keep those in `internalNotes`.
+   - When two lines say the same thing with different wording, keep the shorter and clearer display version.
+   - If a rule is useful for Ask AI but too detailed for the page, store it in `internalNotes` instead of visible arrays.
+7. **Dates & Status**:
    - Set `"lastVerified"` to today's date in `YYYY-MM-DD` format.
    - Set `"verificationStatus"` to `"official-direct"`.
-5. **Unique Rendering Keys**:
+8. **Unique Rendering Keys**:
    - If you split a category row (e.g., splitting unified base spends into weekdays and weekends rows), verify that the combination of `category` and `displayCategory` is unique for each row. This prevents React key duplication errors when the UI maps over rewards.
 
 ### Step 5: Validate & Run Tests
@@ -171,3 +199,15 @@ When auditing card details (especially for premium and super-premium cards), pay
 
 4. **Restoring User-Reviewed Cards**:
    - If a card has been manually verified and reviewed by the user (indicated by a verified note in `internalNotes`), do not alter its structured lists or properties unless explicitly asked. Focus changes only on targeted card audits.
+
+5. **Common Duplication Traps**:
+   - `EMI transactions` in `exclusions` and again in `additionalDetails`
+   - lounge milestone text in both `milestoneBenefits` and `additionalDetails`
+   - `Statement balance` / `SmartBuy` / `Accor` values in both `redemption` and visible prose
+   - reward caps duplicated in both `rewards.capMonthly` and a visible line unless the visible line adds essential context
+   - verification or audit notes leaking into info popovers or visible sections
+   - combining separately capped categories into one row that changes the meaning of the cap
+
+6. **Custom Redemption Labels**:
+   - If a card redeems into a branded ecosystem instead of statement credit or miles, make sure the structured redemption label still reads clearly in the UI.
+   - Prefer explicit output like `upto Rs 1 per NeuCoin` over incomplete text like `Rs 1`.

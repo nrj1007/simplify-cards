@@ -37,6 +37,48 @@ function formatINR(value: number) {
   return `Rs ${value.toLocaleString("en-IN")}`;
 }
 
+function calculatorMilestoneLine(result: RecommendResult) {
+  if (result.estimatedMilestoneValue > 0) {
+    return `Milestones add ${formatINR(result.estimatedMilestoneValue)} per year.`;
+  }
+
+  if (result.nextMilestoneGap !== null) {
+    return `${formatINR(result.nextMilestoneGap)} more yearly spend to unlock the next milestone.`;
+  }
+
+  return "No milestone uplift at this spend.";
+}
+
+function calculatorFeeWaiverLine(result: RecommendResult) {
+  if (result.annualFee === 0) return "No annual fee on this card.";
+  if (result.feeWaiverHit) return "Fee waiver hit at your current yearly spend.";
+  if (result.nextFeeWaiverGap !== null) {
+    return `${formatINR(result.nextFeeWaiverGap)} more yearly spend to unlock fee waiver.`;
+  }
+
+  return "Fee waiver not listed for this card.";
+}
+
+function calculatorNextUnlockLine(result: RecommendResult) {
+  const candidates = [
+    result.nextMilestoneGap !== null
+      ? {
+          gap: result.nextMilestoneGap,
+          text: `Next milestone in ${formatINR(result.nextMilestoneGap)} yearly spend.`
+        }
+      : null,
+    result.nextFeeWaiverGap !== null
+      ? {
+          gap: result.nextFeeWaiverGap,
+          text: `Fee waiver in ${formatINR(result.nextFeeWaiverGap)} yearly spend.`
+        }
+      : null
+  ].filter((item): item is { gap: number; text: string } => Boolean(item));
+
+  if (candidates.length === 0) return "No near-term unlock remaining.";
+  return candidates.sort((a, b) => a.gap - b.gap)[0].text;
+}
+
 function buildInitialSpend(defaultSpend: SpendProfile): Record<SpendCategory, number> {
   const spend = {} as Record<SpendCategory, number>;
   for (const category of ALL_CATEGORIES) {
@@ -209,16 +251,26 @@ export default function RecommendCalculator({ defaultSpend, initialResults }: Pr
                 <div className="stats recommend-stats">
                   <div className="stat">
                     <strong>{formatINR(result.estimatedAnnualRewards)}</strong>
-                    <span>Annual rewards</span>
+                    <span>Rewards / year</span>
+                  </div>
+                  <div className="stat">
+                    <strong>{formatINR(result.estimatedMilestoneValue)}</strong>
+                    <span>Milestones / year</span>
                   </div>
                   <div className="stat">
                     <strong>{formatINR(result.estimatedAnnualFee)}</strong>
-                    <span>Effective annual fee</span>
+                    <span>Fee after waiver</span>
                   </div>
                   <div className="stat">
                     <strong>{formatINR(result.estimatedNetValue)}</strong>
                     <span>Net value / year</span>
                   </div>
+                </div>
+
+                <div className="recommend-explain">
+                  <p><strong>Milestones:</strong> {calculatorMilestoneLine(result)}</p>
+                  <p><strong>Fee waiver:</strong> {calculatorFeeWaiverLine(result)}</p>
+                  <p><strong>Next unlock:</strong> {calculatorNextUnlockLine(result)}</p>
                 </div>
 
                 {result.breakdown.length > 0 ? (
@@ -234,8 +286,8 @@ export default function RecommendCalculator({ defaultSpend, initialResults }: Pr
                           </tr>
                         </thead>
                         <tbody>
-                          {result.breakdown.map((row) => (
-                            <tr key={`${result.id}-${row.spendCategory}`}>
+                          {result.breakdown.map((row, rowIndex) => (
+                            <tr key={`${result.id}-${row.spendCategory}-${rowIndex}`}>
                               <td>{CATEGORY_LABELS[row.spendCategory]}</td>
                               <td>{formatINR(row.monthlySpend)}</td>
                               <td>{formatINR(row.annualReward)}</td>
