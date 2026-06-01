@@ -6,7 +6,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "myCards",
-  description: "Find the right Indian credit card. Ask in plain English, compare by use case, grounded in verified card data."
+  description: "Find the right Indian credit card. Ask, compare by use case, grounded in verified card data."
 };
 
 export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
@@ -25,7 +25,8 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
               <nav className="nav-links" aria-label="Primary navigation">
                 <Link href="/ask">Ask</Link>
                 <Link href="/recommend">Recommend</Link>
-                <Link href="/finder">Finder</Link>
+                <Link href="/#examples">Questions</Link>
+                <Link href="/#cards">Cards</Link>
                 <Link href="/compare">Compare</Link>
               </nav>
               <Link className="nav-cta" href="/ask">

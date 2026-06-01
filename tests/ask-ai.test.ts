@@ -152,6 +152,34 @@ describe("ask ai fallback policy", () => {
     expect(answer.summary).toBe("Top 10 picks for this query.");
   });
 
+  it("uses AI to improve the summary for broad top-card queries when an OpenAI API key is configured", async () => {
+    process.env.OPENAI_API_KEY = "test-key";
+    global.fetch = vi.fn(async () =>
+      ({
+        ok: true,
+        json: async () => ({
+          output: [
+            {
+              content: [
+                {
+                  text: JSON.stringify({
+                    summary: "Axis Bank Magnus Credit Card for Burgundy leads this ranked list, with other strong options close behind depending on spend level."
+                  })
+                }
+              ]
+            }
+          ]
+        })
+      }) as unknown as Response
+    ) as typeof fetch;
+
+    const answer = await answerQuestion({ query: "top 10 credit cards" });
+
+    expect(global.fetch).toHaveBeenCalledTimes(1);
+    expect(answer.cards).toHaveLength(10);
+    expect(answer.summary).toMatch(/Magnus Credit Card for Burgundy/i);
+  });
+
   it("shows the actual top 3 ranked cards for broad top-card questions", { timeout: 45000 }, async () => {
     const answer = await answerQuestion({ query: "top cards under 5000" });
     const rawTopThreeIds = scoreCards({ query: "top cards under 5000" })
@@ -273,15 +301,34 @@ describe("ask ai fallback policy", () => {
     expect(answer.summary).toMatch(/couldn't find an exact match|could not find an exact match/i);
   });
 
-  it("keeps broad top-card answers deterministic even when an OpenAI API key is configured", { timeout: 45000 }, async () => {
+  it("keeps broad top-card rankings deterministic even when AI improves the summary", { timeout: 45000 }, async () => {
     process.env.OPENAI_API_KEY = "test-key";
-    global.fetch = vi.fn() as typeof fetch;
+    global.fetch = vi.fn(async () =>
+      ({
+        ok: true,
+        json: async () => ({
+          output: [
+            {
+              content: [
+                {
+                  text: JSON.stringify({
+                    summary: "Kotak Cashback+ Credit Card leads this ranked shortlist, with close alternatives for different spending patterns."
+                  })
+                }
+              ]
+            }
+          ]
+        })
+      }) as unknown as Response
+    ) as typeof fetch;
 
     const answer = await answerQuestion({ query: "best cashback card" });
+    const rawTopThreeIds = scoreCards({ query: "best cashback card" }).slice(0, 3).map((item) => item.card.id);
 
-    expect(global.fetch).not.toHaveBeenCalled();
-    expect(answer.summary).toMatch(/Top 3 picks for this query/i);
+    expect(global.fetch).toHaveBeenCalledTimes(1);
+    expect(answer.summary).toMatch(/Kotak Cashback\+/i);
     expect(answer.cards).toHaveLength(3);
+    expect(answer.cards.map((item) => item.card.id)).toEqual(rawTopThreeIds);
   });
 
   it("uses gpt-5-mini summary generation for non-ranking recommendation phrasing when an OpenAI API key is configured", async () => {

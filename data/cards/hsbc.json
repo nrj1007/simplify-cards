@@ -168,6 +168,21 @@
       "Fees and charges",
       "Disputed transactions"
     ],
+    "exclusionCodes": [
+      "utilities",
+      "fuel",
+      "tax",
+      "real_estate",
+      "property_management",
+      "jewellery",
+      "insurance",
+      "wallet_load",
+      "education",
+      "government",
+      "cash_advance",
+      "fees_and_charges",
+      "disputed_transactions"
+    ],
     "milestoneBenefits": [
       "10,000 bonus reward points on annual spends above Rs 12 lakh"
     ],
@@ -211,6 +226,7 @@
       "https://www.hsbc.co.in/credit-cards/products/travelone/",
       "https://www.hsbc.co.in/content/dam/hsbc/in/documents/hsbc-rewards-tcs.pdf"
     ],
+    "imageUrl": "/images/hsbc-travelone.jpg",
     "redemption": {
       "airlinePartners": [
         {

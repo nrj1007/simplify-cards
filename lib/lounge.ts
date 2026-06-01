@@ -93,6 +93,18 @@ export function getLoungeConditions(card: CreditCard, type?: "domestic" | "inter
   return deduped;
 }
 
+export function getMeaningfulLoungeConditions(card: CreditCard, type?: "domestic" | "international") {
+  return getLoungeConditions(card, type).filter((text) => {
+    const lower = text.toLowerCase();
+    if (type === "domestic") {
+      if (lower.includes("priority pass") || lower.includes("complimentary international lounge") || lower.includes("outside india")) {
+        return false;
+      }
+    }
+    return true;
+  });
+}
+
 export function getTotalLoungeAccess(card: CreditCard) {
   if (card.combinedLoungeAccess !== undefined) return card.combinedLoungeAccess;
   if (card.loungeDomestic === "unlimited" || card.loungeInternational === "unlimited") return "unlimited" as const;

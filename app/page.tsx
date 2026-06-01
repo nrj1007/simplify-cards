@@ -77,7 +77,7 @@ export default function Home() {
             </h1>
             <p className="hero-copy">
               myCards helps you compare Indian credit cards using your spending, goals, and preferences—then explains the fees,
-              rewards, caps, and trade-offs in plain English.
+              rewards, caps, and trade-offs.
             </p>
             <div className="hero-proof">
               <span className="proof-pill">✓ Personalized shortlists</span>
@@ -172,7 +172,7 @@ export default function Home() {
               <div className="home-section-kicker">Questions you can ask</div>
               <h2>Ask the way you actually think.</h2>
             </div>
-            <p>Start with one of these questions, or describe your own spending pattern in plain English.</p>
+            <p>Start with one of these questions, or describe your own spending pattern.</p>
           </div>
           <div className="examples-grid">
             {EXAMPLE_QUESTIONS.map((q, index) => (

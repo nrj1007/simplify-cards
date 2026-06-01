@@ -115,6 +115,19 @@ function isStringArray(value: unknown): value is string[] {
   return Array.isArray(value) && value.every(isNonEmptyString);
 }
 
+function hasUserVerifiedNote(value: unknown) {
+  return isStringArray(value) && value.some((note) => /card details manually reviewed and verified by user on \d{4}-\d{2}-\d{2}/i.test(note));
+}
+
+function normalizeVisibleText(value: string) {
+  return value
+    .toLowerCase()
+    .replace(/rs\./g, "rs")
+    .replace(/[^a-z0-9]+/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
 function isValidUrl(value: unknown) {
   if (!isNonEmptyString(value)) return false;
   try {
@@ -246,6 +259,50 @@ if (cardFiles.length === 0) {
       const isRelative = typeof card.imageUrl === "string" && card.imageUrl.startsWith("/");
       if (!isRelative && !isValidUrl(card.imageUrl)) {
         addIssue("must be a valid https URL or relative path starting with '/' when present", cardId, "imageUrl");
+      }
+    }
+
+    if (hasUserVerifiedNote(card.internalNotes) && !isNonEmptyString(card.imageUrl)) {
+      addIssue('cards marked "verified by user" in internalNotes must include an imageUrl', cardId, "imageUrl");
+    }
+
+    if (
+      hasUserVerifiedNote(card.internalNotes) &&
+      (!Array.isArray(card.exclusionCodes) || !card.exclusionCodes.every(isNonEmptyString) || card.exclusionCodes.length === 0)
+    ) {
+      addIssue('cards marked "verified by user" in internalNotes must include mapped exclusionCodes', cardId, "exclusionCodes");
+    }
+
+    if (hasUserVerifiedNote(card.internalNotes)) {
+      const visibleFields = ["milestoneBenefits", "joiningBenefits", "renewalBenefits", "additionalBenefits", "additionalDetails"] as const;
+      const seenVisibleText = new Map<string, string>();
+
+      for (const field of visibleFields) {
+        const items = card[field];
+        if (!isStringArray(items)) continue;
+
+        for (const item of items) {
+          const normalized = normalizeVisibleText(item);
+          if (!normalized) continue;
+
+          const firstField = seenVisibleText.get(normalized);
+          if (firstField) {
+            addIssue(`verified-by-user cards must not duplicate visible text across sections (${firstField} and ${field})`, cardId, field);
+            break;
+          }
+          seenVisibleText.set(normalized, field);
+        }
+      }
+
+      if (isStringArray(card.exclusions)) {
+        const exclusionText = new Set(card.exclusions.map(normalizeVisibleText));
+        for (const field of visibleFields) {
+          const items = card[field];
+          if (!isStringArray(items)) continue;
+          if (items.some((item) => exclusionText.has(normalizeVisibleText(item)))) {
+            addIssue("verified-by-user cards must not repeat exclusions in visible sections", cardId, field);
+          }
+        }
       }
     }
 

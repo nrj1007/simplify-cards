@@ -2,7 +2,7 @@ import { notFound } from "next/navigation";
 import { ExternalLink } from "lucide-react";
 import { cards, getCardById } from "@/lib/cards";
 import { getCardContent } from "@/lib/card-content";
-import { getLoungeConditions, getTotalLoungeAccess } from "@/lib/lounge";
+import { getLoungeConditions, getMeaningfulLoungeConditions, getTotalLoungeAccess } from "@/lib/lounge";
 import LoungeInfo from "@/app/ui/LoungeInfo";
 import AskFeedback from "@/app/ui/AskFeedback";
 import AskBox from "@/app/ui/AskBox";
@@ -145,6 +145,8 @@ export default async function CardPage({ params, searchParams }: Props) {
   const cardContent = getCardContent(card.id);
   const totalLoungeAccess = getTotalLoungeAccess(card);
   const combinedLoungeConditions = getLoungeConditions(card);
+  const domesticLoungeConditions = getMeaningfulLoungeConditions(card, "domestic");
+  const internationalLoungeConditions = getMeaningfulLoungeConditions(card, "international");
   const redemptions = redemptionRows(card.redemption);
   const hasRedemptionSection = Boolean(
     redemptions.length || card.redemption?.airlinePartners?.length || card.redemption?.hotelPartners?.length
@@ -164,7 +166,6 @@ export default async function CardPage({ params, searchParams }: Props) {
   const hasMilestoneBenefits = Boolean(card.milestoneBenefits?.length);
   const hasJoiningBenefits = Boolean(card.joiningBenefits?.length);
   const hasRenewalBenefits = Boolean(card.renewalBenefits?.length);
-  const hasJoiningOrRenewalBenefits = hasJoiningBenefits || hasRenewalBenefits;
   const hasAdditionalBenefits = Boolean(card.additionalBenefits?.length);
   const hasExclusions = Boolean(card.exclusions?.length);
   const hasEligibility = Boolean(card.eligibility?.salaried?.length || card.eligibility?.selfEmployed?.length);
@@ -218,14 +219,18 @@ export default async function CardPage({ params, searchParams }: Props) {
                   <strong>{card.loungeDomestic === "unlimited" ? "Unlimited" : card.loungeDomestic}</strong>
                   <span className="stat-label">
                     Domestic lounge
-                    <LoungeInfo items={getLoungeConditions(card, "domestic")} label="Domestic lounge conditions" />
+                    {domesticLoungeConditions.length > 0 ? (
+                      <LoungeInfo items={domesticLoungeConditions} label="Domestic lounge conditions" />
+                    ) : null}
                   </span>
                 </div>
                 <div className="stat">
                   <strong>{card.loungeInternational === "unlimited" ? "Unlimited" : card.loungeInternational}</strong>
                   <span className="stat-label">
                     International lounge
-                    <LoungeInfo items={getLoungeConditions(card, "international")} label="International lounge conditions" />
+                    {internationalLoungeConditions.length > 0 ? (
+                      <LoungeInfo items={internationalLoungeConditions} label="International lounge conditions" />
+                    ) : null}
                   </span>
                 </div>
               </>
@@ -345,15 +350,17 @@ export default async function CardPage({ params, searchParams }: Props) {
             </section>
           ) : null}
 
-          {hasJoiningOrRenewalBenefits ? (
+          {hasJoiningBenefits ? (
             <section className="detail-section">
-              <h2>Joining & Renewal Benefits</h2>
-              <DetailList
-                items={[
-                  ...(card.joiningBenefits ?? []),
-                  ...(card.renewalBenefits ?? [])
-                ]}
-              />
+              <h2>Joining Benefits</h2>
+              <DetailList items={card.joiningBenefits} />
+            </section>
+          ) : null}
+
+          {hasRenewalBenefits ? (
+            <section className="detail-section">
+              <h2>Renewal Benefits</h2>
+              <DetailList items={card.renewalBenefits} />
             </section>
           ) : null}
 
