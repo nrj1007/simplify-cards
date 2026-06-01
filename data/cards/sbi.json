@@ -738,18 +738,24 @@
     "rewardType": "reward points",
     "rewards": [
       {
-        "category": "base",
+        "category": "partner merchants",
+        "displayCategory": "Landmark stores",
         "rate": 3.75,
+        "displayRate": "15 Reward Points / Rs 100",
         "capMonthly": null
       },
       {
-        "category": "dining",
+        "category": "dining, entertainment",
+        "displayCategory": "dining and movies",
         "rate": 2.5,
+        "displayRate": "10 Reward Points / Rs 100",
         "capMonthly": null
       },
       {
         "category": "base",
+        "displayCategory": "other retail purchases",
         "rate": 0.5,
+        "displayRate": "2 Reward Points / Rs 100",
         "capMonthly": null
       }
     ],
@@ -771,7 +777,16 @@
       "cash withdrawal",
       "balance transfer",
       "wallet loading",
-      "transactions excluded under Lifestyle Home Centre SBI Card PRIME terms"
+      "government transactions",
+      "online gaming transactions"
+    ],
+    "exclusionCodes": [
+      "fuel",
+      "cash_withdrawal",
+      "balance_transfer",
+      "wallet_load",
+      "government",
+      "gaming"
     ],
     "milestoneBenefits": [
       "6,000 bonus Reward Points on annual spends of Rs 40,000 across Landmark Stores",
@@ -779,25 +794,42 @@
       "20,000 bonus Reward Points on annual spends of Rs 1.8 lakh across Landmark Stores",
       "20,000 bonus Reward Points on overall annual retail spends of Rs 5 lakh"
     ],
-    "additionalBenefits": [
+    "joiningBenefits": [
       "12,000 bonus Reward Points worth Rs 3,000 on payment of annual fee",
+      "Reward Points are credited within 30 days of annual fee payment"
+    ],
+    "renewalBenefits": [
       "12,000 Reward Points worth Rs 3,000 on payment of renewal fee",
-      "15 Reward Points per Rs 100 at online and retail Landmark Stores including Lifestyle, Home Centre, Max and Spar",
-      "10 Reward Points per Rs 100 on dining and movies",
-      "2 Reward Points per Rs 100 on other eligible non-fuel retail purchases",
-      "4 Reward Points equal Re 1",
-      "Reward Points can be redeemed instantly at Lifestyle, Home Centre, Spar and Max stores",
-      "8 complimentary domestic airport lounge visits per year, capped at 2 per quarter",
-      "Complimentary Priority Pass membership with 4 international lounge visits per year, capped at 2 per quarter",
+      "Reward Points are credited within 30 days of renewal fee payment"
+    ],
+    "additionalBenefits": [
+      "Reward Points can be redeemed instantly at Lifestyle, Home Centre, Spar, and Max stores",
       "1% fuel surcharge waiver on eligible fuel transactions from Rs 500 to Rs 4,000, capped at Rs 250 per statement cycle"
     ],
     "redemption": {
-      "statementBalanceValue": 0.25,
-      "pointsExpiryYears": 2
+      "ecosystemLabel": "Lifestyle, Home Centre, Spar, and Max stores",
+      "ecosystemValue": 0.25
     },
-    "sourceUrl": "https://www.sbicard.com/en/personal/credit-cards/shopping/lifestyle-hc-sbi-card-prime.page",
-    "applyUrl": "https://www.sbicard.com/en/personal/credit-cards/shopping/lifestyle-hc-sbi-card-prime.page",
-    "lastVerified": "2026-05-09",
+    "additionalDetails": [],
+    "internalNotes": [
+      "Card details manually reviewed and verified by user on 2026-06-01",
+      "Audited against official SBI Card product page, Lifestyle PRIME card T&C booklet, customer notice dated 1 Aug 2025, MITC page, and Priority Pass FAQ on 2026-06-01.",
+      "Reward Points expire after 24 months.",
+      "W.e.f. 1 Sep 2025, reward accrual on digital gaming platforms/merchants and government related transactions is discontinued for Lifestyle Home Centre SBI Card PRIME.",
+      "Priority Pass standard membership is complimentary; post the 4 complimentary international lounge visits per year, visit charges apply at the programme's prevailing rate.",
+      "Current official product page lists Visa network branding for this card."
+    ],
+    "supportingSourceUrls": [
+      "https://www.sbicard.com/en/personal/credit-cards/shopping/hc-sbi-card-prime.page",
+      "https://www.sbicard.com/sbi-card-en/assets/docs/pdf/tnc/landmark-cards-tnc/LifeStyle-PRIME-card-tnc.pdf",
+      "https://www.sbicard.com/en/customer-notices.page.page",
+      "https://www.sbicard.com/en/most-important-terms-and-conditions.page",
+      "https://www.sbicard.com/en/faq/complimentary-priority-pass-membership.page"
+    ],
+    "imageUrl": "/images/lifestyle-home-centre-sbi-prime.png",
+    "sourceUrl": "https://www.sbicard.com/en/personal/credit-cards/shopping/hc-sbi-card-prime.page",
+    "applyUrl": "https://www.sbicard.com/en/personal/credit-cards/shopping/hc-sbi-card-prime.page",
+    "lastVerified": "2026-06-01",
     "verificationStatus": "official-direct",
     "popularityScore": 71
   },
@@ -822,18 +854,24 @@
     "rewardType": "reward points",
     "rewards": [
       {
-        "category": "base",
+        "category": "partner merchants",
+        "displayCategory": "Landmark stores",
         "rate": 3.75,
+        "displayRate": "15 Reward Points / Rs 100",
         "capMonthly": null
       },
       {
-        "category": "dining",
+        "category": "dining, entertainment",
+        "displayCategory": "dining and movies",
         "rate": 2.5,
+        "displayRate": "10 Reward Points / Rs 100",
         "capMonthly": null
       },
       {
         "category": "base",
+        "displayCategory": "other retail purchases",
         "rate": 0.5,
+        "displayRate": "2 Reward Points / Rs 100",
         "capMonthly": null
       }
     ],
@@ -855,7 +893,16 @@
       "cash withdrawal",
       "balance transfer",
       "wallet loading",
-      "transactions excluded under Max SBI Card PRIME terms"
+      "government transactions",
+      "online gaming transactions"
+    ],
+    "exclusionCodes": [
+      "fuel",
+      "cash_withdrawal",
+      "balance_transfer",
+      "wallet_load",
+      "government",
+      "gaming"
     ],
     "milestoneBenefits": [
       "6,000 bonus Reward Points on annual spends of Rs 40,000 across Landmark Stores",
@@ -863,25 +910,42 @@
       "20,000 bonus Reward Points on annual spends of Rs 1.8 lakh across Landmark Stores",
       "20,000 bonus Reward Points on overall annual retail spends of Rs 5 lakh"
     ],
-    "additionalBenefits": [
+    "joiningBenefits": [
       "12,000 bonus Reward Points worth Rs 3,000 on payment of annual fee",
+      "Reward Points are credited within 30 days of annual fee payment"
+    ],
+    "renewalBenefits": [
       "12,000 Reward Points worth Rs 3,000 on payment of renewal fee",
-      "15 Reward Points per Rs 100 at online and retail Landmark Stores including Lifestyle, Home Centre, Max and Spar",
-      "10 Reward Points per Rs 100 on dining and movies",
-      "2 Reward Points per Rs 100 on other eligible non-fuel retail purchases",
-      "4 Reward Points equal Re 1",
-      "Reward Points can be redeemed instantly at Lifestyle, Home Centre, Spar and Max stores",
-      "8 complimentary domestic airport lounge visits per year, capped at 2 per quarter",
-      "Complimentary Priority Pass membership with 4 international lounge visits per year, capped at 2 per quarter",
+      "Reward Points are credited within 30 days of renewal fee payment"
+    ],
+    "additionalBenefits": [
+      "Reward Points can be redeemed instantly at Lifestyle, Home Centre, Spar, and Max stores",
       "1% fuel surcharge waiver on eligible fuel transactions from Rs 500 to Rs 4,000, capped at Rs 250 per statement cycle"
     ],
     "redemption": {
-      "statementBalanceValue": 0.25,
-      "pointsExpiryYears": 2
+      "ecosystemLabel": "Lifestyle, Home Centre, Spar, and Max stores",
+      "ecosystemValue": 0.25
     },
+    "additionalDetails": [],
+    "internalNotes": [
+      "Card details manually reviewed and verified by user on 2026-06-01",
+      "Audited against official SBI Card product page, Max PRIME card T&C booklet, customer notice dated 1 Aug 2025, MITC page, and Priority Pass FAQ on 2026-06-01.",
+      "Reward Points expire after 24 months.",
+      "W.e.f. 1 Sep 2025, reward accrual on digital gaming platforms/merchants and government related transactions is discontinued for Max SBI Card PRIME.",
+      "Priority Pass standard membership is complimentary; post the 4 complimentary international lounge visits per year, visit charges apply at the programme's prevailing rate.",
+      "Current official product page lists Visa network branding for this card."
+    ],
+    "supportingSourceUrls": [
+      "https://www.sbicard.com/en/personal/credit-cards/shopping/max-sbi-card-prime.page",
+      "https://www.sbicard.com/sbi-card-en/assets/docs/pdf/tnc/landmark-cards-tnc/Max-PRIME-card-tnc.pdf",
+      "https://www.sbicard.com/en/customer-notices.page.page",
+      "https://www.sbicard.com/en/most-important-terms-and-conditions.page",
+      "https://www.sbicard.com/en/faq/complimentary-priority-pass-membership.page"
+    ],
+    "imageUrl": "/images/max-sbi-prime.png",
     "sourceUrl": "https://www.sbicard.com/en/personal/credit-cards/shopping/max-sbi-card-prime.page",
     "applyUrl": "https://www.sbicard.com/en/personal/credit-cards/shopping/max-sbi-card-prime.page",
-    "lastVerified": "2026-05-09",
+    "lastVerified": "2026-06-01",
     "verificationStatus": "official-direct",
     "popularityScore": 71
   },
@@ -2171,18 +2235,24 @@
     "rewardType": "reward points",
     "rewards": [
       {
-        "category": "base",
+        "category": "partner merchants",
+        "displayCategory": "Landmark stores",
         "rate": 2.5,
+        "displayRate": "10 Reward Points / Rs 100",
         "capMonthly": null
       },
       {
-        "category": "dining",
+        "category": "dining, entertainment",
+        "displayCategory": "dining and movies",
         "rate": 2.5,
+        "displayRate": "10 Reward Points / Rs 100",
         "capMonthly": null
       },
       {
         "category": "base",
+        "displayCategory": "other retail purchases",
         "rate": 0.5,
+        "displayRate": "2 Reward Points / Rs 100",
         "capMonthly": null
       }
     ],
@@ -2204,7 +2274,16 @@
       "cash withdrawal",
       "balance transfer",
       "wallet loading",
-      "transactions excluded under Max SBI Card SELECT terms"
+      "government transactions",
+      "online gaming transactions"
+    ],
+    "exclusionCodes": [
+      "fuel",
+      "cash_withdrawal",
+      "balance_transfer",
+      "wallet_load",
+      "government",
+      "gaming"
     ],
     "milestoneBenefits": [
       "2,400 bonus Reward Points on annual spends of Rs 25,000 across Landmark Stores",
@@ -2212,23 +2291,39 @@
       "12,000 bonus Reward Points on annual spends of Rs 1.5 lakh across Landmark Stores",
       "12,000 bonus Reward Points on overall annual retail spends of Rs 3 lakh"
     ],
-    "additionalBenefits": [
+    "joiningBenefits": [
       "6,000 bonus Reward Points worth Rs 1,500 on payment of annual fee",
+      "Reward Points are credited within 30 days of annual fee payment"
+    ],
+    "renewalBenefits": [
       "6,000 Reward Points worth Rs 1,500 on payment of renewal fee",
-      "10 Reward Points per Rs 100 at online and retail Landmark Stores including Lifestyle, Home Centre, Max and Spar, plus dining and movies",
-      "2 Reward Points per Rs 100 on other eligible non-fuel retail purchases",
-      "4 Reward Points equal Re 1",
-      "Reward Points can be redeemed instantly at Lifestyle, Home Centre, Spar and Max stores",
+      "Reward Points are credited within 30 days of renewal fee payment"
+    ],
+    "additionalBenefits": [
+      "Reward Points can be redeemed instantly at Lifestyle, Home Centre, Spar, and Max stores",
       "1% fuel surcharge waiver on eligible fuel transactions from Rs 500 to Rs 3,000, capped at Rs 100 per statement cycle"
     ],
     "redemption": {
-      "statementBalanceValue": 0.25,
-      "pointsExpiryYears": 2
+      "ecosystemLabel": "Lifestyle, Home Centre, Spar, and Max stores",
+      "ecosystemValue": 0.25
     },
+    "additionalDetails": [],
+    "internalNotes": [
+      "Card details manually reviewed and verified by user on 2026-06-01",
+      "Audited against official SBI Card product page, MAX SELECT card T&C booklet, customer notice dated 1 Aug 2025, and MITC page on 2026-06-01.",
+      "Reward Points expire after 24 months.",
+      "W.e.f. 1 Sep 2025, reward accrual on digital gaming platforms/merchants and government related transactions is discontinued for Max SBI Card SELECT."
+    ],
+    "supportingSourceUrls": [
+      "https://www.sbicard.com/en/personal/credit-cards/shopping/max-sbi-card-select.page",
+      "https://www.sbicard.com/sbi-card-en/assets/docs/pdf/tnc/landmark-cards-tnc/MAX-SELECT-card-tnc.pdf",
+      "https://www.sbicard.com/en/customer-notices.page.page",
+      "https://www.sbicard.com/en/most-important-terms-and-conditions.page"
+    ],
     "imageUrl": "/images/max-sbi-select.png",
     "sourceUrl": "https://www.sbicard.com/en/personal/credit-cards/shopping/max-sbi-card-select.page",
     "applyUrl": "https://www.sbicard.com/en/personal/credit-cards/shopping/max-sbi-card-select.page",
-    "lastVerified": "2026-05-09",
+    "lastVerified": "2026-06-01",
     "verificationStatus": "official-direct",
     "popularityScore": 62
   },
