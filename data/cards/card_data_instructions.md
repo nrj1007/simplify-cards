@@ -67,6 +67,7 @@ Each reviewed card should also be checked for a good card-face image.
 * Save reviewed images under `public/images/` and reference them via `"imageUrl"`.
 * If the current image is low quality, badly cropped, or not the actual card face, replace it during the review.
 *   Treat image quality and alignment as part of card verification, not as a separate optional cleanup.
+* If the official card-face asset is portrait/vertical but the details-page image slot is horizontal, create a horizontal version on a light beige background with the card face centered and save that derived asset locally. Prefer this over adding one-off CSS or layout exceptions for a single card.
 
 ### Lounge Access & Combined Pools (`combinedLoungeAccess`)
 Define the lounge access limits for domestic and international visits:

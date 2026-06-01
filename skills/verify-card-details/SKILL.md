@@ -66,6 +66,7 @@ Apply the rules specified in [card_data_instructions.md](file:///C:/Users/manpr/
    - Prefer official issuer card-face assets. Do not keep generic banners, landing-page art, cropped lifestyle imagery, or low-quality placeholders when a proper card-face image is available.
    - If a better official image is found, save it under `public/images/` and update `"imageUrl"` in the card JSON.
    - When reviewing the page visually, confirm the image is aligned well and not awkwardly cropped.
+   - If the official asset is a portrait/vertical card face but the details-page image slot is horizontal, derive a horizontal local asset on a light beige background with the card centered instead of introducing per-card CSS exceptions.
 5. **Internal Nuances**:
    - Store low-level program details, cancel/booking conditions, and specific dates in `"internalNotes"` to keep them indexed by Ask AI without cluttering the UI.
    - Mark the review date inside `internalNotes` as:
