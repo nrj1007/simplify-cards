@@ -356,6 +356,14 @@ if (cardFiles.length === 0) {
         if (reward.capDaily !== undefined && reward.capDaily !== null && !isMoneyNumber(reward.capDaily)) {
           addIssue(`reward ${rewardIndex} capDaily must be a non-negative number or null`, cardId, "rewards");
         }
+
+        if (
+          reward.capStatementQuarter !== undefined &&
+          reward.capStatementQuarter !== null &&
+          !isMoneyNumber(reward.capStatementQuarter)
+        ) {
+          addIssue(`reward ${rewardIndex} capStatementQuarter must be a non-negative number or null`, cardId, "rewards");
+        }
       });
     }
 

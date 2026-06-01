@@ -59,7 +59,10 @@ Apply the rules specified in [card_data_instructions.md](file:///C:/Users/manpr/
 3. **Additional Perks**:
    - Keep `"additionalBenefits"` and `"additionalDetails"` concise and easy to read.
    - Do NOT duplicate details already structured in other properties (like reward rates or lounge count).
-   - If a reward category has its own cap, keep that cap in the reward row itself. Use `capMonthly` / `capDaily` when the schema supports it; for unsupported issuer periods like statement-quarter caps, include the cap wording directly in `displayRate` instead of moving it to `additionalDetails`.
+   - Keep annual fee waiver tracking only in the structured `feeWaiverSpend` field. Do not repeat fee waiver conditions in `milestoneBenefits`, `additionalBenefits`, or `additionalDetails`.
+   - If a reward category has its own cap, keep that cap in the reward row itself.
+   - Use `capDaily` for daily caps, `capMonthly` for monthly caps, and `capStatementQuarter` for statement-quarter caps.
+   - Only fall back to cap wording inside `displayRate` if the cap period cannot be represented through the structured reward fields.
    - Keep `"redemption"` focused on point value and transfer-partner structure. Put operational redemption rules like minimum points, monthly caps, validity windows, and redemption fees into `"additionalDetails"` or `"internalNotes"` instead of treating them as primary redemption rows.
    - If an issuer publishes separate capped categories, preserve them as separate visible reward rows instead of merging them into one combined line that suggests a shared cap.
    - If the UI needs separate rows but the scoring model only supports a broader canonical category, keep the canonical `category` stable and differentiate the rows through `displayCategory`.
@@ -81,6 +84,7 @@ Apply the rules specified in [card_data_instructions.md](file:///C:/Users/manpr/
      - Do not repeat reward rates already modeled in `rewards`.
      - Do not repeat exclusions already listed in `exclusions` / `exclusionCodes`.
      - Do not repeat lounge counts already modeled in `loungeDomestic` / `loungeInternational`.
+     - Do not repeat fee waiver conditions already modeled in `feeWaiverSpend`.
      - Do not repeat milestone-triggered lounge rules in both `milestoneBenefits` and `additionalDetails`; keep one clean user-facing version only.
      - Do not repeat redemption values in free-text notes if they are already modeled in `redemption`.
      - Do not surface audit wording, verification dates, or source-review notes in visible sections; keep those in `internalNotes`.

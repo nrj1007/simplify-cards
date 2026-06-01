@@ -62,6 +62,11 @@ function formatRewardCap(value: number | null | undefined, rewardType: string) {
   return `${value.toLocaleString("en-IN")} ${rewardType}`;
 }
 
+function formatStatementQuarterCap(value: number | null | undefined) {
+  if (!value) return "-";
+  return `Rs ${value.toLocaleString("en-IN")}`;
+}
+
 function formatRewardRate(card: CreditCard, reward: CreditCard["rewards"][number]) {
   if (reward.displayRate) return reward.displayRate;
 
@@ -162,6 +167,9 @@ export default async function CardPage({ params, searchParams }: Props) {
   );
   const hasMonthlyCap = card.rewards.some(
     (reward) => typeof reward.capMonthly === "number" && reward.capMonthly > 0
+  );
+  const hasStatementQuarterCap = card.rewards.some(
+    (reward) => typeof reward.capStatementQuarter === "number" && reward.capStatementQuarter > 0
   );
   const hasMilestoneBenefits = Boolean(card.milestoneBenefits?.length);
   const hasJoiningBenefits = Boolean(card.joiningBenefits?.length);
@@ -268,6 +276,7 @@ export default async function CardPage({ params, searchParams }: Props) {
                     <th>Rate</th>
                     {hasDailyCap && <th className="cap-column">Daily cap</th>}
                     {hasMonthlyCap && <th className="cap-column">Monthly cap</th>}
+                    {hasStatementQuarterCap && <th className="cap-column">Statement quarter cap</th>}
                   </tr>
                 </thead>
                 <tbody>
@@ -277,6 +286,9 @@ export default async function CardPage({ params, searchParams }: Props) {
                       <td>{formatRewardRate(card, reward)}</td>
                       {hasDailyCap && <td className="cap-column">{formatRewardCap(reward.capDaily, card.rewardType)}</td>}
                       {hasMonthlyCap && <td className="cap-column">{formatRewardCap(reward.capMonthly, card.rewardType)}</td>}
+                      {hasStatementQuarterCap && (
+                        <td className="cap-column">{formatStatementQuarterCap(reward.capStatementQuarter)}</td>
+                      )}
                     </tr>
                   ))}
                 </tbody>

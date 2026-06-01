@@ -31,6 +31,7 @@ export type Reward = {
   displayRate?: string;
   capMonthly: number | null;
   capDaily?: number | null;
+  capStatementQuarter?: number | null;
   postCapRate?: number | null;
 };
 

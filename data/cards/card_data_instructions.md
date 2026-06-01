@@ -37,6 +37,7 @@ These fields are displayed directly on the credit card details page in the UI. K
 > - remove lounge rules repeated across `milestoneBenefits` and `additionalDetails`
 > - do not place lounge counts or lounge-eligibility conditions in `additionalBenefits` or `additionalDetails`; keep lounge counts in `loungeDomestic` / `loungeInternational` / `combinedLoungeAccess`, and keep lounge conditions in `internalNotes` for the lounge info popover
 > - remove redemption values repeated in both `redemption` and visible prose
+> - do not repeat annual fee waiver conditions in `milestoneBenefits`, `additionalBenefits`, or `additionalDetails`; keep fee waiver only in the structured `feeWaiverSpend` field
 > - keep audit or verification wording in `internalNotes`, not user-facing sections
 > - do not surface concierge or lifestyle-assistance details in visible sections unless concierge is a clear USP of the card (for example Amex Platinum or Centurion). Keep those details in `internalNotes` otherwise
 > - do not surface generic loss liability cover, credit shield, purchase protection, or standard insurance cover lines in visible sections unless the protection benefit is unusually strong or is a genuine USP of the card. Keep those details in `internalNotes` otherwise
@@ -157,11 +158,19 @@ To ensure that the UI renders reward rates exactly as they are advertised on off
     *   *Example:* For the card above, set `"displayRate": "6 reward points per Rs 100"`.
     *   Always use a clear, user-friendly format matching the official website (e.g. `"X reward points per Rs 100"`, `"X EazyPoints per Rs 100"`, or `"X reward points per Rs 150"`).
     *   Defining `displayRate` prevents the UI from incorrectly defaulting to the raw yield decimal (like displaying `2.4 reward points / Rs 100` instead of `6`) or appending `%` to non-percentage rates.
-*   If a reward category has its own issuer-published cap, keep that cap in the reward row itself rather than moving it to `additionalDetails`. If the cap is not representable through `capMonthly` / `capDaily` (for example a statement-quarter cap), include the cap wording directly in `displayRate`.
+*   If a reward category has its own issuer-published cap, keep that cap in the reward row itself rather than moving it to `additionalDetails`.
+*   Use `capDaily` for daily caps, `capMonthly` for monthly caps, and `capStatementQuarter` for statement-quarter caps.
+*   Only fall back to cap wording inside `displayRate` if the cap period cannot be represented through the structured reward fields.
 *   When an issuer lists multiple capped categories separately (for example grocery, insurance, utility, and telecom/cable each with their own monthly cap), keep them as separate visible reward rows rather than collapsing them into one combined line that implies a shared cap.
 *   If the display needs separate rows but the scoring model only understands a broader canonical category, keep the canonical `category` stable and use distinct `displayCategory` labels for the UI rows.
 
-### E. Ecosystem Redemption Labels
+### E. Fee Waiver Modeling (`feeWaiverSpend`)
+
+*   Model annual fee waiver eligibility only through the structured `feeWaiverSpend` field.
+*   Do **not** repeat fee waiver conditions in `milestoneBenefits`, `additionalBenefits`, or `additionalDetails`.
+*   If the issuer excludes categories like rent or wallet load from fee-waiver tracking, keep that nuance in `internalNotes` rather than visible sections unless the user explicitly asks for it on-page.
+
+### F. Ecosystem Redemption Labels
 Some cards redeem into a closed ecosystem rather than statement credit, miles, or SmartBuy.
 
 *   When using a custom redemption label like `Tata Neu brands`, make sure the UI wording remains explicit about the reward unit.

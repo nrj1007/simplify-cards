@@ -53,6 +53,11 @@ function formatRewardCap(value: number | null | undefined, rewardType: string) {
   return `${value.toLocaleString("en-IN")} ${rewardType}`;
 }
 
+function formatStatementQuarterCap(value: number | null | undefined) {
+  if (!value) return "-";
+  return `Rs ${value.toLocaleString("en-IN")}`;
+}
+
 function formatLoungeValue(value: number | "unlimited") {
   return value === "unlimited" ? "Unlimited" : value.toLocaleString("en-IN");
 }
@@ -235,6 +240,9 @@ export default async function AskPage({ searchParams }: Props) {
   ) ?? false;
   const hasMonthlyCap = topCard?.card.rewards.some(
     (reward) => typeof reward.capMonthly === "number" && reward.capMonthly > 0
+  ) ?? false;
+  const hasStatementQuarterCap = topCard?.card.rewards.some(
+    (reward) => typeof reward.capStatementQuarter === "number" && reward.capStatementQuarter > 0
   ) ?? false;
   const returnTo = input
     ? `/ask?query=${encodeURIComponent(input.query ?? "")}${input.maxAnnualFee !== undefined ? `&maxAnnualFee=${input.maxAnnualFee}` : ""}`
@@ -457,6 +465,7 @@ export default async function AskPage({ searchParams }: Props) {
                             <th>Rate</th>
                             {hasDailyCap && <th className="cap-column">Daily cap</th>}
                             {hasMonthlyCap && <th className="cap-column">Monthly cap</th>}
+                            {hasStatementQuarterCap && <th className="cap-column">Statement quarter cap</th>}
                           </tr>
                         </thead>
                         <tbody>
@@ -466,6 +475,9 @@ export default async function AskPage({ searchParams }: Props) {
                               <td>{formatRewardRate(reward, topCard.card.rewardType)}</td>
                               {hasDailyCap && <td className="cap-column">{formatRewardCap(reward.capDaily, topCard.card.rewardType)}</td>}
                               {hasMonthlyCap && <td className="cap-column">{formatRewardCap(reward.capMonthly, topCard.card.rewardType)}</td>}
+                              {hasStatementQuarterCap && (
+                                <td className="cap-column">{formatStatementQuarterCap(reward.capStatementQuarter)}</td>
+                              )}
                             </tr>
                           ))}
                         </tbody>
