@@ -66,7 +66,25 @@ Each reviewed card should also be checked for a good card-face image.
 * Prefer an official issuer card-face asset over banners, lifestyle images, or generic illustrations.
 * Save reviewed images under `public/images/` and reference them via `"imageUrl"`.
 * If the current image is low quality, badly cropped, or not the actual card face, replace it during the review.
-* Treat image quality and alignment as part of card verification, not as a separate optional cleanup.
+*   Treat image quality and alignment as part of card verification, not as a separate optional cleanup.
+
+### Lounge Access & Combined Pools (`combinedLoungeAccess`)
+Define the lounge access limits for domestic and international visits:
+
+*   **Separate Limits**: If domestic and international lounge visits are independent quotas (e.g., 8 domestic AND 8 international separately, summing to 16 total), configure them using `loungeDomestic` and `loungeInternational` properties. Do not specify `combinedLoungeAccess`.
+*   **Combined/Shared Limits**: If the lounge visits are shared between domestic and international lounges as a single combined pool (e.g., a total of 12 visits that can be used either domestically or internationally), configure:
+    *   Set `loungeDomestic` to the maximum possible visits (e.g., `12`).
+    *   Set `loungeInternational` to the maximum possible visits (e.g., `12`).
+    *   Set `combinedLoungeAccess` to the combined limit (e.g., `12`).
+    *   Set `combinedLoungeAccessLabel` to `"Lounge access (domestic + international)"` (or a descriptive custom label).
+
+**Example entry for combined lounge access:**
+```json
+"loungeDomestic": 12,
+"loungeInternational": 12,
+"combinedLoungeAccess": 12,
+"combinedLoungeAccessLabel": "Lounge access (domestic + international)"
+```
 
 ### A. Special Spend Rules (`specialSpendRules`)
 Use the `specialSpendRules` array to explicitly define caps and treatments for key spending categories:

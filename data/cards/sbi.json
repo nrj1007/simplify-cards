@@ -2040,6 +2040,8 @@
     ],
     "loungeDomestic": 8,
     "loungeInternational": 8,
+    "combinedLoungeAccess": 8,
+    "combinedLoungeAccessLabel": "Lounge access (domestic + international)",
     "forexMarkup": 3.5,
     "tags": [
       "krisflyer",
@@ -2689,6 +2691,8 @@
     ],
     "loungeDomestic": 4,
     "loungeInternational": 4,
+    "combinedLoungeAccess": 4,
+    "combinedLoungeAccessLabel": "Lounge access (domestic + international)",
     "forexMarkup": 3.5,
     "tags": [
       "krisflyer",
