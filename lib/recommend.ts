@@ -2,6 +2,7 @@ import { cards } from "./cards";
 import { SPEND_CATEGORY_EXCLUSION_CODE_MAP } from "./exclusion-constants";
 import { parseQueryIntent } from "./query-intent";
 import type { CardScore, CreditCard, RecommendationInput, SpendCategory, SpendProfile } from "./types";
+import { getTotalLoungeAccess } from "./lounge";
 
 export const defaultSpendProfile: SpendProfile = {
   online: 15000,
@@ -1088,8 +1089,9 @@ function feeAfterWaiver(card: CreditCard, spend: SpendProfile) {
 }
 
 function loungeScore(card: CreditCard) {
-  if (card.loungeDomestic === "unlimited" || card.loungeInternational === "unlimited") return 20;
-  return card.loungeDomestic + card.loungeInternational;
+  const totalLoungeAccess = getTotalLoungeAccess(card);
+  if (totalLoungeAccess === "unlimited") return 20;
+  return totalLoungeAccess;
 }
 
 function loungePreferenceBoost(card: CreditCard, wantsLounge: boolean, intent: ReturnType<typeof parseQueryIntent>) {

@@ -92,3 +92,9 @@ export function getLoungeConditions(card: CreditCard, type?: "domestic" | "inter
 
   return deduped;
 }
+
+export function getTotalLoungeAccess(card: CreditCard) {
+  if (card.combinedLoungeAccess !== undefined) return card.combinedLoungeAccess;
+  if (card.loungeDomestic === "unlimited" || card.loungeInternational === "unlimited") return "unlimited" as const;
+  return card.loungeDomestic + card.loungeInternational;
+}

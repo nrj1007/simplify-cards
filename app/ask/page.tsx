@@ -5,7 +5,7 @@ import AskFeedback from "../ui/AskFeedback";
 import CardTile from "../ui/CardTile";
 import { answerQuestion } from "@/lib/ask-ai";
 import { getCardById } from "@/lib/cards";
-import { getLoungeConditions } from "@/lib/lounge";
+import { getLoungeConditions, getTotalLoungeAccess } from "@/lib/lounge";
 import { stripScoringAnnotations } from "@/lib/card-index";
 import { scoreCards } from "@/lib/recommend";
 import type { CreditCard, RecommendationInput } from "@/lib/types";
@@ -409,22 +409,37 @@ export default async function AskPage({ searchParams }: Props) {
                       <strong>Rs {topCard.estimatedAnnualFee.toLocaleString("en-IN")}</strong>
                       <span>Effective annual fee</span>
                     </div>
-                    <div className="stat">
-                      <strong>{topCard.card.loungeDomestic === "unlimited" ? "Unlimited" : topCard.card.loungeDomestic}</strong>
-                      <span className="stat-label">
-                        Domestic lounge
-                        <LoungeInfo items={domesticLoungeConditions} label="Domestic lounge conditions" />
-                      </span>
-                    </div>
-                    <div className="stat">
-                      <strong>
-                        {topCard.card.loungeInternational === "unlimited" ? "Unlimited" : topCard.card.loungeInternational}
-                      </strong>
-                      <span className="stat-label">
-                        International lounge
-                        <LoungeInfo items={internationalLoungeConditions} label="International lounge conditions" />
-                      </span>
-                    </div>
+                    {topCard.card.combinedLoungeAccess !== undefined ? (
+                      <div className="stat">
+                        <strong>{getTotalLoungeAccess(topCard.card) === "unlimited" ? "Unlimited" : getTotalLoungeAccess(topCard.card)}</strong>
+                        <span className="stat-label">
+                          {topCard.card.combinedLoungeAccessLabel ?? "Lounge access"}
+                          <LoungeInfo
+                            items={getLoungeConditions(topCard.card)}
+                            label={`${topCard.card.combinedLoungeAccessLabel ?? "Lounge access"} conditions`}
+                          />
+                        </span>
+                      </div>
+                    ) : (
+                      <>
+                        <div className="stat">
+                          <strong>{topCard.card.loungeDomestic === "unlimited" ? "Unlimited" : topCard.card.loungeDomestic}</strong>
+                          <span className="stat-label">
+                            Domestic lounge
+                            <LoungeInfo items={domesticLoungeConditions} label="Domestic lounge conditions" />
+                          </span>
+                        </div>
+                        <div className="stat">
+                          <strong>
+                            {topCard.card.loungeInternational === "unlimited" ? "Unlimited" : topCard.card.loungeInternational}
+                          </strong>
+                          <span className="stat-label">
+                            International lounge
+                            <LoungeInfo items={internationalLoungeConditions} label="International lounge conditions" />
+                          </span>
+                        </div>
+                      </>
+                    )}
                     <div className="stat">
                       <strong>{topCard.card.forexMarkup}%</strong>
                       <span>Forex markup</span>

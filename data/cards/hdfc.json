@@ -1886,31 +1886,30 @@
       {
         "category": "marriott",
         "rate": 5.33,
-        "capMonthly": null
+        "displayRate": "8 Marriott Bonvoy Points / Rs 150",
+        "capMonthly": 3200,
+        "postCapRate": 1.33
       },
       {
-        "category": "travel",
+        "category": "travel, dining, entertainment",
         "rate": 2.67,
-        "capMonthly": null
-      },
-      {
-        "category": "dining",
-        "rate": 2.67,
-        "capMonthly": null
-      },
-      {
-        "category": "entertainment",
-        "rate": 2.67,
-        "capMonthly": null
+        "displayCategory": "travel, dining and entertainment",
+        "displayRate": "4 Marriott Bonvoy Points / Rs 150",
+        "capMonthly": 1600,
+        "postCapRate": 1.33
       },
       {
         "category": "base",
+        "displayCategory": "others",
         "rate": 1.33,
+        "displayRate": "2 Marriott Bonvoy Points / Rs 150",
         "capMonthly": null
       }
     ],
     "loungeDomestic": 12,
-    "loungeInternational": 0,
+    "loungeInternational": 12,
+    "combinedLoungeAccess": 12,
+    "combinedLoungeAccessLabel": "Lounge access (domestic + international)",
     "forexMarkup": 3.5,
     "tags": [
       "marriott",
@@ -1921,40 +1920,68 @@
       "premium"
     ],
     "exclusions": [
-      "transactions excluded under Marriott Bonvoy HDFC Bank Credit Card terms"
+      "fuel transactions",
+      "online gaming transactions",
+      "Smart EMI and Dial an EMI transactions",
+      "cash advances",
+      "payment of outstanding balances",
+      "payment of card fees and other charges",
+      "government transactions",
+      "rental transactions",
+      "wallet loads, gift card loads, prepaid card loads, and voucher purchases"
+    ],
+    "exclusionCodes": [
+      "fuel",
+      "gaming",
+      "emi",
+      "wallet_load",
+      "cash_advance",
+      "outstanding_balance_payment",
+      "fees_and_charges",
+      "government",
+      "rent"
+    ],
+    "specialSpendRules": [
+      {
+        "category": "travel",
+        "treatment": "capped",
+        "capMonthlySpend": 60000,
+        "notes": "Travel, dining and entertainment spends earn 4 Marriott Bonvoy Points per Rs 150 only on the first Rs 60,000 spent in a calendar month; spends beyond that threshold earn the base rate of 2 Marriott Bonvoy Points per Rs 150."
+      }
     ],
     "milestoneBenefits": [
-      "1 Free Night Award on eligible spend of Rs 6 lakh in an anniversary year",
-      "1 Free Night Award on eligible spend of Rs 9 lakh in an anniversary year",
-      "1 Free Night Award on eligible spend of Rs 15 lakh in an anniversary year",
-      "Each Free Night Award is valid for 12 months and redeemable for a one-night stay up to 15,000 Marriott Bonvoy Points"
+      "1 Free Night Award redeemable for a one-night stay up to 15,000 Marriott Bonvoy Points on eligible spend of Rs 6 lakh in an anniversary year",
+      "1 Free Night Award redeemable for a one-night stay up to 15,000 Marriott Bonvoy Points on eligible spend of Rs 9 lakh in an anniversary year",
+      "1 Free Night Award redeemable for a one-night stay up to 15,000 Marriott Bonvoy Points on eligible spend of Rs 15 lakh in an anniversary year"
+    ],
+    "joiningBenefits": [
+      "1 Free Night Award redeemable for a one-night stay up to 15,000 Marriott Bonvoy Points on the first eligible transaction of Rs 500 within 90 days of card open date or on card fee levy, whichever is earlier",
+      "10 Elite Night Credits on meeting the welcome benefit condition",
+      "Marriott Bonvoy Silver Elite Status"
     ],
     "additionalBenefits": [
-      "1 Free Night Award valued at 15,000 Marriott Bonvoy Points on a minimum transaction of Rs 500 within 90 days of card open date or on card fee levy",
-      "10 Elite Night Credits on welcome qualification",
-      "Marriott Bonvoy Silver Elite Status",
-      "Earn 8 Marriott Bonvoy Points per Rs 150 spent at hotels participating in Marriott Bonvoy",
-      "Earn 4 Marriott Bonvoy Points per Rs 150 spent on travel, dining and entertainment",
-      "Earn 2 Marriott Bonvoy Points per Rs 150 spent on all other applicable purchases",
-      "12 complimentary lounge accesses within India each year",
-      "Complimentary international lounge access every year via DCI travel tool app",
+      "5% cashback on SmartBuy bookings and purchases",
       "2 complimentary golf lessons per quarter at select driving ranges in India",
-      "2 complimentary golf course accesses per quarter at select premium golf courses in India and internationally",
-      "Concierge service from 9 AM to 9 PM",
-      "Delay or loss of checked-in baggage cover up to USD 250",
-      "Loss of travel documents cover up to USD 250",
-      "Flight delay cover up to USD 250",
-      "Air accidental cover up to USD 12,500",
-      "Emergency medical expenses up to USD 18,750",
-      "Credit shield up to Rs 1,00,000",
-      "Loss liability cover up to Rs 9,00,000",
-      "Up to 50 days interest-free credit period",
-      "SmartEMI conversion after purchase",
-      "Contactless payments enabled"
+      "2 complimentary golf course accesses per quarter at select premium golf courses in India and internationally"
     ],
-    "redemption": {
-      "pointsExpiryYears": 2
-    },
+    "internalNotes": [
+      "Card details manually reviewed and verified by user on 2026-06-01",
+      "Audited against official HDFC Marriott Bonvoy product page, FAQ PDF and card benefit terms PDF on 2026-06-01.",
+      "Annual fee is Rs 3,000 plus taxes with no annual fee waiver currently listed on the official product page.",
+      "The card offers 12 total complimentary lounge accesses per year across domestic and international lounges.",
+      "International lounge access is provided via the DCI travel tool app.",
+      "Marriott hotel spends earn 8 Marriott Bonvoy Points per Rs 150 only on the first Rs 60,000 spent in a calendar month; spends beyond that threshold earn 2 Marriott Bonvoy Points per Rs 150.",
+      "Travel, dining and entertainment spends earn 4 Marriott Bonvoy Points per Rs 150 only on the first Rs 60,000 spent in a calendar month; spends beyond that threshold earn 2 Marriott Bonvoy Points per Rs 150.",
+      "Marriott Bonvoy Points expire after 24 months of inactivity in the Marriott Bonvoy account.",
+      "Excluded spends include fuel, online gaming, Smart EMI and Dial an EMI transactions, wallet or prepaid loads and voucher purchases, cash advances, card fees and charges, payment of outstanding balances, government transactions and rental transactions.",
+      "Concierge service is available from 9 AM to 9 PM.",
+      "Insurance and protection cover includes delay or loss of checked-in baggage up to USD 250, loss of travel documents up to USD 250, flight delay cover up to USD 250, air accidental cover up to USD 12,500, emergency medical expenses up to USD 18,750, credit shield up to Rs 1,00,000, and loss liability cover up to Rs 9,00,000."
+    ],
+    "supportingSourceUrls": [
+      "https://www.hdfc.bank.in/credit-cards/marriott-bonvoy-credit-card",
+      "https://www.hdfcbank.com/content/bbp/repositories/723fb80a-2dde-42a3-9793-7ae1be57c87f/Personal/Pay/Cards/Credit+Card/Credit+Card+Landing+Page/Credit+Cards/Co-Brand/Marriott+Co-Brand+Credit+card/FAQs-Mariott.pdf",
+      "https://www.hdfcbank.com/content/bbp/repositories/723fb80a-2dde-42a3-9793-7ae1be57c87f/Personal/Pay/Cards/Credit+Card/Credit+Card+Landing+Page/Credit+Cards/Co-Brand/Marriott+Co-Brand+Credit+card/Card-Benefit-Terms-Conditions-clean-HDFC-Bank-response.pdf"
+    ],
     "eligibility": {
       "salaried": [
         "Indian national",
@@ -1969,7 +1996,7 @@
     },
     "sourceUrl": "https://www.hdfc.bank.in/credit-cards/marriott-bonvoy-credit-card",
     "applyUrl": "https://www.hdfc.bank.in/credit-cards/marriott-bonvoy-credit-card",
-    "lastVerified": "2026-05-08",
+    "lastVerified": "2026-06-01",
     "verificationStatus": "official-direct",
     "popularityScore": 85
   },

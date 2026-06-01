@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ExternalLink } from "lucide-react";
 import type { CardScore, CreditCard } from "@/lib/types";
+import { getTotalLoungeAccess } from "@/lib/lounge";
 
 type Props = {
   card?: CreditCard;
@@ -10,10 +11,8 @@ type Props = {
 export default function CardTile({ card, score }: Props) {
   const resolvedCard = card ?? score?.card;
   if (!resolvedCard) return null;
-  const loungeVisits =
-    resolvedCard.loungeDomestic === "unlimited" || resolvedCard.loungeInternational === "unlimited"
-      ? "Unlimited"
-      : String(resolvedCard.loungeDomestic + resolvedCard.loungeInternational);
+  const totalLoungeAccess = getTotalLoungeAccess(resolvedCard);
+  const loungeVisits = totalLoungeAccess === "unlimited" ? "Unlimited" : String(totalLoungeAccess);
 
   return (
     <article className="panel card">

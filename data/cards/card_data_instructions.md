@@ -25,7 +25,7 @@ To keep the user interface clean and readable while maintaining maximum answerab
 ### A. Visible Data (`additionalBenefits`, `additionalDetails`)
 These fields are displayed directly on the credit card details page in the UI. Keep these concise and easy to read.
 
-*   **`additionalBenefits`**: Bullet points showcasing the high-level features of the card (e.g., unlimited airport lounge access, golf games, concierge desk).
+*   **`additionalBenefits`**: Bullet points showcasing the high-level features of the card (e.g., unlimited airport lounge access, golf games).
 *   **`additionalDetails`**: Key redemption guidelines, category-level capping summaries, and insurance details (e.g., "Grocery rewards are capped at 2,000 RP per calendar month").
 
 > [!IMPORTANT]
@@ -37,6 +37,8 @@ These fields are displayed directly on the credit card details page in the UI. K
 > - remove lounge rules repeated across `milestoneBenefits` and `additionalDetails`
 > - remove redemption values repeated in both `redemption` and visible prose
 > - keep audit or verification wording in `internalNotes`, not user-facing sections
+> - do not surface concierge or lifestyle-assistance details in visible sections unless concierge is a clear USP of the card (for example Amex Platinum or Centurion). Keep those details in `internalNotes` otherwise
+> - do not surface generic loss liability cover, credit shield, purchase protection, or standard insurance cover lines in visible sections unless the protection benefit is unusually strong or is a genuine USP of the card. Keep those details in `internalNotes` otherwise
 
 ### B. Hidden Data (`internalNotes`)
 This is an array of strings in the JSON configuration that is **not** rendered in the UI, but **is** fully indexed by the search and Ask AI engine. 

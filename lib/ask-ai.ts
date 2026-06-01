@@ -8,6 +8,7 @@ import { unsupportedQuestionLogPath } from "./question-logs";
 import type { UnsupportedQuestionLogEntry } from "./question-logs";
 import { parseQueryIntent } from "./query-intent";
 import { callAiWithSchema } from "./ai-provider";
+import { getTotalLoungeAccess } from "./lounge";
 
 export type AskAiResult = ReturnType<typeof answerFromCards> & {
   highlights?: string[];
@@ -136,12 +137,15 @@ function buildImportantFeatures(cardScore: CardScore) {
     features.push(`Earns ${card.rewardType}`);
   }
 
-  if (card.loungeDomestic === "unlimited" || card.loungeInternational === "unlimited") {
-    features.push("Unlimited domestic and international lounge access");
+  const totalLoungeAccess = getTotalLoungeAccess(card);
+  if (totalLoungeAccess === "unlimited") {
+    features.push("Unlimited lounge access");
+  } else if (card.combinedLoungeAccess !== undefined && typeof totalLoungeAccess === "number" && totalLoungeAccess > 0) {
+    features.push(`${totalLoungeAccess} lounge visits each year`);
   } else {
     const loungeParts = [
-      card.loungeDomestic > 0 ? `${card.loungeDomestic} domestic lounge visits` : "",
-      card.loungeInternational > 0 ? `${card.loungeInternational} international lounge visits` : ""
+      typeof card.loungeDomestic === "number" && card.loungeDomestic > 0 ? `${card.loungeDomestic} domestic lounge visits` : "",
+      typeof card.loungeInternational === "number" && card.loungeInternational > 0 ? `${card.loungeInternational} international lounge visits` : ""
     ].filter(Boolean);
 
     if (loungeParts.length > 0) {

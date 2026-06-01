@@ -73,6 +73,8 @@ export type CreditCard = {
   popularityScore: number;
   loungeDomestic: number | "unlimited";
   loungeInternational: number | "unlimited";
+  combinedLoungeAccess?: number | "unlimited";
+  combinedLoungeAccessLabel?: string;
   forexMarkup: number;
   tags: string[];
   exclusions: string[];

@@ -2,7 +2,7 @@ import { notFound } from "next/navigation";
 import { ExternalLink } from "lucide-react";
 import { cards, getCardById } from "@/lib/cards";
 import { getCardContent } from "@/lib/card-content";
-import { getLoungeConditions } from "@/lib/lounge";
+import { getLoungeConditions, getTotalLoungeAccess } from "@/lib/lounge";
 import LoungeInfo from "@/app/ui/LoungeInfo";
 import AskFeedback from "@/app/ui/AskFeedback";
 import AskBox from "@/app/ui/AskBox";
@@ -28,10 +28,11 @@ export async function generateMetadata({ params }: Props) {
   if (!card) return { title: "Card Review | Card AI India" };
 
   const fee = card.annualFee === 0 ? "lifetime free" : `Rs ${card.annualFee.toLocaleString("en-IN")} annual fee`;
-  const lounge = card.loungeDomestic === "unlimited"
+  const totalLoungeAccess = getTotalLoungeAccess(card);
+  const lounge = totalLoungeAccess === "unlimited"
     ? "unlimited lounge access"
-    : card.loungeDomestic > 0
-      ? `${card.loungeDomestic} lounge visits`
+    : totalLoungeAccess > 0
+      ? `${totalLoungeAccess} lounge visits`
       : null;
   const descParts = [card.issuer, fee, lounge].filter(Boolean).join(" · ");
   const description = `${card.name} — ${descParts}. Verified rewards, fees, and benefits.`;
@@ -142,6 +143,8 @@ export default async function CardPage({ params, searchParams }: Props) {
   const savedFeedback = query.feedbackSaved === "up" || query.feedbackSaved === "down" ? query.feedbackSaved : null;
   const feedbackError = query.feedbackError === "1";
   const cardContent = getCardContent(card.id);
+  const totalLoungeAccess = getTotalLoungeAccess(card);
+  const combinedLoungeConditions = getLoungeConditions(card);
   const redemptions = redemptionRows(card.redemption);
   const hasRedemptionSection = Boolean(
     redemptions.length || card.redemption?.airlinePartners?.length || card.redemption?.hotelPartners?.length
@@ -198,20 +201,35 @@ export default async function CardPage({ params, searchParams }: Props) {
               <strong>{formatCurrency(card.annualFee)}</strong>
               <span>Annual fee</span>
             </div>
-            <div className="stat">
-              <strong>{card.loungeDomestic === "unlimited" ? "Unlimited" : card.loungeDomestic}</strong>
-              <span className="stat-label">
-                Domestic lounge
-                <LoungeInfo items={getLoungeConditions(card, "domestic")} label="Domestic lounge conditions" />
-              </span>
-            </div>
-            <div className="stat">
-              <strong>{card.loungeInternational === "unlimited" ? "Unlimited" : card.loungeInternational}</strong>
-              <span className="stat-label">
-                International lounge
-                <LoungeInfo items={getLoungeConditions(card, "international")} label="International lounge conditions" />
-              </span>
-            </div>
+            {card.combinedLoungeAccess !== undefined ? (
+              <div className="stat">
+                <strong>{totalLoungeAccess === "unlimited" ? "Unlimited" : totalLoungeAccess}</strong>
+                <span className="stat-label">
+                  {card.combinedLoungeAccessLabel ?? "Lounge access"}
+                  <LoungeInfo
+                    items={combinedLoungeConditions}
+                    label={`${card.combinedLoungeAccessLabel ?? "Lounge access"} conditions`}
+                  />
+                </span>
+              </div>
+            ) : (
+              <>
+                <div className="stat">
+                  <strong>{card.loungeDomestic === "unlimited" ? "Unlimited" : card.loungeDomestic}</strong>
+                  <span className="stat-label">
+                    Domestic lounge
+                    <LoungeInfo items={getLoungeConditions(card, "domestic")} label="Domestic lounge conditions" />
+                  </span>
+                </div>
+                <div className="stat">
+                  <strong>{card.loungeInternational === "unlimited" ? "Unlimited" : card.loungeInternational}</strong>
+                  <span className="stat-label">
+                    International lounge
+                    <LoungeInfo items={getLoungeConditions(card, "international")} label="International lounge conditions" />
+                  </span>
+                </div>
+              </>
+            )}
             <div className="stat">
               <strong>{card.forexMarkup}%</strong>
               <span>Forex markup</span>
