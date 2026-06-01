@@ -38,6 +38,7 @@ These are listed or have official pages, but should not be added as active-new-a
 
 ## Product Work After Axis
 
+- [ ] Create latest news page showing recent card updates, devaluations, new launches, and lounge/benefit changes.
 - [ ] Improve card detail UI for fees, caps, exclusions, and source trust.
 - [ ] Add filters for issuer, cashback, travel, lounge, fuel, UPI, low-fee, and secured cards.
 - [ ] Add a GPT-only Ask AI flow over the merged in-memory card data from `data/cards/`, with retrieval first and no live web search.
