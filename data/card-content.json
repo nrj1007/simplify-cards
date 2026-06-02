@@ -282,7 +282,7 @@
   "axis-magnus": {
     "tips": [
       {
-        "text": "Air India has recently revalued its redemptions and is classified under Group B (subject to the 600,000 annual EDGE Reward Points transfer cap).",
+        "text": "Air India is classified under Group B (subject to the 600,000 annual EDGE Reward Points transfer cap at a 5:1 ratio) and has recently revalued its redemptions.",
         "sourceType": "manual",
         "sourceLabel": "Manual"
       },
@@ -296,7 +296,7 @@
   "axis-magnus-burgundy": {
     "tips": [
       {
-        "text": "Air India has recently revalued its redemptions and is classified under Group B (subject to the 600,000 annual EDGE Reward Points transfer cap).",
+        "text": "Air India is classified under Group B (subject to the 600,000 annual EDGE Reward Points transfer cap at a 5:4 Burgundy ratio) and has recently revalued its redemptions.",
         "sourceType": "manual",
         "sourceLabel": "Manual"
       },
@@ -310,7 +310,7 @@
   "axis-reserve": {
     "tips": [
       {
-        "text": "Air India has recently revalued its redemptions and is classified under Group B (subject to the 600,000 annual EDGE Reward Points transfer cap).",
+        "text": "Air India is classified under Group B (subject to the 600,000 annual EDGE Reward Points transfer cap at a 5:4 Reserve ratio) and has recently revalued its redemptions.",
         "sourceType": "manual",
         "sourceLabel": "Manual"
       },
