@@ -1,5 +1,4 @@
 import Link from "next/link";
-import AskBox from "../ui/AskBox";
 import LoungeInfo from "../ui/LoungeInfo";
 import AskFeedback from "../ui/AskFeedback";
 import CardTile from "../ui/CardTile";
@@ -9,6 +8,39 @@ import { getLoungeConditions, getTotalLoungeAccess } from "@/lib/lounge";
 import { stripScoringAnnotations } from "@/lib/card-index";
 import { scoreCards } from "@/lib/recommend";
 import type { CreditCard, RecommendationInput } from "@/lib/types";
+
+const ASK_EXAMPLES = [
+  "Best lifetime free cashback card",
+  "Top cards for airport lounge access",
+  "Axis Atlas",
+  "Best travel card under Rs 5000 fee",
+  "SBI Cashback"
+];
+
+const STATE_GUIDE = [
+  { title: "Exact card", body: "Full card snapshot with rewards and benefits." },
+  { title: "Multiple matches", body: "Ranked list plus a compare table." },
+  { title: "Comparison", body: "Leads with the table and the winner by use case." },
+  { title: "Vague query", body: "Surfaces ranked picks and asks a follow-up." },
+  { title: "No result", body: "Says so clearly and logs it for review." }
+];
+
+const DECISION_TONES = ["good", "warn", "skip"] as const;
+const DECISION_LABELS = ["Top pick", "Strong alternative", "Also worth a look"];
+const MATTER_CHIPS = ["Travel", "Cashback", "Lounge access", "Low annual fee"];
+const SPEND_CHIPS = [
+  { label: "Under Rs 25k", href: "/recommend" },
+  { label: "Rs 25k-75k", href: "/recommend" },
+  { label: "Rs 75k+", href: "/recommend" }
+] as const;
+
+function confidenceLabel(score?: number) {
+  if (score === undefined) return "Low";
+  if (score >= 82) return "High";
+  if (score >= 65) return "Medium-high";
+  if (score >= 45) return "Medium";
+  return "Exploratory";
+}
 
 type Props = {
   searchParams: Promise<{
@@ -151,7 +183,7 @@ function getCardUsp(card: CreditCard): string {
   const isLtf = card.joiningFee === 0 && card.annualFee === 0;
   const ltfText = isLtf ? "Lifetime free card" : "";
   const bestForText = card.bestFor.length > 0 ? `Optimized for ${card.bestFor.slice(0, 2).join(" and ")}` : "";
-  
+
   const features: string[] = [];
   if (card.forexMarkup <= 2) {
     features.push(`low ${card.forexMarkup}% forex markup`);
@@ -166,6 +198,13 @@ function getCardUsp(card: CreditCard): string {
 
   const summary = [ltfText, bestForText, featuresText].filter(Boolean).join(", ").replace(/,\s*,/g, ",").trim();
   return summary ? summary + "." : "High-value rewards credit card.";
+}
+
+function decisionCopy(item: { card: CreditCard; reasons: string[] }) {
+  const reason = item.reasons.find(
+    (entry) => !/^Strong card-name match/i.test(entry) && !/^Matches /i.test(entry)
+  );
+  return reason ?? getCardUsp(item.card);
 }
 
 function isTopCardsQuery(query?: string) {
@@ -222,16 +261,11 @@ export default async function AskPage({ searchParams }: Props) {
         return card && !mainAnswerCardIds.has(card.id) ? [card] : [];
       })
     : [];
-  const linkedAlternativeCardIds = new Set(linkedAlternativeCards.map((card) => card.id));
-  const alternativeCards = (showRankedAnswer ? result?.cards.slice(3) ?? [] : result?.cards.slice(1) ?? [])
-    .filter((item) => !mainAnswerCardIds.has(item.card.id) && !linkedAlternativeCardIds.has(item.card.id))
-    .slice(0, 2);
   const answerHighlights = (result?.highlights ?? []).filter((highlight) => {
     if (/^Closest alternative/i.test(highlight) || /^Closest alternatives/i.test(highlight)) return false;
     if (showRankedAnswer && /^#\d+:/i.test(highlight)) return false;
     return true;
   });
-  const spendScenarioRows = showRankedAnswer ? topCardsScenarioRows(answerHighlights) : [];
   const visibleAnswerHighlights = showRankedAnswer
     ? answerHighlights.filter((highlight) => !/^By yearly spend on a balanced mix:/i.test(highlight))
     : answerHighlights;
@@ -250,366 +284,513 @@ export default async function AskPage({ searchParams }: Props) {
     ? `/ask?query=${encodeURIComponent(input.query ?? "")}${input.maxAnnualFee !== undefined ? `&maxAnnualFee=${input.maxAnnualFee}` : ""}`
     : "/ask";
 
-  return (
-    <section className="section">
-      <div className="page-title">
-        <h1>Ask Card AI</h1>
-        <p>Get answers grounded in verified Indian credit card data.</p>
-      </div>
+  // Derived presentation values for the redesigned Ask surface.
+  const isRanked = showRankedAnswer && rankedResultCards.length > 0;
+  const matchCount = result?.cards.length ?? 0;
+  const fitNumber = isRanked ? matchCount : topCard ? Math.round(topCard.fitScore) : 0;
+  const fitLabel = isRanked ? "matches" : "fit";
+  const namedCardLookup = !isRanked && !topCardsQuery && result?.displayMode !== "ranked-list" && matchCount <= 1;
+  const answerHeadTitle = isRanked
+    ? `myCards found ${matchCount} relevant card${matchCount === 1 ? "" : "s"}.`
+    : topCard?.card.name ?? "";
+  const answerHeadSub = isRanked
+    ? "Ranked by how well they match the query, not by commission."
+    : topCard?.card.issuer ?? "";
+  const intentLabel = isRanked ? "Mixed recommendation" : namedCardLookup ? "Specific card lookup" : "Best-fit recommendation";
+  const confidence = topCard ? confidenceLabel(topCard.fitScore) : "Low";
+  const needsFollowUp = isRanked ? "Yes" : "No";
+  const decisionCards = (result?.cards ?? []).slice(0, 3).map((item, index) => ({
+    id: item.card.id,
+    tone: DECISION_TONES[index] ?? "skip",
+    label: DECISION_LABELS[index] ?? "Also worth a look",
+    name: item.card.name,
+    copy: decisionCopy(item)
+  }));
+  const queryStem = input?.query ? input.query : "best card";
 
-      <div className="detail-layout ask-layout" style={{ marginTop: 18 }}>
-        <div className="detail-main">
-          {result ? (
-            <div className="results" id="answer">
-              <div className="panel card answer-card">
-                <div className="meta answer-meta">
-                  <span>Answer</span>
-                  {input?.query ? <span className="badge">Query: {input.query}</span> : null}
-                </div>
-                <p className="answer-summary">{result.summary}</p>
-                {visibleAnswerHighlights.length > 0 ? (
-                  <ul className="detail-list answer-highlights">
-                    {visibleAnswerHighlights.map((highlight) => (
-                      <li key={highlight}>{highlight}</li>
-                    ))}
-                  </ul>
-                ) : null}
-                {linkedAlternativeCards.length > 0 ? (
-                  <div className="answer-linked-alternatives">
-                    <strong>{linkedAlternativeCards.length === 1 ? "Closest alternative:" : "Closest alternatives:"}</strong>{" "}
-                    {linkedAlternativeCards.map((card, index) => (
-                      <span key={card.id}>
-                        <Link className="answer-inline-link" href={`/cards/${card.id}`}>
-                          {card.name}
-                        </Link>
-                        {index < linkedAlternativeCards.length - 2
-                          ? ", "
-                          : index === linkedAlternativeCards.length - 2
-                            ? " and "
-                            : ""}
-                      </span>
-                    ))}
-                  </div>
-                ) : null}
-                {rankedResultCards.length > 0 ? (
-                  <div className="answer-ranked-list" aria-label="Top picks">
-                    {rankedResultCards.map((item, index) => (
-                      <article className="answer-ranked-item" key={item.card.id}>
-                        <div className="answer-ranked-copy">
-                          <div className="answer-ranked-meta">
-                            <span className="badge">#{index + 1}</span>
-                            <span>{item.card.issuer}</span>
-                          </div>
-                          <h2 className="answer-ranked-title">{item.card.name}</h2>
-                          <p className="answer-ranked-usp">{getCardUsp(item.card)}</p>
-                        </div>
-                        <div className="actions answer-ranked-actions">
-                          <Link className="button secondary" href={`/cards/${item.card.id}`}>
-                            Details
-                          </Link>
-                          <a className="button" href={item.card.applyUrl} rel="nofollow sponsored" target="_blank">
-                            Apply
-                          </a>
-                        </div>
-                      </article>
-                    ))}
-                  </div>
-                ) : null}
-                {showRankedAnswer && rankedResultCards.length > 0 ? (
-                  <section className="detail-section">
-                    <h2>Quick comparison</h2>
-                    <div className="table-wrap">
-                      <table className="compare-table compare-table--wide">
-                        <thead>
-                          <tr>
-                            <th>Feature</th>
-                            {comparisonCards.map((item) => (
-                              <th key={`compare-head-${item.card.id}`}>{item.card.name}</th>
-                            ))}
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <td>Best for</td>
-                            {comparisonCards.map((item) => (
-                              <td key={`best-for-${item.card.id}`}>{item.card.bestFor.slice(0, 3).join(", ") || "-"}</td>
-                            ))}
-                          </tr>
-                          <tr>
-                            <td>Reward rates</td>
-                            {comparisonCards.map((item) => (
-                              <td key={`reward-rates-${item.card.id}`}>
-                                <div className="compare-rate-summary">
-                                  {buildRewardRateSummary(item.card).map((line) => (
-                                    <div key={`${item.card.id}-${line}`}>{line}</div>
-                                  ))}
-                                </div>
-                              </td>
-                            ))}
-                          </tr>
-                          <tr>
-                            <td>Annual fee</td>
-                            {comparisonCards.map((item) => (
-                              <td key={`annual-fee-${item.card.id}`}>{formatCurrency(item.card.annualFee)}</td>
-                            ))}
-                          </tr>
-                          {showFeeWaiverRow ? (
-                            <tr>
-                              <td>Fee waiver spend</td>
-                              {comparisonCards.map((item) => (
-                                <td key={`fee-waiver-${item.card.id}`}>
-                                  {hasFeeWaiverSpend(item.card.feeWaiverSpend)
-                                    ? formatFeeWaiverSpend(item.card.feeWaiverSpend)
-                                    : "-"}
-                                </td>
-                              ))}
-                            </tr>
-                          ) : null}
-                          <tr>
-                            <td>Domestic lounge</td>
-                            {comparisonCards.map((item) => (
-                              <td key={`lounge-domestic-${item.card.id}`}>{formatLoungeValue(item.card.loungeDomestic)}</td>
-                            ))}
-                          </tr>
-                          <tr>
-                            <td>International lounge</td>
-                            {comparisonCards.map((item) => (
-                              <td key={`lounge-international-${item.card.id}`}>{formatLoungeValue(item.card.loungeInternational)}</td>
-                            ))}
-                          </tr>
-                          <tr>
-                            <td>Forex markup</td>
-                            {comparisonCards.map((item) => (
-                              <td key={`forex-${item.card.id}`}>{item.card.forexMarkup}%</td>
-                            ))}
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
-                  </section>
-                ) : null}
-                {/* Hidden as requested: How This Changes by Spend
-                {topCardsQuery && spendScenarioRows.length > 0 ? (
-                  <section className="detail-section">
-                    <h2>How This Changes by Spend</h2>
-                    <div className="table-wrap">
-                      <table className="compare-table compare-table--wide">
-                        <thead>
-                          <tr>
-                            <th>Yearly spend</th>
-                            <th>Best card on balanced mix</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          {spendScenarioRows.map((row) => (
-                            <tr key={`${row.spendLabel}-${row.cardName}`}>
-                              <td>{row.spendLabel}</td>
-                              <td>{row.cardName}</td>
-                            </tr>
-                          ))}
-                        </tbody>
-                      </table>
-                    </div>
-                  </section>
-                ) : null}
-                */}
-                {!showRankedAnswer && topCard ? (
-                  <div className="stats answer-stats">
-                    <div className="stat">
-                      <strong>Rs {topCard.estimatedAnnualFee.toLocaleString("en-IN")}</strong>
-                      <span>Effective annual fee</span>
-                    </div>
-                    {topCard.card.combinedLoungeAccess !== undefined ? (
-                      <div className="stat">
-                        <strong>{getTotalLoungeAccess(topCard.card) === "unlimited" ? "Unlimited" : getTotalLoungeAccess(topCard.card)}</strong>
-                        <span className="stat-label">
-                          {topCard.card.combinedLoungeAccessLabel ?? "Lounge access"}
-                          <LoungeInfo
-                            items={getLoungeConditions(topCard.card)}
-                            label={`${topCard.card.combinedLoungeAccessLabel ?? "Lounge access"} conditions`}
-                          />
+  return (
+    <div className="ask-results">
+      <section className="ask-hero">
+        <div className="container ask-hero-inner">
+          <div className="crumb">✦ {input?.query ? "Ask result" : "Ask myCards"}</div>
+          <h1>{input?.query ? <>Results for &ldquo;{input.query}&rdquo;.</> : <>Ask anything about Indian credit cards.</>}</h1>
+          <p className="ask-hero-copy">
+            {input?.query
+              ? "Grounded in verified card data — exact cards, ranked matches, comparisons, and an honest no-result when we cannot confirm."
+              : "Ask about rewards, lounges, fees, or the best card for your spend. Answers come from verified Indian credit-card data, not generic web results."}
+          </p>
+
+          <form className="ask-search" action="/ask" method="GET">
+            <input
+              name="query"
+              defaultValue={input?.query ?? ""}
+              aria-label="Ask another credit card question"
+              placeholder="e.g. best card for travel and cashback"
+            />
+            {input?.maxAnnualFee !== undefined ? <input name="maxAnnualFee" type="hidden" value={input.maxAnnualFee} /> : null}
+            <button className="btn btn-primary" type="submit">
+              Ask again →
+            </button>
+          </form>
+
+          <div className="query-examples">
+            {ASK_EXAMPLES.map((example) => (
+              <Link key={example} className="query-chip" href={`/ask?query=${encodeURIComponent(example)}`}>
+                {example}
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="ask-content">
+        <div className="container content-grid">
+          <div className="main-stack">
+            {result && topCard ? (
+              <>
+                <article className="panel" id="answer">
+                  <div className="answer-head">
+                    <div>
+                      <h2>{answerHeadTitle}</h2>
+                      <p>{answerHeadSub}</p>
+                      <div className="badge-row">
+                        <span className="ask-badge">
+                          {isRanked ? "Multiple results" : namedCardLookup ? "Exact card" : "Best fit"}
+                        </span>
+                        {topCard.card.bestFor[0] ? <span className="ask-badge gold">{topCard.card.bestFor[0]}</span> : null}
+                        <span className="ask-badge neutral">
+                          {matchCount} card{matchCount === 1 ? "" : "s"} reviewed
                         </span>
                       </div>
-                    ) : (
-                      <>
-                        <div className="stat">
-                          <strong>{topCard.card.loungeDomestic === "unlimited" ? "Unlimited" : topCard.card.loungeDomestic}</strong>
-                          <span className="stat-label">
-                            Domestic lounge
-                            <LoungeInfo items={domesticLoungeConditions} label="Domestic lounge conditions" />
-                          </span>
-                        </div>
-                        <div className="stat">
-                          <strong>
-                            {topCard.card.loungeInternational === "unlimited" ? "Unlimited" : topCard.card.loungeInternational}
-                          </strong>
-                          <span className="stat-label">
-                            International lounge
-                            <LoungeInfo items={internationalLoungeConditions} label="International lounge conditions" />
-                          </span>
-                        </div>
-                      </>
-                    )}
-                    <div className="stat">
-                      <strong>{topCard.card.forexMarkup}%</strong>
-                      <span>Forex markup</span>
+                    </div>
+                    <div className="fit-score">
+                      <div>
+                        <b>{fitNumber}</b>
+                        <span>{fitLabel}</span>
+                      </div>
                     </div>
                   </div>
-                ) : null}
-                {!showRankedAnswer && topCard?.card.rewards.length ? (
-                  <section className="detail-section">
-                    <h2>Rewards</h2>
-                    <div className="table-wrap">
-                      <table className="compare-table compare-table--wide">
-                        <thead>
-                          <tr>
-                            <th>Category</th>
-                            <th>Rate</th>
-                            {hasDailyCap && <th className="cap-column">Daily cap</th>}
-                            {hasMonthlyCap && <th className="cap-column">Monthly cap</th>}
-                            {hasStatementQuarterCap && <th className="cap-column">Statement quarter cap</th>}
-                          </tr>
-                        </thead>
-                        <tbody>
-                          {topCard.card.rewards.map((reward) => (
-                            <tr key={`${topCard.card.id}-${reward.category}-${reward.displayCategory ?? ""}`}>
-                              <td>{reward.displayCategory ?? reward.category}</td>
-                              <td>{formatRewardRate(reward, topCard.card.rewardType)}</td>
-                              {hasDailyCap && <td className="cap-column">{formatRewardCap(reward.capDaily, topCard.card.rewardType)}</td>}
-                              {hasMonthlyCap && <td className="cap-column">{formatRewardCap(reward.capMonthly, topCard.card.rewardType)}</td>}
-                              {hasStatementQuarterCap && (
-                                <td className="cap-column">{formatStatementQuarterCap(reward.capStatementQuarter)}</td>
-                              )}
-                            </tr>
-                          ))}
-                        </tbody>
-                      </table>
-                    </div>
-                  </section>
-                ) : null}
-                {!showRankedAnswer && topCard?.card.milestoneBenefits?.length ? (
-                  <section className="detail-section">
-                    <h2>Milestone benefits</h2>
-                    <ul className="detail-list">
-                      {topCard.card.milestoneBenefits.map((benefit) => (
-                        <li key={benefit}>{stripScoringAnnotations(benefit)}</li>
-                      ))}
-                    </ul>
-                  </section>
-                ) : null}
-                {!showRankedAnswer && topCard ? (
-                  <div className="actions answer-actions">
-                    <Link className="button secondary" href={`/cards/${topCard.card.id}`}>
-                      More details
-                    </Link>
-                    <a className="button" href={topCard.card.applyUrl} rel="nofollow sponsored" target="_blank">
-                      Apply
-                    </a>
-                  </div>
-                ) : null}
-                {input?.query ? (
-                  <>
-                    <AskFeedback
-                      cardIds={result.cards.map((item) => item.card.id)}
-                      input={input}
-                      query={input.query}
-                      returnAnchor="answer"
-                      returnTo={returnTo}
-                      savedFeedback={savedFeedback}
-                      summary={result.summary}
-                    />
-                    {feedbackError ? (
-                      <p className="notice" style={{ margin: 0 }}>
-                        Feedback could not be saved on the server.
-                      </p>
-                    ) : null}
-                  </>
-                ) : null}
-              </div>
 
-              {!topCard ? (
-                <div className="panel card">
-                  <p style={{ margin: "0 0 16px" }}>
-                    We couldn&apos;t find a specific card match for this question in our database yet.
-                  </p>
-                  <p className="muted" style={{ margin: "0 0 20px" }}>
-                    Try rephrasing — for example, mention a use case like &ldquo;cashback&rdquo; or &ldquo;lounge access&rdquo; — or browse all cards below.
-                  </p>
-                  <Link className="button secondary" href="/finder">Browse all cards</Link>
-                  <div className="grid cards" style={{ marginTop: 24 }}>
+                  <div className="panel-body">
+                    <p className="takeaway">
+                      <strong>myCards take:</strong> {result.summary}
+                    </p>
+
+                    {visibleAnswerHighlights.length > 0 ? (
+                      <ul className="detail-list answer-highlights">
+                        {visibleAnswerHighlights.map((highlight) => (
+                          <li key={highlight}>{highlight}</li>
+                        ))}
+                      </ul>
+                    ) : null}
+
+                    {linkedAlternativeCards.length > 0 ? (
+                      <div className="answer-linked-alternatives">
+                        <strong>
+                          {linkedAlternativeCards.length === 1 ? "Closest alternative:" : "Closest alternatives:"}
+                        </strong>{" "}
+                        {linkedAlternativeCards.map((card, index) => (
+                          <span key={card.id}>
+                            <Link className="answer-inline-link" href={`/cards/${card.id}`}>
+                              {card.name}
+                            </Link>
+                            {index < linkedAlternativeCards.length - 2
+                              ? ", "
+                              : index === linkedAlternativeCards.length - 2
+                                ? " and "
+                                : ""}
+                          </span>
+                        ))}
+                      </div>
+                    ) : null}
+
+                    {decisionCards.length > 1 ? (
+                      <div className="decision-grid">
+                        {decisionCards.map((decision) => (
+                          <Link key={decision.id} className={`decision-card ${decision.tone}`} href={`/cards/${decision.id}`}>
+                            <small>{decision.label}</small>
+                            <h3>{decision.name}</h3>
+                            <p>{decision.copy}</p>
+                          </Link>
+                        ))}
+                      </div>
+                    ) : null}
+                  </div>
+                </article>
+
+                {isRanked ? (
+                  <>
+                    <section className="panel">
+                      <div className="panel-body">
+                        <h2 className="section-title">Ranked matches</h2>
+                        <div className="result-list">
+                          {rankedResultCards.map((item, index) => (
+                            <article className={`result-card${index === 0 ? " best" : ""}`} key={item.card.id}>
+                              <div className="result-main">
+                                <div className="rank">{index + 1}</div>
+                                <div>
+                                  <h3>{item.card.name}</h3>
+                                  <p>{getCardUsp(item.card)}</p>
+                                  <div className="result-meta">
+                                    <span className="mini-tag">Fit {Math.round(item.fitScore)}</span>
+                                    {item.card.bestFor[0] ? <span className="mini-tag">{item.card.bestFor[0]}</span> : null}
+                                    <span className="mini-tag">
+                                      {item.card.annualFee === 0 ? "Lifetime free" : `${formatCurrency(item.card.annualFee)} fee`}
+                                    </span>
+                                  </div>
+                                </div>
+                              </div>
+                              <div className="result-actions">
+                                <Link className="mini-btn primary" href={`/cards/${item.card.id}`}>
+                                  View details
+                                </Link>
+                                <a className="mini-btn" href={item.card.applyUrl} rel="nofollow sponsored" target="_blank">
+                                  Apply
+                                </a>
+                              </div>
+                            </article>
+                          ))}
+                        </div>
+                      </div>
+                    </section>
+
+                    <section className="panel">
+                      <div className="panel-body">
+                        <h2 className="section-title">Compare the top matches</h2>
+                        <div className="table-wrap">
+                          <table className="compare-table compare-table--wide">
+                            <thead>
+                              <tr>
+                                <th>Feature</th>
+                                {comparisonCards.map((item) => (
+                                  <th key={`compare-head-${item.card.id}`}>{item.card.name}</th>
+                                ))}
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td>Best for</td>
+                                {comparisonCards.map((item) => (
+                                  <td key={`best-for-${item.card.id}`}>{item.card.bestFor.slice(0, 3).join(", ") || "-"}</td>
+                                ))}
+                              </tr>
+                              <tr>
+                                <td>Reward rates</td>
+                                {comparisonCards.map((item) => (
+                                  <td key={`reward-rates-${item.card.id}`}>
+                                    <div className="compare-rate-summary">
+                                      {buildRewardRateSummary(item.card).map((line) => (
+                                        <div key={`${item.card.id}-${line}`}>{line}</div>
+                                      ))}
+                                    </div>
+                                  </td>
+                                ))}
+                              </tr>
+                              <tr>
+                                <td>Annual fee</td>
+                                {comparisonCards.map((item) => (
+                                  <td key={`annual-fee-${item.card.id}`}>{formatCurrency(item.card.annualFee)}</td>
+                                ))}
+                              </tr>
+                              {showFeeWaiverRow ? (
+                                <tr>
+                                  <td>Fee waiver spend</td>
+                                  {comparisonCards.map((item) => (
+                                    <td key={`fee-waiver-${item.card.id}`}>
+                                      {hasFeeWaiverSpend(item.card.feeWaiverSpend)
+                                        ? formatFeeWaiverSpend(item.card.feeWaiverSpend)
+                                        : "-"}
+                                    </td>
+                                  ))}
+                                </tr>
+                              ) : null}
+                              <tr>
+                                <td>Domestic lounge</td>
+                                {comparisonCards.map((item) => (
+                                  <td key={`lounge-domestic-${item.card.id}`}>{formatLoungeValue(item.card.loungeDomestic)}</td>
+                                ))}
+                              </tr>
+                              <tr>
+                                <td>International lounge</td>
+                                {comparisonCards.map((item) => (
+                                  <td key={`lounge-international-${item.card.id}`}>
+                                    {formatLoungeValue(item.card.loungeInternational)}
+                                  </td>
+                                ))}
+                              </tr>
+                              <tr>
+                                <td>Forex markup</td>
+                                {comparisonCards.map((item) => (
+                                  <td key={`forex-${item.card.id}`}>{item.card.forexMarkup}%</td>
+                                ))}
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </section>
+                  </>
+                ) : (
+                  <section className="panel">
+                    <div className="panel-body">
+                      <h2 className="section-title">Card snapshot</h2>
+                      <div className="stats answer-stats">
+                        <div className="stat">
+                          <strong>Rs {topCard.estimatedAnnualFee.toLocaleString("en-IN")}</strong>
+                          <span>Effective annual fee</span>
+                        </div>
+                        {topCard.card.combinedLoungeAccess !== undefined ? (
+                          <div className="stat">
+                            <strong>
+                              {getTotalLoungeAccess(topCard.card) === "unlimited" ? "Unlimited" : getTotalLoungeAccess(topCard.card)}
+                            </strong>
+                            <span className="stat-label">
+                              {topCard.card.combinedLoungeAccessLabel ?? "Lounge access"}
+                              <LoungeInfo
+                                items={getLoungeConditions(topCard.card)}
+                                label={`${topCard.card.combinedLoungeAccessLabel ?? "Lounge access"} conditions`}
+                              />
+                            </span>
+                          </div>
+                        ) : (
+                          <>
+                            <div className="stat">
+                              <strong>{topCard.card.loungeDomestic === "unlimited" ? "Unlimited" : topCard.card.loungeDomestic}</strong>
+                              <span className="stat-label">
+                                Domestic lounge
+                                <LoungeInfo items={domesticLoungeConditions} label="Domestic lounge conditions" />
+                              </span>
+                            </div>
+                            <div className="stat">
+                              <strong>
+                                {topCard.card.loungeInternational === "unlimited" ? "Unlimited" : topCard.card.loungeInternational}
+                              </strong>
+                              <span className="stat-label">
+                                International lounge
+                                <LoungeInfo items={internationalLoungeConditions} label="International lounge conditions" />
+                              </span>
+                            </div>
+                          </>
+                        )}
+                        <div className="stat">
+                          <strong>{topCard.card.forexMarkup}%</strong>
+                          <span>Forex markup</span>
+                        </div>
+                      </div>
+
+                      {topCard.card.rewards.length ? (
+                        <section className="detail-section">
+                          <h2>Rewards</h2>
+                          <div className="table-wrap">
+                            <table className="compare-table compare-table--wide">
+                              <thead>
+                                <tr>
+                                  <th>Category</th>
+                                  <th>Rate</th>
+                                  {hasDailyCap && <th className="cap-column">Daily cap</th>}
+                                  {hasMonthlyCap && <th className="cap-column">Monthly cap</th>}
+                                  {hasStatementQuarterCap && <th className="cap-column">Statement quarter cap</th>}
+                                </tr>
+                              </thead>
+                              <tbody>
+                                {topCard.card.rewards.map((reward) => (
+                                  <tr key={`${topCard.card.id}-${reward.category}-${reward.displayCategory ?? ""}`}>
+                                    <td>{reward.displayCategory ?? reward.category}</td>
+                                    <td>{formatRewardRate(reward, topCard.card.rewardType)}</td>
+                                    {hasDailyCap && <td className="cap-column">{formatRewardCap(reward.capDaily, topCard.card.rewardType)}</td>}
+                                    {hasMonthlyCap && <td className="cap-column">{formatRewardCap(reward.capMonthly, topCard.card.rewardType)}</td>}
+                                    {hasStatementQuarterCap && (
+                                      <td className="cap-column">{formatStatementQuarterCap(reward.capStatementQuarter)}</td>
+                                    )}
+                                  </tr>
+                                ))}
+                              </tbody>
+                            </table>
+                          </div>
+                        </section>
+                      ) : null}
+
+                      {topCard.card.milestoneBenefits?.length ? (
+                        <section className="detail-section">
+                          <h2>Milestone benefits</h2>
+                          <ul className="detail-list">
+                            {topCard.card.milestoneBenefits.map((benefit) => (
+                              <li key={benefit}>{stripScoringAnnotations(benefit)}</li>
+                            ))}
+                          </ul>
+                        </section>
+                      ) : null}
+
+                      <div className="actions answer-actions">
+                        <Link className="button secondary" href={`/cards/${topCard.card.id}`}>
+                          More details
+                        </Link>
+                        <a className="button" href={topCard.card.applyUrl} rel="nofollow sponsored" target="_blank">
+                          Apply
+                        </a>
+                      </div>
+                    </div>
+                  </section>
+                )}
+
+                <section className="panel">
+                  <div className="panel-body">
+                    <h2 className="section-title">Need more precision?</h2>
+                    <div className="clarify-box">
+                      <article className="clarify-card">
+                        <h3>What matters more?</h3>
+                        <p>Pick one so myCards can rank more accurately.</p>
+                        <div className="clarify-options">
+                          {MATTER_CHIPS.map((chip) => (
+                            <Link
+                              key={chip}
+                              className="option-chip"
+                              href={`/ask?query=${encodeURIComponent(`${queryStem} for ${chip.toLowerCase()}`)}`}
+                            >
+                              {chip}
+                            </Link>
+                          ))}
+                        </div>
+                      </article>
+
+                      <article className="clarify-card">
+                        <h3>What is your monthly spend?</h3>
+                        <p>Spend level changes whether premium cards are worth the fee.</p>
+                        <div className="clarify-options">
+                          {SPEND_CHIPS.map((chip) => (
+                            <Link key={chip.label} className="option-chip" href={chip.href}>
+                              {chip.label}
+                            </Link>
+                          ))}
+                        </div>
+                      </article>
+                    </div>
+                  </div>
+                </section>
+
+                {input?.query ? (
+                  <section className="panel">
+                    <div className="panel-body">
+                      <AskFeedback
+                        cardIds={result.cards.map((item) => item.card.id)}
+                        input={input}
+                        query={input.query}
+                        returnAnchor="answer"
+                        returnTo={returnTo}
+                        savedFeedback={savedFeedback}
+                        summary={result.summary}
+                      />
+                      {feedbackError ? (
+                        <p className="notice" style={{ margin: "12px 0 0" }}>
+                          Feedback could not be saved on the server.
+                        </p>
+                      ) : null}
+                    </div>
+                  </section>
+                ) : null}
+              </>
+            ) : result ? (
+              <section className="panel">
+                <div className="panel-body">
+                  <h2 className="section-title">No confident match</h2>
+                  <div className="empty-state">
+                    <h3>We could not answer this confidently.</h3>
+                    <p>
+                      {result.summary ||
+                        "Try rephrasing — mention a use case like “cashback” or “lounge access” — or browse all cards below."}
+                    </p>
+                    <Link className="btn btn-primary" href="/finder">
+                      Browse all cards →
+                    </Link>
+                  </div>
+                  <div className="grid cards" style={{ marginTop: 20 }}>
                     {scoreCards({ query: "best overall" }).slice(0, 2).map((score) => (
                       <CardTile key={score.card.id} score={score} />
                     ))}
                   </div>
                 </div>
-              ) : null}
-
-              {alternativeCards.length ? (
-                <section className="result-group">
-                  <div className="section-head ask-section-head">
-                    <div>
-                      <h2>Alternatives</h2>
-                      <p>Nearby options worth comparing.</p>
-                    </div>
+              </section>
+            ) : (
+              <section className="panel">
+                <div className="panel-body">
+                  <div className="empty-state">
+                    <h3>Ask your first question.</h3>
+                    <p>Type a question above and myCards will return a grounded answer from verified card data.</p>
                   </div>
+                </div>
+              </section>
+            )}
+          </div>
 
-                  <div className="grid cards">
-                    {alternativeCards.map((item) => (
-                      <article className="panel card result-card result-card-compact" key={item.card.id}>
-                        <div>
-                          <div className="meta">
-                            <span>{item.card.issuer}</span>
-                            <span>Fit score {Math.round(item.fitScore).toLocaleString("en-IN")}</span>
-                          </div>
-                          <h3 style={{ marginTop: 6 }}>{item.card.name}</h3>
-                        </div>
-
-                        <div className="meta">
-                          <span>
-                            Rs {item.estimatedAnnualRewards.toLocaleString("en-IN")} rewards{" "}
-                            {accorRedemptionNote(item.card)}
-                          </span>
-                          <span>Rs {item.estimatedAnnualFee.toLocaleString("en-IN")} fee</span>
-                        </div>
-
-                        <ul className="detail-list">
-                          {item.reasons.slice(0, 3).map((reason) => (
-                            <li key={reason}>{reason}</li>
-                          ))}
-                        </ul>
-
-                        <div className="actions">
-                          <Link className="button secondary" href={`/cards/${item.card.id}`}>
-                            View details
-                          </Link>
-                          <a className="button" href={item.card.applyUrl} rel="nofollow sponsored" target="_blank">
-                            Apply
-                          </a>
-                        </div>
-                      </article>
-                    ))}
+          <aside className="side-stack ask-sticky">
+            {result && topCard ? (
+              <section className="sidebar-card">
+                <h3 className="side-title">Result state</h3>
+                <div className="summary-list">
+                  <div className="summary-item">
+                    <span>Intent</span>
+                    <b>{intentLabel}</b>
                   </div>
-                </section>
-              ) : null}
-            </div>
-          ) : (
-            <div className="panel card" style={{ marginTop: 18 }}>
-              <p className="muted" style={{ margin: 0 }}>
-                Ask a question and we will return a grounded answer from our verified card data.
-              </p>
-            </div>
-          )}
+                  <div className="summary-item">
+                    <span>Matches</span>
+                    <b>
+                      {matchCount} card{matchCount === 1 ? "" : "s"}
+                    </b>
+                  </div>
+                  <div className="summary-item">
+                    <span>Confidence</span>
+                    <b>{confidence}</b>
+                  </div>
+                  <div className="summary-item">
+                    <span>Needs follow-up?</span>
+                    <b>{needsFollowUp}</b>
+                  </div>
+                </div>
+                <div className="sidebar-actions">
+                  <Link className="mini-btn primary" href="/compare">
+                    Compare cards
+                  </Link>
+                  <Link className="mini-btn" href="/finder">
+                    Browse all cards
+                  </Link>
+                </div>
+                <p className="source-note">
+                  Grounded in verified card data. Apply links may be affiliate links — we may earn a commission at no extra cost
+                  to you.
+                </p>
+              </section>
+            ) : null}
 
+            <section className="sidebar-card">
+              <h3 className="side-title">Supported result types</h3>
+              <div className="state-guide">
+                {STATE_GUIDE.map((state) => (
+                  <div className="state-pill" key={state.title}>
+                    <span className="dot" aria-hidden="true" />
+                    <span>
+                      <b>{state.title}:</b> {state.body}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </section>
+
+            <section className="sidebar-card ask-again">
+              <h3 className="side-title">Ask a follow-up</h3>
+              <form action="/ask" method="GET">
+                <textarea
+                  name="query"
+                  aria-label="Ask a follow-up credit card question"
+                  placeholder="Example: I spend Rs 60k/month and travel twice a year. Which one should I choose?"
+                />
+                <button className="btn btn-primary" type="submit">
+                  Ask follow-up →
+                </button>
+              </form>
+            </section>
+          </aside>
         </div>
-
-        <aside className="detail-aside ask-aside">
-          <AskBox
-            defaultMaxAnnualFee={input?.maxAnnualFee}
-            defaultQuery={input?.query ?? params.query ?? ""}
-            showHelperText={false}
-          />
-        </aside>
-      </div>
-    </section>
+      </section>
+    </div>
   );
 }
