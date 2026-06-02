@@ -204,12 +204,13 @@ export default async function AskPage({ searchParams }: Props) {
   const savedFeedback = params.feedbackSaved === "up" || params.feedbackSaved === "down" ? params.feedbackSaved : null;
   const feedbackError = params.feedbackError === "1";
   const topCardsQuery = isTopCardsQuery(input?.query);
+  const showRankedAnswer = topCardsQuery || result?.displayMode === "ranked-list";
   const topCard = result?.cards[0];
-  const rankedResultCards = topCardsQuery ? result?.cards ?? [] : [];
-  const comparisonCards = topCardsQuery ? rankedResultCards.slice(0, 3) : [];
+  const rankedResultCards = showRankedAnswer ? result?.cards ?? [] : [];
+  const comparisonCards = showRankedAnswer ? rankedResultCards.slice(0, 3) : [];
   const showFeeWaiverRow = comparisonCards.some((item) => hasFeeWaiverSpend(item.card.feeWaiverSpend));
   const mainAnswerCardIds = new Set(
-    topCardsQuery
+    showRankedAnswer
       ? rankedResultCards.map((item) => item.card.id)
       : topCard
         ? [topCard.card.id]
@@ -222,16 +223,16 @@ export default async function AskPage({ searchParams }: Props) {
       })
     : [];
   const linkedAlternativeCardIds = new Set(linkedAlternativeCards.map((card) => card.id));
-  const alternativeCards = (topCardsQuery ? result?.cards.slice(3) ?? [] : result?.cards.slice(1) ?? [])
+  const alternativeCards = (showRankedAnswer ? result?.cards.slice(3) ?? [] : result?.cards.slice(1) ?? [])
     .filter((item) => !mainAnswerCardIds.has(item.card.id) && !linkedAlternativeCardIds.has(item.card.id))
     .slice(0, 2);
   const answerHighlights = (result?.highlights ?? []).filter((highlight) => {
     if (/^Closest alternative/i.test(highlight) || /^Closest alternatives/i.test(highlight)) return false;
-    if (topCardsQuery && /^#\d+:/i.test(highlight)) return false;
+    if (showRankedAnswer && /^#\d+:/i.test(highlight)) return false;
     return true;
   });
-  const spendScenarioRows = topCardsQuery ? topCardsScenarioRows(answerHighlights) : [];
-  const visibleAnswerHighlights = topCardsQuery
+  const spendScenarioRows = showRankedAnswer ? topCardsScenarioRows(answerHighlights) : [];
+  const visibleAnswerHighlights = showRankedAnswer
     ? answerHighlights.filter((highlight) => !/^By yearly spend on a balanced mix:/i.test(highlight))
     : answerHighlights;
   const domesticLoungeConditions = topCard ? getLoungeConditions(topCard.card, "domestic") : [];
@@ -314,7 +315,7 @@ export default async function AskPage({ searchParams }: Props) {
                     ))}
                   </div>
                 ) : null}
-                {topCardsQuery && rankedResultCards.length > 0 ? (
+                {showRankedAnswer && rankedResultCards.length > 0 ? (
                   <section className="detail-section">
                     <h2>Quick comparison</h2>
                     <div className="table-wrap">
@@ -412,7 +413,7 @@ export default async function AskPage({ searchParams }: Props) {
                   </section>
                 ) : null}
                 */}
-                {!topCardsQuery && topCard ? (
+                {!showRankedAnswer && topCard ? (
                   <div className="stats answer-stats">
                     <div className="stat">
                       <strong>Rs {topCard.estimatedAnnualFee.toLocaleString("en-IN")}</strong>
@@ -455,7 +456,7 @@ export default async function AskPage({ searchParams }: Props) {
                     </div>
                   </div>
                 ) : null}
-                {!topCardsQuery && topCard?.card.rewards.length ? (
+                {!showRankedAnswer && topCard?.card.rewards.length ? (
                   <section className="detail-section">
                     <h2>Rewards</h2>
                     <div className="table-wrap">
@@ -486,7 +487,7 @@ export default async function AskPage({ searchParams }: Props) {
                     </div>
                   </section>
                 ) : null}
-                {!topCardsQuery && topCard?.card.milestoneBenefits?.length ? (
+                {!showRankedAnswer && topCard?.card.milestoneBenefits?.length ? (
                   <section className="detail-section">
                     <h2>Milestone benefits</h2>
                     <ul className="detail-list">
@@ -496,7 +497,7 @@ export default async function AskPage({ searchParams }: Props) {
                     </ul>
                   </section>
                 ) : null}
-                {!topCardsQuery && topCard ? (
+                {!showRankedAnswer && topCard ? (
                   <div className="actions answer-actions">
                     <Link className="button secondary" href={`/cards/${topCard.card.id}`}>
                       More details

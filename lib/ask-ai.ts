@@ -14,6 +14,7 @@ export type AskAiResult = ReturnType<typeof answerFromCards> & {
   highlights?: string[];
   needsDatabaseUpdate?: boolean;
   unsupportedReason?: string;
+  displayMode?: "default" | "ranked-list";
 };
 
 type ParsedCardQuestion = {
@@ -1031,9 +1032,10 @@ function buildCardFamilyLookupResult(input: RecommendationInput, scoredCards: Ca
     summary: `I found multiple matching ${label} cards in our database.`,
     cards: familyCards,
     highlights: [
-      `Available matches: ${joinNatural(familyCards.map((item) => item.card.name))}.`,
+      ...familyCards.map((item, index) => `#${index + 1}: ${item.card.name}`),
       "Open a specific card if you want exact rewards, lounge, forex, or exclusion details."
-    ]
+    ],
+    displayMode: "ranked-list" as const
   };
 }
 
@@ -1338,7 +1340,8 @@ export async function answerQuestion(input: RecommendationInput): Promise<AskAiR
       ...answer,
       summary: cardFamilyLookup.summary,
       cards: cardFamilyLookup.cards,
-      highlights: cardFamilyLookup.highlights
+      highlights: cardFamilyLookup.highlights,
+      displayMode: cardFamilyLookup.displayMode
     };
   }
 
