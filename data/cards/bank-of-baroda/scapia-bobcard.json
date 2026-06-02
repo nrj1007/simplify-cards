@@ -21,24 +21,26 @@
     {
       "category": "travel",
       "rate": 4,
+      "displayCategory": "Travel bookings on Scapia app",
+      "displayRate": "20% Scapia Coins",
       "capMonthly": null
     },
     {
-      "category": "online",
+      "category": "online, retail",
       "rate": 2,
-      "capMonthly": null
-    },
-    {
-      "category": "retail",
-      "rate": 2,
+      "displayCategory": "Visa online and offline spends",
+      "displayRate": "10% Scapia Coins",
       "capMonthly": null
     },
     {
       "category": "upi",
       "rate": 1,
+      "displayCategory": "UPI spends of Rs 500 or more on RuPay",
+      "displayRate": "5% Scapia Coins",
       "capMonthly": null
     }
   ],
+  "popularityScore": 87,
   "loungeDomestic": "unlimited",
   "loungeInternational": 0,
   "forexMarkup": 0,
@@ -53,25 +55,45 @@
     "lifetime free"
   ],
   "exclusions": [
-    "ineligible transactions as per Scapia and BOBCARD terms",
-    "Visa rewards apply on eligible spends on select categories of minimum Rs 20",
-    "RuPay rewards apply on eligible UPI, online and offline spends of Rs 500 or more"
+    "fuel spends",
+    "rental payments",
+    "educational services and school fees",
+    "utility bill payments",
+    "telecom, broadband, cable, and communication services",
+    "insurance payments",
+    "government services",
+    "wallet loading and top-up transactions",
+    "cash withdrawals and advances",
+    "money transfers",
+    "EMI transactions",
+    "purchase of gift cards",
+    "cryptocurrency transactions",
+    "credit card bill payments"
   ],
-  "milestoneBenefits": [
-    "Unlimited domestic lounge access unlocks on monthly spends of Rs 20,000"
+  "exclusionCodes": [
+    "fuel",
+    "rent",
+    "education",
+    "utilities",
+    "telecom",
+    "insurance",
+    "government",
+    "wallet_load",
+    "cash_advance",
+    "balance_transfer",
+    "emi",
+    "outstanding_balance_payment"
   ],
   "additionalBenefits": [
-    "Zero joining fee and zero annual fee",
-    "Zero forex markup on all international spends",
-    "10% rewards on offline and online spends on select categories on Visa card of minimum Rs 20",
-    "5% rewards on eligible offline, online and UPI spends on RuPay card of minimum Rs 500",
-    "20% rewards on travel bookings through the Scapia app",
-    "Unlimited domestic lounge access after spending Rs 20,000 a month",
-    "Airport privileges up to Rs 1,000"
+    "Airport privileges worth up to Rs 1,000 back in rewards on airport dining, shopping, and spa services",
+    "International airport privileges (100% value back up to Rs 2,000 on airport dining, duty-free, and brand outlets) are unlocked by booking an international flight of Rs 50,000 or more in a single transaction via the Scapia app"
+  ],
+  "additionalDetails": [
+    "Scapia Coins can only be redeemed for flights, hotels, and buses within the Scapia app."
   ],
   "redemption": {
     "airMilesValue": 0.2,
-    "pointsExpiryYears": null
+    "pointsExpiryYears": 3
   },
   "eligibility": {
     "salaried": [
@@ -81,9 +103,17 @@
       "Eligibility is subject to BOBCARD and Scapia approval criteria"
     ]
   },
+  "imageUrl": "/images/scapia-bobcard.png",
   "sourceUrl": "https://www.bobcard.co.in/credit-card-types/bobcard-scapia-credit-card",
   "applyUrl": "https://www.bobcard.co.in/credit-card-types/bobcard-scapia-credit-card",
-  "lastVerified": "2026-05-10",
+  "lastVerified": "2026-06-02",
   "verificationStatus": "official-direct",
-  "popularityScore": 87
+  "internalNotes": [
+    "Card details manually reviewed and verified by user on 2026-06-02",
+    "Unlimited domestic airport lounge access requires a minimum spend of Rs 20,000 in the preceding calendar month.",
+    "Scapia Coins are valid for 3 years (36 months) from the date of credit.",
+    "Excluded categories from earning Scapia Coins include fuel, rent, education, utilities, telecom, insurance, government spends, EMI transactions, wallet loading, cash withdrawals, money transfers, and gift cards.",
+    "RuPay virtual card UPI spends of less than Rs 500 do not earn Scapia Coins.",
+    "Effective February 27, 2026, insurance spends (MCC 6300) and utility transactions (including telecom, internet, cable, and communication services under MCC 4900, 4812, 4814, 4816, and 4899) are excluded from earning Scapia Coins and do not count towards the domestic lounge spend milestone."
+  ]
 }

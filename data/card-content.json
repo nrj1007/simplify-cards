@@ -1,4 +1,16 @@
 {
+  "scapia-bobcard": {
+    "updates": [
+      {
+        "title": "BOBCARD Scapia Credit Card rewards and lounge access revised",
+        "summary": "Effective 27 February 2026, Scapia revised its reward eligibility and lounge threshold. Spends on insurance and utilities (including telecom) no longer earn Scapia Coins. Unlimited domestic lounge access and airport privileges now require a minimum spend of ₹20,000 in the preceding month (previously ₹10,000). International airport privileges now require booking an international flight of ₹50,000 or more via the Scapia app.",
+        "sourceType": "manual",
+        "sourceLabel": "BOBCARD official updates",
+        "sourceUrl": "https://www.bobcard.co.in/credit-card-types/bobcard-scapia-credit-card",
+        "publishedAt": "2026-02-27"
+      }
+    ]
+  },
   "scapia-federal": {
     "updates": [
       {
