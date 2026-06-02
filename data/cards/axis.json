@@ -545,7 +545,10 @@
       "Miles may expire if the loyalty account remains inactive (no earn, redeem, or login) for 365 consecutive days.",
       "Annual transfer caps per customer ID reset every calendar year: Group A (international partners) capped at 30,000 EDGE Miles; Group B capped at 120,000 EDGE Miles. Combined limit of 150,000 EDGE Miles.",
       "Travel transfer partners: Accor, Marriott Bonvoy, and Qatar Airways were removed as transfer partners in April 2026. Standard legacy partners transfer at a 1:2 ratio. Newly added partners (British Airways, Finnair, Vietnam Airlines) transfer at a 2:1 ratio.",
-      "Airport lounge access is tiered: Silver tier (entry-level / <3L spend) gets 8 domestic / 4 international visits; Gold tier (7.5L spend) gets 12 domestic / 6 international visits; Platinum tier (15L spend) gets 18 domestic / 12 international visits per anniversary year.",
+      "Airport lounge access is tiered based on spending:",
+      "Silver tier (entry-level / <3L spend): 8 domestic / 4 international lounge visits per anniversary year.",
+      "Gold tier (7.5L spend): 12 domestic / 6 international lounge visits per anniversary year.",
+      "Platinum tier (15L spend): 18 domestic / 12 international lounge visits per anniversary year.",
       "Gold, rent, wallet load, government, insurance, fuel, utilities, and telecom transactions are completely excluded from earning rewards and tier/milestone spend calculations."
     ],
     "popularityScore": 89
