@@ -78,7 +78,7 @@
         "partnerPointValue": 0.6,
         "transferRatio": 1,
         "basis": "dynamic",
-        "note": "1 Membership Rewards point → 1 Marriott Bonvoy point · avg Rs 0.6/point"
+        "note": "1 Membership Rewards point → 1 Marriott Bonvoy point · up to Rs 1/point"
       },
       {
         "partner": "Club ITC",
@@ -87,6 +87,19 @@
         "basis": "fixed",
         "note": "3 Membership Rewards points → 2 Club ITC points · Rs 1/point"
       }
+    ],
+    "airlinePartners": [
+      { "airline": "British Airways", "programme": "Executive Club", "ratio": "2:1" },
+      { "airline": "Singapore Airlines", "programme": "KrisFlyer", "ratio": "2:1" },
+      { "airline": "Qatar Airways", "programme": "Privilege Club", "ratio": "2:1" },
+      { "airline": "Emirates", "programme": "Skywards", "ratio": "2:1" },
+      { "airline": "Etihad Airways", "programme": "Etihad Guest", "ratio": "2:1" },
+      { "airline": "Virgin Atlantic", "programme": "Flying Club", "ratio": "2:1" },
+      { "airline": "Air India", "programme": "Maharaja Club", "ratio": "2:1" }
+    ],
+    "hotelPartners": [
+      { "hotelGroup": "Marriott", "programme": "Marriott Bonvoy", "ratio": "1:1" },
+      { "hotelGroup": "ITC Hotels", "programme": "Club ITC", "ratio": "3:2" }
     ]
   },
   "eligibility": {
