@@ -38,6 +38,16 @@ function formatINR(value: number) {
   return `Rs ${value.toLocaleString("en-IN")}`;
 }
 
+function formatINRCompact(value: number) {
+  const v = Math.round(value);
+  if (v >= 100000) {
+    const lakhs = v / 100000;
+    const formatted = lakhs % 1 === 0 ? `${lakhs}` : lakhs.toFixed(1);
+    return `Rs ${formatted}L`;
+  }
+  return `Rs ${v.toLocaleString("en-IN")}`;
+}
+
 function calculatorMilestoneLine(result: RecommendResult) {
   if (result.estimatedMilestoneValue > 0) {
     return `Milestones add ${formatINR(result.estimatedMilestoneValue)} per year.`;
@@ -143,11 +153,11 @@ export default function RecommendCalculator({ defaultSpend, initialResults }: Pr
       <aside className="panel recommend-controls">
         <div className="recommend-total">
           <div>
-            <strong>{formatINR(totalMonthly)}</strong>
+            <strong>{formatINRCompact(totalMonthly)}</strong>
             <span>per month</span>
           </div>
           <div>
-            <strong>{formatINR(totalMonthly * 12)}</strong>
+            <strong>{formatINRCompact(totalMonthly * 12)}</strong>
             <span>per year</span>
           </div>
         </div>

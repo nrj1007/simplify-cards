@@ -68,6 +68,17 @@
     "jewellery",
     "transactions excluded under Axis Bank Magnus for Burgundy terms"
   ],
+  "exclusionCodes": [
+    "fuel",
+    "rent",
+    "insurance",
+    "wallet_load",
+    "government",
+    "utilities",
+    "gold",
+    "jewellery",
+    "emi"
+  ],
   "milestoneBenefits": [
     "Annual fee waiver on spends of Rs 30 lakh in the preceding card anniversary year",
     "Limited-period fee waivers may apply for eligible Burgundy customers as per Axis Bank offer terms"
@@ -95,9 +106,22 @@
       "Requires eligible Axis Burgundy relationship and Axis Bank approval"
     ]
   },
+  "supportingSourceUrls": [
+    "https://www.axisbank.com/retail/cards/credit-card/axis-bank-magnus-card",
+    "https://www.axisbank.com/retail/cards/credit-card/axis-bank-magnus-card/more-benefits"
+  ],
   "sourceUrl": "https://www.axisbank.com/retail/cards/credit-card/axis-bank-magnus-card/more-benefits",
   "applyUrl": "https://www.axisbank.com/retail/cards/credit-card/axis-bank-magnus-card",
-  "lastVerified": "2026-05-23",
-  "verificationStatus": "official-mixed",
+  "imageUrl": "/images/axis-magnus-burgundy.png",
+  "lastVerified": "2026-06-03",
+  "verificationStatus": "official-direct",
+  "internalNotes": [
+    "Card details audited and verified against official terms on 2026-06-03.",
+    "Complimentary domestic airport lounge access requires a minimum spend of Rs 50,000 in the preceding 3 calendar months (waived for card issuance month + 3 subsequent calendar months).",
+    "Unlimited complimentary domestic and international lounge access for primary cardholder, plus 4 complimentary guest visits for domestic lounges per calendar year and 4 complimentary guest visits for international lounges per card anniversary year.",
+    "Miles transfer ratio is 5:4 for most existing partners, but set to 5:2 for new partners (British Airways Executive Club, Finnair Plus, and Vietnam Airlines Lotusmiles).",
+    "Total annual transfer limit is 10 Lakh EDGE Reward Points (capped at 2 Lakh for Group A and 8 Lakh for Group B partners).",
+    "Direct transfers to Accor Live Limitless, Marriott Bonvoy, and Qatar Airways Privilege Club were discontinued on April 2, 2026."
+  ],
   "popularityScore": 79
 }

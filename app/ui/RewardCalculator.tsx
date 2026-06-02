@@ -38,6 +38,16 @@ function formatINR(value: number) {
   return `Rs ${Math.round(value).toLocaleString("en-IN")}`;
 }
 
+function formatINRCompact(value: number) {
+  const v = Math.round(value);
+  if (v >= 100000) {
+    const lakhs = v / 100000;
+    const formatted = lakhs % 1 === 0 ? `${lakhs}` : lakhs.toFixed(1);
+    return `Rs ${formatted}L`;
+  }
+  return `Rs ${v.toLocaleString("en-IN")}`;
+}
+
 function formatUnits(value: number) {
   return Math.round(value).toLocaleString("en-IN");
 }
@@ -140,11 +150,11 @@ export default function RewardCalculator({ card }: Props) {
         <div className="calc-inputs">
           <div className="calc-total">
             <div>
-              <strong>{formatINR(totalMonthlySpend)}</strong>
+              <strong>{formatINRCompact(totalMonthlySpend)}</strong>
               <span>per month</span>
             </div>
             <div>
-              <strong>{formatINR(annualSpend)}</strong>
+              <strong>{formatINRCompact(annualSpend)}</strong>
               <span>per year</span>
             </div>
           </div>

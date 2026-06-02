@@ -2535,9 +2535,6 @@ textarea {
 .calc-total strong {
   display: block;
   font-size: 13px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 
 .calc-total span {
@@ -2616,14 +2613,19 @@ textarea {
 }
 
 .calc-headline-units {
-  font-size: 21px;
-  line-height: 1.1;
+  align-items: baseline;
+  display: flex;
+  flex-wrap: wrap;
+  font-size: clamp(16px, 2.2vw, 21px);
+  gap: 5px;
+  line-height: 1.2;
 }
 
 .calc-headline-units span {
   font-size: 13px;
   font-weight: 600;
   opacity: 0.8;
+  white-space: nowrap;
 }
 
 .calc-headline-aside {

@@ -1147,7 +1147,7 @@ export function requestedTopCardCount(query?: string) {
   const normalizedQuery = normalizeForMatch(query);
   if (!normalizedQuery) return defaultTopCardCount;
 
-  const match = normalizedQuery.match(/\btop\s+(\d{1,2})\b/);
+  const match = normalizedQuery.match(/\btop\s+(\d+)\b/);
   if (!match) return defaultTopCardCount;
 
   const parsed = Number(match[1]);
