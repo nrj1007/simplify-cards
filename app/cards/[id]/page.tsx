@@ -319,9 +319,9 @@ export default async function CardPage({ params, searchParams }: Props) {
             <section className="detail-section">
               <h2>Redemption</h2>
               {redemptions.length > 0 ? (
-                <div className="redemption-values">
+                <div className="info-grid">
                   {redemptions.map(([label, value]) => (
-                    <div className="redemption-value-row" key={label}>
+                    <div className="info-row" key={label}>
                       <span>{label}</span>
                       <strong>{valueLabel(label, value, card.rewardType)}</strong>
                     </div>
@@ -331,7 +331,7 @@ export default async function CardPage({ params, searchParams }: Props) {
 
               {card.redemption?.airlinePartners?.length ? (
                 <div className="table-wrap">
-                  <table className="compare-table">
+                  <table className="compare-table compare-table-compact">
                     <thead>
                       <tr>
                         <th>Airline</th>
@@ -360,7 +360,7 @@ export default async function CardPage({ params, searchParams }: Props) {
 
               {card.redemption?.hotelPartners?.length ? (
                 <div className="table-wrap">
-                  <table className="compare-table">
+                  <table className="compare-table compare-table-compact">
                     <thead>
                       <tr>
                         <th>Hotel group</th>

@@ -508,8 +508,7 @@
       "airMilesValue": 2,
       "pointsExpiryYears": 3,
       "transferPartnerValuations": [
-        { "partner": "Accor (ALL)", "partnerPointValue": 2.2, "transferRatio": 2, "basis": "fixed", "note": "1 EDGE Mile → 2 Accor ALL points · Rs 2.2/point" },
-        { "partner": "Marriott Bonvoy", "partnerPointValue": 0.6, "transferRatio": 2, "basis": "dynamic", "note": "1 EDGE Mile → 2 Marriott points · avg Rs 0.6/point" }
+        { "partner": "ITC Hotels (Club ITC)", "partnerPointValue": 1, "transferRatio": 2, "basis": "fixed", "note": "1 EDGE Mile → 2 Club ITC points · Rs 1/point" }
       ],
       "airlinePartners": [
         { "airline": "Air Canada", "programme": "Aeroplan", "ratio": "1:2", "group": "Group A" },
