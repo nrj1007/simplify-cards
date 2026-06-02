@@ -429,14 +429,14 @@
     "rewards": [
       {
         "category": "travel",
-        "rate": 10,
+        "rate": 5,
         "displayRate": "5 EDGE Miles per Rs 100",
-        "capMonthly": 20000,
-        "postCapRate": 4
+        "capMonthly": 10000,
+        "postCapRate": 2
       },
       {
         "category": "base",
-        "rate": 4,
+        "rate": 2,
         "displayRate": "2 EDGE Miles per Rs 100",
         "capMonthly": null
       }
@@ -501,7 +501,7 @@
       "EDGE Miles can be redeemed for travel bookings at Travel EDGE portal or transferred to airline/hotel partners."
     ],
     "redemption": {
-      "airMilesValue": 1,
+      "airMilesValue": 2,
       "pointsExpiryYears": 3,
       "airlinePartners": [
         { "airline": "Air Canada", "programme": "Aeroplan", "ratio": "1:2" },

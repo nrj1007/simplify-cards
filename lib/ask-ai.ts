@@ -987,6 +987,45 @@ function buildDisplayCards(scoredCards: CardScore[], preferredCardId?: string | 
   return orderedCards.slice(0, 3);
 }
 
+function findCardLookupMatches(query?: string) {
+  const queryTokens = getMeaningfulQueryTokens(query);
+  if (queryTokens.length === 0) return [];
+
+  return cards.filter((card) => {
+    const haystack = normalizeForMatch(
+      [
+        card.issuer,
+        card.name,
+        card.id.replace(/-/g, " "),
+        ...(card.tags ?? []),
+        ...(card.bestFor ?? [])
+      ].join(" ")
+    );
+
+    return queryTokens.every((token) => haystack.includes(token));
+  });
+}
+
+function buildCardFamilyLookupResult(input: RecommendationInput, scoredCards: CardScore[]) {
+  const matchingCards = findCardLookupMatches(input.query);
+  if (matchingCards.length <= 1) return null;
+
+  const matchingIds = new Set(matchingCards.map((card) => card.id));
+  const familyCards = scoredCards.filter((item) => matchingIds.has(item.card.id)).slice(0, 3);
+  if (familyCards.length === 0) return null;
+
+  const label = input.query?.trim() || "this";
+
+  return {
+    summary: `I found multiple matching ${label} cards in our database.`,
+    cards: familyCards,
+    highlights: [
+      `Available matches: ${joinNatural(familyCards.map((item) => item.card.name))}.`,
+      "Open a specific card if you want exact rewards, lounge, forex, or exclusion details."
+    ]
+  };
+}
+
 export function getUnsupportedQuestionReason(input: RecommendationInput) {
   const query = normalizeQuery(input.query);
   const intent = parseQueryIntent(input);
@@ -1233,6 +1272,7 @@ export async function answerQuestion(input: RecommendationInput): Promise<AskAiR
   let shortlisted = shortlistCardsForQuestion(input);
   const scoredCards = scoreCards(input);
   const specificCardLookup = isSpecificCardLookup(input);
+  const cardFamilyLookup = specificCardLookup ? buildCardFamilyLookupResult(input, scoredCards) : null;
   const parsedCardQuestion = parseSpecificCardQuestion(input.query);
   const namedCardQuestionInitial =
     isNamedCardQuestion(input, shortlisted.mentionedCardId) ||
@@ -1279,6 +1319,15 @@ export async function answerQuestion(input: RecommendationInput): Promise<AskAiR
       highlights: [],
       needsDatabaseUpdate: true,
       unsupportedReason: reason
+    };
+  }
+
+  if (cardFamilyLookup) {
+    return {
+      ...answer,
+      summary: cardFamilyLookup.summary,
+      cards: cardFamilyLookup.cards,
+      highlights: cardFamilyLookup.highlights
     };
   }
 
