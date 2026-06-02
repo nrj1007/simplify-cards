@@ -122,6 +122,12 @@ function formatTatDays(value: number | undefined) {
   return `${value} day${value === 1 ? "" : "s"}`;
 }
 
+function formatAnnualCap(group?: string) {
+  if (group === "Group A") return "30,000 EDGE Miles";
+  if (group === "Group B") return "120,000 EDGE Miles";
+  return "-";
+}
+
 function DetailList({ items, className }: { items?: string[]; className?: string }) {
   if (!items || items.length === 0) return <p className="muted">Not listed.</p>;
 
@@ -313,9 +319,9 @@ export default async function CardPage({ params, searchParams }: Props) {
             <section className="detail-section">
               <h2>Redemption</h2>
               {redemptions.length > 0 ? (
-                <div className="info-grid">
+                <div className="redemption-values">
                   {redemptions.map(([label, value]) => (
-                    <div className="info-row" key={label}>
+                    <div className="redemption-value-row" key={label}>
                       <span>{label}</span>
                       <strong>{valueLabel(label, value, card.rewardType)}</strong>
                     </div>
@@ -332,6 +338,7 @@ export default async function CardPage({ params, searchParams }: Props) {
                         <th>Programme</th>
                         <th>Ratio</th>
                         {showAirlineGroup && <th>Group</th>}
+                        {showAirlineGroup && <th>Annual cap</th>}
                         {showAirlineTat && <th>TAT</th>}
                       </tr>
                     </thead>
@@ -342,6 +349,7 @@ export default async function CardPage({ params, searchParams }: Props) {
                           <td>{partner.programme}</td>
                           <td>{partner.ratio}</td>
                           {showAirlineGroup && <td>{partner.group || "-"}</td>}
+                          {showAirlineGroup && <td>{formatAnnualCap(partner.group)}</td>}
                           {showAirlineTat && <td>{formatTatDays(partner.tatDays)}</td>}
                         </tr>
                       ))}
@@ -359,6 +367,7 @@ export default async function CardPage({ params, searchParams }: Props) {
                         <th>Programme</th>
                         <th>Ratio</th>
                         {showHotelGroup && <th>Group</th>}
+                        {showHotelGroup && <th>Annual cap</th>}
                         {showHotelTat && <th>TAT</th>}
                       </tr>
                     </thead>
@@ -369,6 +378,7 @@ export default async function CardPage({ params, searchParams }: Props) {
                           <td>{partner.programme}</td>
                           <td>{partner.ratio}</td>
                           {showHotelGroup && <td>{partner.group || "-"}</td>}
+                          {showHotelGroup && <td>{formatAnnualCap(partner.group)}</td>}
                           {showHotelTat && <td>{formatTatDays(partner.tatDays)}</td>}
                         </tr>
                       ))}

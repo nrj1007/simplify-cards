@@ -2481,6 +2481,35 @@ textarea {
   transform: translateY(-4px) scale(1.02);
 }
 
+/* Redemption values list */
+.redemption-values {
+  display: grid;
+}
+
+.redemption-value-row {
+  align-items: baseline;
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  font-size: 13px;
+  gap: 12px;
+  justify-content: space-between;
+  padding: 7px 2px;
+}
+
+.redemption-value-row:first-child {
+  border-top: 1px solid var(--line);
+}
+
+.redemption-value-row span {
+  color: var(--muted);
+  flex-shrink: 0;
+}
+
+.redemption-value-row strong {
+  font-size: 13px;
+  text-align: right;
+}
+
 /* Reward calculator */
 .calc-intro {
   font-size: 13px;
