@@ -26,14 +26,6 @@ const SPEND_CHIPS = [
   { label: "Rs 75k+", href: "/recommend" }
 ] as const;
 
-function confidenceLabel(score?: number) {
-  if (score === undefined) return "Low";
-  if (score >= 82) return "High";
-  if (score >= 65) return "Medium-high";
-  if (score >= 45) return "Medium";
-  return "Exploratory";
-}
-
 type Props = {
   searchParams: Promise<{
     query?: string;
@@ -287,22 +279,16 @@ export default async function AskPage({ searchParams }: Props) {
   const presentedMatches = exactCardIntent ? 1 : matchCount;
   // Display-only fit score out of 100, normalized to the strongest card in this result set.
   // Ranking still uses the raw fitScore (see lib/recommend.ts), so this does not affect ordering.
+  // Only shown on the ranked result cards — the single exact-card result has no fit score.
   const topFitRaw = result?.cards[0]?.fitScore ?? 0;
   const toFitPercent = (score: number) =>
     topFitRaw > 0 ? Math.max(1, Math.min(100, Math.round((score / topFitRaw) * 100))) : 100;
-  const fitNumber = isRanked ? matchCount : topCard ? toFitPercent(topCard.fitScore) : 0;
-  const fitLabel = isRanked ? "matches" : "/ 100";
   const answerHeadTitle = isRanked
     ? `myCards found ${matchCount} relevant card${matchCount === 1 ? "" : "s"}.`
     : topCard?.card.name ?? "";
   const answerHeadSub = isRanked
     ? "Ranked by how well they match the query, not by commission."
     : topCard?.card.issuer ?? "";
-  const intentLabel =
-    result?.meta?.intentLabel ??
-    (isRanked ? "Mixed recommendation" : exactCardIntent ? "Specific card lookup" : "Best-fit recommendation");
-  const confidence = result?.meta?.confidenceLabel ?? (topCard ? confidenceLabel(topCard.fitScore) : "Low");
-  const needsFollowUp = (result?.meta?.needsFollowUp ?? isRanked) ? "Yes" : "No";
   // The decision grid is a multi-recommendation device — only populate it for the ranked template.
   const decisionCards = (isRanked ? result?.cards ?? [] : []).slice(0, 3).map((item, index) => ({
     id: item.card.id,
@@ -368,12 +354,14 @@ export default async function AskPage({ searchParams }: Props) {
                         </span>
                       </div>
                     </div>
-                    <div className="fit-score">
-                      <div>
-                        <b>{fitNumber}</b>
-                        <span>{fitLabel}</span>
+                    {isRanked ? (
+                      <div className="fit-score">
+                        <div>
+                          <b>{matchCount}</b>
+                          <span>matches</span>
+                        </div>
                       </div>
-                    </div>
+                    ) : null}
                   </div>
 
                   <div className="panel-body">
@@ -732,27 +720,7 @@ export default async function AskPage({ searchParams }: Props) {
           <aside className="side-stack ask-sticky">
             {result && topCard ? (
               <section className="sidebar-card">
-                <h3 className="side-title">Result state</h3>
-                <div className="summary-list">
-                  <div className="summary-item">
-                    <span>Intent</span>
-                    <b>{intentLabel}</b>
-                  </div>
-                  <div className="summary-item">
-                    <span>Matches</span>
-                    <b>
-                      {presentedMatches} card{presentedMatches === 1 ? "" : "s"}
-                    </b>
-                  </div>
-                  <div className="summary-item">
-                    <span>Confidence</span>
-                    <b>{confidence}</b>
-                  </div>
-                  <div className="summary-item">
-                    <span>Needs follow-up?</span>
-                    <b>{needsFollowUp}</b>
-                  </div>
-                </div>
+                <h3 className="side-title">Next steps</h3>
                 <div className="sidebar-actions">
                   <Link className="mini-btn primary" href="/compare">
                     Compare cards
