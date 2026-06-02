@@ -7,6 +7,7 @@ import LoungeInfo from "@/app/ui/LoungeInfo";
 import AskFeedback from "@/app/ui/AskFeedback";
 import AskBox from "@/app/ui/AskBox";
 import RewardCalculator from "@/app/ui/RewardCalculator";
+import { milestoneRulesForCard } from "@/lib/recommend";
 import type { CreditCard, Redemption } from "@/lib/types";
 
 import { stripScoringAnnotations } from "@/lib/card-index";
@@ -122,7 +123,8 @@ function formatTatDays(value: number | undefined) {
   return `${value} day${value === 1 ? "" : "s"}`;
 }
 
-function formatAnnualCap(group?: string) {
+function formatAnnualCap(group: string | undefined, annualCap: number | undefined, rewardType: string) {
+  if (typeof annualCap === "number") return formatRewardCap(annualCap, rewardType);
   if (group === "Group A") return "30,000 EDGE Miles";
   if (group === "Group B") return "120,000 EDGE Miles";
   return "-";
@@ -349,7 +351,7 @@ export default async function CardPage({ params, searchParams }: Props) {
                           <td>{partner.programme}</td>
                           <td>{partner.ratio}</td>
                           {showAirlineGroup && <td>{partner.group || "-"}</td>}
-                          {showAirlineGroup && <td>{formatAnnualCap(partner.group)}</td>}
+                          {showAirlineGroup && <td>{formatAnnualCap(partner.group, partner.annualCap, card.rewardType)}</td>}
                           {showAirlineTat && <td>{formatTatDays(partner.tatDays)}</td>}
                         </tr>
                       ))}
@@ -378,7 +380,7 @@ export default async function CardPage({ params, searchParams }: Props) {
                           <td>{partner.programme}</td>
                           <td>{partner.ratio}</td>
                           {showHotelGroup && <td>{partner.group || "-"}</td>}
-                          {showHotelGroup && <td>{formatAnnualCap(partner.group)}</td>}
+                          {showHotelGroup && <td>{formatAnnualCap(partner.group, partner.annualCap, card.rewardType)}</td>}
                           {showHotelTat && <td>{formatTatDays(partner.tatDays)}</td>}
                         </tr>
                       ))}
@@ -509,7 +511,7 @@ export default async function CardPage({ params, searchParams }: Props) {
               Enter your monthly spend to estimate how many {card.rewardType} you earn and what they are worth
               across each redemption option.
             </p>
-            <RewardCalculator card={card} />
+            <RewardCalculator card={card} milestones={milestoneRulesForCard(card)} />
           </section>
 
           <div className="actions">

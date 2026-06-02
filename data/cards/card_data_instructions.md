@@ -126,6 +126,17 @@ Each reviewed card should also be checked for a good card-face image.
 *   Treat image quality and alignment as part of card verification, not as a separate optional cleanup.
 * If the official card-face asset is portrait/vertical but the details-page image slot is horizontal, create a horizontal version on a light beige background with the card face centered and save that derived asset locally. Prefer this over adding one-off CSS or layout exceptions for a single card.
 
+### Reward Calculator Verification for Travel Cards
+
+For travel or miles cards, verify the Reward Calculator after updating redemption data.
+
+* `transferPartnerValuations` drives the calculator's transfer-partner value block.
+* If a partner was removed from the currently verified transfer set, remove it from `transferPartnerValuations` too.
+* After updating `airlinePartners`, `hotelPartners`, or `transferPartnerValuations`, confirm that the calculator does not surface stale partners that no longer exist in the verified current transfer table.
+* Treat a calculator/details-page mismatch as a data bug and fix the card JSON before finishing the review.
+* If an official update adds new partners at a different ratio from legacy partners, explicitly verify those named new partners in the redemption table. Do not assume they share the same ratio as the rest of the programme.
+* When a `Latest Updates` item mentions partner removals or newly added partners, the update text, `airlinePartners` / `hotelPartners`, and `transferPartnerValuations` must agree on removed partners, added partners, ratios, and partner-group caps.
+
 ### Lounge Access & Combined Pools (`combinedLoungeAccess`)
 Define the lounge access limits for domestic and international visits:
 
@@ -167,6 +178,7 @@ Define the redemption values for different options, along with transfer ratios f
 *   **`smartBuyFlightHotelValue`**: The value of 1 point in INR when redeemed for flights/hotels via SmartBuy.
 *   **`travelEdgeValue`**: The value of 1 point in INR when redeemed for flights/hotels via Axis Travel EDGE.
 *   **`airlinePartners`** and **`hotelPartners`**: Arrays describing direct point-to-mile transfer ratios:
+*   **Travel-card completeness rule**: For travel or miles cards, fetch and populate the full official redemption structure. Do not stop at one numeric value; include all visible redemption options plus the current airline and hotel transfer tables from official issuer materials.
 *   **`transferPartnerValuations`**: Per-partner rupee valuations used by the Reward Calculator on the card details page. See the dedicated subsection below for how to populate it.
 *   Keep the visible **Redemption** section focused on point value and transfer partners only.
 *   Do **not** treat operational rules like minimum points, monthly redemption caps, points validity, or redemption fees as primary redemption rows in the UI. Store those in `additionalDetails` or `internalNotes` instead.

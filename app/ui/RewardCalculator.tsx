@@ -3,6 +3,7 @@
 import { useMemo, useState } from "react";
 import { ChevronDown } from "lucide-react";
 import type { CreditCard, SpendCategory } from "@/lib/types";
+import type { MilestoneRule } from "@/lib/recommend";
 import {
   CALCULATOR_CATEGORIES,
   CATEGORY_LABELS,
@@ -12,6 +13,7 @@ import {
 
 type Props = {
   card: CreditCard;
+  milestones?: MilestoneRule[];
 };
 
 const DEFAULT_SPEND: Partial<Record<SpendCategory, number>> = {
@@ -62,7 +64,7 @@ function isCashbackRewardType(rewardType: string) {
 
 type RupeeOption = { key: string; label: string; perPoint: number; value: number; note?: string };
 
-export default function RewardCalculator({ card }: Props) {
+export default function RewardCalculator({ card, milestones = [] }: Props) {
   const { primary, additional } = useMemo(() => relevantCategoriesForCard(card), [card]);
   const [showAdditional, setShowAdditional] = useState(false);
   const [spend, setSpend] = useState<Record<SpendCategory, number>>(() => {
@@ -131,7 +133,27 @@ export default function RewardCalculator({ card }: Props) {
     rupeeOptions[0]?.value ?? 0,
     partnerValuations[0]?.value ?? 0
   );
-  const effectiveRate = annualSpend > 0 && bestRupeeValue > 0 ? (bestRupeeValue / annualSpend) * 100 : 0;
+
+  // Milestone benefits unlocked at the current annual spend (thresholds are spend-independent,
+  // computed server-side; here we just credit the ones this spend reaches).
+  const earnedMilestones = useMemo(
+    () => milestones.filter((rule) => annualSpend >= rule.threshold),
+    [milestones, annualSpend]
+  );
+  const milestoneValue = useMemo(
+    () => earnedMilestones.reduce((total, rule) => total + rule.value, 0),
+    [earnedMilestones]
+  );
+  const nextMilestone = useMemo(
+    () => milestones.filter((rule) => rule.threshold > annualSpend).sort((a, b) => a.threshold - b.threshold)[0] ?? null,
+    [milestones, annualSpend]
+  );
+
+  // The card's points/cashback are worth this much in rupees at the best redemption; milestones
+  // add rupee value on top, so the headline shows the combined annual value.
+  const pointsRupeeValue = cashback ? annualUnits : bestRupeeValue;
+  const totalAnnualValue = pointsRupeeValue + milestoneValue;
+  const effectiveRate = annualSpend > 0 && totalAnnualValue > 0 ? (totalAnnualValue / annualSpend) * 100 : 0;
   const bestPartnerKey = partnerValuations.length > 0 && partnerValuations[0].value > (rupeeOptions[0]?.value ?? 0)
     ? partnerValuations[0].partner
     : null;
@@ -204,17 +226,17 @@ export default function RewardCalculator({ card }: Props) {
                 {formatUnits(annualUnits)} <span>{unitLabel}/yr</span>
               </strong>
             </div>
-            {!cashback && bestRupeeValue > 0 ? (
+            {totalAnnualValue > 0 ? (
               <div className="calc-headline-aside">
-                <span>up to {formatINR(bestRupeeValue)}</span>
-                <span className="muted">
-                  best redemption · {effectiveRate.toFixed(1)}% effective
+                <span>
+                  {cashback ? "" : "up to "}
+                  {formatINR(totalAnnualValue)}
                 </span>
-              </div>
-            ) : cashback ? (
-              <div className="calc-headline-aside">
-                <span>{formatINR(annualUnits)}</span>
-                <span className="muted">cashback value · {effectiveRate.toFixed(1)}% effective</span>
+                <span className="muted">
+                  {milestoneValue > 0
+                    ? `incl. ${formatINR(milestoneValue)} milestones · ${effectiveRate.toFixed(1)}% effective`
+                    : `${cashback ? "cashback value" : "best redemption"} · ${effectiveRate.toFixed(1)}% effective`}
+                </span>
               </div>
             ) : null}
           </div>
@@ -223,6 +245,37 @@ export default function RewardCalculator({ card }: Props) {
             <p className="muted calc-empty">Set your monthly spend on the left to see what this card earns.</p>
           ) : (
             <>
+              {milestones.length > 0 ? (
+                <div className="calc-block">
+                  <h3>Milestone &amp; welcome rewards</h3>
+                  <div className="calc-redemptions">
+                    {earnedMilestones.map((rule, index) => (
+                      <div className="calc-redemption is-best" key={`ms-earned-${index}`}>
+                        <div className="calc-redemption-head">
+                          <span>{rule.threshold > 0 ? `At ${formatINRCompact(rule.threshold)}/yr` : "Welcome / ongoing"}</span>
+                          <span className="calc-badge">Unlocked</span>
+                        </div>
+                        <strong>{formatINR(rule.value)}</strong>
+                        <span className="muted">{rule.label}</span>
+                      </div>
+                    ))}
+                    {nextMilestone ? (
+                      <div className="calc-redemption" key="ms-next">
+                        <div className="calc-redemption-head">
+                          <span>Next milestone</span>
+                          <span className="calc-tag">{formatINRCompact(nextMilestone.threshold - annualSpend)} more</span>
+                        </div>
+                        <strong>{formatINR(nextMilestone.value)}</strong>
+                        <span className="muted">{nextMilestone.label}</span>
+                      </div>
+                    ) : null}
+                  </div>
+                  <p className="muted calc-note">
+                    Milestone value is estimated and only counts once you reach each spend threshold.
+                  </p>
+                </div>
+              ) : null}
+
               {!cashback && (rupeeOptions.length > 0 || airMilesPerPoint) ? (
                 <div className="calc-block">
                   <h3>Value by redemption type</h3>

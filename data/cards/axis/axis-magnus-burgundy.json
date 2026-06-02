@@ -19,20 +19,28 @@
   "rewards": [
     {
       "category": "travel",
+      "displayCategory": "Travel EDGE",
+      "rate": 30,
+      "displayRate": "60 EDGE REWARD Points / Rs 200 upto Rs 2 lakh per calendar month, then 35 EDGE REWARD Points / Rs 200",
+      "capMonthly": 60000,
+      "postCapRate": 17.5
+    },
+    {
+      "category": "base",
+      "displayCategory": "Eligible spends up to Rs 1.5 lakh per calendar month",
       "rate": 6,
-      "capMonthly": 200000
+      "displayRate": "12 EDGE REWARD Points / Rs 200",
+      "capMonthly": null
     },
     {
       "category": "base",
-      "rate": 1.2,
-      "capMonthly": 150000
-    },
-    {
-      "category": "base",
-      "rate": 3.5,
+      "displayCategory": "Eligible incremental spends above Rs 1.5 lakh per calendar month",
+      "rate": 17.5,
+      "displayRate": "35 EDGE REWARD Points / Rs 200",
       "capMonthly": null
     }
   ],
+  "popularityScore": 79,
   "loungeDomestic": "unlimited",
   "loungeInternational": "unlimited",
   "forexMarkup": 2,
@@ -47,81 +55,247 @@
     "partner miles",
     "high spends"
   ],
+  "exclusions": [
+    "utility and telecom spends",
+    "wallet loads",
+    "government spends",
+    "insurance",
+    "gold and jewellery",
+    "fuel",
+    "cash advances",
+    "repayments"
+  ],
+  "exclusionCodes": [
+    "utilities",
+    "telecom",
+    "wallet_load",
+    "government",
+    "insurance",
+    "gold",
+    "jewellery",
+    "fuel",
+    "cash_advance",
+    "outstanding_balance_payment"
+  ],
   "specialSpendRules": [
     {
       "category": "rent",
       "treatment": "capped",
       "capMonthlySpend": 50000,
-      "notes": "User-verified rule: rent earns rewards up to Rs 50,000"
+      "notes": "Rent spends are eligible only up to Rs 50,000 per calendar month for reward earn and spend-based fee waiver calculation."
     }
   ],
-  "exclusions": [
-    "fuel",
-    "rent",
-    "wallet",
-    "priority pass spends",
-    "emi transactions",
-    "government institutions",
-    "utilities",
-    "insurance",
-    "gold",
-    "jewellery",
-    "transactions excluded under Axis Bank Magnus for Burgundy terms"
-  ],
-  "exclusionCodes": [
-    "fuel",
-    "rent",
-    "insurance",
-    "wallet_load",
-    "government",
-    "utilities",
-    "gold",
-    "jewellery",
-    "emi"
-  ],
-  "milestoneBenefits": [
-    "Annual fee waiver on spends of Rs 30 lakh in the preceding card anniversary year",
-    "Limited-period fee waivers may apply for eligible Burgundy customers as per Axis Bank offer terms"
+  "joiningBenefits": [
+    "Choose any one voucher worth Rs 5,000 from Luxe, The Postcard Hotels, or Yatra on first transaction within 30 days of card issuance; not applicable on upgrades from Magnus"
   ],
   "additionalBenefits": [
-    "New Magnus for Burgundy customers can choose a welcome voucher worth Rs 5,000 from eligible options such as Luxe, The Postcard Hotels or Yatra",
-    "60 EDGE REWARD Points per Rs 200 spent on Travel EDGE portal up to cumulative transactions of Rs 2 lakh per month",
-    "35 EDGE REWARD Points per Rs 200 on eligible incremental monthly spends above Rs 1.5 lakh, subject to product terms",
-    "5 EDGE REWARD Points convert to 4 partner miles across eligible travel partners",
-    "Unlimited domestic and international lounge access, subject to applicable programme terms",
-    "4 airport meet and assist services per calendar year for Burgundy variant as per current Axis terms",
-    "Reduced forex markup of 2%",
-    "No cash withdrawal charges",
-    "Enhanced Burgundy travel and transfer privileges via Axis eDGE Rewards"
+    "4 airport meet and assist services per calendar year",
+    "Dining Delights offers across partner restaurants",
+    "15% savings on bed and breakfast rates at The Leela Palace Hotels & Resorts, valid till 30 September 2026",
+    "Fuel surcharge waiver of 1% for transactions between Rs 400 and Rs 4,000, capped at Rs 400 per month",
+    "No cash withdrawal charges"
   ],
   "redemption": {
-    "statementBalanceValue": 0.2,
-    "pointsExpiryYears": 3
+    "ecosystemLabel": "Gift EDGE / EDGE portal",
+    "ecosystemValue": 0.2,
+    "transferPartnerValuations": [
+      {
+        "partner": "Club ITC",
+        "partnerPointValue": 1,
+        "transferRatio": 0.8,
+        "basis": "fixed",
+        "note": "5 EDGE REWARD Points -> 4 Club ITC points"
+      }
+    ],
+    "airlinePartners": [
+      {
+        "airline": "Air Canada",
+        "programme": "Aeroplan",
+        "ratio": "5:4",
+        "group": "Group A",
+        "annualCap": 200000
+      },
+      {
+        "airline": "Ethiopian Airlines",
+        "programme": "ShebaMiles",
+        "ratio": "5:4",
+        "group": "Group A",
+        "annualCap": 200000
+      },
+      {
+        "airline": "Etihad Airways",
+        "programme": "Etihad Guest",
+        "ratio": "5:4",
+        "group": "Group A",
+        "annualCap": 200000
+      },
+      {
+        "airline": "Japan Airlines",
+        "programme": "JAL Mileage Bank",
+        "ratio": "5:4",
+        "group": "Group A",
+        "annualCap": 200000
+      },
+      {
+        "airline": "Singapore Airlines",
+        "programme": "KrisFlyer",
+        "ratio": "5:4",
+        "group": "Group A",
+        "annualCap": 200000
+      },
+      {
+        "airline": "Thai Airways",
+        "programme": "Royal Orchid Plus",
+        "ratio": "5:4",
+        "group": "Group A",
+        "annualCap": 200000
+      },
+      {
+        "airline": "Turkish Airlines",
+        "programme": "Miles&Smiles",
+        "ratio": "5:4",
+        "group": "Group A",
+        "annualCap": 200000
+      },
+      {
+        "airline": "United Airlines",
+        "programme": "MileagePlus",
+        "ratio": "5:4",
+        "group": "Group A",
+        "annualCap": 200000
+      },
+      {
+        "airline": "British Airways",
+        "programme": "British Airways Executive Club",
+        "ratio": "5:2",
+        "group": "Group A",
+        "annualCap": 200000
+      },
+      {
+        "airline": "Finnair",
+        "programme": "Finnair Plus",
+        "ratio": "5:2",
+        "group": "Group A",
+        "annualCap": 200000
+      },
+      {
+        "airline": "Vietnam Airlines",
+        "programme": "Lotusmiles",
+        "ratio": "5:2",
+        "group": "Group A",
+        "annualCap": 200000
+      },
+      {
+        "airline": "Air France-KLM",
+        "programme": "Flying Blue",
+        "ratio": "5:4",
+        "group": "Group B",
+        "annualCap": 800000
+      },
+      {
+        "airline": "Air India",
+        "programme": "Flying Returns",
+        "ratio": "5:4",
+        "group": "Group B",
+        "annualCap": 800000
+      },
+      {
+        "airline": "Air Asia",
+        "programme": "Air Asia",
+        "ratio": "5:4",
+        "group": "Group B",
+        "annualCap": 800000
+      },
+      {
+        "airline": "Qantas Airways",
+        "programme": "Qantas Frequent Flyer",
+        "ratio": "5:4",
+        "group": "Group B",
+        "annualCap": 800000
+      }
+    ],
+    "hotelPartners": [
+      {
+        "hotelGroup": "IHG Hotels & Resorts",
+        "programme": "IHG One Rewards",
+        "ratio": "5:4",
+        "group": "Group B",
+        "annualCap": 800000
+      },
+      {
+        "hotelGroup": "ITC Hotels",
+        "programme": "Club ITC",
+        "ratio": "5:4",
+        "group": "Group B",
+        "annualCap": 800000
+      },
+      {
+        "hotelGroup": "Radisson Hotels",
+        "programme": "Radisson Rewards",
+        "ratio": "5:4",
+        "group": "Group B",
+        "annualCap": 800000
+      },
+      {
+        "hotelGroup": "Orchid Hotels",
+        "programme": "Orchid Rewards",
+        "ratio": "5:4",
+        "group": "Group B",
+        "annualCap": 800000
+      },
+      {
+        "hotelGroup": "Wyndham Hotels & Resorts",
+        "programme": "Wyndham Rewards",
+        "ratio": "5:4",
+        "group": "Group B",
+        "annualCap": 800000
+      },
+      {
+        "hotelGroup": "The Postcard Hotel",
+        "programme": "The Postcard Hotel",
+        "ratio": "5:4",
+        "group": "Group B",
+        "annualCap": 800000
+      }
+    ]
   },
   "eligibility": {
     "salaried": [
-      "Requires eligible Axis Burgundy relationship and Axis Bank approval"
+      "Requires an Axis Burgundy relationship at individual level and net salary credit above Rs 3 lakh per month in an Axis Bank salary account, or another eligible Burgundy route",
+      "If qualifying via Rs 10 lakh CASA average monthly balance, Burgundy vintage should exceed 3 months and the latest One Glance Statement should reflect eligibility",
+      "Card approval remains subject to Axis Bank credit policy"
     ],
     "selfEmployed": [
-      "Requires eligible Axis Burgundy relationship and Axis Bank approval"
+      "Requires an Axis Burgundy relationship at individual level and either Rs 30 lakh TRV without demat, or Rs 1 crore TRV including demat, or another eligible Burgundy route",
+      "If qualifying via Rs 10 lakh CASA average monthly balance, Burgundy vintage should exceed 3 months and the latest One Glance Statement should reflect eligibility",
+      "Card approval remains subject to Axis Bank credit policy"
     ]
   },
   "supportingSourceUrls": [
-    "https://www.axisbank.com/retail/cards/credit-card/axis-bank-magnus-card",
-    "https://www.axisbank.com/retail/cards/credit-card/axis-bank-magnus-card/more-benefits"
+    "https://www.axis.bank.in/cards/credit-card/axis-bank-magnus-credit-card",
+    "https://www.axisbank.com/docs/default-source/default-document-library/credit-card-tnc/terms-and-conditions-for-magnus-burgundy-credit-card.pdf",
+    "https://www.axisbank.com/docs/default-source/default-document-library/credit-cards/magnus-for-burgundy-terms-and-conditions.pdf",
+    "https://www.axisbank.com/docs/default-source/default-document-library/credit-cards/magnus-credit-card-for-burgundy-faq.pdf",
+    "https://www.axis.bank.in/miles-transfer"
   ],
-  "sourceUrl": "https://www.axisbank.com/retail/cards/credit-card/axis-bank-magnus-card/more-benefits",
+  "sourceUrl": "https://www.axis.bank.in/cards/credit-card/axis-bank-magnus-credit-card",
   "applyUrl": "https://www.axisbank.com/retail/cards/credit-card/axis-bank-magnus-card",
-  "imageUrl": "/images/axis-magnus-burgundy.png",
+  "imageUrl": "/images/axis-magnus-burgundy.webp",
   "lastVerified": "2026-06-03",
   "verificationStatus": "official-direct",
   "internalNotes": [
-    "Card details audited and verified against official terms on 2026-06-03.",
-    "Complimentary domestic airport lounge access requires a minimum spend of Rs 50,000 in the preceding 3 calendar months (waived for card issuance month + 3 subsequent calendar months).",
-    "Unlimited complimentary domestic and international lounge access for primary cardholder, plus 4 complimentary guest visits for domestic lounges per calendar year and 4 complimentary guest visits for international lounges per card anniversary year.",
-    "Miles transfer ratio is 5:4 for most existing partners, but set to 5:2 for new partners (British Airways Executive Club, Finnair Plus, and Vietnam Airlines Lotusmiles).",
-    "Total annual transfer limit is 10 Lakh EDGE Reward Points (capped at 2 Lakh for Group A and 8 Lakh for Group B partners).",
-    "Direct transfers to Accor Live Limitless, Marriott Bonvoy, and Qatar Airways Privilege Club were discontinued on April 2, 2026."
-  ],
-  "popularityScore": 79
+    "Official audit completed on 2026-06-03 using Axis Bank product page, 20 April 2024 revision PDF, 20 June 2025 revision PDF, Magnolia for Burgundy FAQ, and Axis miles-transfer page.",
+    "Domestic lounge access requires minimum spends of Rs 50,000 in the previous 3 calendar months; the spend condition is waived for the month of issuance plus the next 3 calendar months.",
+    "Unlimited domestic and international lounge access applies to primary cardholder; guest visits are limited to 4 domestic guest visits per calendar year and 4 international guest visits per card anniversary year on Priority Pass.",
+    "Travel EDGE earns 60 EDGE REWARD Points per Rs 200 up to cumulative spends of Rs 2 lakh per calendar month; spends above that continue at 35 EDGE REWARD Points per Rs 200.",
+    "Accelerated 35 EDGE REWARD Points are earned only on eligible incremental spends above Rs 1.5 lakh in a calendar month, up to assigned credit limit plus Rs 1.5 lakh per calendar month.",
+    "Spends on Travel EDGE up to Rs 2 lakh per month, Gyftr, and other Axis accelerated offer portals are excluded from the 35-point accelerated calculation because they already earn separate accelerated rewards.",
+    "Rent spends above Rs 50,000 in a calendar month are not considered for accelerated reward points or spend-based fee waiver calculation.",
+    "EMI transactions, reversed transactions, fees, charges, interest, and cash withdrawals do not count toward accelerated reward calculations.",
+    "Miles transfer ratio for Magnus for Burgundy is 5 EDGE REWARD Points = 4 partner points across eligible transfer partners; current annual transfer cap is 10 lakh EDGE REWARD Points in a calendar year, split as 2 lakh to Group A and 8 lakh to Group B.",
+    "Accor Live Limitless, Marriott Bonvoy, and Qatar Airways have been removed from the current Burgundy transfer partner set; British Airways, Finnair, and Vietnam Airlines are available in the current verified list.",
+    "Travel-card audit includes full redemption options and current airline and hotel transfer tables from official Axis materials; Gift EDGE redemption is valued at Rs 0.20 per EDGE REWARD Point.",
+    "If Burgundy relationship eligibility is not maintained, Axis Bank may replace Magnus for Burgundy with Magnus Credit Card carrying a Rs 12,500 joining and annual fee and a 5:2 partner transfer ratio.",
+    "Effective 1 October 2025, unredeemed EDGE REWARD Points may be forfeited 30 days after card closure or if minimum amount due remains outstanding for more than 90 days."
+  ]
 }

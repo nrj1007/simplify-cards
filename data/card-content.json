@@ -332,12 +332,28 @@
   "axis-magnus-burgundy": {
     "updates": [
       {
-        "title": "Axis Bank Travel Edge partners and transfer ratios revised",
-        "summary": "Effective 2 April 2026, Axis Bank devalued the Travel Edge miles transfer program. Three major partners (Marriott Bonvoy, Accor Live Limitless, and Qatar Airways Privilege Club) were removed. New partners British Airways, Finnair, and Vietnam Airlines were added with a 5:2 transfer ratio for Magnus cardholders (including Burgundy). The standard 5:4 ratio still applies to other existing partners.",
+        "title": "Axis revised Magnus for Burgundy transfer partners",
+        "summary": "Effective 2 April 2026, Axis Bank revised its transfer partner program for Magnus for Burgundy: Accor Live Limitless, Marriott Bonvoy, and Qatar Airways were removed as transfer partners. Three new airline partners (British Airways, Finnair, Vietnam Airlines) were added at a 5:2 transfer ratio, while legacy partners continue to transfer at a 5:4 ratio. Annual caps of 2,00,000 EDGE REWARD Points for Group A and 8,00,000 EDGE REWARD Points for Group B apply.",
         "sourceType": "manual",
         "sourceLabel": "Axis Bank official notice",
-        "sourceUrl": "https://www.axisbank.com/retail/cards/credit-card/axis-bank-magnus-card",
+        "sourceUrl": "https://www.axis.bank.in/cards/credit-card/axis-bank-magnus-credit-card",
         "publishedAt": "2026-04-02"
+      },
+      {
+        "title": "Axis revised Magnus for Burgundy rewards and spend exclusions",
+        "summary": "Effective 20 June 2025, Magnus for Burgundy continues to earn 12 EDGE REWARD Points per Rs 200 up to Rs 1.5 lakh of monthly eligible spends and 35 EDGE REWARD Points per Rs 200 above that threshold. Axis also simplified exclusions by spend category and states that utility and telecom, wallet, government, insurance, gold and jewellery, fuel, cash advances, and repayments are excluded from reward earn and spend-based fee waiver calculation, while rent remains capped at Rs 50,000 per month.",
+        "sourceType": "manual",
+        "sourceLabel": "Axis Bank official notice",
+        "sourceUrl": "https://www.axisbank.com/docs/default-source/default-document-library/credit-card-tnc/terms-and-conditions-for-magnus-burgundy-credit-card.pdf",
+        "publishedAt": "2025-06-20"
+      },
+      {
+        "title": "Axis added EDGE points forfeiture rule for closed or overdue cards",
+        "summary": "Effective 1 October 2025, Axis may forfeit unredeemed EDGE REWARD Points or EDGE Miles 30 days after card closure, or when the minimum amount due remains outstanding for more than 90 days.",
+        "sourceType": "manual",
+        "sourceLabel": "Axis Bank official notice",
+        "sourceUrl": "https://www.axisbank.com/docs/default-source/default-document-library/credit-card-tnc/terms-and-conditions-for-magnus-burgundy-credit-card.pdf",
+        "publishedAt": "2025-10-01"
       }
     ],
     "tips": [

@@ -142,7 +142,18 @@ function loadAllCards(): CreditCard[] {
     for (const fileName of fs.readdirSync(issuerDir)) {
       if (!fileName.endsWith(".json")) continue;
       const raw = fs.readFileSync(path.join(issuerDir, fileName), "utf8");
-      loaded.push(JSON.parse(raw) as CreditCard);
+      const card = JSON.parse(raw) as CreditCard;
+      if (card.redemption) {
+        if (card.redemption.accorValue === undefined && Array.isArray(card.redemption.transferPartnerValuations)) {
+          const accorVal = card.redemption.transferPartnerValuations.find(
+            (p) => p.partner && p.partner.toLowerCase().includes("accor")
+          );
+          if (accorVal) {
+            card.redemption.accorValue = accorVal.partnerPointValue * accorVal.transferRatio;
+          }
+        }
+      }
+      loaded.push(card);
     }
   }
 

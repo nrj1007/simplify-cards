@@ -135,6 +135,58 @@ function normalizeVisibleText(value: string) {
     .trim();
 }
 
+function normalizePartnerText(value: string) {
+  return normalizeVisibleText(value)
+    .replace(/\ball\b/g, "")
+    .replace(/\bclub\b/g, "")
+    .replace(/\bhotels?\b/g, "")
+    .replace(/\brewards?\b/g, "")
+    .replace(/\blive limitless\b/g, "")
+    .replace(/\binternational\b/g, "")
+    .replace(/\bairways\b/g, "")
+    .replace(/\bairlines?\b/g, "")
+    .replace(/\bthe\b/g, "")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function partnerNamesForCalculatorValidation(redemption: CardLike) {
+  const names = new Set<string>();
+  const airlinePartners = redemption.airlinePartners;
+  const hotelPartners = redemption.hotelPartners;
+
+  if (Array.isArray(airlinePartners)) {
+    for (const partner of airlinePartners) {
+      if (!isObject(partner)) continue;
+      if (isNonEmptyString(partner.airline)) names.add(normalizePartnerText(partner.airline));
+      if (isNonEmptyString(partner.programme)) names.add(normalizePartnerText(partner.programme));
+    }
+  }
+
+  if (Array.isArray(hotelPartners)) {
+    for (const partner of hotelPartners) {
+      if (!isObject(partner)) continue;
+      if (isNonEmptyString(partner.hotelGroup)) names.add(normalizePartnerText(partner.hotelGroup));
+      if (isNonEmptyString(partner.programme)) names.add(normalizePartnerText(partner.programme));
+    }
+  }
+
+  return names;
+}
+
+function partnerMatchesSupportedSet(partner: string, supported: Set<string>) {
+  const normalized = normalizePartnerText(partner);
+  if (!normalized) return false;
+  if (supported.has(normalized)) return true;
+
+  for (const candidate of supported) {
+    if (!candidate) continue;
+    if (candidate.includes(normalized) || normalized.includes(candidate)) return true;
+  }
+
+  return false;
+}
+
 function isValidUrl(value: unknown) {
   if (!isNonEmptyString(value)) return false;
   try {
@@ -372,6 +424,51 @@ if (cardFiles.length === 0) {
           addIssue(`reward ${rewardIndex} capStatementQuarter must be a non-negative number or null`, cardId, "rewards");
         }
       });
+    }
+
+    if (card.redemption !== undefined) {
+      if (!isObject(card.redemption)) {
+        addIssue("must be an object when present", cardId, "redemption");
+      } else {
+        const redemption = card.redemption;
+
+        if ((redemption.ecosystemLabel === undefined) !== (redemption.ecosystemValue === undefined)) {
+          addIssue("ecosystemLabel and ecosystemValue must either both be present or both be omitted", cardId, "redemption");
+        }
+
+        const supportedPartnerNames = partnerNamesForCalculatorValidation(redemption);
+        const partnerValuations = redemption.transferPartnerValuations;
+        if (Array.isArray(partnerValuations)) {
+          partnerValuations.forEach((partner, partnerIndex) => {
+            if (!isObject(partner) || !isNonEmptyString(partner.partner)) {
+              addIssue(`transferPartnerValuations[${partnerIndex}] partner must be a non-empty string`, cardId, "redemption");
+              return;
+            }
+
+            if (
+              supportedPartnerNames.size > 0 &&
+              !partnerMatchesSupportedSet(partner.partner, supportedPartnerNames)
+            ) {
+              addIssue(
+                `transferPartnerValuations[${partnerIndex}] partner must match a current airline or hotel transfer partner so the Reward Calculator stays aligned with the redemption tables`,
+                cardId,
+                "redemption"
+              );
+            }
+          });
+        }
+
+        const hasAccorPartnerValuation =
+          Array.isArray(partnerValuations) &&
+          partnerValuations.some((partner) => isObject(partner) && isNonEmptyString(partner.partner) && normalizePartnerText(partner.partner) === "accor");
+        if (hasAccorPartnerValuation && typeof redemption.accorValue === "number" && redemption.accorValue > 0) {
+          addIssue(
+            "accorValue must not be combined with an Accor transferPartnerValuations entry because the Reward Calculator should use one source of truth",
+            cardId,
+            "redemption"
+          );
+        }
+      }
     }
 
     if (card.sourceUrl !== undefined && isValidUrl(card.sourceUrl)) {

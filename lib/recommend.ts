@@ -3,6 +3,7 @@ import { SPEND_CATEGORY_EXCLUSION_CODE_MAP } from "./exclusion-constants";
 import { parseQueryIntent } from "./query-intent";
 import type { CardScore, CreditCard, RecommendationInput, SpendCategory, SpendProfile } from "./types";
 import { getTotalLoungeAccess } from "./lounge";
+import { stripScoringAnnotations } from "./card-index";
 
 export const defaultSpendProfile: SpendProfile = {
   online: 15000,
@@ -663,6 +664,29 @@ function milestoneValueForCard(card: CreditCard, annualSpend: number) {
 
     return total + estimateMilestoneLineValue(card, benefit);
   }, 0);
+}
+
+export type MilestoneRule = {
+  /** Annual spend (Rs) that unlocks this milestone; 0 means it always applies. */
+  threshold: number;
+  /** Estimated rupee value of the milestone, using the same logic as the recommender. */
+  value: number;
+  /** Human-readable benefit text. */
+  label: string;
+};
+
+// Per-line milestone rules for a card. Thresholds and values are spend-independent, so the
+// per-card reward calculator can take these once and credit the ones the user's spend unlocks
+// without pulling the recommendation engine into the client bundle.
+export function milestoneRulesForCard(card: CreditCard): MilestoneRule[] {
+  return (card.milestoneBenefits ?? [])
+    .map((benefit) => ({
+      threshold: extractMilestoneThreshold(benefit) ?? 0,
+      value: estimateMilestoneLineValue(card, benefit),
+      label: stripScoringAnnotations(benefit)
+    }))
+    .filter((rule) => rule.value > 0)
+    .sort((a, b) => a.threshold - b.threshold);
 }
 
 function joiningAndRenewalBenefitValueForCard(card: CreditCard) {

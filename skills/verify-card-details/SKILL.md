@@ -43,6 +43,7 @@ Compare the retrieved details against the current card entry in its per-card fil
 - **Lounge Spends Requirements**: Spend-based lounge unlock criteria (e.g., spending ₹35,000 in the previous quarter to unlock the next quarter's lounge access).
 - **Golf Privileges**: Restrictions on the number of games/lessons, booking slots, and cancellation window policies.
 - **Redemption Partners**: Point transfer ratios and Turnaround Time (TAT) to airline or hotel loyalty programs. If the card transfers to a partner we already have a rupee valuation for (Accor, Club ITC, Marriott Bonvoy), also add a `transferPartnerValuations` entry — see Step 4.
+- **Travel-card rule**: If the card is a travel or miles card, fetch the full official redemption structure — not just one numeric value. Populate all visible redemption options plus the current airline and hotel transfer tables from official issuer materials.
 - **Exclusions**: Specific merchant categories (MCCs) or transactions that yield 0% rewards (e.g., fuel, rent, insurance, government spends, wallet load).
 - **DCC Markup Fees**: Check for Dynamic Currency Conversion fees (e.g., a 1% markup fee on INR spends processed internationally or at foreign-registered merchants).
 
@@ -85,6 +86,7 @@ If a fact already has a structured home, do not repeat it in visible prose.
      - `partnerPointValue` is the Rs value of **1 partner point** (intrinsic to the partner, same across all cards); `transferRatio` is **partner points per 1 card unit**, derived from the `ratio` field (`card:partner`) as `partner ÷ card` (e.g. `1:2`→`2`, `2:1`→`0.5`, `3:1`→`0.333`).
      - Known valuations to reuse: **Accor (ALL) Rs 2.2 fixed, Club ITC Rs 1 fixed, Marriott Bonvoy Rs 0.6 dynamic**. Do **not** invent valuations for other partners (IHG, Wyndham, Radisson, Shangri-La, airline miles) — leave them out and ask the user for a figure first.
      - Accor is rendered only from `transferPartnerValuations`, not the legacy `accorValue` field; don't list it in both.
+   - **Travel cards must be complete**: For travel-focused cards, do not stop after adding `statementBalanceValue`, `travelEdgeValue`, or one partner valuation. Also populate the current `airlinePartners` and `hotelPartners` arrays from official issuer sources, including ratios, group labels, annual caps, and TAT when verified.
    - If an issuer publishes separate capped categories, preserve them as separate visible reward rows instead of merging them into one combined line that suggests a shared cap.
    - If the UI needs separate rows but the scoring model only supports a broader canonical category, keep the canonical `category` stable and differentiate the rows through `displayCategory`.
 4. **Card Image**:
@@ -129,6 +131,17 @@ If a fact already has a structured home, do not repeat it in visible prose.
    - If you add `Latest Updates`, keep them limited to official notices published within the trailing 12 months as of the review date. Older notices should stay out of `Latest Updates` unless the user explicitly asks for historical updates.
 8. **Unique Rendering Keys**:
    - If you split a category row (e.g., splitting unified base spends into weekdays and weekends rows), verify that the combination of `category` and `displayCategory` is unique for each row. This prevents React key duplication errors when the UI maps over rewards.
+9. **Reward Calculator Verification for Travel Cards**:
+   - For travel or miles cards, verify that the Reward Calculator reflects the same current transfer-partner set as the reviewed card data.
+   - After updating `transferPartnerValuations`, `airlinePartners`, or `hotelPartners`, confirm that removed partners are not still surfacing in the calculator.
+   - The calculator's transfer-partner block should be driven only by currently supported entries in `transferPartnerValuations`.
+   - If an official update introduces new partners at a different transfer ratio from legacy partners, explicitly cross-check those named partners in the redemption tables. Do not assume they inherit the legacy ratio.
+   - If the card has a `Latest Updates` item about partner removals or newly added partners, verify that the update text, `airlinePartners` / `hotelPartners`, and `transferPartnerValuations` all agree on:
+     - which partners were removed
+     - which partners were added
+     - what ratio applies to the newly added partners versus legacy partners
+     - what annual caps apply by partner group
+   - If the details-page redemption tables and the Reward Calculator disagree, fix the underlying card JSON before considering the audit complete.
 
 ### Step 5: Validate & Run Tests
 Always run the validation and testing pipeline after modifying JSON card data:

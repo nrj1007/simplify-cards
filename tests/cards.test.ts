@@ -104,3 +104,14 @@ describe("card lookup helpers", () => {
     expect(tags).toEqual([...tags].sort());
   });
 });
+
+describe("travel card calculator partner data", () => {
+  it("keeps Burgundy transfer-partner valuations aligned to the current verified set", () => {
+    const burgundy = getCardById("axis-magnus-burgundy");
+
+    expect(burgundy).toBeTruthy();
+    expect(burgundy?.redemption?.transferPartnerValuations?.map((partner) => partner.partner)).toEqual(["Club ITC"]);
+    expect(burgundy?.redemption?.airlinePartners?.some((partner) => partner.airline === "Qatar Airways")).toBe(false);
+    expect(burgundy?.redemption?.hotelPartners?.some((partner) => partner.programme === "Marriott Bonvoy")).toBe(false);
+  });
+});

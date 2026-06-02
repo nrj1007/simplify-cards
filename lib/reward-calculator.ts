@@ -165,15 +165,163 @@ function findRewardForCategory(card: CreditCard, category: SpendCategory): Rewar
   );
 }
 
+function findRewardsForCategory(card: CreditCard, category: SpendCategory): Reward[] {
+  const aliases = SPEND_ALIASES[category];
+  const targetCategoryLower = category.toLowerCase();
+
+  const directMatches = card.rewards.filter((reward) => {
+    const rewardCategories = reward.category.split(",").map((c) => c.trim().toLowerCase());
+    return (
+      aliases.some((alias) => rewardCategories.includes(alias.toLowerCase())) ||
+      rewardCategories.includes(targetCategoryLower)
+    );
+  });
+
+  if (directMatches.length > 0) return directMatches;
+
+  return card.rewards.filter((reward) => reward.category === "base");
+}
+
+function isCashbackRewardType(rewardType: string) {
+  return /cashback/i.test(rewardType) && !/point|mile|coin|star|credit|neucoin/i.test(rewardType);
+}
+
+function parsePerRsRate(displayRate: string | undefined) {
+  if (!displayRate) return null;
+
+  const normalized = displayRate.replace(/,/g, "");
+  const firstMatch = normalized.match(/(\d+(?:\.\d+)?)\s+[a-z ]+?\/\s*rs\s*(\d+(?:\.\d+)?)/i);
+  if (!firstMatch) return null;
+
+  const units = Number(firstMatch[1]);
+  const spend = Number(firstMatch[2]);
+  if (!units || !spend || Number.isNaN(units) || Number.isNaN(spend)) return null;
+
+  const basePerRs100 = (units * 100) / spend;
+
+  const tail = normalized.slice(firstMatch.index! + firstMatch[0].length);
+  const thenMatch = tail.match(/then\s+(\d+(?:\.\d+)?)\s+[a-z ]+?\/\s*rs\s*(\d+(?:\.\d+)?)/i);
+  if (!thenMatch) {
+    return { basePerRs100, postCapPerRs100: null as number | null };
+  }
+
+  const postUnits = Number(thenMatch[1]);
+  const postSpend = Number(thenMatch[2]);
+  if (!postUnits || !postSpend || Number.isNaN(postUnits) || Number.isNaN(postSpend)) {
+    return { basePerRs100, postCapPerRs100: null as number | null };
+  }
+
+  return {
+    basePerRs100,
+    postCapPerRs100: (postUnits * 100) / postSpend
+  };
+}
+
+function rewardEarnRatePerRs100(card: CreditCard, reward: Reward) {
+  if (isCashbackRewardType(card.rewardType)) {
+    return { basePerRs100: reward.rate, postCapPerRs100: reward.postCapRate ?? null };
+  }
+
+  const parsed = parsePerRsRate(reward.displayRate);
+  if (parsed) return parsed;
+
+  return { basePerRs100: reward.rate, postCapPerRs100: reward.postCapRate ?? null };
+}
+
+function parseTierAmount(amount: string, unit: string | undefined) {
+  const parsed = Number(amount);
+  if (!parsed || Number.isNaN(parsed)) return null;
+  if (!unit) return parsed;
+
+  const normalizedUnit = unit.toLowerCase();
+  if (normalizedUnit === "lakh" || normalizedUnit === "l") return parsed * 100000;
+  if (normalizedUnit === "k") return parsed * 1000;
+  return parsed;
+}
+
+type RewardTier = {
+  lowerBound: number;
+  upperBound: number | null;
+};
+
+function tierFromDisplayCategory(displayCategory?: string): RewardTier | null {
+  if (!displayCategory) return null;
+
+  const normalized = displayCategory.replace(/,/g, "").toLowerCase();
+
+  const rangeMatch = normalized.match(
+    /rs\s*(\d+(?:\.\d+)?)\s*(lakh|l|k)?\s*-\s*(\d+(?:\.\d+)?)\s*(lakh|l|k)?/
+  );
+  if (rangeMatch) {
+    const lower = parseTierAmount(rangeMatch[1], rangeMatch[2]);
+    const upper = parseTierAmount(rangeMatch[3], rangeMatch[4]);
+    if (lower !== null && upper !== null) {
+      return { lowerBound: lower, upperBound: upper };
+    }
+  }
+
+  const upToMatch = normalized.match(/up to rs\s*(\d+(?:\.\d+)?)\s*(lakh|l|k)?/);
+  if (upToMatch) {
+    const upper = parseTierAmount(upToMatch[1], upToMatch[2]);
+    if (upper !== null) {
+      return { lowerBound: 0, upperBound: upper };
+    }
+  }
+
+  const aboveMatch = normalized.match(/above rs\s*(\d+(?:\.\d+)?)\s*(lakh|l|k)?/);
+  if (aboveMatch) {
+    const lower = parseTierAmount(aboveMatch[1], aboveMatch[2]);
+    if (lower !== null) {
+      return { lowerBound: lower, upperBound: null };
+    }
+  }
+
+  return null;
+}
+
+function allocateTieredRewardUnits(card: CreditCard, monthlySpend: number, rewards: Reward[]) {
+  if (rewards.length <= 1) return null;
+
+  const tieredRewards = rewards
+    .map((reward) => ({ reward, tier: tierFromDisplayCategory(reward.displayCategory) }))
+    .filter((entry): entry is { reward: Reward; tier: RewardTier } => Boolean(entry.tier));
+
+  if (tieredRewards.length !== rewards.length) return null;
+
+  tieredRewards.sort((a, b) => a.tier.lowerBound - b.tier.lowerBound);
+
+  let totalUnits = 0;
+  let matchedCategories: string[] = [];
+  for (const { reward, tier } of tieredRewards) {
+    const lower = tier.lowerBound;
+    const upper = tier.upperBound ?? monthlySpend;
+    const bucketSpend = Math.max(Math.min(monthlySpend, upper) - lower, 0);
+    if (bucketSpend <= 0) continue;
+    totalUnits += cappedMonthlyUnits(card, bucketSpend, reward);
+    matchedCategories.push(reward.displayCategory ?? reward.category);
+  }
+
+  return {
+    monthlyUnits: totalUnits,
+    matchedRewardCategory: matchedCategories.join(" + ")
+  };
+}
+
 // Applies the monthly reward cap and any reduced post-cap rate, mirroring lib/recommend.ts.
-function cappedMonthlyUnits(monthlySpend: number, reward: Reward) {
-  const rawUnits = (monthlySpend * reward.rate) / 100;
+function cappedMonthlyUnits(card: CreditCard, monthlySpend: number, reward: Reward) {
+  const earnRate = rewardEarnRatePerRs100(card, reward);
+  const rawUnits = (monthlySpend * earnRate.basePerRs100) / 100;
   if (!reward.capMonthly) return rawUnits;
 
-  if (reward.postCapRate && reward.postCapRate > 0 && rawUnits > reward.capMonthly && reward.postCapRate < reward.rate) {
-    const spendAtCap = (reward.capMonthly * 100) / reward.rate;
+  if (
+    earnRate.postCapPerRs100 &&
+    earnRate.postCapPerRs100 > 0 &&
+    rawUnits > reward.capMonthly &&
+    earnRate.postCapPerRs100 < earnRate.basePerRs100
+  ) {
+    const spendAtCap = (reward.capMonthly * 100) / earnRate.basePerRs100;
     const excessSpend = Math.max(monthlySpend - spendAtCap, 0);
-    const postCapUnits = (excessSpend * reward.postCapRate) / 100;
+    const postCapUnits = (excessSpend * earnRate.postCapPerRs100) / 100;
     return reward.capMonthly + postCapUnits;
   }
 
@@ -216,7 +364,8 @@ export function calculateRewards(card: CreditCard, spend: SpendProfile): RewardC
       continue;
     }
 
-    const reward = findRewardForCategory(card, category);
+    const rewards = findRewardsForCategory(card, category);
+    const reward = rewards[0] ?? null;
     if (!reward) {
       rows.push({
         category,
@@ -230,11 +379,12 @@ export function calculateRewards(card: CreditCard, spend: SpendProfile): RewardC
       continue;
     }
 
-    const monthlyUnits = cappedMonthlyUnits(monthlySpend, reward);
+    const tieredAllocation = allocateTieredRewardUnits(card, monthlySpend, rewards);
+    const monthlyUnits = tieredAllocation?.monthlyUnits ?? cappedMonthlyUnits(card, monthlySpend, reward);
     rows.push({
       category,
       monthlySpend,
-      matchedRewardCategory: reward.category,
+      matchedRewardCategory: tieredAllocation?.matchedRewardCategory ?? reward.category,
       monthlyUnits,
       annualUnits: monthlyUnits * 12,
       excluded: false,

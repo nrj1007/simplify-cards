@@ -42,6 +42,7 @@ export type Redemption = {
     ratio: string;
     tatDays?: number;
     group?: string;
+    annualCap?: number;
   }>;
   hotelPartners?: Array<{
     hotelGroup: string;
@@ -49,6 +50,7 @@ export type Redemption = {
     ratio: string;
     tatDays?: number;
     group?: string;
+    annualCap?: number;
   }>;
   ecosystemLabel?: string;
   ecosystemValue?: number;
