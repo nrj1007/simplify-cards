@@ -10,12 +10,84 @@ import { parseQueryIntent } from "./query-intent";
 import { callAiWithSchema } from "./ai-provider";
 import { getTotalLoungeAccess } from "./lounge";
 
+export type AskIntent =
+  | "specific-card"
+  | "card-detail"
+  | "card-family"
+  | "top-cards"
+  | "best-fit"
+  | "unsupported";
+
+export type AskConfidence = "high" | "medium-high" | "medium" | "exploratory" | "low";
+
+export type AskResultMeta = {
+  intent: AskIntent;
+  intentLabel: string;
+  confidence: AskConfidence;
+  confidenceLabel: string;
+  needsFollowUp: boolean;
+};
+
 export type AskAiResult = ReturnType<typeof answerFromCards> & {
   highlights?: string[];
   needsDatabaseUpdate?: boolean;
   unsupportedReason?: string;
   displayMode?: "default" | "ranked-list";
+  meta?: AskResultMeta;
 };
+
+const ASK_INTENT_LABELS: Record<AskIntent, string> = {
+  "specific-card": "Specific card lookup",
+  "card-detail": "Card detail answer",
+  "card-family": "Card family lookup",
+  "top-cards": "Mixed recommendation",
+  "best-fit": "Best-fit recommendation",
+  unsupported: "No confident match"
+};
+
+const ASK_CONFIDENCE_LABELS: Record<AskConfidence, string> = {
+  high: "High",
+  "medium-high": "Medium-high",
+  medium: "Medium",
+  exploratory: "Exploratory",
+  low: "Low"
+};
+
+const ASK_INTENT_FOLLOWUP: Record<AskIntent, boolean> = {
+  "specific-card": false,
+  "card-detail": false,
+  "card-family": true,
+  "top-cards": true,
+  "best-fit": false,
+  unsupported: true
+};
+
+function confidenceFromScore(score?: number): AskConfidence {
+  if (score === undefined) return "low";
+  if (score >= 82) return "high";
+  if (score >= 65) return "medium-high";
+  if (score >= 45) return "medium";
+  return "exploratory";
+}
+
+function buildAskMeta(intent: AskIntent, options?: { topFit?: number; needsFollowUp?: boolean }): AskResultMeta {
+  const confidence: AskConfidence =
+    intent === "unsupported"
+      ? "low"
+      : intent === "specific-card" || intent === "card-detail"
+        ? "high"
+        : intent === "card-family"
+          ? "medium-high"
+          : confidenceFromScore(options?.topFit);
+
+  return {
+    intent,
+    intentLabel: ASK_INTENT_LABELS[intent],
+    confidence,
+    confidenceLabel: ASK_CONFIDENCE_LABELS[confidence],
+    needsFollowUp: options?.needsFollowUp ?? ASK_INTENT_FOLLOWUP[intent]
+  };
+}
 
 type ParsedCardQuestion = {
   questionType:
@@ -1278,7 +1350,8 @@ export async function answerQuestion(input: RecommendationInput): Promise<AskAiR
         "I am not using live web search here. I logged this question for a database update so the next answer can come from our verified card dataset.",
       cards: [],
       needsDatabaseUpdate: true,
-      unsupportedReason
+      unsupportedReason,
+      meta: buildAskMeta("unsupported")
     };
   }
 
@@ -1331,7 +1404,8 @@ export async function answerQuestion(input: RecommendationInput): Promise<AskAiR
       ...answer,
       highlights: [],
       needsDatabaseUpdate: true,
-      unsupportedReason: reason
+      unsupportedReason: reason,
+      meta: buildAskMeta("unsupported")
     };
   }
 
@@ -1341,7 +1415,8 @@ export async function answerQuestion(input: RecommendationInput): Promise<AskAiR
       summary: cardFamilyLookup.summary,
       cards: cardFamilyLookup.cards,
       highlights: cardFamilyLookup.highlights,
-      displayMode: cardFamilyLookup.displayMode
+      displayMode: cardFamilyLookup.displayMode,
+      meta: buildAskMeta("card-family", { topFit: cardFamilyLookup.cards[0]?.fitScore })
     };
   }
 
@@ -1355,14 +1430,18 @@ export async function answerQuestion(input: RecommendationInput): Promise<AskAiR
       cards: [],
       highlights: [],
       needsDatabaseUpdate: true,
-      unsupportedReason: reason
+      unsupportedReason: reason,
+      meta: buildAskMeta("unsupported")
     };
   }
 
   if (specificCardLookup && !namedCardQuestion && !topCardMatchesSpecificLookup(input, topCard)) {
     const aiFallback = await tryAiDatabaseFallback(input, scoredCards);
     if (aiFallback) {
-      return aiFallback;
+      return {
+        ...aiFallback,
+        meta: buildAskMeta("best-fit", { topFit: aiFallback.cards[0]?.fitScore })
+      };
     }
 
     const reason = "Specific card lookup is not covered in the current database yet";
@@ -1374,7 +1453,8 @@ export async function answerQuestion(input: RecommendationInput): Promise<AskAiR
       cards: [],
       highlights: [],
       needsDatabaseUpdate: true,
-      unsupportedReason: reason
+      unsupportedReason: reason,
+      meta: buildAskMeta("unsupported")
     };
   }
 
@@ -1384,7 +1464,8 @@ export async function answerQuestion(input: RecommendationInput): Promise<AskAiR
       return {
         ...answer,
         summary: specificAnswer.summary,
-        highlights: specificAnswer.highlights
+        highlights: specificAnswer.highlights,
+        meta: buildAskMeta("card-detail", { topFit: topCard.fitScore })
       };
     }
 
@@ -1397,7 +1478,8 @@ export async function answerQuestion(input: RecommendationInput): Promise<AskAiR
         cards: [],
         highlights: [],
         needsDatabaseUpdate: true,
-        unsupportedReason: reason
+        unsupportedReason: reason,
+        meta: buildAskMeta("unsupported")
       };
     }
   }
@@ -1409,7 +1491,8 @@ export async function answerQuestion(input: RecommendationInput): Promise<AskAiR
     return {
       ...answer,
       summary: topCardsSummary ?? buildFallbackSummary(input, answer.cards),
-      highlights: buildTopCardsHighlights(input, answer.cards)
+      highlights: buildTopCardsHighlights(input, answer.cards),
+      meta: buildAskMeta("top-cards", { topFit: topCard.fitScore })
     };
   }
 
@@ -1427,7 +1510,8 @@ export async function answerQuestion(input: RecommendationInput): Promise<AskAiR
       highlights: [
         ...buildFallbackHighlights(topCard, curatedAlternativeNames.length > 0 ? curatedAlternativeNames : fallbackAlternativeNames),
         ...genericScenarioHighlights
-      ]
+      ],
+      meta: buildAskMeta(specificCardLookup || namedCardQuestion ? "specific-card" : "best-fit", { topFit: topCard.fitScore })
     };
   }
 
@@ -1444,6 +1528,7 @@ export async function answerQuestion(input: RecommendationInput): Promise<AskAiR
     highlights: [
       ...buildFallbackHighlights(topCard, curatedAlternativeNames.length > 0 ? curatedAlternativeNames : fallbackAlternativeNames),
       ...genericScenarioHighlights
-    ]
+    ],
+    meta: buildAskMeta(specificCardLookup || namedCardQuestion ? "specific-card" : "best-fit", { topFit: topCard.fitScore })
   };
 }

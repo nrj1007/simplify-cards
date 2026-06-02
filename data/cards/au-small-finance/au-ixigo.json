@@ -3,10 +3,11 @@
   "issuer": "AU Small Finance Bank",
   "name": "AU ixigo Credit Card",
   "network": [
-    "Visa"
+    "Visa",
+    "RuPay"
   ],
-  "joiningFee": 999,
-  "annualFee": 999,
+  "joiningFee": 0,
+  "annualFee": 0,
   "feeWaiverSpend": null,
   "bestFor": [
     "travel",
@@ -16,13 +17,38 @@
   "rewardType": "reward points",
   "rewards": [
     {
-      "category": "travel",
+      "category": "online",
       "rate": 2.5,
+      "displayCategory": "Online spends",
+      "displayRate": "10 reward points per Rs 200",
       "capMonthly": null
     },
     {
       "category": "base",
-      "rate": 1,
+      "rate": 1.25,
+      "displayCategory": "Offline spends",
+      "displayRate": "5 reward points per Rs 200",
+      "capMonthly": null
+    },
+    {
+      "category": "upi",
+      "rate": 1.25,
+      "displayCategory": "UPI transactions on RuPay",
+      "displayRate": "5 reward points per Rs 200",
+      "capMonthly": null
+    },
+    {
+      "category": "utilities",
+      "rate": 0.5,
+      "displayCategory": "Telecom & Utilities transactions",
+      "displayRate": "1 reward point per Rs 100",
+      "capMonthly": null
+    },
+    {
+      "category": "insurance",
+      "rate": 0.5,
+      "displayCategory": "Insurance transactions",
+      "displayRate": "1 reward point per Rs 100 (max 100 points per transaction)",
       "capMonthly": null
     }
   ],
@@ -36,13 +62,72 @@
     "rail"
   ],
   "exclusions": [
-    "rent",
-    "wallet load",
-    "fuel"
+    "fuel spends",
+    "rental payments",
+    "wallet loading and top-up transactions",
+    "educational services and school fees",
+    "government services",
+    "international transactions"
   ],
-  "sourceUrl": "https://www.aubank.in/",
-  "applyUrl": "https://www.aubank.in/",
-  "lastVerified": "2026-05-08",
-  "verificationStatus": "needs-review",
+  "exclusionCodes": [
+    "fuel",
+    "rent",
+    "wallet_load",
+    "education",
+    "government"
+  ],
+  "joiningBenefits": [
+    "Get 1,000 Reward Points (worth Rs 500) on the first successful transaction within 30 days of card issuance",
+    "Get Rs 1,000 ixigo money voucher on the first successful transaction within 30 days of card issuance"
+  ],
+  "milestoneBenefits": [
+    "Earn 5,000 bonus Reward Points (worth up to Rs 2,500) on spending Rs 75,000 or more per calendar quarter"
+  ],
+  "additionalBenefits": [
+    "Zero payment gateway charges on train bookings made via ixigo and ConfirmTkt (up to 2 bookings per calendar month)",
+    "Up to 10% instant discount on domestic/international flights, hotels, and bus bookings via ixigo (once per calendar month)",
+    "2 complimentary railway lounge visits per calendar quarter (no spend threshold)",
+    "1% fuel surcharge waiver on transactions between Rs 400 and Rs 5,000, capped at Rs 250 per month"
+  ],
+  "additionalDetails": [
+    "A reward redemption fee of Rs 99 + GST applies per redemption request.",
+    "Minimum points required to redeem is 200 Reward Points."
+  ],
+  "redemption": {
+    "ecosystemLabel": "ixigo money",
+    "ecosystemValue": 0.5,
+    "statementBalanceValue": 0.25,
+    "pointsExpiryYears": 2
+  },
+  "eligibility": {
+    "salaried": [
+      "Registered user of ixigo app",
+      "Resident Indian citizen",
+      "Age 21 to 60 years"
+    ],
+    "selfEmployed": [
+      "Registered user of ixigo app",
+      "Resident Indian citizen",
+      "Age 21 to 60 years"
+    ]
+  },
+  "supportingSourceUrls": [
+    "https://www.aubank.in/personal-banking/credit-cards/ixigo-au-credit-card",
+    "https://www.ixigo.com/travel-credit-card"
+  ],
+  "sourceUrl": "https://www.aubank.in/personal-banking/credit-cards/ixigo-au-credit-card",
+  "applyUrl": "https://www.ixigo.com/travel-credit-card",
+  "imageUrl": "/images/au-ixigo.png",
+  "lastVerified": "2026-06-02",
+  "verificationStatus": "official-direct",
+  "internalNotes": [
+    "Card details audited and verified against official terms on 2026-06-02.",
+    "Reward points are capped at 10,000 points per monthly statement cycle.",
+    "UPI transactions done using the RuPay variant earn 5 reward points per Rs 200 spent.",
+    "Reward points are not earned on fuel, rent, insurance, wallet, jewellery, education, government, and international transactions.",
+    "Telecom, utilities, and insurance transactions earn 1 reward point per Rs 100 spent. Insurance reward points are capped at 100 per transaction.",
+    "Complimentary domestic airport lounge access requires a minimum spend of Rs 50,000 in the preceding calendar quarter to unlock 2 visits in the subsequent quarter.",
+    "Priority Pass membership can be requested from credit card support; access charges apply for domestic lounges, guest visits, or exceeding the 1 complimentary international visit per year."
+  ],
   "popularityScore": 86
 }

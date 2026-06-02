@@ -1,4 +1,28 @@
 {
+  "au-ixigo": {
+    "updates": [
+      {
+        "title": "Complimentary domestic lounge access spend threshold updated",
+        "summary": "Effective 10 April 2026, AU Small Finance Bank has revised the complimentary domestic airport lounge access eligibility. Cardholders can now enjoy 2 complimentary domestic airport lounge visits per calendar quarter, provided they have spent a minimum of ₹50,000 in the previous calendar quarter.",
+        "sourceType": "manual",
+        "sourceLabel": "AU Small Finance Bank official notice",
+        "sourceUrl": "https://www.aubank.in/personal-banking/credit-cards/ixigo-au-credit-card",
+        "publishedAt": "2026-04-10"
+      }
+    ],
+    "tips": [
+      {
+        "text": "Link your AU ixigo RuPay variant with any UPI app to earn 1.25% rewards (5 reward points per Rs 200) on both online and offline UPI transactions.",
+        "sourceType": "manual",
+        "sourceLabel": "Manual"
+      },
+      {
+        "text": "The card features a standout 0% forex markup on international spends; however, note that international transactions do not earn reward points.",
+        "sourceType": "manual",
+        "sourceLabel": "Manual"
+      }
+    ]
+  },
   "scapia-bobcard": {
     "updates": [
       {

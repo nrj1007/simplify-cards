@@ -296,9 +296,11 @@ export default async function AskPage({ searchParams }: Props) {
   const answerHeadSub = isRanked
     ? "Ranked by how well they match the query, not by commission."
     : topCard?.card.issuer ?? "";
-  const intentLabel = isRanked ? "Mixed recommendation" : namedCardLookup ? "Specific card lookup" : "Best-fit recommendation";
-  const confidence = topCard ? confidenceLabel(topCard.fitScore) : "Low";
-  const needsFollowUp = isRanked ? "Yes" : "No";
+  const intentLabel =
+    result?.meta?.intentLabel ??
+    (isRanked ? "Mixed recommendation" : namedCardLookup ? "Specific card lookup" : "Best-fit recommendation");
+  const confidence = result?.meta?.confidenceLabel ?? (topCard ? confidenceLabel(topCard.fitScore) : "Low");
+  const needsFollowUp = (result?.meta?.needsFollowUp ?? isRanked) ? "Yes" : "No";
   const decisionCards = (result?.cards ?? []).slice(0, 3).map((item, index) => ({
     id: item.card.id,
     tone: DECISION_TONES[index] ?? "skip",
