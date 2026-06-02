@@ -17,14 +17,6 @@ const ASK_EXAMPLES = [
   "SBI Cashback"
 ];
 
-const STATE_GUIDE = [
-  { title: "Exact card", body: "Full card snapshot with rewards and benefits." },
-  { title: "Multiple matches", body: "Ranked list plus a compare table." },
-  { title: "Comparison", body: "Leads with the table and the winner by use case." },
-  { title: "Vague query", body: "Surfaces ranked picks and asks a follow-up." },
-  { title: "No result", body: "Says so clearly and logs it for review." }
-];
-
 const DECISION_TONES = ["good", "warn", "skip"] as const;
 const DECISION_LABELS = ["Top pick", "Strong alternative", "Also worth a look"];
 const MATTER_CHIPS = ["Travel", "Cashback", "Lounge access", "Low annual fee"];
@@ -243,8 +235,14 @@ export default async function AskPage({ searchParams }: Props) {
   const savedFeedback = params.feedbackSaved === "up" || params.feedbackSaved === "down" ? params.feedbackSaved : null;
   const feedbackError = params.feedbackError === "1";
   const topCardsQuery = isTopCardsQuery(input?.query);
-  const showRankedAnswer = topCardsQuery || result?.displayMode === "ranked-list";
   const topCard = result?.cards[0];
+  const matchCount = result?.cards.length ?? 0;
+  const intent = result?.meta?.intent;
+  // An exact-card answer is about a single card — never use the multi-result template for it.
+  const exactCardIntent = intent === "specific-card" || intent === "card-detail";
+  // Pick the template that fits the result: multiple (ranked + compare) vs a single exact card.
+  const showRankedAnswer =
+    Boolean(topCard) && !exactCardIntent && (topCardsQuery || result?.displayMode === "ranked-list" || matchCount > 1);
   const rankedResultCards = showRankedAnswer ? result?.cards ?? [] : [];
   const comparisonCards = showRankedAnswer ? rankedResultCards.slice(0, 3) : [];
   const showFeeWaiverRow = comparisonCards.some((item) => hasFeeWaiverSpend(item.card.feeWaiverSpend));
@@ -286,10 +284,14 @@ export default async function AskPage({ searchParams }: Props) {
 
   // Derived presentation values for the redesigned Ask surface.
   const isRanked = showRankedAnswer && rankedResultCards.length > 0;
-  const matchCount = result?.cards.length ?? 0;
-  const fitNumber = isRanked ? matchCount : topCard ? Math.round(topCard.fitScore) : 0;
-  const fitLabel = isRanked ? "matches" : "fit";
-  const namedCardLookup = !isRanked && !topCardsQuery && result?.displayMode !== "ranked-list" && matchCount <= 1;
+  const presentedMatches = exactCardIntent ? 1 : matchCount;
+  // Display-only fit score out of 100, normalized to the strongest card in this result set.
+  // Ranking still uses the raw fitScore (see lib/recommend.ts), so this does not affect ordering.
+  const topFitRaw = result?.cards[0]?.fitScore ?? 0;
+  const toFitPercent = (score: number) =>
+    topFitRaw > 0 ? Math.max(1, Math.min(100, Math.round((score / topFitRaw) * 100))) : 100;
+  const fitNumber = isRanked ? matchCount : topCard ? toFitPercent(topCard.fitScore) : 0;
+  const fitLabel = isRanked ? "matches" : "/ 100";
   const answerHeadTitle = isRanked
     ? `myCards found ${matchCount} relevant card${matchCount === 1 ? "" : "s"}.`
     : topCard?.card.name ?? "";
@@ -298,10 +300,11 @@ export default async function AskPage({ searchParams }: Props) {
     : topCard?.card.issuer ?? "";
   const intentLabel =
     result?.meta?.intentLabel ??
-    (isRanked ? "Mixed recommendation" : namedCardLookup ? "Specific card lookup" : "Best-fit recommendation");
+    (isRanked ? "Mixed recommendation" : exactCardIntent ? "Specific card lookup" : "Best-fit recommendation");
   const confidence = result?.meta?.confidenceLabel ?? (topCard ? confidenceLabel(topCard.fitScore) : "Low");
   const needsFollowUp = (result?.meta?.needsFollowUp ?? isRanked) ? "Yes" : "No";
-  const decisionCards = (result?.cards ?? []).slice(0, 3).map((item, index) => ({
+  // The decision grid is a multi-recommendation device — only populate it for the ranked template.
+  const decisionCards = (isRanked ? result?.cards ?? [] : []).slice(0, 3).map((item, index) => ({
     id: item.card.id,
     tone: DECISION_TONES[index] ?? "skip",
     label: DECISION_LABELS[index] ?? "Also worth a look",
@@ -357,11 +360,11 @@ export default async function AskPage({ searchParams }: Props) {
                       <p>{answerHeadSub}</p>
                       <div className="badge-row">
                         <span className="ask-badge">
-                          {isRanked ? "Multiple results" : namedCardLookup ? "Exact card" : "Best fit"}
+                          {isRanked ? "Multiple results" : exactCardIntent ? "Exact card" : "Best fit"}
                         </span>
                         {topCard.card.bestFor[0] ? <span className="ask-badge gold">{topCard.card.bestFor[0]}</span> : null}
                         <span className="ask-badge neutral">
-                          {matchCount} card{matchCount === 1 ? "" : "s"} reviewed
+                          {presentedMatches} card{presentedMatches === 1 ? "" : "s"} reviewed
                         </span>
                       </div>
                     </div>
@@ -434,7 +437,7 @@ export default async function AskPage({ searchParams }: Props) {
                                   <h3>{item.card.name}</h3>
                                   <p>{getCardUsp(item.card)}</p>
                                   <div className="result-meta">
-                                    <span className="mini-tag">Fit {Math.round(item.fitScore)}</span>
+                                    <span className="mini-tag">Fit {toFitPercent(item.fitScore)}/100</span>
                                     {item.card.bestFor[0] ? <span className="mini-tag">{item.card.bestFor[0]}</span> : null}
                                     <span className="mini-tag">
                                       {item.card.annualFee === 0 ? "Lifetime free" : `${formatCurrency(item.card.annualFee)} fee`}
@@ -635,6 +638,7 @@ export default async function AskPage({ searchParams }: Props) {
                   </section>
                 )}
 
+                {isRanked ? (
                 <section className="panel">
                   <div className="panel-body">
                     <h2 className="section-title">Need more precision?</h2>
@@ -669,6 +673,7 @@ export default async function AskPage({ searchParams }: Props) {
                     </div>
                   </div>
                 </section>
+                ) : null}
 
                 {input?.query ? (
                   <section className="panel">
@@ -736,7 +741,7 @@ export default async function AskPage({ searchParams }: Props) {
                   <div className="summary-item">
                     <span>Matches</span>
                     <b>
-                      {matchCount} card{matchCount === 1 ? "" : "s"}
+                      {presentedMatches} card{presentedMatches === 1 ? "" : "s"}
                     </b>
                   </div>
                   <div className="summary-item">
@@ -762,20 +767,6 @@ export default async function AskPage({ searchParams }: Props) {
                 </p>
               </section>
             ) : null}
-
-            <section className="sidebar-card">
-              <h3 className="side-title">Supported result types</h3>
-              <div className="state-guide">
-                {STATE_GUIDE.map((state) => (
-                  <div className="state-pill" key={state.title}>
-                    <span className="dot" aria-hidden="true" />
-                    <span>
-                      <b>{state.title}:</b> {state.body}
-                    </span>
-                  </div>
-                ))}
-              </div>
-            </section>
 
             <section className="sidebar-card ask-again">
               <h3 className="side-title">Ask a follow-up</h3>

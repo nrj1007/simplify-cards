@@ -1038,7 +1038,13 @@ function buildUnsupportedPolicySummary(input: RecommendationInput, topCard?: Car
   return "I could not verify that rewards-policy detail.";
 }
 
-function buildDisplayCards(scoredCards: CardScore[], preferredCardId?: string | null, importantCards: CardScore[] = []) {
+function buildDisplayCards(
+  scoredCards: CardScore[],
+  preferredCardId?: string | null,
+  importantCards: CardScore[] = [],
+  options?: { includeFallback?: boolean }
+) {
+  const includeFallback = options?.includeFallback ?? true;
   const primaryCard =
     (preferredCardId ? scoredCards.find((item) => item.card.id === preferredCardId) : undefined) ?? scoredCards[0];
 
@@ -1050,9 +1056,16 @@ function buildDisplayCards(scoredCards: CardScore[], preferredCardId?: string | 
       return item && item.card.id !== primaryCard.card.id ? [item] : [];
     });
 
-  const fallbackCards = scoredCards.filter(
-    (item) => item.card.id !== primaryCard.card.id && !curatedAlternatives.some((alternative) => alternative.card.id === item.card.id)
-  );
+  // For a specific named-card lookup we only show the matched card and any
+  // curated alternatives. Padding with arbitrary top-scored cards would surface
+  // unrelated cards (e.g. Infinia/DCB) as "alternatives" to a card they don't relate to.
+  const fallbackCards = includeFallback
+    ? scoredCards.filter(
+        (item) =>
+          item.card.id !== primaryCard.card.id &&
+          !curatedAlternatives.some((alternative) => alternative.card.id === item.card.id)
+      )
+    : [];
 
   const orderedCards: CardScore[] = [];
   for (const item of [primaryCard, ...importantCards, ...curatedAlternatives, ...fallbackCards]) {
@@ -1384,7 +1397,8 @@ export async function answerQuestion(input: RecommendationInput): Promise<AskAiR
       : buildDisplayCards(
           scoredCards,
           shortlisted.mentionedCardId ?? shortlisted.cards[0]?.card.id ?? null,
-          scenarioWinnerCards
+          scenarioWinnerCards,
+          { includeFallback: !(specificCardLookup || namedCardQuestionInitial) }
         )
   };
   const topCard = answer.cards[0];

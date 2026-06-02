@@ -3328,33 +3328,6 @@ textarea {
   line-height: 1.5;
 }
 
-.state-guide {
-  display: grid;
-  gap: 10px;
-}
-
-.state-pill {
-  display: flex;
-  gap: 10px;
-  align-items: flex-start;
-  font-size: 13px;
-  color: #4e5967;
-  line-height: 1.45;
-}
-
-.state-pill b {
-  color: var(--navy);
-}
-
-.state-pill .dot {
-  width: 9px;
-  height: 9px;
-  flex: 0 0 auto;
-  border-radius: 999px;
-  background: var(--teal);
-  margin-top: 6px;
-}
-
 .ask-again form {
   display: grid;
   gap: 10px;
