@@ -1,0 +1,58 @@
+{
+  "id": "kotak-pvr-platinum",
+  "issuer": "Kotak Mahindra Bank",
+  "name": "PVR Kotak Platinum Credit Card",
+  "network": [
+    "Visa"
+  ],
+  "joiningFee": 0,
+  "annualFee": 999,
+  "feeWaiverSpend": null,
+  "bestFor": [
+    "movies",
+    "entertainment"
+  ],
+  "rewardType": "movie benefits",
+  "rewards": [
+    {
+      "category": "base",
+      "rate": 0,
+      "capMonthly": null
+    }
+  ],
+  "popularityScore": 70,
+  "loungeDomestic": 0,
+  "loungeInternational": 0,
+  "forexMarkup": 3.5,
+  "tags": [
+    "kotak",
+    "pvr",
+    "movies",
+    "entertainment",
+    "visa"
+  ],
+  "exclusions": [
+    "movie coupon benefit depends on monthly spend threshold and claim flow",
+    "annual fee is not waived according to Kotak product content"
+  ],
+  "milestoneBenefits": [
+    "Get 2 free PVR tickets every month on spends of Rs 10,000, each ticket up to Rs 400"
+  ],
+  "additionalBenefits": [
+    "15% cashback on food and beverages at PVR",
+    "5% cashback on movie tickets at PVR box office"
+  ],
+  "redemption": {},
+  "eligibility": {
+    "salaried": [
+      "Eligibility is subject to Kotak Mahindra Bank approval criteria"
+    ],
+    "selfEmployed": [
+      "Eligibility is subject to Kotak Mahindra Bank approval criteria"
+    ]
+  },
+  "sourceUrl": "https://www.kotak.com/en/personal-banking/cards/credit-cards.html",
+  "applyUrl": "https://www.kotak.com/en/personal-banking/cards/credit-cards.html",
+  "lastVerified": "2026-05-11",
+  "verificationStatus": "official-indexed"
+}

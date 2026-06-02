@@ -1,20 +1,5 @@
-import americanExpressCards from "@/data/cards/american-express.json";
-import auSmallFinanceCards from "@/data/cards/au-small-finance.json";
-import axisCards from "@/data/cards/axis.json";
-import bankOfBarodaCards from "@/data/cards/bank-of-baroda.json";
-import equitasSmallFinanceCards from "@/data/cards/equitas-small-finance.json";
-import federalBankCards from "@/data/cards/federal-bank.json";
-import hdfcCards from "@/data/cards/hdfc.json";
-import hsbcCards from "@/data/cards/hsbc.json";
-import iciciCards from "@/data/cards/icici.json";
-import idfcCards from "@/data/cards/idfc.json";
-import indusIndBankCards from "@/data/cards/indusind-bank.json";
-import kotakMahindraCards from "@/data/cards/kotak-mahindra.json";
-import oneCardPartnersCards from "@/data/cards/onecard-partners.json";
-import rblBankCards from "@/data/cards/rbl-bank.json";
-import sbiCards from "@/data/cards/sbi.json";
-import standardCharteredCards from "@/data/cards/standard-chartered.json";
-import yesBankCards from "@/data/cards/yes-bank.json";
+import fs from "node:fs";
+import path from "node:path";
 import type { CreditCard } from "./types";
 
 export type PopularityBand = "90-plus" | "80-89" | "70-79" | "below-70";
@@ -142,25 +127,29 @@ function cardSegmentsForCard(card: CreditCard, searchableText: string): CardSegm
   return [...segments];
 }
 
-const mergedCards = ([
-  ...americanExpressCards,
-  ...iciciCards,
-  ...sbiCards,
-  ...axisCards,
-  ...hdfcCards,
-  ...federalBankCards,
-  ...idfcCards,
-  ...indusIndBankCards,
-  ...hsbcCards,
-  ...bankOfBarodaCards,
-  ...auSmallFinanceCards,
-  ...equitasSmallFinanceCards,
-  ...kotakMahindraCards,
-  ...oneCardPartnersCards,
-  ...rblBankCards,
-  ...standardCharteredCards,
-  ...yesBankCards
-] as CreditCard[]).sort(sortCards);
+// Cards live as one JSON file per card under data/cards/<issuer>/<card-id>.json.
+// Read them all at module load (server-side only) so adding a card is just dropping a
+// file — no import list to maintain. The final order is determined by sortCards, so the
+// directory traversal order does not matter.
+function loadAllCards(): CreditCard[] {
+  const cardsDir = path.join(process.cwd(), "data", "cards");
+  const loaded: CreditCard[] = [];
+
+  for (const issuerEntry of fs.readdirSync(cardsDir, { withFileTypes: true })) {
+    if (!issuerEntry.isDirectory()) continue;
+    const issuerDir = path.join(cardsDir, issuerEntry.name);
+
+    for (const fileName of fs.readdirSync(issuerDir)) {
+      if (!fileName.endsWith(".json")) continue;
+      const raw = fs.readFileSync(path.join(issuerDir, fileName), "utf8");
+      loaded.push(JSON.parse(raw) as CreditCard);
+    }
+  }
+
+  return loaded;
+}
+
+const mergedCards = loadAllCards().sort(sortCards);
 
 export const cards = Object.freeze(mergedCards);
 

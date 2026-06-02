@@ -1,0 +1,71 @@
+{
+  "id": "indusind-nexxt",
+  "issuer": "IndusInd Bank",
+  "name": "IndusInd Bank Nexxt Credit Card",
+  "network": [
+    "Visa"
+  ],
+  "joiningFee": 10000,
+  "annualFee": 0,
+  "feeWaiverSpend": null,
+  "bestFor": [
+    "movies",
+    "contactless",
+    "pay with rewards"
+  ],
+  "rewardType": "reward points",
+  "rewards": [
+    {
+      "category": "base",
+      "rate": 0.4,
+      "displayRate": "1 reward point per Rs 150",
+      "capMonthly": null
+    }
+  ],
+  "popularityScore": 74,
+  "loungeDomestic": 0,
+  "loungeInternational": 0,
+  "forexMarkup": 3.5,
+  "tags": [
+    "indusind",
+    "nexxt",
+    "movies",
+    "contactless",
+    "interactive card"
+  ],
+  "exclusions": [
+    "fuel",
+    "cash redemption capped monthly",
+    "welcome gifts available only at select fee points"
+  ],
+  "milestoneBenefits": [],
+  "additionalBenefits": [
+    "India's first interactive card with reward, EMI and credit buttons",
+    "1 reward point for every Rs 150 spent",
+    "2 complimentary movie tickets up to Rs 200 every month via BookMyShow",
+    "1% fuel surcharge waiver"
+  ],
+  "redemption": {
+    "statementBalanceValue": 0.3,
+    "minimumPointsForStatementCredit": 500,
+    "airlinePartners": [
+      {
+        "airline": "Singapore Airlines",
+        "programme": "KrisFlyer",
+        "ratio": "2:1"
+      }
+    ]
+  },
+  "eligibility": {
+    "salaried": [
+      "Eligibility is subject to IndusInd Bank approval criteria"
+    ],
+    "selfEmployed": [
+      "Eligibility is subject to IndusInd Bank approval criteria"
+    ]
+  },
+  "sourceUrl": "https://www.indusind.com/in/en/personal/cards/credit-card/nexxt-credit-card.html",
+  "applyUrl": "https://www.indusind.com/in/en/personal/cards/credit-card/nexxt-credit-card.html",
+  "lastVerified": "2026-05-11",
+  "verificationStatus": "official-direct"
+}

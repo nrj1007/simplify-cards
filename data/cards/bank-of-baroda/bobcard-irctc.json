@@ -1,0 +1,85 @@
+{
+  "id": "bobcard-irctc",
+  "issuer": "Bank of Baroda",
+  "name": "IRCTC BOBCARD",
+  "network": [
+    "RuPay"
+  ],
+  "joiningFee": 500,
+  "annualFee": 350,
+  "feeWaiverSpend": null,
+  "bestFor": [
+    "irctc",
+    "railway lounge",
+    "grocery",
+    "departmental stores",
+    "travel"
+  ],
+  "rewardType": "reward points",
+  "rewards": [
+    {
+      "category": "irctc",
+      "rate": 10,
+      "capMonthly": null
+    },
+    {
+      "category": "grocery",
+      "rate": 1,
+      "capMonthly": null
+    },
+    {
+      "category": "departmental stores",
+      "rate": 1,
+      "capMonthly": null
+    },
+    {
+      "category": "retail",
+      "rate": 0.5,
+      "capMonthly": null
+    }
+  ],
+  "loungeDomestic": 4,
+  "loungeInternational": 0,
+  "forexMarkup": 3.5,
+  "tags": [
+    "bobcard",
+    "irctc",
+    "railway",
+    "railway lounge",
+    "rupay",
+    "train travel"
+  ],
+  "exclusions": [
+    "fuel spends eligible for surcharge waiver do not earn reward points",
+    "IRCTC rewards require linking the card loyalty number with IRCTC login ID",
+    "taxes and charges excluded as per BOBCARD terms"
+  ],
+  "milestoneBenefits": [
+    "1,000 bonus reward points on a single transaction of Rs 1,000 or more within 45 days of card issuance"
+  ],
+  "additionalBenefits": [
+    "Up to 40 reward points per Rs 100 on train ticket bookings through IRCTC website and mobile app",
+    "4 reward points per Rs 100 on grocery and departmental store spends",
+    "2 reward points per Rs 100 on other categories including train ticket purchases on IRCTC",
+    "4 complimentary railway lounge accesses per year",
+    "1% fuel surcharge waiver on fuel transactions between Rs 500 and Rs 3,000, capped at Rs 100 per statement",
+    "Up to 3 lifetime free add-on cards"
+  ],
+  "redemption": {
+    "statementBalanceValue": 0.25,
+    "pointsExpiryYears": null
+  },
+  "eligibility": {
+    "salaried": [
+      "Eligibility details to be confirmed during Bank of Baroda application"
+    ],
+    "selfEmployed": [
+      "Eligibility details to be confirmed during Bank of Baroda application"
+    ]
+  },
+  "sourceUrl": "https://bankofbaroda.bank.in/personal-banking/digital-products/cards/credit-cards/irctc-bob-credit-card",
+  "applyUrl": "https://bankofbaroda.bank.in/personal-banking/digital-products/cards/credit-cards/irctc-bob-credit-card",
+  "lastVerified": "2026-05-10",
+  "verificationStatus": "official-direct",
+  "popularityScore": 70
+}

@@ -1,0 +1,83 @@
+{
+  "id": "aurum-sbi",
+  "issuer": "SBI Card",
+  "name": "AURUM SBI Card",
+  "network": [
+    "Mastercard"
+  ],
+  "joiningFee": 9999,
+  "annualFee": 9999,
+  "feeWaiverSpend": 1200000,
+  "bestFor": [
+    "premium",
+    "travel",
+    "international travel",
+    "lounge",
+    "movies",
+    "forex"
+  ],
+  "rewardType": "AURUM reward points",
+  "rewards": [
+    {
+      "category": "travel",
+      "rate": 1,
+      "capMonthly": null
+    },
+    {
+      "category": "online",
+      "rate": 1,
+      "capMonthly": null
+    },
+    {
+      "category": "base",
+      "rate": 1,
+      "capMonthly": null
+    }
+  ],
+  "loungeDomestic": 16,
+  "loungeInternational": "unlimited",
+  "forexMarkup": 1.99,
+  "tags": [
+    "premium",
+    "travel",
+    "lounge",
+    "forex",
+    "movies",
+    "golf"
+  ],
+  "exclusions": [
+    "fuel",
+    "cash withdrawal",
+    "transactions excluded under AURUM SBI Card terms"
+  ],
+  "milestoneBenefits": [
+    "Monthly Tata CLiQ Fashion voucher worth Rs 1,500 on monthly spends of Rs 1 lakh",
+    "Tata CLiQ Luxury voucher worth Rs 5,000 on annual spends of Rs 5 lakh",
+    "Taj experience voucher worth Rs 10,000 on annual spends of Rs 10 lakh",
+    "Apple voucher worth Rs 20,000 on annual spends of Rs 20 lakh",
+    "Renewal fee waiver on annual spends of Rs 12 lakh or more in the preceding year"
+  ],
+  "additionalBenefits": [
+    "40,000 AURUM Reward Points worth Rs 10,000 as activation benefit, subject to product terms",
+    "4 AURUM Reward Points per Rs 100 on eligible spends",
+    "1 AURUM Reward Point equals Rs 0.25 for statement credit redemption",
+    "Transfer partners include select airline, hotel and loyalty partners as per AURUM programme terms",
+    "Unlimited complimentary international lounge access with DreamFolks membership",
+    "16 complimentary domestic airport lounge visits per year, capped at 4 per quarter",
+    "4 complimentary movie tickets per month via BookMyShow, capped at Rs 1,000 per month",
+    "16 complimentary golf rounds and 12 golf lessons per year, subject to availability and programme terms",
+    "1 complimentary airport spa session per quarter at select airports",
+    "Complimentary premium memberships and subscriptions may include Club Marriott, Wall Street Journal, Mint and IPV membership in the first year, subject to current offer terms",
+    "1% fuel surcharge waiver on eligible fuel transactions from Rs 500 to Rs 4,000, capped at Rs 250 per month"
+  ],
+  "redemption": {
+    "statementBalanceValue": 0.25,
+    "airMilesValue": 0.2,
+    "pointsExpiryYears": 2
+  },
+  "sourceUrl": "https://www.sbicard.com/en/most-important-terms-and-conditions.page",
+  "applyUrl": "https://www.aurumcreditcard.com/",
+  "lastVerified": "2026-05-09",
+  "verificationStatus": "official-mixed",
+  "popularityScore": 54
+}

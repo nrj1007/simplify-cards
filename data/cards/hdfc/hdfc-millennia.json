@@ -1,0 +1,138 @@
+{
+  "id": "hdfc-millennia",
+  "issuer": "HDFC Bank",
+  "name": "HDFC Millennia Credit Card",
+  "network": [
+    "Visa",
+    "Mastercard"
+  ],
+  "joiningFee": 1000,
+  "annualFee": 1000,
+  "feeWaiverSpend": 100000,
+  "bestFor": [
+    "online",
+    "wallets",
+    "cashback"
+  ],
+  "rewardType": "cashback",
+  "rewards": [
+    {
+      "category": "online",
+      "displayCategory": "select online merchants",
+      "rate": 5,
+      "displayRate": "5% CashBack",
+      "capMonthly": 1000
+    },
+    {
+      "category": "base",
+      "displayCategory": "others",
+      "rate": 1,
+      "displayRate": "1% CashBack",
+      "capMonthly": 1000
+    },
+    {
+      "category": "smartbuy",
+      "rate": 10,
+      "displayRate": "Up to 10% CashBack",
+      "capMonthly": 1000,
+      "capDaily": 1000
+    }
+  ],
+  "loungeDomestic": 4,
+  "loungeInternational": 0,
+  "forexMarkup": 3.5,
+  "tags": [
+    "online",
+    "cashback",
+    "lounge"
+  ],
+  "specialSpendRules": [
+    {
+      "category": "education",
+      "treatment": "rewarded",
+      "notes": "Education payments made directly through school or college websites or POS machines earn rewards; third-party app payments do not."
+    }
+  ],
+  "exclusions": [
+    "fuel",
+    "rent",
+    "government payments",
+    "cash withdrawal",
+    "wallet loads",
+    "emi transactions",
+    "card fees and charges",
+    "payment of outstanding balances",
+    "education payments through third-party apps"
+  ],
+  "exclusionCodes": [
+    "fuel",
+    "rent",
+    "government",
+    "cash_withdrawal",
+    "wallet_load",
+    "emi",
+    "fees_and_charges"
+  ],
+  "milestoneBenefits": [
+    "Either Rs 1,000 gift voucher or 1 domestic lounge access voucher on spends of Rs 1,00,000 and above in each calendar quarter"
+  ],
+  "joiningBenefits": [
+    "1,000 CashPoints on payment of joining or renewal membership fee, equivalent to the fee amount"
+  ],
+  "additionalBenefits": [
+    "5% cashback on Amazon, BookMyShow, Cult.fit, Flipkart, Myntra, Sony LIV, Swiggy, Tata CLiQ, Uber and Zomato",
+    "Up to 10% cashback across 200+ brands via SmartBuy/PayZapp Shop",
+    "10% additional discount on Swiggy Dineout using coupon code HDFCCARDS",
+    "1% fuel surcharge waiver at fuel stations across India on transactions from Rs 400 to Rs 5,000"
+  ],
+  "additionalDetails": [
+    "CashPoints are posted on a calendar-month basis, with settled transactions from the 1st to the 30th/31st posted in the first week of the subsequent calendar month",
+    "Reward Points on flights and hotels via SmartBuy redeem at 1 CashPoint = Rs 1, capped at 50,000 CashPoints per calendar month and up to 50% of booking value",
+    "Reward Points for cashback redemption are capped at 3,000 per calendar month",
+    "Unredeemed CashPoints expire within 2 years of accumulation"
+  ],
+  "internalNotes": [
+    "Card details manually reviewed and verified by user on 2026-05-31",
+    "Audited against official HDFC Bank Millennia product page, terms PDF, lounge voucher PDF, FAQ PDF and fee-waiver page on 2026-05-31.",
+    "Effective 1st December 2023, complimentary domestic airport lounge access is no longer directly available on Millennia Credit Card; lounge access is now integrated into the quarterly milestone choice between a Rs 1,000 voucher and a lounge voucher.",
+    "Effective 1st September 2024, wallet loading and EMI transactions do not earn Reward Points.",
+    "Effective 1st September 2024, education payments made through third-party apps do not earn Reward Points, but direct school or college website and POS transactions do earn rewards.",
+    "Reward points redemption for cashback is capped at 3,000 CashPoints per calendar month.",
+    "Flights and hotels redemption is capped at 50,000 CashPoints per calendar month and up to 50% of booking value."
+  ],
+  "redemption": {
+    "statementBalanceValue": 1,
+    "smartBuyFlightHotelValue": 1,
+    "smartBuyCatalogueValue": 0.3,
+    "minimumPointsForStatementCredit": 500,
+    "cashbackRedemptionCapMonthly": 3000,
+    "pointsExpiryYears": 2,
+    "redemptionFee": 99
+  },
+  "supportingSourceUrls": [
+    "https://offers.smartbuy.hdfc.bank.in/offer_details/smartbuy/15282",
+    "https://www.hdfc.bank.in/content/dam/hdfcbankpws/in/en/personal-banking/discover-products/cards/credit-cards/millennia-credit-card/Terms-and-Conditions-Millennia-Credit-Card.pdf",
+    "https://www.hdfc.bank.in/content/dam/hdfcbankpws/in/en/personal-banking/discover-products/cards/credit-cards/millennia-credit-card/pdf/lounge-voucher-on-millennia-credit-card.pdf",
+    "https://www.hdfc.bank.in/content/dam/hdfcbankpws/in/en/personal-banking/discover-products/cards/credit-cards/millennia-credit-card/pdf/faq-millennia.pdf",
+    "https://www.hdfc.bank.in/credit-cards/millennia-credit-card/fees-and-charges"
+  ],
+  "eligibility": {
+    "salaried": [
+      "Indian national",
+      "Age: 21 to 40 years",
+      "Net monthly income above Rs 35,000"
+    ],
+    "selfEmployed": [
+      "Indian national",
+      "Age: 21 to 40 years",
+      "ITR above Rs 6 lakh per annum"
+    ]
+  },
+  "imageUrl": "/images/hdfc-millennia.webp",
+  "interestRateMonthly": 3.6,
+  "sourceUrl": "https://www.hdfc.bank.in/credit-cards/millennia-credit-card",
+  "applyUrl": "https://www.hdfc.bank.in/credit-cards/millennia-credit-card",
+  "lastVerified": "2026-05-31",
+  "verificationStatus": "official-direct",
+  "popularityScore": 92
+}

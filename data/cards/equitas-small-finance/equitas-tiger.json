@@ -1,0 +1,74 @@
+{
+  "id": "equitas-tiger",
+  "issuer": "Equitas Small Finance Bank",
+  "name": "Equitas Tiger Credit Card",
+  "network": [
+    "Visa"
+  ],
+  "joiningFee": 999,
+  "annualFee": 999,
+  "feeWaiverSpend": null,
+  "bestFor": [
+    "travel",
+    "movies",
+    "lounge",
+    "mid-tier"
+  ],
+  "rewardType": "reward points",
+  "rewards": [
+    {
+      "category": "travel",
+      "rate": 1,
+      "capMonthly": null
+    },
+    {
+      "category": "online",
+      "rate": 1,
+      "capMonthly": null
+    },
+    {
+      "category": "base",
+      "rate": 0.4,
+      "capMonthly": null
+    }
+  ],
+  "popularityScore": 71,
+  "loungeDomestic": 4,
+  "loungeInternational": 0,
+  "forexMarkup": 3.5,
+  "tags": [
+    "equitas",
+    "tiger",
+    "travel",
+    "lounge",
+    "movies"
+  ],
+  "exclusions": [
+    "reward values follow current Equitas rewards terms",
+    "fuel",
+    "cash advances"
+  ],
+  "milestoneBenefits": [
+    "Milestone-based reward benefits as per Equitas current card programme"
+  ],
+  "additionalBenefits": [
+    "Domestic lounge access",
+    "Movie and entertainment privileges",
+    "Travel-oriented rewards for a mid-tier annual fee"
+  ],
+  "redemption": {
+    "statementBalanceValue": 0.25
+  },
+  "eligibility": {
+    "salaried": [
+      "Eligibility is subject to Equitas Small Finance Bank approval criteria"
+    ],
+    "selfEmployed": [
+      "Eligibility is subject to Equitas Small Finance Bank approval criteria"
+    ]
+  },
+  "sourceUrl": "https://www.equitasbank.com/credit-cards/tiger-credit-card",
+  "applyUrl": "https://www.equitasbank.com/credit-cards/tiger-credit-card",
+  "lastVerified": "2026-05-11",
+  "verificationStatus": "official-mixed"
+}

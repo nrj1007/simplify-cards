@@ -1,0 +1,67 @@
+{
+  "id": "irctc-rupay-sbi",
+  "issuer": "SBI Card",
+  "name": "IRCTC SBI Card on RuPay",
+  "network": [
+    "RuPay"
+  ],
+  "joiningFee": 500,
+  "annualFee": 500,
+  "feeWaiverSpend": null,
+  "bestFor": [
+    "railway",
+    "irctc",
+    "travel",
+    "rupay",
+    "low fee"
+  ],
+  "rewardType": "reward points",
+  "rewards": [
+    {
+      "category": "travel",
+      "rate": 10,
+      "capMonthly": null
+    },
+    {
+      "category": "base",
+      "rate": 0.8,
+      "capMonthly": null
+    }
+  ],
+  "loungeDomestic": 0,
+  "loungeInternational": 0,
+  "forexMarkup": 3.5,
+  "tags": [
+    "irctc",
+    "railway",
+    "travel",
+    "rupay",
+    "low fee"
+  ],
+  "exclusions": [
+    "fuel",
+    "cash withdrawal",
+    "railway ticket bookings outside eligible IRCTC channels",
+    "transactions excluded under IRCTC SBI Card terms"
+  ],
+  "milestoneBenefits": [
+    "500 Reward Points on payment of renewal fee"
+  ],
+  "additionalBenefits": [
+    "350 activation bonus Reward Points on a single transaction of Rs 500 or more within 60 days of card issuance",
+    "Up to 10% value back as Reward Points on eligible AC1, AC2, AC3, Executive Chair Car and Chair Car railway ticket bookings through IRCTC website and mobile app",
+    "1 Reward Point per Rs 125 on eligible non-fuel retail purchases, including eligible railway ticket purchases",
+    "1 Reward Point equals Re 1 for eligible IRCTC redemption",
+    "Save 1% transaction charges on eligible railway ticket bookings on IRCTC",
+    "Reward Points are transferred to the cardholder's IRCTC loyalty account for redemption on IRCTC"
+  ],
+  "redemption": {
+    "statementBalanceValue": 1,
+    "pointsExpiryYears": 2
+  },
+  "sourceUrl": "https://www.sbicard.com/en/personal/credit-cards/travel/irctc-rupay-sbi-card.page",
+  "applyUrl": "https://www.sbicard.com/en/personal/credit-cards/travel/irctc-rupay-sbi-card.page",
+  "lastVerified": "2026-05-09",
+  "verificationStatus": "official-direct",
+  "popularityScore": 70
+}

@@ -1,0 +1,326 @@
+{
+  "id": "hdfc-infinia-metal",
+  "issuer": "HDFC Bank",
+  "name": "HDFC Bank Infinia Metal Edition Credit Card",
+  "network": [
+    "Visa"
+  ],
+  "joiningFee": 12500,
+  "annualFee": 12500,
+  "feeWaiverSpend": 1000000,
+  "bestFor": [
+    "premium travel",
+    "lounge",
+    "smartbuy",
+    "golf",
+    "luxury lifestyle"
+  ],
+  "rewardType": "reward points",
+  "rewards": [
+    {
+      "category": "smartbuy hotels",
+      "rate": 33.33,
+      "displayRate": "Up to 10X Reward Points",
+      "capMonthly": 15000,
+      "capDaily": 15000
+    },
+    {
+      "category": "smartbuy flights",
+      "rate": 16.67,
+      "displayRate": "Up to 5X Reward Points",
+      "capMonthly": 15000,
+      "capDaily": 15000
+    },
+    {
+      "category": "smartbuy gyftr",
+      "rate": 16.67,
+      "displayRate": "Up to 5X Reward Points",
+      "capMonthly": 15000,
+      "capDaily": 15000
+    },
+    {
+      "category": "base",
+      "displayCategory": "others",
+      "rate": 3.33,
+      "displayRate": "5 Reward Points / Rs 150",
+      "capMonthly": null
+    }
+  ],
+  "loungeDomestic": "unlimited",
+  "loungeInternational": "unlimited",
+  "forexMarkup": 2,
+  "tags": [
+    "super premium",
+    "travel",
+    "lounge",
+    "smartbuy",
+    "golf",
+    "concierge",
+    "luxury"
+  ],
+  "specialSpendRules": [
+    {
+      "category": "insurance",
+      "treatment": "capped",
+      "notes": "Insurance spends earn rewards but remain subject to HDFC product caps"
+    },
+    {
+      "category": "gold",
+      "treatment": "rewarded",
+      "notes": "Gold and jewellery purchases earn rewards subject to current HDFC terms"
+    },
+    {
+      "category": "education",
+      "treatment": "rewarded",
+      "notes": "Education payments can earn rewards subject to current HDFC terms"
+    },
+    {
+      "category": "grocery",
+      "treatment": "capped",
+      "notes": "Grocery spends earn rewards capped at 2,000 Reward Points per calendar month"
+    },
+    {
+      "category": "utilities",
+      "treatment": "capped",
+      "notes": "Utility spends earn rewards capped at 2,000 Reward Points per calendar month"
+    }
+  ],
+  "exclusions": [
+    "fuel",
+    "rent",
+    "wallet loads",
+    "government transactions",
+    "cash withdrawal",
+    "emi transactions",
+    "fees and charges",
+    "online skill-based gaming",
+    "education payments through third-party apps"
+  ],
+  "exclusionCodes": [
+    "fuel",
+    "rent",
+    "wallet_load",
+    "government",
+    "cash_withdrawal",
+    "emi",
+    "fees_and_charges"
+  ],
+  "milestoneBenefits": [],
+  "joiningBenefits": [
+    "12,500 Reward Points upon joining fee realization and card activation",
+    "Complimentary Club Marriott membership for the first year, offering up to 25% discount on dining & stays across Asia-Pacific"
+  ],
+  "renewalBenefits": [
+    "12,500 Reward Points as renewal benefit after fee realization"
+  ],
+  "additionalBenefits": [
+    "Unlimited complimentary airport lounge access worldwide via Priority Pass (for both primary and add-on cardholders)",
+    "Unlimited complimentary Golf lessons and games at leading courses in India and select courses worldwide",
+    "100% green fee waiver at select golf courses worldwide",
+    "ITC Hotels: Book a stay for 3 nights and pay for 2 at participating hotels",
+    "ITC Hotels: 1+1 complimentary buffet at participating hotels",
+    "24x7 global personal concierge assistance",
+    "1% fuel surcharge waiver at all fuel stations across India on transactions between Rs 400 and Rs 1,00,000",
+    "Luxury metal card design with premium lifestyle positioning"
+  ],
+  "additionalDetails": [
+    "Earning is capped at a maximum of 2,00,000 Reward Points per statement cycle.",
+    "Reward points on grocery spends, utility spends, and telecom spends are capped at 2,000 Reward Points per calendar month individually.",
+    "Reward points on insurance spends are capped at 10,000 Reward Points per calendar month (effective 1st July 2025).",
+    "Redemption is allowed a maximum of 5 times per calendar month.",
+    "Redemption against statement balance (cashback) is capped at 50,000 points per calendar month.",
+    "Redemption for travel bookings (flights/hotels) and Air Miles is capped at 1,50,000 Reward Points per calendar month.",
+    "Redemption for Apple products and Tanishq vouchers via SmartBuy is at 1 RP = Rs 1, capped at 70% of bill value, with further caps of 1 Apple product per calendar quarter and 50,000 points per calendar quarter for Tanishq vouchers.",
+    "Accidental Air Death Cover worth Rs 3 Crore, Overseas Emergency Hospitalization up to Rs 50 Lakhs, and Credit Shield Cover up to Rs 9 Lakhs."
+  ],
+  "internalNotes": [
+    "For INFINIA Cards sourced before October 18, 2021: Joining/Renewal Fee is Rs 10,000 + taxes, with waiver at Rs 8 lakh annual spend.",
+    "Effective 1st April 2026, continued access to the Infinia programme is aligned to a minimum card spend of Rs 18 Lakhs (Primary + Add-ons) or a Relationship Value (RLV) of Rs 50 Lakhs per financial year.",
+    "Exempt from Late Payment Charges (LPC), Over Limit charges, Cash Advance fees, and Reward/Cashback redemption fees.",
+    "Finance charges/revolving credit interest rate is 1.99% monthly (23.88% annualized), which is lower than the standard HDFC rate of 3.75%.",
+    "Reward points on utility transactions and telecom transactions are capped at 2,00,000 total cycle cap, but specifically capped at 2,000 Reward Points per calendar month for utility and telecom categories individually (effective 1st September 2024).",
+    "Insurance transaction rewards have a maximum cap of 10,000 Reward Points per month (effective 1st July 2025). Prior to this, a daily cap of 5,000 RP was applicable.",
+    "No reward points are earned on online skill-based gaming transactions and wallet loading (excluding PayZapp) (effective 1st July 2025).",
+    "No reward points are earned on education payments made through third-party apps like CRED, Cheq, MobiKwik, etc. (effective 1st September 2024); direct school/college website or POS transactions do earn rewards.",
+    "Airmiles transfer: Effective 15th January 2024, 2 Reward Points convert to 1 Loyalty Point for Turkish Miles, Accor (ALL), and Avianca Life Miles.",
+    "Apple products and Tanishq vouchers: Points can be redeemed for up to 70% of the total value via SmartBuy. Apple product redemption is capped at one product per calendar quarter (effective 1st October 2024). Tanishq voucher redemption is capped at 50,000 points per calendar quarter (effective 1st October 2024).",
+    "A 1.75% markup fee (effective 15th May 2026) is charged on all transactions carried out in Indian Currency at international locations or with merchants registered overseas (DCC / Overseas Markup).",
+    "Priority Pass lounge visits outside India by guests or visits exceeding the complimentary limit are charged at USD 27 + GST per person per visit. Add-on cardholders must use their own Priority Pass card; otherwise they are billed as guests.",
+    "A verification transaction fee of Rs 2 is charged at domestic lounge terminals inside India for Visa cardholders, which is later reversed.",
+    "Golf booking requirements: Domestic bookings must be made 4 clear days in advance. International bookings must be made 15 clear days in advance. All bookings must be routed via HDFC Infinia Concierge.",
+    "Golf cancellation policy: Domestic cancellations must be made 1 clear day in advance. International cancellations must be made 4 clear days in advance. No-shows or late cancellations incur a penalty of Rs 500 + taxes.",
+    "Golf access requires a Rs 5 mandatory authentication transaction at the course on the day of play; otherwise it is treated as a no-show. Max 14 days in advance booking. Only 1 active booking allowed at a time. Add-on cardholders are treated as guests.",
+    "Golf lessons cancellation: Must cancel at least 24 hours in advance, or the lesson is considered delivered.",
+    "Club Marriott dining benefits: Tuesday Member's Day offers 50% off on food bills and 25% off on beverage bills for up to 10 guests. Monday Member's Night offers buy-one-get-one-free on IMFL drinks from 7:00 PM onwards for up to 6 guests.",
+    "Club Marriott stay certificates: Valid in India only. One certificate for 30% off the Best Available Rate on the base category room (max 2 consecutive nights). One certificate for a room upgrade to the next category when booked at full price (max 2 consecutive nights).",
+    "Club Marriott membership is valid for 366 days from card issuance and is eligible only in the first year of cardholding. For support, contact Member Care at +91 11 4316 9650 (9 AM to 9 PM, 7 days a week), email member.care@clubmarriott.in, or WhatsApp +91 97100 82100.",
+    "Accidental Air Death Cover of Rs 3 Crore and Travel Insurance/Emergency Medical Hospitalization of Rs 50 Lakhs (max trip duration 30 days) require travel tickets to be purchased using the card. Credit Shield cover is up to Rs 9 Lakhs. Claims must be intimated to HDFC ERGO within 60 days of loss and documents submitted within 130 days.",
+    "Card details manually reviewed and verified by user on 2026-05-29"
+  ],
+  "alternativeCardIds": [
+    "hdfc-diners-club-black-metal",
+    "hsbc-premier",
+    "axis-magnus-burgundy"
+  ],
+  "redemption": {
+    "statementBalanceValue": 0.3,
+    "smartBuyFlightHotelValue": 1,
+    "airMilesValue": 1,
+    "transferPartnerValuations": [
+      {
+        "partner": "Accor (ALL)",
+        "partnerPointValue": 2.2,
+        "transferRatio": 0.5,
+        "basis": "fixed",
+        "note": "2 reward points → 1 Accor ALL point · Rs 2.2/point"
+      },
+      {
+        "partner": "Club ITC",
+        "partnerPointValue": 1,
+        "transferRatio": 0.5,
+        "basis": "fixed",
+        "note": "2 reward points → 1 Club ITC point · Rs 1/point"
+      },
+      {
+        "partner": "Marriott Bonvoy",
+        "partnerPointValue": 0.6,
+        "transferRatio": 0.5,
+        "basis": "dynamic",
+        "note": "2 reward points → 1 Marriott point · avg Rs 0.6/point"
+      }
+    ],
+    "airlinePartners": [
+      {
+        "airline": "Air France / KLM",
+        "programme": "Flying Blue",
+        "ratio": "1:1"
+      },
+      {
+        "airline": "Finnair",
+        "programme": "Finnair Plus",
+        "ratio": "1:1"
+      },
+      {
+        "airline": "AirAsia",
+        "programme": "AirAsia rewards",
+        "ratio": "1:1"
+      },
+      {
+        "airline": "Vietnam Airlines",
+        "programme": "Lotusmiles",
+        "ratio": "1:1"
+      },
+      {
+        "airline": "Air Canada",
+        "programme": "Aeroplan",
+        "ratio": "2:1"
+      },
+      {
+        "airline": "Air India",
+        "programme": "Maharaja Club",
+        "ratio": "2:1"
+      },
+      {
+        "airline": "Avianca",
+        "programme": "LifeMiles",
+        "ratio": "2:1"
+      },
+      {
+        "airline": "British Airways",
+        "programme": "Executive Club",
+        "ratio": "2:1"
+      },
+      {
+        "airline": "Cathay Pacific",
+        "programme": "Asia Miles",
+        "ratio": "2:1"
+      },
+      {
+        "airline": "Etihad Airways",
+        "programme": "Etihad Guest",
+        "ratio": "2:1"
+      },
+      {
+        "airline": "Qatar Airways",
+        "programme": "Privilege Club",
+        "ratio": "2:1"
+      },
+      {
+        "airline": "Singapore Airlines",
+        "programme": "KrisFlyer",
+        "ratio": "2:1"
+      },
+      {
+        "airline": "Thai Airways",
+        "programme": "Royal Orchid Plus",
+        "ratio": "2:1"
+      },
+      {
+        "airline": "Turkish Airlines",
+        "programme": "Miles&Smiles",
+        "ratio": "2:1"
+      },
+      {
+        "airline": "United Airlines",
+        "programme": "MileagePlus",
+        "ratio": "2:1"
+      },
+      {
+        "airline": "SpiceJet",
+        "programme": "SpiceClub",
+        "ratio": "2:1"
+      }
+    ],
+    "hotelPartners": [
+      {
+        "hotelGroup": "IHG",
+        "programme": "IHG One Rewards",
+        "ratio": "1:1"
+      },
+      {
+        "hotelGroup": "Wyndham",
+        "programme": "Wyndham Rewards",
+        "ratio": "1:1"
+      },
+      {
+        "hotelGroup": "Radisson",
+        "programme": "Radisson Rewards",
+        "ratio": "1:1"
+      },
+      {
+        "hotelGroup": "Accor",
+        "programme": "ALL (Accor Live Limitless)",
+        "ratio": "2:1"
+      },
+      {
+        "hotelGroup": "Club ITC",
+        "programme": "Club ITC Green Points",
+        "ratio": "2:1"
+      },
+      {
+        "hotelGroup": "Marriott",
+        "programme": "Marriott Bonvoy",
+        "ratio": "2:1"
+      }
+    ]
+  },
+  "supportingSourceUrls": [
+    "https://offers.smartbuy.hdfc.bank.in/offer_details/smartbuy/15282",
+    "https://www.hdfc.bank.in/credit-cards/infinia-credit-card",
+    "https://www.hdfc.bank.in/content/dam/hdfcbankpws/in/en/personal-banking/discover-products/cards/credit-cards/infinia-credit-card/rewards-points-program-terms-and-conditions.pdf"
+  ],
+  "eligibility": {
+    "salaried": [
+      "Available by invitation or through HDFC Bank's internal upgrade criteria"
+    ],
+    "selfEmployed": [
+      "Available by invitation or through HDFC Bank's internal upgrade criteria"
+    ]
+  },
+  "sourceUrl": "https://www.hdfc.bank.in/credit-cards/infinia-credit-card",
+  "applyUrl": "https://www.hdfc.bank.in/credit-cards/infinia-credit-card",
+  "lastVerified": "2026-05-28",
+  "verificationStatus": "official-direct",
+  "imageUrl": "/images/infinia-metal-official.webp",
+  "popularityScore": 100
+}

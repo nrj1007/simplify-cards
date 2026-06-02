@@ -1,0 +1,78 @@
+{
+  "id": "sc-beyond",
+  "issuer": "Standard Chartered",
+  "name": "Standard Chartered Beyond Credit Card",
+  "network": [
+    "Visa"
+  ],
+  "joiningFee": 15000,
+  "annualFee": 25000,
+  "feeWaiverSpend": null,
+  "bestFor": [
+    "priority banking",
+    "travel",
+    "lounge",
+    "golf",
+    "dining"
+  ],
+  "rewardType": "360° Rewards points",
+  "rewards": [
+    {
+      "category": "base",
+      "rate": 3.33,
+      "capMonthly": null
+    },
+    {
+      "category": "utilities",
+      "rate": 2,
+      "capMonthly": null
+    }
+  ],
+  "popularityScore": 72,
+  "loungeDomestic": "unlimited",
+  "loungeInternational": "unlimited",
+  "forexMarkup": 2,
+  "tags": [
+    "standard chartered",
+    "beyond",
+    "priority banking",
+    "travel",
+    "lounge",
+    "golf",
+    "dining",
+    "premium"
+  ],
+  "exclusions": [
+    "reserved for Priority and Private Banking clients with FUM qualification",
+    "fuel purchases do not earn reward points",
+    "duty-free cashback transactions do not earn reward points"
+  ],
+  "milestoneBenefits": [
+    "Annual fee waiver subject to FUM qualification in the last 3 months prior to annual fee levy"
+  ],
+  "additionalBenefits": [
+    "5 reward points per INR 150 on most categories",
+    "3 reward points per INR 150 on utility payments, supermarkets, insurance, property management, schools and government payments",
+    "Unlimited domestic and international lounge access",
+    "8 guest lounge visits per year",
+    "2 complimentary golf games or lessons every month",
+    "15% cashback on duty-free stores",
+    "BookMyShow and EazyDiner premium offers"
+  ],
+  "redemption": {
+    "statementBalanceValue": 1,
+    "pointsExpiryYears": 3
+  },
+  "eligibility": {
+    "salaried": [
+      "Priority or Private Banking relationship with FUM qualification of INR 50 lakhs and above"
+    ],
+    "selfEmployed": [
+      "Priority or Private Banking relationship with FUM qualification of INR 50 lakhs and above"
+    ]
+  },
+  "sourceUrl": "https://www.sc.com/in/credit-cards/beyond-credit-card/",
+  "applyUrl": "https://www.sc.com/in/credit-cards/beyond-credit-card/",
+  "lastVerified": "2026-05-11",
+  "verificationStatus": "official-direct"
+}

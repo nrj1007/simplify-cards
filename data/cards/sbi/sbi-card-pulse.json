@@ -1,0 +1,78 @@
+{
+  "id": "sbi-card-pulse",
+  "issuer": "SBI Card",
+  "name": "SBI Card PULSE",
+  "network": [
+    "Visa"
+  ],
+  "joiningFee": 1499,
+  "annualFee": 1499,
+  "feeWaiverSpend": 200000,
+  "bestFor": [
+    "health",
+    "pharmacy",
+    "dining",
+    "movies",
+    "domestic lounge"
+  ],
+  "rewardType": "reward points",
+  "rewards": [
+    {
+      "category": "pharmacy dining movies",
+      "rate": 2.5,
+      "capMonthly": null
+    },
+    {
+      "category": "base",
+      "rate": 0.5,
+      "capMonthly": null
+    }
+  ],
+  "loungeDomestic": 4,
+  "loungeInternational": 0,
+  "forexMarkup": 3.5,
+  "tags": [
+    "health",
+    "pharmacy",
+    "dining",
+    "movies",
+    "lounge",
+    "fitness"
+  ],
+  "exclusions": [
+    "fuel",
+    "cash advance",
+    "balance transfer",
+    "wallet loading",
+    "transactions excluded under SBI Card reward terms"
+  ],
+  "milestoneBenefits": [
+    "Renewal fee waiver on annual spends of Rs 2 lakh",
+    "Rs 1,500 voucher on annual retail spends of Rs 4 lakh"
+  ],
+  "additionalBenefits": [
+    "Noise ColorFit Pulse 4 Pro worth Rs 7,999 on payment of joining fee",
+    "1 year complimentary FITPASS PRO membership subject to joining fee payment and minimum one retail transaction",
+    "1 year complimentary Netmeds First membership subject to joining fee payment and minimum one retail transaction",
+    "10 Reward Points per Rs 100 spent on chemist, pharmacy, sports, dining and movies",
+    "2 Reward Points per Rs 100 spent on all other spends",
+    "4 Reward Points equal Rs 1",
+    "4 domestic lounge accesses per year, capped at 1 per quarter",
+    "Complimentary Priority Pass membership for first two membership years, with no complimentary visits",
+    "Fraud liability cover of Rs 1 lakh",
+    "Air accident cover discontinued from 15-Jul-2025",
+    "1% fuel surcharge waiver on transactions from Rs 500 to Rs 4,000, capped at Rs 250 per statement cycle",
+    "Contactless payments enabled"
+  ],
+  "redemption": {
+    "statementBalanceValue": 0.25,
+    "minimumPointsForStatementCredit": 4000,
+    "pointsExpiryYears": 2,
+    "redemptionFee": 99
+  },
+  "sourceUrl": "https://www.sbicard.com/en/personal/credit-cards/lifestyle/sbi-card-pulse-sprint.page",
+  "applyUrl": "https://www.sbicard.com/en/personal/credit-cards/lifestyle/sbi-card-pulse-sprint.page",
+  "lastVerified": "2026-05-09",
+  "verificationStatus": "official-direct",
+  "popularityScore": 71
+}

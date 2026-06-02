@@ -1,0 +1,100 @@
+{
+  "id": "hdfc-tata-neu-plus",
+  "issuer": "HDFC Bank",
+  "name": "Tata Neu Plus HDFC Bank Credit Card",
+  "network": [
+    "Visa",
+    "RuPay"
+  ],
+  "joiningFee": 499,
+  "annualFee": 499,
+  "feeWaiverSpend": 100000,
+  "bestFor": [
+    "tata neu",
+    "tata brands",
+    "upi",
+    "domestic lounge"
+  ],
+  "rewardType": "NeuCoins",
+  "rewards": [
+    {
+      "category": "tata neu",
+      "rate": 7,
+      "capMonthly": null
+    },
+    {
+      "category": "tata brands",
+      "rate": 2,
+      "capMonthly": null
+    },
+    {
+      "category": "online",
+      "rate": 1,
+      "capMonthly": null
+    },
+    {
+      "category": "base",
+      "rate": 1,
+      "capMonthly": null
+    },
+    {
+      "category": "upi",
+      "rate": 1,
+      "capMonthly": 500
+    }
+  ],
+  "loungeDomestic": 4,
+  "loungeInternational": 0,
+  "forexMarkup": 3.5,
+  "tags": [
+    "tata neu",
+    "neucoins",
+    "rupay",
+    "upi",
+    "lounge",
+    "shopping"
+  ],
+  "exclusions": [
+    "fuel",
+    "wallet",
+    "rental",
+    "government",
+    "online gaming",
+    "education payments through third-party apps"
+  ],
+  "milestoneBenefits": [
+    "Domestic lounge access is milestone based from 10-Jun-2025: 1 lounge voucher per calendar quarter on spends of Rs 50,000 or more, up to 4 per year",
+    "Renewal fee waived on spending Rs 1 lakh or more in a year before renewal"
+  ],
+  "additionalBenefits": [
+    "2% back as NeuCoins on non-EMI spends on Tata Neu and partner Tata Brands",
+    "1% back as NeuCoins on non-Tata brand spends and merchant EMI spends",
+    "Additional 5% back as NeuCoins on selected categories on Tata Neu App/Website with NeuPass, making up to 7% on Tata Neu",
+    "Up to 1% back as NeuCoins on eligible UPI spends from 01-Aug-2024",
+    "499 NeuCoins on Tata Neu App as reversal of first year membership fee after first transaction within 30 days of card issuance",
+    "NeuCoins can be used for eligible purchases on Tata Neu brands including Air India Express, Bigbasket, Croma, Westside, Tata CLiQ, IHCL, Tata 1MG, Qmin, Titan and Tanishq",
+    "Contactless payments enabled",
+    "Zero cost card liability when reported immediately"
+  ],
+  "redemption": {
+    "statementBalanceValue": 1,
+    "pointsExpiryYears": 1
+  },
+  "eligibility": {
+    "salaried": [
+      "Indian national",
+      "Age 21 to 60 years",
+      "Monthly income Rs 25,000"
+    ],
+    "selfEmployed": [
+      "Indian national",
+      "Age 21 to 65 years",
+      "Annual ITR greater than Rs 6 lakh"
+    ]
+  },
+  "sourceUrl": "https://www.hdfc.bank.in/credit-cards/tata-neu-plus-hdfc-bank-credit-card",
+  "applyUrl": "https://www.hdfc.bank.in/credit-cards/tata-neu-plus-hdfc-bank-credit-card",
+  "lastVerified": "2026-05-08",
+  "verificationStatus": "official-direct",
+  "popularityScore": 82
+}

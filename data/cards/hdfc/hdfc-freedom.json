@@ -1,0 +1,99 @@
+{
+  "id": "hdfc-freedom",
+  "issuer": "HDFC Bank",
+  "name": "HDFC Bank Freedom Credit Card",
+  "network": [
+    "Visa",
+    "Mastercard",
+    "RuPay"
+  ],
+  "joiningFee": 500,
+  "annualFee": 500,
+  "feeWaiverSpend": 50000,
+  "bestFor": [
+    "entry level rewards",
+    "shopping",
+    "dining",
+    "travel"
+  ],
+  "rewardType": "CashPoints",
+  "rewards": [
+    {
+      "category": "select merchants",
+      "rate": 6.67,
+      "capMonthly": 2500
+    },
+    {
+      "category": "base",
+      "rate": 0.67,
+      "capMonthly": null
+    },
+    {
+      "category": "upi",
+      "rate": 0.67,
+      "capMonthly": 500
+    }
+  ],
+  "loungeDomestic": 0,
+  "loungeInternational": 0,
+  "forexMarkup": 3.5,
+  "tags": [
+    "entry level",
+    "cashpoints",
+    "low fee",
+    "shopping",
+    "dining",
+    "rupay"
+  ],
+  "exclusions": [
+    "fuel",
+    "EMI transactions",
+    "rent payments",
+    "government related transactions",
+    "wallet loads",
+    "gift card loads",
+    "prepaid card loads",
+    "voucher purchases"
+  ],
+  "milestoneBenefits": [
+    "500 Reward Points on fee realisation, applicable only on payment of joining membership fee",
+    "Renewal membership fee waived on spending Rs 50,000 or more in a year before renewal"
+  ],
+  "additionalBenefits": [
+    "10X CashPoints on BigBasket, BookMyShow, OYO, Swiggy and Uber",
+    "1 Reward Point for every Rs 150 spent",
+    "Additional CashPoints via PayZapp on utility bills, mobile recharges and more",
+    "Rs 1,000 CashPoints on shopping in-app over 200+ brands via PayZapp",
+    "10% additional discount on Swiggy Dineout using coupon code HDFCCARDS",
+    "1% fuel surcharge waiver at fuel stations across India on transactions from Rs 400 to Rs 5,000, capped at Rs 250 per statement cycle",
+    "Up to 50 days interest-free credit period",
+    "SmartEMI conversion after purchase",
+    "Contactless payments enabled",
+    "Zero lost card liability when reported immediately"
+  ],
+  "redemption": {
+    "statementBalanceValue": 0.15,
+    "smartBuyFlightHotelValue": 0.15,
+    "airMilesValue": 0.15,
+    "minimumPointsForStatementCredit": 2500,
+    "cashbackRedemptionCapMonthly": 3000
+  },
+  "interestRateMonthly": 3.49,
+  "eligibility": {
+    "salaried": [
+      "Indian national",
+      "Age 21 to 60 years",
+      "Gross monthly income greater than Rs 12,000"
+    ],
+    "selfEmployed": [
+      "Indian national",
+      "Age 21 to 65 years",
+      "ITR greater than Rs 2 lakh per annum"
+    ]
+  },
+  "sourceUrl": "https://www.hdfc.bank.in/credit-cards/freedom-credit-card",
+  "applyUrl": "https://www.hdfc.bank.in/credit-cards/freedom-credit-card",
+  "lastVerified": "2026-05-08",
+  "verificationStatus": "official-indexed",
+  "popularityScore": 78
+}

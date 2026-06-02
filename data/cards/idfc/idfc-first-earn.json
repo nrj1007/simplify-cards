@@ -1,0 +1,74 @@
+{
+  "id": "idfc-first-earn",
+  "issuer": "IDFC FIRST Bank",
+  "name": "IDFC FIRST EA₹N Credit Card",
+  "network": [
+    "RuPay"
+  ],
+  "joiningFee": 499,
+  "annualFee": 499,
+  "feeWaiverSpend": null,
+  "bestFor": [
+    "secured card",
+    "upi",
+    "cashback",
+    "credit builder",
+    "virtual card"
+  ],
+  "rewardType": "cashback",
+  "rewards": [
+    {
+      "category": "upi",
+      "rate": 1,
+      "capMonthly": null
+    },
+    {
+      "category": "online",
+      "rate": 5,
+      "capMonthly": null
+    }
+  ],
+  "loungeDomestic": 0,
+  "loungeInternational": 0,
+  "forexMarkup": 3.5,
+  "tags": [
+    "earn",
+    "secured card",
+    "fixed deposit",
+    "rupay",
+    "upi",
+    "cashback",
+    "virtual card"
+  ],
+  "exclusions": [
+    "cash withdrawal",
+    "transactions excluded under IDFC FIRST EA₹N Credit Card terms"
+  ],
+  "milestoneBenefits": [],
+  "additionalBenefits": [
+    "Fixed deposit backed virtual RuPay credit card",
+    "No income document required",
+    "Up to 1% cashback on UPI spends",
+    "Up to 5% cashback on online spends as per catalogue positioning",
+    "Welcome offer of 100% cashback up to Rs 200",
+    "Designed for first-time and credit-constrained users"
+  ],
+  "redemption": {
+    "statementBalanceValue": 1,
+    "pointsExpiryYears": null,
+    "redemptionFee": 99
+  },
+  "eligibility": {
+    "salaried": [
+      "No income document required; fixed deposit backed card"
+    ],
+    "selfEmployed": [
+      "No income document required; fixed deposit backed card"
+    ]
+  },
+  "sourceUrl": "https://www.idfcfirstbank.com/credit-card",
+  "applyUrl": "https://www.idfcfirstbank.com/credit-card",
+  "lastVerified": "2026-05-10",
+  "verificationStatus": "official-catalogue",
+  "popularityScore": 62
+}

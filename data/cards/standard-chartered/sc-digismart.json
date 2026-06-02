@@ -1,0 +1,62 @@
+{
+  "id": "sc-digismart",
+  "issuer": "Standard Chartered",
+  "name": "Standard Chartered DigiSmart Credit Card",
+  "network": [
+    "Visa"
+  ],
+  "joiningFee": 49,
+  "annualFee": 49,
+  "feeWaiverSpend": null,
+  "bestFor": [
+    "online shopping",
+    "food delivery",
+    "movies",
+    "travel"
+  ],
+  "rewardType": "offer-led savings",
+  "rewards": [
+    {
+      "category": "online",
+      "rate": 0,
+      "capMonthly": null
+    }
+  ],
+  "popularityScore": 79,
+  "loungeDomestic": 0,
+  "loungeInternational": 0,
+  "forexMarkup": 3.5,
+  "tags": [
+    "standard chartered",
+    "digismart",
+    "online shopping",
+    "food delivery",
+    "movies",
+    "travel"
+  ],
+  "exclusions": [
+    "benefits are merchant-offer led and depend on promo codes and partner caps",
+    "monthly fee model"
+  ],
+  "milestoneBenefits": [],
+  "additionalBenefits": [
+    "10% off at Blinkit with monthly cap",
+    "10% off at Zomato with per-transaction and monthly usage limits",
+    "Buy 1 Get 1 movie ticket free at INOX on Saturdays and Sundays",
+    "Yatra discounts on flights and hotel bookings",
+    "15% cashback on Ola cab bookings up to monthly cap"
+  ],
+  "redemption": {},
+  "eligibility": {
+    "salaried": [
+      "Minimum monthly income of INR 50,000 is required"
+    ],
+    "selfEmployed": [
+      "Eligibility is subject to Standard Chartered approval criteria"
+    ]
+  },
+  "sourceUrl": "https://www.sc.com/in/credit-cards/digismart-card/",
+  "applyUrl": "https://www.sc.com/in/credit-cards/digismart-card/",
+  "lastVerified": "2026-05-11",
+  "verificationStatus": "official-direct"
+}

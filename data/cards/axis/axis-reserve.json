@@ -1,0 +1,89 @@
+{
+  "id": "axis-reserve",
+  "issuer": "Axis Bank",
+  "name": "Axis Bank Reserve Credit Card",
+  "network": [
+    "Visa"
+  ],
+  "joiningFee": 50000,
+  "annualFee": 50000,
+  "feeWaiverSpend": 3500000,
+  "bestFor": [
+    "ultra premium",
+    "travel",
+    "hotels",
+    "golf",
+    "lounge"
+  ],
+  "rewardType": "edge reward points",
+  "rewards": [
+    {
+      "category": "base",
+      "rate": 1.5,
+      "capMonthly": null
+    },
+    {
+      "category": "travel",
+      "rate": 3,
+      "capMonthly": null
+    }
+  ],
+  "loungeDomestic": "unlimited",
+  "loungeInternational": "unlimited",
+  "forexMarkup": 1.5,
+  "tags": [
+    "reserve",
+    "ultra premium",
+    "travel",
+    "hotels",
+    "lounge",
+    "golf",
+    "concierge",
+    "itc culinaire",
+    "accor plus",
+    "club marriott"
+  ],
+  "exclusions": [
+    "fuel",
+    "rent",
+    "wallet",
+    "education payments via third-party apps",
+    "online skill-based gaming",
+    "transactions excluded under Axis Bank Reserve Credit Card terms"
+  ],
+  "milestoneBenefits": [
+    "Annual fee waiver on spends of Rs 35 lakh in the preceding year"
+  ],
+  "additionalBenefits": [
+    "15,000 EDGE REWARD Points on card activation",
+    "15 EDGE REWARD Points per Rs 200 spent on eligible domestic spends",
+    "2X rewards on eligible international spends",
+    "Reduced forex markup of 1.5%",
+    "No cash withdrawal charges",
+    "Complimentary airport concierge services",
+    "ITC Culinaire, Accor Plus and Club Marriott hotel memberships, subject to product terms",
+    "50 complimentary golf rounds per year, subject to product terms",
+    "Unlimited domestic and international lounge access, subject to applicable programme terms",
+    "1% fuel surcharge waiver on transactions from Rs 400 to Rs 4,000, capped at Rs 400 per month",
+    "Purchase protection up to Rs 2 lakh",
+    "Credit shield cover up to Rs 5 lakh",
+    "Travel inconvenience cover up to USD 500 for baggage and personal document loss or delay"
+  ],
+  "redemption": {
+    "statementBalanceValue": 0.2,
+    "pointsExpiryYears": 3
+  },
+  "eligibility": {
+    "salaried": [
+      "Eligibility is subject to Axis Bank approval criteria for ultra-premium credit cards"
+    ],
+    "selfEmployed": [
+      "Eligibility is subject to Axis Bank approval criteria for ultra-premium credit cards"
+    ]
+  },
+  "sourceUrl": "https://www.axisbank.com/retail/cards/credit-card/reserve-credit-card/beyond-expectations-always",
+  "applyUrl": "https://www.axisbank.com/retail/cards/credit-card/reserve-credit-card",
+  "lastVerified": "2026-05-10",
+  "verificationStatus": "official-mixed",
+  "popularityScore": 75
+}

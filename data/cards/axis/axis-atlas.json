@@ -1,0 +1,266 @@
+{
+  "id": "axis-atlas",
+  "issuer": "Axis Bank",
+  "name": "Axis Bank Atlas Credit Card",
+  "network": [
+    "Visa"
+  ],
+  "joiningFee": 5000,
+  "annualFee": 5000,
+  "feeWaiverSpend": null,
+  "bestFor": [
+    "travel",
+    "hotels",
+    "flights"
+  ],
+  "rewardType": "edge miles",
+  "rewards": [
+    {
+      "category": "travel",
+      "rate": 5,
+      "displayRate": "5 EDGE Miles per Rs 100",
+      "capMonthly": 10000,
+      "postCapRate": 2
+    },
+    {
+      "category": "base",
+      "rate": 2,
+      "displayRate": "2 EDGE Miles per Rs 100",
+      "capMonthly": null
+    }
+  ],
+  "loungeDomestic": 8,
+  "loungeInternational": 4,
+  "forexMarkup": 3.5,
+  "tags": [
+    "travel",
+    "miles",
+    "lounge",
+    "premium"
+  ],
+  "specialSpendRules": [
+    {
+      "category": "education",
+      "treatment": "rewarded",
+      "notes": "Education payments can earn Atlas rewards subject to current Axis terms"
+    }
+  ],
+  "alternativeCardIds": [
+    "hsbc-travelone"
+  ],
+  "milestoneBenefits": [
+    "2,500 EDGE Miles on annual spend of Rs 3 lakh.",
+    "Additional 2,500 EDGE Miles on annual spend of Rs 7.5 lakh.",
+    "Additional 5,000 EDGE Miles on annual spend of Rs 15 lakh."
+  ],
+  "joiningBenefits": [
+    "2,500 EDGE Miles upon completing the first transaction within 37 days of card issuance."
+  ],
+  "renewalBenefits": [
+    "Renewal benefits are tiered based on status:",
+    "Silver tier: 0 EDGE Miles upon payment of annual fee.",
+    "Gold tier: 2,500 EDGE Miles upon payment of annual fee.",
+    "Platinum tier: 5,000 EDGE Miles upon payment of annual fee."
+  ],
+  "exclusions": [
+    "fuel",
+    "rent",
+    "insurance",
+    "wallet load",
+    "government institutions",
+    "utilities",
+    "telecom",
+    "gold",
+    "jewellery"
+  ],
+  "exclusionCodes": [
+    "fuel",
+    "rent",
+    "insurance",
+    "wallet_load",
+    "government",
+    "utilities",
+    "telecom",
+    "gold",
+    "jewellery"
+  ],
+  "additionalBenefits": [
+    "1% fuel surcharge waiver on transactions from Rs 400 to Rs 4,000 (capped at Rs 400 per billing cycle)",
+    "Dining Delights discounts at participating restaurants"
+  ],
+  "additionalDetails": [
+    "EDGE Miles can be redeemed for travel bookings at Travel EDGE portal or transferred to airline/hotel partners."
+  ],
+  "redemption": {
+    "travelEdgeValue": 1,
+    "airMilesValue": 2,
+    "pointsExpiryYears": 3,
+    "transferPartnerValuations": [
+      {
+        "partner": "ITC Hotels (Club ITC)",
+        "partnerPointValue": 1,
+        "transferRatio": 2,
+        "basis": "fixed",
+        "note": "1 EDGE Mile → 2 Club ITC points · Rs 1/point"
+      }
+    ],
+    "airlinePartners": [
+      {
+        "airline": "Air Canada",
+        "programme": "Aeroplan",
+        "ratio": "1:2",
+        "group": "Group A"
+      },
+      {
+        "airline": "Ethiopian Airlines",
+        "programme": "ShebaMiles",
+        "ratio": "1:2",
+        "group": "Group A"
+      },
+      {
+        "airline": "Etihad Airways",
+        "programme": "Etihad Guest",
+        "ratio": "1:2",
+        "group": "Group A"
+      },
+      {
+        "airline": "Japan Airlines",
+        "programme": "JAL Mileage Bank",
+        "ratio": "1:2",
+        "group": "Group A"
+      },
+      {
+        "airline": "Singapore Airlines",
+        "programme": "KrisFlyer",
+        "ratio": "1:2",
+        "group": "Group A"
+      },
+      {
+        "airline": "Thai Airways",
+        "programme": "Royal Orchid Plus",
+        "ratio": "1:2",
+        "group": "Group A"
+      },
+      {
+        "airline": "Turkish Airlines",
+        "programme": "Miles&Smiles",
+        "ratio": "1:2",
+        "group": "Group A"
+      },
+      {
+        "airline": "United Airlines",
+        "programme": "MileagePlus",
+        "ratio": "1:2",
+        "group": "Group A"
+      },
+      {
+        "airline": "British Airways",
+        "programme": "British Airways Executive Club",
+        "ratio": "2:1",
+        "group": "Group A"
+      },
+      {
+        "airline": "Finnair",
+        "programme": "Finnair Plus",
+        "ratio": "2:1",
+        "group": "Group A"
+      },
+      {
+        "airline": "Vietnam Airlines",
+        "programme": "Lotusmiles",
+        "ratio": "2:1",
+        "group": "Group A"
+      },
+      {
+        "airline": "AirAsia",
+        "programme": "airasia rewards",
+        "ratio": "1:2",
+        "group": "Group B"
+      },
+      {
+        "airline": "Air France-KLM",
+        "programme": "Flying Blue",
+        "ratio": "1:2",
+        "group": "Group B"
+      },
+      {
+        "airline": "Air India",
+        "programme": "Maharaja Club",
+        "ratio": "1:2",
+        "group": "Group B"
+      },
+      {
+        "airline": "Qantas Airways",
+        "programme": "Qantas Frequent Flyer",
+        "ratio": "1:2",
+        "group": "Group B"
+      },
+      {
+        "airline": "SpiceJet",
+        "programme": "SpiceClub",
+        "ratio": "1:2",
+        "group": "Group B"
+      }
+    ],
+    "hotelPartners": [
+      {
+        "hotelGroup": "IHG Hotels & Resorts",
+        "programme": "IHG One Rewards",
+        "ratio": "1:2",
+        "group": "Group B"
+      },
+      {
+        "hotelGroup": "ITC Hotels",
+        "programme": "Club ITC",
+        "ratio": "1:2",
+        "group": "Group B"
+      },
+      {
+        "hotelGroup": "Radisson Hotels",
+        "programme": "Radisson Rewards",
+        "ratio": "1:2",
+        "group": "Group B"
+      },
+      {
+        "hotelGroup": "Orchid Hotels",
+        "programme": "Orchid Rewards",
+        "ratio": "1:2",
+        "group": "Group B"
+      },
+      {
+        "hotelGroup": "Wyndham Hotels & Resorts",
+        "programme": "Wyndham Rewards",
+        "ratio": "1:2",
+        "group": "Group B"
+      },
+      {
+        "hotelGroup": "The Postcard Hotel",
+        "programme": "The Postcard Hotel",
+        "ratio": "1:2",
+        "group": "Group B"
+      }
+    ]
+  },
+  "supportingSourceUrls": [
+    "https://www.axisbank.com/retail/cards/credit-card/axis-bank-atlas-credit-card",
+    "https://www.axisbank.com/retail/cards/credit-card/axis-bank-atlas-credit-card/fees-and-charges"
+  ],
+  "imageUrl": "/images/axis-atlas.webp",
+  "sourceUrl": "https://www.axisbank.com/retail/cards/credit-card/axis-bank-atlas-credit-card",
+  "applyUrl": "https://www.axisbank.com/retail/cards/credit-card/axis-bank-atlas-credit-card",
+  "lastVerified": "2026-06-02",
+  "verificationStatus": "official-direct",
+  "internalNotes": [
+    "Card details manually reviewed and verified by user on 2026-06-02",
+    "EDGE Miles are valid for 3 years from the date of earning.",
+    "Miles may expire if the loyalty account remains inactive (no earn, redeem, or login) for 365 consecutive days.",
+    "Annual transfer caps per customer ID reset every calendar year: Group A (international partners) capped at 30,000 EDGE Miles; Group B capped at 120,000 EDGE Miles. Combined limit of 150,000 EDGE Miles.",
+    "Travel transfer partners: Accor, Marriott Bonvoy, and Qatar Airways were removed as transfer partners in April 2026. Standard legacy partners transfer at a 1:2 ratio. Newly added partners (British Airways, Finnair, Vietnam Airlines) transfer at a 2:1 ratio.",
+    "Airport lounge access is tiered based on spending:",
+    "Silver tier (entry-level / <3L spend): 8 domestic / 4 international lounge visits per anniversary year.",
+    "Gold tier (7.5L spend): 12 domestic / 6 international lounge visits per anniversary year.",
+    "Platinum tier (15L spend): 18 domestic / 12 international lounge visits per anniversary year.",
+    "Gold, rent, wallet load, government, insurance, fuel, utilities, and telecom transactions are completely excluded from earning rewards and tier/milestone spend calculations."
+  ],
+  "popularityScore": 89
+}

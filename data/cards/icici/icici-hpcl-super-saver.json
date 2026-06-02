@@ -1,0 +1,85 @@
+{
+  "id": "icici-hpcl-super-saver",
+  "issuer": "ICICI Bank",
+  "name": "ICICI Bank HPCL Super Saver Credit Card",
+  "network": [
+    "Visa",
+    "RuPay"
+  ],
+  "joiningFee": 500,
+  "annualFee": 500,
+  "feeWaiverSpend": null,
+  "bestFor": [
+    "fuel",
+    "hpcl",
+    "utility bills",
+    "departmental stores",
+    "movies"
+  ],
+  "rewardType": "cashback and reward points",
+  "rewards": [
+    {
+      "category": "fuel",
+      "rate": 4,
+      "capMonthly": 200
+    },
+    {
+      "category": "utilities",
+      "rate": 5,
+      "capMonthly": 100
+    },
+    {
+      "category": "departmental stores",
+      "rate": 5,
+      "capMonthly": 100
+    },
+    {
+      "category": "retail",
+      "rate": 0.5,
+      "capMonthly": null
+    }
+  ],
+  "popularityScore": 80,
+  "loungeDomestic": 4,
+  "loungeInternational": 0,
+  "forexMarkup": 3.5,
+  "tags": [
+    "icici",
+    "hpcl",
+    "fuel",
+    "rupay",
+    "utility bills",
+    "departmental stores",
+    "movies"
+  ],
+  "exclusions": [
+    "fuel surcharge waiver and reward caps apply as per ICICI Bank terms"
+  ],
+  "milestoneBenefits": [],
+  "additionalBenefits": [
+    "Up to 5% savings on HPCL fuel purchases: 4% cashback plus 1% fuel surcharge waiver",
+    "4% cashback on fuel is capped at Rs 200 per month",
+    "5% benefit as reward points on utility and departmental store spends, capped at Rs 100 worth reward points per month",
+    "Additional 1.5% benefit as PAYBACK reward points on HP Pay fuel purchases at HPCL outlets",
+    "25% off up to Rs 100 on BookMyShow and INOX twice a month",
+    "Domestic lounge access subject to Rs 75,000 quarterly spend criteria"
+  ],
+  "redemption": {
+    "statementBalanceValue": 0.25,
+    "pointsExpiryYears": null
+  },
+  "eligibility": {
+    "salaried": [
+      "Age 21 to 65 years",
+      "Eligibility is subject to ICICI Bank approval criteria"
+    ],
+    "selfEmployed": [
+      "Age 21 to 65 years",
+      "Eligibility is subject to ICICI Bank approval criteria"
+    ]
+  },
+  "sourceUrl": "https://www.icicibank.com/personal-banking/cards/credit-card/hpcl-super-saver.html",
+  "applyUrl": "https://www.icicibank.com/personal-banking/cards/credit-card/hpcl-super-saver.html",
+  "lastVerified": "2026-05-10",
+  "verificationStatus": "official-direct"
+}

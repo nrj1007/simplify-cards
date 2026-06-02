@@ -14,21 +14,28 @@ const root = process.cwd();
 const issues: ValidationIssue[] = [];
 const warnings: ValidationIssue[] = [];
 const cardsDir = path.join(root, "data", "cards");
+// Cards are stored one JSON object per file under data/cards/<issuer>/<card-id>.json.
 const cardFiles = fs
-  .readdirSync(cardsDir)
-  .filter((file) => file.endsWith(".json"))
+  .readdirSync(cardsDir, { withFileTypes: true })
+  .filter((entry) => entry.isDirectory())
+  .flatMap((issuerDir) =>
+    fs
+      .readdirSync(path.join(cardsDir, issuerDir.name))
+      .filter((name) => name.endsWith(".json"))
+      .map((name) => path.join(issuerDir.name, name))
+  )
   .sort();
 const cards = cardFiles.flatMap((file) => {
   const filePath = path.join(cardsDir, file);
   const raw = fs.readFileSync(filePath, "utf8");
   const parsed = JSON.parse(raw) as unknown;
 
-  if (!Array.isArray(parsed)) {
-    addIssue(`${path.join("data", "cards", file)} must contain an array`);
+  if (Array.isArray(parsed) || typeof parsed !== "object" || parsed === null) {
+    addIssue(`${path.join("data", "cards", file)} must contain a single card object`);
     return [];
   }
 
-  return parsed.map((card) => ({ card, file }));
+  return [{ card: parsed as CardLike, file }];
 });
 
 const allowedLoungeValues = new Set(["unlimited"]);

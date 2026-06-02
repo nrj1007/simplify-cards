@@ -1,0 +1,97 @@
+{
+  "id": "yes-anq-phi",
+  "issuer": "YES Bank",
+  "name": "YES BANK Anq Phi Credit Card",
+  "network": [
+    "Mastercard"
+  ],
+  "joiningFee": 0,
+  "annualFee": 499,
+  "feeWaiverSpend": 120000,
+  "bestFor": [
+    "travel",
+    "dining",
+    "online",
+    "co-branded"
+  ],
+  "rewardType": "YES Rewardz points",
+  "rewards": [
+    {
+      "category": "travel",
+      "rate": 3,
+      "capMonthly": null
+    },
+    {
+      "category": "dining",
+      "rate": 3,
+      "capMonthly": null
+    },
+    {
+      "category": "grocery",
+      "rate": 3,
+      "capMonthly": null
+    },
+    {
+      "category": "online",
+      "rate": 3,
+      "capMonthly": null
+    },
+    {
+      "category": "base",
+      "rate": 0.5,
+      "capMonthly": null
+    }
+  ],
+  "popularityScore": 80,
+  "loungeDomestic": 0,
+  "loungeInternational": 3,
+  "forexMarkup": 3.4,
+  "tags": [
+    "yes bank",
+    "anq",
+    "mastercard",
+    "travel",
+    "dining",
+    "online",
+    "rewardz"
+  ],
+  "exclusions": [
+    "fuel",
+    "rent",
+    "wallet load",
+    "government services",
+    "atm withdrawal",
+    "utility and telecom bill payments",
+    "insurance",
+    "toll",
+    "education",
+    "hospitals",
+    "transactions converted into EMI"
+  ],
+  "milestoneBenefits": [
+    "Renewal fee waiver on spending Rs 1,20,000 in a card anniversary year"
+  ],
+  "additionalBenefits": [
+    "24 reward points per Rs 200 on groceries, supermarkets, travel, dining and hotels",
+    "24 reward points per Rs 200 on apparels and online entertainment including OTT and digital goods",
+    "4 reward points per Rs 200 on other eligible categories",
+    "3 complimentary international lounge visits per calendar year",
+    "1% fuel surcharge waiver with monthly cap of Rs 300"
+  ],
+  "redemption": {
+    "statementBalanceValue": 0.25,
+    "pointsExpiryYears": 3
+  },
+  "eligibility": {
+    "salaried": [
+      "Eligibility is subject to YES BANK and Anq approval criteria"
+    ],
+    "selfEmployed": [
+      "Eligibility is subject to YES BANK and Anq approval criteria"
+    ]
+  },
+  "sourceUrl": "https://www.yesbank.in/content/published/api/v1.1/assets/CONTF836E5CA21A444F98D273334B61F0900/native/yb_yes_bank_anq_phi_credit_card_one_pager.pdf",
+  "applyUrl": "https://anq.finance/",
+  "lastVerified": "2026-05-11",
+  "verificationStatus": "official-mixed"
+}

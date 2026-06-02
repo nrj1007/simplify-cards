@@ -1,0 +1,73 @@
+{
+  "id": "sc-ultimate",
+  "issuer": "Standard Chartered",
+  "name": "Standard Chartered Ultimate Credit Card",
+  "network": [
+    "Mastercard"
+  ],
+  "joiningFee": 5000,
+  "annualFee": 5000,
+  "feeWaiverSpend": null,
+  "bestFor": [
+    "travel",
+    "lounge",
+    "golf",
+    "duty free"
+  ],
+  "rewardType": "360° Rewards points",
+  "rewards": [
+    {
+      "category": "base",
+      "rate": 3.33,
+      "capMonthly": null
+    }
+  ],
+  "popularityScore": 83,
+  "loungeDomestic": 16,
+  "loungeInternational": 12,
+  "forexMarkup": 2,
+  "tags": [
+    "standard chartered",
+    "ultimate",
+    "travel",
+    "lounge",
+    "golf",
+    "low forex",
+    "duty free"
+  ],
+  "exclusions": [
+    "utilities",
+    "supermarkets",
+    "insurance",
+    "property management",
+    "schools",
+    "government payments earn lower points per official value chart"
+  ],
+  "milestoneBenefits": [
+    "6,000 reward points worth INR 6,000 on payment of joining fee"
+  ],
+  "additionalBenefits": [
+    "5 reward points per INR 150 spent and 1 reward point equals INR 1",
+    "5% cashback on duty-free spends",
+    "4 complimentary domestic lounge accesses per calendar quarter",
+    "1 complimentary international lounge access per month via Priority Pass subject to prior month spend criteria",
+    "Reduced foreign currency markup of 2%",
+    "Golf privileges"
+  ],
+  "redemption": {
+    "statementBalanceValue": 1,
+    "redemptionFee": 99
+  },
+  "eligibility": {
+    "salaried": [
+      "Applicant age should be between 21 and 65 years"
+    ],
+    "selfEmployed": [
+      "Applicant age should be between 21 and 65 years"
+    ]
+  },
+  "sourceUrl": "https://www.sc.com/in/credit-cards/ultimate-card/",
+  "applyUrl": "https://www.sc.com/in/credit-cards/ultimate-card/",
+  "lastVerified": "2026-05-11",
+  "verificationStatus": "official-direct"
+}

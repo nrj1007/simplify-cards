@@ -1,0 +1,69 @@
+{
+  "id": "kotak-zen-signature",
+  "issuer": "Kotak Mahindra Bank",
+  "name": "Zen Signature Credit Card",
+  "network": [
+    "Visa"
+  ],
+  "joiningFee": 1500,
+  "annualFee": 1500,
+  "feeWaiverSpend": null,
+  "bestFor": [
+    "shopping",
+    "lifestyle",
+    "milestone rewards"
+  ],
+  "rewardType": "Zen Points",
+  "rewards": [
+    {
+      "category": "online",
+      "rate": 1.33,
+      "capMonthly": null
+    },
+    {
+      "category": "base",
+      "rate": 0.67,
+      "capMonthly": null
+    }
+  ],
+  "popularityScore": 75,
+  "loungeDomestic": 0,
+  "loungeInternational": 0,
+  "forexMarkup": 3.5,
+  "tags": [
+    "kotak",
+    "visa",
+    "shopping",
+    "lifestyle",
+    "zen points"
+  ],
+  "exclusions": [
+    "fuel",
+    "emi",
+    "reward point cash redemption value revised by Kotak from June 2025"
+  ],
+  "milestoneBenefits": [
+    "7,500 bonus Zen points on spending Rs 3,00,000 in an anniversary year",
+    "15,000 bonus Zen points on spending Rs 6,00,000 in an anniversary year"
+  ],
+  "additionalBenefits": [
+    "10 Zen points for every Rs 150 spent on shopping categories like lifestyle goods, jewellery, departmental stores and apparel",
+    "5 Zen points for every Rs 150 on other eligible spends"
+  ],
+  "redemption": {
+    "statementBalanceValue": 0.2,
+    "minimumPointsForStatementCredit": 2000
+  },
+  "eligibility": {
+    "salaried": [
+      "Applicant must meet Kotak's eligibility criteria"
+    ],
+    "selfEmployed": [
+      "Applicant must meet Kotak's eligibility criteria"
+    ]
+  },
+  "sourceUrl": "https://www.kotak.com/en/personal-banking/cards/credit-cards/zen-signature-credit-card/eligibility-criteria.html",
+  "applyUrl": "https://www.kotak.com/en/personal-banking/cards/credit-cards.html",
+  "lastVerified": "2026-05-11",
+  "verificationStatus": "official-mixed"
+}

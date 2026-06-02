@@ -1,0 +1,78 @@
+{
+  "id": "icici-coral",
+  "issuer": "ICICI Bank",
+  "name": "ICICI Bank Coral Credit Card",
+  "network": [
+    "Visa",
+    "Mastercard",
+    "American Express",
+    "RuPay"
+  ],
+  "joiningFee": 500,
+  "annualFee": 500,
+  "feeWaiverSpend": 150000,
+  "bestFor": [
+    "movies",
+    "railway lounge",
+    "fuel",
+    "entry level",
+    "rupay"
+  ],
+  "rewardType": "reward points",
+  "rewards": [
+    {
+      "category": "retail",
+      "rate": 0.5,
+      "capMonthly": null
+    },
+    {
+      "category": "utilities",
+      "rate": 0.25,
+      "capMonthly": null
+    }
+  ],
+  "popularityScore": 81,
+  "loungeDomestic": 4,
+  "loungeInternational": 0,
+  "forexMarkup": 3.5,
+  "tags": [
+    "icici",
+    "coral",
+    "movies",
+    "railway lounge",
+    "rupay",
+    "entry level"
+  ],
+  "exclusions": [
+    "fuel",
+    "transactions excluded under ICICI Bank reward programme terms"
+  ],
+  "milestoneBenefits": [
+    "2,000 reward points on spending Rs 2,00,000 and 1,000 reward points each time Rs 1,00,000 spend is crossed thereafter in an anniversary year, capped at 10,000 points per year"
+  ],
+  "additionalBenefits": [
+    "2 reward points on every Rs 100 spent except fuel",
+    "1 reward point on every Rs 100 spent on utilities and insurance",
+    "25% discount on BookMyShow and INOX movie tickets, capped at Rs 100, twice per month",
+    "One complimentary railway lounge visit per quarter",
+    "1% fuel surcharge waiver at HPCL petrol pumps"
+  ],
+  "redemption": {
+    "statementBalanceValue": 0.25,
+    "pointsExpiryYears": null
+  },
+  "eligibility": {
+    "salaried": [
+      "Minimum age 21 years",
+      "Minimum annual income as per ICICI Bank credit card eligibility"
+    ],
+    "selfEmployed": [
+      "Minimum age 21 years",
+      "Minimum annual income as per ICICI Bank credit card eligibility"
+    ]
+  },
+  "sourceUrl": "https://www.icicibank.com/card/credit-cards/coral-card",
+  "applyUrl": "https://www.icicibank.com/card/credit-cards/coral-card",
+  "lastVerified": "2026-05-10",
+  "verificationStatus": "official-direct"
+}

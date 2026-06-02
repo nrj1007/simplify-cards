@@ -1,0 +1,69 @@
+{
+  "id": "irctc-sbi-platinum",
+  "issuer": "SBI Card",
+  "name": "IRCTC SBI Platinum Card",
+  "network": [
+    "Visa"
+  ],
+  "joiningFee": 500,
+  "annualFee": 500,
+  "feeWaiverSpend": null,
+  "bestFor": [
+    "railway",
+    "irctc",
+    "travel",
+    "railway lounge",
+    "low fee"
+  ],
+  "rewardType": "reward points",
+  "rewards": [
+    {
+      "category": "travel",
+      "rate": 10,
+      "capMonthly": null
+    },
+    {
+      "category": "base",
+      "rate": 0.8,
+      "capMonthly": null
+    }
+  ],
+  "loungeDomestic": 4,
+  "loungeInternational": 0,
+  "forexMarkup": 3.5,
+  "tags": [
+    "irctc",
+    "railway",
+    "travel",
+    "railway lounge",
+    "low fee"
+  ],
+  "exclusions": [
+    "fuel",
+    "cash withdrawal",
+    "railway ticket bookings outside eligible IRCTC channels",
+    "airline, hotel and holiday bookings through IRCTC for accelerated railway benefits",
+    "transactions excluded under IRCTC SBI Platinum Card terms"
+  ],
+  "milestoneBenefits": [
+    "500 Reward Points on payment of renewal fee"
+  ],
+  "additionalBenefits": [
+    "350 activation bonus Reward Points on a single transaction of Rs 500 or more within 60 days of card issuance",
+    "Up to 10% value back as Reward Points on eligible AC1, AC2, AC3, Executive Chair Car and Chair Car railway ticket bookings through IRCTC",
+    "1 Reward Point per Rs 125 on eligible non-fuel retail purchases, including eligible railway ticket purchases",
+    "1 Reward Point equals Re 1 for eligible IRCTC redemption",
+    "Save 1% transaction charges on eligible railway ticket bookings on IRCTC",
+    "4 complimentary railway lounge visits per year in India, capped at 1 per quarter",
+    "1% fuel surcharge waiver on eligible fuel transactions, capped at Rs 100 per month"
+  ],
+  "redemption": {
+    "statementBalanceValue": 1,
+    "pointsExpiryYears": 2
+  },
+  "sourceUrl": "https://www.sbicard.com/html/en/personal/credit-cards/irctc-sbi-platinum-card.html",
+  "applyUrl": "https://www.sbicard.com/html/en/personal/credit-cards/irctc-sbi-platinum-card.html",
+  "lastVerified": "2026-05-09",
+  "verificationStatus": "official-mixed",
+  "popularityScore": 72
+}

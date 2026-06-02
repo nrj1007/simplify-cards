@@ -1,0 +1,91 @@
+{
+  "id": "axis-samsung-signature",
+  "issuer": "Axis Bank",
+  "name": "Samsung Axis Bank Signature Credit Card",
+  "network": [
+    "Visa"
+  ],
+  "joiningFee": 500,
+  "annualFee": 500,
+  "feeWaiverSpend": 200000,
+  "bestFor": [
+    "samsung",
+    "cashback",
+    "shopping",
+    "partner merchants",
+    "lounge"
+  ],
+  "rewardType": "cashback and edge reward points",
+  "rewards": [
+    {
+      "category": "retail",
+      "rate": 10,
+      "capMonthly": 2500
+    },
+    {
+      "category": "partner merchants",
+      "rate": 2,
+      "capMonthly": null
+    },
+    {
+      "category": "base",
+      "rate": 1,
+      "capMonthly": null
+    }
+  ],
+  "loungeDomestic": 4,
+  "loungeInternational": 0,
+  "forexMarkup": 3.5,
+  "tags": [
+    "samsung",
+    "signature",
+    "cashback",
+    "bigbasket",
+    "tata 1mg",
+    "urban company",
+    "myntra",
+    "zomato",
+    "lounge",
+    "fee waiver"
+  ],
+  "exclusions": [
+    "fuel",
+    "rent",
+    "education payments via third-party apps",
+    "wallet loads above fee threshold",
+    "utilities above fee threshold",
+    "online skill-based gaming above fee threshold",
+    "transactions excluded under Samsung Axis Bank Signature Credit Card terms"
+  ],
+  "milestoneBenefits": [
+    "Annual fee waived on annual spends greater than Rs 2 lakh"
+  ],
+  "additionalBenefits": [
+    "2,500 EDGE REWARD Points on completing 3 transactions within 30 days of card issuance",
+    "10% cashback on Samsung purchases including EMI transactions, capped at Rs 2,500 per month and Rs 10,000 per annum",
+    "10 EDGE REWARD Points per Rs 100 with preferred partners bigbasket, Tata 1mg, Urban Company, Myntra and Zomato",
+    "5 EDGE REWARD Points per Rs 100 on other domestic and international transactions",
+    "4 complimentary domestic airport lounge visits per calendar year, subject to minimum eligible spend of Rs 50,000 in previous 3 months",
+    "1% fuel surcharge waiver on transactions from Rs 400 to Rs 4,000, capped at Rs 500 per statement",
+    "Dining Delights offer of 15% off up to Rs 500 once per month at participating restaurants",
+    "Convert transactions of Rs 2,500 or more into EMI",
+    "Wednesday Delight offers as per Axis Bank programme terms"
+  ],
+  "redemption": {
+    "statementBalanceValue": 0.2,
+    "pointsExpiryYears": 3
+  },
+  "eligibility": {
+    "salaried": [
+      "Primary cardholder should be between 18 and 70 years and resident of India"
+    ],
+    "selfEmployed": [
+      "Primary cardholder should be between 18 and 70 years and resident of India"
+    ]
+  },
+  "sourceUrl": "https://www.axis.bank.in/cards/credit-card/samsung-axis-bank-signature-credit-card",
+  "applyUrl": "https://www.axis.bank.in/cards/credit-card/samsung-axis-bank-signature-credit-card",
+  "lastVerified": "2026-05-10",
+  "verificationStatus": "official-direct",
+  "popularityScore": 67
+}

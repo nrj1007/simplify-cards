@@ -1,0 +1,103 @@
+{
+  "id": "axis-magnus-burgundy",
+  "issuer": "Axis Bank",
+  "name": "Axis Bank Magnus Credit Card for Burgundy",
+  "network": [
+    "Visa"
+  ],
+  "joiningFee": 30000,
+  "annualFee": 30000,
+  "feeWaiverSpend": 3000000,
+  "bestFor": [
+    "premium travel",
+    "lounge",
+    "partner miles",
+    "travel edge",
+    "burgundy relationship"
+  ],
+  "rewardType": "edge reward points",
+  "rewards": [
+    {
+      "category": "travel",
+      "rate": 6,
+      "capMonthly": 200000
+    },
+    {
+      "category": "base",
+      "rate": 1.2,
+      "capMonthly": 150000
+    },
+    {
+      "category": "base",
+      "rate": 3.5,
+      "capMonthly": null
+    }
+  ],
+  "loungeDomestic": "unlimited",
+  "loungeInternational": "unlimited",
+  "forexMarkup": 2,
+  "tags": [
+    "magnus",
+    "burgundy",
+    "premium",
+    "travel",
+    "travel edge",
+    "lounge",
+    "priority pass",
+    "partner miles",
+    "high spends"
+  ],
+  "specialSpendRules": [
+    {
+      "category": "rent",
+      "treatment": "capped",
+      "capMonthlySpend": 50000,
+      "notes": "User-verified rule: rent earns rewards up to Rs 50,000"
+    }
+  ],
+  "exclusions": [
+    "fuel",
+    "rent",
+    "wallet",
+    "priority pass spends",
+    "emi transactions",
+    "government institutions",
+    "utilities",
+    "insurance",
+    "gold",
+    "jewellery",
+    "transactions excluded under Axis Bank Magnus for Burgundy terms"
+  ],
+  "milestoneBenefits": [
+    "Annual fee waiver on spends of Rs 30 lakh in the preceding card anniversary year",
+    "Limited-period fee waivers may apply for eligible Burgundy customers as per Axis Bank offer terms"
+  ],
+  "additionalBenefits": [
+    "New Magnus for Burgundy customers can choose a welcome voucher worth Rs 5,000 from eligible options such as Luxe, The Postcard Hotels or Yatra",
+    "60 EDGE REWARD Points per Rs 200 spent on Travel EDGE portal up to cumulative transactions of Rs 2 lakh per month",
+    "35 EDGE REWARD Points per Rs 200 on eligible incremental monthly spends above Rs 1.5 lakh, subject to product terms",
+    "5 EDGE REWARD Points convert to 4 partner miles across eligible travel partners",
+    "Unlimited domestic and international lounge access, subject to applicable programme terms",
+    "4 airport meet and assist services per calendar year for Burgundy variant as per current Axis terms",
+    "Reduced forex markup of 2%",
+    "No cash withdrawal charges",
+    "Enhanced Burgundy travel and transfer privileges via Axis eDGE Rewards"
+  ],
+  "redemption": {
+    "statementBalanceValue": 0.2,
+    "pointsExpiryYears": 3
+  },
+  "eligibility": {
+    "salaried": [
+      "Requires eligible Axis Burgundy relationship and Axis Bank approval"
+    ],
+    "selfEmployed": [
+      "Requires eligible Axis Burgundy relationship and Axis Bank approval"
+    ]
+  },
+  "sourceUrl": "https://www.axisbank.com/retail/cards/credit-card/axis-bank-magnus-card/more-benefits",
+  "applyUrl": "https://www.axisbank.com/retail/cards/credit-card/axis-bank-magnus-card",
+  "lastVerified": "2026-05-23",
+  "verificationStatus": "official-mixed",
+  "popularityScore": 79
+}

@@ -1,0 +1,71 @@
+{
+  "id": "sc-rewards",
+  "issuer": "Standard Chartered",
+  "name": "Standard Chartered Rewards Credit Card",
+  "network": [
+    "Visa"
+  ],
+  "joiningFee": 0,
+  "annualFee": 1000,
+  "feeWaiverSpend": 150000,
+  "bestFor": [
+    "rewards",
+    "retail",
+    "lounge"
+  ],
+  "rewardType": "360° Rewards points",
+  "rewards": [
+    {
+      "category": "base",
+      "rate": 0.67,
+      "capMonthly": null
+    },
+    {
+      "category": "online",
+      "rate": 0.67,
+      "capMonthly": null
+    }
+  ],
+  "popularityScore": 80,
+  "loungeDomestic": 4,
+  "loungeInternational": 0,
+  "forexMarkup": 3.5,
+  "tags": [
+    "standard chartered",
+    "rewards",
+    "retail",
+    "lounge"
+  ],
+  "exclusions": [
+    "government",
+    "insurance",
+    "fuel",
+    "bonus rewards capped at 2000 reward points per statement cycle"
+  ],
+  "milestoneBenefits": [
+    "Annual fee reversal on spends of INR 1,50,000 or more in the previous year",
+    "4,000 reward points on payment of annual fee if reversal condition is not met"
+  ],
+  "additionalBenefits": [
+    "4 reward points per INR 150 on retail spends",
+    "Additional 4 reward points per INR 150 on monthly retail spends above INR 20,000",
+    "1 complimentary domestic lounge visit per calendar quarter",
+    "No joining fee for new customers"
+  ],
+  "redemption": {
+    "statementBalanceValue": 0.25,
+    "redemptionFee": 99
+  },
+  "eligibility": {
+    "salaried": [
+      "Applicant age should be between 18 and 65 years"
+    ],
+    "selfEmployed": [
+      "Applicant age should be between 18 and 67 years"
+    ]
+  },
+  "sourceUrl": "https://www.sc.com/in/credit-cards/rewards-credit-card/",
+  "applyUrl": "https://www.sc.com/in/credit-cards/rewards-credit-card/",
+  "lastVerified": "2026-05-11",
+  "verificationStatus": "official-direct"
+}

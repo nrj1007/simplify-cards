@@ -1,0 +1,80 @@
+{
+  "id": "indusind-celesta",
+  "issuer": "IndusInd Bank",
+  "name": "IndusInd Bank Celesta Credit Card",
+  "network": [
+    "American Express"
+  ],
+  "joiningFee": 50000,
+  "annualFee": 5000,
+  "feeWaiverSpend": 1000000,
+  "bestFor": [
+    "travel",
+    "lounge",
+    "golf",
+    "premium"
+  ],
+  "rewardType": "reward points",
+  "rewards": [
+    {
+      "category": "base",
+      "rate": 1.05,
+      "displayRate": "1.5 reward points per Rs 100",
+      "capMonthly": null
+    }
+  ],
+  "popularityScore": 76,
+  "loungeDomestic": "unlimited",
+  "loungeInternational": 8,
+  "forexMarkup": 3.5,
+  "tags": [
+    "indusind",
+    "celesta",
+    "amex",
+    "travel",
+    "lounge",
+    "golf",
+    "premium"
+  ],
+  "exclusions": [
+    "cash redemption capped monthly",
+    "golf and lounge benefits subject to periodic programme changes",
+    "fuel"
+  ],
+  "milestoneBenefits": [
+    "Annual fee reversed on spends of Rs 10,00,000 or more in the card anniversary year"
+  ],
+  "additionalBenefits": [
+    "Complimentary Club Marriott and EazyDiner Prime memberships with dining vouchers worth Rs 3,000 twice a year",
+    "Tablet Plus membership offering VIP upgrades and privileges at luxury hotels worldwide",
+    "Buy 1 Get 1 free movie tickets up to 3 times a month (up to Rs 700 discount per ticket) on BookMyShow plus 20% off on events/theatre",
+    "Complimentary golf games and golf lessons monthly at select courses in India",
+    "24x7 complimentary concierge services and Auto Assist roadside assistance",
+    "Comprehensive insurance cover including Personal Air Accident Cover up to Rs 2.5 Crores and Travel Insurance",
+    "1% fuel surcharge waiver at all petrol pumps in India"
+  ],
+  "redemption": {
+    "statementBalanceValue": 0.7,
+    "redemptionFee": 100,
+    "airlinePartners": [
+      {
+        "airline": "Singapore Airlines",
+        "programme": "KrisFlyer",
+        "ratio": "2:1"
+      }
+    ]
+  },
+  "interestRateMonthly": 2.99,
+  "eligibility": {
+    "salaried": [
+      "Eligibility is subject to IndusInd Bank approval criteria"
+    ],
+    "selfEmployed": [
+      "Eligibility is subject to IndusInd Bank approval criteria"
+    ]
+  },
+  "sourceUrl": "https://www.indusind.com/in/en/personal/cards/credit-card/celesta-credit-card.html",
+  "applyUrl": "https://www.indusind.com/in/en/personal/cards/credit-card/celesta-credit-card.html",
+  "lastVerified": "2026-05-11",
+  "verificationStatus": "official-mixed"
+}

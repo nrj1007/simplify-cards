@@ -1,0 +1,109 @@
+{
+  "id": "sbi-cashback",
+  "issuer": "SBI Card",
+  "name": "SBI Cashback Credit Card",
+  "network": [
+    "Visa",
+    "Mastercard"
+  ],
+  "joiningFee": 999,
+  "annualFee": 999,
+  "feeWaiverSpend": 200000,
+  "bestFor": [
+    "online",
+    "cashback"
+  ],
+  "rewardType": "cashback",
+  "rewards": [
+    {
+      "category": "online",
+      "rate": 5,
+      "displayCategory": "Online spends",
+      "displayRate": "5% cashback",
+      "capMonthly": 2000
+    },
+    {
+      "category": "base",
+      "rate": 1,
+      "displayCategory": "Offline spends",
+      "displayRate": "1% cashback",
+      "capMonthly": 2000
+    }
+  ],
+  "loungeDomestic": 0,
+  "loungeInternational": 0,
+  "forexMarkup": 3.5,
+  "tags": [
+    "online",
+    "cashback",
+    "shopping"
+  ],
+  "exclusions": [
+    "utilities",
+    "insurance",
+    "fuel",
+    "rent",
+    "wallet loads",
+    "school and educational services",
+    "jewellery",
+    "railways",
+    "digital gaming platforms and merchants",
+    "tolls",
+    "government related transactions",
+    "merchant EMI",
+    "Flexipay EMI"
+  ],
+  "exclusionCodes": [
+    "utilities",
+    "insurance",
+    "fuel",
+    "rent",
+    "wallet_load",
+    "education",
+    "jewellery",
+    "gaming",
+    "government",
+    "emi"
+  ],
+  "additionalBenefits": [
+    "5% cashback on online spends without merchant restriction",
+    "1% cashback on offline spends",
+    "1% fuel surcharge waiver across petrol pumps in India on fuel transactions from Rs 500 to Rs 3,000, capped at Rs 100 per billing statement"
+  ],
+  "additionalDetails": [
+    "Cashback is auto-credited to the SBI Card account within two working days of statement generation."
+  ],
+  "eligibility": {
+    "salaried": [
+      "Minimum age: 21 years",
+      "Maximum age: 60 years",
+      "Occupation: salaried with stable income"
+    ],
+    "selfEmployed": [
+      "Minimum age: 25 years",
+      "Maximum age: 60 years",
+      "Occupation: self-employed with stable income"
+    ]
+  },
+  "supportingSourceUrls": [
+    "https://www.sbicard.com/en/personal/credit-cards/cashback-sbi-card.html",
+    "https://www.sbicard.com/en/faq/cashback-sbi-card-faq.page",
+    "https://www.sbicard.com/cashback-revised",
+    "https://www.sbicard.com/en/personal/credit-cards.html"
+  ],
+  "imageUrl": "/images/sbi-cashback.png",
+  "sourceUrl": "https://www.sbicard.com/en/personal/credit-cards/rewards/cashback-sbi-card.page",
+  "applyUrl": "https://www.sbicard.com/en/personal/credit-cards/rewards/cashback-sbi-card.page",
+  "lastVerified": "2026-06-02",
+  "verificationStatus": "official-direct",
+  "internalNotes": [
+    "Card details manually reviewed and verified by user on 2026-06-02",
+    "Cashback is accrued on transaction posting or settlement date, not transaction initiation date.",
+    "Cashback is auto-credited to the SBI Card account within two working days of statement generation.",
+    "Cashback does not expire because it is adjusted automatically in the next statement after credit.",
+    "Effective 1 April 2026, maximum cashback per statement cycle is Rs 4,000, with online cashback capped at Rs 2,000 and offline cashback capped at Rs 2,000.",
+    "Effective 1 April 2026, cashback is not applicable on spends at digital gaming platforms or merchants, tolls, and government-related transactions, in addition to existing exclusions.",
+    "April 2026 notice lists MCCs 7993, 7994 and 5816 for digital gaming platforms or merchants; 4784 for tolls; and 9222, 9311 and 9402 for government-related transactions."
+  ],
+  "popularityScore": 96
+}

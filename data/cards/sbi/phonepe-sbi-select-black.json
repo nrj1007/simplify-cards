@@ -1,0 +1,88 @@
+{
+  "id": "phonepe-sbi-select-black",
+  "issuer": "SBI Card",
+  "name": "PhonePe SBI Card SELECT BLACK",
+  "network": [
+    "Visa",
+    "RuPay"
+  ],
+  "joiningFee": 1499,
+  "annualFee": 1499,
+  "feeWaiverSpend": 300000,
+  "bestFor": [
+    "phonepe",
+    "online shopping",
+    "upi",
+    "lounge"
+  ],
+  "rewardType": "reward points",
+  "rewards": [
+    {
+      "category": "phonepe",
+      "rate": 10,
+      "capMonthly": 2000
+    },
+    {
+      "category": "online",
+      "rate": 5,
+      "capMonthly": 2000
+    },
+    {
+      "category": "upi",
+      "rate": 1,
+      "capMonthly": null
+    },
+    {
+      "category": "base",
+      "rate": 1,
+      "capMonthly": 2000
+    }
+  ],
+  "loungeDomestic": 4,
+  "loungeInternational": 0,
+  "forexMarkup": 3.5,
+  "tags": [
+    "phonepe",
+    "rupay",
+    "upi",
+    "online",
+    "lounge",
+    "reward points"
+  ],
+  "exclusions": [
+    "fuel",
+    "wallet loading",
+    "rent",
+    "property management",
+    "school and education services",
+    "government services",
+    "digital gaming",
+    "cash advance",
+    "merchant EMI",
+    "transactions excluded under PhonePe SBI Card SELECT BLACK terms"
+  ],
+  "milestoneBenefits": [
+    "Yatra travel voucher worth Rs 5,000 on annual spends of Rs 5 lakh",
+    "Renewal fee reversal on annual retail spends of Rs 3 lakh in previous year"
+  ],
+  "additionalBenefits": [
+    "PhonePe gift card worth Rs 1,500 after joining fee payment",
+    "10 Reward Points per Rs 100 on select PhonePe spends including recharges, bill payments, insurance, travel and Pincode",
+    "5 Reward Points per Rs 100 on eligible online spends",
+    "1 Reward Point per Rs 100 on other eligible spends including Scan & Pay",
+    "1 Reward Point equals Re 1 and can be redeemed as statement credit or gift vouchers on SBI Card rewards portal",
+    "4 complimentary domestic airport lounge visits per year, 1 per quarter",
+    "Complimentary Priority Pass membership for the first 2 card membership years",
+    "1% fuel surcharge waiver on eligible fuel spends",
+    "Available on RuPay and Visa networks"
+  ],
+  "redemption": {
+    "statementBalanceValue": 1,
+    "pointsExpiryYears": 3
+  },
+  "sourceUrl": "https://www.sbicard.com/en/personal/credit-cards/rewards/phonepe-sbi-card-select-black.page",
+  "applyUrl": "https://www.phonepe.com/credit-cards/phonepe-sbi-card-select-black-credit-card-rupay/",
+  "lastVerified": "2026-05-09",
+  "verificationStatus": "official-mixed",
+  "popularityScore": 68
+}

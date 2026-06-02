@@ -1,0 +1,70 @@
+{
+  "id": "idfc-ashva",
+  "issuer": "IDFC FIRST Bank",
+  "name": "IDFC FIRST Ashva Credit Card",
+  "network": [
+    "Visa"
+  ],
+  "joiningFee": 2999,
+  "annualFee": 2999,
+  "feeWaiverSpend": null,
+  "bestFor": [
+    "metal card",
+    "lifestyle",
+    "lounge",
+    "golf",
+    "low forex"
+  ],
+  "rewardType": "reward points",
+  "rewards": [
+    {
+      "category": "retail",
+      "rate": 2.5,
+      "capMonthly": null
+    }
+  ],
+  "loungeDomestic": 8,
+  "loungeInternational": 4,
+  "forexMarkup": 1,
+  "tags": [
+    "ashva",
+    "metal card",
+    "premium",
+    "lifestyle",
+    "lounge",
+    "golf",
+    "movies",
+    "low forex"
+  ],
+  "exclusions": [
+    "cash withdrawal",
+    "transactions excluded under IDFC FIRST Ashva Credit Card terms"
+  ],
+  "milestoneBenefits": [],
+  "additionalBenefits": [
+    "Premium metal credit card",
+    "Cashback up to Rs 2,000 as welcome benefit",
+    "Up to 10X reward points",
+    "1% forex markup",
+    "Complimentary golf rounds and airport lounge visits",
+    "Movie benefit worth Rs 800 every month"
+  ],
+  "redemption": {
+    "statementBalanceValue": 0.25,
+    "pointsExpiryYears": null,
+    "redemptionFee": 99
+  },
+  "eligibility": {
+    "salaried": [
+      "Annual income greater than Rs 12 lakh"
+    ],
+    "selfEmployed": [
+      "Annual income greater than Rs 12 lakh"
+    ]
+  },
+  "sourceUrl": "https://www.idfcfirstbank.com/credit-card",
+  "applyUrl": "https://www.idfcfirstbank.com/credit-card",
+  "lastVerified": "2026-05-10",
+  "verificationStatus": "official-catalogue",
+  "popularityScore": 63
+}

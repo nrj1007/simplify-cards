@@ -1,0 +1,87 @@
+{
+  "id": "amex-platinum-reserve",
+  "issuer": "American Express",
+  "name": "American Express Platinum Reserve Credit Card",
+  "network": [
+    "American Express"
+  ],
+  "joiningFee": 10000,
+  "annualFee": 10000,
+  "feeWaiverSpend": 1000000,
+  "bestFor": [
+    "premium",
+    "lounge",
+    "golf",
+    "monthly vouchers",
+    "hotel benefits"
+  ],
+  "rewardType": "membership rewards",
+  "rewards": [
+    {
+      "category": "retail",
+      "rate": 0.5,
+      "capMonthly": null
+    },
+    {
+      "category": "online",
+      "rate": 2.5,
+      "capMonthly": null
+    },
+    {
+      "category": "travel",
+      "rate": 1.5,
+      "capMonthly": null
+    }
+  ],
+  "popularityScore": 76,
+  "loungeDomestic": 12,
+  "loungeInternational": 2,
+  "forexMarkup": 3.5,
+  "tags": [
+    "amex",
+    "premium",
+    "lounge",
+    "golf",
+    "monthly vouchers",
+    "hotel benefits",
+    "reward multiplier"
+  ],
+  "exclusions": [
+    "fuel",
+    "insurance",
+    "utilities",
+    "cash transactions",
+    "EMI conversion at point of sale",
+    "excluded spends as per American Express terms"
+  ],
+  "milestoneBenefits": [
+    "Rs 1,000 voucher every month on spending Rs 50,000 or more in a calendar month, subject to enrollment",
+    "100% annual fee waiver on previous-year spends of Rs 10,00,000 and above"
+  ],
+  "additionalBenefits": [
+    "11,000 Membership Rewards points as welcome gift on spending Rs 30,000 within first 90 days",
+    "12 complimentary domestic lounge visits per year, capped at 3 per quarter",
+    "2 complimentary international lounge visits per year through Priority Pass",
+    "Complimentary Priority Pass membership",
+    "Complimentary Taj Epicure, Accor Plus Traveller and EazyDiner Prime memberships listed by American Express",
+    "Golf benefit up to twice per month on meeting monthly spend criteria",
+    "3X Membership Rewards points through Reward Multiplier and 5X through RewardXcelerator"
+  ],
+  "redemption": {
+    "statementBalanceValue": null,
+    "airMilesValue": 0.6,
+    "pointsExpiryYears": null
+  },
+  "eligibility": {
+    "salaried": [
+      "Eligibility is subject to American Express premium card approval criteria"
+    ],
+    "selfEmployed": [
+      "Eligibility is subject to American Express premium card approval criteria"
+    ]
+  },
+  "sourceUrl": "https://www.americanexpress.com/in/benefits/platinum-reserve-card/",
+  "applyUrl": "https://www.americanexpress.com/en-in/credit-cards/platinum-card-range/",
+  "lastVerified": "2026-05-10",
+  "verificationStatus": "official-mixed"
+}

@@ -17,7 +17,7 @@ if (args.length < 1) {
 const repoRoot = path.join(__dirname, "..");
 const cardId = args[0];
 const explicitSource = args[1] ?? null;
-const sbiDataPath = path.join(repoRoot, "data", "cards", "sbi.json");
+const sbiCardPath = path.join(repoRoot, "data", "cards", "sbi", `${cardId}.json`);
 
 function fetchUrl(url) {
   return new Promise((resolve, reject) => {
@@ -76,13 +76,9 @@ function downloadFile(url, dest) {
   });
 }
 
-function readSbiCards() {
-  const raw = fs.readFileSync(sbiDataPath, "utf8");
-  return JSON.parse(raw);
-}
-
-function findCard(cards, id) {
-  return cards.find((card) => card.id === id) ?? null;
+function readSbiCard() {
+  if (!fs.existsSync(sbiCardPath)) return null;
+  return JSON.parse(fs.readFileSync(sbiCardPath, "utf8"));
 }
 
 function extractAttr(tag, attr) {
@@ -225,11 +221,10 @@ function scoreCandidate(candidate, keywords, card) {
 }
 
 async function main() {
-  const cards = readSbiCards();
-  const card = findCard(cards, cardId);
+  const card = readSbiCard();
 
   if (!card) {
-    throw new Error(`Could not find SBI card with id '${cardId}' in data/cards/sbi.json`);
+    throw new Error(`Could not find SBI card with id '${cardId}' at data/cards/sbi/${cardId}.json`);
   }
 
   const source = explicitSource ?? card.sourceUrl ?? card.applyUrl;
@@ -290,7 +285,7 @@ async function main() {
   await downloadFile(bestUrl, destPath);
 
   console.log(`Saved image to public/images/${destName}`);
-  console.log(`Set this in data/cards/sbi.json: "imageUrl": "/images/${destName}"`);
+  console.log(`Set this in data/cards/sbi/${cardId}.json: "imageUrl": "/images/${destName}"`);
 }
 
 main().catch((err) => {

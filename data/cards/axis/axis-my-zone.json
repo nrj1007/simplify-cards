@@ -1,0 +1,83 @@
+{
+  "id": "axis-my-zone",
+  "issuer": "Axis Bank",
+  "name": "Axis Bank My Zone Credit Card",
+  "network": [
+    "Mastercard"
+  ],
+  "joiningFee": 0,
+  "annualFee": 0,
+  "feeWaiverSpend": null,
+  "bestFor": [
+    "movies",
+    "swiggy",
+    "ajio",
+    "entertainment",
+    "lounge"
+  ],
+  "rewardType": "edge reward points",
+  "rewards": [
+    {
+      "category": "base",
+      "rate": 0.4,
+      "capMonthly": null
+    }
+  ],
+  "loungeDomestic": 4,
+  "loungeInternational": 0,
+  "forexMarkup": 3.5,
+  "tags": [
+    "my zone",
+    "movies",
+    "district",
+    "sonyliv",
+    "swiggy",
+    "ajio",
+    "lounge",
+    "lifetime free"
+  ],
+  "exclusions": [
+    "fuel",
+    "rent",
+    "wallet load",
+    "movies for reward points",
+    "insurance",
+    "utilities",
+    "jewellery",
+    "education",
+    "government institutions",
+    "transactions excluded under My Zone Credit Card terms"
+  ],
+  "milestoneBenefits": [
+    "1,000 EDGE REWARD Points on annual spends of Rs 1.5 lakh for eligible customers onboarded from 1 April 2025",
+    "SonyLIV Premium membership renewal on spending Rs 1.5 lakh in a card anniversary year for eligible paid-card customers onboarded before 31 March 2025"
+  ],
+  "additionalBenefits": [
+    "Currently listed as nil joining and nil annual fee for Mastercard network on Axis official catalogue",
+    "Standard product fee page lists Rs 500 joining fee and Rs 500 annual fee",
+    "SonyLIV Premium annual subscription worth Rs 1,499 on first purchase within 30 days of issuance",
+    "Buy one get one movie ticket on District app, capped at Rs 200 per month",
+    "Flat Rs 120 off on Swiggy food delivery twice per month on minimum order value of Rs 500",
+    "AJIO discount offers including up to Rs 1,000 off on eligible purchases",
+    "4 EDGE REWARD Points per Rs 200 on eligible spends",
+    "Complimentary domestic airport lounge access, listed as 4 visits per year on Axis catalogue",
+    "1% fuel surcharge waiver on eligible fuel transactions"
+  ],
+  "redemption": {
+    "statementBalanceValue": 0.2,
+    "pointsExpiryYears": 3
+  },
+  "eligibility": {
+    "salaried": [
+      "Primary cardholder should be between 18 and 70 years and resident of India or NRI"
+    ],
+    "selfEmployed": [
+      "Primary cardholder should be between 18 and 70 years and resident of India or NRI"
+    ]
+  },
+  "sourceUrl": "https://www.axisbank.com/retail/cards/credit-card/my-zone-credit-card",
+  "applyUrl": "https://www.axisbank.com/retail/cards/credit-card/my-zone-credit-card",
+  "lastVerified": "2026-05-10",
+  "verificationStatus": "official-mixed",
+  "popularityScore": 69
+}

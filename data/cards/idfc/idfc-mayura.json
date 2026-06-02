@@ -1,0 +1,69 @@
+{
+  "id": "idfc-mayura",
+  "issuer": "IDFC FIRST Bank",
+  "name": "IDFC FIRST Mayura Credit Card",
+  "network": [
+    "Visa"
+  ],
+  "joiningFee": 5999,
+  "annualFee": 5999,
+  "feeWaiverSpend": null,
+  "bestFor": [
+    "metal card",
+    "zero forex",
+    "lounge",
+    "golf",
+    "premium"
+  ],
+  "rewardType": "reward points",
+  "rewards": [
+    {
+      "category": "retail",
+      "rate": 2.5,
+      "capMonthly": null
+    }
+  ],
+  "loungeDomestic": 12,
+  "loungeInternational": 6,
+  "forexMarkup": 0,
+  "tags": [
+    "mayura",
+    "metal card",
+    "premium",
+    "zero forex",
+    "lounge",
+    "golf",
+    "movies"
+  ],
+  "exclusions": [
+    "cash withdrawal",
+    "transactions excluded under IDFC FIRST Mayura Credit Card terms"
+  ],
+  "milestoneBenefits": [],
+  "additionalBenefits": [
+    "Premium metal credit card",
+    "Cashback up to Rs 4,000 as welcome benefit",
+    "Up to 10X reward points",
+    "Zero forex markup",
+    "Complimentary golf rounds and airport lounge visits",
+    "Movie benefit worth Rs 1,000 every month"
+  ],
+  "redemption": {
+    "statementBalanceValue": 0.25,
+    "pointsExpiryYears": null,
+    "redemptionFee": 99
+  },
+  "eligibility": {
+    "salaried": [
+      "Annual income greater than Rs 25 lakh"
+    ],
+    "selfEmployed": [
+      "Annual income greater than Rs 25 lakh"
+    ]
+  },
+  "sourceUrl": "https://www.idfcfirstbank.com/credit-card",
+  "applyUrl": "https://www.idfcfirstbank.com/credit-card",
+  "lastVerified": "2026-05-10",
+  "verificationStatus": "official-catalogue",
+  "popularityScore": 66
+}

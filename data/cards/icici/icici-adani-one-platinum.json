@@ -1,0 +1,80 @@
+{
+  "id": "icici-adani-one-platinum",
+  "issuer": "ICICI Bank",
+  "name": "Adani One ICICI Bank Platinum Credit Card",
+  "network": [
+    "Visa"
+  ],
+  "joiningFee": 750,
+  "annualFee": 750,
+  "feeWaiverSpend": 300000,
+  "bestFor": [
+    "adani",
+    "airport",
+    "travel",
+    "lounge",
+    "movies"
+  ],
+  "rewardType": "adani reward points",
+  "rewards": [
+    {
+      "category": "travel",
+      "rate": 3,
+      "capMonthly": null
+    },
+    {
+      "category": "retail",
+      "rate": 1,
+      "capMonthly": null
+    },
+    {
+      "category": "utilities",
+      "rate": 0.5,
+      "capMonthly": null
+    }
+  ],
+  "popularityScore": 75,
+  "loungeDomestic": 8,
+  "loungeInternational": 0,
+  "forexMarkup": 3.5,
+  "tags": [
+    "icici",
+    "adani",
+    "airport",
+    "travel",
+    "lounge",
+    "movies"
+  ],
+  "exclusions": [
+    "fuel",
+    "rent",
+    "transactions excluded under Adani One ICICI Bank terms"
+  ],
+  "milestoneBenefits": [
+    "Annual fee waiver on spends of Rs 3,00,000 and above in a calendar year",
+    "Flight voucher on completing Rs 10,000 spends within 60 days of card activation"
+  ],
+  "additionalBenefits": [
+    "3% reward points on Adani One ecosystem, Adani-managed airports, Trainman, gas, electricity and more",
+    "1% Adani reward points on other domestic spend categories excluding fuel and rent",
+    "1.5% Adani reward points on international spends",
+    "2 complimentary domestic lounge accesses per quarter",
+    "25% off up to Rs 100 twice every month on BookMyShow",
+    "1% fuel surcharge waiver on fuel transactions up to Rs 4,000"
+  ],
+  "redemption": {
+    "pointsExpiryYears": null
+  },
+  "eligibility": {
+    "salaried": [
+      "Eligibility is subject to ICICI Bank approval criteria"
+    ],
+    "selfEmployed": [
+      "Eligibility is subject to ICICI Bank approval criteria"
+    ]
+  },
+  "sourceUrl": "https://www.icicibank.com/personal-banking/cards/credit-card/adani-icici-credit-card/platinum-card",
+  "applyUrl": "https://www.icicibank.com/personal-banking/cards/credit-card/adani-icici-credit-card/platinum-card",
+  "lastVerified": "2026-05-10",
+  "verificationStatus": "official-direct"
+}

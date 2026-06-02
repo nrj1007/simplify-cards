@@ -1,0 +1,79 @@
+{
+  "id": "idfc-indigo",
+  "issuer": "IDFC FIRST Bank",
+  "name": "IndiGo IDFC FIRST Credit Card",
+  "network": [
+    "Mastercard",
+    "RuPay"
+  ],
+  "joiningFee": 4999,
+  "annualFee": 4999,
+  "feeWaiverSpend": null,
+  "bestFor": [
+    "indigo",
+    "flights",
+    "travel",
+    "upi",
+    "low forex"
+  ],
+  "rewardType": "indigo bluchips",
+  "rewards": [
+    {
+      "category": "airlines",
+      "rate": 22,
+      "capMonthly": null
+    },
+    {
+      "category": "upi",
+      "rate": 3,
+      "capMonthly": null
+    }
+  ],
+  "loungeDomestic": 8,
+  "loungeInternational": 0,
+  "forexMarkup": 1.49,
+  "tags": [
+    "indigo",
+    "dual card",
+    "mastercard",
+    "rupay",
+    "upi",
+    "bluchips",
+    "travel",
+    "low forex"
+  ],
+  "exclusions": [
+    "cash withdrawal",
+    "transactions excluded under IndiGo IDFC FIRST Credit Card terms"
+  ],
+  "milestoneBenefits": [
+    "Vouchers of 5,000 IndiGo BluChips at annual spending milestones of Rs 2 lakh, Rs 5 lakh, Rs 8 lakh, Rs 10 lakh and Rs 12 lakh"
+  ],
+  "additionalBenefits": [
+    "Dual credit card on Mastercard and RuPay networks",
+    "Earn up to 22 IndiGo BluChips per Rs 100",
+    "Welcome benefits include voucher of 5,000 IndiGo BluChips plus 1 IndiGo meal voucher",
+    "Voucher of 3,000 IndiGo BluChips on spending Rs 1 lakh or more in first 90 days",
+    "1.49% forex markup",
+    "Up to Rs 25,000 reimbursement per year for non-refundable flight and hotel cancellations",
+    "RuPay card enables UPI payments"
+  ],
+  "redemption": {
+    "statementBalanceValue": null,
+    "pointsExpiryYears": null,
+    "redemptionFee": 99
+  },
+  "eligibility": {
+    "salaried": [
+      "Eligibility is subject to IDFC FIRST Bank approval criteria"
+    ],
+    "selfEmployed": [
+      "Eligibility is subject to IDFC FIRST Bank approval criteria"
+    ]
+  },
+  "sourceUrl": "https://www.idfcfirstbank.com/personal-banking/payments/cards/co-branded-card",
+  "applyUrl": "https://www.idfcfirstbank.com/credit-card",
+  "lastVerified": "2026-05-10",
+  "verificationStatus": "official-mixed",
+  "popularityScore": 56
+}

@@ -163,9 +163,15 @@ function patternMatches(patterns, text) {
 
 function loadCardCatalog() {
   try {
-    return readdirSync(CARD_DATA_DIR)
-      .filter((name) => name.endsWith(".json"))
-      .flatMap((name) => JSON.parse(readFileSync(path.join(CARD_DATA_DIR, name), "utf8")));
+    // Cards live one JSON object per file under data/cards/<issuer>/<card-id>.json.
+    return readdirSync(CARD_DATA_DIR, { withFileTypes: true })
+      .filter((entry) => entry.isDirectory())
+      .flatMap((issuerDir) => {
+        const dirPath = path.join(CARD_DATA_DIR, issuerDir.name);
+        return readdirSync(dirPath)
+          .filter((name) => name.endsWith(".json"))
+          .map((name) => JSON.parse(readFileSync(path.join(dirPath, name), "utf8")));
+      });
   } catch {
     return [];
   }

@@ -6,15 +6,24 @@ This guide outlines the instructions, conventions, and workflows for adding or u
 
 ## 1. Directory Structure
 
-All card data is stored in JSON files grouped by issuer under the `data/cards/` directory:
+Each card is stored as **one JSON file per card**, grouped into a per-issuer folder under `data/cards/`. The file name is the card's `id`, and the file contains a **single card object** (not an array):
 
 ```text
 data/cards/
-├── hdfc.json
-├── sbi.json
-├── axis.json
-└── yes-bank.json
+├── hdfc/
+│   ├── hdfc-infinia-metal.json
+│   └── hdfc-regalia-gold.json
+├── axis/
+│   ├── axis-atlas.json
+│   └── axis-ace.json
+└── sbi/
+    └── sbi-cashback.json
 ```
+
+**Adding a card:** drop a new `data/cards/<issuer>/<card-id>.json` file. The loader (`lib/card-index.ts`) reads every `data/cards/**/*.json` at load time, so there is no import list or index to update — just add the file and run the validator. The `id` must be globally unique across all issuers.
+
+> [!NOTE]
+> The folder name is purely organizational (grouping by issuer); card ordering in the app is derived from `popularityScore`/`name`, not file or folder order. `card_data_instructions.md` lives at the root of `data/cards/` and is ignored by the loader.
 
 ---
 

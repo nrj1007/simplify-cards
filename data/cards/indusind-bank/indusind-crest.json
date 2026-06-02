@@ -1,0 +1,78 @@
+{
+  "id": "indusind-crest",
+  "issuer": "IndusInd Bank",
+  "name": "IndusInd Bank Crest Credit Card",
+  "network": [
+    "Mastercard",
+    "Visa"
+  ],
+  "joiningFee": 75000,
+  "annualFee": 10000,
+  "feeWaiverSpend": 1000000,
+  "bestFor": [
+    "luxury",
+    "travel",
+    "lounge",
+    "golf",
+    "wellness"
+  ],
+  "rewardType": "reward points",
+  "rewards": [
+    {
+      "category": "base",
+      "rate": 1.5,
+      "displayRate": "1.5 reward points per Rs 100",
+      "capMonthly": null
+    }
+  ],
+  "popularityScore": 71,
+  "loungeDomestic": 8,
+  "loungeInternational": 0,
+  "forexMarkup": 1.8,
+  "tags": [
+    "indusind",
+    "crest",
+    "luxury",
+    "travel",
+    "lounge",
+    "golf",
+    "wellness",
+    "premium"
+  ],
+  "exclusions": [
+    "cash redemption of reward points capped monthly as per recent official note",
+    "domestic lounge access becomes spend-unlock based from July 2026 quarter onward",
+    "ITC membership benefit has been discontinued for new customers boarded on or after 15 September 2025 on the Mastercard variant"
+  ],
+  "milestoneBenefits": [
+    "Annual fee reversed if spends during the period are Rs 10,00,000 or more",
+    "Premium golf programme revised to 2 complimentary games and 2 lessons per month effective March 2026"
+  ],
+  "additionalBenefits": [
+    "Premium wellness, luxury travel, and concierge-style positioning",
+    "Exclusive access to the curated Crest lifestyle and travel benefits",
+    "1% fuel surcharge waiver at all fuel stations in India"
+  ],
+  "redemption": {
+    "statementBalanceValue": 0.7,
+    "airlinePartners": [
+      {
+        "airline": "Singapore Airlines",
+        "programme": "KrisFlyer",
+        "ratio": "2:1"
+      }
+    ]
+  },
+  "eligibility": {
+    "salaried": [
+      "Eligibility is subject to IndusInd Bank approval criteria"
+    ],
+    "selfEmployed": [
+      "Eligibility is subject to IndusInd Bank approval criteria"
+    ]
+  },
+  "sourceUrl": "https://www.indusind.com/in/en/personal/cards/credit-card/crest-credit-card.html",
+  "applyUrl": "https://www.indusind.com/in/en/personal/cards/credit-card/crest-credit-card.html",
+  "lastVerified": "2026-05-11",
+  "verificationStatus": "official-mixed"
+}

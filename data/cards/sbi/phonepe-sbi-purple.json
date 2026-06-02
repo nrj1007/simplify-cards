@@ -1,0 +1,81 @@
+{
+  "id": "phonepe-sbi-purple",
+  "issuer": "SBI Card",
+  "name": "PhonePe SBI Card PURPLE",
+  "network": [
+    "Visa",
+    "RuPay"
+  ],
+  "joiningFee": 499,
+  "annualFee": 499,
+  "feeWaiverSpend": 100000,
+  "bestFor": [
+    "phonepe",
+    "online shopping",
+    "upi",
+    "low fee"
+  ],
+  "rewardType": "reward points",
+  "rewards": [
+    {
+      "category": "phonepe",
+      "rate": 3,
+      "capMonthly": 1000
+    },
+    {
+      "category": "online",
+      "rate": 2,
+      "capMonthly": 1000
+    },
+    {
+      "category": "upi",
+      "rate": 1,
+      "capMonthly": null
+    },
+    {
+      "category": "base",
+      "rate": 1,
+      "capMonthly": 1000
+    }
+  ],
+  "loungeDomestic": 0,
+  "loungeInternational": 0,
+  "forexMarkup": 3.5,
+  "tags": [
+    "phonepe",
+    "rupay",
+    "upi",
+    "online",
+    "low fee",
+    "reward points"
+  ],
+  "exclusions": [
+    "fuel",
+    "cash advance",
+    "balance transfer",
+    "wallet loading",
+    "transactions excluded under PhonePe SBI Card terms"
+  ],
+  "milestoneBenefits": [
+    "Yatra travel voucher worth Rs 3,000 on annual spends of Rs 3 lakh",
+    "Renewal fee reversal on annual retail spends of Rs 1 lakh in previous year"
+  ],
+  "additionalBenefits": [
+    "PhonePe gift card worth Rs 500 after joining fee payment, unless issued under first-year-free offer",
+    "3 Reward Points per Rs 100 on select PhonePe spends including recharges, bill payments, insurance and travel",
+    "2 Reward Points per Rs 100 on eligible online spends",
+    "1 Reward Point per Rs 100 on other eligible spends including Scan & Pay",
+    "1 Reward Point equals Re 1 and can be redeemed as statement credit or gift vouchers on SBI Card rewards portal",
+    "1% fuel surcharge waiver on eligible fuel spends",
+    "Available on RuPay and Visa networks"
+  ],
+  "redemption": {
+    "statementBalanceValue": 1,
+    "pointsExpiryYears": 3
+  },
+  "sourceUrl": "https://www.sbicard.com/en/personal/credit-cards/rewards/phonepe-sbi-card-purple.page",
+  "applyUrl": "https://www.phonepe.com/credit-cards/phonepe-sbi-card-purple-credit-card/",
+  "lastVerified": "2026-05-09",
+  "verificationStatus": "official-mixed",
+  "popularityScore": 69
+}

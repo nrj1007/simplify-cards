@@ -1,0 +1,81 @@
+{
+  "id": "rbl-platinum-maxima-plus",
+  "issuer": "RBL Bank",
+  "name": "RBL Bank Platinum Maxima Plus Credit Card",
+  "network": [
+    "Visa"
+  ],
+  "joiningFee": 2500,
+  "annualFee": 2500,
+  "feeWaiverSpend": null,
+  "bestFor": [
+    "dining",
+    "grocery",
+    "entertainment",
+    "lounge"
+  ],
+  "rewardType": "reward points",
+  "rewards": [
+    {
+      "category": "dining",
+      "rate": 2.5,
+      "capMonthly": null
+    },
+    {
+      "category": "grocery",
+      "rate": 2.5,
+      "capMonthly": null
+    },
+    {
+      "category": "online",
+      "rate": 2.5,
+      "capMonthly": null
+    },
+    {
+      "category": "base",
+      "rate": 0.5,
+      "capMonthly": null
+    }
+  ],
+  "popularityScore": 76,
+  "loungeDomestic": 8,
+  "loungeInternational": 0,
+  "forexMarkup": 3.5,
+  "tags": [
+    "rbl",
+    "platinum maxima plus",
+    "dining",
+    "grocery",
+    "entertainment",
+    "lounge"
+  ],
+  "exclusions": [
+    "accelerated categories follow RBL merchant-category rules",
+    "fuel",
+    "cash advances"
+  ],
+  "milestoneBenefits": [
+    "Bonus reward structure on large annual spend thresholds as per RBL programme"
+  ],
+  "additionalBenefits": [
+    "10 reward points per Rs 100 on dining, entertainment, grocery and international spends",
+    "2 reward points per Rs 100 on other eligible spends",
+    "Domestic lounge access",
+    "Movie benefit on partner platform"
+  ],
+  "redemption": {
+    "statementBalanceValue": 0.25
+  },
+  "eligibility": {
+    "salaried": [
+      "Eligibility is subject to RBL Bank approval criteria"
+    ],
+    "selfEmployed": [
+      "Eligibility is subject to RBL Bank approval criteria"
+    ]
+  },
+  "sourceUrl": "https://www.rblbank.com/personal-banking/cards/credit-cards/platinum-maxima-plus-credit-card",
+  "applyUrl": "https://www.rblbank.com/personal-banking/cards/credit-cards/platinum-maxima-plus-credit-card",
+  "lastVerified": "2026-05-11",
+  "verificationStatus": "official-direct"
+}

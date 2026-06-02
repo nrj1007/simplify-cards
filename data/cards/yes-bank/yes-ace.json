@@ -1,0 +1,78 @@
+{
+  "id": "yes-ace",
+  "issuer": "YES Bank",
+  "name": "YES BANK ACE Credit Card",
+  "network": [
+    "Mastercard",
+    "Visa",
+    "RuPay"
+  ],
+  "joiningFee": 499,
+  "annualFee": 499,
+  "feeWaiverSpend": 50000,
+  "bestFor": [
+    "online",
+    "entry level",
+    "rewardz",
+    "utility bills"
+  ],
+  "rewardType": "YES Rewardz points",
+  "rewards": [
+    {
+      "category": "online",
+      "rate": 1,
+      "capMonthly": 1250
+    },
+    {
+      "category": "base",
+      "rate": 0.5,
+      "capMonthly": null
+    },
+    {
+      "category": "utilities",
+      "rate": 0.25,
+      "capMonthly": 150
+    }
+  ],
+  "popularityScore": 72,
+  "loungeDomestic": 0,
+  "loungeInternational": 0,
+  "forexMarkup": 3.5,
+  "tags": [
+    "yes bank",
+    "online",
+    "entry level",
+    "rewardz",
+    "utility bills"
+  ],
+  "exclusions": [
+    "fuel",
+    "cash withdrawals",
+    "transactions converted into EMI"
+  ],
+  "milestoneBenefits": [
+    "First-year membership fee waived on spending Rs 5,000 within 30 days of card issuance",
+    "Renewal fee waiver on spending Rs 50,000 in a card anniversary year"
+  ],
+  "additionalBenefits": [
+    "Card was earlier known as YES Prosperity Rewards Plus",
+    "Purchase protection cover on eligible electronics",
+    "Green fee waiver and golf lessons at select golf courses"
+  ],
+  "redemption": {
+    "statementBalanceValue": 0.25,
+    "pointsExpiryYears": null
+  },
+  "eligibility": {
+    "salaried": [
+      "Eligibility is subject to YES BANK approval criteria"
+    ],
+    "selfEmployed": [
+      "Eligibility is subject to YES BANK approval criteria"
+    ]
+  },
+  "sourceUrl": "https://www.yesbank.in/content/published/api/v1.1/assets/CONT088843DCD7EF4481B44CBD56B307F379/native/yesbank_credit_card_ace_value_chart_nov23.pdf",
+  "applyUrl": "https://www.yesbank.in/personal-banking/yes-individual/cards/credit-cards",
+  "lastVerified": "2026-05-11",
+  "verificationStatus": "official-mixed"
+}

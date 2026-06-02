@@ -1,0 +1,76 @@
+{
+  "id": "landmark-rewards-sbi",
+  "issuer": "SBI Card",
+  "name": "Landmark Rewards SBI Card",
+  "network": [
+    "Visa",
+    "Mastercard",
+    "RuPay"
+  ],
+  "joiningFee": 499,
+  "annualFee": 499,
+  "feeWaiverSpend": null,
+  "bestFor": [
+    "shopping",
+    "lifestyle",
+    "department stores",
+    "low fee"
+  ],
+  "rewardType": "reward points",
+  "rewards": [
+    {
+      "category": "base",
+      "rate": 2.5,
+      "capMonthly": null
+    },
+    {
+      "category": "dining",
+      "rate": 1.25,
+      "capMonthly": null
+    },
+    {
+      "category": "base",
+      "rate": 0.25,
+      "capMonthly": null
+    }
+  ],
+  "loungeDomestic": 0,
+  "loungeInternational": 0,
+  "forexMarkup": 3.5,
+  "tags": [
+    "landmark",
+    "lifestyle",
+    "max",
+    "home centre",
+    "shopping",
+    "low fee"
+  ],
+  "exclusions": [
+    "fuel",
+    "cash advance",
+    "balance transfer",
+    "wallet loading",
+    "rent",
+    "transactions excluded under Landmark Rewards SBI Card terms"
+  ],
+  "milestoneBenefits": [
+    "8,000 bonus reward points on annual retail spends of Rs 2 lakh"
+  ],
+  "additionalBenefits": [
+    "2,000 bonus reward points after joining fee payment",
+    "10 reward points per Rs 100 at Landmark stores including Lifestyle, Max, Home Centre, Spar, Babyshop and EasyBuy",
+    "5 reward points per Rs 100 on dining and movie spends",
+    "1 reward point per Rs 100 on other non-fuel eligible retail spends",
+    "4 reward points equal Rs 1 when redeemed at eligible Landmark stores",
+    "1% fuel surcharge waiver on eligible fuel spends from Rs 500 to Rs 3,000, capped at Rs 100 per month"
+  ],
+  "redemption": {
+    "statementBalanceValue": 0.25,
+    "pointsExpiryYears": 2
+  },
+  "sourceUrl": "https://www.sbicard.com/en/personal/credit-cards/landmark-sbi-card.html",
+  "applyUrl": "https://www.sbicard.com/en/personal/credit-cards/landmark-sbi-card.html",
+  "lastVerified": "2026-05-09",
+  "verificationStatus": "official-mixed",
+  "popularityScore": 59
+}

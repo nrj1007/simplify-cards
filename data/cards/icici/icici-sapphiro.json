@@ -1,0 +1,81 @@
+{
+  "id": "icici-sapphiro",
+  "issuer": "ICICI Bank",
+  "name": "ICICI Bank Sapphiro Credit Card",
+  "network": [
+    "Visa",
+    "Mastercard",
+    "American Express",
+    "RuPay"
+  ],
+  "joiningFee": 6500,
+  "annualFee": 3500,
+  "feeWaiverSpend": null,
+  "bestFor": [
+    "premium",
+    "travel",
+    "lounge",
+    "movies",
+    "golf"
+  ],
+  "rewardType": "reward points",
+  "rewards": [
+    {
+      "category": "retail",
+      "rate": 0.5,
+      "capMonthly": null
+    },
+    {
+      "category": "travel",
+      "rate": 1,
+      "capMonthly": null
+    },
+    {
+      "category": "utilities",
+      "rate": 0.25,
+      "capMonthly": null
+    }
+  ],
+  "popularityScore": 85,
+  "loungeDomestic": 16,
+  "loungeInternational": 2,
+  "forexMarkup": 3.5,
+  "tags": [
+    "icici",
+    "premium",
+    "lounge",
+    "movies",
+    "golf",
+    "rupay"
+  ],
+  "exclusions": [
+    "fuel",
+    "transactions excluded under ICICI Bank reward programme terms"
+  ],
+  "milestoneBenefits": [
+    "Up to 20,000 reward points every anniversary year under ICICI Bank milestone rewards"
+  ],
+  "additionalBenefits": [
+    "Welcome vouchers worth Rs 9,000+ listed on ICICI Bank card catalogue",
+    "Buy one movie or event ticket and get up to Rs 500 off on the second ticket twice every month on BookMyShow",
+    "2 complimentary international airport lounge visits per year",
+    "4 complimentary domestic airport lounge visits per quarter subject to spend criteria",
+    "Up to 4 complimentary golf rounds every month based on eligible spends"
+  ],
+  "redemption": {
+    "statementBalanceValue": 0.25,
+    "pointsExpiryYears": null
+  },
+  "eligibility": {
+    "salaried": [
+      "Eligibility is subject to ICICI Bank approval criteria"
+    ],
+    "selfEmployed": [
+      "Eligibility is subject to ICICI Bank approval criteria"
+    ]
+  },
+  "sourceUrl": "https://www.icicibank.com/personal-banking/cards/credit-card/sapphiro-card",
+  "applyUrl": "https://www.icicibank.com/personal-banking/cards/credit-card/sapphiro-card",
+  "lastVerified": "2026-05-10",
+  "verificationStatus": "official-direct"
+}

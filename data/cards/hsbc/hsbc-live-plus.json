@@ -1,0 +1,81 @@
+{
+  "id": "hsbc-live-plus",
+  "issuer": "HSBC Bank",
+  "name": "HSBC Live+ Credit Card",
+  "network": [
+    "Visa"
+  ],
+  "joiningFee": 999,
+  "annualFee": 999,
+  "feeWaiverSpend": 200000,
+  "bestFor": [
+    "dining",
+    "food delivery",
+    "grocery",
+    "cashback",
+    "lounge"
+  ],
+  "rewardType": "cashback",
+  "rewards": [
+    {
+      "category": "grocery dining movies",
+      "rate": 10,
+      "capMonthly": 1000
+    },
+    {
+      "category": "base",
+      "rate": 1.5,
+      "capMonthly": null
+    }
+  ],
+  "loungeDomestic": 4,
+  "loungeInternational": 0,
+  "forexMarkup": 3.5,
+  "tags": [
+    "live plus",
+    "cashback",
+    "dining",
+    "food delivery",
+    "grocery",
+    "entertainment",
+    "lounge",
+    "visa signature"
+  ],
+  "exclusions": [
+    "utilities",
+    "fuel",
+    "cash advance",
+    "balance transfer",
+    "transactions excluded under HSBC Live+ Credit Card cashback terms"
+  ],
+  "milestoneBenefits": [
+    "Annual fee waived on annual spends above Rs 2 lakh"
+  ],
+  "additionalBenefits": [
+    "Rs 1,000 cashback after logging into HSBC India app and spending Rs 20,000 within first 30 days",
+    "Voucher worth up to Rs 500 for Amazon Pay, Zomato and Swiggy on activation with a single transaction of Rs 300 or more",
+    "10% cashback on dining, food delivery and grocery spends, capped at Rs 1,000 per month",
+    "1.5% unlimited cashback on most other eligible spends",
+    "4 complimentary domestic airport lounge visits per year, one per quarter",
+    "Free 12-month Times Prime subscription, subject to Visa Signature terms",
+    "Complimentary flight seat selections twice a year on domestic flights booked with MakeMyTrip",
+    "District by Zomato dining and movie offers, subject to terms"
+  ],
+  "redemption": {
+    "statementBalanceValue": 1,
+    "pointsExpiryYears": null
+  },
+  "eligibility": {
+    "salaried": [
+      "Age 18 to 65 years, Indian resident, minimum income Rs 6 lakh per year and eligible city residence"
+    ],
+    "selfEmployed": [
+      "Age 25 to 65 years, Indian resident, minimum income Rs 12 lakh per year and eligible city residence"
+    ]
+  },
+  "sourceUrl": "https://www.hsbc.co.in/credit-cards/products/live-plus/",
+  "applyUrl": "https://www.hsbc.co.in/credit-cards/products/live-plus/",
+  "lastVerified": "2026-05-10",
+  "verificationStatus": "official-direct",
+  "popularityScore": 80
+}

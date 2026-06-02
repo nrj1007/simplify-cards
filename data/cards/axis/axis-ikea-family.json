@@ -1,0 +1,77 @@
+{
+  "id": "axis-ikea-family",
+  "issuer": "Axis Bank",
+  "name": "Ikea Family Credit Card",
+  "network": [
+    "Visa"
+  ],
+  "joiningFee": 500,
+  "annualFee": 500,
+  "feeWaiverSpend": null,
+  "bestFor": [
+    "ikea",
+    "home furnishing",
+    "shopping",
+    "lounge",
+    "cashback"
+  ],
+  "rewardType": "cashback",
+  "rewards": [
+    {
+      "category": "retail",
+      "rate": 3,
+      "capMonthly": null
+    },
+    {
+      "category": "base",
+      "rate": 1,
+      "capMonthly": null
+    }
+  ],
+  "loungeDomestic": 4,
+  "loungeInternational": 0,
+  "forexMarkup": 3.5,
+  "tags": [
+    "ikea",
+    "family",
+    "home furnishing",
+    "shopping",
+    "cashback",
+    "lounge",
+    "milestone"
+  ],
+  "exclusions": [
+    "fuel",
+    "rent",
+    "wallet load",
+    "education payments via third-party apps",
+    "online skill-based gaming",
+    "transactions excluded under IKEA Family Credit Card terms"
+  ],
+  "milestoneBenefits": [
+    "IKEA voucher worth Rs 1,000 as milestone benefit, subject to product terms"
+  ],
+  "additionalBenefits": [
+    "Unlimited 3% cashback on IKEA spends as listed on Axis Bank catalogue",
+    "4 complimentary domestic airport lounge visits at select domestic airports",
+    "Dining Delights offers may apply as per Axis Bank programme terms",
+    "1% fuel surcharge waiver on eligible fuel transactions"
+  ],
+  "redemption": {
+    "statementBalanceValue": 1,
+    "pointsExpiryYears": null
+  },
+  "eligibility": {
+    "salaried": [
+      "Eligibility is subject to Axis Bank approval criteria"
+    ],
+    "selfEmployed": [
+      "Eligibility is subject to Axis Bank approval criteria"
+    ]
+  },
+  "sourceUrl": "https://www.axis.bank.in/cards/credit-card",
+  "applyUrl": "https://www.axis.bank.in/cards/credit-card",
+  "lastVerified": "2026-05-10",
+  "verificationStatus": "official-catalogue",
+  "popularityScore": 55
+}

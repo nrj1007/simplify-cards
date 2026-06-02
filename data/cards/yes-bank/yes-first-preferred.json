@@ -1,0 +1,82 @@
+{
+  "id": "yes-first-preferred",
+  "issuer": "YES Bank",
+  "name": "YES First Preferred Credit Card",
+  "network": [
+    "Mastercard"
+  ],
+  "joiningFee": 999,
+  "annualFee": 999,
+  "feeWaiverSpend": 250000,
+  "bestFor": [
+    "travel",
+    "dining",
+    "lounge",
+    "movies",
+    "golf"
+  ],
+  "rewardType": "YES Rewardz points",
+  "rewards": [
+    {
+      "category": "travel",
+      "rate": 2,
+      "capMonthly": 3000
+    },
+    {
+      "category": "dining",
+      "rate": 2,
+      "capMonthly": 3000
+    },
+    {
+      "category": "base",
+      "rate": 1,
+      "capMonthly": null
+    }
+  ],
+  "popularityScore": 79,
+  "loungeDomestic": 8,
+  "loungeInternational": 4,
+  "forexMarkup": 1.75,
+  "tags": [
+    "yes bank",
+    "travel",
+    "dining",
+    "lounge",
+    "movies",
+    "golf",
+    "rewardz"
+  ],
+  "exclusions": [
+    "fuel",
+    "cash withdrawals",
+    "transactions converted into EMI"
+  ],
+  "milestoneBenefits": [
+    "First-year membership fee waived on spending Rs 50,000 within 90 days of card issuance",
+    "Renewal fee waiver on spending Rs 2,50,000 in a card anniversary year",
+    "20,000 annual bonus reward points on spending Rs 7,50,000 in an anniversary year"
+  ],
+  "additionalBenefits": [
+    "Priority Pass or LoungeKey membership for the primary cardmember",
+    "4 complimentary international airport lounge visits per year",
+    "2 complimentary domestic airport lounge visits per quarter",
+    "BookMyShow discount up to 25% with monthly cap",
+    "Green fee waiver and complimentary golf lessons at select golf courses"
+  ],
+  "redemption": {
+    "statementBalanceValue": 0.25,
+    "pointsExpiryYears": null
+  },
+  "eligibility": {
+    "salaried": [
+      "Eligibility is subject to YES BANK approval criteria"
+    ],
+    "selfEmployed": [
+      "Eligibility is subject to YES BANK approval criteria"
+    ]
+  },
+  "sourceUrl": "https://www.yesbank.in/content/published/api/v1.1/assets/CONT245A99A043C042B0B77BE647A6C987DD/native/value_chart_for_yes_first_preferred_credit_card.pdf",
+  "applyUrl": "https://applycc.yesbank.in/creditCardTemplates/yesFirstPreffered.html",
+  "lastVerified": "2026-05-11",
+  "verificationStatus": "official-mixed"
+}

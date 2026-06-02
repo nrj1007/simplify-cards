@@ -1,0 +1,77 @@
+{
+  "id": "icici-emeralde-private-metal",
+  "issuer": "ICICI Bank",
+  "name": "ICICI Bank Emeralde Private Metal Credit Card",
+  "network": [
+    "Visa"
+  ],
+  "joiningFee": 12499,
+  "annualFee": 12499,
+  "feeWaiverSpend": null,
+  "bestFor": [
+    "luxury",
+    "travel",
+    "lounge",
+    "golf",
+    "low forex"
+  ],
+  "rewardType": "reward points",
+  "rewards": [
+    {
+      "category": "retail",
+      "rate": 2,
+      "capMonthly": null
+    },
+    {
+      "category": "travel",
+      "rate": 2,
+      "capMonthly": null
+    }
+  ],
+  "popularityScore": 84,
+  "loungeDomestic": "unlimited",
+  "loungeInternational": "unlimited",
+  "forexMarkup": 2,
+  "tags": [
+    "icici",
+    "premium",
+    "metal",
+    "luxury",
+    "lounge",
+    "golf",
+    "travel",
+    "low forex"
+  ],
+  "exclusions": [
+    "fuel",
+    "transactions excluded under ICICI Bank reward programme terms"
+  ],
+  "milestoneBenefits": [
+    "12,500 ICICI Bank Reward Points as joining bonus and annual bonus",
+    "EaseMyTrip air travel vouchers worth Rs 3,000 each on first Rs 4 lakh spends and next Rs 4 lakh spends"
+  ],
+  "additionalBenefits": [
+    "Unlimited complimentary international airport lounge access",
+    "Unlimited complimentary domestic airport lounge access",
+    "Unlimited complimentary golf rounds",
+    "Complimentary Priority Pass membership for primary and Plus cardholder",
+    "BOGO movies, sports, theatre or concert tickets worth up to Rs 750",
+    "Taj Epicure and EazyDiner Prime membership benefits listed by ICICI Bank"
+  ],
+  "redemption": {
+    "statementBalanceValue": 0.25,
+    "pointsExpiryYears": null
+  },
+  "eligibility": {
+    "salaried": [
+      "Eligibility is subject to ICICI Bank premium card approval criteria"
+    ],
+    "selfEmployed": [
+      "Eligibility is subject to ICICI Bank premium card approval criteria"
+    ]
+  },
+  "sourceUrl": "https://www.icicibank.com/personal-banking/cards/credit-card/emeralde-private-metal-credit-card",
+  "applyUrl": "https://www.icicibank.com/personal-banking/cards/credit-card/emeralde-private-metal-credit-card",
+  "lastVerified": "2026-05-10",
+  "verificationStatus": "official-direct"
+}

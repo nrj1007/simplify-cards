@@ -1,0 +1,77 @@
+{
+  "id": "hsbc-rupay-platinum",
+  "issuer": "HSBC Bank",
+  "name": "HSBC RuPay Platinum Credit Card",
+  "network": [
+    "RuPay"
+  ],
+  "joiningFee": 0,
+  "annualFee": 0,
+  "feeWaiverSpend": null,
+  "bestFor": [
+    "rupay",
+    "upi",
+    "lifetime free",
+    "rewards",
+    "fuel"
+  ],
+  "rewardType": "reward points",
+  "rewards": [
+    {
+      "category": "upi",
+      "rate": 2,
+      "capMonthly": null
+    },
+    {
+      "category": "base",
+      "rate": 2,
+      "capMonthly": null
+    }
+  ],
+  "loungeDomestic": 0,
+  "loungeInternational": 0,
+  "forexMarkup": 3.5,
+  "tags": [
+    "rupay",
+    "upi",
+    "lifetime free",
+    "rewards",
+    "fuel waiver",
+    "jcb"
+  ],
+  "exclusions": [
+    "fuel",
+    "cash advance",
+    "balance transfer",
+    "transactions excluded under HSBC RuPay Platinum Credit Card terms"
+  ],
+  "milestoneBenefits": [],
+  "additionalBenefits": [
+    "No joining fee and no annual fee",
+    "Rs 500 cashback after logging into HSBC India app and spending Rs 5,000 within first 30 days",
+    "Rs 250 Amazon eGift Voucher for online application and video KYC",
+    "2-month EazyDiner membership on RuPay card activation",
+    "2 reward points per Rs 150 spent",
+    "UPI payments through HSBC SimplyPay and other UPI apps",
+    "Reward points on credit card linked UPI payments",
+    "Fuel surcharge waiver benefit with annual savings up to Rs 3,000",
+    "Global offers through JCB network"
+  ],
+  "redemption": {
+    "statementBalanceValue": null,
+    "pointsExpiryYears": null
+  },
+  "eligibility": {
+    "salaried": [
+      "Age 18 to 65 years, Indian resident and eligible city residence"
+    ],
+    "selfEmployed": [
+      "Age 25 to 65 years, Indian resident and eligible city residence"
+    ]
+  },
+  "sourceUrl": "https://www.hsbc.co.in/credit-cards/products/rupay-platinum-credit-card/",
+  "applyUrl": "https://www.hsbc.co.in/credit-cards/products/rupay-platinum-credit-card/",
+  "lastVerified": "2026-05-10",
+  "verificationStatus": "official-direct",
+  "popularityScore": 66
+}

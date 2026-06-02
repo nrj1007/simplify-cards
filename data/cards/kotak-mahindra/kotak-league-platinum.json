@@ -1,0 +1,65 @@
+{
+  "id": "kotak-league-platinum",
+  "issuer": "Kotak Mahindra Bank",
+  "name": "League Platinum Credit Card",
+  "network": [
+    "Visa"
+  ],
+  "joiningFee": 499,
+  "annualFee": 499,
+  "feeWaiverSpend": 50000,
+  "bestFor": [
+    "movies",
+    "shopping",
+    "mid-tier rewards"
+  ],
+  "rewardType": "Kotak Reward Points",
+  "rewards": [
+    {
+      "category": "base",
+      "rate": 0.37,
+      "capMonthly": null
+    }
+  ],
+  "popularityScore": 76,
+  "loungeDomestic": 0,
+  "loungeInternational": 0,
+  "forexMarkup": 4,
+  "tags": [
+    "kotak",
+    "visa",
+    "movies",
+    "shopping",
+    "reward points"
+  ],
+  "exclusions": [
+    "reward point cash redemption value revised by Kotak from June 2025",
+    "fuel",
+    "cash spends"
+  ],
+  "milestoneBenefits": [
+    "Get 4 free PVR tickets or 10,000 reward points on spends of Rs 1,25,000 every 6 months",
+    "Annual fee waiver on annual retail spends of Rs 50,000"
+  ],
+  "additionalBenefits": [
+    "Earn up to 8 reward points on every Rs 150 spent across categories",
+    "Designed for high-income or high-net-worth individuals according to Kotak FAQ"
+  ],
+  "redemption": {
+    "statementBalanceValue": 0.07,
+    "minimumPointsForStatementCredit": 2000
+  },
+  "interestRateMonthly": 4,
+  "eligibility": {
+    "salaried": [
+      "Eligibility is subject to Kotak Mahindra Bank approval criteria"
+    ],
+    "selfEmployed": [
+      "Eligibility is subject to Kotak Mahindra Bank approval criteria"
+    ]
+  },
+  "sourceUrl": "https://www.kotak.com/en/personal-banking/cards/credit-cards/league-platinum-card/league-platinum-card-faqs.html",
+  "applyUrl": "https://www.kotak.com/en/personal-banking/cards/credit-cards.html",
+  "lastVerified": "2026-05-11",
+  "verificationStatus": "official-mixed"
+}

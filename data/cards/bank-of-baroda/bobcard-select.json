@@ -1,0 +1,84 @@
+{
+  "id": "bobcard-select",
+  "issuer": "Bank of Baroda",
+  "name": "BOBCARD SELECT",
+  "network": [
+    "Visa"
+  ],
+  "joiningFee": 750,
+  "annualFee": 750,
+  "feeWaiverSpend": 70000,
+  "bestFor": [
+    "online",
+    "dining",
+    "utility bills",
+    "low fee"
+  ],
+  "rewardType": "reward points",
+  "rewards": [
+    {
+      "category": "dining",
+      "rate": 1.25,
+      "capMonthly": 1000
+    },
+    {
+      "category": "utility bills",
+      "rate": 1.25,
+      "capMonthly": 1000
+    },
+    {
+      "category": "online",
+      "rate": 1.25,
+      "capMonthly": 1000
+    },
+    {
+      "category": "retail",
+      "rate": 0.25,
+      "capMonthly": null
+    }
+  ],
+  "loungeDomestic": 0,
+  "loungeInternational": 0,
+  "forexMarkup": 3.5,
+  "tags": [
+    "bobcard",
+    "online",
+    "dining",
+    "utility bills",
+    "low fee",
+    "fuel surcharge waiver"
+  ],
+  "exclusions": [
+    "fuel transactions do not earn reward points",
+    "accelerated reward points are subject to monthly cap",
+    "taxes and charges excluded as per BOBCARD terms"
+  ],
+  "milestoneBenefits": [
+    "First year fee reversal on spending Rs 7,500 within first 60 days",
+    "Annual fee waiver on spending Rs 70,000 in a year"
+  ],
+  "additionalBenefits": [
+    "5 reward points per Rs 100 on dining, utility bills and online spends",
+    "1 reward point per Rs 100 on other categories",
+    "1% fuel surcharge waiver on fuel transactions between Rs 400 and Rs 5,000, capped at Rs 250 per statement cycle",
+    "Up to 3 lifetime free add-on cards",
+    "Personal accidental death cover"
+  ],
+  "redemption": {
+    "statementBalanceValue": 0.25,
+    "pointsExpiryYears": null
+  },
+  "eligibility": {
+    "salaried": [
+      "Eligibility details to be confirmed during Bank of Baroda application"
+    ],
+    "selfEmployed": [
+      "Eligibility details to be confirmed during Bank of Baroda application"
+    ]
+  },
+  "sourceUrl": "https://bankofbaroda.bank.in/personal-banking/digital-products/cards/credit-cards/select",
+  "applyUrl": "https://bankofbaroda.bank.in/personal-banking/digital-products/cards/credit-cards/select",
+  "lastVerified": "2026-05-10",
+  "verificationStatus": "official-direct",
+  "popularityScore": 70
+}

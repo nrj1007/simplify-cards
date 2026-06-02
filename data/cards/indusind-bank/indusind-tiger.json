@@ -1,0 +1,116 @@
+{
+  "id": "indusind-tiger",
+  "issuer": "IndusInd Bank",
+  "name": "IndusInd Bank Tiger Credit Card",
+  "network": [
+    "Visa"
+  ],
+  "joiningFee": 0,
+  "annualFee": 0,
+  "feeWaiverSpend": null,
+  "bestFor": [
+    "travel",
+    "lounge",
+    "golf",
+    "movies",
+    "low forex"
+  ],
+  "rewardType": "reward points",
+  "rewards": [
+    {
+      "category": "utilities, insurance, government, education, real estate, rent",
+      "displayCategory": "Utility, insurance, government, education, real estate, and rent spends",
+      "rate": 1,
+      "displayRate": "1 point per Rs 100",
+      "capMonthly": null
+    },
+    {
+      "category": "base",
+      "displayCategory": "Base spends (up to Rs 1L)",
+      "rate": 1,
+      "displayRate": "1 point per Rs 100",
+      "capMonthly": null
+    },
+    {
+      "category": "base",
+      "displayCategory": "Base spends (Rs 1.01L - 2.5L)",
+      "rate": 2,
+      "displayRate": "2 points per Rs 100",
+      "capMonthly": null
+    },
+    {
+      "category": "base",
+      "displayCategory": "Base spends (Rs 2.51L - 5L)",
+      "rate": 4,
+      "displayRate": "4 points per Rs 100",
+      "capMonthly": null
+    },
+    {
+      "category": "base",
+      "displayCategory": "Base spends (above Rs 5L)",
+      "rate": 6,
+      "displayRate": "6 points per Rs 100",
+      "capMonthly": null
+    }
+  ],
+  "popularityScore": 100,
+  "loungeDomestic": 8,
+  "loungeInternational": 2,
+  "forexMarkup": 1.5,
+  "tags": [
+    "indusind",
+    "tiger",
+    "travel",
+    "lounge",
+    "golf",
+    "movies",
+    "low forex",
+    "lifetime free"
+  ],
+  "exclusions": [
+    "fuel",
+    "cash advances"
+  ],
+  "exclusionCodes": [
+    "fuel",
+    "cash_advance"
+  ],
+  "milestoneBenefits": [],
+  "additionalBenefits": [
+    "1 complimentary golf game or lesson per quarter",
+    "1 complimentary movie ticket up to Rs 500 every 6 months on BookMyShow",
+    "Auto Assist roadside emergency services (breakdown, key replacement, flat tire)"
+  ],
+  "additionalDetails": [
+    "Cash redemption is capped at 5,000 reward points per calendar month"
+  ],
+  "redemption": {
+    "statementBalanceValue": 0.4,
+    "pointsExpiryYears": null,
+    "airlinePartners": [
+      {
+        "airline": "Singapore Airlines",
+        "programme": "KrisFlyer",
+        "ratio": "4:1"
+      }
+    ]
+  },
+  "eligibility": {
+    "salaried": [
+      "Eligibility is subject to IndusInd Bank approval criteria"
+    ],
+    "selfEmployed": [
+      "Eligibility is subject to IndusInd Bank approval criteria"
+    ]
+  },
+  "internalNotes": [
+    "Card details manually reviewed and verified by user on 2026-05-30",
+    "Reward Points redemption towards InterMiles discontinued effective 21st January, 2025.",
+    "Priority Pass membership is complimentary ($99 value), but visits beyond the 2 complimentary visits are charged at standard rates."
+  ],
+  "sourceUrl": "https://www.indusind.bank.in/in/en/personal/cards/credit-card/tiger-credit-card.html",
+  "applyUrl": "https://www.indusind.bank.in/in/en/personal/cards/credit-card/tiger-credit-card.html",
+  "lastVerified": "2026-05-30",
+  "verificationStatus": "official-direct",
+  "imageUrl": "/images/indusind-tiger.webp"
+}

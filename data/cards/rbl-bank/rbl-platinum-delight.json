@@ -1,0 +1,68 @@
+{
+  "id": "rbl-platinum-delight",
+  "issuer": "RBL Bank",
+  "name": "RBL Bank Platinum Delight Credit Card",
+  "network": [
+    "Visa"
+  ],
+  "joiningFee": 1000,
+  "annualFee": 1000,
+  "feeWaiverSpend": null,
+  "bestFor": [
+    "shopping",
+    "weekend rewards",
+    "milestones"
+  ],
+  "rewardType": "reward points",
+  "rewards": [
+    {
+      "category": "base",
+      "rate": 0.5,
+      "capMonthly": null
+    },
+    {
+      "category": "online",
+      "rate": 1,
+      "capMonthly": null
+    }
+  ],
+  "popularityScore": 73,
+  "loungeDomestic": 0,
+  "loungeInternational": 0,
+  "forexMarkup": 3.5,
+  "tags": [
+    "rbl",
+    "platinum delight",
+    "weekend",
+    "shopping",
+    "reward points"
+  ],
+  "exclusions": [
+    "accelerated weekend / milestone benefits follow RBL thresholds",
+    "fuel",
+    "cash advances"
+  ],
+  "milestoneBenefits": [
+    "Monthly bonus points on completing eligible transaction-count milestone"
+  ],
+  "additionalBenefits": [
+    "2 reward points per Rs 100 on eligible spends",
+    "Higher reward accrual on select spend windows according to current RBL programme",
+    "Fuel surcharge waiver on eligible transactions"
+  ],
+  "redemption": {
+    "statementBalanceValue": 0.25
+  },
+  "eligibility": {
+    "salaried": [
+      "Eligibility is subject to RBL Bank approval criteria"
+    ],
+    "selfEmployed": [
+      "Eligibility is subject to RBL Bank approval criteria"
+    ]
+  },
+  "sourceUrl": "https://www.rblbank.com/personal-banking/cards/credit-cards/platinum-delight-credit-card",
+  "applyUrl": "https://www.rblbank.com/personal-banking/cards/credit-cards/platinum-delight-credit-card",
+  "lastVerified": "2026-05-11",
+  "verificationStatus": "official-direct"
+}

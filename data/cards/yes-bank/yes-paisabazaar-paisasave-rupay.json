@@ -1,0 +1,67 @@
+{
+  "id": "yes-paisabazaar-paisasave-rupay",
+  "issuer": "YES Bank",
+  "name": "YES BANK Paisabazaar PaisaSave RuPay Credit Card",
+  "network": [
+    "RuPay"
+  ],
+  "joiningFee": 0,
+  "annualFee": 0,
+  "feeWaiverSpend": null,
+  "bestFor": [
+    "upi",
+    "cashback",
+    "lifetime free",
+    "co-branded"
+  ],
+  "rewardType": "cashback as YES Rewardz points",
+  "rewards": [
+    {
+      "category": "upi",
+      "rate": 1,
+      "capMonthly": null
+    }
+  ],
+  "popularityScore": 78,
+  "loungeDomestic": 0,
+  "loungeInternational": 0,
+  "forexMarkup": 3.4,
+  "tags": [
+    "yes bank",
+    "paisabazaar",
+    "rupay",
+    "upi",
+    "cashback",
+    "lifetime free",
+    "rewardz"
+  ],
+  "exclusions": [
+    "upi rewards only apply on eligible transactions above Rs 2,000",
+    "cash withdrawal not available",
+    "rent",
+    "wallet loading"
+  ],
+  "milestoneBenefits": [],
+  "additionalBenefits": [
+    "Virtual RuPay accompaniment to the physical PaisaSave card",
+    "1% cashback on eligible UPI transactions above Rs 2,000",
+    "Reward points redeem at 1 point = Rs 1 with no redemption fee",
+    "Lifetime free card with nil joining and annual fee"
+  ],
+  "redemption": {
+    "statementBalanceValue": 1,
+    "pointsExpiryYears": 3
+  },
+  "eligibility": {
+    "salaried": [
+      "Eligibility is subject to YES BANK and Paisabazaar approval criteria"
+    ],
+    "selfEmployed": [
+      "Eligibility is subject to YES BANK and Paisabazaar approval criteria"
+    ]
+  },
+  "sourceUrl": "https://www.yesbank.in/content/published/api/v1.1/assets/CONT07A77C257C7A4BDD85DB97E51D2B5B8F/native/yesbank_key_fact_statement.pdf",
+  "applyUrl": "https://www.paisabazaar.com/yes-bank/paisabazaar-paisasave-credit-card/",
+  "lastVerified": "2026-05-11",
+  "verificationStatus": "official-mixed"
+}

@@ -1,0 +1,59 @@
+{
+  "id": "kotak-pvr-inox",
+  "issuer": "Kotak Mahindra Bank",
+  "name": "PVR INOX Kotak Credit Card",
+  "network": [
+    "Visa"
+  ],
+  "joiningFee": 0,
+  "annualFee": 499,
+  "feeWaiverSpend": null,
+  "bestFor": [
+    "movies",
+    "entertainment"
+  ],
+  "rewardType": "movie benefits",
+  "rewards": [
+    {
+      "category": "base",
+      "rate": 0,
+      "capMonthly": null
+    }
+  ],
+  "popularityScore": 74,
+  "loungeDomestic": 0,
+  "loungeInternational": 0,
+  "forexMarkup": 3.5,
+  "tags": [
+    "kotak",
+    "pvr",
+    "inox",
+    "movies",
+    "entertainment"
+  ],
+  "exclusions": [
+    "movie coupon benefit depends on monthly spend threshold and claim flow",
+    "benefits are entertainment-focused rather than reward-rate focused"
+  ],
+  "milestoneBenefits": [
+    "One movie ticket for every Rs 10,000 spent on the card"
+  ],
+  "additionalBenefits": [
+    "20% instant discount on food and beverages",
+    "5% instant discount on movie tickets",
+    "Entertainment-focused card for movie lovers"
+  ],
+  "redemption": {},
+  "eligibility": {
+    "salaried": [
+      "Eligibility is subject to Kotak Mahindra Bank approval criteria"
+    ],
+    "selfEmployed": [
+      "Eligibility is subject to Kotak Mahindra Bank approval criteria"
+    ]
+  },
+  "sourceUrl": "https://www.kotak.com/en/personal-banking/cards/credit-cards/pvr-inox-kotak-credit-card.html",
+  "applyUrl": "https://www.kotak.com/en/personal-banking/cards/credit-cards/pvr-inox-kotak-credit-card.html",
+  "lastVerified": "2026-05-11",
+  "verificationStatus": "official-direct"
+}

@@ -1,0 +1,138 @@
+{
+  "id": "icici-amazon-pay",
+  "issuer": "ICICI Bank",
+  "name": "Amazon Pay ICICI Bank Credit Card",
+  "network": [
+    "Visa"
+  ],
+  "joiningFee": 0,
+  "annualFee": 0,
+  "feeWaiverSpend": null,
+  "bestFor": [
+    "amazon",
+    "amazon pay merchants",
+    "online",
+    "lifetime free"
+  ],
+  "rewardType": "cashback",
+  "rewards": [
+    {
+      "category": "amazon",
+      "rate": 5,
+      "displayCategory": "Amazon.in (Prime members)",
+      "displayRate": "5% cashback",
+      "capMonthly": null
+    },
+    {
+      "category": "amazon",
+      "rate": 3,
+      "displayCategory": "Amazon.in (Non-Prime members)",
+      "displayRate": "3% cashback",
+      "capMonthly": null
+    },
+    {
+      "category": "online",
+      "rate": 2,
+      "displayCategory": "Amazon Pay partner merchants",
+      "displayRate": "2% cashback",
+      "capMonthly": null
+    },
+    {
+      "category": "online",
+      "rate": 2,
+      "displayCategory": "E-books, gift cards, bill payments, recharges, and Amazon Pay loading",
+      "displayRate": "2% cashback",
+      "capMonthly": null
+    },
+    {
+      "category": "base",
+      "rate": 1,
+      "displayCategory": "Other spends",
+      "displayRate": "1% cashback",
+      "capMonthly": null
+    }
+  ],
+  "loungeDomestic": 0,
+  "loungeInternational": 0,
+  "forexMarkup": 1.99,
+  "tags": [
+    "amazon",
+    "amazon pay",
+    "cashback",
+    "lifetime free",
+    "online"
+  ],
+  "exclusions": [
+    "fuel",
+    "rent transactions",
+    "gold, silver, and precious metals",
+    "tax-related payments",
+    "education transactions",
+    "international transactions",
+    "utility transactions outside Amazon platform",
+    "government transactions",
+    "e-wallet loads",
+    "EMI transactions including EMI on call",
+    "cash transactions",
+    "fees and charges",
+    "interest and service charges",
+    "skill-based gaming"
+  ],
+  "exclusionCodes": [
+    "fuel",
+    "rent",
+    "gold",
+    "tax",
+    "education",
+    "utilities",
+    "government",
+    "wallet_load",
+    "emi",
+    "cash_advance",
+    "fees_and_charges",
+    "gaming"
+  ],
+  "additionalBenefits": [
+    "Earnings are auto-credited as Amazon Pay balance within 2 working days of billing cycle completion",
+    "1% fuel surcharge waiver across all fuel purchases",
+    "Low forex mark-up of 1.99% on international spends"
+  ],
+  "additionalDetails": [
+    "No expiry on earnings credited as Amazon Pay balance."
+  ],
+  "eligibility": {
+    "salaried": [
+      "Indian citizen aged 21 years or above",
+      "Monthly income of at least Rs 20,000",
+      "Invite-only programme"
+    ],
+    "selfEmployed": [
+      "Indian citizen aged 21 years or above",
+      "Monthly income of at least Rs 30,000",
+      "Invite-only programme"
+    ]
+  },
+  "supportingSourceUrls": [
+    "https://www.icici.bank.in/personal-banking/cards/credit-card/amazon-pay-credit-card",
+    "https://www.icici.bank.in/personal-banking/cards/credit-card/amazon-pay-credit-card/faqs",
+    "https://www.icici.bank.in/content/dam/icicibank/india/managed-assets/revamp-page-images/docs/pdf/mitc-cc-gk-t.pdf",
+    "https://www.icici.bank.in/content/dam/icicibank/india/managed-assets/revamp-page-images/docs/pdf/tc-for-amazon-pay-credit-card.pdf"
+  ],
+  "imageUrl": "/images/icici-amazon-pay.webp",
+  "sourceUrl": "https://www.icici.bank.in/personal-banking/cards/credit-card/amazon-pay-credit-card",
+  "applyUrl": "https://www.amazon.in/",
+  "lastVerified": "2026-06-02",
+  "verificationStatus": "official-direct",
+  "internalNotes": [
+    "Card details manually reviewed and verified by user on 2026-06-02",
+    "Amazon Prime members earn 5% cashback on Amazon.in purchases; non-Prime cardholders earn 3%, excluding Gold Coins and travel bookings for flights and hotels via Amazon Pay.",
+    "E-books, gift cards, Amazon Pay money loading and auto reloading, bill payments, mobile recharges, and DTH recharges earn 2% cashback irrespective of Prime status.",
+    "Cashback is credited as Amazon Pay balance to the Amazon account used while applying for the card within 2 working days of billing cycle completion.",
+    "With effect from Oct 11, 2025, education and international transactions do not earn rewards.",
+    "With effect from Oct 11, 2025, utility transactions outside the Amazon platform do not earn rewards.",
+    "With effect from Jun 18, 2024, rent transactions do not earn rewards.",
+    "EMI transactions, EMI on call, cash transactions, fees, and interest do not earn rewards; if a transaction is converted to EMI later, rewards are clawed back.",
+    "An add-on card can be applied for through iMobile app or Net Banking."
+  ],
+  "popularityScore": 97
+}

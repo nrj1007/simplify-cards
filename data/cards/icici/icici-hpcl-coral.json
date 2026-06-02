@@ -1,0 +1,68 @@
+{
+  "id": "icici-hpcl-coral",
+  "issuer": "ICICI Bank",
+  "name": "ICICI Bank HPCL Coral Credit Card",
+  "network": [
+    "Visa"
+  ],
+  "joiningFee": 199,
+  "annualFee": 199,
+  "feeWaiverSpend": null,
+  "bestFor": [
+    "fuel",
+    "hpcl",
+    "movies",
+    "entry level"
+  ],
+  "rewardType": "cashback and reward points",
+  "rewards": [
+    {
+      "category": "fuel",
+      "rate": 2.5,
+      "capMonthly": null
+    },
+    {
+      "category": "retail",
+      "rate": 0.5,
+      "capMonthly": null
+    }
+  ],
+  "popularityScore": 74,
+  "loungeDomestic": 0,
+  "loungeInternational": 0,
+  "forexMarkup": 3.5,
+  "tags": [
+    "icici",
+    "hpcl",
+    "coral",
+    "fuel",
+    "movies",
+    "entry level"
+  ],
+  "exclusions": [
+    "fuel surcharge waiver and cashback apply at HPCL pumps as per ICICI Bank terms"
+  ],
+  "milestoneBenefits": [],
+  "additionalBenefits": [
+    "2.5% cashback on fuel purchases at HPCL pumps",
+    "1% fuel surcharge waiver at HPCL pumps",
+    "2 ICICI Bank reward points on every Rs 100 spent on retail purchases except fuel",
+    "Movie ticket and lifestyle privileges on the Coral platform"
+  ],
+  "redemption": {
+    "statementBalanceValue": 0.25,
+    "pointsExpiryYears": null
+  },
+  "eligibility": {
+    "salaried": [
+      "Eligibility is subject to ICICI Bank approval criteria"
+    ],
+    "selfEmployed": [
+      "Eligibility is subject to ICICI Bank approval criteria"
+    ]
+  },
+  "sourceUrl": "https://www.icicibank.com/personal-banking/cards/credit-card/hpcl-coral-credit-card",
+  "applyUrl": "https://www.icicibank.com/personal-banking/cards/credit-card/hpcl-coral-credit-card",
+  "lastVerified": "2026-05-11",
+  "verificationStatus": "official-direct"
+}

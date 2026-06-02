@@ -17,7 +17,7 @@ if (args.length < 1) {
 const repoRoot = path.join(__dirname, "..");
 const cardId = args[0];
 const explicitSource = args[1] ?? null;
-const axisDataPath = path.join(repoRoot, "data", "cards", "axis.json");
+const axisCardPath = path.join(repoRoot, "data", "cards", "axis", `${cardId}.json`);
 const listingFallbacks = [
   "https://www.axis.bank.in/cards/credit-card",
   "https://www.axisbank.com/retail/cards/credit-card"
@@ -80,13 +80,9 @@ function downloadFile(url, dest) {
   });
 }
 
-function readAxisCards() {
-  const raw = fs.readFileSync(axisDataPath, "utf8");
-  return JSON.parse(raw);
-}
-
-function findCard(cards, id) {
-  return cards.find((card) => card.id === id) ?? null;
+function readAxisCard() {
+  if (!fs.existsSync(axisCardPath)) return null;
+  return JSON.parse(fs.readFileSync(axisCardPath, "utf8"));
 }
 
 function extractAttr(tag, attr) {
@@ -227,11 +223,10 @@ async function collectCandidatesFromSource(source, card) {
 }
 
 async function main() {
-  const cards = readAxisCards();
-  const card = findCard(cards, cardId);
+  const card = readAxisCard();
 
   if (!card) {
-    throw new Error(`Could not find Axis card with id '${cardId}' in data/cards/axis.json`);
+    throw new Error(`Could not find Axis card with id '${cardId}' at data/cards/axis/${cardId}.json`);
   }
 
   const source = explicitSource ?? card.sourceUrl ?? card.applyUrl;
@@ -292,7 +287,7 @@ async function main() {
   await downloadFile(bestUrl, destPath);
 
   console.log(`Saved image to public/images/${destName}`);
-  console.log(`Set this in data/cards/axis.json: "imageUrl": "/images/${destName}"`);
+  console.log(`Set this in data/cards/axis/${cardId}.json: "imageUrl": "/images/${destName}"`);
 }
 
 main().catch((err) => {

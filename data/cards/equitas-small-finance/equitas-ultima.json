@@ -1,0 +1,75 @@
+{
+  "id": "equitas-ultima",
+  "issuer": "Equitas Small Finance Bank",
+  "name": "Equitas Ultima Credit Card",
+  "network": [
+    "Visa"
+  ],
+  "joiningFee": 1999,
+  "annualFee": 1999,
+  "feeWaiverSpend": null,
+  "bestFor": [
+    "lounge",
+    "travel",
+    "movies",
+    "premium"
+  ],
+  "rewardType": "reward points",
+  "rewards": [
+    {
+      "category": "travel",
+      "rate": 1.5,
+      "capMonthly": null
+    },
+    {
+      "category": "online",
+      "rate": 1.5,
+      "capMonthly": null
+    },
+    {
+      "category": "base",
+      "rate": 0.5,
+      "capMonthly": null
+    }
+  ],
+  "popularityScore": 73,
+  "loungeDomestic": 8,
+  "loungeInternational": 2,
+  "forexMarkup": 3.5,
+  "tags": [
+    "equitas",
+    "ultima",
+    "travel",
+    "lounge",
+    "movies",
+    "premium"
+  ],
+  "exclusions": [
+    "reward values follow current Equitas rewards terms",
+    "fuel",
+    "cash advances"
+  ],
+  "milestoneBenefits": [
+    "Premium welcome and milestone benefits as per Equitas current programme"
+  ],
+  "additionalBenefits": [
+    "Airport lounge access",
+    "Movie and lifestyle privileges",
+    "Accelerated rewards on select travel and online categories"
+  ],
+  "redemption": {
+    "statementBalanceValue": 0.25
+  },
+  "eligibility": {
+    "salaried": [
+      "Eligibility is subject to Equitas Small Finance Bank approval criteria"
+    ],
+    "selfEmployed": [
+      "Eligibility is subject to Equitas Small Finance Bank approval criteria"
+    ]
+  },
+  "sourceUrl": "https://www.equitasbank.com/credit-cards/ultima-credit-card",
+  "applyUrl": "https://www.equitasbank.com/credit-cards/ultima-credit-card",
+  "lastVerified": "2026-05-11",
+  "verificationStatus": "official-mixed"
+}
