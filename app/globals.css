@@ -2480,3 +2480,260 @@ textarea {
 .page-card-image img:hover {
   transform: translateY(-4px) scale(1.02);
 }
+
+/* Reward calculator */
+.calc-intro {
+  margin: 0;
+}
+
+.calc {
+  margin-top: 4px;
+}
+
+.calc-grid {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: minmax(0, 280px) minmax(0, 1fr);
+  align-items: start;
+}
+
+.calc-inputs {
+  background: var(--cream-2);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  display: grid;
+  gap: 16px;
+  padding: 16px;
+}
+
+.calc-total {
+  display: flex;
+  gap: 10px;
+}
+
+.calc-total > div {
+  background: var(--soft);
+  border-radius: 8px;
+  flex: 1;
+  padding: 10px 12px;
+}
+
+.calc-total strong {
+  display: block;
+  font-size: 17px;
+}
+
+.calc-total span {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.calc-sliders {
+  display: grid;
+  gap: 14px;
+}
+
+.calc-more {
+  align-items: center;
+  background: transparent;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  color: var(--brand-strong);
+  cursor: pointer;
+  display: inline-flex;
+  font-weight: 600;
+  gap: 6px;
+  justify-content: center;
+  min-height: 38px;
+  padding: 8px 12px;
+}
+
+.calc-more svg {
+  transition: transform 0.15s ease;
+}
+
+.calc-more svg.is-open {
+  transform: rotate(180deg);
+}
+
+.calc-output {
+  display: grid;
+  gap: 18px;
+}
+
+.calc-headline {
+  align-items: center;
+  background: var(--navy);
+  border-radius: var(--radius-md);
+  color: #fff;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+  justify-content: space-between;
+  padding: 16px 18px;
+}
+
+.calc-headline-label {
+  color: rgba(255, 255, 255, 0.7);
+  display: block;
+  font-size: 12px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.calc-headline-units {
+  font-size: 26px;
+  line-height: 1.1;
+}
+
+.calc-headline-units span {
+  font-size: 15px;
+  font-weight: 600;
+  opacity: 0.8;
+}
+
+.calc-headline-aside {
+  display: grid;
+  gap: 2px;
+  text-align: right;
+}
+
+.calc-headline-aside > span:first-child {
+  color: var(--gold);
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.calc-headline-aside .muted {
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 12px;
+}
+
+.calc-block {
+  display: grid;
+  gap: 10px;
+}
+
+.calc-block h3 {
+  font-size: 14px;
+  margin: 0;
+}
+
+.calc-redemptions,
+.calc-partners {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+}
+
+.calc-redemption,
+.calc-partner {
+  background: #fafafa;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  display: grid;
+  gap: 3px;
+  padding: 12px;
+}
+
+.calc-redemption.is-best {
+  background: var(--teal-soft);
+  border-color: var(--teal-line);
+}
+
+.calc-redemption-head,
+.calc-partner-head {
+  align-items: center;
+  color: var(--muted);
+  display: flex;
+  font-size: 12px;
+  gap: 8px;
+  justify-content: space-between;
+}
+
+.calc-redemption strong,
+.calc-partner strong {
+  font-size: 18px;
+}
+
+.calc-redemption .muted,
+.calc-partner .muted {
+  font-size: 11px;
+}
+
+.calc-badge {
+  background: var(--teal);
+  border-radius: 999px;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  padding: 2px 7px;
+  text-transform: uppercase;
+}
+
+.calc-redemption-miles strong {
+  color: var(--accent);
+}
+
+.calc-basis {
+  border-radius: 999px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  padding: 2px 7px;
+  text-transform: uppercase;
+}
+
+.calc-basis-fixed {
+  background: var(--soft);
+  color: var(--teal-dark);
+}
+
+.calc-basis-dynamic {
+  background: var(--danger-soft);
+  color: var(--accent);
+}
+
+.calc-partner-note {
+  font-size: 11px;
+  line-height: 1.4;
+  margin-top: 2px;
+}
+
+.calc-tag {
+  background: var(--line-2);
+  border-radius: 999px;
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 600;
+  margin-left: 6px;
+  padding: 1px 7px;
+  white-space: nowrap;
+}
+
+.calc-tag-excluded {
+  background: var(--danger-soft);
+  color: var(--accent);
+}
+
+.calc-breakdown summary {
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.calc-empty {
+  margin: 0;
+}
+
+.calc-note,
+.calc-disclaimer {
+  font-size: 12px;
+  margin: 0;
+}
+
+@media (max-width: 720px) {
+  .calc-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

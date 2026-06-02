@@ -508,6 +508,7 @@ function estimatePointUnitValue(card: CreditCard) {
   const values = [
     card.redemption?.ecosystemValue,
     card.redemption?.smartBuyFlightHotelValue,
+    card.redemption?.travelEdgeValue,
     card.redemption?.airMilesValue,
     card.redemption?.statementBalanceValue,
     card.redemption?.accorValue

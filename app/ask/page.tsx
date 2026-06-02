@@ -80,6 +80,7 @@ function bestRedemptionValue(card: CreditCard) {
   const values = [
     card.redemption?.statementBalanceValue,
     card.redemption?.smartBuyFlightHotelValue,
+    card.redemption?.travelEdgeValue,
     card.redemption?.airMilesValue,
     card.redemption?.accorValue
   ].filter((value): value is number => typeof value === "number" && value > 0);

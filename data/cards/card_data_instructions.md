@@ -156,6 +156,7 @@ Define the redemption values for different options, along with transfer ratios f
 
 *   **`statementBalanceValue`**: The value of 1 point in INR when redeemed against card statement balance.
 *   **`smartBuyFlightHotelValue`**: The value of 1 point in INR when redeemed for flights/hotels via SmartBuy.
+*   **`travelEdgeValue`**: The value of 1 point in INR when redeemed for flights/hotels via Axis Travel EDGE.
 *   **`airlinePartners`** and **`hotelPartners`**: Arrays describing direct point-to-mile transfer ratios:
 *   Keep the visible **Redemption** section focused on point value and transfer partners only.
 *   Do **not** treat operational rules like minimum points, monthly redemption caps, points validity, or redemption fees as primary redemption rows in the UI. Store those in `additionalDetails` or `internalNotes` instead.

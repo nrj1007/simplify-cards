@@ -181,6 +181,15 @@ describe("scoreCards", () => {
     expect(travelOneRank).toBeGreaterThanOrEqual(0);
   });
 
+  it("values Axis Atlas EDGE Miles correctly using Travel EDGE redemption value", () => {
+    const scores = scoreCards({
+      query: "best axis travel card"
+    });
+
+    const atlas = scores.find((score) => score.card.id === "axis-atlas");
+    expect(atlas?.card.redemption?.travelEdgeValue).toBe(1);
+  });
+
   it("applies fee waiver at high annual spend thresholds", () => {
     const scores = scoreCards({
       query: "best travel card",

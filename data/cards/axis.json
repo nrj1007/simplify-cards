@@ -501,33 +501,38 @@
       "EDGE Miles can be redeemed for travel bookings at Travel EDGE portal or transferred to airline/hotel partners."
     ],
     "redemption": {
+      "travelEdgeValue": 1,
       "airMilesValue": 2,
       "pointsExpiryYears": 3,
+      "transferPartnerValuations": [
+        { "partner": "Accor (ALL)", "valuePerPoint": 2.2, "basis": "fixed", "note": "Fixed Rs 2.2 per EDGE Mile via Accor Live Limitless" },
+        { "partner": "Marriott Bonvoy", "valuePerPoint": 0.6, "basis": "dynamic", "note": "Varies by award night; typical average Rs 0.6 per EDGE Mile" }
+      ],
       "airlinePartners": [
-        { "airline": "Air Canada", "programme": "Aeroplan", "ratio": "1:2" },
-        { "airline": "Ethiopian Airlines", "programme": "ShebaMiles", "ratio": "1:2" },
-        { "airline": "Etihad Airways", "programme": "Etihad Guest", "ratio": "1:2" },
-        { "airline": "Japan Airlines", "programme": "JAL Mileage Bank", "ratio": "1:2" },
-        { "airline": "Singapore Airlines", "programme": "KrisFlyer", "ratio": "1:2" },
-        { "airline": "Thai Airways", "programme": "Royal Orchid Plus", "ratio": "1:2" },
-        { "airline": "Turkish Airlines", "programme": "Miles&Smiles", "ratio": "1:2" },
-        { "airline": "United Airlines", "programme": "MileagePlus", "ratio": "1:2" },
-        { "airline": "British Airways", "programme": "British Airways Executive Club", "ratio": "2:1" },
-        { "airline": "Finnair", "programme": "Finnair Plus", "ratio": "2:1" },
-        { "airline": "Vietnam Airlines", "programme": "Lotusmiles", "ratio": "2:1" },
-        { "airline": "AirAsia", "programme": "airasia rewards", "ratio": "1:2" },
-        { "airline": "Air France-KLM", "programme": "Flying Blue", "ratio": "1:2" },
-        { "airline": "Air India", "programme": "Maharaja Club", "ratio": "1:2" },
-        { "airline": "Qantas Airways", "programme": "Qantas Frequent Flyer", "ratio": "1:2" },
-        { "airline": "SpiceJet", "programme": "SpiceClub", "ratio": "1:2" }
+        { "airline": "Air Canada", "programme": "Aeroplan", "ratio": "1:2", "group": "Group A" },
+        { "airline": "Ethiopian Airlines", "programme": "ShebaMiles", "ratio": "1:2", "group": "Group A" },
+        { "airline": "Etihad Airways", "programme": "Etihad Guest", "ratio": "1:2", "group": "Group A" },
+        { "airline": "Japan Airlines", "programme": "JAL Mileage Bank", "ratio": "1:2", "group": "Group A" },
+        { "airline": "Singapore Airlines", "programme": "KrisFlyer", "ratio": "1:2", "group": "Group A" },
+        { "airline": "Thai Airways", "programme": "Royal Orchid Plus", "ratio": "1:2", "group": "Group A" },
+        { "airline": "Turkish Airlines", "programme": "Miles&Smiles", "ratio": "1:2", "group": "Group A" },
+        { "airline": "United Airlines", "programme": "MileagePlus", "ratio": "1:2", "group": "Group A" },
+        { "airline": "British Airways", "programme": "British Airways Executive Club", "ratio": "2:1", "group": "Group A" },
+        { "airline": "Finnair", "programme": "Finnair Plus", "ratio": "2:1", "group": "Group A" },
+        { "airline": "Vietnam Airlines", "programme": "Lotusmiles", "ratio": "2:1", "group": "Group A" },
+        { "airline": "AirAsia", "programme": "airasia rewards", "ratio": "1:2", "group": "Group B" },
+        { "airline": "Air France-KLM", "programme": "Flying Blue", "ratio": "1:2", "group": "Group B" },
+        { "airline": "Air India", "programme": "Maharaja Club", "ratio": "1:2", "group": "Group B" },
+        { "airline": "Qantas Airways", "programme": "Qantas Frequent Flyer", "ratio": "1:2", "group": "Group B" },
+        { "airline": "SpiceJet", "programme": "SpiceClub", "ratio": "1:2", "group": "Group B" }
       ],
       "hotelPartners": [
-        { "hotelGroup": "IHG Hotels & Resorts", "programme": "IHG One Rewards", "ratio": "1:2" },
-        { "hotelGroup": "ITC Hotels", "programme": "Club ITC", "ratio": "1:2" },
-        { "hotelGroup": "Radisson Hotels", "programme": "Radisson Rewards", "ratio": "1:2" },
-        { "hotelGroup": "Orchid Hotels", "programme": "Orchid Rewards", "ratio": "1:2" },
-        { "hotelGroup": "Wyndham Hotels & Resorts", "programme": "Wyndham Rewards", "ratio": "1:2" },
-        { "hotelGroup": "The Postcard Hotel", "programme": "The Postcard Hotel", "ratio": "1:2" }
+        { "hotelGroup": "IHG Hotels & Resorts", "programme": "IHG One Rewards", "ratio": "1:2", "group": "Group B" },
+        { "hotelGroup": "ITC Hotels", "programme": "Club ITC", "ratio": "1:2", "group": "Group B" },
+        { "hotelGroup": "Radisson Hotels", "programme": "Radisson Rewards", "ratio": "1:2", "group": "Group B" },
+        { "hotelGroup": "Orchid Hotels", "programme": "Orchid Rewards", "ratio": "1:2", "group": "Group B" },
+        { "hotelGroup": "Wyndham Hotels & Resorts", "programme": "Wyndham Rewards", "ratio": "1:2", "group": "Group B" },
+        { "hotelGroup": "The Postcard Hotel", "programme": "The Postcard Hotel", "ratio": "1:2", "group": "Group B" }
       ]
     },
     "supportingSourceUrls": [

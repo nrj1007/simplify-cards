@@ -6,6 +6,7 @@ import { getLoungeConditions, getMeaningfulLoungeConditions, getTotalLoungeAcces
 import LoungeInfo from "@/app/ui/LoungeInfo";
 import AskFeedback from "@/app/ui/AskFeedback";
 import AskBox from "@/app/ui/AskBox";
+import RewardCalculator from "@/app/ui/RewardCalculator";
 import type { CreditCard, Redemption } from "@/lib/types";
 
 import { stripScoringAnnotations } from "@/lib/card-index";
@@ -87,6 +88,7 @@ function redemptionRows(redemption?: Redemption) {
     ["Statement balance", redemption.statementBalanceValue],
     ["SmartBuy flight/hotel", redemption.smartBuyFlightHotelValue],
     ["SmartBuy rewards catalogue", redemption.smartBuyCatalogueValue],
+    ["Travel EDGE flight/hotel", redemption.travelEdgeValue],
     ["Air miles", redemption.airMilesValue],
     ["Accor", redemption.accorValue]
   ].filter((row): row is [string, number] => typeof row[0] === "string" && typeof row[1] === "number");
@@ -104,7 +106,12 @@ function valueLabel(label: string, value: number, rewardType: string) {
   if (label === "Air miles") {
     return `upto ${value} airmile per point`;
   }
-  if (label === "Statement balance" || label === "SmartBuy flight/hotel" || label === "SmartBuy rewards catalogue") {
+  if (
+    label === "Statement balance" ||
+    label === "SmartBuy flight/hotel" ||
+    label === "SmartBuy rewards catalogue" ||
+    label === "Travel EDGE flight/hotel"
+  ) {
     return `upto Rs ${value} per point`;
   }
   return `upto Rs ${value} per ${singularRewardUnit(rewardType)}`;
@@ -161,6 +168,12 @@ export default async function CardPage({ params, searchParams }: Props) {
   ) ?? false;
   const showHotelTat = card.redemption?.hotelPartners?.some(
     (partner) => typeof partner.tatDays === "number"
+  ) ?? false;
+  const showAirlineGroup = card.redemption?.airlinePartners?.some(
+    (partner) => typeof partner.group === "string"
+  ) ?? false;
+  const showHotelGroup = card.redemption?.hotelPartners?.some(
+    (partner) => typeof partner.group === "string"
   ) ?? false;
   const hasDailyCap = card.rewards.some(
     (reward) => typeof reward.capDaily === "number" && reward.capDaily > 0
@@ -296,6 +309,15 @@ export default async function CardPage({ params, searchParams }: Props) {
             </div>
           </section>
 
+          <section className="detail-section">
+            <h2>Reward calculator</h2>
+            <p className="muted calc-intro">
+              Enter your monthly spend to estimate how many {card.rewardType} you earn and what they are worth
+              across each redemption option.
+            </p>
+            <RewardCalculator card={card} />
+          </section>
+
           {hasRedemptionSection ? (
             <section className="detail-section">
               <h2>Redemption</h2>
@@ -317,6 +339,7 @@ export default async function CardPage({ params, searchParams }: Props) {
                       <tr>
                         <th>Airline</th>
                         <th>Programme</th>
+                        {showAirlineGroup && <th>Group</th>}
                         <th>Ratio</th>
                         {showAirlineTat && <th>TAT</th>}
                       </tr>
@@ -326,6 +349,7 @@ export default async function CardPage({ params, searchParams }: Props) {
                         <tr key={`${partner.airline}-${partner.programme}`}>
                           <td>{partner.airline}</td>
                           <td>{partner.programme}</td>
+                          {showAirlineGroup && <td>{partner.group || "-"}</td>}
                           <td>{partner.ratio}</td>
                           {showAirlineTat && <td>{formatTatDays(partner.tatDays)}</td>}
                         </tr>
@@ -342,6 +366,7 @@ export default async function CardPage({ params, searchParams }: Props) {
                       <tr>
                         <th>Hotel group</th>
                         <th>Programme</th>
+                        {showHotelGroup && <th>Group</th>}
                         <th>Ratio</th>
                         {showHotelTat && <th>TAT</th>}
                       </tr>
@@ -351,6 +376,7 @@ export default async function CardPage({ params, searchParams }: Props) {
                         <tr key={`${partner.hotelGroup}-${partner.programme}`}>
                           <td>{partner.hotelGroup}</td>
                           <td>{partner.programme}</td>
+                          {showHotelGroup && <td>{partner.group || "-"}</td>}
                           <td>{partner.ratio}</td>
                           {showHotelTat && <td>{formatTatDays(partner.tatDays)}</td>}
                         </tr>

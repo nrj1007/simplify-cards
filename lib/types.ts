@@ -41,20 +41,32 @@ export type Redemption = {
     programme: string;
     ratio: string;
     tatDays?: number;
+    group?: string;
   }>;
   hotelPartners?: Array<{
     hotelGroup: string;
     programme: string;
     ratio: string;
     tatDays?: number;
+    group?: string;
   }>;
   ecosystemLabel?: string;
   ecosystemValue?: number;
   statementBalanceValue?: number;
   smartBuyFlightHotelValue?: number;
   smartBuyCatalogueValue?: number;
+  travelEdgeValue?: number;
   airMilesValue?: number;
   accorValue?: number;
+  // Per-reward-point rupee value when points are moved to a hotel/airline transfer partner.
+  // `fixed` programmes have a published conversion; `dynamic` ones vary with award availability,
+  // so the value is a typical-case average.
+  transferPartnerValuations?: Array<{
+    partner: string;
+    valuePerPoint: number;
+    basis: "fixed" | "dynamic";
+    note?: string;
+  }>;
   minimumPointsForStatementCredit?: number;
   cashbackRedemptionCapMonthly?: number;
   pointsExpiryYears?: number;

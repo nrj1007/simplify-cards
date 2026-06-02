@@ -71,6 +71,9 @@ function redemptionSummary(card: Card) {
   if (typeof card.redemption.smartBuyFlightHotelValue === "number") {
     parts.push(`SmartBuy travel: upto Rs ${card.redemption.smartBuyFlightHotelValue} per point`);
   }
+  if (typeof card.redemption.travelEdgeValue === "number") {
+    parts.push(`Travel EDGE travel: upto Rs ${card.redemption.travelEdgeValue} per point`);
+  }
   if (typeof card.redemption.airMilesValue === "number") {
     parts.push(`Air miles: upto Rs ${card.redemption.airMilesValue} per point`);
   }

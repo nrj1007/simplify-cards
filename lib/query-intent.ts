@@ -116,6 +116,18 @@ function normalizeQuery(query?: string) {
   return query?.toLowerCase().trim() ?? "";
 }
 
+function escapeRegex(value: string) {
+  return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
+function containsNormalizedPhrase(haystack: string, phrase: string) {
+  const normalizedPhrase = normalizeQuery(phrase).replace(/[^a-z0-9]+/g, " ").replace(/\s+/g, " ").trim();
+  if (!normalizedPhrase) return false;
+
+  const pattern = new RegExp(`(^|\\s)${escapeRegex(normalizedPhrase).replace(/ /g, "\\s+")}(?=\\s|$)`);
+  return pattern.test(haystack);
+}
+
 function uniqueSorted(values: string[]) {
   return [...new Set(values)].sort();
 }
@@ -270,7 +282,7 @@ export function parseQueryIntent(input: RecommendationInput): QueryIntent {
   }
 
   for (const entry of issuerAliases) {
-    if (entry.aliases.some((alias) => normalizedQuery.includes(alias))) issuers.add(entry.issuer);
+    if (entry.aliases.some((alias) => containsNormalizedPhrase(normalizedQuery, alias))) issuers.add(entry.issuer);
   }
 
   return {

@@ -901,6 +901,9 @@ function buildSpecificQuestionAnswer(input: RecommendationInput, topCard: CardSc
         typeof topCard.card.redemption.smartBuyFlightHotelValue === "number"
           ? `SmartBuy travel value: Rs ${topCard.card.redemption.smartBuyFlightHotelValue} per point.`
           : "",
+        typeof topCard.card.redemption.travelEdgeValue === "number"
+          ? `Travel EDGE travel value: Rs ${topCard.card.redemption.travelEdgeValue} per point.`
+          : "",
         typeof topCard.card.redemption.airMilesValue === "number"
           ? `Air miles value: ${topCard.card.redemption.airMilesValue} per point.`
           : "",
@@ -1007,6 +1010,14 @@ function findCardLookupMatches(query?: string) {
 }
 
 function buildCardFamilyLookupResult(input: RecommendationInput, scoredCards: CardScore[]) {
+  const normalizedQuery = normalizeForMatch(input.query);
+  if (!normalizedQuery || /\b(top|best|recommend|recommended|suggest|compare|vs)\b/.test(normalizedQuery)) {
+    return null;
+  }
+
+  const meaningfulTokens = getMeaningfulQueryTokens(input.query);
+  if (meaningfulTokens.length === 0 || meaningfulTokens.length > 3) return null;
+
   const matchingCards = findCardLookupMatches(input.query);
   if (matchingCards.length <= 1) return null;
 
@@ -1332,6 +1343,16 @@ export async function answerQuestion(input: RecommendationInput): Promise<AskAiR
   }
 
   if (namedCardQuestion && shortlisted.mentionedCardId && topCard.card.id !== shortlisted.mentionedCardId) {
+    if (process.env.DEBUG_ASK === "1") {
+      console.warn("[ask-ai] named card mismatch", {
+        query: input.query,
+        mentionedCardId: shortlisted.mentionedCardId,
+        topCardId: topCard.card.id,
+        specificCardLookup,
+        namedCardQuestion,
+        familyMatches: findCardLookupMatches(input.query).map((card) => card.id)
+      });
+    }
     const reason = "Named card was not available under the current filters";
     await logUnsupportedQuestion(input, reason);
 
