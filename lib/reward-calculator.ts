@@ -39,7 +39,7 @@ export const CALCULATOR_CATEGORIES: SpendCategory[] = [
 
 export const CATEGORY_LABELS: Record<SpendCategory, string> = {
   online: "Online shopping",
-  base: "Other offline / retail",
+  base: "Other spends",
   travel: "Travel (flights, hotels)",
   fuel: "Fuel",
   dining: "Dining & food delivery",
@@ -103,6 +103,44 @@ export function isCategoryExcluded(card: CreditCard, category: SpendCategory): b
 
     return true;
   });
+}
+
+// A spend category earns at a dedicated (non-base) rate on this card.
+function hasDirectReward(card: CreditCard, category: SpendCategory): boolean {
+  const aliases = SPEND_ALIASES[category];
+  const targetCategoryLower = category.toLowerCase();
+  return card.rewards.some((reward) => {
+    if (reward.category === "base") return false;
+    const rewardCategories = reward.category.split(",").map((c) => c.trim().toLowerCase());
+    return (
+      aliases.some((alias) => rewardCategories.includes(alias.toLowerCase())) ||
+      rewardCategories.includes(targetCategoryLower)
+    );
+  });
+}
+
+// Excluded categories worth surfacing so users see what the card silently drops.
+const NOTABLE_EXCLUSION_CATEGORIES: SpendCategory[] = [
+  "fuel",
+  "insurance",
+  "rent",
+  "utilities",
+  "gold",
+  "education",
+  "government"
+];
+
+// The categories worth showing for a given card: the ones it rewards at a dedicated rate,
+// an "Other spends" catch-all, and a few notable exclusions — instead of every category.
+export function relevantCategoriesForCard(card: CreditCard): SpendCategory[] {
+  const rewarded = CALCULATOR_CATEGORIES.filter(
+    (category) => category !== "base" && hasDirectReward(card, category)
+  );
+  const excluded = NOTABLE_EXCLUSION_CATEGORIES.filter(
+    (category) => !rewarded.includes(category) && isCategoryExcluded(card, category)
+  ).slice(0, 4);
+
+  return [...rewarded, "base", ...excluded];
 }
 
 function findRewardForCategory(card: CreditCard, category: SpendCategory): Reward | null {

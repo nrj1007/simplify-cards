@@ -469,7 +469,10 @@
       "2,500 EDGE Miles upon completing the first transaction within 37 days of card issuance."
     ],
     "renewalBenefits": [
-      "Silver tier: 0 EDGE Miles, Gold tier: 2,500 EDGE Miles, Platinum tier: 5,000 EDGE Miles upon payment of annual fee."
+      "Renewal benefits are tiered based on status:",
+      "Silver tier: 0 EDGE Miles upon payment of annual fee.",
+      "Gold tier: 2,500 EDGE Miles upon payment of annual fee.",
+      "Platinum tier: 5,000 EDGE Miles upon payment of annual fee."
     ],
     "exclusions": [
       "fuel",
@@ -505,8 +508,8 @@
       "airMilesValue": 2,
       "pointsExpiryYears": 3,
       "transferPartnerValuations": [
-        { "partner": "Accor (ALL)", "valuePerPoint": 2.2, "basis": "fixed", "note": "Fixed Rs 2.2 per EDGE Mile via Accor Live Limitless" },
-        { "partner": "Marriott Bonvoy", "valuePerPoint": 0.6, "basis": "dynamic", "note": "Varies by award night; typical average Rs 0.6 per EDGE Mile" }
+        { "partner": "Accor (ALL)", "partnerPointValue": 2.2, "transferRatio": 2, "basis": "fixed", "note": "1 EDGE Mile → 2 Accor ALL points · Rs 2.2/point" },
+        { "partner": "Marriott Bonvoy", "partnerPointValue": 0.6, "transferRatio": 2, "basis": "dynamic", "note": "1 EDGE Mile → 2 Marriott points · avg Rs 0.6/point" }
       ],
       "airlinePartners": [
         { "airline": "Air Canada", "programme": "Aeroplan", "ratio": "1:2", "group": "Group A" },

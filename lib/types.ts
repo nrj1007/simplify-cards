@@ -58,12 +58,14 @@ export type Redemption = {
   travelEdgeValue?: number;
   airMilesValue?: number;
   accorValue?: number;
-  // Per-reward-point rupee value when points are moved to a hotel/airline transfer partner.
-  // `fixed` programmes have a published conversion; `dynamic` ones vary with award availability,
-  // so the value is a typical-case average.
+  // Valuations for specific transfer partners. partnerPointValue is Rs per partner programme
+  // point (e.g. Rs 2.2 per Accor ALL point). transferRatio is how many partner points you get
+  // per 1 card reward unit (e.g. 2 for a 1:2 ratio). The calculator multiplies both to get
+  // the rupee value per card reward unit.
   transferPartnerValuations?: Array<{
     partner: string;
-    valuePerPoint: number;
+    partnerPointValue: number;
+    transferRatio: number;
     basis: "fixed" | "dynamic";
     note?: string;
   }>;

@@ -309,15 +309,6 @@ export default async function CardPage({ params, searchParams }: Props) {
             </div>
           </section>
 
-          <section className="detail-section">
-            <h2>Reward calculator</h2>
-            <p className="muted calc-intro">
-              Enter your monthly spend to estimate how many {card.rewardType} you earn and what they are worth
-              across each redemption option.
-            </p>
-            <RewardCalculator card={card} />
-          </section>
-
           {hasRedemptionSection ? (
             <section className="detail-section">
               <h2>Redemption</h2>
@@ -339,8 +330,8 @@ export default async function CardPage({ params, searchParams }: Props) {
                       <tr>
                         <th>Airline</th>
                         <th>Programme</th>
-                        {showAirlineGroup && <th>Group</th>}
                         <th>Ratio</th>
+                        {showAirlineGroup && <th>Group</th>}
                         {showAirlineTat && <th>TAT</th>}
                       </tr>
                     </thead>
@@ -349,8 +340,8 @@ export default async function CardPage({ params, searchParams }: Props) {
                         <tr key={`${partner.airline}-${partner.programme}`}>
                           <td>{partner.airline}</td>
                           <td>{partner.programme}</td>
-                          {showAirlineGroup && <td>{partner.group || "-"}</td>}
                           <td>{partner.ratio}</td>
+                          {showAirlineGroup && <td>{partner.group || "-"}</td>}
                           {showAirlineTat && <td>{formatTatDays(partner.tatDays)}</td>}
                         </tr>
                       ))}
@@ -366,8 +357,8 @@ export default async function CardPage({ params, searchParams }: Props) {
                       <tr>
                         <th>Hotel group</th>
                         <th>Programme</th>
-                        {showHotelGroup && <th>Group</th>}
                         <th>Ratio</th>
+                        {showHotelGroup && <th>Group</th>}
                         {showHotelTat && <th>TAT</th>}
                       </tr>
                     </thead>
@@ -376,8 +367,8 @@ export default async function CardPage({ params, searchParams }: Props) {
                         <tr key={`${partner.hotelGroup}-${partner.programme}`}>
                           <td>{partner.hotelGroup}</td>
                           <td>{partner.programme}</td>
-                          {showHotelGroup && <td>{partner.group || "-"}</td>}
                           <td>{partner.ratio}</td>
+                          {showHotelGroup && <td>{partner.group || "-"}</td>}
                           {showHotelTat && <td>{formatTatDays(partner.tatDays)}</td>}
                         </tr>
                       ))}
@@ -496,6 +487,15 @@ export default async function CardPage({ params, searchParams }: Props) {
               </div>
             </section>
           ) : null}
+
+          <section className="detail-section">
+            <h2>Reward calculator</h2>
+            <p className="muted calc-intro">
+              Enter your monthly spend to estimate how many {card.rewardType} you earn and what they are worth
+              across each redemption option.
+            </p>
+            <RewardCalculator card={card} />
+          </section>
 
           <div className="actions">
             <a className="button" href={card.applyUrl} rel="nofollow sponsored" target="_blank">

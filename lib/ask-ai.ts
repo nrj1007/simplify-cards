@@ -1343,16 +1343,6 @@ export async function answerQuestion(input: RecommendationInput): Promise<AskAiR
   }
 
   if (namedCardQuestion && shortlisted.mentionedCardId && topCard.card.id !== shortlisted.mentionedCardId) {
-    if (process.env.DEBUG_ASK === "1") {
-      console.warn("[ask-ai] named card mismatch", {
-        query: input.query,
-        mentionedCardId: shortlisted.mentionedCardId,
-        topCardId: topCard.card.id,
-        specificCardLookup,
-        namedCardQuestion,
-        familyMatches: findCardLookupMatches(input.query).map((card) => card.id)
-      });
-    }
     const reason = "Named card was not available under the current filters";
     await logUnsupportedQuestion(input, reason);
 

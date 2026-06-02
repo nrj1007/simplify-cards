@@ -1,16 +1,17 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { ChevronDown } from "lucide-react";
 import type { CreditCard, SpendCategory } from "@/lib/types";
-import { CALCULATOR_CATEGORIES, CATEGORY_LABELS, calculateRewards } from "@/lib/reward-calculator";
+import {
+  CALCULATOR_CATEGORIES,
+  CATEGORY_LABELS,
+  calculateRewards,
+  relevantCategoriesForCard
+} from "@/lib/reward-calculator";
 
 type Props = {
   card: CreditCard;
 };
-
-const CORE_CATEGORIES: SpendCategory[] = ["online", "dining", "travel", "fuel", "grocery", "utilities", "upi"];
-const MORE_CATEGORIES: SpendCategory[] = CALCULATOR_CATEGORIES.filter((c) => !CORE_CATEGORIES.includes(c));
 
 const DEFAULT_SPEND: Partial<Record<SpendCategory, number>> = {
   online: 15000,
@@ -19,7 +20,14 @@ const DEFAULT_SPEND: Partial<Record<SpendCategory, number>> = {
   fuel: 3000,
   grocery: 5000,
   utilities: 3000,
-  upi: 5000
+  upi: 5000,
+  amazon: 5000,
+  base: 8000,
+  rent: 5000,
+  insurance: 2000,
+  education: 3000,
+  gold: 2000,
+  government: 2000
 };
 
 const SLIDER_MAX = 200_000;
@@ -44,12 +52,15 @@ function isCashbackRewardType(rewardType: string) {
 type RupeeOption = { key: string; label: string; perPoint: number; value: number; note?: string };
 
 export default function RewardCalculator({ card }: Props) {
+  const visibleCategories = useMemo(() => relevantCategoriesForCard(card), [card]);
   const [spend, setSpend] = useState<Record<SpendCategory, number>>(() => {
+    const visible = new Set(relevantCategoriesForCard(card));
     const initial = {} as Record<SpendCategory, number>;
-    for (const category of CALCULATOR_CATEGORIES) initial[category] = DEFAULT_SPEND[category] ?? 0;
+    for (const category of CALCULATOR_CATEGORIES) {
+      initial[category] = visible.has(category) ? DEFAULT_SPEND[category] ?? 2000 : 0;
+    }
     return initial;
   });
-  const [showMore, setShowMore] = useState(false);
 
   const result = useMemo(() => calculateRewards(card, spend), [card, spend]);
 
@@ -89,7 +100,12 @@ export default function RewardCalculator({ card }: Props) {
 
   const partnerValuations = useMemo(() => {
     return (redemption?.transferPartnerValuations ?? [])
-      .map((partner) => ({ ...partner, value: annualUnits * partner.valuePerPoint }))
+      .map((partner) => {
+        // valuePerCardUnit = Rs per card reward unit, correctly applying the transfer ratio.
+        // e.g. Rs 2.2/Accor pt × 2 Accor pts/EDGE Mile = Rs 4.4/EDGE Mile
+        const valuePerCardUnit = partner.partnerPointValue * partner.transferRatio;
+        return { ...partner, valuePerCardUnit, value: annualUnits * valuePerCardUnit };
+      })
       .sort((a, b) => b.value - a.value);
   }, [annualUnits, redemption]);
 
@@ -99,11 +115,10 @@ export default function RewardCalculator({ card }: Props) {
     partnerValuations[0]?.value ?? 0
   );
   const effectiveRate = annualSpend > 0 && bestRupeeValue > 0 ? (bestRupeeValue / annualSpend) * 100 : 0;
-  const bestOptionKey = rupeeOptions[0] && rupeeOptions[0].value >= (partnerValuations[0]?.value ?? 0)
-    ? rupeeOptions[0].key
+  const bestPartnerKey = partnerValuations.length > 0 && partnerValuations[0].value > (rupeeOptions[0]?.value ?? 0)
+    ? partnerValuations[0].partner
     : null;
-
-  const visibleCategories = showMore ? CALCULATOR_CATEGORIES : CORE_CATEGORIES;
+  const bestOptionKey = !bestPartnerKey && rupeeOptions.length > 0 ? rupeeOptions[0].key : null;
 
   function setCategory(category: SpendCategory, value: number) {
     setSpend((prev) => ({ ...prev, [category]: value }));
@@ -155,13 +170,6 @@ export default function RewardCalculator({ card }: Props) {
               );
             })}
           </div>
-
-          {MORE_CATEGORIES.length > 0 ? (
-            <button className="calc-more" type="button" onClick={() => setShowMore((value) => !value)}>
-              <ChevronDown className={showMore ? "is-open" : ""} size={16} />
-              {showMore ? "Fewer categories" : "More categories"}
-            </button>
-          ) : null}
         </div>
 
         <div className="calc-output">
@@ -227,14 +235,24 @@ export default function RewardCalculator({ card }: Props) {
                   <h3>Transfer partner value</h3>
                   <div className="calc-partners">
                     {partnerValuations.map((partner) => (
-                      <div className="calc-partner" key={partner.partner}>
+                      <div
+                        className={`calc-partner${partner.partner === bestPartnerKey ? " is-best" : ""}`}
+                        key={partner.partner}
+                      >
                         <div className="calc-partner-head">
                           <span>{partner.partner}</span>
                           <span className={`calc-basis calc-basis-${partner.basis}`}>{partner.basis}</span>
                         </div>
-                        <strong>{formatINR(partner.value)}</strong>
-                        <span className="muted">Rs {partner.valuePerPoint} / {unitLabel.toLowerCase()}</span>
-                        {partner.note ? <span className="calc-partner-note muted">{partner.note}</span> : null}
+                        <strong>
+                          {partner.partner === bestPartnerKey ? (
+                            <span className="calc-badge" style={{ marginRight: 6 }}>Best</span>
+                          ) : null}
+                          {formatINR(partner.value)}
+                        </strong>
+                        <span className="muted">
+                          Rs {partner.partnerPointValue}/pt · ×{partner.transferRatio} ratio
+                          {" "}= Rs {partner.valuePerCardUnit.toFixed(2)} / {unitLabel.toLowerCase()}
+                        </span>
                       </div>
                     ))}
                   </div>

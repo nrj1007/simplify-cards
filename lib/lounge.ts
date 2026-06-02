@@ -48,8 +48,8 @@ export function getLoungeConditions(card: CreditCard, type?: "domestic" | "inter
     ...(card.internalNotes ?? [])
   ]
     .filter(matchesLoungeText)
-    .map((text) => ({ text, weight: conditionWeight(text) }))
-    .sort((a, b) => b.weight - a.weight || a.text.localeCompare(b.text));
+    .map((text, index) => ({ text, index, weight: conditionWeight(text) }))
+    .sort((a, b) => b.weight - a.weight || a.index - b.index);
 
   const seen = new Set<string>();
   const deduped: string[] = [];
