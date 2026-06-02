@@ -64,9 +64,71 @@
     "Dining offers at select partner restaurants"
   ],
   "redemption": {
-    "statementBalanceValue": null,
-    "airMilesValue": 0.6,
-    "pointsExpiryYears": null
+    "statementBalanceValue": 0.25,
+    "airMilesValue": 1,
+    "pointsExpiryYears": null,
+    "transferPartnerValuations": [
+      {
+        "partner": "Marriott Bonvoy",
+        "partnerPointValue": 0.6,
+        "transferRatio": 1,
+        "basis": "dynamic",
+        "note": "1 Membership Rewards point → 1 Marriott Bonvoy point · up to Rs 1/point"
+      },
+      {
+        "partner": "24K Gold Collection (Taj Voucher)",
+        "partnerPointValue": 1,
+        "transferRatio": 0.583,
+        "basis": "fixed",
+        "note": "Redeem 24,000 MR points for Rs 14,000 Taj voucher"
+      },
+      {
+        "partner": "18K Gold Collection (Taj Voucher)",
+        "partnerPointValue": 1,
+        "transferRatio": 0.5,
+        "basis": "fixed",
+        "note": "Redeem 18,000 MR points for Rs 9,000 Taj voucher"
+      },
+      {
+        "partner": "24K Gold Collection (Shoppers Stop)",
+        "partnerPointValue": 1,
+        "transferRatio": 0.417,
+        "basis": "fixed",
+        "note": "Redeem 24,000 MR points for Rs 10,000 Shoppers Stop voucher"
+      },
+      {
+        "partner": "18K Gold Collection (Shoppers Stop / Myntra / Tata CLiQ)",
+        "partnerPointValue": 1,
+        "transferRatio": 0.389,
+        "basis": "fixed",
+        "note": "Redeem 18,000 MR points for Rs 7,000 voucher"
+      },
+      {
+        "partner": "24K/18K Gold Collection (Amazon / Flipkart / Reliance Digital)",
+        "partnerPointValue": 1,
+        "transferRatio": 0.333,
+        "basis": "fixed",
+        "note": "Redeem 24,000 MR points for Rs 8,000 voucher or 18,000 MR points for Rs 6,000 voucher"
+      }
+    ],
+    "airlinePartners": [
+      { "airline": "British Airways", "programme": "Executive Club", "ratio": "2:1" },
+      { "airline": "Singapore Airlines", "programme": "KrisFlyer", "ratio": "2:1" },
+      { "airline": "Qatar Airways", "programme": "Privilege Club", "ratio": "2:1" },
+      { "airline": "Emirates", "programme": "Skywards", "ratio": "2:1" },
+      { "airline": "Etihad Airways", "programme": "Etihad Guest", "ratio": "2:1" },
+      { "airline": "Virgin Atlantic", "programme": "Flying Club", "ratio": "2:1" },
+      { "airline": "Air India", "programme": "Maharaja Club", "ratio": "2:1" }
+    ],
+    "hotelPartners": [
+      { "hotelGroup": "Marriott", "programme": "Marriott Bonvoy", "ratio": "1:1" },
+      { "hotelGroup": "Hilton Hotels", "programme": "Hilton Honors", "ratio": "1:0.9" },
+      { "hotelGroup": "24K Gold Collection (Taj Voucher)", "programme": "24K Gold Collection (Taj Voucher)", "ratio": "24,000:14,000" },
+      { "hotelGroup": "18K Gold Collection (Taj Voucher)", "programme": "18K Gold Collection (Taj Voucher)", "ratio": "18,000:9,000" },
+      { "hotelGroup": "24K Gold Collection (Shoppers Stop)", "programme": "24K Gold Collection (Shoppers Stop)", "ratio": "24,000:10,000" },
+      { "hotelGroup": "18K Gold Collection (Shoppers Stop / Myntra / Tata CLiQ)", "programme": "18K Gold Collection (Shoppers Stop / Myntra / Tata CLiQ)", "ratio": "18,000:7,000" },
+      { "hotelGroup": "24K/18K Gold Collection (Amazon / Flipkart / Reliance Digital)", "programme": "24K/18K Gold Collection (Amazon / Flipkart / Reliance Digital)", "ratio": "24,000:8,000" }
+    ]
   },
   "eligibility": {
     "salaried": [
