@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Route } from "next";
 import type { ReactNode } from "react";
 import Link from "next/link";
 import { CreditCard } from "lucide-react";
@@ -25,6 +25,7 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
               <nav className="nav-links" aria-label="Primary navigation">
                 <Link href="/ask">Ask</Link>
                 <Link href="/recommend">Recommend</Link>
+                <Link href={"/calculator" as Route}>Calculator</Link>
                 <Link href="/#examples">Questions</Link>
                 <Link href="/#cards">Cards</Link>
                 <Link href="/compare">Compare</Link>

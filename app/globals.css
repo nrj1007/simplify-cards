@@ -2499,6 +2499,18 @@ textarea {
   margin: 0;
 }
 
+.calc-picker {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: 1fr 1fr;
+}
+
+@media (max-width: 640px) {
+  .calc-picker {
+    grid-template-columns: 1fr;
+  }
+}
+
 .calc {
   margin-top: 2px;
 }
