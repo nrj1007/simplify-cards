@@ -1,0 +1,74 @@
+{
+  "id": "idfc-first-millennia",
+  "issuer": "IDFC FIRST Bank",
+  "name": "IDFC FIRST Millennia Credit Card",
+  "network": [
+    "Visa"
+  ],
+  "joiningFee": 0,
+  "annualFee": 0,
+  "feeWaiverSpend": null,
+  "bestFor": [
+    "lifetime free",
+    "shopping",
+    "movies",
+    "rewards",
+    "young users"
+  ],
+  "rewardType": "reward points",
+  "rewards": [
+    {
+      "category": "online",
+      "rate": 2.5,
+      "capMonthly": null
+    },
+    {
+      "category": "base",
+      "rate": 0.75,
+      "capMonthly": null
+    }
+  ],
+  "loungeDomestic": 0,
+  "loungeInternational": 0,
+  "forexMarkup": 3.5,
+  "tags": [
+    "millennia",
+    "lifetime free",
+    "shopping",
+    "movies",
+    "never expiring rewards",
+    "fuel waiver"
+  ],
+  "exclusions": [
+    "fuel",
+    "cash withdrawal",
+    "transactions excluded under IDFC FIRST Millennia Credit Card terms"
+  ],
+  "milestoneBenefits": [],
+  "additionalBenefits": [
+    "Lifetime free credit card",
+    "Welcome benefits worth up to Rs 1,500",
+    "Up to 10X never-expiring reward points",
+    "300+ merchant offers",
+    "Movie ticket offers",
+    "Fuel surcharge waiver"
+  ],
+  "redemption": {
+    "statementBalanceValue": 0.25,
+    "pointsExpiryYears": null,
+    "redemptionFee": 99
+  },
+  "eligibility": {
+    "salaried": [
+      "Annual income greater than Rs 3 lakh"
+    ],
+    "selfEmployed": [
+      "Annual income greater than Rs 3 lakh"
+    ]
+  },
+  "sourceUrl": "https://www.idfcfirstbank.com/credit-card",
+  "applyUrl": "https://www.idfcfirstbank.com/credit-card",
+  "lastVerified": "2026-05-10",
+  "verificationStatus": "official-catalogue",
+  "popularityScore": 73
+}

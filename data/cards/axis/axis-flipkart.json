@@ -1,0 +1,147 @@
+{
+  "id": "axis-flipkart",
+  "issuer": "Axis Bank",
+  "name": "FLIPKART AXIS BANK Credit Card",
+  "network": [
+    "Mastercard"
+  ],
+  "joiningFee": 500,
+  "annualFee": 500,
+  "feeWaiverSpend": 350000,
+  "bestFor": [
+    "flipkart",
+    "myntra",
+    "cleartrip",
+    "preferred merchants",
+    "cashback"
+  ],
+  "rewardType": "cashback",
+  "rewards": [
+    {
+      "category": "myntra",
+      "rate": 7.5,
+      "displayCategory": "Myntra",
+      "displayRate": "7.5% cashback",
+      "capMonthly": null,
+      "capStatementQuarter": 4000
+    },
+    {
+      "category": "flipkart",
+      "rate": 5,
+      "displayCategory": "Flipkart",
+      "displayRate": "5% cashback",
+      "capMonthly": null,
+      "capStatementQuarter": 4000
+    },
+    {
+      "category": "cleartrip",
+      "rate": 5,
+      "displayCategory": "Cleartrip",
+      "displayRate": "5% cashback",
+      "capMonthly": null,
+      "capStatementQuarter": 4000
+    },
+    {
+      "category": "partner merchants",
+      "rate": 4,
+      "displayCategory": "Preferred merchants",
+      "displayRate": "4% cashback",
+      "capMonthly": null,
+      "capStatementQuarter": null
+    },
+    {
+      "category": "base",
+      "rate": 1,
+      "displayCategory": "Other eligible spends",
+      "displayRate": "1% cashback",
+      "capMonthly": null,
+      "capStatementQuarter": null
+    }
+  ],
+  "loungeDomestic": 0,
+  "loungeInternational": 0,
+  "forexMarkup": 3.5,
+  "tags": [
+    "flipkart",
+    "myntra",
+    "cleartrip",
+    "cashback",
+    "shopping",
+    "preferred merchants",
+    "low fee"
+  ],
+  "exclusions": [
+    "fuel",
+    "rent",
+    "wallet load",
+    "EMI transactions and post-purchase EMI conversion",
+    "gold and jewellery purchases",
+    "cash advances",
+    "payment of outstanding balances",
+    "payment of card fees and other charges",
+    "utility and telecom spends",
+    "insurance services",
+    "education payments via third-party apps",
+    "government services",
+    "online skill-based gaming",
+    "purchases of gift cards on Flipkart and Myntra"
+  ],
+  "exclusionCodes": [
+    "fuel",
+    "rent",
+    "wallet_load",
+    "emi",
+    "gold",
+    "jewellery",
+    "cash_advance",
+    "outstanding_balance_payment",
+    "fees_and_charges",
+    "utilities",
+    "telecom",
+    "insurance",
+    "education",
+    "government",
+    "gaming"
+  ],
+  "milestoneBenefits": [],
+  "joiningBenefits": [
+    "Welcome benefits worth Rs 350 on eligible paid cards and first-time Swiggy user offer"
+  ],
+  "additionalBenefits": [
+    "1% fuel surcharge waiver on fuel transactions from Rs 400 to Rs 4,000, capped at Rs 400 per statement cycle",
+    "Dining Delights discounts at participating restaurants"
+  ],
+  "additionalDetails": [
+    "Cashback is directly credited to the credit card statement within 3 days prior to statement generation in the next billing cycle."
+  ],
+  "eligibility": {
+    "salaried": [
+      "Primary cardholder should be between 18 and 70 years and resident of India"
+    ],
+    "selfEmployed": [
+      "Primary cardholder should be between 18 and 70 years and resident of India"
+    ]
+  },
+  "supportingSourceUrls": [
+    "https://www.axis.bank.in/cards/credit-card/flipkart-axisbank-credit-card",
+    "https://www.axis.bank.in/docs/default-source/default-document-library/cashback-tncs---final.pdf",
+    "https://www.axis.bank.in/docs/default-source/default-document-library/terms-and-conditions-flipkart-axis-bank-credit-card.pdf"
+  ],
+  "imageUrl": "/images/axis-flipkart.webp",
+  "sourceUrl": "https://www.axis.bank.in/cards/credit-card/flipkart-axisbank-credit-card",
+  "applyUrl": "https://www.axis.bank.in/cards/credit-card/flipkart-axisbank-credit-card",
+  "lastVerified": "2026-06-02",
+  "verificationStatus": "official-direct",
+  "internalNotes": [
+    "Card details manually reviewed and verified by user on 2026-06-02",
+    "Effective 20 June 2025, cashback on Myntra increased to 7.5% from 1%, capped at Rs 4,000 per statement quarter.",
+    "Flipkart and Cleartrip continue to earn 5% cashback, each capped at Rs 4,000 per statement quarter per merchant.",
+    "Preferred merchants earn unlimited 4% cashback and can change at the bank's discretion.",
+    "Only transactions made towards food delivery on Swiggy are eligible for accelerated cashback; Instamart and Genie are excluded.",
+    "Flipkart cashback excludes Flipkart Health and purchases of gift cards on Flipkart.",
+    "Cashback is directly credited to the credit card statement in the next billing cycle 3 days prior to the statement generation date.",
+    "Cashback is rounded down for each individual transaction.",
+    "Cashback is not applicable on transactions less than Rs 100."
+  ],
+  "popularityScore": 91
+}

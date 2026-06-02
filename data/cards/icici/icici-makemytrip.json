@@ -1,0 +1,78 @@
+{
+  "id": "icici-makemytrip",
+  "issuer": "ICICI Bank",
+  "name": "MakeMyTrip ICICI Bank Credit Card",
+  "network": [
+    "Mastercard",
+    "RuPay"
+  ],
+  "joiningFee": 999,
+  "annualFee": 999,
+  "feeWaiverSpend": null,
+  "bestFor": [
+    "travel",
+    "makemytrip",
+    "low forex",
+    "lounge",
+    "rupay"
+  ],
+  "rewardType": "myCash",
+  "rewards": [
+    {
+      "category": "travel",
+      "rate": 6,
+      "capMonthly": null
+    },
+    {
+      "category": "retail",
+      "rate": 1,
+      "capMonthly": null
+    }
+  ],
+  "popularityScore": 83,
+  "loungeDomestic": 8,
+  "loungeInternational": 1,
+  "forexMarkup": 0.99,
+  "tags": [
+    "icici",
+    "makemytrip",
+    "travel",
+    "low forex",
+    "rupay",
+    "lounge"
+  ],
+  "exclusions": [
+    "rent",
+    "cash advances",
+    "late payment charges",
+    "joining fee",
+    "annual fee",
+    "emi transactions",
+    "balance transfers",
+    "personal loan transactions"
+  ],
+  "milestoneBenefits": [],
+  "additionalBenefits": [
+    "Unlimited myCash rewards that never expire",
+    "Up to 6% myCash on MakeMyTrip bookings",
+    "1-year MMTBLACK Gold membership",
+    "Joining and annual voucher worth Rs 1,000",
+    "8 complimentary domestic airport lounge accesses and 1 complimentary international airport lounge access per year",
+    "0.99% forex markup"
+  ],
+  "redemption": {
+    "pointsExpiryYears": null
+  },
+  "eligibility": {
+    "salaried": [
+      "Eligibility is subject to ICICI Bank approval criteria"
+    ],
+    "selfEmployed": [
+      "Eligibility is subject to ICICI Bank approval criteria"
+    ]
+  },
+  "sourceUrl": "https://www.icicibank.com/personal-banking/cards/credit-card/makemytrip/credit-card",
+  "applyUrl": "https://www.icicibank.com/personal-banking/cards/credit-card/makemytrip/credit-card",
+  "lastVerified": "2026-05-10",
+  "verificationStatus": "official-direct"
+}

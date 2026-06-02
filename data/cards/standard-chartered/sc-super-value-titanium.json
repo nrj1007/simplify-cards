@@ -1,0 +1,76 @@
+{
+  "id": "sc-super-value-titanium",
+  "issuer": "Standard Chartered",
+  "name": "Standard Chartered Super Value Titanium Credit Card",
+  "network": [
+    "Mastercard"
+  ],
+  "joiningFee": 750,
+  "annualFee": 750,
+  "feeWaiverSpend": 90000,
+  "bestFor": [
+    "fuel",
+    "utility bills",
+    "telephone bills"
+  ],
+  "rewardType": "cashback and reward points",
+  "rewards": [
+    {
+      "category": "fuel",
+      "rate": 5,
+      "capMonthly": 200
+    },
+    {
+      "category": "utilities",
+      "rate": 5,
+      "capMonthly": 100
+    },
+    {
+      "category": "base",
+      "rate": 0.17,
+      "capMonthly": null
+    }
+  ],
+  "popularityScore": 81,
+  "loungeDomestic": 0,
+  "loungeInternational": 0,
+  "forexMarkup": 3.5,
+  "tags": [
+    "standard chartered",
+    "super value titanium",
+    "fuel",
+    "utilities",
+    "telephone",
+    "cashback"
+  ],
+  "exclusions": [
+    "telephone and utility cashback require use of Standard Chartered bill pay platforms and transaction thresholds",
+    "fuel cashback only on transactions of INR 2,000 or below",
+    "1% fuel surcharge waiver on this card has been discontinued"
+  ],
+  "milestoneBenefits": [
+    "Annual fee reversal on meeting INR 90,000 spends"
+  ],
+  "additionalBenefits": [
+    "5% cashback on fuel up to INR 200 per month",
+    "5% cashback on phone bills up to INR 200 per month",
+    "5% cashback on utility bills up to INR 100 per month",
+    "1 reward point per INR 150 on other spends"
+  ],
+  "redemption": {
+    "statementBalanceValue": 0.17,
+    "redemptionFee": 99
+  },
+  "eligibility": {
+    "salaried": [
+      "Minimum monthly income of INR 55,000 is required"
+    ],
+    "selfEmployed": [
+      "Eligibility is subject to Standard Chartered approval criteria"
+    ]
+  },
+  "sourceUrl": "https://www.sc.com/in/credit-cards/super-value-titanium/",
+  "applyUrl": "https://www.sc.com/in/credit-cards/super-value-titanium/",
+  "lastVerified": "2026-05-11",
+  "verificationStatus": "official-direct"
+}

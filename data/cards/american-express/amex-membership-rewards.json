@@ -1,0 +1,78 @@
+{
+  "id": "amex-membership-rewards",
+  "issuer": "American Express",
+  "name": "American Express Membership Rewards Credit Card",
+  "network": [
+    "American Express"
+  ],
+  "joiningFee": 1000,
+  "annualFee": 4500,
+  "feeWaiverSpend": 150000,
+  "bestFor": [
+    "membership rewards",
+    "monthly milestones",
+    "shopping",
+    "vouchers"
+  ],
+  "rewardType": "membership rewards",
+  "rewards": [
+    {
+      "category": "retail",
+      "rate": 0.5,
+      "capMonthly": null
+    },
+    {
+      "category": "online",
+      "rate": 0.5,
+      "capMonthly": null
+    }
+  ],
+  "popularityScore": 83,
+  "loungeDomestic": 0,
+  "loungeInternational": 0,
+  "forexMarkup": 3.5,
+  "tags": [
+    "amex",
+    "membership rewards",
+    "mrcc",
+    "monthly milestones",
+    "shopping",
+    "vouchers"
+  ],
+  "exclusions": [
+    "fuel",
+    "insurance",
+    "utilities",
+    "cash transactions",
+    "EMI conversion at point of sale",
+    "excluded spends as per American Express terms"
+  ],
+  "milestoneBenefits": [
+    "1,000 bonus Membership Rewards points for using the card 4 times on transactions of Rs 1,500 and above every month",
+    "Additional 1,000 Membership Rewards points on spending Rs 20,000 or more in a calendar month, subject to enrollment",
+    "100% renewal fee waiver on previous-year spends of Rs 1,50,000 and above; 50% waiver on spends from Rs 90,000 to Rs 1,49,999"
+  ],
+  "additionalBenefits": [
+    "Welcome gift of 4,000 Membership Rewards points",
+    "1 Membership Rewards point for every Rs 50 spent except excluded categories",
+    "Redeem points through the 18 and 24 Karat Gold Collection",
+    "EMI conversion option at point of sale"
+  ],
+  "redemption": {
+    "statementBalanceValue": null,
+    "airMilesValue": 0.6,
+    "pointsExpiryYears": null
+  },
+  "eligibility": {
+    "salaried": [
+      "Eligibility is subject to American Express approval criteria"
+    ],
+    "selfEmployed": [
+      "Eligibility is subject to American Express approval criteria"
+    ]
+  },
+  "sourceUrl": "https://www.americanexpress.com/in/credit-cards/membership-rewards-card/",
+  "applyUrl": "https://www.americanexpress.com/in/credit-cards/membership-rewards-card/",
+  "lastVerified": "2026-05-10",
+  "verificationStatus": "official-mixed"
+}

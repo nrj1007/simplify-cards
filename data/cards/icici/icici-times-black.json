@@ -1,0 +1,78 @@
+{
+  "id": "icici-times-black",
+  "issuer": "ICICI Bank",
+  "name": "Times Black ICICI Bank Credit Card",
+  "network": [
+    "Visa"
+  ],
+  "joiningFee": 20000,
+  "annualFee": 20000,
+  "feeWaiverSpend": 2500000,
+  "bestFor": [
+    "luxury",
+    "travel",
+    "lounge",
+    "low forex",
+    "premium"
+  ],
+  "rewardType": "ICICI Bank Reward Points",
+  "rewards": [
+    {
+      "category": "base",
+      "rate": 2,
+      "capMonthly": null
+    },
+    {
+      "category": "online",
+      "rate": 2,
+      "capMonthly": null
+    }
+  ],
+  "popularityScore": 84,
+  "loungeDomestic": "unlimited",
+  "loungeInternational": "unlimited",
+  "forexMarkup": 1.49,
+  "tags": [
+    "icici",
+    "times black",
+    "luxury",
+    "travel",
+    "lounge",
+    "low forex",
+    "premium",
+    "metal"
+  ],
+  "exclusions": [
+    "utility payments",
+    "insurance premium payments",
+    "education payments",
+    "government payments are capped at 5,000 reward points per statement cycle"
+  ],
+  "milestoneBenefits": [
+    "Annual fee waived from second year onwards on minimum spends of Rs 25,00,000 made in the previous year"
+  ],
+  "additionalBenefits": [
+    "Luxury stay and lifestyle gift card benefits",
+    "1.49% forex markup",
+    "Unlimited international airport lounge access",
+    "Priority Pass membership for primary and plus cardholder",
+    "Reward points on eligible domestic transactions",
+    "UHNI-focused co-branded card with Times Internet"
+  ],
+  "redemption": {
+    "statementBalanceValue": 0.25,
+    "pointsExpiryYears": null
+  },
+  "eligibility": {
+    "salaried": [
+      "Eligibility is subject to ICICI Bank premium card approval criteria"
+    ],
+    "selfEmployed": [
+      "Eligibility is subject to ICICI Bank premium card approval criteria"
+    ]
+  },
+  "sourceUrl": "https://www.icicibank.com/personal-banking/cards/credit-card/times-black-icici-credit-card.html",
+  "applyUrl": "https://www.icicibank.com/personal-banking/cards/credit-card/times-black-icici-credit-card.html",
+  "lastVerified": "2026-05-11",
+  "verificationStatus": "official-direct"
+}

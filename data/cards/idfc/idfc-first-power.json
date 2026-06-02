@@ -1,0 +1,78 @@
+{
+  "id": "idfc-first-power",
+  "issuer": "IDFC FIRST Bank",
+  "name": "IDFC FIRST Power Credit Card",
+  "network": [
+    "RuPay"
+  ],
+  "joiningFee": 199,
+  "annualFee": 199,
+  "feeWaiverSpend": null,
+  "bestFor": [
+    "fuel",
+    "hpcl",
+    "upi",
+    "grocery",
+    "utility bills"
+  ],
+  "rewardType": "reward points",
+  "rewards": [
+    {
+      "category": "fuel",
+      "rate": 5,
+      "capMonthly": null
+    },
+    {
+      "category": "grocery",
+      "rate": 2.5,
+      "capMonthly": null
+    },
+    {
+      "category": "utility bills",
+      "rate": 2.5,
+      "capMonthly": null
+    }
+  ],
+  "loungeDomestic": 0,
+  "loungeInternational": 0,
+  "forexMarkup": 3.5,
+  "tags": [
+    "power",
+    "hpcl",
+    "fuel",
+    "rupay",
+    "upi",
+    "grocery",
+    "utility bills"
+  ],
+  "exclusions": [
+    "cash withdrawal",
+    "transactions excluded under IDFC FIRST Power Credit Card terms"
+  ],
+  "milestoneBenefits": [],
+  "additionalBenefits": [
+    "Powered with UPI",
+    "Welcome benefit worth Rs 1,400",
+    "5% savings on fuel spends",
+    "2.5% savings on grocery and utility spends",
+    "HPCL fuel co-branded card"
+  ],
+  "redemption": {
+    "statementBalanceValue": 0.25,
+    "pointsExpiryYears": null,
+    "redemptionFee": 99
+  },
+  "eligibility": {
+    "salaried": [
+      "Annual income greater than Rs 3 lakh"
+    ],
+    "selfEmployed": [
+      "Annual income greater than Rs 3 lakh"
+    ]
+  },
+  "sourceUrl": "https://www.idfcfirstbank.com/credit-card",
+  "applyUrl": "https://www.idfcfirstbank.com/credit-card",
+  "lastVerified": "2026-05-10",
+  "verificationStatus": "official-catalogue",
+  "popularityScore": 65
+}

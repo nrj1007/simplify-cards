@@ -1,0 +1,69 @@
+{
+  "id": "rbl-world-safari",
+  "issuer": "RBL Bank",
+  "name": "RBL Bank World Safari Credit Card",
+  "network": [
+    "Visa"
+  ],
+  "joiningFee": 3000,
+  "annualFee": 3000,
+  "feeWaiverSpend": null,
+  "bestFor": [
+    "travel",
+    "low forex",
+    "lounge"
+  ],
+  "rewardType": "reward points",
+  "rewards": [
+    {
+      "category": "travel",
+      "rate": 1.25,
+      "capMonthly": null
+    },
+    {
+      "category": "base",
+      "rate": 0.5,
+      "capMonthly": null
+    }
+  ],
+  "popularityScore": 82,
+  "loungeDomestic": 8,
+  "loungeInternational": 2,
+  "forexMarkup": 0,
+  "tags": [
+    "rbl",
+    "world safari",
+    "travel",
+    "lounge",
+    "low forex"
+  ],
+  "exclusions": [
+    "international transactions do not earn reward points",
+    "fuel",
+    "cash advances"
+  ],
+  "milestoneBenefits": [
+    "Welcome travel voucher / benefit bundle as per current RBL offer set"
+  ],
+  "additionalBenefits": [
+    "Zero forex markup on international transactions",
+    "5 reward points per Rs 100 on travel spends",
+    "2 reward points per Rs 100 on other eligible spends",
+    "Domestic and international airport lounge access"
+  ],
+  "redemption": {
+    "statementBalanceValue": 0.25
+  },
+  "eligibility": {
+    "salaried": [
+      "Eligibility is subject to RBL Bank approval criteria"
+    ],
+    "selfEmployed": [
+      "Eligibility is subject to RBL Bank approval criteria"
+    ]
+  },
+  "sourceUrl": "https://www.rblbank.com/personal-banking/cards/credit-cards/world-safari-credit-card",
+  "applyUrl": "https://www.rblbank.com/personal-banking/cards/credit-cards/world-safari-credit-card",
+  "lastVerified": "2026-05-11",
+  "verificationStatus": "official-direct"
+}

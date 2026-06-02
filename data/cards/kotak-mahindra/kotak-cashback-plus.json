@@ -1,0 +1,80 @@
+{
+  "id": "kotak-cashback-plus",
+  "issuer": "Kotak Mahindra Bank",
+  "name": "Kotak Cashback+ Credit Card",
+  "network": [
+    "Visa"
+  ],
+  "joiningFee": 750,
+  "annualFee": 750,
+  "feeWaiverSpend": null,
+  "bestFor": [
+    "cashback",
+    "online food",
+    "grocery",
+    "entertainment",
+    "fuel"
+  ],
+  "rewardType": "cashback as reward points",
+  "rewards": [
+    {
+      "category": "grocery",
+      "rate": 5,
+      "capMonthly": 500
+    },
+    {
+      "category": "online",
+      "rate": 5,
+      "capMonthly": 500
+    },
+    {
+      "category": "fuel",
+      "rate": 3,
+      "capMonthly": null
+    },
+    {
+      "category": "base",
+      "rate": 0.5,
+      "capMonthly": null
+    }
+  ],
+  "popularityScore": 77,
+  "loungeDomestic": 0,
+  "loungeInternational": 0,
+  "forexMarkup": 3.5,
+  "tags": [
+    "kotak",
+    "cashback",
+    "grocery",
+    "online",
+    "entertainment",
+    "fuel"
+  ],
+  "exclusions": [
+    "accelerated cashback categories and caps follow Kotak Cashback+ terms",
+    "cashback expires one year from accrual date",
+    "excluded categories do not earn cashback"
+  ],
+  "milestoneBenefits": [],
+  "additionalBenefits": [
+    "5% cashback on online food delivery, grocery delivery and online entertainment",
+    "3% cashback on fuel spends across fuel stations",
+    "0.5% unlimited cashback on other eligible spends"
+  ],
+  "redemption": {
+    "statementBalanceValue": 1,
+    "pointsExpiryYears": 1
+  },
+  "eligibility": {
+    "salaried": [
+      "Eligibility is subject to Kotak Mahindra Bank approval criteria"
+    ],
+    "selfEmployed": [
+      "Eligibility is subject to Kotak Mahindra Bank approval criteria"
+    ]
+  },
+  "sourceUrl": "https://www.kotak.com/en/personal-banking/cards/credit-cards/kotak-cashback-plus-credit-card.html",
+  "applyUrl": "https://www.kotak.com/en/personal-banking/cards/credit-cards/kotak-cashback-plus-credit-card.html",
+  "lastVerified": "2026-05-11",
+  "verificationStatus": "official-direct"
+}

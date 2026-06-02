@@ -1,0 +1,84 @@
+{
+  "id": "yes-elite-plus",
+  "issuer": "YES Bank",
+  "name": "YES BANK ELITE+ Credit Card",
+  "network": [
+    "Mastercard",
+    "Visa",
+    "RuPay"
+  ],
+  "joiningFee": 999,
+  "annualFee": 999,
+  "feeWaiverSpend": 200000,
+  "bestFor": [
+    "online",
+    "lounge",
+    "movies",
+    "golf",
+    "premium"
+  ],
+  "rewardType": "YES Rewardz points",
+  "rewards": [
+    {
+      "category": "online",
+      "rate": 1.5,
+      "capMonthly": 3000
+    },
+    {
+      "category": "base",
+      "rate": 0.75,
+      "capMonthly": null
+    },
+    {
+      "category": "utilities",
+      "rate": 0.5,
+      "capMonthly": 300
+    }
+  ],
+  "popularityScore": 76,
+  "loungeDomestic": 8,
+  "loungeInternational": 3,
+  "forexMarkup": 2.5,
+  "tags": [
+    "yes bank",
+    "online",
+    "lounge",
+    "movies",
+    "golf",
+    "premium",
+    "rewardz"
+  ],
+  "exclusions": [
+    "fuel",
+    "cash withdrawals",
+    "transactions converted into EMI"
+  ],
+  "milestoneBenefits": [
+    "First-year membership fee waived on spending Rs 20,000 within 30 days of card issuance",
+    "Renewal fee waiver on spending Rs 2,00,000 in a card anniversary year"
+  ],
+  "additionalBenefits": [
+    "Card was earlier known as YES Premia",
+    "3 complimentary international airport lounge visits per year",
+    "2 complimentary domestic airport lounge visits per quarter",
+    "BookMyShow discount up to 25% with monthly cap",
+    "Purchase protection cover on eligible electronics",
+    "Green fee waiver and complimentary golf lessons at select golf courses"
+  ],
+  "redemption": {
+    "statementBalanceValue": 0.25,
+    "pointsExpiryYears": null
+  },
+  "eligibility": {
+    "salaried": [
+      "Eligibility is subject to YES BANK approval criteria"
+    ],
+    "selfEmployed": [
+      "Eligibility is subject to YES BANK approval criteria"
+    ]
+  },
+  "sourceUrl": "https://www.yesbank.in/content/published/api/v1.1/assets/CONT8410175D038545F1BC2EEC7B35DFA756/native/yesbank_credit_card_elite_plus_value_chart.pdf",
+  "applyUrl": "https://www.yesbank.in/content/published/api/v1.1/assets/CONTFE9DC64AC2554126A0B393725E1425A9/native/yes_premia_brochure_pdf.pdf?channelToken=21f7ccfa2fc3401091938f541a6f8f2a&download=false",
+  "lastVerified": "2026-05-11",
+  "verificationStatus": "official-mixed"
+}

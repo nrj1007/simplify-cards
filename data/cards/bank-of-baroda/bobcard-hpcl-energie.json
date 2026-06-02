@@ -1,0 +1,94 @@
+{
+  "id": "bobcard-hpcl-energie",
+  "issuer": "Bank of Baroda",
+  "name": "HPCL ENERGIE BOBCARD",
+  "network": [
+    "RuPay"
+  ],
+  "joiningFee": 499,
+  "annualFee": 499,
+  "feeWaiverSpend": 50000,
+  "bestFor": [
+    "fuel",
+    "hpcl",
+    "grocery",
+    "utility bills",
+    "lounge"
+  ],
+  "rewardType": "reward points",
+  "rewards": [
+    {
+      "category": "fuel",
+      "rate": 4,
+      "capMonthly": null
+    },
+    {
+      "category": "utility bills",
+      "rate": 1.67,
+      "capMonthly": null
+    },
+    {
+      "category": "grocery",
+      "rate": 1.67,
+      "capMonthly": null
+    },
+    {
+      "category": "departmental stores",
+      "rate": 1.67,
+      "capMonthly": null
+    },
+    {
+      "category": "retail",
+      "rate": 0.33,
+      "capMonthly": null
+    }
+  ],
+  "loungeDomestic": 4,
+  "loungeInternational": 0,
+  "forexMarkup": 3.5,
+  "tags": [
+    "bobcard",
+    "hpcl",
+    "fuel",
+    "rupay",
+    "utility bills",
+    "grocery",
+    "lounge"
+  ],
+  "exclusions": [
+    "fuel spends eligible for surcharge waiver do not earn reward points",
+    "HP Pay direct payment mode is not eligible for listed fuel savings",
+    "taxes and charges excluded as per BOBCARD terms"
+  ],
+  "milestoneBenefits": [
+    "2,000 joining reward points on spending Rs 5,000 or more within 60 days",
+    "Renewal fee waiver on annual spends of Rs 50,000"
+  ],
+  "additionalBenefits": [
+    "24 reward points per Rs 150 on HPCL fuel and LPG purchases through eligible modes",
+    "10 reward points per Rs 150 on utility, grocery and departmental store spends",
+    "2 reward points per Rs 150 on other categories",
+    "1% fuel surcharge waiver on HPCL fuel transactions between Rs 400 and Rs 5,000",
+    "4 complimentary domestic airport lounge visits per year",
+    "25% off up to Rs 100 on Paytm Movies on minimum 2 tickets per transaction"
+  ],
+  "redemption": {
+    "statementBalanceValue": 0.25,
+    "pointsExpiryYears": null
+  },
+  "eligibility": {
+    "salaried": [
+      "Resident Indian primary cardholder between 21 and 65 years",
+      "Income of Rs 3.6 lakh per annum or more"
+    ],
+    "selfEmployed": [
+      "Resident Indian primary cardholder between 21 and 65 years",
+      "Income of Rs 4.8 lakh per annum or more"
+    ]
+  },
+  "sourceUrl": "https://bankofbaroda.bank.in/hi-in/personal-banking/digital-products/cards/credit-cards/hpcl-bob-energie-credit-card",
+  "applyUrl": "https://bankofbaroda.bank.in/personal-banking/digital-products/cards/credit-cards",
+  "lastVerified": "2026-05-10",
+  "verificationStatus": "official-direct",
+  "popularityScore": 73
+}

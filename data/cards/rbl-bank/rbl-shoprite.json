@@ -1,0 +1,73 @@
+{
+  "id": "rbl-shoprite",
+  "issuer": "RBL Bank",
+  "name": "RBL Bank ShopRite Credit Card",
+  "network": [
+    "Visa",
+    "Mastercard"
+  ],
+  "joiningFee": 500,
+  "annualFee": 500,
+  "feeWaiverSpend": 150000,
+  "bestFor": [
+    "grocery",
+    "movies",
+    "fuel",
+    "entry level"
+  ],
+  "rewardType": "reward points",
+  "rewards": [
+    {
+      "category": "grocery",
+      "rate": 5,
+      "capMonthly": null
+    },
+    {
+      "category": "base",
+      "rate": 0.25,
+      "capMonthly": null
+    }
+  ],
+  "popularityScore": 79,
+  "loungeDomestic": 0,
+  "loungeInternational": 0,
+  "forexMarkup": 3.5,
+  "tags": [
+    "rbl",
+    "shoprite",
+    "grocery",
+    "movies",
+    "fuel",
+    "entry level"
+  ],
+  "exclusions": [
+    "fuel",
+    "cash advances",
+    "emi transactions",
+    "grocery accelerated rewards follow RBL merchant-category rules"
+  ],
+  "milestoneBenefits": [
+    "Annual fee waiver on spends of Rs 1,50,000 in the previous year"
+  ],
+  "additionalBenefits": [
+    "20 reward points for every Rs 100 spent on grocery",
+    "1 reward point for every Rs 100 on other eligible spends",
+    "Monthly movie discount benefit on BookMyShow",
+    "Fuel surcharge waiver on eligible spends"
+  ],
+  "redemption": {
+    "statementBalanceValue": 0.25
+  },
+  "eligibility": {
+    "salaried": [
+      "Eligibility is subject to RBL Bank approval criteria"
+    ],
+    "selfEmployed": [
+      "Eligibility is subject to RBL Bank approval criteria"
+    ]
+  },
+  "sourceUrl": "https://www.rblbank.com/personal-banking/cards/credit-cards/shoprite-credit-card",
+  "applyUrl": "https://www.rblbank.com/personal-banking/cards/credit-cards/shoprite-credit-card",
+  "lastVerified": "2026-05-11",
+  "verificationStatus": "official-direct"
+}

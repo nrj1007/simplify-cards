@@ -1,0 +1,67 @@
+{
+  "id": "sc-smart",
+  "issuer": "Standard Chartered",
+  "name": "Standard Chartered Smart Credit Card",
+  "network": [
+    "Visa"
+  ],
+  "joiningFee": 0,
+  "annualFee": 499,
+  "feeWaiverSpend": 120000,
+  "bestFor": [
+    "cashback",
+    "online",
+    "entry level"
+  ],
+  "rewardType": "cashback",
+  "rewards": [
+    {
+      "category": "online",
+      "rate": 2,
+      "capMonthly": 1000
+    },
+    {
+      "category": "base",
+      "rate": 1,
+      "capMonthly": 500
+    }
+  ],
+  "popularityScore": 82,
+  "loungeDomestic": 0,
+  "loungeInternational": 0,
+  "forexMarkup": 3.5,
+  "tags": [
+    "standard chartered",
+    "smart",
+    "cashback",
+    "online",
+    "entry level"
+  ],
+  "exclusions": [
+    "fuel transactions are not eligible for cashback"
+  ],
+  "milestoneBenefits": [
+    "Renewal fee reversed for clients with spends greater than or equal to INR 1,20,000 in the preceding year"
+  ],
+  "additionalBenefits": [
+    "2% cashback on online spends up to INR 1,000 per month",
+    "1% cashback on other spends up to INR 500 per month",
+    "0.99% per month on eligible 3-month EMI with nil processing fee",
+    "Extended interest-free credit period for first 90 days post issuance by paying minimum amount due"
+  ],
+  "redemption": {
+    "statementBalanceValue": 1
+  },
+  "eligibility": {
+    "salaried": [
+      "Applicant age should be between 18 and 65 years"
+    ],
+    "selfEmployed": [
+      "Applicant age should be between 18 and 65 years"
+    ]
+  },
+  "sourceUrl": "https://www.sc.com/in/credit-cards/smart-credit-card/",
+  "applyUrl": "https://www.sc.com/in/credit-cards/smart-credit-card/",
+  "lastVerified": "2026-05-11",
+  "verificationStatus": "official-direct"
+}

@@ -1,0 +1,87 @@
+{
+  "id": "bobcard-snapdeal",
+  "issuer": "Bank of Baroda",
+  "name": "Snapdeal BOBCARD",
+  "network": [
+    "RuPay"
+  ],
+  "joiningFee": 249,
+  "annualFee": 249,
+  "feeWaiverSpend": null,
+  "bestFor": [
+    "snapdeal",
+    "online",
+    "grocery",
+    "departmental stores",
+    "cashback"
+  ],
+  "rewardType": "cashback",
+  "rewards": [
+    {
+      "category": "online",
+      "rate": 5,
+      "capMonthly": null
+    },
+    {
+      "category": "grocery",
+      "rate": 2.5,
+      "capMonthly": null
+    },
+    {
+      "category": "departmental stores",
+      "rate": 2.5,
+      "capMonthly": null
+    },
+    {
+      "category": "retail",
+      "rate": 1,
+      "capMonthly": null
+    }
+  ],
+  "loungeDomestic": 0,
+  "loungeInternational": 0,
+  "forexMarkup": 3.5,
+  "tags": [
+    "bobcard",
+    "snapdeal",
+    "cashback",
+    "online shopping",
+    "rupay",
+    "low fee"
+  ],
+  "exclusions": [
+    "fuel transactions eligible for surcharge waiver do not earn reward points",
+    "Snapdeal cashback applies on eligible Snapdeal website and app purchases",
+    "taxes and charges excluded as per BOBCARD terms"
+  ],
+  "milestoneBenefits": [
+    "Shopping vouchers worth up to Rs 500 on card usage within first 30 days of issuance"
+  ],
+  "additionalBenefits": [
+    "Up to 5% unlimited cashback on Snapdeal website and mobile app purchases",
+    "10 reward points per Rs 100 on online shopping, grocery and departmental stores",
+    "4 reward points per Rs 100 on other categories",
+    "Reward points are auto-credited as cashback to the monthly statement",
+    "1 reward point = Rs 0.25",
+    "1% fuel surcharge waiver on fuel transactions between Rs 400 and Rs 5,000, capped at Rs 250 per month"
+  ],
+  "redemption": {
+    "statementBalanceValue": 0.25,
+    "pointsExpiryYears": null
+  },
+  "eligibility": {
+    "salaried": [
+      "Resident Indian",
+      "Income of Rs 3.6 lakh per annum or more"
+    ],
+    "selfEmployed": [
+      "Resident Indian",
+      "Income of Rs 4.8 lakh per annum or more"
+    ]
+  },
+  "sourceUrl": "https://bankofbaroda.bank.in/personal-banking/digital-products/cards/credit-cards/snapdeal-bob-credit-card",
+  "applyUrl": "https://bankofbaroda.bank.in/personal-banking/digital-products/cards/credit-cards/snapdeal-bob-credit-card",
+  "lastVerified": "2026-05-10",
+  "verificationStatus": "official-direct",
+  "popularityScore": 58
+}

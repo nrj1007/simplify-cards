@@ -1,0 +1,79 @@
+{
+  "id": "axis-rewards",
+  "issuer": "Axis Bank",
+  "name": "Axis Bank REWARDS Credit Card",
+  "network": [
+    "Visa"
+  ],
+  "joiningFee": 1000,
+  "annualFee": 1000,
+  "feeWaiverSpend": 200000,
+  "bestFor": [
+    "apparel",
+    "departmental stores",
+    "swiggy",
+    "lounge",
+    "rewards"
+  ],
+  "rewardType": "edge reward points",
+  "rewards": [
+    {
+      "category": "departmental stores",
+      "rate": 3.2,
+      "capMonthly": 7000
+    },
+    {
+      "category": "base",
+      "rate": 0.32,
+      "capMonthly": null
+    }
+  ],
+  "loungeDomestic": 8,
+  "loungeInternational": 0,
+  "forexMarkup": 3.5,
+  "tags": [
+    "rewards",
+    "apparel",
+    "departmental stores",
+    "swiggy",
+    "lounge",
+    "fee waiver",
+    "edge rewards"
+  ],
+  "exclusions": [
+    "fuel",
+    "rent",
+    "wallet load",
+    "transactions excluded under Axis Bank REWARDS Credit Card terms"
+  ],
+  "milestoneBenefits": [
+    "1,500 EDGE REWARD Points on net spends of Rs 30,000 per statement cycle",
+    "Annual fee waived on annual spends of Rs 2 lakh or more, excluding rent and wallet load transactions"
+  ],
+  "additionalBenefits": [
+    "5,000 EDGE REWARD Points on cumulative net spends of Rs 1,000 or above within 30 days of card issuance",
+    "2 EDGE REWARD Points per Rs 125 on eligible spends",
+    "10X EDGE REWARD Points per Rs 125 on apparel and departmental store spends up to Rs 7,000 per month",
+    "Bouquet of memberships worth up to Rs 1,000 every anniversary year",
+    "Rs 150 instant discount on Swiggy twice per calendar month on minimum transaction value of Rs 500",
+    "2 complimentary domestic lounge visits per quarter at select airports",
+    "1% fuel surcharge waiver on eligible fuel transactions"
+  ],
+  "redemption": {
+    "statementBalanceValue": 0.2,
+    "pointsExpiryYears": 3
+  },
+  "eligibility": {
+    "salaried": [
+      "Eligibility is subject to Axis Bank approval criteria"
+    ],
+    "selfEmployed": [
+      "Eligibility is subject to Axis Bank approval criteria"
+    ]
+  },
+  "sourceUrl": "https://www.axisbank.com/retail/cards/credit-card/rewards-credit-card",
+  "applyUrl": "https://www.axisbank.com/retail/cards/credit-card/rewards-credit-card",
+  "lastVerified": "2026-05-10",
+  "verificationStatus": "official-direct",
+  "popularityScore": 70
+}

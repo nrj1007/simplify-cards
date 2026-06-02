@@ -1,0 +1,84 @@
+{
+  "id": "axis-freecharge-plus",
+  "issuer": "Axis Bank",
+  "name": "Axis Bank Freecharge Plus Credit Card",
+  "network": [
+    "Visa"
+  ],
+  "joiningFee": 350,
+  "annualFee": 350,
+  "feeWaiverSpend": 50000,
+  "bestFor": [
+    "freecharge",
+    "cashback",
+    "local commute",
+    "dining",
+    "low fee"
+  ],
+  "rewardType": "cashback",
+  "rewards": [
+    {
+      "category": "online",
+      "rate": 5,
+      "capMonthly": null
+    },
+    {
+      "category": "travel",
+      "rate": 2,
+      "capMonthly": null
+    },
+    {
+      "category": "base",
+      "rate": 1,
+      "capMonthly": null
+    }
+  ],
+  "loungeDomestic": 0,
+  "loungeInternational": 0,
+  "forexMarkup": 3.5,
+  "tags": [
+    "freecharge",
+    "cashback",
+    "local commute",
+    "dining",
+    "low fee",
+    "fee waiver"
+  ],
+  "exclusions": [
+    "rent",
+    "wallet load",
+    "fuel",
+    "education payments via third-party apps",
+    "utilities above fee threshold",
+    "online skill-based gaming above fee threshold",
+    "transactions excluded under Axis Bank Freecharge Plus Credit Card terms"
+  ],
+  "milestoneBenefits": [
+    "Annual fee waived on spends of Rs 50,000 in the preceding card anniversary year, excluding rent and wallet load transactions"
+  ],
+  "additionalBenefits": [
+    "First-year annual fee listed as nil; second year onward annual fee is Rs 350",
+    "5% cashback on Freecharge spends",
+    "2% cashback on local commute spends",
+    "1% cashback on all other eligible spends",
+    "Dining benefits through Axis Bank dining programme",
+    "Foreign currency transaction fee of 3.5% as per Axis Bank fees page"
+  ],
+  "redemption": {
+    "statementBalanceValue": 1,
+    "pointsExpiryYears": null
+  },
+  "eligibility": {
+    "salaried": [
+      "Eligibility is subject to Axis Bank approval criteria"
+    ],
+    "selfEmployed": [
+      "Eligibility is subject to Axis Bank approval criteria"
+    ]
+  },
+  "sourceUrl": "https://www.axisbank.com/retail/cards/credit-card/axis-bank-freecharge-plus-credit-card/features-benefits",
+  "applyUrl": "https://www.axisbank.com/retail/cards/credit-card/axis-bank-freecharge-plus-credit-card/features-benefits",
+  "lastVerified": "2026-05-10",
+  "verificationStatus": "official-direct",
+  "popularityScore": 64
+}

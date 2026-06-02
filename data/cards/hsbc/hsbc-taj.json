@@ -1,0 +1,85 @@
+{
+  "id": "hsbc-taj",
+  "issuer": "HSBC Bank",
+  "name": "HSBC Taj Credit Card",
+  "network": [
+    "Visa"
+  ],
+  "joiningFee": 110000,
+  "annualFee": 110000,
+  "feeWaiverSpend": null,
+  "bestFor": [
+    "taj",
+    "hotels",
+    "dining",
+    "luxury",
+    "lounge"
+  ],
+  "rewardType": "reward points",
+  "rewards": [
+    {
+      "category": "hotels",
+      "rate": 5,
+      "capMonthly": null
+    },
+    {
+      "category": "base",
+      "rate": 1.5,
+      "capMonthly": null
+    }
+  ],
+  "loungeDomestic": "unlimited",
+  "loungeInternational": "unlimited",
+  "forexMarkup": 3.5,
+  "tags": [
+    "taj",
+    "ihcl",
+    "luxury",
+    "hotels",
+    "dining",
+    "spa",
+    "golf",
+    "lounge",
+    "visa infinite"
+  ],
+  "exclusions": [
+    "fuel",
+    "cash advance",
+    "balance transfer",
+    "transactions excluded under HSBC Taj Credit Card terms"
+  ],
+  "milestoneBenefits": [],
+  "additionalBenefits": [
+    "Unlimited room upgrades to the next level at participating IHCL hotels",
+    "25% savings on best available rate at Taj and other participating IHCL hotels",
+    "Four vouchers for set meals for two at participating restaurants",
+    "25% savings on food and beverages and Qmin deliveries",
+    "Up to 4 spa treatment benefits per year",
+    "Swimming pool access for 2 up to 12 times per year",
+    "The Chambers Lounge access up to 12 times per year for cardholder and guest",
+    "Taj Club Lounge access up to 12 times per year",
+    "Unlimited global airport lounge access, subject to programme terms",
+    "4 domestic and 4 international chauffeur-driven airport transfers per year",
+    "12 complimentary golf games and lessons per year",
+    "5 reward points per Rs 100 at Taj, SeleQtions, Gateway, Vivanta and ama Stays & Trails",
+    "1.5 reward points per Rs 100 on standard purchases",
+    "1.5 reward points equal Re 1 in HSBC Taj Credit Card Wallet balance"
+  ],
+  "redemption": {
+    "statementBalanceValue": 0.6667,
+    "pointsExpiryYears": null
+  },
+  "eligibility": {
+    "salaried": [
+      "Age 25 to 75 years, Indian resident or existing HSBC India bank account for NRI, annual income at least Rs 40 lakh"
+    ],
+    "selfEmployed": [
+      "Age 25 to 75 years, Indian resident or existing HSBC India bank account for NRI, annual income at least Rs 60 lakh"
+    ]
+  },
+  "sourceUrl": "https://www.hsbc.co.in/credit-cards/products/taj/",
+  "applyUrl": "https://www.hsbc.co.in/credit-cards/products/taj/",
+  "lastVerified": "2026-05-10",
+  "verificationStatus": "official-direct",
+  "popularityScore": 74
+}

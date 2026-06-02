@@ -1,0 +1,61 @@
+{
+  "id": "rbl-play",
+  "issuer": "RBL Bank",
+  "name": "RBL Bank PLAY Credit Card",
+  "network": [
+    "Visa"
+  ],
+  "joiningFee": 500,
+  "annualFee": 500,
+  "feeWaiverSpend": 150000,
+  "bestFor": [
+    "movies",
+    "entertainment",
+    "dining"
+  ],
+  "rewardType": "entertainment benefits",
+  "rewards": [
+    {
+      "category": "base",
+      "rate": 0,
+      "capMonthly": null
+    }
+  ],
+  "popularityScore": 77,
+  "loungeDomestic": 0,
+  "loungeInternational": 0,
+  "forexMarkup": 3.5,
+  "tags": [
+    "rbl",
+    "play",
+    "movies",
+    "entertainment",
+    "dining"
+  ],
+  "exclusions": [
+    "movie and dining benefits depend on partner platforms and monthly caps",
+    "fuel",
+    "cash advances"
+  ],
+  "milestoneBenefits": [
+    "Annual fee waiver on eligible yearly spends of Rs 1,50,000"
+  ],
+  "additionalBenefits": [
+    "Monthly movie benefit on BookMyShow",
+    "Dining savings through restaurant partner programme",
+    "Entertainment-focused RBL entry card"
+  ],
+  "redemption": {},
+  "eligibility": {
+    "salaried": [
+      "Eligibility is subject to RBL Bank approval criteria"
+    ],
+    "selfEmployed": [
+      "Eligibility is subject to RBL Bank approval criteria"
+    ]
+  },
+  "sourceUrl": "https://www.rblbank.com/personal-banking/cards/credit-cards/rbl-bank-play-credit-card",
+  "applyUrl": "https://www.rblbank.com/personal-banking/cards/credit-cards/rbl-bank-play-credit-card",
+  "lastVerified": "2026-05-11",
+  "verificationStatus": "official-direct"
+}

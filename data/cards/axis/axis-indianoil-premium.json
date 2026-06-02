@@ -1,0 +1,90 @@
+{
+  "id": "axis-indianoil-premium",
+  "issuer": "Axis Bank",
+  "name": "IndianOil Axis Bank Premium Credit Card",
+  "network": [
+    "Mastercard"
+  ],
+  "joiningFee": 1000,
+  "annualFee": 1000,
+  "feeWaiverSpend": 30000,
+  "bestFor": [
+    "fuel",
+    "indianoil",
+    "grocery",
+    "zomato",
+    "lounge"
+  ],
+  "rewardType": "edge miles",
+  "rewards": [
+    {
+      "category": "fuel",
+      "rate": 1.33,
+      "capMonthly": 15000
+    },
+    {
+      "category": "grocery",
+      "rate": 0.44,
+      "capMonthly": 5000
+    },
+    {
+      "category": "base",
+      "rate": 0.22,
+      "capMonthly": null
+    }
+  ],
+  "loungeDomestic": 8,
+  "loungeInternational": 0,
+  "forexMarkup": 3.5,
+  "tags": [
+    "indianoil",
+    "fuel",
+    "premium",
+    "edge miles",
+    "grocery",
+    "supermarket",
+    "zomato",
+    "lounge",
+    "fee waiver"
+  ],
+  "exclusions": [
+    "fuel transaction charge outside applicable waiver terms",
+    "rent",
+    "wallet load",
+    "education payments via third-party apps",
+    "utilities above fee threshold",
+    "online skill-based gaming above fee threshold",
+    "transactions excluded under IndianOil Axis Bank Premium Credit Card terms"
+  ],
+  "milestoneBenefits": [
+    "Annual fee waived on spends of Rs 30,000 and above in a card anniversary year"
+  ],
+  "additionalBenefits": [
+    "500 EDGE Miles on first spend within 30 days of card issuance",
+    "6 EDGE Miles per Rs 150 at IndianOil fuel outlets up to Rs 15,000 per month",
+    "1 EDGE Mile per Rs 150 on IndianOil fuel spends above Rs 15,000 per month",
+    "2 EDGE Miles per Rs 150 on grocery and supermarket spends up to Rs 5,000 per month",
+    "1 EDGE Mile per Rs 150 on grocery and supermarket spends above Rs 5,000 per month and other eligible spends",
+    "Unlimited 1% fuel surcharge waiver on purchases at IndianOil outlets, GST on surcharge is non-refundable",
+    "30% off on Zomato food delivery, capped at Rs 150 per order and valid twice per month",
+    "Complimentary domestic lounge access, illustrated by Axis as 2 visits per quarter in the value chart",
+    "Axis Dining Delights offers may apply as per programme terms"
+  ],
+  "redemption": {
+    "statementBalanceValue": 0.333,
+    "pointsExpiryYears": 3
+  },
+  "eligibility": {
+    "salaried": [
+      "Primary cardholder should be 18 to 70 years of age and resident of India"
+    ],
+    "selfEmployed": [
+      "Primary cardholder should be 18 to 70 years of age and resident of India"
+    ]
+  },
+  "sourceUrl": "https://www.axis.bank.in/cards/credit-card/indianoil-premium-credit-card",
+  "applyUrl": "https://www.axis.bank.in/cards/credit-card/indianoil-premium-credit-card",
+  "lastVerified": "2026-05-10",
+  "verificationStatus": "official-direct",
+  "popularityScore": 74
+}

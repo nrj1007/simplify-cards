@@ -1,0 +1,83 @@
+{
+  "id": "sbi-card-elite",
+  "issuer": "SBI Card",
+  "name": "SBI Card ELITE",
+  "network": [
+    "Visa",
+    "Mastercard",
+    "RuPay",
+    "American Express"
+  ],
+  "joiningFee": 4999,
+  "annualFee": 4999,
+  "feeWaiverSpend": 1000000,
+  "bestFor": [
+    "premium rewards",
+    "dining",
+    "grocery",
+    "movies",
+    "lounge"
+  ],
+  "rewardType": "reward points",
+  "rewards": [
+    {
+      "category": "grocery dining movies",
+      "rate": 2.5,
+      "capMonthly": 2500
+    },
+    {
+      "category": "base",
+      "rate": 0.5,
+      "capMonthly": null
+    }
+  ],
+  "loungeDomestic": 8,
+  "loungeInternational": 6,
+  "forexMarkup": 1.99,
+  "tags": [
+    "premium",
+    "lounge",
+    "dining",
+    "grocery",
+    "movies",
+    "forex"
+  ],
+  "exclusions": [
+    "fuel",
+    "cash advance",
+    "balance transfer",
+    "wallet loading",
+    "rent",
+    "EMI transactions",
+    "transactions excluded under SBI Card reward terms"
+  ],
+  "milestoneBenefits": [
+    "10,000 bonus Reward Points on annual spends of Rs 3 lakh",
+    "10,000 bonus Reward Points on annual spends of Rs 4 lakh",
+    "15,000 bonus Reward Points on annual spends of Rs 5 lakh",
+    "15,000 bonus Reward Points on annual spends of Rs 8 lakh",
+    "Renewal fee waived on annual spends of Rs 10 lakh"
+  ],
+  "additionalBenefits": [
+    "Welcome e-Gift Voucher worth Rs 5,000 from select brands",
+    "5X Reward Points on dining, departmental stores and grocery spends",
+    "2 Reward Points per Rs 100 on other spends",
+    "4 Reward Points equal Rs 1",
+    "Movie ticket benefits worth up to Rs 6,000 per year",
+    "8 complimentary domestic lounge visits per year, capped at 2 per quarter",
+    "Complimentary Priority Pass membership with 6 international lounge visits per calendar year, capped at 2 per quarter",
+    "1% fuel surcharge waiver across petrol pumps, capped at Rs 250 per statement cycle"
+  ],
+  "redemption": {
+    "statementBalanceValue": 0.25,
+    "minimumPointsForStatementCredit": 4000,
+    "cashbackRedemptionCapMonthly": 60000,
+    "pointsExpiryYears": 2,
+    "redemptionFee": 99
+  },
+  "sourceUrl": "https://www.sbicard.com/en/eapply/sbicampaign.page",
+  "applyUrl": "https://www.sbicard.com/en/personal/credit-cards/lifestyle/sbi-card-elite.page",
+  "lastVerified": "2026-05-09",
+  "verificationStatus": "official-mixed",
+  "popularityScore": 75
+}

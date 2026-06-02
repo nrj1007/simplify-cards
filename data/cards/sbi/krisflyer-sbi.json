@@ -1,0 +1,101 @@
+{
+  "id": "krisflyer-sbi",
+  "issuer": "SBI Card",
+  "name": "KrisFlyer SBI Card",
+  "network": [
+    "American Express"
+  ],
+  "joiningFee": 2999,
+  "annualFee": 2999,
+  "feeWaiverSpend": null,
+  "bestFor": [
+    "singapore airlines",
+    "international travel",
+    "travel",
+    "lounge"
+  ],
+  "rewardType": "KrisFlyer Miles",
+  "rewards": [
+    {
+      "category": "travel",
+      "displayCategory": "Singapore Airlines Group Spends",
+      "rate": 3,
+      "displayRate": "6 KrisFlyer Miles per Rs 200",
+      "capMonthly": null
+    },
+    {
+      "category": "travel",
+      "displayCategory": "International Spends",
+      "rate": 2,
+      "displayRate": "4 KrisFlyer Miles per Rs 200",
+      "capMonthly": null
+    },
+    {
+      "category": "base",
+      "displayCategory": "Other Eligible Spends",
+      "rate": 1,
+      "displayRate": "2 KrisFlyer Miles per Rs 200",
+      "capMonthly": null
+    }
+  ],
+  "loungeDomestic": 4,
+  "loungeInternational": 4,
+  "combinedLoungeAccess": 4,
+  "combinedLoungeAccessLabel": "Lounge access (domestic + international)",
+  "forexMarkup": 3.5,
+  "tags": [
+    "krisflyer",
+    "singapore airlines",
+    "travel",
+    "international",
+    "lounge",
+    "air miles"
+  ],
+  "exclusions": [
+    "fuel spends",
+    "property rental payments",
+    "utility bill payments",
+    "e-wallet uploads",
+    "government transactions",
+    "EMI transactions",
+    "cash advances"
+  ],
+  "exclusionCodes": [
+    "fuel",
+    "rent",
+    "utilities",
+    "wallet_load",
+    "government",
+    "emi",
+    "cash_advance"
+  ],
+  "milestoneBenefits": [
+    "4,000 bonus KrisFlyer Miles on reaching Rs 3 Lakh in annual spends",
+    "4,000 bonus KrisFlyer Miles on reaching Rs 6 Lakh in annual spends",
+    "KrisFlyer Elite Silver tier upgrade on reaching annual spends of Rs 2.5 Lakh on Singapore Airlines Group booking channels"
+  ],
+  "additionalBenefits": [
+    "3,000 KrisFlyer Miles as welcome benefit after joining fee payment and first transaction within 60 days",
+    "Complimentary Priority Pass membership included"
+  ],
+  "additionalDetails": [
+    "KrisFlyer Miles are automatically credited to the linked KrisFlyer account on each statement cycle date.",
+    "Complimentary Priority Pass membership included for primary cardholder."
+  ],
+  "redemption": {
+    "statementBalanceValue": null,
+    "pointsExpiryYears": 2
+  },
+  "sourceUrl": "https://www.sbicard.com/en/personal/credit-cards/travel/krisflyer-sbi-card.page",
+  "applyUrl": "https://www.sbicard.com/en/personal/credit-cards/travel/krisflyer-sbi-card.page",
+  "lastVerified": "2026-06-01",
+  "verificationStatus": "official-direct",
+  "popularityScore": 60,
+  "internalNotes": [
+    "Card details manually reviewed and verified by agent on 2026-06-01",
+    "KrisFlyer Miles are valid for 3 years from the date of credit to the linked account.",
+    "Priority Pass membership is complimentary for the primary cardholder for the first 2 card membership years.",
+    "International lounge visits beyond the complimentary limit or by guests are charged at USD 27 plus taxes per visit.",
+    "Upgrade to KrisFlyer Elite Silver requires spending at least Rs 2.5 Lakh directly on Singapore Airlines flights booked via the official website or mobile app."
+  ]
+}

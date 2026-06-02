@@ -1,0 +1,89 @@
+{
+  "id": "doctors-sbi",
+  "issuer": "SBI Card",
+  "name": "Doctor's SBI Card",
+  "network": [
+    "Visa"
+  ],
+  "joiningFee": 1499,
+  "annualFee": 1499,
+  "feeWaiverSpend": 200000,
+  "bestFor": [
+    "doctors",
+    "healthcare",
+    "medical supplies",
+    "travel",
+    "lounge"
+  ],
+  "rewardType": "reward points",
+  "rewards": [
+    {
+      "category": "travel",
+      "rate": 1.25,
+      "capMonthly": 7500
+    },
+    {
+      "category": "online",
+      "rate": 1.25,
+      "capMonthly": 7500
+    },
+    {
+      "category": "base",
+      "rate": 0.25,
+      "capMonthly": null
+    }
+  ],
+  "loungeDomestic": 8,
+  "loungeInternational": 4,
+  "forexMarkup": 3.5,
+  "tags": [
+    "doctors",
+    "healthcare",
+    "medical supplies",
+    "travel",
+    "lounge",
+    "insurance"
+  ],
+  "exclusions": [
+    "fuel",
+    "cash withdrawal",
+    "balance transfer",
+    "merchant EMI",
+    "wallet loading",
+    "rent",
+    "transactions excluded under Doctor's SBI Card terms"
+  ],
+  "milestoneBenefits": [
+    "Renewal fee waiver on annual spends of Rs 2 lakh or more in the preceding year"
+  ],
+  "additionalBenefits": [
+    "Travel e-gift voucher worth Rs 1,500 as joining benefit, subject to product terms",
+    "5 Reward Points per Rs 100 on eligible medical supplies and travel bookings, capped at 7,500 accelerated Reward Points per month",
+    "5 Reward Points per Rs 100 on eligible international spends, capped separately at 7,500 accelerated Reward Points per month",
+    "5 Reward Points per Rs 100 on all eligible spends on Doctor's Day, subject to product terms",
+    "1 Reward Point per Rs 100 on other eligible retail spends",
+    "4 Reward Points equal Re 1",
+    "Professional indemnity insurance cover for doctors, subject to policy terms",
+    "8 complimentary domestic airport lounge visits per year",
+    "4 complimentary international lounge visits per year through Priority Pass",
+    "1% fuel surcharge waiver on eligible fuel transactions"
+  ],
+  "redemption": {
+    "statementBalanceValue": 0.25,
+    "pointsExpiryYears": 2,
+    "redemptionFee": 99
+  },
+  "eligibility": {
+    "salaried": [
+      "Designed for doctors and medical professionals"
+    ],
+    "selfEmployed": [
+      "Designed for doctors and medical professionals"
+    ]
+  },
+  "sourceUrl": "https://www.sbicard.com/en/personal/credit-cards/lifestyle/doctors-sbi-card.page",
+  "applyUrl": "https://www.sbicard.com/en/personal/credit-cards/lifestyle/doctors-sbi-card.page",
+  "lastVerified": "2026-05-09",
+  "verificationStatus": "official-mixed",
+  "popularityScore": 40
+}

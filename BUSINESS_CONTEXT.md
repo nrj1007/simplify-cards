@@ -345,7 +345,7 @@ Phase 3: AI Assistant
 
 - Add OpenAI-backed `/api/ask`.
 - Parse user intent and spend.
-- Retrieve relevant cards from merged issuer JSON files.
+- Retrieve relevant cards from per-card JSON files (one file per card under `data/cards/<issuer>/`).
 - Use deterministic ranking.
 - Let AI explain recommendations.
 - Include caveats and source dates.

@@ -1,0 +1,87 @@
+{
+  "id": "yes-marquee",
+  "issuer": "YES Bank",
+  "name": "YES BANK MARQUEE Credit Card",
+  "network": [
+    "Mastercard"
+  ],
+  "joiningFee": 9999,
+  "annualFee": 4999,
+  "feeWaiverSpend": 1000000,
+  "bestFor": [
+    "premium",
+    "travel",
+    "lounge",
+    "movies",
+    "golf"
+  ],
+  "rewardType": "YES Rewardz points",
+  "rewards": [
+    {
+      "category": "online",
+      "rate": 4.5,
+      "capMonthly": 25000
+    },
+    {
+      "category": "base",
+      "rate": 2.25,
+      "capMonthly": null
+    },
+    {
+      "category": "utilities",
+      "rate": 1.25,
+      "capMonthly": 1500
+    }
+  ],
+  "popularityScore": 84,
+  "loungeDomestic": 24,
+  "loungeInternational": "unlimited",
+  "forexMarkup": 1.75,
+  "tags": [
+    "yes bank",
+    "premium",
+    "travel",
+    "lounge",
+    "movies",
+    "golf",
+    "rewardz"
+  ],
+  "exclusions": [
+    "fuel",
+    "rent",
+    "wallet",
+    "cash withdrawals",
+    "post purchase EMI",
+    "instant EMI"
+  ],
+  "milestoneBenefits": [
+    "40,000 YES Rewardz points credited on fee realization in first year",
+    "20,000 YES Rewardz points credited on renewal fee realization",
+    "Renewal fee waiver on spending Rs 10,00,000 in a card anniversary year"
+  ],
+  "additionalBenefits": [
+    "Economic Times Prime subscription as joining benefit",
+    "Unlimited international lounge access for primary and add-on cardmembers",
+    "Domestic lounge access up to 6 visits per quarter for primary and add-on cardmembers, subject to spend threshold",
+    "Buy one get one movie benefit on BookMyShow with monthly cap",
+    "Purchase protection cover on eligible electronics",
+    "Green fee waiver and golf lessons at select golf courses",
+    "YES Rewardz point value up to Rs 0.25 per point"
+  ],
+  "redemption": {
+    "statementBalanceValue": 0.25,
+    "pointsExpiryYears": null
+  },
+  "eligibility": {
+    "salaried": [
+      "Eligibility is subject to YES BANK approval criteria"
+    ],
+    "selfEmployed": [
+      "Eligibility is subject to YES BANK approval criteria"
+    ]
+  },
+  "sourceUrl": "https://www.yesbank.in/content/published/api/v1.1/assets/CONT49316C1151134FA58F444758AF08712C/native/yesbank_marquee_credit_card.pdf",
+  "applyUrl": "https://www.yesbank.in/personal-banking/yes-individual/cards/credit-cards",
+  "lastVerified": "2026-05-11",
+  "verificationStatus": "official-mixed"
+}

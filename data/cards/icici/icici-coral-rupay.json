@@ -1,0 +1,80 @@
+{
+  "id": "icici-coral-rupay",
+  "issuer": "ICICI Bank",
+  "name": "ICICI Bank Coral RuPay Credit Card",
+  "network": [
+    "RuPay"
+  ],
+  "joiningFee": 500,
+  "annualFee": 500,
+  "feeWaiverSpend": 150000,
+  "bestFor": [
+    "upi",
+    "movies",
+    "railway lounge",
+    "entry level",
+    "rupay"
+  ],
+  "rewardType": "reward points",
+  "rewards": [
+    {
+      "category": "retail",
+      "rate": 0.5,
+      "capMonthly": null
+    },
+    {
+      "category": "utilities",
+      "rate": 0.25,
+      "capMonthly": null
+    },
+    {
+      "category": "upi",
+      "rate": 0.5,
+      "capMonthly": null
+    }
+  ],
+  "popularityScore": 77,
+  "loungeDomestic": 4,
+  "loungeInternational": 0,
+  "forexMarkup": 3.5,
+  "tags": [
+    "icici",
+    "coral",
+    "rupay",
+    "upi",
+    "movies",
+    "railway lounge",
+    "entry level"
+  ],
+  "exclusions": [
+    "fuel",
+    "transactions excluded under ICICI Bank reward programme terms",
+    "UPI is only for merchant payments and restricted categories apply"
+  ],
+  "milestoneBenefits": [
+    "2,000 reward points on spending Rs 2,00,000 and 1,000 reward points each time Rs 1,00,000 spend is crossed thereafter in an anniversary year, capped at 10,000 points per year"
+  ],
+  "additionalBenefits": [
+    "Complimentary domestic airport lounge access",
+    "Complimentary domestic railway lounge access",
+    "25% discount on BookMyShow and INOX movie tickets capped at Rs 100 twice a month",
+    "RuPay network support for UPI linking",
+    "Fuel surcharge waiver"
+  ],
+  "redemption": {
+    "statementBalanceValue": 0.25,
+    "pointsExpiryYears": null
+  },
+  "eligibility": {
+    "salaried": [
+      "Age 21 years and above, monthly income Rs 20,000 and above"
+    ],
+    "selfEmployed": [
+      "Age 21 years and above, eligibility is subject to ICICI Bank approval criteria"
+    ]
+  },
+  "sourceUrl": "https://www.icicibank.com/personal-banking/cards/credit-card/coral-rupay-card",
+  "applyUrl": "https://www.icicibank.com/personal-banking/cards/credit-card/rupay-credit-card",
+  "lastVerified": "2026-05-11",
+  "verificationStatus": "official-mixed"
+}

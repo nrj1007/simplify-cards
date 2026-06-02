@@ -1,0 +1,74 @@
+{
+  "id": "idfc-first-select",
+  "issuer": "IDFC FIRST Bank",
+  "name": "IDFC FIRST Select Credit Card",
+  "network": [
+    "Visa"
+  ],
+  "joiningFee": 0,
+  "annualFee": 0,
+  "feeWaiverSpend": null,
+  "bestFor": [
+    "lifetime free",
+    "lounge",
+    "lifestyle",
+    "rewards",
+    "low forex"
+  ],
+  "rewardType": "reward points",
+  "rewards": [
+    {
+      "category": "retail",
+      "rate": 2.5,
+      "capMonthly": null
+    },
+    {
+      "category": "base",
+      "rate": 0.75,
+      "capMonthly": null
+    }
+  ],
+  "loungeDomestic": 4,
+  "loungeInternational": 0,
+  "forexMarkup": 1.99,
+  "tags": [
+    "select",
+    "lifetime free",
+    "lounge",
+    "lifestyle",
+    "low forex",
+    "never expiring rewards"
+  ],
+  "exclusions": [
+    "fuel",
+    "cash withdrawal",
+    "transactions excluded under IDFC FIRST Select Credit Card terms"
+  ],
+  "milestoneBenefits": [],
+  "additionalBenefits": [
+    "Lifetime free credit card",
+    "Up to 10X never-expiring reward points",
+    "Domestic airport lounge access",
+    "Movie ticket offers",
+    "Fuel surcharge waiver",
+    "Low forex markup of 1.99%"
+  ],
+  "redemption": {
+    "statementBalanceValue": 0.25,
+    "pointsExpiryYears": null,
+    "redemptionFee": 99
+  },
+  "eligibility": {
+    "salaried": [
+      "Annual income greater than Rs 12 lakh"
+    ],
+    "selfEmployed": [
+      "Annual income greater than Rs 12 lakh"
+    ]
+  },
+  "sourceUrl": "https://www.idfcfirstbank.com/credit-card",
+  "applyUrl": "https://www.idfcfirstbank.com/credit-card",
+  "lastVerified": "2026-05-10",
+  "verificationStatus": "official-catalogue",
+  "popularityScore": 76
+}

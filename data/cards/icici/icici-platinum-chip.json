@@ -1,0 +1,70 @@
+{
+  "id": "icici-platinum-chip",
+  "issuer": "ICICI Bank",
+  "name": "ICICI Bank Platinum Chip Credit Card",
+  "network": [
+    "Visa",
+    "Mastercard"
+  ],
+  "joiningFee": 0,
+  "annualFee": 0,
+  "feeWaiverSpend": null,
+  "bestFor": [
+    "lifetime free",
+    "entry level",
+    "rewards",
+    "fuel"
+  ],
+  "rewardType": "reward points",
+  "rewards": [
+    {
+      "category": "retail",
+      "rate": 0.5,
+      "capMonthly": null
+    },
+    {
+      "category": "utilities",
+      "rate": 0.25,
+      "capMonthly": null
+    }
+  ],
+  "popularityScore": 78,
+  "loungeDomestic": 0,
+  "loungeInternational": 0,
+  "forexMarkup": 3.5,
+  "tags": [
+    "icici",
+    "lifetime free",
+    "entry level",
+    "rewards",
+    "fuel surcharge waiver"
+  ],
+  "exclusions": [
+    "fuel",
+    "transactions excluded under ICICI Bank reward programme terms"
+  ],
+  "milestoneBenefits": [],
+  "additionalBenefits": [
+    "No joining fee and no annual fee",
+    "Earn up to 2 reward points on every Rs 100 spent for retail purchases",
+    "1% fuel surcharge waiver at HPCL petrol pumps"
+  ],
+  "redemption": {
+    "statementBalanceValue": 0.25,
+    "pointsExpiryYears": null
+  },
+  "eligibility": {
+    "salaried": [
+      "Minimum age 21 years",
+      "Eligibility is subject to ICICI Bank approval criteria"
+    ],
+    "selfEmployed": [
+      "Minimum age 21 years",
+      "Eligibility is subject to ICICI Bank approval criteria"
+    ]
+  },
+  "sourceUrl": "https://www.icicibank.com/personal-banking/cards/credit-card/platinum-chip-credit-card.html",
+  "applyUrl": "https://www.icicibank.com/personal-banking/cards/credit-card/platinum-chip-credit-card.html",
+  "lastVerified": "2026-05-10",
+  "verificationStatus": "official-direct"
+}

@@ -1,0 +1,86 @@
+{
+  "id": "indusind-aura-edge",
+  "issuer": "IndusInd Bank",
+  "name": "IndusInd Bank Platinum Aura Edge Credit Card",
+  "network": [
+    "Visa",
+    "Mastercard"
+  ],
+  "joiningFee": 0,
+  "annualFee": 0,
+  "feeWaiverSpend": null,
+  "bestFor": [
+    "lifetime free",
+    "custom reward plans",
+    "grocery",
+    "travel"
+  ],
+  "rewardType": "savings points",
+  "rewards": [
+    {
+      "category": "grocery",
+      "rate": 1.6,
+      "displayRate": "4 savings points per Rs 100",
+      "capMonthly": null
+    },
+    {
+      "category": "travel",
+      "rate": 1.6,
+      "displayRate": "4 savings points per Rs 100",
+      "capMonthly": null
+    },
+    {
+      "category": "base",
+      "rate": 0.2,
+      "displayRate": "0.5 savings points per Rs 100",
+      "capMonthly": null
+    }
+  ],
+  "popularityScore": 77,
+  "loungeDomestic": 0,
+  "loungeInternational": 0,
+  "forexMarkup": 3.5,
+  "tags": [
+    "indusind",
+    "aura edge",
+    "lifetime free",
+    "reward plans",
+    "grocery",
+    "travel"
+  ],
+  "exclusions": [
+    "reward rate depends on selected plan",
+    "fuel",
+    "cash redemption value follows current savings-point rules"
+  ],
+  "milestoneBenefits": [],
+  "additionalBenefits": [
+    "Choose from 4 reward plans: Shop, Home, Travel and Party",
+    "Earn up to 8x reward points on select merchant categories",
+    "1% fuel surcharge waiver",
+    "Marketed by IndusInd as a lifetime-free card"
+  ],
+  "redemption": {
+    "statementBalanceValue": 0.4,
+    "pointsExpiryYears": null,
+    "airlinePartners": [
+      {
+        "airline": "Singapore Airlines",
+        "programme": "KrisFlyer",
+        "ratio": "2:1"
+      }
+    ]
+  },
+  "eligibility": {
+    "salaried": [
+      "Eligibility is subject to IndusInd Bank approval criteria"
+    ],
+    "selfEmployed": [
+      "Eligibility is subject to IndusInd Bank approval criteria"
+    ]
+  },
+  "sourceUrl": "https://www.indusind.com/in/en/personal/cards/credit-card/platinum-aura-edge-visa-and-mastercard-credit-card-easy-credit.html",
+  "applyUrl": "https://www.indusind.com/in/en/personal/cards/credit-card/platinum-aura-edge-visa-and-mastercard-credit-card-easy-credit.html",
+  "lastVerified": "2026-05-11",
+  "verificationStatus": "official-mixed"
+}

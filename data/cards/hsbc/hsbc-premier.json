@@ -1,0 +1,98 @@
+{
+  "id": "hsbc-premier",
+  "issuer": "HSBC Bank",
+  "name": "HSBC Premier Credit Card",
+  "network": [
+    "Mastercard"
+  ],
+  "joiningFee": 12000,
+  "annualFee": 20000,
+  "feeWaiverSpend": null,
+  "bestFor": [
+    "premier",
+    "travel",
+    "lounge",
+    "forex",
+    "premium"
+  ],
+  "rewardType": "reward points",
+  "rewards": [
+    {
+      "category": "base",
+      "rate": 3,
+      "capMonthly": null
+    },
+    {
+      "category": "travel",
+      "rate": 12,
+      "capMonthly": null
+    }
+  ],
+  "loungeDomestic": "unlimited",
+  "loungeInternational": "unlimited",
+  "forexMarkup": 0.99,
+  "tags": [
+    "premier",
+    "premium",
+    "travel",
+    "forex",
+    "lounge",
+    "mastercard",
+    "bookmyshow",
+    "eazydiner"
+  ],
+  "specialSpendRules": [
+    {
+      "category": "rent",
+      "treatment": "capped",
+      "capMonthlySpend": 100000,
+      "notes": "User-verified rule: rewards allowed on rent up to Rs 1 lakh"
+    },
+    {
+      "category": "insurance",
+      "treatment": "capped",
+      "capMonthlySpend": 100000,
+      "notes": "User-verified rule: rewards allowed on insurance up to Rs 1 lakh"
+    }
+  ],
+  "exclusions": [
+    "fuel",
+    "cash advance",
+    "balance transfer",
+    "transactions excluded under HSBC Premier Credit Card terms"
+  ],
+  "milestoneBenefits": [
+    "Annual renewal fee waived for customers meeting HSBC Premier eligibility criteria"
+  ],
+  "additionalBenefits": [
+    "20,000 reward points when starting to use the card, subject to terms",
+    "3 reward points per Rs 100 on eligible spends",
+    "Reward points never expire",
+    "Up to 12X reward points on hotels, flights and car rentals on Travel with Points",
+    "1 reward point worth up to Re 1 at Apple online store and selected airlines",
+    "Instant 1:1 conversion to air miles and hotel loyalty points in HSBC India app",
+    "Unlimited domestic and international airport lounge access for cardholders plus 8 international guest visits",
+    "0.99% foreign exchange markup globally",
+    "Buy one get one offers at BookMyShow",
+    "30% off dining bill up to Rs 1,500 with EazyDiner",
+    "1% fuel surcharge waiver on fuel transactions from Rs 400 to Rs 4,000",
+    "Lost card misuse insurance cover up to Rs 3 lakh"
+  ],
+  "redemption": {
+    "statementBalanceValue": 1,
+    "pointsExpiryYears": null
+  },
+  "eligibility": {
+    "salaried": [
+      "Existing HSBC Premier customer; Premier criteria include salary account with net monthly salary credit of Rs 3 lakh"
+    ],
+    "selfEmployed": [
+      "Existing HSBC Premier customer; Premier criteria include average quarterly TRB of Rs 50 lakh"
+    ]
+  },
+  "sourceUrl": "https://www.hsbc.co.in/credit-cards/products/premier/",
+  "applyUrl": "https://www.hsbc.co.in/credit-cards/products/premier/",
+  "lastVerified": "2026-05-10",
+  "verificationStatus": "official-direct",
+  "popularityScore": 72
+}

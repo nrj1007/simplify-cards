@@ -1,0 +1,80 @@
+{
+  "id": "bpcl-sbi",
+  "issuer": "SBI Card",
+  "name": "BPCL SBI Card",
+  "network": [
+    "Visa",
+    "RuPay"
+  ],
+  "joiningFee": 499,
+  "annualFee": 499,
+  "feeWaiverSpend": 50000,
+  "bestFor": [
+    "fuel",
+    "bpcl",
+    "grocery",
+    "dining",
+    "low fee"
+  ],
+  "rewardType": "reward points",
+  "rewards": [
+    {
+      "category": "fuel",
+      "rate": 3.25,
+      "capMonthly": 325
+    },
+    {
+      "category": "grocery",
+      "rate": 1.25,
+      "capMonthly": 1250
+    },
+    {
+      "category": "dining",
+      "rate": 1.25,
+      "capMonthly": 1250
+    },
+    {
+      "category": "base",
+      "rate": 0.25,
+      "capMonthly": null
+    }
+  ],
+  "loungeDomestic": 0,
+  "loungeInternational": 0,
+  "forexMarkup": 3.5,
+  "tags": [
+    "fuel",
+    "bpcl",
+    "grocery",
+    "dining",
+    "movies",
+    "low fee"
+  ],
+  "exclusions": [
+    "cash withdrawal",
+    "balance transfer",
+    "fuel spends outside eligible BPCL reward construct",
+    "transactions excluded under BPCL SBI Card terms"
+  ],
+  "milestoneBenefits": [
+    "Annual fee reversal on annual spends of Rs 50,000 or more in the previous year"
+  ],
+  "additionalBenefits": [
+    "2,000 activation bonus Reward Points worth Rs 500 on payment of joining fee",
+    "13 Reward Points per Rs 100 on fuel purchases at BPCL petrol pumps, capped at 1,300 Reward Points per billing cycle",
+    "5 Reward Points per Rs 100 on grocery, departmental stores, movies and dining spends, capped at 5,000 Reward Points per month",
+    "1 Reward Point per Rs 100 on other eligible non-fuel retail purchases",
+    "4 Reward Points equal Re 1 and can be redeemed for fuel at participating BPCL outlets or through SBI Card rewards options",
+    "1% fuel surcharge waiver on eligible BPCL fuel transactions up to Rs 4,000, capped at Rs 100 per month",
+    "No minimum reward point threshold for eligible BPCL fuel redemption"
+  ],
+  "redemption": {
+    "statementBalanceValue": 0.25,
+    "pointsExpiryYears": 2
+  },
+  "sourceUrl": "https://www.sbicard.com/en/personal/credit-cards/bpcl-sbi-card.html",
+  "applyUrl": "https://www.sbicard.com/en/personal/credit-cards/bpcl-sbi-card.html",
+  "lastVerified": "2026-05-09",
+  "verificationStatus": "official-mixed",
+  "popularityScore": 64
+}

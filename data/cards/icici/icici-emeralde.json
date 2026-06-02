@@ -1,0 +1,73 @@
+{
+  "id": "icici-emeralde",
+  "issuer": "ICICI Bank",
+  "name": "ICICI Bank Emeralde Credit Card",
+  "network": [
+    "Mastercard",
+    "American Express"
+  ],
+  "joiningFee": 12000,
+  "annualFee": 12000,
+  "feeWaiverSpend": null,
+  "bestFor": [
+    "premium",
+    "travel",
+    "lounge",
+    "golf",
+    "movies"
+  ],
+  "rewardType": "reward points",
+  "rewards": [
+    {
+      "category": "retail",
+      "rate": 1,
+      "capMonthly": null
+    },
+    {
+      "category": "utilities",
+      "rate": 0.25,
+      "capMonthly": null
+    }
+  ],
+  "popularityScore": 82,
+  "loungeDomestic": "unlimited",
+  "loungeInternational": "unlimited",
+  "forexMarkup": 2,
+  "tags": [
+    "icici",
+    "premium",
+    "lounge",
+    "golf",
+    "movies",
+    "travel"
+  ],
+  "exclusions": [
+    "fuel",
+    "transactions excluded under ICICI Bank reward programme terms"
+  ],
+  "milestoneBenefits": [],
+  "additionalBenefits": [
+    "Unlimited complimentary domestic and international lounge access",
+    "Unlimited complimentary airport spa access in India",
+    "BOGO movie and event tickets up to four times every month on tickets worth up to Rs 750",
+    "Up to 4 complimentary golf rounds based on eligible spends in the previous month",
+    "4 ICICI Bank Reward Points on every Rs 100 spent on retail transactions except fuel",
+    "1 ICICI Bank Reward Point on every Rs 100 spent on utilities and insurance"
+  ],
+  "redemption": {
+    "statementBalanceValue": 0.25,
+    "pointsExpiryYears": null
+  },
+  "eligibility": {
+    "salaried": [
+      "Eligibility is subject to ICICI Bank premium card approval criteria"
+    ],
+    "selfEmployed": [
+      "Eligibility is subject to ICICI Bank premium card approval criteria"
+    ]
+  },
+  "sourceUrl": "https://www.icicibank.com/personal-banking/cards/credit-card/emeralde-credit-card-new",
+  "applyUrl": "https://www.icicibank.com/personal-banking/cards/credit-card/emeralde-credit-card-new",
+  "lastVerified": "2026-05-10",
+  "verificationStatus": "official-direct"
+}

@@ -1,0 +1,94 @@
+{
+  "id": "axis-miles-and-more",
+  "issuer": "Axis Bank",
+  "name": "Miles and More Axis Bank Credit Card",
+  "network": [
+    "Mastercard"
+  ],
+  "joiningFee": 3500,
+  "annualFee": 3500,
+  "feeWaiverSpend": null,
+  "bestFor": [
+    "miles",
+    "lufthansa",
+    "star alliance",
+    "travel",
+    "lounge"
+  ],
+  "rewardType": "miles and more award miles",
+  "rewards": [
+    {
+      "category": "airlines",
+      "rate": 2,
+      "capMonthly": null
+    },
+    {
+      "category": "travel",
+      "rate": 2,
+      "capMonthly": null
+    },
+    {
+      "category": "base",
+      "rate": 2,
+      "capMonthly": null
+    }
+  ],
+  "loungeDomestic": 16,
+  "loungeInternational": 2,
+  "forexMarkup": 3.5,
+  "tags": [
+    "miles and more",
+    "lufthansa",
+    "star alliance",
+    "miles",
+    "travel",
+    "priority pass",
+    "lounge"
+  ],
+  "exclusions": [
+    "fuel",
+    "wallet",
+    "rent",
+    "insurance",
+    "utilities",
+    "government spends",
+    "gold",
+    "jewellery",
+    "cash withdrawals",
+    "emi transactions",
+    "transactions excluded under Miles and More Axis Bank Credit Card terms"
+  ],
+  "milestoneBenefits": [
+    "3,000 award miles annual renewal bonus for Miles and More Axis Bank World Credit Card",
+    "World Select variant offers 4,000 award miles annual renewal bonus"
+  ],
+  "additionalBenefits": [
+    "5,000 welcome award miles on first transaction for Miles and More Axis Bank World Credit Card",
+    "World Select variant offers 15,000 welcome award miles",
+    "4 award miles per Rs 200 of eligible spends on World Credit Card",
+    "World Select variant earns 6 award miles per Rs 200 of eligible spends",
+    "Award miles do not expire while card terms for activity are met",
+    "2 complimentary Priority Pass lounge visits per card membership year on World Credit Card",
+    "World Select variant offers 4 complimentary Priority Pass lounge visits per card membership year",
+    "4 complimentary domestic Mastercard lounge visits per quarter on World Credit Card, subject to spends criteria",
+    "World Select variant offers 8 complimentary domestic Mastercard lounge visits per quarter, subject to spends criteria",
+    "Dining Delights offers may apply; Axis page lists enhanced dining offers for World Select"
+  ],
+  "redemption": {
+    "statementBalanceValue": null,
+    "pointsExpiryYears": null
+  },
+  "eligibility": {
+    "salaried": [
+      "Primary cardholder should be 18 to 70 years of age and resident of India or NRI"
+    ],
+    "selfEmployed": [
+      "Primary cardholder should be 18 to 70 years of age and resident of India or NRI"
+    ]
+  },
+  "sourceUrl": "https://www.axisbank.com/retail/cards/credit-card/miles-more-credit-card",
+  "applyUrl": "https://www.axisbank.com/retail/cards/credit-card/miles-more-credit-card",
+  "lastVerified": "2026-05-10",
+  "verificationStatus": "official-mixed",
+  "popularityScore": 62
+}

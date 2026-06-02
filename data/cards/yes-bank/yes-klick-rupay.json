@@ -1,0 +1,71 @@
+{
+  "id": "yes-klick-rupay",
+  "issuer": "YES Bank",
+  "name": "YES BANK Klick RuPay Credit Card",
+  "network": [
+    "RuPay"
+  ],
+  "joiningFee": 0,
+  "annualFee": 0,
+  "feeWaiverSpend": null,
+  "bestFor": [
+    "upi",
+    "virtual card",
+    "lifetime free",
+    "co-branded"
+  ],
+  "rewardType": "YES Rewardz points",
+  "rewards": [
+    {
+      "category": "upi",
+      "rate": 0.5,
+      "capMonthly": null
+    },
+    {
+      "category": "base",
+      "rate": 0.25,
+      "capMonthly": null
+    }
+  ],
+  "popularityScore": 76,
+  "loungeDomestic": 0,
+  "loungeInternational": 0,
+  "forexMarkup": 2.75,
+  "tags": [
+    "yes bank",
+    "klick",
+    "rupay",
+    "upi",
+    "virtual card",
+    "lifetime free",
+    "rewardz"
+  ],
+  "exclusions": [
+    "upi rewards apply on eligible UPI transactions above Rs 2,000",
+    "cash withdrawal not available",
+    "card is virtual only"
+  ],
+  "milestoneBenefits": [],
+  "additionalBenefits": [
+    "4 reward points per Rs 200 on UPI transactions above Rs 2,000",
+    "2 reward points per Rs 200 on non-UPI transactions",
+    "Lifetime free virtual-only RuPay credit card",
+    "Existing YES BANK credit cardholders are not eligible for this offer"
+  ],
+  "redemption": {
+    "statementBalanceValue": 0.25,
+    "pointsExpiryYears": 3
+  },
+  "eligibility": {
+    "salaried": [
+      "Eligibility is subject to YES BANK approval criteria"
+    ],
+    "selfEmployed": [
+      "Eligibility is subject to YES BANK approval criteria"
+    ]
+  },
+  "sourceUrl": "https://www.yesbank.in/content/published/api/v1.1/assets/CONTEC25C9A4B18F4AA7BA64228D65B6F8F6/native/ybl_user_guide_klick_rupay_credit_card.pdf",
+  "applyUrl": "https://www.yesbank.in/personal-banking/yes-individual/cards/credit-cards",
+  "lastVerified": "2026-05-11",
+  "verificationStatus": "official-mixed"
+}

@@ -1,0 +1,71 @@
+{
+  "id": "ola-money-sbi",
+  "issuer": "SBI Card",
+  "name": "OLA Money SBI Card",
+  "network": [
+    "Visa"
+  ],
+  "joiningFee": 0,
+  "annualFee": 499,
+  "feeWaiverSpend": 100000,
+  "bestFor": [
+    "ola",
+    "cabs",
+    "travel",
+    "low fee",
+    "cashback"
+  ],
+  "rewardType": "reward points",
+  "rewards": [
+    {
+      "category": "travel",
+      "rate": 7,
+      "capMonthly": 500
+    },
+    {
+      "category": "base",
+      "rate": 1,
+      "capMonthly": null
+    }
+  ],
+  "loungeDomestic": 0,
+  "loungeInternational": 0,
+  "forexMarkup": 3.5,
+  "tags": [
+    "ola",
+    "cabs",
+    "travel",
+    "first year free",
+    "low fee",
+    "fuel waiver"
+  ],
+  "exclusions": [
+    "fuel",
+    "rent",
+    "Cleartrip transactions",
+    "cash advance",
+    "balance transfer",
+    "Flexipay and EMI spends",
+    "transactions excluded under OLA Money SBI Card terms"
+  ],
+  "milestoneBenefits": [
+    "Renewal fee waiver on annual spends of Rs 1 lakh or more in the preceding year"
+  ],
+  "additionalBenefits": [
+    "No joining fee",
+    "7% Reward Points on Ola rides, capped at 500 points per month",
+    "1% Reward Points on other eligible spends",
+    "1 Reward Point equals Re 1 when credited to OLA Money Wallet",
+    "Reward Points are automatically credited to the OLA Money Wallet",
+    "1% fuel surcharge waiver on eligible fuel purchases, capped at Rs 100 per month"
+  ],
+  "redemption": {
+    "statementBalanceValue": 1,
+    "pointsExpiryYears": null
+  },
+  "sourceUrl": "https://www.sbicard.com/en/personal/credit-cards/travel/ola-money-sbi-card.page",
+  "applyUrl": "https://www.sbicard.com/en/personal/credit-cards/travel/ola-money-sbi-card.page",
+  "lastVerified": "2026-05-09",
+  "verificationStatus": "official-mixed",
+  "popularityScore": 57
+}

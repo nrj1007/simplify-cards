@@ -1,0 +1,89 @@
+{
+  "id": "scapia-bobcard",
+  "issuer": "Bank of Baroda",
+  "name": "BOBCARD Scapia Credit Card",
+  "network": [
+    "Visa",
+    "RuPay"
+  ],
+  "joiningFee": 0,
+  "annualFee": 0,
+  "feeWaiverSpend": null,
+  "bestFor": [
+    "travel",
+    "zero forex",
+    "lounge",
+    "upi",
+    "lifetime free"
+  ],
+  "rewardType": "scapia coins",
+  "rewards": [
+    {
+      "category": "travel",
+      "rate": 4,
+      "capMonthly": null
+    },
+    {
+      "category": "online",
+      "rate": 2,
+      "capMonthly": null
+    },
+    {
+      "category": "retail",
+      "rate": 2,
+      "capMonthly": null
+    },
+    {
+      "category": "upi",
+      "rate": 1,
+      "capMonthly": null
+    }
+  ],
+  "loungeDomestic": "unlimited",
+  "loungeInternational": 0,
+  "forexMarkup": 0,
+  "tags": [
+    "scapia",
+    "bobcard",
+    "travel",
+    "zero forex",
+    "lounge",
+    "upi",
+    "rupay",
+    "lifetime free"
+  ],
+  "exclusions": [
+    "ineligible transactions as per Scapia and BOBCARD terms",
+    "Visa rewards apply on eligible spends on select categories of minimum Rs 20",
+    "RuPay rewards apply on eligible UPI, online and offline spends of Rs 500 or more"
+  ],
+  "milestoneBenefits": [
+    "Unlimited domestic lounge access unlocks on monthly spends of Rs 20,000"
+  ],
+  "additionalBenefits": [
+    "Zero joining fee and zero annual fee",
+    "Zero forex markup on all international spends",
+    "10% rewards on offline and online spends on select categories on Visa card of minimum Rs 20",
+    "5% rewards on eligible offline, online and UPI spends on RuPay card of minimum Rs 500",
+    "20% rewards on travel bookings through the Scapia app",
+    "Unlimited domestic lounge access after spending Rs 20,000 a month",
+    "Airport privileges up to Rs 1,000"
+  ],
+  "redemption": {
+    "airMilesValue": 0.2,
+    "pointsExpiryYears": null
+  },
+  "eligibility": {
+    "salaried": [
+      "Eligibility is subject to BOBCARD and Scapia approval criteria"
+    ],
+    "selfEmployed": [
+      "Eligibility is subject to BOBCARD and Scapia approval criteria"
+    ]
+  },
+  "sourceUrl": "https://www.bobcard.co.in/credit-card-types/bobcard-scapia-credit-card",
+  "applyUrl": "https://www.bobcard.co.in/credit-card-types/bobcard-scapia-credit-card",
+  "lastVerified": "2026-05-10",
+  "verificationStatus": "official-direct",
+  "popularityScore": 87
+}

@@ -1,0 +1,83 @@
+{
+  "id": "axis-horizon",
+  "issuer": "Axis Bank",
+  "name": "HORIZON Credit Card",
+  "network": [
+    "Visa"
+  ],
+  "joiningFee": 3000,
+  "annualFee": 3000,
+  "feeWaiverSpend": null,
+  "bestFor": [
+    "travel",
+    "airlines",
+    "travel edge",
+    "lounge",
+    "miles"
+  ],
+  "rewardType": "edge miles",
+  "rewards": [
+    {
+      "category": "travel",
+      "rate": 5,
+      "capMonthly": null
+    },
+    {
+      "category": "base",
+      "rate": 2,
+      "capMonthly": null
+    }
+  ],
+  "loungeDomestic": 24,
+  "loungeInternational": 8,
+  "forexMarkup": 3.5,
+  "tags": [
+    "horizon",
+    "travel",
+    "airlines",
+    "travel edge",
+    "edge miles",
+    "lounge",
+    "miles"
+  ],
+  "exclusions": [
+    "transportation and tolls",
+    "utilities and telecom",
+    "insurance",
+    "education",
+    "government institutions",
+    "wallet",
+    "rent",
+    "fuel",
+    "transactions excluded under Horizon Credit Card terms"
+  ],
+  "milestoneBenefits": [
+    "1,500 EDGE Miles renewal benefit from the second card anniversary year onward"
+  ],
+  "additionalBenefits": [
+    "5,000 EDGE Miles on cumulative net spends of Rs 1,000 or more within 30 days of card issuance",
+    "5 EDGE Miles per Rs 100 on Axis Bank Travel EDGE portal and direct airline website spends",
+    "2 EDGE Miles per Rs 100 on other eligible spends",
+    "1 EDGE Mile equals Re 1 as per Axis Bank HORIZON value chart",
+    "Up to 24 domestic airport lounge visits per year, subject to programme terms",
+    "Up to 8 international airport lounge visits per year, subject to programme terms",
+    "1% fuel surcharge waiver on eligible fuel transactions from Rs 400 to Rs 5,000, capped at Rs 400 per statement month"
+  ],
+  "redemption": {
+    "statementBalanceValue": 1,
+    "pointsExpiryYears": 3
+  },
+  "eligibility": {
+    "salaried": [
+      "Eligibility is subject to Axis Bank approval criteria"
+    ],
+    "selfEmployed": [
+      "Eligibility is subject to Axis Bank approval criteria"
+    ]
+  },
+  "sourceUrl": "https://www.axis.bank.in/cards/credit-card/axis-horizon-credit-card",
+  "applyUrl": "https://www.axis.bank.in/cards/credit-card/axis-horizon-credit-card",
+  "lastVerified": "2026-05-10",
+  "verificationStatus": "official-direct",
+  "popularityScore": 69
+}

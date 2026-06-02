@@ -35,7 +35,7 @@ Official pages often hide critical restrictions, caps, or devaluations in linked
 - Fetch or search these files to find recent changes or hidden limits.
 
 ### Step 3: Find Missing or New Details
-Compare the retrieved details against the current card entry in the issuer's JSON file (`data/cards/<issuer>.json`). Look specifically for:
+Compare the retrieved details against the current card entry in its per-card file (`data/cards/<issuer>/<card-id>.json`). Look specifically for:
 - **Network Variants**: Confirm the currently offered network(s) and remove stale networks that are no longer shown on the official product page or official documents.
 - **Card Image**: Verify that the card has a good `imageUrl` pointing to the actual card face, not a banner, eligibility artwork, or generic marketing visual.
 - **Latest Updates**: Check whether the issuer has any recent official updates, revision notices, devaluations, fee changes, lounge-rule changes, reward revisions, or benefit changes that should be added to `data/card-content.json`.
@@ -142,9 +142,9 @@ Always run the validation and testing pipeline after modifying JSON card data:
    - If running Git commands in the terminal fails because Git is not in the system %PATH%, locate it in typical install paths (e.g., `C:\Program Files\Git\cmd\git.exe`) and execute using the absolute path (e.g., `& 'C:\Program Files\Git\cmd\git.exe' status`).
 
 ### Step 6: Commit & Push
-Stage only the modified card configuration and push:
+Stage only the modified card configuration and push (one file per card under its issuer folder):
 ```bash
-git add data/cards/<issuer>.json
+git add data/cards/<issuer>/<card-id>.json
 git commit -m "Update <card name> details from official bank audit"
 git push origin main
 ```
@@ -234,7 +234,7 @@ When auditing or verifying **SBI Card** products, use the following image and as
 - Use the SBI-specific helper script:
   `node scripts/download-sbi-card-image.js <card-id> [url-or-local-html-path]`
 - The script:
-  - looks up the card inside `data/cards/sbi.json`
+  - looks up the card inside `data/cards/sbi/<card-id>.json`
   - defaults to the card's `sourceUrl` or `applyUrl`
   - scans `meta` and `img` tags for SBI image candidates
   - strongly prefers `network-card-images` assets
@@ -268,7 +268,7 @@ When auditing or verifying **Axis Bank** cards, use the following image workflow
 - Use the Axis-specific helper script:
   `node scripts/download-axis-card-image.js <card-id> [url-or-local-html-path]`
 - The script:
-  - looks up the card inside `data/cards/axis.json`
+  - looks up the card inside `data/cards/axis/<card-id>.json`
   - defaults to the card's `sourceUrl` or `applyUrl`
   - scans both the product page and Axis credit-card listing page fallbacks
   - strongly prefers `/images/default-source/creditcard/webp/` assets

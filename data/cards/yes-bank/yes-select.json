@@ -1,0 +1,81 @@
+{
+  "id": "yes-select",
+  "issuer": "YES Bank",
+  "name": "YES BANK SELECT Credit Card",
+  "network": [
+    "Mastercard",
+    "Visa",
+    "RuPay"
+  ],
+  "joiningFee": 599,
+  "annualFee": 599,
+  "feeWaiverSpend": 100000,
+  "bestFor": [
+    "online",
+    "entry premium",
+    "lounge",
+    "golf"
+  ],
+  "rewardType": "YES Rewardz points",
+  "rewards": [
+    {
+      "category": "online",
+      "rate": 1,
+      "capMonthly": 1250
+    },
+    {
+      "category": "base",
+      "rate": 0.5,
+      "capMonthly": null
+    },
+    {
+      "category": "utilities",
+      "rate": 0.25,
+      "capMonthly": 150
+    }
+  ],
+  "popularityScore": 74,
+  "loungeDomestic": 4,
+  "loungeInternational": 0,
+  "forexMarkup": 2.5,
+  "tags": [
+    "yes bank",
+    "online",
+    "entry premium",
+    "lounge",
+    "golf",
+    "rewardz"
+  ],
+  "exclusions": [
+    "fuel",
+    "cash withdrawals",
+    "transactions converted into EMI"
+  ],
+  "milestoneBenefits": [
+    "First-year membership fee waived on spending Rs 10,000 within 30 days of card issuance",
+    "Renewal fee waiver on spending Rs 1,00,000 in a card anniversary year"
+  ],
+  "additionalBenefits": [
+    "Card was earlier known as YES Prosperity Edge",
+    "Priority Pass or LoungeKey membership for primary cardmember",
+    "1 complimentary domestic airport lounge visit per quarter",
+    "Purchase protection cover on eligible electronics",
+    "Green fee waiver and golf lessons at select golf courses"
+  ],
+  "redemption": {
+    "statementBalanceValue": 0.25,
+    "pointsExpiryYears": null
+  },
+  "eligibility": {
+    "salaried": [
+      "Eligibility is subject to YES BANK approval criteria"
+    ],
+    "selfEmployed": [
+      "Eligibility is subject to YES BANK approval criteria"
+    ]
+  },
+  "sourceUrl": "https://www.yesbank.in/content/published/api/v1.1/assets/CONT1D928BE3CBD5424AAF1FAEC534E78032/native/yesbank_credit_card_select_value_chart_nov23.pdf",
+  "applyUrl": "https://www.yesbank.in/personal-banking/yes-individual/cards/credit-cards",
+  "lastVerified": "2026-05-11",
+  "verificationStatus": "official-mixed"
+}

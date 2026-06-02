@@ -1,0 +1,93 @@
+{
+  "id": "hdfc-phonepe-ultimo",
+  "issuer": "HDFC Bank",
+  "name": "PhonePe HDFC Bank Ultimo Credit Card",
+  "network": [
+    "RuPay"
+  ],
+  "joiningFee": 999,
+  "annualFee": 999,
+  "feeWaiverSpend": 200000,
+  "bestFor": [
+    "phonepe",
+    "upi",
+    "utilities",
+    "online shopping",
+    "lounge"
+  ],
+  "rewardType": "reward points",
+  "rewards": [
+    {
+      "category": "phonepe",
+      "rate": 10,
+      "capMonthly": 1000
+    },
+    {
+      "category": "online",
+      "rate": 5,
+      "capMonthly": 500
+    },
+    {
+      "category": "upi",
+      "rate": 1,
+      "capMonthly": 500
+    }
+  ],
+  "loungeDomestic": 8,
+  "loungeInternational": 0,
+  "forexMarkup": 3.5,
+  "tags": [
+    "phonepe",
+    "rupay",
+    "upi",
+    "online",
+    "utilities",
+    "lounge"
+  ],
+  "exclusions": [
+    "cash advances",
+    "credit card fees or charges",
+    "EMI spends",
+    "categories excluded under HDFC Bank internal policies"
+  ],
+  "milestoneBenefits": [
+    "Annual fee waived on spending Rs 2,00,000 in the previous year",
+    "8 complimentary annual domestic lounge visits, 2 per quarter, conditional on spending Rs 75,000 in a quarter"
+  ],
+  "additionalBenefits": [
+    "PhonePe gift card worth Rs 499 on first RuPay credit-card-on-UPI transaction of minimum Rs 100, for cardholders where joining fee is applicable",
+    "Additional scratch cards worth Rs 50 each on next 10 RuPay credit-card-on-UPI transactions of minimum Rs 100",
+    "10% reward points on select PhonePe categories: recharges, utilities, bill payments and travel",
+    "5% reward points on Amazon, Flipkart, Myntra, Ajio, Swiggy, Zomato and Uber",
+    "1% reward points on all Scan & Pay spends",
+    "1% fuel surcharge waiver on fuel transactions from Rs 400 to Rs 5,000, capped at Rs 250 per statement cycle",
+    "Apply only through the PhonePe app",
+    "Up to 50 days interest-free credit period",
+    "Zero cost card liability when reported immediately"
+  ],
+  "redemption": {
+    "statementBalanceValue": 1,
+    "smartBuyFlightHotelValue": 0.3,
+    "airMilesValue": 0.3,
+    "minimumPointsForStatementCredit": 500,
+    "cashbackRedemptionCapMonthly": 7500,
+    "pointsExpiryYears": 2
+  },
+  "eligibility": {
+    "salaried": [
+      "Indian national",
+      "Age 21 to 60 years",
+      "Gross monthly income greater than Rs 25,000"
+    ],
+    "selfEmployed": [
+      "Indian national",
+      "Age 21 to 65 years",
+      "Income Rs 26 lakh per annum"
+    ]
+  },
+  "sourceUrl": "https://www.hdfc.bank.in/credit-cards/phonepe-hdfc-bank-ultimo-credit-card",
+  "applyUrl": "https://www.hdfc.bank.in/credit-cards/phonepe-hdfc-bank-ultimo-credit-card",
+  "lastVerified": "2026-05-08",
+  "verificationStatus": "official-direct",
+  "popularityScore": 74
+}

@@ -1,0 +1,70 @@
+{
+  "id": "kotak-white-reserve",
+  "issuer": "Kotak Mahindra Bank",
+  "name": "White Reserve Credit Card",
+  "network": [
+    "Visa"
+  ],
+  "joiningFee": 12500,
+  "annualFee": 12500,
+  "feeWaiverSpend": 1000000,
+  "bestFor": [
+    "premium",
+    "travel",
+    "lounge",
+    "concierge",
+    "milestones"
+  ],
+  "rewardType": "White Pass",
+  "rewards": [
+    {
+      "category": "base",
+      "rate": 0,
+      "capMonthly": null
+    }
+  ],
+  "popularityScore": 76,
+  "loungeDomestic": "unlimited",
+  "loungeInternational": "unlimited",
+  "forexMarkup": 3.5,
+  "tags": [
+    "kotak",
+    "white reserve",
+    "white pass",
+    "premium",
+    "lounge",
+    "concierge",
+    "travel"
+  ],
+  "exclusions": [
+    "white pass value depends on spend milestones",
+    "as per internal norms, customer can hold only one active White or White Reserve Credit Card",
+    "guest charges apply after complimentary visits are exhausted"
+  ],
+  "milestoneBenefits": [
+    "Annual fee can be waived on annual spends of Rs 10,00,000",
+    "Earn White Pass value at milestone spends up to Rs 2.5 lakhs annually"
+  ],
+  "additionalBenefits": [
+    "Unlimited global airport lounge access for primary and add-on card holders",
+    "Luxury lifestyle concierge",
+    "Annual Club Marriott membership",
+    "Golf privileges",
+    "1 White Pass = Rs 1 on White Pass catalogue and Rs 0.70 for cashback"
+  ],
+  "redemption": {
+    "statementBalanceValue": 0.7
+  },
+  "eligibility": {
+    "salaried": [
+      "Eligibility is subject to Kotak Mahindra Bank approval criteria"
+    ],
+    "selfEmployed": [
+      "Eligibility is subject to Kotak Mahindra Bank approval criteria"
+    ]
+  },
+  "sourceUrl": "https://www.kotak.com/en/personal-banking/cards/credit-cards/white-reserve-credit-card/value.html",
+  "applyUrl": "https://www.kotak.com/en/personal-banking/cards/credit-cards/white-reserve-credit-card.html",
+  "lastVerified": "2026-05-11",
+  "verificationStatus": "official-mixed"
+}

@@ -1,0 +1,78 @@
+{
+  "id": "indigo-sbi",
+  "issuer": "SBI Card",
+  "name": "IndiGo SBI Card",
+  "network": [
+    "Mastercard"
+  ],
+  "joiningFee": 1499,
+  "annualFee": 1499,
+  "feeWaiverSpend": null,
+  "bestFor": [
+    "indigo",
+    "flights",
+    "travel",
+    "lounge"
+  ],
+  "rewardType": "IndiGo BluChips",
+  "rewards": [
+    {
+      "category": "travel",
+      "rate": 3,
+      "capMonthly": null
+    },
+    {
+      "category": "travel",
+      "rate": 2,
+      "capMonthly": null
+    },
+    {
+      "category": "base",
+      "rate": 1,
+      "capMonthly": null
+    }
+  ],
+  "loungeDomestic": 4,
+  "loungeInternational": 0,
+  "forexMarkup": 3.5,
+  "tags": [
+    "indigo",
+    "flights",
+    "travel",
+    "lounge",
+    "bluchips"
+  ],
+  "exclusions": [
+    "fuel",
+    "wallet loading",
+    "rent",
+    "cash advance",
+    "balance transfer",
+    "merchant EMI",
+    "transactions excluded under IndiGo SBI Card terms"
+  ],
+  "milestoneBenefits": [
+    "2,500 IndiGo BluChips on annual spends of Rs 2 lakh",
+    "2,500 IndiGo BluChips on annual spends of Rs 4 lakh",
+    "2,500 IndiGo BluChips on annual spends of Rs 6 lakh",
+    "2,500 IndiGo BluChips as renewal benefit after annual fee payment"
+  ],
+  "additionalBenefits": [
+    "2,500 IndiGo BluChips as welcome benefit after joining fee payment and first transaction within 60 days",
+    "3 IndiGo BluChips per Rs 100 on IndiGo app and website spends",
+    "2 IndiGo BluChips per Rs 100 on hotel, lodging and select travel MCC spends",
+    "1 IndiGo BluChip per Rs 100 on other eligible spends",
+    "IndiGo BluChips can be redeemed on IndiGo website or app against IndiGo flights and other eligible activities",
+    "4 complimentary domestic airport lounge visits per year, capped at 1 per quarter, subject to Rs 50,000 spend in the previous quarter",
+    "1% fuel surcharge waiver on eligible fuel spends from Rs 500 to Rs 4,000, capped at Rs 200 per month"
+  ],
+  "redemption": {
+    "statementBalanceValue": 1,
+    "pointsExpiryYears": 2
+  },
+  "sourceUrl": "https://www.sbicard.com/en/personal/credit-cards/indigo-sbi-card.html",
+  "applyUrl": "https://www.sbicard.com/en/personal/credit-cards/indigo-sbi-card.html",
+  "lastVerified": "2026-05-09",
+  "verificationStatus": "official-mixed",
+  "popularityScore": 62
+}

@@ -1,0 +1,83 @@
+{
+  "id": "axis-kwik",
+  "issuer": "Axis Bank",
+  "name": "Kwik Axis Bank Credit Card",
+  "network": [
+    "RuPay"
+  ],
+  "joiningFee": 0,
+  "annualFee": 0,
+  "feeWaiverSpend": null,
+  "bestFor": [
+    "upi",
+    "rupay",
+    "virtual card",
+    "lifetime free",
+    "edge rewards"
+  ],
+  "rewardType": "edge reward points",
+  "rewards": [
+    {
+      "category": "base",
+      "rate": 0.2,
+      "capMonthly": null
+    },
+    {
+      "category": "upi",
+      "rate": 0.2,
+      "capMonthly": null
+    }
+  ],
+  "loungeDomestic": 0,
+  "loungeInternational": 0,
+  "forexMarkup": 3.5,
+  "tags": [
+    "kwik",
+    "rupay",
+    "upi",
+    "virtual card",
+    "lifetime free",
+    "edge rewards",
+    "fuel waiver"
+  ],
+  "exclusions": [
+    "wallet load",
+    "fuel",
+    "rental payments",
+    "cash withdrawals",
+    "insurance",
+    "repayments",
+    "jewellery",
+    "education",
+    "government services",
+    "emi transactions",
+    "credit card on UPI transactions less than Rs 2,000",
+    "transactions excluded under Kwik Axis Bank Credit Card terms"
+  ],
+  "milestoneBenefits": [],
+  "additionalBenefits": [
+    "Lifetime free card with nil joining fee and nil annual fee",
+    "Credit card on UPI through RuPay with seamless transaction experience through any UPI app",
+    "Instant virtual card on approval",
+    "2 EDGE REWARD Points per Rs 200 on domestic and international transactions",
+    "1% fuel surcharge waiver on fuel purchases between Rs 400 and Rs 4,000, capped at Rs 150 per month",
+    "Card can be activated by linking to UPI and setting UPI PIN or through Axis Bank mobile/internet banking"
+  ],
+  "redemption": {
+    "statementBalanceValue": 0.2,
+    "pointsExpiryYears": 3
+  },
+  "eligibility": {
+    "salaried": [
+      "Eligibility is subject to Axis Bank approval criteria"
+    ],
+    "selfEmployed": [
+      "Eligibility is subject to Axis Bank approval criteria"
+    ]
+  },
+  "sourceUrl": "https://www.axis.bank.in/cards/credit-card/axis-bank-kwik-credit-card",
+  "applyUrl": "https://www.axis.bank.in/cards/credit-card/axis-bank-kwik-credit-card",
+  "lastVerified": "2026-05-10",
+  "verificationStatus": "official-direct",
+  "popularityScore": 61
+}

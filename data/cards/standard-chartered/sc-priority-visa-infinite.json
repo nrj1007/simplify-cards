@@ -1,0 +1,71 @@
+{
+  "id": "sc-priority-visa-infinite",
+  "issuer": "Standard Chartered",
+  "name": "Standard Chartered Priority Visa Infinite Credit Card",
+  "network": [
+    "Visa Infinite"
+  ],
+  "joiningFee": 0,
+  "annualFee": 0,
+  "feeWaiverSpend": null,
+  "bestFor": [
+    "priority banking",
+    "travel",
+    "lounge",
+    "fashion"
+  ],
+  "rewardType": "360° Rewards points",
+  "rewards": [
+    {
+      "category": "travel",
+      "rate": 1.25,
+      "capMonthly": null
+    },
+    {
+      "category": "base",
+      "rate": 0.5,
+      "capMonthly": null
+    }
+  ],
+  "popularityScore": 74,
+  "loungeDomestic": 16,
+  "loungeInternational": 24,
+  "forexMarkup": 3.5,
+  "tags": [
+    "standard chartered",
+    "priority",
+    "visa infinite",
+    "travel",
+    "lounge",
+    "fashion",
+    "priority banking"
+  ],
+  "exclusions": [
+    "reserved for Priority Banking customers",
+    "international lounge benefits are FUM-qualified"
+  ],
+  "milestoneBenefits": [],
+  "additionalBenefits": [
+    "Complimentary for Priority Banking relationship",
+    "5 reward points for every INR 100 spent overseas or on retail fashion",
+    "2 reward points for every INR 100 on all other spends",
+    "4 complimentary domestic lounge accesses per calendar quarter",
+    "2 complimentary international lounge accesses per month for FUM qualified clients"
+  ],
+  "redemption": {
+    "statementBalanceValue": 0.25,
+    "redemptionFee": 99
+  },
+  "eligibility": {
+    "salaried": [
+      "Priority Banking relationship and bank approval required"
+    ],
+    "selfEmployed": [
+      "Priority Banking relationship and bank approval required"
+    ]
+  },
+  "sourceUrl": "https://www.sc.com/in/credit-cards/visa-infinite-card",
+  "applyUrl": "https://www.sc.com/in/credit-cards/visa-infinite-card",
+  "lastVerified": "2026-05-11",
+  "verificationStatus": "official-direct"
+}

@@ -1,0 +1,78 @@
+{
+  "id": "indusind-indulge",
+  "issuer": "IndusInd Bank",
+  "name": "IndusInd Bank Indulge Credit Card",
+  "network": [
+    "Visa Infinite"
+  ],
+  "joiningFee": 75000,
+  "annualFee": 10000,
+  "feeWaiverSpend": null,
+  "bestFor": [
+    "travel",
+    "lounge",
+    "golf",
+    "luxury"
+  ],
+  "rewardType": "reward points",
+  "rewards": [
+    {
+      "category": "base",
+      "rate": 1.05,
+      "displayRate": "1.5 reward points per Rs 100",
+      "capMonthly": null
+    }
+  ],
+  "popularityScore": 72,
+  "loungeDomestic": "unlimited",
+  "loungeInternational": 16,
+  "forexMarkup": 1.8,
+  "tags": [
+    "indusind",
+    "indulge",
+    "visa infinite",
+    "travel",
+    "lounge",
+    "golf",
+    "luxury"
+  ],
+  "exclusions": [
+    "premium card with selective sourcing",
+    "cash redemption capped monthly",
+    "fuel"
+  ],
+  "milestoneBenefits": [
+    "Luxury welcome benefits at fee payment",
+    "High-touch concierge and premium travel programme"
+  ],
+  "additionalBenefits": [
+    "Exclusive 22K gold inlay card design",
+    "Complimentary golf programme with games and lessons monthly",
+    "Buy 1 Get 1 free movie tickets on BookMyShow and discounts on theatre/events",
+    "Complimentary EazyDiner Prime membership and luxury dining privileges",
+    "24x7 concierge services and Auto Assist roadside emergency services",
+    "1% fuel surcharge waiver"
+  ],
+  "redemption": {
+    "statementBalanceValue": 0.7,
+    "airlinePartners": [
+      {
+        "airline": "Singapore Airlines",
+        "programme": "KrisFlyer",
+        "ratio": "2:1"
+      }
+    ]
+  },
+  "eligibility": {
+    "salaried": [
+      "Eligibility is subject to IndusInd Bank approval criteria"
+    ],
+    "selfEmployed": [
+      "Eligibility is subject to IndusInd Bank approval criteria"
+    ]
+  },
+  "sourceUrl": "https://www.indusind.com/in/en/personal/cards/credit-card/indulge-credit-card.html",
+  "applyUrl": "https://www.indusind.com/in/en/personal/cards/credit-card/indulge-credit-card.html",
+  "lastVerified": "2026-05-11",
+  "verificationStatus": "official-mixed"
+}

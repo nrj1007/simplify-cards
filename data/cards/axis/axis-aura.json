@@ -1,0 +1,81 @@
+{
+  "id": "axis-aura",
+  "issuer": "Axis Bank",
+  "name": "Axis Bank AURA Credit Card",
+  "network": [
+    "Visa"
+  ],
+  "joiningFee": 749,
+  "annualFee": 749,
+  "feeWaiverSpend": null,
+  "bestFor": [
+    "health",
+    "wellness",
+    "insurance",
+    "fitness",
+    "doctor consultations"
+  ],
+  "rewardType": "edge reward points",
+  "rewards": [
+    {
+      "category": "retail",
+      "rate": 0.2,
+      "capMonthly": null
+    },
+    {
+      "category": "retail",
+      "rate": 1,
+      "capMonthly": 10000
+    }
+  ],
+  "loungeDomestic": 0,
+  "loungeInternational": 0,
+  "forexMarkup": 3.5,
+  "tags": [
+    "aura",
+    "health",
+    "wellness",
+    "decathlon",
+    "practo",
+    "fitternity",
+    "insurance",
+    "health checkup"
+  ],
+  "exclusions": [
+    "fuel",
+    "wallet load",
+    "education payments via third-party apps",
+    "online skill-based gaming",
+    "transactions excluded under Axis Bank AURA Credit Card terms"
+  ],
+  "milestoneBenefits": [],
+  "additionalBenefits": [
+    "Decathlon OMNI Gift Card worth Rs 750 as welcome benefit",
+    "2 EDGE REWARD Points per Rs 200 on eligible spends",
+    "5X EDGE REWARD Points on insurance spends, with maximum transaction capped at Rs 10,000",
+    "4 free video doctor consultations per month via Practo",
+    "4 interactive video fitness sessions per month via Fitternity",
+    "Access to 16 recorded fitness sessions per month",
+    "Annual discount up to Rs 500 on health checkup",
+    "Nutrition and diet subscription discounts as per Axis AURA programme terms",
+    "Dining Delights discounts at participating restaurants",
+    "1% fuel surcharge waiver on eligible fuel transactions"
+  ],
+  "redemption": {
+    "statementBalanceValue": 0.2,
+    "pointsExpiryYears": 3
+  },
+  "eligibility": {
+    "salaried": [
+      "Primary cardholder should be 18 to 70 years of age and resident of India or NRI"
+    ],
+    "selfEmployed": [
+      "Primary cardholder should be 18 to 70 years of age and resident of India or NRI"
+    ]
+  },
+  "sourceUrl": "https://www.axis.bank.in/cards/credit-card/axis-bank-aura-credit-card",
+  "applyUrl": "https://www.axis.bank.in/cards/credit-card/axis-bank-aura-credit-card",
+  "lastVerified": "2026-05-10",
+  "verificationStatus": "official-direct",
+  "popularityScore": 46
+}

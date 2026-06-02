@@ -6,42 +6,47 @@ import type { CreditCard } from "../lib/types";
 
 const cardsDir = path.join(process.cwd(), "data", "cards");
 
-function readIssuerFiles() {
+function readCardFiles() {
+  // Cards are stored one JSON object per file under data/cards/<issuer>/<card-id>.json.
   return fs
-    .readdirSync(cardsDir)
-    .filter((file) => file.endsWith(".json"))
-    .sort()
-    .map((file) => ({
-      file,
-      cards: JSON.parse(fs.readFileSync(path.join(cardsDir, file), "utf8")) as CreditCard[]
-    }));
+    .readdirSync(cardsDir, { withFileTypes: true })
+    .filter((entry) => entry.isDirectory())
+    .flatMap((issuerDir) =>
+      fs
+        .readdirSync(path.join(cardsDir, issuerDir.name))
+        .filter((name) => name.endsWith(".json"))
+        .map((name) => ({
+          issuer: issuerDir.name,
+          card: JSON.parse(fs.readFileSync(path.join(cardsDir, issuerDir.name, name), "utf8")) as CreditCard
+        }))
+    );
 }
 
 describe("card data files", () => {
-  it("loads all issuer files into the app-level card list", () => {
-    const issuerFiles = readIssuerFiles();
-    const fileCardCount = issuerFiles.reduce((total, issuerFile) => total + issuerFile.cards.length, 0);
+  it("loads every per-card file into the app-level card list", () => {
+    const cardFiles = readCardFiles();
+    const issuerFolders = [...new Set(cardFiles.map((entry) => entry.issuer))].sort();
 
-    expect(issuerFiles.map((issuerFile) => issuerFile.file)).toEqual([
-      "american-express.json",
-      "au-small-finance.json",
-      "axis.json",
-      "bank-of-baroda.json",
-      "equitas-small-finance.json",
-      "federal-bank.json",
-      "hdfc.json",
-      "hsbc.json",
-      "icici.json",
-      "idfc.json",
-      "indusind-bank.json",
-      "kotak-mahindra.json",
-      "onecard-partners.json",
-      "rbl-bank.json",
-      "sbi.json",
-      "standard-chartered.json",
-      "yes-bank.json"
+    expect(issuerFolders).toEqual([
+      "american-express",
+      "au-small-finance",
+      "axis",
+      "bank-of-baroda",
+      "equitas-small-finance",
+      "federal-bank",
+      "hdfc",
+      "hsbc",
+      "icici",
+      "idfc",
+      "indusind-bank",
+      "kotak-mahindra",
+      "onecard-partners",
+      "rbl-bank",
+      "sbi",
+      "standard-chartered",
+      "yes-bank"
     ]);
-    expect(cards).toHaveLength(fileCardCount);
+    expect(cards).toHaveLength(cardFiles.length);
     expect(cards.length).toBeGreaterThan(100);
   });
 

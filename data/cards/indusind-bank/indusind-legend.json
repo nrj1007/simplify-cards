@@ -1,0 +1,98 @@
+{
+  "id": "indusind-legend",
+  "issuer": "IndusInd Bank",
+  "name": "IndusInd Bank Legend Credit Card",
+  "network": [
+    "Visa"
+  ],
+  "joiningFee": 0,
+  "annualFee": 0,
+  "feeWaiverSpend": null,
+  "bestFor": [
+    "lifetime free",
+    "weekend rewards",
+    "shopping",
+    "travel",
+    "golf"
+  ],
+  "rewardType": "reward points",
+  "rewards": [
+    {
+      "category": "utilities, insurance, government, education, real estate, rent",
+      "displayCategory": "Utility, insurance, government, education, real estate, and rent spends",
+      "rate": 0.35,
+      "displayRate": "0.7 reward points per Rs 100",
+      "capMonthly": null
+    },
+    {
+      "category": "base",
+      "displayCategory": "Base spends (Weekdays)",
+      "rate": 0.5,
+      "displayRate": "1 reward point per Rs 100",
+      "capMonthly": null
+    },
+    {
+      "category": "base",
+      "displayCategory": "Base spends (Weekends)",
+      "rate": 1,
+      "displayRate": "2 reward points per Rs 100",
+      "capMonthly": null
+    }
+  ],
+  "popularityScore": 82,
+  "loungeDomestic": 0,
+  "loungeInternational": 0,
+  "forexMarkup": 1.8,
+  "tags": [
+    "indusind",
+    "legend",
+    "lifetime free",
+    "weekend rewards",
+    "low forex"
+  ],
+  "exclusions": [
+    "fuel",
+    "cash advances"
+  ],
+  "exclusionCodes": [
+    "fuel",
+    "cash_advance"
+  ],
+  "milestoneBenefits": [
+    "4,000 bonus reward points (worth Rs 2,000) on annual spends of Rs 6,00,000 or more"
+  ],
+  "additionalBenefits": [
+    "1 complimentary golf game and 1 complimentary golf lesson per quarter",
+    "1% fuel surcharge waiver at all fuel stations in India"
+  ],
+  "redemption": {
+    "statementBalanceValue": 0.5,
+    "redemptionFee": 149,
+    "pointsExpiryYears": null,
+    "airlinePartners": [
+      {
+        "airline": "Singapore Airlines",
+        "programme": "KrisFlyer",
+        "ratio": "2:1"
+      }
+    ]
+  },
+  "eligibility": {
+    "salaried": [
+      "Eligibility is subject to IndusInd Bank approval criteria"
+    ],
+    "selfEmployed": [
+      "Eligibility is subject to IndusInd Bank approval criteria"
+    ]
+  },
+  "internalNotes": [
+    "Card details manually reviewed and verified by user on 2026-05-30",
+    "Complimentary airport lounge access discontinued effective March 7, 2025.",
+    "Reward redemption fee of Rs 149 applies for cash credit redemptions (w.e.f April 1, 2025). Cash redemption is capped at 50% of the total points balance and 5,000 points per month."
+  ],
+  "sourceUrl": "https://www.indusind.com/in/en/personal/cards/credit-card/legend-credit-card.html",
+  "applyUrl": "https://www.indusind.com/in/en/personal/cards/credit-card/legend-credit-card.html",
+  "lastVerified": "2026-05-30",
+  "verificationStatus": "official-direct",
+  "imageUrl": "/images/indusind-legend.png"
+}

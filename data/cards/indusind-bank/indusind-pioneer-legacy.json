@@ -1,0 +1,126 @@
+{
+  "id": "indusind-pioneer-legacy",
+  "issuer": "IndusInd Bank",
+  "name": "PIONEER Legacy Credit Card",
+  "network": [
+    "Mastercard",
+    "Visa"
+  ],
+  "joiningFee": 45000,
+  "annualFee": 0,
+  "feeWaiverSpend": null,
+  "bestFor": [
+    "premium",
+    "travel",
+    "lounge",
+    "golf",
+    "low forex"
+  ],
+  "rewardType": "Pioneer Rewards",
+  "rewards": [
+    {
+      "category": "base",
+      "displayCategory": "weekday spends",
+      "rate": 1,
+      "displayRate": "1 reward point per Rs 100",
+      "capMonthly": null
+    },
+    {
+      "category": "online",
+      "displayCategory": "weekend spends",
+      "rate": 2,
+      "displayRate": "2 reward points per Rs 100",
+      "capMonthly": null
+    },
+    {
+      "category": "utilities",
+      "displayCategory": "Utility bill payments",
+      "rate": 0.7,
+      "displayRate": "0.7 reward points per Rs 100",
+      "capMonthly": null
+    },
+    {
+      "category": "insurance",
+      "displayCategory": "Insurance premium payments",
+      "rate": 0.7,
+      "displayRate": "0.7 reward points per Rs 100",
+      "capMonthly": null
+    },
+    {
+      "category": "education",
+      "displayCategory": "Education fees",
+      "rate": 0.7,
+      "displayRate": "0.7 reward points per Rs 100",
+      "capMonthly": null
+    },
+    {
+      "category": "rent",
+      "displayCategory": "Rent payments",
+      "rate": 0.7,
+      "displayRate": "0.7 reward points per Rs 100",
+      "capMonthly": null
+    }
+  ],
+  "supportingSourceUrls": [
+    "https://www.indusind.bank.in/in/en/personal/revision-indusInd-bank-credit-card-rewards-program.html"
+  ],
+  "popularityScore": 20,
+  "loungeDomestic": 4,
+  "loungeInternational": 8,
+  "forexMarkup": 1.8,
+  "tags": [
+    "indusind",
+    "pioneer",
+    "legacy",
+    "premium",
+    "travel",
+    "lounge",
+    "golf",
+    "low forex"
+  ],
+  "exclusions": [
+    "fuel transactions"
+  ],
+  "exclusionCodes": [
+    "fuel"
+  ],
+  "joiningBenefits": [
+    "Welcome vouchers worth Rs 50,000 on joining at a discounted fee of Rs 45,000",
+    "Alternative lower-fee joining path at Rs 5,000 with spend-based waiver and no welcome vouchers",
+    "4,000 bonus reward points on spends of Rs 5,00,000 or more within one year from card issue as per revised official note"
+  ],
+  "milestoneBenefits": [],
+  "additionalBenefits": [
+    "Low forex markup of 1.8% on foreign currency transactions (not applicable for complimentary Pioneer Legacy card)",
+    "Complimentary golf privileges: 2 complimentary games and 2 complimentary lessons per month (effective 10 March 2026)",
+    "Buy 1 Get 1 free movie tickets on BookMyShow: up to 3 free tickets per month (capped at Rs 300 per ticket discount) plus Rs 50 off on F&B (applicable on the paid variant)",
+    "No cash advancement or withdrawal charges"
+  ],
+  "redemption": {
+    "statementBalanceValue": 1,
+    "pointsExpiryYears": null,
+    "airlinePartners": [
+      {
+        "airline": "Singapore Airlines",
+        "programme": "KrisFlyer",
+        "ratio": "2:1"
+      }
+    ]
+  },
+  "eligibility": {
+    "salaried": [
+      "Pioneer relationship and bank approval required"
+    ],
+    "selfEmployed": [
+      "Pioneer relationship and bank approval required"
+    ]
+  },
+  "internalNotes": [
+    "Card details manually reviewed and verified by user on 2026-05-29"
+  ],
+  "sourceUrl": "https://www.indusind.bank.in/in/en/personal/cards/credit-card/pioneer-legacy-credit-card.html",
+  "applyUrl": "https://www.indusind.bank.in/in/en/personal/cards/credit-card/pioneer-legacy-credit-card.html",
+  "lastVerified": "2026-05-29",
+  "verificationStatus": "official-direct",
+  "imageUrl": "/images/pioneer_legacy_world_card.jpg"
+}

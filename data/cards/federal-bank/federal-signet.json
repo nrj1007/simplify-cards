@@ -1,0 +1,61 @@
+{
+  "id": "federal-signet",
+  "issuer": "Federal Bank",
+  "name": "Federal Bank Signet Credit Card",
+  "network": [
+    "Visa"
+  ],
+  "joiningFee": 0,
+  "annualFee": 0,
+  "feeWaiverSpend": null,
+  "bestFor": [
+    "lifetime free",
+    "entry level",
+    "fuel"
+  ],
+  "rewardType": "reward points",
+  "rewards": [
+    {
+      "category": "base",
+      "rate": 0.25,
+      "capMonthly": null
+    }
+  ],
+  "popularityScore": 70,
+  "loungeDomestic": 0,
+  "loungeInternational": 0,
+  "forexMarkup": 3.5,
+  "tags": [
+    "federal bank",
+    "signet",
+    "lifetime free",
+    "entry level",
+    "fuel surcharge waiver"
+  ],
+  "exclusions": [
+    "fuel",
+    "cash advances",
+    "reward earning follows Federal Bank terms"
+  ],
+  "milestoneBenefits": [],
+  "additionalBenefits": [
+    "Lifetime free Federal Bank core credit card",
+    "1% fuel surcharge waiver on eligible spends",
+    "Base reward accumulation on retail transactions"
+  ],
+  "redemption": {
+    "statementBalanceValue": 0.25
+  },
+  "eligibility": {
+    "salaried": [
+      "Eligibility is subject to Federal Bank approval criteria"
+    ],
+    "selfEmployed": [
+      "Eligibility is subject to Federal Bank approval criteria"
+    ]
+  },
+  "sourceUrl": "https://www.federalbank.co.in/signet-credit-card",
+  "applyUrl": "https://www.federalbank.co.in/credit-cards",
+  "lastVerified": "2026-05-11",
+  "verificationStatus": "official-mixed"
+}

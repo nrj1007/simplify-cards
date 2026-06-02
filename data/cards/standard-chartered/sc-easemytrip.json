@@ -1,0 +1,68 @@
+{
+  "id": "sc-easemytrip",
+  "issuer": "Standard Chartered",
+  "name": "Standard Chartered EaseMyTrip Credit Card",
+  "network": [
+    "Visa"
+  ],
+  "joiningFee": 350,
+  "annualFee": 350,
+  "feeWaiverSpend": 50000,
+  "bestFor": [
+    "travel",
+    "hotel",
+    "flight",
+    "low fee"
+  ],
+  "rewardType": "360° Rewards points and instant discounts",
+  "rewards": [
+    {
+      "category": "travel",
+      "rate": 2.5,
+      "capMonthly": null
+    },
+    {
+      "category": "base",
+      "rate": 0.25,
+      "capMonthly": null
+    }
+  ],
+  "popularityScore": 79,
+  "loungeDomestic": 2,
+  "loungeInternational": 0,
+  "forexMarkup": 3.5,
+  "tags": [
+    "standard chartered",
+    "easemytrip",
+    "travel",
+    "hotel",
+    "flight",
+    "co-branded"
+  ],
+  "exclusions": [
+    "airline and hotel accelerated rewards apply on standalone websites, apps or outlets and not on aggregators"
+  ],
+  "milestoneBenefits": [
+    "Renewal fee reversed for clients with spends greater than or equal to INR 50,000 in the previous year"
+  ],
+  "additionalBenefits": [
+    "20% instant discount on hotels and 10% off on flights on EaseMyTrip",
+    "10 reward points for every INR 100 spent at standalone hotel and airline websites/apps/outlets",
+    "Complimentary domestic lounge access – 2 per year"
+  ],
+  "redemption": {
+    "redemptionFee": 99
+  },
+  "eligibility": {
+    "salaried": [
+      "Applicant age should be between 18 and 65 years"
+    ],
+    "selfEmployed": [
+      "Applicant age should be between 18 and 67 years"
+    ]
+  },
+  "sourceUrl": "https://www.sc.com/in/credit-cards/easemytrip-card-faqs/",
+  "applyUrl": "https://www.sc.com/in/credit-cards/",
+  "lastVerified": "2026-05-11",
+  "verificationStatus": "official-mixed"
+}

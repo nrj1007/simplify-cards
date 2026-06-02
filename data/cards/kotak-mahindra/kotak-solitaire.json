@@ -1,0 +1,79 @@
+{
+  "id": "kotak-solitaire",
+  "issuer": "Kotak Mahindra Bank",
+  "name": "Kotak Solitaire Credit Card",
+  "network": [
+    "Visa"
+  ],
+  "joiningFee": 0,
+  "annualFee": 0,
+  "feeWaiverSpend": null,
+  "bestFor": [
+    "luxury",
+    "travel",
+    "lounge",
+    "zero forex",
+    "invite only"
+  ],
+  "rewardType": "Air Miles",
+  "rewards": [
+    {
+      "category": "travel",
+      "rate": 10,
+      "capMonthly": 100000
+    },
+    {
+      "category": "base",
+      "rate": 3,
+      "capMonthly": null
+    }
+  ],
+  "popularityScore": 75,
+  "loungeDomestic": "unlimited",
+  "loungeInternational": "unlimited",
+  "forexMarkup": 0,
+  "tags": [
+    "kotak",
+    "solitaire",
+    "visa",
+    "metal",
+    "travel",
+    "lounge",
+    "zero forex",
+    "invite only"
+  ],
+  "exclusions": [
+    "invite-only card for Kotak Solitaire Program customers",
+    "no air miles on international transactions despite zero forex markup",
+    "travel acceleration applies on Kotak Unbox bookings only",
+    "annual fee becomes chargeable if downgraded from the Solitaire program"
+  ],
+  "milestoneBenefits": [
+    "Unlimited lounge access for primary and add-on cardholders",
+    "Guest lounge access limited to 2 domestic and 2 international visits per year for the primary cardholder"
+  ],
+  "additionalBenefits": [
+    "Earn 10 Air Miles for every Rs 100 on travel bookings through Kotak Unbox",
+    "Earn 3 Air Miles for every Rs 100 on other eligible spends",
+    "1 Air Mile = Rs 1 for travel redemption on Kotak Unbox and Rs 0.5 for non-travel voucher redemption",
+    "Zero forex markup on international spends",
+    "Metal card for primary and add-on cardholders",
+    "District by Zomato and premium concierge benefits as per current Kotak programme"
+  ],
+  "redemption": {
+    "statementBalanceValue": 0,
+    "minimumPointsForStatementCredit": null
+  },
+  "eligibility": {
+    "salaried": [
+      "Available to Kotak Solitaire Program customers subject to bank approval"
+    ],
+    "selfEmployed": [
+      "Available to Kotak Solitaire Program customers subject to bank approval"
+    ]
+  },
+  "sourceUrl": "https://www.kotak.com/en/personal-banking/cards/credit-cards/kotak-solitaire-credit-card.html",
+  "applyUrl": "https://www.kotak.com/en/solitaire.html",
+  "lastVerified": "2026-05-11",
+  "verificationStatus": "official-direct"
+}

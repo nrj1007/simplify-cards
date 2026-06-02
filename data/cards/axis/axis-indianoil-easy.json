@@ -1,0 +1,79 @@
+{
+  "id": "axis-indianoil-easy",
+  "issuer": "Axis Bank",
+  "name": "IndianOil Easy Axis Bank Credit Card",
+  "network": [
+    "Visa"
+  ],
+  "joiningFee": 0,
+  "annualFee": 0,
+  "feeWaiverSpend": null,
+  "bestFor": [
+    "fuel",
+    "indianoil",
+    "secured card",
+    "fee waiver",
+    "low fee"
+  ],
+  "rewardType": "edge reward points",
+  "rewards": [
+    {
+      "category": "fuel",
+      "rate": 4,
+      "capMonthly": null
+    },
+    {
+      "category": "base",
+      "rate": 0.2,
+      "capMonthly": null
+    }
+  ],
+  "loungeDomestic": 0,
+  "loungeInternational": 0,
+  "forexMarkup": 3.5,
+  "tags": [
+    "indianoil",
+    "fuel",
+    "easy",
+    "secured card",
+    "fixed deposit",
+    "fee waiver",
+    "lifetime free"
+  ],
+  "exclusions": [
+    "insurance",
+    "gold",
+    "jewellery",
+    "wallet",
+    "rent",
+    "utilities",
+    "government institutions",
+    "education",
+    "transactions excluded under IndianOil Easy Axis Bank Credit Card terms"
+  ],
+  "milestoneBenefits": [],
+  "additionalBenefits": [
+    "Nil joining fee and nil annual fee as listed on the Axis Bank credit card catalogue",
+    "Secured credit card offered through Axis Bank fixed deposit journey",
+    "Up to 1,250 EDGE REWARD Points on first fuel transaction",
+    "4% value back on fuel spends at IndianOil outlets",
+    "Fuel-related benefits are expected to follow IndianOil Axis Bank programme terms unless separately specified by Axis"
+  ],
+  "redemption": {
+    "statementBalanceValue": 0.2,
+    "pointsExpiryYears": 3
+  },
+  "eligibility": {
+    "salaried": [
+      "Eligibility is subject to Axis Bank approval criteria and fixed deposit secured card terms"
+    ],
+    "selfEmployed": [
+      "Eligibility is subject to Axis Bank approval criteria and fixed deposit secured card terms"
+    ]
+  },
+  "sourceUrl": "https://www.axis.bank.in/cards/credit-card",
+  "applyUrl": "https://www.axis.bank.in/cards/credit-card",
+  "lastVerified": "2026-05-10",
+  "verificationStatus": "official-catalogue",
+  "popularityScore": 66
+}

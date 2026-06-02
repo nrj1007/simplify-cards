@@ -1,0 +1,75 @@
+{
+  "id": "rbl-world-prime",
+  "issuer": "RBL Bank",
+  "name": "RBL Bank World Prime Credit Card",
+  "network": [
+    "Visa",
+    "Mastercard"
+  ],
+  "joiningFee": 2999,
+  "annualFee": 2999,
+  "feeWaiverSpend": null,
+  "bestFor": [
+    "movies",
+    "lounge",
+    "online rewards",
+    "concierge"
+  ],
+  "rewardType": "reward points",
+  "rewards": [
+    {
+      "category": "online",
+      "rate": 1,
+      "capMonthly": 250
+    },
+    {
+      "category": "base",
+      "rate": 0.5,
+      "capMonthly": null
+    }
+  ],
+  "popularityScore": 74,
+  "loungeDomestic": 8,
+  "loungeInternational": 0,
+  "forexMarkup": 3.5,
+  "tags": [
+    "rbl",
+    "world prime",
+    "movies",
+    "lounge",
+    "online",
+    "concierge",
+    "premium"
+  ],
+  "exclusions": [
+    "lounge access unlock requires Rs 35,000 spend in the preceding calendar quarter",
+    "2x online reward points are capped and several spend categories do not earn rewards",
+    "fuel and multiple utility-like categories are excluded from rewards as per current RBL terms"
+  ],
+  "milestoneBenefits": [
+    "12,000 welcome reward points on fee payment plus Rs 2,000 spend within 30 days",
+    "10,000 reward points on crossing Rs 1.5 lakh annual spend and additional 10,000 reward points on crossing Rs 3.5 lakh"
+  ],
+  "additionalBenefits": [
+    "2 reward points per Rs 100 on eligible spends",
+    "2X reward points on online spends up to current cap",
+    "8 domestic lounge visits per year with quarterly cap of 2 visits",
+    "BookMyShow 1+1 movie tickets up to Rs 200, twice a month",
+    "24x7 concierge and fuel surcharge waiver"
+  ],
+  "redemption": {
+    "statementBalanceValue": 0.25
+  },
+  "eligibility": {
+    "salaried": [
+      "Eligibility is subject to RBL Bank approval criteria"
+    ],
+    "selfEmployed": [
+      "Eligibility is subject to RBL Bank approval criteria"
+    ]
+  },
+  "sourceUrl": "https://www.rblbank.com/personal-banking/cards/credit-cards/world-prime-credit-card",
+  "applyUrl": "https://www.rblbank.com/personal-banking/cards/credit-cards/world-prime-credit-card",
+  "lastVerified": "2026-05-11",
+  "verificationStatus": "official-direct"
+}

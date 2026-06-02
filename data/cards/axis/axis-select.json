@@ -1,0 +1,95 @@
+{
+  "id": "axis-select",
+  "issuer": "Axis Bank",
+  "name": "Axis Bank Select Credit Card",
+  "network": [
+    "Visa"
+  ],
+  "joiningFee": 3000,
+  "annualFee": 3000,
+  "feeWaiverSpend": 800000,
+  "bestFor": [
+    "bigbasket",
+    "swiggy",
+    "movies",
+    "lounge",
+    "golf"
+  ],
+  "rewardType": "edge reward points",
+  "rewards": [
+    {
+      "category": "retail",
+      "rate": 2,
+      "capMonthly": 20000
+    },
+    {
+      "category": "base",
+      "rate": 1,
+      "capMonthly": null
+    }
+  ],
+  "loungeDomestic": 8,
+  "loungeInternational": 12,
+  "forexMarkup": 3.5,
+  "tags": [
+    "select",
+    "premium",
+    "bigbasket",
+    "swiggy",
+    "district",
+    "movies",
+    "priority pass",
+    "lounge",
+    "golf"
+  ],
+  "exclusions": [
+    "fuel",
+    "rent",
+    "insurance",
+    "education",
+    "utilities",
+    "telecom",
+    "wallet",
+    "gold",
+    "jewellery",
+    "government services",
+    "emi transactions",
+    "transactions excluded under Axis Bank Select Credit Card terms"
+  ],
+  "milestoneBenefits": [
+    "5,000 EDGE REWARD Points on spending Rs 3 lakh in a card anniversary year",
+    "Complete annual fee waiver on spending Rs 8 lakh in a card anniversary year",
+    "Priority Pass membership renewal on annual spends of Rs 3 lakh",
+    "Additional 6 complimentary golf rounds after spends of Rs 3 lakh in the same anniversary year"
+  ],
+  "additionalBenefits": [
+    "10,000 EDGE REWARD Points worth Rs 2,000 on first card transaction within 30 days, not applicable for lifetime-free or Burgundy account holders",
+    "Buy one get one movie ticket offer on District app, capped at Rs 250 twice per month",
+    "Flat Rs 500 off once per month on BigBasket on minimum purchase of Rs 2,500",
+    "Flat Rs 200 off on Swiggy twice per month on minimum order value of Rs 1,000",
+    "Up to 12 complimentary international airport lounge visits through Priority Pass",
+    "2 complimentary domestic lounge visits per quarter on spends of Rs 50,000 in the last 3 months",
+    "6 complimentary golf rounds per year",
+    "10 EDGE REWARD Points per Rs 200 on eligible spends",
+    "2X EDGE REWARD Points on retail shopping spends up to cumulative transactions of Rs 20,000 per month",
+    "1% fuel surcharge refund on fuel transactions from Rs 400 to Rs 4,000, capped at Rs 400 per statement cycle",
+    "Complimentary for Burgundy customers while Burgundy status is maintained"
+  ],
+  "redemption": {
+    "statementBalanceValue": 0.2,
+    "pointsExpiryYears": 3
+  },
+  "eligibility": {
+    "salaried": [
+      "Primary cardholder should be between 18 and 70 years, resident of India and have net income of at least Rs 6 lakh per annum"
+    ],
+    "selfEmployed": [
+      "Primary cardholder should be between 18 and 70 years, resident of India and have net income of at least Rs 6 lakh per annum"
+    ]
+  },
+  "sourceUrl": "https://www.axisbank.com/retail/cards/credit-card/axis-bank-select-credit-card",
+  "applyUrl": "https://www.axisbank.com/retail/cards/credit-card/axis-bank-select-credit-card",
+  "lastVerified": "2026-05-10",
+  "verificationStatus": "official-direct",
+  "popularityScore": 78
+}

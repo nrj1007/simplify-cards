@@ -1,0 +1,86 @@
+{
+  "id": "icici-sapphiro-rupay",
+  "issuer": "ICICI Bank",
+  "name": "ICICI Bank Sapphiro RuPay Credit Card",
+  "network": [
+    "RuPay"
+  ],
+  "joiningFee": 6500,
+  "annualFee": 3500,
+  "feeWaiverSpend": null,
+  "bestFor": [
+    "premium",
+    "travel",
+    "lounge",
+    "movies",
+    "golf",
+    "upi"
+  ],
+  "rewardType": "reward points",
+  "rewards": [
+    {
+      "category": "retail",
+      "rate": 0.5,
+      "capMonthly": null
+    },
+    {
+      "category": "travel",
+      "rate": 1,
+      "capMonthly": null
+    },
+    {
+      "category": "utilities",
+      "rate": 0.25,
+      "capMonthly": null
+    },
+    {
+      "category": "upi",
+      "rate": 0.5,
+      "capMonthly": null
+    }
+  ],
+  "popularityScore": 80,
+  "loungeDomestic": 16,
+  "loungeInternational": 2,
+  "forexMarkup": 3.5,
+  "tags": [
+    "icici",
+    "sapphiro",
+    "rupay",
+    "premium",
+    "lounge",
+    "movies",
+    "golf",
+    "upi"
+  ],
+  "exclusions": [
+    "fuel",
+    "transactions excluded under ICICI Bank reward programme terms"
+  ],
+  "milestoneBenefits": [
+    "Welcome vouchers worth Rs 9,000+ listed on ICICI Bank card catalogue",
+    "Up to 20,000 reward points every anniversary year under ICICI Bank milestone rewards"
+  ],
+  "additionalBenefits": [
+    "Complimentary access to domestic and international airport lounges",
+    "Buy one ticket and get up to Rs 500 off on the second ticket twice every month on BookMyShow",
+    "Golf course privileges and dining benefits",
+    "RuPay network support for UPI linking"
+  ],
+  "redemption": {
+    "statementBalanceValue": 0.25,
+    "pointsExpiryYears": null
+  },
+  "eligibility": {
+    "salaried": [
+      "Age 21 years and above, monthly income Rs 75,000 and above"
+    ],
+    "selfEmployed": [
+      "Age 21 years and above, eligibility is subject to ICICI Bank approval criteria"
+    ]
+  },
+  "sourceUrl": "https://www.icicibank.com/personal-banking/cards/credit-card/rupay-credit-card",
+  "applyUrl": "https://www.icicibank.com/personal-banking/cards/credit-card/rupay-credit-card",
+  "lastVerified": "2026-05-11",
+  "verificationStatus": "official-mixed"
+}

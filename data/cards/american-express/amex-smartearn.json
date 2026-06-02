@@ -1,0 +1,81 @@
+{
+  "id": "amex-smartearn",
+  "issuer": "American Express",
+  "name": "American Express SmartEarn Credit Card",
+  "network": [
+    "American Express"
+  ],
+  "joiningFee": 495,
+  "annualFee": 495,
+  "feeWaiverSpend": 40000,
+  "bestFor": [
+    "online",
+    "entry level",
+    "shopping",
+    "amazon",
+    "zomato"
+  ],
+  "rewardType": "membership rewards",
+  "rewards": [
+    {
+      "category": "online",
+      "rate": 5,
+      "capMonthly": 125
+    },
+    {
+      "category": "amazon",
+      "rate": 2.5,
+      "capMonthly": 63
+    },
+    {
+      "category": "retail",
+      "rate": 0.5,
+      "capMonthly": null
+    }
+  ],
+  "popularityScore": 79,
+  "loungeDomestic": 0,
+  "loungeInternational": 0,
+  "forexMarkup": 3.5,
+  "tags": [
+    "amex",
+    "online",
+    "shopping",
+    "entry level",
+    "amazon",
+    "zomato",
+    "bookmyshow",
+    "fee waiver"
+  ],
+  "exclusions": [
+    "accelerated reward caps apply as per American Express terms",
+    "excluded spends as per American Express terms"
+  ],
+  "milestoneBenefits": [
+    "Amazon vouchers worth Rs 500 on reaching spends of Rs 1.20 lakh, Rs 1.80 lakh and Rs 2.40 lakh respectively in a cardmembership year",
+    "Renewal fee waiver on eligible spends of Rs 40,000 and above in the previous cardmembership year"
+  ],
+  "additionalBenefits": [
+    "Rs 500 cashback as welcome gift on eligible spends of Rs 10,000 in first 90 days",
+    "10X Membership Rewards points on participating merchants such as Zomato, Ajio, Nykaa, BookMyShow, Uber and more",
+    "5X Membership Rewards points on Amazon and other listed merchants",
+    "EMI conversion option at point of sale"
+  ],
+  "redemption": {
+    "statementBalanceValue": null,
+    "airMilesValue": 0.6,
+    "pointsExpiryYears": null
+  },
+  "eligibility": {
+    "salaried": [
+      "Eligibility is subject to American Express approval criteria"
+    ],
+    "selfEmployed": [
+      "Eligibility is subject to American Express approval criteria"
+    ]
+  },
+  "sourceUrl": "https://www.americanexpress.com/in/credit-cards/smart-earn-credit-card/",
+  "applyUrl": "https://www.americanexpress.com/in/credit-cards/smart-earn-credit-card/",
+  "lastVerified": "2026-05-10",
+  "verificationStatus": "official-direct"
+}

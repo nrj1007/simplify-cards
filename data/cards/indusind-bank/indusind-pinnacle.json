@@ -1,0 +1,127 @@
+{
+  "id": "indusind-pinnacle",
+  "issuer": "IndusInd Bank",
+  "name": "IndusInd Bank Pinnacle Credit Card",
+  "network": [
+    "Mastercard"
+  ],
+  "joiningFee": 15000,
+  "annualFee": 0,
+  "feeWaiverSpend": null,
+  "bestFor": [
+    "travel",
+    "lounge",
+    "golf",
+    "movies"
+  ],
+  "rewardType": "reward points",
+  "rewards": [
+    {
+      "category": "online",
+      "displayCategory": "E-commerce transactions",
+      "rate": 1.875,
+      "displayRate": "2.5 reward points per Rs 100",
+      "capMonthly": null
+    },
+    {
+      "category": "travel",
+      "displayCategory": "E-com travel and airline transactions",
+      "rate": 1.125,
+      "displayRate": "1.5 reward points per Rs 100",
+      "capMonthly": null
+    },
+    {
+      "category": "utilities, insurance, government, education, real estate, rent",
+      "displayCategory": "Utility, insurance, government, education, real estate, and rent spends",
+      "rate": 0.525,
+      "displayRate": "0.7 reward points per Rs 100",
+      "capMonthly": null
+    },
+    {
+      "category": "base",
+      "displayCategory": "base",
+      "rate": 0.75,
+      "displayRate": "1 reward point per Rs 100",
+      "capMonthly": null
+    }
+  ],
+  "popularityScore": 60,
+  "loungeDomestic": 4,
+  "loungeInternational": 4,
+  "forexMarkup": 3.5,
+  "tags": [
+    "indusind",
+    "pinnacle",
+    "travel",
+    "lounge",
+    "golf",
+    "movies",
+    "premium"
+  ],
+  "exclusions": [
+    "fuel",
+    "cash advances"
+  ],
+  "exclusionCodes": [
+    "fuel",
+    "cash_advance"
+  ],
+  "specialSpendRules": [
+    {
+      "category": "rent",
+      "treatment": "capped",
+      "notes": "Reward Points on Rent payment transactions done through third-party merchants will be capped at 500 in a statement cycle."
+    }
+  ],
+  "joiningBenefits": [
+    "Choice of Montblanc luxury merchandise (watches, writing instruments, leather goods, or eyewear)",
+    "Complimentary luxury stays at The Postcard Hotel (worth Rs 12,000)",
+    "Choice of brand and e-commerce vouchers via Vouchagram or Vouchagram Premium (including Amazon, Flipkart, Myntra, Swiggy, Zomato, Uber, Ola, Bata, Titan, Vero Moda, and ALDO)",
+    "Note: Welcome gifts are subject to change and only applicable upon payment of the joining fee at eligible fee points (standard joining fee of Rs 15,000)"
+  ],
+  "milestoneBenefits": [],
+  "additionalBenefits": [
+    "1 complimentary golf game and 1 complimentary lesson per month",
+    "Complimentary Hole-in-One insurance worth Rs 20,000",
+    "Complimentary Auto Assist roadside emergency services (breakdown assistance, key replacement, flat tire, emergency fuel)",
+    "1% fuel surcharge waiver at all fuel stations in India",
+    "Travel insurance cover including lost/delayed baggage, passport loss, lost ticket, and missed connection"
+  ],
+  "additionalDetails": [
+    "Cash redemption is capped at 7,500 reward points per calendar month",
+    "Minimum 500 reward points required for cash credit redemption",
+    "Rent reward points capped at 500 per statement cycle"
+  ],
+  "redemption": {
+    "statementBalanceValue": 0.75,
+    "pointsExpiryYears": null,
+    "airlinePartners": [
+      {
+        "airline": "Singapore Airlines",
+        "programme": "KrisFlyer",
+        "ratio": "2:1"
+      }
+    ]
+  },
+  "eligibility": {
+    "salaried": [
+      "Eligibility is subject to IndusInd Bank approval criteria"
+    ],
+    "selfEmployed": [
+      "Eligibility is subject to IndusInd Bank approval criteria"
+    ]
+  },
+  "internalNotes": [
+    "Card details manually reviewed and verified by user on 2026-05-30",
+    "Effective March 13, 2025, Priority Pass lounge benefit is revised to 1 complimentary international visit per quarter.",
+    "Effective March 13, 2025, golf benefit is revised to 1 complimentary game and 1 complimentary lesson per month.",
+    "Effective April 1, 2026, spends criteria tracking of Rs 1.5 Lakh per quarter is initiated to unlock domestic lounge access from July 2026 quarter onwards.",
+    "Reward points on rent transactions capped at 500 per statement cycle.",
+    "Redemption towards Club Vistara discontinued effective Oct 31, 2024. Redemption towards InterMiles discontinued effective Jan 21, 2025."
+  ],
+  "sourceUrl": "https://www.indusind.com/in/en/personal/cards/credit-card/pinnacle-world-credit-card.html",
+  "applyUrl": "https://www.indusind.com/in/en/personal/cards/credit-card/pinnacle-world-credit-card.html",
+  "lastVerified": "2026-05-30",
+  "verificationStatus": "official-direct",
+  "imageUrl": "/images/indusind-pinnacle.webp"
+}

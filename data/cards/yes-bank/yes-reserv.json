@@ -1,0 +1,83 @@
+{
+  "id": "yes-reserv",
+  "issuer": "YES Bank",
+  "name": "YES BANK RESERV Credit Card",
+  "network": [
+    "Mastercard"
+  ],
+  "joiningFee": 2499,
+  "annualFee": 2499,
+  "feeWaiverSpend": 300000,
+  "bestFor": [
+    "premium",
+    "travel",
+    "lounge",
+    "movies",
+    "golf"
+  ],
+  "rewardType": "YES Rewardz points",
+  "rewards": [
+    {
+      "category": "online",
+      "rate": 3,
+      "capMonthly": 9000
+    },
+    {
+      "category": "base",
+      "rate": 1.5,
+      "capMonthly": null
+    },
+    {
+      "category": "utilities",
+      "rate": 0.75,
+      "capMonthly": 750
+    }
+  ],
+  "popularityScore": 80,
+  "loungeDomestic": 12,
+  "loungeInternational": 6,
+  "forexMarkup": 1.75,
+  "tags": [
+    "yes bank",
+    "premium",
+    "travel",
+    "lounge",
+    "movies",
+    "golf",
+    "rewardz"
+  ],
+  "exclusions": [
+    "fuel",
+    "cash withdrawals",
+    "transactions converted into EMI"
+  ],
+  "milestoneBenefits": [
+    "First-year membership fee waived on spending Rs 40,000 within 30 days of card issuance",
+    "Renewal fee waiver on spending Rs 3,00,000 in a card anniversary year",
+    "8,000 YES Rewardz points on renewal fee realization"
+  ],
+  "additionalBenefits": [
+    "Card was earlier known as YES First Exclusive",
+    "6 complimentary international lounge visits in 12 months for primary and add-on cardmembers",
+    "3 complimentary domestic lounge visits per quarter for primary cardmember",
+    "BookMyShow discount up to 25% with monthly cap",
+    "Purchase protection cover on eligible electronics",
+    "Green fee waiver and golf lessons at select golf courses"
+  ],
+  "redemption": {
+    "statementBalanceValue": 0.25,
+    "pointsExpiryYears": null
+  },
+  "eligibility": {
+    "salaried": [
+      "Eligibility is subject to YES BANK approval criteria"
+    ],
+    "selfEmployed": [
+      "Eligibility is subject to YES BANK approval criteria"
+    ]
+  },
+  "sourceUrl": "https://www.yesbank.in/content/published/api/v1.1/assets/CONT4EAD59EF49CE4B8EADB3234B1D9AF541/native/yesbank_credit_card_reserv_value_chart_nov23.pdf",
+  "applyUrl": "https://www.yesbank.in/personal-banking/yes-individual/cards/credit-cards",
+  "lastVerified": "2026-05-11",
+  "verificationStatus": "official-mixed"
+}

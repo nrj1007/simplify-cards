@@ -1,0 +1,76 @@
+{
+  "id": "amex-platinum",
+  "issuer": "American Express",
+  "name": "American Express Platinum Card",
+  "network": [
+    "American Express"
+  ],
+  "joiningFee": 66000,
+  "annualFee": 66000,
+  "feeWaiverSpend": null,
+  "bestFor": [
+    "ultra premium",
+    "luxury travel",
+    "hotel benefits",
+    "global lounge",
+    "concierge"
+  ],
+  "rewardType": "membership rewards",
+  "rewards": [
+    {
+      "category": "retail",
+      "rate": 0.5,
+      "capMonthly": null
+    },
+    {
+      "category": "travel",
+      "rate": 0.5,
+      "capMonthly": null
+    }
+  ],
+  "popularityScore": 73,
+  "loungeDomestic": "unlimited",
+  "loungeInternational": "unlimited",
+  "forexMarkup": 3.5,
+  "tags": [
+    "amex",
+    "ultra premium",
+    "charge card",
+    "luxury travel",
+    "global lounge",
+    "concierge",
+    "hotel benefits",
+    "metal"
+  ],
+  "exclusions": [
+    "excluded spends as per American Express Platinum Card terms"
+  ],
+  "milestoneBenefits": [],
+  "additionalBenefits": [
+    "Welcome gift worth up to Rs 60,000 with option to choose from Taj Hotels, Luxe Gift Card, The Postcard Hotels & Resorts and more",
+    "Annual fee of Rs 66,000 plus applicable taxes",
+    "Access to American Express Global Lounge Collection including Centurion Lounge, Delta Lounge and Priority Pass lounges",
+    "Fine Hotels and Resorts benefits listed by American Express",
+    "Travel and lifestyle concierge",
+    "Airline Partner Programme benefits",
+    "3X Membership Rewards points on overseas spends",
+    "Hotel status and lifestyle memberships listed by American Express"
+  ],
+  "redemption": {
+    "statementBalanceValue": null,
+    "airMilesValue": 0.6,
+    "pointsExpiryYears": null
+  },
+  "eligibility": {
+    "salaried": [
+      "Eligibility is subject to American Express Platinum charge card approval criteria"
+    ],
+    "selfEmployed": [
+      "Eligibility is subject to American Express Platinum charge card approval criteria"
+    ]
+  },
+  "sourceUrl": "https://www.americanexpress.com/en-in/credit-cards/platinum-card-range/",
+  "applyUrl": "https://www.americanexpress.com/en-in/credit-cards/platinum-card-range/",
+  "lastVerified": "2026-05-10",
+  "verificationStatus": "official-direct"
+}

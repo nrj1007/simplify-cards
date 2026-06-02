@@ -1,0 +1,116 @@
+{
+  "id": "lifestyle-home-centre-sbi-prime",
+  "issuer": "SBI Card",
+  "name": "Lifestyle Home Centre SBI Card PRIME",
+  "network": [
+    "Visa"
+  ],
+  "joiningFee": 2999,
+  "annualFee": 2999,
+  "feeWaiverSpend": null,
+  "bestFor": [
+    "lifestyle",
+    "home centre",
+    "landmark",
+    "shopping",
+    "dining",
+    "lounge"
+  ],
+  "rewardType": "reward points",
+  "rewards": [
+    {
+      "category": "partner merchants",
+      "displayCategory": "Landmark stores",
+      "rate": 3.75,
+      "displayRate": "15 Reward Points / Rs 100",
+      "capMonthly": null
+    },
+    {
+      "category": "dining, entertainment",
+      "displayCategory": "dining and movies",
+      "rate": 2.5,
+      "displayRate": "10 Reward Points / Rs 100",
+      "capMonthly": null
+    },
+    {
+      "category": "base",
+      "displayCategory": "other retail purchases",
+      "rate": 0.5,
+      "displayRate": "2 Reward Points / Rs 100",
+      "capMonthly": null
+    }
+  ],
+  "loungeDomestic": 8,
+  "loungeInternational": 4,
+  "forexMarkup": 3.5,
+  "tags": [
+    "lifestyle",
+    "home centre",
+    "landmark",
+    "max",
+    "spar",
+    "shopping",
+    "dining",
+    "lounge"
+  ],
+  "exclusions": [
+    "fuel",
+    "cash withdrawal",
+    "balance transfer",
+    "wallet loading",
+    "government transactions",
+    "online gaming transactions"
+  ],
+  "exclusionCodes": [
+    "fuel",
+    "cash_withdrawal",
+    "balance_transfer",
+    "wallet_load",
+    "government",
+    "gaming"
+  ],
+  "milestoneBenefits": [
+    "6,000 bonus Reward Points on annual spends of Rs 40,000 across Landmark Stores",
+    "12,000 bonus Reward Points on annual spends of Rs 1 lakh across Landmark Stores",
+    "20,000 bonus Reward Points on annual spends of Rs 1.8 lakh across Landmark Stores",
+    "20,000 bonus Reward Points on overall annual retail spends of Rs 5 lakh"
+  ],
+  "joiningBenefits": [
+    "12,000 bonus Reward Points worth Rs 3,000 on payment of annual fee",
+    "Reward Points are credited within 30 days of annual fee payment"
+  ],
+  "renewalBenefits": [
+    "12,000 Reward Points worth Rs 3,000 on payment of renewal fee",
+    "Reward Points are credited within 30 days of renewal fee payment"
+  ],
+  "additionalBenefits": [
+    "Reward Points can be redeemed instantly at Lifestyle, Home Centre, Spar, and Max stores",
+    "1% fuel surcharge waiver on eligible fuel transactions from Rs 500 to Rs 4,000, capped at Rs 250 per statement cycle"
+  ],
+  "redemption": {
+    "ecosystemLabel": "Lifestyle, Home Centre, Spar, and Max stores",
+    "ecosystemValue": 0.25
+  },
+  "additionalDetails": [],
+  "internalNotes": [
+    "Card details manually reviewed and verified by user on 2026-06-01",
+    "Audited against official SBI Card product page, Lifestyle PRIME card T&C booklet, customer notice dated 1 Aug 2025, MITC page, and Priority Pass FAQ on 2026-06-01.",
+    "Reward Points expire after 24 months.",
+    "W.e.f. 1 Sep 2025, reward accrual on digital gaming platforms/merchants and government related transactions is discontinued for Lifestyle Home Centre SBI Card PRIME.",
+    "Priority Pass standard membership is complimentary; post the 4 complimentary international lounge visits per year, visit charges apply at the programme's prevailing rate.",
+    "Current official product page lists Visa network branding for this card."
+  ],
+  "supportingSourceUrls": [
+    "https://www.sbicard.com/en/personal/credit-cards/shopping/hc-sbi-card-prime.page",
+    "https://www.sbicard.com/sbi-card-en/assets/docs/pdf/tnc/landmark-cards-tnc/LifeStyle-PRIME-card-tnc.pdf",
+    "https://www.sbicard.com/en/customer-notices.page.page",
+    "https://www.sbicard.com/en/most-important-terms-and-conditions.page",
+    "https://www.sbicard.com/en/faq/complimentary-priority-pass-membership.page"
+  ],
+  "imageUrl": "/images/lifestyle-home-centre-sbi-prime.png",
+  "sourceUrl": "https://www.sbicard.com/en/personal/credit-cards/shopping/hc-sbi-card-prime.page",
+  "applyUrl": "https://www.sbicard.com/en/personal/credit-cards/shopping/hc-sbi-card-prime.page",
+  "lastVerified": "2026-06-01",
+  "verificationStatus": "official-direct",
+  "popularityScore": 71
+}

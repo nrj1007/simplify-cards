@@ -1,0 +1,82 @@
+{
+  "id": "apollo-sbi-select",
+  "issuer": "SBI Card",
+  "name": "Apollo SBI Card SELECT",
+  "network": [
+    "Visa"
+  ],
+  "joiningFee": 1499,
+  "annualFee": 1499,
+  "feeWaiverSpend": 300000,
+  "bestFor": [
+    "healthcare",
+    "apollo",
+    "pharmacy",
+    "diagnostics",
+    "lounge"
+  ],
+  "rewardType": "reward points and health credits",
+  "rewards": [
+    {
+      "category": "online",
+      "rate": 10,
+      "capMonthly": 5000
+    },
+    {
+      "category": "dining",
+      "rate": 2,
+      "capMonthly": 5000
+    },
+    {
+      "category": "travel",
+      "rate": 2,
+      "capMonthly": 5000
+    },
+    {
+      "category": "base",
+      "rate": 0.5,
+      "capMonthly": 5000
+    }
+  ],
+  "loungeDomestic": 4,
+  "loungeInternational": 0,
+  "forexMarkup": 3.5,
+  "tags": [
+    "apollo",
+    "healthcare",
+    "pharmacy",
+    "diagnostics",
+    "lounge",
+    "wellness"
+  ],
+  "exclusions": [
+    "fuel",
+    "cash withdrawal",
+    "balance transfer",
+    "transactions excluded under Apollo SBI Card SELECT terms"
+  ],
+  "milestoneBenefits": [
+    "Annual fee waiver on annual spends of Rs 3 lakh in the previous year",
+    "Noise smartwatch benefit on annual spends of Rs 6 lakh, subject to product terms"
+  ],
+  "additionalBenefits": [
+    "Apollo 24/7 e-gift voucher worth Rs 1,500 on eligible joining fee payment",
+    "10 Reward Points per Rs 100 on Apollo 24/7 and Apollo Pharmacy spends",
+    "Up to 15% Health Credits on medicine purchases, up to 20% on diagnostic tests, and up to 10% on doctor consultations under Apollo Circle benefits",
+    "2 Reward Points per Rs 100 on dining, travel, movies and entertainment spends",
+    "1 Reward Point per Rs 200 on other eligible spends",
+    "1 Reward Point can be redeemed as 1 Apollo Health Credit",
+    "4 complimentary domestic airport lounge visits per year, capped at 1 per quarter",
+    "Complimentary Priority Pass membership for two years",
+    "1-year complimentary FITPASS PRO membership and annual health check-up package, subject to product terms"
+  ],
+  "redemption": {
+    "statementBalanceValue": 1,
+    "pointsExpiryYears": 2
+  },
+  "sourceUrl": "https://www.sbicard.com/en/personal/credit-cards/apollo-sbi-card.html",
+  "applyUrl": "https://www.apollo247.com/apollo-sbi-credit-card-faqs",
+  "lastVerified": "2026-05-09",
+  "verificationStatus": "official-mixed",
+  "popularityScore": 49
+}

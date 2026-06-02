@@ -1,0 +1,71 @@
+{
+  "id": "sc-platinum-rewards",
+  "issuer": "Standard Chartered",
+  "name": "Standard Chartered Platinum Rewards Credit Card",
+  "network": [
+    "Visa"
+  ],
+  "joiningFee": 250,
+  "annualFee": 250,
+  "feeWaiverSpend": null,
+  "bestFor": [
+    "fuel",
+    "dining",
+    "lifetime free"
+  ],
+  "rewardType": "360° Rewards points",
+  "rewards": [
+    {
+      "category": "fuel",
+      "rate": 0.83,
+      "capMonthly": null
+    },
+    {
+      "category": "dining",
+      "rate": 0.83,
+      "capMonthly": null
+    },
+    {
+      "category": "base",
+      "rate": 0.17,
+      "capMonthly": null
+    }
+  ],
+  "popularityScore": 76,
+  "loungeDomestic": 0,
+  "loungeInternational": 0,
+  "forexMarkup": 3.5,
+  "tags": [
+    "standard chartered",
+    "platinum rewards",
+    "fuel",
+    "dining",
+    "lifetime free"
+  ],
+  "exclusions": [
+    "one-time fee of INR 250 plus GST applies if spend of INR 500 or more is not done within 30 days from issuance"
+  ],
+  "milestoneBenefits": [],
+  "additionalBenefits": [
+    "5 reward points for every INR 150 spent at fine-dining outlets",
+    "5 reward points for every INR 150 spent on fuel",
+    "1 reward point for every INR 150 spent on all other categories",
+    "Lifetime-free style acquisition if first-30-day spend condition is met"
+  ],
+  "redemption": {
+    "statementBalanceValue": 0.17,
+    "redemptionFee": 99
+  },
+  "eligibility": {
+    "salaried": [
+      "Applicant age should be between 18 and 65 years"
+    ],
+    "selfEmployed": [
+      "Applicant age should be between 18 and 67 years"
+    ]
+  },
+  "sourceUrl": "https://www.sc.com/in/credit-cards/platinum-rewards/",
+  "applyUrl": "https://www.sc.com/in/credit-cards/platinum-rewards/",
+  "lastVerified": "2026-05-11",
+  "verificationStatus": "official-direct"
+}

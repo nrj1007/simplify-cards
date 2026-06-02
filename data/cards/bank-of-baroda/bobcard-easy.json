@@ -1,0 +1,84 @@
+{
+  "id": "bobcard-easy",
+  "issuer": "Bank of Baroda",
+  "name": "BOBCARD EASY",
+  "network": [
+    "Visa"
+  ],
+  "joiningFee": 500,
+  "annualFee": 500,
+  "feeWaiverSpend": 35000,
+  "bestFor": [
+    "grocery",
+    "departmental stores",
+    "entertainment",
+    "low fee"
+  ],
+  "rewardType": "reward points",
+  "rewards": [
+    {
+      "category": "grocery",
+      "rate": 1.25,
+      "capMonthly": 2000
+    },
+    {
+      "category": "departmental stores",
+      "rate": 1.25,
+      "capMonthly": 2000
+    },
+    {
+      "category": "entertainment",
+      "rate": 1.25,
+      "capMonthly": 2000
+    },
+    {
+      "category": "retail",
+      "rate": 0.25,
+      "capMonthly": null
+    }
+  ],
+  "loungeDomestic": 0,
+  "loungeInternational": 0,
+  "forexMarkup": 3.5,
+  "tags": [
+    "bobcard",
+    "entry level",
+    "grocery",
+    "departmental stores",
+    "movies",
+    "low fee"
+  ],
+  "exclusions": [
+    "fuel transactions do not earn reward points",
+    "accelerated reward points are subject to monthly cap",
+    "taxes and charges excluded as per BOBCARD terms"
+  ],
+  "milestoneBenefits": [
+    "First year fee reversal on spending Rs 6,000 within first 60 days",
+    "Annual fee waiver on spending Rs 35,000 in a year"
+  ],
+  "additionalBenefits": [
+    "5 reward points per Rs 100 on grocery, departmental stores and movie spends",
+    "1 reward point per Rs 100 on other categories",
+    "1% fuel surcharge waiver on fuel transactions between Rs 400 and Rs 5,000, capped at Rs 250 per statement cycle",
+    "Up to 3 lifetime free add-on cards",
+    "Personal accidental death cover"
+  ],
+  "redemption": {
+    "statementBalanceValue": 0.25,
+    "pointsExpiryYears": null
+  },
+  "eligibility": {
+    "salaried": [
+      "Eligibility details to be confirmed during Bank of Baroda application"
+    ],
+    "selfEmployed": [
+      "Eligibility details to be confirmed during Bank of Baroda application"
+    ]
+  },
+  "sourceUrl": "https://bankofbaroda.bank.in/personal-banking/digital-products/cards/credit-cards/easy",
+  "applyUrl": "https://bankofbaroda.bank.in/personal-banking/digital-products/cards/credit-cards/easy",
+  "lastVerified": "2026-05-10",
+  "verificationStatus": "official-direct",
+  "popularityScore": 61
+}

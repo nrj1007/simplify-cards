@@ -1,0 +1,70 @@
+{
+  "id": "simplysave-sbi",
+  "issuer": "SBI Card",
+  "name": "SimplySAVE SBI Card",
+  "network": [
+    "Visa"
+  ],
+  "joiningFee": 499,
+  "annualFee": 499,
+  "feeWaiverSpend": 100000,
+  "bestFor": [
+    "dining",
+    "movies",
+    "departmental stores",
+    "grocery"
+  ],
+  "rewardType": "reward points",
+  "rewards": [
+    {
+      "category": "dining movies grocery",
+      "rate": 1.67,
+      "capMonthly": null
+    },
+    {
+      "category": "base",
+      "rate": 0.17,
+      "capMonthly": null
+    }
+  ],
+  "loungeDomestic": 0,
+  "loungeInternational": 0,
+  "forexMarkup": 3.5,
+  "tags": [
+    "dining",
+    "grocery",
+    "movies",
+    "departmental stores",
+    "entry level",
+    "low fee"
+  ],
+  "exclusions": [
+    "fuel",
+    "cash advance",
+    "balance transfer",
+    "wallet loading",
+    "transactions excluded under SBI Card reward terms"
+  ],
+  "milestoneBenefits": [
+    "2,000 bonus Reward Points on spends of Rs 2,000 or more in first 60 days",
+    "Renewal fee reversal on annual spends of Rs 1 lakh or more in the previous year"
+  ],
+  "additionalBenefits": [
+    "10 Reward Points per Rs 150 spent on dining, movies, departmental stores and grocery spends",
+    "1 Reward Point per Rs 150 spent on all other eligible spends",
+    "4 Reward Points equal Rs 1",
+    "1% fuel surcharge waiver at petrol pumps in India on transactions from Rs 500 to Rs 3,000, capped at Rs 100 per statement cycle",
+    "Contactless payments enabled"
+  ],
+  "redemption": {
+    "statementBalanceValue": 0.25,
+    "minimumPointsForStatementCredit": 4000,
+    "pointsExpiryYears": 2,
+    "redemptionFee": 99
+  },
+  "sourceUrl": "https://www.sbicard.com/en/personal/credit-cards/shopping/simplysave-sbi-card-sprint.page",
+  "applyUrl": "https://www.sbicard.com/en/personal/credit-cards/shopping/simplysave-sbi-card-sprint.page",
+  "lastVerified": "2026-05-09",
+  "verificationStatus": "official-direct",
+  "popularityScore": 66
+}

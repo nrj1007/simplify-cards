@@ -1,0 +1,71 @@
+{
+  "id": "kotak-811-dream-different",
+  "issuer": "Kotak Mahindra Bank",
+  "name": "811 Dream Different Credit Card",
+  "network": [
+    "Visa"
+  ],
+  "joiningFee": 0,
+  "annualFee": 0,
+  "feeWaiverSpend": null,
+  "bestFor": [
+    "lifetime free",
+    "online",
+    "fuel",
+    "railway"
+  ],
+  "rewardType": "Kotak Reward Points",
+  "rewards": [
+    {
+      "category": "online",
+      "rate": 0.4,
+      "capMonthly": null
+    },
+    {
+      "category": "base",
+      "rate": 0.2,
+      "capMonthly": null
+    }
+  ],
+  "popularityScore": 71,
+  "loungeDomestic": 0,
+  "loungeInternational": 0,
+  "forexMarkup": 4,
+  "tags": [
+    "kotak",
+    "811",
+    "lifetime free",
+    "visa",
+    "fuel",
+    "railway"
+  ],
+  "exclusions": [
+    "fuel and railway transactions are excluded from reward-point accrual because surcharge waivers apply",
+    "reward point cash redemption value revised by Kotak from June 2025"
+  ],
+  "milestoneBenefits": [
+    "Earn 500 bonus reward points on activation plus Rs 5,000 spends in the first 45 days",
+    "Spend Rs 75,000 in a year and get cashback of Rs 750"
+  ],
+  "additionalBenefits": [
+    "1% fuel surcharge waiver across domestic petrol pumps",
+    "Railway surcharge waiver",
+    "Higher cash limit and up to 48 days interest-free period on cash advances according to Kotak FAQ"
+  ],
+  "redemption": {
+    "statementBalanceValue": 0.2,
+    "minimumPointsForStatementCredit": 2000
+  },
+  "eligibility": {
+    "salaried": [
+      "Eligibility is subject to Kotak Mahindra Bank approval criteria"
+    ],
+    "selfEmployed": [
+      "Eligibility is subject to Kotak Mahindra Bank approval criteria"
+    ]
+  },
+  "sourceUrl": "https://www.kotak.com/en/personal-banking/cards/credit-cards/811-dream-different-credit-card/811-dream-different-credit-card-faqs.html",
+  "applyUrl": "https://www.kotak.com/en/personal-banking/cards/credit-cards/811-dream-different-credit-card/eligibility.html",
+  "lastVerified": "2026-05-11",
+  "verificationStatus": "official-mixed"
+}

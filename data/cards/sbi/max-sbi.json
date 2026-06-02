@@ -1,0 +1,80 @@
+{
+  "id": "max-sbi",
+  "issuer": "SBI Card",
+  "name": "Max SBI Card",
+  "network": [
+    "Visa"
+  ],
+  "joiningFee": 499,
+  "annualFee": 499,
+  "feeWaiverSpend": null,
+  "bestFor": [
+    "max",
+    "landmark",
+    "shopping",
+    "dining",
+    "low fee"
+  ],
+  "rewardType": "reward points",
+  "rewards": [
+    {
+      "category": "base",
+      "rate": 1.25,
+      "capMonthly": null
+    },
+    {
+      "category": "dining",
+      "rate": 1.25,
+      "capMonthly": null
+    },
+    {
+      "category": "base",
+      "rate": 0.25,
+      "capMonthly": null
+    }
+  ],
+  "loungeDomestic": 0,
+  "loungeInternational": 0,
+  "forexMarkup": 3.5,
+  "tags": [
+    "max",
+    "landmark",
+    "lifestyle",
+    "home centre",
+    "spar",
+    "shopping",
+    "dining",
+    "low fee"
+  ],
+  "exclusions": [
+    "fuel",
+    "cash withdrawal",
+    "balance transfer",
+    "wallet loading",
+    "transactions excluded under Max SBI Card terms"
+  ],
+  "milestoneBenefits": [
+    "1,000 bonus Reward Points on annual spends of Rs 20,000 across Landmark Stores",
+    "2,000 bonus Reward Points on annual spends of Rs 45,000 across Landmark Stores",
+    "5,000 bonus Reward Points on annual spends of Rs 95,000 across Landmark Stores",
+    "8,000 bonus Reward Points on overall annual retail spends of Rs 2 lakh"
+  ],
+  "additionalBenefits": [
+    "2,000 bonus Reward Points worth Rs 500 on payment of annual fee",
+    "2,000 Reward Points worth Rs 500 on payment of renewal fee",
+    "5 Reward Points per Rs 100 at online and retail Landmark Stores including Lifestyle, Home Centre, Max and Spar, plus dining and movies",
+    "1 Reward Point per Rs 100 on other eligible non-fuel retail purchases",
+    "4 Reward Points equal Re 1",
+    "Reward Points can be redeemed instantly at Lifestyle, Home Centre, Spar and Max stores",
+    "1% fuel surcharge waiver on eligible fuel transactions from Rs 500 to Rs 3,000, capped at Rs 100 per statement cycle"
+  ],
+  "redemption": {
+    "statementBalanceValue": 0.25,
+    "pointsExpiryYears": 2
+  },
+  "sourceUrl": "https://www.sbicard.com/en/personal/credit-cards/shopping/max-sbi-card.page",
+  "applyUrl": "https://www.sbicard.com/en/personal/credit-cards/shopping/max-sbi-card.page",
+  "lastVerified": "2026-05-09",
+  "verificationStatus": "official-direct",
+  "popularityScore": 61
+}

@@ -1,0 +1,68 @@
+{
+  "id": "yes-pop-club",
+  "issuer": "YES Bank",
+  "name": "YES BANK POP-CLUB Credit Card",
+  "network": [
+    "RuPay"
+  ],
+  "joiningFee": 0,
+  "annualFee": 399,
+  "feeWaiverSpend": 150000,
+  "bestFor": [
+    "upi",
+    "gen z",
+    "shopping",
+    "co-branded"
+  ],
+  "rewardType": "POPcoins",
+  "rewards": [
+    {
+      "category": "upi",
+      "rate": 2,
+      "capMonthly": null
+    }
+  ],
+  "popularityScore": 79,
+  "loungeDomestic": 0,
+  "loungeInternational": 0,
+  "forexMarkup": 3.4,
+  "tags": [
+    "yes bank",
+    "pop club",
+    "rupay",
+    "upi",
+    "shopping",
+    "cashback",
+    "popcoins"
+  ],
+  "exclusions": [
+    "detailed earn rules depend on POP app and partner campaigns",
+    "cash advance fee applies",
+    "rent",
+    "wallet loading"
+  ],
+  "milestoneBenefits": [
+    "Renewal fee waiver on spending Rs 1,50,000 in a card anniversary year"
+  ],
+  "additionalBenefits": [
+    "2% POPcoins on UPI transactions through POP UPI",
+    "Joining benefits worth about Rs 2,000 highlighted on POP's official site",
+    "1% fuel surcharge waiver on eligible transactions with monthly cap of Rs 300"
+  ],
+  "redemption": {
+    "statementBalanceValue": 1,
+    "pointsExpiryYears": null
+  },
+  "eligibility": {
+    "salaried": [
+      "Eligibility is subject to YES BANK and POP approval criteria"
+    ],
+    "selfEmployed": [
+      "Eligibility is subject to YES BANK and POP approval criteria"
+    ]
+  },
+  "sourceUrl": "https://popclub.co/",
+  "applyUrl": "https://popclub.co/",
+  "lastVerified": "2026-05-11",
+  "verificationStatus": "official-mixed"
+}

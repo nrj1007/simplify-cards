@@ -1,0 +1,83 @@
+{
+  "id": "axis-google-pay-flex",
+  "issuer": "Axis Bank",
+  "name": "Google Pay Flex Axis Bank Credit Card",
+  "network": [
+    "RuPay"
+  ],
+  "joiningFee": 0,
+  "annualFee": 0,
+  "feeWaiverSpend": null,
+  "bestFor": [
+    "upi",
+    "google pay",
+    "cashback",
+    "dining",
+    "lifetime free"
+  ],
+  "rewardType": "stars",
+  "rewards": [
+    {
+      "category": "upi",
+      "rate": 0.2,
+      "capMonthly": null
+    },
+    {
+      "category": "base",
+      "rate": 0.2,
+      "capMonthly": null
+    }
+  ],
+  "loungeDomestic": 0,
+  "loungeInternational": 0,
+  "forexMarkup": 3.5,
+  "tags": [
+    "google pay",
+    "flex",
+    "rupay",
+    "upi",
+    "stars",
+    "cashback",
+    "lifetime free",
+    "dining"
+  ],
+  "exclusions": [
+    "wallet load",
+    "rent",
+    "education payments via third-party apps",
+    "online skill-based gaming",
+    "transactions excluded under Google Pay Flex Axis Bank Credit Card terms"
+  ],
+  "milestoneBenefits": [
+    "Unlock 2X stars in the current reward cycle by spending Rs 100 or more in the previous cycle",
+    "Unlock promotional 4X stars after spending more than Rs 15,000 in the current reward period, subject to Google Pay campaign terms",
+    "Unlock promotional 8X stars after spending more than Rs 30,000 in the current reward period, subject to Google Pay campaign terms"
+  ],
+  "additionalBenefits": [
+    "Lifetime free card with waived joining fee and annual fee",
+    "Earn 1 star for every cumulative Rs 500 spent on eligible spends, including fuel",
+    "1 star equals Re 1 and can be redeemed instantly while making UPI payments using this card on Google Pay",
+    "Welcome reward includes Rs 250 gift card and 250 stars on Google Pay, subject to Google Pay offers",
+    "Earn 2 stars per Rs 500 in the first reward period",
+    "Flexible repayment from Google Pay app, including full payment or EMI subject to bill amount and eligibility",
+    "Up to 15% off on dining via EazyDiner, capped at Rs 500 per month",
+    "Convert transactions of Rs 2,500 or more into EMI"
+  ],
+  "redemption": {
+    "statementBalanceValue": 1,
+    "pointsExpiryYears": null
+  },
+  "eligibility": {
+    "salaried": [
+      "Apply through the Money tab on Google Pay under Flex by Google Pay, subject to Axis Bank eligibility"
+    ],
+    "selfEmployed": [
+      "Apply through the Money tab on Google Pay under Flex by Google Pay, subject to Axis Bank eligibility"
+    ]
+  },
+  "sourceUrl": "https://www.axis.bank.in/cards/credit-card/google-pay-flex-axis-bank-credit-card",
+  "applyUrl": "https://www.axis.bank.in/cards/credit-card/google-pay-flex-axis-bank-credit-card",
+  "lastVerified": "2026-05-10",
+  "verificationStatus": "official-direct",
+  "popularityScore": 65
+}

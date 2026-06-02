@@ -1,0 +1,90 @@
+{
+  "id": "bobcard-eterna",
+  "issuer": "Bank of Baroda",
+  "name": "BOBCARD ETERNA",
+  "network": [
+    "Visa"
+  ],
+  "joiningFee": 2499,
+  "annualFee": 2499,
+  "feeWaiverSpend": null,
+  "bestFor": [
+    "travel",
+    "dining",
+    "online",
+    "lounge",
+    "premium"
+  ],
+  "rewardType": "reward points",
+  "rewards": [
+    {
+      "category": "travel",
+      "rate": 3.75,
+      "capMonthly": 5000
+    },
+    {
+      "category": "dining",
+      "rate": 3.75,
+      "capMonthly": 5000
+    },
+    {
+      "category": "online",
+      "rate": 3.75,
+      "capMonthly": 5000
+    },
+    {
+      "category": "retail",
+      "rate": 0.75,
+      "capMonthly": null
+    }
+  ],
+  "loungeDomestic": "unlimited",
+  "loungeInternational": 0,
+  "forexMarkup": 2,
+  "tags": [
+    "bobcard",
+    "premium",
+    "travel",
+    "dining",
+    "online",
+    "lounge",
+    "movies",
+    "fitness"
+  ],
+  "exclusions": [
+    "fuel transactions do not earn reward points",
+    "accelerated reward points are subject to monthly cap",
+    "taxes and charges excluded as per BOBCARD terms"
+  ],
+  "milestoneBenefits": [
+    "10,000 bonus reward points on spending Rs 50,000 within first 60 days",
+    "20,000 bonus reward points on annual spends of Rs 5,00,000"
+  ],
+  "additionalBenefits": [
+    "15 reward points per Rs 100 on travel, dining, online and international transactions",
+    "3 reward points per Rs 100 on other categories",
+    "Reward points redeemable as cashback at 1 reward point = Rs 0.25",
+    "1% fuel surcharge waiver on fuel transactions between Rs 400 and Rs 5,000, capped at Rs 250 per statement cycle",
+    "Free personal accident death cover: air Rs 1 crore, non-air Rs 10 lakh",
+    "Up to 3 lifetime free add-on cards"
+  ],
+  "redemption": {
+    "statementBalanceValue": 0.25,
+    "pointsExpiryYears": null
+  },
+  "eligibility": {
+    "salaried": [
+      "Resident Indian primary cardholder between 21 and 65 years",
+      "Income of Rs 12 lakh per annum or more"
+    ],
+    "selfEmployed": [
+      "Resident Indian primary cardholder between 21 and 65 years",
+      "Income of Rs 12 lakh per annum or more"
+    ]
+  },
+  "sourceUrl": "https://bankofbaroda.bank.in/personal-banking/digital-products/cards/credit-cards/eterna",
+  "applyUrl": "https://bankofbaroda.bank.in/personal-banking/digital-products/cards/credit-cards/eterna",
+  "lastVerified": "2026-05-10",
+  "verificationStatus": "official-direct",
+  "popularityScore": 76
+}

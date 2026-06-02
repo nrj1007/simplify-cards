@@ -1,0 +1,69 @@
+{
+  "id": "rbl-cookies",
+  "issuer": "RBL Bank",
+  "name": "RBL Bank Cookies Credit Card",
+  "network": [
+    "Visa"
+  ],
+  "joiningFee": 0,
+  "annualFee": 1200,
+  "feeWaiverSpend": null,
+  "bestFor": [
+    "online",
+    "shopping",
+    "entry level"
+  ],
+  "rewardType": "reward points",
+  "rewards": [
+    {
+      "category": "online",
+      "rate": 1,
+      "capMonthly": null
+    },
+    {
+      "category": "base",
+      "rate": 0.2,
+      "capMonthly": null
+    }
+  ],
+  "popularityScore": 74,
+  "loungeDomestic": 0,
+  "loungeInternational": 0,
+  "forexMarkup": 3.5,
+  "tags": [
+    "rbl",
+    "cookies",
+    "online",
+    "shopping",
+    "entry level"
+  ],
+  "exclusions": [
+    "card uses monthly fee model rather than conventional annual fee",
+    "5x rewards apply on eligible online spend only",
+    "cash advances",
+    "fuel"
+  ],
+  "milestoneBenefits": [
+    "Monthly card fee can be waived on meeting eligible monthly spend threshold as per RBL terms"
+  ],
+  "additionalBenefits": [
+    "5x reward points on online purchases",
+    "1 reward point per Rs 100 on other eligible spends",
+    "Useful for entry-level online spenders who can hit monthly waiver threshold"
+  ],
+  "redemption": {
+    "statementBalanceValue": 0.2
+  },
+  "eligibility": {
+    "salaried": [
+      "Eligibility is subject to RBL Bank approval criteria"
+    ],
+    "selfEmployed": [
+      "Eligibility is subject to RBL Bank approval criteria"
+    ]
+  },
+  "sourceUrl": "https://www.rblbank.com/personal-banking/cards/credit-cards/cookies-credit-card",
+  "applyUrl": "https://www.rblbank.com/personal-banking/cards/credit-cards/cookies-credit-card",
+  "lastVerified": "2026-05-11",
+  "verificationStatus": "official-direct"
+}

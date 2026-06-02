@@ -1,0 +1,66 @@
+{
+  "id": "equitas-premio",
+  "issuer": "Equitas Small Finance Bank",
+  "name": "Equitas Premio Credit Card",
+  "network": [
+    "Visa"
+  ],
+  "joiningFee": 0,
+  "annualFee": 0,
+  "feeWaiverSpend": null,
+  "bestFor": [
+    "lifetime free",
+    "entry level",
+    "movies"
+  ],
+  "rewardType": "reward points",
+  "rewards": [
+    {
+      "category": "online",
+      "rate": 0.5,
+      "capMonthly": null
+    },
+    {
+      "category": "base",
+      "rate": 0.25,
+      "capMonthly": null
+    }
+  ],
+  "popularityScore": 69,
+  "loungeDomestic": 0,
+  "loungeInternational": 0,
+  "forexMarkup": 3.5,
+  "tags": [
+    "equitas",
+    "premio",
+    "lifetime free",
+    "entry level",
+    "movies"
+  ],
+  "exclusions": [
+    "reward values follow current Equitas rewards terms",
+    "fuel",
+    "cash advances"
+  ],
+  "milestoneBenefits": [],
+  "additionalBenefits": [
+    "Lifetime free entry-level Equitas credit card",
+    "Movie and lifestyle privileges",
+    "Base reward earning on everyday spends"
+  ],
+  "redemption": {
+    "statementBalanceValue": 0.25
+  },
+  "eligibility": {
+    "salaried": [
+      "Eligibility is subject to Equitas Small Finance Bank approval criteria"
+    ],
+    "selfEmployed": [
+      "Eligibility is subject to Equitas Small Finance Bank approval criteria"
+    ]
+  },
+  "sourceUrl": "https://www.equitasbank.com/credit-cards/premio-credit-card",
+  "applyUrl": "https://www.equitasbank.com/credit-cards/premio-credit-card",
+  "lastVerified": "2026-05-11",
+  "verificationStatus": "official-mixed"
+}

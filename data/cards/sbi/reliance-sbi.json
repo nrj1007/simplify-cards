@@ -1,0 +1,86 @@
+{
+  "id": "reliance-sbi",
+  "issuer": "SBI Card",
+  "name": "Reliance SBI Card",
+  "network": [
+    "Mastercard",
+    "RuPay"
+  ],
+  "joiningFee": 499,
+  "annualFee": 499,
+  "feeWaiverSpend": 100000,
+  "bestFor": [
+    "reliance",
+    "shopping",
+    "jiomart",
+    "ajio",
+    "dining"
+  ],
+  "rewardType": "reward points",
+  "rewards": [
+    {
+      "category": "online",
+      "rate": 2.5,
+      "capMonthly": null
+    },
+    {
+      "category": "base",
+      "rate": 1.25,
+      "capMonthly": null
+    },
+    {
+      "category": "dining",
+      "rate": 1.25,
+      "capMonthly": null
+    },
+    {
+      "category": "base",
+      "rate": 0.25,
+      "capMonthly": null
+    }
+  ],
+  "loungeDomestic": 0,
+  "loungeInternational": 0,
+  "forexMarkup": 3.5,
+  "tags": [
+    "reliance",
+    "jiomart",
+    "ajio",
+    "shopping",
+    "dining",
+    "movies",
+    "low fee"
+  ],
+  "exclusions": [
+    "fuel",
+    "rent",
+    "wallet loading",
+    "upi payments for selected accelerated Reliance categories",
+    "transactions excluded under Reliance SBI Card terms"
+  ],
+  "milestoneBenefits": [
+    "Reliance Retail voucher worth Rs 500 on annual spends of Rs 25,000 at eligible Reliance formats",
+    "Reliance Retail voucher worth Rs 750 on annual spends of Rs 50,000 at eligible Reliance formats",
+    "Reliance Retail voucher worth Rs 1,000 on annual spends of Rs 80,000 at eligible Reliance formats",
+    "Renewal fee waiver on annual spends of Rs 1 lakh or more"
+  ],
+  "additionalBenefits": [
+    "Reliance Retail voucher worth Rs 500 as activation or welcome benefit",
+    "Additional Reliance discount vouchers worth up to Rs 3,200 at participating Reliance brands",
+    "10 Reward Points per Rs 100 on AJIO and JioMart online spends, except UPI payments",
+    "5 Reward Points per Rs 100 at other participating Reliance Retail stores, except UPI payments",
+    "5 Reward Points per Rs 100 on dining and movies",
+    "1 Reward Point per Rs 100 on other eligible retail purchases",
+    "4 Reward Points equal Re 1",
+    "1% fuel surcharge waiver on eligible fuel transactions, capped as per product terms"
+  ],
+  "redemption": {
+    "statementBalanceValue": 0.25,
+    "pointsExpiryYears": 2
+  },
+  "sourceUrl": "https://www.sbicard.com/en/personal/credit-cards/shopping/reliance-sbi-card.page",
+  "applyUrl": "https://www.sbicard.com/en/personal/credit-cards/shopping/reliance-sbi-card.page",
+  "lastVerified": "2026-05-09",
+  "verificationStatus": "official-mixed",
+  "popularityScore": 55
+}

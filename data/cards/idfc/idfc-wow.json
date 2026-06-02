@@ -1,0 +1,63 @@
+{
+  "id": "idfc-wow",
+  "issuer": "IDFC FIRST Bank",
+  "name": "IDFC FIRST WOW! Credit Card",
+  "network": [
+    "Visa"
+  ],
+  "joiningFee": 0,
+  "annualFee": 0,
+  "feeWaiverSpend": null,
+  "bestFor": [
+    "secured card",
+    "lifetime free",
+    "forex",
+    "travel"
+  ],
+  "rewardType": "reward points",
+  "rewards": [
+    {
+      "category": "base",
+      "rate": 0.75,
+      "capMonthly": null
+    },
+    {
+      "category": "online",
+      "rate": 0.75,
+      "capMonthly": null
+    }
+  ],
+  "loungeDomestic": 0,
+  "loungeInternational": 0,
+  "forexMarkup": 0,
+  "tags": [
+    "lifetime free",
+    "secured card",
+    "forex",
+    "fixed deposit",
+    "beginner"
+  ],
+  "exclusions": [
+    "cash withdrawal",
+    "fuel surcharge beyond terms",
+    "transactions excluded under IDFC FIRST WOW! Credit Card terms"
+  ],
+  "milestoneBenefits": [],
+  "additionalBenefits": [
+    "Lifetime free fixed deposit backed credit card",
+    "0% forex markup",
+    "No credit history needed",
+    "Never-expiring reward points",
+    "Useful for credit building and international travel"
+  ],
+  "redemption": {
+    "statementBalanceValue": 0.25,
+    "pointsExpiryYears": null,
+    "redemptionFee": 99
+  },
+  "sourceUrl": "https://www.idfcfirstbank.com/credit-card",
+  "applyUrl": "https://www.idfcfirstbank.com/credit-card",
+  "lastVerified": "2026-05-10",
+  "verificationStatus": "official-catalogue",
+  "popularityScore": 84
+}

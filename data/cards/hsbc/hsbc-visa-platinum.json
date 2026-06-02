@@ -1,0 +1,78 @@
+{
+  "id": "hsbc-visa-platinum",
+  "issuer": "HSBC Bank",
+  "name": "HSBC Visa Platinum Credit Card",
+  "network": [
+    "Visa"
+  ],
+  "joiningFee": 0,
+  "annualFee": 0,
+  "feeWaiverSpend": null,
+  "bestFor": [
+    "lifetime free",
+    "rewards",
+    "air miles",
+    "fuel",
+    "travel"
+  ],
+  "rewardType": "reward points",
+  "rewards": [
+    {
+      "category": "base",
+      "rate": 2,
+      "capMonthly": null
+    },
+    {
+      "category": "travel",
+      "rate": 12,
+      "capMonthly": null
+    }
+  ],
+  "loungeDomestic": 0,
+  "loungeInternational": 0,
+  "forexMarkup": 3.5,
+  "tags": [
+    "visa platinum",
+    "lifetime free",
+    "rewards",
+    "air miles",
+    "fuel waiver",
+    "visa signature"
+  ],
+  "exclusions": [
+    "fuel",
+    "cash advance",
+    "balance transfer",
+    "transactions excluded under HSBC Visa Platinum Credit Card terms"
+  ],
+  "milestoneBenefits": [],
+  "additionalBenefits": [
+    "No joining fee and no annual fee",
+    "2,000 reward points after logging into HSBC India app and spending Rs 5,000 in first 30 days",
+    "3-month Swiggy One membership after card activation",
+    "Voucher worth up to Rs 500 for Amazon Pay, Zomato and Swiggy on activation with a single transaction of Rs 300 or more",
+    "2 reward points per Rs 150 spent",
+    "Up to 6X reward points on hotels, flights and car rentals through Travel with Points",
+    "Instantly convert reward points to air miles and hotel loyalty points in HSBC India app",
+    "12-month Times Prime subscription, subject to Visa Signature terms",
+    "Fuel surcharge waiver up to Rs 250 on fuel payments between Rs 400 and Rs 4,000 a month",
+    "Rs 250 cashback on contactless fuel spends up to Rs 10,000 per quarter"
+  ],
+  "redemption": {
+    "statementBalanceValue": null,
+    "pointsExpiryYears": null
+  },
+  "eligibility": {
+    "salaried": [
+      "Eligibility is subject to HSBC approval criteria"
+    ],
+    "selfEmployed": [
+      "Eligibility is subject to HSBC approval criteria"
+    ]
+  },
+  "sourceUrl": "https://www.hsbc.co.in/credit-cards/products/visa-platinum/",
+  "applyUrl": "https://www.hsbc.co.in/credit-cards/products/visa-platinum/",
+  "lastVerified": "2026-05-10",
+  "verificationStatus": "official-direct",
+  "popularityScore": 68
+}
