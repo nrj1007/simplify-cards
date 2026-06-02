@@ -79,13 +79,6 @@
         "transferRatio": 1,
         "basis": "dynamic",
         "note": "1 Membership Rewards point → 1 Marriott Bonvoy point · up to Rs 1/point"
-      },
-      {
-        "partner": "Club ITC",
-        "partnerPointValue": 1,
-        "transferRatio": 0.67,
-        "basis": "fixed",
-        "note": "3 Membership Rewards points → 2 Club ITC points · Rs 1/point"
       }
     ],
     "airlinePartners": [
@@ -99,7 +92,7 @@
     ],
     "hotelPartners": [
       { "hotelGroup": "Marriott", "programme": "Marriott Bonvoy", "ratio": "1:1" },
-      { "hotelGroup": "ITC Hotels", "programme": "Club ITC", "ratio": "3:2" }
+      { "hotelGroup": "Hilton Hotels", "programme": "Hilton Honors", "ratio": "1:0.9" }
     ]
   },
   "eligibility": {
