@@ -501,7 +501,7 @@
       "EDGE Miles can be redeemed for travel bookings at Travel EDGE portal or transferred to airline/hotel partners."
     ],
     "redemption": {
-      "smartBuyFlightHotelValue": 1,
+      "airMilesValue": 1,
       "pointsExpiryYears": 3,
       "airlinePartners": [
         { "airline": "Air Canada", "programme": "Aeroplan", "ratio": "1:2" },
