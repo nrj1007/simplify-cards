@@ -276,7 +276,6 @@ export default async function AskPage({ searchParams }: Props) {
 
   // Derived presentation values for the redesigned Ask surface.
   const isRanked = showRankedAnswer && rankedResultCards.length > 0;
-  const presentedMatches = exactCardIntent ? 1 : matchCount;
   // Display-only fit score out of 100, normalized to the strongest card in this result set.
   // Ranking still uses the raw fitScore (see lib/recommend.ts), so this does not affect ordering.
   // Only shown on the ranked result cards — the single exact-card result has no fit score.
@@ -349,9 +348,11 @@ export default async function AskPage({ searchParams }: Props) {
                           {isRanked ? "Multiple results" : exactCardIntent ? "Exact card" : "Best fit"}
                         </span>
                         {topCard.card.bestFor[0] ? <span className="ask-badge gold">{topCard.card.bestFor[0]}</span> : null}
-                        <span className="ask-badge neutral">
-                          {presentedMatches} card{presentedMatches === 1 ? "" : "s"} reviewed
-                        </span>
+                        {isRanked ? (
+                          <span className="ask-badge neutral">
+                            {matchCount} card{matchCount === 1 ? "" : "s"} reviewed
+                          </span>
+                        ) : null}
                       </div>
                     </div>
                     {isRanked ? (
