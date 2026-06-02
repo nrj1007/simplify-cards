@@ -69,7 +69,7 @@
     "Convenience fee waiver on fuel purchases at HPCL petrol pumps"
   ],
   "redemption": {
-    "statementBalanceValue": null,
+    "statementBalanceValue": 0.25,
     "airMilesValue": 0.6,
     "pointsExpiryYears": null,
     "transferPartnerValuations": [
@@ -112,6 +112,6 @@
     "Domestic lounge access is capped at 2 visits per calendar quarter",
     "Priority Pass membership fee of US$99 is waived; lounge visit charges are payable at actual prevailing rates",
     "Points do not expire as long as the card account is active and in good standing",
-    "Air miles transfer ratio yields up to 0.6 airmiles per point depending on the partner frequent flyer programme"
+    "Transfer ratios yield up to 1 point per MR point (Marriott Bonvoy transfers at a 1:1 ratio, while airline partners transfer at 2:1)"
   ]
 }
