@@ -109,7 +109,7 @@ describe("scoreCards", () => {
       query: "best hdfc lounge card under 5000"
     });
 
-    expect(scores[0]?.card.id).toBe("hdfc-marriott-bonvoy");
+    expect(scores[0]?.card.id).toBe("hdfc-regalia-gold");
   });
 
   it("boosts lower forex markup cards for explicit forex queries", () => {
