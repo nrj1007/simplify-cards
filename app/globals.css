@@ -2488,6 +2488,11 @@ textarea {
   padding: 6px 10px;
 }
 
+.aside-apply {
+  margin-top: 14px;
+  width: 100%;
+}
+
 /* Reward calculator */
 .calc-intro {
   font-size: 13px;
@@ -2555,6 +2560,30 @@ textarea {
 
 .calc-sliders .slider {
   height: 16px;
+}
+
+.calc-more {
+  align-items: center;
+  background: transparent;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  color: var(--brand-strong);
+  cursor: pointer;
+  display: inline-flex;
+  font-size: 12px;
+  font-weight: 600;
+  gap: 5px;
+  justify-content: center;
+  min-height: 34px;
+  padding: 6px 10px;
+}
+
+.calc-more svg {
+  transition: transform 0.15s ease;
+}
+
+.calc-more svg.is-open {
+  transform: rotate(180deg);
 }
 
 .calc-output {

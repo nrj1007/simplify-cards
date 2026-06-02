@@ -130,17 +130,22 @@ const NOTABLE_EXCLUSION_CATEGORIES: SpendCategory[] = [
   "government"
 ];
 
-// The categories worth showing for a given card: the ones it rewards at a dedicated rate,
-// an "Other spends" catch-all, and a few notable exclusions — instead of every category.
-export function relevantCategoriesForCard(card: CreditCard): SpendCategory[] {
+// The categories worth showing for a given card, split into:
+// - `primary`: dedicated-rate categories plus an "Other spends" catch-all, shown by default.
+// - `additional`: a few notable excluded categories, revealed only on request so users can
+//   confirm what the card drops without cluttering the default view.
+export function relevantCategoriesForCard(card: CreditCard): {
+  primary: SpendCategory[];
+  additional: SpendCategory[];
+} {
   const rewarded = CALCULATOR_CATEGORIES.filter(
     (category) => category !== "base" && hasDirectReward(card, category)
   );
-  const excluded = NOTABLE_EXCLUSION_CATEGORIES.filter(
+  const additional = NOTABLE_EXCLUSION_CATEGORIES.filter(
     (category) => !rewarded.includes(category) && isCategoryExcluded(card, category)
   ).slice(0, 4);
 
-  return [...rewarded, "base", ...excluded];
+  return { primary: [...rewarded, "base"], additional };
 }
 
 function findRewardForCategory(card: CreditCard, category: SpendCategory): Reward | null {

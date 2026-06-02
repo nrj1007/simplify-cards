@@ -158,6 +158,7 @@ Define the redemption values for different options, along with transfer ratios f
 *   **`smartBuyFlightHotelValue`**: The value of 1 point in INR when redeemed for flights/hotels via SmartBuy.
 *   **`travelEdgeValue`**: The value of 1 point in INR when redeemed for flights/hotels via Axis Travel EDGE.
 *   **`airlinePartners`** and **`hotelPartners`**: Arrays describing direct point-to-mile transfer ratios:
+*   **`transferPartnerValuations`**: Per-partner rupee valuations used by the Reward Calculator on the card details page. See the dedicated subsection below for how to populate it.
 *   Keep the visible **Redemption** section focused on point value and transfer partners only.
 *   Do **not** treat operational rules like minimum points, monthly redemption caps, points validity, or redemption fees as primary redemption rows in the UI. Store those in `additionalDetails` or `internalNotes` instead.
 
@@ -166,6 +167,9 @@ Define the redemption values for different options, along with transfer ratios f
   "statementBalanceValue": 0.3,
   "smartBuyFlightHotelValue": 1,
   "airMilesValue": 1,
+  "transferPartnerValuations": [
+    { "partner": "Accor (ALL)", "partnerPointValue": 2.2, "transferRatio": 0.5, "basis": "fixed", "note": "2 reward points → 1 Accor ALL point · Rs 2.2/point" }
+  ],
   "airlinePartners": [
     {
       "airline": "Turkish Airlines",
@@ -182,6 +186,36 @@ Define the redemption values for different options, along with transfer ratios f
   ]
 }
 ```
+
+#### Transfer Partner Valuations (`transferPartnerValuations`)
+
+This array powers the **Transfer partner value** block in the Reward Calculator. Each entry converts the card's reward currency into a rupee value via a specific loyalty partner. Only populate partners for which we have a real, defensible per-point valuation — **never invent numbers.**
+
+Each entry has four fields:
+
+*   **`partner`**: Display label for the partner programme (e.g. `"Accor (ALL)"`, `"Club ITC"`, `"Marriott Bonvoy"`).
+*   **`partnerPointValue`**: Rupee value of **1 partner programme point** (NOT 1 card point). This is intrinsic to the partner and identical across every card that transfers to it — e.g. an Accor ALL point is worth Rs 2.2 whether the points came from Atlas, Infinia, or TravelOne.
+*   **`transferRatio`**: How many partner points you receive per **1 card reward unit**. Derive it from the partner's `ratio` field (written `card:partner`) as `partner ÷ card`:
+    *   `1:2` → `2`  (1 card unit → 2 partner points)
+    *   `1:1` → `1`
+    *   `2:1` → `0.5`
+    *   `3:1` → `0.333`
+    *   `5:1` → `0.2`
+*   **`basis`**: `"fixed"` if the partner has a published/stable conversion (Accor, Club ITC), `"dynamic"` if value swings with award availability (most airline miles, Marriott Bonvoy) — for dynamic partners use a typical-case average.
+*   **`note`** (optional): A short human-readable line, e.g. `"2 reward points → 1 Accor ALL point · Rs 2.2/point"`.
+
+The calculator computes `value per card unit = partnerPointValue × transferRatio`, so the same `partnerPointValue` produces card-specific results purely through `transferRatio`.
+
+**Current known valuations** (reuse these exact numbers; ask the user before adding any partner not listed here):
+
+| Partner | `partnerPointValue` (Rs / partner point) | `basis` |
+|---|---|---|
+| Accor (ALL) | 2.2 | fixed |
+| Club ITC | 1 | fixed |
+| Marriott Bonvoy | 0.6 | dynamic |
+
+> [!IMPORTANT]
+> Do not add a `transferPartnerValuations` entry for a partner we have no valuation for (e.g. IHG, Wyndham, Radisson, Shangri-La, or airline programmes like KrisFlyer / Aeroplan). Leave those partners out until the user supplies a per-point figure. The legacy flat `accorValue` field is superseded by an `Accor (ALL)` entry here — do not list Accor in both, and the calculator intentionally renders Accor only from `transferPartnerValuations`.
 
 ### C. Exclusions (`exclusions` and `exclusionCodes`)
 *   **`exclusions`**: This array must ONLY contain spend categories, transaction types, or merchants that are **excluded from earning reward points** (i.e., they yield 0% rewards). Do not place general bank policies, eligibility constraints, lounge access conditions, or fee info here; those belong in fields like `eligibility`, `additionalBenefits`, `additionalDetails`, or `internalNotes`.

@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import { ChevronDown } from "lucide-react";
 import type { CreditCard, SpendCategory } from "@/lib/types";
 import {
   CALCULATOR_CATEGORIES,
@@ -52,15 +53,20 @@ function isCashbackRewardType(rewardType: string) {
 type RupeeOption = { key: string; label: string; perPoint: number; value: number; note?: string };
 
 export default function RewardCalculator({ card }: Props) {
-  const visibleCategories = useMemo(() => relevantCategoriesForCard(card), [card]);
+  const { primary, additional } = useMemo(() => relevantCategoriesForCard(card), [card]);
+  const [showAdditional, setShowAdditional] = useState(false);
   const [spend, setSpend] = useState<Record<SpendCategory, number>>(() => {
-    const visible = new Set(relevantCategoriesForCard(card));
+    const primarySet = new Set(relevantCategoriesForCard(card).primary);
     const initial = {} as Record<SpendCategory, number>;
+    // Seed only the primary categories; additional (excluded) categories start at 0 and are
+    // opt-in, so they don't inflate the default spend total.
     for (const category of CALCULATOR_CATEGORIES) {
-      initial[category] = visible.has(category) ? DEFAULT_SPEND[category] ?? 2000 : 0;
+      initial[category] = primarySet.has(category) ? DEFAULT_SPEND[category] ?? 2000 : 0;
     }
     return initial;
   });
+
+  const visibleCategories = showAdditional ? [...primary, ...additional] : primary;
 
   const result = useMemo(() => calculateRewards(card, spend), [card, spend]);
 
@@ -88,7 +94,8 @@ export default function RewardCalculator({ card }: Props) {
       push("smartbuy-flight", "SmartBuy flights & hotels", redemption?.smartBuyFlightHotelValue);
       push("smartbuy-catalogue", "SmartBuy rewards catalogue", redemption?.smartBuyCatalogueValue);
       push("travel-edge", "Travel EDGE flights & hotels", redemption?.travelEdgeValue);
-      push("accor", "Accor (ALL)", redemption?.accorValue);
+      // Accor is surfaced via transferPartnerValuations (with its transfer ratio), not the
+      // legacy flat accorValue, to avoid double-listing it in the calculator.
     }
 
     return options.sort((a, b) => b.value - a.value);
@@ -170,6 +177,13 @@ export default function RewardCalculator({ card }: Props) {
               );
             })}
           </div>
+
+          {additional.length > 0 ? (
+            <button className="calc-more" type="button" onClick={() => setShowAdditional((value) => !value)}>
+              <ChevronDown className={showAdditional ? "is-open" : ""} size={16} />
+              {showAdditional ? "Fewer categories" : "More categories"}
+            </button>
+          ) : null}
         </div>
 
         <div className="calc-output">

@@ -554,6 +554,9 @@ export default async function CardPage({ params, searchParams }: Props) {
                 <strong>{card.lastVerified}</strong>
               </div>
             </div>
+            <a className="button aside-apply" href={card.applyUrl} rel="nofollow sponsored" target="_blank">
+              Apply <ExternalLink size={15} />
+            </a>
           </div>
         </aside>
       </div>

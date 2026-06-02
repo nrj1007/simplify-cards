@@ -42,7 +42,7 @@ Compare the retrieved details against the current card entry in the issuer's JSO
 - **Rewards Capping**: Limits on specific categories (e.g., monthly limits on grocery, utilities, insurance, or rent).
 - **Lounge Spends Requirements**: Spend-based lounge unlock criteria (e.g., spending ₹35,000 in the previous quarter to unlock the next quarter's lounge access).
 - **Golf Privileges**: Restrictions on the number of games/lessons, booking slots, and cancellation window policies.
-- **Redemption Partners**: Point transfer ratios and Turnaround Time (TAT) to airline or hotel loyalty programs.
+- **Redemption Partners**: Point transfer ratios and Turnaround Time (TAT) to airline or hotel loyalty programs. If the card transfers to a partner we already have a rupee valuation for (Accor, Club ITC, Marriott Bonvoy), also add a `transferPartnerValuations` entry — see Step 4.
 - **Exclusions**: Specific merchant categories (MCCs) or transactions that yield 0% rewards (e.g., fuel, rent, insurance, government spends, wallet load).
 - **DCC Markup Fees**: Check for Dynamic Currency Conversion fees (e.g., a 1% markup fee on INR spends processed internationally or at foreign-registered merchants).
 
@@ -81,6 +81,10 @@ If a fact already has a structured home, do not repeat it in visible prose.
    - Use `capDaily` for daily caps, `capMonthly` for monthly caps, and `capStatementQuarter` for statement-quarter caps.
    - Only fall back to cap wording inside `displayRate` if the cap period cannot be represented through the structured reward fields.
    - Keep `"redemption"` focused on point value and transfer-partner structure. Put operational redemption rules like minimum points, monthly caps, validity windows, and redemption fees into `"additionalDetails"` or `"internalNotes"` instead of treating them as primary redemption rows.
+   - **Transfer partner valuations**: If the card transfers to a partner we have a per-point rupee valuation for, add a `transferPartnerValuations` entry to `redemption` so the Reward Calculator can value it. Full field reference is in [card_data_instructions.md](file:///C:/Users/manpr/Documents/Codex/2026-05-08/i-want-to-build-an-ai/data/cards/card_data_instructions.md) under "Transfer Partner Valuations". Key rules:
+     - `partnerPointValue` is the Rs value of **1 partner point** (intrinsic to the partner, same across all cards); `transferRatio` is **partner points per 1 card unit**, derived from the `ratio` field (`card:partner`) as `partner ÷ card` (e.g. `1:2`→`2`, `2:1`→`0.5`, `3:1`→`0.333`).
+     - Known valuations to reuse: **Accor (ALL) Rs 2.2 fixed, Club ITC Rs 1 fixed, Marriott Bonvoy Rs 0.6 dynamic**. Do **not** invent valuations for other partners (IHG, Wyndham, Radisson, Shangri-La, airline miles) — leave them out and ask the user for a figure first.
+     - Accor is rendered only from `transferPartnerValuations`, not the legacy `accorValue` field; don't list it in both.
    - If an issuer publishes separate capped categories, preserve them as separate visible reward rows instead of merging them into one combined line that suggests a shared cap.
    - If the UI needs separate rows but the scoring model only supports a broader canonical category, keep the canonical `category` stable and differentiate the rows through `displayCategory`.
 4. **Card Image**:

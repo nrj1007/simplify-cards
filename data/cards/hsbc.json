@@ -228,6 +228,10 @@
     ],
     "imageUrl": "/images/hsbc-travelone.jpg",
     "redemption": {
+      "transferPartnerValuations": [
+        { "partner": "Accor (ALL)", "partnerPointValue": 2.2, "transferRatio": 1, "basis": "fixed", "note": "1 reward point → 1 Accor ALL point · Rs 2.2/point" },
+        { "partner": "Marriott Bonvoy", "partnerPointValue": 0.6, "transferRatio": 1, "basis": "dynamic", "note": "1 reward point → 1 Marriott point · avg Rs 0.6/point" }
+      ],
       "airlinePartners": [
         {
           "airline": "Air India",
