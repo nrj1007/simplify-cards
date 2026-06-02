@@ -314,16 +314,9 @@
         "capMonthly": 500
       },
       {
-        "category": "swiggy zomato",
+        "category": "swiggy zomato, travel",
         "rate": 4,
-        "displayCategory": "Swiggy and Zomato",
-        "displayRate": "4% cashback",
-        "capMonthly": 500
-      },
-      {
-        "category": "travel",
-        "rate": 4,
-        "displayCategory": "Ola rides",
+        "displayCategory": "Swiggy, Zomato, and Ola",
         "displayRate": "4% cashback",
         "capMonthly": 500
       },
@@ -437,11 +430,14 @@
       {
         "category": "travel",
         "rate": 10,
-        "capMonthly": null
+        "displayRate": "5 EDGE Miles per Rs 100",
+        "capMonthly": 20000,
+        "postCapRate": 4
       },
       {
         "category": "base",
         "rate": 4,
+        "displayRate": "2 EDGE Miles per Rs 100",
         "capMonthly": null
       }
     ],
@@ -469,15 +465,89 @@
       "Additional 2,500 EDGE Miles on annual spend of Rs 7.5 lakh.",
       "Additional 5,000 EDGE Miles on annual spend of Rs 15 lakh."
     ],
-    "exclusions": [
-      "rent",
-      "wallet load",
-      "insurance"
+    "joiningBenefits": [
+      "2,500 EDGE Miles upon completing the first transaction within 37 days of card issuance."
     ],
-    "sourceUrl": "https://www.axis.bank.in/cards/credit-card/axis-bank-atlas-credit-card",
-    "applyUrl": "https://www.axis.bank.in/cards/credit-card/axis-bank-atlas-credit-card",
-    "lastVerified": "2026-05-23",
+    "renewalBenefits": [
+      "Silver tier: 0 EDGE Miles, Gold tier: 2,500 EDGE Miles, Platinum tier: 5,000 EDGE Miles upon payment of annual fee."
+    ],
+    "exclusions": [
+      "fuel",
+      "rent",
+      "insurance",
+      "wallet load",
+      "government institutions",
+      "utilities",
+      "telecom",
+      "gold",
+      "jewellery"
+    ],
+    "exclusionCodes": [
+      "fuel",
+      "rent",
+      "insurance",
+      "wallet_load",
+      "government",
+      "utilities",
+      "telecom",
+      "gold",
+      "jewellery"
+    ],
+    "additionalBenefits": [
+      "1% fuel surcharge waiver on transactions from Rs 400 to Rs 4,000 (capped at Rs 400 per billing cycle)",
+      "Dining Delights discounts at participating restaurants"
+    ],
+    "additionalDetails": [
+      "EDGE Miles can be redeemed for travel bookings at Travel EDGE portal or transferred to airline/hotel partners."
+    ],
+    "redemption": {
+      "smartBuyFlightHotelValue": 1,
+      "pointsExpiryYears": 3,
+      "airlinePartners": [
+        { "airline": "Air Canada", "programme": "Aeroplan", "ratio": "1:2" },
+        { "airline": "Ethiopian Airlines", "programme": "ShebaMiles", "ratio": "1:2" },
+        { "airline": "Etihad Airways", "programme": "Etihad Guest", "ratio": "1:2" },
+        { "airline": "Japan Airlines", "programme": "JAL Mileage Bank", "ratio": "1:2" },
+        { "airline": "Singapore Airlines", "programme": "KrisFlyer", "ratio": "1:2" },
+        { "airline": "Thai Airways", "programme": "Royal Orchid Plus", "ratio": "1:2" },
+        { "airline": "Turkish Airlines", "programme": "Miles&Smiles", "ratio": "1:2" },
+        { "airline": "United Airlines", "programme": "MileagePlus", "ratio": "1:2" },
+        { "airline": "British Airways", "programme": "British Airways Executive Club", "ratio": "2:1" },
+        { "airline": "Finnair", "programme": "Finnair Plus", "ratio": "2:1" },
+        { "airline": "Vietnam Airlines", "programme": "Lotusmiles", "ratio": "2:1" },
+        { "airline": "AirAsia", "programme": "airasia rewards", "ratio": "1:2" },
+        { "airline": "Air France-KLM", "programme": "Flying Blue", "ratio": "1:2" },
+        { "airline": "Air India", "programme": "Maharaja Club", "ratio": "1:2" },
+        { "airline": "Qantas Airways", "programme": "Qantas Frequent Flyer", "ratio": "1:2" },
+        { "airline": "SpiceJet", "programme": "SpiceClub", "ratio": "1:2" }
+      ],
+      "hotelPartners": [
+        { "hotelGroup": "IHG Hotels & Resorts", "programme": "IHG One Rewards", "ratio": "1:2" },
+        { "hotelGroup": "ITC Hotels", "programme": "Club ITC", "ratio": "1:2" },
+        { "hotelGroup": "Radisson Hotels", "programme": "Radisson Rewards", "ratio": "1:2" },
+        { "hotelGroup": "Orchid Hotels", "programme": "Orchid Rewards", "ratio": "1:2" },
+        { "hotelGroup": "Wyndham Hotels & Resorts", "programme": "Wyndham Rewards", "ratio": "1:2" },
+        { "hotelGroup": "The Postcard Hotel", "programme": "The Postcard Hotel", "ratio": "1:2" }
+      ]
+    },
+    "supportingSourceUrls": [
+      "https://www.axisbank.com/retail/cards/credit-card/axis-bank-atlas-credit-card",
+      "https://www.axisbank.com/retail/cards/credit-card/axis-bank-atlas-credit-card/fees-and-charges"
+    ],
+    "imageUrl": "/images/axis-atlas.webp",
+    "sourceUrl": "https://www.axisbank.com/retail/cards/credit-card/axis-bank-atlas-credit-card",
+    "applyUrl": "https://www.axisbank.com/retail/cards/credit-card/axis-bank-atlas-credit-card",
+    "lastVerified": "2026-06-02",
     "verificationStatus": "official-direct",
+    "internalNotes": [
+      "Card details manually reviewed and verified by user on 2026-06-02",
+      "EDGE Miles are valid for 3 years from the date of earning.",
+      "Miles may expire if the loyalty account remains inactive (no earn, redeem, or login) for 365 consecutive days.",
+      "Annual transfer caps per customer ID reset every calendar year: Group A (international partners) capped at 30,000 EDGE Miles; Group B capped at 120,000 EDGE Miles. Combined limit of 150,000 EDGE Miles.",
+      "Travel transfer partners: Accor, Marriott Bonvoy, and Qatar Airways were removed as transfer partners in April 2026. Standard legacy partners transfer at a 1:2 ratio. Newly added partners (British Airways, Finnair, Vietnam Airlines) transfer at a 2:1 ratio.",
+      "Airport lounge access is tiered: Silver tier (entry-level / <3L spend) gets 8 domestic / 4 international visits; Gold tier (7.5L spend) gets 12 domestic / 6 international visits; Platinum tier (15L spend) gets 18 domestic / 12 international visits per anniversary year.",
+      "Gold, rent, wallet load, government, insurance, fuel, utilities, and telecom transactions are completely excluded from earning rewards and tier/milestone spend calculations."
+    ],
     "popularityScore": 89
   },
   {

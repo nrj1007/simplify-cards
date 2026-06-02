@@ -216,5 +216,36 @@
         "publishedAt": "2026-05-15"
       }
     ]
+  },
+  "axis-airtel": {
+    "updates": [
+      {
+        "title": "Axis revised Airtel Axis Bank Credit Card features and terms",
+        "summary": "Effective 12 April 2026, Axis ties accelerated cashback more tightly to regular spending: the monthly cap on 25% and 10% cashback is limited to twice the base cashback earned in the same statement month.",
+        "sourceType": "manual",
+        "sourceLabel": "Axis Bank official product page",
+        "sourceUrl": "https://www.axisbank.com/retail/cards/credit-card/airtel-axis-bank-credit-card",
+        "publishedAt": "2026-04-12"
+      }
+    ]
+  },
+  "axis-atlas": {
+    "updates": [
+      {
+        "title": "Axis revised Travel EDGE transfer program for Atlas",
+        "summary": "Effective 2 April 2026, Axis Bank revised its Travel EDGE transfer program: Accor Live Limitless, Marriott Bonvoy, and Qatar Airways were removed as transfer partners. Three new airline partners (British Airways, Finnair, Vietnam Airlines) were added at a 2:1 transfer ratio, while legacy partners continue to transfer at 1:2 ratio. Annual caps of 30,000 EDGE Miles for Group A and 120,000 EDGE Miles for Group B apply.",
+        "sourceType": "manual",
+        "sourceLabel": "Axis Bank official notice",
+        "sourceUrl": "https://www.axisbank.com/retail/cards/credit-card/atlas-credit-card",
+        "publishedAt": "2026-04-02"
+      }
+    ],
+    "tips": [
+      {
+        "text": "Transfer EDGE Miles to legacy partners (like Singapore Airlines or Etihad) at the standard 1:2 ratio to maximize value, as they are not affected by the 2:1 ratio applied to the newly added partners.",
+        "sourceType": "manual",
+        "sourceLabel": "Manual"
+      }
+    ]
   }
 }
