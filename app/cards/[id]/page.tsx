@@ -376,6 +376,11 @@ export default async function CardPage({ params, searchParams }: Props) {
                   </table>
                 </div>
               ) : null}
+              {card.id === "axis-atlas" && (
+                <p className="muted calc-note" style={{ marginTop: 12 }}>
+                  Annual caps of 30,000 EDGE Miles for Group A and 120,000 EDGE Miles for Group B apply.
+                </p>
+              )}
             </section>
           ) : null}
 
