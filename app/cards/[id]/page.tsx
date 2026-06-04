@@ -226,7 +226,7 @@ export default async function CardPage({ params, searchParams }: Props) {
 
       <section className="page-content">
         <div className="container">
-          <div className="detail-layout">
+          <div className="detail-layout card-detail">
         <article className="panel card detail-main">
           <div className="stats">
             <div className="stat">
@@ -545,27 +545,32 @@ export default async function CardPage({ params, searchParams }: Props) {
 
         <aside className="detail-aside">
           {/* ad slot: card detail sidebar — restore when ads integrated */}
-<AskBox defaultQuery="" showHelperText={false} />
-          <div className="panel card">
+          <div className="panel card card-facts">
             <h2>Card facts</h2>
             <div className="info-grid">
               <div className="info-row">
-                <span>Issuer</span>
-                <strong>{card.issuer}</strong>
+                <span>Annual fee</span>
+                <strong>{formatCurrency(card.annualFee)}</strong>
+              </div>
+              <div className="info-row">
+                <span>Joining fee</span>
+                <strong>{formatCurrency(card.joiningFee)}</strong>
               </div>
               <div className="info-row">
                 <span>Reward type</span>
                 <strong>{card.rewardType}</strong>
               </div>
               <div className="info-row">
-                <span>Last verified</span>
-                <strong>{card.lastVerified}</strong>
+                <span>Forex markup</span>
+                <strong>{card.forexMarkup}%</strong>
               </div>
             </div>
             <a className="button aside-apply" href={card.applyUrl} rel="nofollow sponsored" target="_blank">
               Apply <ExternalLink size={15} />
             </a>
+            <p className="card-facts-note muted">Last verified: {card.lastVerified}</p>
           </div>
+          <AskBox defaultQuery="" showHelperText={false} />
         </aside>
           </div>
         </div>

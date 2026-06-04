@@ -2306,6 +2306,71 @@ textarea {
   margin-top: 18px;
 }
 
+/* =========================================================
+   Card detail page polish — scoped to .card-detail so the
+   shared .stats / .badge / .detail-aside styles are untouched
+   elsewhere (compare, ask, etc.).
+   ========================================================= */
+.card-detail.detail-layout {
+  margin-top: 0;
+}
+
+.card-detail .detail-main {
+  padding: 22px;
+}
+
+.card-detail .stats {
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 10px;
+}
+
+.card-detail .stat {
+  background: var(--cream-2);
+  border: 1px solid var(--line-2);
+  border-radius: 14px;
+  padding: 13px 14px;
+}
+
+.card-detail .stat strong {
+  color: var(--navy);
+  font-size: 19px;
+  letter-spacing: -0.02em;
+}
+
+.card-detail .stat span {
+  font-size: 12px;
+}
+
+.card-detail .detail-main > .meta .badge {
+  background: var(--teal-soft);
+  border-color: var(--teal-line);
+  color: var(--teal-dark);
+}
+
+.card-detail .detail-section > h2 {
+  color: var(--navy);
+  font-size: 19px;
+  letter-spacing: -0.03em;
+}
+
+.card-facts h2 {
+  font-size: 16px;
+  margin: 0 0 2px;
+}
+
+.card-facts-note {
+  font-size: 12px;
+  margin: 4px 0 0;
+}
+
+@media (min-width: 761px) {
+  .card-detail .detail-aside {
+    align-self: start;
+    position: sticky;
+    top: 88px;
+  }
+}
+
 .ask-layout {
   grid-template-columns: minmax(0, 1fr) 360px;
 }
