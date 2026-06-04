@@ -5,22 +5,6 @@ import { scoreCards } from "@/lib/recommend";
 import CardTile from "./ui/CardTile";
 import AskBox from "./ui/AskBox";
 
-const STEPS = [
-  { b: "Ask", s: "Tell us what you need" },
-  { b: "Recommend", s: "Get a ranked shortlist" },
-  { b: "Compare", s: "Check fees and exclusions" },
-  { b: "Decide", s: "Apply only when it fits" }
-];
-
-const EXAMPLE_QUESTIONS = [
-  "Which credit card is best for Rs 40k monthly online spend?",
-  "SBI Cashback vs HDFC Swiggy: which one fits my spending?",
-  "Is Axis Atlas worth Rs 5,000 if I travel twice a year?",
-  "Which card is best for UPI payments and rewards?",
-  "Best credit card for airport lounge access under Rs 2,000 annual fee?",
-  "Which card is better for international travel and low forex markup?"
-];
-
 const WORKFLOW = [
   {
     title: "Share your use case",
@@ -40,6 +24,7 @@ const USE_CASES: Array<{ icon: string; title: string; desc: string; cta: string;
   { icon: "₹", title: "Cashback", desc: "Maximize returns on online shopping, food delivery, groceries, and everyday spends.", cta: "Ask about cashback", href: "/ask?query=Best%20cashback%20card%20for%20online%20shopping" },
   { icon: "✈", title: "Travel", desc: "Evaluate miles, hotel value, forex markup, lounge access, and fee recovery.", cta: "Ask about travel", href: "/ask?query=Best%20travel%20credit%20card%20for%20miles%20and%20lounge%20access" },
   { icon: "UPI", title: "UPI cards", desc: "Understand RuPay/UPI rewards, caps, exclusions, fees, and where value drops.", cta: "Ask about UPI", href: "/ask?query=Best%20UPI%20card%20for%20rewards" },
+  { icon: "%", title: "Calculator", desc: "Estimate the rewards and rupee value you'd earn on any card from your monthly spend.", cta: "Open calculator", href: "/calculator" as Route },
   { icon: "⚖", title: "Compare", desc: "Compare shortlisted cards side by side and see which one wins for your exact use case.", cta: "Compare cards", href: "/compare" }
 ];
 
@@ -76,8 +61,8 @@ export default function Home() {
               Ask myCards. <span className="text-teal">Find the right card for your spending.</span>
             </h1>
             <p className="hero-copy">
-              myCards helps you compare Indian credit cards using your spending, goals, and preferences—then explains the fees,
-              rewards, caps, and trade-offs.
+              Tell us how you spend. We&apos;ll shortlist the right Indian credit cards and explain the fees, rewards, and
+              catches—before you apply.
             </p>
             <div className="hero-proof">
               <span className="proof-pill">✓ Personalized shortlists</span>
@@ -88,37 +73,7 @@ export default function Home() {
 
           <div>
             <AskBox variant="hero" />
-            {top.length >= 2 ? (
-              <div className="answer-preview">
-                <div className="answer-preview-head">
-                  <span>Example shortlist</span>
-                  <span>Based on online spend</span>
-                </div>
-                <div className="mini-reco">
-                  {top.slice(0, 2).map((score) => (
-                    <div className="mini-row" key={score.card.id}>
-                      <div>
-                        <strong>{score.card.name}</strong>
-                        <span>{shortDescriptor(score.card)}</span>
-                      </div>
-                      <div className="fit">{fitFor(score)}</div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            ) : null}
           </div>
-        </div>
-      </section>
-
-      <section className="stats-strip" aria-label="How myCards works">
-        <div className="container stats-grid">
-          {STEPS.map((step) => (
-            <div className="home-stat" key={step.b}>
-              <b>{step.b}</b>
-              <span>{step.s}</span>
-            </div>
-          ))}
         </div>
       </section>
 
@@ -162,26 +117,6 @@ export default function Home() {
               })}
             </div>
           </aside>
-        </div>
-      </section>
-
-      <section className="home-section" id="examples">
-        <div className="container">
-          <div className="home-section-head">
-            <div>
-              <div className="home-section-kicker">Questions you can ask</div>
-              <h2>Ask the way you actually think.</h2>
-            </div>
-            <p>Start with one of these questions, or describe your own spending pattern.</p>
-          </div>
-          <div className="examples-grid">
-            {EXAMPLE_QUESTIONS.map((q, index) => (
-              <Link className="example-question" href={`/ask?query=${encodeURIComponent(q)}`} key={q}>
-                <span>{index + 1}</span>
-                {q}
-              </Link>
-            ))}
-          </div>
         </div>
       </section>
 
@@ -253,66 +188,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="home-section" id="compare">
-        <div className="container">
-          <div className="home-section-head">
-            <div>
-              <div className="home-section-kicker">Compare with context</div>
-              <h2>See the reasoning behind every recommendation.</h2>
-            </div>
-            <p>After myCards shortlists cards, compare the fees, rewards, caps, exclusions, and best-use cases side by side.</p>
-          </div>
-          <div className="compare-layout">
-            <article className="home-compare-card dark">
-              <h3>Ask → shortlist → compare</h3>
-              <p>
-                A useful recommendation shows both the upside and the catch. myCards helps you see when a card is worth it—and when
-                it is not.
-              </p>
-              <div className="compare-controls">
-                <div className="select-box">Need: online cashback + low fee</div>
-                <div className="select-box">Shortlist: SBI Cashback, HDFC Swiggy, Amazon Pay ICICI</div>
-                <Link className="btn btn-primary" href="/compare">
-                  Compare shortlist
-                </Link>
-              </div>
-            </article>
-
-            <article className="home-compare-card">
-              <h3>Example comparison</h3>
-              <p>Keep comparisons short, practical, and focused on the user&apos;s decision.</p>
-              <table className="home-compare-table">
-                <thead>
-                  <tr>
-                    <th>Factor</th>
-                    <th>SBI Cashback</th>
-                    <th>HDFC Swiggy</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>Best for</td>
-                    <td>Broad online spends</td>
-                    <td>Swiggy-heavy users</td>
-                  </tr>
-                  <tr>
-                    <td>Watch out for</td>
-                    <td>Caps and exclusions</td>
-                    <td>Value is niche</td>
-                  </tr>
-                  <tr>
-                    <td>myCards take</td>
-                    <td>Better default cashback pick.</td>
-                    <td>Better only if Swiggy spend is high.</td>
-                  </tr>
-                </tbody>
-              </table>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section className="home-section alt" id="trust">
+      <section className="home-section" id="trust">
         <div className="container">
           <div className="home-section-head">
             <div>
@@ -324,44 +200,26 @@ export default function Home() {
               pretending to know.
             </p>
           </div>
-          <div className="trust-grid">
-            <article className="trust-card">
-              <h3>Responsible recommendations</h3>
-              <p>Every answer explains why a card fits, where the value may drop, and what to verify before applying.</p>
-              <ul className="trust-list">
-                <li>
-                  <span className="check">✓</span>
-                  <span>Show the latest review date so you know how current the details are.</span>
-                </li>
-                <li>
-                  <span className="check">✓</span>
-                  <span>Surface fees, caps, and exclusions—not just the headline rewards.</span>
-                </li>
-                <li>
-                  <span className="check">✓</span>
-                  <span>Flag cards you should skip for your use case, not only the ones to apply for.</span>
-                </li>
-              </ul>
-            </article>
-            <article className="trust-card">
-              <h3>Grounded in verified data</h3>
-              <p>Recommendations are matched against manually verified card facts, not generic web results.</p>
-              <ul className="trust-list">
-                <li>
-                  <span className="check">✓</span>
-                  <span>Not financial advice—always verify terms with the issuer before applying.</span>
-                </li>
-                <li>
-                  <span className="check">✓</span>
-                  <span>Affiliate links are clearly disclosed and never change the ranking.</span>
-                </li>
-                <li>
-                  <span className="check">✓</span>
-                  <span>Uncertain or out-of-date details are sent for review rather than guessed.</span>
-                </li>
-              </ul>
-            </article>
-          </div>
+          <article className="trust-card">
+            <ul className="trust-list trust-list-row">
+              <li>
+                <span className="check">✓</span>
+                <span>Surfaces fees, caps, and exclusions—not just the headline rewards.</span>
+              </li>
+              <li>
+                <span className="check">✓</span>
+                <span>Flags cards you should skip for your use case, with the latest review date shown.</span>
+              </li>
+              <li>
+                <span className="check">✓</span>
+                <span>Grounded in manually verified card facts, not generic web results.</span>
+              </li>
+              <li>
+                <span className="check">✓</span>
+                <span>Not financial advice. Affiliate links are disclosed and never change the ranking.</span>
+              </li>
+            </ul>
+          </article>
         </div>
       </section>
     </div>

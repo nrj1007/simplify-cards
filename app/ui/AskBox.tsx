@@ -63,8 +63,8 @@ export default function AskBox({
           <button className="btn btn-primary" type="submit">
             Get my shortlist <ArrowRight size={16} />
           </button>
-          <Link className="btn btn-ghost" href="#examples">
-            See example questions
+          <Link className="btn btn-ghost" href="#use-cases">
+            Browse by goal
           </Link>
         </div>
 

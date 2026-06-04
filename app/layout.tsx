@@ -26,7 +26,6 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
                 <Link href="/ask">Ask</Link>
                 <Link href="/recommend">Recommend</Link>
                 <Link href={"/calculator" as Route}>Calculator</Link>
-                <Link href="/#examples">Questions</Link>
                 <Link href="/#cards">Cards</Link>
                 <Link href="/compare">Compare</Link>
               </nav>
