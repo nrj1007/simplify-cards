@@ -187,6 +187,94 @@ textarea {
 }
 
 /* =========================================================
+   Shared inner-page chrome (recommend / finder / compare /
+   calculator / card detail) — full-bleed hero + cream content,
+   matching the landing/ask design language.
+   ========================================================= */
+
+.main:has(.page-shell) {
+  padding: 0;
+}
+
+.page-hero {
+  position: relative;
+  overflow: hidden;
+  padding: 38px 0 30px;
+  background:
+    radial-gradient(circle at 12% 5%, rgba(52, 125, 120, 0.14), transparent 22rem),
+    radial-gradient(circle at 88% 10%, rgba(215, 168, 74, 0.14), transparent 22rem),
+    linear-gradient(180deg, var(--cream-2), var(--cream));
+  border-bottom: 1px solid var(--line);
+}
+
+.page-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(7, 17, 39, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(7, 17, 39, 0.035) 1px, transparent 1px);
+  background-size: 44px 44px;
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), transparent 85%);
+  pointer-events: none;
+}
+
+.page-hero-inner {
+  position: relative;
+}
+
+.page-eyebrow {
+  align-items: center;
+  background: rgba(229, 240, 238, 0.9);
+  border: 1px solid var(--teal-line);
+  border-radius: 999px;
+  color: var(--teal-dark);
+  display: inline-flex;
+  font-size: 12px;
+  font-weight: 900;
+  gap: 8px;
+  letter-spacing: 0.07em;
+  margin-bottom: 16px;
+  padding: 7px 12px;
+  text-transform: uppercase;
+}
+
+.page-hero h1 {
+  margin: 0;
+  color: var(--navy);
+  font-size: clamp(30px, 4.2vw, 46px);
+  font-weight: 900;
+  letter-spacing: -0.05em;
+  line-height: 1.05;
+  text-wrap: balance;
+}
+
+.page-hero-lead {
+  margin: 14px 0 0;
+  max-width: 720px;
+  color: #596271;
+  font-size: 17px;
+  line-height: 1.5;
+}
+
+.page-content {
+  background: var(--cream);
+  padding: 28px 0 60px;
+}
+
+/* Drop the legacy centered max-width wrapper when content lives inside a hero page. */
+.page-content .section {
+  margin: 0;
+  max-width: none;
+}
+
+/* Soften panels on the refactored pages to match the new card styling. */
+.page-shell .panel {
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+}
+
+/* =========================================================
    Homepage (myCards landing) — namespaced to avoid collisions
    ========================================================= */
 
@@ -2520,6 +2608,15 @@ textarea {
   display: grid;
   gap: 14px;
   grid-template-columns: minmax(0, 240px) minmax(0, 1fr);
+}
+
+/* Standalone /calculator page has more horizontal room than the card detail
+   sidebar, so give the spend-categories column a wider box there. Scoped to
+   wider screens so the mobile single-column collapse still wins. */
+@media (min-width: 721px) {
+  .calc-standalone .calc-grid {
+    grid-template-columns: minmax(0, 360px) minmax(0, 1fr);
+  }
 }
 
 .calc-inputs {

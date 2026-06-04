@@ -200,27 +200,33 @@ export default async function CardPage({ params, searchParams }: Props) {
   const hasEligibility = Boolean(card.eligibility?.salaried?.length || card.eligibility?.selfEmployed?.length);
 
   return (
-    <section className="section">
-      <div className="page-header-wrap">
-        <div className="page-title">
-          <p>{card.issuer}</p>
-          <h1>{card.name}</h1>
-          <div className="page-title-meta">
-            <span>Last verified: {card.lastVerified}</span>
+    <div className="page-shell">
+      <section className="page-hero">
+        <div className="container page-hero-inner">
+          <div className="page-header-wrap" style={{ marginBottom: 0 }}>
+            <div className="page-title">
+              <p>{card.issuer}</p>
+              <h1>{card.name}</h1>
+              <div className="page-title-meta">
+                <span>Last verified: {card.lastVerified}</span>
+              </div>
+            </div>
+            {card.imageUrl ? (
+              <div className="page-card-image">
+                <img
+                  src={card.imageUrl}
+                  alt={card.name}
+                  style={card.id === "hdfc-regalia-gold" ? { objectPosition: "center 25%" } : undefined}
+                />
+              </div>
+            ) : null}
           </div>
         </div>
-        {card.imageUrl ? (
-          <div className="page-card-image">
-            <img 
-              src={card.imageUrl} 
-              alt={card.name} 
-              style={card.id === "hdfc-regalia-gold" ? { objectPosition: "center 25%" } : undefined}
-            />
-          </div>
-        ) : null}
-      </div>
+      </section>
 
-      <div className="detail-layout">
+      <section className="page-content">
+        <div className="container">
+          <div className="detail-layout">
         <article className="panel card detail-main">
           <div className="stats">
             <div className="stat">
@@ -485,6 +491,15 @@ export default async function CardPage({ params, searchParams }: Props) {
             </section>
           ) : null}
 
+          <section className="detail-section">
+            <h2>Reward calculator</h2>
+            <p className="muted calc-intro">
+              Enter your monthly spend to estimate how many {card.rewardType} you earn and what they are worth
+              across each redemption option.
+            </p>
+            <RewardCalculator card={card} milestones={milestoneRulesForCard(card)} />
+          </section>
+
           {hasEligibility ? (
             <section className="detail-section">
               <h2>Eligibility</h2>
@@ -504,15 +519,6 @@ export default async function CardPage({ params, searchParams }: Props) {
               </div>
             </section>
           ) : null}
-
-          <section className="detail-section">
-            <h2>Reward calculator</h2>
-            <p className="muted calc-intro">
-              Enter your monthly spend to estimate how many {card.rewardType} you earn and what they are worth
-              across each redemption option.
-            </p>
-            <RewardCalculator card={card} milestones={milestoneRulesForCard(card)} />
-          </section>
 
           <div className="actions">
             <a className="button" href={card.applyUrl} rel="nofollow sponsored" target="_blank">
@@ -561,7 +567,9 @@ export default async function CardPage({ params, searchParams }: Props) {
             </a>
           </div>
         </aside>
-      </div>
-    </section>
+          </div>
+        </div>
+      </section>
+    </div>
   );
 }

@@ -238,6 +238,13 @@ export default function RewardCalculator({ card, milestones = [] }: Props) {
                     : `${cashback ? "cashback value" : "best redemption"} · ${effectiveRate.toFixed(1)}% effective`}
                 </span>
               </div>
+            ) : airMilesPerPoint && annualUnits > 0 ? (
+              <div className="calc-headline-aside">
+                <span>{formatUnits(annualUnits * airMilesPerPoint)} air miles</span>
+                <span className="muted">
+                  best via transfer · {airMilesPerPoint} / {unitLabel.toLowerCase()}
+                </span>
+              </div>
             ) : null}
           </div>
 

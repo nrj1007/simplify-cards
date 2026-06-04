@@ -1,5 +1,6 @@
 import { cards, getIssuers, getTags } from "@/lib/cards";
 import CardTile from "../ui/CardTile";
+import PageHero from "../ui/PageHero";
 
 type Props = {
   searchParams: Promise<{
@@ -20,13 +21,15 @@ export default async function FinderPage({ searchParams }: Props) {
   });
 
   return (
-    <section className="section">
-      <div className="page-title">
-        <h1>Credit Card Finder</h1>
-        <p>Filter cards by issuer, annual fee, and use case.</p>
-      </div>
-
-      <form className="panel card" style={{ margin: "18px 0" }}>
+    <div className="page-shell">
+      <PageHero
+        eyebrow="✦ Card finder"
+        title="Credit Card Finder"
+        lead="Filter cards by issuer, annual fee, and use case to shortlist the right options."
+      />
+      <section className="page-content">
+        <div className="container">
+          <form className="panel card" style={{ marginBottom: 18 }}>
         <div className="filters">
           <div className="field">
             <label htmlFor="issuer">Issuer</label>
@@ -68,13 +71,15 @@ export default async function FinderPage({ searchParams }: Props) {
         </div>
       </form>
 
-      {/* ad slot: finder page mid banner — restore when ads integrated */}
+          {/* ad slot: finder page mid banner — restore when ads integrated */}
 
-      <div className="grid cards">
-        {filteredCards.map((card) => (
-          <CardTile key={card.id} card={card} />
-        ))}
-      </div>
-    </section>
+          <div className="grid cards">
+            {filteredCards.map((card) => (
+              <CardTile key={card.id} card={card} />
+            ))}
+          </div>
+        </div>
+      </section>
+    </div>
   );
 }

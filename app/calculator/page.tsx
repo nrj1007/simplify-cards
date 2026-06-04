@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import CalculatorPicker from "@/app/ui/CalculatorPicker";
 import RewardCalculator from "@/app/ui/RewardCalculator";
+import PageHero from "@/app/ui/PageHero";
 import { cards, getCardById } from "@/lib/cards";
 import { milestoneRulesForCard } from "@/lib/recommend";
 
@@ -24,40 +25,44 @@ export default async function CalculatorPage({ searchParams }: Props) {
     .sort((a, b) => a.issuer.localeCompare(b.issuer) || a.name.localeCompare(b.name));
 
   return (
-    <section className="section">
-      <div className="page-title">
-        <h1>Reward calculator</h1>
-        <p>Pick any bank and card, then enter your monthly spend to estimate what you earn and what it is worth.</p>
-      </div>
+    <div className="page-shell">
+      <PageHero
+        eyebrow="✦ Reward calculator"
+        title="Reward calculator"
+        lead="Pick any bank and card, then enter your monthly spend to estimate what you earn and what it is worth."
+      />
+      <section className="page-content">
+        <div className="container">
+          <div className="panel card">
+            <CalculatorPicker cards={cardOptions} selectedCardId={card?.id} />
+          </div>
 
-      <div className="panel card" style={{ marginTop: 18 }}>
-        <CalculatorPicker cards={cardOptions} selectedCardId={card?.id} />
-      </div>
-
-      {card ? (
-        <div className="panel card" style={{ marginTop: 18 }}>
+          {card ? (
+            <div className="panel card calc-standalone" style={{ marginTop: 18 }}>
           <div className="page-header-wrap" style={{ marginBottom: 0 }}>
             <div>
               <div className="issuer">{card.issuer}</div>
               <h2 style={{ margin: 0 }}>{card.name}</h2>
             </div>
             <Link className="button secondary" href={`/cards/${card.id}`}>
-              View full card
+              View card details
             </Link>
           </div>
           <p className="muted calc-intro">
             Enter your monthly spend to estimate how many {card.rewardType} you earn and what they are worth across each
             redemption option.
           </p>
-          <RewardCalculator card={card} milestones={milestoneRulesForCard(card)} />
+              <RewardCalculator card={card} milestones={milestoneRulesForCard(card)} />
+            </div>
+          ) : (
+            <div className="panel card" style={{ marginTop: 18 }}>
+              <p className="muted" style={{ margin: 0 }}>
+                Select a bank and card above to calculate your rewards.
+              </p>
+            </div>
+          )}
         </div>
-      ) : (
-        <div className="panel card" style={{ marginTop: 18 }}>
-          <p className="muted" style={{ margin: 0 }}>
-            Select a bank and card above to calculate your rewards.
-          </p>
-        </div>
-      )}
-    </section>
+      </section>
+    </div>
   );
 }

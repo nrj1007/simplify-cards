@@ -3,6 +3,7 @@ import { ExternalLink } from "lucide-react";
 import { cards } from "@/lib/cards";
 import { getLoungeConditions } from "@/lib/lounge";
 import LoungeInfo from "@/app/ui/LoungeInfo";
+import PageHero from "@/app/ui/PageHero";
 import { stripScoringAnnotations } from "@/lib/card-index";
 
 type Card = (typeof cards)[number];
@@ -170,13 +171,15 @@ export default async function ComparePage({ searchParams }: Props) {
   const showFeeWaiverRow = hasFeeWaiverSpend(first.feeWaiverSpend) || hasFeeWaiverSpend(second.feeWaiverSpend);
 
   return (
-    <section className="section">
-      <div className="page-title">
-        <h1>Compare Cards</h1>
-        <p>Compare fees, rewards, lounge access, milestone benefits, and exclusions side by side.</p>
-      </div>
-
-      <form className="panel card compare-form" style={{ margin: "18px 0" }}>
+    <div className="page-shell">
+      <PageHero
+        eyebrow="✦ Compare cards"
+        title="Compare Cards"
+        lead="Compare fees, rewards, lounge access, milestone benefits, and exclusions side by side."
+      />
+      <section className="page-content">
+        <div className="container">
+          <form className="panel card compare-form" style={{ marginBottom: 18 }}>
         <div className="filters">
           <div className="field">
             <label htmlFor="a">First card</label>
@@ -299,6 +302,8 @@ export default async function ComparePage({ searchParams }: Props) {
           </table>
         </div>
       </div>
-    </section>
+        </div>
+      </section>
+    </div>
   );
 }
