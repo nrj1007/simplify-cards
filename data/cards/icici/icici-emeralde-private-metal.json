@@ -134,10 +134,14 @@
   },
   "eligibility": {
     "salaried": [
-      "Invite-only program; subject to ICICI Bank private banking and premium card approval criteria"
+      "Invite-only; typically offered to ICICI Bank Global Private Client / Private Banking customers",
+      "Requires a net monthly salary of ₹3 Lakh or more",
+      "Existing ICICI Bank credit cardholders with a credit limit of ₹10 Lakh or more are preferred"
     ],
     "selfEmployed": [
-      "Invite-only program; subject to ICICI Bank private banking and premium card approval criteria"
+      "Invite-only; typically offered to ICICI Bank Global Private Client / Private Banking customers",
+      "Requires a high annual income / ITR (typically ₹36 Lakh or more)",
+      "Existing ICICI Bank credit cardholders with a credit limit of ₹10 Lakh or more are preferred"
     ]
   },
   "supportingSourceUrls": [
