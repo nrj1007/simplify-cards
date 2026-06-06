@@ -185,10 +185,19 @@ export default function RewardCalculator({ card, milestones = [], isStandalone =
     () => milestones.filter((rule) => annualSpend >= rule.threshold),
     [milestones, annualSpend]
   );
-  const milestoneValue = useMemo(
-    () => earnedMilestones.reduce((total, rule) => total + rule.value, 0),
-    [earnedMilestones]
-  );
+  const { earnedNonVoucherMilestoneValue, earnedVoucherValue } = useMemo(() => {
+    let nonVoucher = 0;
+    let voucher = 0;
+    for (const rule of earnedMilestones) {
+      if (rule.isVoucher) {
+        voucher += rule.value;
+      } else {
+        nonVoucher += rule.value;
+      }
+    }
+    return { earnedNonVoucherMilestoneValue: nonVoucher, earnedVoucherValue: voucher };
+  }, [earnedMilestones]);
+
   const nextMilestone = useMemo(
     () => milestones.filter((rule) => rule.threshold > annualSpend).sort((a, b) => a.threshold - b.threshold)[0] ?? null,
     [milestones, annualSpend]
@@ -197,8 +206,9 @@ export default function RewardCalculator({ card, milestones = [], isStandalone =
   // The card's points/cashback are worth this much in rupees at the best redemption; milestones
   // add rupee value on top, so the headline shows the combined annual value.
   const pointsRupeeValue = cashback ? annualUnits : bestRupeeValue;
-  const totalAnnualValue = pointsRupeeValue + milestoneValue;
-  const effectiveRate = annualSpend > 0 && totalAnnualValue > 0 ? (totalAnnualValue / annualSpend) * 100 : 0;
+  const totalAnnualValue = pointsRupeeValue + earnedNonVoucherMilestoneValue;
+  const totalReturnsPlusVoucher = totalAnnualValue + earnedVoucherValue;
+  const effectiveRate = annualSpend > 0 && totalReturnsPlusVoucher > 0 ? (totalReturnsPlusVoucher / annualSpend) * 100 : 0;
 
   const maxVal = Math.max(
     rupeeOptions[0]?.value ?? 0,
@@ -285,15 +295,16 @@ export default function RewardCalculator({ card, milestones = [], isStandalone =
                 {formatUnits(annualUnits)} <span>{unitLabel}/yr</span>
               </strong>
             </div>
-            {totalAnnualValue > 0 ? (
+            {totalAnnualValue > 0 || earnedVoucherValue > 0 ? (
               <div className="calc-headline-aside">
                 <span>
                   {cashback ? "" : "up to "}
                   {formatINR(totalAnnualValue)}
+                  {earnedVoucherValue > 0 ? ` + ${formatINR(earnedVoucherValue)} vouchers` : ""}
                 </span>
                 <span className="muted">
-                  {milestoneValue > 0
-                    ? `incl. ${formatINR(milestoneValue)} milestones · ${effectiveRate.toFixed(1)}% effective`
+                  {earnedNonVoucherMilestoneValue > 0 || earnedVoucherValue > 0
+                    ? `incl. ${formatINR(earnedNonVoucherMilestoneValue + earnedVoucherValue)} milestones/welcome · ${effectiveRate.toFixed(1)}% effective`
                     : `${cashback ? "cashback value" : "best redemption"} · ${effectiveRate.toFixed(1)}% effective`}
                 </span>
               </div>

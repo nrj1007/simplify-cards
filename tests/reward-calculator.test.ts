@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { getCardById } from "../lib/cards";
 import { calculateRewards } from "../lib/reward-calculator";
+import { milestoneRulesForCard } from "../lib/recommend";
 
 describe("reward calculator", () => {
   it("derives Burgundy EDGE REWARD Point earn correctly from display rates", () => {
@@ -119,5 +120,25 @@ describe("reward calculator", () => {
     expect(intlRow!.monthlySpend).toBe(10000);
     expect(intlRow!.monthlyUnits).toBe(400);
     expect(intlRow!.excluded).toBe(false);
+  });
+
+  it("extracts joining benefits as welcome vouchers for ICICI Sapphiro", () => {
+    const card = getCardById("icici-sapphiro");
+    expect(card).toBeTruthy();
+
+    const rules = milestoneRulesForCard(card!);
+    
+    // Check that we have joining benefits mapped with threshold 0 and classified as vouchers
+    const joiningVouchers = rules.filter(r => r.threshold === 0 && r.isVoucher);
+    expect(joiningVouchers.length).toBe(4);
+
+    // Sum of face values: Tata Cliq (3000) + EMT (4000) + Croma (1500) + Uber (1000) = 9500
+    // Sum of discounted values (50%): 1500 + 2000 + 750 + 500 = 4750
+    const totalVoucherValue = joiningVouchers.reduce((sum, r) => sum + r.value, 0);
+    expect(totalVoucherValue).toBe(4750);
+
+    // Verify labels
+    expect(joiningVouchers.some(r => r.label.includes("Tata CLiQ"))).toBe(true);
+    expect(joiningVouchers.some(r => r.label.includes("Croma"))).toBe(true);
   });
 });
