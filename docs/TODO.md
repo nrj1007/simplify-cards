@@ -63,8 +63,8 @@ Top ICICI cards added: Amazon Pay ICICI Bank Credit Card, Emeralde Private Metal
 
 ### Remaining ICICI Cards To Verify Later
 
-- [ ] MakeMyTrip ICICI Bank Signature Credit Card: official ICICI page says applications are no longer accepted for older Signature variant, verify before adding
-- [ ] MakeMyTrip ICICI Bank Platinum Credit Card: official ICICI page says applications are no longer accepted for older Platinum variant, verify before adding
+- [x] MakeMyTrip ICICI Bank Signature Credit Card: Verified as discontinued/no longer accepted for new applications.
+- [x] MakeMyTrip ICICI Bank Platinum Credit Card: Verified as discontinued/no longer accepted for new applications.
 - [ ] Manchester United Platinum Credit Card
 - [ ] Manchester United Signature Credit Card
 - [ ] Accelero Credit Card
