@@ -126,7 +126,16 @@
   "redemption": {
     "statementBalanceValue": 0.4,
     "smartBuyFlightHotelValue": 1,
-    "pointsExpiryYears": null
+    "airMilesValue": 1,
+    "pointsExpiryYears": null,
+    "airlinePartners": [
+      {
+        "airline": "Air India",
+        "programme": "Maharaja Club",
+        "ratio": "1:1"
+      }
+    ],
+    "hotelPartners": []
   },
   "eligibility": {
     "salaried": [
