@@ -7,25 +7,51 @@
   ],
   "joiningFee": 12499,
   "annualFee": 12499,
-  "feeWaiverSpend": null,
+  "feeWaiverSpend": 1000000,
   "bestFor": [
     "luxury",
     "travel",
     "lounge",
     "golf",
-    "low forex"
+    "low forex",
+    "movies"
   ],
   "rewardType": "reward points",
   "rewards": [
     {
       "category": "retail",
-      "rate": 2,
+      "displayCategory": "Retail spends",
+      "rate": 3,
+      "displayRate": "6 Reward Points / Rs 200 spent",
       "capMonthly": null
     },
     {
-      "category": "travel",
-      "rate": 2,
-      "capMonthly": null
+      "category": "utilities",
+      "displayCategory": "Utility spends",
+      "rate": 3,
+      "displayRate": "6 Reward Points / Rs 200 spent",
+      "capMonthly": 1000
+    },
+    {
+      "category": "grocery",
+      "displayCategory": "Grocery spends",
+      "rate": 3,
+      "displayRate": "6 Reward Points / Rs 200 spent",
+      "capMonthly": 1000
+    },
+    {
+      "category": "education",
+      "displayCategory": "Education spends",
+      "rate": 3,
+      "displayRate": "6 Reward Points / Rs 200 spent",
+      "capMonthly": 1000
+    },
+    {
+      "category": "insurance",
+      "displayCategory": "Insurance spends",
+      "rate": 3,
+      "displayRate": "6 Reward Points / Rs 200 spent",
+      "capMonthly": 5000
     }
   ],
   "popularityScore": 84,
@@ -43,35 +69,74 @@
     "low forex"
   ],
   "exclusions": [
+    "fuel transactions",
+    "rent payments",
+    "government transactions and services",
+    "tax payments",
+    "e-wallet loading"
+  ],
+  "exclusionCodes": [
     "fuel",
-    "transactions excluded under ICICI Bank reward programme terms"
+    "rent",
+    "government",
+    "tax",
+    "wallet_load"
+  ],
+  "joiningBenefits": [
+    "12,500 ICICI Bank Reward Points (worth Rs 12,500) on payment of joining fee",
+    "Complimentary one-year Taj Epicure Plus membership including one-night stay voucher (worth Rs 12,000) on card activation",
+    "Complimentary one-year EazyDiner Prime membership (worth Rs 2,995) on card activation"
+  ],
+  "renewalBenefits": [
+    "12,500 ICICI Bank Reward Points (worth Rs 12,500) on payment of annual fee",
+    "Complimentary annual renewal of Taj Epicure and EazyDiner Prime memberships"
   ],
   "milestoneBenefits": [
-    "12,500 ICICI Bank Reward Points as joining bonus and annual bonus",
-    "EaseMyTrip air travel vouchers worth Rs 3,000 each on first Rs 4 lakh spends and next Rs 4 lakh spends"
+    "EaseMyTrip air travel voucher worth Rs 3,000 on reaching Rs 4 lakh annual spend",
+    "Additional EaseMyTrip air travel voucher worth Rs 3,000 on reaching Rs 8 lakh annual spend"
   ],
   "additionalBenefits": [
-    "Unlimited complimentary international airport lounge access",
-    "Unlimited complimentary domestic airport lounge access",
-    "Unlimited complimentary golf rounds",
-    "Complimentary Priority Pass membership for primary and Plus cardholder",
-    "BOGO movies, sports, theatre or concert tickets worth up to Rs 750",
-    "Taj Epicure and EazyDiner Prime membership benefits listed by ICICI Bank"
+    "Unlimited complimentary golf rounds and lessons every month at premier courses",
+    "Complimentary Priority Pass membership for both the primary and Plus cardholder",
+    "Buy-One-Get-One (BOGO) movie, show or event tickets worth up to Rs 750 via BookMyShow, up to twice a month",
+    "Fuel surcharge waiver of 1% on transactions up to Rs 4,000"
+  ],
+  "additionalDetails": [
+    "Utility, grocery, and education category rewards are capped at 1,000 Reward Points per category per statement cycle.",
+    "Insurance category rewards are capped at 5,000 Reward Points per statement cycle.",
+    "Redeem reward points for flights, hotels, and select vouchers at Rs 1.00 per point via the ICICI rewards portal, or for statement credit at Rs 0.40 per point."
   ],
   "redemption": {
-    "statementBalanceValue": 0.25,
+    "statementBalanceValue": 0.4,
+    "smartBuyFlightHotelValue": 1,
     "pointsExpiryYears": null
   },
   "eligibility": {
     "salaried": [
-      "Eligibility is subject to ICICI Bank premium card approval criteria"
+      "Invite-only program; subject to ICICI Bank private banking and premium card approval criteria"
     ],
     "selfEmployed": [
-      "Eligibility is subject to ICICI Bank premium card approval criteria"
+      "Invite-only program; subject to ICICI Bank private banking and premium card approval criteria"
     ]
   },
+  "supportingSourceUrls": [
+    "https://www.icicibank.com/personal-banking/cards/credit-card/emeralde-private-metal-credit-card",
+    "https://teetimes.truztee.com/"
+  ],
   "sourceUrl": "https://www.icicibank.com/personal-banking/cards/credit-card/emeralde-private-metal-credit-card",
   "applyUrl": "https://www.icicibank.com/personal-banking/cards/credit-card/emeralde-private-metal-credit-card",
-  "lastVerified": "2026-05-10",
-  "verificationStatus": "official-direct"
+  "lastVerified": "2026-06-06",
+  "verificationStatus": "official-direct",
+  "imageUrl": "/images/icici-emeralde-private-metal.webp",
+  "internalNotes": [
+    "Card details manually reviewed and verified by user on 2026-06-06",
+    "Official audit completed on 2026-06-06 using ICICI Bank product page, reward terms, and Truztee golf booking rules.",
+    "Base reward rate is 6 points per Rs 200 spend (3% return value on travel booking, 1.2% return value on statement credit).",
+    "Unlimited domestic and international lounge access applies to both primary and add-on cardholders, with no spend-based criteria.",
+    "Comp Priority Pass is provided to primary and Plus cardholders; guest visits are charged at USD 27 plus GST.",
+    "Unlimited complimentary golf rounds and lessons can be booked via Truztee platform; cancellations require 24 hours notice.",
+    "Exclusions include fuel, rent, government services, tax payments, and e-wallet loading.",
+    "BookMyShow BOGO offers up to Rs 750 off on a minimum of 2 tickets, twice a calendar month.",
+    "Air Accident Insurance cover is up to Rs 3 crore for primary cardholder, subject to card usage terms."
+  ]
 }
