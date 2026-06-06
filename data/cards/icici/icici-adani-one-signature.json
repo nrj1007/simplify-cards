@@ -19,17 +19,30 @@
   "rewards": [
     {
       "category": "travel",
+      "displayCategory": "Adani One ecosystem spends (flights, hotels, airports, CNG, electricity, Trainman)",
       "rate": 7,
+      "displayRate": "7% Adani Reward Points",
       "capMonthly": null
     },
     {
-      "category": "retail",
+      "category": "international",
+      "displayCategory": "International spends",
+      "rate": 2,
+      "displayRate": "2% Adani Reward Points",
+      "capMonthly": null
+    },
+    {
+      "category": "base",
+      "displayCategory": "Other domestic spends (excl. fuel, rent)",
       "rate": 1.5,
+      "displayRate": "1.5% Adani Reward Points",
       "capMonthly": null
     },
     {
       "category": "utilities",
+      "displayCategory": "Utility & Insurance spends",
       "rate": 0.5,
+      "displayRate": "0.5% Adani Reward Points",
       "capMonthly": null
     }
   ],
@@ -47,35 +60,78 @@
     "premium"
   ],
   "exclusions": [
+    "Fuel payments",
+    "Rent payments",
+    "EMI transactions",
+    "Insurance payments",
+    "Credit card bill payments",
+    "Income tax payments",
+    "E-wallet loading transactions"
+  ],
+  "exclusionCodes": [
     "fuel",
     "rent",
-    "transactions excluded under Adani One ICICI Bank terms"
+    "emi",
+    "insurance",
+    "tax",
+    "wallet_load"
   ],
-  "milestoneBenefits": [
-    "Annual fee waiver on spends of Rs 6,00,000 and above in a calendar year",
-    "Flight voucher on completing Rs 25,000 spends within 60 days of card activation"
+  "joiningBenefits": [
+    "Flight ticket voucher worth Rs 5,000 on spending Rs 25,000 within 60 days of card activation",
+    "Hotel & holiday vouchers worth Rs 4,000 on spending Rs 25,000 within 60 days of card activation"
   ],
+  "milestoneBenefits": [],
   "additionalBenefits": [
-    "7% reward points on Adani One ecosystem, Adani-managed airports, Trainman, gas, electricity and more",
-    "1.5% Adani reward points on other domestic spend categories excluding fuel and rent",
-    "2% Adani reward points on international spends",
-    "4 complimentary domestic lounge accesses per quarter",
-    "2 complimentary international lounge accesses per year",
-    "50% off up to Rs 500 twice every month on BookMyShow"
+    "4 complimentary domestic airport lounge accesses per quarter (16 per year)",
+    "2 complimentary international airport lounge accesses per year",
+    "Pranaam Meet & Greet, porter services, valet parking, and premium car parking at Adani-managed airports",
+    "Premium lounge upgrades at Adani-managed airports",
+    "50% discount up to Rs 500 twice a month on BookMyShow movie tickets",
+    "1% fuel surcharge waiver on fuel transactions up to Rs 4,000"
+  ],
+  "additionalDetails": [
+    "Annual fee of Rs 5,000 waived on spending Rs 6,00,000 or more in the preceding membership year (EMI excluded from spend calculation)"
   ],
   "redemption": {
-    "pointsExpiryYears": null
+    "statementBalanceValue": 0.25,
+    "airMilesValue": 0.1667,
+    "pointsExpiryYears": null,
+    "airlinePartners": [
+      {
+        "airline": "Air India",
+        "programme": "Air India Maharaja Club",
+        "ratio": "6:1"
+      }
+    ],
+    "hotelPartners": []
   },
   "eligibility": {
     "salaried": [
-      "Eligibility is subject to ICICI Bank approval criteria"
+      "Age: 21 - 65 years",
+      "Minimum net monthly salary: Rs 75,000"
     ],
     "selfEmployed": [
-      "Eligibility is subject to ICICI Bank approval criteria"
+      "Age: 21 - 65 years",
+      "Minimum annual ITR: Rs 9,00,000"
     ]
   },
   "sourceUrl": "https://www.icicibank.com/personal-banking/cards/credit-card/adani-icici-credit-card/signature-credit-card",
   "applyUrl": "https://www.icicibank.com/personal-banking/cards/credit-card/adani-icici-credit-card/signature-credit-card",
-  "lastVerified": "2026-05-10",
-  "verificationStatus": "official-direct"
+  "imageUrl": "/images/icici-adani-one-signature.webp",
+  "lastVerified": "2026-06-06",
+  "verificationStatus": "official-direct",
+  "internalNotes": [
+    "Card details manually reviewed and verified by user on 2026-06-06",
+    "Official audit completed on 2026-06-06 using ICICI Bank and Adani One product pages and third-party verified sources.",
+    "Joining fee and Annual fee Rs 5,000 each. Annual fee waived on spending Rs 6,00,000+ in the preceding membership year; EMI purchases excluded from spend count.",
+    "Welcome benefits: Rs 5,000 flight voucher + Rs 4,000 hotel/holiday vouchers on spending Rs 25,000 within 60 days of activation.",
+    "7% Adani Reward Points on Adani One ecosystem: flights, hotels, trains, buses, cabs, Adani-managed airports, Adani CNG, Adani electricity bills, Trainman.",
+    "2% on international spends, 1.5% on other domestic spends, 0.5% on utilities and insurance.",
+    "All reward rates are uncapped.",
+    "Domestic lounge: 4 complimentary visits per quarter via Visa Lounge Access; 16 per year total.",
+    "International lounge: 2 complimentary visits per year.",
+    "Pranaam services (Meet & Greet, porter, valet parking, car parking) available at Adani-managed airports.",
+    "Reward points transferable to Air India Maharaja Club at 6:1 ratio.",
+    "1% fuel surcharge waiver on transactions up to Rs 4,000 at fuel outlets."
+  ]
 }
