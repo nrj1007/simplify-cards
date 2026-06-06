@@ -679,29 +679,16 @@ export type MilestoneRule = {
   isVoucher?: boolean;
 };
 
-// Per-line milestone rules for a card. Thresholds and values are spend-independent, so the
-// per-card reward calculator can take these once and credit the ones the user's spend unlocks
-// without pulling the recommendation engine into the client bundle.
 export function milestoneRulesForCard(card: CreditCard): MilestoneRule[] {
-  const milestoneRules = (card.milestoneBenefits ?? [])
+  return (card.milestoneBenefits ?? [])
     .map((benefit) => ({
       threshold: extractMilestoneThreshold(benefit) ?? 0,
       value: estimateMilestoneLineValue(card, benefit),
       label: stripScoringAnnotations(benefit),
       isVoucher: /\bvoucher(s)?\b/i.test(benefit)
     }))
-    .filter((rule) => rule.value > 0);
-
-  const joiningRules = (card.joiningBenefits ?? [])
-    .map((benefit) => ({
-      threshold: 0,
-      value: estimateBenefitLineValue(card, benefit),
-      label: stripScoringAnnotations(benefit),
-      isVoucher: /\bvoucher(s)?\b/i.test(benefit)
-    }))
-    .filter((rule) => rule.value > 0);
-
-  return [...joiningRules, ...milestoneRules].sort((a, b) => a.threshold - b.threshold);
+    .filter((rule) => rule.value > 0)
+    .sort((a, b) => a.threshold - b.threshold);
 }
 
 function joiningAndRenewalBenefitValueForCard(card: CreditCard) {

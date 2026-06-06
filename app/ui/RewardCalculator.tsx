@@ -304,7 +304,7 @@ export default function RewardCalculator({ card, milestones = [], isStandalone =
                 </span>
                 <span className="muted">
                   {earnedNonVoucherMilestoneValue > 0 || earnedVoucherValue > 0
-                    ? `incl. ${formatINR(earnedNonVoucherMilestoneValue + earnedVoucherValue)} milestones/welcome · ${effectiveRate.toFixed(1)}% effective`
+                    ? `incl. ${formatINR(earnedNonVoucherMilestoneValue + earnedVoucherValue)} milestones · ${effectiveRate.toFixed(1)}% effective`
                     : `${cashback ? "cashback value" : "best redemption"} · ${effectiveRate.toFixed(1)}% effective`}
                 </span>
               </div>
@@ -324,12 +324,12 @@ export default function RewardCalculator({ card, milestones = [], isStandalone =
             <>
               {milestones.length > 0 ? (
                 <div className="calc-block">
-                  <h3>Milestone &amp; welcome rewards</h3>
+                  <h3>Milestone rewards</h3>
                   <div className="calc-redemptions">
                     {earnedMilestones.map((rule, index) => (
                       <div className="calc-redemption is-best" key={`ms-earned-${index}`}>
                         <div className="calc-redemption-head">
-                          <span>{rule.threshold > 0 ? `At ${formatINRCompact(rule.threshold)}/yr` : "Welcome / ongoing"}</span>
+                          <span>{rule.threshold > 0 ? `At ${formatINRCompact(rule.threshold)}/yr` : "Ongoing milestone"}</span>
                           <span className="calc-badge">Unlocked</span>
                         </div>
                         <strong>{formatINR(rule.value)}</strong>

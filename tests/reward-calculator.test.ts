@@ -122,23 +122,28 @@ describe("reward calculator", () => {
     expect(intlRow!.excluded).toBe(false);
   });
 
-  it("extracts joining benefits as welcome vouchers for ICICI Sapphiro", () => {
-    const card = getCardById("icici-sapphiro");
+  it("extracts milestone vouchers for Amex Platinum Travel", () => {
+    const card = getCardById("amex-platinum-travel");
     expect(card).toBeTruthy();
 
     const rules = milestoneRulesForCard(card!);
     
-    // Check that we have joining benefits mapped with threshold 0 and classified as vouchers
-    const joiningVouchers = rules.filter(r => r.threshold === 0 && r.isVoucher);
-    expect(joiningVouchers.length).toBe(4);
+    // Amex Platinum Travel has 3 milestone benefits:
+    // 1. 7,500 MR points at Rs 1.9L
+    // 2. 10,000 MR points at Rs 4.0L
+    // 3. 22,500 MR points + Rs 10k Taj voucher at Rs 7.0L
+    expect(rules.length).toBe(3);
 
-    // Sum of face values: Tata Cliq (3000) + EMT (4000) + Croma (1500) + Uber (1000) = 9500
-    // Sum of discounted values (50%): 1500 + 2000 + 750 + 500 = 4750
-    const totalVoucherValue = joiningVouchers.reduce((sum, r) => sum + r.value, 0);
-    expect(totalVoucherValue).toBe(4750);
+    const tajMilestone = rules.find(r => r.threshold === 700000);
+    expect(tajMilestone).toBeTruthy();
+    expect(tajMilestone!.isVoucher).toBe(true);
 
-    // Verify labels
-    expect(joiningVouchers.some(r => r.label.includes("Tata CLiQ"))).toBe(true);
-    expect(joiningVouchers.some(r => r.label.includes("Croma"))).toBe(true);
+    // 22500 MR points * 1.0 = 22500. Taj stay voucher 10000 * 0.5 = 5000. Total value = 27500.
+    expect(tajMilestone!.value).toBe(27500);
+    expect(tajMilestone!.label).toContain("Taj stay voucher");
+
+    // The other two milestones do not contain the word 'voucher'
+    const pointMilestones = rules.filter(r => r.threshold < 700000);
+    expect(pointMilestones.every(r => !r.isVoucher)).toBe(true);
   });
 });
