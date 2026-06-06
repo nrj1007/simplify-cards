@@ -18,18 +18,24 @@
   "rewardType": "reward points",
   "rewards": [
     {
-      "category": "retail",
+      "category": "base",
+      "displayCategory": "Other retail spends",
       "rate": 0.5,
+      "displayRate": "2 Reward Points / Rs 100 spent",
       "capMonthly": null
     },
     {
-      "category": "utilities",
+      "category": "utilities, insurance",
+      "displayCategory": "Utility & Insurance spends",
       "rate": 0.25,
+      "displayRate": "1 Reward Point / Rs 100 spent",
       "capMonthly": null
     },
     {
       "category": "upi",
+      "displayCategory": "Merchant UPI spends",
       "rate": 0.5,
+      "displayRate": "2 Reward Points / Rs 100 spent",
       "capMonthly": null
     }
   ],
@@ -47,34 +53,71 @@
     "entry level"
   ],
   "exclusions": [
+    "Fuel transactions",
+    "Rent payments",
+    "E-wallet loading transactions",
+    "Government transactions",
+    "Tax payments",
+    "EMI transactions"
+  ],
+  "exclusionCodes": [
     "fuel",
-    "transactions excluded under ICICI Bank reward programme terms",
-    "UPI is only for merchant payments and restricted categories apply"
+    "rent",
+    "wallet_load",
+    "government",
+    "tax",
+    "emi"
   ],
   "milestoneBenefits": [
     "2,000 reward points on spending Rs 2,00,000 and 1,000 reward points each time Rs 1,00,000 spend is crossed thereafter in an anniversary year, capped at 10,000 points per year"
   ],
   "additionalBenefits": [
-    "Complimentary domestic airport lounge access",
-    "Complimentary domestic railway lounge access",
-    "25% discount on BookMyShow and INOX movie tickets capped at Rs 100 twice a month",
-    "RuPay network support for UPI linking",
-    "Fuel surcharge waiver"
+    "One complimentary domestic railway lounge visit per quarter",
+    "25% discount on BookMyShow and INOX movie tickets, capped at Rs 100 twice a month, subject to spending Rs 25,000 in the preceding calendar quarter",
+    "1% fuel surcharge waiver on all fuel transactions of Rs 400 to Rs 4,000 at HPCL petrol pumps"
+  ],
+  "additionalDetails": [
+    "A transaction fee of 1% applies to utility payments exceeding Rs 50,000 per month"
   ],
   "redemption": {
     "statementBalanceValue": 0.25,
-    "pointsExpiryYears": null
+    "airMilesValue": 0.1667,
+    "pointsExpiryYears": 3,
+    "redemptionFee": 99,
+    "airlinePartners": [
+      {
+        "airline": "Air India",
+        "programme": "Air India Maharaja Club",
+        "ratio": "6:1"
+      }
+    ],
+    "hotelPartners": []
   },
   "eligibility": {
     "salaried": [
-      "Age 21 years and above, monthly income Rs 20,000 and above"
+      "Age: 21 - 65 years",
+      "Minimum monthly income: ₹20,000"
     ],
     "selfEmployed": [
-      "Age 21 years and above, eligibility is subject to ICICI Bank approval criteria"
+      "Age: 21 - 65 years",
+      "Minimum monthly income: ₹20,000"
     ]
   },
   "sourceUrl": "https://www.icicibank.com/personal-banking/cards/credit-card/coral-rupay-card",
   "applyUrl": "https://www.icicibank.com/personal-banking/cards/credit-card/rupay-credit-card",
-  "lastVerified": "2026-05-11",
-  "verificationStatus": "official-mixed"
+  "imageUrl": "/images/icici-coral-rupay.webp",
+  "lastVerified": "2026-06-06",
+  "verificationStatus": "official-direct",
+  "internalNotes": [
+    "Card details manually reviewed and verified by user on 2026-06-06",
+    "Official audit completed on 2026-06-06 using ICICI Bank Coral RuPay page and terms.",
+    "Joining fee of Rs 500 and Annual fee of Rs 500. Annual fee is waived on spending Rs 1.5 Lakhs or more in the previous anniversary year.",
+    "Earns 2 Reward Points per Rs 100 spent on retail and UPI merchant spends (0.5% return value).",
+    "Earns 1 Reward Point per Rs 100 spent on utility and insurance spends (0.25% return value).",
+    "1% fuel surcharge waiver on fuel transactions of Rs 400 to Rs 4,000 at HPCL petrol pumps.",
+    "Offers 1 complimentary domestic airport lounge access per quarter, subject to spending Rs 75,000 in the preceding calendar quarter.",
+    "Offers 1 complimentary domestic railway lounge access per quarter (no spends criteria).",
+    "Offers 25% discount on BookMyShow and INOX movie tickets, capped at Rs 100 twice a month, subject to spending Rs 25,000 in the preceding calendar quarter.",
+    "Eligibility: Age must be 21-65 years; minimum monthly income of Rs 20,000 for both salaried and self-employed."
+  ]
 }
