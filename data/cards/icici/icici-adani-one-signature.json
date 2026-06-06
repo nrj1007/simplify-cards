@@ -95,6 +95,8 @@
     "Reward points credited to your Adani One account at end of each billing cycle"
   ],
   "redemption": {
+    "ecosystemLabel": "Adani One app (flights, hotels, trains, duty-free)",
+    "ecosystemValue": 1.0,
     "pointsExpiryYears": null,
     "airlinePartners": [],
     "hotelPartners": []
