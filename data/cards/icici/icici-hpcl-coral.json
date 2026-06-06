@@ -7,7 +7,7 @@
   ],
   "joiningFee": 199,
   "annualFee": 199,
-  "feeWaiverSpend": null,
+  "feeWaiverSpend": 50000,
   "bestFor": [
     "fuel",
     "hpcl",
@@ -18,12 +18,16 @@
   "rewards": [
     {
       "category": "fuel",
+      "displayCategory": "Fuel spends at HPCL outlets",
       "rate": 2.5,
+      "displayRate": "2.5% cashback",
       "capMonthly": null
     },
     {
-      "category": "retail",
+      "category": "base",
+      "displayCategory": "Retail spends (excl. fuel)",
       "rate": 0.5,
+      "displayRate": "2 Reward Points / Rs 100 spent",
       "capMonthly": null
     }
   ],
@@ -40,29 +44,64 @@
     "entry level"
   ],
   "exclusions": [
-    "fuel surcharge waiver and cashback apply at HPCL pumps as per ICICI Bank terms"
+    "Rent payments",
+    "E-wallet loading transactions",
+    "Government transactions",
+    "Tax payments",
+    "EMI transactions"
+  ],
+  "exclusionCodes": [
+    "rent",
+    "wallet_load",
+    "government",
+    "tax",
+    "emi"
   ],
   "milestoneBenefits": [],
   "additionalBenefits": [
-    "2.5% cashback on fuel purchases at HPCL pumps",
-    "1% fuel surcharge waiver at HPCL pumps",
-    "2 ICICI Bank reward points on every Rs 100 spent on retail purchases except fuel",
-    "Movie ticket and lifestyle privileges on the Coral platform"
+    "1% fuel surcharge waiver on fuel transactions up to Rs 4,000 at HPCL petrol pumps",
+    "25% discount on BookMyShow movie tickets (minimum 2 tickets), capped at Rs 100 twice a month",
+    "At least 15% off at participating restaurants through ICICI Bank Culinary Treats Programme"
+  ],
+  "additionalDetails": [
+    "Minimum fuel transaction of Rs 500 required to earn 2.5% cashback at HPCL pumps"
   ],
   "redemption": {
     "statementBalanceValue": 0.25,
-    "pointsExpiryYears": null
+    "pointsExpiryYears": null,
+    "airlinePartners": [
+      {
+        "airline": "Air India",
+        "programme": "Air India Maharaja Club",
+        "ratio": "6:1"
+      }
+    ],
+    "hotelPartners": []
   },
   "eligibility": {
     "salaried": [
-      "Eligibility is subject to ICICI Bank approval criteria"
+      "Age: 21 - 65 years",
+      "Must be a resident of India"
     ],
     "selfEmployed": [
-      "Eligibility is subject to ICICI Bank approval criteria"
+      "Age: 21 - 65 years",
+      "Must be a resident of India"
     ]
   },
   "sourceUrl": "https://www.icicibank.com/personal-banking/cards/credit-card/hpcl-coral-credit-card",
   "applyUrl": "https://www.icicibank.com/personal-banking/cards/credit-card/hpcl-coral-credit-card",
-  "lastVerified": "2026-05-11",
-  "verificationStatus": "official-direct"
+  "imageUrl": "/images/icici-hpcl-coral.webp",
+  "lastVerified": "2026-06-06",
+  "verificationStatus": "official-direct",
+  "internalNotes": [
+    "Card details manually reviewed and verified by user on 2026-06-06",
+    "Official audit completed on 2026-06-06 using ICICI Bank HPCL Coral product page and third-party verified sources.",
+    "Joining fee and Annual fee are Rs 199 each. Annual fee is waived on spending Rs 50,000 or more in the previous anniversary year.",
+    "Earns 2.5% cashback on fuel purchases at HPCL pumps (minimum transaction of Rs 500).",
+    "Earns 2 Reward Points per Rs 100 spent on retail purchases excluding fuel (0.5% return value).",
+    "1% fuel surcharge waiver applies on fuel transactions up to Rs 4,000 at HPCL petrol pumps.",
+    "From February 5, 2024, rent payments and e-wallet loading transactions do not earn reward points.",
+    "No domestic or international lounge access on this card.",
+    "Reward points transferable to Air India Maharaja Club at 6:1 ratio."
+  ]
 }
