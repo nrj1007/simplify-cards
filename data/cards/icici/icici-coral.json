@@ -92,11 +92,21 @@
     "1% fuel surcharge waiver at HPCL petrol pumps"
   ],
   "additionalDetails": [
-    "A transaction fee of 1% applies to utility payments exceeding Rs 50,000 per month"
+    "A transaction fee of 1% applies to utility payments exceeding Rs 50,000 per month",
+    "Reward points can be transferred to Air India Maharaja Club at a 6:1 ratio (minimum 2,000 points)"
   ],
   "redemption": {
     "statementBalanceValue": 0.25,
-    "pointsExpiryYears": null
+    "airMilesValue": 0.1667,
+    "pointsExpiryYears": null,
+    "airlinePartners": [
+      {
+        "airline": "Air India",
+        "programme": "Maharaja Club",
+        "ratio": "6:1"
+      }
+    ],
+    "hotelPartners": []
   },
   "eligibility": {
     "salaried": [
@@ -122,6 +132,7 @@
     "Grocery spends earn rewards capped at monthly spends of Rs 20,000.",
     "Complimentary domestic airport lounge access (1 visit per quarter) requires a minimum spend of Rs 35,000 in the previous calendar quarter.",
     "Complimentary railway lounge access (1 visit per quarter) is unconditional (no spend criteria).",
-    "BookMyShow movie discount (25% off up to Rs 100 twice a month on min 2 tickets) requires spending Rs 25,000 in the preceding spends quarter (effective April 1, 2026)."
+    "BookMyShow movie discount (25% off up to Rs 100 twice a month on min 2 tickets) requires spending Rs 25,000 in the preceding spends quarter (effective April 1, 2026).",
+    "Reward points can be transferred to Air India Maharaja Club at a 6:1 ratio, requiring a minimum of 2,000 points per transfer."
   ]
 }
