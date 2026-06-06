@@ -98,11 +98,21 @@
     "Fuel surcharge waiver of 1% on transactions up to Rs 4,000 at all fuel stations"
   ],
   "additionalDetails": [
+    "Reward points can be transferred to Air India Maharaja Club at a 6:1 ratio (minimum 2,000 points)",
     "A transaction fee of 1% applies to utility payments exceeding Rs 50,000 per month"
   ],
   "redemption": {
     "statementBalanceValue": 0.25,
-    "pointsExpiryYears": null
+    "airMilesValue": 0.1667,
+    "pointsExpiryYears": null,
+    "airlinePartners": [
+      {
+        "airline": "Air India",
+        "programme": "Maharaja Club",
+        "ratio": "6:1"
+      }
+    ],
+    "hotelPartners": []
   },
   "eligibility": {
     "salaried": [
@@ -130,6 +140,7 @@
     "Complimentary golf rounds (up to 4 per month) require spending Rs 50,000 per round in the previous calendar month.",
     "BookMyShow BOGO offers up to Rs 750 off twice/four times per month per variant, subject to spending Rs 25,000 in the preceding quarter (effective April 1, 2026).",
     "Cancel For Any Reason (CFAR) travel insurance covers up to Rs 12,000 for flight/hotel cancellation charges (twice a year).",
-    "Tata CLiQ birthday voucher worth Rs 5,000 is for American Express variant only."
+    "Tata CLiQ birthday voucher worth Rs 5,000 is for American Express variant only.",
+    "Reward points can be transferred to Air India Maharaja Club at a 6:1 ratio, requiring a minimum of 2,000 points per transfer."
   ]
 }
