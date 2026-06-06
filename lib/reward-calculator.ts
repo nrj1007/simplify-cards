@@ -347,6 +347,14 @@ export type RewardCalcResult = {
 export function calculateRewards(card: CreditCard, spend: SpendProfile): RewardCalcResult {
   const rows: RewardCalcRow[] = [];
 
+  type ActiveCategoryRow = {
+    category: SpendCategory;
+    monthlySpend: number;
+    rewards: Reward[];
+    reward: Reward;
+  };
+  const activeRows: ActiveCategoryRow[] = [];
+
   for (const category of CALCULATOR_CATEGORIES) {
     const monthlySpend = spend[category] ?? 0;
     if (monthlySpend <= 0) continue;
@@ -379,18 +387,84 @@ export function calculateRewards(card: CreditCard, spend: SpendProfile): RewardC
       continue;
     }
 
-    const tieredAllocation = allocateTieredRewardUnits(card, monthlySpend, rewards);
-    const monthlyUnits = tieredAllocation?.monthlyUnits ?? cappedMonthlyUnits(card, monthlySpend, reward);
-    rows.push({
+    activeRows.push({
       category,
       monthlySpend,
-      matchedRewardCategory: tieredAllocation?.matchedRewardCategory ?? reward.category,
-      monthlyUnits,
-      annualUnits: monthlyUnits * 12,
-      excluded: false,
-      earnsBaseRateOnly: reward.category === "base" && category !== "base"
+      rewards,
+      reward
     });
   }
+
+  const groups = new Map<Reward, ActiveCategoryRow[]>();
+  for (const active of activeRows) {
+    if (!groups.has(active.reward)) {
+      groups.set(active.reward, []);
+    }
+    groups.get(active.reward)!.push(active);
+  }
+
+  for (const [reward, items] of groups.entries()) {
+    const isTiered = items.length > 0 && allocateTieredRewardUnits(card, items[0].monthlySpend, items[0].rewards) !== null;
+
+    if (isTiered) {
+      for (const item of items) {
+        const tieredAllocation = allocateTieredRewardUnits(card, item.monthlySpend, item.rewards);
+        const monthlyUnits = tieredAllocation?.monthlyUnits ?? cappedMonthlyUnits(card, item.monthlySpend, reward);
+        rows.push({
+          category: item.category,
+          monthlySpend: item.monthlySpend,
+          matchedRewardCategory: tieredAllocation?.matchedRewardCategory ?? reward.category,
+          monthlyUnits,
+          annualUnits: monthlyUnits * 12,
+          excluded: false,
+          earnsBaseRateOnly: reward.category === "base" && item.category !== "base"
+        });
+      }
+    } else {
+      const itemRawUnits = items.map((item) => {
+        const earnRate = rewardEarnRatePerRs100(card, reward);
+        const rawUnits = (item.monthlySpend * earnRate.basePerRs100) / 100;
+        return { item, rawUnits };
+      });
+
+      const totalRawUnits = itemRawUnits.reduce((sum, entry) => sum + entry.rawUnits, 0);
+
+      let totalCappedUnits = totalRawUnits;
+      if (reward.capMonthly) {
+        const earnRate = rewardEarnRatePerRs100(card, reward);
+        if (
+          earnRate.postCapPerRs100 &&
+          earnRate.postCapPerRs100 > 0 &&
+          totalRawUnits > reward.capMonthly &&
+          earnRate.postCapPerRs100 < earnRate.basePerRs100
+        ) {
+          const totalSpend = items.reduce((sum, item) => sum + item.monthlySpend, 0);
+          const spendAtCap = (reward.capMonthly * 100) / earnRate.basePerRs100;
+          const excessSpend = Math.max(totalSpend - spendAtCap, 0);
+          const postCapUnits = (excessSpend * earnRate.postCapPerRs100) / 100;
+          totalCappedUnits = reward.capMonthly + postCapUnits;
+        } else {
+          totalCappedUnits = Math.min(totalRawUnits, reward.capMonthly);
+        }
+      }
+
+      for (const { item, rawUnits } of itemRawUnits) {
+        const monthlyUnits = totalRawUnits > 0 ? (totalCappedUnits * rawUnits) / totalRawUnits : 0;
+        rows.push({
+          category: item.category,
+          monthlySpend: item.monthlySpend,
+          matchedRewardCategory: reward.category,
+          monthlyUnits,
+          annualUnits: monthlyUnits * 12,
+          excluded: false,
+          earnsBaseRateOnly: reward.category === "base" && item.category !== "base"
+        });
+      }
+    }
+  }
+
+  const categoryOrder = new Map(CALCULATOR_CATEGORIES.map((cat, idx) => [cat, idx]));
+  rows.sort((a, b) => (categoryOrder.get(a.category) ?? 0) - (categoryOrder.get(b.category) ?? 0));
 
   const monthlyUnits = rows.reduce((total, row) => total + row.monthlyUnits, 0);
 

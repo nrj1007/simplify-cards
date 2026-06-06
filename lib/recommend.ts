@@ -1,7 +1,7 @@
 import { cards } from "./cards";
 import { SPEND_CATEGORY_EXCLUSION_CODE_MAP } from "./exclusion-constants";
 import { parseQueryIntent } from "./query-intent";
-import type { CardScore, CreditCard, RecommendationInput, SpendCategory, SpendProfile } from "./types";
+import type { CardScore, CreditCard, RecommendationInput, SpendCategory, SpendProfile, Reward } from "./types";
 import { getTotalLoungeAccess } from "./lounge";
 import { stripScoringAnnotations } from "./card-index";
 
@@ -965,31 +965,59 @@ function findDirectRewardForSpend(card: CreditCard, category: SpendCategory, inc
 function rewardBreakdownForCard(card: CreditCard, spend: SpendProfile, includeSmartbuyLikeRewards: boolean) {
   const unitValue = rewardUnitValue(card);
 
-  return (Object.entries(spend) as Array<[SpendCategory, number]>).flatMap(([category, amount]) => {
-    if (isSpendCategoryExcluded(card, category)) {
-      return [];
+  type ActiveAllocation = {
+    category: SpendCategory;
+    allocatedAmount: number;
+    reward: Reward;
+  };
+  const allocations: ActiveAllocation[] = [];
+
+  (Object.entries(spend) as Array<[SpendCategory, number]>).forEach(([category, amount]) => {
+    if (amount <= 0 || isSpendCategoryExcluded(card, category)) {
+      return;
+    }
+    const currentAllocations = rewardAllocationsForSpend(card, category, amount, includeSmartbuyLikeRewards);
+    for (const alloc of currentAllocations) {
+      allocations.push({
+        category,
+        allocatedAmount: alloc.amount,
+        reward: alloc.reward
+      });
+    }
+  });
+
+  const groups = new Map<Reward, ActiveAllocation[]>();
+  for (const alloc of allocations) {
+    if (!groups.has(alloc.reward)) {
+      groups.set(alloc.reward, []);
+    }
+    groups.get(alloc.reward)!.push(alloc);
+  }
+
+  return Array.from(groups.entries()).flatMap(([reward, items]) => {
+    const totalRawReward = items.reduce((sum, item) => sum + (item.allocatedAmount * reward.rate) / 100, 0);
+    let totalCappedReward = totalRawReward;
+
+    if (reward.capMonthly) {
+      if (reward.postCapRate && reward.postCapRate > 0 && totalRawReward > reward.capMonthly && reward.postCapRate < reward.rate) {
+        const totalSpend = items.reduce((sum, item) => sum + item.allocatedAmount, 0);
+        const spendAtCap = (reward.capMonthly * 100) / reward.rate;
+        const excessSpend = Math.max(totalSpend - spendAtCap, 0);
+        const postCapRewardUnits = (excessSpend * reward.postCapRate) / 100;
+        totalCappedReward = reward.capMonthly + postCapRewardUnits;
+      } else {
+        totalCappedReward = Math.min(totalRawReward, reward.capMonthly);
+      }
     }
 
-    return rewardAllocationsForSpend(card, category, amount, includeSmartbuyLikeRewards).map(({ amount: allocatedAmount, reward }) => {
-      const rawReward = (allocatedAmount * reward.rate) / 100;
-      let cappedRewardUnits = rawReward;
-
-      if (reward.capMonthly) {
-        if (reward.postCapRate && reward.postCapRate > 0 && rawReward > reward.capMonthly && reward.postCapRate < reward.rate) {
-          const spendAtCap = (reward.capMonthly * 100) / reward.rate;
-          const excessSpend = Math.max(allocatedAmount - spendAtCap, 0);
-          const postCapRewardUnits = (excessSpend * reward.postCapRate) / 100;
-          cappedRewardUnits = reward.capMonthly + postCapRewardUnits;
-        } else {
-          cappedRewardUnits = Math.min(rawReward, reward.capMonthly);
-        }
-      }
-
+    return items.map((item) => {
+      const rawReward = (item.allocatedAmount * reward.rate) / 100;
+      const cappedRewardUnits = totalRawReward > 0 ? (totalCappedReward * rawReward) / totalRawReward : 0;
       const monthlyReward = cappedRewardUnits * unitValue;
 
       return {
-        spendCategory: category,
-        monthlySpend: Math.round(allocatedAmount),
+        spendCategory: item.category,
+        monthlySpend: Math.round(item.allocatedAmount),
         rewardCategory: reward.category,
         monthlyReward: Math.round(monthlyReward),
         annualReward: Math.round(monthlyReward * 12)

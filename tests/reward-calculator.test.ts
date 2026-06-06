@@ -52,4 +52,39 @@ describe("reward calculator", () => {
     expect(result.monthlyUnits).toBe(17750);
     expect(result.annualUnits).toBe(213000);
   });
+
+  it("applies monthly capping of 5k points combined on utility, insurance, education, and government spend for Times Black ICICI Bank Credit Card", () => {
+    const card = getCardById("icici-times-black");
+    expect(card).toBeTruthy();
+
+    const result = calculateRewards(card!, {
+      utilities: 150000, // 2% would be 3000 points
+      insurance: 150000, // 2% would be 3000 points
+      education: 50000,  // 2% would be 1000 points
+      government: 50000  // 2% would be 1000 points
+    });
+
+    // Total raw points = 3000 + 3000 + 1000 + 1000 = 8000 points.
+    // Capped at 5000 points.
+    expect(result.monthlyUnits).toBe(5000);
+    expect(result.annualUnits).toBe(60000);
+
+    // Verify proportional distribution across the rows
+    const utilsRow = result.rows.find(r => r.category === "utilities");
+    const insRow = result.rows.find(r => r.category === "insurance");
+    const eduRow = result.rows.find(r => r.category === "education");
+    const govRow = result.rows.find(r => r.category === "government");
+
+    expect(utilsRow).toBeTruthy();
+    expect(insRow).toBeTruthy();
+    expect(eduRow).toBeTruthy();
+    expect(govRow).toBeTruthy();
+
+    // 3000 / 8000 * 5000 = 1875
+    expect(utilsRow!.monthlyUnits).toBe(1875);
+    expect(insRow!.monthlyUnits).toBe(1875);
+    // 1000 / 8000 * 5000 = 625
+    expect(eduRow!.monthlyUnits).toBe(625);
+    expect(govRow!.monthlyUnits).toBe(625);
+  });
 });
