@@ -254,6 +254,10 @@ if (cardFiles.length === 0) {
       addIssue("must be one of the allowed verification statuses", cardId, "verificationStatus");
     }
 
+    if (card.status !== undefined && card.status !== "active" && card.status !== "discontinued") {
+      addIssue("status must be 'active' or 'discontinued' when present", cardId, "status");
+    }
+
     for (const field of ["network", "bestFor", "tags", "exclusions"]) {
       if (!isStringArray(card[field])) addIssue("must be an array of non-empty strings", cardId, field);
     }
