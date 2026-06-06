@@ -852,6 +852,11 @@ function cappedSpendAmountForCategory(card: CreditCard, category: SpendCategory,
   return cappedAmount;
 }
 
+function isBaseRewardCategory(category: string): boolean {
+  const lower = category.toLowerCase();
+  return lower === "base" || lower === "retail" || lower === "offline";
+}
+
 function findBaseRewardForSpend(card: CreditCard, category: SpendCategory) {
   const aliases = spendAliases[category];
   const targetCategoryLower = category.toLowerCase();
@@ -863,7 +868,7 @@ function findBaseRewardForSpend(card: CreditCard, category: SpendCategory) {
         rewardCategories.includes(targetCategoryLower)
       );
     }) ??
-    card.rewards.find((reward) => reward.category === "base")
+    card.rewards.find((reward) => isBaseRewardCategory(reward.category))
   );
 }
 
@@ -943,7 +948,7 @@ function findRewardForSpend(card: CreditCard, category: SpendCategory, includeSm
         rewardCategories.includes(targetCategoryLower)
       );
     }) ??
-    card.rewards.find((reward) => reward.category === "base")
+    card.rewards.find((reward) => isBaseRewardCategory(reward.category))
   );
 }
 
@@ -1108,12 +1113,12 @@ function categoryFitAdjustment(
 
         if (
           isDirectRewardMatch(category, rewardCategory, includeSmartbuyLikeRewards) ||
-          ((specialRule?.treatment === "rewarded" || specialRule?.treatment === "capped") && rewardCategory === "base")
+          ((specialRule?.treatment === "rewarded" || specialRule?.treatment === "capped") && isBaseRewardCategory(rewardCategory))
         ) {
           return categoryTotal + (isFocusedSpendProfile ? 32000 : 14000) * weight;
         }
 
-        if (rewardCategory === "base" && category !== "base") {
+        if (isBaseRewardCategory(rewardCategory) && category !== "base") {
           const fallbackPenalty = softenPremiumTravelPenalty ? (isFocusedSpendProfile ? 28000 : 1500) : isFocusedSpendProfile ? 28000 : 10000;
           return categoryTotal - fallbackPenalty * weight;
         }

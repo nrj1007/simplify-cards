@@ -105,12 +105,17 @@ export function isCategoryExcluded(card: CreditCard, category: SpendCategory): b
   });
 }
 
+function isBaseRewardCategory(category: string): boolean {
+  const lower = category.toLowerCase();
+  return lower === "base" || lower === "retail" || lower === "offline";
+}
+
 // A spend category earns at a dedicated (non-base) rate on this card.
 function hasDirectReward(card: CreditCard, category: SpendCategory): boolean {
   const aliases = SPEND_ALIASES[category];
   const targetCategoryLower = category.toLowerCase();
   return card.rewards.some((reward) => {
-    if (reward.category === "base") return false;
+    if (isBaseRewardCategory(reward.category)) return false;
     const rewardCategories = reward.category.split(",").map((c) => c.trim().toLowerCase());
     return (
       aliases.some((alias) => rewardCategories.includes(alias.toLowerCase())) ||
@@ -160,7 +165,7 @@ function findRewardForCategory(card: CreditCard, category: SpendCategory): Rewar
         rewardCategories.includes(targetCategoryLower)
       );
     }) ??
-    card.rewards.find((reward) => reward.category === "base") ??
+    card.rewards.find((reward) => isBaseRewardCategory(reward.category)) ??
     null
   );
 }
@@ -179,7 +184,7 @@ function findRewardsForCategory(card: CreditCard, category: SpendCategory): Rewa
 
   if (directMatches.length > 0) return directMatches;
 
-  return card.rewards.filter((reward) => reward.category === "base");
+  return card.rewards.filter((reward) => isBaseRewardCategory(reward.category));
 }
 
 function isCashbackRewardType(rewardType: string) {
@@ -417,7 +422,7 @@ export function calculateRewards(card: CreditCard, spend: SpendProfile): RewardC
           monthlyUnits,
           annualUnits: monthlyUnits * 12,
           excluded: false,
-          earnsBaseRateOnly: reward.category === "base" && item.category !== "base"
+          earnsBaseRateOnly: isBaseRewardCategory(reward.category) && item.category !== "base"
         });
       }
     } else {
@@ -457,7 +462,7 @@ export function calculateRewards(card: CreditCard, spend: SpendProfile): RewardC
           monthlyUnits,
           annualUnits: monthlyUnits * 12,
           excluded: false,
-          earnsBaseRateOnly: reward.category === "base" && item.category !== "base"
+          earnsBaseRateOnly: isBaseRewardCategory(reward.category) && item.category !== "base"
         });
       }
     }
