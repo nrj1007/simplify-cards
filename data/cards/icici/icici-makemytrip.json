@@ -8,7 +8,7 @@
   ],
   "joiningFee": 999,
   "annualFee": 999,
-  "feeWaiverSpend": null,
+  "feeWaiverSpend": 300000,
   "bestFor": [
     "travel",
     "makemytrip",
@@ -20,12 +20,23 @@
   "rewards": [
     {
       "category": "travel",
-      "rate": 6,
+      "displayCategory": "MakeMyTrip Hotel bookings",
+      "rate": 6.0,
+      "displayRate": "6 myCash / Rs 100 spent",
       "capMonthly": null
     },
     {
-      "category": "retail",
-      "rate": 1,
+      "category": "travel",
+      "displayCategory": "MakeMyTrip flight bookings",
+      "rate": 3.0,
+      "displayRate": "3 myCash / Rs 100 spent",
+      "capMonthly": null
+    },
+    {
+      "category": "base",
+      "displayCategory": "Other retail spends",
+      "rate": 1.0,
+      "displayRate": "1 myCash / Rs 100 spent",
       "capMonthly": null
     }
   ],
@@ -42,37 +53,69 @@
     "lounge"
   ],
   "exclusions": [
-    "rent",
-    "cash advances",
-    "late payment charges",
-    "joining fee",
-    "annual fee",
-    "emi transactions",
-    "balance transfers",
-    "personal loan transactions"
+    "Fuel transactions",
+    "Rent payments",
+    "E-wallet loading transactions",
+    "Government transactions",
+    "EMI transactions",
+    "Balance transfers",
+    "Personal loan transactions on the card",
+    "Joining/Annual fee payments",
+    "Late payment charges"
   ],
-  "milestoneBenefits": [],
+  "exclusionCodes": [
+    "fuel",
+    "rent",
+    "wallet_load",
+    "government",
+    "emi"
+  ],
+  "joiningBenefits": [
+    "MakeMyTrip voucher worth Rs 1,000",
+    "Complimentary 1-year MMTBLACK Gold membership"
+  ],
+  "renewalBenefits": [
+    "MakeMyTrip hotel voucher worth Rs 1,000"
+  ],
+  "milestoneBenefits": [
+    "Upgrade to a higher MMTBLACK membership tier on spending Rs 2 Lakhs or more on MakeMyTrip annually"
+  ],
   "additionalBenefits": [
     "Unlimited myCash rewards that never expire",
-    "Up to 6% myCash on MakeMyTrip bookings",
-    "1-year MMTBLACK Gold membership",
-    "Joining and annual voucher worth Rs 1,000",
+    "Up to 6% myCash on MakeMyTrip hotel bookings and 3% on flight bookings",
+    "Joining and annual renewal vouchers worth Rs 1,000",
     "8 complimentary domestic airport lounge accesses and 1 complimentary international airport lounge access per year",
     "0.99% forex markup"
   ],
+  "additionalDetails": [
+    "Complimentary domestic lounge access (capped at 2 visits per quarter) requires a minimum spend of Rs 75,000 in the previous calendar quarter.",
+    "Complimentary international lounge access (1 visit per calendar year) requires Priority Pass membership.",
+    "myCash rewards do not expire and can be redeemed at Rs 1 per myCash on the MakeMyTrip platform."
+  ],
   "redemption": {
-    "pointsExpiryYears": null
+    "pointsExpiryYears": null,
+    "ecosystemLabel": "MakeMyTrip booking",
+    "ecosystemValue": 1
   },
   "eligibility": {
     "salaried": [
-      "Eligibility is subject to ICICI Bank approval criteria"
+      "Age: 21-65 years",
+      "Minimum net monthly salary: Rs 20,000"
     ],
     "selfEmployed": [
-      "Eligibility is subject to ICICI Bank approval criteria"
+      "Age: 21-65 years",
+      "Minimum annual ITR: Rs 2,40,000"
     ]
   },
+  "imageUrl": "/images/icici-makemytrip.png",
   "sourceUrl": "https://www.icicibank.com/personal-banking/cards/credit-card/makemytrip/credit-card",
   "applyUrl": "https://www.icicibank.com/personal-banking/cards/credit-card/makemytrip/credit-card",
-  "lastVerified": "2026-05-10",
-  "verificationStatus": "official-direct"
+  "lastVerified": "2026-06-06",
+  "verificationStatus": "official-direct",
+  "internalNotes": [
+    "Card details manually reviewed and verified by user on 2026-06-06",
+    "Official audit completed on 2026-06-06 using ICICI Bank MakeMyTrip Credit Card product page.",
+    "Annual fee of Rs 999 is waived on spending Rs 3 Lakhs or more in the previous anniversary year.",
+    "Complimentary domestic lounge access (8 visits per year, max 2 per quarter) requires spending Rs 75,000 in the previous calendar quarter."
+  ]
 }
