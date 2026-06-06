@@ -19,10 +19,17 @@
   "rewardType": "reward points",
   "rewards": [
     {
-      "category": "retail",
-      "displayCategory": "Retail spends",
-      "rate": 3,
-      "displayRate": "6 Reward Points / Rs 200 spent",
+      "category": "smartbuy hotels",
+      "displayCategory": "Hotels via iShop",
+      "rate": 36,
+      "displayRate": "72 Reward Points / Rs 200 spent (12X)",
+      "capMonthly": null
+    },
+    {
+      "category": "smartbuy flights",
+      "displayCategory": "Flights via iShop",
+      "rate": 18,
+      "displayRate": "36 Reward Points / Rs 200 spent (6X)",
       "capMonthly": null
     },
     {
@@ -52,6 +59,13 @@
       "rate": 3,
       "displayRate": "6 Reward Points / Rs 200 spent",
       "capMonthly": 5000
+    },
+    {
+      "category": "retail",
+      "displayCategory": "Other spends",
+      "rate": 3,
+      "displayRate": "6 Reward Points / Rs 200 spent",
+      "capMonthly": null
     }
   ],
   "popularityScore": 84,
