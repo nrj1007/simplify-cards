@@ -168,21 +168,53 @@ export default async function CardPage({ params, searchParams }: Props) {
   const domesticLoungeConditions = getMeaningfulLoungeConditions(card, "domestic");
   const internationalLoungeConditions = getMeaningfulLoungeConditions(card, "international");
   const redemptions = redemptionRows(card.redemption);
+  const allAirlines = card.redemption?.airlinePartners ?? [];
+  const allHotels = card.redemption?.hotelPartners ?? [];
+
+  const isVoucher = (partner: { programme: string; airline?: string; hotelGroup?: string }) => {
+    const name = (partner.programme || "").toLowerCase() +
+                 " " + (partner.airline || "").toLowerCase() +
+                 " " + (partner.hotelGroup || "").toLowerCase();
+    return name.includes("voucher") || name.includes("collection");
+  };
+
+  const airlinePartners = allAirlines.filter((p) => !isVoucher(p));
+  const hotelPartners = allHotels.filter((p) => !isVoucher(p));
+  const voucherPartners = [
+    ...allAirlines.filter((p) => isVoucher(p)).map((p) => ({
+      type: "Airline",
+      name: p.airline,
+      programme: p.programme,
+      ratio: p.ratio,
+      tatDays: p.tatDays,
+    })),
+    ...allHotels.filter((p) => isVoucher(p)).map((p) => ({
+      type: "Hotel",
+      name: p.hotelGroup,
+      programme: p.programme,
+      ratio: p.ratio,
+      tatDays: p.tatDays,
+    })),
+  ];
+
   const hasRedemptionSection = Boolean(
-    redemptions.length || card.redemption?.airlinePartners?.length || card.redemption?.hotelPartners?.length
+    redemptions.length || airlinePartners.length || hotelPartners.length || voucherPartners.length
   );
-  const showAirlineTat = card.redemption?.airlinePartners?.some(
+  const showAirlineTat = airlinePartners.some(
     (partner) => typeof partner.tatDays === "number"
-  ) ?? false;
-  const showHotelTat = card.redemption?.hotelPartners?.some(
+  );
+  const showHotelTat = hotelPartners.some(
     (partner) => typeof partner.tatDays === "number"
-  ) ?? false;
-  const showAirlineGroup = card.redemption?.airlinePartners?.some(
+  );
+  const showAirlineGroup = airlinePartners.some(
     (partner) => typeof partner.group === "string"
-  ) ?? false;
-  const showHotelGroup = card.redemption?.hotelPartners?.some(
+  );
+  const showHotelGroup = hotelPartners.some(
     (partner) => typeof partner.group === "string"
-  ) ?? false;
+  );
+  const showVoucherTat = voucherPartners.some(
+    (partner) => typeof partner.tatDays === "number"
+  );
   const hasDailyCap = card.rewards.some(
     (reward) => typeof reward.capDaily === "number" && reward.capDaily > 0
   );
@@ -337,8 +369,9 @@ export default async function CardPage({ params, searchParams }: Props) {
                 </div>
               ) : null}
 
-              {card.redemption?.airlinePartners?.length ? (
-                <div className="table-wrap">
+              {airlinePartners.length ? (
+                <div className="table-wrap" style={{ marginTop: 16 }}>
+                  <h3 style={{ margin: "0 0 8px 0", fontSize: "1.1rem", fontWeight: 600 }}>Airline transfer partners</h3>
                   <table className="compare-table compare-table-compact">
                     <thead>
                       <tr>
@@ -351,7 +384,7 @@ export default async function CardPage({ params, searchParams }: Props) {
                       </tr>
                     </thead>
                     <tbody>
-                      {card.redemption.airlinePartners.map((partner) => (
+                      {airlinePartners.map((partner) => (
                         <tr key={`${partner.airline}-${partner.programme}`}>
                           <td>{partner.airline}</td>
                           <td>{partner.programme}</td>
@@ -366,8 +399,9 @@ export default async function CardPage({ params, searchParams }: Props) {
                 </div>
               ) : null}
 
-              {card.redemption?.hotelPartners?.length ? (
-                <div className="table-wrap">
+              {hotelPartners.length ? (
+                <div className="table-wrap" style={{ marginTop: 16 }}>
+                  <h3 style={{ margin: "0 0 8px 0", fontSize: "1.1rem", fontWeight: 600 }}>Hotel transfer partners</h3>
                   <table className="compare-table compare-table-compact">
                     <thead>
                       <tr>
@@ -380,7 +414,7 @@ export default async function CardPage({ params, searchParams }: Props) {
                       </tr>
                     </thead>
                     <tbody>
-                      {card.redemption.hotelPartners.map((partner) => (
+                      {hotelPartners.map((partner) => (
                         <tr key={`${partner.hotelGroup}-${partner.programme}`}>
                           <td>{partner.hotelGroup}</td>
                           <td>{partner.programme}</td>
@@ -388,6 +422,32 @@ export default async function CardPage({ params, searchParams }: Props) {
                           {showHotelGroup && <td>{partner.group || "-"}</td>}
                           {showHotelGroup && <td>{formatAnnualCap(partner.group, partner.annualCap, card.rewardType)}</td>}
                           {showHotelTat && <td>{formatTatDays(partner.tatDays)}</td>}
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              ) : null}
+
+              {voucherPartners.length ? (
+                <div className="table-wrap" style={{ marginTop: 16 }}>
+                  <h3 style={{ margin: "0 0 8px 0", fontSize: "1.1rem", fontWeight: 600 }}>Voucher redemptions</h3>
+                  <table className="compare-table compare-table-compact">
+                    <thead>
+                      <tr>
+                        <th>Partner</th>
+                        <th>Programme / Collection</th>
+                        <th>Ratio</th>
+                        {showVoucherTat && <th>TAT</th>}
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {voucherPartners.map((partner, idx) => (
+                        <tr key={idx}>
+                          <td>{partner.name}</td>
+                          <td>{partner.programme}</td>
+                          <td>{partner.ratio}</td>
+                          {showVoucherTat && <td>{formatTatDays(partner.tatDays)}</td>}
                         </tr>
                       ))}
                     </tbody>
