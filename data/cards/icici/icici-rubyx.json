@@ -20,14 +20,45 @@
   "rewardType": "reward points",
   "rewards": [
     {
-      "category": "retail",
+      "category": "base",
+      "displayCategory": "Domestic retail spends",
       "rate": 0.5,
+      "displayRate": "2 Reward Points / Rs 100 spent",
       "capMonthly": null
     },
     {
-      "category": "travel",
-      "rate": 1,
+      "category": "international",
+      "displayCategory": "International spends",
+      "rate": 1.0,
+      "displayRate": "4 Reward Points / Rs 100 spent",
       "capMonthly": null
+    },
+    {
+      "category": "utilities, insurance",
+      "displayCategory": "Utility & Insurance spends",
+      "rate": 0.25,
+      "displayRate": "1 Reward Point / Rs 100 spent",
+      "capMonthly": null
+    }
+  ],
+  "specialSpendRules": [
+    {
+      "category": "utilities",
+      "treatment": "capped",
+      "capMonthlySpend": 80000,
+      "notes": "Utility spends earn rewards capped at monthly spends of Rs 80,000"
+    },
+    {
+      "category": "insurance",
+      "treatment": "capped",
+      "capMonthlySpend": 80000,
+      "notes": "Insurance spends earn rewards capped at monthly spends of Rs 80,000"
+    },
+    {
+      "category": "grocery",
+      "treatment": "capped",
+      "capMonthlySpend": 40000,
+      "notes": "Grocery spends earn rewards capped at monthly spends of Rs 40,000"
     }
   ],
   "popularityScore": 77,
@@ -43,33 +74,78 @@
     "travel"
   ],
   "exclusions": [
+    "Fuel transactions",
+    "Rent payments",
+    "E-wallet loading transactions",
+    "Government transactions",
+    "Tax payments",
+    "EMI transactions"
+  ],
+  "exclusionCodes": [
     "fuel",
-    "transactions excluded under ICICI Bank reward programme terms"
+    "rent",
+    "wallet_load",
+    "government",
+    "tax",
+    "emi"
+  ],
+  "joiningBenefits": [
+    "Welcome vouchers of shopping and travel worth Rs 5,000+ upon payment of the joining fee"
   ],
   "milestoneBenefits": [
-    "Annual fee waived on spending more than Rs 3,00,000 in the previous year"
+    "Earn 3,000 reward points on spending Rs 3,00,000 in an anniversary year",
+    "Earn 1,500 reward points for every subsequent Rs 1,00,000 spent in the same anniversary year, capped at 15,000 reward points per year"
   ],
   "additionalBenefits": [
-    "Welcome vouchers of shopping and travel worth Rs 5,000+ within 30 days of payment of joining fee",
-    "Complimentary airport lounge access",
-    "Buy 1 get 1 movie ticket benefit listed by ICICI Bank",
-    "Dining privileges under ICICI Bank Culinary Treats"
+    "Two complimentary domestic railway lounge visits per quarter",
+    "25% discount on BookMyShow and INOX movie tickets, capped at Rs 150 per ticket, twice a month (minimum 2 tickets), subject to spending Rs 25,000 in the preceding calendar quarter",
+    "1% fuel surcharge waiver on all fuel transactions of Rs 400 to Rs 4,000 at HPCL petrol pumps",
+    "Up to 4 complimentary golf rounds every month based on eligible monthly spends"
+  ],
+  "additionalDetails": [
+    "A transaction fee of 1% applies to utility payments exceeding Rs 50,000 per month"
   ],
   "redemption": {
     "statementBalanceValue": 0.25,
-    "pointsExpiryYears": null,
-    "redemptionFee": 99
+    "airMilesValue": 0.1667,
+    "pointsExpiryYears": 3,
+    "redemptionFee": 99,
+    "airlinePartners": [
+      {
+        "airline": "Air India",
+        "programme": "Air India Maharaja Club",
+        "ratio": "6:1"
+      }
+    ],
+    "hotelPartners": []
   },
   "eligibility": {
     "salaried": [
-      "Eligibility is subject to ICICI Bank approval criteria"
+      "Age: 21 - 65 years",
+      "Minimum net monthly salary: Rs 50,000"
     ],
     "selfEmployed": [
-      "Eligibility is subject to ICICI Bank approval criteria"
+      "Age: 21 - 65 years",
+      "Minimum annual income / ITR: Rs 5,50,000"
     ]
   },
   "sourceUrl": "https://www.icicibank.com/personal-banking/cards/credit-card/rubyx-card",
   "applyUrl": "https://www.icicibank.com/personal-banking/cards/credit-card/rubyx-card",
-  "lastVerified": "2026-05-10",
-  "verificationStatus": "official-direct"
+  "imageUrl": "/images/icici-rubyx.webp",
+  "lastVerified": "2026-06-06",
+  "verificationStatus": "official-direct",
+  "internalNotes": [
+    "Card details manually reviewed and verified by user on 2026-06-06",
+    "Official audit completed on 2026-06-06 using ICICI Bank Rubyx credit card specifications.",
+    "Joining fee of Rs 3,000 and Annual fee of Rs 2,000. Annual fee is waived on spending Rs 3,00,000 or more in the previous anniversary year.",
+    "Domestic retail spends earn 2 reward points per Rs 100 spent (0.5% return value).",
+    "International spends earn 4 reward points per Rs 100 spent (1.0% return value).",
+    "Utility and insurance spends earn 1 reward point per Rs 100 spent (0.25% return value) and are capped at monthly spends of Rs 80,000.",
+    "Grocery spends earn rewards capped at monthly spends of Rs 40,000.",
+    "Offers 2 complimentary domestic airport lounge visits per quarter, subject to spending Rs 5,000 in the preceding calendar quarter.",
+    "Offers 2 complimentary domestic railway lounge visits per quarter (no spends criteria).",
+    "Offers 25% discount on movie tickets, capped at Rs 150 per ticket, twice a month (minimum 2 tickets), subject to spending Rs 25,000 in the preceding calendar quarter.",
+    "Complimentary golf rounds (up to 4 per month) require spending Rs 50,000 per round in the previous calendar month.",
+    "Eligibility: Age must be 21-65 years; minimum net monthly salary of Rs 50,000 for salaried, and annual income/ITR of Rs 5,50,000 for self-employed."
+  ]
 }

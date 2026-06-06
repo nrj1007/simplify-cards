@@ -276,4 +276,19 @@ describe("reward calculator", () => {
     expect(result.monthlyUnits).toBe(500); // 200 + 100 + 200 = 500
     expect(result.annualUnits).toBe(6000);
   });
+
+  it("calculates rewards correctly for ICICI Bank Rubyx card", () => {
+    const card = getCardById("icici-rubyx");
+    expect(card).toBeTruthy();
+
+    const result = calculateRewards(card!, {
+      base: 10000,          // 2 points / Rs 100 = 200 points
+      international: 10000, // 4 points / Rs 100 = 400 points
+      utilities: 10000,     // 1 point / Rs 100 = 100 points
+      insurance: 10000      // 1 point / Rs 100 = 100 points
+    });
+
+    expect(result.monthlyUnits).toBe(800); // 200 + 400 + 100 + 100 = 800
+    expect(result.annualUnits).toBe(9600);
+  });
 });
