@@ -117,12 +117,7 @@
     "Buy-One-Get-One (BOGO) movie, show or event tickets worth up to Rs 750 via BookMyShow, up to twice a month",
     "Fuel surcharge waiver of 1% on transactions up to Rs 4,000"
   ],
-  "additionalDetails": [
-    "iShop accelerated rewards are capped at 18,000 Reward Points per month, with a daily cap of 10,000 Reward Points.",
-    "Utility, grocery, and education category rewards have separate, individual caps of 1,000 Reward Points per category per statement cycle.",
-    "Insurance category rewards are capped at 5,000 Reward Points per statement cycle.",
-    "Redeem reward points for flights, hotels, and select vouchers at Rs 1.00 per point via the ICICI rewards portal, or for statement credit at Rs 0.40 per point."
-  ],
+  "additionalDetails": [],
   "redemption": {
     "statementBalanceValue": 0.4,
     "smartBuyFlightHotelValue": 1,
