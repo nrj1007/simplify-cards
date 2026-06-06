@@ -124,10 +124,12 @@
   },
   "eligibility": {
     "salaried": [
-      "Age 21-65 years, minimum net monthly salary of Rs 75,000"
+      "Age: 21-65 years",
+      "Minimum net monthly salary: Rs 75,000"
     ],
     "selfEmployed": [
-      "Age 21-65 years, minimum annual ITR of Rs 9,00,000"
+      "Age: 21-65 years",
+      "Minimum annual ITR: Rs 9,00,000"
     ]
   },
   "sourceUrl": "https://www.icicibank.com/personal-banking/cards/credit-card/rupay-credit-card",
