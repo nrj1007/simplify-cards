@@ -95,7 +95,6 @@
     "Reward points credited to your Adani One account at end of each billing cycle"
   ],
   "redemption": {
-    "statementBalanceValue": 1.0,
     "pointsExpiryYears": null,
     "airlinePartners": [],
     "hotelPartners": []
