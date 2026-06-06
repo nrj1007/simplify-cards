@@ -20,16 +20,19 @@
     {
       "category": "online",
       "rate": 5,
-      "capMonthly": 125
+      "displayRate": "10 Membership Rewards Points / Rs 50 spent on select 10X merchants",
+      "capMonthly": 500
     },
     {
       "category": "amazon",
       "rate": 2.5,
-      "capMonthly": 63
+      "displayRate": "5 Membership Rewards Points / Rs 50 spent on select 5X merchants",
+      "capMonthly": 250
     },
     {
       "category": "retail",
       "rate": 0.5,
+      "displayRate": "1 Membership Rewards Point / Rs 50 spent on other eligible spends",
       "capMonthly": null
     }
   ],

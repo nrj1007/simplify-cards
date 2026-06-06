@@ -20,11 +20,13 @@
     {
       "category": "retail",
       "rate": 0.5,
+      "displayRate": "1 Membership Rewards Point / Rs 40 spent on eligible categories",
       "capMonthly": null
     },
     {
       "category": "travel",
       "rate": 0.5,
+      "displayRate": "3 Membership Rewards Points / Rs 40 spent on international spends",
       "capMonthly": null
     }
   ],
