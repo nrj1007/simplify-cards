@@ -247,7 +247,7 @@ export function deriveAvoidIf(card: CreditCard): DecisionCard[] {
 // ---------------------------------------------------------------------------
 // Lounge & milestone rules
 // ---------------------------------------------------------------------------
-export type CardRule = { label: string; text: string };
+export type CardRule = { label: string; text: string; conditions?: string[] };
 
 function loungeValueLabel(value: number | "unlimited") {
   return value === "unlimited" ? "Unlimited" : `${value}`;
@@ -257,24 +257,24 @@ export function deriveLoungeMilestoneRules(card: CreditCard): CardRule[] {
   const rules: CardRule[] = [];
 
   if (card.combinedLoungeAccess !== undefined) {
-    const conditions = getMeaningfulLoungeConditions(card);
     rules.push({
       label: card.combinedLoungeAccessLabel ?? "Lounge access",
-      text: `${loungeValueLabel(card.combinedLoungeAccess)} visits per year.${conditions[0] ? ` ${conditions[0]}` : ""}`
+      text: `${loungeValueLabel(card.combinedLoungeAccess)} visits per year.`,
+      conditions: getMeaningfulLoungeConditions(card)
     });
   } else {
     if (card.loungeDomestic === "unlimited" || card.loungeDomestic > 0) {
-      const conditions = getMeaningfulLoungeConditions(card, "domestic");
       rules.push({
         label: "Domestic lounge",
-        text: `${loungeValueLabel(card.loungeDomestic)} visits per year.${conditions[0] ? ` ${conditions[0]}` : ""}`
+        text: `${loungeValueLabel(card.loungeDomestic)} visits per year.`,
+        conditions: getMeaningfulLoungeConditions(card, "domestic")
       });
     }
     if (card.loungeInternational === "unlimited" || card.loungeInternational > 0) {
-      const conditions = getMeaningfulLoungeConditions(card, "international");
       rules.push({
         label: "International lounge",
-        text: `${loungeValueLabel(card.loungeInternational)} visits per year.${conditions[0] ? ` ${conditions[0]}` : ""}`
+        text: `${loungeValueLabel(card.loungeInternational)} visits per year.`,
+        conditions: getMeaningfulLoungeConditions(card, "international")
       });
     }
   }

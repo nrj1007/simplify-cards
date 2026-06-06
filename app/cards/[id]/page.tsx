@@ -340,6 +340,13 @@ export default async function CardPage({ params, searchParams }: Props) {
             <div className="card-hero-tags">
               {card.bestFor[0] ? <span className="tag primary">{titleCaseWord(card.bestFor[0])}</span> : null}
               {queryFit !== null ? <span className="tag primary">Fit for your query: {queryFit}/100</span> : null}
+              {card.tags
+                .filter((tag) => tag.toLowerCase() !== (card.bestFor[0] ?? "").toLowerCase())
+                .map((tag) => (
+                  <span className="tag" key={tag}>
+                    {titleCaseWord(tag)}
+                  </span>
+                ))}
               {loungeValue ? <span className="tag">{loungeValue} lounge visits</span> : null}
               <span className="tag">{card.forexMarkup}% forex</span>
               <span className="tag">Last verified: {card.lastVerified}</span>
@@ -644,6 +651,13 @@ export default async function CardPage({ params, searchParams }: Props) {
                         <div>
                           <b>{rule.label}</b>
                           <span>{rule.text}</span>
+                          {rule.conditions && rule.conditions.length ? (
+                            <ul className="rule-conditions">
+                              {rule.conditions.map((condition) => (
+                                <li key={condition}>{condition}</li>
+                              ))}
+                            </ul>
+                          ) : null}
                         </div>
                       </div>
                     ))}
@@ -897,6 +911,10 @@ export default async function CardPage({ params, searchParams }: Props) {
                     <b>{formatRupeesCompact(card.feeWaiverSpend as number)}</b>
                   </div>
                 ) : null}
+                <div className="summary-row">
+                  <span>Reward type</span>
+                  <b>{card.rewardType}</b>
+                </div>
                 <div className="summary-row">
                   <span>Forex markup</span>
                   <b>{card.forexMarkup}%</b>

@@ -3863,6 +3863,16 @@ textarea {
   line-height: 1.5;
 }
 
+.card-detail-page .rule-conditions {
+  margin: 6px 0 0;
+  padding-left: 18px;
+  display: grid;
+  gap: 4px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.45;
+}
+
 /* Alternatives */
 .card-detail-page .alt-grid {
   display: grid;
