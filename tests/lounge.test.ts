@@ -33,4 +33,15 @@ describe("getLoungeConditions", () => {
     expect(internationalConditions.some((item) => item.toLowerCase().includes("priority pass"))).toBe(true);
     expect(internationalConditions.every((item) => !item.includes("Rs 1.5 Lakh per quarter"))).toBe(true);
   });
+
+  it("correctly separates domestic premium upgrades from international lounge conditions for Adani One Platinum", () => {
+    const card = getCardById("icici-adani-one-platinum");
+    expect(card).toBeTruthy();
+
+    const domesticConditions = getLoungeConditions(card!, "domestic");
+    const internationalConditions = getLoungeConditions(card!, "international");
+
+    expect(domesticConditions.some((item) => item.includes("premium domestic lounge upgrades"))).toBe(true);
+    expect(internationalConditions.every((item) => !item.includes("premium domestic lounge upgrades"))).toBe(true);
+  });
 });
