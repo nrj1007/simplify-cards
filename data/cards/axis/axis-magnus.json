@@ -19,17 +19,24 @@
   "rewards": [
     {
       "category": "travel",
+      "displayCategory": "Travel EDGE",
+      "rate": 30,
+      "displayRate": "60 EDGE REWARD Points / Rs 200 upto Rs 2 lakh per calendar month, then 35 EDGE REWARD Points / Rs 200",
+      "capMonthly": 60000,
+      "postCapRate": 17.5
+    },
+    {
+      "category": "base",
+      "displayCategory": "Eligible spends up to Rs 1.5 lakh per calendar month",
       "rate": 6,
-      "capMonthly": 200000
+      "displayRate": "12 EDGE REWARD Points / Rs 200",
+      "capMonthly": null
     },
     {
       "category": "base",
-      "rate": 1.2,
-      "capMonthly": 150000
-    },
-    {
-      "category": "base",
-      "rate": 3.5,
+      "displayCategory": "Eligible incremental spends above Rs 1.5 lakh per calendar month",
+      "rate": 17.5,
+      "displayRate": "35 EDGE REWARD Points / Rs 200",
       "capMonthly": null
     }
   ],
@@ -43,54 +50,255 @@
     "travel edge",
     "lounge",
     "priority pass",
-    "voucher",
+    "partner miles",
     "high spends"
   ],
   "exclusions": [
+    "utility and telecom spends",
+    "wallet loads",
+    "government spends",
+    "insurance",
+    "gold and jewellery",
     "fuel",
-    "rent",
-    "wallet",
-    "priority pass spends",
-    "emi transactions",
-    "government institutions",
+    "cash advances",
+    "repayments",
+    "transactions excluded under Axis Bank Magnus Credit Card terms"
+  ],
+  "exclusionCodes": [
     "utilities",
+    "telecom",
+    "wallet_load",
+    "government",
     "insurance",
     "gold",
     "jewellery",
-    "transactions excluded under Axis Bank Magnus Credit Card terms"
+    "fuel",
+    "cash_advance",
+    "outstanding_balance_payment"
+  ],
+  "specialSpendRules": [
+    {
+      "category": "rent",
+      "treatment": "capped",
+      "capMonthlySpend": 50000,
+      "notes": "Rent spends are eligible only up to Rs 50,000 per calendar month for reward earn and spend-based fee waiver calculation."
+    }
+  ],
+  "joiningBenefits": [
+    "Welcome voucher worth Rs 12,500 from eligible options such as Luxe, The Postcard Hotels or Yatra after card activation with first spend within 30 days"
   ],
   "milestoneBenefits": [
     "Annual fee waiver on spends of Rs 25 lakh in the preceding card anniversary year",
     "For eligible older customers, historical waiver thresholds may differ as per Axis terms"
   ],
   "additionalBenefits": [
-    "Welcome voucher worth Rs 12,500 from eligible options such as Luxe, The Postcard Hotels or Yatra after card activation with first spend within 30 days",
-    "60 EDGE REWARD Points per Rs 200 spent on Travel EDGE portal up to cumulative transactions of Rs 2 lakh per month",
-    "35 EDGE REWARD Points per Rs 200 on Travel EDGE spends above cumulative transactions of Rs 2 lakh per month",
-    "12 EDGE REWARD Points per Rs 200 on cumulative monthly spends up to Rs 1.5 lakh",
-    "35 EDGE REWARD Points per Rs 200 on eligible incremental monthly spends above Rs 1.5 lakh, subject to product terms",
-    "Unlimited domestic and international lounge access, subject to applicable programme terms",
-    "Reduced forex markup of 2%",
-    "No cash withdrawal charges",
-    "Purchase protection up to Rs 2 lakh",
-    "Credit shield cover up to Rs 5 lakh",
-    "Travel inconvenience cover up to USD 500 for baggage and personal document loss or delay"
+    "Unlimited domestic and international lounge access for primary cardholder, subject to applicable programme terms",
+    "4 complimentary international guest visits per card anniversary year on Priority Pass",
+    "4 complimentary domestic guest visits per calendar year",
+    "Dining Delights offers across partner restaurants",
+    "Fuel surcharge waiver of 1% for transactions between Rs 400 and Rs 4,000, capped at Rs 400 per month",
+    "No cash withdrawal charges"
   ],
   "redemption": {
+    "ecosystemLabel": "Gift EDGE / EDGE portal",
+    "ecosystemValue": 0.2,
     "statementBalanceValue": 0.2,
-    "pointsExpiryYears": 3
+    "airMilesValue": 0.4,
+    "pointsExpiryYears": 3,
+    "transferPartnerValuations": [
+      {
+        "partner": "Club ITC",
+        "partnerPointValue": 1,
+        "transferRatio": 0.4,
+        "basis": "fixed",
+        "note": "5 EDGE REWARD Points -> 2 Club ITC points"
+      }
+    ],
+    "airlinePartners": [
+      {
+        "airline": "Air Canada",
+        "programme": "Aeroplan",
+        "ratio": "5:2",
+        "group": "Group A",
+        "annualCap": 100000
+      },
+      {
+        "airline": "Ethiopian Airlines",
+        "programme": "ShebaMiles",
+        "ratio": "5:2",
+        "group": "Group A",
+        "annualCap": 100000
+      },
+      {
+        "airline": "Etihad Airways",
+        "programme": "Etihad Guest",
+        "ratio": "5:2",
+        "group": "Group A",
+        "annualCap": 100000
+      },
+      {
+        "airline": "Japan Airlines",
+        "programme": "JAL Mileage Bank",
+        "ratio": "5:2",
+        "group": "Group A",
+        "annualCap": 100000
+      },
+      {
+        "airline": "Singapore Airlines",
+        "programme": "KrisFlyer",
+        "ratio": "5:2",
+        "group": "Group A",
+        "annualCap": 100000
+      },
+      {
+        "airline": "Thai Airways",
+        "programme": "Royal Orchid Plus",
+        "ratio": "5:2",
+        "group": "Group A",
+        "annualCap": 100000
+      },
+      {
+        "airline": "Turkish Airlines",
+        "programme": "Miles&Smiles",
+        "ratio": "5:2",
+        "group": "Group A",
+        "annualCap": 100000
+      },
+      {
+        "airline": "United Airlines",
+        "programme": "MileagePlus",
+        "ratio": "5:2",
+        "group": "Group A",
+        "annualCap": 100000
+      },
+      {
+        "airline": "British Airways",
+        "programme": "British Airways Executive Club",
+        "ratio": "5:1",
+        "group": "Group A",
+        "annualCap": 100000
+      },
+      {
+        "airline": "Finnair",
+        "programme": "Finnair Plus",
+        "ratio": "5:1",
+        "group": "Group A",
+        "annualCap": 100000
+      },
+      {
+        "airline": "Vietnam Airlines",
+        "programme": "Lotusmiles",
+        "ratio": "5:1",
+        "group": "Group A",
+        "annualCap": 100000
+      },
+      {
+        "airline": "Air France-KLM",
+        "programme": "Flying Blue",
+        "ratio": "5:2",
+        "group": "Group B",
+        "annualCap": 400000
+      },
+      {
+        "airline": "Air India",
+        "programme": "Flying Returns",
+        "ratio": "5:2",
+        "group": "Group B",
+        "annualCap": 400000
+      },
+      {
+        "airline": "Air Asia",
+        "programme": "Air Asia",
+        "ratio": "5:2",
+        "group": "Group B",
+        "annualCap": 400000
+      },
+      {
+        "airline": "Qantas Airways",
+        "programme": "Qantas Frequent Flyer",
+        "ratio": "5:2",
+        "group": "Group B",
+        "annualCap": 400000
+      }
+    ],
+    "hotelPartners": [
+      {
+        "hotelGroup": "IHG Hotels & Resorts",
+        "programme": "IHG One Rewards",
+        "ratio": "5:2",
+        "group": "Group B",
+        "annualCap": 400000
+      },
+      {
+        "hotelGroup": "ITC Hotels",
+        "programme": "Club ITC",
+        "ratio": "5:2",
+        "group": "Group B",
+        "annualCap": 400000
+      },
+      {
+        "hotelGroup": "Radisson Hotels",
+        "programme": "Radisson Rewards",
+        "ratio": "5:2",
+        "group": "Group B",
+        "annualCap": 400000
+      },
+      {
+        "hotelGroup": "Orchid Hotels",
+        "programme": "Orchid Rewards",
+        "ratio": "5:2",
+        "group": "Group B",
+        "annualCap": 400000
+      },
+      {
+        "hotelGroup": "Wyndham Hotels & Resorts",
+        "programme": "Wyndham Rewards",
+        "ratio": "5:2",
+        "group": "Group B",
+        "annualCap": 400000
+      },
+      {
+        "hotelGroup": "The Postcard Hotel",
+        "programme": "The Postcard Hotel",
+        "ratio": "5:2",
+        "group": "Group B",
+        "annualCap": 400000
+      }
+    ]
   },
   "eligibility": {
     "salaried": [
-      "Eligibility is subject to Axis Bank approval criteria for premium credit cards"
+      "Requires net salary credit above Rs 3 lakh per month, or net annual income of Rs 36 lakh as per last ITR",
+      "Card approval remains subject to Axis Bank credit policy"
     ],
     "selfEmployed": [
-      "Eligibility is subject to Axis Bank approval criteria for premium credit cards"
+      "Requires net annual income of Rs 36 lakh as per last ITR",
+      "Card approval remains subject to Axis Bank credit policy"
     ]
   },
+  "supportingSourceUrls": [
+    "https://www.axis.bank.in/cards/credit-card/axis-bank-magnus-credit-card",
+    "https://www.axisbank.com/docs/default-source/default-document-library/credit-card-tnc/terms-and-conditions-for-magnus-credit-card.pdf",
+    "https://www.axis.bank.in/miles-transfer"
+  ],
   "sourceUrl": "https://www.axisbank.com/retail/cards/credit-card/axis-bank-magnus-card/more-benefits",
   "applyUrl": "https://www.axisbank.com/retail/cards/credit-card/axis-bank-magnus-card",
-  "lastVerified": "2026-05-10",
-  "verificationStatus": "official-mixed",
-  "popularityScore": 85
+  "imageUrl": "/images/axis-magnus.webp",
+  "lastVerified": "2026-06-06",
+  "verificationStatus": "official-direct",
+  "internalNotes": [
+    "Official audit completed on 2026-06-06 using Axis Bank product page, 20 April 2024 revision PDF, 20 June 2025 revision PDF, and Axis miles-transfer page.",
+    "Domestic lounge access requires minimum spends of Rs 50,000 in the previous 3 calendar months; the spend condition is waived for the month of issuance plus the next 3 calendar months.",
+    "Unlimited domestic and international lounge access applies to primary cardholder; guest visits are limited to 4 domestic guest visits per calendar year and 4 international guest visits per card anniversary year on Priority Pass.",
+    "Travel EDGE earns 60 EDGE REWARD Points per Rs 200 up to cumulative spends of Rs 2 lakh per calendar month; spends above that continue at 35 EDGE REWARD Points per Rs 200.",
+    "Accelerated 35 EDGE REWARD Points are earned only on eligible incremental spends above Rs 1.5 lakh in a calendar month, up to assigned credit limit plus Rs 1.5 lakh per calendar month.",
+    "Spends on Travel EDGE up to Rs 2 lakh per month, Gyftr, and other Axis accelerated offer portals are excluded from the 35-point accelerated calculation because they already earn separate accelerated rewards.",
+    "Rent spends above Rs 50,000 in a calendar month are not considered for accelerated reward points or spend-based fee waiver calculation.",
+    "EMI transactions, reversed transactions, fees, charges, interest, and cash withdrawals do not count toward accelerated reward calculations.",
+    "Miles transfer ratio for standard Magnus is 5 EDGE REWARD Points = 2 partner points (0.4 ratio) for standard partners, and 5 EDGE REWARD Points = 1 partner point (0.2 ratio) for British Airways, Finnair, and Vietnam Airlines.",
+    "Current annual transfer cap is 5 lakh EDGE REWARD Points in a calendar year, split as 1 lakh to Group A and 4 lakh to Group B.",
+    "Accor Live Limitless, Marriott Bonvoy, and Qatar Airways have been removed from the current transfer partner set.",
+    "Gift EDGE redemption is valued at Rs 0.20 per EDGE REWARD Point."
+  ],
+  "popularityScore": 50
 }
