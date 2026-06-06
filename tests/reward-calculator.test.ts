@@ -329,4 +329,24 @@ describe("reward calculator", () => {
     expect(result.monthlyUnits).toBe(975);
     expect(result.annualUnits).toBe(11700);
   });
+
+  it("calculates rewards correctly for Adani One ICICI Bank Platinum card across all spend tiers", () => {
+    const card = getCardById("icici-adani-one-platinum");
+    expect(card).toBeTruthy();
+
+    const result = calculateRewards(card!, {
+      travel: 10000,       // 3% → rate=3 → 300 units
+      international: 5000, // 1.5% → rate=1.5 → 75 units
+      base: 10000,         // 1% → rate=1 → 100 units
+      utilities: 5000      // 0.5% → rate=0.5 → 25 units
+    });
+
+    // travel:       10000 / 100 * 3   = 300
+    // international: 5000 / 100 * 1.5 =  75
+    // base:         10000 / 100 * 1   = 100
+    // utilities:     5000 / 100 * 0.5 =  25
+    // total = 500
+    expect(result.monthlyUnits).toBe(500);
+    expect(result.annualUnits).toBe(6000);
+  });
 });
