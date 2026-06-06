@@ -291,4 +291,20 @@ describe("reward calculator", () => {
     expect(result.monthlyUnits).toBe(800); // 200 + 400 + 100 + 100 = 800
     expect(result.annualUnits).toBe(9600);
   });
+
+  it("calculates rewards correctly for ICICI Bank HPCL Coral card", () => {
+    const card = getCardById("icici-hpcl-coral");
+    expect(card).toBeTruthy();
+
+    const result = calculateRewards(card!, {
+      fuel: 5000,  // 2.5% cashback => Rs 125/month (cashback, not points)
+      base: 10000  // 2 points / Rs 100 = 200 points/month
+    });
+
+    // fuel: 5000 * 2.5% = Rs 125 cashback (returned as-is in units)
+    // base: 10000 / 100 * 2 = 200 reward points
+    // total monthlyUnits = 125 + 200 = 325
+    expect(result.monthlyUnits).toBe(325);
+    expect(result.annualUnits).toBe(3900);
+  });
 });
