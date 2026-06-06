@@ -4,6 +4,8 @@ export type SpendCategory =
   | "online"
   | "base"
   | "travel"
+  | "hotels"
+  | "airlines"
   | "fuel"
   | "dining"
   | "grocery"

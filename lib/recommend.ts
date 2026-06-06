@@ -9,6 +9,8 @@ export const defaultSpendProfile: SpendProfile = {
   online: 15000,
   base: 8000,
   travel: 5000,
+  hotels: 0,
+  airlines: 0,
   dining: 4000,
   grocery: 5000,
   fuel: 3000,
@@ -30,11 +32,18 @@ const spendAliases: Record<SpendCategory, string[]> = {
     "travel",
     "travel credits",
     "irctc",
-    "airlines",
+    "cleartrip"
+  ],
+  hotels: [
     "hotel",
     "hotels",
-    "marriott",
-    "cleartrip"
+    "marriott"
+  ],
+  airlines: [
+    "airlines",
+    "airline",
+    "flight",
+    "flights"
   ],
   fuel: ["fuel"],
   dining: ["dining", "swiggy zomato", "dining movies grocery", "grocery dining movies", "pharmacy dining movies"],

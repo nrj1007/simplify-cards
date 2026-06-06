@@ -21,6 +21,8 @@ const DEFAULT_SPEND: Partial<Record<SpendCategory, number>> = {
   online: 15000,
   dining: 4000,
   travel: 5000,
+  hotels: 4000,
+  airlines: 5000,
   fuel: 3000,
   grocery: 5000,
   utilities: 3000,

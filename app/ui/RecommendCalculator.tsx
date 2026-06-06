@@ -13,7 +13,9 @@ type Props = {
 const CATEGORY_LABELS: Record<SpendCategory, string> = {
   online: "Online shopping",
   base: "Other offline / retail",
-  travel: "Travel (flights, hotels)",
+  travel: "Travel (cab, train, etc.)",
+  hotels: "Hotel bookings",
+  airlines: "Flight bookings",
   fuel: "Fuel",
   dining: "Dining & food delivery",
   grocery: "Groceries",
@@ -28,7 +30,7 @@ const CATEGORY_LABELS: Record<SpendCategory, string> = {
   international: "International spends"
 };
 
-const CORE_CATEGORIES: SpendCategory[] = ["online", "dining", "travel", "fuel", "grocery", "utilities", "upi"];
+const CORE_CATEGORIES: SpendCategory[] = ["online", "dining", "travel", "hotels", "airlines", "fuel", "grocery", "utilities", "upi"];
 const MORE_CATEGORIES: SpendCategory[] = ["base", "amazon", "rent", "insurance", "education", "gold", "government", "international"];
 const ALL_CATEGORIES: SpendCategory[] = [...CORE_CATEGORIES, ...MORE_CATEGORIES];
 
