@@ -19,14 +19,14 @@
   "rewardType": "myCash",
   "rewards": [
     {
-      "category": "travel",
+      "category": "hotels",
       "displayCategory": "MakeMyTrip Hotel bookings",
       "rate": 6.0,
       "displayRate": "6 myCash / Rs 100 spent",
       "capMonthly": null
     },
     {
-      "category": "travel",
+      "category": "airlines",
       "displayCategory": "MakeMyTrip flight bookings",
       "rate": 3.0,
       "displayRate": "3 myCash / Rs 100 spent",
