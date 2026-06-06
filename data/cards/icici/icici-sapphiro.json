@@ -5,12 +5,11 @@
   "network": [
     "Visa",
     "Mastercard",
-    "American Express",
-    "RuPay"
+    "American Express"
   ],
   "joiningFee": 6500,
   "annualFee": 3500,
-  "feeWaiverSpend": null,
+  "feeWaiverSpend": 600000,
   "bestFor": [
     "premium",
     "travel",
@@ -21,19 +20,39 @@
   "rewardType": "reward points",
   "rewards": [
     {
-      "category": "retail",
-      "rate": 0.5,
+      "category": "international",
+      "displayCategory": "International spends",
+      "rate": 1.0,
+      "displayRate": "4 Reward Points / Rs 100 spent",
       "capMonthly": null
     },
     {
-      "category": "travel",
-      "rate": 1,
+      "category": "utilities, insurance",
+      "displayCategory": "Utility & Insurance spends",
+      "rate": 0.25,
+      "displayRate": "1 Reward Point / Rs 100 spent",
       "capMonthly": null
     },
+    {
+      "category": "base",
+      "displayCategory": "Domestic spends",
+      "rate": 0.5,
+      "displayRate": "2 Reward Points / Rs 100 spent",
+      "capMonthly": null
+    }
+  ],
+  "specialSpendRules": [
     {
       "category": "utilities",
-      "rate": 0.25,
-      "capMonthly": null
+      "treatment": "capped",
+      "capMonthlySpend": 80000,
+      "notes": "Utility and insurance spends earn rewards capped at monthly spends of Rs 80,000"
+    },
+    {
+      "category": "insurance",
+      "treatment": "capped",
+      "capMonthlySpend": 80000,
+      "notes": "Utility and insurance spends earn rewards capped at monthly spends of Rs 80,000"
     }
   ],
   "popularityScore": 50,
@@ -45,12 +64,21 @@
     "premium",
     "lounge",
     "movies",
-    "golf",
-    "rupay"
+    "golf"
   ],
   "exclusions": [
+    "Fuel transactions",
+    "Rent payments",
+    "E-wallet loading transactions",
+    "Government transactions",
+    "EMI transactions"
+  ],
+  "exclusionCodes": [
     "fuel",
-    "transactions excluded under ICICI Bank reward programme terms"
+    "rent",
+    "wallet_load",
+    "government",
+    "emi"
   ],
   "milestoneBenefits": [
     "Up to 20,000 reward points every anniversary year under ICICI Bank milestone rewards"
@@ -58,8 +86,6 @@
   "additionalBenefits": [
     "Welcome vouchers worth Rs 9,000+ listed on ICICI Bank card catalogue",
     "Buy one movie or event ticket and get up to Rs 500 off on the second ticket twice every month on BookMyShow",
-    "2 complimentary international airport lounge visits per year",
-    "4 complimentary domestic airport lounge visits per quarter subject to spend criteria",
     "Up to 4 complimentary golf rounds every month based on eligible spends"
   ],
   "redemption": {
@@ -76,6 +102,17 @@
   },
   "sourceUrl": "https://www.icicibank.com/personal-banking/cards/credit-card/sapphiro-card",
   "applyUrl": "https://www.icicibank.com/personal-banking/cards/credit-card/sapphiro-card",
-  "lastVerified": "2026-05-10",
-  "verificationStatus": "official-direct"
+  "imageUrl": "/images/icici-sapphiro.webp",
+  "lastVerified": "2026-06-06",
+  "verificationStatus": "official-direct",
+  "internalNotes": [
+    "Card details manually reviewed and verified by user on 2026-06-06",
+    "Official audit completed on 2026-06-06 using ICICI Bank Sapphiro product page.",
+    "Annual fee of Rs 3,500 is waived on spending Rs 6 Lakhs or more in the previous anniversary year.",
+    "Base reward rate is 0.5% (2 points per Rs 100) on domestic transactions and 1.0% (4 points per Rs 100) on international transactions.",
+    "Utility and insurance spends earn 0.25% (1 point per Rs 100) and are capped at monthly spends of Rs 80,000.",
+    "Complimentary domestic lounge access (4 visits per quarter) requires a minimum spend of Rs 75,000 in the previous calendar quarter.",
+    "Complimentary international lounge access (2 visits per calendar year) is provided via Priority Pass or DreamFolks.",
+    "Complimentary golf rounds (up to 4 per month) require spending Rs 50,000 per round in the previous calendar month."
+  ]
 }

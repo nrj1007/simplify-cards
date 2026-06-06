@@ -7,7 +7,7 @@
   ],
   "joiningFee": 6500,
   "annualFee": 3500,
-  "feeWaiverSpend": null,
+  "feeWaiverSpend": 600000,
   "bestFor": [
     "premium",
     "travel",
@@ -19,24 +19,51 @@
   "rewardType": "reward points",
   "rewards": [
     {
-      "category": "retail",
-      "rate": 0.5,
+      "category": "international",
+      "displayCategory": "International spends",
+      "rate": 1.0,
+      "displayRate": "4 Reward Points / Rs 100 spent",
       "capMonthly": null
     },
     {
-      "category": "travel",
-      "rate": 1,
-      "capMonthly": null
-    },
-    {
-      "category": "utilities",
+      "category": "utilities, insurance",
+      "displayCategory": "Utility & Insurance spends",
       "rate": 0.25,
+      "displayRate": "1 Reward Point / Rs 100 spent",
       "capMonthly": null
     },
     {
       "category": "upi",
+      "displayCategory": "UPI spends",
       "rate": 0.5,
+      "displayRate": "2 Reward Points / Rs 100 spent",
       "capMonthly": null
+    },
+    {
+      "category": "base",
+      "displayCategory": "Domestic spends",
+      "rate": 0.5,
+      "displayRate": "2 Reward Points / Rs 100 spent",
+      "capMonthly": null
+    }
+  ],
+  "specialSpendRules": [
+    {
+      "category": "utilities",
+      "treatment": "capped",
+      "capMonthlySpend": 80000,
+      "notes": "Utility and insurance spends earn rewards capped at monthly spends of Rs 80,000"
+    },
+    {
+      "category": "insurance",
+      "treatment": "capped",
+      "capMonthlySpend": 80000,
+      "notes": "Utility and insurance spends earn rewards capped at monthly spends of Rs 80,000"
+    },
+    {
+      "category": "upi",
+      "treatment": "rewarded",
+      "notes": "Person-to-Merchant (P2M) UPI transactions earn reward points at the base domestic rate"
     }
   ],
   "popularityScore": 50,
@@ -54,18 +81,27 @@
     "upi"
   ],
   "exclusions": [
+    "Fuel transactions",
+    "Rent payments",
+    "E-wallet loading transactions",
+    "Government transactions",
+    "EMI transactions"
+  ],
+  "exclusionCodes": [
     "fuel",
-    "transactions excluded under ICICI Bank reward programme terms"
+    "rent",
+    "wallet_load",
+    "government",
+    "emi"
   ],
   "milestoneBenefits": [
-    "Welcome vouchers worth Rs 9,000+ listed on ICICI Bank card catalogue",
     "Up to 20,000 reward points every anniversary year under ICICI Bank milestone rewards"
   ],
   "additionalBenefits": [
-    "Complimentary access to domestic and international airport lounges",
-    "Buy one ticket and get up to Rs 500 off on the second ticket twice every month on BookMyShow",
-    "Golf course privileges and dining benefits",
-    "RuPay network support for UPI linking"
+    "Welcome vouchers worth Rs 9,000+ listed on ICICI Bank card catalogue",
+    "Buy one movie or event ticket and get up to Rs 500 off on the second ticket twice every month on BookMyShow",
+    "Up to 4 complimentary golf rounds every month based on eligible spends",
+    "RuPay network support for UPI linking with reward point earnings"
   ],
   "redemption": {
     "statementBalanceValue": 0.25,
@@ -81,6 +117,18 @@
   },
   "sourceUrl": "https://www.icicibank.com/personal-banking/cards/credit-card/rupay-credit-card",
   "applyUrl": "https://www.icicibank.com/personal-banking/cards/credit-card/rupay-credit-card",
-  "lastVerified": "2026-05-11",
-  "verificationStatus": "official-mixed"
+  "imageUrl": "/images/icici-sapphiro-rupay.webp",
+  "lastVerified": "2026-06-06",
+  "verificationStatus": "official-direct",
+  "internalNotes": [
+    "Card details manually reviewed and verified by user on 2026-06-06",
+    "Official audit completed on 2026-06-06 using ICICI Bank RuPay credit card specifications.",
+    "Annual fee of Rs 3,500 is waived on spending Rs 6 Lakhs or more in the previous anniversary year.",
+    "Base reward rate is 0.5% (2 points per Rs 100) on domestic spends and UPI transactions.",
+    "International spends earn 1.0% (4 points per Rs 100).",
+    "Utility and insurance spends earn 0.25% (1 point per Rs 100) and are capped at monthly spends of Rs 80,000.",
+    "Complimentary domestic lounge access (4 visits per quarter) requires a minimum spend of Rs 75,000 in the previous calendar quarter.",
+    "Complimentary international lounge access (2 visits per calendar year) is provided via Priority Pass or DreamFolks.",
+    "Complimentary golf rounds (up to 4 per month) require spending Rs 50,000 per round in the previous calendar month."
+  ]
 }
