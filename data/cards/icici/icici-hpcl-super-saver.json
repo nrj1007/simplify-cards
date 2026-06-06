@@ -54,7 +54,6 @@
     "movies"
   ],
   "exclusions": [
-    "Fuel transactions",
     "Rent payments",
     "E-wallet loading transactions",
     "Insurance payments",
@@ -65,7 +64,6 @@
     "EMI transactions"
   ],
   "exclusionCodes": [
-    "fuel",
     "rent",
     "wallet_load",
     "insurance",

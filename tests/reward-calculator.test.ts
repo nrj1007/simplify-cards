@@ -201,4 +201,51 @@ describe("reward calculator", () => {
     expect(baseRow).toBeTruthy();
     expect(baseRow!.monthlyUnits).toBe(100);
   });
+
+  it("calculates rewards correctly for ICICI Bank HPCL Super Saver Credit Card including cashback and shared category capping", () => {
+    const card = getCardById("icici-hpcl-super-saver");
+    expect(card).toBeTruthy();
+
+    // Spend profile that does not trigger caps
+    const result1 = calculateRewards(card!, {
+      fuel: 4000,      // 4% cashback = 160 (below 200 cap)
+      utilities: 1000, // 5% = 200 points
+      grocery: 1000,   // 5% = 200 points (total points 400, matches the 400 points cap)
+      base: 10000      // 2 points/Rs 100 = 200 points
+    });
+
+    expect(result1.monthlyUnits).toBe(760); // 160 + 200 + 200 + 200 = 760
+    expect(result1.annualUnits).toBe(760 * 12);
+
+    const fuelRow1 = result1.rows.find(r => r.category === "fuel");
+    const utilRow1 = result1.rows.find(r => r.category === "utilities");
+    const groceryRow1 = result1.rows.find(r => r.category === "grocery");
+    const baseRow1 = result1.rows.find(r => r.category === "base");
+
+    expect(fuelRow1!.monthlyUnits).toBe(160);
+    expect(utilRow1!.monthlyUnits).toBe(200);
+    expect(groceryRow1!.monthlyUnits).toBe(200);
+    expect(baseRow1!.monthlyUnits).toBe(200);
+
+    // Spend profile that triggers caps
+    const result2 = calculateRewards(card!, {
+      fuel: 6000,      // 4% cashback = 240 -> capped at 200
+      utilities: 2000, // 5% = 400 points
+      grocery: 2000,   // 5% = 400 points (total points 800 -> capped at 400 points)
+      base: 10000      // 2 points/Rs 100 = 200 points
+    });
+
+    expect(result2.monthlyUnits).toBe(800); // 200 (capped fuel) + 200 (capped utilities) + 200 (capped grocery) + 200 (base) = 800
+    expect(result2.annualUnits).toBe(800 * 12);
+
+    const fuelRow2 = result2.rows.find(r => r.category === "fuel");
+    const utilRow2 = result2.rows.find(r => r.category === "utilities");
+    const groceryRow2 = result2.rows.find(r => r.category === "grocery");
+    const baseRow2 = result2.rows.find(r => r.category === "base");
+
+    expect(fuelRow2!.monthlyUnits).toBe(200);
+    expect(utilRow2!.monthlyUnits).toBe(200);
+    expect(groceryRow2!.monthlyUnits).toBe(200);
+    expect(baseRow2!.monthlyUnits).toBe(200);
+  });
 });
