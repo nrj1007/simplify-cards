@@ -248,4 +248,32 @@ describe("reward calculator", () => {
     expect(groceryRow2!.monthlyUnits).toBe(200);
     expect(baseRow2!.monthlyUnits).toBe(200);
   });
+
+  it("calculates rewards correctly for ICICI Bank Platinum Chip card", () => {
+    const card = getCardById("icici-platinum-chip");
+    expect(card).toBeTruthy();
+
+    const result = calculateRewards(card!, {
+      base: 10000,      // 2 points / Rs 100 = 200 points
+      utilities: 10000, // 1 point / Rs 100 = 100 points
+      insurance: 10000  // 1 point / Rs 100 = 100 points
+    });
+
+    expect(result.monthlyUnits).toBe(400); // 200 + 100 + 100 = 400
+    expect(result.annualUnits).toBe(4800);
+  });
+
+  it("calculates rewards correctly for ICICI Bank Coral RuPay card including UPI spends", () => {
+    const card = getCardById("icici-coral-rupay");
+    expect(card).toBeTruthy();
+
+    const result = calculateRewards(card!, {
+      base: 10000,      // 2 points / Rs 100 = 200 points
+      utilities: 10000, // 1 point / Rs 100 = 100 points
+      upi: 10000        // 2 points / Rs 100 = 200 points
+    });
+
+    expect(result.monthlyUnits).toBe(500); // 200 + 100 + 200 = 500
+    expect(result.annualUnits).toBe(6000);
+  });
 });
