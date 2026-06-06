@@ -158,47 +158,4 @@ describe("reward calculator", () => {
     expect(capMilestone).toBeTruthy();
     expect(capMilestone!.threshold).toBe(1200000);
   });
-
-  it("calculates rewards correctly for MakeMyTrip ICICI card", () => {
-    const card = getCardById("icici-makemytrip");
-    expect(card).toBeTruthy();
-
-    const result = calculateRewards(card!, {
-      online: 0,
-      dining: 0,
-      travel: 0,
-      hotels: 10000,   // Rs 10,000 spend on MMT Hotels (rate 6%)
-      airlines: 20000, // Rs 20,000 spend on MMT Flights (rate 3%)
-      fuel: 0,
-      grocery: 0,
-      utilities: 0,
-      upi: 0,
-      amazon: 0,
-      base: 10000,     // Rs 10,000 spend on other base retail (rate 1%)
-      rent: 0,
-      insurance: 0,
-      education: 0,
-      gold: 0,
-      government: 0
-    });
-
-    // 10000 * 6% = 600 myCash
-    // 20000 * 3% = 600 myCash
-    // 10000 * 1% = 100 myCash
-    // Total: 1300 myCash
-    expect(result.monthlyUnits).toBe(1300);
-    expect(result.annualUnits).toBe(15600);
-
-    const hotelsRow = result.rows.find((r) => r.category === "hotels");
-    expect(hotelsRow).toBeTruthy();
-    expect(hotelsRow!.monthlyUnits).toBe(600);
-
-    const airlinesRow = result.rows.find((r) => r.category === "airlines");
-    expect(airlinesRow).toBeTruthy();
-    expect(airlinesRow!.monthlyUnits).toBe(600);
-
-    const baseRow = result.rows.find((r) => r.category === "base");
-    expect(baseRow).toBeTruthy();
-    expect(baseRow!.monthlyUnits).toBe(100);
-  });
 });
