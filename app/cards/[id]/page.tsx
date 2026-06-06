@@ -81,14 +81,27 @@ function formatRewardRate(card: CreditCard, reward: CreditCard["rewards"][number
   return `${reward.rate}%`;
 }
 
-function redemptionRows(redemption?: Redemption) {
+function redemptionRows(issuer: string, redemption?: Redemption) {
   if (!redemption) return [];
+
+  let flightHotelLabel = "Flight/hotel booking";
+  let catalogueLabel = "Rewards catalogue";
+  if (issuer === "HDFC Bank") {
+    flightHotelLabel = "SmartBuy flight/hotel";
+    catalogueLabel = "SmartBuy rewards catalogue";
+  } else if (issuer === "ICICI Bank") {
+    flightHotelLabel = "iShop flight/hotel";
+    catalogueLabel = "iShop rewards catalogue";
+  } else if (issuer === "SBI Card") {
+    flightHotelLabel = "Travel portal booking";
+    catalogueLabel = "Shop & Smile catalogue";
+  }
 
   const rows: Array<[string | undefined, number | undefined]> = [
     [redemption.ecosystemLabel, redemption.ecosystemValue],
     ["Statement balance", redemption.statementBalanceValue],
-    ["SmartBuy flight/hotel", redemption.smartBuyFlightHotelValue],
-    ["SmartBuy rewards catalogue", redemption.smartBuyCatalogueValue],
+    [flightHotelLabel, redemption.smartBuyFlightHotelValue],
+    [catalogueLabel, redemption.smartBuyCatalogueValue],
     ["Travel EDGE flight/hotel", redemption.travelEdgeValue],
     ["Air miles", redemption.airMilesValue],
     ["Accor", redemption.accorValue]
@@ -123,9 +136,10 @@ function valueLabel(label: string, value: number, rewardType: string) {
   }
   if (
     label === "Statement balance" ||
-    label === "SmartBuy flight/hotel" ||
-    label === "SmartBuy rewards catalogue" ||
-    label === "Travel EDGE flight/hotel" ||
+    label.endsWith("flight/hotel") ||
+    label.endsWith("rewards catalogue") ||
+    label === "Travel portal booking" ||
+    label === "Shop & Smile catalogue" ||
     label === "18K/24K Gold Collection" ||
     label === "Platinum Travel Collection" ||
     label === "Vouchers"
@@ -184,7 +198,7 @@ export default async function CardPage({ params, searchParams }: Props) {
   const combinedLoungeConditions = getLoungeConditions(card);
   const domesticLoungeConditions = getMeaningfulLoungeConditions(card, "domestic");
   const internationalLoungeConditions = getMeaningfulLoungeConditions(card, "international");
-  const redemptions = redemptionRows(card.redemption);
+  const redemptions = redemptionRows(card.issuer, card.redemption);
   const airlinePartners = card.redemption?.airlinePartners ?? [];
   const hotelPartners = card.redemption?.hotelPartners ?? [];
   const voucherPartners = (card.redemption?.voucherRedemptions ?? []).map((v) => ({

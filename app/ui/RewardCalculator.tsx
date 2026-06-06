@@ -101,10 +101,23 @@ export default function RewardCalculator({ card, milestones = [] }: Props) {
     if (cashback) {
       push("cashback", "Statement cashback", redemption?.statementBalanceValue ?? 1);
     } else {
+      let flightHotelLabel = "Flight/hotel booking";
+      let catalogueLabel = "Rewards catalogue";
+      if (card.issuer === "HDFC Bank") {
+        flightHotelLabel = "SmartBuy flights & hotels";
+        catalogueLabel = "SmartBuy rewards catalogue";
+      } else if (card.issuer === "ICICI Bank") {
+        flightHotelLabel = "iShop flights & hotels";
+        catalogueLabel = "iShop rewards catalogue";
+      } else if (card.issuer === "SBI Card") {
+        flightHotelLabel = "Travel portal booking";
+        catalogueLabel = "Shop & Smile catalogue";
+      }
+
       push("ecosystem", redemption?.ecosystemLabel ?? "Brand ecosystem", redemption?.ecosystemValue);
       push("statement", "Statement credit", redemption?.statementBalanceValue);
-      push("smartbuy-flight", "SmartBuy flights & hotels", redemption?.smartBuyFlightHotelValue);
-      push("smartbuy-catalogue", "SmartBuy rewards catalogue", redemption?.smartBuyCatalogueValue);
+      push("smartbuy-flight", flightHotelLabel, redemption?.smartBuyFlightHotelValue);
+      push("smartbuy-catalogue", catalogueLabel, redemption?.smartBuyCatalogueValue);
       push("travel-edge", "Travel EDGE flights & hotels", redemption?.travelEdgeValue);
       // Accor is surfaced via transferPartnerValuations (with its transfer ratio), not the
       // legacy flat accorValue, to avoid double-listing it in the calculator.
