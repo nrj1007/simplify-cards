@@ -89,6 +89,9 @@ If a fact already has a structured home, do not repeat it in visible prose.
    - **Travel cards must be complete**: For travel-focused cards, do not stop after adding `statementBalanceValue`, `travelEdgeValue`, or one partner valuation. Also populate the current `airlinePartners` and `hotelPartners` arrays from official issuer sources, including ratios, group labels, annual caps, and TAT when verified.
    - If an issuer publishes separate capped categories, preserve them as separate visible reward rows instead of merging them into one combined line that suggests a shared cap.
    - If the UI needs separate rows but the scoring model only supports a broader canonical category, keep the canonical `category` stable and differentiate the rows through `displayCategory`.
+   - **Combined vs. Separate Reward Caps**:
+     - If multiple categories share a combined cap, represent them in a **single line** with a comma-separated list of categories in the `"category"` field.
+     - If categories have separate/individual caps, represent them in **separate lines** in the JSON structure.
 4. **Card Image**:
    - Check whether `"imageUrl"` exists and whether it still represents the current card face.
    - Prefer official issuer card-face assets. Do not keep generic banners, landing-page art, cropped lifestyle imagery, or low-quality placeholders when a proper card-face image is available.
