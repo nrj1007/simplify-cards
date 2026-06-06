@@ -146,4 +146,16 @@ describe("reward calculator", () => {
     const pointMilestones = rules.filter(r => r.threshold < 700000);
     expect(pointMilestones.every(r => !r.isVoucher)).toBe(true);
   });
+
+  it("extracts 12 Lakhs threshold from Sapphiro cap milestone benefit description", () => {
+    const card = getCardById("icici-sapphiro");
+    expect(card).toBeTruthy();
+
+    const rules = milestoneRulesForCard(card!);
+    
+    // Sapphiro has 3 milestone benefits. The last one is "Maximum milestone rewards capped..." at Rs 12 Lakhs spend.
+    const capMilestone = rules.find(r => r.label.includes("Maximum milestone rewards"));
+    expect(capMilestone).toBeTruthy();
+    expect(capMilestone!.threshold).toBe(1200000);
+  });
 });

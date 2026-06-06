@@ -498,10 +498,11 @@ function parseRupeeAmount(value: string) {
 function extractMilestoneThreshold(text: string) {
   const normalized = text.toLowerCase().replace(/,/g, "").replace(/\s+/g, " ").trim();
   const thresholdMatch =
-    normalized.match(/annual spend(?:s|ing)?(?: of| above| greater than)? rs (\d+(?:\.\d+)?) lakh/) ??
-    normalized.match(/spends of rs (\d+(?:\.\d+)?) lakh/) ??
-    normalized.match(/spending rs (\d+(?:\.\d+)?) lakh/) ??
-    normalized.match(/rs (\d+(?:\.\d+)?) lakh or more/);
+    normalized.match(/annual spend(?:s|ing)?(?: of| above| greater than)? rs (\d+(?:\.\d+)?) lakh(?:s)?/) ??
+    normalized.match(/spends of rs (\d+(?:\.\d+)?) lakh(?:s)?/) ??
+    normalized.match(/spending rs (\d+(?:\.\d+)?) lakh(?:s)?/) ??
+    normalized.match(/rs (\d+(?:\.\d+)?) lakh(?:s)? or more/) ??
+    normalized.match(/rs (\d+(?:\.\d+)?) lakh(?:s)?\s+(?:annual\s+)?spend/);
 
   if (!thresholdMatch) return null;
   return Math.round(Number(thresholdMatch[1]) * 100000);
