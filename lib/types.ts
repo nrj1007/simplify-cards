@@ -52,6 +52,14 @@ export type Redemption = {
     group?: string;
     annualCap?: number;
   }>;
+  voucherRedemptions?: Array<{
+    partner: string;
+    programme: string;
+    ratio: string;
+    valuePerPoint: number;
+    tatDays?: number;
+    note?: string;
+  }>;
   ecosystemLabel?: string;
   ecosystemValue?: number;
   statementBalanceValue?: number;

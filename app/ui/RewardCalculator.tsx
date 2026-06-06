@@ -128,10 +128,19 @@ export default function RewardCalculator({ card, milestones = [] }: Props) {
       .sort((a, b) => b.value - a.value);
   }, [annualUnits, redemption]);
 
-  // Best rupee outcome across direct redemptions and valued transfer partners.
+  const voucherValuations = useMemo(() => {
+    return (redemption?.voucherRedemptions ?? [])
+      .map((voucher) => {
+        return { ...voucher, value: annualUnits * voucher.valuePerPoint };
+      })
+      .sort((a, b) => b.value - a.value);
+  }, [annualUnits, redemption]);
+
+  // Best rupee outcome across direct redemptions, valued transfer partners, and vouchers.
   const bestRupeeValue = Math.max(
     rupeeOptions[0]?.value ?? 0,
-    partnerValuations[0]?.value ?? 0
+    partnerValuations[0]?.value ?? 0,
+    voucherValuations[0]?.value ?? 0
   );
 
   // Milestone benefits unlocked at the current annual spend (thresholds are spend-independent,
@@ -154,10 +163,24 @@ export default function RewardCalculator({ card, milestones = [] }: Props) {
   const pointsRupeeValue = cashback ? annualUnits : bestRupeeValue;
   const totalAnnualValue = pointsRupeeValue + milestoneValue;
   const effectiveRate = annualSpend > 0 && totalAnnualValue > 0 ? (totalAnnualValue / annualSpend) * 100 : 0;
-  const bestPartnerKey = partnerValuations.length > 0 && partnerValuations[0].value > (rupeeOptions[0]?.value ?? 0)
+
+  const maxVal = Math.max(
+    rupeeOptions[0]?.value ?? 0,
+    partnerValuations[0]?.value ?? 0,
+    voucherValuations[0]?.value ?? 0
+  );
+
+  const bestPartnerKey = maxVal > 0 && partnerValuations.length > 0 && partnerValuations[0].value === maxVal
     ? partnerValuations[0].partner
     : null;
-  const bestOptionKey = !bestPartnerKey && rupeeOptions.length > 0 ? rupeeOptions[0].key : null;
+
+  const bestVoucherKey = maxVal > 0 && !bestPartnerKey && voucherValuations.length > 0 && voucherValuations[0].value === maxVal
+    ? voucherValuations[0].partner
+    : null;
+
+  const bestOptionKey = maxVal > 0 && !bestPartnerKey && !bestVoucherKey && rupeeOptions.length > 0 && rupeeOptions[0].value === maxVal
+    ? rupeeOptions[0].key
+    : null;
 
   function setCategory(category: SpendCategory, value: number) {
     setSpend((prev) => ({ ...prev, [category]: value }));
@@ -336,6 +359,34 @@ export default function RewardCalculator({ card, milestones = [] }: Props) {
                         <span className="muted">
                           Rs {partner.partnerPointValue}/pt · ×{partner.transferRatio} ratio
                           {" "}= Rs {partner.valuePerCardUnit.toFixed(2)} / {unitLabel.toLowerCase()}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              ) : null}
+
+              {voucherValuations.length > 0 ? (
+                <div className="calc-block">
+                  <h3>Voucher redemption value</h3>
+                  <div className="calc-partners">
+                    {voucherValuations.map((voucher, idx) => (
+                      <div
+                        className={`calc-partner${voucher.partner === bestVoucherKey ? " is-best" : ""}`}
+                        key={`${voucher.partner}-${voucher.programme}-${idx}`}
+                      >
+                        <div className="calc-partner-head">
+                          <span>{voucher.partner}</span>
+                          <span className="calc-basis calc-basis-fixed">{voucher.programme}</span>
+                        </div>
+                        <strong>
+                          {voucher.partner === bestVoucherKey ? (
+                            <span className="calc-badge" style={{ marginRight: 6 }}>Best</span>
+                          ) : null}
+                          {formatINR(voucher.value)}
+                        </strong>
+                        <span className="muted">
+                          Rs {voucher.valuePerPoint} / {unitLabel.toLowerCase()} · Ratio {voucher.ratio}
                         </span>
                       </div>
                     ))}

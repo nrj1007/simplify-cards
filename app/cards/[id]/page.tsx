@@ -84,7 +84,7 @@ function formatRewardRate(card: CreditCard, reward: CreditCard["rewards"][number
 function redemptionRows(redemption?: Redemption) {
   if (!redemption) return [];
 
-  return [
+  const rows: Array<[string | undefined, number | undefined]> = [
     [redemption.ecosystemLabel, redemption.ecosystemValue],
     ["Statement balance", redemption.statementBalanceValue],
     ["SmartBuy flight/hotel", redemption.smartBuyFlightHotelValue],
@@ -92,7 +92,21 @@ function redemptionRows(redemption?: Redemption) {
     ["Travel EDGE flight/hotel", redemption.travelEdgeValue],
     ["Air miles", redemption.airMilesValue],
     ["Accor", redemption.accorValue]
-  ].filter((row): row is [string, number] => typeof row[0] === "string" && typeof row[1] === "number");
+  ];
+
+  if (redemption.voucherRedemptions && redemption.voucherRedemptions.length > 0) {
+    const maxVal = Math.max(...redemption.voucherRedemptions.map(v => v.valuePerPoint));
+    const hasGoldCollection = redemption.voucherRedemptions.some(v => v.programme.includes("Gold Collection"));
+    const hasPlatTravelCollection = redemption.voucherRedemptions.some(v => v.programme.includes("Platinum Travel"));
+    const label = hasGoldCollection 
+      ? "18K/24K Gold Collection" 
+      : hasPlatTravelCollection 
+        ? "Platinum Travel Collection" 
+        : "Vouchers";
+    rows.push([label, maxVal]);
+  }
+
+  return rows.filter((row): row is [string, number] => typeof row[0] === "string" && typeof row[1] === "number");
 }
 
 function singularRewardUnit(rewardType: string) {
@@ -111,7 +125,10 @@ function valueLabel(label: string, value: number, rewardType: string) {
     label === "Statement balance" ||
     label === "SmartBuy flight/hotel" ||
     label === "SmartBuy rewards catalogue" ||
-    label === "Travel EDGE flight/hotel"
+    label === "Travel EDGE flight/hotel" ||
+    label === "18K/24K Gold Collection" ||
+    label === "Platinum Travel Collection" ||
+    label === "Vouchers"
   ) {
     return `upto Rs ${value} per point`;
   }
@@ -168,34 +185,15 @@ export default async function CardPage({ params, searchParams }: Props) {
   const domesticLoungeConditions = getMeaningfulLoungeConditions(card, "domestic");
   const internationalLoungeConditions = getMeaningfulLoungeConditions(card, "international");
   const redemptions = redemptionRows(card.redemption);
-  const allAirlines = card.redemption?.airlinePartners ?? [];
-  const allHotels = card.redemption?.hotelPartners ?? [];
-
-  const isVoucher = (partner: { programme: string; airline?: string; hotelGroup?: string }) => {
-    const name = (partner.programme || "").toLowerCase() +
-                 " " + (partner.airline || "").toLowerCase() +
-                 " " + (partner.hotelGroup || "").toLowerCase();
-    return name.includes("voucher") || name.includes("collection");
-  };
-
-  const airlinePartners = allAirlines.filter((p) => !isVoucher(p));
-  const hotelPartners = allHotels.filter((p) => !isVoucher(p));
-  const voucherPartners = [
-    ...allAirlines.filter((p) => isVoucher(p)).map((p) => ({
-      type: "Airline",
-      name: p.airline,
-      programme: p.programme,
-      ratio: p.ratio,
-      tatDays: p.tatDays,
-    })),
-    ...allHotels.filter((p) => isVoucher(p)).map((p) => ({
-      type: "Hotel",
-      name: p.hotelGroup,
-      programme: p.programme,
-      ratio: p.ratio,
-      tatDays: p.tatDays,
-    })),
-  ];
+  const airlinePartners = card.redemption?.airlinePartners ?? [];
+  const hotelPartners = card.redemption?.hotelPartners ?? [];
+  const voucherPartners = (card.redemption?.voucherRedemptions ?? []).map((v) => ({
+    type: "Voucher",
+    name: v.partner,
+    programme: v.programme,
+    ratio: v.ratio,
+    tatDays: v.tatDays,
+  }));
 
   const hasRedemptionSection = Boolean(
     redemptions.length || airlinePartners.length || hotelPartners.length || voucherPartners.length

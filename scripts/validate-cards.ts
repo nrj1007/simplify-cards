@@ -458,6 +458,38 @@ if (cardFiles.length === 0) {
           });
         }
 
+        const voucherRedemptions = redemption.voucherRedemptions;
+        if (voucherRedemptions !== undefined) {
+          if (!Array.isArray(voucherRedemptions)) {
+            addIssue("voucherRedemptions must be an array when present", cardId, "redemption");
+          } else {
+            voucherRedemptions.forEach((voucher, voucherIndex) => {
+              if (!isObject(voucher)) {
+                addIssue(`voucherRedemptions[${voucherIndex}] must be an object`, cardId, "redemption");
+                return;
+              }
+              if (!isNonEmptyString(voucher.partner)) {
+                addIssue(`voucherRedemptions[${voucherIndex}].partner must be a non-empty string`, cardId, "redemption");
+              }
+              if (!isNonEmptyString(voucher.programme)) {
+                addIssue(`voucherRedemptions[${voucherIndex}].programme must be a non-empty string`, cardId, "redemption");
+              }
+              if (!isNonEmptyString(voucher.ratio)) {
+                addIssue(`voucherRedemptions[${voucherIndex}].ratio must be a non-empty string`, cardId, "redemption");
+              }
+              if (typeof voucher.valuePerPoint !== "number" || voucher.valuePerPoint <= 0) {
+                addIssue(`voucherRedemptions[${voucherIndex}].valuePerPoint must be a positive number`, cardId, "redemption");
+              }
+              if (voucher.tatDays !== undefined && (typeof voucher.tatDays !== "number" || voucher.tatDays < 0)) {
+                addIssue(`voucherRedemptions[${voucherIndex}].tatDays must be a non-negative number when present`, cardId, "redemption");
+              }
+              if (voucher.note !== undefined && !isNonEmptyString(voucher.note)) {
+                addIssue(`voucherRedemptions[${voucherIndex}].note must be a non-empty string when present`, cardId, "redemption");
+              }
+            });
+          }
+        }
+
         const hasAccorPartnerValuation =
           Array.isArray(partnerValuations) &&
           partnerValuations.some((partner) => isObject(partner) && isNonEmptyString(partner.partner) && normalizePartnerText(partner.partner) === "accor");

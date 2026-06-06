@@ -195,6 +195,7 @@ High-priority American Express India personal cards added from official American
 
 ### Remaining American Express Cards To Verify Later
 
+- [ ] Verify reward calculator calculations and redemption rates for Amex Platinum Travel
 - [ ] Any currently open business/corporate American Express cards, only if business-card coverage is requested
 - [ ] Any limited-time proprietary card application pauses or reopenings, because older Amex pages and current index pages can show different availability language
 
