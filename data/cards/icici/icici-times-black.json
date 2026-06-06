@@ -18,13 +18,24 @@
   "rewardType": "ICICI Bank Reward Points",
   "rewards": [
     {
-      "category": "base",
-      "rate": 2,
+      "category": "international",
+      "displayCategory": "International spends",
+      "rate": 2.5,
+      "displayRate": "2.5 Reward Points / Rs 100 spent",
       "capMonthly": null
     },
     {
-      "category": "online",
+      "category": "utilities, insurance, education, government",
+      "displayCategory": "Utility, Insurance, Education & Government spends",
       "rate": 2,
+      "displayRate": "2 Reward Points / Rs 100 spent",
+      "capMonthly": 5000
+    },
+    {
+      "category": "retail",
+      "displayCategory": "Other spends",
+      "rate": 2,
+      "displayRate": "2 Reward Points / Rs 100 spent",
       "capMonthly": null
     }
   ],
@@ -43,36 +54,73 @@
     "metal"
   ],
   "exclusions": [
-    "utility payments",
-    "insurance premium payments",
-    "education payments",
-    "government payments are capped at 5,000 reward points per statement cycle"
+    "fuel transactions",
+    "rent payments",
+    "EMI transactions"
   ],
+  "exclusionCodes": [
+    "fuel",
+    "rent",
+    "emi"
+  ],
+  "joiningBenefits": [
+    "Luxury Stay Gift Card from EaseMyTrip worth ₹10,000 or Lohono Stays worth ₹12,000",
+    "Lifestyle Gift Cards from Toni & Guy (worth ₹3,000) and Interflora (worth ₹1,000)",
+    "Travel visa benefits with Atlys and OneVasco worth ₹10,000",
+    "Special membership offers and event access at The Quorum Club"
+  ],
+  "renewalBenefits": [],
   "milestoneBenefits": [
-    "Annual fee waived from second year onwards on minimum spends of Rs 25,00,000 made in the previous year"
+    "Klook international experiences worth ₹10,000 on reaching ₹2 Lakh annual spend",
+    "WeWork day passes or airport transfers worth ₹10,000 on reaching ₹5 Lakh annual spend",
+    "Tata CLiQ Luxury Gift Card worth ₹10,000 on reaching ₹10 Lakh annual spend",
+    "One-night luxury stay at Ayatana or Lohono worth ₹20,000 on reaching ₹20 Lakh annual spend"
   ],
   "additionalBenefits": [
-    "Luxury stay and lifestyle gift card benefits",
-    "1.49% forex markup",
-    "Unlimited international airport lounge access",
-    "Priority Pass membership for primary and plus cardholder",
-    "Reward points on eligible domestic transactions",
-    "UHNI-focused co-branded card with Times Internet"
+    "Complimentary Priority Pass membership for both the primary and Plus cardholder",
+    "Exclusive co-branded luxury card in partnership with Times Internet",
+    "Travel visa assistance benefits with Atlys and OneVasco",
+    "No flight/hotel cancellation charges up to ₹12,000 on domestic bookings"
   ],
+  "additionalDetails": [],
   "redemption": {
-    "statementBalanceValue": 0.25,
-    "pointsExpiryYears": null
+    "statementBalanceValue": 0.4,
+    "smartBuyFlightHotelValue": 1,
+    "airMilesValue": 1,
+    "pointsExpiryYears": null,
+    "airlinePartners": [
+      {
+        "airline": "Air India",
+        "programme": "Maharaja Club",
+        "ratio": "1:1"
+      }
+    ],
+    "hotelPartners": []
   },
   "eligibility": {
     "salaried": [
-      "Eligibility is subject to ICICI Bank premium card approval criteria"
+      "Indian citizen over 21 years of age",
+      "Requires a net monthly income of ₹2,00,000"
     ],
     "selfEmployed": [
-      "Eligibility is subject to ICICI Bank premium card approval criteria"
+      "Indian citizen over 21 years of age",
+      "Requires an annual ITR / income of ₹24,00,000"
     ]
   },
+  "supportingSourceUrls": [
+    "https://www.icicibank.com/personal-banking/cards/credit-card/times-black-icici-credit-card.html"
+  ],
   "sourceUrl": "https://www.icicibank.com/personal-banking/cards/credit-card/times-black-icici-credit-card.html",
   "applyUrl": "https://www.icicibank.com/personal-banking/cards/credit-card/times-black-icici-credit-card.html",
-  "lastVerified": "2026-05-11",
-  "verificationStatus": "official-direct"
+  "lastVerified": "2026-06-06",
+  "verificationStatus": "official-direct",
+  "imageUrl": "/images/icici-times-black.webp",
+  "internalNotes": [
+    "Card details manually reviewed and verified by user on 2026-06-06",
+    "Official audit completed on 2026-06-06 using ICICI Bank Times Black product page.",
+    "Base reward rate is 2% on domestic transactions and 2.5% on international transactions.",
+    "Utility, insurance, education, and government spends are capped at a combined limit of 5,000 points per statement cycle.",
+    "Point transfers to Air India Maharaja Club are at a 1:1 ratio with a minimum transfer of 2,000 points.",
+    "Priority Pass is provided to both primary and Plus cardholders."
+  ]
 }

@@ -65,6 +65,7 @@ const allowedRewardCategories = new Set([
   "hotel",
   "hotels",
   "irctc",
+  "international",
   "lifestyle",
   "marriott",
   "myntra",
