@@ -90,19 +90,14 @@
     "1% fuel surcharge waiver on fuel transactions up to Rs 4,000"
   ],
   "additionalDetails": [
-    "Annual fee of Rs 5,000 waived on spending Rs 6,00,000 or more in the preceding membership year (EMI excluded from spend calculation)"
+    "Annual fee of Rs 5,000 waived on spending Rs 6,00,000 or more in the preceding membership year (EMI excluded from spend calculation)",
+    "1 Adani Reward Point = Rs 1, redeemable exclusively on the Adani One app for flights, hotels, trains, buses, cabs, and duty-free shopping",
+    "Reward points credited to your Adani One account at end of each billing cycle"
   ],
   "redemption": {
-    "statementBalanceValue": 0.25,
-    "airMilesValue": 0.1667,
+    "statementBalanceValue": 1.0,
     "pointsExpiryYears": null,
-    "airlinePartners": [
-      {
-        "airline": "Air India",
-        "programme": "Air India Maharaja Club",
-        "ratio": "6:1"
-      }
-    ],
+    "airlinePartners": [],
     "hotelPartners": []
   },
   "eligibility": {
@@ -128,10 +123,11 @@
     "7% Adani Reward Points on Adani One ecosystem: flights, hotels, trains, buses, cabs, Adani-managed airports, Adani CNG, Adani electricity bills, Trainman.",
     "2% on international spends, 1.5% on other domestic spends, 0.5% on utilities and insurance.",
     "All reward rates are uncapped.",
+    "1 Adani Reward Point = Rs 1 (closed-loop currency). Points are redeemable ONLY on the Adani One app or portal — not transferable to airlines or hotel loyalty programs.",
+    "Redemption categories on Adani One app: flight bookings, hotel bookings, train/bus/cab bookings, duty-free shopping.",
     "Domestic lounge: 4 complimentary visits per quarter via Visa Lounge Access; 16 per year total.",
     "International lounge: 2 complimentary visits per year.",
     "Pranaam services (Meet & Greet, porter, valet parking, car parking) available at Adani-managed airports.",
-    "Reward points transferable to Air India Maharaja Club at 6:1 ratio.",
     "1% fuel surcharge waiver on transactions up to Rs 4,000 at fuel outlets."
   ]
 }
