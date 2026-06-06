@@ -21,17 +21,41 @@
   "rewardType": "reward points",
   "rewards": [
     {
-      "category": "retail",
-      "rate": 0.5,
+      "category": "utilities, insurance",
+      "displayCategory": "Utility & Insurance spends",
+      "rate": 0.25,
+      "displayRate": "1 Reward Point / Rs 100 spent",
       "capMonthly": null
     },
     {
-      "category": "utilities",
-      "rate": 0.25,
+      "category": "base",
+      "displayCategory": "Other spends",
+      "rate": 0.5,
+      "displayRate": "2 Reward Points / Rs 100 spent",
       "capMonthly": null
     }
   ],
-  "popularityScore": 81,
+  "specialSpendRules": [
+    {
+      "category": "utilities",
+      "treatment": "capped",
+      "capMonthlySpend": 40000,
+      "notes": "Utility spends earn rewards capped at monthly spends of Rs 40,000"
+    },
+    {
+      "category": "insurance",
+      "treatment": "capped",
+      "capMonthlySpend": 40000,
+      "notes": "Insurance spends earn rewards capped at monthly spends of Rs 40,000"
+    },
+    {
+      "category": "grocery",
+      "treatment": "capped",
+      "capMonthlySpend": 20000,
+      "notes": "Grocery spends earn rewards capped at monthly spends of Rs 20,000"
+    }
+  ],
+  "popularityScore": 60,
   "loungeDomestic": 4,
   "loungeInternational": 0,
   "forexMarkup": 3.5,
@@ -44,18 +68,31 @@
     "entry level"
   ],
   "exclusions": [
+    "Fuel transactions",
+    "Rent payments",
+    "E-wallet loading transactions",
+    "Government transactions",
+    "Tax payments",
+    "EMI transactions"
+  ],
+  "exclusionCodes": [
     "fuel",
-    "transactions excluded under ICICI Bank reward programme terms"
+    "rent",
+    "wallet_load",
+    "government",
+    "tax",
+    "emi"
   ],
   "milestoneBenefits": [
     "2,000 reward points on spending Rs 2,00,000 and 1,000 reward points each time Rs 1,00,000 spend is crossed thereafter in an anniversary year, capped at 10,000 points per year"
   ],
   "additionalBenefits": [
-    "2 reward points on every Rs 100 spent except fuel",
-    "1 reward point on every Rs 100 spent on utilities and insurance",
-    "25% discount on BookMyShow and INOX movie tickets, capped at Rs 100, twice per month",
+    "25% discount on BookMyShow and INOX movie tickets, capped at Rs 100 twice a month, subject to spending Rs 25,000 in the preceding calendar quarter",
     "One complimentary railway lounge visit per quarter",
     "1% fuel surcharge waiver at HPCL petrol pumps"
+  ],
+  "additionalDetails": [
+    "A transaction fee of 1% applies to utility payments exceeding Rs 50,000 per month"
   ],
   "redemption": {
     "statementBalanceValue": 0.25,
@@ -63,16 +100,28 @@
   },
   "eligibility": {
     "salaried": [
-      "Minimum age 21 years",
-      "Minimum annual income as per ICICI Bank credit card eligibility"
+      "Age: 21-65 years",
+      "Minimum net monthly salary: Rs 20,000"
     ],
     "selfEmployed": [
-      "Minimum age 21 years",
-      "Minimum annual income as per ICICI Bank credit card eligibility"
+      "Age: 21-65 years",
+      "Minimum annual ITR: Rs 2,40,000"
     ]
   },
-  "sourceUrl": "https://www.icicibank.com/card/credit-cards/coral-card",
-  "applyUrl": "https://www.icicibank.com/card/credit-cards/coral-card",
-  "lastVerified": "2026-05-10",
-  "verificationStatus": "official-direct"
+  "sourceUrl": "https://www.icicibank.com/personal-banking/cards/credit-card/coral-credit-card",
+  "applyUrl": "https://www.icicibank.com/personal-banking/cards/credit-card/coral-credit-card",
+  "imageUrl": "/images/icici-coral.webp",
+  "lastVerified": "2026-06-06",
+  "verificationStatus": "official-direct",
+  "internalNotes": [
+    "Card details manually reviewed and verified by user on 2026-06-06",
+    "Official audit completed on 2026-06-06 using ICICI Bank Coral product page and notice revisions.",
+    "Annual fee of Rs 500 is waived on spending Rs 1.5 Lakhs or more in the previous anniversary year.",
+    "Base reward rate is 2 points per Rs 100 spent (0.5% return value); utility and insurance spends earn 1 point per Rs 100 spent (0.25% return value).",
+    "Utility and insurance spends earn rewards capped at monthly spends of Rs 40,000 per category.",
+    "Grocery spends earn rewards capped at monthly spends of Rs 20,000.",
+    "Complimentary domestic airport lounge access (1 visit per quarter) requires a minimum spend of Rs 35,000 in the previous calendar quarter.",
+    "Complimentary railway lounge access (1 visit per quarter) is unconditional (no spend criteria).",
+    "BookMyShow movie discount (25% off up to Rs 100 twice a month on min 2 tickets) requires spending Rs 25,000 in the preceding spends quarter (effective April 1, 2026)."
+  ]
 }
