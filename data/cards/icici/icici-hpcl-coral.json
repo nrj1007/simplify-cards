@@ -68,6 +68,7 @@
   ],
   "redemption": {
     "statementBalanceValue": 0.25,
+    "airMilesValue": 0.1667,
     "pointsExpiryYears": null,
     "airlinePartners": [
       {
@@ -81,11 +82,11 @@
   "eligibility": {
     "salaried": [
       "Age: 21 - 65 years",
-      "Must be a resident of India"
+      "Minimum net monthly salary: Rs 20,000"
     ],
     "selfEmployed": [
       "Age: 21 - 65 years",
-      "Must be a resident of India"
+      "Minimum annual ITR: Rs 2,40,000"
     ]
   },
   "sourceUrl": "https://www.icicibank.com/personal-banking/cards/credit-card/hpcl-coral-credit-card",
