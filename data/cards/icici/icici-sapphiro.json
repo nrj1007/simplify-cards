@@ -80,11 +80,16 @@
     "government",
     "emi"
   ],
+  "joiningBenefits": [
+    "Tata CLiQ voucher worth Rs 3,000",
+    "EaseMyTrip vouchers worth Rs 4,000 (four vouchers of Rs 1,000 each)",
+    "Croma voucher worth Rs 1,500",
+    "Uber vouchers worth Rs 1,000 (four vouchers of Rs 250 each)"
+  ],
   "milestoneBenefits": [
     "Up to 20,000 reward points every anniversary year under ICICI Bank milestone rewards"
   ],
   "additionalBenefits": [
-    "Welcome vouchers worth Rs 9,000+ listed on ICICI Bank card catalogue",
     "Buy one movie or event ticket and get up to Rs 500 off on the second ticket twice every month on BookMyShow",
     "2 complimentary international airport lounge visits per year",
     "4 complimentary domestic airport lounge visits per quarter subject to spend criteria of Rs 75,000 in the previous calendar quarter",
@@ -92,6 +97,8 @@
   ],
   "redemption": {
     "statementBalanceValue": 0.25,
+    "smartBuyFlightHotelValue": 0.25,
+    "smartBuyCatalogueValue": 0.25,
     "pointsExpiryYears": null
   },
   "eligibility": {
