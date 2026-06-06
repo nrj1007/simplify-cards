@@ -175,6 +175,10 @@ const genericCardNameWords = new Set([
   "premier"
 ]);
 
+const queryTokenCanonicalMap: Record<string, string> = {
+  mmt: "makemytrip"
+};
+
 function normalizeQuery(query?: string) {
   return query?.toLowerCase().trim() ?? "";
 }
@@ -516,6 +520,7 @@ function buildFallbackSummary(input: RecommendationInput, shortlistedCards: Card
 function getMeaningfulQueryTokens(query?: string) {
   return normalizeForMatch(query)
     .split(" ")
+    .map((token) => queryTokenCanonicalMap[token] ?? token)
     .filter((token) => token.length > 1 && !genericLookupWords.has(token));
 }
 

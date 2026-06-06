@@ -68,7 +68,9 @@
     "rent",
     "wallet_load",
     "government",
-    "emi"
+    "emi",
+    "balance_transfer",
+    "fees_and_charges"
   ],
   "joiningBenefits": [
     "MakeMyTrip voucher worth Rs 1,000",
@@ -78,19 +80,11 @@
     "MakeMyTrip hotel voucher worth Rs 1,000"
   ],
   "milestoneBenefits": [
-    "Upgrade to a higher MMTBLACK membership tier on spending Rs 2 Lakhs or more on MakeMyTrip annually"
+    "Upgrade to a higher MMTBLACK membership tier on spending Rs 2 lakh or more on MakeMyTrip annually"
   ],
-  "additionalBenefits": [
-    "Unlimited myCash rewards that never expire",
-    "Up to 6% myCash on MakeMyTrip hotel bookings and 3% on flight bookings",
-    "Joining and annual renewal vouchers worth Rs 1,000",
-    "8 complimentary domestic airport lounge accesses and 1 complimentary international airport lounge access per year",
-    "0.99% forex markup"
-  ],
+  "additionalBenefits": [],
   "additionalDetails": [
-    "Complimentary domestic lounge access (capped at 2 visits per quarter) requires a minimum spend of Rs 75,000 in the previous calendar quarter.",
-    "Complimentary international lounge access (1 visit per calendar year) requires Priority Pass membership.",
-    "myCash rewards do not expire and can be redeemed at Rs 1 per myCash on the MakeMyTrip platform."
+    "myCash rewards do not expire"
   ],
   "redemption": {
     "pointsExpiryYears": null,
@@ -107,7 +101,7 @@
       "Minimum annual ITR: Rs 2,40,000"
     ]
   },
-  "imageUrl": "/images/icici-makemytrip.png",
+  "imageUrl": "/images/icici-makemytrip.webp",
   "sourceUrl": "https://www.icicibank.com/personal-banking/cards/credit-card/makemytrip/credit-card",
   "applyUrl": "https://www.icicibank.com/personal-banking/cards/credit-card/makemytrip/credit-card",
   "lastVerified": "2026-06-06",
@@ -116,6 +110,7 @@
     "Card details manually reviewed and verified by user on 2026-06-06",
     "Official audit completed on 2026-06-06 using ICICI Bank MakeMyTrip Credit Card product page.",
     "Annual fee of Rs 999 is waived on spending Rs 3 Lakhs or more in the previous anniversary year.",
-    "Complimentary domestic lounge access (8 visits per year, max 2 per quarter) requires spending Rs 75,000 in the previous calendar quarter."
+    "Complimentary domestic lounge access (8 visits per year, max 2 per quarter) requires spending Rs 75,000 in the previous calendar quarter.",
+    "Complimentary international lounge access (1 visit per year) requires Priority Pass membership."
   ]
 }

@@ -86,6 +86,13 @@ describe("ask ai fallback policy", () => {
     expect(answer.summary).toMatch(/HSBC TravelOne Credit Card/i);
   });
 
+  it("resolves shorthand issuer plus brand queries like 'icici mmt' to MakeMyTrip ICICI", async () => {
+    const answer = await answerQuestion({ query: "icici mmt" });
+
+    expect(answer.cards[0]?.card.id).toBe("icici-makemytrip");
+    expect(answer.summary).toMatch(/MakeMyTrip ICICI Bank Credit Card/i);
+  });
+
   it("answers rewards-policy questions when current card rules support an inference", async () => {
     const answer = await answerQuestion({ query: "do i get rewards on gold purchase using infinia?" });
 
