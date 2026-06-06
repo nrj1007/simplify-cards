@@ -8,7 +8,7 @@
   ],
   "joiningFee": 12000,
   "annualFee": 12000,
-  "feeWaiverSpend": null,
+  "feeWaiverSpend": 1000000,
   "bestFor": [
     "premium",
     "travel",
@@ -19,20 +19,51 @@
   "rewardType": "reward points",
   "rewards": [
     {
-      "category": "retail",
-      "rate": 1,
+      "category": "international",
+      "displayCategory": "International spends",
+      "rate": 1.0,
+      "displayRate": "4 Reward Points / Rs 100 spent",
       "capMonthly": null
     },
     {
-      "category": "utilities",
+      "category": "utilities, insurance",
+      "displayCategory": "Utility & Insurance spends",
       "rate": 0.25,
+      "displayRate": "1 Reward Point / Rs 100 spent",
+      "capMonthly": null
+    },
+    {
+      "category": "base",
+      "displayCategory": "Other spends",
+      "rate": 1.0,
+      "displayRate": "4 Reward Points / Rs 100 spent",
       "capMonthly": null
     }
   ],
-  "popularityScore": 82,
+  "specialSpendRules": [
+    {
+      "category": "utilities",
+      "treatment": "capped",
+      "capMonthlySpend": 80000,
+      "notes": "Utility spends earn rewards capped at monthly spends of Rs 80,000"
+    },
+    {
+      "category": "insurance",
+      "treatment": "capped",
+      "capMonthlySpend": 80000,
+      "notes": "Insurance spends earn rewards capped at monthly spends of Rs 80,000"
+    },
+    {
+      "category": "grocery",
+      "treatment": "capped",
+      "capMonthlySpend": 40000,
+      "notes": "Grocery spends earn rewards capped at monthly spends of Rs 40,000"
+    }
+  ],
+  "popularityScore": 70,
   "loungeDomestic": "unlimited",
   "loungeInternational": "unlimited",
-  "forexMarkup": 2,
+  "forexMarkup": 2.0,
   "tags": [
     "icici",
     "premium",
@@ -42,17 +73,32 @@
     "travel"
   ],
   "exclusions": [
+    "Fuel transactions",
+    "Rent payments",
+    "E-wallet loading transactions",
+    "Government transactions",
+    "Tax payments",
+    "EMI transactions"
+  ],
+  "exclusionCodes": [
     "fuel",
-    "transactions excluded under ICICI Bank reward programme terms"
+    "rent",
+    "wallet_load",
+    "government",
+    "tax",
+    "emi"
   ],
   "milestoneBenefits": [],
   "additionalBenefits": [
-    "Unlimited complimentary domestic and international lounge access",
     "Unlimited complimentary airport spa access in India",
-    "BOGO movie and event tickets up to four times every month on tickets worth up to Rs 750",
-    "Up to 4 complimentary golf rounds based on eligible spends in the previous month",
-    "4 ICICI Bank Reward Points on every Rs 100 spent on retail transactions except fuel",
-    "1 ICICI Bank Reward Point on every Rs 100 spent on utilities and insurance"
+    "Buy one movie or event ticket and get up to Rs 750 off on the second ticket up to 4 times every month on BookMyShow, subject to spending Rs 25,000 in the preceding calendar quarter",
+    "Up to 4 complimentary golf rounds every month based on eligible spends",
+    "No cancellation charges on domestic flight and hotel bookings, up to Rs 12,000 (twice every year)",
+    "Complimentary shopping voucher from Tata CLiQ worth Rs 5,000 on your birthday (for American Express cardholders only)",
+    "Fuel surcharge waiver of 1% on transactions up to Rs 4,000 at all fuel stations"
+  ],
+  "additionalDetails": [
+    "A transaction fee of 1% applies to utility payments exceeding Rs 50,000 per month"
   ],
   "redemption": {
     "statementBalanceValue": 0.25,
@@ -60,14 +106,30 @@
   },
   "eligibility": {
     "salaried": [
-      "Eligibility is subject to ICICI Bank premium card approval criteria"
+      "Age: 21 years and above",
+      "Minimum net monthly salary: Rs 1,50,000"
     ],
     "selfEmployed": [
-      "Eligibility is subject to ICICI Bank premium card approval criteria"
+      "Age: 21 years and above",
+      "Minimum annual income / ITR: Rs 18,00,000"
     ]
   },
   "sourceUrl": "https://www.icicibank.com/personal-banking/cards/credit-card/emeralde-credit-card-new",
   "applyUrl": "https://www.icicibank.com/personal-banking/cards/credit-card/emeralde-credit-card-new",
-  "lastVerified": "2026-05-10",
-  "verificationStatus": "official-direct"
+  "imageUrl": "/images/icici-emeralde.webp",
+  "lastVerified": "2026-06-06",
+  "verificationStatus": "official-direct",
+  "internalNotes": [
+    "Card details manually reviewed and verified by user on 2026-06-06",
+    "Official audit completed on 2026-06-06 using ICICI Bank Emeralde product page and notice revisions.",
+    "Annual fee of Rs 12,000 is waived on spending Rs 10 Lakhs or more in the previous anniversary year.",
+    "Base reward rate is 4 points per Rs 100 spent on domestic and international retail transactions (1% return value).",
+    "Utility and insurance spends earn 1 point per Rs 100 spent (0.25% return value) and are capped at monthly spends of Rs 80,000.",
+    "Grocery spends earn rewards capped at monthly spends of Rs 40,000.",
+    "Unlimited complimentary domestic and international lounge access for the primary cardholder; no spends criteria applies.",
+    "Complimentary golf rounds (up to 4 per month) require spending Rs 50,000 per round in the previous calendar month.",
+    "BookMyShow BOGO offers up to Rs 750 off twice/four times per month per variant, subject to spending Rs 25,000 in the preceding quarter (effective April 1, 2026).",
+    "Cancel For Any Reason (CFAR) travel insurance covers up to Rs 12,000 for flight/hotel cancellation charges (twice a year).",
+    "Tata CLiQ birthday voucher worth Rs 5,000 is for American Express variant only."
+  ]
 }
