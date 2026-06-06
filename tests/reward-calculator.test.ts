@@ -307,4 +307,26 @@ describe("reward calculator", () => {
     expect(result.monthlyUnits).toBe(325);
     expect(result.annualUnits).toBe(3900);
   });
+
+  it("calculates rewards correctly for Adani One ICICI Bank Signature card across all spend tiers", () => {
+    const card = getCardById("icici-adani-one-signature");
+    expect(card).toBeTruthy();
+
+    const result = calculateRewards(card!, {
+      travel: 10000,       // 7% → rate=7 → 7 units per Rs 100 → 700 units
+      international: 5000, // 2% → rate=2 → 2 units per Rs 100 → 100 units
+      base: 10000,         // 1.5% → rate=1.5 → 1.5 units per Rs 100 → 150 units
+      utilities: 5000      // 0.5% → rate=0.5 → 0.5 units per Rs 100 → 25 units
+    });
+
+    // displayRate "X% Adani Reward Points" doesn't match "X Points / Rs Y" parser
+    // → falls back to rate directly (rate already equals % return since 1 point = Rs 1)
+    // travel:       10000 / 100 * 7   = 700
+    // international: 5000 / 100 * 2   = 100
+    // base:         10000 / 100 * 1.5 = 150
+    // utilities:     5000 / 100 * 0.5 =  25
+    // total = 975
+    expect(result.monthlyUnits).toBe(975);
+    expect(result.annualUnits).toBe(11700);
+  });
 });
