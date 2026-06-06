@@ -92,9 +92,6 @@
     "For eligible older customers, historical waiver thresholds may differ as per Axis terms"
   ],
   "additionalBenefits": [
-    "Unlimited domestic and international lounge access for primary cardholder, subject to applicable programme terms",
-    "4 complimentary international guest visits per card anniversary year on Priority Pass",
-    "4 complimentary domestic guest visits per calendar year",
     "Dining Delights offers across partner restaurants",
     "Fuel surcharge waiver of 1% for transactions between Rs 400 and Rs 4,000, capped at Rs 400 per month",
     "No cash withdrawal charges"
@@ -268,11 +265,11 @@
   },
   "eligibility": {
     "salaried": [
-      "Requires net salary credit above Rs 3 lakh per month, or net annual income of Rs 36 lakh as per last ITR",
+      "Minimum annual income (ITR) of Rs 18 Lakhs, or net monthly salary of Rs 1.5 Lakhs",
       "Card approval remains subject to Axis Bank credit policy"
     ],
     "selfEmployed": [
-      "Requires net annual income of Rs 36 lakh as per last ITR",
+      "Minimum annual income (ITR) of Rs 18 Lakhs",
       "Card approval remains subject to Axis Bank credit policy"
     ]
   },
