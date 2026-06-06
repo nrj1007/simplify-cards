@@ -17,7 +17,8 @@ const SPEND_ALIASES: Record<SpendCategory, string[]> = {
   insurance: ["insurance", "insurance premium", "insurance premiums"],
   education: ["education", "education payments", "school fees", "school fee", "tuition"],
   gold: ["gold", "jewellery", "jewelry"],
-  government: ["government", "tax", "taxes", "government payments", "tax payments"]
+  government: ["government", "tax", "taxes", "government payments", "tax payments"],
+  international: ["international"]
 };
 
 export const CALCULATOR_CATEGORIES: SpendCategory[] = [
@@ -29,6 +30,7 @@ export const CALCULATOR_CATEGORIES: SpendCategory[] = [
   "utilities",
   "upi",
   "amazon",
+  "international",
   "base",
   "rent",
   "insurance",
@@ -51,7 +53,8 @@ export const CATEGORY_LABELS: Record<SpendCategory, string> = {
   insurance: "Insurance",
   education: "Education",
   gold: "Gold / jewellery",
-  government: "Tax / Government payments"
+  government: "Tax / Government payments",
+  international: "International spends"
 };
 
 function normalizeForMatch(value = "") {

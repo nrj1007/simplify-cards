@@ -15,7 +15,9 @@ export const SPEND_CATEGORIES: SpendCategory[] = [
   "rent",
   "insurance",
   "education",
-  "gold"
+  "gold",
+  "government",
+  "international"
 ];
 
 function extractMilestoneThreshold(benefit: string) {

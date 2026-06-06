@@ -87,4 +87,37 @@ describe("reward calculator", () => {
     expect(eduRow!.monthlyUnits).toBe(625);
     expect(govRow!.monthlyUnits).toBe(625);
   });
+
+  it("calculates international rewards correctly for ICICI Sapphiro card using its dedicated rate", () => {
+    const card = getCardById("icici-sapphiro");
+    expect(card).toBeTruthy();
+
+    const result = calculateRewards(card!, {
+      online: 0,
+      dining: 0,
+      travel: 0,
+      fuel: 0,
+      grocery: 0,
+      utilities: 0,
+      upi: 0,
+      amazon: 0,
+      base: 0,
+      rent: 0,
+      insurance: 0,
+      education: 0,
+      gold: 0,
+      government: 0,
+      international: 10000 // Rs 10,000 spend
+    });
+
+    // 10,000 spend on international should earn 400 points per month (4 Reward Points / Rs 100)
+    expect(result.monthlyUnits).toBe(400);
+    expect(result.annualUnits).toBe(4800);
+
+    const intlRow = result.rows.find((r) => r.category === "international");
+    expect(intlRow).toBeTruthy();
+    expect(intlRow!.monthlySpend).toBe(10000);
+    expect(intlRow!.monthlyUnits).toBe(400);
+    expect(intlRow!.excluded).toBe(false);
+  });
 });

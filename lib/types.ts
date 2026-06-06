@@ -14,7 +14,8 @@ export type SpendCategory =
   | "insurance"
   | "education"
   | "gold"
-  | "government";
+  | "government"
+  | "international";
 
 export type SpecialSpendRule = {
   category: SpendCategory;

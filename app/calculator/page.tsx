@@ -52,7 +52,7 @@ export default async function CalculatorPage({ searchParams }: Props) {
             Enter your monthly spend to estimate how many {card.rewardType} you earn and what they are worth across each
             redemption option.
           </p>
-              <RewardCalculator card={card} milestones={milestoneRulesForCard(card)} />
+              <RewardCalculator key={card.id} card={card} milestones={milestoneRulesForCard(card)} isStandalone={true} />
             </div>
           ) : (
             <div className="panel card" style={{ marginTop: 18 }}>

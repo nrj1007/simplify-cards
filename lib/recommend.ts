@@ -19,7 +19,8 @@ export const defaultSpendProfile: SpendProfile = {
   insurance: 0,
   education: 0,
   gold: 0,
-  government: 0
+  government: 0,
+  international: 0
 };
 
 const spendAliases: Record<SpendCategory, string[]> = {
@@ -45,7 +46,8 @@ const spendAliases: Record<SpendCategory, string[]> = {
   insurance: ["insurance", "insurance premium", "insurance premiums"],
   education: ["education", "education payments", "school fees", "school fee", "tuition"],
   gold: ["gold", "jewellery", "jewelry"],
-  government: ["government", "tax", "taxes", "government payments", "tax payments"]
+  government: ["government", "tax", "taxes", "government payments", "tax payments"],
+  international: ["international"]
 };
 
 const specialOnlineSpendAliases = [

@@ -91,7 +91,9 @@ const spendCategoryAliases: Array<{ category: SpendCategory; aliases: string[] }
   { category: "rent", aliases: ["rent", "rental", "rental payments", "rent payments"] },
   { category: "insurance", aliases: ["insurance", "insurance premium", "insurance premiums"] },
   { category: "education", aliases: ["education", "school fees", "school fee", "education payments", "tuition"] },
-  { category: "gold", aliases: ["gold", "jewellery", "jewelry"] }
+  { category: "gold", aliases: ["gold", "jewellery", "jewelry"] },
+  { category: "government", aliases: ["government", "tax", "taxes", "tax payments", "government payments"] },
+  { category: "international", aliases: ["international", "foreign", "forex", "international spends", "abroad", "foreign spends"] }
 ];
 
 const spendCategories: SpendCategory[] = [
@@ -107,7 +109,9 @@ const spendCategories: SpendCategory[] = [
   "rent",
   "insurance",
   "education",
-  "gold"
+  "gold",
+  "government",
+  "international"
 ];
 
 const defaultMonthlySpendTotal = 53000;

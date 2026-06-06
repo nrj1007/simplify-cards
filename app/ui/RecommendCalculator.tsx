@@ -24,11 +24,12 @@ const CATEGORY_LABELS: Record<SpendCategory, string> = {
   insurance: "Insurance",
   education: "Education",
   gold: "Gold / jewellery",
-  government: "Tax / Government payments"
+  government: "Tax / Government payments",
+  international: "International spends"
 };
 
 const CORE_CATEGORIES: SpendCategory[] = ["online", "dining", "travel", "fuel", "grocery", "utilities", "upi"];
-const MORE_CATEGORIES: SpendCategory[] = ["base", "amazon", "rent", "insurance", "education", "gold", "government"];
+const MORE_CATEGORIES: SpendCategory[] = ["base", "amazon", "rent", "insurance", "education", "gold", "government", "international"];
 const ALL_CATEGORIES: SpendCategory[] = [...CORE_CATEGORIES, ...MORE_CATEGORIES];
 
 const SLIDER_MAX = 100_000;

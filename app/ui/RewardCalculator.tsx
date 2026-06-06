@@ -14,6 +14,7 @@ import {
 type Props = {
   card: CreditCard;
   milestones?: MilestoneRule[];
+  isStandalone?: boolean;
 };
 
 const DEFAULT_SPEND: Partial<Record<SpendCategory, number>> = {
@@ -25,6 +26,7 @@ const DEFAULT_SPEND: Partial<Record<SpendCategory, number>> = {
   utilities: 3000,
   upi: 5000,
   amazon: 5000,
+  international: 5000,
   base: 8000,
   rent: 5000,
   insurance: 2000,
@@ -64,11 +66,32 @@ function isCashbackRewardType(rewardType: string) {
 
 type RupeeOption = { key: string; label: string; perPoint: number; value: number; note?: string };
 
-export default function RewardCalculator({ card, milestones = [] }: Props) {
-  const { primary, additional } = useMemo(() => relevantCategoriesForCard(card), [card]);
+export default function RewardCalculator({ card, milestones = [], isStandalone = false }: Props) {
+  const { primary, additional } = useMemo(() => {
+    const { primary: p, additional: a } = relevantCategoriesForCard(card);
+    if (isStandalone && !p.includes("international")) {
+      const baseIndex = p.indexOf("base");
+      const newPrimary = [...p];
+      if (baseIndex !== -1) {
+        newPrimary.splice(baseIndex, 0, "international");
+      } else {
+        newPrimary.push("international");
+      }
+      return {
+        primary: newPrimary,
+        additional: a.filter((c) => c !== "international")
+      };
+    }
+    return { primary: p, additional: a };
+  }, [card, isStandalone]);
+
   const [showAdditional, setShowAdditional] = useState(false);
   const [spend, setSpend] = useState<Record<SpendCategory, number>>(() => {
-    const primarySet = new Set(relevantCategoriesForCard(card).primary);
+    const { primary: p } = relevantCategoriesForCard(card);
+    const primarySet = new Set(p);
+    if (isStandalone) {
+      primarySet.add("international");
+    }
     const initial = {} as Record<SpendCategory, number>;
     // Seed only the primary categories; additional (excluded) categories start at 0 and are
     // opt-in, so they don't inflate the default spend total.
