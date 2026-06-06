@@ -8,7 +8,7 @@
   ],
   "joiningFee": 500,
   "annualFee": 500,
-  "feeWaiverSpend": null,
+  "feeWaiverSpend": 150000,
   "bestFor": [
     "fuel",
     "hpcl",
@@ -20,22 +20,23 @@
   "rewards": [
     {
       "category": "fuel",
+      "displayCategory": "Fuel spends at HPCL outlets",
       "rate": 4,
+      "displayRate": "4% cashback",
       "capMonthly": 200
     },
     {
-      "category": "utilities",
+      "category": "utilities, departmental stores, grocery",
+      "displayCategory": "Utility, Departmental Store & Grocery spends",
       "rate": 5,
-      "capMonthly": 100
+      "displayRate": "20 Reward Points / Rs 100 spent",
+      "capMonthly": 400
     },
     {
-      "category": "departmental stores",
-      "rate": 5,
-      "capMonthly": 100
-    },
-    {
-      "category": "retail",
+      "category": "base",
+      "displayCategory": "Other retail spends",
       "rate": 0.5,
+      "displayRate": "2 Reward Points / Rs 100 spent",
       "capMonthly": null
     }
   ],
@@ -53,16 +54,40 @@
     "movies"
   ],
   "exclusions": [
-    "fuel surcharge waiver and reward caps apply as per ICICI Bank terms"
+    "Fuel transactions",
+    "Rent payments",
+    "E-wallet loading transactions",
+    "Insurance payments",
+    "Government transactions",
+    "Tax payments",
+    "Education spends",
+    "Cash withdrawals",
+    "EMI transactions"
+  ],
+  "exclusionCodes": [
+    "fuel",
+    "rent",
+    "wallet_load",
+    "insurance",
+    "government",
+    "tax",
+    "education",
+    "emi",
+    "cash_withdrawal"
+  ],
+  "joiningBenefits": [
+    "2,000 Reward Points upon card activation and payment of joining fee",
+    "Rs 100 cashback on HP Pay app upon first successful fuel transaction of min Rs 1,000"
   ],
   "milestoneBenefits": [],
   "additionalBenefits": [
-    "Up to 5% savings on HPCL fuel purchases: 4% cashback plus 1% fuel surcharge waiver",
-    "4% cashback on fuel is capped at Rs 200 per month",
-    "5% benefit as reward points on utility and departmental store spends, capped at Rs 100 worth reward points per month",
-    "Additional 1.5% benefit as PAYBACK reward points on HP Pay fuel purchases at HPCL outlets",
-    "25% off up to Rs 100 on BookMyShow and INOX twice a month",
-    "Domestic lounge access subject to Rs 75,000 quarterly spend criteria"
+    "5% savings on HPCL fuel purchases: 4% cashback plus 1% fuel surcharge waiver",
+    "Additional 1.5% benefit as reward points on HP Pay app fuel purchases at HPCL outlets",
+    "25% discount on BookMyShow and INOX movie tickets (minimum 2 tickets), capped at Rs 100 twice a month, subject to spending Rs 25,000 in the preceding calendar quarter"
+  ],
+  "additionalDetails": [
+    "1% fuel surcharge waiver applies to transactions up to Rs 4,000 at HPCL petrol pumps",
+    "A transaction fee of 1% applies to utility payments exceeding Rs 50,000 per month"
   ],
   "redemption": {
     "statementBalanceValue": 0.25,
@@ -70,16 +95,26 @@
   },
   "eligibility": {
     "salaried": [
-      "Age 21 to 65 years",
-      "Eligibility is subject to ICICI Bank approval criteria"
+      "Age: 21-65 years",
+      "Minimum net monthly salary: Rs 20,000"
     ],
     "selfEmployed": [
-      "Age 21 to 65 years",
-      "Eligibility is subject to ICICI Bank approval criteria"
+      "Age: 21-65 years",
+      "Minimum annual ITR: Rs 2,40,000"
     ]
   },
-  "sourceUrl": "https://www.icicibank.com/personal-banking/cards/credit-card/hpcl-super-saver.html",
-  "applyUrl": "https://www.icicibank.com/personal-banking/cards/credit-card/hpcl-super-saver.html",
-  "lastVerified": "2026-05-10",
-  "verificationStatus": "official-direct"
+  "sourceUrl": "https://www.icicibank.com/personal-banking/cards/credit-card/hpcl-super-saver-credit-card",
+  "applyUrl": "https://www.icicibank.com/personal-banking/cards/credit-card/hpcl-super-saver-credit-card",
+  "imageUrl": "/images/icici-hpcl-super-saver.webp",
+  "lastVerified": "2026-06-06",
+  "verificationStatus": "official-direct",
+  "internalNotes": [
+    "Card details manually reviewed and verified by user on 2026-06-06",
+    "Official audit completed on 2026-06-06 using ICICI Bank HPCL Super Saver product page and terms.",
+    "Annual fee of Rs 500 is waived on spending Rs 1.5 Lakhs or more in the previous anniversary year.",
+    "Fuel spends earn 4% cashback capped at Rs 200 per month, plus 1% surcharge waiver on transactions up to Rs 4,000.",
+    "Utilities, departmental stores, and grocery spends earn 5% back (20 points per Rs 100 spent) with a shared cap of 400 points (value of Rs 100) per statement cycle.",
+    "Complimentary domestic airport lounge access (1 visit per quarter) requires a minimum spend of Rs 75,000 in the previous calendar quarter.",
+    "BookMyShow movie discount (25% off up to Rs 100 twice a month on min 2 tickets) requires spending Rs 25,000 in the preceding spends quarter (effective April 1, 2026)."
+  ]
 }
