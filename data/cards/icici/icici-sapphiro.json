@@ -53,6 +53,12 @@
       "treatment": "capped",
       "capMonthlySpend": 80000,
       "notes": "Utility and insurance spends earn rewards capped at monthly spends of Rs 80,000"
+    },
+    {
+      "category": "grocery",
+      "treatment": "capped",
+      "capMonthlySpend": 40000,
+      "notes": "Grocery spends earn rewards capped at monthly spends of Rs 40,000"
     }
   ],
   "popularityScore": 50,
@@ -92,9 +98,7 @@
     "Maximum milestone rewards capped at 20,000 Reward Points (on Rs 12 Lakhs annual spend) per anniversary year"
   ],
   "additionalBenefits": [
-    "Buy one movie or event ticket and get up to Rs 500 off on the second ticket twice every month on BookMyShow",
-    "2 complimentary international airport lounge visits per year",
-    "4 complimentary domestic airport lounge visits per quarter subject to spend criteria of Rs 75,000 in the previous calendar quarter",
+    "Buy one movie or event ticket and get up to Rs 500 off on the second ticket twice every month on BookMyShow, subject to spending Rs 25,000 in the preceding calendar quarter",
     "Up to 4 complimentary golf rounds every month based on eligible spends"
   ],
   "redemption": {
@@ -105,10 +109,10 @@
   },
   "eligibility": {
     "salaried": [
-      "Eligibility is subject to ICICI Bank approval criteria"
+      "Age 21-65 years, minimum net monthly salary of Rs 75,000"
     ],
     "selfEmployed": [
-      "Eligibility is subject to ICICI Bank approval criteria"
+      "Age 21-65 years, minimum annual ITR of Rs 9,00,000"
     ]
   },
   "sourceUrl": "https://www.icicibank.com/personal-banking/cards/credit-card/sapphiro-card",
