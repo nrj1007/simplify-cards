@@ -1,0 +1,124 @@
+{
+  "id": "hdfc-swiggy",
+  "issuer": "HDFC Bank",
+  "name": "Swiggy HDFC Bank Credit Card",
+  "network": [
+    "Mastercard"
+  ],
+  "joiningFee": 500,
+  "annualFee": 500,
+  "feeWaiverSpend": 200000,
+  "bestFor": [
+    "cashback",
+    "dining",
+    "online"
+  ],
+  "rewardType": "cashback",
+  "rewards": [
+    {
+      "category": "swiggy zomato",
+      "displayCategory": "Swiggy App spends (Food, Instamart, Dineout, Genie)",
+      "rate": 10,
+      "displayRate": "10% CashBack",
+      "capMonthly": 1500
+    },
+    {
+      "category": "online",
+      "displayCategory": "Select online spends",
+      "rate": 5,
+      "displayRate": "5% CashBack",
+      "capMonthly": 1500
+    },
+    {
+      "category": "base",
+      "displayCategory": "Other spends",
+      "rate": 1,
+      "displayRate": "1% CashBack",
+      "capMonthly": 500
+    }
+  ],
+  "loungeDomestic": 0,
+  "loungeInternational": 0,
+  "forexMarkup": 3.5,
+  "tags": [
+    "cashback",
+    "online",
+    "co-branded"
+  ],
+  "exclusions": [
+    "fuel spends",
+    "rent payments",
+    "insurance payments",
+    "government-related transactions",
+    "education transactions",
+    "wallet loads",
+    "jewellery purchases",
+    "EMI transactions",
+    "outstanding balance payments",
+    "balance transfer",
+    "cash advance",
+    "fees and charges",
+    "skill-based gaming",
+    "utility transactions"
+  ],
+  "exclusionCodes": [
+    "fuel",
+    "rent",
+    "insurance",
+    "education",
+    "jewellery",
+    "wallet_load",
+    "government",
+    "emi",
+    "gaming",
+    "utilities",
+    "cash_advance",
+    "fees_and_charges",
+    "outstanding_balance_payment"
+  ],
+  "additionalBenefits": [
+    "Complimentary golf benefits via Mastercard: 12 free lessons and 4 free green fee rounds per calendar year",
+    "50% discount on additional green fees (up to Rs 1,800) under the Mastercard India Golf Program"
+  ],
+  "additionalDetails": [
+    "Cashback is automatically credited as statement credit within 2 working days of billing cycle completion",
+    "10% cashback category requires a minimum transaction of Rs 249 (some terms may state Rs 100 for original variant)",
+    "5% and 1% cashback categories require a minimum transaction of Rs 100"
+  ],
+  "joiningBenefits": [
+    "Complimentary 3-month Swiggy One membership worth Rs 1,199 on card activation"
+  ],
+  "eligibility": {
+    "salaried": [
+      "Indian national",
+      "Age: 21 to 60 years",
+      "Net monthly income above Rs 15,000"
+    ],
+    "selfEmployed": [
+      "Indian national",
+      "Age: 21 to 65 years",
+      "ITR above Rs 6 lakh per annum"
+    ]
+  },
+  "imageUrl": "/images/hdfc-swiggy.webp",
+  "interestRateMonthly": 3.6,
+  "sourceUrl": "https://www.hdfcbank.com/personal/pay/cards/credit-cards/swiggy-hdfc-bank-credit-card",
+  "applyUrl": "https://www.hdfcbank.com/personal/pay/cards/credit-cards/swiggy-hdfc-bank-credit-card",
+  "lastVerified": "2026-06-07",
+  "verificationStatus": "official-direct",
+  "popularityScore": 95,
+  "redemption": {
+    "statementBalanceValue": 1
+  },
+  "supportingSourceUrls": [
+    "https://www.hdfc.bank.in/content/dam/hdfcbankpws/in/en/personal-banking/discover-products/cards/credit-cards/swiggy-hdfc-bank-credit-card/pdf/terms-and-conditions-swiggy-hdfc-bank-credit-card-13032025.pdf",
+    "https://www.hdfcbank.com/personal/pay/cards/credit-cards/swiggy-hdfc-bank-credit-card"
+  ],
+  "internalNotes": [
+    "Card details manually reviewed and verified by user on 2026-06-07",
+    "Effective June 21, 2024, cashback is credited as direct statement credit instead of Swiggy Money.",
+    "Mastercard World variant provides 12 free golf lessons and 4 free green fee rounds per year via Mastercard concierge (1800-102-6263).",
+    "Excludes spends on Swiggy Money Wallet, Swiggy Liquor, and Swiggy Minis/Minis platform.",
+    "Utilities and insurance are completely excluded from cashback."
+  ]
+}

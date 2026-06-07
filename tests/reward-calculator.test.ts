@@ -791,5 +791,82 @@ describe("reward calculator", () => {
       expect(quarterlyMilestone!.isVoucher).toBe(true);
     });
   });
+
+  describe("Swiggy HDFC Bank Credit Card", () => {
+    it("earns 10% cashback on Swiggy spends, capped at Rs 1,500/month", () => {
+      const card = getCardById("hdfc-swiggy");
+      expect(card).toBeTruthy();
+
+      // Rs 10,000 Swiggy (dining) spend => 10,000 * 10% = Rs 1,000 cashback
+      const result1 = calculateRewards(card!, { dining: 10000 });
+      expect(result1.monthlyUnits).toBe(1000);
+
+      const diningRow = result1.rows.find((r) => r.category === "dining");
+      expect(diningRow).toBeTruthy();
+      expect(diningRow!.monthlyUnits).toBe(1000);
+
+      // Rs 20,000 Swiggy spend => 2,000 raw cashback capped at Rs 1,500
+      const result2 = calculateRewards(card!, { dining: 20000 });
+      expect(result2.monthlyUnits).toBe(1500);
+    });
+
+    it("earns 5% cashback on online spends, capped at Rs 1,500/month", () => {
+      const card = getCardById("hdfc-swiggy");
+      expect(card).toBeTruthy();
+
+      // Rs 10,000 online spend => 10,000 * 5% = Rs 500 cashback
+      const result1 = calculateRewards(card!, { online: 10000 });
+      expect(result1.monthlyUnits).toBe(500);
+
+      const onlineRow = result1.rows.find((r) => r.category === "online");
+      expect(onlineRow).toBeTruthy();
+      expect(onlineRow!.monthlyUnits).toBe(500);
+
+      // Rs 40,000 online spend => 2,000 raw cashback capped at Rs 1,500
+      const result2 = calculateRewards(card!, { online: 40000 });
+      expect(result2.monthlyUnits).toBe(1500);
+    });
+
+    it("earns 1% cashback on other spends, capped at Rs 500/month", () => {
+      const card = getCardById("hdfc-swiggy");
+      expect(card).toBeTruthy();
+
+      // Rs 10,000 base spend => 10,000 * 1% = Rs 100 cashback
+      const result1 = calculateRewards(card!, { base: 10000 });
+      expect(result1.monthlyUnits).toBe(100);
+
+      const baseRow = result1.rows.find((r) => r.category === "base");
+      expect(baseRow).toBeTruthy();
+      expect(baseRow!.monthlyUnits).toBe(100);
+
+      // Rs 60,000 base spend => 600 raw cashback capped at Rs 500
+      const result2 = calculateRewards(card!, { base: 60000 });
+      expect(result2.monthlyUnits).toBe(500);
+    });
+
+    it("excludes fuel, rent, utilities, insurance, education, and gold from earning cashback", () => {
+      const card = getCardById("hdfc-swiggy");
+      expect(card).toBeTruthy();
+
+      const result = calculateRewards(card!, {
+        fuel: 10000,
+        rent: 10000,
+        utilities: 10000,
+        insurance: 10000,
+        education: 10000,
+        gold: 10000,
+      });
+
+      expect(result.monthlyUnits).toBe(0);
+
+      const excludedCategories = ["fuel", "rent", "utilities", "insurance", "education", "gold"];
+      for (const cat of excludedCategories) {
+        const row = result.rows.find((r) => r.category === cat);
+        expect(row).toBeTruthy();
+        expect(row!.monthlyUnits).toBe(0);
+        expect(row!.excluded).toBe(true);
+      }
+    });
+  });
 });
 
