@@ -554,5 +554,40 @@ describe("reward calculator", () => {
     expect(rentRow!.monthlyUnits).toBe(0);
     expect(rentRow!.excluded).toBe(true);
   });
+
+  it("calculates rewards correctly for HDFC Bank PIXEL Go Credit Card including category caps and exclusions", () => {
+    const card = getCardById("hdfc-pixel-go");
+    expect(card).toBeTruthy();
+
+    const result = calculateRewards(card!, {
+      upi: 60000,          // 1% rate, 60000 * 1% = 600 => capped at 500
+      online: 20000,       // 1% rate, 20000 * 1% = 200
+      base: 10000,         // 1% rate, 10000 * 1% = 100
+      fuel: 5000,          // excluded => 0
+      rent: 10000          // excluded => 0
+    });
+
+    // Total expected monthly units = 500 (upi capped) + 200 (online) + 100 (base) = 800 CashPoints
+    expect(result.monthlyUnits).toBe(800);
+    expect(result.annualUnits).toBe(800 * 12);
+
+    const upiRow = result.rows.find(r => r.category === "upi");
+    expect(upiRow!.monthlyUnits).toBe(500);
+
+    const onlineRow = result.rows.find(r => r.category === "online");
+    expect(onlineRow!.monthlyUnits).toBe(200);
+
+    const baseRow = result.rows.find(r => r.category === "base");
+    expect(baseRow!.monthlyUnits).toBe(100);
+
+    const fuelRow = result.rows.find(r => r.category === "fuel");
+    expect(fuelRow!.monthlyUnits).toBe(0);
+    expect(fuelRow!.excluded).toBe(true);
+
+    const rentRow = result.rows.find(r => r.category === "rent");
+    expect(rentRow!.monthlyUnits).toBe(0);
+    expect(rentRow!.excluded).toBe(true);
+  });
 });
+
 
