@@ -116,7 +116,7 @@
     "CashPoints cannot be transferred to partner airlines or hotel loyalty programs"
   ],
   "redemption": {
-    "statementBalanceValue": 0.2,
+    "statementBalanceValue": 0.25,
     "smartBuyFlightHotelValue": 0.25,
     "smartBuyCatalogueValue": 0.25,
     "airMilesValue": null,
