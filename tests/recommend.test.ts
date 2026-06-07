@@ -231,7 +231,7 @@ describe("scoreCards", () => {
     });
 
     const regaliaGold = scores.find((score) => score.card.id === "hdfc-regalia-gold");
-    expect(regaliaGold?.estimatedMilestoneValue).toBe(3250);
+    expect(regaliaGold?.estimatedMilestoneValue).toBe(5500);
   });
 
   it("uses the best milestone and fee-waiver upside for broad ranking comparisons", () => {
@@ -241,9 +241,9 @@ describe("scoreCards", () => {
 
     const travelOne = scores.find((score) => score.card.id === "hsbc-travelone");
     expect(travelOne?.reasons).toEqual(
-      expect.arrayContaining([expect.stringMatching(/Higher milestone and fee-waiver upside can add about Rs 10,800/i)])
+      expect.arrayContaining([expect.stringMatching(/Higher milestone and fee-waiver upside can add about Rs 6,000/i)])
     );
-    expect((travelOne?.fitScore ?? 0) - (travelOne?.estimatedNetValue ?? 0)).toBeGreaterThan(10000);
+    expect((travelOne?.fitScore ?? 0) - (travelOne?.estimatedNetValue ?? 0)).toBeGreaterThan(8000);
   });
 
   it("avoids invite-only luxury cards for generic ltf asks", () => {

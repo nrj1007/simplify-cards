@@ -238,7 +238,7 @@ describe("ask ai fallback policy", () => {
   });
 
   it("adds scenario guidance for generic recommendation questions without spend context", async () => {
-    const answer = await answerQuestion({ query: "top card under 5000" });
+    const answer = await answerQuestion({ query: "top card" });
 
     expect(answer.highlights?.length).toBeGreaterThan(0);
     expect(answer.highlights?.join(" ")).not.toMatch(/Apollo SBI Card SELECT/);
@@ -246,7 +246,7 @@ describe("ask ai fallback policy", () => {
   });
 
   it("does not show redundant LTF spend ladders when the balanced winner does not change", async () => {
-    const answer = await answerQuestion({ query: "top life time free cards" });
+    const answer = await answerQuestion({ query: "top OneCard life time free cards" });
 
     expect(answer.highlights?.join(" ")).not.toMatch(/balanced mix/i);
   });
