@@ -349,4 +349,26 @@ describe("reward calculator", () => {
     expect(result.monthlyUnits).toBe(500);
     expect(result.annualUnits).toBe(6000);
   });
+
+  it("calculates rewards correctly for HDFC Bank Diners Club Privilege Credit Card", () => {
+    const card = getCardById("hdfc-diners-club-privilege");
+    expect(card).toBeTruthy();
+
+    const result = calculateRewards(card!, {
+      dining: 5000,        // Swiggy & Zomato: 20 RP / Rs 200 => 10 RP / Rs 100 => 500 units
+      base: 10000,         // Base: 4 RP / Rs 200 => 2 RP / Rs 100 => 200 units
+      amazon: 10000,       // No dedicated rate, falls back to Base => 200 units
+      fuel: 5000,          // Excluded => 0 units
+      rent: 10000          // Excluded => 0 units
+    });
+
+    // dining:        5000 * 10 / 100 = 500 points (below 2500 cap)
+    // base:          10000 * 2 / 100 = 200 points
+    // amazon:        10000 * 2 / 100 = 200 points
+    // fuel:          0 points
+    // rent:          0 points
+    // Total monthly units = 500 + 200 + 200 = 900
+    expect(result.monthlyUnits).toBe(900);
+    expect(result.annualUnits).toBe(10800);
+  });
 });
