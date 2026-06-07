@@ -10,7 +10,6 @@
   "feeWaiverSpend": null,
   "bestFor": [
     "dining",
-    "lounge",
     "movies",
     "travel"
   ],
@@ -42,14 +41,13 @@
     }
   ],
   "popularityScore": 84,
-  "loungeDomestic": 8,
+  "loungeDomestic": 0,
   "loungeInternational": 0,
   "forexMarkup": 3.5,
   "tags": [
     "indusind",
     "eazydiner",
     "dining",
-    "lounge",
     "movies",
     "travel"
   ],
@@ -97,7 +95,8 @@
     "Card details manually reviewed and verified by user on 2026-05-29",
     "Extra 25% discount is auto-applied and only applicable when booking and paying through the EazyDiner App via PayEazy. Not applicable for physical card payments, other cards, UPI, or wallets.",
     "Extra 25% discount is not applicable if consecutive transactions are made at the same restaurant within 120 minutes or less.",
-    "Premium alcoholic beverage brand and serving size are at the sole discretion of the restaurant."
+    "Premium alcoholic beverage brand and serving size are at the sole discretion of the restaurant.",
+    "Complimentary domestic airport lounge access (previously 2 visits per calendar quarter) was discontinued effective 15 July 2025. Set loungeDomestic to 0 on 2026-06-07: EazyDiner is not listed among the participating cards in IndusInd's official domestic airport lounge access program, corroborated by the LiveFromALounge devaluation report."
   ],
   "sourceUrl": "https://www.indusind.bank.in/in/en/personal/cards/credit-card/eazydiner-credit-card.html",
   "applyUrl": "https://www.indusind.bank.in/in/en/personal/cards/credit-card/eazydiner-credit-card.html",

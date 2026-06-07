@@ -67,6 +67,17 @@
   "popularityScore": 20,
   "loungeDomestic": 4,
   "loungeInternational": 8,
+  "lounge": {
+    "domestic": [
+      "1 complimentary visit per calendar quarter to participating domestic lounges in India.",
+      "Effective 1 April 2026, domestic lounge access is spend-gated: quarterly spends are tracked to unlock complimentary domestic access from the July 2026 quarter onwards.",
+      "Guest visits, and primary-cardholder visits beyond the complimentary quota, are charged up to USD 35 per visit."
+    ],
+    "international": [
+      "2 complimentary visits per calendar quarter to participating international lounges outside India via Priority Pass.",
+      "Guest visits, and visits beyond the 2-per-quarter complimentary quota, are charged up to USD 35 per visit."
+    ]
+  },
   "forexMarkup": 1.8,
   "tags": [
     "indusind",
@@ -116,7 +127,8 @@
     ]
   },
   "internalNotes": [
-    "Card details manually reviewed and verified by user on 2026-05-29"
+    "Card details manually reviewed and verified by user on 2026-05-29",
+    "Lounge access conditions added 2026-06-07 from the official IndusInd domestic lounge program list (Pioneer Legacy is a participating card) and Priority Pass T&C: domestic spend-gating from the July 2026 quarter, 2 international visits per quarter via Priority Pass, USD 35 charge on guest and excess visits."
   ],
   "sourceUrl": "https://www.indusind.bank.in/in/en/personal/cards/credit-card/pioneer-legacy-credit-card.html",
   "applyUrl": "https://www.indusind.bank.in/in/en/personal/cards/credit-card/pioneer-legacy-credit-card.html",
