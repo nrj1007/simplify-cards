@@ -123,6 +123,29 @@
     "emi",
     "fees_and_charges"
   ],
+  "milestones": [
+    {
+      "threshold": 500000,
+      "period": "annual",
+      "value": 2500,
+      "kind": "voucher",
+      "label": "Rs 5,000 worth flight vouchers on spends of Rs 5 lakh"
+    },
+    {
+      "threshold": 750000,
+      "period": "annual",
+      "value": 2500,
+      "kind": "voucher",
+      "label": "Rs 5,000 worth flight vouchers on spends of Rs 7.5 lakh"
+    },
+    {
+      "threshold": 150000,
+      "period": "quarterly",
+      "value": 750,
+      "kind": "voucher",
+      "label": "Rs 1,500 worth Myntra or Nykaa vouchers on quarterly spends of Rs 1.5 lakh"
+    }
+  ],
   "milestoneBenefits": [
     "Rs 5,000 worth flight vouchers on spends of Rs 5 lakh",
     "Rs 5,000 worth flight vouchers on spends of Rs 7.5 lakh",

@@ -89,6 +89,29 @@
       "notes": "Travel, dining and entertainment spends earn 4 Marriott Bonvoy Points per Rs 150 only on the first Rs 60,000 spent in a calendar month; spends beyond that threshold earn the base rate of 2 Marriott Bonvoy Points per Rs 150."
     }
   ],
+  "milestones": [
+    {
+      "threshold": 600000,
+      "period": "annual",
+      "value": 7500,
+      "kind": "points",
+      "label": "1 Free Night Award redeemable for a one-night stay up to 15,000 Marriott Bonvoy Points on eligible spend of Rs 6 lakh in an anniversary year"
+    },
+    {
+      "threshold": 900000,
+      "period": "annual",
+      "value": 7500,
+      "kind": "points",
+      "label": "1 Free Night Award redeemable for a one-night stay up to 15,000 Marriott Bonvoy Points on eligible spend of Rs 9 lakh in an anniversary year"
+    },
+    {
+      "threshold": 1500000,
+      "period": "annual",
+      "value": 7500,
+      "kind": "points",
+      "label": "1 Free Night Award redeemable for a one-night stay up to 15,000 Marriott Bonvoy Points on eligible spend of Rs 15 lakh in an anniversary year"
+    }
+  ],
   "milestoneBenefits": [
     "1 Free Night Award redeemable for a one-night stay up to 15,000 Marriott Bonvoy Points on eligible spend of Rs 6 lakh in an anniversary year",
     "1 Free Night Award redeemable for a one-night stay up to 15,000 Marriott Bonvoy Points on eligible spend of Rs 9 lakh in an anniversary year",

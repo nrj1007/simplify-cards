@@ -62,6 +62,29 @@
   "alternativeCardIds": [
     "hsbc-travelone"
   ],
+  "milestones": [
+    {
+      "threshold": 300000,
+      "period": "annual",
+      "value": 5000,
+      "kind": "points",
+      "label": "2,500 EDGE Miles on annual spend of Rs 3 lakh."
+    },
+    {
+      "threshold": 750000,
+      "period": "annual",
+      "value": 5000,
+      "kind": "points",
+      "label": "Additional 2,500 EDGE Miles on annual spend of Rs 7.5 lakh."
+    },
+    {
+      "threshold": 1500000,
+      "period": "annual",
+      "value": 10000,
+      "kind": "points",
+      "label": "Additional 5,000 EDGE Miles on annual spend of Rs 15 lakh."
+    }
+  ],
   "milestoneBenefits": [
     "2,500 EDGE Miles on annual spend of Rs 3 lakh.",
     "Additional 2,500 EDGE Miles on annual spend of Rs 7.5 lakh.",

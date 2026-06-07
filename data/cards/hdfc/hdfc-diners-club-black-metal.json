@@ -116,6 +116,15 @@
     "emi",
     "fees_and_charges"
   ],
+  "milestones": [
+    {
+      "threshold": 400000,
+      "period": "quarterly",
+      "value": 10000,
+      "kind": "points",
+      "label": "10,000 bonus reward points per quarter on spends of Rs 4 lakh or more"
+    }
+  ],
   "milestoneBenefits": [
     "10,000 bonus reward points per quarter on spends of Rs 4 lakh or more",
     "Renewal fee waived on spending Rs 8 lakh in 12 months"

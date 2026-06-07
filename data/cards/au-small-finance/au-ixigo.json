@@ -90,6 +90,15 @@
     "Get 1,000 Reward Points (worth Rs 500) on the first successful transaction within 30 days of card issuance",
     "Get Rs 1,000 ixigo money voucher on the first successful transaction within 30 days of card issuance"
   ],
+  "milestones": [
+    {
+      "threshold": 75000,
+      "period": "quarterly",
+      "value": 2500,
+      "kind": "points",
+      "label": "Earn 5,000 bonus Reward Points (worth up to Rs 2,500) on spending Rs 75,000 or more per calendar quarter"
+    }
+  ],
   "milestoneBenefits": [
     "Earn 5,000 bonus Reward Points (worth up to Rs 2,500) on spending Rs 75,000 or more per calendar quarter"
   ],

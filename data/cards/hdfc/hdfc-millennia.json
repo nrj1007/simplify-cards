@@ -78,6 +78,15 @@
     "emi",
     "fees_and_charges"
   ],
+  "milestones": [
+    {
+      "threshold": 100000,
+      "period": "quarterly",
+      "value": 500,
+      "kind": "voucher",
+      "label": "Either Rs 1,000 gift voucher or 1 domestic lounge access voucher on spends of Rs 1,00,000 and above in each calendar quarter"
+    }
+  ],
   "milestoneBenefits": [
     "Either Rs 1,000 gift voucher or 1 domestic lounge access voucher on spends of Rs 1,00,000 and above in each calendar quarter"
   ],
