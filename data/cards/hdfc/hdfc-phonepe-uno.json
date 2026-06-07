@@ -18,17 +18,23 @@
   "rewards": [
     {
       "category": "phonepe",
+      "displayCategory": "Select PhonePe transactions (recharges, utilities, bill payments, and travel)",
       "rate": 2,
+      "displayRate": "2 Reward Points / Rs 100 spent",
       "capMonthly": 500
     },
     {
       "category": "online",
+      "displayCategory": "Select online platforms (Amazon, Flipkart, Myntra, Ajio, Swiggy, Zomato, and Uber)",
       "rate": 1,
+      "displayRate": "1 Reward Point / Rs 100 spent",
       "capMonthly": 500
     },
     {
       "category": "upi",
+      "displayCategory": "UPI Scan & Pay transactions",
       "rate": 1,
+      "displayRate": "1 Reward Point / Rs 100 spent",
       "capMonthly": 500
     }
   ],
@@ -44,29 +50,40 @@
     "low fee"
   ],
   "exclusions": [
-    "cash advances",
-    "credit card fees or charges",
-    "EMI spends",
-    "categories excluded under HDFC Bank internal policies"
+    "Fuel transactions",
+    "Wallet loading transactions",
+    "Rent payments",
+    "Government related transactions",
+    "EMI transactions (including post-facto EMI conversions)",
+    "Education payments",
+    "Insurance premium payments",
+    "Investments and jewelry purchases",
+    "Cash advances / cash withdrawals",
+    "Payment of outstanding balances",
+    "Payment of card fees, interest, and charges"
   ],
-  "milestoneBenefits": [
-    "Annual fee waived on spending Rs 1,00,000 in the previous year"
+  "exclusionCodes": [
+    "fuel",
+    "wallet_load",
+    "rent",
+    "government",
+    "emi",
+    "education",
+    "insurance",
+    "cash_advance",
+    "outstanding_balance_payment",
+    "fees_and_charges"
+  ],
+  "milestoneBenefits": [],
+  "joiningBenefits": [
+    "PhonePe gift card worth Rs 249 on first RuPay credit-card-on-UPI transaction of minimum Rs 100 within 30 days of card issuance (only if joining fee is applicable)",
+    "Additional scratch cards worth Rs 25 each on next 10 RuPay credit-card-on-UPI transactions of minimum Rs 100"
   ],
   "additionalBenefits": [
-    "PhonePe gift card worth Rs 249 on first RuPay credit-card-on-UPI transaction, for cardholders where joining fee is applicable",
-    "Additional scratch cards worth Rs 25 each on next 10 RuPay credit-card-on-UPI transactions",
-    "2% reward points on select PhonePe categories: recharges, utilities, bill payments and travel",
-    "1% reward points on Amazon, Flipkart, Myntra, Ajio, Swiggy, Zomato and Uber",
-    "1% reward points on all Scan & Pay spends",
-    "1% fuel surcharge waiver on fuel transactions from Rs 400 to Rs 5,000, capped at Rs 250 per statement cycle",
-    "Apply only through the PhonePe app",
-    "Up to 50 days interest-free credit period",
-    "Zero cost card liability when reported immediately"
+    "1% fuel surcharge waiver on fuel transactions from Rs 400 to Rs 5,000, capped at Rs 250 per statement cycle"
   ],
   "redemption": {
     "statementBalanceValue": 1,
-    "smartBuyFlightHotelValue": 0.3,
-    "airMilesValue": 0.3,
     "minimumPointsForStatementCredit": 500,
     "cashbackRedemptionCapMonthly": 7500,
     "pointsExpiryYears": 2
@@ -75,17 +92,27 @@
     "salaried": [
       "Indian national",
       "Age 21 to 60 years",
-      "Gross monthly income greater than Rs 25,000"
+      "Net monthly income above Rs 25,000"
     ],
     "selfEmployed": [
       "Indian national",
       "Age 21 to 65 years",
-      "Income Rs 26 lakh per annum"
+      "ITR above Rs 26 lakh per annum"
     ]
   },
-  "sourceUrl": "https://www.hdfc.bank.in/credit-cards/phonepe-hdfc-bank-uno-credit-card",
-  "applyUrl": "https://www.hdfc.bank.in/credit-cards/phonepe-hdfc-bank-uno-credit-card",
-  "lastVerified": "2026-05-08",
+  "internalNotes": [
+    "Card details manually reviewed and verified by user on 2026-06-07",
+    "Audited against official HDFC Bank PhonePe Uno product page and terms on 2026-06-07.",
+    "Cashback redemption against statement is 1 Reward Point = Rs 1, minimum 500 points. SmartBuy is 1 Point = Rs 0.30.",
+    "1.75% DCC markup fee applies on transactions processed in INR at international locations or with merchants registered overseas.",
+    "Fully digital onboarding and application managed through the PhonePe app.",
+    "Up to 50 days interest-free credit period.",
+    "Zero cost card liability when reported immediately."
+  ],
+  "imageUrl": "/images/hdfc-phonepe-uno.webp",
+  "sourceUrl": "https://www.hdfcbank.com/personal/pay/cards/credit-cards/phonepe-hdfc-bank-uno-credit-card",
+  "applyUrl": "https://www.hdfcbank.com/personal/pay/cards/credit-cards/phonepe-hdfc-bank-uno-credit-card",
+  "lastVerified": "2026-06-07",
   "verificationStatus": "official-direct",
   "popularityScore": 72
 }

@@ -11,29 +11,42 @@
   "bestFor": [
     "train travel",
     "irctc",
-    "smartbuy",
-    "rail lounge"
+    "rail lounge",
+    "low fee"
   ],
   "rewardType": "reward points",
   "rewards": [
     {
       "category": "irctc",
+      "displayCategory": "IRCTC ticketing website and Rail Connect App",
       "rate": 5,
-      "capMonthly": 1000
-    },
-    {
-      "category": "smartbuy train",
-      "rate": 5,
-      "capMonthly": 1000
+      "displayRate": "5 Reward Points / Rs 100 spent",
+      "capMonthly": null
     },
     {
       "category": "base",
+      "displayCategory": "Other eligible retail spends",
       "rate": 1,
+      "displayRate": "1 Reward Point / Rs 100 spent",
       "capMonthly": null
     }
   ],
-  "loungeDomestic": 4,
+  "specialSpendRules": [
+    {
+      "category": "insurance",
+      "treatment": "capped",
+      "notes": "Insurance spends earn reward points capped at 2,000 points per calendar month."
+    }
+  ],
+  "loungeDomestic": 0,
   "loungeInternational": 0,
+  "lounge": {
+    "domestic": [
+      "8 complimentary IRCTC Executive Lounge visits per year (max 2 per quarter). A Rs 2 validation charge applies per visit.",
+      "Access requires presenting a valid, unexpired IRCTC HDFC Bank Credit Card and valid train ticket at the lounge entrance.",
+      "Excess visits beyond 2 per quarter are chargeable at the lounge's discretion."
+    ]
+  },
   "forexMarkup": 3.5,
   "tags": [
     "irctc",
@@ -44,49 +57,59 @@
     "low fee"
   ],
   "exclusions": [
-    "fuel spends",
-    "wallet loads",
-    "gift card loads",
-    "prepaid card loads",
-    "voucher purchases",
-    "cash advances",
-    "payment of outstanding balances",
-    "payment of card fees and other charges",
-    "government related transactions",
+    "Fuel transactions",
+    "Wallet loading, gift card loading, prepaid card loading, and voucher purchases",
+    "Cash advances",
+    "Payment of outstanding balances",
+    "Payment of card fees and other charges",
+    "Government related transactions",
+    "Education payments",
+    "Rental transactions",
+    "EMI transactions (SmartEMI or Dial an EMI)",
+    "Interest amount on Merchant EMI"
+  ],
+  "exclusionCodes": [
+    "fuel",
+    "wallet_load",
+    "cash_advance",
+    "outstanding_balance_payment",
+    "fees_and_charges",
+    "government",
     "education",
-    "SmartEMI or Dial an EMI transactions",
-    "rental transactions",
-    "merchant EMI interest"
+    "rent",
+    "emi"
+  ],
+  "joiningBenefits": [
+    "Gift voucher worth Rs 500 on card activation by completing 1 transaction of any amount within 37 days of card issuance"
   ],
   "milestoneBenefits": [
-    "Gift voucher worth Rs 500 every calendar quarter on spends of Rs 30,000 or more",
-    "Renewal fee waived on spends of Rs 1,50,000 or more in an anniversary year"
+    "Gift voucher worth Rs 500 every calendar quarter on spends of Rs 30,000 or more in that quarter",
+    "Renewal fee waived on spends of Rs 1,50,000 or more in the anniversary year"
   ],
   "additionalBenefits": [
-    "5 Reward Points for every Rs 100 spent on IRCTC ticketing website and Rail Connect App",
+    "1% transaction charge waiver on IRCTC ticketing website and Rail Connect App bookings",
     "Additional 5% cashback on train ticket bookings via HDFC Bank SmartBuy",
-    "1% transaction charge waiver on transactions done on IRCTC ticketing website and Rail Connect App",
-    "Gift voucher worth Rs 500 upon activating the card",
-    "Complimentary access to select IRCTC Executive Lounges",
-    "Rs 1,000 cashback across 200+ brands on the credit card via PayZapp",
-    "1 Reward Point for every Rs 100 spent on other eligible spends",
-    "1% fuel surcharge waiver at fuel stations across India",
-    "Up to 50 days interest-free credit period",
-    "SmartEMI conversion after purchase",
-    "Contactless payments enabled",
-    "Simple card management via HDFC Bank MyCards"
+    "1% fuel surcharge waiver on fuel transactions from Rs 400 to Rs 5,000, capped at Rs 250 per statement cycle"
+  ],
+  "additionalDetails": [
+    "Reward points are earned only on transaction amounts in multiples of Rs 100; residual amount below Rs 100 earns no points.",
+    "Reward points redeemable for train ticket bookings via HDFC SmartBuy at 1 Reward Point = Rs 1, up to 70% of the total ticket fare.",
+    "Minimum 100 reward points required to initiate a SmartBuy redemption.",
+    "Unredeemed reward points expire after 2 years from date of accumulation.",
+    "1% railway ticket purchase transaction fee applies on all card transactions; fee is reversed for IRCTC website and Rail Connect app bookings.",
+    "Utility spends above Rs 50,000 per month attract a 1% fee (capped at Rs 4,999 per month)."
   ],
   "redemption": {
-    "smartBuyFlightHotelValue": 1,
+    "ecosystemLabel": "IRCTC train tickets via SmartBuy",
+    "ecosystemValue": 1,
     "minimumPointsForStatementCredit": 100,
-    "cashbackRedemptionCapMonthly": 1000,
     "pointsExpiryYears": 2
   },
   "eligibility": {
     "salaried": [
       "Indian national",
       "Age 21 to 60 years",
-      "Monthly income Rs 25,000"
+      "Gross monthly income greater than Rs 25,000"
     ],
     "selfEmployed": [
       "Indian national",
@@ -94,9 +117,20 @@
       "Annual ITR greater than Rs 6 lakh"
     ]
   },
-  "sourceUrl": "https://www.hdfc.bank.in/credit-cards/irctc-credit-card",
-  "applyUrl": "https://www.hdfc.bank.in/credit-cards/irctc-credit-card",
-  "lastVerified": "2026-05-09",
-  "verificationStatus": "official-indexed",
+  "internalNotes": [
+    "Card details manually reviewed and verified by user on 2026-06-07",
+    "Audited against official HDFC Bank IRCTC Credit Card product page (hdfcbank.com) on 2026-06-07.",
+    "Lounge access is IRCTC Executive Lounges only (railway lounges), NOT airport lounges. loungeDomestic set to 0 to avoid confusion with airport lounge counts.",
+    "Redemption is train tickets via SmartBuy only at 1 point = Rs 1 (up to 70% of ticket fare). No statement credit or product catalogue redemption.",
+    "Milestone benefit changed from every 90 days from card issuance (for cards issued before Oct 2025) to every calendar quarter from Jan 2026 onwards.",
+    "Insurance spend cap of 2,000 points/month applies from 01-Jul-2025 as per HDFC Bank-wide co-branded card policy.",
+    "1.75% DCC markup fee applies on transactions processed in INR at international locations or merchants registered overseas.",
+    "A Rs 2 non-refundable validation charge is debited per IRCTC lounge visit to verify card eligibility."
+  ],
+  "imageUrl": "/images/hdfc-irctc.webp",
+  "sourceUrl": "https://www.hdfcbank.com/personal/pay/cards/credit-cards/irctc-credit-card",
+  "applyUrl": "https://www.hdfcbank.com/personal/pay/cards/credit-cards/irctc-credit-card",
+  "lastVerified": "2026-06-07",
+  "verificationStatus": "official-direct",
   "popularityScore": 70
 }
