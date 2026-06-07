@@ -222,3 +222,4 @@ High-priority IDFC batch was added together in commit work after `1774c40`, incl
 - [ ] FIRST Corporate Credit Card
 - [ ] FIRST Purchase Credit Card
 - [ ] FIRST Business Credit Card
+# Detailed analytics plan: `docs/analytics-plan.md`
