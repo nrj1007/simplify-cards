@@ -90,8 +90,6 @@
   ],
   "redemption": {
     "statementBalanceValue": 1,
-    "smartBuyFlightHotelValue": 0.3,
-    "airMilesValue": 0.3,
     "minimumPointsForStatementCredit": 500,
     "cashbackRedemptionCapMonthly": 7500,
     "pointsExpiryYears": 2
