@@ -105,6 +105,7 @@ If a fact already has a structured home, do not repeat it in visible prose.
    - `threshold` and `value` are **in the milestone's `period`** (annual / quarterly / monthly) — a quarterly milestone uses the per-quarter spend and per-quarter value. The engine annualizes; getting `period` right is essential (quarterly/monthly milestones were previously mis-scored as annual).
    - `kind` is `voucher` | `points` | `cashback` | `other`; `label` is the user-facing text with **no** embedded `(worth Rs …)` annotation (the value lives in `value`).
    - Keep fee-waiver thresholds in `feeWaiverSpend`, never as a milestone. When `milestones` is present it is the source of truth — its `milestoneBenefits` are ignored, so don't duplicate.
+   - **Do not migrate milestones with no fixed rupee value** — airline-mile rewards (we do not value miles in rupees) and membership tier upgrades (MMTBLACK, KrisFlyer Elite Gold, etc.). Never invent a value; leave such lines as `milestoneBenefits` text, and if a card has only these, give it no `milestones` field.
    - The validator requires numeric `threshold`/`value` (`>= 0`), `period`/`kind` from the allowed sets, and a non-empty `label`. Seed drafts with `npm run draft:milestones -- --verified-only --only=<id>` (it flags non-annual/unparseable lines for your review).
 6. **Card Image**:
    - Check whether `"imageUrl"` exists and whether it still represents the current card face.

@@ -446,6 +446,11 @@ explicitly, so nothing has to be parsed and quarterly/monthly milestones are sco
 * **Coexistence rule:** when `milestones` is present it is the source of truth for that card; its
   `milestoneBenefits` are ignored for scoring and display. Don't duplicate — a fully migrated card
   can drop `milestoneBenefits`. Keep fee-waiver thresholds in `feeWaiverSpend`, never as a milestone.
+* **Do NOT migrate (leave as `milestoneBenefits` text only):** milestones with no fixed rupee value —
+  specifically **airline-mile rewards** (we do not assign a rupee valuation to miles) and **membership
+  tier upgrades** (e.g. MMTBLACK, KrisFlyer Elite Gold). Never invent a value for these. If *every*
+  milestone line on a card is one of these, don't add a `milestones` field at all (the text fallback
+  keeps the benefit visible without a fabricated value).
 * The validator (`npm run validate:cards`) requires each entry to have numeric `threshold`/`value`
   (`>= 0`), `period` ∈ {annual, quarterly, monthly}, `kind` ∈ {voucher, points, cashback, other},
   and a non-empty `label`.
