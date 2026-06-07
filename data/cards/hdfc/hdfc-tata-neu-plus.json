@@ -19,27 +19,58 @@
   "rewards": [
     {
       "category": "tata neu",
+      "displayCategory": "Tata Neu and partner Tata brands with NeuPass",
       "rate": 7,
+      "displayRate": "Up to 7% back as NeuCoins",
       "capMonthly": null
     },
     {
       "category": "tata brands",
+      "displayCategory": "partner Tata brands",
       "rate": 2,
-      "capMonthly": null
-    },
-    {
-      "category": "online",
-      "rate": 1,
+      "displayRate": "2% back as NeuCoins",
       "capMonthly": null
     },
     {
       "category": "base",
+      "displayCategory": "other eligible spends",
       "rate": 1,
+      "displayRate": "1% back as NeuCoins",
       "capMonthly": null
     },
     {
-      "category": "upi",
+      "category": "grocery",
+      "displayCategory": "grocery",
       "rate": 1,
+      "displayRate": "1% back as NeuCoins",
+      "capMonthly": 1000
+    },
+    {
+      "category": "insurance",
+      "displayCategory": "insurance",
+      "rate": 1,
+      "displayRate": "1% back as NeuCoins",
+      "capMonthly": 2000
+    },
+    {
+      "category": "utilities",
+      "displayCategory": "utility",
+      "rate": 1,
+      "displayRate": "1% back as NeuCoins",
+      "capMonthly": 2000
+    },
+    {
+      "category": "utilities",
+      "displayCategory": "telecom and cable",
+      "rate": 1,
+      "displayRate": "1% back as NeuCoins",
+      "capMonthly": 2000
+    },
+    {
+      "category": "upi",
+      "displayCategory": "UPI on RuPay variant",
+      "rate": 1,
+      "displayRate": "Up to 1% back as NeuCoins",
       "capMonthly": 500
     }
   ],
@@ -55,30 +86,71 @@
     "shopping"
   ],
   "exclusions": [
-    "fuel",
-    "wallet",
-    "rental",
-    "government",
-    "online gaming",
-    "education payments through third-party apps"
+    "fuel spends",
+    "wallet loads, gift or prepaid card loads, and voucher purchases",
+    "cash advances",
+    "payment of outstanding balances",
+    "payment of card fees and other charges",
+    "Smart EMI and Dial an EMI transactions",
+    "rental transactions",
+    "government related transactions",
+    "education payments through third-party apps",
+    "online skill-based gaming"
   ],
-  "milestoneBenefits": [
-    "Domestic lounge access is milestone based from 10-Jun-2025: 1 lounge voucher per calendar quarter on spends of Rs 50,000 or more, up to 4 per year",
-    "Renewal fee waived on spending Rs 1 lakh or more in a year before renewal"
+  "exclusionCodes": [
+    "fuel",
+    "wallet_load",
+    "cash_advance",
+    "outstanding_balance_payment",
+    "fees_and_charges",
+    "emi",
+    "rent",
+    "government",
+    "education",
+    "gaming"
+  ],
+  "specialSpendRules": [
+    {
+      "category": "upi",
+      "treatment": "capped",
+      "notes": "Eligible UPI spends on the RuPay variant earn 0.25% via any UPI ID plus an additional 0.75% via Tata Neu UPI ID, capped at 500 NeuCoins per calendar month."
+    },
+    {
+      "category": "grocery",
+      "treatment": "capped",
+      "notes": "Eligible grocery spends earn 1% NeuCoins, capped at 1,000 NeuCoins per calendar month."
+    },
+    {
+      "category": "insurance",
+      "treatment": "capped",
+      "notes": "Eligible insurance spends earn 1% NeuCoins, capped at 2,000 NeuCoins per calendar month."
+    },
+    {
+      "category": "utilities",
+      "treatment": "capped",
+      "notes": "Eligible utility spends earn 1% NeuCoins, capped at 2,000 NeuCoins per calendar month. Telecom and cable spends are separately capped at 2,000 NeuCoins per calendar month."
+    },
+    {
+      "category": "education",
+      "treatment": "rewarded",
+      "notes": "Education payments made directly on school or college websites or POS machines earn NeuCoins; third-party app payments do not."
+    }
+  ],
+  "milestoneBenefits": [],
+  "joiningBenefits": [
+    "499 NeuCoins on Tata Neu app as reversal of first-year membership fee after the first transaction within 30 days of card issuance"
   ],
   "additionalBenefits": [
-    "2% back as NeuCoins on non-EMI spends on Tata Neu and partner Tata Brands",
-    "1% back as NeuCoins on non-Tata brand spends and merchant EMI spends",
-    "Additional 5% back as NeuCoins on selected categories on Tata Neu App/Website with NeuPass, making up to 7% on Tata Neu",
-    "Up to 1% back as NeuCoins on eligible UPI spends from 01-Aug-2024",
-    "499 NeuCoins on Tata Neu App as reversal of first year membership fee after first transaction within 30 days of card issuance",
-    "NeuCoins can be used for eligible purchases on Tata Neu brands including Air India Express, Bigbasket, Croma, Westside, Tata CLiQ, IHCL, Tata 1MG, Qmin, Titan and Tanishq",
-    "Contactless payments enabled",
-    "Zero cost card liability when reported immediately"
+    "Accelerated Tata Neu earn applies on Tata Neu app or website and eligible partner Tata brands when NeuPass is linked",
+    "NeuCoins can be used on eligible purchases on Tata Neu brands including Air India Express, Bigbasket, Croma, Westside, Tata CLiQ, IHCL, Tata 1MG, Qmin, Titan and Tanishq",
+    "1% fuel surcharge waiver on fuel transactions from Rs 400 to Rs 5,000, capped at Rs 250 per statement cycle"
+  ],
+  "additionalDetails": [
+    "Eligible UPI spends on the RuPay variant earn 0.25% via any UPI ID and an additional 0.75% via Tata Neu UPI ID, capped at 500 NeuCoins per calendar month."
   ],
   "redemption": {
-    "statementBalanceValue": 1,
-    "pointsExpiryYears": 1
+    "ecosystemLabel": "Tata Neu brands",
+    "ecosystemValue": 1
   },
   "eligibility": {
     "salaried": [
@@ -92,9 +164,26 @@
       "Annual ITR greater than Rs 6 lakh"
     ]
   },
+  "internalNotes": [
+    "Card details manually reviewed and verified by user on 2026-06-07",
+    "Audited against official HDFC Tata Neu Plus product page, fees page, eligibility page, T&C PDF, FAQ PDF, and domestic lounge revision PDF on 2026-06-07.",
+    "Domestic lounge access became milestone based from 10-Jun-2025: Tata Neu Plus earns 1 lounge voucher per calendar quarter on spends of Rs 50,000 or more.",
+    "Effective 15 May 2026, HDFC Bank charges a 1.75% DCC markup fee on all transactions processed in INR at international locations or with merchants registered overseas.",
+    "From 01-Aug-24, eligible UPI spends on RuPay earn 0.25% via any UPI ID and an additional 0.75% via Tata Neu UPI ID, capped at 500 NeuCoins per calendar month.",
+    "From 01-Sep-2024, education payments through third-party apps do not earn NeuCoins, but direct school or college website and POS transactions do earn NeuCoins.",
+    "From 01-Jul-2025, online skill-based gaming transactions do not earn NeuCoins.",
+    "Unused NeuCoins expire after 1 year (12 months) from the end of the month in which they're credited as of 01-Aug-2025.",
+    "Partner Tata Brand accelerated rewards are governed by HDFC's fair usage policy and MID/TID mapping controls."
+  ],
+  "supportingSourceUrls": [
+    "https://www.hdfc.bank.in/credit-cards/tata-neu-plus-hdfc-bank-credit-card",
+    "https://www.hdfc.bank.in/credit-cards/tata-neu-plus-hdfc-bank-credit-card/fees-and-charges",
+    "https://www.hdfc.bank.in/credit-cards/tata-neu-plus-hdfc-bank-credit-card/eligibility"
+  ],
   "sourceUrl": "https://www.hdfc.bank.in/credit-cards/tata-neu-plus-hdfc-bank-credit-card",
   "applyUrl": "https://www.hdfc.bank.in/credit-cards/tata-neu-plus-hdfc-bank-credit-card",
-  "lastVerified": "2026-05-08",
+  "imageUrl": "/images/hdfc-tata-neu-plus.webp",
+  "lastVerified": "2026-06-07",
   "verificationStatus": "official-direct",
-  "popularityScore": 82
+  "popularityScore": 70
 }

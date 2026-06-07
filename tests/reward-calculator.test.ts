@@ -371,4 +371,38 @@ describe("reward calculator", () => {
     expect(result.monthlyUnits).toBe(900);
     expect(result.annualUnits).toBe(10800);
   });
+
+  it("calculates rewards correctly for HDFC Bank Tata Neu Plus Credit Card including categories caps and upi limits", () => {
+    const card = getCardById("hdfc-tata-neu-plus");
+    expect(card).toBeTruthy();
+
+    const result = calculateRewards(card!, {
+      base: 10000,         // 10000 * 1% = 100 NeuCoins
+      upi: 60000,          // 60000 * 1% = 600 NeuCoins => capped at 500 NeuCoins
+      grocery: 150000,     // 150000 * 1% = 1500 NeuCoins => capped at 1000 NeuCoins
+      utilities: 250000,   // 250000 * 1% = 2500 NeuCoins => capped at 2000 NeuCoins
+      insurance: 250000,   // 250000 * 1% = 2500 NeuCoins => capped at 2000 NeuCoins
+      fuel: 5000           // Excluded => 0 NeuCoins
+    });
+
+    expect(result.monthlyUnits).toBe(5600); // 100 + 500 + 1000 + 2000 + 2000 = 5600
+    expect(result.annualUnits).toBe(67200);
+
+    const upiRow = result.rows.find(r => r.category === "upi");
+    expect(upiRow!.monthlyUnits).toBe(500);
+    expect(upiRow!.excluded).toBe(false);
+
+    const groceryRow = result.rows.find(r => r.category === "grocery");
+    expect(groceryRow!.monthlyUnits).toBe(1000);
+
+    const utilitiesRow = result.rows.find(r => r.category === "utilities");
+    expect(utilitiesRow!.monthlyUnits).toBe(2000);
+
+    const insuranceRow = result.rows.find(r => r.category === "insurance");
+    expect(insuranceRow!.monthlyUnits).toBe(2000);
+
+    const fuelRow = result.rows.find(r => r.category === "fuel");
+    expect(fuelRow!.monthlyUnits).toBe(0);
+    expect(fuelRow!.excluded).toBe(true);
+  });
 });
