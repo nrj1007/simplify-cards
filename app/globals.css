@@ -2824,7 +2824,7 @@ textarea {
 }
 
 .calc-redeem-row {
-  align-items: center;
+  align-items: flex-start;
   background: #fff;
   border: 1px solid var(--line-2);
   border-radius: 13px;
@@ -2842,7 +2842,9 @@ textarea {
 .calc-redeem-main {
   align-items: center;
   display: flex;
-  gap: 8px;
+  flex: 1 1 0;
+  flex-wrap: wrap;
+  gap: 6px;
   min-width: 0;
 }
 
@@ -2875,11 +2877,11 @@ textarea {
 
 .calc-redeem-label {
   color: var(--navy);
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 700;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  min-width: 0;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .calc-redeem-val {
