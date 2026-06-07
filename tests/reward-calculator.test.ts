@@ -478,5 +478,39 @@ describe("reward calculator", () => {
     expect(fuelRow!.monthlyUnits).toBe(0);
     expect(fuelRow!.excluded).toBe(true);
   });
+
+  it("calculates rewards correctly for HDFC Bank PIXEL Play Credit Card including category caps and exclusions", () => {
+    const card = getCardById("hdfc-pixel-play");
+    expect(card).toBeTruthy();
+
+    const result = calculateRewards(card!, {
+      online: 20000,       // 3% rate, 20000 * 3% = 600 => capped at 500
+      upi: 60000,          // 1% rate, 60000 * 1% = 600 => capped at 500
+      base: 10000,         // 1% rate, 10000 * 1% = 100
+      fuel: 5000,          // excluded => 0
+      rent: 10000          // excluded => 0
+    });
+
+    // Total expected monthly units = 500 (online capped) + 500 (upi capped) + 100 (base) = 1100 CashPoints
+    expect(result.monthlyUnits).toBe(1100);
+    expect(result.annualUnits).toBe(1100 * 12);
+
+    const onlineRow = result.rows.find(r => r.category === "online");
+    expect(onlineRow!.monthlyUnits).toBe(500);
+
+    const upiRow = result.rows.find(r => r.category === "upi");
+    expect(upiRow!.monthlyUnits).toBe(500);
+
+    const baseRow = result.rows.find(r => r.category === "base");
+    expect(baseRow!.monthlyUnits).toBe(100);
+
+    const fuelRow = result.rows.find(r => r.category === "fuel");
+    expect(fuelRow!.monthlyUnits).toBe(0);
+    expect(fuelRow!.excluded).toBe(true);
+
+    const rentRow = result.rows.find(r => r.category === "rent");
+    expect(rentRow!.monthlyUnits).toBe(0);
+    expect(rentRow!.excluded).toBe(true);
+  });
 });
 
