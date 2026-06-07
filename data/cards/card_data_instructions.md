@@ -44,7 +44,7 @@ These fields are displayed directly on the credit card details page in the UI. K
 > Before finalizing a card update, do a quick duplication sweep:
 > - remove exclusions repeated in visible text
 > - remove lounge rules repeated across `milestoneBenefits` and `additionalDetails`
-> - do not place lounge counts or lounge-eligibility conditions in `additionalBenefits` or `additionalDetails`; keep lounge counts in `loungeDomestic` / `loungeInternational` / `combinedLoungeAccess`, and keep lounge conditions in `internalNotes` for the lounge info popover
+> - do not place lounge counts or lounge-eligibility conditions in `additionalBenefits` or `additionalDetails`; keep lounge counts in `loungeDomestic` / `loungeInternational` / `combinedLoungeAccess`, and keep user-facing lounge access conditions in the structured `lounge` field (see "Lounge access conditions" below) — only reviewer-only caveats stay in `internalNotes`
 > - remove redemption values repeated in both `redemption` and visible prose
 > - do not repeat annual fee waiver conditions in `milestoneBenefits`, `additionalBenefits`, or `additionalDetails`; keep fee waiver only in the structured `feeWaiverSpend` field
 > - keep audit or verification wording in `internalNotes`, not user-facing sections
@@ -78,7 +78,7 @@ Use the verified cards as the model. Each fact should have one primary home.
 | Anniversary / renewal perk | `renewalBenefits` | `additionalBenefits` | SBI PRIME renewal points; Marriott Bonvoy renewal points |
 | Spend-threshold unlock | `milestoneBenefits` | `additionalBenefits`, `additionalDetails` | Marriott Bonvoy free-night milestones; Millennia quarterly lounge-or-voucher choice |
 | Lounge visit counts | `loungeDomestic`, `loungeInternational`, `combinedLoungeAccess` | `additionalBenefits`, `additionalDetails` | Marriott Bonvoy combined domestic + international lounge pool |
-| Lounge conditions or access workflow | `internalNotes` | `additionalBenefits`, `additionalDetails` | Tata Neu Infinity Visa / RuPay international lounge nuances |
+| Lounge access conditions (spend gates, guest rules, Priority Pass terms) | structured `lounge` field (`domestic` / `international` / `combined`) | `additionalBenefits`, `additionalDetails`, `internalNotes` | Regalia Gold spend-gated quarters; Magnus guest-visit limits |
 | Redemption value or partner ratio | `redemption` | visible prose unless the schema cannot express the nuance | Millennia statement balance / SmartBuy / catalogue values |
 | Zero-reward categories | `exclusions` + `exclusionCodes` | `additionalBenefits`, `additionalDetails` | Amazon Pay ICICI and verified SBI cards |
 | Operational nuance, effective dates, posting timing, caps not meant for the page, partner caveats | `internalNotes` | visible sections unless essential for user understanding | SBI Cashback statement-cycle posting; HDFC lounge-gating dates |
@@ -95,8 +95,8 @@ When you review a new fact, route it using this order:
 4. If it is a welcome / first-use perk, use `joiningBenefits`.
 5. If it is a renewal / anniversary perk, use `renewalBenefits`.
 6. If it unlocks only after reaching a spend threshold, use `milestoneBenefits`.
-7. If it is a lounge count, use the lounge fields.
-8. If it is a lounge condition, booking flow, or access caveat, use `internalNotes`.
+7. If it is a lounge count, use the lounge count fields.
+8. If it is a user-facing lounge access condition (spend gate, guest rule, Priority Pass term), use the structured `lounge` field; keep reviewer-only booking caveats in `internalNotes`.
 9. If it is redemption value or transfer ratio, use `redemption`.
 10. If it is a zero-reward exclusion, use `exclusions` and `exclusionCodes`.
 11. If it is useful but too detailed for the page, use `internalNotes`.
@@ -154,6 +154,36 @@ Define the lounge access limits for domestic and international visits:
 "combinedLoungeAccess": 12,
 "combinedLoungeAccessLabel": "Lounge access (domestic + international)"
 ```
+
+#### Lounge access conditions (`lounge`)
+The numeric fields above carry the *counts*. The optional structured **`lounge`** object carries the
+*conditions* — spend gates, guest-visit limits, Priority Pass terms, per-quarter unlock rules — as
+short, user-facing bullet strings. This is the home for the text that previously had to be mined out
+of `internalNotes` / `additionalBenefits`.
+
+```json
+"lounge": {
+  "domestic": [
+    "12 complimentary visits per year (max 3 per quarter).",
+    "From 1 July 2026 access is spend-gated: requires Rs 60,000 of spend in the preceding calendar quarter to unlock the next quarter."
+  ],
+  "international": [
+    "Complimentary Priority Pass membership on request after 4 retail transactions.",
+    "6 complimentary visits per calendar year outside India; extra visits charged at US $27 + GST."
+  ]
+}
+```
+
+* Use `domestic` / `international` for separate quotas; use `combined` when the card publishes a single
+  combined allowance (mirror the `combinedLoungeAccess` choice above).
+* Each key is an **array of plain strings**. The validator (`npm run validate:cards`) rejects any other shape.
+* `getLoungeConditions(card, type)` **prefers** this field and only falls back to mining
+  `internalNotes` / `additionalBenefits` / `additionalDetails` / `milestoneBenefits` when it is absent —
+  so once you author `lounge`, the mined text is no longer used for that card. Do not duplicate the same
+  condition in both `lounge` and prose.
+* To seed `lounge` from the existing mined text, run
+  `npm run draft:lounge -- --write --only=<id1,id2>` (dry-run without `--write`); it drafts the same
+  bullets the page shows today, ready for hand-refinement before committing.
 
 ### A. Special Spend Rules (`specialSpendRules`)
 Use the `specialSpendRules` array to explicitly define caps and treatments for key spending categories:

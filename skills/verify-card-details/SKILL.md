@@ -58,7 +58,8 @@ Before editing, keep this source-of-truth model in mind:
 - `joiningBenefits`: welcome / first-use benefits
 - `renewalBenefits`: renewal / anniversary benefits
 - `milestoneBenefits`: spend-threshold unlocks only
-- lounge fields: lounge counts only
+- `loungeDomestic` / `loungeInternational` / `combinedLoungeAccess`: lounge counts only
+- `lounge` (`{ domestic?, international?, combined? }`): user-facing lounge **access conditions / nuance** (spend gates, guest rules, Priority Pass terms, per-quarter limits) as short bullet strings — this is the structured home for the text that used to be mined out of `internalNotes`
 - `redemption`: redemption values and transfer structure only
 - `exclusions` + `exclusionCodes`: zero-reward categories only
 - `internalNotes`: caveats, dates, booking flow, posting timing, issuer nuance, review notes
@@ -114,8 +115,8 @@ If a fact already has a structured home, do not repeat it in visible prose.
      - welcome perk -> `joiningBenefits`
      - renewal perk -> `renewalBenefits`
      - spend unlock -> `milestoneBenefits`
-     - lounge count -> lounge fields
-     - lounge condition / access nuance -> `internalNotes`
+     - lounge count -> `loungeDomestic` / `loungeInternational` / `combinedLoungeAccess`
+     - lounge condition / access nuance -> structured `lounge` field (reviewer-only caveats and audit dates still go in `internalNotes`)
      - redemption value / transfer ratio -> `redemption`
      - zero reward -> `exclusions` / `exclusionCodes`
    - Apply these specific anti-duplication rules:
@@ -316,7 +317,9 @@ When auditing card details (especially for premium and super-premium cards), pay
 
 1. **Lounge Spends Criteria vs. List Sections**:
    - Avoid listing spend-based lounge tracking rules (e.g., `"Effective April 1, 2026, spends criteria tracking of Rs 1.5 Lakh per quarter is initiated..."`) directly under `additionalBenefits` or `additionalDetails` if the page already renders popover cards for Lounge stats.
-   - **Best Practice**: Place these detailed spend-tracking conditions inside `internalNotes`. The frontend popover helper `getLoungeConditions(card, "domestic" | "international")` is configured to read from `internalNotes` and extract details dynamically. This hides the long text block from the general card details page layout while keeping the info accessible on-hover and searchable by Ask AI.
+   - **Best Practice (current schema)**: Put these access conditions in the structured **`lounge`** field as short bullet strings — `lounge.domestic` / `lounge.international`, or `lounge.combined` when the card publishes a single combined allowance. `getLoungeConditions(card, "domestic" | "international")` now **prefers** this structured field and only falls back to mining `internalNotes`/`additionalBenefits`/`additionalDetails`/`milestoneBenefits` when it is absent. So author the bullets directly instead of relying on the text miner.
+   - Keep the counts in `loungeDomestic` / `loungeInternational` / `combinedLoungeAccess`; keep reviewer-only caveats and audit dates in `internalNotes`. Do **not** duplicate the same condition in both `lounge` and prose.
+   - To seed the `lounge` field for cards that still rely on mined text, run `npm run draft:lounge -- --write --only=<id1,id2>`; it drafts the same bullets the miner surfaces today, ready for hand-refinement before committing. Dry-run (no `--write`) reports scope.
    
 2. **Earning Rates, Exclusions, and Fees in Benefits**:
    - Do not repeat reward point rules (e.g., `"2.5 reward points per Rs 100 on e-commerce"`) or specific categories that are already fully modeled in the card's `rewards` array.
