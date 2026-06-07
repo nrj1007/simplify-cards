@@ -20,13 +20,13 @@
     {
       "category": "swiggy zomato",
       "rate": 10,
-      "displayRate": "5X Reward Points",
+      "displayRate": "20 Reward Points / Rs 200 spent on Swiggy and Zomato",
       "capMonthly": 2500
     },
     {
       "category": "smartbuy",
       "rate": 20,
-      "displayRate": "Up to 10X Reward Points",
+      "displayRate": "Up to 10X Reward Points (40 Reward Points / Rs 200 spent via SmartBuy)",
       "capMonthly": 4000,
       "capDaily": 2000
     },
@@ -34,7 +34,7 @@
       "category": "base",
       "displayCategory": "others",
       "rate": 2,
-      "displayRate": "4 Reward Points / Rs 200",
+      "displayRate": "4 Reward Points / Rs 200 spent",
       "capMonthly": null
     }
   ],
@@ -49,35 +49,58 @@
     "smartbuy",
     "lifestyle"
   ],
+  "specialSpendRules": [
+    {
+      "category": "grocery",
+      "treatment": "capped",
+      "notes": "Grocery spends earn rewards capped at 2,000 Reward Points per calendar month."
+    },
+    {
+      "category": "utilities",
+      "treatment": "capped",
+      "notes": "Utility spends earn rewards capped at 2,000 Reward Points per calendar month. Telecom spends are also capped at 2,000 Reward Points per calendar month."
+    },
+    {
+      "category": "insurance",
+      "treatment": "capped",
+      "notes": "Insurance spends earn rewards capped at 2,000 Reward Points per calendar month (effective 1 July 2025)."
+    }
+  ],
   "exclusions": [
-    "Fuel transactions do not accrue Reward Points",
-    "EasyEMI transactions do not accrue Reward Points",
-    "E-wallet loading transactions do not accrue Reward Points",
-    "Rent payments do not earn Reward Points",
-    "Government-related transactions do not earn Reward Points",
-    "Reward Points are reversed if a retail transaction is converted into SmartEMI"
+    "fuel",
+    "rent",
+    "wallet loads",
+    "government transactions",
+    "cash withdrawal",
+    "emi transactions",
+    "fees and charges",
+    "online skill-based gaming",
+    "education payments through third-party apps"
+  ],
+  "exclusionCodes": [
+    "fuel",
+    "rent",
+    "wallet_load",
+    "government",
+    "cash_withdrawal",
+    "emi",
+    "fees_and_charges"
+  ],
+  "joiningBenefits": [
+    "Complimentary annual memberships of Swiggy One and Times Prime as welcome benefit on spends of Rs 75,000 in the first 90 days of card issuance"
   ],
   "milestoneBenefits": [
-    "Rs 1,500 worth vouchers from brands like Marriott Experience, Barbeque Nation, Lakme Salon, O2 Spa, Decathlon, McDonald's or Domino's on quarterly spends of Rs 1.5 lakh",
-    "Renewal fee waiver on annual spends of Rs 3 lakh or more"
+    "Vouchers worth Rs 1,500 from brands like Marriott Experience, Barbeque Nation, Lakme Salon, O2 Spa, Decathlon, McDonald's, or Domino's on quarterly spends of Rs 1.5 lakh"
   ],
   "additionalBenefits": [
     "Buy 1 Get 1 free on weekend movie and non-movie tickets via BookMyShow, up to 2 free tickets every calendar month, capped at Rs 250 per ticket",
-    "5X Reward Points on online food orders on Swiggy and Zomato, aligned to the current reward structure",
-    "Up to 10X Reward Points on spends via SmartBuy, aligned to the current reward structure",
-    "Complimentary annual memberships of Swiggy One and Times Prime as welcome benefit on Rs 75,000 spends in first 90 days",
-    "Complimentary lounge access of 2 domestic plus 1 international per calendar quarter will be available only on spends of Rs 60,000 or more in the preceding calendar quarter, effective from 1 July 2026",
-    "Extra 10% off on Dineout bills at participating restaurants"
+    "Extra 10% off on Dineout bills at participating restaurants via Good Food Trail program"
   ],
   "additionalDetails": [
-    "Reward Points earnings revised to 4 Reward Points for every Rs 200 spent on eligible categories, effective 15 May 2026",
-    "Reward Points on insurance transactions are capped at 2,000 per day",
-    "Reward Points on grocery transactions are capped at 2,000 per calendar month",
-    "Reward Points on utility transactions are capped at 2,000 per calendar month",
-    "Reward Points on telecom transactions are capped at 2,000 per calendar month",
-    "DCC markup revised to 1.75% on INR-denominated international and overseas-registered merchant transactions, effective 15 May 2026",
-    "Card reissuance fee revised to Rs 199 for lost, stolen or damaged cards, effective 15 May 2026",
-    "Fuel surcharge waiver is not applicable, as listed in HDFC MITC updated on 25 May 2026"
+    "Reward Points on grocery transactions are capped at 2,00,000 total cycle cap, but specifically capped at 2,000 Reward Points per calendar month for grocery spends",
+    "Reward Points on utility and telecom transactions are capped at 2,00,000 total cycle cap, but specifically capped at 2,000 Reward Points per calendar month for utility and telecom categories individually",
+    "Reward Points on insurance transactions are capped at 2,000 Reward Points per calendar month (effective 1 July 2025)",
+    "Redemption of reward points for flights and hotel bookings on SmartBuy is capped at 50,000 per calendar month"
   ],
   "redemption": {
     "statementBalanceValue": 0.2,
@@ -104,7 +127,22 @@
   },
   "sourceUrl": "https://www.hdfc.bank.in/credit-cards/diners-privilege-credit-card",
   "applyUrl": "https://www.hdfc.bank.in/credit-cards/diners-privilege-credit-card",
-  "lastVerified": "2026-05-26",
+  "lastVerified": "2026-06-07",
   "verificationStatus": "official-direct",
-  "popularityScore": 83
+  "imageUrl": "/images/hdfc-diners-club-privilege.webp",
+  "popularityScore": 83,
+  "internalNotes": [
+    "Card details manually reviewed and verified by user on 2026-06-07",
+    "Joining/Renewal fee is Rs 1,000 + GST, waived on annual spends of Rs 3 Lakh.",
+    "Reward Points earnings are 4 points per Rs 200 spent on eligible categories (base earn rate of 2 points per Rs 100 spent).",
+    "5X Reward Points (20 points per Rs 200) on Swiggy and Zomato, with the additional 4X points capped at 2,500 Reward Points per calendar month.",
+    "10X Reward Points on SmartBuy transactions, capped at 4,000 Reward Points per calendar month (and 2,000 per day).",
+    "Reward Points on grocery transactions, utility transactions, and telecom transactions are capped at 2,000 per calendar month individually.",
+    "Reward Points on insurance transactions are capped at 2,000 per calendar month (effective 1 July 2025).",
+    "A 1.75% markup fee (effective 15 May 2026) is charged on all transactions carried out in Indian Currency at international locations or with merchants registered overseas (DCC / Overseas Markup).",
+    "Complimentary lounge access (8 domestic and 4 international visits per year, unlocked as 2 domestic and 1 international visit per quarter) is spend-based starting 1 July 2026: Requires spending Rs 60,000 in the preceding calendar quarter.",
+    "Fuel surcharge waiver is not applicable on this card (discontinued since August 2023).",
+    "Card reissuance fee is Rs 199 for lost, stolen or damaged cards (effective 15 May 2026).",
+    "Onboarding benefit: Complimentary annual memberships of Swiggy One and Times Prime memberships are awarded on spending Rs 75,000 within the first 90 days of card issuance."
+  ]
 }
