@@ -93,6 +93,13 @@
       "notes": "Rent spends are eligible only up to Rs 50,000 per calendar month for reward earn and spend-based fee waiver calculation."
     }
   ],
+  "joiningBenefitsValued": [
+    {
+      "value": 2500,
+      "kind": "voucher",
+      "label": "Choose any one voucher worth Rs 5,000 from Luxe, The Postcard Hotels, or Yatra on first transaction within 30 days of card issuance; not applicable on upgrades from Magnus"
+    }
+  ],
   "joiningBenefits": [
     "Choose any one voucher worth Rs 5,000 from Luxe, The Postcard Hotels, or Yatra on first transaction within 30 days of card issuance; not applicable on upgrades from Magnus"
   ],

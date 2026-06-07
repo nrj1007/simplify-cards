@@ -90,6 +90,13 @@
   "milestoneBenefits": [
     "Either Rs 1,000 gift voucher or 1 domestic lounge access voucher on spends of Rs 1,00,000 and above in each calendar quarter"
   ],
+  "joiningBenefitsValued": [
+    {
+      "value": 1000,
+      "kind": "points",
+      "label": "1,000 CashPoints on payment of joining or renewal membership fee, equivalent to the fee amount"
+    }
+  ],
   "joiningBenefits": [
     "1,000 CashPoints on payment of joining or renewal membership fee, equivalent to the fee amount"
   ],

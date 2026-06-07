@@ -104,6 +104,13 @@
     "gaming"
   ],
   "milestoneBenefits": [],
+  "joiningBenefitsValued": [
+    {
+      "value": 350,
+      "kind": "other",
+      "label": "Welcome benefits worth Rs 350 on eligible paid cards and first-time Swiggy user offer"
+    }
+  ],
   "joiningBenefits": [
     "Welcome benefits worth Rs 350 on eligible paid cards and first-time Swiggy user offer"
   ],

@@ -90,6 +90,13 @@
     "Additional 2,500 EDGE Miles on annual spend of Rs 7.5 lakh.",
     "Additional 5,000 EDGE Miles on annual spend of Rs 15 lakh."
   ],
+  "joiningBenefitsValued": [
+    {
+      "value": 5000,
+      "kind": "points",
+      "label": "2,500 EDGE Miles upon completing the first transaction within 37 days of card issuance."
+    }
+  ],
   "joiningBenefits": [
     "2,500 EDGE Miles upon completing the first transaction within 37 days of card issuance."
   ],
