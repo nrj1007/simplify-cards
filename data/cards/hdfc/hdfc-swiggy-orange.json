@@ -1,0 +1,130 @@
+{
+  "id": "hdfc-swiggy-orange",
+  "issuer": "HDFC Bank",
+  "name": "Swiggy Orange HDFC Bank Credit Card",
+  "network": [
+    "Mastercard"
+  ],
+  "joiningFee": 500,
+  "annualFee": 500,
+  "feeWaiverSpend": 200000,
+  "bestFor": [
+    "swiggy",
+    "food delivery",
+    "online shopping",
+    "cashback"
+  ],
+  "rewardType": "cashback",
+  "rewards": [
+    {
+      "category": "dining, grocery",
+      "displayCategory": "Swiggy App transactions (Food delivery, Instamart, Dineout, Genie)",
+      "rate": 10,
+      "displayRate": "10% Cashback",
+      "capMonthly": 1500
+    },
+    {
+      "category": "online",
+      "displayCategory": "Select online merchants (Amazon, Flipkart, Myntra, Nykaa, Ola, Uber, etc.)",
+      "rate": 5,
+      "displayRate": "5% Cashback",
+      "capMonthly": 1500
+    },
+    {
+      "category": "base",
+      "displayCategory": "Other eligible retail spends",
+      "rate": 1,
+      "displayRate": "1% Cashback",
+      "capMonthly": 500
+    }
+  ],
+  "loungeDomestic": 0,
+  "loungeInternational": 0,
+  "forexMarkup": 3.5,
+  "tags": [
+    "swiggy",
+    "orange",
+    "cashback",
+    "online",
+    "mastercard"
+  ],
+  "exclusions": [
+    "Fuel transactions",
+    "Rent payments",
+    "Utility bill payments",
+    "Insurance premium payments",
+    "EMI transactions (including post-facto EMI conversions)",
+    "Government-related transactions",
+    "Jewellery purchases",
+    "Wallet loads and prepaid card loads",
+    "Cash advances / cash withdrawals",
+    "Payment of outstanding balances",
+    "Payment of card fees, interest, and charges",
+    "Education payments",
+    "Transactions made using Swiggy Money Wallet, Swiggy Liquor, and Swiggy Minis"
+  ],
+  "exclusionCodes": [
+    "fuel",
+    "rent",
+    "utilities",
+    "insurance",
+    "emi",
+    "government",
+    "gold",
+    "wallet_load",
+    "cash_advance",
+    "fees_and_charges",
+    "education"
+  ],
+  "joiningBenefits": [
+    "Complimentary 3-month Swiggy One membership worth Rs 1,199 on card activation by completing at least 1 transaction of any amount within 30 days of card issuance"
+  ],
+  "milestoneBenefits": [],
+  "additionalBenefits": [
+    "4 complimentary rounds of green fees and 12 complimentary golf lessons per calendar year (Mastercard World benefit)",
+    "1% fuel surcharge waiver on transactions from Rs 400 to Rs 5,000, capped at Rs 250 per statement cycle"
+  ],
+  "additionalDetails": [
+    "Cashback is automatically adjusted against your credit card's outstanding statement balance in the subsequent billing cycle.",
+    "Minimum transaction of Rs 100 required to earn cashback on eligible transactions.",
+    "Cashback is calculated and posted to your card account based on your billing cycle."
+  ],
+  "redemption": {
+    "statementBalanceValue": 1.0,
+    "minimumPointsForStatementCredit": null,
+    "cashbackRedemptionCapMonthly": null,
+    "pointsExpiryYears": null
+  },
+  "interestRateMonthly": 3.6,
+  "eligibility": {
+    "salaried": [
+      "Indian national",
+      "Age 21 to 60 years",
+      "Gross monthly income Rs 15,000 or above"
+    ],
+    "selfEmployed": [
+      "Indian national",
+      "Age 21 to 65 years",
+      "Annual ITR Rs 6 lakh or above"
+    ]
+  },
+  "supportingSourceUrls": [
+    "https://www.hdfc.bank.in/credit-cards/swiggy-hdfc-bank-credit-card",
+    "https://www.hdfcbank.com/content/bbp/repositories/723fb80a-2dde-42a3-9793-7ae1be57c87f/?path=%2FPersonal%2FPay%2FCards%2FCredit+Card%2FCredit+Card+Landing+Page%2FCredit+Cards%2FSwiggy+HDFC+Bank+Credit+Card%2FT-and-C-Swiggy-HDFC-Bank-Credit-Card.pdf"
+  ],
+  "internalNotes": [
+    "Audited against HDFC's public Swiggy credit card page and the HDFC MITC naming that still refers to this cashback variant as Swiggy Orange on 2026-06-07.",
+    "Cashback is credited directly to the credit card statement, replacing the previous Swiggy Money redemption model (effective 21 June 2024).",
+    "Mastercard World golf benefits include 4 complimentary green fee rounds and 12 golf lessons annually.",
+    "1.75% DCC markup fee applies on transactions processed in INR at international locations or with merchants registered overseas."
+  ],
+  "alternativeCardIds": [
+    "hdfc-swiggy"
+  ],
+  "imageUrl": "/images/hdfc-swiggy.webp",
+  "sourceUrl": "https://www.hdfcbank.com/personal/pay/cards/credit-cards/swiggy-hdfc-bank-credit-card",
+  "applyUrl": "https://www.hdfcbank.com/personal/pay/cards/credit-cards/swiggy-hdfc-bank-credit-card",
+  "lastVerified": "2026-06-07",
+  "verificationStatus": "official-direct",
+  "popularityScore": 20
+}
