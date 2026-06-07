@@ -30,6 +30,11 @@
   ],
   "loungeDomestic": 4,
   "loungeInternational": 0,
+  "lounge": {
+    "domestic": [
+      "4 complimentary domestic airport lounge visits per year, one per quarter"
+    ]
+  },
   "forexMarkup": 3.5,
   "tags": [
     "live plus",

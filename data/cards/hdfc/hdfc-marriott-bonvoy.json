@@ -42,6 +42,12 @@
   ],
   "loungeDomestic": 12,
   "loungeInternational": 12,
+  "lounge": {
+    "combined": [
+      "The card offers 12 total complimentary lounge accesses per year across domestic and international lounges.",
+      "International lounge access is provided via the DCI travel tool app."
+    ]
+  },
   "combinedLoungeAccess": 12,
   "combinedLoungeAccessLabel": "Lounge access (domestic + international)",
   "forexMarkup": 3.5,

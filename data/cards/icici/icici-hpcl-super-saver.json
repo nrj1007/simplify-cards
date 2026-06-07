@@ -43,6 +43,11 @@
   "popularityScore": 80,
   "loungeDomestic": 4,
   "loungeInternational": 0,
+  "lounge": {
+    "domestic": [
+      "Complimentary domestic airport lounge access (1 visit per quarter) requires a minimum spend of Rs 75,000 in the previous calendar quarter."
+    ]
+  },
   "forexMarkup": 3.5,
   "tags": [
     "icici",

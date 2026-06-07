@@ -36,6 +36,14 @@
   "popularityScore": 80,
   "loungeDomestic": 12,
   "loungeInternational": 6,
+  "lounge": {
+    "domestic": [
+      "3 complimentary domestic lounge visits per quarter for primary cardmember"
+    ],
+    "international": [
+      "6 complimentary international lounge visits in 12 months for primary and add-on cardmembers"
+    ]
+  },
   "forexMarkup": 1.75,
   "tags": [
     "yes bank",

@@ -25,6 +25,14 @@
   "popularityScore": 83,
   "loungeDomestic": 16,
   "loungeInternational": 12,
+  "lounge": {
+    "domestic": [
+      "4 complimentary domestic lounge accesses per calendar quarter"
+    ],
+    "international": [
+      "1 complimentary international lounge access per month via Priority Pass subject to prior month spend criteria"
+    ]
+  },
   "forexMarkup": 2,
   "tags": [
     "standard chartered",

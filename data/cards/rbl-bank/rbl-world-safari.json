@@ -29,6 +29,14 @@
   "popularityScore": 82,
   "loungeDomestic": 8,
   "loungeInternational": 2,
+  "lounge": {
+    "domestic": [
+      "Domestic and international airport lounge access"
+    ],
+    "international": [
+      "Domestic and international airport lounge access"
+    ]
+  },
   "forexMarkup": 0,
   "tags": [
     "rbl",

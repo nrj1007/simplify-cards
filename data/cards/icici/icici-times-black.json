@@ -42,6 +42,11 @@
   "popularityScore": 84,
   "loungeDomestic": "unlimited",
   "loungeInternational": "unlimited",
+  "lounge": {
+    "international": [
+      "Priority Pass is provided to both primary and Plus cardholders."
+    ]
+  },
   "forexMarkup": 1.49,
   "tags": [
     "icici",

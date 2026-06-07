@@ -73,6 +73,16 @@
   "popularityScore": 84,
   "loungeDomestic": "unlimited",
   "loungeInternational": "unlimited",
+  "lounge": {
+    "domestic": [
+      "Unlimited domestic and international lounge access applies to both primary and add-on cardholders, with no spend-based criteria."
+    ],
+    "international": [
+      "Unlimited domestic and international lounge access applies to both primary and add-on cardholders, with no spend-based criteria.",
+      "Complimentary Priority Pass membership for both the primary and Plus cardholder",
+      "Comp Priority Pass is provided to primary and Plus cardholders; guest visits are charged at USD 27 plus GST."
+    ]
+  },
   "forexMarkup": 2,
   "tags": [
     "icici",

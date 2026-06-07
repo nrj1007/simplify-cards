@@ -45,6 +45,11 @@
   "popularityScore": 80,
   "loungeDomestic": 0,
   "loungeInternational": 3,
+  "lounge": {
+    "international": [
+      "3 complimentary international lounge visits per calendar year"
+    ]
+  },
   "forexMarkup": 3.4,
   "tags": [
     "yes bank",

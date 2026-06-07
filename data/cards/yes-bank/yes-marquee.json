@@ -36,6 +36,14 @@
   "popularityScore": 84,
   "loungeDomestic": 24,
   "loungeInternational": "unlimited",
+  "lounge": {
+    "domestic": [
+      "Domestic lounge access up to 6 visits per quarter for primary and add-on cardmembers, subject to spend threshold"
+    ],
+    "international": [
+      "Unlimited international lounge access for primary and add-on cardmembers"
+    ]
+  },
   "forexMarkup": 1.75,
   "tags": [
     "yes bank",

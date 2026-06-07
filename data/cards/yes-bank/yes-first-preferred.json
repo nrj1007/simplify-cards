@@ -36,6 +36,15 @@
   "popularityScore": 79,
   "loungeDomestic": 8,
   "loungeInternational": 4,
+  "lounge": {
+    "domestic": [
+      "2 complimentary domestic airport lounge visits per quarter"
+    ],
+    "international": [
+      "Priority Pass or LoungeKey membership for the primary cardmember",
+      "4 complimentary international airport lounge visits per year"
+    ]
+  },
   "forexMarkup": 1.75,
   "tags": [
     "yes bank",

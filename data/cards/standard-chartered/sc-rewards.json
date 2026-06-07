@@ -29,6 +29,11 @@
   "popularityScore": 80,
   "loungeDomestic": 4,
   "loungeInternational": 0,
+  "lounge": {
+    "domestic": [
+      "1 complimentary domestic lounge visit per calendar quarter"
+    ]
+  },
   "forexMarkup": 3.5,
   "tags": [
     "standard chartered",
