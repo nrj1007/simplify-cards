@@ -520,5 +520,39 @@ describe("reward calculator", () => {
     expect(rentRow!.monthlyUnits).toBe(0);
     expect(rentRow!.excluded).toBe(true);
   });
+
+  it("calculates rewards correctly for HDFC Bank Freedom Credit Card including category caps and exclusions", () => {
+    const card = getCardById("hdfc-freedom");
+    expect(card).toBeTruthy();
+
+    const result = calculateRewards(card!, {
+      online: 45000,       // 10X category: 45000 * 10/150 = 3000 points => capped at 2500
+      upi: 90000,          // 1X category: 90000 * 1/150 = 600 points => capped at 500
+      base: 15000,         // 1X category: 15000 * 1/150 = 100 points
+      fuel: 5000,          // excluded => 0
+      rent: 10000          // excluded => 0
+    });
+
+    // Total expected monthly units = 2500 (online capped) + 500 (upi capped) + 100 (base) = 3100 CashPoints
+    expect(result.monthlyUnits).toBe(3100);
+    expect(result.annualUnits).toBe(3100 * 12);
+
+    const onlineRow = result.rows.find(r => r.category === "online");
+    expect(onlineRow!.monthlyUnits).toBe(2500);
+
+    const upiRow = result.rows.find(r => r.category === "upi");
+    expect(upiRow!.monthlyUnits).toBe(500);
+
+    const baseRow = result.rows.find(r => r.category === "base");
+    expect(baseRow!.monthlyUnits).toBe(100);
+
+    const fuelRow = result.rows.find(r => r.category === "fuel");
+    expect(fuelRow!.monthlyUnits).toBe(0);
+    expect(fuelRow!.excluded).toBe(true);
+
+    const rentRow = result.rows.find(r => r.category === "rent");
+    expect(rentRow!.monthlyUnits).toBe(0);
+    expect(rentRow!.excluded).toBe(true);
+  });
 });
 

@@ -19,19 +19,25 @@
   "rewardType": "CashPoints",
   "rewards": [
     {
-      "category": "select merchants",
-      "rate": 6.67,
+      "category": "dining, travel, grocery, hotels, online",
+      "displayCategory": "BigBasket, BookMyShow, OYO, Swiggy, and Uber (10X CashPoints)",
+      "rate": 1,
+      "displayRate": "10 CashPoints / Rs 150 spent",
       "capMonthly": 2500
     },
     {
-      "category": "base",
-      "rate": 0.67,
-      "capMonthly": null
+      "category": "upi",
+      "displayCategory": "UPI transactions (RuPay variant)",
+      "rate": 0.1,
+      "displayRate": "1 CashPoint / Rs 150 spent",
+      "capMonthly": 500
     },
     {
-      "category": "upi",
-      "rate": 0.67,
-      "capMonthly": 500
+      "category": "base",
+      "displayCategory": "Other retail spends",
+      "rate": 0.1,
+      "displayRate": "1 CashPoint / Rs 150 spent",
+      "capMonthly": null
     }
   ],
   "loungeDomestic": 0,
@@ -46,54 +52,83 @@
     "rupay"
   ],
   "exclusions": [
+    "Fuel transactions",
+    "Wallet loading transactions",
+    "Rent payments",
+    "Government related transactions",
+    "EMI transactions (including post-facto EMI conversions)",
+    "Cash advances / cash withdrawals",
+    "Payment of outstanding balances",
+    "Payment of card fees, interest, and charges"
+  ],
+  "exclusionCodes": [
     "fuel",
-    "EMI transactions",
-    "rent payments",
-    "government related transactions",
-    "wallet loads",
-    "gift card loads",
-    "prepaid card loads",
-    "voucher purchases"
+    "wallet_load",
+    "rent",
+    "government",
+    "emi",
+    "cash_advance",
+    "outstanding_balance_payment",
+    "fees_and_charges"
+  ],
+  "specialSpendRules": [
+    {
+      "category": "utilities",
+      "treatment": "capped",
+      "notes": "Utility spends earn CashPoints capped at 2,000 CashPoints per calendar month."
+    },
+    {
+      "category": "insurance",
+      "treatment": "capped",
+      "notes": "Insurance spends earn CashPoints capped at 2,000 CashPoints per calendar month."
+    }
   ],
   "milestoneBenefits": [
-    "500 Reward Points on fee realisation, applicable only on payment of joining membership fee",
-    "Renewal membership fee waived on spending Rs 50,000 or more in a year before renewal"
+    "500 CashPoints on fee realisation, applicable only on payment of joining membership fee",
+    "Renewal fee waived on spending Rs 50,000 or more in the preceding 12 months"
   ],
   "additionalBenefits": [
-    "10X CashPoints on BigBasket, BookMyShow, OYO, Swiggy and Uber",
-    "1 Reward Point for every Rs 150 spent",
-    "Additional CashPoints via PayZapp on utility bills, mobile recharges and more",
-    "Rs 1,000 CashPoints on shopping in-app over 200+ brands via PayZapp",
-    "10% additional discount on Swiggy Dineout using coupon code HDFCCARDS",
-    "1% fuel surcharge waiver at fuel stations across India on transactions from Rs 400 to Rs 5,000, capped at Rs 250 per statement cycle",
-    "Up to 50 days interest-free credit period",
-    "SmartEMI conversion after purchase",
-    "Contactless payments enabled",
-    "Zero lost card liability when reported immediately"
+    "Manage card controls and statement details digitally via MyCards or NetBanking",
+    "Up to 10% savings on restaurant bill payments via Swiggy Dineout using coupon code HDFCCARDS",
+    "SmartEMI option to convert purchases of Rs 2,500 or more into easy monthly installments",
+    "1% fuel surcharge waiver at fuel stations across India on transactions from Rs 400 to Rs 5,000, capped at Rs 250 per statement cycle"
+  ],
+  "additionalDetails": [
+    "Maximum reward points that can be earned in a single statement cycle is 15,000."
   ],
   "redemption": {
     "statementBalanceValue": 0.15,
     "smartBuyFlightHotelValue": 0.15,
     "airMilesValue": 0.15,
-    "minimumPointsForStatementCredit": 2500,
-    "cashbackRedemptionCapMonthly": 3000
+    "minimumPointsForStatementCredit": 3334,
+    "cashbackRedemptionCapMonthly": 3000,
+    "redemptionFee": 99,
+    "pointsExpiryYears": 2
   },
   "interestRateMonthly": 3.49,
   "eligibility": {
     "salaried": [
       "Indian national",
       "Age 21 to 60 years",
-      "Gross monthly income greater than Rs 12,000"
+      "Gross monthly income Rs 12,000 or above"
     ],
     "selfEmployed": [
       "Indian national",
       "Age 21 to 65 years",
-      "ITR greater than Rs 2 lakh per annum"
+      "Annual ITR Rs 2 lakh or above"
     ]
   },
+  "internalNotes": [
+    "Card details manually reviewed and verified by user on 2026-06-07",
+    "Audited against official HDFC Bank Freedom Credit Card product page and terms on 2026-06-07.",
+    "Earn rate is 1 CashPoint per Rs 150 spent on base categories, and 10 CashPoints per Rs 150 spent on select 10X partners.",
+    "CashPoints redemption towards statement credit has a value of 1 CashPoint = Rs 0.15, minimum redemption of 3,334 CashPoints.",
+    "1.75% DCC markup fee applies on transactions processed in INR at international locations or with merchants registered overseas."
+  ],
+  "imageUrl": "/images/hdfc-freedom.webp",
   "sourceUrl": "https://www.hdfc.bank.in/credit-cards/freedom-credit-card",
   "applyUrl": "https://www.hdfc.bank.in/credit-cards/freedom-credit-card",
-  "lastVerified": "2026-05-08",
-  "verificationStatus": "official-indexed",
+  "lastVerified": "2026-06-07",
+  "verificationStatus": "official-direct",
   "popularityScore": 78
 }
