@@ -1,7 +1,7 @@
 import { cards } from "./cards";
 import { SPEND_CATEGORY_EXCLUSION_CODE_MAP } from "./exclusion-constants";
 import { parseQueryIntent } from "./query-intent";
-import type { CardScore, CreditCard, RecommendationInput, SpendCategory, SpendProfile, Reward } from "./types";
+import type { CardScore, CreditCard, Milestone, RecommendationInput, SpendCategory, SpendProfile, Reward } from "./types";
 import { getTotalLoungeAccess } from "./lounge";
 import { stripScoringAnnotations } from "./card-index";
 
@@ -504,7 +504,7 @@ function parseRupeeAmount(value: string) {
   return Math.round(Number(plainMatch[1]));
 }
 
-function extractMilestoneThreshold(text: string) {
+export function extractMilestoneThreshold(text: string) {
   const normalized = text.toLowerCase().replace(/,/g, "").replace(/\s+/g, " ").trim();
   const lakhMatch =
     normalized.match(/annual spend(?:s|ing)?(?: of| above| greater than)? rs (\d+(?:\.\d+)?) lakh(?:s)?/) ??
@@ -681,44 +681,60 @@ function estimateBenefitLineValue(card: CreditCard, benefit: string) {
   return value;
 }
 
-function estimateMilestoneLineValue(card: CreditCard, benefit: string) {
+export function estimateMilestoneLineValue(card: CreditCard, benefit: string) {
   return estimateBenefitLineValue(card, benefit);
 }
 
 function milestoneValueForCard(card: CreditCard, annualSpend: number) {
-  if (!card.milestoneBenefits?.length) return 0;
-
-  return card.milestoneBenefits.reduce((total, benefit) => {
-    const threshold = extractMilestoneThreshold(benefit);
-    if (threshold !== null && annualSpend < threshold) return total;
-
-    // TODO: Scale quarterly/monthly milestones based on frequency rather than treating them as annual flat thresholds.
-    // e.g. Gift voucher worth Rs 500 on spends of Rs 50k per calendar quarter should unlock for spends of 50k per quarter, not 50k per year.
-    return total + estimateMilestoneLineValue(card, benefit);
-  }, 0);
+  return milestoneRulesForCard(card).reduce(
+    (total, rule) => (annualSpend >= rule.threshold ? total + rule.value : total),
+    0
+  );
 }
 
 export type MilestoneRule = {
   /** Annual spend (Rs) that unlocks this milestone; 0 means it always applies. */
   threshold: number;
-  /** Estimated rupee value of the milestone, using the same logic as the recommender. */
+  /** Estimated annual rupee value of the milestone, using the same logic as the recommender. */
   value: number;
   /** Human-readable benefit text. */
   label: string;
   /** Whether the benefit is a voucher. */
   isVoucher?: boolean;
+  /** Period the milestone repeats over (display only; threshold/value are already annualized). */
+  period?: Milestone["period"];
 };
 
+// Prefer reviewed structured milestones; fall back to parsing milestoneBenefits prose. Both paths
+// yield annualized rules (annual spend gate + annual value) so every consumer reads one shape.
 export function milestoneRulesForCard(card: CreditCard): MilestoneRule[] {
-  return (card.milestoneBenefits ?? [])
-    .map((benefit) => ({
-      threshold: extractMilestoneThreshold(benefit) ?? 0,
-      value: estimateMilestoneLineValue(card, benefit),
-      label: stripScoringAnnotations(benefit),
-      isVoucher: /\bvoucher(s)?\b/i.test(benefit)
-    }))
-    .filter((rule) => rule.value > 0)
-    .sort((a, b) => a.threshold - b.threshold);
+  const rules = card.milestones?.length
+    ? structuredMilestoneRules(card.milestones)
+    : textMilestoneRules(card);
+  return rules.filter((rule) => rule.value > 0).sort((a, b) => a.threshold - b.threshold);
+}
+
+function structuredMilestoneRules(milestones: Milestone[]): MilestoneRule[] {
+  return milestones.map((milestone) => {
+    // Annualize so a quarterly Rs 500 / Rs 50k milestone scores as 4 × per year, not once.
+    const multiplier = milestone.period === "quarterly" ? 4 : milestone.period === "monthly" ? 12 : 1;
+    return {
+      threshold: milestone.threshold * multiplier,
+      value: milestone.value * multiplier,
+      label: milestone.label,
+      isVoucher: milestone.kind === "voucher",
+      period: milestone.period
+    };
+  });
+}
+
+function textMilestoneRules(card: CreditCard): MilestoneRule[] {
+  return (card.milestoneBenefits ?? []).map((benefit) => ({
+    threshold: extractMilestoneThreshold(benefit) ?? 0,
+    value: estimateMilestoneLineValue(card, benefit),
+    label: stripScoringAnnotations(benefit),
+    isVoucher: /\bvoucher(s)?\b/i.test(benefit)
+  }));
 }
 
 function joiningAndRenewalBenefitValueForCard(card: CreditCard) {
@@ -753,9 +769,8 @@ function milestoneThresholdsForCard(card: CreditCard) {
     thresholds.add(card.feeWaiverSpend);
   }
 
-  for (const benefit of card.milestoneBenefits ?? []) {
-    const threshold = extractMilestoneThreshold(benefit);
-    if (threshold && threshold > 0) thresholds.add(threshold);
+  for (const rule of milestoneRulesForCard(card)) {
+    if (rule.threshold > 0) thresholds.add(rule.threshold);
   }
 
   return [...thresholds].sort((a, b) => a - b);
@@ -776,7 +791,8 @@ function comparisonMilestoneAndWaiverValue(card: CreditCard) {
 }
 
 function milestoneSpecialistBoost(card: CreditCard, broadNoSpendRankingQuery: boolean) {
-  if (!broadNoSpendRankingQuery || !card.milestoneBenefits?.length) return 0;
+  const rules = milestoneRulesForCard(card);
+  if (!broadNoSpendRankingQuery || !rules.length) return 0;
 
   const searchableText = normalizeForMatch([card.name, ...card.tags, ...card.bestFor].join(" "));
   const milestoneIdentity =
@@ -791,14 +807,12 @@ function milestoneSpecialistBoost(card: CreditCard, broadNoSpendRankingQuery: bo
   let hasHighValueMilestone = false;
   let hasTajMilestone = false;
 
-  for (const benefit of card.milestoneBenefits) {
-    const threshold = extractMilestoneThreshold(benefit);
-    const lineValue = estimateMilestoneLineValue(card, benefit);
-    const normalized = normalizeForMatch(benefit);
+  for (const rule of rules) {
+    const normalized = normalizeForMatch(rule.label);
 
-    if (threshold !== null && threshold >= 650000 && threshold <= 750000) {
+    if (rule.threshold >= 650000 && rule.threshold <= 750000) {
       hasSevenLakhStyleMilestone = true;
-      if (lineValue >= 15000) hasHighValueMilestone = true;
+      if (rule.value >= 15000) hasHighValueMilestone = true;
       if (containsNormalizedPhrase(normalized, "taj")) hasTajMilestone = true;
     }
   }

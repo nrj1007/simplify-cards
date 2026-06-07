@@ -27,6 +27,21 @@ export type SpecialSpendRule = {
   notes?: string;
 };
 
+// Structured, reviewed milestone. When present on a card it is the source of truth for that
+// card's milestone numbers and display, replacing the runtime regex-parsing of milestoneBenefits
+// prose in lib/recommend.ts. Optional, migrated per card (verified-only).
+export type Milestone = {
+  /** Spend that unlocks the reward, in the given period (Rs). 0 means it always applies. */
+  threshold: number;
+  /** Period the threshold/value repeat over. "annual" reproduces today's flat-threshold behavior. */
+  period: "annual" | "quarterly" | "monthly";
+  /** Rupee value unlocked per occurrence of the period. */
+  value: number;
+  kind: "voucher" | "points" | "cashback" | "other";
+  /** User-facing text. No embedded "(worth Rs …)" scoring annotation. */
+  label: string;
+};
+
 export type Reward = {
   category: SpendCategory | string;
   displayCategory?: string;
@@ -117,6 +132,9 @@ export type CreditCard = {
   exclusionCodes?: ExclusionCode[];
   specialSpendRules?: SpecialSpendRule[];
   milestoneBenefits?: string[];
+  // Structured milestones. When present, preferred over milestoneBenefits for scoring/calculator/
+  // display (see milestoneRulesForCard in lib/recommend.ts). Optional, migrated per card.
+  milestones?: Milestone[];
   joiningBenefits?: string[];
   renewalBenefits?: string[];
   additionalBenefits?: string[];

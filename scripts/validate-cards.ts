@@ -39,6 +39,8 @@ const cards = cardFiles.flatMap((file) => {
 });
 
 const allowedLoungeValues = new Set(["unlimited"]);
+const allowedMilestonePeriods = new Set(["annual", "quarterly", "monthly"]);
+const allowedMilestoneKinds = new Set(["voucher", "points", "cashback", "other"]);
 const allowedVerificationStatuses = new Set([
   "official-direct",
   "official-indexed",
@@ -395,6 +397,29 @@ if (cardFiles.length === 0) {
             addIssue(`lounge.${bucket} must be an array of strings`, cardId, "lounge");
           }
         }
+      }
+    }
+
+    if (card.milestones !== undefined) {
+      if (!Array.isArray(card.milestones)) {
+        addIssue("must be an array of milestone objects when present", cardId, "milestones");
+      } else {
+        card.milestones.forEach((milestone, index) => {
+          const field = `milestones[${index}]`;
+          if (!isObject(milestone)) {
+            addIssue("must be an object with threshold/period/value/kind/label", cardId, field);
+            return;
+          }
+          if (!isMoneyNumber(milestone.threshold)) addIssue("threshold must be a non-negative number", cardId, field);
+          if (!isMoneyNumber(milestone.value)) addIssue("value must be a non-negative number", cardId, field);
+          if (!allowedMilestonePeriods.has(milestone.period as string)) {
+            addIssue('period must be "annual", "quarterly", or "monthly"', cardId, field);
+          }
+          if (!allowedMilestoneKinds.has(milestone.kind as string)) {
+            addIssue('kind must be "voucher", "points", "cashback", or "other"', cardId, field);
+          }
+          if (!isNonEmptyString(milestone.label)) addIssue("label must be a non-empty string", cardId, field);
+        });
       }
     }
 

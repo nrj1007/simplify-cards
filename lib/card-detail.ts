@@ -135,7 +135,7 @@ export function deriveTake(card: CreditCard): CardTake | null {
   if (card.forexMarkup <= 2) positives.push(`a low ${card.forexMarkup}% forex markup`);
   const accel = topAcceleratedReward(card);
   if (accel) positives.push(`accelerated rewards on ${prettyInline(accel.displayCategory ?? accel.category)}`);
-  if (card.milestoneBenefits?.length) positives.push("milestone rewards");
+  if (card.milestoneBenefits?.length || card.milestones?.length) positives.push("milestone rewards");
   if (card.annualFee === 0 && card.joiningFee === 0) positives.push("no annual fee");
   const whyVerb = positives.length >= 2 ? "combines" : "offers";
   const whyItWorks = positives.length ? `It ${whyVerb} ${joinNatural(positives.slice(0, 3))}.` : "";
@@ -317,10 +317,13 @@ export function deriveLoungeMilestoneRules(card: CreditCard): CardRule[] {
     }
   }
 
-  for (const benefit of card.milestoneBenefits ?? []) {
-    if (/renewal fee|fee waiv|annual fee waiv/i.test(benefit)) continue;
-    const text = stripScoringAnnotations(benefit);
-    if (text) rules.push({ label: "Milestone", text });
+  // Prefer reviewed structured milestone labels; fall back to the free-text milestoneBenefits.
+  const milestoneLabels = card.milestones?.length
+    ? card.milestones.map((milestone) => milestone.label)
+    : (card.milestoneBenefits ?? []).map((benefit) => stripScoringAnnotations(benefit));
+  for (const label of milestoneLabels) {
+    if (/renewal fee|fee waiv|annual fee waiv/i.test(label)) continue;
+    if (label) rules.push({ label: "Milestone", text: label });
   }
 
   if (card.feeWaiverSpend && card.feeWaiverSpend > 0) {

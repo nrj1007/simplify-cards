@@ -2,6 +2,7 @@ import { describe, expect, it } from "vitest";
 import { getCardById } from "../lib/cards";
 import { calculateRewards } from "../lib/reward-calculator";
 import { milestoneRulesForCard } from "../lib/recommend";
+import type { Milestone } from "../lib/types";
 
 describe("reward calculator", () => {
   it("derives Burgundy EDGE REWARD Point earn correctly from display rates", () => {
@@ -157,6 +158,53 @@ describe("reward calculator", () => {
     const capMilestone = rules.find(r => r.label.includes("Maximum milestone rewards"));
     expect(capMilestone).toBeTruthy();
     expect(capMilestone!.threshold).toBe(1200000);
+  });
+
+  describe("structured milestones field", () => {
+    const base = getCardById("amex-platinum-travel")!;
+
+    it("prefers structured milestones over milestoneBenefits text", () => {
+      const milestones: Milestone[] = [
+        { threshold: 500000, period: "annual", value: 5000, kind: "voucher", label: "Rs 5,000 flight voucher on Rs 5 lakh annual spend" }
+      ];
+      const rules = milestoneRulesForCard({
+        ...base,
+        milestoneBenefits: ["Rs 99,999 worth bonus on annual spends of Rs 1 lakh"],
+        milestones
+      });
+      expect(rules).toHaveLength(1);
+      expect(rules[0].threshold).toBe(500000);
+      expect(rules[0].value).toBe(5000);
+      expect(rules[0].isVoucher).toBe(true);
+      expect(rules[0].label).toContain("flight voucher");
+    });
+
+    it("keeps annual milestone numbers as-authored", () => {
+      const milestones: Milestone[] = [
+        { threshold: 400000, period: "annual", value: 8000, kind: "points", label: "8,000 points at Rs 4 lakh" }
+      ];
+      const rules = milestoneRulesForCard({ ...base, milestones });
+      expect(rules[0]).toMatchObject({ threshold: 400000, value: 8000, period: "annual", isVoucher: false });
+    });
+
+    it("annualizes a quarterly milestone (threshold and value x4)", () => {
+      const milestones: Milestone[] = [
+        { threshold: 75000, period: "quarterly", value: 2500, kind: "points", label: "5,000 pts on Rs 75k per quarter" }
+      ];
+      const rules = milestoneRulesForCard({ ...base, milestones });
+      expect(rules[0].threshold).toBe(300000);
+      expect(rules[0].value).toBe(10000);
+      expect(rules[0].period).toBe("quarterly");
+    });
+
+    it("annualizes a monthly milestone (threshold and value x12)", () => {
+      const milestones: Milestone[] = [
+        { threshold: 10000, period: "monthly", value: 100, kind: "points", label: "100 pts on Rs 10k per month" }
+      ];
+      const rules = milestoneRulesForCard({ ...base, milestones });
+      expect(rules[0].threshold).toBe(120000);
+      expect(rules[0].value).toBe(1200);
+    });
   });
 
   it("calculates rewards correctly for MakeMyTrip ICICI card", () => {
@@ -607,6 +655,40 @@ describe("reward calculator", () => {
 
     const utilitiesRow = result.rows.find(r => r.category === "utilities");
     expect(utilitiesRow!.monthlyUnits).toBe(1000);
+
+    const onlineRow = result.rows.find(r => r.category === "online");
+    expect(onlineRow!.monthlyUnits).toBe(500);
+
+    const upiRow = result.rows.find(r => r.category === "upi");
+    expect(upiRow!.monthlyUnits).toBe(500);
+
+    const fuelRow = result.rows.find(r => r.category === "fuel");
+    expect(fuelRow!.monthlyUnits).toBe(0);
+    expect(fuelRow!.excluded).toBe(true);
+
+    const rentRow = result.rows.find(r => r.category === "rent");
+    expect(rentRow!.monthlyUnits).toBe(0);
+    expect(rentRow!.excluded).toBe(true);
+  });
+
+  it("calculates rewards correctly for HDFC Bank PhonePe Uno Credit Card including category caps and exclusions", () => {
+    const card = getCardById("hdfc-phonepe-uno");
+    expect(card).toBeTruthy();
+
+    const result = calculateRewards(card!, {
+      utilities: 30000,    // 2% rate, 30000 * 2% = 600 => capped at 500
+      online: 60000,       // 1% rate, 60000 * 1% = 600 => capped at 500
+      upi: 60000,          // 1% rate, 60000 * 1% = 600 => capped at 500
+      fuel: 5000,          // excluded => 0
+      rent: 10000          // excluded => 0
+    });
+
+    // Total expected monthly units = 500 (utilities capped) + 500 (online capped) + 500 (upi capped) = 1500 reward points
+    expect(result.monthlyUnits).toBe(1500);
+    expect(result.annualUnits).toBe(1500 * 12);
+
+    const utilitiesRow = result.rows.find(r => r.category === "utilities");
+    expect(utilitiesRow!.monthlyUnits).toBe(500);
 
     const onlineRow = result.rows.find(r => r.category === "online");
     expect(onlineRow!.monthlyUnits).toBe(500);

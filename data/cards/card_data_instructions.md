@@ -76,7 +76,7 @@ Use the verified cards as the model. Each fact should have one primary home.
 | Fee waiver threshold | `feeWaiverSpend` | `milestoneBenefits`, `additionalBenefits`, `additionalDetails` | Flipkart Axis fee waiver moved out of milestone copy |
 | One-time onboarding perk | `joiningBenefits` | `additionalBenefits` | Flipkart Axis welcome benefit; Tata Neu Infinity first-year NeuCoins reversal |
 | Anniversary / renewal perk | `renewalBenefits` | `additionalBenefits` | SBI PRIME renewal points; Marriott Bonvoy renewal points |
-| Spend-threshold unlock | `milestoneBenefits` | `additionalBenefits`, `additionalDetails` | Marriott Bonvoy free-night milestones; Millennia quarterly lounge-or-voucher choice |
+| Spend-threshold unlock | structured `milestones` (preferred); `milestoneBenefits` for un-migrated cards | `additionalBenefits`, `additionalDetails` | Marriott Bonvoy free-night milestones; Millennia quarterly lounge-or-voucher choice |
 | Lounge visit counts | `loungeDomestic`, `loungeInternational`, `combinedLoungeAccess` | `additionalBenefits`, `additionalDetails` | Marriott Bonvoy combined domestic + international lounge pool |
 | Lounge access conditions (spend gates, guest rules, Priority Pass terms) | structured `lounge` field (`domestic` / `international` / `combined`) | `additionalBenefits`, `additionalDetails`, `internalNotes` | Regalia Gold spend-gated quarters; Magnus guest-visit limits |
 | Redemption value or partner ratio | `redemption` | visible prose unless the schema cannot express the nuance | Millennia statement balance / SmartBuy / catalogue values |
@@ -94,7 +94,8 @@ When you review a new fact, route it using this order:
 3. If it is a fee waiver threshold, use `feeWaiverSpend`.
 4. If it is a welcome / first-use perk, use `joiningBenefits`.
 5. If it is a renewal / anniversary perk, use `renewalBenefits`.
-6. If it unlocks only after reaching a spend threshold, use `milestoneBenefits`.
+6. If it unlocks only after reaching a spend threshold, use the structured `milestones` field (see
+   "Milestones" below); `milestoneBenefits` free text remains the fallback for un-migrated cards.
 7. If it is a lounge count, use the lounge count fields.
 8. If it is a user-facing lounge access condition (spend gate, guest rule, Priority Pass term), use the structured `lounge` field; keep reviewer-only booking caveats in `internalNotes`.
 9. If it is redemption value or transfer ratio, use `redemption`.
@@ -417,3 +418,38 @@ Use the following value benchmarks when writing benefit strings for complimentar
 
 > [!TIP]
 > If a benefit has a capped or conditional value (e.g. "up to Rs 5,000"), use the **capped figure**, not an assumed average. The engine sums the stated amount, so overstating leads to inflated scoring.
+
+### Milestones (`milestones`) — preferred over `milestoneBenefits` parsing
+
+`milestoneBenefits` is free text the scoring engine and reward calculator must **regex-parse at
+runtime** to recover the spend threshold and rupee value (the `worth Rs …` trick above exists only
+to feed that parser). The optional structured **`milestones`** field carries those numbers
+explicitly, so nothing has to be parsed and quarterly/monthly milestones are scored correctly.
+
+```json
+"milestones": [
+  { "threshold": 500000, "period": "annual", "value": 5000, "kind": "voucher",
+    "label": "Rs 5,000 flight voucher on annual spends of Rs 5 lakh" },
+  { "threshold": 75000, "period": "quarterly", "value": 2500, "kind": "points",
+    "label": "5,000 bonus Reward Points on Rs 75,000 spend per calendar quarter" }
+]
+```
+
+* `threshold` and `value` are **in the given `period`** (e.g. a quarterly milestone uses the
+  per-quarter spend and per-quarter value). The engine annualizes internally
+  (`milestoneRulesForCard` in `lib/recommend.ts`): `quarterly × 4`, `monthly × 12`, `annual × 1`.
+  This is the fix for the long-standing bug where quarterly/monthly milestones were scored as annual.
+* `kind`: `"voucher"` (engine still applies the 50% voucher discount), `"points"`, `"cashback"`,
+  or `"other"`. `threshold: 0` means it always applies (e.g. a transaction-count milestone).
+* `label` is the user-facing string — **no embedded `(worth Rs …)`** annotation; the value lives in
+  the `value` field.
+* **Coexistence rule:** when `milestones` is present it is the source of truth for that card; its
+  `milestoneBenefits` are ignored for scoring and display. Don't duplicate — a fully migrated card
+  can drop `milestoneBenefits`. Keep fee-waiver thresholds in `feeWaiverSpend`, never as a milestone.
+* The validator (`npm run validate:cards`) requires each entry to have numeric `threshold`/`value`
+  (`>= 0`), `period` ∈ {annual, quarterly, monthly}, `kind` ∈ {voucher, points, cashback, other},
+  and a non-empty `label`.
+* **Seeding:** `npm run draft:milestones -- --write --verified-only --only=<id>` drafts entries from
+  the existing `milestoneBenefits` text (dry-run without `--write`) and **flags** any line that
+  mentions quarter/month or whose threshold/value couldn't be parsed — fix the period/value by hand
+  before committing.

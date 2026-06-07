@@ -40,6 +40,7 @@ Compare the retrieved details against the current card entry in its per-card fil
 - **Card Image**: Verify that the card has a good `imageUrl` pointing to the actual card face, not a banner, eligibility artwork, or generic marketing visual.
 - **Latest Updates**: Check whether the issuer has any recent official updates, revision notices, devaluations, fee changes, lounge-rule changes, reward revisions, or benefit changes that should be added to `data/card-content.json`.
 - **Rewards Capping**: Limits on specific categories (e.g., monthly limits on grocery, utilities, insurance, or rent).
+- **Milestones**: Spend-threshold unlocks (e.g. a Rs 5,000 voucher on Rs 5 lakh annual spend, or bonus points on a per-calendar-quarter spend). Capture `threshold` + `period` (annual/quarterly/monthly) + `value` + `kind`, and write them to the structured `milestones` field (see Step 4) — do not rely on the runtime text parser.
 - **Lounge Spends Requirements**: Spend-based lounge unlock criteria (e.g., spending ₹35,000 in the previous quarter to unlock the next quarter's lounge access). Capture these as user-facing bullets and write them into the structured `lounge` field (see Step 4) — not into `internalNotes` or `additionalBenefits`.
 - **Golf Privileges**: Restrictions on the number of games/lessons, booking slots, and cancellation window policies.
 - **Redemption Partners**: Point transfer ratios and Turnaround Time (TAT) to airline or hotel loyalty programs. If the card transfers to a partner we already have a rupee valuation for (Accor, Club ITC, Marriott Bonvoy), also add a `transferPartnerValuations` entry — see Step 4.
@@ -57,7 +58,7 @@ Before editing, keep this source-of-truth model in mind:
 - `feeWaiverSpend`: fee waiver only
 - `joiningBenefits`: welcome / first-use benefits
 - `renewalBenefits`: renewal / anniversary benefits
-- `milestoneBenefits`: spend-threshold unlocks only
+- `milestones` (structured: threshold, period, value, kind, label): spend-threshold unlocks — **preferred**; engine reads numbers from here. `milestoneBenefits` (string[]): the same unlocks as free text, fallback for un-migrated cards only
 - `loungeDomestic` / `loungeInternational` / `combinedLoungeAccess`: lounge counts only
 - `lounge` (`{ domestic?, international?, combined? }`): user-facing lounge **access conditions / nuance** (spend gates, guest rules, Priority Pass terms, per-quarter limits) as short bullet strings — this is the structured home for the text that used to be mined out of `internalNotes`
 - `redemption`: redemption values and transfer structure only
@@ -99,19 +100,25 @@ If a fact already has a structured home, do not repeat it in visible prose.
    - Author these bullets yourself from the official source. Do **not** drop them into `internalNotes` / `additionalBenefits` / `additionalDetails` and rely on the text miner — `getLoungeConditions` prefers the structured field, so any authored `lounge` field is what users see.
    - Keep only reviewer-only caveats (booking workflow, audit dates, ambiguous-source notes) in `internalNotes`. Do not duplicate a condition in both `lounge` and prose.
    - The validator requires `lounge.domestic` / `lounge.international` / `lounge.combined` to each be arrays of strings (`npm run validate:cards`).
-5. **Card Image**:
+5. **Milestones** (fill the structured field when the card has spend-threshold milestones):
+   - Add a `milestones` entry per milestone: `{ threshold, period, value, kind, label }`.
+   - `threshold` and `value` are **in the milestone's `period`** (annual / quarterly / monthly) — a quarterly milestone uses the per-quarter spend and per-quarter value. The engine annualizes; getting `period` right is essential (quarterly/monthly milestones were previously mis-scored as annual).
+   - `kind` is `voucher` | `points` | `cashback` | `other`; `label` is the user-facing text with **no** embedded `(worth Rs …)` annotation (the value lives in `value`).
+   - Keep fee-waiver thresholds in `feeWaiverSpend`, never as a milestone. When `milestones` is present it is the source of truth — its `milestoneBenefits` are ignored, so don't duplicate.
+   - The validator requires numeric `threshold`/`value` (`>= 0`), `period`/`kind` from the allowed sets, and a non-empty `label`. Seed drafts with `npm run draft:milestones -- --verified-only --only=<id>` (it flags non-annual/unparseable lines for your review).
+6. **Card Image**:
    - Check whether `"imageUrl"` exists and whether it still represents the current card face.
    - Prefer official issuer card-face assets. Do not keep generic banners, landing-page art, cropped lifestyle imagery, or low-quality placeholders when a proper card-face image is available.
    - If a better official image is found, save it under `public/images/` and update `"imageUrl"` in the card JSON.
    - When reviewing the page visually, confirm the image is aligned well and not awkwardly cropped.
    - If the official asset is a portrait/vertical card face but the details-page image slot is horizontal, derive a horizontal local asset on a light beige background with the card centered instead of introducing per-card CSS exceptions.
    - If the issuer blocks direct asset downloads but the official product page visibly shows the card or hero visual, use a headless browser screenshot of the official page, crop the relevant official visual locally, and save that derived official asset under `public/images/`.
-6. **Internal Nuances**:
+7. **Internal Nuances**:
    - Store low-level program details, cancel/booking conditions, and specific dates in `"internalNotes"` to keep them indexed by Ask AI without cluttering the UI.
    - Mark the review date inside `internalNotes` as:
      `"Card details manually reviewed and verified by user on YYYY-MM-DD"`
    - Store closed-ecosystem expiry or programme-validity rules (for example NeuCoins expiry) in `internalNotes` unless they need to appear in a structured visible section.
-7. **Duplication Pass (required before saving)**:
+8. **Duplication Pass (required before saving)**:
    - Check for the same fact being represented in more than one visible place.
    - If a fact already exists in a structured field, do **not** repeat it in `additionalBenefits` or `additionalDetails`.
    - Use this reviewer shorthand:
@@ -120,7 +127,7 @@ If a fact already has a structured home, do not repeat it in visible prose.
      - fee waiver -> `feeWaiverSpend`
      - welcome perk -> `joiningBenefits`
      - renewal perk -> `renewalBenefits`
-     - spend unlock -> `milestoneBenefits`
+     - spend unlock -> structured `milestones` (free-text `milestoneBenefits` is the un-migrated fallback)
      - lounge count -> `loungeDomestic` / `loungeInternational` / `combinedLoungeAccess`
      - lounge condition / access nuance -> structured `lounge` field (reviewer-only caveats and audit dates still go in `internalNotes`)
      - redemption value / transfer ratio -> `redemption`
