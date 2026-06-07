@@ -69,6 +69,36 @@
     "government",
     "gaming"
   ],
+  "milestones": [
+    {
+      "threshold": 25000,
+      "period": "annual",
+      "value": 600,
+      "kind": "points",
+      "label": "2,400 bonus Reward Points on annual spends of Rs 25,000 across Landmark Stores"
+    },
+    {
+      "threshold": 75000,
+      "period": "annual",
+      "value": 2000,
+      "kind": "points",
+      "label": "8,000 bonus Reward Points on annual spends of Rs 75,000 across Landmark Stores"
+    },
+    {
+      "threshold": 150000,
+      "period": "annual",
+      "value": 3000,
+      "kind": "points",
+      "label": "12,000 bonus Reward Points on annual spends of Rs 1.5 lakh across Landmark Stores"
+    },
+    {
+      "threshold": 300000,
+      "period": "annual",
+      "value": 3000,
+      "kind": "points",
+      "label": "12,000 bonus Reward Points on overall annual retail spends of Rs 3 lakh"
+    }
+  ],
   "milestoneBenefits": [
     "2,400 bonus Reward Points on annual spends of Rs 25,000 across Landmark Stores",
     "8,000 bonus Reward Points on annual spends of Rs 75,000 across Landmark Stores",

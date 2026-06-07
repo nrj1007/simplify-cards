@@ -97,6 +97,15 @@
   "joiningBenefits": [
     "Complimentary annual memberships of Swiggy One and Times Prime as welcome benefit on spends of Rs 75,000 in the first 90 days of card issuance"
   ],
+  "milestones": [
+    {
+      "threshold": 150000,
+      "period": "quarterly",
+      "value": 750,
+      "kind": "voucher",
+      "label": "Vouchers worth Rs 1,500 from brands like Marriott Experience, Barbeque Nation, Lakme Salon, O2 Spa, Decathlon, McDonald's, or Domino's on quarterly spends of Rs 1.5 lakh"
+    }
+  ],
   "milestoneBenefits": [
     "Vouchers worth Rs 1,500 from brands like Marriott Experience, Barbeque Nation, Lakme Salon, O2 Spa, Decathlon, McDonald's, or Domino's on quarterly spends of Rs 1.5 lakh"
   ],
