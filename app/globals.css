@@ -2817,6 +2817,87 @@ textarea {
   font-size: 10px;
 }
 
+/* Unified "What your points are worth" ranked, collapsible list */
+.calc-redeem-list {
+  display: grid;
+  gap: 8px;
+}
+
+.calc-redeem-row {
+  align-items: center;
+  background: #fff;
+  border: 1px solid var(--line-2);
+  border-radius: 13px;
+  display: flex;
+  gap: 12px;
+  justify-content: space-between;
+  padding: 10px 12px;
+}
+
+.calc-redeem-row.is-best {
+  background: var(--teal-soft);
+  border-color: var(--teal-line);
+}
+
+.calc-redeem-main {
+  align-items: center;
+  display: flex;
+  gap: 8px;
+  min-width: 0;
+}
+
+.calc-redeem-type {
+  background: var(--line-2);
+  border-radius: 999px;
+  color: var(--muted);
+  flex: 0 0 auto;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  padding: 3px 7px;
+  text-transform: uppercase;
+}
+
+.calc-redeem-type[data-type="direct"] {
+  background: var(--teal-soft);
+  color: var(--teal-dark);
+}
+
+.calc-redeem-type[data-type="transfer"] {
+  background: #edf4ff;
+  color: #1d4ed8;
+}
+
+.calc-redeem-type[data-type="voucher"] {
+  background: var(--gold-soft);
+  color: #745817;
+}
+
+.calc-redeem-label {
+  color: var(--navy);
+  font-size: 13px;
+  font-weight: 700;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.calc-redeem-val {
+  flex: 0 0 auto;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.calc-redeem-val strong {
+  color: var(--navy);
+  display: block;
+  font-size: 14px;
+}
+
+.calc-redeem-val .muted {
+  font-size: 10px;
+}
+
 .calc-badge {
   background: var(--teal);
   border-radius: 999px;

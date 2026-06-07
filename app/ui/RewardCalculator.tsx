@@ -88,6 +88,7 @@ export default function RewardCalculator({ card, milestones = [], isStandalone =
   }, [card, isStandalone]);
 
   const [showAdditional, setShowAdditional] = useState(false);
+  const [showAllRedeem, setShowAllRedeem] = useState(false);
   const [spend, setSpend] = useState<Record<SpendCategory, number>>(() => {
     const { primary: p } = relevantCategoriesForCard(card);
     const primarySet = new Set(p);
@@ -174,6 +175,36 @@ export default function RewardCalculator({ card, milestones = [], isStandalone =
       .sort((a, b) => b.value - a.value);
   }, [annualUnits, redemption]);
 
+  // One unified, rupee-ranked view of every way to redeem (direct / transfer / voucher), so the
+  // user sees a single best-to-worst comparison instead of three separate blocks.
+  const unitLower = unitLabel.toLowerCase();
+  const redeemRows = useMemo<Array<{ key: string; label: string; type: "direct" | "transfer" | "voucher"; rate: string; value: number }>>(() => {
+    const rows: Array<{ key: string; label: string; type: "direct" | "transfer" | "voucher"; rate: string; value: number }> = [];
+    for (const option of rupeeOptions) {
+      rows.push({ key: `direct-${option.key}`, label: option.label, type: "direct", rate: `Rs ${option.perPoint} / ${unitLower}`, value: option.value });
+    }
+    for (const partner of partnerValuations) {
+      rows.push({
+        key: `transfer-${partner.partner}`,
+        label: partner.partner,
+        type: "transfer",
+        rate: `Rs ${partner.valuePerCardUnit.toFixed(2)} / ${unitLower}`,
+        value: partner.value
+      });
+    }
+    for (const voucher of voucherValuations) {
+      rows.push({
+        key: `voucher-${voucher.partner}-${voucher.programme}`,
+        label: `${voucher.partner} — ${voucher.programme}`,
+        type: "voucher",
+        rate: `Rs ${voucher.valuePerPoint} / ${unitLower}`,
+        value: voucher.value
+      });
+    }
+    return rows.sort((a, b) => b.value - a.value);
+  }, [rupeeOptions, partnerValuations, voucherValuations, unitLower]);
+  const visibleRedeemRows = showAllRedeem ? redeemRows : redeemRows.slice(0, 3);
+
   // Best rupee outcome across direct redemptions, valued transfer partners, and vouchers.
   const bestRupeeValue = Math.max(
     rupeeOptions[0]?.value ?? 0,
@@ -211,24 +242,6 @@ export default function RewardCalculator({ card, milestones = [], isStandalone =
   const totalAnnualValue = pointsRupeeValue + earnedNonVoucherMilestoneValue;
   const totalReturnsPlusVoucher = totalAnnualValue + earnedVoucherValue;
   const effectiveRate = annualSpend > 0 && totalReturnsPlusVoucher > 0 ? (totalReturnsPlusVoucher / annualSpend) * 100 : 0;
-
-  const maxVal = Math.max(
-    rupeeOptions[0]?.value ?? 0,
-    partnerValuations[0]?.value ?? 0,
-    voucherValuations[0]?.value ?? 0
-  );
-
-  const bestPartnerKey = maxVal > 0 && partnerValuations.length > 0 && partnerValuations[0].value === maxVal
-    ? partnerValuations[0].partner
-    : null;
-
-  const bestVoucherKey = maxVal > 0 && !bestPartnerKey && voucherValuations.length > 0 && voucherValuations[0].value === maxVal
-    ? voucherValuations[0].partner
-    : null;
-
-  const bestOptionKey = maxVal > 0 && !bestPartnerKey && !bestVoucherKey && rupeeOptions.length > 0 && rupeeOptions[0].value === maxVal
-    ? rupeeOptions[0].key
-    : null;
 
   function setCategory(category: SpendCategory, value: number) {
     setSpend((prev) => ({ ...prev, [category]: value }));
@@ -355,91 +368,51 @@ export default function RewardCalculator({ card, milestones = [], isStandalone =
                 </div>
               ) : null}
 
-              {!cashback && (rupeeOptions.length > 0 || airMilesPerPoint) ? (
+              {!cashback && (redeemRows.length > 0 || airMilesPerPoint) ? (
                 <div className="calc-block">
-                  <h3>Value by redemption type</h3>
-                  <div className="calc-redemptions">
-                    {rupeeOptions.map((option) => (
-                      <div
-                        className={`calc-redemption${option.key === bestOptionKey ? " is-best" : ""}`}
-                        key={option.key}
-                      >
-                        <div className="calc-redemption-head">
-                          <span>{option.label}</span>
-                          {option.key === bestOptionKey ? <span className="calc-badge">Best</span> : null}
+                  <h3>What your points are worth</h3>
+                  <p className="muted calc-note" style={{ margin: "0 0 10px" }}>
+                    Same points, very different value depending on how you redeem.
+                  </p>
+                  <div className="calc-redeem-list">
+                    {visibleRedeemRows.map((row, index) => (
+                      <div className={`calc-redeem-row${index === 0 ? " is-best" : ""}`} key={row.key}>
+                        <div className="calc-redeem-main">
+                          <span className="calc-redeem-type" data-type={row.type}>
+                            {row.type}
+                          </span>
+                          <span className="calc-redeem-label">{row.label}</span>
+                          {index === 0 ? <span className="calc-badge">Best</span> : null}
                         </div>
-                        <strong>{formatINR(option.value)}</strong>
-                        <span className="muted">Rs {option.perPoint} / {unitLabel.toLowerCase()}</span>
+                        <div className="calc-redeem-val">
+                          <strong>{formatINR(row.value)}</strong>
+                          <span className="muted">{row.rate}</span>
+                        </div>
                       </div>
                     ))}
 
                     {airMilesPerPoint ? (
-                      <div className="calc-redemption calc-redemption-miles">
-                        <div className="calc-redemption-head">
-                          <span>Transfer to air miles</span>
+                      <div className="calc-redeem-row" key="airmiles">
+                        <div className="calc-redeem-main">
+                          <span className="calc-redeem-type" data-type="transfer">
+                            miles
+                          </span>
+                          <span className="calc-redeem-label">Transfer to air miles</span>
                         </div>
-                        <strong>{formatUnits(annualUnits * airMilesPerPoint)} miles</strong>
-                        <span className="muted">{airMilesPerPoint} air miles / {unitLabel.toLowerCase()}</span>
+                        <div className="calc-redeem-val">
+                          <strong>{formatUnits(annualUnits * airMilesPerPoint)} miles</strong>
+                          <span className="muted">{airMilesPerPoint} / {unitLower}</span>
+                        </div>
                       </div>
                     ) : null}
                   </div>
-                </div>
-              ) : null}
 
-              {partnerValuations.length > 0 ? (
-                <div className="calc-block">
-                  <h3>Transfer partner value</h3>
-                  <div className="calc-partners">
-                    {partnerValuations.map((partner) => (
-                      <div
-                        className={`calc-partner${partner.partner === bestPartnerKey ? " is-best" : ""}`}
-                        key={partner.partner}
-                      >
-                        <div className="calc-partner-head">
-                          <span>{partner.partner}</span>
-                          <span className={`calc-basis calc-basis-${partner.basis}`}>{partner.basis}</span>
-                        </div>
-                        <strong>
-                          {partner.partner === bestPartnerKey ? (
-                            <span className="calc-badge" style={{ marginRight: 6 }}>Best</span>
-                          ) : null}
-                          {formatINR(partner.value)}
-                        </strong>
-                        <span className="muted">
-                          Rs {partner.partnerPointValue}/pt · ×{partner.transferRatio} ratio
-                          {" "}= Rs {partner.valuePerCardUnit.toFixed(2)} / {unitLabel.toLowerCase()}
-                        </span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              ) : null}
-
-              {voucherValuations.length > 0 ? (
-                <div className="calc-block">
-                  <h3>Voucher redemption value</h3>
-                  <div className="calc-partners">
-                    {voucherValuations.map((voucher, idx) => (
-                      <div
-                        className={`calc-partner${voucher.partner === bestVoucherKey ? " is-best" : ""}`}
-                        key={`${voucher.partner}-${voucher.programme}-${idx}`}
-                      >
-                        <div className="calc-partner-head">
-                          <span>{voucher.partner}</span>
-                          <span className="calc-basis calc-basis-fixed">{voucher.programme}</span>
-                        </div>
-                        <strong>
-                          {voucher.partner === bestVoucherKey ? (
-                            <span className="calc-badge" style={{ marginRight: 6 }}>Best</span>
-                          ) : null}
-                          {formatINR(voucher.value)}
-                        </strong>
-                        <span className="muted">
-                          Rs {voucher.valuePerPoint} / {unitLabel.toLowerCase()} · Ratio {voucher.ratio}
-                        </span>
-                      </div>
-                    ))}
-                  </div>
+                  {redeemRows.length > 3 ? (
+                    <button className="calc-more" type="button" onClick={() => setShowAllRedeem((value) => !value)}>
+                      <ChevronDown className={showAllRedeem ? "is-open" : ""} size={16} />
+                      {showAllRedeem ? "Show fewer options" : `Show all ${redeemRows.length} redemption options`}
+                    </button>
+                  ) : null}
                 </div>
               ) : null}
 
