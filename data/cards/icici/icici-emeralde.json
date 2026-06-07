@@ -63,6 +63,14 @@
   "popularityScore": 50,
   "loungeDomestic": "unlimited",
   "loungeInternational": "unlimited",
+  "lounge": {
+    "domestic": [
+      "Unlimited complimentary domestic and international lounge access for the primary cardholder; no spends criteria applies."
+    ],
+    "international": [
+      "Unlimited complimentary domestic and international lounge access for the primary cardholder; no spends criteria applies."
+    ]
+  },
   "forexMarkup": 2.0,
   "tags": [
     "icici",

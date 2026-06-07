@@ -42,6 +42,11 @@
   ],
   "loungeDomestic": 8,
   "loungeInternational": 4,
+  "lounge": {
+    "international": [
+      "Priority Pass standard membership is complimentary; post the 4 complimentary international lounge visits per year, visit charges apply at the programme's prevailing rate."
+    ]
+  },
   "forexMarkup": 3.5,
   "tags": [
     "lifestyle",

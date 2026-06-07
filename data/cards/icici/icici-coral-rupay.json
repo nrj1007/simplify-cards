@@ -42,6 +42,13 @@
   "popularityScore": 77,
   "loungeDomestic": 4,
   "loungeInternational": 0,
+  "lounge": {
+    "domestic": [
+      "Offers 1 complimentary domestic airport lounge access per quarter, subject to spending Rs 75,000 in the preceding calendar quarter.",
+      "Offers 1 complimentary domestic railway lounge access per quarter (no spends criteria).",
+      "One complimentary domestic railway lounge visit per quarter"
+    ]
+  },
   "forexMarkup": 3.5,
   "tags": [
     "icici",

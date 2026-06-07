@@ -48,6 +48,14 @@
   "popularityScore": 60,
   "loungeDomestic": 4,
   "loungeInternational": 4,
+  "lounge": {
+    "domestic": [
+      "Effective April 1, 2026, spends criteria tracking of Rs 1.5 Lakh per quarter is initiated to unlock domestic lounge access from July 2026 quarter onwards."
+    ],
+    "international": [
+      "Effective March 13, 2025, Priority Pass lounge benefit is revised to 1 complimentary international visit per quarter."
+    ]
+  },
   "forexMarkup": 3.5,
   "tags": [
     "indusind",

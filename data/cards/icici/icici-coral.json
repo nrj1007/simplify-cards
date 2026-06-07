@@ -58,6 +58,18 @@
   "popularityScore": 60,
   "loungeDomestic": 4,
   "loungeInternational": 0,
+  "lounge": {
+    "domestic": [
+      "One complimentary domestic airport lounge visit per quarter, subject to spending Rs 35,000 in the preceding calendar quarter",
+      "Complimentary domestic airport lounge access (1 visit per quarter) requires a minimum spend of Rs 35,000 in the previous calendar quarter.",
+      "Complimentary railway lounge access (1 visit per quarter) is unconditional (no spend criteria).",
+      "One complimentary railway lounge visit per quarter"
+    ],
+    "international": [
+      "Complimentary railway lounge access (1 visit per quarter) is unconditional (no spend criteria).",
+      "One complimentary railway lounge visit per quarter"
+    ]
+  },
   "forexMarkup": 3.5,
   "tags": [
     "icici",

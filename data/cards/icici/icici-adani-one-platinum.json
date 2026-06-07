@@ -49,6 +49,17 @@
   "popularityScore": 75,
   "loungeDomestic": 8,
   "loungeInternational": 0,
+  "lounge": {
+    "domestic": [
+      "Domestic lounge: 2 complimentary visits per quarter via Visa Lounge Access; 8 per year total. Excluded from the standard ICICI Rs 75,000 quarterly spend threshold requirement.",
+      "2 complimentary domestic airport lounge accesses per quarter (8 per year)",
+      "2 complimentary premium domestic lounge upgrades per quarter at Adani-managed airports",
+      "Other airport perks: 2 complimentary premium lounge upgrades per quarter, 2 premium car parking and 2 valet car parking services per year, 4 domestic porter services per year."
+    ],
+    "international": [
+      "International lounge: No complimentary access."
+    ]
+  },
   "forexMarkup": 3.5,
   "tags": [
     "icici",

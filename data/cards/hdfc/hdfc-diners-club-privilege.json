@@ -40,6 +40,14 @@
   ],
   "loungeDomestic": 8,
   "loungeInternational": 4,
+  "lounge": {
+    "domestic": [
+      "Complimentary lounge access (8 domestic and 4 international visits per year, unlocked as 2 domestic and 1 international visit per quarter) is spend-based starting 1 July 2026: Requires spending Rs 60,000 in the preceding calendar quarter."
+    ],
+    "international": [
+      "Complimentary lounge access (8 domestic and 4 international visits per year, unlocked as 2 domestic and 1 international visit per quarter) is spend-based starting 1 July 2026: Requires spending Rs 60,000 in the preceding calendar quarter."
+    ]
+  },
   "forexMarkup": 3.5,
   "tags": [
     "diners",

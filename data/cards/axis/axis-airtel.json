@@ -55,6 +55,12 @@
   ],
   "loungeDomestic": 4,
   "loungeInternational": 0,
+  "lounge": {
+    "domestic": [
+      "Domestic lounge access is available only if spends in the previous 3 months are at least Rs 50,000.",
+      "The card offers 4 complimentary domestic airport lounge visits per calendar year subject to the spend condition."
+    ]
+  },
   "forexMarkup": 3.5,
   "tags": [
     "airtel",

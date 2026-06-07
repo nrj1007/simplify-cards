@@ -49,6 +49,18 @@
   "popularityScore": 76,
   "loungeDomestic": 16,
   "loungeInternational": 2,
+  "lounge": {
+    "domestic": [
+      "4 complimentary domestic airport lounge accesses per quarter (16 per year)",
+      "Domestic lounge: 4 complimentary visits per quarter via Visa Lounge Access; 16 per year total.",
+      "Premium lounge upgrades at Adani-managed airports"
+    ],
+    "international": [
+      "2 complimentary international airport lounge accesses per year",
+      "Premium lounge upgrades at Adani-managed airports",
+      "International lounge: 2 complimentary visits per year."
+    ]
+  },
   "forexMarkup": 3.5,
   "tags": [
     "icici",

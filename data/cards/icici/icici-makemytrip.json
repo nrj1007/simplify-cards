@@ -43,6 +43,14 @@
   "popularityScore": 70,
   "loungeDomestic": 8,
   "loungeInternational": 1,
+  "lounge": {
+    "domestic": [
+      "Complimentary domestic lounge access (8 visits per year, max 2 per quarter) requires spending Rs 75,000 in the previous calendar quarter."
+    ],
+    "international": [
+      "Complimentary international lounge access (1 visit per year) requires Priority Pass membership."
+    ]
+  },
   "forexMarkup": 0.99,
   "tags": [
     "icici",

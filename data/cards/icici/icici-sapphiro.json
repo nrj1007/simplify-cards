@@ -64,6 +64,14 @@
   "popularityScore": 50,
   "loungeDomestic": 16,
   "loungeInternational": 2,
+  "lounge": {
+    "domestic": [
+      "Complimentary domestic lounge access (4 visits per quarter) requires a minimum spend of Rs 75,000 in the previous calendar quarter."
+    ],
+    "international": [
+      "Complimentary international lounge access (2 visits per calendar year) is provided via Priority Pass or DreamFolks."
+    ]
+  },
   "forexMarkup": 3.5,
   "tags": [
     "icici",

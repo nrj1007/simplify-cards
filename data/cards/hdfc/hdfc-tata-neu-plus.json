@@ -76,6 +76,11 @@
   ],
   "loungeDomestic": 4,
   "loungeInternational": 0,
+  "lounge": {
+    "domestic": [
+      "Domestic lounge access became milestone based from 10-Jun-2025: Tata Neu Plus earns 1 lounge voucher per calendar quarter on spends of Rs 50,000 or more."
+    ]
+  },
   "forexMarkup": 3.5,
   "tags": [
     "tata neu",

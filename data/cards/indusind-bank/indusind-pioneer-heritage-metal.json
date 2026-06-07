@@ -65,6 +65,14 @@
   "popularityScore": 20,
   "loungeDomestic": "unlimited",
   "loungeInternational": "unlimited",
+  "lounge": {
+    "domestic": [
+      "Unlimited domestic lounge visits"
+    ],
+    "international": [
+      "Unlimited international lounge visits on eligible network and programme memberships"
+    ]
+  },
   "forexMarkup": 0,
   "tags": [
     "indusind",
