@@ -18,23 +18,60 @@
   "rewards": [
     {
       "category": "fuel",
-      "rate": 5,
+      "displayCategory": "Fuel spends at IndianOil outlets",
+      "rate": 4.8,
+      "displayRate": "5 Fuel Points / Rs 100 spent",
       "capMonthly": 150
     },
     {
       "category": "grocery",
-      "rate": 5,
+      "displayCategory": "Grocery spends",
+      "rate": 4.8,
+      "displayRate": "5 Fuel Points / Rs 100 spent",
       "capMonthly": 100
     },
     {
       "category": "utilities",
-      "rate": 5,
+      "displayCategory": "Utility & Bill Payments",
+      "rate": 4.8,
+      "displayRate": "5 Fuel Points / Rs 100 spent",
       "capMonthly": 100
     },
     {
       "category": "base",
-      "rate": 0.7,
+      "displayCategory": "Other retail spends",
+      "rate": 0.64,
+      "displayRate": "1 Fuel Point / Rs 150 spent",
       "capMonthly": null
+    },
+    {
+      "category": "upi",
+      "displayCategory": "UPI transactions",
+      "rate": 0.64,
+      "displayRate": "1 Fuel Point / Rs 150 spent",
+      "capMonthly": null
+    }
+  ],
+  "specialSpendRules": [
+    {
+      "category": "fuel",
+      "treatment": "capped",
+      "notes": "Earn 5% Fuel Points at IndianOil outlets, capped at 150 Fuel Points per month (250 Fuel Points per month for the first 6 months from card issuance)."
+    },
+    {
+      "category": "grocery",
+      "treatment": "capped",
+      "notes": "Earn 5% Fuel Points on groceries, capped at 100 Fuel Points per month."
+    },
+    {
+      "category": "utilities",
+      "treatment": "capped",
+      "notes": "Earn 5% Fuel Points on bill payments and utility bills, capped at 100 Fuel Points per month."
+    },
+    {
+      "category": "upi",
+      "treatment": "rewarded",
+      "notes": "UPI transactions on RuPay variant earn 1 Fuel Point for every Rs 150 spent (same as base rate)."
     }
   ],
   "loungeDomestic": 0,
@@ -57,18 +94,30 @@
     "rental payments",
     "government payments"
   ],
-  "milestoneBenefits": [
-    "Renewal membership fee waived on spends of Rs 50,000 or above in the first year"
+  "exclusionCodes": [
+    "wallet_load",
+    "disputed_transactions",
+    "emi",
+    "fees_and_charges",
+    "gold",
+    "jewellery",
+    "rent",
+    "government"
   ],
+  "joiningBenefits": [
+    "INR 250 worth of voucher upon card activation and completion of at least one transaction within 37 days from card issuance"
+  ],
+  "milestoneBenefits": [],
   "additionalBenefits": [
     "Complimentary IndianOil XTRAREWARDS Program membership",
-    "Rs 250 voucher on card activation and at least one transaction within 37 days from card issuance",
-    "1% fuel surcharge waiver at all Indian fuel stations on transactions from Rs 400, capped at Rs 250 per statement cycle",
+    "1% fuel surcharge waiver at all Indian fuel stations on transactions from Rs 400 to Rs 5,000, capped at Rs 250 per statement cycle",
     "Up to 50 days interest-free credit period",
     "Contactless payments enabled"
   ],
   "redemption": {
     "statementBalanceValue": 0.2,
+    "ecosystemLabel": "IndianOil fuel redemption (via XTRAREWARDS)",
+    "ecosystemValue": 0.96,
     "pointsExpiryYears": 2,
     "cashbackRedemptionCapMonthly": 50000
   },
@@ -76,7 +125,7 @@
     "salaried": [
       "Indian national",
       "Age 21 to 60 years",
-      "Net monthly income greater than Rs 12,000"
+      "Net monthly income greater than Rs 10,000"
     ],
     "selfEmployed": [
       "Indian national",
@@ -86,7 +135,17 @@
   },
   "sourceUrl": "https://www.hdfc.bank.in/credit-cards/indianoil-hdfc-bank-credit-card",
   "applyUrl": "https://www.hdfc.bank.in/credit-cards/indianoil-hdfc-bank-credit-card",
-  "lastVerified": "2026-05-08",
-  "verificationStatus": "official-indexed",
-  "popularityScore": 81
+  "imageUrl": "/images/hdfc-indianoil.webp",
+  "lastVerified": "2026-06-07",
+  "verificationStatus": "official-direct",
+  "popularityScore": 70,
+  "internalNotes": [
+    "Card details manually reviewed and verified by user on 2026-06-07",
+    "Official audit completed on 2026-06-07 using HDFC Bank IndianOil product page and FAQs.",
+    "Popularity score updated to 70 per user request.",
+    "HDFC Bank charges a revised 1.75% DCC markup fee (effective 15 May 2026) on all transactions processed in INR at international locations or with merchants registered overseas.",
+    "Earn rate: 5% FP (5 FP per Rs 100 spent) on Fuel, Groceries, Utilities. Base and UPI earn 1 FP per Rs 150 spent.",
+    "Capping: Fuel capped at 150 FP/month (250 FP for first 6 months), Groceries capped at 100 FP/month, Utilities capped at 100 FP/month.",
+    "Redemption: 1 FP = 3 XRP = Rs 0.96 at participating IndianOil outlets for free fuel. 1 FP = Rs 0.20 for statement credit or catalogue products."
+  ]
 }

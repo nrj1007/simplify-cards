@@ -405,4 +405,43 @@ describe("reward calculator", () => {
     expect(fuelRow!.monthlyUnits).toBe(0);
     expect(fuelRow!.excluded).toBe(true);
   });
+
+  it("calculates rewards correctly for HDFC Bank IndianOil Credit Card including category caps and upi spends", () => {
+    const card = getCardById("hdfc-indianoil");
+    expect(card).toBeTruthy();
+
+    const result = calculateRewards(card!, {
+      fuel: 5000,          // 5000 * 5% FP = 250 FP => capped at 150 FP
+      grocery: 3000,       // 3000 * 5% FP = 150 FP => capped at 100 FP
+      utilities: 3000,     // 3000 * 5% FP = 150 FP => capped at 100 FP
+      base: 15000,         // 15000 * (1 FP / Rs 150) = 100 FP
+      upi: 15000,          // 15000 * (1 FP / Rs 150) = 100 FP
+      rent: 10000,         // Excluded => 0
+      government: 5000     // Excluded => 0
+    });
+
+    // Total expected monthly units = 150 (fuel) + 100 (grocery) + 100 (utilities) + 100 (base) + 100 (upi) = 550 FP
+    expect(result.monthlyUnits).toBe(550);
+    expect(result.annualUnits).toBe(6600);
+
+    const fuelRow = result.rows.find(r => r.category === "fuel");
+    expect(fuelRow!.monthlyUnits).toBe(150);
+    expect(fuelRow!.excluded).toBe(false);
+
+    const groceryRow = result.rows.find(r => r.category === "grocery");
+    expect(groceryRow!.monthlyUnits).toBe(100);
+
+    const utilitiesRow = result.rows.find(r => r.category === "utilities");
+    expect(utilitiesRow!.monthlyUnits).toBe(100);
+
+    const baseRow = result.rows.find(r => r.category === "base");
+    expect(baseRow!.monthlyUnits).toBe(100);
+
+    const upiRow = result.rows.find(r => r.category === "upi");
+    expect(upiRow!.monthlyUnits).toBe(100);
+
+    const rentRow = result.rows.find(r => r.category === "rent");
+    expect(rentRow!.monthlyUnits).toBe(0);
+    expect(rentRow!.excluded).toBe(true);
+  });
 });
