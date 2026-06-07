@@ -444,4 +444,39 @@ describe("reward calculator", () => {
     expect(rentRow!.monthlyUnits).toBe(0);
     expect(rentRow!.excluded).toBe(true);
   });
+
+  it("calculates rewards correctly for HDFC Bank MoneyBack+ Credit Card including 10X caps and exclusions", () => {
+    const card = getCardById("hdfc-moneyback-plus");
+    expect(card).toBeTruthy();
+
+    const result = calculateRewards(card!, {
+      amazon: 30000,       // 10X category, 30000 * 10% = 3000 units => capped at 2500 CashPoints
+      grocery: 50000,      // 10X category, 50000 * 10% = 5000 units => capped at 1000 CashPoints
+      base: 10000,         // base category, 10000 * (1% base) = 100 CashPoints (2 points / Rs 200 => 1 point / Rs 100)
+      upi: 10000,          // upi category, 10000 * (1% base) = 100 CashPoints
+      fuel: 5000,          // excluded => 0
+      rent: 10000          // excluded => 0
+    });
+
+    // Total expected monthly units = 2500 (amazon capped) + 1000 (grocery capped) + 100 (base) + 100 (upi) = 3700 CashPoints
+    expect(result.monthlyUnits).toBe(3700);
+    expect(result.annualUnits).toBe(3700 * 12);
+
+    const amazonRow = result.rows.find(r => r.category === "amazon");
+    expect(amazonRow!.monthlyUnits).toBe(2500);
+
+    const groceryRow = result.rows.find(r => r.category === "grocery");
+    expect(groceryRow!.monthlyUnits).toBe(1000);
+
+    const baseRow = result.rows.find(r => r.category === "base");
+    expect(baseRow!.monthlyUnits).toBe(100);
+
+    const upiRow = result.rows.find(r => r.category === "upi");
+    expect(upiRow!.monthlyUnits).toBe(100);
+
+    const fuelRow = result.rows.find(r => r.category === "fuel");
+    expect(fuelRow!.monthlyUnits).toBe(0);
+    expect(fuelRow!.excluded).toBe(true);
+  });
 });
+

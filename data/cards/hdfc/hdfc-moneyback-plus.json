@@ -4,7 +4,8 @@
   "name": "HDFC Bank MoneyBack+ Credit Card",
   "network": [
     "Visa",
-    "Mastercard"
+    "Mastercard",
+    "RuPay"
   ],
   "joiningFee": 500,
   "annualFee": 500,
@@ -17,14 +18,49 @@
   "rewardType": "CashPoints",
   "rewards": [
     {
-      "category": "select merchants",
-      "rate": 3.3,
-      "capMonthly": null
+      "category": "amazon, dining, online",
+      "displayCategory": "Amazon, Flipkart, Swiggy (10X CashPoints)",
+      "rate": 2.5,
+      "displayRate": "20 CashPoints / Rs 200 spent",
+      "capMonthly": 2500
+    },
+    {
+      "category": "grocery",
+      "displayCategory": "Reliance Smart SuperStore & BigBasket (10X CashPoints)",
+      "rate": 2.5,
+      "displayRate": "20 CashPoints / Rs 200 spent",
+      "capMonthly": 1000
     },
     {
       "category": "base",
-      "rate": 0.33,
+      "displayCategory": "Other retail spends",
+      "rate": 0.25,
+      "displayRate": "2 CashPoints / Rs 200 spent",
       "capMonthly": null
+    },
+    {
+      "category": "upi",
+      "displayCategory": "UPI transactions (RuPay variant)",
+      "rate": 0.25,
+      "displayRate": "2 CashPoints / Rs 200 spent",
+      "capMonthly": null
+    }
+  ],
+  "specialSpendRules": [
+    {
+      "category": "grocery",
+      "treatment": "capped",
+      "notes": "Grocery spends earn CashPoints capped at 1,000 CashPoints per calendar month."
+    },
+    {
+      "category": "utilities",
+      "treatment": "capped",
+      "notes": "Utility spends earn CashPoints capped at 2,000 CashPoints per calendar month."
+    },
+    {
+      "category": "upi",
+      "treatment": "rewarded",
+      "notes": "UPI transactions on the RuPay variant earn 2 CashPoints for every Rs 200 spent (same as the base rate)."
     }
   ],
   "loungeDomestic": 0,
@@ -38,46 +74,83 @@
     "dining"
   ],
   "exclusions": [
-    "transactions excluded under HDFC Bank MoneyBack+ terms and conditions"
+    "Fuel spends",
+    "Rental payments",
+    "Government transactions",
+    "Insurance spends",
+    "Wallet loading transactions",
+    "EMI transactions",
+    "Cash advances / withdrawals",
+    "Card fees and charges"
+  ],
+  "exclusionCodes": [
+    "fuel",
+    "rent",
+    "insurance",
+    "wallet_load",
+    "government",
+    "cash_advance",
+    "emi",
+    "fees_and_charges"
+  ],
+  "joiningBenefits": [
+    "500 CashPoints upon payment of the joining fee"
   ],
   "milestoneBenefits": [
-    "Gift voucher worth Rs 500 on spends of Rs 50,000 per calendar quarter",
-    "Renewal fee waived on spending Rs 50,000 or more in a year before renewal date"
+    "Gift voucher worth Rs 500 on spends of Rs 50,000 per calendar quarter"
   ],
   "additionalBenefits": [
-    "10X CashPoints, up to 3.3% valueback, on Amazon, Flipkart, Swiggy, Reliance Smart SuperStore and BigBasket",
-    "2 CashPoints per Rs 150 spent on other spends",
-    "Pay joining membership fee and get 500 reward points",
-    "1% fuel surcharge waiver on fuel transactions from Rs 400 to Rs 5,000, capped at Rs 250 per statement cycle",
-    "CashPoints can be used for travel redemptions like flight and hotel bookings via SmartBuy",
+    "1% fuel surcharge waiver on transactions between Rs 400 and Rs 5,000, capped at Rs 250 per statement cycle",
     "10% additional discount on Swiggy Dineout using coupon code HDFCCARDS",
-    "Up to 50 days interest-free credit period",
-    "Contactless payments enabled",
+    "Up to 50 days interest-free credit period from the date of purchase",
     "Zero lost card liability when reported immediately"
+  ],
+  "additionalDetails": [
+    "CashPoints are posted on a calendar-month basis, with settled transactions from the 1st to the 30th/31st posted in the first week of the subsequent calendar month",
+    "Reward points on grocery transactions are capped at 1,000 CashPoints per calendar month",
+    "Reward points on utility spends are capped at 2,000 CashPoints per calendar month",
+    "Redemption of CashPoints against Flights and Hotels via SmartBuy is capped at 50,000 per month, up to 50% of the booking value",
+    "Redemption of CashPoints against product catalogue vouchers is capped up to 70% of voucher value",
+    "Cashback redemptions against statement balance are capped at 3,000 CashPoints per calendar month, with a minimum required balance of 500 CashPoints",
+    "Unredeemed CashPoints expire after 2 years of accumulation"
   ],
   "redemption": {
     "statementBalanceValue": 0.2,
     "smartBuyFlightHotelValue": 0.25,
+    "smartBuyCatalogueValue": 0.25,
     "airMilesValue": 0.25,
     "minimumPointsForStatementCredit": 500,
     "cashbackRedemptionCapMonthly": 3000,
-    "pointsExpiryYears": 2
+    "pointsExpiryYears": 2,
+    "redemptionFee": 99
   },
   "eligibility": {
     "salaried": [
       "Indian national",
-      "Age 21 to 60 years",
-      "Net monthly income greater than Rs 20,000"
+      "Age: 21 to 60 years",
+      "Net monthly income > Rs 20,000"
     ],
     "selfEmployed": [
       "Indian national",
-      "Age 21 to 65 years",
-      "ITR greater than Rs 6 lakh per annum"
+      "Age: 21 to 65 years",
+      "ITR > Rs 6 Lakh per annum"
     ]
   },
   "sourceUrl": "https://www.hdfc.bank.in/credit-cards/moneyback-plus-credit-card",
   "applyUrl": "https://www.hdfc.bank.in/credit-cards/moneyback-plus-credit-card",
-  "lastVerified": "2026-05-08",
+  "imageUrl": "/images/hdfc-moneyback-plus.webp",
+  "lastVerified": "2026-06-07",
   "verificationStatus": "official-direct",
-  "popularityScore": 79
+  "popularityScore": 79,
+  "internalNotes": [
+    "Card details manually reviewed and verified by user on 2026-06-07",
+    "Official audit completed on 2026-06-07 using HDFC Bank MoneyBack+ product page and FAQs.",
+    "HDFC Bank charges a revised 1.75% DCC markup fee (effective 15 May 2026) on all transactions processed in INR at international locations or with merchants registered overseas.",
+    "10X CashPoints (capped at 2,500/month) on Amazon, Flipkart, Swiggy, Reliance Smart SuperStore & BigBasket.",
+    "Base rate: 2 CashPoints per Rs 200 spent on other spends. RuPay variant UPI transactions earn at base rate.",
+    "Grocery spends are capped at 1,000 CashPoints/month.",
+    "Utility spends are capped at 2,000 CashPoints/month.",
+    "Insurance spends do not earn reward points.",
+    "Redemption rate: 1 CashPoint = Rs 0.25 for Flights/Hotels via SmartBuy, 1 CashPoint = Rs 0.25 for Product Catalogue, 1 CashPoint = Rs 0.20 for statement cashback. A standard redemption fee of Rs 99 + GST applies (Rs 50 + GST for statement cashback)."
+  ]
 }
