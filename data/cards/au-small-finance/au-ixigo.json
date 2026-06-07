@@ -86,6 +86,18 @@
     "education",
     "government"
   ],
+  "joiningBenefitsValued": [
+    {
+      "value": 500,
+      "kind": "points",
+      "label": "Get 1,000 Reward Points on the first successful transaction within 30 days of card issuance"
+    },
+    {
+      "value": 500,
+      "kind": "voucher",
+      "label": "Get Rs 1,000 ixigo money voucher on the first successful transaction within 30 days of card issuance"
+    }
+  ],
   "joiningBenefits": [
     "Get 1,000 Reward Points (worth Rs 500) on the first successful transaction within 30 days of card issuance",
     "Get Rs 1,000 ixigo money voucher on the first successful transaction within 30 days of card issuance"

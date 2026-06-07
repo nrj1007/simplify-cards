@@ -75,6 +75,13 @@
     "fees_and_charges",
     "education"
   ],
+  "joiningBenefitsValued": [
+    {
+      "value": 1199,
+      "kind": "other",
+      "label": "Complimentary 3-month Swiggy One membership worth Rs 1,199 on card activation by completing at least 1 transaction of any amount within 30 days of card issuance"
+    }
+  ],
   "joiningBenefits": [
     "Complimentary 3-month Swiggy One membership worth Rs 1,199 on card activation by completing at least 1 transaction of any amount within 30 days of card issuance"
   ],

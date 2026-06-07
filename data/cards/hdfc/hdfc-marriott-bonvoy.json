@@ -117,6 +117,23 @@
     "1 Free Night Award redeemable for a one-night stay up to 15,000 Marriott Bonvoy Points on eligible spend of Rs 9 lakh in an anniversary year",
     "1 Free Night Award redeemable for a one-night stay up to 15,000 Marriott Bonvoy Points on eligible spend of Rs 15 lakh in an anniversary year"
   ],
+  "joiningBenefitsValued": [
+    {
+      "value": 7500,
+      "kind": "points",
+      "label": "1 Free Night Award redeemable for a one-night stay up to 15,000 Marriott Bonvoy Points on the first eligible transaction of Rs 500 within 90 days of card open date or on card fee levy, whichever is earlier"
+    },
+    {
+      "value": 0,
+      "kind": "other",
+      "label": "10 Elite Night Credits on meeting the welcome benefit condition"
+    },
+    {
+      "value": 0,
+      "kind": "points",
+      "label": "Marriott Bonvoy Silver Elite Status"
+    }
+  ],
   "joiningBenefits": [
     "1 Free Night Award redeemable for a one-night stay up to 15,000 Marriott Bonvoy Points on the first eligible transaction of Rs 500 within 90 days of card open date or on card fee levy, whichever is earlier",
     "10 Elite Night Credits on meeting the welcome benefit condition",
