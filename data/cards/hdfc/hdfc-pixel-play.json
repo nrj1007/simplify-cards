@@ -19,27 +19,37 @@
   "rewards": [
     {
       "category": "selected packs",
+      "displayCategory": "Selected 5% merchant packs (Dining & Ent, Travel, Grocery, Electronics, Fashion)",
       "rate": 5,
+      "displayRate": "5% Cashback",
       "capMonthly": 500
     },
     {
       "category": "smartbuy",
+      "displayCategory": "SmartBuy transactions",
       "rate": 5,
+      "displayRate": "5% Cashback",
       "capMonthly": 500
     },
     {
       "category": "online",
+      "displayCategory": "Selected 3% e-commerce platform (Amazon, Flipkart, or PayZapp)",
       "rate": 3,
+      "displayRate": "3% Cashback",
       "capMonthly": 500
     },
     {
       "category": "upi",
+      "displayCategory": "UPI transactions (RuPay variant)",
       "rate": 1,
+      "displayRate": "1% Cashback",
       "capMonthly": 500
     },
     {
       "category": "base",
+      "displayCategory": "Other eligible transactions",
       "rate": 1,
+      "displayRate": "1% Cashback",
       "capMonthly": null
     }
   ],
@@ -55,15 +65,31 @@
     "customizable"
   ],
   "exclusions": [
-    "fuel spends",
-    "wallet spends",
-    "rent payments",
-    "government related transactions",
-    "EMI transactions",
-    "purchases converted to EMI post facto",
-    "cash advances",
-    "payment of outstanding balances",
-    "payment of card fees and other charges"
+    "Fuel transactions",
+    "Wallet loading transactions",
+    "Rent payments",
+    "Government related transactions",
+    "EMI transactions (including post-facto EMI conversions)",
+    "Cash advances / cash withdrawals",
+    "Payment of outstanding balances",
+    "Payment of card fees, interest, and charges"
+  ],
+  "exclusionCodes": [
+    "fuel",
+    "wallet_load",
+    "rent",
+    "government",
+    "emi",
+    "cash_advance",
+    "outstanding_balance_payment",
+    "fees_and_charges"
+  ],
+  "specialSpendRules": [
+    {
+      "category": "insurance",
+      "treatment": "capped",
+      "notes": "Insurance spends capped at 2,000 CashPoints per calendar month."
+    }
   ],
   "milestoneBenefits": [
     "Joining fee waiver on spending Rs 20,000 within 90 days of issuance",
@@ -79,6 +105,7 @@
     "1% fuel surcharge waiver at fuel stations across India on transactions from Rs 400 to Rs 5,000, capped at Rs 250 per statement cycle"
   ],
   "redemption": {
+    "statementBalanceValue": 1,
     "minimumPointsForStatementCredit": 1000,
     "pointsExpiryYears": 2
   },
@@ -94,9 +121,16 @@
       "Annual ITR greater than Rs 6 lakh"
     ]
   },
+  "internalNotes": [
+    "Card details manually reviewed and verified by user on 2026-06-07",
+    "Audited against official HDFC Bank PIXEL Play product page and terms on 2026-06-07.",
+    "CashPoints redemption is through the PayZapp app, with 1 CashPoint = Rs 1, minimum redemption 1,000 points.",
+    "1.75% DCC markup fee applies on transactions processed in INR at international locations or with merchants registered overseas."
+  ],
+  "imageUrl": "/images/hdfc-pixel-play.webp",
   "sourceUrl": "https://www.hdfc.bank.in/credit-cards/pixel-play-credit-card",
   "applyUrl": "https://www.hdfc.bank.in/credit-cards/pixel-play-credit-card",
-  "lastVerified": "2026-05-08",
-  "verificationStatus": "official-indexed",
+  "lastVerified": "2026-06-07",
+  "verificationStatus": "official-direct",
   "popularityScore": 79
 }
