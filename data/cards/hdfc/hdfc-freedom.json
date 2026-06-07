@@ -99,12 +99,14 @@
   "redemption": {
     "statementBalanceValue": 0.15,
     "smartBuyFlightHotelValue": 0.15,
-    "airMilesValue": 0.15,
+    "airMilesValue": null,
     "minimumPointsForStatementCredit": 3334,
     "cashbackRedemptionCapMonthly": 3000,
     "redemptionFee": 99,
     "pointsExpiryYears": 2
   },
+  "airlinePartners": [],
+  "hotelPartners": [],
   "interestRateMonthly": 3.49,
   "eligibility": {
     "salaried": [
