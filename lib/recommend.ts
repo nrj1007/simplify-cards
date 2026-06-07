@@ -506,15 +506,27 @@ function parseRupeeAmount(value: string) {
 
 function extractMilestoneThreshold(text: string) {
   const normalized = text.toLowerCase().replace(/,/g, "").replace(/\s+/g, " ").trim();
-  const thresholdMatch =
+  const lakhMatch =
     normalized.match(/annual spend(?:s|ing)?(?: of| above| greater than)? rs (\d+(?:\.\d+)?) lakh(?:s)?/) ??
     normalized.match(/spends of rs (\d+(?:\.\d+)?) lakh(?:s)?/) ??
     normalized.match(/spending rs (\d+(?:\.\d+)?) lakh(?:s)?/) ??
     normalized.match(/rs (\d+(?:\.\d+)?) lakh(?:s)? or more/) ??
     normalized.match(/rs (\d+(?:\.\d+)?) lakh(?:s)?\s+(?:annual\s+)?spend/);
 
-  if (!thresholdMatch) return null;
-  return Math.round(Number(thresholdMatch[1]) * 100000);
+  if (lakhMatch) {
+    return Math.round(Number(lakhMatch[1]) * 100000);
+  }
+
+  const numMatch =
+    normalized.match(/(?:spends|spending|spend|spendings)(?: of| above| greater than| at| on)?(?: rs)?\s*(\d{4,9})/) ??
+    normalized.match(/(?:rs)?\s*(\d{4,9}) or more(?: annual| quarterly| statement)? spend/) ??
+    normalized.match(/spend (?:rs)?\s*(\d{4,9})/);
+
+  if (numMatch) {
+    return Number(numMatch[1]);
+  }
+
+  return null;
 }
 
 function estimatePointUnitValue(card: CreditCard) {
