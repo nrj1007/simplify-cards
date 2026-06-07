@@ -142,13 +142,17 @@ export function deriveTake(card: CreditCard): CardTake | null {
 
   const cautions: string[] = [];
   if (card.feeWaiverSpend && card.feeWaiverSpend > 0) {
-    cautions.push(`the renewal fee needs ${formatRupeesCompact(card.feeWaiverSpend)} of annual spend to waive`);
+    cautions.push(`the renewal fee is waived only on ${formatRupeesCompact(card.feeWaiverSpend)} of annual spend`);
   }
   const excl = notableExclusions(card);
   if (excl.length) cautions.push(`${joinNatural(excl.slice(0, 3))} don't earn rewards`);
-  if (hasRewardCaps(card)) cautions.push("monthly reward caps apply on top categories");
+  if (hasRewardCaps(card)) cautions.push("monthly reward caps apply on the top categories");
   if (card.forexMarkup >= 3) cautions.push(`the ${card.forexMarkup}% forex markup is high for overseas use`);
-  const whereValueDrops = cautions.length ? `${capitalizeFirst(joinNatural(cautions.slice(0, 3)))}.` : "";
+  // Each caution is its own clause (some contain internal comma-lists), so render them as
+  // separate sentences rather than comma-splicing them into one run-on.
+  const whereValueDrops = cautions.length
+    ? cautions.slice(0, 3).map((clause) => `${capitalizeFirst(clause)}.`).join(" ")
+    : "";
 
   if (!whyItWorks && !whereValueDrops) return null;
   return { goodFitIf, whyItWorks, whereValueDrops };
