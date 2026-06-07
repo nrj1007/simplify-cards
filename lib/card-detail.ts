@@ -25,6 +25,33 @@ function joinNatural(parts: string[]) {
   return `${list.slice(0, -1).join(", ")}, and ${list.at(-1)}`;
 }
 
+// Canonical casing for brand/acronym tokens so category labels read naturally
+// ("smartbuy hotels" -> "SmartBuy hotels", "upi" -> "UPI").
+const BRAND_CASING: Record<string, string> = {
+  smartbuy: "SmartBuy",
+  ishop: "iShop",
+  upi: "UPI",
+  rupay: "RuPay",
+  edge: "EDGE",
+  emi: "EMI",
+  dcc: "DCC",
+  irctc: "IRCTC"
+};
+
+function applyBrandCasing(value: string) {
+  return value.replace(/[A-Za-z]+/g, (word) => BRAND_CASING[word.toLowerCase()] ?? word);
+}
+
+// Lowercase for mid-sentence use, with brand tokens fixed up.
+function prettyInline(value: string) {
+  return applyBrandCasing(value.toLowerCase());
+}
+
+// Title-case for headings, with brand tokens fixed up.
+function prettyTitle(value: string) {
+  return applyBrandCasing(titleCase(value));
+}
+
 export function formatRupeesCompact(value: number) {
   if (value >= 100000) {
     const lakh = value / 100000;
@@ -71,7 +98,7 @@ const NOTABLE_EXCLUSIONS: Array<{ match: string; label: string }> = [
   { match: "insurance", label: "insurance" },
   { match: "wallet", label: "wallet loads" },
   { match: "education", label: "education" },
-  { match: "government", label: "government spends" }
+  { match: "government", label: "government payments" }
 ];
 
 function notableExclusions(card: CreditCard) {
@@ -91,20 +118,27 @@ export type CardTake = {
 };
 
 export function deriveTake(card: CreditCard): CardTake | null {
-  const focuses = card.bestFor.slice(0, 3).map((entry) => entry.toLowerCase());
-  const tail = isCashbackCard(card) ? "want straightforward cashback" : "will use reward points well";
+  // Use-case focuses, minus generic reward-type words (they duplicate the tail clause).
+  const focuses = card.bestFor
+    .filter((entry) => !/cashback|reward/i.test(entry))
+    .slice(0, 3)
+    .map(prettyInline);
+  const tail = isCashbackCard(card)
+    ? "want your rewards as simple, no-tracking cashback"
+    : "will actually use and redeem your reward points";
   const goodFitIf = focuses.length
-    ? `you want ${joinNatural(focuses)} value and ${tail}`
+    ? `you want a card built for ${joinNatural(focuses)}, and you ${tail}`
     : `you ${tail}`;
 
   const positives: string[] = [];
   if (hasLounge(card)) positives.push("complimentary airport lounge access");
   if (card.forexMarkup <= 2) positives.push(`a low ${card.forexMarkup}% forex markup`);
   const accel = topAcceleratedReward(card);
-  if (accel) positives.push(`accelerated rewards on ${(accel.displayCategory ?? accel.category).toLowerCase()}`);
+  if (accel) positives.push(`accelerated rewards on ${prettyInline(accel.displayCategory ?? accel.category)}`);
   if (card.milestoneBenefits?.length) positives.push("milestone rewards");
   if (card.annualFee === 0 && card.joiningFee === 0) positives.push("no annual fee");
-  const whyItWorks = positives.length ? `${card.name} combines ${joinNatural(positives.slice(0, 3))}.` : "";
+  const whyVerb = positives.length >= 2 ? "combines" : "offers";
+  const whyItWorks = positives.length ? `It ${whyVerb} ${joinNatural(positives.slice(0, 3))}.` : "";
 
   const cautions: string[] = [];
   if (card.feeWaiverSpend && card.feeWaiverSpend > 0) {
@@ -143,7 +177,7 @@ export function deriveBestFor(card: CreditCard): DecisionCard[] {
       icon: "₹",
       title: "Best for simple cashback",
       desc: top?.displayRate
-        ? `${top.displayRate} on ${(top.displayCategory ?? top.category).toLowerCase()}, auto-credited with no points to manage.`
+        ? `${top.displayRate} on ${prettyInline(top.displayCategory ?? top.category)}, auto-credited with no points to manage.`
         : "Direct cashback with no reward points to track or redeem."
     });
   } else {
@@ -151,7 +185,7 @@ export function deriveBestFor(card: CreditCard): DecisionCard[] {
     if (top) {
       out.push({
         icon: "✦",
-        title: `Best for ${titleCase(top.displayCategory ?? top.category)}`,
+        title: `Best for ${prettyTitle(top.displayCategory ?? top.category)}`,
         desc: top.displayRate ?? `${top.rate} ${card.rewardType} per Rs 100 spent.`
       });
     }
