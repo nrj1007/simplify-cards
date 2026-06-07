@@ -252,8 +252,15 @@ export default async function CardPage({ params, searchParams }: Props) {
     (reward) => typeof reward.capStatementQuarter === "number" && reward.capStatementQuarter > 0
   );
 
-  const hasJoiningBenefits = Boolean(card.joiningBenefits?.length);
-  const hasRenewalBenefits = Boolean(card.renewalBenefits?.length);
+  // Prefer the structured valued labels when present, else the free-text string arrays.
+  const joiningBenefitLines = card.joiningBenefitsValued?.length
+    ? card.joiningBenefitsValued.map((benefit) => benefit.label)
+    : card.joiningBenefits;
+  const renewalBenefitLines = card.renewalBenefitsValued?.length
+    ? card.renewalBenefitsValued.map((benefit) => benefit.label)
+    : card.renewalBenefits;
+  const hasJoiningBenefits = Boolean(joiningBenefitLines?.length);
+  const hasRenewalBenefits = Boolean(renewalBenefitLines?.length);
   const hasAdditionalBenefits = Boolean(card.additionalBenefits?.length);
   const hasAdditionalDetails = Boolean(card.additionalDetails?.length);
   const hasFinePrint = hasJoiningBenefits || hasRenewalBenefits || hasAdditionalBenefits || hasAdditionalDetails;
@@ -702,13 +709,13 @@ export default async function CardPage({ params, searchParams }: Props) {
                   {hasJoiningBenefits ? (
                     <div className="detail-section">
                       <h3>Joining benefits</h3>
-                      <DetailList items={card.joiningBenefits} />
+                      <DetailList items={joiningBenefitLines} />
                     </div>
                   ) : null}
                   {hasRenewalBenefits ? (
                     <div className="detail-section">
                       <h3>Renewal benefits</h3>
-                      <DetailList items={card.renewalBenefits} />
+                      <DetailList items={renewalBenefitLines} />
                     </div>
                   ) : null}
                   {hasAdditionalBenefits ? (

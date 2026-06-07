@@ -74,8 +74,8 @@ Use the verified cards as the model. Each fact should have one primary home.
 | Earning rates by category | `rewards` | `additionalBenefits`, `additionalDetails` | Flipkart Axis: Myntra / Flipkart / Cleartrip cashback rows |
 | Reward caps tied to a reward row | reward-row cap fields such as `capDaily`, `capMonthly`, `capStatementQuarter` | `additionalDetails` unless the schema cannot express the cap | Flipkart Axis quarterly caps; Tata Neu Infinity separate monthly caps by category |
 | Fee waiver threshold | `feeWaiverSpend` | `milestoneBenefits`, `additionalBenefits`, `additionalDetails` | Flipkart Axis fee waiver moved out of milestone copy |
-| One-time onboarding perk | `joiningBenefits` | `additionalBenefits` | Flipkart Axis welcome benefit; Tata Neu Infinity first-year NeuCoins reversal |
-| Anniversary / renewal perk | `renewalBenefits` | `additionalBenefits` | SBI PRIME renewal points; Marriott Bonvoy renewal points |
+| One-time onboarding perk | `joiningBenefitsValued` (preferred, with value); `joiningBenefits` text for un-migrated | `additionalBenefits` | Flipkart Axis welcome benefit; Tata Neu Infinity first-year NeuCoins reversal |
+| Anniversary / renewal perk | `renewalBenefitsValued` (preferred, with value); `renewalBenefits` text for un-migrated | `additionalBenefits` | SBI PRIME renewal points; Marriott Bonvoy renewal points |
 | Spend-threshold unlock | structured `milestones` (preferred); `milestoneBenefits` for un-migrated cards | `additionalBenefits`, `additionalDetails` | Marriott Bonvoy free-night milestones; Millennia quarterly lounge-or-voucher choice |
 | Lounge visit counts | `loungeDomestic`, `loungeInternational`, `combinedLoungeAccess` | `additionalBenefits`, `additionalDetails` | Marriott Bonvoy combined domestic + international lounge pool |
 | Lounge access conditions (spend gates, guest rules, Priority Pass terms) | structured `lounge` field (`domestic` / `international` / `combined`) | `additionalBenefits`, `additionalDetails`, `internalNotes` | Regalia Gold spend-gated quarters; Magnus guest-visit limits |
@@ -458,3 +458,33 @@ explicitly, so nothing has to be parsed and quarterly/monthly milestones are sco
   the existing `milestoneBenefits` text (dry-run without `--write`) and **flags** any line that
   mentions quarter/month or whose threshold/value couldn't be parsed — fix the period/value by hand
   before committing.
+
+### Joining / renewal value (`joiningBenefitsValued` / `renewalBenefitsValued`)
+
+Joining and renewal benefit **value** is parsed from prose at runtime today
+(`joiningAndRenewalBenefitValueForCard` in `lib/recommend.ts`), and the engine even keyword-classifies
+`additionalBenefits` lines into joining vs renewal. The optional structured **`joiningBenefitsValued`**
+/ **`renewalBenefitsValued`** fields make the value explicit:
+
+```json
+"renewalBenefitsValued": [
+  { "value": 1500, "kind": "voucher", "label": "Rs 1,500 voucher on card anniversary" }
+]
+```
+
+* `value` is the **net** rupee value (vouchers already discounted — same convention as milestones);
+  `kind` ∈ {voucher, points, cashback, other}; `label` carries no embedded `(worth Rs …)`.
+* Joining value is amortized over 3 years in scoring; renewal value counts each year.
+* **Coexistence rule:** when the valued field is present it is the source of truth for that side's
+  value **and** display; the `joiningBenefits` / `renewalBenefits` string arrays (and any
+  joining/renewal-keyword `additionalBenefits` lines) are ignored for that card. **Move** joining/
+  renewal perks out of `additionalBenefits` into the valued field so they aren't shown twice.
+* Note: the runtime fallback never valued the `renewalBenefits` string array — migrating a card is the
+  first time its renewal perks count. The same **no-rupee-value rule** as milestones applies: airline
+  miles and tier upgrades stay as text (`joiningBenefits`/`renewalBenefits`), never given a fabricated
+  value.
+* The validator requires each entry to have numeric `value` (`>= 0`), `kind` from the allowed set, and
+  a non-empty `label`.
+* **Seeding:** `npm run draft:joining-renewal -- --write --verified-only --only=<id>` drafts entries
+  from the existing text (dry-run without `--write`) and **flags** lines whose value couldn't parse and
+  any line pulled from `additionalBenefits` (remove it there) — fix by hand before committing.

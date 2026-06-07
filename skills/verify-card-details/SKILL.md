@@ -56,8 +56,10 @@ Before editing, keep this source-of-truth model in mind:
 - `rewards`: earning structure only
 - reward-row cap fields: caps tied to those reward rows
 - `feeWaiverSpend`: fee waiver only
-- `joiningBenefits`: welcome / first-use benefits
-- `renewalBenefits`: renewal / anniversary benefits
+- `joiningBenefitsValued` / `renewalBenefitsValued` (structured: value, kind, label): welcome /
+  renewal benefits **with an explicit rupee value** — **preferred**; engine reads value from here.
+  `joiningBenefits` / `renewalBenefits` (string[]): the same perks as free text, fallback for
+  un-migrated cards only
 - `milestones` (structured: threshold, period, value, kind, label): spend-threshold unlocks — **preferred**; engine reads numbers from here. `milestoneBenefits` (string[]): the same unlocks as free text, fallback for un-migrated cards only
 - `loungeDomestic` / `loungeInternational` / `combinedLoungeAccess`: lounge counts only
 - `lounge` (`{ domestic?, international?, combined? }`): user-facing lounge **access conditions / nuance** (spend gates, guest rules, Priority Pass terms, per-quarter limits) as short bullet strings — this is the structured home for the text that used to be mined out of `internalNotes`
@@ -107,27 +109,32 @@ If a fact already has a structured home, do not repeat it in visible prose.
    - Keep fee-waiver thresholds in `feeWaiverSpend`, never as a milestone. When `milestones` is present it is the source of truth — its `milestoneBenefits` are ignored, so don't duplicate.
    - **Do not migrate milestones with no fixed rupee value** — airline-mile rewards (we do not value miles in rupees) and membership tier upgrades (MMTBLACK, KrisFlyer Elite Gold, etc.). Never invent a value; leave such lines as `milestoneBenefits` text, and if a card has only these, give it no `milestones` field.
    - The validator requires numeric `threshold`/`value` (`>= 0`), `period`/`kind` from the allowed sets, and a non-empty `label`. Seed drafts with `npm run draft:milestones -- --verified-only --only=<id>` (it flags non-annual/unparseable lines for your review).
-6. **Card Image**:
+6. **Joining / renewal value** (fill when the card has welcome or renewal perks worth rupees):
+   - Add `joiningBenefitsValued` / `renewalBenefitsValued` entries `{ value, kind, label }` — `value` is the net rupee value (vouchers already discounted), `kind` ∈ {voucher, points, cashback, other}, `label` has no embedded `(worth Rs …)`.
+   - When present, the valued field is the source of truth for that side's value **and** display; its `joiningBenefits` / `renewalBenefits` string array is ignored. **Move** any joining/renewal perk currently in `additionalBenefits` into the valued field (don't leave it duplicated).
+   - Same **no-rupee-value rule** as milestones: airline miles and tier upgrades stay as `joiningBenefits`/`renewalBenefits` text — never fabricate a value.
+   - Validator: numeric `value` (`>= 0`), `kind` from the set, non-empty `label`. Seed with `npm run draft:joining-renewal -- --verified-only --only=<id>` (flags zero-value and additionalBenefits-pulled lines).
+7. **Card Image**:
    - Check whether `"imageUrl"` exists and whether it still represents the current card face.
    - Prefer official issuer card-face assets. Do not keep generic banners, landing-page art, cropped lifestyle imagery, or low-quality placeholders when a proper card-face image is available.
    - If a better official image is found, save it under `public/images/` and update `"imageUrl"` in the card JSON.
    - When reviewing the page visually, confirm the image is aligned well and not awkwardly cropped.
    - If the official asset is a portrait/vertical card face but the details-page image slot is horizontal, derive a horizontal local asset on a light beige background with the card centered instead of introducing per-card CSS exceptions.
    - If the issuer blocks direct asset downloads but the official product page visibly shows the card or hero visual, use a headless browser screenshot of the official page, crop the relevant official visual locally, and save that derived official asset under `public/images/`.
-7. **Internal Nuances**:
+8. **Internal Nuances**:
    - Store low-level program details, cancel/booking conditions, and specific dates in `"internalNotes"` to keep them indexed by Ask AI without cluttering the UI.
    - Mark the review date inside `internalNotes` as:
      `"Card details manually reviewed and verified by user on YYYY-MM-DD"`
    - Store closed-ecosystem expiry or programme-validity rules (for example NeuCoins expiry) in `internalNotes` unless they need to appear in a structured visible section.
-8. **Duplication Pass (required before saving)**:
+9. **Duplication Pass (required before saving)**:
    - Check for the same fact being represented in more than one visible place.
    - If a fact already exists in a structured field, do **not** repeat it in `additionalBenefits` or `additionalDetails`.
    - Use this reviewer shorthand:
      - reward rates -> `rewards`
      - reward caps -> reward-row cap fields
      - fee waiver -> `feeWaiverSpend`
-     - welcome perk -> `joiningBenefits`
-     - renewal perk -> `renewalBenefits`
+     - welcome perk -> structured `joiningBenefitsValued` (free-text `joiningBenefits` is the un-migrated fallback)
+     - renewal perk -> structured `renewalBenefitsValued` (free-text `renewalBenefits` is the un-migrated fallback)
      - spend unlock -> structured `milestones` (free-text `milestoneBenefits` is the un-migrated fallback)
      - lounge count -> `loungeDomestic` / `loungeInternational` / `combinedLoungeAccess`
      - lounge condition / access nuance -> structured `lounge` field (reviewer-only caveats and audit dates still go in `internalNotes`)

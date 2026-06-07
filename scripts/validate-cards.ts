@@ -423,6 +423,27 @@ if (cardFiles.length === 0) {
       }
     }
 
+    for (const valuedField of ["joiningBenefitsValued", "renewalBenefitsValued"] as const) {
+      const value = card[valuedField];
+      if (value === undefined) continue;
+      if (!Array.isArray(value)) {
+        addIssue("must be an array of valued-benefit objects when present", cardId, valuedField);
+        continue;
+      }
+      value.forEach((benefit, index) => {
+        const field = `${valuedField}[${index}]`;
+        if (!isObject(benefit)) {
+          addIssue("must be an object with value/kind/label", cardId, field);
+          return;
+        }
+        if (!isMoneyNumber(benefit.value)) addIssue("value must be a non-negative number", cardId, field);
+        if (!allowedMilestoneKinds.has(benefit.kind as string)) {
+          addIssue('kind must be "voucher", "points", "cashback", or "other"', cardId, field);
+        }
+        if (!isNonEmptyString(benefit.label)) addIssue("label must be a non-empty string", cardId, field);
+      });
+    }
+
     if (!isValidUrl(card.sourceUrl)) addIssue("must be a valid https URL", cardId, "sourceUrl");
     if (!isValidUrl(card.applyUrl)) addIssue("must be a valid https URL", cardId, "applyUrl");
     validateDate(card.lastVerified, cardId, "lastVerified");

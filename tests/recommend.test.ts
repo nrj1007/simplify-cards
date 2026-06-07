@@ -1,5 +1,50 @@
 import { describe, expect, it } from "vitest";
-import { answerFromCards, scoreCards } from "../lib/recommend";
+import { answerFromCards, joiningAndRenewalBenefitValueForCard, scoreCards } from "../lib/recommend";
+import { getCardById } from "../lib/cards";
+import type { ValuedBenefit } from "../lib/types";
+
+describe("joining/renewal benefit value", () => {
+  const base = getCardById("hdfc-regalia-gold")!;
+
+  it("prefers structured joiningBenefitsValued over text and additionalBenefits", () => {
+    const joiningBenefitsValued: ValuedBenefit[] = [
+      { value: 5000, kind: "voucher", label: "Rs 5,000 welcome voucher" }
+    ];
+    const { joiningValue } = joiningAndRenewalBenefitValueForCard({
+      ...base,
+      joiningBenefitsValued,
+      joiningBenefits: ["Cashback of Rs 99,999 as welcome gift"],
+      additionalBenefits: ["Welcome bonus worth Rs 88,888 on joining"]
+    });
+    expect(joiningValue).toBe(5000); // structured only; text + additionalBenefits ignored
+  });
+
+  it("values structured renewalBenefitsValued (the renewalBenefits gap is fixed per card)", () => {
+    const renewalBenefitsValued: ValuedBenefit[] = [
+      { value: 2000, kind: "voucher", label: "Rs 2,000 anniversary voucher" }
+    ];
+    const { renewalValue } = joiningAndRenewalBenefitValueForCard({
+      ...base,
+      renewalBenefitsValued,
+      renewalBenefits: ["ignored renewal text"]
+    });
+    expect(renewalValue).toBe(2000);
+  });
+
+  it("falls back to the text parser when no structured field (unchanged behavior)", () => {
+    const card = {
+      ...base,
+      joiningBenefitsValued: undefined,
+      renewalBenefitsValued: undefined,
+      joiningBenefits: ["Cashback of Rs 1,000 as welcome gift"],
+      renewalBenefits: ["Rs 5,000 voucher on anniversary"],
+      additionalBenefits: [] as string[]
+    };
+    const { joiningValue, renewalValue } = joiningAndRenewalBenefitValueForCard(card);
+    expect(joiningValue).toBe(1000); // parsed from joiningBenefits text
+    expect(renewalValue).toBe(0); // fallback never values renewalBenefits text (known gap)
+  });
+});
 
 describe("scoreCards", () => {
   it("respects annual fee constraints", () => {

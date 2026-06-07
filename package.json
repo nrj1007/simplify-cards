@@ -11,6 +11,7 @@
     "validate:cards": "tsc --module commonjs --target es2020 --esModuleInterop --resolveJsonModule --skipLibCheck --outDir .tmp scripts/validate-cards.ts && node .tmp/scripts/validate-cards.js",
     "draft:lounge": "tsc --module commonjs --target es2020 --esModuleInterop --resolveJsonModule --skipLibCheck --outDir .tmp scripts/draft-lounge.ts && node .tmp/scripts/draft-lounge.js",
     "draft:milestones": "tsc --module commonjs --target es2020 --esModuleInterop --resolveJsonModule --skipLibCheck --outDir .tmp scripts/draft-milestones.ts && node .tmp/scripts/draft-milestones.js",
+    "draft:joining-renewal": "tsc --module commonjs --target es2020 --esModuleInterop --resolveJsonModule --skipLibCheck --outDir .tmp scripts/draft-joining-renewal.ts && node .tmp/scripts/draft-joining-renewal.js",
     "score:popularity": "node scripts/update-popularity-scores.js",
     "ingest:technofino-content": "node scripts/ingest-technofino-content.js",
     "fetch:telegram-inbox": "node scripts/fetch-telegram-inbox.js"

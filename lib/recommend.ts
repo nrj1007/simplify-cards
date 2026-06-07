@@ -614,7 +614,7 @@ function estimateFallbackPointUnitValue(card: CreditCard) {
   return 0;
 }
 
-function estimateBenefitLineValue(card: CreditCard, benefit: string) {
+export function estimateBenefitLineValue(card: CreditCard, benefit: string) {
   const normalizedMatch = normalizeForMatch(benefit);
 
   if (normalizedMatch.includes("fee waived") || normalizedMatch.includes("fee waiver") || normalizedMatch.includes("fee reversal")) {
@@ -737,27 +737,37 @@ function textMilestoneRules(card: CreditCard): MilestoneRule[] {
   }));
 }
 
-function joiningAndRenewalBenefitValueForCard(card: CreditCard) {
-  const joiningLines = new Set<string>();
-  const renewalLines = new Set<string>();
-
-  for (const benefit of card.joiningBenefits ?? []) {
-    joiningLines.add(benefit);
-  }
-
-  for (const benefit of card.additionalBenefits ?? []) {
-    const normalized = normalizeForMatch(benefit);
-    if (/\b(renewal|anniversary)\b/.test(normalized)) {
-      renewalLines.add(benefit);
-    } else if (
-      /\b(joining|welcome|fee levy|fee realization|first year|within 90 days|card open date)\b/.test(normalized)
-    ) {
-      joiningLines.add(benefit);
+export function joiningAndRenewalBenefitValueForCard(card: CreditCard) {
+  // Prefer the structured valued fields; fall back to the text parse (+ additionalBenefits keyword
+  // classification) for un-migrated cards. Each side is independent.
+  let joiningValue: number;
+  if (card.joiningBenefitsValued?.length) {
+    joiningValue = card.joiningBenefitsValued.reduce((total, benefit) => total + benefit.value, 0);
+  } else {
+    const joiningLines = new Set<string>(card.joiningBenefits ?? []);
+    for (const benefit of card.additionalBenefits ?? []) {
+      const normalized = normalizeForMatch(benefit);
+      // Renewal keywords take precedence (a renewal line is never counted as joining).
+      if (
+        !/\b(renewal|anniversary)\b/.test(normalized) &&
+        /\b(joining|welcome|fee levy|fee realization|first year|within 90 days|card open date)\b/.test(normalized)
+      ) {
+        joiningLines.add(benefit);
+      }
     }
+    joiningValue = [...joiningLines].reduce((total, benefit) => total + estimateBenefitLineValue(card, benefit), 0);
   }
 
-  const joiningValue = [...joiningLines].reduce((total, benefit) => total + estimateBenefitLineValue(card, benefit), 0);
-  const renewalValue = [...renewalLines].reduce((total, benefit) => total + estimateBenefitLineValue(card, benefit), 0);
+  let renewalValue: number;
+  if (card.renewalBenefitsValued?.length) {
+    renewalValue = card.renewalBenefitsValued.reduce((total, benefit) => total + benefit.value, 0);
+  } else {
+    const renewalLines = new Set<string>();
+    for (const benefit of card.additionalBenefits ?? []) {
+      if (/\b(renewal|anniversary)\b/.test(normalizeForMatch(benefit))) renewalLines.add(benefit);
+    }
+    renewalValue = [...renewalLines].reduce((total, benefit) => total + estimateBenefitLineValue(card, benefit), 0);
+  }
 
   return { joiningValue, renewalValue };
 }

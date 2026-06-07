@@ -42,6 +42,17 @@ export type Milestone = {
   label: string;
 };
 
+// Structured, reviewed joining/renewal benefit with an explicit rupee value. When present on a card
+// it replaces the runtime regex-parsing of benefit prose in lib/recommend.ts. Not spend-gated, so no
+// threshold/period. Optional, migrated per card (verified-only).
+export type ValuedBenefit = {
+  /** Rupee value of this benefit (>= 0); store the net value (vouchers already discounted). */
+  value: number;
+  kind: "voucher" | "points" | "cashback" | "other";
+  /** User-facing text. No embedded "(worth Rs …)" scoring annotation. */
+  label: string;
+};
+
 export type Reward = {
   category: SpendCategory | string;
   displayCategory?: string;
@@ -137,6 +148,10 @@ export type CreditCard = {
   milestones?: Milestone[];
   joiningBenefits?: string[];
   renewalBenefits?: string[];
+  // Structured, valued joining/renewal benefits. When present, preferred over the string[] fields
+  // (and joining/renewal-keyword additionalBenefits) for scoring and display. Optional, per card.
+  joiningBenefitsValued?: ValuedBenefit[];
+  renewalBenefitsValued?: ValuedBenefit[];
   additionalBenefits?: string[];
   additionalDetails?: string[];
   internalNotes?: string[];
