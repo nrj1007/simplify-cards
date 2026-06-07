@@ -75,6 +75,36 @@
     "Special membership offers and event access at The Quorum Club"
   ],
   "renewalBenefits": [],
+  "milestones": [
+    {
+      "threshold": 200000,
+      "period": "annual",
+      "value": 5000,
+      "kind": "voucher",
+      "label": "Klook international experiences worth ₹10,000 on reaching ₹2 Lakh annual spend"
+    },
+    {
+      "threshold": 500000,
+      "period": "annual",
+      "value": 5000,
+      "kind": "voucher",
+      "label": "WeWork day passes or airport transfers worth ₹10,000 on reaching ₹5 Lakh annual spend"
+    },
+    {
+      "threshold": 1000000,
+      "period": "annual",
+      "value": 5000,
+      "kind": "voucher",
+      "label": "Tata CLiQ Luxury Gift Card worth ₹10,000 on reaching ₹10 Lakh annual spend"
+    },
+    {
+      "threshold": 2000000,
+      "period": "annual",
+      "value": 10000,
+      "kind": "voucher",
+      "label": "One-night luxury stay at Ayatana or Lohono worth ₹20,000 on reaching ₹20 Lakh annual spend"
+    }
+  ],
   "milestoneBenefits": [
     "Klook international experiences worth ₹10,000 on reaching ₹2 Lakh annual spend",
     "WeWork day passes or airport transfers worth ₹10,000 on reaching ₹5 Lakh annual spend",

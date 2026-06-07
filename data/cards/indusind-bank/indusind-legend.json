@@ -58,6 +58,15 @@
     "fuel",
     "cash_advance"
   ],
+  "milestones": [
+    {
+      "threshold": 600000,
+      "period": "annual",
+      "value": 4000,
+      "kind": "points",
+      "label": "4,000 bonus reward points on annual spends of Rs 6,00,000 or more"
+    }
+  ],
   "milestoneBenefits": [
     "4,000 bonus reward points (worth Rs 2,000) on annual spends of Rs 6,00,000 or more"
   ],

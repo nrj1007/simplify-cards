@@ -96,6 +96,15 @@
   "joiningBenefits": [
     "500 CashPoints upon payment of the joining fee"
   ],
+  "milestones": [
+    {
+      "threshold": 50000,
+      "period": "quarterly",
+      "value": 250,
+      "kind": "voucher",
+      "label": "Gift voucher worth Rs 500 on spends of Rs 50,000 per calendar quarter"
+    }
+  ],
   "milestoneBenefits": [
     "Gift voucher worth Rs 500 on spends of Rs 50,000 per calendar quarter"
   ],

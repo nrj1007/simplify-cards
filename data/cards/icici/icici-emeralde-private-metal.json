@@ -117,6 +117,22 @@
     "12,500 ICICI Bank Reward Points (worth Rs 12,500) on payment of annual fee",
     "Complimentary annual renewal of Taj Epicure and EazyDiner Prime memberships"
   ],
+  "milestones": [
+    {
+      "threshold": 400000,
+      "period": "annual",
+      "value": 1500,
+      "kind": "voucher",
+      "label": "EaseMyTrip air travel voucher worth Rs 3,000 on reaching Rs 4 lakh annual spend"
+    },
+    {
+      "threshold": 800000,
+      "period": "annual",
+      "value": 1500,
+      "kind": "voucher",
+      "label": "Additional EaseMyTrip air travel voucher worth Rs 3,000 on reaching Rs 8 lakh annual spend"
+    }
+  ],
   "milestoneBenefits": [
     "EaseMyTrip air travel voucher worth Rs 3,000 on reaching Rs 4 lakh annual spend",
     "Additional EaseMyTrip air travel voucher worth Rs 3,000 on reaching Rs 8 lakh annual spend"

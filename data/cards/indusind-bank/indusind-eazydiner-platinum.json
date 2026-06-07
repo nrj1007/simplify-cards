@@ -61,6 +61,15 @@
   "renewalBenefits": [
     "3-month EazyDiner Prime membership renewal (worth Rs 1,095) upon spending Rs 30,000 in 90 days"
   ],
+  "milestones": [
+    {
+      "threshold": 30000,
+      "period": "quarterly",
+      "value": 800,
+      "kind": "points",
+      "label": "2,000 bonus Reward Points upon spending Rs 30,000 every 90 days (dining spends excluded)"
+    }
+  ],
   "milestoneBenefits": [
     "2,000 bonus Reward Points (worth Rs 400) upon spending Rs 30,000 every 90 days (dining spends excluded)"
   ],
