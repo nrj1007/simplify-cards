@@ -159,6 +159,18 @@
       }
     ]
   },
+  "amex-gold": {
+    "updates": [
+      {
+        "title": "American Express removed fuel rewards on Gold Card",
+        "summary": "Effective 12 June 2025, fuel payments no longer earn Membership Rewards points on the American Express Gold Card. Utility payments continue to earn 1 Membership Rewards point per Rs 50 spent, subject to the published monthly cap.",
+        "sourceType": "manual",
+        "sourceLabel": "American Express official product page",
+        "sourceUrl": "https://www.americanexpress.com/in/charge-cards/gold-card/",
+        "publishedAt": "2025-06-12"
+      }
+    ]
+  },
   "hdfc-diners-club-privilege": {
     "updates": [
       {

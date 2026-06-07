@@ -19,18 +19,23 @@
   "rewards": [
     {
       "category": "hotels",
-      "rate": 5,
+      "displayCategory": "Taj, SeleQtions, Gateway, Vivanta, and amã Stays & Trails spends",
+      "rate": 5.0,
+      "displayRate": "5 Reward Points / Rs 100 spent",
       "capMonthly": null
     },
     {
       "category": "base",
+      "displayCategory": "Other eligible spends",
       "rate": 1.5,
+      "displayRate": "1.5 Reward Points / Rs 100 spent",
       "capMonthly": null
     }
   ],
   "loungeDomestic": "unlimited",
   "loungeInternational": "unlimited",
   "forexMarkup": 3.5,
+  "imageUrl": "/images/hsbc-taj.jpg",
   "tags": [
     "taj",
     "ihcl",
@@ -43,11 +48,30 @@
     "visa infinite"
   ],
   "exclusions": [
-    "fuel",
-    "cash advance",
-    "balance transfer",
-    "transactions excluded under HSBC Taj Credit Card terms"
+    "Fuel transactions",
+    "Rent payments",
+    "Wallet loading transactions",
+    "Educational spends",
+    "Government-related transactions",
+    "Insurance premium payments",
+    "Utility bill payments",
+    "EMI transactions",
+    "Cash advances",
+    "Card fees, charges, and interest"
   ],
+  "exclusionCodes": [
+    "fuel",
+    "rent",
+    "wallet_load",
+    "education",
+    "government",
+    "insurance",
+    "utilities",
+    "emi",
+    "cash_advance",
+    "fees_and_charges"
+  ],
+  "milestones": [],
   "milestoneBenefits": [],
   "additionalBenefits": [
     "Unlimited room upgrades to the next level at participating IHCL hotels",
@@ -60,26 +84,40 @@
     "Taj Club Lounge access up to 12 times per year",
     "Unlimited global airport lounge access, subject to programme terms",
     "4 domestic and 4 international chauffeur-driven airport transfers per year",
-    "12 complimentary golf games and lessons per year",
-    "5 reward points per Rs 100 at Taj, SeleQtions, Gateway, Vivanta and ama Stays & Trails",
-    "1.5 reward points per Rs 100 on standard purchases",
-    "1.5 reward points equal Re 1 in HSBC Taj Credit Card Wallet balance"
+    "12 complimentary golf games and lessons per year"
+  ],
+  "additionalDetails": [
+    "Reward points never expire",
+    "Redemptions can be processed only via the HSBC India Mobile Banking app"
   ],
   "redemption": {
-    "statementBalanceValue": 0.6667,
+    "ecosystemValue": 0.6667,
+    "ecosystemLabel": "Taj Wallet balance",
+    "statementBalanceValue": null,
     "pointsExpiryYears": null
   },
   "eligibility": {
     "salaried": [
-      "Age 25 to 75 years, Indian resident or existing HSBC India bank account for NRI, annual income at least Rs 40 lakh"
+      "Age 25 to 75 years",
+      "Resident of India or existing HSBC India bank account holder for NRI",
+      "Minimum annual income of Rs 40,00,000"
     ],
     "selfEmployed": [
-      "Age 25 to 75 years, Indian resident or existing HSBC India bank account for NRI, annual income at least Rs 60 lakh"
+      "Age 25 to 75 years",
+      "Resident of India or existing HSBC India bank account holder for NRI",
+      "Minimum annual income of Rs 60,00,000"
     ]
   },
   "sourceUrl": "https://www.hsbc.co.in/credit-cards/products/taj/",
   "applyUrl": "https://www.hsbc.co.in/credit-cards/products/taj/",
-  "lastVerified": "2026-05-10",
+  "lastVerified": "2026-06-08",
   "verificationStatus": "official-direct",
-  "popularityScore": 74
+  "popularityScore": 74,
+  "internalNotes": [
+    "Card details manually reviewed and verified by user on 2026-06-08",
+    "Premium metal card with Rs 1,10,000 joining/annual fee.",
+    "5 points per Rs 100 spent at Taj properties equals 3.33% reward rate (since 1.5 points = Rs 1).",
+    "1.5 points per Rs 100 spent on base purchases equals 1.0% reward rate.",
+    "Excludes fuel, rent, wallet loads, education, government, utility, insurance, and EMI spends."
+  ]
 }

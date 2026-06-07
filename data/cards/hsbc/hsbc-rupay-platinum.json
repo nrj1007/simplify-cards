@@ -8,6 +8,7 @@
   "joiningFee": 0,
   "annualFee": 0,
   "feeWaiverSpend": null,
+  "imageUrl": "/images/hsbc-rupay-platinum.jpg",
   "bestFor": [
     "rupay",
     "upi",
@@ -19,12 +20,16 @@
   "rewards": [
     {
       "category": "upi",
-      "rate": 2,
+      "displayCategory": "UPI spends",
+      "rate": 1.3333,
+      "displayRate": "2 Reward Points / Rs 150 spent",
       "capMonthly": null
     },
     {
       "category": "base",
-      "rate": 2,
+      "displayCategory": "Other eligible spends",
+      "rate": 1.3333,
+      "displayRate": "2 Reward Points / Rs 150 spent",
       "capMonthly": null
     }
   ],
@@ -40,38 +45,214 @@
     "jcb"
   ],
   "exclusions": [
-    "fuel",
-    "cash advance",
-    "balance transfer",
-    "transactions excluded under HSBC RuPay Platinum Credit Card terms"
+    "Fuel transactions",
+    "Rent payments",
+    "Wallet loading transactions",
+    "Educational spends",
+    "Government-related transactions",
+    "Insurance premium payments",
+    "Utility bill payments",
+    "EMI transactions",
+    "Cash advances",
+    "Card fees, charges, and interest"
   ],
+  "exclusionCodes": [
+    "fuel",
+    "rent",
+    "wallet_load",
+    "education",
+    "government",
+    "insurance",
+    "utilities",
+    "emi",
+    "cash_advance",
+    "fees_and_charges"
+  ],
+  "milestones": [],
   "milestoneBenefits": [],
+  "joiningBenefits": [
+    "Rs 500 cashback after logging into the HSBC India app and spending Rs 5,000 within the first 30 days",
+    "Rs 250 Amazon eGift Voucher for online application and video KYC completion",
+    "2-month EazyDiner membership on RuPay card activation"
+  ],
   "additionalBenefits": [
-    "No joining fee and no annual fee",
-    "Rs 500 cashback after logging into HSBC India app and spending Rs 5,000 within first 30 days",
-    "Rs 250 Amazon eGift Voucher for online application and video KYC",
-    "2-month EazyDiner membership on RuPay card activation",
-    "2 reward points per Rs 150 spent",
-    "UPI payments through HSBC SimplyPay and other UPI apps",
-    "Reward points on credit card linked UPI payments",
-    "Fuel surcharge waiver benefit with annual savings up to Rs 3,000",
-    "Global offers through JCB network"
+    "Link card to UPI apps for scan-and-pay transactions",
+    "Fuel surcharge waiver up to Rs 250 per month on transactions from Rs 400 to Rs 4,000",
+    "JCB network global offers"
+  ],
+  "additionalDetails": [
+    "Reward points never expire",
+    "Redemptions can be processed only via the HSBC India Mobile Banking app"
   ],
   "redemption": {
+    "transferPartnerValuations": [
+      {
+        "partner": "Accor (ALL)",
+        "partnerPointValue": 2.2,
+        "transferRatio": 0.5,
+        "basis": "fixed",
+        "note": "2 reward points → 1 Accor ALL point · Rs 2.2/point"
+      },
+      {
+        "partner": "Marriott Bonvoy",
+        "partnerPointValue": 0.6,
+        "transferRatio": 0.5,
+        "basis": "dynamic",
+        "note": "2 reward points → 1 Marriott point · avg Rs 0.6/point"
+      }
+    ],
+    "airlinePartners": [
+      {
+        "airline": "Air India",
+        "programme": "Air India Maharaja Club",
+        "ratio": "2:1",
+        "tatDays": 5
+      },
+      {
+        "airline": "AirAsia",
+        "programme": "airasia rewards",
+        "ratio": "2:3",
+        "tatDays": 1
+      },
+      {
+        "airline": "Air France-KLM",
+        "programme": "Flying Blue",
+        "ratio": "2:1",
+        "tatDays": 1
+      },
+      {
+        "airline": "British Airways",
+        "programme": "The British Airways Club",
+        "ratio": "2:1",
+        "tatDays": 1
+      },
+      {
+        "airline": "Etihad Airways",
+        "programme": "Etihad Guest",
+        "ratio": "2:1",
+        "tatDays": 1
+      },
+      {
+        "airline": "EVA Air",
+        "programme": "Infinity MileageLands",
+        "ratio": "2:1",
+        "tatDays": 1
+      },
+      {
+        "airline": "Hainan Airlines",
+        "programme": "Fortune Wings Club",
+        "ratio": "4:1",
+        "tatDays": 5
+      },
+      {
+        "airline": "Japan Airlines",
+        "programme": "JAL Mileage Bank",
+        "ratio": "2:1",
+        "tatDays": 10
+      },
+      {
+        "airline": "Singapore Airlines",
+        "programme": "KrisFlyer",
+        "ratio": "2:1",
+        "tatDays": 1
+      },
+      {
+        "airline": "Qantas Airways",
+        "programme": "Qantas Frequent Flyer",
+        "ratio": "2:1",
+        "tatDays": 1
+      },
+      {
+        "airline": "Qatar Airways",
+        "programme": "Privilege Club",
+        "ratio": "2:1",
+        "tatDays": 1
+      },
+      {
+        "airline": "Thai Airways",
+        "programme": "Royal Orchid Plus",
+        "ratio": "2:1",
+        "tatDays": 1
+      },
+      {
+        "airline": "Turkish Airlines",
+        "programme": "Miles&Smiles",
+        "ratio": "4:1",
+        "tatDays": 1
+      },
+      {
+        "airline": "United Airlines",
+        "programme": "MileagePlus",
+        "ratio": "4:1",
+        "tatDays": 1
+      },
+      {
+        "airline": "Vietnam Airlines",
+        "programme": "Lotusmiles",
+        "ratio": "2:1",
+        "tatDays": 1
+      }
+    ],
+    "hotelPartners": [
+      {
+        "hotelGroup": "Accor",
+        "programme": "ALL - Accor Live Limitless",
+        "ratio": "2:1",
+        "tatDays": 1
+      },
+      {
+        "hotelGroup": "IHG Hotels & Resorts",
+        "programme": "IHG One Rewards",
+        "ratio": "2:1",
+        "tatDays": 1
+      },
+      {
+        "hotelGroup": "Marriott International",
+        "programme": "Marriott Bonvoy",
+        "ratio": "2:1",
+        "tatDays": 1
+      },
+      {
+        "hotelGroup": "Shangri-La",
+        "programme": "Shangri-La Circle",
+        "ratio": "10:1",
+        "tatDays": 1
+      },
+      {
+        "hotelGroup": "Wyndham Hotels & Resorts",
+        "programme": "Wyndham Rewards",
+        "ratio": "2:1",
+        "tatDays": 1
+      }
+    ],
     "statementBalanceValue": null,
+    "airMilesValue": 0.5,
     "pointsExpiryYears": null
   },
   "eligibility": {
     "salaried": [
-      "Age 18 to 65 years, Indian resident and eligible city residence"
+      "Age 18 to 65 years",
+      "Resident of India",
+      "Minimum annual income of Rs 6,00,000",
+      "Reside in an eligible service city listed by HSBC"
     ],
     "selfEmployed": [
-      "Age 25 to 65 years, Indian resident and eligible city residence"
+      "Age 25 to 65 years",
+      "Resident of India",
+      "Minimum annual income of Rs 12,00,000",
+      "Reside in an eligible service city listed by HSBC"
     ]
   },
   "sourceUrl": "https://www.hsbc.co.in/credit-cards/products/rupay-platinum-credit-card/",
   "applyUrl": "https://www.hsbc.co.in/credit-cards/products/rupay-platinum-credit-card/",
-  "lastVerified": "2026-05-10",
+  "lastVerified": "2026-06-08",
   "verificationStatus": "official-direct",
-  "popularityScore": 66
+  "popularityScore": 66,
+  "internalNotes": [
+    "Card details manually reviewed and verified by user on 2026-06-08",
+    "Card is lifetime free with no joining or renewal fees.",
+    "Earn rate of 2 points per Rs 150 spent is equivalent to 1.33 points per Rs 100 spent.",
+    "Excludes fuel, rent, wallet loads, education, government, utilities, insurance, and EMI from earning points.",
+    "Point-to-mile transfer is supported via the mobile app at a 2:1 ratio for most partners."
+  ]
 }

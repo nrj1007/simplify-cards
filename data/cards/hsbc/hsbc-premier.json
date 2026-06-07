@@ -8,6 +8,7 @@
   "joiningFee": 12000,
   "annualFee": 20000,
   "feeWaiverSpend": null,
+  "imageUrl": "/images/hsbc-premier.jpg",
   "bestFor": [
     "premier",
     "travel",
@@ -18,18 +19,45 @@
   "rewardType": "reward points",
   "rewards": [
     {
-      "category": "base",
-      "rate": 3,
+      "category": "travel",
+      "displayCategory": "Travel spends via Travel with Points portal",
+      "rate": 12,
+      "displayRate": "12 Reward Points / Rs 100",
       "capMonthly": null
     },
     {
-      "category": "travel",
-      "rate": 12,
+      "category": "utilities",
+      "displayCategory": "Utility bill payments",
+      "rate": 3,
+      "displayRate": "3 Reward Points / Rs 100",
+      "capMonthly": 3000
+    },
+    {
+      "category": "insurance",
+      "displayCategory": "Insurance premium payments",
+      "rate": 3,
+      "displayRate": "3 Reward Points / Rs 100",
+      "capMonthly": 3000
+    },
+    {
+      "category": "base",
+      "displayCategory": "Other eligible spends",
+      "rate": 3,
+      "displayRate": "3 Reward Points / Rs 100",
       "capMonthly": null
     }
   ],
   "loungeDomestic": "unlimited",
   "loungeInternational": "unlimited",
+  "lounge": {
+    "domestic": [
+      "Unlimited complimentary domestic airport lounge access for primary and add-on cardholders."
+    ],
+    "international": [
+      "Unlimited complimentary international airport lounge access for primary and add-on cardholders.",
+      "8 complimentary international guest lounge visits per calendar year."
+    ]
+  },
   "forexMarkup": 0.99,
   "tags": [
     "premier",
@@ -43,56 +71,229 @@
   ],
   "specialSpendRules": [
     {
-      "category": "rent",
+      "category": "utilities",
       "treatment": "capped",
       "capMonthlySpend": 100000,
-      "notes": "User-verified rule: rewards allowed on rent up to Rs 1 lakh"
+      "notes": "Utility spends earn reward points capped at cumulative Rs 1 Lakh spend per calendar month (effective 1 April 2025)."
     },
     {
       "category": "insurance",
       "treatment": "capped",
       "capMonthlySpend": 100000,
-      "notes": "User-verified rule: rewards allowed on insurance up to Rs 1 lakh"
+      "notes": "Insurance spends earn reward points capped at cumulative Rs 1 Lakh spend per calendar month (effective 1 April 2025)."
     }
   ],
   "exclusions": [
-    "fuel",
-    "cash advance",
-    "balance transfer",
-    "transactions excluded under HSBC Premier Credit Card terms"
+    "Fuel transactions",
+    "Rent payments",
+    "Wallet loading transactions",
+    "Educational spends",
+    "Government-related transactions",
+    "Tax payments",
+    "Jewellery purchases",
+    "Cash advances",
+    "Bail and bond payments",
+    "Money transfers",
+    "Financial and non-financial institution transactions",
+    "Card fees, charges, interest, and disputed transactions"
   ],
+  "exclusionCodes": [
+    "fuel",
+    "rent",
+    "wallet_load",
+    "education",
+    "government",
+    "tax",
+    "gold",
+    "cash_advance",
+    "fees_and_charges",
+    "disputed_transactions"
+  ],
+  "milestones": [],
   "milestoneBenefits": [
-    "Annual renewal fee waived for customers meeting HSBC Premier eligibility criteria"
+    "Annual renewal fee waived for qualified HSBC Premier customers meeting the Premier relationship criteria."
+  ],
+  "joiningBenefits": [
+    "20,000 reward points as a welcome benefit on card activation and completing first transaction within specified timeframe."
   ],
   "additionalBenefits": [
-    "20,000 reward points when starting to use the card, subject to terms",
-    "3 reward points per Rs 100 on eligible spends",
+    "Qualified 1:1 point transfer to airline miles and hotel loyalty programmes via the HSBC India Mobile Banking app",
+    "Buy One Get One free movie ticket offer on BookMyShow (up to specified caps)",
+    "30% off dining bill up to Rs 1,500 via EazyDiner",
+    "1% fuel surcharge waiver on transactions from Rs 400 to Rs 4,000",
+    "Lost card liability cover up to Rs 3 Lakhs"
+  ],
+  "additionalDetails": [
     "Reward points never expire",
-    "Up to 12X reward points on hotels, flights and car rentals on Travel with Points",
-    "1 reward point worth up to Re 1 at Apple online store and selected airlines",
-    "Instant 1:1 conversion to air miles and hotel loyalty points in HSBC India app",
-    "Unlimited domestic and international airport lounge access for cardholders plus 8 international guest visits",
-    "0.99% foreign exchange markup globally",
-    "Buy one get one offers at BookMyShow",
-    "30% off dining bill up to Rs 1,500 with EazyDiner",
-    "1% fuel surcharge waiver on fuel transactions from Rs 400 to Rs 4,000",
-    "Lost card misuse insurance cover up to Rs 3 lakh"
+    "Redemptions can be processed only via the HSBC India Mobile Banking app",
+    "Annual renewal fee is waived based on meeting HSBC Premier eligibility criteria rather than spend-based milestones"
   ],
   "redemption": {
-    "statementBalanceValue": 1,
+    "transferPartnerValuations": [
+      {
+        "partner": "Accor (ALL)",
+        "partnerPointValue": 2.2,
+        "transferRatio": 1.0,
+        "basis": "fixed",
+        "note": "1 reward point → 1 Accor ALL point · Rs 2.2/point"
+      },
+      {
+        "partner": "Marriott Bonvoy",
+        "partnerPointValue": 0.6,
+        "transferRatio": 1.0,
+        "basis": "dynamic",
+        "note": "1 reward point → 1 Marriott point · avg Rs 0.6/point"
+      }
+    ],
+    "airlinePartners": [
+      {
+        "airline": "Air India",
+        "programme": "Air India Maharaja Club",
+        "ratio": "1:1",
+        "tatDays": 5
+      },
+      {
+        "airline": "AirAsia",
+        "programme": "airasia rewards",
+        "ratio": "1:3",
+        "tatDays": 1
+      },
+      {
+        "airline": "Air France-KLM",
+        "programme": "Flying Blue",
+        "ratio": "1:1",
+        "tatDays": 1
+      },
+      {
+        "airline": "British Airways",
+        "programme": "The British Airways Club",
+        "ratio": "1:1",
+        "tatDays": 1
+      },
+      {
+        "airline": "Etihad Airways",
+        "programme": "Etihad Guest",
+        "ratio": "1:1",
+        "tatDays": 1
+      },
+      {
+        "airline": "EVA Air",
+        "programme": "Infinity MileageLands",
+        "ratio": "1:1",
+        "tatDays": 1
+      },
+      {
+        "airline": "Hainan Airlines",
+        "programme": "Fortune Wings Club",
+        "ratio": "2:1",
+        "tatDays": 5
+      },
+      {
+        "airline": "Japan Airlines",
+        "programme": "JAL Mileage Bank",
+        "ratio": "1:1",
+        "tatDays": 10
+      },
+      {
+        "airline": "Singapore Airlines",
+        "programme": "KrisFlyer",
+        "ratio": "1:1",
+        "tatDays": 1
+      },
+      {
+        "airline": "Qantas Airways",
+        "programme": "Qantas Frequent Flyer",
+        "ratio": "1:1",
+        "tatDays": 1
+      },
+      {
+        "airline": "Qatar Airways",
+        "programme": "Privilege Club",
+        "ratio": "1:1",
+        "tatDays": 1
+      },
+      {
+        "airline": "Thai Airways",
+        "programme": "Royal Orchid Plus",
+        "ratio": "1:1",
+        "tatDays": 1
+      },
+      {
+        "airline": "Turkish Airlines",
+        "programme": "Miles&Smiles",
+        "ratio": "2:1",
+        "tatDays": 1
+      },
+      {
+        "airline": "United Airlines",
+        "programme": "MileagePlus",
+        "ratio": "2:1",
+        "tatDays": 1
+      },
+      {
+        "airline": "Vietnam Airlines",
+        "programme": "Lotusmiles",
+        "ratio": "1:1",
+        "tatDays": 1
+      }
+    ],
+    "hotelPartners": [
+      {
+        "hotelGroup": "Accor",
+        "programme": "ALL - Accor Live Limitless",
+        "ratio": "1:1",
+        "tatDays": 1
+      },
+      {
+        "hotelGroup": "IHG Hotels & Resorts",
+        "programme": "IHG One Rewards",
+        "ratio": "1:1",
+        "tatDays": 1
+      },
+      {
+        "hotelGroup": "Marriott International",
+        "programme": "Marriott Bonvoy",
+        "ratio": "1:1",
+        "tatDays": 1
+      },
+      {
+        "hotelGroup": "Shangri-La",
+        "programme": "Shangri-La Circle",
+        "ratio": "5:1",
+        "tatDays": 1
+      },
+      {
+        "hotelGroup": "Wyndham Hotels & Resorts",
+        "programme": "Wyndham Rewards",
+        "ratio": "1:1",
+        "tatDays": 1
+      }
+    ],
+    "statementBalanceValue": null,
+    "airMilesValue": 1.0,
     "pointsExpiryYears": null
   },
   "eligibility": {
     "salaried": [
-      "Existing HSBC Premier customer; Premier criteria include salary account with net monthly salary credit of Rs 3 lakh"
+      "Age 18 to 65 years",
+      "Resident of India",
+      "Existing HSBC Premier customer relationship (requires meeting Quarterly Total Relationship Balance or monthly salary credit of Rs 3 Lakhs)"
     ],
     "selfEmployed": [
-      "Existing HSBC Premier customer; Premier criteria include average quarterly TRB of Rs 50 lakh"
+      "Age 25 to 65 years",
+      "Resident of India",
+      "Existing HSBC Premier customer relationship (requires meeting Quarterly Total Relationship Balance of Rs 50 Lakhs or qualifying home loan)"
     ]
   },
   "sourceUrl": "https://www.hsbc.co.in/credit-cards/products/premier/",
   "applyUrl": "https://www.hsbc.co.in/credit-cards/products/premier/",
-  "lastVerified": "2026-05-10",
+  "lastVerified": "2026-06-08",
   "verificationStatus": "official-direct",
-  "popularityScore": 85
+  "popularityScore": 85,
+  "internalNotes": [
+    "Card details manually reviewed and verified by user on 2026-06-08",
+    "Qualified HSBC Premier relationship status waives the joining and annual fees.",
+    "Excludes rent, fuel, education, government, tax, jewelry, wallet loads, and cash advances from earning points (effective 1 April 2025).",
+    "Points on utilities and insurance are capped at cumulative spends of Rs 1 Lakh per calendar month (effective 1 April 2025)."
+  ]
 }

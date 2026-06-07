@@ -2,6 +2,7 @@
   "id": "amex-membership-rewards",
   "issuer": "American Express",
   "name": "American Express Membership Rewards Credit Card",
+  "imageUrl": "/images/amex-membership-rewards.png",
   "network": [
     "American Express"
   ],
@@ -24,7 +25,7 @@
     },
     {
       "category": "online",
-      "rate": 0.5,
+      "rate": 1,
       "displayRate": "2 Membership Rewards Points / Rs 50 spent via Reward Multiplier on select brands",
       "capMonthly": null
     }
@@ -49,19 +50,31 @@
     "EMI conversion at point of sale",
     "excluded spends as per American Express terms"
   ],
-  "milestoneBenefits": [
-    "1,000 bonus Membership Rewards points for using the card 4 times on transactions of Rs 1,500 and above every month",
-    "Additional 1,000 Membership Rewards points on spending Rs 20,000 or more in a calendar month, subject to enrollment",
-    "100% renewal fee waiver on previous-year spends of Rs 1,50,000 and above; 50% waiver on spends from Rs 90,000 to Rs 1,49,999"
+  "exclusionCodes": [
+    "fuel",
+    "insurance",
+    "utilities",
+    "cash_advance",
+    "cash_withdrawal",
+    "emi",
+    "fees_and_charges"
   ],
-  "additionalBenefits": [
-    "Welcome gift of 4,000 Membership Rewards points",
-    "1 Membership Rewards point for every Rs 50 spent except excluded categories",
-    "EMI conversion option at point of sale"
+  "joiningBenefits": [
+    "Welcome gift of 4,000 Bonus Membership Rewards points"
+  ],
+  "renewalBenefits": [
+    "5,000 Membership Rewards points upon first-year card renewal on payment of annual membership fee"
+  ],
+  "milestoneBenefits": [
+    "1,000 Bonus Membership Rewards points on 4 transactions of Rs 1,500 or more in a calendar month",
+    "Additional 1,000 Membership Rewards points on spending Rs 20,000 or more in a calendar month"
+  ],
+  "additionalDetails": [
+    "50% renewal fee waiver applies when previous-year spends are between Rs 90,000 and Rs 1,49,999"
   ],
   "redemption": {
     "statementBalanceValue": 0.25,
-    "airMilesValue": 1,
+    "airMilesValue": 0.5,
     "pointsExpiryYears": null,
     "transferPartnerValuations": [
       {
@@ -69,7 +82,7 @@
         "partnerPointValue": 0.6,
         "transferRatio": 1,
         "basis": "dynamic",
-        "note": "1 Membership Rewards point → 1 Marriott Bonvoy point · up to Rs 1/point"
+        "note": "1 Membership Rewards point -> 1 Marriott Bonvoy point"
       }
     ],
     "voucherRedemptions": [
@@ -133,6 +146,15 @@
   },
   "sourceUrl": "https://www.americanexpress.com/in/credit-cards/membership-rewards-card/",
   "applyUrl": "https://www.americanexpress.com/in/credit-cards/membership-rewards-card/",
-  "lastVerified": "2026-05-10",
-  "verificationStatus": "official-mixed"
+  "supportingSourceUrls": [
+    "https://www.americanexpress.com/in/credit-cards/membership-rewards-card/",
+    "https://www.americanexpress.com/content/dam/amex/in/legal-disclosures/Schedule-of-Fee-and-Charges.pdf"
+  ],
+  "lastVerified": "2026-06-08",
+  "verificationStatus": "official-direct",
+  "internalNotes": [
+    "Card details manually reviewed and verified by user on 2026-06-08",
+    "The additional 1,000 Membership Rewards points on Rs 20,000 monthly spend is an enrollment-based benefit.",
+    "Airline transfers are currently listed at a 2:1 ratio, while Marriott Bonvoy transfers at 1:1 and Hilton Honors transfers at 1:0.9."
+  ]
 }

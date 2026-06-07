@@ -2,6 +2,7 @@
   "id": "amex-platinum",
   "issuer": "American Express",
   "name": "American Express Platinum Card",
+  "imageUrl": "/images/amex-platinum.png",
   "network": [
     "American Express"
   ],
@@ -19,20 +20,34 @@
   "rewards": [
     {
       "category": "retail",
-      "rate": 0.5,
+      "rate": 0.625,
       "displayRate": "1 Membership Rewards Point / Rs 40 spent on eligible categories",
       "capMonthly": null
     },
     {
       "category": "travel",
-      "rate": 0.5,
-      "displayRate": "3 Membership Rewards Points / Rs 40 spent on international spends",
+      "rate": 1.875,
+      "displayRate": "3 Membership Rewards Points / Rs 40 spent on overseas spends",
+      "capMonthly": null
+    },
+    {
+      "category": "fuel",
+      "rate": 1.25,
+      "displayRate": "5 Membership Rewards Points / Rs 100 spent on fuel",
       "capMonthly": null
     }
   ],
   "popularityScore": 73,
   "loungeDomestic": "unlimited",
   "loungeInternational": "unlimited",
+  "lounge": {
+    "domestic": [
+      "Global Lounge Collection includes domestic partner lounges in India."
+    ],
+    "international": [
+      "Global Lounge Collection includes Priority Pass lounges, The Centurion Lounge, Delta Sky Club when flying Delta, and Escape lounges."
+    ]
+  },
   "forexMarkup": 3.5,
   "tags": [
     "amex",
@@ -45,22 +60,33 @@
     "metal"
   ],
   "exclusions": [
+    "insurance",
+    "utilities",
+    "cash transactions",
     "excluded spends as per American Express Platinum Card terms"
   ],
-  "milestoneBenefits": [],
+  "exclusionCodes": [
+    "insurance",
+    "utilities",
+    "cash_advance",
+    "cash_withdrawal",
+    "fees_and_charges"
+  ],
+  "joiningBenefits": [
+    "Welcome gift worth up to Rs 60,000 on payment of annual fee and spending Rs 50,000 within the first 2 months of Cardmembership"
+  ],
+  "milestoneBenefits": [
+    "Renewal benefit worth up to Rs 35,000 voucher on spending Rs 20 lakh in the membership year and payment of renewal fee"
+  ],
   "additionalBenefits": [
-    "Welcome gift worth up to Rs 60,000 with option to choose from Taj Hotels, Luxe Gift Card, The Postcard Hotels & Resorts and more",
-    "Annual fee of Rs 66,000 plus applicable taxes",
-    "Access to American Express Global Lounge Collection including Centurion Lounge, Delta Lounge and Priority Pass lounges",
-    "Fine Hotels and Resorts benefits listed by American Express",
-    "Travel and lifestyle concierge",
-    "Airline Partner Programme benefits",
-    "3X Membership Rewards points on overseas spends",
-    "Hotel status and lifestyle memberships listed by American Express"
+    "Fine Hotels & Resorts and The Hotel Collection stay benefits listed by American Express",
+    "Complimentary elite hotel and lifestyle memberships listed by American Express",
+    "Dedicated Platinum Concierge service",
+    "Exclusive airline deals through Platinum Travel Service"
   ],
   "redemption": {
     "statementBalanceValue": 0.25,
-    "airMilesValue": 1,
+    "airMilesValue": 0.5,
     "pointsExpiryYears": null,
     "transferPartnerValuations": [
       {
@@ -68,7 +94,7 @@
         "partnerPointValue": 0.6,
         "transferRatio": 1,
         "basis": "dynamic",
-        "note": "1 Membership Rewards point → 1 Marriott Bonvoy point · up to Rs 1/point"
+        "note": "1 Membership Rewards point -> 1 Marriott Bonvoy point"
       }
     ],
     "airlinePartners": [
@@ -93,8 +119,19 @@
       "Eligibility is subject to American Express Platinum charge card approval criteria"
     ]
   },
-  "sourceUrl": "https://www.americanexpress.com/en-in/credit-cards/platinum-card-range/",
-  "applyUrl": "https://www.americanexpress.com/en-in/credit-cards/platinum-card-range/",
-  "lastVerified": "2026-05-10",
-  "verificationStatus": "official-direct"
+  "sourceUrl": "https://www.americanexpress.com/in/charge-cards/platinum-card/",
+  "applyUrl": "https://www.americanexpress.com/in/charge-cards/platinum-card/",
+  "supportingSourceUrls": [
+    "https://www.americanexpress.com/in/charge-cards/platinum-card/",
+    "https://www.americanexpress.com/in/benefits/the-platinum-card/",
+    "https://www.americanexpress.com/content/dam/amex/in/legal-disclosures/Schedule-of-Fee-and-Charges.pdf"
+  ],
+  "lastVerified": "2026-06-08",
+  "verificationStatus": "official-direct",
+  "internalNotes": [
+    "Card details manually reviewed and verified by user on 2026-06-08",
+    "The welcome gift is fulfilled within 6-8 weeks after payment of annual fee and net spends of Rs 50,000 in the first 2 months of Cardmembership.",
+    "Fuel earns 1 Membership Rewards point per Rs 100 spent plus 4 additional bonus Membership Rewards points per Rs 100 spent, capped at 5,000 bonus points per calendar month.",
+    "Membership Rewards points on the Platinum Card do not expire."
+  ]
 }

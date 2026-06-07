@@ -2,6 +2,7 @@
   "id": "amex-platinum-reserve",
   "issuer": "American Express",
   "name": "American Express Platinum Reserve Credit Card",
+  "imageUrl": "/images/amex-platinum-reserve.png",
   "network": [
     "American Express"
   ],
@@ -25,20 +26,24 @@
     },
     {
       "category": "online",
-      "rate": 2.5,
-      "displayRate": "5 Membership Rewards Points / Rs 50 spent via Reward Multiplier on select brands",
-      "capMonthly": null
-    },
-    {
-      "category": "travel",
       "rate": 1.5,
-      "displayRate": "3 Membership Rewards Points / Rs 50 spent on select travel bookings",
+      "displayRate": "3 Membership Rewards Points / Rs 50 spent via Reward Multiplier on select brands",
       "capMonthly": null
     }
   ],
   "popularityScore": 76,
   "loungeDomestic": 12,
   "loungeInternational": 2,
+  "lounge": {
+    "domestic": [
+      "12 complimentary visits in a year, limited to 3 visits per quarter."
+    ],
+    "international": [
+      "2 complimentary Priority Pass lounge visits in a year.",
+      "Priority Pass membership worth US$99 is complimentary on enrolment.",
+      "Visits beyond the 2 complimentary visits are charged at prevailing rates, currently US$35 per person per visit."
+    ]
+  },
   "forexMarkup": 3.5,
   "tags": [
     "amex",
@@ -50,29 +55,35 @@
     "reward multiplier"
   ],
   "exclusions": [
-    "fuel",
     "insurance",
     "utilities",
     "cash transactions",
     "EMI conversion at point of sale",
     "excluded spends as per American Express terms"
   ],
+  "exclusionCodes": [
+    "insurance",
+    "utilities",
+    "cash_advance",
+    "cash_withdrawal",
+    "emi",
+    "fees_and_charges"
+  ],
+  "joiningBenefits": [
+    "11,000 Membership Rewards points as welcome gift on spending Rs 30,000 within first 90 days"
+  ],
   "milestoneBenefits": [
-    "Rs 1,000 voucher every month on spending Rs 50,000 or more in a calendar month, subject to enrollment",
-    "100% annual fee waiver on previous-year spends of Rs 10,00,000 and above"
+    "Rs 1,000 voucher every month on spending Rs 50,000 or more in a calendar month, subject to enrolment"
   ],
   "additionalBenefits": [
-    "11,000 Membership Rewards points as welcome gift on spending Rs 30,000 within first 90 days",
-    "12 complimentary domestic lounge visits per year, capped at 3 per quarter",
-    "2 complimentary international lounge visits per year through Priority Pass",
-    "Complimentary Priority Pass membership",
-    "Complimentary Taj Epicure, Accor Plus Traveller and EazyDiner Prime memberships listed by American Express",
+    "Complimentary ALL Accor+ Explorer membership",
+    "Complimentary EazyDiner Prime membership",
     "Golf benefit up to twice per month on meeting monthly spend criteria",
-    "3X Membership Rewards points through Reward Multiplier and 5X through RewardXcelerator"
+    "RewardXcelerator offers 5X rewards on participating brands"
   ],
   "redemption": {
     "statementBalanceValue": 0.25,
-    "airMilesValue": 1,
+    "airMilesValue": 0.5,
     "pointsExpiryYears": null,
     "transferPartnerValuations": [
       {
@@ -80,7 +91,7 @@
         "partnerPointValue": 0.6,
         "transferRatio": 1,
         "basis": "dynamic",
-        "note": "1 Membership Rewards point → 1 Marriott Bonvoy point · up to Rs 1/point"
+        "note": "1 Membership Rewards point -> 1 Marriott Bonvoy point"
       }
     ],
     "airlinePartners": [
@@ -105,8 +116,19 @@
       "Eligibility is subject to American Express premium card approval criteria"
     ]
   },
-  "sourceUrl": "https://www.americanexpress.com/in/benefits/platinum-reserve-card/",
-  "applyUrl": "https://www.americanexpress.com/en-in/credit-cards/platinum-card-range/",
-  "lastVerified": "2026-05-10",
-  "verificationStatus": "official-mixed"
+  "sourceUrl": "https://www.americanexpress.com/in/credit-cards/platinum-reserve-credit-card/",
+  "applyUrl": "https://www.americanexpress.com/in/credit-cards/platinum-reserve-credit-card/",
+  "supportingSourceUrls": [
+    "https://www.americanexpress.com/in/credit-cards/platinum-reserve-credit-card/",
+    "https://www.americanexpress.com/in/benefits/platinum-reserve-card/index.html",
+    "https://www.americanexpress.com/content/dam/amex/en-in/benefits/RewardXcelerator_PlatReserve.pdf",
+    "https://www.americanexpress.com/content/dam/amex/in/legal-disclosures/Schedule-of-Fee-and-Charges.pdf"
+  ],
+  "lastVerified": "2026-06-08",
+  "verificationStatus": "official-direct",
+  "internalNotes": [
+    "Card details manually reviewed and verified by user on 2026-06-08",
+    "Golf benefit requires monthly spend of Rs 50,000 and allows up to 2 visits per month.",
+    "Airline transfers are currently listed at a 2:1 ratio, while Marriott Bonvoy transfers at 1:1 and Hilton Honors transfers at 1:0.9."
+  ]
 }

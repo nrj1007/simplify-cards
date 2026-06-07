@@ -1135,6 +1135,141 @@ describe("reward calculator", () => {
       }
     });
   });
+
+  describe("HSBC Live+ Credit Card", () => {
+    it("earns 10% cashback on dining, food delivery, and groceries capped at Rs 1,000/month", () => {
+      const card = getCardById("hsbc-live-plus");
+      expect(card).toBeTruthy();
+
+      // Rs 5,000 on dining => 5,000 * 10% = Rs 500 cashback
+      const result1 = calculateRewards(card!, { dining: 5000 });
+      expect(result1.monthlyUnits).toBe(500);
+
+      // Rs 15,000 on dining => 1,500 capped at Rs 1,000
+      const result2 = calculateRewards(card!, { dining: 15000 });
+      expect(result2.monthlyUnits).toBe(1000);
+    });
+
+    it("earns 1.5% cashback on base spends", () => {
+      const card = getCardById("hsbc-live-plus");
+      expect(card).toBeTruthy();
+
+      // Rs 10,000 base spend => 150 cashback
+      const result = calculateRewards(card!, { base: 10000 });
+      expect(result.monthlyUnits).toBe(150);
+    });
+
+    it("excludes fuel, rent, insurance, government, education, wallet, and utilities spends", () => {
+      const card = getCardById("hsbc-live-plus");
+      const result = calculateRewards(card!, {
+        fuel: 5000,
+        rent: 5000,
+        insurance: 5000,
+        government: 5000,
+        education: 5000,
+        wallet_load: 5000,
+        utilities: 5000
+      });
+      expect(result.monthlyUnits).toBe(0);
+    });
+  });
+
+  describe("HSBC Premier Credit Card", () => {
+    it("earns 12 reward points per Rs 100 on travel spends", () => {
+      const card = getCardById("hsbc-premier");
+      expect(card).toBeTruthy();
+
+      // Rs 10,000 travel => 1,200 points
+      const result = calculateRewards(card!, { travel: 10000 });
+      expect(result.monthlyUnits).toBe(1200);
+    });
+
+    it("earns 3 reward points per Rs 100 on base spends", () => {
+      const card = getCardById("hsbc-premier");
+      expect(card).toBeTruthy();
+
+      // Rs 10,000 base => 300 points
+      const result = calculateRewards(card!, { base: 10000 });
+      expect(result.monthlyUnits).toBe(300);
+    });
+
+    it("caps utilities and insurance rewards at Rs 1 Lakh spend (3,000 points) monthly each", () => {
+      const card = getCardById("hsbc-premier");
+      expect(card).toBeTruthy();
+
+      // Rs 50,000 utilities => 1,500 points
+      const result1 = calculateRewards(card!, { utilities: 50000 });
+      expect(result1.monthlyUnits).toBe(1500);
+
+      // Rs 150,000 utilities => 4,500 raw points capped at 3,000 points
+      const result2 = calculateRewards(card!, { utilities: 150000 });
+      expect(result2.monthlyUnits).toBe(3000);
+
+      // Rs 150,000 insurance => 4,500 raw points capped at 3,000 points
+      const result3 = calculateRewards(card!, { insurance: 150000 });
+      expect(result3.monthlyUnits).toBe(3000);
+    });
+  });
+
+  describe("HSBC RuPay Cashback Credit Card", () => {
+    it("earns 10% cashback on dining, food delivery, and groceries capped at Rs 400/month", () => {
+      const card = getCardById("hsbc-rupay-cashback");
+      expect(card).toBeTruthy();
+
+      // Rs 3,000 dining => 300 cashback
+      const result1 = calculateRewards(card!, { dining: 3000 });
+      expect(result1.monthlyUnits).toBe(300);
+
+      // Rs 6,000 dining => 600 capped at Rs 400
+      const result2 = calculateRewards(card!, { dining: 6000 });
+      expect(result2.monthlyUnits).toBe(400);
+    });
+
+    it("earns 1% cashback on base spends", () => {
+      const card = getCardById("hsbc-rupay-cashback");
+      expect(card).toBeTruthy();
+
+      // Rs 10,000 base spend => 100 cashback
+      const result = calculateRewards(card!, { base: 10000 });
+      expect(result.monthlyUnits).toBe(100);
+    });
+  });
+
+  describe("HSBC Visa/RuPay Platinum Credit Cards", () => {
+    it("earns 2 reward points per Rs 150 spent on base eligible transactions", () => {
+      const card = getCardById("hsbc-visa-platinum");
+      expect(card).toBeTruthy();
+
+      // Rs 15,000 base spend => 15,000 * 2 / 150 = 200 points
+      const result = calculateRewards(card!, { base: 15000 });
+      expect(result.monthlyUnits).toBe(200);
+    });
+
+    it("earns 12 reward points per Rs 150 spent on Travel with Points (Visa Platinum)", () => {
+      const card = getCardById("hsbc-visa-platinum");
+      expect(card).toBeTruthy();
+
+      // Rs 15,000 travel spend => 15,000 * 12 / 150 = 1200 points
+      const result = calculateRewards(card!, { travel: 15000 });
+      expect(result.monthlyUnits).toBe(1200);
+    });
+  });
+
+  describe("HSBC Taj Credit Card", () => {
+    it("earns 5 reward points per Rs 100 spent at Taj hotels and 1.5 reward points per Rs 100 spent on base transactions", () => {
+      const card = getCardById("hsbc-taj");
+      expect(card).toBeTruthy();
+
+      // Rs 10,000 hotel spend => 10,000 * 5 / 100 = 500 points
+      const result1 = calculateRewards(card!, { hotels: 10000 });
+      expect(result1.monthlyUnits).toBe(500);
+
+      // Rs 10,000 base spend => 10,000 * 1.5 / 100 = 150 points
+      const result2 = calculateRewards(card!, { base: 10000 });
+      expect(result2.monthlyUnits).toBe(150);
+    });
+  });
 });
+
 
 

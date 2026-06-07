@@ -8,6 +8,7 @@
   "joiningFee": 999,
   "annualFee": 999,
   "feeWaiverSpend": 200000,
+  "imageUrl": "/images/hsbc-live-plus.jpg",
   "bestFor": [
     "dining",
     "food delivery",
@@ -19,12 +20,16 @@
   "rewards": [
     {
       "category": "grocery dining movies",
+      "displayCategory": "Dining, Food Delivery, and Grocery spends",
       "rate": 10,
+      "displayRate": "10% Cashback",
       "capMonthly": 1000
     },
     {
       "category": "base",
+      "displayCategory": "Other spends",
       "rate": 1.5,
+      "displayRate": "1.5% Cashback",
       "capMonthly": null
     }
   ],
@@ -32,7 +37,7 @@
   "loungeInternational": 0,
   "lounge": {
     "domestic": [
-      "4 complimentary domestic airport lounge visits per year, one per quarter"
+      "4 complimentary domestic airport lounge visits per year (1 per calendar quarter)."
     ]
   },
   "forexMarkup": 3.5,
@@ -47,40 +52,69 @@
     "visa signature"
   ],
   "exclusions": [
+    "Utility bill payments",
+    "Fuel-related transactions",
+    "Rental payments and commissions",
+    "Insurance premium payments",
+    "EMI transactions",
+    "Government-related payments",
+    "Educational spends",
+    "Jewellery purchases",
+    "Wallet loading transactions",
+    "Cash advances"
+  ],
+  "exclusionCodes": [
     "utilities",
     "fuel",
-    "cash advance",
-    "balance transfer",
-    "transactions excluded under HSBC Live+ Credit Card cashback terms"
+    "rent",
+    "insurance",
+    "emi",
+    "government",
+    "education",
+    "gold",
+    "wallet_load",
+    "cash_advance"
   ],
-  "milestoneBenefits": [
-    "Annual fee waived on annual spends above Rs 2 lakh"
+  "milestones": [],
+  "joiningBenefits": [
+    "Rs 1,000 cashback after logging into the HSBC India app and spending Rs 20,000 within the first 30 days",
+    "Voucher worth up to Rs 500 for Amazon Pay, Zomato, and Swiggy on card activation with a single transaction of Rs 300 or more"
   ],
   "additionalBenefits": [
-    "Rs 1,000 cashback after logging into HSBC India app and spending Rs 20,000 within first 30 days",
-    "Voucher worth up to Rs 500 for Amazon Pay, Zomato and Swiggy on activation with a single transaction of Rs 300 or more",
-    "10% cashback on dining, food delivery and grocery spends, capped at Rs 1,000 per month",
-    "1.5% unlimited cashback on most other eligible spends",
-    "4 complimentary domestic airport lounge visits per year, one per quarter",
-    "Free 12-month Times Prime subscription, subject to Visa Signature terms",
-    "Complimentary flight seat selections twice a year on domestic flights booked with MakeMyTrip",
-    "District by Zomato dining and movie offers, subject to terms"
+    "Times Prime annual membership on card activation (Visa Signature offer)",
+    "District by Zomato dining and movie offers, subject to terms",
+    "Complimentary domestic flight seat selection twice a year on bookings via MakeMyTrip"
+  ],
+  "additionalDetails": [
+    "Cashback is credited as statement credit within 45 days of the statement date",
+    "Qualified annual spend of Rs 2 Lakhs waives the renewal fee of Rs 999"
   ],
   "redemption": {
-    "statementBalanceValue": 1,
+    "statementBalanceValue": 1.0,
     "pointsExpiryYears": null
   },
   "eligibility": {
     "salaried": [
-      "Age 18 to 65 years, Indian resident, minimum income Rs 6 lakh per year and eligible city residence"
+      "Age 18 to 65 years",
+      "Resident of India",
+      "Minimum monthly income of Rs 50,000 (Rs 6 Lakhs per annum)",
+      "Reside in an eligible service city listed by HSBC"
     ],
     "selfEmployed": [
-      "Age 25 to 65 years, Indian resident, minimum income Rs 12 lakh per year and eligible city residence"
+      "Age 25 to 65 years",
+      "Resident of India",
+      "Minimum annual income of Rs 12 Lakhs",
+      "Reside in an eligible service city listed by HSBC"
     ]
   },
   "sourceUrl": "https://www.hsbc.co.in/credit-cards/products/live-plus/",
   "applyUrl": "https://www.hsbc.co.in/credit-cards/products/live-plus/",
-  "lastVerified": "2026-05-10",
+  "lastVerified": "2026-06-08",
   "verificationStatus": "official-direct",
-  "popularityScore": 85
+  "popularityScore": 85,
+  "internalNotes": [
+    "Card details manually reviewed and verified by user on 2026-06-08",
+    "10% cashback on dining, food delivery, and groceries is capped at Rs 1,000 per month combined, then reverts to the base 1.5% cashback rate.",
+    "Excludes fuel, rent, insurance, government, education, wallet loads, utilities, gold, and EMI transactions from earning cashback."
+  ]
 }

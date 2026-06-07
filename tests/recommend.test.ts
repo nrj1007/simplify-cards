@@ -400,10 +400,10 @@ describe("scoreCards", () => {
       }
     });
 
-    const hsbcPremier = scores.find((score) => score.card.id === "hsbc-premier");
+    const magnus = scores.find((score) => score.card.id === "axis-magnus");
     const magnusBurgundy = scores.find((score) => score.card.id === "axis-magnus-burgundy");
 
-    expect(hsbcPremier?.rewardBreakdown.some((item) => item.spendCategory === "rent")).toBe(true);
+    expect(magnus?.rewardBreakdown.some((item) => item.spendCategory === "rent")).toBe(true);
     expect(magnusBurgundy?.rewardBreakdown.some((item) => item.spendCategory === "rent")).toBe(true);
   });
 
