@@ -104,6 +104,13 @@ export type CreditCard = {
   loungeInternational: number | "unlimited";
   combinedLoungeAccess?: number | "unlimited";
   combinedLoungeAccessLabel?: string;
+  // Reviewed, structured lounge-condition bullets. When present for a bucket they replace the
+  // heuristic text-mining in lib/lounge.ts (getLoungeConditions). Optional, migrated per card.
+  lounge?: {
+    domestic?: string[];
+    international?: string[];
+    combined?: string[];
+  };
   forexMarkup: number;
   tags: string[];
   exclusions: string[];

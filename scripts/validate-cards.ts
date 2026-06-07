@@ -385,6 +385,19 @@ if (cardFiles.length === 0) {
     validateLounge(card.loungeDomestic, cardId, "loungeDomestic");
     validateLounge(card.loungeInternational, cardId, "loungeInternational");
 
+    if (card.lounge !== undefined) {
+      if (!isObject(card.lounge)) {
+        addIssue("must be an object with optional domestic/international/combined string arrays", cardId, "lounge");
+      } else {
+        for (const bucket of ["domestic", "international", "combined"] as const) {
+          const value = (card.lounge as CardLike)[bucket];
+          if (value !== undefined && !isStringArray(value)) {
+            addIssue(`lounge.${bucket} must be an array of strings`, cardId, "lounge");
+          }
+        }
+      }
+    }
+
     if (!isValidUrl(card.sourceUrl)) addIssue("must be a valid https URL", cardId, "sourceUrl");
     if (!isValidUrl(card.applyUrl)) addIssue("must be a valid https URL", cardId, "applyUrl");
     validateDate(card.lastVerified, cardId, "lastVerified");

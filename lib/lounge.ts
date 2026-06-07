@@ -41,6 +41,19 @@ function dedupeKey(value: string) {
 }
 
 export function getLoungeConditions(card: CreditCard, type?: "domestic" | "international") {
+  // Prefer reviewed, structured conditions when present; only fall back to text-mining the
+  // benefit/notes arrays for cards not yet migrated to the `lounge` field.
+  const structured = card.lounge;
+  if (structured) {
+    if (type === "domestic" && structured.domestic?.length) return structured.domestic;
+    if (type === "international" && structured.international?.length) return structured.international;
+    if (!type) {
+      if (structured.combined?.length) return structured.combined;
+      const merged = [...(structured.domestic ?? []), ...(structured.international ?? [])];
+      if (merged.length) return merged;
+    }
+  }
+
   const items = [
     ...(card.additionalBenefits ?? []),
     ...(card.additionalDetails ?? []),

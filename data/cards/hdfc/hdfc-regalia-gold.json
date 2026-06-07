@@ -62,6 +62,16 @@
   ],
   "loungeDomestic": 12,
   "loungeInternational": 6,
+  "lounge": {
+    "domestic": [
+      "12 complimentary visits per year (max 3 per quarter).",
+      "From 1 July 2026 access is spend-gated: requires Rs 60,000 of spend in the preceding calendar quarter to unlock the next quarter."
+    ],
+    "international": [
+      "Complimentary Priority Pass membership on request after 4 retail transactions.",
+      "6 complimentary visits per calendar year outside India (primary and add-on cardholders); extra visits charged at US $27 + GST."
+    ]
+  },
   "forexMarkup": 2,
   "tags": [
     "travel",
