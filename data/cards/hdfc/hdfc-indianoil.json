@@ -116,7 +116,7 @@
   ],
   "redemption": {
     "statementBalanceValue": 0.2,
-    "ecosystemLabel": "IndianOil fuel redemption (via XTRAREWARDS)",
+    "ecosystemLabel": "IndianOil Fuel Redemption",
     "ecosystemValue": 0.96,
     "pointsExpiryYears": 2,
     "cashbackRedemptionCapMonthly": 50000
