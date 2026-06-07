@@ -330,51 +330,6 @@ export function deriveLoungeMilestoneRules(card: CreditCard): CardRule[] {
 }
 
 // ---------------------------------------------------------------------------
-// Exclusions & caps
-// ---------------------------------------------------------------------------
-export type ExclusionRow = { type: string; details: string; why: string };
-
-export function deriveExclusionsAndCaps(card: CreditCard): ExclusionRow[] {
-  const rows: ExclusionRow[] = [];
-
-  if (card.exclusions.length) {
-    rows.push({
-      type: "Excluded spends",
-      details: card.exclusions.join(", "),
-      why: "These typically earn no rewards and may not count toward value."
-    });
-  }
-
-  const cappedRules = (card.specialSpendRules ?? []).filter((rule) => rule.treatment === "capped");
-  if (cappedRules.length) {
-    rows.push({
-      type: "Category caps",
-      details: cappedRules.map((rule) => titleCase(rule.category)).join(", "),
-      why: "Rewards on these categories are capped each month, so they don't scale with spend."
-    });
-  }
-
-  if (hasRewardCaps(card)) {
-    const caps = [
-      ...new Set(
-        card.rewards
-          .filter((reward) => typeof reward.capMonthly === "number" && reward.capMonthly! > 0)
-          .map((reward) => reward.capMonthly as number)
-      )
-    ].sort((a, b) => a - b);
-    if (caps.length) {
-      rows.push({
-        type: "Reward caps",
-        details: `Up to ${caps[caps.length - 1].toLocaleString("en-IN")} ${card.rewardType} per month on top categories`,
-        why: "High spenders should account for monthly reward ceilings."
-      });
-    }
-  }
-
-  return rows;
-}
-
-// ---------------------------------------------------------------------------
 // Alternatives
 // ---------------------------------------------------------------------------
 function feeTier(fee: number) {

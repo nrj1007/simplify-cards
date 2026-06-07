@@ -14,7 +14,6 @@ import {
   alternativeIntent,
   deriveAvoidIf,
   deriveBestFor,
-  deriveExclusionsAndCaps,
   deriveLoungeMilestoneRules,
   deriveTake,
   findAlternativeCards,
@@ -262,7 +261,6 @@ export default async function CardPage({ params, searchParams }: Props) {
   const bestFor = deriveBestFor(card);
   const avoidIf = deriveAvoidIf(card);
   const loungeMilestoneRules = deriveLoungeMilestoneRules(card);
-  const exclusionRows = deriveExclusionsAndCaps(card);
   const alternatives = findAlternativeCards(card);
   const firstAlternative = alternatives[0];
 
@@ -666,35 +664,16 @@ export default async function CardPage({ params, searchParams }: Props) {
               </section>
             ) : null}
 
-            {exclusionRows.length ? (
+            {card.exclusions.length ? (
               <section className="panel">
                 <div className="panel-body">
                   <div className="section-head">
                     <div>
-                      <h2 className="section-title">Exclusions and caps</h2>
-                      <p className="section-sub">What this card won&apos;t reward, so you don&apos;t over-expect.</p>
+                      <h2 className="section-title">Exclusions</h2>
+                      <p className="section-sub">Categories that earn no rewards on this card.</p>
                     </div>
                   </div>
-                  <div className="table-wrap">
-                    <table className="compare-table">
-                      <thead>
-                        <tr>
-                          <th>Type</th>
-                          <th>Details</th>
-                          <th>Why it matters</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {exclusionRows.map((row) => (
-                          <tr key={row.type}>
-                            <td>{row.type}</td>
-                            <td>{row.details}</td>
-                            <td>{row.why}</td>
-                          </tr>
-                        ))}
-                      </tbody>
-                    </table>
-                  </div>
+                  <DetailList className="detail-list-columns" items={card.exclusions} />
                 </div>
               </section>
             ) : null}
