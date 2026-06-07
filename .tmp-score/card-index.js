@@ -21,23 +21,9 @@ exports.getRewardCategories = getRewardCategories;
 exports.getUseCases = getUseCases;
 exports.getRedemptionBuckets = getRedemptionBuckets;
 exports.getCardSegments = getCardSegments;
-const american_express_json_1 = __importDefault(require("@/data/cards/american-express.json"));
-const au_small_finance_json_1 = __importDefault(require("@/data/cards/au-small-finance.json"));
-const axis_json_1 = __importDefault(require("@/data/cards/axis.json"));
-const bank_of_baroda_json_1 = __importDefault(require("@/data/cards/bank-of-baroda.json"));
-const equitas_small_finance_json_1 = __importDefault(require("@/data/cards/equitas-small-finance.json"));
-const federal_bank_json_1 = __importDefault(require("@/data/cards/federal-bank.json"));
-const hdfc_json_1 = __importDefault(require("@/data/cards/hdfc.json"));
-const hsbc_json_1 = __importDefault(require("@/data/cards/hsbc.json"));
-const icici_json_1 = __importDefault(require("@/data/cards/icici.json"));
-const idfc_json_1 = __importDefault(require("@/data/cards/idfc.json"));
-const indusind_bank_json_1 = __importDefault(require("@/data/cards/indusind-bank.json"));
-const kotak_mahindra_json_1 = __importDefault(require("@/data/cards/kotak-mahindra.json"));
-const onecard_partners_json_1 = __importDefault(require("@/data/cards/onecard-partners.json"));
-const rbl_bank_json_1 = __importDefault(require("@/data/cards/rbl-bank.json"));
-const sbi_json_1 = __importDefault(require("@/data/cards/sbi.json"));
-const standard_chartered_json_1 = __importDefault(require("@/data/cards/standard-chartered.json"));
-const yes_bank_json_1 = __importDefault(require("@/data/cards/yes-bank.json"));
+exports.stripScoringAnnotations = stripScoringAnnotations;
+const node_fs_1 = __importDefault(require("node:fs"));
+const node_path_1 = __importDefault(require("node:path"));
 function sortCards(left, right) {
     return right.popularityScore - left.popularityScore || left.name.localeCompare(right.name);
 }
@@ -69,8 +55,12 @@ function searchableTextForCard(card) {
         ...card.bestFor,
         ...card.tags,
         ...card.exclusions,
+        ...(card.exclusionCodes ?? []),
+        ...(card.specialSpendRules?.map((rule) => [rule.category, rule.treatment, rule.notes].filter(Boolean).join(" ")) ?? []),
         ...(card.milestoneBenefits ?? []),
-        ...(card.additionalBenefits ?? [])
+        ...(card.additionalBenefits ?? []),
+        ...(card.additionalDetails ?? []),
+        ...(card.internalNotes ?? [])
     ]
         .join(" ")
         .toLowerCase();
@@ -129,25 +119,36 @@ function cardSegmentsForCard(card, searchableText) {
     }
     return [...segments];
 }
-const mergedCards = [
-    ...american_express_json_1.default,
-    ...icici_json_1.default,
-    ...sbi_json_1.default,
-    ...axis_json_1.default,
-    ...hdfc_json_1.default,
-    ...federal_bank_json_1.default,
-    ...idfc_json_1.default,
-    ...indusind_bank_json_1.default,
-    ...hsbc_json_1.default,
-    ...bank_of_baroda_json_1.default,
-    ...au_small_finance_json_1.default,
-    ...equitas_small_finance_json_1.default,
-    ...kotak_mahindra_json_1.default,
-    ...onecard_partners_json_1.default,
-    ...rbl_bank_json_1.default,
-    ...standard_chartered_json_1.default,
-    ...yes_bank_json_1.default
-].sort(sortCards);
+// Cards live as one JSON file per card under data/cards/<issuer>/<card-id>.json.
+// Read them all at module load (server-side only) so adding a card is just dropping a
+// file — no import list to maintain. The final order is determined by sortCards, so the
+// directory traversal order does not matter.
+function loadAllCards() {
+    const cardsDir = node_path_1.default.join(process.cwd(), "data", "cards");
+    const loaded = [];
+    for (const issuerEntry of node_fs_1.default.readdirSync(cardsDir, { withFileTypes: true })) {
+        if (!issuerEntry.isDirectory())
+            continue;
+        const issuerDir = node_path_1.default.join(cardsDir, issuerEntry.name);
+        for (const fileName of node_fs_1.default.readdirSync(issuerDir)) {
+            if (!fileName.endsWith(".json"))
+                continue;
+            const raw = node_fs_1.default.readFileSync(node_path_1.default.join(issuerDir, fileName), "utf8");
+            const card = JSON.parse(raw);
+            if (card.redemption) {
+                if (card.redemption.accorValue === undefined && Array.isArray(card.redemption.transferPartnerValuations)) {
+                    const accorVal = card.redemption.transferPartnerValuations.find((p) => p.partner && p.partner.toLowerCase().includes("accor"));
+                    if (accorVal) {
+                        card.redemption.accorValue = accorVal.partnerPointValue * accorVal.transferRatio;
+                    }
+                }
+            }
+            loaded.push(card);
+        }
+    }
+    return loaded;
+}
+const mergedCards = loadAllCards().sort(sortCards);
 exports.cards = Object.freeze(mergedCards);
 const cardsByIdMap = new Map(exports.cards.map((card) => [card.id, card]));
 const cardsByIssuerMap = new Map();
@@ -229,4 +230,12 @@ function getRedemptionBuckets() {
 }
 function getCardSegments() {
     return Object.keys(exports.cardIndexes.byCardSegment);
+}
+/**
+ * Strips scoring-only value annotations from benefit strings before display.
+ * Annotations like "(worth Rs 12,000)" are embedded for the scoring engine
+ * and must not be shown to users.
+ */
+function stripScoringAnnotations(benefit) {
+    return benefit.replace(/\s*\((?:vouchers?\s+)?worth Rs[^)]+\)/gi, "").trim();
 }

@@ -1,6 +1,8 @@
 import { NextResponse } from "next/server";
 import { logAskFeedback } from "@/lib/feedback-logs";
 import type { RecommendationInput } from "@/lib/types";
+import { logAnalyticsEvent } from "@/lib/analytics-logs";
+import { buildFeedbackAnalyticsPayload } from "@/lib/analytics-events";
 
 export async function POST(request: Request) {
   let returnTo = "/ask";
@@ -24,6 +26,9 @@ export async function POST(request: Request) {
     const feedbackValue = String(formData.get("feedback") ?? "").trim();
     returnTo = String(formData.get("returnTo") ?? "/ask").trim() || "/ask";
     const inputRaw = String(formData.get("input") ?? "").trim();
+    const analyticsSessionId = String(formData.get("analyticsSessionId") ?? "").trim();
+    const analyticsDeviceTypeRaw = String(formData.get("analyticsDeviceType") ?? "").trim();
+    const analyticsReferrer = String(formData.get("analyticsReferrer") ?? "").trim();
     const cardIds = formData
       .getAll("cardId")
       .map((value) => String(value).trim())
@@ -50,6 +55,22 @@ export async function POST(request: Request) {
       cardIds,
       input
     });
+
+    await logAnalyticsEvent(
+      buildFeedbackAnalyticsPayload({
+        query,
+        cardIds,
+        feedback: feedbackValue,
+        hasComment: false,
+        feedbackSource: "ask",
+        sessionId: analyticsSessionId || undefined,
+        deviceType:
+          analyticsDeviceTypeRaw === "mobile" || analyticsDeviceTypeRaw === "tablet" || analyticsDeviceTypeRaw === "desktop"
+            ? analyticsDeviceTypeRaw
+            : undefined,
+        referrer: analyticsReferrer || undefined
+      })
+    );
 
     const redirectUrl = buildAskRedirectUrl(request.url, input, query);
     redirectUrl.searchParams.set("feedbackSaved", feedbackValue);

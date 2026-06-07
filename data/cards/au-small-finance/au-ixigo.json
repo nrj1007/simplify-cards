@@ -54,6 +54,16 @@
   ],
   "loungeDomestic": 8,
   "loungeInternational": 1,
+  "lounge": {
+    "domestic": [
+      "Complimentary domestic airport lounge access requires a minimum spend of Rs 50,000 in the preceding calendar quarter to unlock 2 visits in the subsequent quarter.",
+      "2 complimentary railway lounge visits per calendar quarter (no spend threshold)"
+    ],
+    "international": [
+      "2 complimentary railway lounge visits per calendar quarter (no spend threshold)",
+      "Priority Pass membership can be requested from credit card support; access charges apply for domestic lounges, guest visits, or exceeding the 1 complimentary international visit per year."
+    ]
+  },
   "forexMarkup": 0,
   "tags": [
     "travel",

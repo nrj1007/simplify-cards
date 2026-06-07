@@ -2,6 +2,8 @@ import { NextResponse } from "next/server";
 import { logAskFeedback } from "@/lib/feedback-logs";
 import type { RecommendationInput } from "@/lib/types";
 import type { AskFeedbackValue } from "@/lib/feedback-logs";
+import { logAnalyticsEvent } from "@/lib/analytics-logs";
+import { buildFeedbackAnalyticsPayload } from "@/lib/analytics-events";
 
 type FeedbackPayload = {
   query?: string;
@@ -11,6 +13,9 @@ type FeedbackPayload = {
   input?: RecommendationInput;
   comment?: string;
   source?: "ask" | "details";
+  sessionId?: string;
+  deviceType?: "mobile" | "tablet" | "desktop";
+  referrer?: string;
 };
 
 export async function POST(request: Request) {
@@ -30,6 +35,19 @@ export async function POST(request: Request) {
     ...(payload.comment?.trim() ? { comment: payload.comment.trim() } : {}),
     source: payload.source === "details" ? "details" : "ask"
   });
+
+  await logAnalyticsEvent(
+    buildFeedbackAnalyticsPayload({
+      query: payload.query.trim(),
+      cardIds: payload.cardIds.filter((value): value is string => typeof value === "string"),
+      feedback: payload.feedback,
+      hasComment: Boolean(payload.comment?.trim()),
+      feedbackSource: payload.source === "details" ? "details" : "ask",
+      sessionId: payload.sessionId,
+      deviceType: payload.deviceType,
+      referrer: payload.referrer
+    })
+  );
 
   return NextResponse.json({ ok: true });
 }

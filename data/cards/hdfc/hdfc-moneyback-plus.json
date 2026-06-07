@@ -112,18 +112,21 @@
     "Redemption of CashPoints against Flights and Hotels via SmartBuy is capped at 50,000 per month, up to 50% of the booking value",
     "Redemption of CashPoints against product catalogue vouchers is capped up to 70% of voucher value",
     "Cashback redemptions against statement balance are capped at 3,000 CashPoints per calendar month, with a minimum required balance of 500 CashPoints",
-    "Unredeemed CashPoints expire after 2 years of accumulation"
+    "Unredeemed CashPoints expire after 2 years of accumulation",
+    "CashPoints cannot be transferred to partner airlines or hotel loyalty programs"
   ],
   "redemption": {
     "statementBalanceValue": 0.2,
     "smartBuyFlightHotelValue": 0.25,
     "smartBuyCatalogueValue": 0.25,
-    "airMilesValue": 0.25,
+    "airMilesValue": null,
     "minimumPointsForStatementCredit": 500,
     "cashbackRedemptionCapMonthly": 3000,
     "pointsExpiryYears": 2,
     "redemptionFee": 99
   },
+  "airlinePartners": [],
+  "hotelPartners": [],
   "eligibility": {
     "salaried": [
       "Indian national",
@@ -151,6 +154,6 @@
     "Grocery spends are capped at 1,000 CashPoints/month.",
     "Utility spends are capped at 2,000 CashPoints/month.",
     "Insurance spends do not earn reward points.",
-    "Redemption rate: 1 CashPoint = Rs 0.25 for Flights/Hotels via SmartBuy, 1 CashPoint = Rs 0.25 for Product Catalogue, 1 CashPoint = Rs 0.20 for statement cashback. A standard redemption fee of Rs 99 + GST applies (Rs 50 + GST for statement cashback)."
+    "Redemption rate: 1 CashPoint = Rs 0.25 for Flights/Hotels via SmartBuy, 1 CashPoint = Rs 0.25 for Product Catalogue, 1 CashPoint = Rs 0.20 for statement cashback. A standard redemption fee of Rs 99 + GST applies (Rs 50 + GST for statement cashback). CashPoints cannot be transferred to partner airlines or hotel loyalty programs."
   ]
 }

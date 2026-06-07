@@ -7,8 +7,11 @@ import { getCardContent } from "@/lib/card-content";
 import { getTotalLoungeAccess } from "@/lib/lounge";
 import AskFeedback from "@/app/ui/AskFeedback";
 import AskBox from "@/app/ui/AskBox";
+import AnalyticsMount from "@/app/ui/AnalyticsMount";
 import RewardCalculator from "@/app/ui/RewardCalculator";
 import CardImageFallback from "@/app/ui/CardImageFallback";
+import { TrackedExternalLink } from "@/app/ui/TrackedLink";
+import { buildCardDetailMetadata } from "@/lib/analytics-events";
 import { milestoneRulesForCard, scoreCards } from "@/lib/recommend";
 import {
   alternativeIntent,
@@ -327,6 +330,15 @@ export default async function CardPage({ params, searchParams }: Props) {
 
   return (
     <div className="page-shell card-detail-page">
+      <AnalyticsMount
+        event={{
+          event_name: "card_detail_viewed",
+          page: "cards/[id]",
+          source: "details",
+          card_id: card.id,
+          metadata: buildCardDetailMetadata(card)
+        }}
+      />
       <section className="page-hero">
         <div className="container page-hero-inner card-hero-grid">
           <div className="card-hero-copy">
@@ -844,9 +856,20 @@ export default async function CardPage({ params, searchParams }: Props) {
             <section className="panel">
               <div className="panel-body">
                 <div className="actions">
-                  <a className="button" href={card.applyUrl} rel="nofollow sponsored" target="_blank">
+                  <TrackedExternalLink
+                    analyticsEvent={{
+                      event_name: "apply_clicked",
+                      page: "cards/[id]",
+                      source: "details",
+                      card_id: card.id
+                    }}
+                    className="button"
+                    href={card.applyUrl}
+                    rel="nofollow sponsored"
+                    target="_blank"
+                  >
                     Apply <ExternalLink size={15} />
-                  </a>
+                  </TrackedExternalLink>
                 </div>
                 <div id="page-feedback">
                   <AskFeedback
@@ -910,9 +933,20 @@ export default async function CardPage({ params, searchParams }: Props) {
                 <Link className="side-action" href={compareHref}>
                   Compare cards
                 </Link>
-                <a className="side-action" href={card.applyUrl} rel="sponsored nofollow" target="_blank">
+                <TrackedExternalLink
+                  analyticsEvent={{
+                    event_name: "apply_clicked",
+                    page: "cards/[id]",
+                    source: "details",
+                    card_id: card.id
+                  }}
+                  className="side-action"
+                  href={card.applyUrl}
+                  rel="sponsored nofollow"
+                  target="_blank"
+                >
                   Apply ↗
-                </a>
+                </TrackedExternalLink>
               </div>
               <p className="side-note">
                 Some apply links may be affiliate links. Always verify final fees, eligibility, and benefits with the issuer

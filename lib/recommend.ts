@@ -508,7 +508,7 @@ function extractMilestoneThreshold(text: string) {
   const normalized = text.toLowerCase().replace(/,/g, "").replace(/\s+/g, " ").trim();
   const lakhMatch =
     normalized.match(/annual spend(?:s|ing)?(?: of| above| greater than)? rs (\d+(?:\.\d+)?) lakh(?:s)?/) ??
-    normalized.match(/spends of rs (\d+(?:\.\d+)?) lakh(?:s)?/) ??
+    normalized.match(/spend(?:s)? of rs (\d+(?:\.\d+)?) lakh(?:s)?/) ??
     normalized.match(/spending rs (\d+(?:\.\d+)?) lakh(?:s)?/) ??
     normalized.match(/rs (\d+(?:\.\d+)?) lakh(?:s)? or more/) ??
     normalized.match(/rs (\d+(?:\.\d+)?) lakh(?:s)?\s+(?:annual\s+)?spend/);
@@ -615,26 +615,32 @@ function estimateFallbackPointUnitValue(card: CreditCard) {
 }
 
 function estimateBenefitLineValue(card: CreditCard, benefit: string) {
-  const normalized = normalizeForMatch(benefit);
+  const normalizedMatch = normalizeForMatch(benefit);
 
-  if (normalized.includes("fee waived") || normalized.includes("fee waiver") || normalized.includes("fee reversal")) {
+  if (normalizedMatch.includes("fee waived") || normalizedMatch.includes("fee waiver") || normalizedMatch.includes("fee reversal")) {
     return 0;
   }
 
   let value = 0;
-
-  // Voucher benefits are discounted to 50% of face value — not all vouchers are useful in practice.
-  const voucherDiscount = 0.5;
   const isVoucherBenefit = /\bvoucher(s)?\b/i.test(benefit);
+  const normalized = benefit.toLowerCase();
 
-  // "rs X worth ..." — discounted when the line describes vouchers, full value otherwise
-  for (const match of benefit.matchAll(/rs ([\d,.]+(?:\.\d+)?) worth/gi)) {
+  const voucherDiscount = 0.5;
+
+  // "rs X worth" — discounted when the line describes vouchers, full value otherwise
+  for (const match of benefit.matchAll(/rs\s+([\d,.]+(?:\.\d+)?)\s+worth/gi)) {
     const parsed = parseRupeeAmount(match[1]);
     if (parsed) value += isVoucherBenefit ? Math.round(parsed * voucherDiscount) : parsed;
   }
 
   // "voucher(s) worth rs X" — always discounted
-  for (const match of benefit.matchAll(/vouchers? worth rs ([\d,.]+(?:\.\d+)?)/gi)) {
+  for (const match of benefit.matchAll(/vouchers?\s+worth\s+rs\s+([\d,.]+(?:\.\d+)?)/gi)) {
+    const parsed = parseRupeeAmount(match[1]);
+    if (parsed) value += Math.round(parsed * voucherDiscount);
+  }
+
+  // "rs X voucher(s)" — always discounted
+  for (const match of benefit.matchAll(/rs\s+([\d,.]+(?:\.\d+)?)\s+vouchers?/gi)) {
     const parsed = parseRupeeAmount(match[1]);
     if (parsed) value += Math.round(parsed * voucherDiscount);
   }
@@ -686,6 +692,8 @@ function milestoneValueForCard(card: CreditCard, annualSpend: number) {
     const threshold = extractMilestoneThreshold(benefit);
     if (threshold !== null && annualSpend < threshold) return total;
 
+    // TODO: Scale quarterly/monthly milestones based on frequency rather than treating them as annual flat thresholds.
+    // e.g. Gift voucher worth Rs 500 on spends of Rs 50k per calendar quarter should unlock for spends of 50k per quarter, not 50k per year.
     return total + estimateMilestoneLineValue(card, benefit);
   }, 0);
 }

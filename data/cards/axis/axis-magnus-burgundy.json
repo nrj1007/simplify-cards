@@ -43,6 +43,14 @@
   "popularityScore": 90,
   "loungeDomestic": "unlimited",
   "loungeInternational": "unlimited",
+  "lounge": {
+    "domestic": [
+      "Domestic lounge access requires minimum spends of Rs 50,000 in the previous 3 calendar months; the spend condition is waived for the month of issuance plus the next 3 calendar months."
+    ],
+    "international": [
+      "Unlimited domestic and international lounge access applies to primary cardholder; guest visits are limited to 4 domestic guest visits per calendar year and 4 international guest visits per card anniversary year on Priority Pass."
+    ]
+  },
   "forexMarkup": 2,
   "tags": [
     "magnus",

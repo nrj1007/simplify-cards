@@ -40,6 +40,11 @@
   ],
   "loungeDomestic": 4,
   "loungeInternational": 0,
+  "lounge": {
+    "domestic": [
+      "Either Rs 1,000 gift voucher or 1 domestic lounge access voucher on spends of Rs 1,00,000 and above in each calendar quarter"
+    ]
+  },
   "forexMarkup": 3.5,
   "tags": [
     "online",

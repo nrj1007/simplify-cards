@@ -41,6 +41,11 @@
   ],
   "loungeDomestic": 4,
   "loungeInternational": 0,
+  "lounge": {
+    "domestic": [
+      "Complimentary domestic lounge access is subject to a spend threshold of Rs 50,000 in the previous three calendar months (effective 1st May 2024). Spend criteria is waived for the month of card issuance and the next three months."
+    ]
+  },
   "forexMarkup": 3.5,
   "tags": [
     "cashback",

@@ -1,8 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { MessageSquareText, ThumbsDown, ThumbsUp, X } from "lucide-react";
 import type { RecommendationInput } from "@/lib/types";
+import { getDeviceType, getOrCreateSessionId } from "@/lib/analytics-client";
 
 type Props = {
   query: string;
@@ -28,6 +29,14 @@ export default function AskFeedback({
   label = "Was this helpful?"
 }: Props) {
   const [showDownFeedback, setShowDownFeedback] = useState(false);
+  const analyticsContext = useMemo(
+    () => ({
+      sessionId: getOrCreateSessionId(),
+      deviceType: getDeviceType(),
+      referrer: typeof document === "undefined" ? "" : document.referrer || ""
+    }),
+    []
+  );
 
   return (
     <>
@@ -38,6 +47,9 @@ export default function AskFeedback({
         <input name="returnAnchor" type="hidden" value={returnAnchor} />
         <input name="input" type="hidden" value={JSON.stringify(input)} />
         <input name="source" type="hidden" value={source} />
+        <input name="analyticsSessionId" type="hidden" value={analyticsContext.sessionId} />
+        <input name="analyticsDeviceType" type="hidden" value={analyticsContext.deviceType} />
+        <input name="analyticsReferrer" type="hidden" value={analyticsContext.referrer} />
         {cardIds.map((cardId) => (
           <input key={cardId} name="cardId" type="hidden" value={cardId} />
         ))}
@@ -101,6 +113,9 @@ export default function AskFeedback({
               <input name="returnAnchor" type="hidden" value={returnAnchor} />
               <input name="input" type="hidden" value={JSON.stringify(input)} />
               <input name="source" type="hidden" value={source} />
+              <input name="analyticsSessionId" type="hidden" value={analyticsContext.sessionId} />
+              <input name="analyticsDeviceType" type="hidden" value={analyticsContext.deviceType} />
+              <input name="analyticsReferrer" type="hidden" value={analyticsContext.referrer} />
               {cardIds.map((cardId) => (
                 <input key={`down-${cardId}`} name="cardId" type="hidden" value={cardId} />
               ))}

@@ -56,6 +56,14 @@
   ],
   "loungeDomestic": "unlimited",
   "loungeInternational": "unlimited",
+  "lounge": {
+    "domestic": [
+      "Unlimited complimentary airport lounge access worldwide for primary and add-on cardholders."
+    ],
+    "international": [
+      "Unlimited complimentary airport lounge access worldwide for primary and add-on cardholders."
+    ]
+  },
   "forexMarkup": 2,
   "tags": [
     "premium",

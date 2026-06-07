@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getTags = exports.getUseCases = exports.getRewardCategories = exports.getRedemptionBuckets = exports.getPopularCards = exports.getNetworks = exports.getIssuers = exports.getCardSegments = exports.getCardsByUseCase = exports.getCardsByTag = exports.getCardsByRewardCategory = exports.getCardsByRedemptionBucket = exports.getCardsByPopularityBand = exports.getCardsByCardSegment = exports.getCardsByNetwork = exports.getCardsByIssuer = exports.getCardById = exports.cards = exports.cardIndexes = void 0;
+exports.stripScoringAnnotations = exports.getTags = exports.getUseCases = exports.getRewardCategories = exports.getRedemptionBuckets = exports.getPopularCards = exports.getNetworks = exports.getIssuers = exports.getCardSegments = exports.getCardsByUseCase = exports.getCardsByTag = exports.getCardsByRewardCategory = exports.getCardsByRedemptionBucket = exports.getCardsByPopularityBand = exports.getCardsByCardSegment = exports.getCardsByNetwork = exports.getCardsByIssuer = exports.getCardById = exports.cards = exports.cardIndexes = void 0;
 var card_index_1 = require("./card-index");
 Object.defineProperty(exports, "cardIndexes", { enumerable: true, get: function () { return card_index_1.cardIndexes; } });
 Object.defineProperty(exports, "cards", { enumerable: true, get: function () { return card_index_1.cards; } });
@@ -21,3 +21,4 @@ Object.defineProperty(exports, "getRedemptionBuckets", { enumerable: true, get: 
 Object.defineProperty(exports, "getRewardCategories", { enumerable: true, get: function () { return card_index_1.getRewardCategories; } });
 Object.defineProperty(exports, "getUseCases", { enumerable: true, get: function () { return card_index_1.getUseCases; } });
 Object.defineProperty(exports, "getTags", { enumerable: true, get: function () { return card_index_1.getTags; } });
+Object.defineProperty(exports, "stripScoringAnnotations", { enumerable: true, get: function () { return card_index_1.stripScoringAnnotations; } });

@@ -48,6 +48,11 @@ const tagKeywords = [
     "smartbuy",
     "dining",
     "grocery",
+    "rent",
+    "insurance",
+    "education",
+    "gold",
+    "jewellery",
     "beginner",
     "premium",
     "ltf",
@@ -56,30 +61,56 @@ const tagKeywords = [
     "forex"
 ];
 const spendCategoryAliases = [
-    { category: "travel", aliases: ["travel", "flights", "flight", "airline", "airlines", "hotel", "hotels"] },
+    { category: "travel", aliases: ["travel", "cleartrip"] },
+    { category: "hotels", aliases: ["hotel", "hotels", "stay", "accommodation"] },
+    { category: "airlines", aliases: ["flight", "flights", "airline", "airlines", "ticket"] },
     { category: "grocery", aliases: ["grocery", "groceries", "supermarket", "supermarkets"] },
     { category: "utilities", aliases: ["utilities", "utility", "bill payment", "bill payments", "bills"] },
     { category: "dining", aliases: ["dining", "restaurant", "restaurants", "food delivery", "swiggy", "zomato"] },
     { category: "fuel", aliases: ["fuel", "petrol", "diesel"] },
     { category: "online", aliases: ["online", "shopping", "ecommerce"] },
-    { category: "offline", aliases: ["offline", "retail"] },
+    { category: "base", aliases: ["offline", "retail", "base"] },
     { category: "amazon", aliases: ["amazon"] },
-    { category: "upi", aliases: ["upi", "rupay upi"] }
+    { category: "upi", aliases: ["upi", "rupay upi"] },
+    { category: "rent", aliases: ["rent", "rental", "rental payments", "rent payments"] },
+    { category: "insurance", aliases: ["insurance", "insurance premium", "insurance premiums"] },
+    { category: "education", aliases: ["education", "school fees", "school fee", "education payments", "tuition"] },
+    { category: "gold", aliases: ["gold", "jewellery", "jewelry"] },
+    { category: "government", aliases: ["government", "tax", "taxes", "tax payments", "government payments"] },
+    { category: "international", aliases: ["international", "foreign", "forex", "international spends", "abroad", "foreign spends"] }
 ];
 const spendCategories = [
     "online",
-    "offline",
+    "base",
     "travel",
+    "hotels",
+    "airlines",
     "fuel",
     "dining",
     "grocery",
     "amazon",
     "upi",
-    "utilities"
+    "utilities",
+    "rent",
+    "insurance",
+    "education",
+    "gold",
+    "government",
+    "international"
 ];
 const defaultMonthlySpendTotal = 53000;
 function normalizeQuery(query) {
     return query?.toLowerCase().trim() ?? "";
+}
+function escapeRegex(value) {
+    return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+function containsNormalizedPhrase(haystack, phrase) {
+    const normalizedPhrase = normalizeQuery(phrase).replace(/[^a-z0-9]+/g, " ").replace(/\s+/g, " ").trim();
+    if (!normalizedPhrase)
+        return false;
+    const pattern = new RegExp(`(^|\\s)${escapeRegex(normalizedPhrase).replace(/ /g, "\\s+")}(?=\\s|$)`);
+    return pattern.test(haystack);
 }
 function uniqueSorted(values) {
     return [...new Set(values)].sort();
@@ -215,7 +246,7 @@ function parseQueryIntent(input) {
             tags.add(keyword);
     }
     for (const entry of issuerAliases) {
-        if (entry.aliases.some((alias) => normalizedQuery.includes(alias)))
+        if (entry.aliases.some((alias) => containsNormalizedPhrase(normalizedQuery, alias)))
             issuers.add(entry.issuer);
     }
     return {

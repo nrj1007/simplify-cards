@@ -31,6 +31,20 @@
   ],
   "loungeDomestic": 8,
   "loungeInternational": 4,
+  "lounge": {
+    "domestic": [
+      "Airport lounge access is tiered based on spending:",
+      "Silver tier (entry-level / <3L spend): 8 domestic / 4 international lounge visits per anniversary year.",
+      "Gold tier (7.5L spend): 12 domestic / 6 international lounge visits per anniversary year.",
+      "Platinum tier (15L spend): 18 domestic / 12 international lounge visits per anniversary year."
+    ],
+    "international": [
+      "Airport lounge access is tiered based on spending:",
+      "Silver tier (entry-level / <3L spend): 8 domestic / 4 international lounge visits per anniversary year.",
+      "Gold tier (7.5L spend): 12 domestic / 6 international lounge visits per anniversary year.",
+      "Platinum tier (15L spend): 18 domestic / 12 international lounge visits per anniversary year."
+    ]
+  },
   "forexMarkup": 3.5,
   "tags": [
     "travel",

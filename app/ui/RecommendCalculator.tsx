@@ -1,9 +1,11 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import Link from "next/link";
 import { ChevronDown, ExternalLink } from "lucide-react";
 import type { RecommendResult, SpendCategory, SpendProfile } from "@/lib/types";
+import { buildRecommendationMetadata } from "@/lib/analytics-events";
+import { trackEvent } from "@/lib/analytics-client";
+import { TrackedExternalLink, TrackedLink } from "./TrackedLink";
 
 type Props = {
   defaultSpend: SpendProfile;
@@ -111,6 +113,7 @@ export default function RecommendCalculator({ defaultSpend, initialResults }: Pr
   const [pending, setPending] = useState(false);
 
   const isFirstRun = useRef(true);
+  const trackedSignatureRef = useRef<string | null>(null);
 
   useEffect(() => {
     // Skip the first run: initialResults already match the default profile (server-rendered).
@@ -150,6 +153,21 @@ export default function RecommendCalculator({ defaultSpend, initialResults }: Pr
   function setCategory(category: SpendCategory, value: number) {
     setSpend((prev) => ({ ...prev, [category]: value }));
   }
+
+  useEffect(() => {
+    const topThreeCardIds = results.slice(0, 3).map((result) => result.id);
+    const signature = JSON.stringify(topThreeCardIds);
+    if (trackedSignatureRef.current === signature) return;
+    trackedSignatureRef.current = signature;
+
+    trackEvent({
+      event_name: "recommendation_generated",
+      page: "recommend",
+      source: "recommend",
+      card_ids: topThreeCardIds,
+      metadata: buildRecommendationMetadata(spend, maxAnnualFee, wantsLounge, wantsLifetimeFree, results)
+    });
+  }, [results, spend, maxAnnualFee, wantsLounge, wantsLifetimeFree]);
 
   return (
     <div className="recommend-layout">
@@ -314,12 +332,32 @@ export default function RecommendCalculator({ defaultSpend, initialResults }: Pr
                 ) : null}
 
                 <div className="actions">
-                  <Link className="button secondary" href={`/cards/${result.id}`}>
+                  <TrackedLink
+                    analyticsEvent={{
+                      event_name: "details_clicked",
+                      page: "recommend",
+                      source: "recommend",
+                      card_id: result.id
+                    }}
+                    className="button secondary"
+                    href={`/cards/${result.id}`}
+                  >
                     Details
-                  </Link>
-                  <a className="button" href={result.applyUrl} rel="nofollow sponsored" target="_blank">
+                  </TrackedLink>
+                  <TrackedExternalLink
+                    analyticsEvent={{
+                      event_name: "apply_clicked",
+                      page: "recommend",
+                      source: "recommend",
+                      card_id: result.id
+                    }}
+                    className="button"
+                    href={result.applyUrl}
+                    rel="nofollow sponsored"
+                    target="_blank"
+                  >
                     Apply <ExternalLink size={15} />
-                  </a>
+                  </TrackedExternalLink>
                 </div>
               </article>
             ))}

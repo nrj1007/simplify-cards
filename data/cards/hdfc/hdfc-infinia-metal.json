@@ -48,6 +48,15 @@
   ],
   "loungeDomestic": "unlimited",
   "loungeInternational": "unlimited",
+  "lounge": {
+    "domestic": [
+      "A verification transaction fee of Rs 2 is charged at domestic lounge terminals inside India for Visa cardholders, which is later reversed."
+    ],
+    "international": [
+      "Unlimited complimentary airport lounge access worldwide via Priority Pass (for both primary and add-on cardholders)",
+      "Priority Pass lounge visits outside India by guests or visits exceeding the complimentary limit are charged at USD 27 + GST per person per visit. Add-on cardholders must use their own Priority Pass card; otherwise they are billed as guests."
+    ]
+  },
   "forexMarkup": 2,
   "tags": [
     "super premium",

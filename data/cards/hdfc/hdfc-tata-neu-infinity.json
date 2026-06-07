@@ -77,6 +77,15 @@
   ],
   "loungeDomestic": 8,
   "loungeInternational": 4,
+  "lounge": {
+    "domestic": [
+      "Domestic lounge access became milestone based from 10-Jun-2025: Tata Neu Infinity earns 2 lounge vouchers per calendar quarter on spends of Rs 50,000 or more."
+    ],
+    "international": [
+      "For the Visa variant, Priority Pass is issued only on request from 01-Jun-2025. You and your add-on member can together avail up to 4 complimentary international lounge visits per calendar year, capped at 1 per quarter.",
+      "For the RuPay variant, international lounge access is 4 complimentary visits per calendar year outside India, capped at 1 per quarter, with a temporary transaction charge reversal flow as per HDFC terms."
+    ]
+  },
   "forexMarkup": 3.5,
   "tags": [
     "tata neu",

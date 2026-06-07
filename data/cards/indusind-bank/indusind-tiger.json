@@ -56,6 +56,11 @@
   "popularityScore": 100,
   "loungeDomestic": 8,
   "loungeInternational": 2,
+  "lounge": {
+    "international": [
+      "Priority Pass membership is complimentary ($99 value), but visits beyond the 2 complimentary visits are charged at standard rates."
+    ]
+  },
   "forexMarkup": 1.5,
   "tags": [
     "indusind",

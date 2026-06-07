@@ -34,6 +34,14 @@
   "popularityScore": 86,
   "loungeDomestic": 8,
   "loungeInternational": 0,
+  "lounge": {
+    "domestic": [
+      "Domestic lounge access is capped at 2 visits per calendar quarter"
+    ],
+    "international": [
+      "Priority Pass membership fee of US$99 is waived; lounge visit charges are payable at actual prevailing rates"
+    ]
+  },
   "forexMarkup": 3.5,
   "tags": [
     "amex",

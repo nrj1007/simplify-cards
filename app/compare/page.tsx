@@ -1,9 +1,11 @@
 import Link from "next/link";
 import { ExternalLink } from "lucide-react";
 import { cards } from "@/lib/cards";
+import AnalyticsMount from "@/app/ui/AnalyticsMount";
 import { getLoungeConditions } from "@/lib/lounge";
 import LoungeInfo from "@/app/ui/LoungeInfo";
 import PageHero from "@/app/ui/PageHero";
+import { TrackedExternalLink, TrackedLink } from "@/app/ui/TrackedLink";
 import { stripScoringAnnotations } from "@/lib/card-index";
 
 type Card = (typeof cards)[number];
@@ -153,12 +155,32 @@ function CompareOverviewCard({ card }: { card: Card }) {
       </div>
 
       <div className="actions">
-        <Link className="button secondary" href={`/cards/${card.id}`}>
+        <TrackedLink
+          analyticsEvent={{
+            event_name: "details_clicked",
+            page: "compare",
+            source: "compare",
+            card_id: card.id
+          }}
+          className="button secondary"
+          href={`/cards/${card.id}`}
+        >
           View details
-        </Link>
-        <a className="button" href={card.applyUrl} rel="nofollow sponsored" target="_blank">
+        </TrackedLink>
+        <TrackedExternalLink
+          analyticsEvent={{
+            event_name: "apply_clicked",
+            page: "compare",
+            source: "compare",
+            card_id: card.id
+          }}
+          className="button"
+          href={card.applyUrl}
+          rel="nofollow sponsored"
+          target="_blank"
+        >
           Apply <ExternalLink size={15} />
-        </a>
+        </TrackedExternalLink>
       </div>
     </article>
   );
@@ -179,6 +201,14 @@ export default async function ComparePage({ searchParams }: Props) {
       />
       <section className="page-content">
         <div className="container">
+          <AnalyticsMount
+            event={{
+              event_name: "compare_viewed",
+              page: "compare",
+              source: "compare",
+              card_ids: [first.id, second.id]
+            }}
+          />
           <form className="panel card compare-form" style={{ marginBottom: 18 }}>
         <div className="filters">
           <div className="field">

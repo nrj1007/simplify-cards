@@ -1,5 +1,6 @@
 import { cards, getIssuers, getTags } from "@/lib/cards";
 import CardTile from "../ui/CardTile";
+import FinderFilterForm from "../ui/FinderFilterForm";
 import PageHero from "../ui/PageHero";
 
 type Props = {
@@ -29,53 +30,19 @@ export default async function FinderPage({ searchParams }: Props) {
       />
       <section className="page-content">
         <div className="container">
-          <form className="panel card" style={{ marginBottom: 18 }}>
-        <div className="filters">
-          <div className="field">
-            <label htmlFor="issuer">Issuer</label>
-            <select id="issuer" name="issuer" defaultValue={params.issuer ?? ""}>
-              <option value="">All issuers</option>
-              {getIssuers().map((issuer) => (
-                <option value={issuer} key={issuer}>
-                  {issuer}
-                </option>
-              ))}
-            </select>
-          </div>
-          <div className="field">
-            <label htmlFor="tag">Use case</label>
-            <select id="tag" name="tag" defaultValue={params.tag ?? ""}>
-              <option value="">All use cases</option>
-              {getTags().map((tag) => (
-                <option value={tag} key={tag}>
-                  {tag}
-                </option>
-              ))}
-            </select>
-          </div>
-          <div className="field">
-            <label htmlFor="fee">Max annual fee</label>
-            <select id="fee" name="fee" defaultValue={params.fee ?? ""}>
-              <option value="">Any fee</option>
-              <option value="0">Rs 0</option>
-              <option value="1000">Rs 1,000</option>
-              <option value="5000">Rs 5,000</option>
-            </select>
-          </div>
-        </div>
-        <div className="actions">
-          <button className="button">Apply filters</button>
-          <a className="button secondary" href="/finder">
-            Reset
-          </a>
-        </div>
-      </form>
+          <FinderFilterForm
+            defaultFee={params.fee ?? ""}
+            defaultIssuer={params.issuer ?? ""}
+            defaultTag={params.tag ?? ""}
+            issuers={getIssuers()}
+            tags={getTags()}
+          />
 
           {/* ad slot: finder page mid banner — restore when ads integrated */}
 
           <div className="grid cards">
             {filteredCards.map((card) => (
-              <CardTile key={card.id} card={card} />
+              <CardTile key={card.id} analyticsPage="finder" analyticsSource="finder" card={card} />
             ))}
           </div>
         </div>

@@ -1,9 +1,13 @@
 import Link from "next/link";
 import LoungeInfo from "../ui/LoungeInfo";
 import AskFeedback from "../ui/AskFeedback";
+import AskQueryForm from "../ui/AskQueryForm";
+import AnalyticsMount from "../ui/AnalyticsMount";
 import CardTile from "../ui/CardTile";
+import { TrackedExternalLink, TrackedLink } from "../ui/TrackedLink";
 import { answerQuestion } from "@/lib/ask-ai";
 import { getCardById } from "@/lib/cards";
+import { buildAskResultMetadata } from "@/lib/analytics-events";
 import { getLoungeConditions, getTotalLoungeAccess } from "@/lib/lounge";
 import { stripScoringAnnotations } from "@/lib/card-index";
 import { scoreCards } from "@/lib/recommend";
@@ -310,18 +314,14 @@ export default async function AskPage({ searchParams }: Props) {
               : "Ask about rewards, lounges, fees, or the best card for your spend. Answers come from verified Indian credit-card data, not generic web results."}
           </p>
 
-          <form className="ask-search" action="/ask" method="GET">
-            <input
-              name="query"
-              defaultValue={input?.query ?? ""}
-              aria-label="Ask another credit card question"
-              placeholder="e.g. best card for travel and cashback"
-            />
-            {input?.maxAnnualFee !== undefined ? <input name="maxAnnualFee" type="hidden" value={input.maxAnnualFee} /> : null}
-            <button className="btn btn-primary" type="submit">
-              Ask again →
-            </button>
-          </form>
+          <AskQueryForm
+            ariaLabel="Ask another credit card question"
+            buttonLabel="Ask again →"
+            className="ask-search"
+            defaultValue={input?.query ?? ""}
+            maxAnnualFee={input?.maxAnnualFee}
+            placeholder="e.g. best card for travel and cashback"
+          />
 
           <div className="query-examples">
             {ASK_EXAMPLES.map((example) => (
@@ -336,6 +336,18 @@ export default async function AskPage({ searchParams }: Props) {
       <section className="ask-content">
         <div className="container content-grid">
           <div className="main-stack">
+            {result && input?.query ? (
+              <AnalyticsMount
+                event={{
+                  event_name: "ask_result_rendered",
+                  page: "ask",
+                  source: "ask",
+                  query: input.query,
+                  card_ids: result.cards.map((item) => item.card.id),
+                  metadata: buildAskResultMetadata(result)
+                }}
+              />
+            ) : null}
             {result && topCard ? (
               <>
                 <article className="panel" id="answer">
@@ -401,11 +413,22 @@ export default async function AskPage({ searchParams }: Props) {
                     {decisionCards.length > 1 ? (
                       <div className="decision-grid">
                         {decisionCards.map((decision) => (
-                          <Link key={decision.id} className={`decision-card ${decision.tone}`} href={`/cards/${decision.id}`}>
+                          <TrackedLink
+                            key={decision.id}
+                            analyticsEvent={{
+                              event_name: "details_clicked",
+                              page: "ask",
+                              source: "ask",
+                              query: input?.query,
+                              card_id: decision.id
+                            }}
+                            className={`decision-card ${decision.tone}`}
+                            href={`/cards/${decision.id}`}
+                          >
                             <small>{decision.label}</small>
                             <h3>{decision.name}</h3>
                             <p>{decision.copy}</p>
-                          </Link>
+                          </TrackedLink>
                         ))}
                       </div>
                     ) : null}
@@ -435,12 +458,34 @@ export default async function AskPage({ searchParams }: Props) {
                                 </div>
                               </div>
                               <div className="result-actions">
-                                <Link className="mini-btn primary" href={`/cards/${item.card.id}`}>
+                                <TrackedLink
+                                  analyticsEvent={{
+                                    event_name: "details_clicked",
+                                    page: "ask",
+                                    source: "ask",
+                                    query: input?.query,
+                                    card_id: item.card.id
+                                  }}
+                                  className="mini-btn primary"
+                                  href={`/cards/${item.card.id}`}
+                                >
                                   View details
-                                </Link>
-                                <a className="mini-btn" href={item.card.applyUrl} rel="nofollow sponsored" target="_blank">
+                                </TrackedLink>
+                                <TrackedExternalLink
+                                  analyticsEvent={{
+                                    event_name: "apply_clicked",
+                                    page: "ask",
+                                    source: "ask",
+                                    query: input?.query,
+                                    card_id: item.card.id
+                                  }}
+                                  className="mini-btn"
+                                  href={item.card.applyUrl}
+                                  rel="nofollow sponsored"
+                                  target="_blank"
+                                >
                                   Apply
-                                </a>
+                                </TrackedExternalLink>
                               </div>
                             </article>
                           ))}
@@ -616,12 +661,34 @@ export default async function AskPage({ searchParams }: Props) {
                       ) : null}
 
                       <div className="actions answer-actions">
-                        <Link className="button secondary" href={`/cards/${topCard.card.id}`}>
+                        <TrackedLink
+                          analyticsEvent={{
+                            event_name: "details_clicked",
+                            page: "ask",
+                            source: "ask",
+                            query: input?.query,
+                            card_id: topCard.card.id
+                          }}
+                          className="button secondary"
+                          href={`/cards/${topCard.card.id}`}
+                        >
                           More details
-                        </Link>
-                        <a className="button" href={topCard.card.applyUrl} rel="nofollow sponsored" target="_blank">
+                        </TrackedLink>
+                        <TrackedExternalLink
+                          analyticsEvent={{
+                            event_name: "apply_clicked",
+                            page: "ask",
+                            source: "ask",
+                            query: input?.query,
+                            card_id: topCard.card.id
+                          }}
+                          className="button"
+                          href={topCard.card.applyUrl}
+                          rel="nofollow sponsored"
+                          target="_blank"
+                        >
                           Apply
-                        </a>
+                        </TrackedExternalLink>
                       </div>
                     </div>
                   </section>
@@ -739,16 +806,12 @@ export default async function AskPage({ searchParams }: Props) {
 
             <section className="sidebar-card ask-again">
               <h3 className="side-title">Ask a follow-up</h3>
-              <form action="/ask" method="GET">
-                <textarea
-                  name="query"
-                  aria-label="Ask a follow-up credit card question"
-                  placeholder="Example: I spend Rs 60k/month and travel twice a year. Which one should I choose?"
-                />
-                <button className="btn btn-primary" type="submit">
-                  Ask follow-up →
-                </button>
-              </form>
+              <AskQueryForm
+                ariaLabel="Ask a follow-up credit card question"
+                buttonLabel="Ask follow-up →"
+                multiline
+                placeholder="Example: I spend Rs 60k/month and travel twice a year. Which one should I choose?"
+              />
             </section>
           </aside>
         </div>

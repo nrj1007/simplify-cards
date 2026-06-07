@@ -1,14 +1,23 @@
-import Link from "next/link";
 import { ExternalLink } from "lucide-react";
+import { TrackedExternalLink, TrackedLink } from "./TrackedLink";
 import type { CardScore, CreditCard } from "@/lib/types";
 import { getTotalLoungeAccess } from "@/lib/lounge";
 
 type Props = {
   card?: CreditCard;
   score?: CardScore;
+  analyticsPage?: string;
+  analyticsSource?: "ask" | "finder" | "compare" | "recommend" | "details";
+  analyticsQuery?: string;
 };
 
-export default function CardTile({ card, score }: Props) {
+export default function CardTile({
+  card,
+  score,
+  analyticsPage = "finder",
+  analyticsSource = "finder",
+  analyticsQuery
+}: Props) {
   const resolvedCard = card ?? score?.card;
   if (!resolvedCard) return null;
   const totalLoungeAccess = getTotalLoungeAccess(resolvedCard);
@@ -51,12 +60,34 @@ export default function CardTile({ card, score }: Props) {
       <p className="why">{why}</p>
 
       <div className="card-actions">
-        <Link className="action-secondary" href={`/cards/${resolvedCard.id}`}>
+        <TrackedLink
+          analyticsEvent={{
+            event_name: "details_clicked",
+            page: analyticsPage,
+            source: analyticsSource,
+            query: analyticsQuery,
+            card_id: resolvedCard.id
+          }}
+          className="action-secondary"
+          href={`/cards/${resolvedCard.id}`}
+        >
           Details
-        </Link>
-        <a className="action-primary" href={resolvedCard.applyUrl} rel="nofollow sponsored" target="_blank">
+        </TrackedLink>
+        <TrackedExternalLink
+          analyticsEvent={{
+            event_name: "apply_clicked",
+            page: analyticsPage,
+            source: analyticsSource,
+            query: analyticsQuery,
+            card_id: resolvedCard.id
+          }}
+          className="action-primary"
+          href={resolvedCard.applyUrl}
+          rel="nofollow sponsored"
+          target="_blank"
+        >
           Apply <ExternalLink size={14} style={{ verticalAlign: "-2px" }} />
-        </a>
+        </TrackedExternalLink>
       </div>
     </article>
   );
