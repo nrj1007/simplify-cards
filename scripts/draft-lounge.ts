@@ -17,6 +17,10 @@ import { getMeaningfulLoungeConditions, getTotalLoungeAccess } from "../lib/loun
 import type { CreditCard } from "../lib/types";
 
 const WRITE = process.argv.includes("--write");
+// Policy: lounge conditions are migrated to the structured field only for cards the user has
+// personally verified, so we never freeze possibly-wrong auto-audited text. Pass --verified-only
+// to enforce it (skips cards without the "manually reviewed and verified by user" internalNote).
+const VERIFIED_ONLY = process.argv.includes("--verified-only");
 const onlyArg = process.argv.find((arg) => arg.startsWith("--only="));
 const onlyIds = onlyArg
   ? new Set(onlyArg.slice("--only=".length).split(",").map((value) => value.trim()).filter(Boolean))
@@ -39,6 +43,10 @@ function hasLoungeAccess(card: CreditCard): boolean {
   return total === "unlimited" || total > 0;
 }
 
+function isUserVerified(card: CreditCard): boolean {
+  return (card.internalNotes ?? []).some((note) => /manually reviewed and verified by user/i.test(note));
+}
+
 // Pretty-print an object at the card's top-level 2-space indentation.
 function indentBlock(value: unknown, baseIndent: string): string {
   return JSON.stringify(value, null, 2)
@@ -49,7 +57,7 @@ function indentBlock(value: unknown, baseIndent: string): string {
 
 type LoungeDraft = { domestic?: string[]; international?: string[]; combined?: string[] };
 
-const counts = { eligible: 0, drafted: 0, hasField: 0, noLounge: 0, noConditions: 0, noAnchor: 0, badJson: 0 };
+const counts = { eligible: 0, drafted: 0, hasField: 0, notVerified: 0, noLounge: 0, noConditions: 0, noAnchor: 0, badJson: 0 };
 const samples: string[] = [];
 
 for (const file of walk(cardsDir)) {
@@ -65,6 +73,10 @@ for (const file of walk(cardsDir)) {
   if (onlyIds && !onlyIds.has(card.id)) continue;
   if (card.lounge) {
     counts.hasField += 1;
+    continue;
+  }
+  if (VERIFIED_ONLY && !isUserVerified(card)) {
+    counts.notVerified += 1;
     continue;
   }
   if (!hasLoungeAccess(card)) {
@@ -113,9 +125,10 @@ for (const file of walk(cardsDir)) {
   if (WRITE) fs.writeFileSync(file, updated);
 }
 
-console.log(`\nLounge draft — ${WRITE ? "WRITE" : "DRY-RUN"}${onlyIds ? ` (only: ${[...onlyIds].join(", ")})` : ""}`);
+console.log(`\nLounge draft — ${WRITE ? "WRITE" : "DRY-RUN"}${VERIFIED_ONLY ? " (verified-only)" : ""}${onlyIds ? ` (only: ${[...onlyIds].join(", ")})` : ""}`);
 console.log(`  drafted${WRITE ? " + written" : ""}: ${counts.drafted}`);
 console.log(`  skipped — already has lounge field: ${counts.hasField}`);
+if (counts.notVerified) console.log(`  skipped — not user-verified: ${counts.notVerified}`);
 console.log(`  skipped — no lounge access: ${counts.noLounge}`);
 console.log(`  skipped — no mineable conditions: ${counts.noConditions}`);
 if (counts.noAnchor) console.log(`  skipped — no loungeInternational anchor: ${counts.noAnchor}`);

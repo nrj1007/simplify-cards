@@ -40,7 +40,7 @@ Compare the retrieved details against the current card entry in its per-card fil
 - **Card Image**: Verify that the card has a good `imageUrl` pointing to the actual card face, not a banner, eligibility artwork, or generic marketing visual.
 - **Latest Updates**: Check whether the issuer has any recent official updates, revision notices, devaluations, fee changes, lounge-rule changes, reward revisions, or benefit changes that should be added to `data/card-content.json`.
 - **Rewards Capping**: Limits on specific categories (e.g., monthly limits on grocery, utilities, insurance, or rent).
-- **Lounge Spends Requirements**: Spend-based lounge unlock criteria (e.g., spending ₹35,000 in the previous quarter to unlock the next quarter's lounge access).
+- **Lounge Spends Requirements**: Spend-based lounge unlock criteria (e.g., spending ₹35,000 in the previous quarter to unlock the next quarter's lounge access). Capture these as user-facing bullets and write them into the structured `lounge` field (see Step 4) — not into `internalNotes` or `additionalBenefits`.
 - **Golf Privileges**: Restrictions on the number of games/lessons, booking slots, and cancellation window policies.
 - **Redemption Partners**: Point transfer ratios and Turnaround Time (TAT) to airline or hotel loyalty programs. If the card transfers to a partner we already have a rupee valuation for (Accor, Club ITC, Marriott Bonvoy), also add a `transferPartnerValuations` entry — see Step 4.
 - **Travel-card rule**: If the card is a travel or miles card, fetch the full official redemption structure — not just one numeric value. Populate all visible redemption options plus the current airline and hotel transfer tables from official issuer materials.
@@ -93,19 +93,25 @@ If a fact already has a structured home, do not repeat it in visible prose.
    - **Combined vs. Separate Reward Caps**:
      - If multiple categories share a combined cap, represent them in a **single line** with a comma-separated list of categories in the `"category"` field.
      - If categories have separate/individual caps, represent them in **separate lines** in the JSON structure.
-4. **Card Image**:
+4. **Lounge access** (fill this on every audit when the card has lounge access):
+   - Put the visit *counts* in `loungeDomestic` / `loungeInternational` (or `combinedLoungeAccess` + `combinedLoungeAccessLabel` for a shared pool).
+   - Put the verified access *conditions* — spend gates, per-quarter unlock rules, guest-visit limits, Priority Pass / LoungeKey terms, surcharge-per-extra-visit — directly into the structured **`lounge`** field as short bullet strings: `lounge.domestic` / `lounge.international`, or `lounge.combined` for a single combined allowance.
+   - Author these bullets yourself from the official source. Do **not** drop them into `internalNotes` / `additionalBenefits` / `additionalDetails` and rely on the text miner — `getLoungeConditions` prefers the structured field, so any authored `lounge` field is what users see.
+   - Keep only reviewer-only caveats (booking workflow, audit dates, ambiguous-source notes) in `internalNotes`. Do not duplicate a condition in both `lounge` and prose.
+   - The validator requires `lounge.domestic` / `lounge.international` / `lounge.combined` to each be arrays of strings (`npm run validate:cards`).
+5. **Card Image**:
    - Check whether `"imageUrl"` exists and whether it still represents the current card face.
    - Prefer official issuer card-face assets. Do not keep generic banners, landing-page art, cropped lifestyle imagery, or low-quality placeholders when a proper card-face image is available.
    - If a better official image is found, save it under `public/images/` and update `"imageUrl"` in the card JSON.
    - When reviewing the page visually, confirm the image is aligned well and not awkwardly cropped.
    - If the official asset is a portrait/vertical card face but the details-page image slot is horizontal, derive a horizontal local asset on a light beige background with the card centered instead of introducing per-card CSS exceptions.
    - If the issuer blocks direct asset downloads but the official product page visibly shows the card or hero visual, use a headless browser screenshot of the official page, crop the relevant official visual locally, and save that derived official asset under `public/images/`.
-5. **Internal Nuances**:
+6. **Internal Nuances**:
    - Store low-level program details, cancel/booking conditions, and specific dates in `"internalNotes"` to keep them indexed by Ask AI without cluttering the UI.
    - Mark the review date inside `internalNotes` as:
      `"Card details manually reviewed and verified by user on YYYY-MM-DD"`
    - Store closed-ecosystem expiry or programme-validity rules (for example NeuCoins expiry) in `internalNotes` unless they need to appear in a structured visible section.
-6. **Duplication Pass (required before saving)**:
+7. **Duplication Pass (required before saving)**:
    - Check for the same fact being represented in more than one visible place.
    - If a fact already exists in a structured field, do **not** repeat it in `additionalBenefits` or `additionalDetails`.
    - Use this reviewer shorthand:
