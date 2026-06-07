@@ -19,13 +19,17 @@
   "rewards": [
     {
       "category": "shoppers stop",
+      "displayCategory": "Shoppers Stop spends",
       "rate": 3,
+      "displayRate": "3% Reward Points",
       "capMonthly": 500
     },
     {
       "category": "base",
+      "displayCategory": "Other spends",
       "rate": 1,
-      "capMonthly": null
+      "displayRate": "1% Reward Points",
+      "capMonthly": 1000
     }
   ],
   "loungeDomestic": 0,
@@ -40,32 +44,73 @@
     "upi"
   ],
   "exclusions": [
-    "grocery reward accrual capped at 1,000 points per month",
-    "rental payments",
-    "government category payments",
-    "international DCC transactions carry 1% markup"
+    "Fuel transactions",
+    "Rent payments",
+    "Utility bill payments",
+    "Insurance premium payments",
+    "EMI transactions",
+    "Government-related transactions",
+    "Jewellery purchases",
+    "Wallet loads",
+    "Cash advances",
+    "Payment of outstanding balances",
+    "Education payments"
   ],
-  "milestoneBenefits": [
-    "Reward Points worth Rs 500 per month for a purchase of Rs 15,000 or above on weekends at Shoppers Stop"
+  "exclusionCodes": [
+    "fuel",
+    "rent",
+    "utilities",
+    "insurance",
+    "emi",
+    "government",
+    "gold",
+    "wallet_load",
+    "cash_advance",
+    "fees_and_charges",
+    "education",
+    "outstanding_balance_payment"
+  ],
+  "milestones": [
+    {
+      "threshold": 15000,
+      "period": "monthly",
+      "value": 500,
+      "kind": "points",
+      "label": "500 Reward Points on weekend spends of Rs 15,000 or above at Shoppers Stop (capped once per month, max 5 times a year)"
+    },
+    {
+      "threshold": 200000,
+      "period": "annual",
+      "value": 2000,
+      "kind": "points",
+      "label": "2,000 Reward Points on annual spends of Rs 2 Lakhs or more"
+    }
+  ],
+  "joiningBenefits": [
+    "Rs 500 Shoppers Stop voucher as welcome benefit, redeemable on any transaction at Shoppers Stop store",
+    "Complimentary Shoppers Stop Silver Edge membership worth Rs 350"
   ],
   "additionalBenefits": [
-    "Rs 500 Shoppers Stop voucher as welcome benefit, redeemable on any transaction at Shoppers Stop store",
-    "3% Reward Points on every Shoppers Stop purchase",
-    "1% Reward Points on non-Shoppers Stop spends",
-    "Complimentary Shoppers Stop Silver Edge membership worth Rs 350",
     "Link RuPay Credit Card to UPI for scan-and-pay transactions",
-    "1% fuel surcharge waiver",
-    "Up to 50 days interest-free credit period",
-    "SmartEMI conversion after purchase",
-    "Contactless payments enabled",
-    "Simple card management via HDFC Bank MyCards",
-    "Protection against fraudulent transactions when reported immediately"
+    "1% fuel surcharge waiver on transactions from Rs 400 to Rs 5,000, capped at Rs 250 per statement cycle"
+  ],
+  "additionalDetails": [
+    "Minimum transaction of Rs 150 required to earn reward points",
+    "Points expire after 2 years from the date of accumulation"
   ],
   "redemption": {
     "statementBalanceValue": 0.2,
     "smartBuyFlightHotelValue": 0.2,
     "airMilesValue": 0.25,
-    "pointsExpiryYears": 2
+    "pointsExpiryYears": 2,
+    "voucherRedemptions": [
+      {
+        "partner": "Shoppers Stop",
+        "programme": "Shoppers Stop Vouchers",
+        "ratio": "1:1",
+        "valuePerPoint": 1.0
+      }
+    ]
   },
   "eligibility": {
     "salaried": [
@@ -79,9 +124,16 @@
       "Annual ITR greater than Rs 6 lakh"
     ]
   },
-  "sourceUrl": "https://www.hdfc.bank.in/credit-cards/shoppers-stop-credit-card",
-  "applyUrl": "https://www.hdfc.bank.in/credit-cards/shoppers-stop-credit-card",
-  "lastVerified": "2026-05-09",
-  "verificationStatus": "official-indexed",
-  "popularityScore": 63
+  "imageUrl": "/images/hdfc-shoppers-stop.webp",
+  "sourceUrl": "https://www.hdfcbank.com/personal/pay/cards/credit-cards/shoppers-stop-credit-card",
+  "applyUrl": "https://www.hdfcbank.com/personal/pay/cards/credit-cards/shoppers-stop-credit-card",
+  "lastVerified": "2026-06-07",
+  "verificationStatus": "official-direct",
+  "popularityScore": 63,
+  "internalNotes": [
+    "Card details manually reviewed and verified by user on 2026-06-07",
+    "Points value is Rs 1 when redeemed against Shoppers Stop vouchers (1:1), but falls to Rs 0.20 for statement credit or SmartBuy booking.",
+    "Minimum transaction of Rs 150 is required to earn reward points.",
+    "Shoppers Stop spends reward points capped at 500/month; non-Shoppers Stop spends capped at 1,00,000/month."
+  ]
 }

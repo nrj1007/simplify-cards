@@ -1,0 +1,118 @@
+{
+  "id": "hdfc-swiggy-black",
+  "issuer": "HDFC Bank",
+  "name": "Swiggy HDFC Bank BLCK Credit Card",
+  "network": [
+    "Mastercard"
+  ],
+  "joiningFee": 1000,
+  "annualFee": 1000,
+  "feeWaiverSpend": null,
+  "bestFor": [
+    "swiggy",
+    "food delivery",
+    "online shopping",
+    "cashback"
+  ],
+  "rewardType": "cashback",
+  "rewards": [
+    {
+      "category": "dining, grocery",
+      "displayCategory": "Swiggy App transactions (Food delivery, Instamart, Dineout, Genie)",
+      "rate": 10,
+      "displayRate": "10% Cashback",
+      "capMonthly": 1500
+    },
+    {
+      "category": "online",
+      "displayCategory": "Select online categories and merchants (Amazon, Flipkart, Myntra, Nykaa, Ola, Uber, etc.)",
+      "rate": 5,
+      "displayRate": "5% Cashback",
+      "capMonthly": 1500
+    },
+    {
+      "category": "base",
+      "displayCategory": "Other eligible retail spends",
+      "rate": 1,
+      "displayRate": "1% Cashback",
+      "capMonthly": 500
+    }
+  ],
+  "loungeDomestic": 0,
+  "loungeInternational": 0,
+  "forexMarkup": 3.5,
+  "tags": [
+    "swiggy",
+    "cashback",
+    "online",
+    "mastercard"
+  ],
+  "exclusions": [
+    "Fuel transactions",
+    "Rent payments",
+    "EMI transactions (including post-facto EMI conversions)",
+    "Government-related transactions",
+    "Jewellery purchases",
+    "Prepaid card, gift card, and wallet loads",
+    "SmartPay transactions",
+    "SmartBuy portal transactions",
+    "Cash advances / cash withdrawals",
+    "Purchase of travellers' cheques",
+    "Purchase of foreign currency and related fees"
+  ],
+  "exclusionCodes": [
+    "fuel",
+    "rent",
+    "emi",
+    "government",
+    "gold",
+    "wallet_load",
+    "cash_advance"
+  ],
+  "joiningBenefits": [
+    "Complimentary 3-month Swiggy BLCK membership on card activation by completing at least 1 transaction of any amount within 30 days of card issuance"
+  ],
+  "milestoneBenefits": [],
+  "additionalBenefits": [
+    "4 complimentary rounds of green fees and 12 complimentary golf lessons per calendar year (Mastercard World benefit)",
+    "1% fuel surcharge waiver on transactions from Rs 400 to Rs 5,000, capped at Rs 250 per statement cycle"
+  ],
+  "additionalDetails": [
+    "Cashback is automatically adjusted against your credit card's outstanding statement balance in the subsequent billing cycle.",
+    "Minimum transaction of Rs 100 required to earn cashback on eligible transactions.",
+    "Cashback is calculated and posted to your card account based on your billing cycle."
+  ],
+  "redemption": {
+    "statementBalanceValue": 1.0,
+    "minimumPointsForStatementCredit": null,
+    "cashbackRedemptionCapMonthly": null,
+    "pointsExpiryYears": null
+  },
+  "interestRateMonthly": 3.6,
+  "eligibility": {
+    "salaried": [
+      "Indian national",
+      "Age 21 to 60 years",
+      "Net monthly income Rs 25,000 or above"
+    ],
+    "selfEmployed": [
+      "Indian national",
+      "Age 21 to 65 years",
+      "Annual ITR Rs 6 lakh or above"
+    ]
+  },
+  "internalNotes": [
+    "Card details manually reviewed and verified by user on 2026-06-07",
+    "Audited against official HDFC Bank Swiggy BLCK Credit Card product page and terms on 2026-06-07.",
+    "The Swiggy BLCK variant has a higher annual fee of Rs 1,000 with no renewal fee waiver option.",
+    "Cashback is credited directly to the credit card statement.",
+    "Mastercard World golf benefits include 4 complimentary green fee rounds and 12 golf lessons annually.",
+    "1.75% DCC markup fee applies on transactions processed in INR at international locations or with merchants registered overseas."
+  ],
+  "imageUrl": "/images/hdfc-swiggy-black.webp",
+  "sourceUrl": "https://www.hdfcbank.com/personal/pay/cards/credit-cards/swiggy-hdfc-bank-credit-card",
+  "applyUrl": "https://www.hdfcbank.com/personal/pay/cards/credit-cards/swiggy-hdfc-bank-credit-card",
+  "lastVerified": "2026-06-07",
+  "verificationStatus": "official-direct",
+  "popularityScore": 88
+}

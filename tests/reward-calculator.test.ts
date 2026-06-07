@@ -868,5 +868,115 @@ describe("reward calculator", () => {
       }
     });
   });
+
+  describe("Shoppers Stop HDFC Bank Credit Card", () => {
+    it("earns 1% reward points on base spends, capped at 1,000 points per month", () => {
+      const card = getCardById("hdfc-shoppers-stop");
+      expect(card).toBeTruthy();
+
+      // Rs 10,000 base spend => 10,000 * 1% = 100 points
+      const result1 = calculateRewards(card!, { base: 10000 });
+      expect(result1.monthlyUnits).toBe(100);
+
+      // Rs 120,000 base spend => 1,200 points raw, capped at 1,000 points
+      const result2 = calculateRewards(card!, { base: 120000 });
+      expect(result2.monthlyUnits).toBe(1000);
+    });
+
+    it("excludes fuel, rent, utilities, insurance, education, and gold from earning points", () => {
+      const card = getCardById("hdfc-shoppers-stop");
+      expect(card).toBeTruthy();
+
+      const result = calculateRewards(card!, {
+        fuel: 10000,
+        rent: 10000,
+        utilities: 10000,
+        insurance: 10000,
+        education: 10000,
+        gold: 10000
+      });
+
+      expect(result.monthlyUnits).toBe(0);
+
+      const excludedCategories = ["fuel", "rent", "utilities", "insurance", "education", "gold"];
+      for (const cat of excludedCategories) {
+        const row = result.rows.find((r) => r.category === cat);
+        expect(row).toBeTruthy();
+        expect(row!.monthlyUnits).toBe(0);
+        expect(row!.excluded).toBe(true);
+      }
+    });
+
+    it("milestones: monthly weekend and annual milestone values are correctly annualized", () => {
+      const card = getCardById("hdfc-shoppers-stop");
+      expect(card).toBeTruthy();
+
+      const rules = milestoneRulesForCard(card!);
+
+      // Weekend monthly Rs 15,000 => annualized Rs 1,80,000 threshold; Rs 500 monthly value => Rs 6,000 annualized
+      const monthlyMilestone = rules.find((r) => r.threshold === 180000);
+      expect(monthlyMilestone).toBeTruthy();
+      expect(monthlyMilestone!.value).toBe(6000);
+      expect(monthlyMilestone!.period).toBe("monthly");
+
+      // Annual Rs 2 Lakhs threshold => Rs 2,000 points value
+      const annualMilestone = rules.find((r) => r.threshold === 200000);
+      expect(annualMilestone).toBeTruthy();
+      expect(annualMilestone!.value).toBe(2000);
+      expect(annualMilestone!.period).toBe("annual");
+    });
+  });
+
+  describe("Shoppers Stop BLACK HDFC Bank Credit Card", () => {
+    it("earns 2% reward points on base spends, capped at 2,000 points per month", () => {
+      const card = getCardById("hdfc-shoppers-stop-black");
+      expect(card).toBeTruthy();
+
+      // Rs 10,000 base spend => 10,000 * 2% = 200 points
+      const result1 = calculateRewards(card!, { base: 10000 });
+      expect(result1.monthlyUnits).toBe(200);
+
+      // Rs 150,000 base spend => 3,000 points raw, capped at 2,000 points
+      const result2 = calculateRewards(card!, { base: 150000 });
+      expect(result2.monthlyUnits).toBe(2000);
+    });
+
+    it("excludes fuel, rent, utilities, insurance, education, and gold from earning points", () => {
+      const card = getCardById("hdfc-shoppers-stop-black");
+      expect(card).toBeTruthy();
+
+      const result = calculateRewards(card!, {
+        fuel: 10000,
+        rent: 10000,
+        utilities: 10000,
+        insurance: 10000,
+        education: 10000,
+        gold: 10000
+      });
+
+      expect(result.monthlyUnits).toBe(0);
+
+      const excludedCategories = ["fuel", "rent", "utilities", "insurance", "education", "gold"];
+      for (const cat of excludedCategories) {
+        const row = result.rows.find((r) => r.category === cat);
+        expect(row).toBeTruthy();
+        expect(row!.monthlyUnits).toBe(0);
+        expect(row!.excluded).toBe(true);
+      }
+    });
+
+    it("milestones: monthly weekend milestone values are correctly annualized", () => {
+      const card = getCardById("hdfc-shoppers-stop-black");
+      expect(card).toBeTruthy();
+
+      const rules = milestoneRulesForCard(card!);
+
+      // Weekend monthly Rs 50,000 => annualized Rs 6,000,000 threshold; Rs 2,000 monthly value => Rs 24,000 annualized
+      const monthlyMilestone = rules.find((r) => r.threshold === 600000);
+      expect(monthlyMilestone).toBeTruthy();
+      expect(monthlyMilestone!.value).toBe(24000);
+      expect(monthlyMilestone!.period).toBe("monthly");
+    });
+  });
 });
 
