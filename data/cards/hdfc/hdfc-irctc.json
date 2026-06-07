@@ -29,6 +29,13 @@
       "rate": 1,
       "displayRate": "1 Reward Point / Rs 100 spent",
       "capMonthly": null
+    },
+    {
+      "category": "insurance",
+      "displayCategory": "Insurance spends (capped)",
+      "rate": 1,
+      "displayRate": "1 Reward Point / Rs 100 spent",
+      "capMonthly": 2000
     }
   ],
   "specialSpendRules": [
@@ -85,6 +92,15 @@
   "milestoneBenefits": [
     "Gift voucher worth Rs 500 every calendar quarter on spends of Rs 30,000 or more in that quarter",
     "Renewal fee waived on spends of Rs 1,50,000 or more in the anniversary year"
+  ],
+  "milestones": [
+    {
+      "threshold": 30000,
+      "period": "quarterly",
+      "value": 500,
+      "kind": "voucher",
+      "label": "Rs 500 gift voucher on Rs 30,000+ spend in the quarter"
+    }
   ],
   "additionalBenefits": [
     "1% transaction charge waiver on IRCTC ticketing website and Rail Connect App bookings",

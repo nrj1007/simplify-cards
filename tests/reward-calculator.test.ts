@@ -704,6 +704,92 @@ describe("reward calculator", () => {
     expect(rentRow!.monthlyUnits).toBe(0);
     expect(rentRow!.excluded).toBe(true);
   });
-});
 
+  describe("IRCTC HDFC Bank Credit Card", () => {
+    it("earns 5 reward points per Rs 100 on IRCTC / travel spends", () => {
+      const card = getCardById("hdfc-irctc");
+      expect(card).toBeTruthy();
+
+      // Rs 10,000 IRCTC/travel spend: 10,000 / 100 * 5 = 500 points
+      const result = calculateRewards(card!, { travel: 10000 });
+
+      expect(result.monthlyUnits).toBe(500);
+      expect(result.annualUnits).toBe(6000);
+
+      const travelRow = result.rows.find((r) => r.category === "travel");
+      expect(travelRow).toBeTruthy();
+      expect(travelRow!.monthlySpend).toBe(10000);
+      expect(travelRow!.monthlyUnits).toBe(500);
+      expect(travelRow!.excluded).toBe(false);
+    });
+
+    it("earns 1 reward point per Rs 100 on base / other spends", () => {
+      const card = getCardById("hdfc-irctc");
+      expect(card).toBeTruthy();
+
+      // Rs 50,000 base spend: 50,000 / 100 * 1 = 500 points
+      const result = calculateRewards(card!, { base: 50000 });
+
+      expect(result.monthlyUnits).toBe(500);
+      expect(result.annualUnits).toBe(6000);
+
+      const baseRow = result.rows.find((r) => r.category === "base");
+      expect(baseRow).toBeTruthy();
+      expect(baseRow!.monthlyUnits).toBe(500);
+    });
+
+    it("earns both 5x IRCTC and 1x base correctly in a combined profile", () => {
+      const card = getCardById("hdfc-irctc");
+      expect(card).toBeTruthy();
+
+      // Rs 5,000 IRCTC => 5,000/100 * 5 = 250 pts
+      // Rs 20,000 base  => 20,000/100 * 1 = 200 pts
+      // Total = 450 pts/month
+      const result = calculateRewards(card!, { travel: 5000, base: 20000 });
+
+      expect(result.monthlyUnits).toBe(450);
+      expect(result.annualUnits).toBe(5400);
+    });
+
+    it("caps insurance earn at 2,000 reward points per month", () => {
+      const card = getCardById("hdfc-irctc");
+      expect(card).toBeTruthy();
+
+      // Rs 300,000 insurance spend: raw = 300,000 / 100 * 1 = 3,000 pts — capped at 2,000
+      const result = calculateRewards(card!, { insurance: 300000 });
+
+      const insRow = result.rows.find((r) => r.category === "insurance");
+      expect(insRow).toBeTruthy();
+      expect(insRow!.monthlyUnits).toBe(2000);
+      expect(result.monthlyUnits).toBe(2000);
+    });
+
+    it("excludes fuel spend from earning reward points", () => {
+      const card = getCardById("hdfc-irctc");
+      expect(card).toBeTruthy();
+
+      const result = calculateRewards(card!, { fuel: 10000 });
+
+      const fuelRow = result.rows.find((r) => r.category === "fuel");
+      expect(fuelRow).toBeTruthy();
+      expect(fuelRow!.monthlyUnits).toBe(0);
+      expect(fuelRow!.excluded).toBe(true);
+      expect(result.monthlyUnits).toBe(0);
+    });
+
+    it("milestone: Rs 500 gift voucher unlocks at Rs 30,000 quarterly (Rs 1,20,000 annual) spend", () => {
+      const card = getCardById("hdfc-irctc");
+      expect(card).toBeTruthy();
+
+      const rules = milestoneRulesForCard(card!);
+
+      // Quarterly Rs 30k = annualised Rs 1,20,000 threshold; Rs 500 GV × 4 quarters = Rs 2,000 annualised value
+      const quarterlyMilestone = rules.find((r) => r.threshold === 120000);
+      expect(quarterlyMilestone).toBeTruthy();
+      expect(quarterlyMilestone!.value).toBe(2000);  // 500 × 4 quarters
+      expect(quarterlyMilestone!.period).toBe("quarterly");
+      expect(quarterlyMilestone!.isVoucher).toBe(true);
+    });
+  });
+});
 
