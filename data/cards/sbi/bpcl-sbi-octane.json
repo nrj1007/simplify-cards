@@ -85,6 +85,13 @@
   "joiningBenefits": [
     "6,000 bonus Reward Points worth Rs 1,500 on payment of annual fee"
   ],
+  "joiningBenefitsValued": [
+    {
+      "value": 1500,
+      "kind": "points",
+      "label": "6,000 bonus Reward Points on payment of annual fee"
+    }
+  ],
   "renewalBenefits": [],
   "milestoneBenefits": [],
   "additionalBenefits": [

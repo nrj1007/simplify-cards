@@ -95,6 +95,13 @@
   "joiningBenefits": [
     "5,000 Travel Credits on spends of Rs 1 lakh within 60 days of card issuance, credited on payment of joining fee"
   ],
+  "joiningBenefitsValued": [
+    {
+      "value": 5000,
+      "kind": "points",
+      "label": "5,000 Travel Credits on spends of Rs 1 lakh within 60 days of card issuance, credited on payment of joining fee"
+    }
+  ],
   "renewalBenefits": [],
   "milestones": [
     {

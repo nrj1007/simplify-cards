@@ -114,6 +114,13 @@
   "joiningBenefits": [
     "Welcome e-Gift Voucher worth Rs 5,000 from select brands such as Yatra, Bata/Hush Puppies, Marks & Spencer, Westside, and Shoppers Stop"
   ],
+  "joiningBenefitsValued": [
+    {
+      "value": 2500,
+      "kind": "voucher",
+      "label": "Welcome e-Gift Voucher worth Rs 5,000 from select brands such as Yatra, Bata/Hush Puppies, Marks & Spencer, Westside, and Shoppers Stop"
+    }
+  ],
   "renewalBenefits": [],
   "additionalBenefits": [
     "Free movie tickets worth up to Rs 6,000 per year through BookMyShow",

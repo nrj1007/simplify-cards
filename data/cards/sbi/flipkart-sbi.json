@@ -125,6 +125,18 @@
     "Rs 250 Flipkart Gift Card on fee realisation",
     "Rs 1,000 additional Flipkart benefit on the first transaction on Flipkart, as per card offer terms"
   ],
+  "joiningBenefitsValued": [
+    {
+      "value": 250,
+      "kind": "other",
+      "label": "Rs 250 Flipkart Gift Card on fee realisation"
+    },
+    {
+      "value": 1000,
+      "kind": "other",
+      "label": "Rs 1,000 additional Flipkart benefit on the first transaction on Flipkart, as per card offer terms"
+    }
+  ],
   "renewalBenefits": [],
   "milestoneBenefits": [],
   "additionalBenefits": [

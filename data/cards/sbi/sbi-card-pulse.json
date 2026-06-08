@@ -92,6 +92,13 @@
   "joiningBenefits": [
     "Noise ColorFit Pulse 4 Pro smart watch worth Rs 7,999 on payment of joining fee"
   ],
+  "joiningBenefitsValued": [
+    {
+      "value": 7999,
+      "kind": "other",
+      "label": "Noise ColorFit Pulse 4 Pro smart watch worth Rs 7,999 on payment of joining fee"
+    }
+  ],
   "renewalBenefits": [
     "Complimentary 1-year FITPASS PRO membership on card renewal every year"
   ],

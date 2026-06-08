@@ -113,9 +113,23 @@
     "12,000 bonus Reward Points worth Rs 3,000 on payment of annual fee",
     "Reward Points are credited within 30 days of annual fee payment"
   ],
+  "joiningBenefitsValued": [
+    {
+      "value": 3000,
+      "kind": "points",
+      "label": "12,000 bonus Reward Points on payment of annual fee"
+    }
+  ],
   "renewalBenefits": [
     "12,000 Reward Points worth Rs 3,000 on payment of renewal fee",
     "Reward Points are credited within 30 days of renewal fee payment"
+  ],
+  "renewalBenefitsValued": [
+    {
+      "value": 3000,
+      "kind": "points",
+      "label": "12,000 Reward Points on payment of renewal fee"
+    }
   ],
   "additionalBenefits": [
     "Reward Points can be redeemed instantly at Lifestyle, Home Centre, Spar, Max, Baby Shop, and EasyBuy stores",

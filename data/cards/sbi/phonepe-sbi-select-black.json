@@ -116,6 +116,13 @@
   "joiningBenefits": [
     "PhonePe e-Gift Card worth Rs 1,500 after payment of annual fee, unless the card is issued under a first-year-free offer"
   ],
+  "joiningBenefitsValued": [
+    {
+      "value": 1500,
+      "kind": "other",
+      "label": "PhonePe e-Gift Card worth Rs 1,500 after payment of annual fee, unless the card is issued under a first-year-free offer"
+    }
+  ],
   "renewalBenefits": [],
   "additionalBenefits": [
     "1% fuel surcharge waiver on eligible fuel spends",

@@ -105,6 +105,13 @@
   "joiningBenefits": [
     "1,499 NeuCoins as welcome benefit within 15 days of joining fee realisation"
   ],
+  "joiningBenefitsValued": [
+    {
+      "value": 1499,
+      "kind": "points",
+      "label": "1,499 NeuCoins as welcome benefit within 15 days of joining fee realisation"
+    }
+  ],
   "renewalBenefits": [],
   "milestoneBenefits": [],
   "additionalBenefits": [

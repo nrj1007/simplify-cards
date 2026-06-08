@@ -99,6 +99,13 @@
   "joiningBenefits": [
     "Amazon e-gift voucher worth Rs 500 on payment of joining fee"
   ],
+  "joiningBenefitsValued": [
+    {
+      "value": 250,
+      "kind": "voucher",
+      "label": "Amazon e-gift voucher worth Rs 500 on payment of joining fee"
+    }
+  ],
   "renewalBenefits": [],
   "additionalBenefits": [
     "1% fuel surcharge waiver on eligible fuel transactions from Rs 500 to Rs 3,000"
