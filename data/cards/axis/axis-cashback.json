@@ -19,23 +19,31 @@
   "rewards": [
     {
       "category": "online",
+      "displayCategory": "Online spends (tiered up to 7%)",
       "rate": 7,
-      "capMonthly": null
+      "displayRate": "7% cashback on online spends (2% under Rs 5k, 5% up to Rs 40k, 7% above Rs 40k)",
+      "capMonthly": 4000
     },
     {
-      "category": "retail",
+      "category": "base",
+      "displayCategory": "Offline retail spends",
       "rate": 0.75,
+      "displayRate": "0.75% cashback on offline spends",
       "capMonthly": null
     },
     {
       "category": "travel",
+      "displayCategory": "Travel spends (online and offline)",
       "rate": 0.75,
+      "displayRate": "0.75% cashback on travel spends",
       "capMonthly": null
     },
     {
-      "category": "utility bills",
+      "category": "utilities",
+      "displayCategory": "Utility spends",
       "rate": 0.5,
-      "capMonthly": null
+      "displayRate": "0.5% cashback on utility spends",
+      "capMonthly": 100
     }
   ],
   "loungeDomestic": 0,
@@ -50,21 +58,36 @@
     "fee waiver"
   ],
   "exclusions": [
+    "Fuel transactions",
+    "Rent payments",
+    "E-wallet loading transactions",
+    "Insurance premium payments",
+    "Educational institution payments",
+    "Purchase of gold or jewellery",
+    "Spends at financial institutions (cash advances, repayments, etc.)",
+    "Online skill-based gaming transactions",
+    "EMI transactions"
+  ],
+  "exclusionCodes": [
     "fuel",
     "rent",
-    "wallet load",
-    "education payments via third-party apps",
-    "online skill-based gaming",
-    "transactions excluded under Cashback Credit Card terms"
+    "wallet_load",
+    "insurance",
+    "education",
+    "gold",
+    "jewellery",
+    "cash_advance",
+    "gaming",
+    "emi"
   ],
   "milestoneBenefits": [
-    "Annual fee waived on spends of Rs 4 lakh or more"
+    "Annual fee waived on spends of Rs 4 lakh or more in a card anniversary year"
   ],
   "additionalBenefits": [
-    "Up to 7% cashback on eligible online spends",
-    "0.75% cashback on eligible retail spends",
+    "Up to 7% cashback on eligible online spends (capped at Rs 4,000 per statement cycle)",
+    "0.75% cashback on eligible offline retail spends",
     "0.75% cashback on eligible travel spends, both online and offline",
-    "0.5% cashback on eligible utility spends",
+    "0.5% cashback on eligible utility spends (capped at Rs 100 per statement cycle)",
     "Axis Dining Delights and Wednesday Delight offers may apply as per Axis Bank programme terms"
   ],
   "redemption": {
@@ -73,15 +96,19 @@
   },
   "eligibility": {
     "salaried": [
-      "Eligibility is subject to Axis Bank approval criteria"
+      "Age: 18 to 70 years",
+      "Minimum Net Monthly Salary: Rs 20,000",
+      "Resident of India"
     ],
     "selfEmployed": [
-      "Eligibility is subject to Axis Bank approval criteria"
+      "Age: 18 to 70 years",
+      "Minimum Annual Income (ITR): Rs 3,50,000",
+      "Resident of India"
     ]
   },
-  "sourceUrl": "https://www.axisbank.com/retail/cards/credit-card/my-choice-credit-card/features-benefits",
-  "applyUrl": "https://www.axis.bank.in/cards/credit-card/cashback-credit-card",
+  "sourceUrl": "https://www.axisbank.com/retail/cards/credit-card/cashback-credit-card",
+  "applyUrl": "https://www.axisbank.com/retail/cards/credit-card/cashback-credit-card",
   "lastVerified": "2026-05-10",
-  "verificationStatus": "official-catalogue",
+  "verificationStatus": "official-direct",
   "popularityScore": 72
 }

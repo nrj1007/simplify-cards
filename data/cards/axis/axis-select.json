@@ -18,13 +18,17 @@
   "rewardType": "edge reward points",
   "rewards": [
     {
-      "category": "retail",
+      "category": "base",
+      "displayCategory": "Retail shopping spends (up to Rs 20,000 spend/month)",
       "rate": 2,
-      "capMonthly": 20000
+      "displayRate": "20 EDGE REWARD Points / Rs 200 spent on retail shopping",
+      "capMonthly": 2000
     },
     {
       "category": "base",
+      "displayCategory": "Other eligible spends",
       "rate": 1,
+      "displayRate": "10 EDGE REWARD Points / Rs 200 spent",
       "capMonthly": null
     }
   ],
@@ -43,18 +47,29 @@
     "golf"
   ],
   "exclusions": [
+    "Fuel transactions",
+    "Rent payments",
+    "Insurance premium payments",
+    "Utilities and telecom spends",
+    "Government services spends",
+    "Educational institution payments",
+    "Purchase of gold or jewellery",
+    "E-wallet loading transactions",
+    "Cash advances and financial institution transactions",
+    "EMI transactions"
+  ],
+  "exclusionCodes": [
     "fuel",
     "rent",
     "insurance",
-    "education",
     "utilities",
-    "telecom",
-    "wallet",
+    "government",
+    "education",
     "gold",
     "jewellery",
-    "government services",
-    "emi transactions",
-    "transactions excluded under Axis Bank Select Credit Card terms"
+    "wallet_load",
+    "cash_advance",
+    "emi"
   ],
   "milestoneBenefits": [
     "5,000 EDGE REWARD Points on spending Rs 3 lakh in a card anniversary year",
@@ -70,8 +85,6 @@
     "Up to 12 complimentary international airport lounge visits through Priority Pass",
     "2 complimentary domestic lounge visits per quarter on spends of Rs 50,000 in the last 3 months",
     "6 complimentary golf rounds per year",
-    "10 EDGE REWARD Points per Rs 200 on eligible spends",
-    "2X EDGE REWARD Points on retail shopping spends up to cumulative transactions of Rs 20,000 per month",
     "1% fuel surcharge refund on fuel transactions from Rs 400 to Rs 4,000, capped at Rs 400 per statement cycle",
     "Complimentary for Burgundy customers while Burgundy status is maintained"
   ],
@@ -81,10 +94,14 @@
   },
   "eligibility": {
     "salaried": [
-      "Primary cardholder should be between 18 and 70 years, resident of India and have net income of at least Rs 6 lakh per annum"
+      "Age: 18 to 70 years",
+      "Minimum Net Monthly Salary: Rs 50,000 (Rs 6,00,000 per annum)",
+      "Resident of India"
     ],
     "selfEmployed": [
-      "Primary cardholder should be between 18 and 70 years, resident of India and have net income of at least Rs 6 lakh per annum"
+      "Age: 18 to 70 years",
+      "Minimum Annual Income (ITR): Rs 6,00,000",
+      "Resident of India"
     ]
   },
   "sourceUrl": "https://www.axisbank.com/retail/cards/credit-card/axis-bank-select-credit-card",

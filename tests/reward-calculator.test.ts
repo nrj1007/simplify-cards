@@ -1159,7 +1159,7 @@ describe("reward calculator", () => {
       expect(result.monthlyUnits).toBe(150);
     });
 
-    it("excludes fuel, rent, insurance, government, education, wallet, and utilities spends", () => {
+    it("excludes fuel, rent, insurance, government, education, and utilities spends", () => {
       const card = getCardById("hsbc-live-plus");
       const result = calculateRewards(card!, {
         fuel: 5000,
@@ -1167,7 +1167,6 @@ describe("reward calculator", () => {
         insurance: 5000,
         government: 5000,
         education: 5000,
-        wallet_load: 5000,
         utilities: 5000
       });
       expect(result.monthlyUnits).toBe(0);

@@ -19,12 +19,16 @@
   "rewards": [
     {
       "category": "base",
+      "displayCategory": "Domestic spends",
       "rate": 1.5,
+      "displayRate": "15 EDGE REWARD Points / Rs 200 spent on domestic spends",
       "capMonthly": null
     },
     {
-      "category": "travel",
+      "category": "international",
+      "displayCategory": "International spends",
       "rate": 3,
+      "displayRate": "30 EDGE REWARD Points / Rs 200 spent on international spends",
       "capMonthly": null
     }
   ],
@@ -44,12 +48,23 @@
     "club marriott"
   ],
   "exclusions": [
+    "Fuel transactions",
+    "Rent payments",
+    "E-wallet loading transactions",
+    "Insurance premium payments",
+    "Purchase of gold or jewellery",
+    "Educational institution payments via third-party apps",
+    "Online skill-based gaming transactions"
+  ],
+  "exclusionCodes": [
     "fuel",
     "rent",
-    "wallet",
-    "education payments via third-party apps",
-    "online skill-based gaming",
-    "transactions excluded under Axis Bank Reserve Credit Card terms"
+    "wallet_load",
+    "insurance",
+    "gold",
+    "jewellery",
+    "education",
+    "gaming"
   ],
   "milestoneBenefits": [
     "Annual fee waiver on spends of Rs 35 lakh in the preceding year"
@@ -71,19 +86,184 @@
   ],
   "redemption": {
     "statementBalanceValue": 0.2,
-    "pointsExpiryYears": 3
+    "airMilesValue": 0.4,
+    "pointsExpiryYears": 3,
+    "transferPartnerValuations": [
+      {
+        "partner": "Club ITC",
+        "partnerPointValue": 1,
+        "transferRatio": 0.4,
+        "basis": "fixed",
+        "note": "5 EDGE REWARD Points -> 2 Club ITC points"
+      }
+    ],
+    "airlinePartners": [
+      {
+        "airline": "Air Canada",
+        "programme": "Aeroplan",
+        "ratio": "5:2",
+        "group": "Group A",
+        "annualCap": 100000
+      },
+      {
+        "airline": "Ethiopian Airlines",
+        "programme": "ShebaMiles",
+        "ratio": "5:2",
+        "group": "Group A",
+        "annualCap": 100000
+      },
+      {
+        "airline": "Etihad Airways",
+        "programme": "Etihad Guest",
+        "ratio": "5:2",
+        "group": "Group A",
+        "annualCap": 100000
+      },
+      {
+        "airline": "Japan Airlines",
+        "programme": "JAL Mileage Bank",
+        "ratio": "5:2",
+        "group": "Group A",
+        "annualCap": 100000
+      },
+      {
+        "airline": "Singapore Airlines",
+        "programme": "KrisFlyer",
+        "ratio": "5:2",
+        "group": "Group A",
+        "annualCap": 100000
+      },
+      {
+        "airline": "Thai Airways",
+        "programme": "Royal Orchid Plus",
+        "ratio": "5:2",
+        "group": "Group A",
+        "annualCap": 100000
+      },
+      {
+        "airline": "Turkish Airlines",
+        "programme": "Miles&Smiles",
+        "ratio": "5:2",
+        "group": "Group A",
+        "annualCap": 100000
+      },
+      {
+        "airline": "United Airlines",
+        "programme": "MileagePlus",
+        "ratio": "5:2",
+        "group": "Group A",
+        "annualCap": 100000
+      },
+      {
+        "airline": "British Airways",
+        "programme": "British Airways Executive Club",
+        "ratio": "5:1",
+        "group": "Group A",
+        "annualCap": 100000
+      },
+      {
+        "airline": "Finnair",
+        "programme": "Finnair Plus",
+        "ratio": "5:1",
+        "group": "Group A",
+        "annualCap": 100000
+      },
+      {
+        "airline": "Vietnam Airlines",
+        "programme": "Lotusmiles",
+        "ratio": "5:1",
+        "group": "Group A",
+        "annualCap": 100000
+      },
+      {
+        "airline": "Air France-KLM",
+        "programme": "Flying Blue",
+        "ratio": "5:2",
+        "group": "Group B",
+        "annualCap": 400000
+      },
+      {
+        "airline": "Air India",
+        "programme": "Flying Returns",
+        "ratio": "5:2",
+        "group": "Group B",
+        "annualCap": 400000
+      },
+      {
+        "airline": "Air Asia",
+        "programme": "Air Asia",
+        "ratio": "5:2",
+        "group": "Group B",
+        "annualCap": 400000
+      },
+      {
+        "airline": "Qantas Airways",
+        "programme": "Qantas Frequent Flyer",
+        "ratio": "5:2",
+        "group": "Group B",
+        "annualCap": 400000
+      }
+    ],
+    "hotelPartners": [
+      {
+        "hotelGroup": "IHG Hotels & Resorts",
+        "programme": "IHG One Rewards",
+        "ratio": "5:2",
+        "group": "Group B",
+        "annualCap": 400000
+      },
+      {
+        "hotelGroup": "ITC Hotels",
+        "programme": "Club ITC",
+        "ratio": "5:2",
+        "group": "Group B",
+        "annualCap": 400000
+      },
+      {
+        "hotelGroup": "Radisson Hotels",
+        "programme": "Radisson Rewards",
+        "ratio": "5:2",
+        "group": "Group B",
+        "annualCap": 400000
+      },
+      {
+        "hotelGroup": "Orchid Hotels",
+        "programme": "Orchid Rewards",
+        "ratio": "5:2",
+        "group": "Group B",
+        "annualCap": 400000
+      },
+      {
+        "hotelGroup": "Wyndham Hotels & Resorts",
+        "programme": "Wyndham Rewards",
+        "ratio": "5:2",
+        "group": "Group B",
+        "annualCap": 400000
+      },
+      {
+        "hotelGroup": "The Postcard Hotel",
+        "programme": "The Postcard Hotel",
+        "ratio": "5:2",
+        "group": "Group B",
+        "annualCap": 400000
+      }
+    ]
   },
   "eligibility": {
     "salaried": [
-      "Eligibility is subject to Axis Bank approval criteria for ultra-premium credit cards"
+      "Age: 18 to 70 years",
+      "Relationship-based (primarily offered to Burgundy or high-net-worth customers)",
+      "Resident of India"
     ],
     "selfEmployed": [
-      "Eligibility is subject to Axis Bank approval criteria for ultra-premium credit cards"
+      "Age: 18 to 70 years",
+      "Relationship-based (primarily offered to Burgundy or high-net-worth customers)",
+      "Resident of India"
     ]
   },
-  "sourceUrl": "https://www.axisbank.com/retail/cards/credit-card/reserve-credit-card/beyond-expectations-always",
+  "sourceUrl": "https://www.axisbank.com/retail/cards/credit-card/reserve-credit-card",
   "applyUrl": "https://www.axisbank.com/retail/cards/credit-card/reserve-credit-card",
   "lastVerified": "2026-05-10",
-  "verificationStatus": "official-mixed",
+  "verificationStatus": "official-direct",
   "popularityScore": 75
 }

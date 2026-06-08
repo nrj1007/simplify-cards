@@ -6,21 +6,22 @@
     "RuPay",
     "Visa"
   ],
-  "joiningFee": 0,
-  "annualFee": 0,
+  "joiningFee": 250,
+  "annualFee": 250,
   "feeWaiverSpend": null,
   "bestFor": [
     "zomato",
     "blinkit",
     "bookmyshow",
-    "utility bills",
-    "lifetime free"
+    "utility bills"
   ],
   "rewardType": "edge reward points and merchant discounts",
   "rewards": [
     {
       "category": "base",
+      "displayCategory": "Eligible spends",
       "rate": 0.1,
+      "displayRate": "1 EDGE REWARD Point / Rs 200 spent",
       "capMonthly": null
     }
   ],
@@ -34,21 +35,37 @@
     "blinkit",
     "bookmyshow",
     "myntra",
-    "lifetime free",
     "low fee"
   ],
   "exclusions": [
+    "Fuel transactions",
+    "Rent payments",
+    "E-wallet loading transactions",
+    "Insurance premium payments",
+    "Utilities and telecom spends",
+    "Government services spends",
+    "Educational institution payments",
+    "Purchase of gold or jewellery",
+    "Spends at financial institutions (cash advances, repayments, etc.)",
+    "Online skill-based gaming transactions",
+    "EMI transactions"
+  ],
+  "exclusionCodes": [
     "fuel",
     "rent",
-    "wallet load",
-    "education payments via third-party apps",
-    "online skill-based gaming",
-    "transactions excluded under Neo Credit Card terms"
+    "wallet_load",
+    "insurance",
+    "utilities",
+    "government",
+    "education",
+    "gold",
+    "jewellery",
+    "cash_advance",
+    "gaming",
+    "emi"
   ],
   "milestoneBenefits": [],
   "additionalBenefits": [
-    "Currently listed as nil joining and nil annual fee under limited period offer on Axis official catalogue",
-    "Standard product fee page lists Rs 250 joining fee and Rs 250 annual fee from second year onward, lifetime free for select channels",
     "100% cashback up to Rs 300 on first utility bill payment within 30 days of card issuance",
     "Flat Rs 120 off on Zomato food delivery twice per month on minimum order value of Rs 499",
     "5% off on Paytm mobile recharge, broadband, DTH and utility payments, capped at Rs 150 per month",
@@ -64,15 +81,19 @@
   },
   "eligibility": {
     "salaried": [
-      "Primary cardholder should be between 18 and 70 years and resident of India or NRI"
+      "Age: 18 to 70 years",
+      "Minimum Net Monthly Salary: Rs 20,000",
+      "Resident of India"
     ],
     "selfEmployed": [
-      "Primary cardholder should be between 18 and 70 years and resident of India or NRI"
+      "Age: 18 to 70 years",
+      "Minimum Annual Income (ITR): Rs 3,50,000",
+      "Resident of India"
     ]
   },
   "sourceUrl": "https://www.axisbank.com/retail/cards/credit-card/neo-credit-card",
   "applyUrl": "https://www.axisbank.com/retail/cards/credit-card/neo-credit-card",
   "lastVerified": "2026-05-10",
-  "verificationStatus": "official-mixed",
+  "verificationStatus": "official-direct",
   "popularityScore": 68
 }

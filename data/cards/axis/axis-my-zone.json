@@ -5,8 +5,8 @@
   "network": [
     "Mastercard"
   ],
-  "joiningFee": 0,
-  "annualFee": 0,
+  "joiningFee": 500,
+  "annualFee": 500,
   "feeWaiverSpend": null,
   "bestFor": [
     "movies",
@@ -19,7 +19,9 @@
   "rewards": [
     {
       "category": "base",
+      "displayCategory": "Eligible retail spends",
       "rate": 0.4,
+      "displayRate": "4 EDGE REWARD Points / Rs 200 spent",
       "capMonthly": null
     }
   ],
@@ -33,34 +35,42 @@
     "sonyliv",
     "swiggy",
     "ajio",
-    "lounge",
-    "lifetime free"
+    "lounge"
   ],
   "exclusions": [
+    "Fuel transactions",
+    "Rent payments",
+    "E-wallet loading transactions",
+    "Insurance premium payments",
+    "Utilities and telecom spends",
+    "Government services spends",
+    "Educational institution payments",
+    "Purchase of gold or jewellery",
+    "Movie ticket purchases",
+    "EMI transactions"
+  ],
+  "exclusionCodes": [
     "fuel",
     "rent",
-    "wallet load",
-    "movies for reward points",
+    "wallet_load",
     "insurance",
     "utilities",
-    "jewellery",
+    "government",
     "education",
-    "government institutions",
-    "transactions excluded under My Zone Credit Card terms"
+    "gold",
+    "jewellery",
+    "emi"
   ],
   "milestoneBenefits": [
     "1,000 EDGE REWARD Points on annual spends of Rs 1.5 lakh for eligible customers onboarded from 1 April 2025",
     "SonyLIV Premium membership renewal on spending Rs 1.5 lakh in a card anniversary year for eligible paid-card customers onboarded before 31 March 2025"
   ],
   "additionalBenefits": [
-    "Currently listed as nil joining and nil annual fee for Mastercard network on Axis official catalogue",
-    "Standard product fee page lists Rs 500 joining fee and Rs 500 annual fee",
     "SonyLIV Premium annual subscription worth Rs 1,499 on first purchase within 30 days of issuance",
     "Buy one get one movie ticket on District app, capped at Rs 200 per month",
     "Flat Rs 120 off on Swiggy food delivery twice per month on minimum order value of Rs 500",
     "AJIO discount offers including up to Rs 1,000 off on eligible purchases",
-    "4 EDGE REWARD Points per Rs 200 on eligible spends",
-    "Complimentary domestic airport lounge access, listed as 4 visits per year on Axis catalogue",
+    "1 complimentary domestic airport lounge visit per calendar quarter (4 per year) on spends of Rs 50,000 in the last 3 months",
     "1% fuel surcharge waiver on eligible fuel transactions"
   ],
   "redemption": {
@@ -69,15 +79,19 @@
   },
   "eligibility": {
     "salaried": [
-      "Primary cardholder should be between 18 and 70 years and resident of India or NRI"
+      "Age: 18 to 70 years",
+      "Minimum Net Monthly Salary: Rs 20,000",
+      "Resident of India"
     ],
     "selfEmployed": [
-      "Primary cardholder should be between 18 and 70 years and resident of India or NRI"
+      "Age: 18 to 70 years",
+      "Minimum Annual Income (ITR): Rs 3,50,000",
+      "Resident of India"
     ]
   },
   "sourceUrl": "https://www.axisbank.com/retail/cards/credit-card/my-zone-credit-card",
   "applyUrl": "https://www.axisbank.com/retail/cards/credit-card/my-zone-credit-card",
   "lastVerified": "2026-05-10",
-  "verificationStatus": "official-mixed",
+  "verificationStatus": "official-direct",
   "popularityScore": 69
 }

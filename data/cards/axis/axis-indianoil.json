@@ -21,16 +21,19 @@
     {
       "category": "fuel",
       "rate": 4,
-      "capMonthly": null
+      "displayRate": "20 EDGE REWARD Points / Rs 100 spent at IndianOil outlets",
+      "capMonthly": 1000
     },
     {
       "category": "online",
       "rate": 1,
+      "displayRate": "5 EDGE REWARD Points / Rs 100 spent on online shopping",
       "capMonthly": null
     },
     {
       "category": "base",
       "rate": 0.2,
+      "displayRate": "1 EDGE REWARD Point / Rs 100 spent on other eligible retail spends",
       "capMonthly": null
     }
   ],
@@ -48,24 +51,32 @@
     "low fee"
   ],
   "exclusions": [
-    "insurance",
-    "gold",
-    "jewellery",
-    "wallet",
+    "Fuel spends at non-IOCL outlets",
+    "Rent payments",
+    "E-wallet loading transactions",
+    "Insurance premium payments",
+    "Utilities and telecom spends",
+    "Government services spends",
+    "Educational institution payments",
+    "Purchase of gold or jewellery",
+    "Spends at financial institutions (cash advances, repayments, etc.)"
+  ],
+  "exclusionCodes": [
+    "fuel",
     "rent",
+    "wallet_load",
+    "insurance",
     "utilities",
-    "government institutions",
+    "government",
     "education",
-    "transactions excluded under IndianOil Axis Bank Credit Card terms"
+    "gold",
+    "jewellery"
   ],
   "milestoneBenefits": [
-    "Annual fee waived on spending more than Rs 3.5 lakh in a card anniversary year, excluding rent, wallet load, EMI, cash withdrawals, fees, charges, GST and other excluded spends"
+    "Annual fee waived on spending more than Rs 3.5 lakh in a card anniversary year"
   ],
   "additionalBenefits": [
     "Up to 1,250 EDGE REWARD Points on first fuel transaction within 30 days of card issuance",
-    "20 EDGE REWARD Points per Rs 100 at IndianOil outlets in India on transactions from Rs 400 to Rs 4,000",
-    "5 EDGE REWARD Points per Rs 100 on online shopping",
-    "1 EDGE REWARD Point per Rs 100 on other eligible spends",
     "10% instant discount on BookMyShow movie tickets",
     "1% fuel surcharge waiver on eligible fuel transactions, capped at Rs 50 per statement cycle",
     "Dining Delights offers through Axis Bank dining programme",
@@ -77,14 +88,18 @@
   },
   "eligibility": {
     "salaried": [
-      "Primary cardholder should be 18 to 70 years of age and resident of India or NRI"
+      "Age: 18 to 70 years",
+      "Minimum Net Monthly Salary: Rs 20,000",
+      "Resident of India"
     ],
     "selfEmployed": [
-      "Primary cardholder should be 18 to 70 years of age and resident of India or NRI"
+      "Age: 18 to 70 years",
+      "Minimum Annual Income (ITR): Rs 3,50,000",
+      "Resident of India"
     ]
   },
-  "sourceUrl": "https://www.axis.bank.in/cards/credit-card/indianoil-axis-bank-credit-card",
-  "applyUrl": "https://www.axis.bank.in/cards/credit-card/indianoil-axis-bank-credit-card",
+  "sourceUrl": "https://www.axisbank.com/retail/cards/credit-card/indianoil-axis-bank-credit-card",
+  "applyUrl": "https://www.axisbank.com/retail/cards/credit-card/indianoil-axis-bank-credit-card",
   "lastVerified": "2026-05-10",
   "verificationStatus": "official-direct",
   "popularityScore": 80

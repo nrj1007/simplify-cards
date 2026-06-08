@@ -19,12 +19,16 @@
   "rewards": [
     {
       "category": "departmental stores",
+      "displayCategory": "Apparel and departmental stores (up to Rs 7,000 spend/month)",
       "rate": 3.2,
-      "capMonthly": 7000
+      "displayRate": "20 EDGE REWARD Points / Rs 125 spent on apparel and departmental stores",
+      "capMonthly": 1120
     },
     {
       "category": "base",
+      "displayCategory": "Other eligible retail spends",
       "rate": 0.32,
+      "displayRate": "2 EDGE REWARD Points / Rs 125 spent",
       "capMonthly": null
     }
   ],
@@ -41,19 +45,40 @@
     "edge rewards"
   ],
   "exclusions": [
+    "Fuel transactions",
+    "Rent payments",
+    "E-wallet loading transactions",
+    "Insurance premium payments",
+    "Utilities and telecom spends",
+    "Government services spends",
+    "Educational institution payments",
+    "Transportation and tolls spends"
+  ],
+  "exclusionCodes": [
     "fuel",
     "rent",
-    "wallet load",
-    "transactions excluded under Axis Bank REWARDS Credit Card terms"
+    "wallet_load",
+    "insurance",
+    "utilities",
+    "government",
+    "education",
+    "fees_and_charges"
+  ],
+  "milestones": [
+    {
+      "threshold": 30000,
+      "period": "monthly",
+      "value": 300,
+      "kind": "points",
+      "label": "1,500 bonus EDGE REWARD Points on spends of Rs 30,000 per statement cycle (excluding rent, wallet, insurance, and cash withdrawals)"
+    }
   ],
   "milestoneBenefits": [
-    "1,500 EDGE REWARD Points on net spends of Rs 30,000 per statement cycle",
+    "1,500 EDGE REWARD Points on spends of Rs 30,000 per statement cycle (excluding rent, wallet, insurance, and cash withdrawals)",
     "Annual fee waived on annual spends of Rs 2 lakh or more, excluding rent and wallet load transactions"
   ],
   "additionalBenefits": [
     "5,000 EDGE REWARD Points on cumulative net spends of Rs 1,000 or above within 30 days of card issuance",
-    "2 EDGE REWARD Points per Rs 125 on eligible spends",
-    "10X EDGE REWARD Points per Rs 125 on apparel and departmental store spends up to Rs 7,000 per month",
     "Bouquet of memberships worth up to Rs 1,000 every anniversary year",
     "Rs 150 instant discount on Swiggy twice per calendar month on minimum transaction value of Rs 500",
     "2 complimentary domestic lounge visits per quarter at select airports",
@@ -65,10 +90,14 @@
   },
   "eligibility": {
     "salaried": [
-      "Eligibility is subject to Axis Bank approval criteria"
+      "Age: 18 to 70 years",
+      "Minimum Net Monthly Salary: Rs 20,000",
+      "Resident of India"
     ],
     "selfEmployed": [
-      "Eligibility is subject to Axis Bank approval criteria"
+      "Age: 18 to 70 years",
+      "Minimum Annual Income (ITR): Rs 3,50,000",
+      "Resident of India"
     ]
   },
   "sourceUrl": "https://www.axisbank.com/retail/cards/credit-card/rewards-credit-card",

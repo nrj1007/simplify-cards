@@ -19,16 +19,20 @@
   "rewards": [
     {
       "category": "travel",
+      "displayCategory": "Travel EDGE and airline websites",
       "rate": 5,
+      "displayRate": "5 EDGE Miles / Rs 100 spent on Travel EDGE and airline websites",
       "capMonthly": null
     },
     {
       "category": "base",
+      "displayCategory": "Other eligible retail spends",
       "rate": 2,
+      "displayRate": "2 EDGE Miles / Rs 100 spent",
       "capMonthly": null
     }
   ],
-  "loungeDomestic": 24,
+  "loungeDomestic": 8,
   "loungeInternational": 8,
   "forexMarkup": 3.5,
   "tags": [
@@ -41,42 +45,206 @@
     "miles"
   ],
   "exclusions": [
-    "transportation and tolls",
-    "utilities and telecom",
-    "insurance",
-    "education",
-    "government institutions",
-    "wallet",
-    "rent",
+    "Fuel transactions",
+    "Rent payments",
+    "E-wallet loading transactions",
+    "Insurance premium payments",
+    "Utilities and telecom spends",
+    "Government services spends",
+    "Educational institution payments",
+    "Transportation and tolls spends"
+  ],
+  "exclusionCodes": [
     "fuel",
-    "transactions excluded under Horizon Credit Card terms"
+    "rent",
+    "wallet_load",
+    "insurance",
+    "utilities",
+    "government",
+    "education",
+    "fees_and_charges"
   ],
   "milestoneBenefits": [
     "1,500 EDGE Miles renewal benefit from the second card anniversary year onward"
   ],
   "additionalBenefits": [
     "5,000 EDGE Miles on cumulative net spends of Rs 1,000 or more within 30 days of card issuance",
-    "5 EDGE Miles per Rs 100 on Axis Bank Travel EDGE portal and direct airline website spends",
-    "2 EDGE Miles per Rs 100 on other eligible spends",
     "1 EDGE Mile equals Re 1 as per Axis Bank HORIZON value chart",
-    "Up to 24 domestic airport lounge visits per year, subject to programme terms",
-    "Up to 8 international airport lounge visits per year, subject to programme terms",
+    "2 complimentary domestic lounge visits per quarter (8 per year)",
+    "2 complimentary international lounge visits per quarter (8 per year)",
     "1% fuel surcharge waiver on eligible fuel transactions from Rs 400 to Rs 5,000, capped at Rs 400 per statement month"
   ],
   "redemption": {
     "statementBalanceValue": 1,
-    "pointsExpiryYears": 3
+    "airMilesValue": 1.0,
+    "pointsExpiryYears": 3,
+    "transferPartnerValuations": [],
+    "airlinePartners": [
+      {
+        "airline": "Air Canada",
+        "programme": "Aeroplan",
+        "ratio": "1:1",
+        "group": "Group A",
+        "annualCap": 100000
+      },
+      {
+        "airline": "Ethiopian Airlines",
+        "programme": "ShebaMiles",
+        "ratio": "1:1",
+        "group": "Group A",
+        "annualCap": 100000
+      },
+      {
+        "airline": "Etihad Airways",
+        "programme": "Etihad Guest",
+        "ratio": "1:1",
+        "group": "Group A",
+        "annualCap": 100000
+      },
+      {
+        "airline": "Japan Airlines",
+        "programme": "JAL Mileage Bank",
+        "ratio": "1:1",
+        "group": "Group A",
+        "annualCap": 100000
+      },
+      {
+        "airline": "Singapore Airlines",
+        "programme": "KrisFlyer",
+        "ratio": "1:1",
+        "group": "Group A",
+        "annualCap": 100000
+      },
+      {
+        "airline": "Thai Airways",
+        "programme": "Royal Orchid Plus",
+        "ratio": "1:1",
+        "group": "Group A",
+        "annualCap": 100000
+      },
+      {
+        "airline": "Turkish Airlines",
+        "programme": "Miles&Smiles",
+        "ratio": "1:1",
+        "group": "Group A",
+        "annualCap": 100000
+      },
+      {
+        "airline": "United Airlines",
+        "programme": "MileagePlus",
+        "ratio": "1:1",
+        "group": "Group A",
+        "annualCap": 100000
+      },
+      {
+        "airline": "British Airways",
+        "programme": "British Airways Executive Club",
+        "ratio": "1:1",
+        "group": "Group A",
+        "annualCap": 100000
+      },
+      {
+        "airline": "Finnair",
+        "programme": "Finnair Plus",
+        "ratio": "1:1",
+        "group": "Group A",
+        "annualCap": 100000
+      },
+      {
+        "airline": "Vietnam Airlines",
+        "programme": "Lotusmiles",
+        "ratio": "1:1",
+        "group": "Group A",
+        "annualCap": 100000
+      },
+      {
+        "airline": "Air France-KLM",
+        "programme": "Flying Blue",
+        "ratio": "1:1",
+        "group": "Group B",
+        "annualCap": 400000
+      },
+      {
+        "airline": "Air India",
+        "programme": "Flying Returns",
+        "ratio": "1:1",
+        "group": "Group B",
+        "annualCap": 400000
+      },
+      {
+        "airline": "Air Asia",
+        "programme": "Air Asia",
+        "ratio": "1:1",
+        "group": "Group B",
+        "annualCap": 400000
+      },
+      {
+        "airline": "Qantas Airways",
+        "programme": "Qantas Frequent Flyer",
+        "ratio": "1:1",
+        "group": "Group B",
+        "annualCap": 400000
+      }
+    ],
+    "hotelPartners": [
+      {
+        "hotelGroup": "IHG Hotels & Resorts",
+        "programme": "IHG One Rewards",
+        "ratio": "1:1",
+        "group": "Group B",
+        "annualCap": 400000
+      },
+      {
+        "hotelGroup": "ITC Hotels",
+        "programme": "Club ITC",
+        "ratio": "1:1",
+        "group": "Group B",
+        "annualCap": 400000
+      },
+      {
+        "hotelGroup": "Radisson Hotels",
+        "programme": "Radisson Rewards",
+        "ratio": "1:1",
+        "group": "Group B",
+        "annualCap": 400000
+      },
+      {
+        "hotelGroup": "Orchid Hotels",
+        "programme": "Orchid Rewards",
+        "ratio": "1:1",
+        "group": "Group B",
+        "annualCap": 400000
+      },
+      {
+        "hotelGroup": "Wyndham Hotels & Resorts",
+        "programme": "Wyndham Rewards",
+        "ratio": "1:1",
+        "group": "Group B",
+        "annualCap": 400000
+      },
+      {
+        "hotelGroup": "The Postcard Hotel",
+        "programme": "The Postcard Hotel",
+        "ratio": "1:1",
+        "group": "Group B",
+        "annualCap": 400000
+      }
+    ]
   },
   "eligibility": {
     "salaried": [
-      "Eligibility is subject to Axis Bank approval criteria"
+      "Age: 18 to 70 years",
+      "Minimum Net Monthly Salary: Rs 20,000",
+      "Resident of India"
     ],
     "selfEmployed": [
-      "Eligibility is subject to Axis Bank approval criteria"
+      "Age: 18 to 70 years",
+      "Minimum Annual Income (ITR): Rs 3,50,000",
+      "Resident of India"
     ]
   },
-  "sourceUrl": "https://www.axis.bank.in/cards/credit-card/axis-horizon-credit-card",
-  "applyUrl": "https://www.axis.bank.in/cards/credit-card/axis-horizon-credit-card",
+  "sourceUrl": "https://www.axisbank.com/retail/cards/credit-card/axis-horizon-credit-card",
+  "applyUrl": "https://www.axisbank.com/retail/cards/credit-card/axis-horizon-credit-card",
   "lastVerified": "2026-05-10",
   "verificationStatus": "official-direct",
   "popularityScore": 69

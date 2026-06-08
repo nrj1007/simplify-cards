@@ -7,7 +7,7 @@
   ],
   "joiningFee": 1000,
   "annualFee": 1000,
-  "feeWaiverSpend": 30000,
+  "feeWaiverSpend": 100000,
   "bestFor": [
     "fuel",
     "indianoil",
@@ -19,17 +19,23 @@
   "rewards": [
     {
       "category": "fuel",
+      "displayCategory": "IndianOil fuel outlets (up to Rs 15,000 spend/month)",
       "rate": 1.33,
-      "capMonthly": 15000
+      "displayRate": "6 EDGE Miles / Rs 150 spent at IndianOil outlets",
+      "capMonthly": 600
     },
     {
       "category": "grocery",
+      "displayCategory": "Grocery and supermarket spends (up to Rs 5,000 spend/month)",
       "rate": 0.44,
-      "capMonthly": 5000
+      "displayRate": "2 EDGE Miles / Rs 150 spent on grocery and supermarket",
+      "capMonthly": 67
     },
     {
       "category": "base",
+      "displayCategory": "Other eligible retail spends",
       "rate": 0.22,
+      "displayRate": "1 EDGE Mile / Rs 150 spent on other eligible spends",
       "capMonthly": null
     }
   ],
@@ -48,42 +54,209 @@
     "fee waiver"
   ],
   "exclusions": [
-    "fuel transaction charge outside applicable waiver terms",
+    "Fuel transaction charges outside surcharge waiver terms",
+    "Rent payments",
+    "E-wallet loading transactions",
+    "Insurance premium payments",
+    "Utilities and telecom spends",
+    "Government services spends",
+    "Educational institution payments",
+    "Purchase of gold or jewellery",
+    "Spends at financial institutions (cash advances, repayments, etc.)"
+  ],
+  "exclusionCodes": [
+    "fuel",
     "rent",
-    "wallet load",
-    "education payments via third-party apps",
-    "utilities above fee threshold",
-    "online skill-based gaming above fee threshold",
-    "transactions excluded under IndianOil Axis Bank Premium Credit Card terms"
+    "wallet_load",
+    "insurance",
+    "utilities",
+    "government",
+    "education",
+    "gold",
+    "jewellery",
+    "cash_advance"
   ],
   "milestoneBenefits": [
-    "Annual fee waived on spends of Rs 30,000 and above in a card anniversary year"
+    "Annual fee waived on spends of Rs 1,00,000 and above in a card anniversary year (excluding wallet, rent, and insurance spends)"
   ],
   "additionalBenefits": [
     "500 EDGE Miles on first spend within 30 days of card issuance",
-    "6 EDGE Miles per Rs 150 at IndianOil fuel outlets up to Rs 15,000 per month",
-    "1 EDGE Mile per Rs 150 on IndianOil fuel spends above Rs 15,000 per month",
-    "2 EDGE Miles per Rs 150 on grocery and supermarket spends up to Rs 5,000 per month",
-    "1 EDGE Mile per Rs 150 on grocery and supermarket spends above Rs 5,000 per month and other eligible spends",
     "Unlimited 1% fuel surcharge waiver on purchases at IndianOil outlets, GST on surcharge is non-refundable",
     "30% off on Zomato food delivery, capped at Rs 150 per order and valid twice per month",
-    "Complimentary domestic lounge access, illustrated by Axis as 2 visits per quarter in the value chart",
+    "Complimentary domestic lounge access, illustrated by Axis as 2 visits per quarter",
     "Axis Dining Delights offers may apply as per programme terms"
   ],
   "redemption": {
     "statementBalanceValue": 0.333,
-    "pointsExpiryYears": 3
+    "airMilesValue": 0.5,
+    "pointsExpiryYears": 3,
+    "transferPartnerValuations": [],
+    "airlinePartners": [
+      {
+        "airline": "Air Canada",
+        "programme": "Aeroplan",
+        "ratio": "2:1",
+        "group": "Group A",
+        "annualCap": 100000
+      },
+      {
+        "airline": "Ethiopian Airlines",
+        "programme": "ShebaMiles",
+        "ratio": "2:1",
+        "group": "Group A",
+        "annualCap": 100000
+      },
+      {
+        "airline": "Etihad Airways",
+        "programme": "Etihad Guest",
+        "ratio": "2:1",
+        "group": "Group A",
+        "annualCap": 100000
+      },
+      {
+        "airline": "Japan Airlines",
+        "programme": "JAL Mileage Bank",
+        "ratio": "2:1",
+        "group": "Group A",
+        "annualCap": 100000
+      },
+      {
+        "airline": "Singapore Airlines",
+        "programme": "KrisFlyer",
+        "ratio": "2:1",
+        "group": "Group A",
+        "annualCap": 100000
+      },
+      {
+        "airline": "Thai Airways",
+        "programme": "Royal Orchid Plus",
+        "ratio": "2:1",
+        "group": "Group A",
+        "annualCap": 100000
+      },
+      {
+        "airline": "Turkish Airlines",
+        "programme": "Miles&Smiles",
+        "ratio": "2:1",
+        "group": "Group A",
+        "annualCap": 100000
+      },
+      {
+        "airline": "United Airlines",
+        "programme": "MileagePlus",
+        "ratio": "2:1",
+        "group": "Group A",
+        "annualCap": 100000
+      },
+      {
+        "airline": "British Airways",
+        "programme": "British Airways Executive Club",
+        "ratio": "2:1",
+        "group": "Group A",
+        "annualCap": 100000
+      },
+      {
+        "airline": "Finnair",
+        "programme": "Finnair Plus",
+        "ratio": "2:1",
+        "group": "Group A",
+        "annualCap": 100000
+      },
+      {
+        "airline": "Vietnam Airlines",
+        "programme": "Lotusmiles",
+        "ratio": "2:1",
+        "group": "Group A",
+        "annualCap": 100000
+      },
+      {
+        "airline": "Air France-KLM",
+        "programme": "Flying Blue",
+        "ratio": "2:1",
+        "group": "Group B",
+        "annualCap": 400000
+      },
+      {
+        "airline": "Air India",
+        "programme": "Flying Returns",
+        "ratio": "2:1",
+        "group": "Group B",
+        "annualCap": 400000
+      },
+      {
+        "airline": "Air Asia",
+        "programme": "Air Asia",
+        "ratio": "2:1",
+        "group": "Group B",
+        "annualCap": 400000
+      },
+      {
+        "airline": "Qantas Airways",
+        "programme": "Qantas Frequent Flyer",
+        "ratio": "2:1",
+        "group": "Group B",
+        "annualCap": 400000
+      }
+    ],
+    "hotelPartners": [
+      {
+        "hotelGroup": "IHG Hotels & Resorts",
+        "programme": "IHG One Rewards",
+        "ratio": "2:1",
+        "group": "Group B",
+        "annualCap": 400000
+      },
+      {
+        "hotelGroup": "ITC Hotels",
+        "programme": "Club ITC",
+        "ratio": "2:1",
+        "group": "Group B",
+        "annualCap": 400000
+      },
+      {
+        "hotelGroup": "Radisson Hotels",
+        "programme": "Radisson Rewards",
+        "ratio": "2:1",
+        "group": "Group B",
+        "annualCap": 400000
+      },
+      {
+        "hotelGroup": "Orchid Hotels",
+        "programme": "Orchid Rewards",
+        "ratio": "2:1",
+        "group": "Group B",
+        "annualCap": 400000
+      },
+      {
+        "hotelGroup": "Wyndham Hotels & Resorts",
+        "programme": "Wyndham Rewards",
+        "ratio": "2:1",
+        "group": "Group B",
+        "annualCap": 400000
+      },
+      {
+        "hotelGroup": "The Postcard Hotel",
+        "programme": "The Postcard Hotel",
+        "ratio": "2:1",
+        "group": "Group B",
+        "annualCap": 400000
+      }
+    ]
   },
   "eligibility": {
     "salaried": [
-      "Primary cardholder should be 18 to 70 years of age and resident of India"
+      "Age: 18 to 70 years",
+      "Minimum Net Monthly Salary: Rs 20,000",
+      "Resident of India"
     ],
     "selfEmployed": [
-      "Primary cardholder should be 18 to 70 years of age and resident of India"
+      "Age: 18 to 70 years",
+      "Minimum Annual Income (ITR): Rs 3,50,000",
+      "Resident of India"
     ]
   },
-  "sourceUrl": "https://www.axis.bank.in/cards/credit-card/indianoil-premium-credit-card",
-  "applyUrl": "https://www.axis.bank.in/cards/credit-card/indianoil-premium-credit-card",
+  "sourceUrl": "https://www.axisbank.com/retail/cards/credit-card/indianoil-premium-credit-card",
+  "applyUrl": "https://www.axisbank.com/retail/cards/credit-card/indianoil-premium-credit-card",
   "lastVerified": "2026-05-10",
   "verificationStatus": "official-direct",
   "popularityScore": 74
