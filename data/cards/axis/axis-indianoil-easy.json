@@ -12,19 +12,29 @@
     "fuel",
     "indianoil",
     "secured card",
-    "fee waiver",
     "low fee"
   ],
   "rewardType": "edge reward points",
   "rewards": [
     {
       "category": "fuel",
+      "displayCategory": "Fuel spends at IndianOil outlets",
       "rate": 4,
+      "displayRate": "20 EDGE REWARD Points / Rs 100 spent at IndianOil outlets",
+      "capMonthly": 1000
+    },
+    {
+      "category": "online",
+      "displayCategory": "Online shopping spends",
+      "rate": 1,
+      "displayRate": "5 EDGE REWARD Points / Rs 100 spent on online shopping",
       "capMonthly": null
     },
     {
       "category": "base",
+      "displayCategory": "Other eligible retail spends",
       "rate": 0.2,
+      "displayRate": "1 EDGE REWARD Point / Rs 100 spent on other eligible retail spends",
       "capMonthly": null
     }
   ],
@@ -37,27 +47,53 @@
     "easy",
     "secured card",
     "fixed deposit",
-    "fee waiver",
     "lifetime free"
   ],
   "exclusions": [
-    "insurance",
-    "gold",
-    "jewellery",
-    "wallet",
+    "Fuel spends at non-IOCL outlets",
+    "Rent payments",
+    "E-wallet loading transactions",
+    "Insurance premium payments",
+    "Utilities and telecom spends",
+    "Government services spends",
+    "Educational institution payments",
+    "Purchase of gold or jewellery",
+    "Spends at financial institutions (cash advances, repayments, etc.)"
+  ],
+  "exclusionCodes": [
     "rent",
+    "wallet_load",
+    "insurance",
     "utilities",
-    "government institutions",
+    "government",
     "education",
-    "transactions excluded under IndianOil Easy Axis Bank Credit Card terms"
+    "gold",
+    "jewellery"
   ],
   "milestoneBenefits": [],
+  "specialSpendRules": [
+    {
+      "category": "fuel",
+      "treatment": "capped",
+      "notes": "Earn 4% value back (20 EDGE REWARD Points per Rs 100 spent) at IndianOil outlets, capped at 1,000 points per month."
+    }
+  ],
+  "joiningBenefitsValued": [
+    {
+      "value": 250,
+      "kind": "points",
+      "label": "Up to 1,250 EDGE REWARD Points on first fuel transaction within 30 days of card issuance"
+    }
+  ],
+  "joiningBenefits": [
+    "Up to 1,250 EDGE REWARD Points on first fuel transaction within 30 days of card issuance"
+  ],
   "additionalBenefits": [
     "Nil joining fee and nil annual fee as listed on the Axis Bank credit card catalogue",
     "Secured credit card offered through Axis Bank fixed deposit journey",
-    "Up to 1,250 EDGE REWARD Points on first fuel transaction",
-    "4% value back on fuel spends at IndianOil outlets",
-    "Fuel-related benefits are expected to follow IndianOil Axis Bank programme terms unless separately specified by Axis"
+    "1% fuel surcharge waiver on eligible fuel transactions from Rs 400 to Rs 4,000, capped at Rs 50 per statement cycle",
+    "10% instant discount on BookMyShow movie tickets",
+    "Dining Delights offers through Axis Bank dining programme"
   ],
   "redemption": {
     "statementBalanceValue": 0.2,
@@ -65,14 +101,18 @@
   },
   "eligibility": {
     "salaried": [
-      "Eligibility is subject to Axis Bank approval criteria and fixed deposit secured card terms"
+      "Age: 18 to 70 years",
+      "Resident of India",
+      "Issued against an Axis Bank Fixed Deposit (secured credit card)"
     ],
     "selfEmployed": [
-      "Eligibility is subject to Axis Bank approval criteria and fixed deposit secured card terms"
+      "Age: 18 to 70 years",
+      "Resident of India",
+      "Issued against an Axis Bank Fixed Deposit (secured credit card)"
     ]
   },
-  "sourceUrl": "https://www.axis.bank.in/cards/credit-card",
-  "applyUrl": "https://www.axis.bank.in/cards/credit-card",
+  "sourceUrl": "https://www.axisbank.com/retail/cards/credit-card/indianoil-axis-bank-credit-card",
+  "applyUrl": "https://www.axisbank.com/retail/cards/credit-card/indianoil-axis-bank-credit-card",
   "lastVerified": "2026-05-10",
   "verificationStatus": "official-catalogue",
   "popularityScore": 66

@@ -65,7 +65,6 @@
     "Spends at financial institutions (cash advances, repayments, etc.)"
   ],
   "exclusionCodes": [
-    "fuel",
     "rent",
     "wallet_load",
     "insurance",
@@ -75,6 +74,13 @@
     "gold",
     "jewellery",
     "cash_advance"
+  ],
+  "specialSpendRules": [
+    {
+      "category": "fuel",
+      "treatment": "capped",
+      "notes": "Earn 4% value back at IndianOil outlets, capped at 600 miles per month."
+    }
   ],
   "milestoneBenefits": [
     "Annual fee waived on spends of Rs 1,00,000 and above in a card anniversary year (excluding wallet, rent, and insurance spends)"

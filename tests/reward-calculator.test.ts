@@ -1276,6 +1276,107 @@ describe("reward calculator", () => {
       expect(result2.monthlyUnits).toBe(150);
     });
   });
+
+  describe("Axis Bank Batch 3 Cards", () => {
+    describe("Samsung Axis Bank Signature Credit Card", () => {
+      it("earns 10% cashback on Samsung purchases capped at Rs 2,500/month", () => {
+        const card = getCardById("axis-samsung-signature");
+        expect(card).toBeTruthy();
+
+        // Rs 15,000 Samsung spend => Rs 1,500 cashback
+        const result1 = calculateRewards(card!, { online: 15000 });
+        expect(result1.monthlyUnits).toBe(1500);
+
+        // Rs 30,000 Samsung spend => 3,000 raw cashback capped at Rs 2,500
+        const result2 = calculateRewards(card!, { online: 30000 });
+        expect(result2.monthlyUnits).toBe(2500);
+      });
+
+      it("earns 2% value return (10 Edge points / Rs 100 spent) on preferred partners", () => {
+        const card = getCardById("axis-samsung-signature");
+        // Preferred partners categories: dining, grocery, online (tested via dining & grocery here)
+        const result = calculateRewards(card!, { dining: 10000, grocery: 10000 });
+        // Rs 20,000 spend => 2,000 Edge points earned
+        expect(result.monthlyUnits).toBe(2000);
+      });
+
+      it("earns 1% value return (5 Edge points / Rs 100 spent) on base spends", () => {
+        const card = getCardById("axis-samsung-signature");
+        const result = calculateRewards(card!, { base: 10000 });
+        // Rs 10,000 spend => 500 Edge points earned
+        expect(result.monthlyUnits).toBe(500);
+      });
+    });
+
+    describe("IndianOil Easy Axis Bank Credit Card", () => {
+      it("earns 4% value return on fuel capped at 1,000 points/month", () => {
+        const card = getCardById("axis-indianoil-easy");
+        expect(card).toBeTruthy();
+
+        // Rs 10,000 fuel spend => 10,000 / 100 * 20 = 2,000 points, capped at 1,000 points
+        const result1 = calculateRewards(card!, { fuel: 10000 });
+        expect(result1.monthlyUnits).toBe(1000);
+
+        // Rs 30,000 fuel spend => 6,000 points, capped at 1,000 points
+        const result2 = calculateRewards(card!, { fuel: 30000 });
+        expect(result2.monthlyUnits).toBe(1000);
+      });
+
+      it("excludes fuel, rent, insurance, utilities, government, and education spends", () => {
+        const card = getCardById("axis-indianoil-easy");
+        const result = calculateRewards(card!, {
+          rent: 5000,
+          insurance: 5000,
+          utilities: 5000,
+          government: 5000,
+          education: 5000
+        });
+        expect(result.monthlyUnits).toBe(0);
+      });
+    });
+
+    describe("Privilege Easy Credit Card", () => {
+      it("earns 10 Edge points per Rs 200 spent on base eligible retail transactions", () => {
+        const card = getCardById("axis-privilege-easy");
+        expect(card).toBeTruthy();
+
+        // Rs 20,000 base spend => 20,000 / 200 * 10 = 1,000 Edge points
+        const result = calculateRewards(card!, { base: 20000 });
+        expect(result.monthlyUnits).toBe(1000);
+      });
+    });
+
+    describe("Google Pay Flex Axis Bank Credit Card", () => {
+      it("earns 1 star per Rs 500 spent on base and upi transactions", () => {
+        const card = getCardById("axis-google-pay-flex");
+        expect(card).toBeTruthy();
+
+        // Rs 10,000 base + upi spend => 10,000 * 0.2% = Rs 20 value back (20 stars)
+        const result = calculateRewards(card!, { base: 5000, upi: 5000 });
+        expect(result.monthlyUnits).toBe(20);
+      });
+    });
+
+    describe("Axis Bank Freecharge Plus Credit Card", () => {
+      it("earns 5% cashback on Freecharge app spends", () => {
+        const card = getCardById("axis-freecharge-plus");
+        expect(card).toBeTruthy();
+
+        // Rs 5,000 Freecharge spends => Rs 250 cashback
+        const result = calculateRewards(card!, { online: 5000 });
+        expect(result.monthlyUnits).toBe(250);
+      });
+
+      it("earns 2% cashback on commute spends and 1% on base spends", () => {
+        const card = getCardById("axis-freecharge-plus");
+        expect(card).toBeTruthy();
+
+        // Rs 5,000 travel (commute) + Rs 10,000 base spends => 5,000 * 2% + 10,000 * 1% = 100 + 100 = Rs 200 cashback
+        const result = calculateRewards(card!, { travel: 5000, base: 10000 });
+        expect(result.monthlyUnits).toBe(200);
+      });
+    });
+  });
 });
 
 

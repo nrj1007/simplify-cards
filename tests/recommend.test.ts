@@ -116,7 +116,7 @@ describe("scoreCards", () => {
     }).slice(0, 10);
     const topIds = topScores.map((score) => score.card.id);
     expect(["idfc-first-power-plus", "icici-hpcl-super-saver", "icici-hpcl-coral"]).toContain(topScores[0]?.card.id);
-    expect(topIds).toEqual(expect.arrayContaining(["axis-indianoil-easy"]));
+    expect(topIds).toEqual(expect.arrayContaining(["hdfc-indianoil"]));
   });
 
   it("prioritizes direct card-name queries ahead of generic ranking", () => {

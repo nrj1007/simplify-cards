@@ -19,17 +19,23 @@
   "rewards": [
     {
       "category": "online",
+      "displayCategory": "Freecharge app spends",
       "rate": 5,
+      "displayRate": "5% Cashback on bill payments and recharges via Freecharge app",
       "capMonthly": null
     },
     {
       "category": "travel",
+      "displayCategory": "Local commute spends",
       "rate": 2,
+      "displayRate": "2% Cashback on local commute spends (Ola, Uber, etc.)",
       "capMonthly": null
     },
     {
       "category": "base",
+      "displayCategory": "Other eligible retail spends",
       "rate": 1,
+      "displayRate": "1% Cashback on other eligible spends",
       "capMonthly": null
     }
   ],
@@ -45,24 +51,37 @@
     "fee waiver"
   ],
   "exclusions": [
-    "rent",
-    "wallet load",
+    "Fuel transactions",
+    "Rent payments",
+    "E-wallet loading transactions",
+    "Insurance premium payments",
+    "Utilities and telecom spends made outside Freecharge app",
+    "Government services spends",
+    "Educational institution payments",
+    "Online skill-based gaming spends",
+    "Transactions excluded under Axis Bank Freecharge Plus Credit Card terms"
+  ],
+  "exclusionCodes": [
     "fuel",
-    "education payments via third-party apps",
-    "utilities above fee threshold",
-    "online skill-based gaming above fee threshold",
-    "transactions excluded under Axis Bank Freecharge Plus Credit Card terms"
+    "rent",
+    "wallet_load",
+    "insurance",
+    "utilities",
+    "government",
+    "education",
+    "gaming",
+    "fees_and_charges"
   ],
   "milestoneBenefits": [
     "Annual fee waived on spends of Rs 50,000 in the preceding card anniversary year, excluding rent and wallet load transactions"
   ],
   "additionalBenefits": [
-    "First-year annual fee listed as nil; second year onward annual fee is Rs 350",
+    "First-year annual fee is nil; second year onward annual fee is Rs 350",
     "5% cashback on Freecharge spends",
     "2% cashback on local commute spends",
     "1% cashback on all other eligible spends",
     "Dining benefits through Axis Bank dining programme",
-    "Foreign currency transaction fee of 3.5% as per Axis Bank fees page"
+    "Convert transactions of Rs 2,500 or more into EMI"
   ],
   "redemption": {
     "statementBalanceValue": 1,
@@ -70,10 +89,14 @@
   },
   "eligibility": {
     "salaried": [
-      "Eligibility is subject to Axis Bank approval criteria"
+      "Age: 18 to 70 years",
+      "Resident of India",
+      "Apply digitally via the Freecharge app (invite-only rollout)"
     ],
     "selfEmployed": [
-      "Eligibility is subject to Axis Bank approval criteria"
+      "Age: 18 to 70 years",
+      "Resident of India",
+      "Apply digitally via the Freecharge app (invite-only rollout)"
     ]
   },
   "sourceUrl": "https://www.axisbank.com/retail/cards/credit-card/axis-bank-freecharge-plus-credit-card/features-benefits",

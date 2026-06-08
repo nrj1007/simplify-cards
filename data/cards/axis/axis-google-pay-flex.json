@@ -19,12 +19,16 @@
   "rewards": [
     {
       "category": "upi",
+      "displayCategory": "UPI payments on Google Pay",
       "rate": 0.2,
+      "displayRate": "1 Star / Rs 500 spent (0.2% return rate)",
       "capMonthly": null
     },
     {
       "category": "base",
+      "displayCategory": "Other eligible retail spends",
       "rate": 0.2,
+      "displayRate": "1 Star / Rs 500 spent (0.2% return rate)",
       "capMonthly": null
     }
   ],
@@ -42,11 +46,18 @@
     "dining"
   ],
   "exclusions": [
-    "wallet load",
+    "Rent payments",
+    "E-wallet loading transactions",
+    "Educational institution payments via third-party apps",
+    "Online skill-based gaming spends",
+    "Cash withdrawal and financial services transactions"
+  ],
+  "exclusionCodes": [
     "rent",
-    "education payments via third-party apps",
-    "online skill-based gaming",
-    "transactions excluded under Google Pay Flex Axis Bank Credit Card terms"
+    "wallet_load",
+    "education",
+    "gaming",
+    "cash_advance"
   ],
   "milestoneBenefits": [
     "Unlock 2X stars in the current reward cycle by spending Rs 100 or more in the previous cycle",
@@ -69,14 +80,18 @@
   },
   "eligibility": {
     "salaried": [
-      "Apply through the Money tab on Google Pay under Flex by Google Pay, subject to Axis Bank eligibility"
+      "Age: 18 to 70 years",
+      "Resident of India",
+      "Apply digitally via the Google Pay app (invite-only rollout)"
     ],
     "selfEmployed": [
-      "Apply through the Money tab on Google Pay under Flex by Google Pay, subject to Axis Bank eligibility"
+      "Age: 18 to 70 years",
+      "Resident of India",
+      "Apply digitally via the Google Pay app (invite-only rollout)"
     ]
   },
-  "sourceUrl": "https://www.axis.bank.in/cards/credit-card/google-pay-flex-axis-bank-credit-card",
-  "applyUrl": "https://www.axis.bank.in/cards/credit-card/google-pay-flex-axis-bank-credit-card",
+  "sourceUrl": "https://www.axisbank.com/retail/cards/credit-card",
+  "applyUrl": "https://www.axisbank.com/retail/cards/credit-card",
   "lastVerified": "2026-05-10",
   "verificationStatus": "official-direct",
   "popularityScore": 65

@@ -12,24 +12,30 @@
     "samsung",
     "cashback",
     "shopping",
-    "partner merchants",
+    "preferred partners",
     "lounge"
   ],
   "rewardType": "cashback and edge reward points",
   "rewards": [
     {
-      "category": "retail",
+      "category": "online",
+      "displayCategory": "Samsung purchases (eligible online & offline channels)",
       "rate": 10,
+      "displayRate": "10% Cashback on Samsung purchases (up to Rs 2,500/month)",
       "capMonthly": 2500
     },
     {
-      "category": "partner merchants",
+      "category": "dining, grocery, online",
+      "displayCategory": "Preferred partners (BigBasket, Myntra, Tata 1mg, Urban Company, Zomato)",
       "rate": 2,
+      "displayRate": "10 EDGE REWARD Points / Rs 100 spent (2.0% return value)",
       "capMonthly": null
     },
     {
       "category": "base",
+      "displayCategory": "Other eligible retail spends",
       "rate": 1,
+      "displayRate": "5 EDGE REWARD Points / Rs 100 spent (1.0% return value)",
       "capMonthly": null
     }
   ],
@@ -49,27 +55,48 @@
     "fee waiver"
   ],
   "exclusions": [
+    "Fuel transactions",
+    "Rent payments",
+    "E-wallet loading transactions",
+    "Insurance premium payments",
+    "Utilities and telecom spends",
+    "Government services spends",
+    "Educational institution payments",
+    "Purchase of gold or jewellery",
+    "Online skill-based gaming spends",
+    "Transactions excluded under Samsung Axis Bank Signature Credit Card terms"
+  ],
+  "exclusionCodes": [
     "fuel",
     "rent",
-    "education payments via third-party apps",
-    "wallet loads above fee threshold",
-    "utilities above fee threshold",
-    "online skill-based gaming above fee threshold",
-    "transactions excluded under Samsung Axis Bank Signature Credit Card terms"
+    "wallet_load",
+    "insurance",
+    "utilities",
+    "government",
+    "education",
+    "gold",
+    "gaming",
+    "fees_and_charges"
+  ],
+  "joiningBenefitsValued": [
+    {
+      "value": 500,
+      "kind": "points",
+      "label": "2,500 EDGE REWARD Points on completing 3 transactions within 30 days of card issuance"
+    }
+  ],
+  "joiningBenefits": [
+    "2,500 EDGE REWARD Points on completing 3 transactions within 30 days of card issuance"
   ],
   "milestoneBenefits": [
     "Annual fee waived on annual spends greater than Rs 2 lakh"
   ],
   "additionalBenefits": [
-    "2,500 EDGE REWARD Points on completing 3 transactions within 30 days of card issuance",
     "10% cashback on Samsung purchases including EMI transactions, capped at Rs 2,500 per month and Rs 10,000 per annum",
-    "10 EDGE REWARD Points per Rs 100 with preferred partners bigbasket, Tata 1mg, Urban Company, Myntra and Zomato",
-    "5 EDGE REWARD Points per Rs 100 on other domestic and international transactions",
     "4 complimentary domestic airport lounge visits per calendar year, subject to minimum eligible spend of Rs 50,000 in previous 3 months",
     "1% fuel surcharge waiver on transactions from Rs 400 to Rs 4,000, capped at Rs 500 per statement",
     "Dining Delights offer of 15% off up to Rs 500 once per month at participating restaurants",
-    "Convert transactions of Rs 2,500 or more into EMI",
-    "Wednesday Delight offers as per Axis Bank programme terms"
+    "Convert transactions of Rs 2,500 or more into EMI"
   ],
   "redemption": {
     "statementBalanceValue": 0.2,
@@ -77,14 +104,18 @@
   },
   "eligibility": {
     "salaried": [
-      "Primary cardholder should be between 18 and 70 years and resident of India"
+      "Age: 18 to 70 years",
+      "Minimum Net Monthly Salary: Rs 25,000",
+      "Resident of India"
     ],
     "selfEmployed": [
-      "Primary cardholder should be between 18 and 70 years and resident of India"
+      "Age: 18 to 70 years",
+      "Minimum Annual Income (ITR): Rs 3,50,000",
+      "Resident of India"
     ]
   },
-  "sourceUrl": "https://www.axis.bank.in/cards/credit-card/samsung-axis-bank-signature-credit-card",
-  "applyUrl": "https://www.axis.bank.in/cards/credit-card/samsung-axis-bank-signature-credit-card",
+  "sourceUrl": "https://www.axisbank.com/retail/cards/credit-card/samsung-axis-bank-signature-credit-card",
+  "applyUrl": "https://www.axisbank.com/retail/cards/credit-card/samsung-axis-bank-signature-credit-card",
   "lastVerified": "2026-05-10",
   "verificationStatus": "official-direct",
   "popularityScore": 67

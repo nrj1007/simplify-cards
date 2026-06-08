@@ -62,7 +62,6 @@
     "Spends at financial institutions (cash advances, repayments, etc.)"
   ],
   "exclusionCodes": [
-    "fuel",
     "rent",
     "wallet_load",
     "insurance",
@@ -71,6 +70,13 @@
     "education",
     "gold",
     "jewellery"
+  ],
+  "specialSpendRules": [
+    {
+      "category": "fuel",
+      "treatment": "capped",
+      "notes": "Earn 4% value back (20 EDGE REWARD Points per Rs 100 spent) at IndianOil outlets, capped at 1,000 points per month."
+    }
   ],
   "milestoneBenefits": [
     "Annual fee waived on spending more than Rs 3.5 lakh in a card anniversary year"
