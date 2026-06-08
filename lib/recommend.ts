@@ -894,6 +894,10 @@ function isSpendCategoryExcluded(card: CreditCard, category: SpendCategory) {
       return false;
     }
 
+    if (category === "base" && /\b(fuel|rent|insurance|wallet|government|tax|utilities|bill|gaming|school|education|college|tuition)\b/.test(normalizedLine)) {
+      return false;
+    }
+
     if (/\b(cap|capped|upto|up to|up-to|max|max\.?)\b/.test(normalizedLine)) {
       return false;
     }
