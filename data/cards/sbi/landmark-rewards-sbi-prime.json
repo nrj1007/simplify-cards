@@ -3,9 +3,7 @@
   "issuer": "SBI Card",
   "name": "Landmark Rewards SBI Card PRIME",
   "network": [
-    "Visa",
-    "Mastercard",
-    "RuPay"
+    "Visa"
   ],
   "joiningFee": 2999,
   "annualFee": 2999,
@@ -20,28 +18,34 @@
   "rewardType": "reward points",
   "rewards": [
     {
-      "category": "base",
+      "category": "partner merchants",
+      "displayCategory": "Online and retail Landmark stores",
       "rate": 6.25,
+      "displayRate": "25 Reward Points / Rs 100",
       "capMonthly": null
     },
     {
-      "category": "dining",
+      "category": "dining, entertainment, travel",
+      "displayCategory": "dining, movies, and international spends",
       "rate": 2.5,
-      "capMonthly": null
-    },
-    {
-      "category": "travel",
-      "rate": 2.5,
+      "displayRate": "10 Reward Points / Rs 100",
       "capMonthly": null
     },
     {
       "category": "base",
+      "displayCategory": "other retail purchases",
       "rate": 0.5,
+      "displayRate": "2 Reward Points / Rs 100",
       "capMonthly": null
     }
   ],
   "loungeDomestic": 8,
   "loungeInternational": 4,
+  "lounge": {
+    "international": [
+      "Priority Pass standard membership is complimentary; post the 4 complimentary international lounge visits per year, visit charges apply at the programme's prevailing rate."
+    ]
+  },
   "forexMarkup": 3.5,
   "tags": [
     "landmark",
@@ -55,33 +59,68 @@
   ],
   "exclusions": [
     "fuel",
-    "cash advance",
+    "cash withdrawal",
     "balance transfer",
     "wallet loading",
-    "rent",
-    "transactions excluded under Landmark Rewards SBI Card PRIME terms"
+    "government transactions",
+    "online gaming transactions"
+  ],
+  "exclusionCodes": [
+    "fuel",
+    "cash_withdrawal",
+    "balance_transfer",
+    "wallet_load",
+    "government",
+    "gaming"
+  ],
+  "milestones": [
+    {
+      "threshold": 500000,
+      "period": "annual",
+      "value": 5000,
+      "kind": "points",
+      "label": "20,000 bonus Reward Points on overall annual retail spends of Rs 5 lakh"
+    }
   ],
   "milestoneBenefits": [
-    "20,000 bonus reward points on annual retail spends of Rs 5 lakh"
+    "20,000 bonus Reward Points on overall annual retail spends of Rs 5 lakh"
+  ],
+  "joiningBenefits": [
+    "12,000 bonus Reward Points worth Rs 3,000 on payment of annual fee",
+    "Reward Points are credited within 30 days of annual fee payment"
+  ],
+  "renewalBenefits": [
+    "12,000 Reward Points worth Rs 3,000 on payment of renewal fee",
+    "Reward Points are credited within 30 days of renewal fee payment"
   ],
   "additionalBenefits": [
-    "12,000 bonus reward points after joining fee payment",
-    "12,000 bonus reward points after annual fee payment as renewal benefit",
-    "25 reward points per Rs 100 at Landmark stores including Lifestyle, Max, Home Centre, Spar, Babyshop and EasyBuy",
-    "10 reward points per Rs 100 on dining, movies and international spends",
-    "2 reward points per Rs 100 on other non-fuel eligible retail spends",
-    "4 reward points equal Rs 1 when redeemed against eligible Landmark store spends",
-    "8 complimentary domestic airport lounge visits per year, capped at 2 per quarter",
-    "4 complimentary international lounge visits per year through Priority Pass, capped at 2 per quarter",
+    "Reward Points can be redeemed instantly at Lifestyle, Home Centre, Spar, Max, Baby Shop, and EasyBuy stores",
     "1% fuel surcharge waiver on eligible fuel spends from Rs 500 to Rs 3,000, capped at Rs 100 per month"
   ],
   "redemption": {
-    "statementBalanceValue": 0.25,
+    "ecosystemLabel": "Lifestyle, Home Centre, Spar, Max, Baby Shop, and EasyBuy stores",
+    "ecosystemValue": 0.25,
     "pointsExpiryYears": 2
   },
-  "sourceUrl": "https://www.sbicard.com/en/personal/credit-cards/landmark-sbi-card.html",
-  "applyUrl": "https://www.sbicard.com/en/personal/credit-cards/landmark-sbi-card.html",
-  "lastVerified": "2026-05-09",
-  "verificationStatus": "official-mixed",
+  "additionalDetails": [],
+  "internalNotes": [
+    "Audited against official SBI Card product page, Landmark PRIME booklet, customer notice dated 1 Aug 2025, MITC page, and Priority Pass FAQ on 2026-06-08.",
+    "Reward Points expire after 24 months.",
+    "W.e.f. 1 Sep 2025, reward accrual on digital gaming platforms or merchants and government related transactions is discontinued for Landmark Rewards SBI Card PRIME.",
+    "Priority Pass standard membership is complimentary; post the 4 complimentary international lounge visits per year, visit charges apply at the programme's prevailing rate.",
+    "Current official product page lists Visa network branding for this card.",
+    "The card is audited from official SBI sources but is not yet marked as manually verified by user."
+  ],
+  "supportingSourceUrls": [
+    "https://www.sbicard.com/en/personal/credit-cards/shopping/landmark-sbi-card-prime.page",
+    "https://www.sbicard.com/sbi-card-en/assets/media/images/personal/credit-cards/value-savings/landmark/landmark-product-page/landmark-tncs/Landmark-PRIME-Booklet.pdf",
+    "https://www.sbicard.com/en/customer-notices.page",
+    "https://www.sbicard.com/en/most-important-terms-and-conditions.page",
+    "https://www.sbicard.com/en/faq/complimentary-priority-pass-membership.page"
+  ],
+  "sourceUrl": "https://www.sbicard.com/en/personal/credit-cards/shopping/landmark-sbi-card-prime.page",
+  "applyUrl": "https://www.sbicard.com/en/personal/credit-cards/shopping/landmark-sbi-card-prime.page",
+  "lastVerified": "2026-06-08",
+  "verificationStatus": "official-direct",
   "popularityScore": 69
 }

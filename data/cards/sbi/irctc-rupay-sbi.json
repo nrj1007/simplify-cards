@@ -19,12 +19,16 @@
   "rewards": [
     {
       "category": "travel",
+      "displayCategory": "Eligible railway ticket bookings on IRCTC",
       "rate": 10,
+      "displayRate": "10 Reward Points / Rs 100 spent",
       "capMonthly": null
     },
     {
       "category": "base",
+      "displayCategory": "Other eligible non-fuel retail purchases",
       "rate": 0.8,
+      "displayRate": "1 Reward Point / Rs 125 spent",
       "capMonthly": null
     }
   ],
@@ -41,27 +45,45 @@
   "exclusions": [
     "fuel",
     "cash withdrawal",
-    "railway ticket bookings outside eligible IRCTC channels",
-    "transactions excluded under IRCTC SBI Card terms"
+    "fees and charges",
+    "disputed transactions"
   ],
-  "milestoneBenefits": [
+  "exclusionCodes": [
+    "fuel",
+    "cash_withdrawal",
+    "fees_and_charges",
+    "disputed_transactions"
+  ],
+  "joiningBenefits": [
+    "350 activation bonus Reward Points on a single transaction of Rs 500 or more within 60 days of card issuance"
+  ],
+  "renewalBenefits": [
     "500 Reward Points on payment of renewal fee"
   ],
+  "milestoneBenefits": [],
   "additionalBenefits": [
-    "350 activation bonus Reward Points on a single transaction of Rs 500 or more within 60 days of card issuance",
-    "Up to 10% value back as Reward Points on eligible AC1, AC2, AC3, Executive Chair Car and Chair Car railway ticket bookings through IRCTC website and mobile app",
-    "1 Reward Point per Rs 125 on eligible non-fuel retail purchases, including eligible railway ticket purchases",
-    "1 Reward Point equals Re 1 for eligible IRCTC redemption",
     "Save 1% transaction charges on eligible railway ticket bookings on IRCTC",
-    "Reward Points are transferred to the cardholder's IRCTC loyalty account for redemption on IRCTC"
+    "1% fuel surcharge waiver on eligible fuel transactions, capped at Rs 100 per statement cycle"
   ],
   "redemption": {
-    "statementBalanceValue": 1,
+    "ecosystemLabel": "IRCTC railway ticket bookings",
+    "ecosystemValue": 1,
     "pointsExpiryYears": 2
   },
+  "additionalDetails": [],
+  "internalNotes": [
+    "Audited against official IRCTC SBI Card on RuPay product page on 2026-06-08.",
+    "The 10% value-back framing comes from 10 Reward Points per Rs 100 on eligible railway ticket bookings through the IRCTC website and mobile app.",
+    "Reward Points accrued in the SBI Card account will not get credited to the IRCTC loyalty account if the loyalty account status is blocked, inactive, or suspended.",
+    "In case of railway ticket cancellation, a charge of 1% of the total refund amount is debited to the card.",
+    "The card is audited from official SBI sources but is not yet marked as manually verified by user."
+  ],
+  "supportingSourceUrls": [
+    "https://www.sbicard.com/en/personal/credit-cards/travel/irctc-rupay-sbi-card.page"
+  ],
   "sourceUrl": "https://www.sbicard.com/en/personal/credit-cards/travel/irctc-rupay-sbi-card.page",
   "applyUrl": "https://www.sbicard.com/en/personal/credit-cards/travel/irctc-rupay-sbi-card.page",
-  "lastVerified": "2026-05-09",
+  "lastVerified": "2026-06-08",
   "verificationStatus": "official-direct",
   "popularityScore": 70
 }
