@@ -54,6 +54,25 @@
     "fuel",
     "cash_advance"
   ],
+  "joiningBenefitsValued": [
+    {
+      "value": 1095,
+      "kind": "other",
+      "label": "Complimentary 3-month EazyDiner Prime membership"
+    },
+    {
+      "value": 0,
+      "kind": "other",
+      "label": "500 welcome bonus EazyPoints"
+    }
+  ],
+  "renewalBenefitsValued": [
+    {
+      "value": 1095,
+      "kind": "other",
+      "label": "3-month EazyDiner Prime membership renewal upon spending Rs 30,000 in 90 days"
+    }
+  ],
   "joiningBenefits": [
     "Complimentary 3-month EazyDiner Prime membership (worth Rs 1,095)",
     "500 welcome bonus EazyPoints"
