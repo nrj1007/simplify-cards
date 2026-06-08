@@ -71,6 +71,13 @@
     "emi",
     "fees_and_charges"
   ],
+  "joiningBenefitsValued": [
+    {
+      "value": 500,
+      "kind": "cashback",
+      "label": "Rs 500 cashback as welcome gift on eligible spends of Rs 10,000 in the first 90 days of Cardmembership"
+    }
+  ],
   "joiningBenefits": [
     "Rs 500 cashback as welcome gift on eligible spends of Rs 10,000 in the first 90 days of Cardmembership"
   ],

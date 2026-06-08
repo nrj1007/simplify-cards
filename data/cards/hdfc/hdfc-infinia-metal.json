@@ -115,6 +115,25 @@
     "fees_and_charges"
   ],
   "milestoneBenefits": [],
+  "joiningBenefitsValued": [
+    {
+      "value": 12500,
+      "kind": "points",
+      "label": "12,500 Reward Points upon joining fee realization and card activation"
+    },
+    {
+      "value": 0,
+      "kind": "other",
+      "label": "Complimentary Club Marriott membership for the first year, offering up to 25% discount on dining & stays across Asia-Pacific"
+    }
+  ],
+  "renewalBenefitsValued": [
+    {
+      "value": 12500,
+      "kind": "points",
+      "label": "12,500 Reward Points as renewal benefit after fee realization"
+    }
+  ],
   "joiningBenefits": [
     "12,500 Reward Points upon joining fee realization and card activation",
     "Complimentary Club Marriott membership for the first year, offering up to 25% discount on dining & stays across Asia-Pacific"

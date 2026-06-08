@@ -69,6 +69,13 @@
     "emi",
     "fees_and_charges"
   ],
+  "joiningBenefitsValued": [
+    {
+      "value": 5500,
+      "kind": "points",
+      "label": "11,000 Membership Rewards points as welcome gift on spending Rs 30,000 within first 90 days"
+    }
+  ],
   "joiningBenefits": [
     "11,000 Membership Rewards points as welcome gift on spending Rs 30,000 within first 90 days"
   ],

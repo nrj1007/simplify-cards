@@ -59,6 +59,20 @@
     "emi",
     "fees_and_charges"
   ],
+  "joiningBenefitsValued": [
+    {
+      "value": 2000,
+      "kind": "points",
+      "label": "Welcome gift of 4,000 Bonus Membership Rewards points"
+    }
+  ],
+  "renewalBenefitsValued": [
+    {
+      "value": 2500,
+      "kind": "points",
+      "label": "5,000 Membership Rewards points upon first-year card renewal on payment of annual membership fee"
+    }
+  ],
   "joiningBenefits": [
     "Welcome gift of 4,000 Bonus Membership Rewards points"
   ],
