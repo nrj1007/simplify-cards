@@ -41,7 +41,7 @@ const issuerAliases: Array<{ issuer: string; aliases: string[] }> = [
   { issuer: "ICICI Bank", aliases: ["icici"] },
   { issuer: "IDFC FIRST Bank", aliases: ["idfc", "idfc first"] },
   { issuer: "American Express", aliases: ["amex", "american express"] },
-  { issuer: "HSBC", aliases: ["hsbc"] },
+  { issuer: "HSBC Bank", aliases: ["hsbc"] },
   { issuer: "Kotak Mahindra Bank", aliases: ["kotak"] },
   { issuer: "YES Bank", aliases: ["yes bank", "yes"] },
   { issuer: "RBL Bank", aliases: ["rbl"] },

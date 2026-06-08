@@ -352,7 +352,7 @@ function extractQueryTags(query?: string) {
 }
 
 function normalizeIssuer(issuer: string) {
-  return normalizeForMatch(issuer);
+  return normalizeForMatch(issuer).replace(/\s+(bank|card|cards|partner banks)$/i, "").trim();
 }
 
 function shouldIncludeSmartbuyLikeRewards(query?: string) {
