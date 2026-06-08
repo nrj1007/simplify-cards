@@ -71,6 +71,13 @@
     "emi",
     "fees_and_charges"
   ],
+  "joiningBenefitsValued": [
+    {
+      "value": 500,
+      "kind": "cashback",
+      "label": "Rs 500 cashback as welcome gift on eligible spends of Rs 10,000 in the first 90 days of Cardmembership"
+    }
+  ],
   "joiningBenefits": [
     "Rs 500 cashback as welcome gift on eligible spends of Rs 10,000 in the first 90 days of Cardmembership"
   ],
@@ -79,7 +86,7 @@
   ],
   "redemption": {
     "statementBalanceValue": 0.25,
-    "airMilesValue": 0.5,
+    "airMilesValue": 1,
     "pointsExpiryYears": null,
     "transferPartnerValuations": [
       {
@@ -106,10 +113,14 @@
   },
   "eligibility": {
     "salaried": [
-      "Eligibility is subject to American Express approval criteria"
+      "Employed with personal annual income of Rs 4.5 lakh and above",
+      "Good credit history with no payment defaults",
+      "Resident Indian with current or permanent residential address in India"
     ],
     "selfEmployed": [
-      "Eligibility is subject to American Express approval criteria"
+      "Self-employed with personal annual income of Rs 6 lakh and above",
+      "Company has been trading for more than 12 months",
+      "Resident Indian with current or permanent residential address in India"
     ]
   },
   "sourceUrl": "https://www.americanexpress.com/in/credit-cards/smart-earn-credit-card/",

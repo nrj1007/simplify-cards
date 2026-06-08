@@ -62,6 +62,20 @@
     "fuel",
     "fees_and_charges"
   ],
+  "joiningBenefitsValued": [
+    {
+      "value": 4000,
+      "kind": "points",
+      "label": "Welcome gift of 4,000 Bonus Membership Rewards points on payment of annual fee and spending Rs 10,000 within 90 days"
+    }
+  ],
+  "renewalBenefitsValued": [
+    {
+      "value": 5000,
+      "kind": "points",
+      "label": "5,000 Membership Rewards points on first-year card renewal after payment of annual membership fee"
+    }
+  ],
   "joiningBenefits": [
     "Welcome gift of 4,000 Bonus Membership Rewards points on payment of annual fee and spending Rs 10,000 within 90 days"
   ],
@@ -77,7 +91,7 @@
   ],
   "redemption": {
     "statementBalanceValue": 0.25,
-    "airMilesValue": 0.5,
+    "airMilesValue": 1,
     "pointsExpiryYears": null,
     "transferPartnerValuations": [
       {
@@ -141,10 +155,15 @@
   },
   "eligibility": {
     "salaried": [
-      "Eligibility is subject to American Express charge card approval criteria"
+      "Personal annual income of Rs 6 lakh and above",
+      "Good credit history with no payment defaults",
+      "Resident Indian with current residential address in India"
     ],
     "selfEmployed": [
-      "Eligibility is subject to American Express charge card approval criteria"
+      "Personal annual income of Rs 6 lakh and above",
+      "Company has been trading for more than 12 months",
+      "Good credit history with no payment defaults",
+      "Resident Indian with current residential address in India"
     ]
   },
   "sourceUrl": "https://www.americanexpress.com/in/charge-cards/gold-card/",
@@ -159,6 +178,7 @@
     "Card details manually reviewed and verified by user on 2026-06-08",
     "Effective 12 June 2025, fuel payments no longer earn Membership Rewards points on the Gold Card.",
     "Utility payments continue to earn 1 Membership Rewards point per Rs 50 spent, capped at 10,000 Membership Rewards points in a calendar month.",
+    "Amex currently issues this card only to residents of select serviced cities including Delhi/NCR, Mumbai, Bangalore, Chennai, Pune, Hyderabad, Jaipur, Kolkata, Indore, Coimbatore, Chandigarh/Tricity, Ahmedabad, Surat, Vadodara, Bhopal, Bhubaneshwar, Ernakulam, Vijayawada, Lucknow, Ludhiana, Nagpur, Nashik, Trivandrum, Mysuru, Cuttack and Vizag.",
     "Airline transfers are currently listed at a 2:1 ratio, while Marriott Bonvoy transfers at 1:1 and Hilton Honors transfers at 1:0.9."
   ]
 }

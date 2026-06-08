@@ -176,8 +176,15 @@ const genericCardNameWords = new Set([
 ]);
 
 const queryTokenCanonicalMap: Record<string, string> = {
-  mmt: "makemytrip"
+  mmt: "makemytrip",
+  mrcc: "membership rewards"
 };
+
+const queryPhraseCardIdMap: Array<{ phrases: string[]; cardId: string }> = [
+  { phrases: ["icici mmt", "mmt icici"], cardId: "icici-makemytrip" },
+  { phrases: ["amex mrcc", "mrcc amex", "american express mrcc"], cardId: "amex-membership-rewards" },
+  { phrases: ["platinum reserve", "amex platinum reserve", "american express platinum reserve"], cardId: "amex-platinum-reserve" }
+];
 
 function normalizeQuery(query?: string) {
   return query?.toLowerCase().trim() ?? "";
@@ -578,6 +585,11 @@ function findMentionedCardId(query?: string) {
   const queryTokens = getMeaningfulQueryTokens(query);
 
   if (!normalizedQuery || queryTokens.length === 0) return null;
+
+  const directPhraseMatch = queryPhraseCardIdMap.find((entry) =>
+    entry.phrases.some((phrase) => normalizeForMatch(phrase) === normalizedQuery)
+  );
+  if (directPhraseMatch) return directPhraseMatch.cardId;
 
   let bestMatch: { id: string; score: number; matchedCardTokens: number; exactMatch: boolean } | null = null;
 

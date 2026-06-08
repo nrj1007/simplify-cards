@@ -148,6 +148,137 @@ describe("reward calculator", () => {
     expect(pointMilestones.every(r => !r.isVoucher)).toBe(true);
   });
 
+  describe("audited American Express cards", () => {
+    it("calculates rewards correctly for Amex Gold including utilities", () => {
+      const card = getCardById("amex-gold");
+      expect(card).toBeTruthy();
+
+      const result = calculateRewards(card!, {
+        base: 10000,      // 1 MR / Rs 50 = 200
+        utilities: 5000   // 1 MR / Rs 50 = 100
+      });
+
+      expect(result.monthlyUnits).toBe(300);
+      expect(result.annualUnits).toBe(3600);
+
+      const baseRow = result.rows.find((r) => r.category === "base");
+      const utilRow = result.rows.find((r) => r.category === "utilities");
+      expect(baseRow?.monthlyUnits).toBe(200);
+      expect(utilRow?.monthlyUnits).toBe(100);
+      expect(utilRow?.excluded).toBe(false);
+    });
+
+    it("caps Amex Gold utility rewards at 10,000 points per month", () => {
+      const card = getCardById("amex-gold");
+      expect(card).toBeTruthy();
+
+      const result = calculateRewards(card!, {
+        utilities: 600000 // raw 12,000 MR, capped at 10,000
+      });
+
+      expect(result.monthlyUnits).toBe(10000);
+      expect(result.annualUnits).toBe(120000);
+    });
+
+    it("calculates rewards correctly for Amex Membership Rewards Credit Card", () => {
+      const card = getCardById("amex-membership-rewards");
+      expect(card).toBeTruthy();
+
+      const result = calculateRewards(card!, {
+        base: 10000,   // 200
+        online: 10000  // 2 MR / Rs 50 = 400
+      });
+
+      expect(result.monthlyUnits).toBe(600);
+      expect(result.annualUnits).toBe(7200);
+
+      const onlineRow = result.rows.find((r) => r.category === "online");
+      expect(onlineRow?.monthlyUnits).toBe(400);
+    });
+
+    it("excludes utilities on Amex Membership Rewards Credit Card", () => {
+      const card = getCardById("amex-membership-rewards");
+      expect(card).toBeTruthy();
+
+      const result = calculateRewards(card!, {
+        utilities: 10000
+      });
+
+      expect(result.monthlyUnits).toBe(0);
+      const utilitiesRow = result.rows.find((r) => r.category === "utilities");
+      expect(utilitiesRow).toBeTruthy();
+      expect(utilitiesRow!.monthlyUnits).toBe(0);
+      expect(utilitiesRow!.excluded).toBe(true);
+    });
+
+    it("calculates rewards correctly for Amex Platinum Reserve", () => {
+      const card = getCardById("amex-platinum-reserve");
+      expect(card).toBeTruthy();
+
+      const result = calculateRewards(card!, {
+        base: 10000,   // 200
+        online: 10000  // 3 MR / Rs 50 = 600
+      });
+
+      expect(result.monthlyUnits).toBe(800);
+      expect(result.annualUnits).toBe(9600);
+
+      const onlineRow = result.rows.find((r) => r.category === "online");
+      expect(onlineRow?.monthlyUnits).toBe(600);
+    });
+
+    it("calculates rewards correctly for Amex Platinum including overseas and fuel spend", () => {
+      const card = getCardById("amex-platinum");
+      expect(card).toBeTruthy();
+
+      const result = calculateRewards(card!, {
+        base: 8000,          // 1 MR / Rs 40 = 200
+        travel: 8000,        // 3 MR / Rs 40 = 600
+        fuel: 10000          // 5 MR / Rs 100 = 500
+      });
+
+      expect(result.monthlyUnits).toBe(1300);
+      expect(result.annualUnits).toBe(15600);
+
+      const travelRow = result.rows.find((r) => r.category === "travel");
+      const fuelRow = result.rows.find((r) => r.category === "fuel");
+      expect(travelRow?.monthlyUnits).toBe(600);
+      expect(fuelRow?.monthlyUnits).toBe(500);
+    });
+
+    it("calculates rewards correctly for Amex SmartEarn with 10X and 5X merchants", () => {
+      const card = getCardById("amex-smartearn");
+      expect(card).toBeTruthy();
+
+      const result = calculateRewards(card!, {
+        online: 2500,  // 10X => 500 MR
+        amazon: 2500,  // 5X => 250 MR
+        base: 5000     // 1 MR / Rs 50 => 100 MR
+      });
+
+      expect(result.monthlyUnits).toBe(850);
+      expect(result.annualUnits).toBe(10200);
+    });
+
+    it("applies SmartEarn accelerated caps correctly", () => {
+      const card = getCardById("amex-smartearn");
+      expect(card).toBeTruthy();
+
+      const result = calculateRewards(card!, {
+        online: 10000, // raw 2,000 MR, capped at 500
+        amazon: 10000  // raw 1,000 MR, capped at 250
+      });
+
+      expect(result.monthlyUnits).toBe(750);
+      expect(result.annualUnits).toBe(9000);
+
+      const onlineRow = result.rows.find((r) => r.category === "online");
+      const amazonRow = result.rows.find((r) => r.category === "amazon");
+      expect(onlineRow?.monthlyUnits).toBe(500);
+      expect(amazonRow?.monthlyUnits).toBe(250);
+    });
+  });
+
   it("extracts 12 Lakhs threshold from Sapphiro cap milestone benefit description", () => {
     const card = getCardById("icici-sapphiro");
     expect(card).toBeTruthy();
@@ -1159,7 +1290,7 @@ describe("reward calculator", () => {
       expect(result.monthlyUnits).toBe(150);
     });
 
-    it("excludes fuel, rent, insurance, government, education, wallet, and utilities spends", () => {
+    it("excludes fuel, rent, insurance, government, education, and utilities spends", () => {
       const card = getCardById("hsbc-live-plus");
       const result = calculateRewards(card!, {
         fuel: 5000,
@@ -1167,7 +1298,6 @@ describe("reward calculator", () => {
         insurance: 5000,
         government: 5000,
         education: 5000,
-        wallet_load: 5000,
         utilities: 5000
       });
       expect(result.monthlyUnits).toBe(0);
