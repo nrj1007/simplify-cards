@@ -18,18 +18,30 @@
   "rewardType": "reward points",
   "rewards": [
     {
-      "category": "pharmacy dining movies",
-      "rate": 2.5,
+      "category": "partner merchants",
+      "displayCategory": "Chemist, pharmacy, sports, dining, and movies",
+      "rate": 10,
+      "displayRate": "10 Reward Points / Rs 100",
       "capMonthly": null
     },
     {
       "category": "base",
-      "rate": 0.5,
+      "displayCategory": "Other eligible spends",
+      "rate": 2,
+      "displayRate": "2 Reward Points / Rs 100",
       "capMonthly": null
     }
   ],
   "loungeDomestic": 4,
   "loungeInternational": 0,
+  "lounge": {
+    "domestic": [
+      "4 domestic lounge visits per year, capped at 1 visit per quarter."
+    ],
+    "international": [
+      "Complimentary Priority Pass membership is provided for the first two membership years, with no complimentary lounge visits."
+    ]
+  },
   "forexMarkup": 3.5,
   "tags": [
     "health",
@@ -41,28 +53,40 @@
   ],
   "exclusions": [
     "fuel",
-    "cash advance",
-    "balance transfer",
-    "wallet loading",
-    "transactions excluded under SBI Card reward terms"
+    "balance transfers",
+    "cash advances",
+    "fees and charges",
+    "disputed transactions"
+  ],
+  "exclusionCodes": [
+    "fuel",
+    "balance_transfer",
+    "cash_advance",
+    "fees_and_charges",
+    "disputed_transactions"
+  ],
+  "joiningBenefits": [
+    "Noise ColorFit Pulse 4 Pro smart watch worth Rs 7,999 on payment of joining fee"
+  ],
+  "renewalBenefits": [
+    "Complimentary 1-year FITPASS PRO membership on card renewal every year"
+  ],
+  "milestones": [
+    {
+      "threshold": 400000,
+      "period": "annual",
+      "value": 1500,
+      "kind": "voucher",
+      "label": "Rs 1,500 voucher on annual retail spends of Rs 4 lakh"
+    }
   ],
   "milestoneBenefits": [
-    "Renewal fee waiver on annual spends of Rs 2 lakh",
     "Rs 1,500 voucher on annual retail spends of Rs 4 lakh"
   ],
   "additionalBenefits": [
-    "Noise ColorFit Pulse 4 Pro worth Rs 7,999 on payment of joining fee",
-    "1 year complimentary FITPASS PRO membership subject to joining fee payment and minimum one retail transaction",
-    "1 year complimentary Netmeds First membership subject to joining fee payment and minimum one retail transaction",
-    "10 Reward Points per Rs 100 spent on chemist, pharmacy, sports, dining and movies",
-    "2 Reward Points per Rs 100 spent on all other spends",
-    "4 Reward Points equal Rs 1",
-    "4 domestic lounge accesses per year, capped at 1 per quarter",
-    "Complimentary Priority Pass membership for first two membership years, with no complimentary visits",
+    "Complimentary 1-year Netmeds First membership subject to joining fee payment and at least one retail transaction",
     "Fraud liability cover of Rs 1 lakh",
-    "Air accident cover discontinued from 15-Jul-2025",
-    "1% fuel surcharge waiver on transactions from Rs 500 to Rs 4,000, capped at Rs 250 per statement cycle",
-    "Contactless payments enabled"
+    "1% fuel surcharge waiver on eligible fuel transactions from Rs 500 to Rs 4,000, capped at Rs 250 per statement cycle"
   ],
   "redemption": {
     "statementBalanceValue": 0.25,
@@ -70,9 +94,20 @@
     "pointsExpiryYears": 2,
     "redemptionFee": 99
   },
-  "sourceUrl": "https://www.sbicard.com/en/personal/credit-cards/lifestyle/sbi-card-pulse-sprint.page",
-  "applyUrl": "https://www.sbicard.com/en/personal/credit-cards/lifestyle/sbi-card-pulse-sprint.page",
-  "lastVerified": "2026-05-09",
+  "additionalDetails": [],
+  "internalNotes": [
+    "Audited against official SBI Card PULSE product page on 2026-06-08.",
+    "The product page currently highlights complimentary 1-year FITPASS PRO membership on renewal and Netmeds First membership subject to joining fee payment and at least one retail transaction.",
+    "Priority Pass membership is provided for the first two membership years but does not include complimentary international lounge visits.",
+    "Air accident cover is shown on the older local file but not carried forward here because the current live product page does not foreground it as an active benefit.",
+    "The card is audited from official SBI sources but is not yet marked as manually verified by user."
+  ],
+  "supportingSourceUrls": [
+    "https://www.sbicard.com/en/personal/credit-cards/sbi-card-pulse.html"
+  ],
+  "sourceUrl": "https://www.sbicard.com/en/personal/credit-cards/sbi-card-pulse.html",
+  "applyUrl": "https://www.sbicard.com/en/personal/credit-cards/sbi-card-pulse.html",
+  "lastVerified": "2026-06-08",
   "verificationStatus": "official-direct",
   "popularityScore": 71
 }
