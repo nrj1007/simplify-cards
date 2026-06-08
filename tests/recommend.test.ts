@@ -139,6 +139,15 @@ describe("scoreCards", () => {
     expect(scores.every((score) => score.card.issuer === "ICICI Bank")).toBe(true);
   });
 
+  it("restricts HSBC issuer-led recommendation queries to HSBC Bank cards", () => {
+    const scores = scoreCards({
+      query: "best hsbc card"
+    });
+
+    expect(scores.length).toBeGreaterThan(0);
+    expect(scores.every((score) => score.card.issuer === "HSBC Bank")).toBe(true);
+  });
+
   it("surfaces Atlas for Axis travel intent", () => {
     const scores = scoreCards({
       query: "best axis travel card"

@@ -71,6 +71,15 @@ describe("query intent parser", () => {
     expect(intent.useCases).toContain("travel");
   });
 
+  it("normalizes HSBC issuer-led recommendation questions to the stored bank issuer name", () => {
+    const intent = parseQueryIntent({
+      query: "best hsbc card"
+    });
+
+    expect(intent.issuers).toContain("HSBC Bank");
+    expect(intent.useCases).toHaveLength(0);
+  });
+
   it("parses life time free phrasing and focused spend intent", () => {
     const intent = parseQueryIntent({
       query: "top life time free cards for grocery spends"
