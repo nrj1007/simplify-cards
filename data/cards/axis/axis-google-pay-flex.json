@@ -94,5 +94,6 @@
   "applyUrl": "https://www.axisbank.com/retail/cards/credit-card",
   "lastVerified": "2026-05-10",
   "verificationStatus": "official-direct",
-  "popularityScore": 65
+  "popularityScore": 65,
+  "imageUrl": "/images/axis-google-pay-flex.png"
 }

@@ -95,5 +95,6 @@
   "applyUrl": "https://www.axisbank.com/retail/cards/credit-card/neo-credit-card",
   "lastVerified": "2026-05-10",
   "verificationStatus": "official-direct",
-  "popularityScore": 68
+  "popularityScore": 68,
+  "imageUrl": "/images/axis-neo.webp"
 }

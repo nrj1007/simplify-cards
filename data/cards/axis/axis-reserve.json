@@ -265,5 +265,6 @@
   "applyUrl": "https://www.axisbank.com/retail/cards/credit-card/reserve-credit-card",
   "lastVerified": "2026-05-10",
   "verificationStatus": "official-direct",
-  "popularityScore": 75
+  "popularityScore": 75,
+  "imageUrl": "/images/axis-reserve.webp"
 }

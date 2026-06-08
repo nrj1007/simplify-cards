@@ -76,7 +76,7 @@
   ],
   "redemption": {
     "statementBalanceValue": 1,
-    "airMilesValue": 1.0,
+    "airMilesValue": 1,
     "pointsExpiryYears": 3,
     "transferPartnerValuations": [],
     "airlinePartners": [
@@ -247,5 +247,6 @@
   "applyUrl": "https://www.axisbank.com/retail/cards/credit-card/axis-horizon-credit-card",
   "lastVerified": "2026-05-10",
   "verificationStatus": "official-direct",
-  "popularityScore": 69
+  "popularityScore": 69,
+  "imageUrl": "/images/axis-horizon.webp"
 }

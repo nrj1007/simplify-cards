@@ -110,5 +110,6 @@
   "applyUrl": "https://www.axisbank.com/retail/cards/credit-card/cashback-credit-card",
   "lastVerified": "2026-05-10",
   "verificationStatus": "official-direct",
-  "popularityScore": 72
+  "popularityScore": 72,
+  "imageUrl": "/images/axis-cashback.webp"
 }

@@ -118,5 +118,6 @@
   "applyUrl": "https://www.axisbank.com/retail/cards/credit-card/samsung-axis-bank-signature-credit-card",
   "lastVerified": "2026-05-10",
   "verificationStatus": "official-direct",
-  "popularityScore": 67
+  "popularityScore": 67,
+  "imageUrl": "/images/axis-samsung-signature.webp"
 }

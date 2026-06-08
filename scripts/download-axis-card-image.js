@@ -31,12 +31,13 @@ function fetchUrl(url) {
     const options = {
       hostname: parsedUrl.hostname,
       path: parsedUrl.pathname + parsedUrl.search,
+      timeout: 10000, // 10 seconds timeout
       headers: {
         "User-Agent": USER_AGENT,
         "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8"
       }
     };
-    https
+    const req = https
       .get(options, (res) => {
         if (res.statusCode >= 300 && res.statusCode < 400 && res.headers.location) {
           const redirectUrl = new URL(res.headers.location, url).toString();
@@ -55,6 +56,11 @@ function fetchUrl(url) {
         res.on("end", () => resolve(data));
       })
       .on("error", reject);
+
+    req.on("timeout", () => {
+      req.destroy();
+      reject(new Error(`Request timed out for ${url}`));
+    });
   });
 }
 
@@ -65,12 +71,13 @@ function downloadFile(url, dest) {
     const options = {
       hostname: parsedUrl.hostname,
       path: parsedUrl.pathname + parsedUrl.search,
+      timeout: 10000, // 10 seconds timeout
       headers: {
         "User-Agent": USER_AGENT,
         "Accept": "image/webp,image/apng,image/*,*/*;q=0.8"
       }
     };
-    https
+    const req = https
       .get(options, (res) => {
         if (res.statusCode >= 300 && res.statusCode < 400 && res.headers.location) {
           file.close();
@@ -97,6 +104,13 @@ function downloadFile(url, dest) {
         fs.unlink(dest, () => {});
         reject(err);
       });
+
+    req.on("timeout", () => {
+      req.destroy();
+      file.close();
+      fs.unlink(dest, () => {});
+      reject(new Error(`Download timed out for ${url}`));
+    });
   });
 }
 
@@ -201,6 +215,12 @@ function scoreCandidate(candidate, keywords, card) {
     if (urlText.includes(keyword)) score += 12;
     if (altText.includes(keyword)) score += 10;
     if (titleText.includes(keyword)) score += 8;
+  }
+
+  const cardSlug = card.id.replace("axis-", "");
+  const filename = candidate.url.split("/").pop().split("?")[0].split(".")[0].toLowerCase();
+  if (filename === cardSlug) {
+    score += 50;
   }
 
   const sourceSlug = normalizeText((card.sourceUrl ?? card.applyUrl ?? "").split("/").pop() ?? "");
