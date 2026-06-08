@@ -17,17 +17,23 @@
   "rewards": [
     {
       "category": "partner merchants",
-      "rate": 2.5,
-      "capMonthly": 2500
+      "displayCategory": "Exclusive online partners",
+      "rate": 10,
+      "displayRate": "10X Reward Points / Rs 100 spent with exclusive partners",
+      "capMonthly": null
     },
     {
       "category": "online",
-      "rate": 1.25,
-      "capMonthly": 2500
+      "displayCategory": "Other online spends",
+      "rate": 5,
+      "displayRate": "5X Reward Points / Rs 100 spent on other online spends",
+      "capMonthly": null
     },
     {
       "category": "base",
-      "rate": 0.25,
+      "displayCategory": "Other eligible spends",
+      "rate": 1,
+      "displayRate": "1 Reward Point / Rs 100",
       "capMonthly": null
     }
   ],
@@ -43,27 +49,42 @@
   ],
   "exclusions": [
     "fuel",
-    "rent",
-    "cash advance",
-    "balance transfer",
-    "wallet loading",
-    "digital gaming",
-    "utility bill payments",
-    "government transactions",
-    "Flexipay EMI"
+    "balance transfers",
+    "cash advances",
+    "fees and charges"
+  ],
+  "exclusionCodes": [
+    "fuel",
+    "balance_transfer",
+    "cash_advance",
+    "fees_and_charges"
+  ],
+  "milestones": [
+    {
+      "threshold": 100000,
+      "period": "annual",
+      "value": 2000,
+      "kind": "voucher",
+      "label": "Cleartrip or Yatra e-voucher worth Rs 2,000 on annual online spends of Rs 1 lakh"
+    },
+    {
+      "threshold": 200000,
+      "period": "annual",
+      "value": 2000,
+      "kind": "voucher",
+      "label": "Cleartrip or Yatra e-voucher worth Rs 2,000 on annual online spends of Rs 2 lakh"
+    }
   ],
   "milestoneBenefits": [
-    "E-voucher worth Rs 2,000 on annual online spends of Rs 1 lakh",
-    "E-voucher worth Rs 2,000 on annual online spends of Rs 2 lakh",
-    "Renewal fee reversal on annual spends of Rs 1 lakh in the preceding year"
+    "Cleartrip or Yatra e-voucher worth Rs 2,000 on annual online spends of Rs 1 lakh",
+    "Cleartrip or Yatra e-voucher worth Rs 2,000 on annual online spends of Rs 2 lakh"
   ],
+  "joiningBenefits": [
+    "Amazon e-gift voucher worth Rs 500 on payment of joining fee"
+  ],
+  "renewalBenefits": [],
   "additionalBenefits": [
-    "Welcome e-gift voucher worth Rs 500 from Amazon",
-    "10X Reward Points on online spends with exclusive partners",
-    "5X Reward Points on other online spends",
-    "1 Reward Point per Rs 100 on other spends",
-    "Reward Points can be redeemed against SBI Card rewards catalogue",
-    "Fuel surcharge waiver on transactions from Rs 500 to Rs 3,000"
+    "1% fuel surcharge waiver on eligible fuel transactions from Rs 500 to Rs 3,000"
   ],
   "redemption": {
     "statementBalanceValue": 0.25,
@@ -71,9 +92,22 @@
     "pointsExpiryYears": 2,
     "redemptionFee": 99
   },
-  "sourceUrl": "https://www.sbicard.com/en/eapply/sbicampaign.page",
-  "applyUrl": "https://www.sbicard.com/en/personal/sbi-credit-card.page",
-  "lastVerified": "2026-05-09",
-  "verificationStatus": "official-mixed",
+  "additionalDetails": [],
+  "internalNotes": [
+    "Audited against official SimplyCLICK product page, SimplyCLICK terms booklet dated 1 Sep 2025, and SBI Card customer notices on 2026-06-08.",
+    "The current official partner set foregrounded by SBI Card includes Apollo 24X7, BookMyShow, Cleartrip, Dominos, IGP, Myntra, Netmeds, and Yatra for 10X Reward Points.",
+    "As per customer notice, 10X Reward Points on Swiggy were revised to 5X effective 1 Apr 2025; the card data therefore keeps the rewards row generic to exclusive partners and excludes Swiggy from the 10X note.",
+    "Reward Points expire after 24 months.",
+    "The card is audited from official SBI sources but is not yet marked as manually verified by user."
+  ],
+  "supportingSourceUrls": [
+    "https://www.sbicard.com/en/personal/credit-cards/simplyclick-sbi-card.html",
+    "https://www.sbicard.com/sbi-card-en/assets/docs/pdf/SimplyClick-TnC.pdf",
+    "https://www.sbicard.com/en/customer-notices.page"
+  ],
+  "sourceUrl": "https://www.sbicard.com/en/personal/credit-cards/simplyclick-sbi-card.html",
+  "applyUrl": "https://www.sbicard.com/en/personal/credit-cards/simplyclick-sbi-card.html",
+  "lastVerified": "2026-06-08",
+  "verificationStatus": "official-direct",
   "popularityScore": 74
 }
