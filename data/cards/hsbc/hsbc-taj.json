@@ -34,6 +34,14 @@
   ],
   "loungeDomestic": "unlimited",
   "loungeInternational": "unlimited",
+  "lounge": {
+    "domestic": [
+      "Unlimited global airport lounge access, subject to programme terms"
+    ],
+    "international": [
+      "Unlimited global airport lounge access, subject to programme terms"
+    ]
+  },
   "forexMarkup": 3.5,
   "imageUrl": "/images/hsbc-taj.jpg",
   "tags": [
