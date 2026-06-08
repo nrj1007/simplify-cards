@@ -43,7 +43,7 @@
       "2 complimentary international lounge visits per calendar year."
     ]
   },
-  "forexMarkup": 0,
+  "forexMarkup": 3.5,
   "tags": [
     "rupay",
     "upi",
@@ -51,8 +51,7 @@
     "dining",
     "food delivery",
     "grocery",
-    "lounge",
-    "zero forex"
+    "lounge"
   ],
   "exclusions": [
     "Utility bill payments",
@@ -117,6 +116,8 @@
   "verificationStatus": "official-direct",
   "popularityScore": 67,
   "internalNotes": [
+    "Card details manually reviewed and verified by user on 2026-06-08",
+    "Standard forex markup is 3.5%; however, a promotional 0% forex markup offer is active until 30 June 2026.",
     "10% cashback is capped at Rs 400 per month combined, then reverts to the base 1% cashback rate.",
     "Excludes fuel, rent, insurance, government, education, wallet loads, utilities, gold, and EMI transactions from earning cashback."
   ]

@@ -394,5 +394,17 @@
         "sourceLabel": "Manual"
       }
     ]
+  },
+  "hsbc-rupay-cashback": {
+    "updates": [
+      {
+        "title": "Promotional 0% forex markup offer active",
+        "summary": "HSBC RuPay Cashback Credit Card currently offers a promotional 0% forex markup on international transactions valid until 30 June 2026. Outside this promotional window, the standard 3.5% markup applies.",
+        "sourceType": "manual",
+        "sourceLabel": "HSBC India official website",
+        "sourceUrl": "https://www.hsbc.co.in/credit-cards/products/rupay-cashback-credit-card/",
+        "publishedAt": "2026-06-08"
+      }
+    ]
   }
 }
