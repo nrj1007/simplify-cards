@@ -265,5 +265,6 @@
   "applyUrl": "https://www.axisbank.com/retail/cards/credit-card/indianoil-premium-credit-card",
   "lastVerified": "2026-05-10",
   "verificationStatus": "official-direct",
-  "popularityScore": 74
+  "popularityScore": 74,
+  "imageUrl": "/images/axis-indianoil-premium.webp"
 }

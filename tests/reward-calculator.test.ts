@@ -1653,6 +1653,165 @@ describe("reward calculator", () => {
     });
   });
 
+  describe("Axis Bank Batch 1 Cards", () => {
+    describe("IndianOil Axis Bank Credit Card", () => {
+      it("earns fuel rewards capped at 1000 points", () => {
+        const card = getCardById("axis-indianoil");
+        expect(card).toBeTruthy();
+
+        // Rs 5,000 fuel spend => 1000 points (using rate = 4% / statementBalanceValue = 0.2 => 20 points per Rs 100)
+        const result1 = calculateRewards(card!, { fuel: 5000 });
+        expect(result1.monthlyUnits).toBe(1000);
+
+        // Rs 10,000 fuel spend => capped at 1000 points
+        const result2 = calculateRewards(card!, { fuel: 10000 });
+        expect(result2.monthlyUnits).toBe(1000);
+      });
+
+      it("earns 1% value return on online shopping", () => {
+        const card = getCardById("axis-indianoil");
+        // Rs 5,000 online spends => 50 rupees value return / 0.2 = 250 points
+        const result = calculateRewards(card!, { online: 5000 });
+        expect(result.monthlyUnits).toBe(250);
+      });
+    });
+
+    describe("Axis Bank Select Credit Card", () => {
+      it("earns retail shopping rewards capped at 2,000 points/month", () => {
+        const card = getCardById("axis-select");
+        expect(card).toBeTruthy();
+
+        // Rs 20,000 spend => 2,000 points
+        const result1 = calculateRewards(card!, { grocery: 20000 });
+        expect(result1.monthlyUnits).toBe(2000);
+
+        // Rs 30,000 spend => capped at 2,000 points
+        const result2 = calculateRewards(card!, { grocery: 30000 });
+        expect(result2.monthlyUnits).toBe(2000);
+      });
+
+      it("earns 1% value return on base spends", () => {
+        const card = getCardById("axis-select");
+        // Rs 10,000 base spend => 200 rupees value return / 0.2 = 1000 points (using first base category rule with rate = 2)
+        const result = calculateRewards(card!, { base: 10000 });
+        expect(result.monthlyUnits).toBe(1000);
+      });
+    });
+
+    describe("Axis Bank Reserve Credit Card", () => {
+      it("earns domestic and international rewards", () => {
+        const card = getCardById("axis-reserve");
+        expect(card).toBeTruthy();
+
+        // Rs 20,000 domestic => 1500 points
+        const resultDomestic = calculateRewards(card!, { base: 20000 });
+        expect(resultDomestic.monthlyUnits).toBe(1500);
+
+        // Rs 20,000 international => 3000 points
+        const resultIntl = calculateRewards(card!, { international: 20000 });
+        expect(resultIntl.monthlyUnits).toBe(3000);
+      });
+    });
+
+    describe("IndianOil Axis Bank Premium Credit Card", () => {
+      it("earns fuel rewards capped at 600 points", () => {
+        const card = getCardById("axis-indianoil-premium");
+        expect(card).toBeTruthy();
+
+        // Rs 25,000 fuel spend => capped at 600 points (EDGE Miles)
+        const result = calculateRewards(card!, { fuel: 25000 });
+        expect(result.monthlyUnits).toBe(600);
+      });
+    });
+
+    describe("Cashback Credit Card", () => {
+      it("earns 7% cashback on online spends capped at Rs 4,000/month", () => {
+        const card = getCardById("axis-cashback");
+        expect(card).toBeTruthy();
+
+        // Rs 10,000 online spends => Rs 700 cashback
+        const result1 = calculateRewards(card!, { online: 10000 });
+        expect(result1.monthlyUnits).toBe(700);
+
+        // Rs 60,000 online spends => Rs 4,000 cashback
+        const result2 = calculateRewards(card!, { online: 60000 });
+        expect(result2.monthlyUnits).toBe(4000);
+      });
+
+      it("earns 0.5% cashback on utility spends capped at Rs 100/month", () => {
+        const card = getCardById("axis-cashback");
+        // Rs 30,000 utility spend => Rs 100 cashback
+        const result = calculateRewards(card!, { utilities: 30000 });
+        expect(result.monthlyUnits).toBe(100);
+      });
+    });
+  });
+
+  describe("Axis Bank Batch 2 Cards", () => {
+    describe("Axis Bank REWARDS Credit Card", () => {
+      it("earns departmental store rewards capped at 1,120 points/month", () => {
+        const card = getCardById("axis-rewards");
+        expect(card).toBeTruthy();
+
+        // Rs 5,000 departmental store (online) spend => 800 points
+        const result1 = calculateRewards(card!, { online: 5000 });
+        expect(result1.monthlyUnits).toBe(800);
+
+        // Rs 10,000 departmental store (online) spend => capped at 1120 points
+        const result2 = calculateRewards(card!, { online: 10000 });
+        expect(result2.monthlyUnits).toBe(1120);
+      });
+    });
+
+    describe("Axis Bank My Zone Credit Card", () => {
+      it("earns base rewards", () => {
+        const card = getCardById("axis-my-zone");
+        expect(card).toBeTruthy();
+
+        // Rs 10,000 base spend => 200 points
+        const result = calculateRewards(card!, { base: 10000 });
+        expect(result.monthlyUnits).toBe(200);
+      });
+    });
+
+    describe("Neo Credit Card", () => {
+      it("earns base rewards", () => {
+        const card = getCardById("axis-neo");
+        expect(card).toBeTruthy();
+
+        // Rs 10,000 base spend => 50 points
+        const result = calculateRewards(card!, { base: 10000 });
+        expect(result.monthlyUnits).toBe(50);
+      });
+    });
+
+    describe("AXIS BANK PRIVILEGE Credit Card", () => {
+      it("earns base rewards", () => {
+        const card = getCardById("axis-privilege");
+        expect(card).toBeTruthy();
+
+        // Rs 20,000 base spend => 1000 points
+        const result = calculateRewards(card!, { base: 20000 });
+        expect(result.monthlyUnits).toBe(1000);
+      });
+    });
+
+    describe("HORIZON Credit Card", () => {
+      it("earns travel and base edge miles", () => {
+        const card = getCardById("axis-horizon");
+        expect(card).toBeTruthy();
+
+        // Rs 10,000 travel => 500 miles
+        const result1 = calculateRewards(card!, { travel: 10000 });
+        expect(result1.monthlyUnits).toBe(500);
+
+        // Rs 10,000 base => 200 miles
+        const result2 = calculateRewards(card!, { base: 10000 });
+        expect(result2.monthlyUnits).toBe(200);
+      });
+    });
+  });
+
   describe("Axis Bank Batch 3 Cards", () => {
     describe("Samsung Axis Bank Signature Credit Card", () => {
       it("earns 10% cashback on Samsung purchases capped at Rs 2,500/month", () => {

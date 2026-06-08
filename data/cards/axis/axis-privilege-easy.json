@@ -113,5 +113,6 @@
   "applyUrl": "https://www.axisbank.com/retail/cards/credit-card/privilege-easy-credit-card",
   "lastVerified": "2026-05-10",
   "verificationStatus": "official-direct",
-  "popularityScore": 66
+  "popularityScore": 66,
+  "imageUrl": "/images/axis-privilege-easy.webp"
 }

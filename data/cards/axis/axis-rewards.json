@@ -104,5 +104,6 @@
   "applyUrl": "https://www.axisbank.com/retail/cards/credit-card/rewards-credit-card",
   "lastVerified": "2026-05-10",
   "verificationStatus": "official-direct",
-  "popularityScore": 70
+  "popularityScore": 70,
+  "imageUrl": "/images/axis-rewards.webp"
 }

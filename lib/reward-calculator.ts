@@ -4,7 +4,7 @@ import type { CreditCard, Reward, SpendCategory, SpendProfile } from "./types";
 // Spend-category → reward-category aliases. Kept in sync with lib/recommend.ts so the
 // per-card calculator earns rewards the same way the recommendation engine scores them.
 const SPEND_ALIASES: Record<SpendCategory, string[]> = {
-  online: ["online"],
+  online: ["online", "departmental stores"],
   base: ["offline", "retail", "base"],
   travel: ["travel", "travel credits", "irctc", "cleartrip"],
   hotels: ["hotel", "hotels", "marriott", "travel with points hotels"],
