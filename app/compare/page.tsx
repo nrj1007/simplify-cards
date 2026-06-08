@@ -80,9 +80,6 @@ function redemptionSummary(card: Card) {
   if (typeof card.redemption.airMilesValue === "number") {
     parts.push(`Air miles: upto Rs ${card.redemption.airMilesValue} per point`);
   }
-  if (typeof card.redemption.accorValue === "number") {
-    parts.push(`Accor: upto Rs ${card.redemption.accorValue} per point *considering using accor redemption`);
-  }
   if (typeof card.redemption.statementBalanceValue === "number") {
     parts.push(`Statement credit: upto Rs ${card.redemption.statementBalanceValue} per point`);
   }

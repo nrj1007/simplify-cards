@@ -26,15 +26,8 @@
       "capMonthly": null
     },
     {
-      "category": "utilities",
-      "displayCategory": "Utility bill payments",
-      "rate": 3,
-      "displayRate": "3 Reward Points / Rs 100",
-      "capMonthly": 3000
-    },
-    {
-      "category": "insurance",
-      "displayCategory": "Insurance premium payments",
+      "category": "utilities, insurance, rent",
+      "displayCategory": "Utility, insurance, and rent spends",
       "rate": 3,
       "displayRate": "3 Reward Points / Rs 100",
       "capMonthly": 3000
@@ -74,18 +67,23 @@
       "category": "utilities",
       "treatment": "capped",
       "capMonthlySpend": 100000,
-      "notes": "Utility spends earn reward points capped at cumulative Rs 1 Lakh spend per calendar month (effective 1 April 2025)."
+      "notes": "Utility spends earn reward points capped at cumulative Rs 1 Lakh spend per calendar month combined with insurance and rent (effective 1 April 2025)."
     },
     {
       "category": "insurance",
       "treatment": "capped",
       "capMonthlySpend": 100000,
-      "notes": "Insurance spends earn reward points capped at cumulative Rs 1 Lakh spend per calendar month (effective 1 April 2025)."
+      "notes": "Insurance spends earn reward points capped at cumulative Rs 1 Lakh spend per calendar month combined with utility and rent (effective 1 April 2025)."
+    },
+    {
+      "category": "rent",
+      "treatment": "capped",
+      "capMonthlySpend": 100000,
+      "notes": "Rent spends earn reward points capped at cumulative Rs 1 Lakh spend per calendar month combined with utility and insurance (effective 1 April 2025)."
     }
   ],
   "exclusions": [
     "Fuel transactions",
-    "Rent payments",
     "Wallet loading transactions",
     "Educational spends",
     "Government-related transactions",
@@ -99,7 +97,6 @@
   ],
   "exclusionCodes": [
     "fuel",
-    "rent",
     "wallet_load",
     "education",
     "government",
@@ -125,14 +122,12 @@
   ],
   "additionalBenefits": [
     "Qualified 1:1 point transfer to airline miles and hotel loyalty programmes via the HSBC India Mobile Banking app",
-    "Buy One Get One free movie ticket offer on BookMyShow (up to specified caps)",
+    "Buy One Get One free movie ticket offer on BookMyShow (up to Rs 750 per ticket, max Rs 1,500 per month)",
     "30% off dining bill up to Rs 1,500 via EazyDiner",
-    "1% fuel surcharge waiver on transactions from Rs 400 to Rs 4,000",
-    "Lost card liability cover up to Rs 3 Lakhs"
+    "1% fuel surcharge waiver on transactions from Rs 400 to Rs 4,000"
   ],
   "additionalDetails": [
     "Reward points never expire",
-    "Redemptions can be processed only via the HSBC India Mobile Banking app",
     "Annual renewal fee is waived based on meeting HSBC Premier eligibility criteria rather than spend-based milestones"
   ],
   "redemption": {
@@ -299,7 +294,7 @@
   "popularityScore": 85,
   "internalNotes": [
     "Qualified HSBC Premier relationship status waives the joining and annual fees.",
-    "Excludes rent, fuel, education, government, tax, jewelry, wallet loads, and cash advances from earning points (effective 1 April 2025).",
-    "Points on utilities and insurance are capped at cumulative spends of Rs 1 Lakh per calendar month (effective 1 April 2025)."
+    "Excludes fuel, education, government, tax, jewelry, wallet loads, and cash advances from earning points (effective 1 April 2025).",
+    "Points on utilities, insurance, and rent are capped at cumulative spends of Rs 1 Lakh per calendar month combined (effective 1 April 2025)."
   ]
 }

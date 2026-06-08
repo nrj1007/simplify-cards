@@ -116,8 +116,7 @@ function redemptionRows(issuer: string, redemption?: Redemption) {
     [flightHotelLabel, redemption.smartBuyFlightHotelValue],
     [catalogueLabel, redemption.smartBuyCatalogueValue],
     ["Travel EDGE flight/hotel", redemption.travelEdgeValue],
-    ["Air miles", redemption.airMilesValue],
-    ["Accor", redemption.accorValue]
+    ["Air miles", redemption.airMilesValue]
   ];
 
   if (redemption.voucherRedemptions && redemption.voucherRedemptions.length > 0) {
@@ -143,7 +142,6 @@ function singularRewardUnit(rewardType: string) {
 }
 
 function valueLabel(label: string, value: number, rewardType: string) {
-  if (label === "Accor") return `upto Rs ${value} per point *considering using accor redemption`;
   if (label === "Air miles") {
     return `upto ${value} airmile per point`;
   }
