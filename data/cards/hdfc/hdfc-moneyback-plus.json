@@ -93,6 +93,13 @@
     "emi",
     "fees_and_charges"
   ],
+  "joiningBenefitsValued": [
+    {
+      "value": 100,
+      "kind": "points",
+      "label": "500 CashPoints upon payment of the joining fee"
+    }
+  ],
   "joiningBenefits": [
     "500 CashPoints upon payment of the joining fee"
   ],

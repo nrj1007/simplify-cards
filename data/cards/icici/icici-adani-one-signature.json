@@ -88,6 +88,18 @@
     "tax",
     "wallet_load"
   ],
+  "joiningBenefitsValued": [
+    {
+      "value": 2500,
+      "kind": "voucher",
+      "label": "Flight ticket voucher worth Rs 5,000 on spending Rs 25,000 within 60 days of card activation"
+    },
+    {
+      "value": 2000,
+      "kind": "voucher",
+      "label": "Hotel & holiday vouchers worth Rs 4,000 on spending Rs 25,000 within 60 days of card activation"
+    }
+  ],
   "joiningBenefits": [
     "Flight ticket voucher worth Rs 5,000 on spending Rs 25,000 within 60 days of card activation",
     "Hotel & holiday vouchers worth Rs 4,000 on spending Rs 25,000 within 60 days of card activation"

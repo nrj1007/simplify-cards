@@ -78,6 +78,18 @@
     "emi",
     "cash_withdrawal"
   ],
+  "joiningBenefitsValued": [
+    {
+      "value": 500,
+      "kind": "points",
+      "label": "2,000 Reward Points upon card activation and payment of joining fee"
+    },
+    {
+      "value": 100,
+      "kind": "cashback",
+      "label": "Rs 100 cashback on HP Pay app upon first successful fuel transaction of min Rs 1,000"
+    }
+  ],
   "joiningBenefits": [
     "2,000 Reward Points upon card activation and payment of joining fee",
     "Rs 100 cashback on HP Pay app upon first successful fuel transaction of min Rs 1,000"
