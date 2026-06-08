@@ -108,6 +108,15 @@ export function isCategoryExcluded(card: CreditCard, category: SpendCategory): b
       return false;
     }
 
+    if (
+      category === "base" &&
+      /\b(fuel|rent|insurance|wallet|government|tax|utilities|bill|gaming|school|education|college|tuition)\b/.test(
+        normalizedLine
+      )
+    ) {
+      return false;
+    }
+
     if (/\b(cap|capped|upto|up to|up-to|max|max\.?)\b/.test(normalizedLine)) return false;
 
     return true;
