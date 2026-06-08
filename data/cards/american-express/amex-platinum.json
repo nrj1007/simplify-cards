@@ -35,6 +35,13 @@
       "rate": 1.25,
       "displayRate": "5 Membership Rewards Points / Rs 100 spent on fuel",
       "capMonthly": null
+    },
+    {
+      "category": "retail",
+      "displayCategory": "Reward Xcelerator (select brands)",
+      "rate": 0,
+      "displayRate": "Up to 20X Membership Rewards points on select online and in-store brands listed by American Express",
+      "capMonthly": null
     }
   ],
   "popularityScore": 73,
@@ -80,13 +87,13 @@
   ],
   "additionalBenefits": [
     "Fine Hotels & Resorts and The Hotel Collection stay benefits listed by American Express",
-    "Complimentary elite hotel and lifestyle memberships listed by American Express",
+    "Complimentary memberships including Marriott Bonvoy Gold Elite, Hilton Honors Gold, Radisson Rewards Premium, ALL Accor Plus Explorer, The Postcard Hotel Sunshine Club, and EazyDiner Prime",
     "Dedicated Platinum Concierge service",
     "Exclusive airline deals through Platinum Travel Service"
   ],
   "redemption": {
     "statementBalanceValue": 0.25,
-    "airMilesValue": 0.5,
+    "airMilesValue": 1,
     "pointsExpiryYears": null,
     "transferPartnerValuations": [
       {
@@ -113,10 +120,14 @@
   },
   "eligibility": {
     "salaried": [
-      "Eligibility is subject to American Express Platinum charge card approval criteria"
+      "Employed with personal annual income of Rs 25 lakh and above",
+      "Good credit history with no payment defaults",
+      "Resident Indian with current residential address in India"
     ],
     "selfEmployed": [
-      "Eligibility is subject to American Express Platinum charge card approval criteria"
+      "Self-employed with personal annual income of Rs 15 lakh and above",
+      "Company has been trading for more than 12 months",
+      "Resident Indian with current residential address in India"
     ]
   },
   "sourceUrl": "https://www.americanexpress.com/in/charge-cards/platinum-card/",
@@ -132,6 +143,7 @@
     "Card details manually reviewed and verified by user on 2026-06-08",
     "The welcome gift is fulfilled within 6-8 weeks after payment of annual fee and net spends of Rs 50,000 in the first 2 months of Cardmembership.",
     "Fuel earns 1 Membership Rewards point per Rs 100 spent plus 4 additional bonus Membership Rewards points per Rs 100 spent, capped at 5,000 bonus points per calendar month.",
+    "Reward Xcelerator on Platinum is presented by American Express as an up to 20X earn benefit on select partner brands rather than a universal online earn rate; the exact multiplier depends on the partner offer.",
     "Membership Rewards points on the Platinum Card do not expire."
   ]
 }

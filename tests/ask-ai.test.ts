@@ -95,6 +95,20 @@ describe("ask ai fallback policy", () => {
     expect(answer.summary).toMatch(/MakeMyTrip ICICI Bank Credit Card/i);
   });
 
+  it("resolves shorthand issuer plus brand queries like 'amex mrcc' to Membership Rewards Credit Card", async () => {
+    const answer = await answerQuestion({ query: "amex mrcc" });
+
+    expect(answer.cards[0]?.card.id).toBe("amex-membership-rewards");
+    expect(answer.summary).toMatch(/Membership Rewards Credit Card/i);
+  });
+
+  it("resolves 'platinum reserve' to the Amex Platinum Reserve card", async () => {
+    const answer = await answerQuestion({ query: "platinum reserve" });
+
+    expect(answer.cards[0]?.card.id).toBe("amex-platinum-reserve");
+    expect(answer.summary).toMatch(/Platinum Reserve Credit Card/i);
+  });
+
   it("answers rewards-policy questions when current card rules support an inference", async () => {
     const answer = await answerQuestion({ query: "do i get rewards on gold purchase using infinia?" });
 

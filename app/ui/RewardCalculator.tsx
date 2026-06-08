@@ -66,6 +66,43 @@ function isCashbackRewardType(rewardType: string) {
   return /cashback/i.test(rewardType) && !/point|mile|coin|star|credit|neucoin/i.test(rewardType);
 }
 
+function milestonePrimaryValue(rule: MilestoneRule) {
+  if (rule.isVoucher) {
+    const voucherEachMatch =
+      rule.label.match(/vouchers?\s+worth\s+rs\s+([\d,]+(?:\.\d+)?)\s+each/i) ??
+      rule.label.match(/rs\s+([\d,]+(?:\.\d+)?)\s+vouchers?/i) ??
+      rule.label.match(/worth\s+rs\s+([\d,]+(?:\.\d+)?)/i);
+    if (!voucherEachMatch) return null;
+
+    const amount = Number(voucherEachMatch[1].replace(/,/g, ""));
+    if (Number.isNaN(amount) || amount <= 0) return null;
+    return `${formatINR(amount)} voucher`;
+  }
+
+  const match = rule.label.match(
+    /([\d,]+)\s+(?:bonus\s+|additional\s+)?(membership rewards points|marriott bonvoy points|edge miles|reward points|points)\b/i
+  );
+  if (!match) return null;
+
+  const amount = Number(match[1].replace(/,/g, ""));
+  if (Number.isNaN(amount) || amount <= 0) return null;
+
+  const unit = match[2].toLowerCase();
+  if (unit === "membership rewards points") {
+    return `${amount.toLocaleString("en-IN")} MR points`;
+  }
+  if (unit === "marriott bonvoy points") {
+    return `${amount.toLocaleString("en-IN")} Marriott points`;
+  }
+  if (unit === "edge miles") {
+    return `${amount.toLocaleString("en-IN")} EDGE Miles`;
+  }
+  if (unit === "reward points") {
+    return `${amount.toLocaleString("en-IN")} Reward Points`;
+  }
+  return `${amount.toLocaleString("en-IN")} points`;
+}
+
 type RupeeOption = { key: string; label: string; perPoint: number; value: number; note?: string };
 
 export default function RewardCalculator({ card, milestones = [], isStandalone = false }: Props) {
@@ -347,7 +384,7 @@ export default function RewardCalculator({ card, milestones = [], isStandalone =
                           <span>{rule.threshold > 0 ? `At ${formatINRCompact(rule.threshold)}/yr` : "Ongoing milestone"}</span>
                           <span className="calc-badge">Unlocked</span>
                         </div>
-                        <strong>{formatINR(rule.value)}</strong>
+                        <strong>{milestonePrimaryValue(rule) ?? formatINR(rule.value)}</strong>
                         <span className="muted">{rule.label}</span>
                       </div>
                     ))}
@@ -357,7 +394,7 @@ export default function RewardCalculator({ card, milestones = [], isStandalone =
                           <span>Next milestone</span>
                           <span className="calc-tag">{formatINRCompact(nextMilestone.threshold - annualSpend)} more</span>
                         </div>
-                        <strong>{formatINR(nextMilestone.value)}</strong>
+                        <strong>{milestonePrimaryValue(nextMilestone) ?? formatINR(nextMilestone.value)}</strong>
                         <span className="muted">{nextMilestone.label}</span>
                       </div>
                     ) : null}
