@@ -76,6 +76,18 @@
     "cash_advance"
   ],
   "milestones": [],
+  "joiningBenefitsValued": [
+    {
+      "value": 1000,
+      "kind": "cashback",
+      "label": "Rs 1,000 cashback after logging into the HSBC India app and spending Rs 20,000 within the first 30 days"
+    },
+    {
+      "value": 250,
+      "kind": "voucher",
+      "label": "Voucher worth up to Rs 500 for Amazon Pay, Zomato, and Swiggy on card activation with a single transaction of Rs 300 or more"
+    }
+  ],
   "joiningBenefits": [
     "Rs 1,000 cashback after logging into the HSBC India app and spending Rs 20,000 within the first 30 days",
     "Voucher worth up to Rs 500 for Amazon Pay, Zomato, and Swiggy on card activation with a single transaction of Rs 300 or more"

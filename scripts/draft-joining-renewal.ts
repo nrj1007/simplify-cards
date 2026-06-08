@@ -104,9 +104,9 @@ for (const file of walk(cardsDir)) {
 
   const toValued = (lines: string[]): ValuedBenefit[] =>
     lines
-      .map((line) => stripScoringAnnotations(line))
-      .filter((label) => label.length > 0)
-      .map((label) => ({ value: estimateBenefitLineValue(card, label), kind: inferKind(label), label }));
+      // Value the ORIGINAL line so a "(worth Rs …)" annotation still counts; strip only for the label.
+      .filter((line) => stripScoringAnnotations(line).length > 0)
+      .map((line) => ({ value: estimateBenefitLineValue(card, line), kind: inferKind(line), label: stripScoringAnnotations(line) }));
 
   const joiningValued = toValued(joiningSources);
   const renewalValued = toValued(renewalSources);

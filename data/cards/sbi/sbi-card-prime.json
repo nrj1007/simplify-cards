@@ -103,6 +103,20 @@
     "Renewal fee waived on annual spends of Rs 3 lakh",
     "E-Gift Voucher worth Rs 7,000 from Yatra.com or Pantaloons on annual spends of Rs 5 lakh"
   ],
+  "joiningBenefitsValued": [
+    {
+      "value": 1500,
+      "kind": "voucher",
+      "label": "Welcome e-Gift Voucher worth Rs 3,000 from select brands (including Yatra, Shoppers Stop, Marks & Spencer, Bata, and Hush Puppies)"
+    }
+  ],
+  "renewalBenefitsValued": [
+    {
+      "value": 3000,
+      "kind": "points",
+      "label": "If not waived, 12,000 bonus Reward Points are credited upon payment of the renewal fee"
+    }
+  ],
   "joiningBenefits": [
     "Welcome e-Gift Voucher worth Rs 3,000 from select brands (including Yatra, Shoppers Stop, Marks & Spencer, Bata, and Hush Puppies)",
     "E-voucher is sent within 15-20 days of joining fee payment"

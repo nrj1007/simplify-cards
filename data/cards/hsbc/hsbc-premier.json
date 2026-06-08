@@ -113,6 +113,13 @@
   "milestoneBenefits": [
     "Annual renewal fee waived for qualified HSBC Premier customers meeting the Premier relationship criteria."
   ],
+  "joiningBenefitsValued": [
+    {
+      "value": 20000,
+      "kind": "points",
+      "label": "20,000 reward points as a welcome benefit on card activation and completing first transaction within specified timeframe."
+    }
+  ],
   "joiningBenefits": [
     "20,000 reward points as a welcome benefit on card activation and completing first transaction within specified timeframe."
   ],
