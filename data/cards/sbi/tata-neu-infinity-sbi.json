@@ -71,17 +71,24 @@
   ],
   "exclusions": [
     "fuel",
-    "balance transfers",
+    "wallet loads, gift or prepaid card loads, and voucher purchases",
+    "rental transactions",
+    "government related transactions",
+    "education payments",
     "cash advances",
-    "fees and charges",
-    "disputed transactions"
+    "merchant EMI and Flexipay transactions",
+    "outstanding balance payments",
+    "transactions excluded under Tata Neu Infinity SBI Card terms"
   ],
   "exclusionCodes": [
     "fuel",
-    "balance_transfer",
+    "wallet_load",
+    "rent",
+    "government",
+    "education",
     "cash_advance",
-    "fees_and_charges",
-    "disputed_transactions"
+    "emi",
+    "outstanding_balance_payment"
   ],
   "joiningBenefits": [
     "1,499 NeuCoins as welcome benefit within 15 days of joining fee realisation"

@@ -48,16 +48,22 @@
     "low fee"
   ],
   "exclusions": [
-    "fuel",
-    "balance transfers",
+    "offline fuel transactions",
+    "rent payments",
     "cash advances",
-    "fees and charges"
+    "balance transfers",
+    "government related transactions",
+    "digital gaming transactions",
+    "Flexipay and merchant EMI transactions"
   ],
   "exclusionCodes": [
     "fuel",
-    "balance_transfer",
+    "rent",
     "cash_advance",
-    "fees_and_charges"
+    "balance_transfer",
+    "government",
+    "gaming",
+    "emi"
   ],
   "milestones": [
     {

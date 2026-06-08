@@ -69,15 +69,39 @@
     "shopping"
   ],
   "exclusions": [
-    "fuel",
+    "fuel spends",
+    "wallet loads, gift or prepaid card loads, and voucher purchases",
+    "rent and property management payments",
+    "government related transactions",
+    "education payments",
+    "utility transactions",
+    "insurance transactions",
+    "jewellery transactions",
+    "gaming spends",
+    "merchant EMI and Flexipay transactions",
+    "cash withdrawals",
     "balance transfers",
     "cash advances",
-    "fees and charges"
+    "outstanding balance payments",
+    "fees and charges",
+    "transactions excluded under SBI Card terms"
   ],
   "exclusionCodes": [
     "fuel",
+    "wallet_load",
+    "rent",
+    "property_management",
+    "government",
+    "education",
+    "utilities",
+    "insurance",
+    "jewellery",
+    "gaming",
+    "emi",
+    "cash_withdrawal",
     "balance_transfer",
     "cash_advance",
+    "outstanding_balance_payment",
     "fees_and_charges"
   ],
   "joiningBenefits": [

@@ -279,6 +279,251 @@ describe("reward calculator", () => {
     });
   });
 
+  describe("audited SBI cards", () => {
+    it("calculates rewards correctly for Tata Neu Infinity SBI Card", () => {
+      const card = getCardById("tata-neu-infinity-sbi");
+      expect(card).toBeTruthy();
+
+      const result = calculateRewards(card!, {
+        upi: 60000,
+        base: 10000
+      });
+
+      expect(result.monthlyUnits).toBe(650);
+      expect(result.annualUnits).toBe(7800);
+
+      const upiRow = result.rows.find((r) => r.category === "upi");
+      const baseRow = result.rows.find((r) => r.category === "base");
+      expect(upiRow?.monthlyUnits).toBe(500);
+      expect(baseRow?.monthlyUnits).toBe(150);
+    });
+
+    it("calculates rewards correctly for Flipkart SBI Card", () => {
+      const card = getCardById("flipkart-sbi");
+      expect(card).toBeTruthy();
+
+      const result = calculateRewards(card!, {
+        travel: 10000,
+        base: 10000
+      });
+
+      expect(result.monthlyUnits).toBe(600);
+      expect(result.annualUnits).toBe(7200);
+
+      const travelRow = result.rows.find((r) => r.category === "travel");
+      const baseRow = result.rows.find((r) => r.category === "base");
+      expect(travelRow?.monthlyUnits).toBe(500);
+      expect(baseRow?.monthlyUnits).toBe(100);
+    });
+
+    it("calculates rewards correctly for BPCL SBI Card OCTANE with monthly caps", () => {
+      const card = getCardById("bpcl-sbi-octane");
+      expect(card).toBeTruthy();
+
+      const result = calculateRewards(card!, {
+        fuel: 10000,
+        utilities: 10000,
+        grocery: 5000,
+        base: 10000
+      });
+
+      expect(result.monthlyUnits).toBe(3100);
+      expect(result.annualUnits).toBe(37200);
+
+      const fuelRow = result.rows.find((r) => r.category === "fuel");
+      const utilitiesRow = result.rows.find((r) => r.category === "utilities");
+      const groceryRow = result.rows.find((r) => r.category === "grocery");
+      const baseRow = result.rows.find((r) => r.category === "base");
+      expect(fuelRow?.monthlyUnits).toBe(0);
+      expect(fuelRow?.excluded).toBe(true);
+      expect(utilitiesRow?.monthlyUnits).toBe(2500);
+      expect(groceryRow?.monthlyUnits).toBe(500);
+      expect(baseRow?.monthlyUnits).toBe(100);
+    });
+
+    it("calculates rewards correctly for SBI Card ELITE", () => {
+      const card = getCardById("sbi-card-elite");
+      expect(card).toBeTruthy();
+
+      const result = calculateRewards(card!, {
+        dining: 5000,
+        grocery: 5000,
+        base: 10000
+      });
+
+      expect(result.monthlyUnits).toBe(1200);
+      expect(result.annualUnits).toBe(14400);
+    });
+
+    it("calculates rewards correctly for SimplyCLICK SBI Card and excludes fuel", () => {
+      const card = getCardById("simplyclick-sbi");
+      expect(card).toBeTruthy();
+
+      const result = calculateRewards(card!, {
+        online: 10000,
+        base: 10000,
+        fuel: 5000
+      });
+
+      expect(result.monthlyUnits).toBe(600);
+      expect(result.annualUnits).toBe(7200);
+
+      const fuelRow = result.rows.find((r) => r.category === "fuel");
+      expect(fuelRow?.monthlyUnits).toBe(0);
+      expect(fuelRow?.excluded).toBe(true);
+    });
+
+    it("calculates rewards correctly for both IRCTC SBI cards", () => {
+      const platinum = getCardById("irctc-sbi-platinum");
+      const rupay = getCardById("irctc-rupay-sbi");
+      expect(platinum).toBeTruthy();
+      expect(rupay).toBeTruthy();
+
+      const platinumResult = calculateRewards(platinum!, {
+        travel: 12500,
+        base: 12500
+      });
+      expect(platinumResult.monthlyUnits).toBe(1100);
+      expect(platinumResult.annualUnits).toBe(13200);
+
+      const rupayResult = calculateRewards(rupay!, {
+        travel: 10000,
+        base: 12500
+      });
+      expect(rupayResult.monthlyUnits).toBe(1100);
+      expect(rupayResult.annualUnits).toBe(13200);
+    });
+
+    it("calculates rewards correctly for Titan SBI Card base spends and excludes fuel", () => {
+      const card = getCardById("titan-sbi");
+      expect(card).toBeTruthy();
+
+      const result = calculateRewards(card!, {
+        base: 10000,
+        fuel: 5000
+      });
+
+      expect(result.monthlyUnits).toBe(600);
+      expect(result.annualUnits).toBe(7200);
+
+      const fuelRow = result.rows.find((r) => r.category === "fuel");
+      expect(fuelRow?.monthlyUnits).toBe(0);
+      expect(fuelRow?.excluded).toBe(true);
+    });
+
+    it("calculates rewards correctly for SBI Card MILES ELITE and PRIME", () => {
+      const elite = getCardById("sbi-card-miles-elite");
+      const prime = getCardById("sbi-card-miles-prime");
+      expect(elite).toBeTruthy();
+      expect(prime).toBeTruthy();
+
+      const eliteResult = calculateRewards(elite!, {
+        travel: 20000,
+        base: 10000
+      });
+      expect(eliteResult.monthlyUnits).toBe(700);
+      expect(eliteResult.annualUnits).toBe(8400);
+
+      const primeResult = calculateRewards(prime!, {
+        travel: 20000,
+        base: 10000
+      });
+      expect(primeResult.monthlyUnits).toBe(500);
+      expect(primeResult.annualUnits).toBe(6000);
+    });
+
+    it("calculates rewards correctly for SBI Card PULSE base spends and excludes fuel", () => {
+      const card = getCardById("sbi-card-pulse");
+      expect(card).toBeTruthy();
+
+      const result = calculateRewards(card!, {
+        base: 10000,
+        fuel: 5000
+      });
+
+      expect(result.monthlyUnits).toBe(200);
+      expect(result.annualUnits).toBe(2400);
+
+      const fuelRow = result.rows.find((r) => r.category === "fuel");
+      expect(fuelRow?.monthlyUnits).toBe(0);
+      expect(fuelRow?.excluded).toBe(true);
+    });
+
+    it("calculates rewards correctly for Tata Neu Plus SBI Card", () => {
+      const card = getCardById("tata-neu-plus-sbi");
+      expect(card).toBeTruthy();
+
+      const result = calculateRewards(card!, {
+        upi: 60000,
+        base: 10000
+      });
+
+      expect(result.monthlyUnits).toBe(600);
+      expect(result.annualUnits).toBe(7200);
+
+      const upiRow = result.rows.find((r) => r.category === "upi");
+      expect(upiRow?.monthlyUnits).toBe(500);
+    });
+
+    it("calculates rewards correctly for Landmark Rewards SBI Card PRIME", () => {
+      const card = getCardById("landmark-rewards-sbi-prime");
+      expect(card).toBeTruthy();
+
+      const result = calculateRewards(card!, {
+        dining: 5000,
+        travel: 5000,
+        base: 10000
+      });
+
+      expect(result.monthlyUnits).toBe(1200);
+      expect(result.annualUnits).toBe(14400);
+    });
+
+    it("calculates rewards correctly for PhonePe SBI Card PURPLE with category caps", () => {
+      const card = getCardById("phonepe-sbi-purple");
+      expect(card).toBeTruthy();
+
+      const result = calculateRewards(card!, {
+        utilities: 50000,
+        online: 50000,
+        upi: 100000,
+        base: 10000
+      });
+
+      expect(result.monthlyUnits).toBe(3100);
+      expect(result.annualUnits).toBe(37200);
+
+      const utilitiesRow = result.rows.find((r) => r.category === "utilities");
+      const onlineRow = result.rows.find((r) => r.category === "online");
+      const upiRow = result.rows.find((r) => r.category === "upi");
+      expect(utilitiesRow?.monthlyUnits).toBe(1000);
+      expect(onlineRow?.monthlyUnits).toBe(1000);
+      expect(upiRow?.monthlyUnits).toBe(1000);
+    });
+
+    it("calculates rewards correctly for PhonePe SBI Card SELECT BLACK with category caps", () => {
+      const card = getCardById("phonepe-sbi-select-black");
+      expect(card).toBeTruthy();
+
+      const result = calculateRewards(card!, {
+        utilities: 30000,
+        online: 50000,
+        upi: 200000,
+        base: 10000
+      });
+
+      expect(result.monthlyUnits).toBe(6100);
+      expect(result.annualUnits).toBe(73200);
+
+      const utilitiesRow = result.rows.find((r) => r.category === "utilities");
+      const onlineRow = result.rows.find((r) => r.category === "online");
+      const upiRow = result.rows.find((r) => r.category === "upi");
+      expect(utilitiesRow?.monthlyUnits).toBe(2000);
+      expect(onlineRow?.monthlyUnits).toBe(2000);
+      expect(upiRow?.monthlyUnits).toBe(2000);
+    });
+  });
+
   it("extracts 12 Lakhs threshold from Sapphiro cap milestone benefit description", () => {
     const card = getCardById("icici-sapphiro");
     expect(card).toBeTruthy();
