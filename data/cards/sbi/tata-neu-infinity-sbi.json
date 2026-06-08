@@ -20,28 +20,45 @@
   "rewardType": "NeuCoins",
   "rewards": [
     {
-      "category": "tata neu",
+      "category": "partner merchants",
+      "displayCategory": "Select categories on Tata Neu App/Website",
       "rate": 10,
+      "displayRate": "Up to 10% Value Back as NeuCoins",
       "capMonthly": null
     },
     {
-      "category": "tata brands",
+      "category": "partner merchants",
+      "displayCategory": "Partner Tata brands and other Tata Neu spends",
       "rate": 5,
+      "displayRate": "5% Value Back as NeuCoins",
       "capMonthly": null
     },
     {
       "category": "upi",
+      "displayCategory": "UPI spends on RuPay variant",
       "rate": 1.5,
+      "displayRate": "1.5% Value Back as NeuCoins",
       "capMonthly": 500
     },
     {
       "category": "base",
+      "displayCategory": "Other eligible spends",
       "rate": 1.5,
+      "displayRate": "1.5% Value Back as NeuCoins",
       "capMonthly": null
     }
   ],
   "loungeDomestic": 8,
   "loungeInternational": 4,
+  "lounge": {
+    "domestic": [
+      "8 domestic lounge visits per year, capped at 2 per quarter, apply only if spends in the previous quarter are at least Rs 75,000."
+    ],
+    "international": [
+      "4 international lounge visits per year, capped at 1 per quarter, are available through complimentary Priority Pass membership.",
+      "Post the complimentary visits, lounge usage is charged at the programme's prevailing rate."
+    ]
+  },
   "forexMarkup": 1.99,
   "tags": [
     "tata neu",
@@ -54,37 +71,49 @@
   ],
   "exclusions": [
     "fuel",
-    "wallet loads",
-    "voucher purchases",
-    "rent payments",
-    "gift card purchases",
+    "balance transfers",
     "cash advances",
-    "merchant EMI",
-    "transactions excluded under Tata Neu Infinity SBI Card terms"
+    "fees and charges",
+    "disputed transactions"
   ],
-  "milestoneBenefits": [
-    "Annual fee reversal on annual spends of Rs 3 lakh or more",
-    "8 domestic lounge visits per year, 2 per quarter, subject to Rs 75,000 spend in previous quarter"
+  "exclusionCodes": [
+    "fuel",
+    "balance_transfer",
+    "cash_advance",
+    "fees_and_charges",
+    "disputed_transactions"
   ],
+  "joiningBenefits": [
+    "1,499 NeuCoins as welcome benefit within 15 days of joining fee realisation"
+  ],
+  "renewalBenefits": [],
+  "milestoneBenefits": [],
   "additionalBenefits": [
-    "1,499 NeuCoins as welcome benefit within 15 days of joining fee realization",
-    "Up to 10% NeuCoins on select categories on Tata Neu App/Website",
-    "5% NeuCoins on non-EMI spends at Tata Neu and partner Tata Brands",
-    "1.5% NeuCoins on all other eligible spends including UPI transactions on RuPay variant",
-    "UPI NeuCoins capped at 500 NeuCoins per month",
-    "1 NeuCoin equals Re 1 savings",
-    "4 international lounge visits per year, 1 per quarter, with Priority Pass membership",
-    "Complimentary Priority Pass membership valid for 2 years",
-    "Low forex markup of 1.99%",
-    "1% fuel surcharge waiver on transactions from Rs 500 to Rs 4,000, capped at Rs 500 per statement cycle"
+    "Complimentary Priority Pass membership",
+    "1% fuel surcharge waiver on eligible fuel transactions from Rs 500 to Rs 4,000, capped at Rs 500 per statement cycle"
   ],
   "redemption": {
-    "statementBalanceValue": 1,
-    "pointsExpiryYears": 2
+    "ecosystemLabel": "Tata Neu App/Website and partner Tata brands",
+    "ecosystemValue": 1
   },
-  "sourceUrl": "https://www.sbicard.com/en/personal/sbi-credit-card.page",
-  "applyUrl": "https://www.sbicard.com/en/personal/sbi-credit-card.page",
-  "lastVerified": "2026-05-09",
-  "verificationStatus": "official-mixed",
+  "additionalDetails": [
+    "1 NeuCoin equals Re 1 savings on Tata Neu App/Website and partner Tata brands"
+  ],
+  "internalNotes": [
+    "Audited against official SBI Card product page, Tata Neu Infinity T&C booklet, and Priority Pass FAQ on 2026-06-08.",
+    "The product page currently positions the accelerated extra 5% NeuCoins specifically around select Tata Neu app or website categories, so the rewards table keeps a separate display row instead of treating all Tata ecosystem spends as a flat 10% bucket.",
+    "Priority Pass membership on the product page is described as complimentary, with post-complimentary lounge visits charged at the programme's prevailing rate.",
+    "The current official materials describe welcome NeuCoins posting within 15 days of joining fee realisation.",
+    "The card is audited from official SBI sources but is not yet marked as manually verified by user."
+  ],
+  "supportingSourceUrls": [
+    "https://www.sbicard.com/en/personal/credit-cards/tata-neu-infinity-sbi-card.html",
+    "https://www.sbicard.com/sbi-card-en/assets/docs/pdf/ekit-tncs/Tata-Neu-Infinity-Booklet.pdf",
+    "https://www.sbicard.com/en/faq/complimentary-priority-pass-membership.page"
+  ],
+  "sourceUrl": "https://www.sbicard.com/en/personal/credit-cards/tata-neu-infinity-sbi-card.html",
+  "applyUrl": "https://www.sbicard.com/en/personal/credit-cards/tata-neu-infinity-sbi-card.html",
+  "lastVerified": "2026-06-08",
+  "verificationStatus": "official-direct",
   "popularityScore": 78
 }

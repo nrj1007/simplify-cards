@@ -5,7 +5,6 @@
   "network": [
     "Visa",
     "Mastercard",
-    "RuPay",
     "American Express"
   ],
   "joiningFee": 4999,
@@ -21,18 +20,31 @@
   "rewardType": "reward points",
   "rewards": [
     {
-      "category": "grocery dining movies",
-      "rate": 2.5,
-      "capMonthly": 2500
+      "category": "grocery, dining, entertainment",
+      "displayCategory": "Grocery, dining, movies, and departmental stores",
+      "rate": 10,
+      "displayRate": "10 Reward Points / Rs 100",
+      "capMonthly": null
     },
     {
       "category": "base",
-      "rate": 0.5,
+      "displayCategory": "Other eligible spends",
+      "rate": 2,
+      "displayRate": "2 Reward Points / Rs 100",
       "capMonthly": null
     }
   ],
   "loungeDomestic": 8,
   "loungeInternational": 6,
+  "lounge": {
+    "domestic": [
+      "8 complimentary domestic lounge visits per year, capped at 2 visits per quarter."
+    ],
+    "international": [
+      "Complimentary Priority Pass membership is provided with 6 complimentary international lounge visits per calendar year, capped at 2 visits per quarter.",
+      "Post the complimentary visits, lounge usage is charged at the programme's prevailing rate."
+    ]
+  },
   "forexMarkup": 1.99,
   "tags": [
     "premium",
@@ -44,29 +56,61 @@
   ],
   "exclusions": [
     "fuel",
-    "cash advance",
-    "balance transfer",
-    "wallet loading",
-    "rent",
-    "EMI transactions",
-    "transactions excluded under SBI Card reward terms"
+    "balance transfers",
+    "cash advances",
+    "fees and charges",
+    "disputed transactions"
+  ],
+  "exclusionCodes": [
+    "fuel",
+    "balance_transfer",
+    "cash_advance",
+    "fees_and_charges",
+    "disputed_transactions"
+  ],
+  "milestones": [
+    {
+      "threshold": 200000,
+      "period": "annual",
+      "value": 2500,
+      "kind": "points",
+      "label": "10,000 bonus Reward Points on annual spends of Rs 2 lakh"
+    },
+    {
+      "threshold": 300000,
+      "period": "annual",
+      "value": 2500,
+      "kind": "points",
+      "label": "10,000 bonus Reward Points on annual spends of Rs 3 lakh"
+    },
+    {
+      "threshold": 400000,
+      "period": "annual",
+      "value": 2500,
+      "kind": "points",
+      "label": "10,000 bonus Reward Points on annual spends of Rs 4 lakh"
+    },
+    {
+      "threshold": 500000,
+      "period": "annual",
+      "value": 5000,
+      "kind": "points",
+      "label": "20,000 bonus Reward Points on annual spends of Rs 5 lakh"
+    }
   ],
   "milestoneBenefits": [
+    "10,000 bonus Reward Points on annual spends of Rs 2 lakh",
     "10,000 bonus Reward Points on annual spends of Rs 3 lakh",
     "10,000 bonus Reward Points on annual spends of Rs 4 lakh",
-    "15,000 bonus Reward Points on annual spends of Rs 5 lakh",
-    "15,000 bonus Reward Points on annual spends of Rs 8 lakh",
-    "Renewal fee waived on annual spends of Rs 10 lakh"
+    "20,000 bonus Reward Points on annual spends of Rs 5 lakh"
   ],
+  "joiningBenefits": [
+    "Welcome e-Gift Voucher worth Rs 5,000 from select brands such as Yatra, Bata/Hush Puppies, Marks & Spencer, Westside, and Shoppers Stop"
+  ],
+  "renewalBenefits": [],
   "additionalBenefits": [
-    "Welcome e-Gift Voucher worth Rs 5,000 from select brands",
-    "5X Reward Points on dining, departmental stores and grocery spends",
-    "2 Reward Points per Rs 100 on other spends",
-    "4 Reward Points equal Rs 1",
-    "Movie ticket benefits worth up to Rs 6,000 per year",
-    "8 complimentary domestic lounge visits per year, capped at 2 per quarter",
-    "Complimentary Priority Pass membership with 6 international lounge visits per calendar year, capped at 2 per quarter",
-    "1% fuel surcharge waiver across petrol pumps, capped at Rs 250 per statement cycle"
+    "Free movie tickets worth up to Rs 6,000 per year through BookMyShow",
+    "1% fuel surcharge waiver on eligible fuel transactions, capped at Rs 250 per statement cycle"
   ],
   "redemption": {
     "statementBalanceValue": 0.25,
@@ -75,9 +119,24 @@
     "pointsExpiryYears": 2,
     "redemptionFee": 99
   },
-  "sourceUrl": "https://www.sbicard.com/en/eapply/sbicampaign.page",
-  "applyUrl": "https://www.sbicard.com/en/personal/credit-cards/lifestyle/sbi-card-elite.page",
-  "lastVerified": "2026-05-09",
-  "verificationStatus": "official-mixed",
+  "additionalDetails": [],
+  "internalNotes": [
+    "Audited against official SBI Card ELITE product page, ELITE terms booklet, customer notices page, rewards FAQ, and Priority Pass FAQ on 2026-06-08.",
+    "The current ELITE booklet reflects annual spend milestone slabs at Rs 2 lakh, Rs 3 lakh, Rs 4 lakh, and Rs 5 lakh, together totalling 50,000 bonus Reward Points worth Rs 12,500.",
+    "Reward Points expire after 24 months.",
+    "As per SBI Card notices effective 1 Apr 2026, statement credit redemption is restricted to multiples of 4,000 Reward Points and capped at 60,000 Reward Points per calendar month.",
+    "The card is audited from official SBI sources but is not yet marked as manually verified by user."
+  ],
+  "supportingSourceUrls": [
+    "https://www.sbicard.com/en/personal/credit-cards/sbi-card-elite.html",
+    "https://www.sbicard.com/sbi-card-en/assets/docs/pdf/personal/credit-cards/lifestyle/sbi-card-elite/ELITE-Terms-and-Conditions.pdf",
+    "https://www.sbicard.com/en/customer-notices.page",
+    "https://www.sbicard.com/en/faq/rewards-information.page",
+    "https://www.sbicard.com/en/faq/complimentary-priority-pass-membership.page"
+  ],
+  "sourceUrl": "https://www.sbicard.com/en/personal/credit-cards/sbi-card-elite.html",
+  "applyUrl": "https://www.sbicard.com/en/personal/credit-cards/sbi-card-elite.html",
+  "lastVerified": "2026-06-08",
+  "verificationStatus": "official-direct",
   "popularityScore": 75
 }

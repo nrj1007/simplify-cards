@@ -18,28 +18,41 @@
   "rewardType": "NeuCoins",
   "rewards": [
     {
-      "category": "tata neu",
+      "category": "partner merchants",
+      "displayCategory": "Select categories on Tata Neu App/Website",
       "rate": 7,
+      "displayRate": "Up to 7% Value Back as NeuCoins",
       "capMonthly": null
     },
     {
-      "category": "tata brands",
+      "category": "partner merchants",
+      "displayCategory": "Partner Tata brands and other Tata Neu spends",
       "rate": 2,
+      "displayRate": "2% Value Back as NeuCoins",
       "capMonthly": null
     },
     {
       "category": "upi",
+      "displayCategory": "UPI spends on RuPay variant",
       "rate": 1,
+      "displayRate": "1% Value Back as NeuCoins",
       "capMonthly": 500
     },
     {
       "category": "base",
+      "displayCategory": "Other eligible spends",
       "rate": 1,
+      "displayRate": "1% Value Back as NeuCoins",
       "capMonthly": null
     }
   ],
   "loungeDomestic": 4,
   "loungeInternational": 0,
+  "lounge": {
+    "domestic": [
+      "4 domestic airport lounge visits every year, capped at 1 per quarter, apply only if spends in the previous quarter are at least Rs 50,000."
+    ]
+  },
   "forexMarkup": 3.5,
   "tags": [
     "tata neu",
@@ -50,35 +63,48 @@
     "shopping"
   ],
   "exclusions": [
-    "fuel spends",
-    "wallet loads",
-    "rental payments",
-    "gift card loads",
-    "prepaid card loads",
-    "voucher purchases",
-    "transactions excluded under Tata Neu Plus SBI Card terms"
+    "fuel",
+    "balance transfers",
+    "cash advances",
+    "fees and charges",
+    "disputed transactions"
   ],
-  "milestoneBenefits": [
-    "Annual fee reversal on annual spends of Rs 1 lakh or more",
-    "4 complimentary domestic lounge accesses per year, 1 per quarter, subject to Rs 50,000 spend in previous quarter"
+  "exclusionCodes": [
+    "fuel",
+    "balance_transfer",
+    "cash_advance",
+    "fees_and_charges",
+    "disputed_transactions"
   ],
+  "joiningBenefits": [
+    "499 NeuCoins as welcome benefit within 15 days of joining fee realisation"
+  ],
+  "renewalBenefits": [],
+  "milestoneBenefits": [],
   "additionalBenefits": [
-    "499 NeuCoins as welcome benefit on realization of joining fee",
-    "2% value back as NeuCoins on Tata Neu App/Website and partner Tata Brands",
-    "Extra 5% value back as NeuCoins on select category spends on Tata Neu App/Website",
-    "1% value back as NeuCoins on other spends including eligible UPI transactions on RuPay variant",
-    "UPI NeuCoins capped at 500 NeuCoins per statement cycle",
-    "1 NeuCoin equals Re 1 savings",
-    "NeuCoins are posted to the cardholder's NeuPass account",
     "1% fuel surcharge waiver on transactions from Rs 500 to Rs 4,000, capped at Rs 250 per statement cycle"
   ],
   "redemption": {
-    "statementBalanceValue": 1,
-    "pointsExpiryYears": 1
+    "ecosystemLabel": "Tata Neu App/Website and partner Tata brands",
+    "ecosystemValue": 1
   },
+  "additionalDetails": [
+    "1 NeuCoin equals Re 1 savings on Tata Neu App/Website and partner Tata brands"
+  ],
+  "internalNotes": [
+    "Audited against official SBI Card product page and Tata Neu Plus T&C booklet on 2026-06-08.",
+    "The product page currently positions the accelerated extra 5% NeuCoins specifically around select Tata Neu app or website categories, so the rewards table keeps a separate display row instead of treating all Tata ecosystem spends as a flat 7% bucket.",
+    "UPI spends on the RuPay variant are capped at 500 NeuCoins per statement cycle.",
+    "The current official materials describe welcome NeuCoins posting within 15 days of joining fee realisation.",
+    "The card is audited from official SBI sources but is not yet marked as manually verified by user."
+  ],
+  "supportingSourceUrls": [
+    "https://www.sbicard.com/en/personal/credit-cards/lifestyle/tata-neu-plus-sbi-card.page",
+    "https://www.sbicard.com/sbi-card-en/assets/docs/pdf/Tata-neu-plus-tnc.pdf"
+  ],
   "sourceUrl": "https://www.sbicard.com/en/personal/credit-cards/tata-neu-plus-sbi-card.html",
-  "applyUrl": "https://www.sbicard.com/en/personal/credit-cards/tata-neu-plus-sbi-card.html",
-  "lastVerified": "2026-05-09",
-  "verificationStatus": "official-mixed",
+  "applyUrl": "https://www.sbicard.com/en/personal/credit-cards/lifestyle/tata-neu-plus-sbi-card.page",
+  "lastVerified": "2026-06-08",
+  "verificationStatus": "official-direct",
   "popularityScore": 71
 }

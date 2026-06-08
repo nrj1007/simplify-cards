@@ -3,7 +3,8 @@
   "issuer": "SBI Card",
   "name": "Flipkart SBI Card",
   "network": [
-    "Visa"
+    "Visa",
+    "Mastercard"
   ],
   "joiningFee": 500,
   "annualFee": 500,
@@ -18,27 +19,41 @@
   "rewards": [
     {
       "category": "myntra",
+      "displayCategory": "Myntra",
       "rate": 7.5,
-      "capMonthly": 1333
+      "displayRate": "7.5% cashback",
+      "capMonthly": null,
+      "capStatementQuarter": 4000
     },
     {
       "category": "flipkart",
+      "displayCategory": "Flipkart",
       "rate": 5,
-      "capMonthly": 1333
+      "displayRate": "5% cashback",
+      "capMonthly": null,
+      "capStatementQuarter": 4000
     },
     {
       "category": "cleartrip",
+      "displayCategory": "Cleartrip",
       "rate": 5,
-      "capMonthly": 1333
+      "displayRate": "5% cashback",
+      "capMonthly": null,
+      "capStatementQuarter": 4000
     },
     {
       "category": "partner merchants",
+      "displayCategory": "Preferred/Select merchants",
       "rate": 4,
-      "capMonthly": 1333
+      "displayRate": "4% cashback",
+      "capMonthly": null,
+      "capStatementQuarter": 4000
     },
     {
       "category": "base",
+      "displayCategory": "Other eligible spends",
       "rate": 1,
+      "displayRate": "1% cashback",
       "capMonthly": null
     }
   ],
@@ -54,27 +69,44 @@
     "shopping"
   ],
   "exclusions": [
-    "fuel spends",
-    "cash withdrawals",
+    "fuel",
     "balance transfers",
-    "fees and charges",
-    "transactions excluded under SBI Card terms"
+    "cash advances",
+    "fees and charges"
   ],
-  "milestoneBenefits": [
-    "Renewal fee reversal on annual spends of Rs 3.5 lakh in the preceding year"
+  "exclusionCodes": [
+    "fuel",
+    "balance_transfer",
+    "cash_advance",
+    "fees_and_charges"
   ],
-  "additionalBenefits": [
-    "Earn up to 7.5% cashback on Flipkart, Myntra and Cleartrip",
+  "joiningBenefits": [
     "Rs 250 Flipkart Gift Card on fee realisation",
-    "1% fuel surcharge waiver up to Rs 400 per statement cycle",
-    "Cashback is designed for Flipkart, Myntra, Cleartrip and selected partner merchant spends"
+    "Rs 1,000 additional Flipkart benefit on the first transaction on Flipkart, as per card offer terms"
   ],
-  "redemption": {
-    "statementBalanceValue": 1
-  },
-  "sourceUrl": "https://www.sbicard.com/en/personal/sbi-credit-card.page",
-  "applyUrl": "https://www.sbicard.com/en/personal/sbi-credit-card.page",
-  "lastVerified": "2026-05-09",
-  "verificationStatus": "official-catalogue",
+  "renewalBenefits": [],
+  "milestoneBenefits": [],
+  "additionalBenefits": [
+    "1% fuel surcharge waiver on eligible fuel transactions from Rs 500 to Rs 4,000, capped at Rs 400 per statement cycle"
+  ],
+  "redemption": {},
+  "additionalDetails": [
+    "Cashback is credited to the card account and accelerated cashback categories are subject to quarterly caps as defined in SBI Card terms."
+  ],
+  "internalNotes": [
+    "Audited against official SBI Card product page and Flipkart SBI Card T&C booklet on 2026-06-08.",
+    "The live product page currently foregrounds a 12% off Cleartrip offer, but the detailed booklet continues to state 5% cashback on Cleartrip. The card data keeps the durable cashback structure and leaves promotional offer treatment out of the core rewards table.",
+    "The Flipkart booklet explicitly states quarterly cashback limits of Rs 4,000 for accelerated cashback categories, so the rewards rows use capStatementQuarter rather than a synthetic monthly cap.",
+    "The card is audited from official SBI sources but is not yet marked as manually verified by user."
+  ],
+  "supportingSourceUrls": [
+    "https://www.sbicard.com/en/personal/credit-cards/flipkart-sbi-card.html",
+    "https://www.sbicard.com/sbi-card-en/assets/docs/pdf/ekit-tncs/Flipkart-SBI-CreditCard-TandC-Booklet.pdf",
+    "https://www.sbicard.com/sbi-card-en/assets/docs/pdf/personal/cards/Preferred-Partners-TandC.pdf"
+  ],
+  "sourceUrl": "https://www.sbicard.com/en/personal/credit-cards/flipkart-sbi-card.html",
+  "applyUrl": "https://www.sbicard.com/en/personal/credit-cards/flipkart-sbi-card.html",
+  "lastVerified": "2026-06-08",
+  "verificationStatus": "official-direct",
   "popularityScore": 77
 }

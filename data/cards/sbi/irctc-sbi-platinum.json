@@ -19,17 +19,26 @@
   "rewards": [
     {
       "category": "travel",
+      "displayCategory": "Eligible AC rail ticket bookings on IRCTC",
       "rate": 10,
+      "displayRate": "10 Reward Points / Rs 125 spent",
       "capMonthly": null
     },
     {
       "category": "base",
+      "displayCategory": "Other eligible non-fuel retail purchases",
       "rate": 0.8,
+      "displayRate": "1 Reward Point / Rs 125 spent",
       "capMonthly": null
     }
   ],
   "loungeDomestic": 4,
   "loungeInternational": 0,
+  "lounge": {
+    "domestic": [
+      "4 complimentary railway lounge visits per year in India, capped at 1 per quarter, for the primary cardholder."
+    ]
+  },
   "forexMarkup": 3.5,
   "tags": [
     "irctc",
@@ -41,29 +50,45 @@
   "exclusions": [
     "fuel",
     "cash withdrawal",
-    "railway ticket bookings outside eligible IRCTC channels",
-    "airline, hotel and holiday bookings through IRCTC for accelerated railway benefits",
-    "transactions excluded under IRCTC SBI Platinum Card terms"
+    "fees and charges",
+    "disputed transactions"
   ],
-  "milestoneBenefits": [
+  "exclusionCodes": [
+    "fuel",
+    "cash_withdrawal",
+    "fees_and_charges",
+    "disputed_transactions"
+  ],
+  "joiningBenefits": [
+    "350 activation bonus Reward Points on a single transaction of Rs 500 or more within 60 days of card issuance"
+  ],
+  "renewalBenefits": [
     "500 Reward Points on payment of renewal fee"
   ],
+  "milestoneBenefits": [],
   "additionalBenefits": [
-    "350 activation bonus Reward Points on a single transaction of Rs 500 or more within 60 days of card issuance",
-    "Up to 10% value back as Reward Points on eligible AC1, AC2, AC3, Executive Chair Car and Chair Car railway ticket bookings through IRCTC",
-    "1 Reward Point per Rs 125 on eligible non-fuel retail purchases, including eligible railway ticket purchases",
-    "1 Reward Point equals Re 1 for eligible IRCTC redemption",
     "Save 1% transaction charges on eligible railway ticket bookings on IRCTC",
-    "4 complimentary railway lounge visits per year in India, capped at 1 per quarter",
-    "1% fuel surcharge waiver on eligible fuel transactions, capped at Rs 100 per month"
+    "1% fuel surcharge waiver on eligible fuel transactions, capped at Rs 100 per statement cycle"
   ],
   "redemption": {
-    "statementBalanceValue": 1,
+    "ecosystemLabel": "IRCTC railway ticket bookings",
+    "ecosystemValue": 1,
     "pointsExpiryYears": 2
   },
-  "sourceUrl": "https://www.sbicard.com/html/en/personal/credit-cards/irctc-sbi-platinum-card.html",
-  "applyUrl": "https://www.sbicard.com/html/en/personal/credit-cards/irctc-sbi-platinum-card.html",
-  "lastVerified": "2026-05-09",
-  "verificationStatus": "official-mixed",
+  "additionalDetails": [],
+  "internalNotes": [
+    "Audited against official IRCTC SBI Platinum product page and IRCTC offer page on 2026-06-08.",
+    "The 10% value-back framing comes from 10 Reward Points per Rs 125 on eligible AC1, AC2, AC3, Executive Chair Car, and Chair Car bookings via IRCTC app or website.",
+    "Reward Points accrued in the SBI Card account will not get credited to the IRCTC loyalty account if the loyalty account status is blocked, inactive, or suspended.",
+    "The card is audited from official SBI sources but is not yet marked as manually verified by user."
+  ],
+  "supportingSourceUrls": [
+    "https://www.sbicard.com/en/personal/credit-cards/travel/irctc-sbi-platinum-card.page",
+    "https://www.sbicard.com/en/personal/offers/travel/irctc-sbi-platinum-card.page"
+  ],
+  "sourceUrl": "https://www.sbicard.com/en/personal/credit-cards/travel/irctc-sbi-platinum-card.page",
+  "applyUrl": "https://www.sbicard.com/en/personal/credit-cards/travel/irctc-sbi-platinum-card.page",
+  "lastVerified": "2026-06-08",
+  "verificationStatus": "official-direct",
   "popularityScore": 72
 }

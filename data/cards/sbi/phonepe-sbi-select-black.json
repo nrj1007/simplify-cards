@@ -19,27 +19,43 @@
   "rewards": [
     {
       "category": "phonepe",
+      "displayCategory": "Eligible PhonePe spends",
       "rate": 10,
+      "displayRate": "10 Reward Points / Rs 100",
       "capMonthly": 2000
     },
     {
       "category": "online",
+      "displayCategory": "Eligible online spends",
       "rate": 5,
+      "displayRate": "5 Reward Points / Rs 100",
       "capMonthly": 2000
     },
     {
       "category": "upi",
+      "displayCategory": "Scan & Pay using PhonePe",
       "rate": 1,
-      "capMonthly": null
+      "displayRate": "1 Reward Point / Rs 100",
+      "capMonthly": 2000
     },
     {
       "category": "base",
+      "displayCategory": "Other eligible spends",
       "rate": 1,
+      "displayRate": "1 Reward Point / Rs 100",
       "capMonthly": 2000
     }
   ],
   "loungeDomestic": 4,
   "loungeInternational": 0,
+  "lounge": {
+    "domestic": [
+      "4 complimentary domestic lounge visits every year, capped at 1 visit per quarter."
+    ],
+    "international": [
+      "Complimentary Priority Pass membership is provided for the first 2 card membership years; lounge visits beyond any complimentary allowance are charged at the programme's prevailing rate."
+    ]
+  },
   "forexMarkup": 3.5,
   "tags": [
     "phonepe",
@@ -58,21 +74,36 @@
     "government services",
     "digital gaming",
     "cash advance",
-    "merchant EMI",
-    "transactions excluded under PhonePe SBI Card SELECT BLACK terms"
+    "merchant EMI"
+  ],
+  "exclusionCodes": [
+    "fuel",
+    "wallet_load",
+    "rent",
+    "property_management",
+    "education",
+    "government",
+    "gaming",
+    "cash_advance",
+    "emi"
+  ],
+  "milestones": [
+    {
+      "threshold": 500000,
+      "period": "annual",
+      "value": 5000,
+      "kind": "voucher",
+      "label": "Yatra e-Voucher worth Rs 5,000 on annual spends of Rs 5 lakh"
+    }
   ],
   "milestoneBenefits": [
-    "Yatra travel voucher worth Rs 5,000 on annual spends of Rs 5 lakh",
-    "Renewal fee reversal on annual retail spends of Rs 3 lakh in previous year"
+    "Yatra e-Voucher worth Rs 5,000 on annual spends of Rs 5 lakh"
   ],
+  "joiningBenefits": [
+    "PhonePe e-Gift Card worth Rs 1,500 after payment of annual fee, unless the card is issued under a first-year-free offer"
+  ],
+  "renewalBenefits": [],
   "additionalBenefits": [
-    "PhonePe gift card worth Rs 1,500 after joining fee payment",
-    "10 Reward Points per Rs 100 on select PhonePe spends including recharges, bill payments, insurance, travel and Pincode",
-    "5 Reward Points per Rs 100 on eligible online spends",
-    "1 Reward Point per Rs 100 on other eligible spends including Scan & Pay",
-    "1 Reward Point equals Re 1 and can be redeemed as statement credit or gift vouchers on SBI Card rewards portal",
-    "4 complimentary domestic airport lounge visits per year, 1 per quarter",
-    "Complimentary Priority Pass membership for the first 2 card membership years",
     "1% fuel surcharge waiver on eligible fuel spends",
     "Available on RuPay and Visa networks"
   ],
@@ -80,9 +111,26 @@
     "statementBalanceValue": 1,
     "pointsExpiryYears": 3
   },
+  "additionalDetails": [],
+  "internalNotes": [
+    "Audited against official PhonePe SBI Card SELECT BLACK product page, reward program T&C, welcome benefit T&C, milestone T&C, reward redemption FAQ, Priority Pass FAQ, and customer notices page on 2026-06-08.",
+    "Accelerated Reward Points on PhonePe spends apply to select categories such as recharges, utilities, bill payments, insurance, travel, and Pincode spends as described on the official product page and current T&C.",
+    "PhonePe SBI Card SELECT BLACK is exempt from the 1 Apr 2026 statement credit redemption revision that moved most SBI cards to 4,000-point multiples and imposed a 60,000-point monthly cap.",
+    "Priority Pass membership is complimentary for the first two card membership years; the product page does not list complimentary international lounge visits under this benefit.",
+    "The card is audited from official SBI sources but is not yet marked as manually verified by user."
+  ],
+  "supportingSourceUrls": [
+    "https://www.sbicard.com/en/personal/credit-cards/rewards/phonepe-sbi-card-select-black.page",
+    "https://www.sbicard.com/sbi-card-en/assets/media/images/personal/credit-cards/rewards/phonepe/tnc/RP-tnc.pdf",
+    "https://www.sbicard.com/sbi-card-en/assets/docs/pdf/tnc/phone-pe-tncs/PhonePe-SBI-Card-SELECT-BLACK-Welcome-benefit.pdf",
+    "https://www.sbicard.com/sbi-card-en/assets/media/images/personal/credit-cards/rewards/phonepe/tnc/milestone-TnC-PhonePe-SBI-Card-SELECT.pdf",
+    "https://www.sbicard.com/en/faq/rewards-information.page",
+    "https://www.sbicard.com/en/faq/complimentary-priority-pass-membership.page",
+    "https://www.sbicard.com/en/customer-notices.page"
+  ],
   "sourceUrl": "https://www.sbicard.com/en/personal/credit-cards/rewards/phonepe-sbi-card-select-black.page",
   "applyUrl": "https://www.phonepe.com/credit-cards/phonepe-sbi-card-select-black-credit-card-rupay/",
-  "lastVerified": "2026-05-09",
-  "verificationStatus": "official-mixed",
+  "lastVerified": "2026-06-08",
+  "verificationStatus": "official-direct",
   "popularityScore": 68
 }

@@ -18,23 +18,44 @@
   "rewardType": "cashback and reward points",
   "rewards": [
     {
-      "category": "base",
-      "rate": 3,
-      "capMonthly": null
-    },
-    {
-      "category": "base",
+      "category": "partner merchants",
+      "displayCategory": "World of Titan, Taneira, Titan Eye+, Helios, Fastrack, Skinn, Irth, and Sonata",
       "rate": 7.5,
+      "displayRate": "7.5% cashback",
+      "capMonthly": null
+    },
+    {
+      "category": "partner merchants",
+      "displayCategory": "Mia, CaratLane, and Zoya",
+      "rate": 5,
+      "displayRate": "5% cashback",
+      "capMonthly": null
+    },
+    {
+      "category": "partner merchants",
+      "displayCategory": "Tanishq",
+      "rate": 3,
+      "displayRate": "3% value back as gift vouchers",
       "capMonthly": null
     },
     {
       "category": "base",
+      "displayCategory": "Other eligible spends",
       "rate": 1.5,
+      "displayRate": "6 Reward Points / Rs 100",
       "capMonthly": null
     }
   ],
   "loungeDomestic": 8,
   "loungeInternational": 4,
+  "lounge": {
+    "domestic": [
+      "8 complimentary domestic airport lounge visits per year, capped at 2 per quarter."
+    ],
+    "international": [
+      "4 complimentary international airport lounge visits per year, capped at 2 per quarter, with complimentary Priority Pass membership for the first 2 years."
+    ]
+  },
   "forexMarkup": 3.5,
   "tags": [
     "titan",
@@ -47,33 +68,65 @@
   ],
   "exclusions": [
     "fuel",
-    "wallet loading",
-    "rent",
-    "transactions excluded under Titan SBI Card terms"
+    "cash advances",
+    "balance transfers",
+    "fees and charges",
+    "disputed transactions"
+  ],
+  "exclusionCodes": [
+    "fuel",
+    "cash_advance",
+    "balance_transfer",
+    "fees_and_charges",
+    "disputed_transactions"
+  ],
+  "joiningBenefits": [
+    "12,000 Reward Points worth Rs 3,000 on payment of annual fee"
+  ],
+  "renewalBenefits": [],
+  "milestones": [
+    {
+      "threshold": 500000,
+      "period": "annual",
+      "value": 5000,
+      "kind": "voucher",
+      "label": "Additional gift voucher worth Rs 5,000 on annual spends of Rs 5 lakh"
+    },
+    {
+      "threshold": 1000000,
+      "period": "annual",
+      "value": 10000,
+      "kind": "voucher",
+      "label": "Additional gift voucher worth Rs 10,000 on annual spends of Rs 10 lakh"
+    }
   ],
   "milestoneBenefits": [
-    "Spend-based reversal of renewal fee on annual spends of Rs 3 lakh or more",
-    "Additional benefits worth Rs 5,000 on annual spends of Rs 5 lakh",
-    "Additional benefits worth Rs 10,000 on annual spends of Rs 10 lakh"
+    "Additional gift voucher worth Rs 5,000 on annual spends of Rs 5 lakh",
+    "Additional gift voucher worth Rs 10,000 on annual spends of Rs 10 lakh"
   ],
   "additionalBenefits": [
-    "12,000 Reward Points as welcome gift",
-    "7.5% cashback on World of Titan, Taneira, Titan Eye+, Helios, Fastrack, Skinn, Irth and Sonata spends",
-    "5% cashback on Mia, CaratLane and Zoya spends",
-    "3% value back on Tanishq spends in the form of gift vouchers",
-    "6 Reward Points per Rs 100 on other eligible categories outside the Titan ecosystem",
-    "4 Reward Points equal Re 1 for eligible reward redemption",
-    "8 complimentary domestic airport lounge visits per year, capped at 2 per quarter",
-    "4 complimentary international lounge visits per year, capped at 2 per quarter",
     "1% fuel surcharge waiver on eligible fuel transactions"
   ],
   "redemption": {
     "statementBalanceValue": 0.25,
     "pointsExpiryYears": 2
   },
-  "sourceUrl": "https://www.sbicard.com/sbi-card-en/assets/docs/pdf/FAQfortitan.pdf",
-  "applyUrl": "https://www.sbicard.com/en/sprint-change-card.page",
-  "lastVerified": "2026-05-09",
-  "verificationStatus": "official-mixed",
+  "additionalDetails": [
+    "4 Reward Points equal Re 1 for eligible reward redemption"
+  ],
+  "internalNotes": [
+    "Audited against official Titan SBI Card product page and Titan FAQ booklet on 2026-06-08.",
+    "Annual fee reversal is tracked only through feeWaiverSpend at Rs 3 lakh and is intentionally not repeated as a milestone.",
+    "The card's live SBI page frames Titan ecosystem value-back through a mix of cashback and gift-voucher benefits, so the rewards table uses separate display rows by Titan brand cluster.",
+    "The card is audited from official SBI sources but is not yet marked as manually verified by user."
+  ],
+  "supportingSourceUrls": [
+    "https://www.sbicard.com/en/personal/credit-cards/shopping/titan-sbi-card.page",
+    "https://www.sbicard.com/sbi-card-en/assets/docs/pdf/FAQfortitan.pdf"
+  ],
+  "sourceUrl": "https://www.sbicard.com/en/personal/credit-cards/shopping/titan-sbi-card.page",
+  "applyUrl": "https://www.sbicard.com/en/personal/credit-cards/shopping/titan-sbi-card.page",
+  "lastVerified": "2026-06-08",
+  "verificationStatus": "official-direct",
   "popularityScore": 72
 }

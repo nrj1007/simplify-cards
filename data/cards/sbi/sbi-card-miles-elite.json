@@ -3,7 +3,8 @@
   "issuer": "SBI Card",
   "name": "SBI Card MILES ELITE",
   "network": [
-    "Visa"
+    "Mastercard",
+    "RuPay"
   ],
   "joiningFee": 4999,
   "annualFee": 4999,
@@ -19,18 +20,32 @@
   "rewardType": "Travel Credits",
   "rewards": [
     {
-      "category": "travel credits",
+      "category": "travel",
+      "displayCategory": "Travel spends",
       "rate": 3,
+      "displayRate": "6 Travel Credits / Rs 200 spent",
       "capMonthly": null
     },
     {
       "category": "base",
+      "displayCategory": "Other eligible spends",
       "rate": 1,
+      "displayRate": "2 Travel Credits / Rs 200 spent",
       "capMonthly": null
     }
   ],
   "loungeDomestic": 23,
   "loungeInternational": 6,
+  "lounge": {
+    "domestic": [
+      "8 complimentary domestic airport lounge visits every year, capped at 2 visits per quarter.",
+      "1 additional domestic airport lounge visit is unlocked on every Rs 1 lakh spend, capped at 15 additional visits per year."
+    ],
+    "international": [
+      "Complimentary Priority Pass membership worth $99 is provided for the first 2 years.",
+      "6 complimentary international airport lounge visits every year, capped at 2 visits per quarter."
+    ]
+  },
   "forexMarkup": 1.99,
   "tags": [
     "travel",
@@ -43,43 +58,50 @@
   ],
   "exclusions": [
     "fuel",
-    "utility",
-    "education",
+    "utilities",
     "insurance",
     "rent",
-    "property management",
-    "wallet loading",
     "cash advances",
-    "merchant EMI",
-    "quasi cash",
     "balance transfers",
-    "card fees and charges",
-    "Flexipay",
+    "fees and charges",
+    "emi",
     "disputed transactions"
   ],
+  "exclusionCodes": [
+    "fuel",
+    "utilities",
+    "insurance",
+    "rent",
+    "cash_advance",
+    "balance_transfer",
+    "fees_and_charges",
+    "emi",
+    "disputed_transactions"
+  ],
+  "joiningBenefits": [
+    "5,000 Travel Credits on spends of Rs 1 lakh within 60 days of card issuance, credited on payment of joining fee"
+  ],
+  "renewalBenefits": [],
+  "milestones": [
+    {
+      "threshold": 1200000,
+      "period": "annual",
+      "value": 20000,
+      "kind": "points",
+      "label": "20,000 bonus Travel Credits on annual spends of Rs 12 lakh"
+    }
+  ],
   "milestoneBenefits": [
-    "1 additional domestic airport lounge access on every Rs 1 lakh spend, capped at 15 additional visits per year",
-    "20,000 bonus Travel Credits on annual spends of Rs 12 lakh",
-    "Annual fee reversal on annual spends of Rs 15 lakh"
+    "20,000 bonus Travel Credits on annual spends of Rs 12 lakh"
   ],
   "additionalBenefits": [
-    "5,000 Travel Credits on spending Rs 1 lakh within 60 days of card issuance after joining fee payment",
-    "6 Travel Credits per Rs 200 spent on travel",
-    "2 Travel Credits per Rs 200 spent on all other eligible purchases",
-    "1 Travel Credit worth up to Rs 1 for air mile or hotel point conversion",
-    "1 Travel Credit worth Rs 0.50 for travel bookings",
-    "1 Travel Credit worth Rs 0.25 for Shop & Smile catalogue products",
-    "8 complimentary domestic lounge visits per year, capped at 2 per quarter",
-    "Complimentary Priority Pass membership for first 2 membership years with 6 international lounge visits per year, capped at 2 per quarter",
-    "Low forex markup of 1.99%",
     "Flight cancellation cover up to 6 times per year at Rs 3,500 each",
     "Air accident cover up to Rs 1 crore",
     "Lost card liability cover up to Rs 1 lakh",
     "Loss of travel documents cover up to Rs 12,500",
     "Loss of checked-in baggage cover up to Rs 72,000",
     "Delay of checked-in baggage cover of Rs 7,500",
-    "Baggage damage cover up to Rs 5,000",
-    "1% fuel surcharge waiver up to Rs 500 per month on fuel spends from Rs 500 to Rs 4,000"
+    "1% fuel surcharge waiver up to Rs 500 per month on eligible fuel spends from Rs 500 to Rs 4,000"
   ],
   "redemption": {
     "statementBalanceValue": 0.25,
@@ -87,9 +109,23 @@
     "airMilesValue": 1,
     "pointsExpiryYears": 2
   },
-  "sourceUrl": "https://www.sbicard.com/en/personal/sbi-credit-card.page",
-  "applyUrl": "https://www.sbicard.com/en/personal/sbi-credit-card.page",
-  "lastVerified": "2026-05-09",
-  "verificationStatus": "official-mixed",
+  "additionalDetails": [
+    "1 Travel Credit = Re 1 for air mile or hotel point conversion",
+    "1 Travel Credit = Rs 0.50 for travel bookings",
+    "1 Travel Credit = Rs 0.25 for Shop & Smile product catalogue"
+  ],
+  "internalNotes": [
+    "Audited against official SBI Card MILES ELITE product page and current MILES ELITE T&C booklet on 2026-06-08.",
+    "The product page currently lists Mastercard and RuPay lounge-program references for domestic lounge access.",
+    "The card is audited from official SBI sources but is not yet marked as manually verified by user."
+  ],
+  "supportingSourceUrls": [
+    "https://www.sbicard.com/en/personal/credit-cards/travel/sbi-card-miles-elite.page",
+    "https://www.sbicard.com/sbi-card-en/assets/docs/pdf/tnc/sbi-card-miles-elite-tnc.pdf"
+  ],
+  "sourceUrl": "https://www.sbicard.com/en/personal/credit-cards/travel/sbi-card-miles-elite.page",
+  "applyUrl": "https://www.sbicard.com/en/personal/credit-cards/travel/sbi-card-miles-elite.page",
+  "lastVerified": "2026-06-08",
+  "verificationStatus": "official-direct",
   "popularityScore": 71
 }

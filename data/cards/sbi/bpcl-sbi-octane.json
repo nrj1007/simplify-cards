@@ -3,7 +3,8 @@
   "issuer": "SBI Card",
   "name": "BPCL SBI Card OCTANE",
   "network": [
-    "Visa"
+    "Visa",
+    "RuPay"
   ],
   "joiningFee": 1499,
   "annualFee": 1499,
@@ -19,32 +20,40 @@
   "rewards": [
     {
       "category": "fuel",
-      "rate": 6.25,
-      "capMonthly": 1562
+      "displayCategory": "Fuel and lubricant purchases at BPCL petrol pumps",
+      "rate": 25,
+      "displayRate": "25 Reward Points / Rs 100",
+      "capMonthly": 2500
     },
     {
       "category": "utilities",
-      "rate": 6.25,
-      "capMonthly": 1562
+      "displayCategory": "Bharatgas online payments",
+      "rate": 25,
+      "displayRate": "25 Reward Points / Rs 100",
+      "capMonthly": 2500
     },
     {
-      "category": "grocery",
-      "rate": 2.5,
-      "capMonthly": 1250
-    },
-    {
-      "category": "dining",
-      "rate": 2.5,
-      "capMonthly": 1250
+      "category": "grocery, dining, entertainment",
+      "displayCategory": "Grocery, departmental stores, movies, and dining",
+      "rate": 10,
+      "displayRate": "10 Reward Points / Rs 100",
+      "capMonthly": 5000
     },
     {
       "category": "base",
-      "rate": 0.25,
+      "displayCategory": "Other eligible non-fuel retail spends",
+      "rate": 1,
+      "displayRate": "1 Reward Point / Rs 100",
       "capMonthly": null
     }
   ],
   "loungeDomestic": 4,
   "loungeInternational": 0,
+  "lounge": {
+    "domestic": [
+      "4 complimentary domestic airport lounge visits per calendar year, capped at 1 visit per quarter."
+    ]
+  },
   "forexMarkup": 3.5,
   "tags": [
     "fuel",
@@ -55,31 +64,45 @@
     "lounge"
   ],
   "exclusions": [
-    "cash withdrawal",
-    "balance transfer",
-    "fuel spends outside eligible BPCL reward construct",
-    "transactions excluded under BPCL SBI Card OCTANE terms"
+    "fuel spends outside the eligible BPCL reward construct",
+    "balance transfers",
+    "cash advances",
+    "fees and charges",
+    "disputed transactions"
   ],
-  "milestoneBenefits": [
-    "Annual fee reversal on annual spends of Rs 2 lakh or more in the previous year"
+  "exclusionCodes": [
+    "fuel",
+    "balance_transfer",
+    "cash_advance",
+    "fees_and_charges",
+    "disputed_transactions"
   ],
+  "joiningBenefits": [
+    "6,000 bonus Reward Points worth Rs 1,500 on payment of annual fee"
+  ],
+  "renewalBenefits": [],
+  "milestoneBenefits": [],
   "additionalBenefits": [
-    "6,000 activation bonus Reward Points worth Rs 1,500 on payment of joining fee",
-    "25 Reward Points per Rs 100 on fuel and lubricant purchases at BPCL petrol pumps, capped at 2,500 Reward Points per billing cycle",
-    "25 Reward Points per Rs 100 on Bharatgas online payments, capped at 2,500 Reward Points per billing cycle",
-    "10 Reward Points per Rs 100 on grocery, departmental stores, movies and dining spends, capped at 5,000 Reward Points per month",
-    "1 Reward Point per Rs 100 on other eligible non-fuel retail purchases",
-    "4 Reward Points equal Re 1 and can be redeemed for fuel at participating BPCL outlets or through SBI Card rewards options",
-    "1% fuel surcharge waiver on eligible BPCL fuel transactions up to Rs 4,000, capped at Rs 100 per month",
-    "4 complimentary domestic airport lounge visits per year, capped at 1 per quarter"
+    "1% fuel surcharge waiver on eligible BPCL fuel transactions up to Rs 4,000, capped at Rs 100 per month"
   ],
   "redemption": {
-    "statementBalanceValue": 0.25,
-    "pointsExpiryYears": 2
+    "statementBalanceValue": 0.25
   },
+  "additionalDetails": [],
+  "internalNotes": [
+    "Audited against official SBI Card product page and BPCL SBI Card OCTANE T&C booklet on 2026-06-08.",
+    "Reward Points expire after 24 months.",
+    "The live product page positions the card as offering 7.25% value back on BPCL purchases, which is effectively the 25 Reward Points per Rs 100 earn plus surcharge waiver framing; the rewards table keeps the points structure as the canonical model.",
+    "The current official card materials show Visa and RuPay acceptance references for the card booklet, so both networks are retained.",
+    "The card is audited from official SBI sources but is not yet marked as manually verified by user."
+  ],
+  "supportingSourceUrls": [
+    "https://www.sbicard.com/en/personal/credit-cards/bpcl-sbi-card-octane.html",
+    "https://www.sbicard.com/sbi-card-en/assets/docs/pdf/ekit-tncs/BPCLOctanetnc.pdf"
+  ],
   "sourceUrl": "https://www.sbicard.com/en/personal/credit-cards/bpcl-sbi-card-octane.html",
   "applyUrl": "https://www.sbicard.com/en/personal/credit-cards/bpcl-sbi-card-octane.html",
-  "lastVerified": "2026-05-09",
-  "verificationStatus": "official-mixed",
+  "lastVerified": "2026-06-08",
+  "verificationStatus": "official-direct",
   "popularityScore": 75
 }
