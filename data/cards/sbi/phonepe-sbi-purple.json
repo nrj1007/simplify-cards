@@ -60,26 +60,30 @@
   "exclusions": [
     "fuel",
     "cash advance",
-    "balance transfer",
     "wallet loading",
     "rent",
     "property management",
     "school and education services",
     "government services",
     "digital gaming",
-    "merchant EMI"
+    "merchant EMI",
+    "cash withdrawal",
+    "disputed transactions",
+    "fees and charges"
   ],
   "exclusionCodes": [
     "fuel",
     "cash_advance",
-    "balance_transfer",
     "wallet_load",
     "rent",
     "property_management",
     "education",
     "government",
     "gaming",
-    "emi"
+    "emi",
+    "cash_withdrawal",
+    "disputed_transactions",
+    "fees_and_charges"
   ],
   "milestones": [
     {

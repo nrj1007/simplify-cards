@@ -74,7 +74,10 @@
     "government services",
     "digital gaming",
     "cash advance",
-    "merchant EMI"
+    "merchant EMI",
+    "cash withdrawal",
+    "disputed transactions",
+    "fees and charges"
   ],
   "exclusionCodes": [
     "fuel",
@@ -85,7 +88,10 @@
     "government",
     "gaming",
     "cash_advance",
-    "emi"
+    "emi",
+    "cash_withdrawal",
+    "disputed_transactions",
+    "fees_and_charges"
   ],
   "milestones": [
     {

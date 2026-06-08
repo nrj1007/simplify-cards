@@ -59,19 +59,23 @@
   ],
   "exclusions": [
     "fuel",
+    "rent",
     "cash withdrawal",
     "balance transfer",
     "wallet loading",
     "government transactions",
-    "online gaming transactions"
+    "online gaming transactions",
+    "merchant EMI"
   ],
   "exclusionCodes": [
     "fuel",
+    "rent",
     "cash_withdrawal",
     "balance_transfer",
     "wallet_load",
     "government",
-    "gaming"
+    "gaming",
+    "emi"
   ],
   "milestones": [
     {

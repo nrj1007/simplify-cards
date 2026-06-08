@@ -68,6 +68,11 @@
   ],
   "exclusions": [
     "fuel",
+    "rent",
+    "government spends",
+    "online gaming transactions",
+    "wallet loading",
+    "merchant EMI",
     "cash advances",
     "balance transfers",
     "fees and charges",
@@ -75,6 +80,11 @@
   ],
   "exclusionCodes": [
     "fuel",
+    "rent",
+    "government",
+    "gaming",
+    "wallet_load",
+    "emi",
     "cash_advance",
     "balance_transfer",
     "fees_and_charges",
