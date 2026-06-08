@@ -80,7 +80,7 @@
     "11,000 Membership Rewards points as welcome gift on spending Rs 30,000 within first 90 days"
   ],
   "milestoneBenefits": [
-    "Rs 1,000 voucher every month on spending Rs 50,000 or more in a calendar month, subject to enrolment"
+    "Rs 1,000 monthly voucher on spending Rs 50,000 or more in a calendar month, redeemable across partner brands such as Tata CLiQ Luxury, BookMyShow, and MakeMyTrip, subject to enrolment"
   ],
   "additionalBenefits": [
     "Complimentary ALL Accor+ Explorer membership",
@@ -117,10 +117,14 @@
   },
   "eligibility": {
     "salaried": [
-      "Eligibility is subject to American Express premium card approval criteria"
+      "Employed with personal annual income of Rs 6 lakh and above",
+      "Good credit history with no payment defaults",
+      "Resident Indian with current or permanent residential address in India"
     ],
     "selfEmployed": [
-      "Eligibility is subject to American Express premium card approval criteria"
+      "Self-employed with personal annual income of Rs 6 lakh and above",
+      "Company has been trading for more than 12 months",
+      "Resident Indian with current or permanent residential address in India"
     ]
   },
   "sourceUrl": "https://www.americanexpress.com/in/credit-cards/platinum-reserve-credit-card/",
