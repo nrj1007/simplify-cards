@@ -1175,13 +1175,21 @@ describe("reward calculator", () => {
   });
 
   describe("HSBC Premier Credit Card", () => {
-    it("earns 12 reward points per Rs 100 on travel spends", () => {
+    it("earns accelerated points on Travel with Points portal bookings (hotels 36 pts, flights 18 pts, car rentals 6 pts)", () => {
       const card = getCardById("hsbc-premier");
       expect(card).toBeTruthy();
 
-      // Rs 10,000 travel => 1,200 points
-      const result = calculateRewards(card!, { travel: 10000 });
-      expect(result.monthlyUnits).toBe(1200);
+      // Rs 10,000 hotels => 3,600 points
+      const resultHotels = calculateRewards(card!, { hotels: 10000 });
+      expect(resultHotels.monthlyUnits).toBe(3600);
+
+      // Rs 10,000 flights => 1,800 points
+      const resultFlights = calculateRewards(card!, { airlines: 10000 });
+      expect(resultFlights.monthlyUnits).toBe(1800);
+
+      // Rs 10,000 travel (general travel / offline) => 300 points
+      const resultTravel = calculateRewards(card!, { travel: 10000 });
+      expect(resultTravel.monthlyUnits).toBe(300);
     });
 
     it("earns 3 reward points per Rs 100 on base spends", () => {
@@ -1193,20 +1201,20 @@ describe("reward calculator", () => {
       expect(result.monthlyUnits).toBe(300);
     });
 
-    it("caps utilities and insurance rewards at Rs 1 Lakh spend (3,000 points) monthly each", () => {
+    it("caps utilities, insurance, and rent rewards at Rs 1 Lakh spend (3,000 points) combined monthly", () => {
       const card = getCardById("hsbc-premier");
       expect(card).toBeTruthy();
 
-      // Rs 50,000 utilities => 1,500 points
-      const result1 = calculateRewards(card!, { utilities: 50000 });
-      expect(result1.monthlyUnits).toBe(1500);
+      // Rs 50,000 utilities + Rs 50,000 insurance => Rs 100,000 total spend => 3,000 points
+      const result1 = calculateRewards(card!, { utilities: 50000, insurance: 50000 });
+      expect(result1.monthlyUnits).toBe(3000);
 
       // Rs 150,000 utilities => 4,500 raw points capped at 3,000 points
       const result2 = calculateRewards(card!, { utilities: 150000 });
       expect(result2.monthlyUnits).toBe(3000);
 
-      // Rs 150,000 insurance => 4,500 raw points capped at 3,000 points
-      const result3 = calculateRewards(card!, { insurance: 150000 });
+      // Rs 150,000 rent => 4,500 raw points capped at 3,000 points
+      const result3 = calculateRewards(card!, { rent: 150000 });
       expect(result3.monthlyUnits).toBe(3000);
     });
   });

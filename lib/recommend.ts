@@ -842,6 +842,14 @@ function aliasesForSpendCategory(category: SpendCategory, includeSmartbuyLikeRew
     return includeSmartbuyLikeRewards ? [...spendAliases.travel, ...specialTravelSpendAliases] : spendAliases.travel;
   }
 
+  if (category === "hotels") {
+    return includeSmartbuyLikeRewards ? [...spendAliases.hotels, "travel with points hotels"] : spendAliases.hotels;
+  }
+
+  if (category === "airlines") {
+    return includeSmartbuyLikeRewards ? [...spendAliases.airlines, "travel with points flights"] : spendAliases.airlines;
+  }
+
   if (category === "grocery") {
     return includeSmartbuyLikeRewards ? [...spendAliases.grocery, ...specialOnlineSpendAliases] : spendAliases.grocery;
   }

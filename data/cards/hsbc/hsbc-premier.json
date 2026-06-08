@@ -19,15 +19,32 @@
   "rewardType": "reward points",
   "rewards": [
     {
-      "category": "travel",
-      "displayCategory": "Travel spends via Travel with Points portal",
-      "rate": 12,
-      "displayRate": "12 Reward Points / Rs 100",
-      "capMonthly": null
+      "category": "travel with points hotels",
+      "rate": 36,
+      "displayCategory": "Hotels via HSBC",
+      "displayRate": "Up to 36 Reward Points / Rs 100",
+      "capMonthly": 18000,
+      "postCapRate": 3
     },
     {
-      "category": "utilities, insurance, rent",
-      "displayCategory": "Utility, insurance, and rent spends",
+      "category": "travel with points flights",
+      "rate": 18,
+      "displayCategory": "Flights via HSBC",
+      "displayRate": "Up to 18 Reward Points / Rs 100",
+      "capMonthly": 18000,
+      "postCapRate": 3
+    },
+    {
+      "category": "travel with points car rentals",
+      "rate": 6,
+      "displayCategory": "Car rentals via HSBC",
+      "displayRate": "Up to 6 Reward Points / Rs 100",
+      "capMonthly": 18000,
+      "postCapRate": 3
+    },
+    {
+      "category": "utilities, insurance, rent, education, government, gold",
+      "displayCategory": "Utility, insurance, rent, education, tax, and jewelry spends",
       "rate": 3,
       "displayRate": "3 Reward Points / Rs 100",
       "capMonthly": 3000
@@ -67,41 +84,46 @@
       "category": "utilities",
       "treatment": "capped",
       "capMonthlySpend": 100000,
-      "notes": "Utility spends earn reward points capped at cumulative Rs 1 Lakh spend per calendar month combined with insurance and rent (effective 1 April 2025)."
+      "notes": "Utility spends earn reward points capped at cumulative Rs 1 Lakh spend per calendar month combined with insurance, rent, education, government/tax, and jewelry (effective 1 April 2025)."
     },
     {
       "category": "insurance",
       "treatment": "capped",
       "capMonthlySpend": 100000,
-      "notes": "Insurance spends earn reward points capped at cumulative Rs 1 Lakh spend per calendar month combined with utility and rent (effective 1 April 2025)."
+      "notes": "Insurance spends earn reward points capped at cumulative Rs 1 Lakh spend per calendar month combined with utility, rent, education, government/tax, and jewelry (effective 1 April 2025)."
     },
     {
       "category": "rent",
       "treatment": "capped",
       "capMonthlySpend": 100000,
-      "notes": "Rent spends earn reward points capped at cumulative Rs 1 Lakh spend per calendar month combined with utility and insurance (effective 1 April 2025)."
+      "notes": "Rent spends earn reward points capped at cumulative Rs 1 Lakh spend per calendar month combined with utility, insurance, education, government/tax, and jewelry (effective 1 April 2025)."
+    },
+    {
+      "category": "education",
+      "treatment": "capped",
+      "capMonthlySpend": 100000,
+      "notes": "Education spends earn reward points capped at cumulative Rs 1 Lakh spend per calendar month combined with utility, insurance, rent, government/tax, and jewelry (effective 1 April 2025)."
+    },
+    {
+      "category": "government",
+      "treatment": "capped",
+      "capMonthlySpend": 100000,
+      "notes": "Government and tax spends earn reward points capped at cumulative Rs 1 Lakh spend per calendar month combined with utility, insurance, rent, education, and jewelry (effective 1 April 2025)."
+    },
+    {
+      "category": "gold",
+      "treatment": "capped",
+      "capMonthlySpend": 100000,
+      "notes": "Jewelry spends earn reward points capped at cumulative Rs 1 Lakh spend per calendar month combined with utility, insurance, rent, education, and government/tax (effective 1 April 2025)."
     }
   ],
   "exclusions": [
     "Fuel transactions",
-    "Wallet loading transactions",
-    "Educational spends",
-    "Government-related transactions",
-    "Tax payments",
-    "Jewellery purchases",
     "Cash advances",
-    "Bail and bond payments",
-    "Money transfers",
-    "Financial and non-financial institution transactions",
     "Card fees, charges, interest, and disputed transactions"
   ],
   "exclusionCodes": [
     "fuel",
-    "wallet_load",
-    "education",
-    "government",
-    "tax",
-    "gold",
     "cash_advance",
     "fees_and_charges",
     "disputed_transactions"
@@ -295,6 +317,7 @@
   "internalNotes": [
     "Qualified HSBC Premier relationship status waives the joining and annual fees.",
     "Excludes fuel, education, government, tax, jewelry, wallet loads, and cash advances from earning points (effective 1 April 2025).",
-    "Points on utilities, insurance, and rent are capped at cumulative spends of Rs 1 Lakh per calendar month combined (effective 1 April 2025)."
+    "Points on utilities, insurance, and rent are capped at cumulative spends of Rs 1 Lakh per calendar month combined (effective 1 April 2025).",
+    "Card details manually reviewed and verified by user on 2026-06-08"
   ]
 }
