@@ -94,7 +94,7 @@
     "Reward Points expire after 24 months.",
     "The live product page positions the card as offering 7.25% value back on BPCL purchases, which is effectively the 25 Reward Points per Rs 100 earn plus surcharge waiver framing; the rewards table keeps the points structure as the canonical model.",
     "The current official card materials show Visa and RuPay acceptance references for the card booklet, so both networks are retained.",
-    "The card is audited from official SBI sources but is not yet marked as manually verified by user."
+    "Card details manually reviewed and verified by user on 2026-06-08"
   ],
   "supportingSourceUrls": [
     "https://www.sbicard.com/en/personal/credit-cards/bpcl-sbi-card-octane.html",
@@ -102,6 +102,7 @@
   ],
   "sourceUrl": "https://www.sbicard.com/en/personal/credit-cards/bpcl-sbi-card-octane.html",
   "applyUrl": "https://www.sbicard.com/en/personal/credit-cards/bpcl-sbi-card-octane.html",
+  "imageUrl": "/images/bpcl-sbi-octane.png",
   "lastVerified": "2026-06-08",
   "verificationStatus": "official-direct",
   "popularityScore": 75
