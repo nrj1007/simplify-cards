@@ -7,6 +7,7 @@ tools
 .env
 .env.local
 data/telegram-inbox/*.json
+data/analytics/events.jsonl
 *.log
 *.tsbuildinfo
 .tmp-debug
