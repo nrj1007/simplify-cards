@@ -2,6 +2,7 @@
   "id": "titan-sbi",
   "issuer": "SBI Card",
   "name": "Titan SBI Card",
+  "imageUrl": "/images/titan-sbi.png",
   "network": [
     "Visa"
   ],

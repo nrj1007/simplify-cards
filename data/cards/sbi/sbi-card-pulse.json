@@ -2,6 +2,7 @@
   "id": "sbi-card-pulse",
   "issuer": "SBI Card",
   "name": "SBI Card PULSE",
+  "imageUrl": "/images/sbi-card-pulse.png",
   "network": [
     "Visa"
   ],
