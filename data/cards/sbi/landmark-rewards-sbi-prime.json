@@ -2,6 +2,7 @@
   "id": "landmark-rewards-sbi-prime",
   "issuer": "SBI Card",
   "name": "Landmark Rewards SBI Card PRIME",
+  "imageUrl": "/images/landmark-rewards-sbi-prime.png",
   "network": [
     "Visa"
   ],
@@ -106,6 +107,18 @@
     "ecosystemValue": 0.25,
     "pointsExpiryYears": 2
   },
+  "eligibility": {
+    "salaried": [
+      "Age 21 to 60 years",
+      "Stable income as per SBI Card credit assessment",
+      "Good credit profile and address in a serviced location"
+    ],
+    "selfEmployed": [
+      "Age 25 to 60 years",
+      "Stable business income as per SBI Card credit assessment",
+      "Good credit profile and address in a serviced location"
+    ]
+  },
   "additionalDetails": [],
   "internalNotes": [
     "Audited against official SBI Card product page, Landmark PRIME booklet, customer notice dated 1 Aug 2025, MITC page, and Priority Pass FAQ on 2026-06-08.",
@@ -113,7 +126,7 @@
     "W.e.f. 1 Sep 2025, reward accrual on digital gaming platforms or merchants and government related transactions is discontinued for Landmark Rewards SBI Card PRIME.",
     "Priority Pass standard membership is complimentary; post the 4 complimentary international lounge visits per year, visit charges apply at the programme's prevailing rate.",
     "Current official product page lists Visa network branding for this card.",
-    "The card is audited from official SBI sources but is not yet marked as manually verified by user."
+    "Card details manually reviewed and verified by user on 2026-06-09."
   ],
   "supportingSourceUrls": [
     "https://www.sbicard.com/en/personal/credit-cards/shopping/landmark-sbi-card-prime.page",
@@ -124,7 +137,7 @@
   ],
   "sourceUrl": "https://www.sbicard.com/en/personal/credit-cards/shopping/landmark-sbi-card-prime.page",
   "applyUrl": "https://www.sbicard.com/en/personal/credit-cards/shopping/landmark-sbi-card-prime.page",
-  "lastVerified": "2026-06-08",
+  "lastVerified": "2026-06-09",
   "verificationStatus": "official-direct",
   "popularityScore": 69
 }

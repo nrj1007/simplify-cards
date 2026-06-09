@@ -2,6 +2,7 @@
   "id": "phonepe-sbi-select-black",
   "issuer": "SBI Card",
   "name": "PhonePe SBI Card SELECT BLACK",
+  "imageUrl": "/images/phonepe-sbi-select-black.png",
   "network": [
     "Visa",
     "RuPay"
@@ -117,13 +118,25 @@
     "statementBalanceValue": 1,
     "pointsExpiryYears": 3
   },
+  "eligibility": {
+    "salaried": [
+      "Age 21 to 60 years",
+      "Stable income as per SBI Card credit assessment",
+      "Good credit profile and address in a serviced location"
+    ],
+    "selfEmployed": [
+      "Age 25 to 60 years",
+      "Stable business income as per SBI Card credit assessment",
+      "Good credit profile and address in a serviced location"
+    ]
+  },
   "additionalDetails": [],
   "internalNotes": [
     "Audited against official PhonePe SBI Card SELECT BLACK product page, reward program T&C, welcome benefit T&C, milestone T&C, reward redemption FAQ, Priority Pass FAQ, and customer notices page on 2026-06-08.",
     "Accelerated Reward Points on PhonePe spends apply to select categories such as recharges, utilities, bill payments, insurance, travel, and Pincode spends as described on the official product page and current T&C.",
     "PhonePe SBI Card SELECT BLACK is exempt from the 1 Apr 2026 statement credit redemption revision that moved most SBI cards to 4,000-point multiples and imposed a 60,000-point monthly cap.",
     "Priority Pass membership is complimentary for the first two card membership years; the product page does not list complimentary international lounge visits under this benefit.",
-    "The card is audited from official SBI sources but is not yet marked as manually verified by user."
+    "Card details manually reviewed and verified by user on 2026-06-09."
   ],
   "supportingSourceUrls": [
     "https://www.sbicard.com/en/personal/credit-cards/rewards/phonepe-sbi-card-select-black.page",
@@ -136,7 +149,7 @@
   ],
   "sourceUrl": "https://www.sbicard.com/en/personal/credit-cards/rewards/phonepe-sbi-card-select-black.page",
   "applyUrl": "https://www.phonepe.com/credit-cards/phonepe-sbi-card-select-black-credit-card-rupay/",
-  "lastVerified": "2026-06-08",
+  "lastVerified": "2026-06-09",
   "verificationStatus": "official-direct",
   "popularityScore": 68
 }

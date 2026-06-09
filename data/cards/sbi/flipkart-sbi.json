@@ -2,6 +2,7 @@
   "id": "flipkart-sbi",
   "issuer": "SBI Card",
   "name": "Flipkart SBI Card",
+  "imageUrl": "/images/flipkart-sbi.png",
   "network": [
     "Visa",
     "Mastercard"
@@ -114,6 +115,18 @@
     "1% fuel surcharge waiver on eligible fuel transactions from Rs 500 to Rs 4,000, capped at Rs 400 per statement cycle"
   ],
   "redemption": {},
+  "eligibility": {
+    "salaried": [
+      "Age 21 to 60 years",
+      "Stable income as per SBI Card credit assessment",
+      "Good credit profile and address in a serviced location"
+    ],
+    "selfEmployed": [
+      "Age 25 to 60 years",
+      "Stable business income as per SBI Card credit assessment",
+      "Good credit profile and address in a serviced location"
+    ]
+  },
   "additionalDetails": [
     "Cashback is credited to the card account and accelerated cashback categories are subject to quarterly caps as defined in SBI Card terms."
   ],
@@ -121,7 +134,7 @@
     "Audited against official SBI Card product page and Flipkart SBI Card T&C booklet on 2026-06-08.",
     "The live product page currently foregrounds a 12% off Cleartrip offer, but the detailed booklet continues to state 5% cashback on Cleartrip. The card data keeps the durable cashback structure and leaves promotional offer treatment out of the core rewards table.",
     "The Flipkart booklet explicitly states quarterly cashback limits of Rs 4,000 for accelerated cashback categories, so the rewards rows use capStatementQuarter rather than a synthetic monthly cap.",
-    "The card is audited from official SBI sources but is not yet marked as manually verified by user."
+    "Card details manually reviewed and verified by user on 2026-06-09."
   ],
   "supportingSourceUrls": [
     "https://www.sbicard.com/en/personal/credit-cards/flipkart-sbi-card.html",
@@ -130,7 +143,7 @@
   ],
   "sourceUrl": "https://www.sbicard.com/en/personal/credit-cards/flipkart-sbi-card.html",
   "applyUrl": "https://www.sbicard.com/en/personal/credit-cards/flipkart-sbi-card.html",
-  "lastVerified": "2026-06-08",
+  "lastVerified": "2026-06-09",
   "verificationStatus": "official-direct",
   "popularityScore": 77
 }

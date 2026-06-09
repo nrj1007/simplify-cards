@@ -2,6 +2,7 @@
   "id": "tata-neu-infinity-sbi",
   "issuer": "SBI Card",
   "name": "Tata Neu Infinity SBI Card",
+  "imageUrl": "/images/tata-neu-infinity-sbi.png",
   "network": [
     "Visa",
     "RuPay"
@@ -102,6 +103,18 @@
   "redemption": {
     "ecosystemLabel": "Tata Neu App/Website and partner Tata brands",
     "ecosystemValue": 1
+  },
+  "eligibility": {
+    "salaried": [
+      "Age 21 to 60 years",
+      "Stable income as per SBI Card credit assessment",
+      "Good credit profile and address in a serviced location"
+    ],
+    "selfEmployed": [
+      "Age 25 to 60 years",
+      "Stable business income as per SBI Card credit assessment",
+      "Good credit profile and address in a serviced location"
+    ]
   },
   "additionalDetails": [
     "1 NeuCoin equals Re 1 savings on Tata Neu App/Website and partner Tata brands"

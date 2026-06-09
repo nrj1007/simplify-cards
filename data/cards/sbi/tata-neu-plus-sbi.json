@@ -2,6 +2,7 @@
   "id": "tata-neu-plus-sbi",
   "issuer": "SBI Card",
   "name": "Tata Neu Plus SBI Card",
+  "imageUrl": "/images/tata-neu-plus-sbi.png",
   "network": [
     "Visa",
     "RuPay"
@@ -96,6 +97,18 @@
     "ecosystemLabel": "Tata Neu App/Website and partner Tata brands",
     "ecosystemValue": 1
   },
+  "eligibility": {
+    "salaried": [
+      "Age 21 to 60 years",
+      "Stable income as per SBI Card credit assessment",
+      "Good credit profile and address in a serviced location"
+    ],
+    "selfEmployed": [
+      "Age 25 to 60 years",
+      "Stable business income as per SBI Card credit assessment",
+      "Good credit profile and address in a serviced location"
+    ]
+  },
   "additionalDetails": [
     "1 NeuCoin equals Re 1 savings on Tata Neu App/Website and partner Tata brands"
   ],
@@ -104,7 +117,7 @@
     "The product page currently positions the accelerated extra 5% NeuCoins specifically around select Tata Neu app or website categories, so the rewards table keeps a separate display row instead of treating all Tata ecosystem spends as a flat 7% bucket.",
     "UPI spends on the RuPay variant are capped at 500 NeuCoins per statement cycle.",
     "The current official materials describe welcome NeuCoins posting within 15 days of joining fee realisation.",
-    "The card is audited from official SBI sources but is not yet marked as manually verified by user."
+    "Card details manually reviewed and verified by user on 2026-06-09."
   ],
   "supportingSourceUrls": [
     "https://www.sbicard.com/en/personal/credit-cards/lifestyle/tata-neu-plus-sbi-card.page",
@@ -112,7 +125,7 @@
   ],
   "sourceUrl": "https://www.sbicard.com/en/personal/credit-cards/tata-neu-plus-sbi-card.html",
   "applyUrl": "https://www.sbicard.com/en/personal/credit-cards/lifestyle/tata-neu-plus-sbi-card.page",
-  "lastVerified": "2026-06-08",
+  "lastVerified": "2026-06-09",
   "verificationStatus": "official-direct",
   "popularityScore": 71
 }

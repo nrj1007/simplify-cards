@@ -2,6 +2,7 @@
   "id": "irctc-rupay-sbi",
   "issuer": "SBI Card",
   "name": "IRCTC SBI Card on RuPay",
+  "imageUrl": "/images/irctc-rupay-sbi.png",
   "network": [
     "RuPay"
   ],
@@ -70,20 +71,32 @@
     "ecosystemValue": 1,
     "pointsExpiryYears": 2
   },
+  "eligibility": {
+    "salaried": [
+      "Age 21 to 60 years",
+      "Stable income as per SBI Card credit assessment",
+      "Good credit profile and address in a serviced location"
+    ],
+    "selfEmployed": [
+      "Age 25 to 60 years",
+      "Stable business income as per SBI Card credit assessment",
+      "Good credit profile and address in a serviced location"
+    ]
+  },
   "additionalDetails": [],
   "internalNotes": [
     "Audited against official IRCTC SBI Card on RuPay product page on 2026-06-08.",
     "The 10% value-back framing comes from 10 Reward Points per Rs 100 on eligible railway ticket bookings through the IRCTC website and mobile app.",
     "Reward Points accrued in the SBI Card account will not get credited to the IRCTC loyalty account if the loyalty account status is blocked, inactive, or suspended.",
     "In case of railway ticket cancellation, a charge of 1% of the total refund amount is debited to the card.",
-    "The card is audited from official SBI sources but is not yet marked as manually verified by user."
+    "Card details manually reviewed and verified by user on 2026-06-09."
   ],
   "supportingSourceUrls": [
     "https://www.sbicard.com/en/personal/credit-cards/travel/irctc-rupay-sbi-card.page"
   ],
   "sourceUrl": "https://www.sbicard.com/en/personal/credit-cards/travel/irctc-rupay-sbi-card.page",
   "applyUrl": "https://www.sbicard.com/en/personal/credit-cards/travel/irctc-rupay-sbi-card.page",
-  "lastVerified": "2026-06-08",
+  "lastVerified": "2026-06-09",
   "verificationStatus": "official-direct",
   "popularityScore": 70
 }
