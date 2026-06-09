@@ -35,12 +35,12 @@
       "capMonthly": null
     }
   ],
-  "loungeDomestic": 23,
+  "loungeDomestic": 8,
   "loungeInternational": 6,
   "lounge": {
     "domestic": [
       "8 complimentary domestic airport lounge visits every year, capped at 2 visits per quarter.",
-      "1 additional domestic airport lounge visit is unlocked on every Rs 1 lakh spend, capped at 15 additional visits per year."
+      "1 additional domestic airport lounge visit is unlocked on every Rs 1 lakh spend, capped at 15 additional visits per year, taking the total annual domestic lounge access up to 23 visits."
     ],
     "international": [
       "Complimentary Priority Pass membership worth $99 is provided for the first 2 years.",
@@ -114,6 +114,182 @@
     "statementBalanceValue": 0.25,
     "smartBuyFlightHotelValue": 0.5,
     "airMilesValue": 1,
+    "transferPartnerValuations": [
+      {
+        "partner": "Accor (ALL)",
+        "partnerPointValue": 2.2,
+        "transferRatio": 0.5,
+        "basis": "fixed",
+        "note": "2 Travel Credits -> 1 Accor ALL point · Rs 2.2/point"
+      },
+      {
+        "partner": "Club ITC",
+        "partnerPointValue": 1,
+        "transferRatio": 0.5,
+        "basis": "fixed",
+        "note": "2 Travel Credits -> 1 Club ITC point · Rs 1/point"
+      }
+    ],
+    "airlinePartners": [
+      {
+        "airline": "Air Arabia",
+        "programme": "AA Rewards",
+        "ratio": "2:1",
+        "tatDays": 21
+      },
+      {
+        "airline": "AirAsia",
+        "programme": "AirAsia Rewards",
+        "ratio": "1:1",
+        "tatDays": 21
+      },
+      {
+        "airline": "Air Canada",
+        "programme": "Aeroplan",
+        "ratio": "1:1",
+        "tatDays": 21
+      },
+      {
+        "airline": "Air France-KLM",
+        "programme": "Flying Blue",
+        "ratio": "1:1",
+        "tatDays": 21
+      },
+      {
+        "airline": "Air India",
+        "programme": "Flying Returns",
+        "ratio": "1:1",
+        "tatDays": 21
+      },
+      {
+        "airline": "British Airways",
+        "programme": "The British Airways Club",
+        "ratio": "1:1",
+        "tatDays": 21
+      },
+      {
+        "airline": "Cathay Pacific",
+        "programme": "Cathay",
+        "ratio": "1:1",
+        "tatDays": 21
+      },
+      {
+        "airline": "Etihad Airways",
+        "programme": "Etihad Guest",
+        "ratio": "1:1",
+        "tatDays": 21
+      },
+      {
+        "airline": "Emirates",
+        "programme": "Emirates Skywards",
+        "ratio": "2:1",
+        "tatDays": 21
+      },
+      {
+        "airline": "Ethiopian Airlines",
+        "programme": "ShebaMiles",
+        "ratio": "2:1",
+        "tatDays": 21
+      },
+      {
+        "airline": "Japan Airlines",
+        "programme": "JAL Mileage Bank",
+        "ratio": "2:1",
+        "tatDays": 21
+      },
+      {
+        "airline": "Saudia",
+        "programme": "AlFursan",
+        "ratio": "2:1",
+        "tatDays": 21
+      },
+      {
+        "airline": "SpiceJet",
+        "programme": "SpiceClub",
+        "ratio": "1:1",
+        "tatDays": 21
+      },
+      {
+        "airline": "Thai Airways",
+        "programme": "Royal Orchid Plus",
+        "ratio": "1:1",
+        "tatDays": 21
+      },
+      {
+        "airline": "Turkish Airlines",
+        "programme": "Miles&Smiles",
+        "ratio": "2:1",
+        "tatDays": 21
+      },
+      {
+        "airline": "United Airlines",
+        "programme": "MileagePlus",
+        "ratio": "2:1",
+        "tatDays": 21
+      },
+      {
+        "airline": "Qantas Airways",
+        "programme": "Qantas Frequent Flyer",
+        "ratio": "1:1",
+        "tatDays": 21
+      },
+      {
+        "airline": "Vietnam Airlines",
+        "programme": "Lotusmiles",
+        "ratio": "1:1",
+        "tatDays": 21
+      }
+    ],
+    "hotelPartners": [
+      {
+        "hotelGroup": "Accor",
+        "programme": "Accor - ALL",
+        "ratio": "2:1",
+        "tatDays": 21
+      },
+      {
+        "hotelGroup": "IHG Hotels & Resorts",
+        "programme": "IHG One Rewards",
+        "ratio": "1:1",
+        "tatDays": 21
+      },
+      {
+        "hotelGroup": "ITC Hotels",
+        "programme": "Club ITC",
+        "ratio": "2:1",
+        "tatDays": 21
+      },
+      {
+        "hotelGroup": "Jumeirah Hotels & Resorts",
+        "programme": "Jumeirah One",
+        "ratio": "2:1",
+        "tatDays": 21
+      },
+      {
+        "hotelGroup": "Orchid Hotels",
+        "programme": "Orchid Rewards",
+        "ratio": "1:1",
+        "tatDays": 21
+      },
+      {
+        "hotelGroup": "Wyndham Hotels & Resorts",
+        "programme": "Wyndham Rewards",
+        "ratio": "1:1",
+        "tatDays": 21
+      },
+      {
+        "hotelGroup": "Shangri-La Group",
+        "programme": "Shangri-La Circle",
+        "ratio": "6:1",
+        "tatDays": 21
+      },
+      {
+        "hotelGroup": "Radisson Hotel Group",
+        "programme": "Radisson Rewards",
+        "ratio": "1:1",
+        "tatDays": 21
+      }
+    ],
     "pointsExpiryYears": 2
   },
   "eligibility": {
@@ -136,6 +312,9 @@
   "internalNotes": [
     "Audited against official SBI Card MILES ELITE product page and current MILES ELITE T&C booklet on 2026-06-08.",
     "The product page currently lists Mastercard and RuPay lounge-program references for domestic lounge access.",
+    "Reviewed SBI's public rewards-program-TnC-miles.pdf on 2026-06-09 for the current airline and hotel transfer tables; the document states transfer requests are processed within up to 21 days.",
+    "The official MILES rewards-program PDF currently labels the Air India partner programme as Flying Returns.",
+    "The Orchid Rewards hotel-partner ratio is inferred as 1:1 from the official PDF row because the OCR extraction rendered that one ratio unclearly.",
     "The card is audited from official SBI sources but is not yet marked as manually verified by user."
   ],
   "supportingSourceUrls": [
@@ -144,7 +323,7 @@
   ],
   "sourceUrl": "https://www.sbicard.com/en/personal/credit-cards/travel/sbi-card-miles-elite.page",
   "applyUrl": "https://www.sbicard.com/en/personal/credit-cards/travel/sbi-card-miles-elite.page",
-  "lastVerified": "2026-06-08",
+  "lastVerified": "2026-06-09",
   "verificationStatus": "official-direct",
   "popularityScore": 71
 }
