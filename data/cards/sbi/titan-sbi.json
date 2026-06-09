@@ -122,6 +122,18 @@
     "statementBalanceValue": 0.25,
     "pointsExpiryYears": 2
   },
+  "eligibility": {
+    "salaried": [
+      "Age 21 to 60 years",
+      "Stable income as per SBI Card credit assessment",
+      "Good credit profile and address in a serviced location"
+    ],
+    "selfEmployed": [
+      "Age 25 to 60 years",
+      "Stable business income as per SBI Card credit assessment",
+      "Good credit profile and address in a serviced location"
+    ]
+  },
   "additionalDetails": [
     "4 Reward Points equal Re 1 for eligible reward redemption"
   ],

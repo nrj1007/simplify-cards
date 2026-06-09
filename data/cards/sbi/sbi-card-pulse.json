@@ -95,6 +95,18 @@
     "pointsExpiryYears": 2,
     "redemptionFee": 99
   },
+  "eligibility": {
+    "salaried": [
+      "Age 21 to 60 years",
+      "Stable income as per SBI Card credit assessment",
+      "Good credit profile and address in a serviced location"
+    ],
+    "selfEmployed": [
+      "Age 25 to 60 years",
+      "Stable business income as per SBI Card credit assessment",
+      "Good credit profile and address in a serviced location"
+    ]
+  },
   "additionalDetails": [],
   "internalNotes": [
     "Audited against official SBI Card PULSE product page on 2026-06-08.",

@@ -116,6 +116,18 @@
     "airMilesValue": 1,
     "pointsExpiryYears": 2
   },
+  "eligibility": {
+    "salaried": [
+      "Age 21 to 60 years",
+      "Stable income as per SBI Card credit assessment",
+      "Good credit profile and address in a serviced location"
+    ],
+    "selfEmployed": [
+      "Age 25 to 60 years",
+      "Stable business income as per SBI Card credit assessment",
+      "Good credit profile and address in a serviced location"
+    ]
+  },
   "additionalDetails": [
     "1 Travel Credit = Re 1 for air mile or hotel point conversion",
     "1 Travel Credit = Rs 0.50 for travel bookings",
