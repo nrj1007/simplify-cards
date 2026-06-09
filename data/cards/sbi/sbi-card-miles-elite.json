@@ -2,6 +2,7 @@
   "id": "sbi-card-miles-elite",
   "issuer": "SBI Card",
   "name": "SBI Card MILES ELITE",
+  "imageUrl": "/images/sbi-card-miles-elite.png",
   "network": [
     "Mastercard",
     "RuPay"

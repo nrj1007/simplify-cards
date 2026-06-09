@@ -2,6 +2,7 @@
   "id": "sbi-card-miles-prime",
   "issuer": "SBI Card",
   "name": "SBI Card MILES PRIME",
+  "imageUrl": "/images/sbi-card-miles-prime.png",
   "network": [
     "Mastercard",
     "RuPay"
