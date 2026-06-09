@@ -141,7 +141,7 @@
     "Audited against official Titan SBI Card product page and Titan FAQ booklet on 2026-06-08.",
     "Annual fee reversal is tracked only through feeWaiverSpend at Rs 3 lakh and is intentionally not repeated as a milestone.",
     "The card's live SBI page frames Titan ecosystem value-back through a mix of cashback and gift-voucher benefits, so the rewards table uses separate display rows by Titan brand cluster.",
-    "The card is audited from official SBI sources but is not yet marked as manually verified by user."
+    "Card details manually reviewed and verified by user on 2026-06-09."
   ],
   "supportingSourceUrls": [
     "https://www.sbicard.com/en/personal/credit-cards/shopping/titan-sbi-card.page",
@@ -149,7 +149,7 @@
   ],
   "sourceUrl": "https://www.sbicard.com/en/personal/credit-cards/shopping/titan-sbi-card.page",
   "applyUrl": "https://www.sbicard.com/en/personal/credit-cards/shopping/titan-sbi-card.page",
-  "lastVerified": "2026-06-08",
+  "lastVerified": "2026-06-09",
   "verificationStatus": "official-direct",
   "popularityScore": 72
 }
