@@ -77,9 +77,6 @@
   ],
   "additionalBenefits": [
     "First-year annual fee is nil; second year onward annual fee is Rs 350",
-    "5% cashback on Freecharge spends",
-    "2% cashback on local commute spends",
-    "1% cashback on all other eligible spends",
     "Dining benefits through Axis Bank dining programme",
     "Convert transactions of Rs 2,500 or more into EMI"
   ],
@@ -101,8 +98,11 @@
   },
   "sourceUrl": "https://www.axisbank.com/retail/cards/credit-card/axis-bank-freecharge-plus-credit-card/features-benefits",
   "applyUrl": "https://www.axisbank.com/retail/cards/credit-card/axis-bank-freecharge-plus-credit-card/features-benefits",
-  "lastVerified": "2026-05-10",
+  "lastVerified": "2026-06-09",
   "verificationStatus": "official-direct",
+  "internalNotes": [
+    "Card details manually reviewed and verified by user on 2026-06-09."
+  ],
   "popularityScore": 64,
   "imageUrl": "/images/axis-freecharge-plus.webp"
 }

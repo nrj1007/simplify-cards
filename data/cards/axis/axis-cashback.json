@@ -84,10 +84,6 @@
     "Annual fee waived on spends of Rs 4 lakh or more in a card anniversary year"
   ],
   "additionalBenefits": [
-    "Up to 7% cashback on eligible online spends (capped at Rs 4,000 per statement cycle)",
-    "0.75% cashback on eligible offline retail spends",
-    "0.75% cashback on eligible travel spends, both online and offline",
-    "0.5% cashback on eligible utility spends (capped at Rs 100 per statement cycle)",
     "Axis Dining Delights and Wednesday Delight offers may apply as per Axis Bank programme terms"
   ],
   "redemption": {
@@ -108,7 +104,10 @@
   },
   "sourceUrl": "https://www.axisbank.com/retail/cards/credit-card/cashback-credit-card",
   "applyUrl": "https://www.axisbank.com/retail/cards/credit-card/cashback-credit-card",
-  "lastVerified": "2026-05-10",
+  "internalNotes": [
+    "Card details manually reviewed and verified by user on 2026-06-09."
+  ],
+  "lastVerified": "2026-06-09",
   "verificationStatus": "official-direct",
   "popularityScore": 72,
   "imageUrl": "/images/axis-cashback.webp"
