@@ -108,6 +108,35 @@
     "tax",
     "wallet_load"
   ],
+  "joiningBenefitsValued": [
+    {
+      "value": 12500,
+      "kind": "points",
+      "label": "12,500 ICICI Bank Reward Points on payment of joining fee"
+    },
+    {
+      "value": 6000,
+      "kind": "voucher",
+      "label": "Complimentary one-year Taj Epicure Plus membership including one-night stay voucher on card activation"
+    },
+    {
+      "value": 2995,
+      "kind": "other",
+      "label": "Complimentary one-year EazyDiner Prime membership on card activation"
+    }
+  ],
+  "renewalBenefitsValued": [
+    {
+      "value": 12500,
+      "kind": "points",
+      "label": "12,500 ICICI Bank Reward Points on payment of annual fee"
+    },
+    {
+      "value": 0,
+      "kind": "other",
+      "label": "Complimentary annual renewal of Taj Epicure and EazyDiner Prime memberships"
+    }
+  ],
   "joiningBenefits": [
     "12,500 ICICI Bank Reward Points (worth Rs 12,500) on payment of joining fee",
     "Complimentary one-year Taj Epicure Plus membership including one-night stay voucher (worth Rs 12,000) on card activation",
