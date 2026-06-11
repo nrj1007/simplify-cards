@@ -73,20 +73,184 @@
       "label": "1,500 bonus EDGE REWARD Points on spends of Rs 30,000 per statement cycle (excluding rent, wallet, insurance, and cash withdrawals)"
     }
   ],
-  "milestoneBenefits": [
-    "1,500 EDGE REWARD Points on spends of Rs 30,000 per statement cycle (excluding rent, wallet, insurance, and cash withdrawals)",
-    "Annual fee waived on annual spends of Rs 2 lakh or more, excluding rent and wallet load transactions"
-  ],
+  "milestoneBenefits": [],
   "additionalBenefits": [
     "5,000 EDGE REWARD Points on cumulative net spends of Rs 1,000 or above within 30 days of card issuance",
     "Bouquet of memberships worth up to Rs 1,000 every anniversary year",
     "Rs 150 instant discount on Swiggy twice per calendar month on minimum transaction value of Rs 500",
-    "2 complimentary domestic lounge visits per quarter at select airports",
     "1% fuel surcharge waiver on eligible fuel transactions"
   ],
   "redemption": {
     "statementBalanceValue": 0.2,
-    "pointsExpiryYears": 3
+    "airMilesValue": 0.1,
+    "pointsExpiryYears": 3,
+    "transferPartnerValuations": [
+      {
+        "partner": "Club ITC",
+        "partnerPointValue": 1,
+        "transferRatio": 0.1,
+        "basis": "fixed",
+        "note": "10 EDGE REWARD Points -> 1 Club ITC point"
+      }
+    ],
+    "airlinePartners": [
+      {
+        "airline": "airasia",
+        "programme": "airasia rewards",
+        "ratio": "10:1",
+        "group": "Group B",
+        "annualCap": 400000
+      },
+      {
+        "airline": "Air Canada",
+        "programme": "Aeroplan",
+        "ratio": "20:1",
+        "group": "Group A",
+        "annualCap": 100000
+      },
+      {
+        "airline": "Air France-KLM",
+        "programme": "Flying Blue",
+        "ratio": "20:1",
+        "group": "Group B",
+        "annualCap": 400000
+      },
+      {
+        "airline": "Air India",
+        "programme": "Maharaja Club",
+        "ratio": "20:1",
+        "group": "Group B",
+        "annualCap": 400000
+      },
+      {
+        "airline": "British Airways",
+        "programme": "The British Airways Club",
+        "ratio": "10:1",
+        "group": "Group A",
+        "annualCap": 100000
+      },
+      {
+        "airline": "Ethiopian Airlines",
+        "programme": "ShebaMiles",
+        "ratio": "20:1",
+        "group": "Group A",
+        "annualCap": 100000
+      },
+      {
+        "airline": "Etihad Airways",
+        "programme": "Etihad Guest",
+        "ratio": "20:1",
+        "group": "Group A",
+        "annualCap": 100000
+      },
+      {
+        "airline": "Finnair",
+        "programme": "Finnair Plus",
+        "ratio": "10:1",
+        "group": "Group A",
+        "annualCap": 100000
+      },
+      {
+        "airline": "Japan Airlines",
+        "programme": "JAL Mileage Bank",
+        "ratio": "20:1",
+        "group": "Group A",
+        "annualCap": 100000
+      },
+      {
+        "airline": "Qantas",
+        "programme": "Qantas Frequent Flyer",
+        "ratio": "20:1",
+        "group": "Group B",
+        "annualCap": 400000
+      },
+      {
+        "airline": "Singapore Airlines",
+        "programme": "KrisFlyer",
+        "ratio": "20:1",
+        "group": "Group A",
+        "annualCap": 100000
+      },
+      {
+        "airline": "SpiceJet",
+        "programme": "SpiceClub",
+        "ratio": "10:1",
+        "group": "Group B",
+        "annualCap": 400000
+      },
+      {
+        "airline": "Thai Airways",
+        "programme": "Royal Orchid Plus",
+        "ratio": "20:1",
+        "group": "Group A",
+        "annualCap": 100000
+      },
+      {
+        "airline": "Turkish Airlines",
+        "programme": "Miles&Smiles",
+        "ratio": "20:1",
+        "group": "Group A",
+        "annualCap": 100000
+      },
+      {
+        "airline": "United Airlines",
+        "programme": "MileagePlus",
+        "ratio": "20:1",
+        "group": "Group A",
+        "annualCap": 100000
+      },
+      {
+        "airline": "Vietnam Airlines",
+        "programme": "Lotusmiles",
+        "ratio": "10:1",
+        "group": "Group A",
+        "annualCap": 100000
+      }
+    ],
+    "hotelPartners": [
+      {
+        "hotelGroup": "IHG Hotels & Resorts",
+        "programme": "IHG One Rewards",
+        "ratio": "20:1",
+        "group": "Group B",
+        "annualCap": 400000
+      },
+      {
+        "hotelGroup": "ITC Hotels",
+        "programme": "Club ITC",
+        "ratio": "10:1",
+        "group": "Group B",
+        "annualCap": 400000
+      },
+      {
+        "hotelGroup": "Orchid Hotels",
+        "programme": "Orchid Rewards",
+        "ratio": "20:1",
+        "group": "Group B",
+        "annualCap": 400000
+      },
+      {
+        "hotelGroup": "The Postcard Hotel",
+        "programme": "The Postcard Sunshine Club",
+        "ratio": "20:1",
+        "group": "Group B",
+        "annualCap": 400000
+      },
+      {
+        "hotelGroup": "Radisson Hotels",
+        "programme": "Radisson Rewards",
+        "ratio": "20:1",
+        "group": "Group B",
+        "annualCap": 400000
+      },
+      {
+        "hotelGroup": "Wyndham Hotels & Resorts",
+        "programme": "Wyndham Rewards",
+        "ratio": "20:1",
+        "group": "Group B",
+        "annualCap": 400000
+      }
+    ]
   },
   "eligibility": {
     "salaried": [
@@ -102,7 +266,15 @@
   },
   "sourceUrl": "https://www.axisbank.com/retail/cards/credit-card/rewards-credit-card",
   "applyUrl": "https://www.axisbank.com/retail/cards/credit-card/rewards-credit-card",
-  "lastVerified": "2026-05-10",
+  "additionalDetails": [
+    "Travel EDGE transfers for Other cards are capped at 5,00,000 EDGE REWARD Points per customer ID per calendar year, including up to 1,00,000 to Group A partners and 4,00,000 to Group B partners.",
+    "Minimum 300 EDGE REWARD Points are required per partner-transfer request."
+  ],
+  "internalNotes": [
+    "Axis Bank REWARDS Credit Card is listed as an eligible card in the Axis Travel EDGE programme under the 'Other cards' transfer bucket.",
+    "Card details manually reviewed and verified by user on 2026-06-12."
+  ],
+  "lastVerified": "2026-06-12",
   "verificationStatus": "official-direct",
   "popularityScore": 70,
   "imageUrl": "/images/axis-rewards.webp"
