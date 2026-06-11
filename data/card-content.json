@@ -316,12 +316,12 @@
   "axis-horizon": {
     "tips": [
       {
-        "text": "Air India has recently revalued its redemptions and is classified under Group B (subject to the 120,000 annual EDGE Mile transfer cap).",
+        "text": "Air India has recently revalued its redemptions and is classified under Group B (subject to the 400,000 annual EDGE Mile transfer cap).",
         "sourceType": "manual",
         "sourceLabel": "Manual"
       },
       {
-        "text": "For Marriott Bonvoy transfers, you can indirectly transfer by converting EDGE Miles to Club ITC at a 1:2 ratio, and then Club ITC to Marriott at a 2:3 ratio (capped at 10,000 ITC points per quarter).",
+        "text": "For Marriott Bonvoy transfers, you can indirectly transfer by converting EDGE Miles to Club ITC at a 1:1 ratio, and then Club ITC to Marriott at a 2:3 ratio (capped at 10,000 ITC points per quarter).",
         "sourceType": "manual",
         "sourceLabel": "Manual"
       }
