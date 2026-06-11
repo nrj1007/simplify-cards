@@ -243,9 +243,12 @@
       "Resident of India"
     ]
   },
+  "internalNotes": [
+    "Card details manually reviewed and verified by user on 2026-06-11."
+  ],
   "sourceUrl": "https://www.axisbank.com/retail/cards/credit-card/axis-horizon-credit-card",
   "applyUrl": "https://www.axisbank.com/retail/cards/credit-card/axis-horizon-credit-card",
-  "lastVerified": "2026-05-10",
+  "lastVerified": "2026-06-11",
   "verificationStatus": "official-direct",
   "popularityScore": 69,
   "imageUrl": "/images/axis-horizon.webp"
