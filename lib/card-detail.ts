@@ -102,10 +102,18 @@ const NOTABLE_EXCLUSIONS: Array<{ match: string; label: string }> = [
 ];
 
 function notableExclusions(card: CreditCard) {
+  const base = baseRewardRate(card);
+  // Don't warn about a category the card actually accelerates rewards on or is built around.
+  const cardFocuses = new Set<string>([
+    ...card.rewards
+      .filter((r) => r.category !== "base" && r.rate > base)
+      .flatMap((r) => r.category.split(/[\s,]+/).map((c) => c.trim().toLowerCase()).filter(Boolean)),
+    ...card.bestFor.map((b) => b.toLowerCase())
+  ]);
   const lower = card.exclusions.map((entry) => entry.toLowerCase());
-  return NOTABLE_EXCLUSIONS.filter((category) => lower.some((entry) => entry.includes(category.match))).map(
-    (category) => category.label
-  );
+  return NOTABLE_EXCLUSIONS.filter(
+    (nc) => !cardFocuses.has(nc.match) && lower.some((entry) => entry.includes(nc.match))
+  ).map((nc) => nc.label);
 }
 
 // ---------------------------------------------------------------------------
