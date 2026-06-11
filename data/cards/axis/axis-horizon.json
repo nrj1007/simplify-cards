@@ -83,11 +83,21 @@
     "2 complimentary international lounge visits per quarter (8 per year)",
     "1% fuel surcharge waiver on eligible fuel transactions from Rs 400 to Rs 5,000, capped at Rs 400 per statement month"
   ],
+  "additionalDetails": [],
   "redemption": {
-    "statementBalanceValue": 1,
+    "statementBalanceValue": null,
+    "travelEdgeValue": 1,
     "airMilesValue": 1,
     "pointsExpiryYears": 3,
-    "transferPartnerValuations": [],
+    "transferPartnerValuations": [
+      {
+        "partner": "ITC Hotels (Club ITC)",
+        "partnerPointValue": 1,
+        "transferRatio": 1,
+        "basis": "fixed",
+        "note": "1 EDGE Mile → 1 Club ITC point · Rs 1/point"
+      }
+    ],
     "airlinePartners": [
       {
         "airline": "Air Canada",
@@ -228,8 +238,8 @@
         "hotelGroup": "Wyndham Hotels & Resorts",
         "programme": "Wyndham Rewards",
         "ratio": "1:1",
-        "group": "Group B",
-        "annualCap": 400000
+        "group": "Group A",
+        "annualCap": 100000
       },
       {
         "hotelGroup": "The Postcard Hotel",
