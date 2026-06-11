@@ -66,19 +66,14 @@
     "education",
     "gaming"
   ],
-  "milestoneBenefits": [
-    "Annual fee waiver on spends of Rs 35 lakh in the preceding year"
-  ],
+  "milestoneBenefits": [],
   "additionalBenefits": [
     "15,000 EDGE REWARD Points on card activation",
-    "15 EDGE REWARD Points per Rs 200 spent on eligible domestic spends",
-    "2X rewards on eligible international spends",
     "Reduced forex markup of 1.5%",
     "No cash withdrawal charges",
     "Complimentary airport concierge services",
     "ITC Culinaire, Accor Plus and Club Marriott hotel memberships, subject to product terms",
     "50 complimentary golf rounds per year, subject to product terms",
-    "Unlimited domestic and international lounge access, subject to applicable programme terms",
     "1% fuel surcharge waiver on transactions from Rs 400 to Rs 4,000, capped at Rs 400 per month",
     "Purchase protection up to Rs 2 lakh",
     "Credit shield cover up to Rs 5 lakh",
@@ -184,14 +179,14 @@
       },
       {
         "airline": "Air India",
-        "programme": "Flying Returns",
+        "programme": "Maharaja Club",
         "ratio": "5:2",
         "group": "Group B",
         "annualCap": 400000
       },
       {
-        "airline": "Air Asia",
-        "programme": "Air Asia",
+        "airline": "airasia",
+        "programme": "airasia rewards",
         "ratio": "5:2",
         "group": "Group B",
         "annualCap": 400000
@@ -242,7 +237,7 @@
       },
       {
         "hotelGroup": "The Postcard Hotel",
-        "programme": "The Postcard Hotel",
+        "programme": "The Postcard Sunshine Club",
         "ratio": "5:2",
         "group": "Group B",
         "annualCap": 400000
@@ -263,7 +258,16 @@
   },
   "sourceUrl": "https://www.axisbank.com/retail/cards/credit-card/reserve-credit-card",
   "applyUrl": "https://www.axisbank.com/retail/cards/credit-card/reserve-credit-card",
-  "lastVerified": "2026-05-10",
+  "additionalDetails": [
+    "Travel EDGE transfers for Reserve cards are capped at 5,00,000 EDGE REWARD Points per customer ID per calendar year, including up to 1,00,000 to Group A partners and 4,00,000 to Group B partners.",
+    "Minimum 300 EDGE REWARD Points are required per partner-transfer request.",
+    "Effective April 2, 2026: Marriott Bonvoy, Accor Live Limitless and Qatar Airways Privilege Club removed; British Airways Executive Club, Finnair Plus and Vietnam Airlines Lotusmiles added."
+  ],
+  "internalNotes": [
+    "Reserve card uses a premium 5:2 transfer ratio to most partners vs 10:1 / 20:1 for Other cards.",
+    "Card details manually reviewed and verified by user on 2026-06-12."
+  ],
+  "lastVerified": "2026-06-12",
   "verificationStatus": "official-direct",
   "popularityScore": 75,
   "imageUrl": "/images/axis-reserve.webp"
