@@ -78,9 +78,6 @@
       "notes": "Earn 4% value back (20 EDGE REWARD Points per Rs 100 spent) at IndianOil outlets, capped at 1,000 points per month."
     }
   ],
-  "milestoneBenefits": [
-    "Annual fee waived on spending more than Rs 3.5 lakh in a card anniversary year"
-  ],
   "additionalBenefits": [
     "Up to 1,250 EDGE REWARD Points on first fuel transaction within 30 days of card issuance",
     "10% instant discount on BookMyShow movie tickets",
@@ -90,7 +87,174 @@
   ],
   "redemption": {
     "statementBalanceValue": 0.2,
-    "pointsExpiryYears": 3
+    "pointsExpiryYears": 3,
+    "transferPartnerValuations": [
+      {
+        "partner": "Club ITC",
+        "partnerPointValue": 1,
+        "transferRatio": 0.1,
+        "basis": "fixed",
+        "note": "10 EDGE REWARD Points -> 1 Club ITC point"
+      }
+    ],
+    "airlinePartners": [
+      {
+        "airline": "airasia",
+        "programme": "airasia rewards",
+        "ratio": "10:1",
+        "group": "Group B",
+        "annualCap": 400000
+      },
+      {
+        "airline": "Air Canada",
+        "programme": "Aeroplan",
+        "ratio": "20:1",
+        "group": "Group A",
+        "annualCap": 100000
+      },
+      {
+        "airline": "Air France-KLM",
+        "programme": "Flying Blue",
+        "ratio": "20:1",
+        "group": "Group B",
+        "annualCap": 400000
+      },
+      {
+        "airline": "Air India",
+        "programme": "Maharaja Club",
+        "ratio": "20:1",
+        "group": "Group B",
+        "annualCap": 400000
+      },
+      {
+        "airline": "British Airways",
+        "programme": "The British Airways Club",
+        "ratio": "10:1",
+        "group": "Group A",
+        "annualCap": 100000
+      },
+      {
+        "airline": "Ethiopian Airlines",
+        "programme": "ShebaMiles",
+        "ratio": "20:1",
+        "group": "Group A",
+        "annualCap": 100000
+      },
+      {
+        "airline": "Etihad Airways",
+        "programme": "Etihad Guest",
+        "ratio": "20:1",
+        "group": "Group A",
+        "annualCap": 100000
+      },
+      {
+        "airline": "Finnair",
+        "programme": "Finnair Plus",
+        "ratio": "10:1",
+        "group": "Group A",
+        "annualCap": 100000
+      },
+      {
+        "airline": "Japan Airlines",
+        "programme": "JAL Mileage Bank",
+        "ratio": "20:1",
+        "group": "Group A",
+        "annualCap": 100000
+      },
+      {
+        "airline": "Qantas",
+        "programme": "Qantas Frequent Flyer",
+        "ratio": "20:1",
+        "group": "Group B",
+        "annualCap": 400000
+      },
+      {
+        "airline": "Singapore Airlines",
+        "programme": "KrisFlyer",
+        "ratio": "20:1",
+        "group": "Group A",
+        "annualCap": 100000
+      },
+      {
+        "airline": "SpiceJet",
+        "programme": "SpiceClub",
+        "ratio": "10:1",
+        "group": "Group B",
+        "annualCap": 400000
+      },
+      {
+        "airline": "Thai Airways",
+        "programme": "Royal Orchid Plus",
+        "ratio": "20:1",
+        "group": "Group A",
+        "annualCap": 100000
+      },
+      {
+        "airline": "Turkish Airlines",
+        "programme": "Miles&Smiles",
+        "ratio": "20:1",
+        "group": "Group A",
+        "annualCap": 100000
+      },
+      {
+        "airline": "United Airlines",
+        "programme": "MileagePlus",
+        "ratio": "20:1",
+        "group": "Group A",
+        "annualCap": 100000
+      },
+      {
+        "airline": "Vietnam Airlines",
+        "programme": "Lotusmiles",
+        "ratio": "10:1",
+        "group": "Group A",
+        "annualCap": 100000
+      }
+    ],
+    "hotelPartners": [
+      {
+        "hotelGroup": "IHG Hotels & Resorts",
+        "programme": "IHG One Rewards",
+        "ratio": "20:1",
+        "group": "Group B",
+        "annualCap": 400000
+      },
+      {
+        "hotelGroup": "ITC Hotels",
+        "programme": "Club ITC",
+        "ratio": "10:1",
+        "group": "Group B",
+        "annualCap": 400000
+      },
+      {
+        "hotelGroup": "Orchid Hotels",
+        "programme": "Orchid Rewards",
+        "ratio": "20:1",
+        "group": "Group B",
+        "annualCap": 400000
+      },
+      {
+        "hotelGroup": "The Postcard Hotel",
+        "programme": "The Postcard Sunshine Club",
+        "ratio": "20:1",
+        "group": "Group B",
+        "annualCap": 400000
+      },
+      {
+        "hotelGroup": "Radisson Hotels",
+        "programme": "Radisson Rewards",
+        "ratio": "20:1",
+        "group": "Group B",
+        "annualCap": 400000
+      },
+      {
+        "hotelGroup": "Wyndham Hotels & Resorts",
+        "programme": "Wyndham Rewards",
+        "ratio": "20:1",
+        "group": "Group B",
+        "annualCap": 400000
+      }
+    ]
   },
   "eligibility": {
     "salaried": [
@@ -106,7 +270,17 @@
   },
   "sourceUrl": "https://www.axisbank.com/retail/cards/credit-card/indianoil-axis-bank-credit-card",
   "applyUrl": "https://www.axisbank.com/retail/cards/credit-card/indianoil-axis-bank-credit-card",
-  "lastVerified": "2026-05-10",
+  "additionalDetails": [
+    "Travel EDGE transfers for Other cards are capped at 5,00,000 EDGE REWARD Points per customer ID per calendar year, including up to 1,00,000 to Group A partners and 4,00,000 to Group B partners.",
+    "Minimum 300 EDGE REWARD Points are required per partner-transfer request."
+  ],
+  "internalNotes": [
+    "Reviewed against the official Axis Travel EDGE transfer terms and the Axis eligible cards PDF on 2026-06-11.",
+    "INDIANOIL AXIS BANK Credit Card is listed in the official eligible cards PDF and follows the 'Other cards' transfer bucket on the Travel EDGE partner table.",
+    "Accor and Marriott rows were present only inside commented-out HTML on the live Travel EDGE terms page on 2026-06-11, so they were not carried as active transfer partners.",
+    "Card details manually reviewed and verified by user on 2026-06-11."
+  ],
+  "lastVerified": "2026-06-11",
   "verificationStatus": "official-direct",
   "popularityScore": 80,
   "imageUrl": "/images/axis-indianoil.webp"
