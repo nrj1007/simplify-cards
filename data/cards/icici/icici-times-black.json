@@ -68,6 +68,28 @@
     "rent",
     "emi"
   ],
+  "joiningBenefitsValued": [
+    {
+      "value": 5000,
+      "kind": "voucher",
+      "label": "Luxury Stay Gift Card from EaseMyTrip (₹10,000) or Lohono Stays (₹12,000)"
+    },
+    {
+      "value": 2000,
+      "kind": "voucher",
+      "label": "Lifestyle Gift Cards from Toni & Guy and Interflora"
+    },
+    {
+      "value": 5000,
+      "kind": "voucher",
+      "label": "Travel visa benefits with Atlys and OneVasco"
+    },
+    {
+      "value": 0,
+      "kind": "other",
+      "label": "Special membership offers and event access at The Quorum Club"
+    }
+  ],
   "joiningBenefits": [
     "Luxury Stay Gift Card from EaseMyTrip worth ₹10,000 or Lohono Stays worth ₹12,000",
     "Lifestyle Gift Cards from Toni & Guy (worth ₹3,000) and Interflora (worth ₹1,000)",
