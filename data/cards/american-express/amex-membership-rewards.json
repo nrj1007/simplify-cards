@@ -79,6 +79,22 @@
   "renewalBenefits": [
     "5,000 Membership Rewards points upon first-year card renewal on payment of annual membership fee"
   ],
+  "milestones": [
+    {
+      "threshold": 6000,
+      "period": "monthly",
+      "value": 250,
+      "kind": "points",
+      "label": "1,000 Bonus Membership Rewards points on 4 transactions of Rs 1,500 or more in a calendar month"
+    },
+    {
+      "threshold": 20000,
+      "period": "monthly",
+      "value": 250,
+      "kind": "points",
+      "label": "Additional 1,000 Membership Rewards points on spending Rs 20,000 or more in a calendar month"
+    }
+  ],
   "milestoneBenefits": [
     "1,000 Bonus Membership Rewards points on 4 transactions of Rs 1,500 or more in a calendar month",
     "Additional 1,000 Membership Rewards points on spending Rs 20,000 or more in a calendar month"
@@ -137,17 +153,53 @@
       }
     ],
     "airlinePartners": [
-      { "airline": "British Airways", "programme": "Executive Club", "ratio": "2:1" },
-      { "airline": "Singapore Airlines", "programme": "KrisFlyer", "ratio": "2:1" },
-      { "airline": "Qatar Airways", "programme": "Privilege Club", "ratio": "2:1" },
-      { "airline": "Emirates", "programme": "Skywards", "ratio": "2:1" },
-      { "airline": "Etihad Airways", "programme": "Etihad Guest", "ratio": "2:1" },
-      { "airline": "Virgin Atlantic", "programme": "Flying Club", "ratio": "2:1" },
-      { "airline": "Air India", "programme": "Maharaja Club", "ratio": "2:1" }
+      {
+        "airline": "British Airways",
+        "programme": "Executive Club",
+        "ratio": "2:1"
+      },
+      {
+        "airline": "Singapore Airlines",
+        "programme": "KrisFlyer",
+        "ratio": "2:1"
+      },
+      {
+        "airline": "Qatar Airways",
+        "programme": "Privilege Club",
+        "ratio": "2:1"
+      },
+      {
+        "airline": "Emirates",
+        "programme": "Skywards",
+        "ratio": "2:1"
+      },
+      {
+        "airline": "Etihad Airways",
+        "programme": "Etihad Guest",
+        "ratio": "2:1"
+      },
+      {
+        "airline": "Virgin Atlantic",
+        "programme": "Flying Club",
+        "ratio": "2:1"
+      },
+      {
+        "airline": "Air India",
+        "programme": "Maharaja Club",
+        "ratio": "2:1"
+      }
     ],
     "hotelPartners": [
-      { "hotelGroup": "Marriott", "programme": "Marriott Bonvoy", "ratio": "1:1" },
-      { "hotelGroup": "Hilton Hotels", "programme": "Hilton Honors", "ratio": "1:0.9" }
+      {
+        "hotelGroup": "Marriott",
+        "programme": "Marriott Bonvoy",
+        "ratio": "1:1"
+      },
+      {
+        "hotelGroup": "Hilton Hotels",
+        "programme": "Hilton Honors",
+        "ratio": "1:0.9"
+      }
     ]
   },
   "eligibility": {

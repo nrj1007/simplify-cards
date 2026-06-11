@@ -101,6 +101,13 @@
     "education",
     "utilities"
   ],
+  "joiningBenefitsValued": [
+    {
+      "value": 250,
+      "kind": "other",
+      "label": "Amazon eVoucher worth Rs 500 on first transaction within 30 days of card issuance"
+    }
+  ],
   "joiningBenefits": [
     "Amazon eVoucher worth Rs 500 on first transaction within 30 days of card issuance"
   ],

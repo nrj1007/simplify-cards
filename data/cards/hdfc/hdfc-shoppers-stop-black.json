@@ -85,6 +85,18 @@
       "label": "2,000 Reward Points on weekend spends of Rs 50,000 or above at Shoppers Stop in a month (capped once per month)"
     }
   ],
+  "joiningBenefitsValued": [
+    {
+      "value": 750,
+      "kind": "voucher",
+      "label": "Rs 1,500 Shoppers Stop voucher as welcome benefit on any transaction at Shoppers Stop"
+    },
+    {
+      "value": 4500,
+      "kind": "other",
+      "label": "Complimentary Shoppers Stop Black membership worth Rs 4,500"
+    }
+  ],
   "joiningBenefits": [
     "Rs 1,500 Shoppers Stop voucher as welcome benefit on any transaction at Shoppers Stop",
     "Complimentary Shoppers Stop Black membership worth Rs 4,500"
@@ -108,7 +120,7 @@
         "partner": "Shoppers Stop",
         "programme": "Shoppers Stop Vouchers",
         "ratio": "1:1",
-        "valuePerPoint": 1.0
+        "valuePerPoint": 1
       }
     ]
   },

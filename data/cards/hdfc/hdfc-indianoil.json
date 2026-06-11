@@ -104,6 +104,13 @@
     "rent",
     "government"
   ],
+  "joiningBenefitsValued": [
+    {
+      "value": 125,
+      "kind": "voucher",
+      "label": "INR 250 worth of voucher upon card activation and completion of at least one transaction within 37 days from card issuance"
+    }
+  ],
   "joiningBenefits": [
     "INR 250 worth of voucher upon card activation and completion of at least one transaction within 37 days from card issuance"
   ],

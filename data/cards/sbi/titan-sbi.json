@@ -91,6 +91,13 @@
     "fees_and_charges",
     "disputed_transactions"
   ],
+  "joiningBenefitsValued": [
+    {
+      "value": 6000,
+      "kind": "points",
+      "label": "12,000 Reward Points worth Rs 3,000 on payment of annual fee"
+    }
+  ],
   "joiningBenefits": [
     "12,000 Reward Points worth Rs 3,000 on payment of annual fee"
   ],

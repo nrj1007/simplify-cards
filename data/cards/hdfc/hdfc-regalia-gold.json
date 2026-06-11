@@ -152,6 +152,13 @@
     "Rs 1,500 worth Myntra or Nykaa vouchers on quarterly spends of Rs 1.5 lakh",
     "Renewal fee waived on annual spends of Rs 4 lakh"
   ],
+  "joiningBenefitsValued": [
+    {
+      "value": 0,
+      "kind": "other",
+      "label": "Complimentary Swiggy One and MMTBLACK Gold membership as welcome benefits on spends of Rs 1 lakh in first 90 days"
+    }
+  ],
   "joiningBenefits": [
     "Complimentary Swiggy One and MMTBLACK Gold membership as welcome benefits on spends of Rs 1 lakh in first 90 days"
   ],

@@ -84,6 +84,13 @@
     "fees_and_charges",
     "disputed_transactions"
   ],
+  "joiningBenefitsValued": [
+    {
+      "value": 750,
+      "kind": "points",
+      "label": "3,000 Travel Credits on spends of Rs 60,000 within 60 days of card issuance, credited on payment of joining fee"
+    }
+  ],
   "joiningBenefits": [
     "3,000 Travel Credits on spends of Rs 60,000 within 60 days of card issuance, credited on payment of joining fee"
   ],

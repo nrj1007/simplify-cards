@@ -81,6 +81,23 @@
       "notes": "Reward Points on Rent payment transactions done through third-party merchants will be capped at 500 in a statement cycle."
     }
   ],
+  "joiningBenefitsValued": [
+    {
+      "value": 0,
+      "kind": "other",
+      "label": "Choice of Montblanc luxury merchandise (watches, writing instruments, leather goods, or eyewear)"
+    },
+    {
+      "value": 6000,
+      "kind": "voucher",
+      "label": "Complimentary luxury stays at The Postcard Hotel"
+    },
+    {
+      "value": 0,
+      "kind": "voucher",
+      "label": "Choice of brand and e-commerce vouchers via Vouchagram or Vouchagram Premium (including Amazon, Flipkart, Myntra, Swiggy, Zomato, Uber, Ola, Bata, Titan, Vero Moda, and ALDO)"
+    }
+  ],
   "joiningBenefits": [
     "Choice of Montblanc luxury merchandise (watches, writing instruments, leather goods, or eyewear)",
     "Complimentary luxury stays at The Postcard Hotel (worth Rs 12,000)",

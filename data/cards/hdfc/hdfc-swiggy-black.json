@@ -69,6 +69,13 @@
     "wallet_load",
     "cash_advance"
   ],
+  "joiningBenefitsValued": [
+    {
+      "value": 0,
+      "kind": "other",
+      "label": "Complimentary 3-month Swiggy BLCK membership on card activation by completing at least 1 transaction of any amount within 30 days of card issuance"
+    }
+  ],
   "joiningBenefits": [
     "Complimentary 3-month Swiggy BLCK membership on card activation by completing at least 1 transaction of any amount within 30 days of card issuance"
   ],

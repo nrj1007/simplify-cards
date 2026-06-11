@@ -81,6 +81,15 @@
   "joiningBenefits": [
     "Rs 500 cashback as welcome gift on eligible spends of Rs 10,000 in the first 90 days of Cardmembership"
   ],
+  "milestones": [
+    {
+      "threshold": 120000,
+      "period": "annual",
+      "value": 250,
+      "kind": "voucher",
+      "label": "Vouchers worth Rs 500 each on reaching spends of Rs 1.20 lakh, Rs 1.80 lakh, and Rs 2.40 lakh in a cardmembership year"
+    }
+  ],
   "milestoneBenefits": [
     "Vouchers worth Rs 500 each on reaching spends of Rs 1.20 lakh, Rs 1.80 lakh, and Rs 2.40 lakh in a cardmembership year"
   ],

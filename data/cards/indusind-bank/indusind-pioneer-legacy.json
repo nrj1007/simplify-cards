@@ -95,6 +95,13 @@
   "exclusionCodes": [
     "fuel"
   ],
+  "joiningBenefitsValued": [
+    {
+      "value": 25000,
+      "kind": "voucher",
+      "label": "Welcome vouchers worth Rs 50,000 on joining at a discounted fee of Rs 45,000"
+    }
+  ],
   "joiningBenefits": [
     "Welcome vouchers worth Rs 50,000 on joining at a discounted fee of Rs 45,000",
     "Alternative lower-fee joining path at Rs 5,000 with spend-based waiver and no welcome vouchers",

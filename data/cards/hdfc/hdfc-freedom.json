@@ -131,5 +131,12 @@
   "applyUrl": "https://www.hdfc.bank.in/credit-cards/freedom-credit-card",
   "lastVerified": "2026-06-07",
   "verificationStatus": "official-direct",
-  "popularityScore": 78
+  "popularityScore": 78,
+  "joiningBenefitsValued": [
+    {
+      "value": 100,
+      "kind": "points",
+      "label": "500 CashPoints on payment of joining membership fee"
+    }
+  ]
 }

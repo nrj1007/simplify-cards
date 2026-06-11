@@ -80,12 +80,40 @@
     "balance_transfer",
     "fees_and_charges"
   ],
+  "joiningBenefitsValued": [
+    {
+      "value": 500,
+      "kind": "voucher",
+      "label": "MakeMyTrip voucher worth Rs 1,000"
+    },
+    {
+      "value": 0,
+      "kind": "other",
+      "label": "Complimentary 1-year MMTBLACK Gold membership"
+    }
+  ],
+  "renewalBenefitsValued": [
+    {
+      "value": 500,
+      "kind": "voucher",
+      "label": "MakeMyTrip hotel voucher worth Rs 1,000"
+    }
+  ],
   "joiningBenefits": [
     "MakeMyTrip voucher worth Rs 1,000",
     "Complimentary 1-year MMTBLACK Gold membership"
   ],
   "renewalBenefits": [
     "MakeMyTrip hotel voucher worth Rs 1,000"
+  ],
+  "milestones": [
+    {
+      "threshold": 200000,
+      "period": "annual",
+      "value": 0,
+      "kind": "other",
+      "label": "Upgrade to a higher MMTBLACK membership tier on spending Rs 2 lakh or more on MakeMyTrip annually"
+    }
   ],
   "milestoneBenefits": [
     "Upgrade to a higher MMTBLACK membership tier on spending Rs 2 lakh or more on MakeMyTrip annually"

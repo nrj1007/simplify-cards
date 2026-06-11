@@ -21,7 +21,7 @@
     {
       "category": "international",
       "displayCategory": "International spends",
-      "rate": 1.0,
+      "rate": 1,
       "displayRate": "4 Reward Points / Rs 100 spent",
       "capMonthly": null
     },
@@ -108,11 +108,49 @@
     "government",
     "emi"
   ],
+  "joiningBenefitsValued": [
+    {
+      "value": 1500,
+      "kind": "voucher",
+      "label": "Tata CLiQ voucher worth Rs 3,000"
+    },
+    {
+      "value": 2000,
+      "kind": "voucher",
+      "label": "EaseMyTrip vouchers worth Rs 4,000 (four vouchers of Rs 1,000 each)"
+    },
+    {
+      "value": 750,
+      "kind": "voucher",
+      "label": "Croma voucher worth Rs 1,500"
+    },
+    {
+      "value": 500,
+      "kind": "voucher",
+      "label": "Uber vouchers worth Rs 1,000 (four vouchers of Rs 250 each)"
+    }
+  ],
   "joiningBenefits": [
     "Tata CLiQ voucher worth Rs 3,000",
     "EaseMyTrip vouchers worth Rs 4,000 (four vouchers of Rs 1,000 each)",
     "Croma voucher worth Rs 1,500",
     "Uber vouchers worth Rs 1,000 (four vouchers of Rs 250 each)"
+  ],
+  "milestones": [
+    {
+      "threshold": 400000,
+      "period": "annual",
+      "value": 1000,
+      "kind": "points",
+      "label": "Earn 4,000 Reward Points on spending Rs 4 Lakhs in an anniversary year"
+    },
+    {
+      "threshold": 500000,
+      "period": "annual",
+      "value": 500,
+      "kind": "points",
+      "label": "2,000 additional Reward Points for every Rs 1 lakh spent beyond Rs 4 lakh in an anniversary year, capped at 20,000 points total"
+    }
   ],
   "milestoneBenefits": [
     "Earn 4,000 Reward Points on spending Rs 4 Lakhs in an anniversary year",

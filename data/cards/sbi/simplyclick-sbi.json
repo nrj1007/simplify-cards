@@ -85,6 +85,13 @@
     "Cleartrip or Yatra e-voucher worth Rs 2,000 on annual online spends of Rs 1 lakh",
     "Cleartrip or Yatra e-voucher worth Rs 2,000 on annual online spends of Rs 2 lakh"
   ],
+  "joiningBenefitsValued": [
+    {
+      "value": 250,
+      "kind": "voucher",
+      "label": "Amazon e-gift voucher worth Rs 500 on payment of joining fee"
+    }
+  ],
   "joiningBenefits": [
     "Amazon e-gift voucher worth Rs 500 on payment of joining fee"
   ],

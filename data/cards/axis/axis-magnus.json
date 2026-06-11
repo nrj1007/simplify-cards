@@ -92,6 +92,13 @@
       "notes": "Rent spends are eligible only up to Rs 50,000 per calendar month for reward earn and spend-based fee waiver calculation."
     }
   ],
+  "joiningBenefitsValued": [
+    {
+      "value": 6250,
+      "kind": "voucher",
+      "label": "Welcome voucher worth Rs 12,500 from eligible options such as Luxe, The Postcard Hotels or Yatra after card activation with first spend within 30 days"
+    }
+  ],
   "joiningBenefits": [
     "Welcome voucher worth Rs 12,500 from eligible options such as Luxe, The Postcard Hotels or Yatra after card activation with first spend within 30 days"
   ],

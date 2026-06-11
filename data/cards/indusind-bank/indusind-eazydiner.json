@@ -97,6 +97,15 @@
     "12-month EazyDiner Prime membership renewal (worth Rs 3,550)",
     "2,000 bonus EazyPoints"
   ],
+  "milestones": [
+    {
+      "threshold": 30000,
+      "period": "monthly",
+      "value": 1500,
+      "kind": "other",
+      "label": "Additional Rs 3,000 monthly dining discount cap unlocked upon spending Rs 30,000 or more in the previous calendar month on non-dining transactions"
+    }
+  ],
   "milestoneBenefits": [
     "Additional Rs 3,000 monthly dining discount cap unlocked upon spending Rs 30,000 or more in the previous calendar month on non-dining transactions"
   ],

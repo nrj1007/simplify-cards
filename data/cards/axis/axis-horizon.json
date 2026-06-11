@@ -64,6 +64,15 @@
     "education",
     "fees_and_charges"
   ],
+  "milestones": [
+    {
+      "threshold": 0,
+      "period": "annual",
+      "value": 1500,
+      "kind": "points",
+      "label": "1,500 EDGE Miles renewal benefit from the second card anniversary year onward"
+    }
+  ],
   "milestoneBenefits": [
     "1,500 EDGE Miles renewal benefit from the second card anniversary year onward"
   ],

@@ -86,6 +86,13 @@
     "rent",
     "emi"
   ],
+  "joiningBenefitsValued": [
+    {
+      "value": 250,
+      "kind": "voucher",
+      "label": "Gift voucher worth Rs 500 on card activation by completing 1 transaction of any amount within 37 days of card issuance"
+    }
+  ],
   "joiningBenefits": [
     "Gift voucher worth Rs 500 on card activation by completing 1 transaction of any amount within 37 days of card issuance"
   ],

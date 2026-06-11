@@ -90,6 +90,20 @@
   "milestoneBenefits": [
     "20,000 bonus Reward Points on overall annual retail spends of Rs 5 lakh"
   ],
+  "joiningBenefitsValued": [
+    {
+      "value": 3000,
+      "kind": "points",
+      "label": "12,000 bonus Reward Points worth Rs 3,000 on payment of annual fee"
+    }
+  ],
+  "renewalBenefitsValued": [
+    {
+      "value": 3000,
+      "kind": "points",
+      "label": "12,000 Reward Points worth Rs 3,000 on payment of renewal fee"
+    }
+  ],
   "joiningBenefits": [
     "12,000 bonus Reward Points worth Rs 3,000 on payment of annual fee",
     "Reward Points are credited within 30 days of annual fee payment"

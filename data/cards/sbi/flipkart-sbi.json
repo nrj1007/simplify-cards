@@ -105,6 +105,18 @@
     "outstanding_balance_payment",
     "fees_and_charges"
   ],
+  "joiningBenefitsValued": [
+    {
+      "value": 125,
+      "kind": "voucher",
+      "label": "Rs 250 Flipkart Gift Card on fee realisation"
+    },
+    {
+      "value": 500,
+      "kind": "voucher",
+      "label": "Rs 1,000 additional Flipkart benefit on the first transaction on Flipkart, as per card offer terms"
+    }
+  ],
   "joiningBenefits": [
     "Rs 250 Flipkart Gift Card on fee realisation",
     "Rs 1,000 additional Flipkart benefit on the first transaction on Flipkart, as per card offer terms"

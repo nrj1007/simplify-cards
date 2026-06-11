@@ -94,6 +94,13 @@
     "emi",
     "fees_and_charges"
   ],
+  "joiningBenefitsValued": [
+    {
+      "value": 0,
+      "kind": "other",
+      "label": "Complimentary annual memberships of Swiggy One and Times Prime as welcome benefit on spends of Rs 75,000 in the first 90 days of card issuance"
+    }
+  ],
   "joiningBenefits": [
     "Complimentary annual memberships of Swiggy One and Times Prime as welcome benefit on spends of Rs 75,000 in the first 90 days of card issuance"
   ],

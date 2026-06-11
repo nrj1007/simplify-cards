@@ -142,6 +142,13 @@
     }
   ],
   "milestoneBenefits": [],
+  "joiningBenefitsValued": [
+    {
+      "value": 499,
+      "kind": "points",
+      "label": "499 NeuCoins on Tata Neu app as reversal of first-year membership fee after the first transaction within 30 days of card issuance"
+    }
+  ],
   "joiningBenefits": [
     "499 NeuCoins on Tata Neu app as reversal of first-year membership fee after the first transaction within 30 days of card issuance"
   ],

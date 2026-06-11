@@ -66,6 +66,25 @@
     "fees_and_charges",
     "disputed_transactions"
   ],
+  "joiningBenefitsValued": [
+    {
+      "value": 7999,
+      "kind": "other",
+      "label": "Noise ColorFit Pulse 4 Pro smart watch worth Rs 7,999 on payment of joining fee"
+    },
+    {
+      "value": 0,
+      "kind": "other",
+      "label": "Complimentary 1-year Netmeds First membership subject to joining fee payment and at least one retail transaction"
+    }
+  ],
+  "renewalBenefitsValued": [
+    {
+      "value": 0,
+      "kind": "other",
+      "label": "Complimentary 1-year FITPASS PRO membership on card renewal every year"
+    }
+  ],
   "joiningBenefits": [
     "Noise ColorFit Pulse 4 Pro smart watch worth Rs 7,999 on payment of joining fee"
   ],
@@ -76,7 +95,7 @@
     {
       "threshold": 400000,
       "period": "annual",
-      "value": 1500,
+      "value": 750,
       "kind": "voucher",
       "label": "Rs 1,500 voucher on annual retail spends of Rs 4 lakh"
     }
@@ -85,7 +104,6 @@
     "Rs 1,500 voucher on annual retail spends of Rs 4 lakh"
   ],
   "additionalBenefits": [
-    "Complimentary 1-year Netmeds First membership subject to joining fee payment and at least one retail transaction",
     "Fraud liability cover of Rs 1 lakh",
     "1% fuel surcharge waiver on eligible fuel transactions from Rs 500 to Rs 4,000, capped at Rs 250 per statement cycle"
   ],

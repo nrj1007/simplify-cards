@@ -78,6 +78,23 @@
     "cash_advance"
   ],
   "milestones": [],
+  "joiningBenefitsValued": [
+    {
+      "value": 500,
+      "kind": "cashback",
+      "label": "Rs 500 cashback after logging into the HSBC India app and spending Rs 10,000 within the first 30 days"
+    },
+    {
+      "value": 125,
+      "kind": "voucher",
+      "label": "Rs 250 Amazon eGift Voucher for online application and video KYC completion"
+    },
+    {
+      "value": 0,
+      "kind": "other",
+      "label": "2-month EazyDiner membership on RuPay card activation"
+    }
+  ],
   "joiningBenefits": [
     "Rs 500 cashback after logging into the HSBC India app and spending Rs 10,000 within the first 30 days",
     "Rs 250 Amazon eGift Voucher for online application and video KYC completion",
@@ -93,7 +110,7 @@
     "Cashback is capped at Rs 400 per month across dining, food delivery, and grocery categories combined"
   ],
   "redemption": {
-    "statementBalanceValue": 1.0,
+    "statementBalanceValue": 1,
     "pointsExpiryYears": null
   },
   "eligibility": {

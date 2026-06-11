@@ -59,16 +59,44 @@
     "gaming",
     "cash_advance"
   ],
+  "milestones": [
+    {
+      "threshold": 100,
+      "period": "monthly",
+      "value": 0,
+      "kind": "other",
+      "label": "Unlock 2X stars in the current reward cycle by spending Rs 100 or more in the previous cycle"
+    },
+    {
+      "threshold": 15000,
+      "period": "monthly",
+      "value": 0,
+      "kind": "other",
+      "label": "Unlock promotional 4X stars after spending more than Rs 15,000 in the current reward period, subject to Google Pay campaign terms"
+    },
+    {
+      "threshold": 30000,
+      "period": "monthly",
+      "value": 0,
+      "kind": "other",
+      "label": "Unlock promotional 8X stars after spending more than Rs 30,000 in the current reward period, subject to Google Pay campaign terms"
+    }
+  ],
   "milestoneBenefits": [
     "Unlock 2X stars in the current reward cycle by spending Rs 100 or more in the previous cycle",
     "Unlock promotional 4X stars after spending more than Rs 15,000 in the current reward period, subject to Google Pay campaign terms",
     "Unlock promotional 8X stars after spending more than Rs 30,000 in the current reward period, subject to Google Pay campaign terms"
   ],
+  "joiningBenefitsValued": [
+    {
+      "value": 125,
+      "kind": "voucher",
+      "label": "Welcome reward includes Rs 250 gift card and 250 stars on Google Pay, subject to Google Pay offers"
+    }
+  ],
   "additionalBenefits": [
-    "Lifetime free card with waived joining fee and annual fee",
     "Earn 1 star for every cumulative Rs 500 spent on eligible spends, including fuel",
     "1 star equals Re 1 and can be redeemed instantly while making UPI payments using this card on Google Pay",
-    "Welcome reward includes Rs 250 gift card and 250 stars on Google Pay, subject to Google Pay offers",
     "Earn 2 stars per Rs 500 in the first reward period",
     "Flexible repayment from Google Pay app, including full payment or EMI subject to bill amount and eligibility",
     "Up to 15% off on dining via EazyDiner, capped at Rs 500 per month",

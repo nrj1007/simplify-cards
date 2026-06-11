@@ -105,6 +105,20 @@
     "12,000 bonus Reward Points on annual spends of Rs 1.5 lakh across Landmark Stores",
     "12,000 bonus Reward Points on overall annual retail spends of Rs 3 lakh"
   ],
+  "joiningBenefitsValued": [
+    {
+      "value": 1500,
+      "kind": "points",
+      "label": "6,000 bonus Reward Points worth Rs 1,500 on payment of annual fee"
+    }
+  ],
+  "renewalBenefitsValued": [
+    {
+      "value": 1500,
+      "kind": "points",
+      "label": "6,000 Reward Points worth Rs 1,500 on payment of renewal fee"
+    }
+  ],
   "joiningBenefits": [
     "6,000 bonus Reward Points worth Rs 1,500 on payment of annual fee",
     "Reward Points are credited within 30 days of annual fee payment"

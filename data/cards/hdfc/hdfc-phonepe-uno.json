@@ -75,6 +75,18 @@
     "fees_and_charges"
   ],
   "milestoneBenefits": [],
+  "joiningBenefitsValued": [
+    {
+      "value": 249,
+      "kind": "other",
+      "label": "PhonePe gift card worth Rs 249 on first RuPay credit-card-on-UPI transaction of minimum Rs 100 within 30 days of card issuance (only if joining fee is applicable)"
+    },
+    {
+      "value": 25,
+      "kind": "other",
+      "label": "Additional scratch cards worth Rs 25 each on next 10 RuPay credit-card-on-UPI transactions of minimum Rs 100"
+    }
+  ],
   "joiningBenefits": [
     "PhonePe gift card worth Rs 249 on first RuPay credit-card-on-UPI transaction of minimum Rs 100 within 30 days of card issuance (only if joining fee is applicable)",
     "Additional scratch cards worth Rs 25 each on next 10 RuPay credit-card-on-UPI transactions of minimum Rs 100"

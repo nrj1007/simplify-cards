@@ -20,7 +20,7 @@
     {
       "category": "travel",
       "displayCategory": "Travel spends (Travel with Points)",
-      "rate": 8.0,
+      "rate": 8,
       "displayRate": "12 Reward Points / Rs 150 spent via Travel with Points",
       "capMonthly": null
     },
@@ -70,6 +70,23 @@
   ],
   "milestones": [],
   "milestoneBenefits": [],
+  "joiningBenefitsValued": [
+    {
+      "value": 1000,
+      "kind": "points",
+      "label": "2,000 reward points after logging into the HSBC India app and spending Rs 5,000 within the first 30 days"
+    },
+    {
+      "value": 0,
+      "kind": "other",
+      "label": "Complimentary 3-month Swiggy One membership on card activation"
+    },
+    {
+      "value": 250,
+      "kind": "voucher",
+      "label": "Voucher worth up to Rs 500 (Amazon Pay, Zomato, and Swiggy) on card activation with a single transaction of Rs 300 or more"
+    }
+  ],
   "joiningBenefits": [
     "2,000 reward points after logging into the HSBC India app and spending Rs 5,000 within the first 30 days",
     "Complimentary 3-month Swiggy One membership on card activation",

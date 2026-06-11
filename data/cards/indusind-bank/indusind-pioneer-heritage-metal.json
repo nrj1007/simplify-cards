@@ -90,6 +90,13 @@
   "exclusionCodes": [
     "fuel"
   ],
+  "joiningBenefitsValued": [
+    {
+      "value": 1,
+      "kind": "voucher",
+      "label": "Welcome vouchers worth Rs 1 lakh upon joining fee payment of Rs 1 lakh"
+    }
+  ],
   "joiningBenefits": [
     "Welcome vouchers worth Rs 1 lakh upon joining fee payment of Rs 1 lakh"
   ],
