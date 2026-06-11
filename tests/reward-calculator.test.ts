@@ -5,6 +5,8 @@ import { milestoneRulesForCard } from "../lib/recommend";
 import type { Milestone } from "../lib/types";
 
 describe("reward calculator", () => {
+  // TODO: Add reward calculator test cases for each card to ensure comprehensive coverage across all cards in data/cards/
+
   it("derives Burgundy EDGE REWARD Point earn correctly from display rates", () => {
     const card = getCardById("axis-magnus-burgundy");
     expect(card).toBeTruthy();
