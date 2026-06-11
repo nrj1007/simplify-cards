@@ -90,9 +90,12 @@
       "Apply digitally via the Google Pay app (invite-only rollout)"
     ]
   },
+  "internalNotes": [
+    "Card details manually reviewed and verified by user on 2026-06-11."
+  ],
   "sourceUrl": "https://www.axisbank.com/retail/cards/credit-card",
   "applyUrl": "https://www.axisbank.com/retail/cards/credit-card",
-  "lastVerified": "2026-05-10",
+  "lastVerified": "2026-06-11",
   "verificationStatus": "official-direct",
   "popularityScore": 65,
   "imageUrl": "/images/axis-google-pay-flex.png"
