@@ -110,13 +110,28 @@ function redemptionRows(issuer: string, redemption?: Redemption) {
     catalogueLabel = "Shop & Smile catalogue";
   }
 
+  const derivedAirMilesValue =
+    typeof redemption.airMilesValue === "number"
+      ? redemption.airMilesValue
+      : Array.isArray(redemption.airlinePartners) && redemption.airlinePartners.length > 0
+        ? Math.max(
+            ...redemption.airlinePartners
+              .map((partner) => {
+                const [cardUnits, partnerUnits] = partner.ratio.split(":").map((value) => Number(value.trim()));
+                if (!Number.isFinite(cardUnits) || !Number.isFinite(partnerUnits) || cardUnits <= 0) return null;
+                return partnerUnits / cardUnits;
+              })
+              .filter((value): value is number => typeof value === "number" && Number.isFinite(value))
+          )
+        : undefined;
+
   const rows: Array<[string | undefined, number | undefined]> = [
     [redemption.ecosystemLabel, redemption.ecosystemValue],
     ["Statement balance", redemption.statementBalanceValue],
     [flightHotelLabel, redemption.smartBuyFlightHotelValue],
     [catalogueLabel, redemption.smartBuyCatalogueValue],
     ["Travel EDGE flight/hotel", redemption.travelEdgeValue],
-    ["Air miles", redemption.airMilesValue]
+    ["Airmile transfer", derivedAirMilesValue]
   ];
 
   if (redemption.voucherRedemptions && redemption.voucherRedemptions.length > 0) {
@@ -142,7 +157,7 @@ function singularRewardUnit(rewardType: string) {
 }
 
 function valueLabel(label: string, value: number, rewardType: string) {
-  if (label === "Air miles") {
+  if (label === "Airmile transfer") {
     return `upto ${value} airmile per point`;
   }
   if (
