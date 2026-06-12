@@ -20,14 +20,14 @@
     {
       "category": "dining,online,travel",
       "displayCategory": "Food delivery, entertainment & local commute",
-      "rate": 3.0,
+      "rate": 3,
       "displayRate": "3% Cashback",
       "capMonthly": 1500
     },
     {
       "category": "base",
       "displayCategory": "Other eligible retail spends",
-      "rate": 1.0,
+      "rate": 1,
       "displayRate": "1% Cashback",
       "capMonthly": null
     }
@@ -84,7 +84,7 @@
     "Numberless card design for enhanced visual security"
   ],
   "redemption": {
-    "statementBalanceValue": 1.0,
+    "statementBalanceValue": 1,
     "pointsExpiryYears": null
   },
   "lounge": {
