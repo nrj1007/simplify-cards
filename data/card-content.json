@@ -382,6 +382,15 @@
     ]
   },
   "axis-reserve": {
+    "updates": [
+      {
+        "title": "Transfer partner list revised",
+        "summary": "Effective April 2, 2026: Marriott Bonvoy, Accor Live Limitless and Qatar Airways Privilege Club removed; British Airways Executive Club, Finnair Plus and Vietnam Airlines Lotusmiles added.",
+        "sourceType": "manual",
+        "sourceLabel": "Axis Bank Customer Notice",
+        "publishedAt": "2026-04-02"
+      }
+    ],
     "tips": [
       {
         "text": "Air India is classified under Group B (subject to the 400,000 annual EDGE Reward Points transfer cap at a 5:2 ratio) and has recently revalued its redemptions.",

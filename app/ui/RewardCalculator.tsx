@@ -241,6 +241,7 @@ export default function RewardCalculator({ card, milestones = [], isStandalone =
     return rows.sort((a, b) => b.value - a.value);
   }, [rupeeOptions, partnerValuations, voucherValuations, unitLower]);
   const visibleRedeemRows = showAllRedeem ? redeemRows : redeemRows.slice(0, 3);
+  const hasClearBest = redeemRows.length > 0 && (redeemRows.length === 1 || redeemRows[0].value > redeemRows[1].value);
 
   // Best rupee outcome across direct redemptions, valued transfer partners, and vouchers.
   const bestRupeeValue = Math.max(
@@ -413,13 +414,13 @@ export default function RewardCalculator({ card, milestones = [], isStandalone =
                   </p>
                   <div className="calc-redeem-list">
                     {visibleRedeemRows.map((row, index) => (
-                      <div className={`calc-redeem-row${index === 0 ? " is-best" : ""}`} key={row.key}>
+                      <div className={`calc-redeem-row${hasClearBest && index === 0 ? " is-best" : ""}`} key={row.key}>
                         <div className="calc-redeem-main">
                           <span className="calc-redeem-type" data-type={row.type}>
                             {row.type}
                           </span>
                           <span className="calc-redeem-label">{row.label}</span>
-                          {index === 0 ? <span className="calc-badge">Best</span> : null}
+                          {hasClearBest && index === 0 ? <span className="calc-badge">Best</span> : null}
                         </div>
                         <div className="calc-redeem-val">
                           <strong>{formatINR(row.value)}</strong>
