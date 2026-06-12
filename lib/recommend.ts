@@ -117,17 +117,6 @@ function shouldUseEnvelopeScoring(
   );
 }
 
-function extractHighSpendIncrementalThreshold(card: CreditCard): number | null {
-  const match = [...(card.additionalBenefits ?? []), ...(card.additionalDetails ?? []), ...(card.internalNotes ?? [])]
-    .map((benefit) => benefit.toLowerCase().replace(/,/g, "").replace(/\s+/g, " ").trim())
-    .map((benefit) =>
-      benefit.match(/(\d+(?:\.\d+)?)\s+edge\s+reward\s+points?\s+per\s+rs\s+200.*above\s+rs\s+(\d+(?:\.\d+)?)\s+lakh/)
-    )
-    .find((result): result is RegExpMatchArray => Boolean(result));
-  if (!match) return null;
-  return Math.round(Number(match[2]) * 100000);
-}
-
 function envelopeTiersForCard(card: CreditCard): number[] {
   const tiers = new Set(envelopeBaselineMonthlyTiers);
 
@@ -141,10 +130,6 @@ function envelopeTiersForCard(card: CreditCard): number[] {
     const threshold = extractMilestoneThreshold(benefit);
     if (threshold && threshold > 0) tiers.add(Math.round(threshold / 12));
   }
-
-  // Add high-spend incremental reward threshold (already monthly)
-  const highSpendThreshold = extractHighSpendIncrementalThreshold(card);
-  if (highSpendThreshold && highSpendThreshold > 0) tiers.add(highSpendThreshold);
 
   return [...tiers].sort((a, b) => a - b);
 }
@@ -565,51 +550,11 @@ function rewardUnitValue(card: CreditCard) {
   return 1;
 }
 
-function partnerTransferUnitValue(card: CreditCard) {
-  const haystack = normalizeForMatch([...(card.additionalBenefits ?? []), ...(card.additionalDetails ?? []), ...(card.internalNotes ?? [])].join(" "));
-  const conversionMatch = haystack.match(/(\d+(?:\.\d+)?)\s+edge\s+reward\s+points?\s+convert\s+to\s+(\d+(?:\.\d+)?)\s+partner\s+miles?/);
-  if (!conversionMatch) return 0;
-
-  const rewardPoints = Number(conversionMatch[1]);
-  const partnerMiles = Number(conversionMatch[2]);
-  if (!rewardPoints || Number.isNaN(rewardPoints) || Number.isNaN(partnerMiles)) return 0;
-
-  return partnerMiles / rewardPoints;
-}
-
-function highSpendIncrementalRewardValue(card: CreditCard, spend: SpendProfile, enabled: boolean) {
-  if (!enabled) return 0;
-
-  const match = [...(card.additionalBenefits ?? []), ...(card.additionalDetails ?? []), ...(card.internalNotes ?? [])]
-    .map((benefit) => benefit.toLowerCase().replace(/,/g, "").replace(/\s+/g, " ").trim())
-    .map((benefit) =>
-      benefit.match(/(\d+(?:\.\d+)?)\s+edge\s+reward\s+points?\s+per\s+rs\s+200.*above\s+rs\s+(\d+(?:\.\d+)?)\s+lakh/)
-    )
-    .find((result): result is RegExpMatchArray => Boolean(result));
-  if (!match) return 0;
-
-  const monthlyTotal = monthlySpendTotal(spend);
-  const threshold = Math.round(Number(match[2]) * 100000);
-  if (!monthlyTotal || monthlyTotal <= threshold) return 0;
-
-  const pointsPerRs100 = Number(match[1]) / 2;
-  const unitValue = partnerTransferUnitValue(card) || rewardUnitValue(card);
-  if (!pointsPerRs100 || !unitValue) return 0;
-
-  const incrementalMonthlySpend = monthlyTotal - threshold;
-  return Math.round((incrementalMonthlySpend * pointsPerRs100 * unitValue * 12) / 100);
-}
-
 function estimateFallbackPointUnitValue(card: CreditCard) {
   const rewardType = normalizeForMatch(card.rewardType);
-  const haystack = normalizeForMatch(
-    [...(card.tags ?? []), ...(card.bestFor ?? []), ...(card.additionalBenefits ?? []), ...(card.additionalDetails ?? []), ...(card.internalNotes ?? [])].join(" ")
-  );
-
   if (rewardType.includes("edge miles")) return 1;
   if (rewardType.includes("mile")) return 1;
   if (rewardType.includes("marriott bonvoy")) return 0.5;
-  if (haystack.includes("convert to air miles at 1 1") || haystack.includes("convert to air miles at 1:1")) return 1;
   if (rewardType.includes("membership rewards")) return 0.6;
 
   return 0;
@@ -1342,8 +1287,7 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
     const cardNameBoost = computeCardNameBoost(card, input.query);
     const issuerBoost = intent.issuers.includes(card.issuer) ? 20000 : 0;
     const rewardBreakdown = rewardBreakdownForCard(card, spendForScore, includeSmartbuyLikeRewards);
-    const highSpendIncrementalValue = highSpendIncrementalRewardValue(card, spendForScore, useEnvelopeScoring);
-    const estimatedAnnualRewards = annualRewardForCard(card, spendForScore, includeSmartbuyLikeRewards) + highSpendIncrementalValue;
+    const estimatedAnnualRewards = annualRewardForCard(card, spendForScore, includeSmartbuyLikeRewards);
     const estimatedMilestoneValue = milestoneValueForCard(card, annualSpend);
     const { joiningValue: rawJoiningValue, renewalValue: rawRenewalValue } = joiningAndRenewalBenefitValueForCard(card);
     const estimatedJoiningAndRenewalValue = Math.round(rawJoiningValue / joiningBenefitAmortizationYears) + rawRenewalValue;
@@ -1398,9 +1342,6 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
       ...(issuerBoost > 0 ? [`Matches ${card.issuer} issuer intent`] : []),
       ...matchedTags.map((tag) => `Matches ${tag} intent`),
       ...strongestRewards,
-      ...(highSpendIncrementalValue > 0
-        ? [`High-spend incremental earn adds about Rs ${highSpendIncrementalValue.toLocaleString("en-IN")}`]
-        : []),
       ...(estimatedMilestoneValue > 0 ? [`Milestone value adds about Rs ${estimatedMilestoneValue.toLocaleString("en-IN")}`] : []),
       ...(estimatedJoiningAndRenewalValue > 0
         ? [`Joining and renewal benefits add about Rs ${estimatedJoiningAndRenewalValue.toLocaleString("en-IN")} per year`]
