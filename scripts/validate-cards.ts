@@ -527,6 +527,26 @@ if (cardFiles.length === 0) {
         ) {
           addIssue(`reward ${rewardIndex} capStatementQuarter must be a non-negative number or null`, cardId, "rewards");
         }
+
+        // Spend-tier bounds: tierLowerBound is a non-negative number; tierUpperBound is null or a
+        // number strictly greater than the lower bound.
+        if (reward.tierLowerBound !== undefined) {
+          const lower = reward.tierLowerBound;
+          if (typeof lower !== "number" || !Number.isFinite(lower) || lower < 0) {
+            addIssue(`reward ${rewardIndex} tierLowerBound must be a non-negative number`, cardId, "rewards");
+          } else {
+            const upper = reward.tierUpperBound;
+            if (
+              upper !== undefined &&
+              upper !== null &&
+              (typeof upper !== "number" || !Number.isFinite(upper) || upper <= lower)
+            ) {
+              addIssue(`reward ${rewardIndex} tierUpperBound must be null or greater than tierLowerBound`, cardId, "rewards");
+            }
+          }
+        } else if (reward.tierUpperBound !== undefined) {
+          addIssue(`reward ${rewardIndex} has tierUpperBound without tierLowerBound`, cardId, "rewards");
+        }
       });
     }
 

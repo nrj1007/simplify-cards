@@ -62,6 +62,13 @@ export type Reward = {
   capDaily?: number | null;
   capStatementQuarter?: number | null;
   postCapRate?: number | null;
+  // Spend-tiered earning: when a spend category maps to several reward rows that each apply to a
+  // different monthly-spend band (e.g. base earn up to Rs 1.5L/mo vs above), set these per row. The
+  // scoring engine and calculator bucket monthly spend across the tiers. `tierLowerBound` is the
+  // inclusive lower bound (Rs/month); `tierUpperBound` is the exclusive upper bound, or null for the
+  // open-ended top tier. A row is "tiered" when `tierLowerBound` is defined.
+  tierLowerBound?: number;
+  tierUpperBound?: number | null;
 };
 
 export type Redemption = {

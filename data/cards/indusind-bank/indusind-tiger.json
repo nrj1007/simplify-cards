@@ -29,28 +29,36 @@
       "displayCategory": "Base spends (up to Rs 1L)",
       "rate": 1,
       "displayRate": "1 point per Rs 100",
-      "capMonthly": null
+      "capMonthly": null,
+      "tierLowerBound": 0,
+      "tierUpperBound": 100000
     },
     {
       "category": "base",
       "displayCategory": "Base spends (Rs 1.01L - 2.5L)",
       "rate": 2,
       "displayRate": "2 points per Rs 100",
-      "capMonthly": null
+      "capMonthly": null,
+      "tierLowerBound": 101000,
+      "tierUpperBound": 250000
     },
     {
       "category": "base",
       "displayCategory": "Base spends (Rs 2.51L - 5L)",
       "rate": 4,
       "displayRate": "4 points per Rs 100",
-      "capMonthly": null
+      "capMonthly": null,
+      "tierLowerBound": 251000,
+      "tierUpperBound": 500000
     },
     {
       "category": "base",
       "displayCategory": "Base spends (above Rs 5L)",
       "rate": 6,
       "displayRate": "6 points per Rs 100",
-      "capMonthly": null
+      "capMonthly": null,
+      "tierLowerBound": 500000,
+      "tierUpperBound": null
     }
   ],
   "popularityScore": 100,

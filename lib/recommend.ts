@@ -897,6 +897,31 @@ function findSpecialRewardForSpend(card: CreditCard, category: SpendCategory) {
   );
 }
 
+// Spend-tiered earning: when a category maps to multiple reward rows that each carry a structured
+// monthly-spend tier (`tierLowerBound`/`tierUpperBound`), bucket the (monthly) spend across the tiers
+// and return one allocation per tier — mirroring the calculator's allocateTieredRewardUnits so the two
+// engines agree. Returns null unless 2+ matching rows exist and all of them are tiered.
+function tieredAllocationsForCategory(card: CreditCard, category: SpendCategory, monthlyAmount: number) {
+  const aliases = spendAliases[category];
+  const targetCategoryLower = category.toLowerCase();
+  const matching = card.rewards.filter((reward) => {
+    const rewardCategories = reward.category.split(",").map((c) => c.trim().toLowerCase());
+    return aliases.some((alias) => rewardCategories.includes(alias.toLowerCase())) || rewardCategories.includes(targetCategoryLower);
+  });
+  if (matching.length <= 1) return null;
+  if (matching.some((reward) => reward.tierLowerBound === undefined)) return null;
+
+  const sorted = [...matching].sort((a, b) => (a.tierLowerBound ?? 0) - (b.tierLowerBound ?? 0));
+  const allocations: Array<{ amount: number; reward: Reward }> = [];
+  for (const reward of sorted) {
+    const lower = reward.tierLowerBound ?? 0;
+    const upper = reward.tierUpperBound ?? monthlyAmount;
+    const bucket = Math.max(Math.min(monthlyAmount, upper) - lower, 0);
+    if (bucket > 0) allocations.push({ amount: bucket, reward });
+  }
+  return allocations.length ? allocations : null;
+}
+
 function rewardAllocationsForSpend(
   card: CreditCard,
   category: SpendCategory,
@@ -922,6 +947,9 @@ function rewardAllocationsForSpend(
     const groceryReward = findRewardForSpend(card, category, true);
     return groceryReward ? [{ amount: effectiveAmount, reward: groceryReward }] : [];
   }
+
+  const tieredAllocations = tieredAllocationsForCategory(card, category, effectiveAmount);
+  if (tieredAllocations) return tieredAllocations;
 
   const baseReward = findBaseRewardForSpend(card, category);
   const specialReward = blendedSmartbuySpendCategories.includes(category) ? findSpecialRewardForSpend(card, category) : null;

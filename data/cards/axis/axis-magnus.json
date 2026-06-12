@@ -30,14 +30,18 @@
       "displayCategory": "Eligible spends up to Rs 1.5 lakh per calendar month",
       "rate": 6,
       "displayRate": "12 EDGE REWARD Points / Rs 200",
-      "capMonthly": null
+      "capMonthly": null,
+      "tierLowerBound": 0,
+      "tierUpperBound": 150000
     },
     {
       "category": "base",
       "displayCategory": "Eligible incremental spends above Rs 1.5 lakh per calendar month",
       "rate": 17.5,
       "displayRate": "35 EDGE REWARD Points / Rs 200",
-      "capMonthly": null
+      "capMonthly": null,
+      "tierLowerBound": 150000,
+      "tierUpperBound": null
     }
   ],
   "loungeDomestic": "unlimited",

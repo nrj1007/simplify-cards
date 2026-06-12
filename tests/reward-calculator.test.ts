@@ -40,6 +40,19 @@ describe("reward rate convention", () => {
     expect(result.rows.find((r) => r.category === "base")!.monthlyUnits).toBe(1000);
   });
 
+  it("buckets spend across structured reward tiers (Magnus base earn)", () => {
+    // Magnus base: 6 pts/Rs100 up to Rs 1.5L/mo (tier 0–150000), then 17.5 pts/Rs100 above
+    // (tier 150000–∞), sourced from the structured tierLowerBound/tierUpperBound fields.
+    const card = getCardById("axis-magnus");
+    expect(card).toBeTruthy();
+    const tiered = card!.rewards.filter((r) => r.category === "base" && r.tierLowerBound !== undefined);
+    expect(tiered.length).toBe(2);
+
+    // Rs 3L/mo base: 150000*6/100 + 150000*17.5/100 = 9,000 + 26,250 = 35,250 units/mo.
+    const result = calculateRewards(card!, { base: 300000 });
+    expect(result.rows.find((r) => r.category === "base")!.monthlyUnits).toBe(35250);
+  });
+
   it("applies the structured postCapRate beyond a reward cap (matching recommend.ts)", () => {
     // Marriott Bonvoy "travel, dining, entertainment": 2.6667 pts/Rs100, capped at 1,600 pts/mo,
     // then a reduced 1.33 pts/Rs100. The displayRate has no "then" clause, so this earning comes

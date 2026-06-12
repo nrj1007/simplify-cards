@@ -314,6 +314,15 @@ engine never has to parse prose. Follow these guidelines:
 *   Only fall back to cap wording inside `displayRate` if the cap period cannot be represented through the structured reward fields.
 *   When an issuer lists multiple capped categories separately (for example grocery, insurance, utility, and telecom/cable each with their own monthly cap), keep them as separate visible reward rows rather than collapsing them into one combined line that implies a shared cap.
 *   If the display needs separate rows but the scoring model only understands a broader canonical category, keep the canonical `category` stable and use distinct `displayCategory` labels for the UI rows.
+*   **Spend-tiered earning (`tierLowerBound` / `tierUpperBound`):** When a category earns at different
+    rates across **monthly-spend bands** (e.g. Magnus base: 6 pts/Rs100 up to Rs 1.5L/mo, then 17.5
+    above), model each band as its own reward row sharing the same `category`, and set the structured
+    bounds: `tierLowerBound` is the inclusive lower bound (Rs/month), `tierUpperBound` the exclusive
+    upper bound (or `null` for the open-ended top band). Both the calculator and recommender bucket
+    monthly spend across the tiers, so the bounds — not the `displayCategory` text — drive scoring.
+    Tiering only activates when **every** matching row for the category carries a tier. Keep the human
+    band description in `displayCategory`; the validator requires `tierUpperBound` to be null or
+    greater than `tierLowerBound`.
 
 ### E. Fee Waiver Modeling (`feeWaiverSpend`)
 

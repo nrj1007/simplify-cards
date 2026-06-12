@@ -213,62 +213,23 @@ function rewardEarnRatePerRs100(_card: CreditCard, reward: Reward) {
   return { basePerRs100: reward.rate, postCapPerRs100: reward.postCapRate ?? null };
 }
 
-function parseTierAmount(amount: string, unit: string | undefined) {
-  const parsed = Number(amount);
-  if (!parsed || Number.isNaN(parsed)) return null;
-  if (!unit) return parsed;
-
-  const normalizedUnit = unit.toLowerCase();
-  if (normalizedUnit === "lakh" || normalizedUnit === "l") return parsed * 100000;
-  if (normalizedUnit === "k") return parsed * 1000;
-  return parsed;
-}
-
 type RewardTier = {
   lowerBound: number;
   upperBound: number | null;
 };
 
-function tierFromDisplayCategory(displayCategory?: string): RewardTier | null {
-  if (!displayCategory) return null;
-
-  const normalized = displayCategory.replace(/,/g, "").toLowerCase();
-
-  const rangeMatch = normalized.match(
-    /rs\s*(\d+(?:\.\d+)?)\s*(lakh|l|k)?\s*-\s*(\d+(?:\.\d+)?)\s*(lakh|l|k)?/
-  );
-  if (rangeMatch) {
-    const lower = parseTierAmount(rangeMatch[1], rangeMatch[2]);
-    const upper = parseTierAmount(rangeMatch[3], rangeMatch[4]);
-    if (lower !== null && upper !== null) {
-      return { lowerBound: lower, upperBound: upper };
-    }
-  }
-
-  const upToMatch = normalized.match(/up to rs\s*(\d+(?:\.\d+)?)\s*(lakh|l|k)?/);
-  if (upToMatch) {
-    const upper = parseTierAmount(upToMatch[1], upToMatch[2]);
-    if (upper !== null) {
-      return { lowerBound: 0, upperBound: upper };
-    }
-  }
-
-  const aboveMatch = normalized.match(/above rs\s*(\d+(?:\.\d+)?)\s*(lakh|l|k)?/);
-  if (aboveMatch) {
-    const lower = parseTierAmount(aboveMatch[1], aboveMatch[2]);
-    if (lower !== null) {
-      return { lowerBound: lower, upperBound: null };
-    }
-  }
-
-  return null;
+// Spend tiers come from the structured `tierLowerBound`/`tierUpperBound` fields on each reward row
+// (kept in sync with the human `displayCategory` text). A row is tiered when `tierLowerBound` is set.
+export function tierForReward(reward: Reward): RewardTier | null {
+  if (reward.tierLowerBound === undefined) return null;
+  return { lowerBound: reward.tierLowerBound, upperBound: reward.tierUpperBound ?? null };
 }
 
 function allocateTieredRewardUnits(card: CreditCard, monthlySpend: number, rewards: Reward[]) {
   if (rewards.length <= 1) return null;
 
   const tieredRewards = rewards
-    .map((reward) => ({ reward, tier: tierFromDisplayCategory(reward.displayCategory) }))
+    .map((reward) => ({ reward, tier: tierForReward(reward) }))
     .filter((entry): entry is { reward: Reward; tier: RewardTier } => Boolean(entry.tier));
 
   if (tieredRewards.length !== rewards.length) return null;

@@ -54,6 +54,16 @@ describe("scoreCards", () => {
     expect(scores.every((score) => score.card.annualFee === 0)).toBe(true);
   });
 
+  it("tiers base earning across structured spend tiers (Magnus, matching the calculator)", () => {
+    const magnusReward = (base: number) =>
+      scoreCards({ spend: { base } }).find((s) => s.card.id === "axis-magnus")!.estimatedAnnualRewards;
+    // Magnus earns 6 pts/Rs100 up to Rs 1.5L/mo then 17.5 pts/Rs100 above. So doubling base spend
+    // from 1.5L to 3L more than doubles the reward — the second band earns at the higher tier rate.
+    const atThreshold = magnusReward(150000);
+    const aboveThreshold = magnusReward(300000);
+    expect(aboveThreshold).toBeGreaterThan(2 * atThreshold);
+  });
+
   it("respects the lifetime-free filter", () => {
     const scores = scoreCards({ wantsLifetimeFree: true });
 
