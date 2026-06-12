@@ -2,6 +2,7 @@
   "id": "axis-aura",
   "issuer": "Axis Bank",
   "name": "Axis Bank AURA Credit Card",
+  "status": "discontinued",
   "network": [
     "Visa"
   ],

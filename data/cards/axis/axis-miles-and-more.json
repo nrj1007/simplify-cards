@@ -18,23 +18,9 @@
   "rewardType": "miles and more award miles",
   "rewards": [
     {
-      "category": "airlines",
-      "displayCategory": "Airline spends",
-      "rate": 2.0,
-      "displayRate": "4 Award Miles / Rs 200 spent",
-      "capMonthly": null
-    },
-    {
-      "category": "travel",
-      "displayCategory": "Travel spends",
-      "rate": 2.0,
-      "displayRate": "4 Award Miles / Rs 200 spent",
-      "capMonthly": null
-    },
-    {
       "category": "base",
-      "displayCategory": "Other eligible retail spends",
-      "rate": 2.0,
+      "displayCategory": "All eligible spends",
+      "rate": 2,
       "displayRate": "4 Award Miles / Rs 200 spent",
       "capMonthly": null
     }
@@ -103,7 +89,10 @@
   "sourceUrl": "https://www.axisbank.com/retail/cards/credit-card/miles-more-credit-card",
   "applyUrl": "https://www.axisbank.com/retail/cards/credit-card/miles-more-credit-card",
   "imageUrl": "/images/axis-miles-and-more.webp",
-  "additionalDetails": [],
+  "additionalDetails": [
+    "Award Miles can be redeemed for flight bookings and upgrades on Lufthansa, Swiss, Austrian, Brussels Airlines, Eurowings, and all Star Alliance partner airlines.",
+    "Miles can also be redeemed for hotel reservations, car rentals, merchandise on the Lufthansa Worldshop, or charitable donations via the Miles & More portal."
+  ],
   "internalNotes": [
     "Axis Bank Miles & More Credit Card is offered in World and World Select variants.",
     "This file represents the World variant (annual/joining fee of Rs 3,500).",

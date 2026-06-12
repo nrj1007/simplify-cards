@@ -408,14 +408,15 @@ function genericRelationshipPenalty(card: CreditCard, input: RecommendationInput
 }
 
 function shouldHideCardFromGenericRanking(card: CreditCard, input: RecommendationInput, intent: ReturnType<typeof parseQueryIntent>) {
-  if (card.id !== "axis-atlas") return false;
+  const isAtlas = card.id === "axis-atlas";
+  const isDiscontinued = card.status === "discontinued";
 
-  const normalizedQuery = normalizeForMatch(input.query);
-  const userExplicitlyAskedForAtlas =
-    containsNormalizedPhrase(normalizedQuery, "atlas") ||
-    containsNormalizedPhrase(normalizedQuery, "axis atlas");
+  if (!isAtlas && !isDiscontinued) return false;
 
-  if (userExplicitlyAskedForAtlas) return false;
+  const cardNameBoost = computeCardNameBoost(card, input.query);
+  const userExplicitlyAsked = cardNameBoost >= exactCardNameMatchThreshold;
+
+  if (userExplicitlyAsked) return false;
 
   return isBroadGenericRankingQuery(input, intent);
 }
