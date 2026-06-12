@@ -18,13 +18,17 @@
   "rewardType": "edge reward points",
   "rewards": [
     {
-      "category": "base",
-      "rate": 0.2,
+      "category": "upi",
+      "displayCategory": "UPI spends via Kiwi app",
+      "rate": 5,
+      "displayRate": "5 EDGE REWARD Points / Rs 100 spent (1% cashback equivalent)",
       "capMonthly": null
     },
     {
-      "category": "upi",
-      "rate": 0.2,
+      "category": "base",
+      "displayCategory": "All other eligible spends",
+      "rate": 1,
+      "displayRate": "2 EDGE REWARD Points / Rs 200 spent",
       "capMonthly": null
     }
   ],
@@ -54,12 +58,21 @@
     "credit card on UPI transactions less than Rs 2,000",
     "transactions excluded under Kwik Axis Bank Credit Card terms"
   ],
+  "exclusionCodes": [
+    "wallet_load",
+    "fuel",
+    "rent",
+    "cash_withdrawal",
+    "insurance",
+    "education",
+    "government",
+    "emi"
+  ],
   "milestoneBenefits": [],
   "additionalBenefits": [
     "Lifetime free card with nil joining fee and nil annual fee",
     "Credit card on UPI through RuPay with seamless transaction experience through any UPI app",
     "Instant virtual card on approval",
-    "2 EDGE REWARD Points per Rs 200 on domestic and international transactions",
     "1% fuel surcharge waiver on fuel purchases between Rs 400 and Rs 4,000, capped at Rs 150 per month",
     "Card can be activated by linking to UPI and setting UPI PIN or through Axis Bank mobile/internet banking"
   ],
@@ -69,15 +82,21 @@
   },
   "eligibility": {
     "salaried": [
-      "Eligibility is subject to Axis Bank approval criteria"
+      "Age: 18 to 70 years",
+      "Resident of India or NRI"
     ],
     "selfEmployed": [
-      "Eligibility is subject to Axis Bank approval criteria"
+      "Age: 18 to 70 years",
+      "Resident of India or NRI"
     ]
   },
-  "sourceUrl": "https://www.axis.bank.in/cards/credit-card/axis-bank-kwik-credit-card",
-  "applyUrl": "https://www.axis.bank.in/cards/credit-card/axis-bank-kwik-credit-card",
-  "lastVerified": "2026-05-10",
+  "sourceUrl": "https://www.axisbank.com/retail/cards/credit-card/axis-bank-kwik-credit-card",
+  "applyUrl": "https://www.axisbank.com/retail/cards/credit-card/axis-bank-kwik-credit-card",
+  "imageUrl": "/images/axis-kwik.webp",
+  "internalNotes": [
+    "Card details manually reviewed and verified by user on 2026-06-13."
+  ],
+  "lastVerified": "2026-06-13",
   "verificationStatus": "official-direct",
   "popularityScore": 61
 }

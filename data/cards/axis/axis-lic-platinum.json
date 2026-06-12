@@ -18,13 +18,24 @@
   "rewardType": "reward points",
   "rewards": [
     {
-      "category": "retail",
+      "category": "insurance",
+      "displayCategory": "LIC Premium payments",
       "rate": 2,
+      "displayRate": "2 Reward Points / Rs 100 spent",
+      "capMonthly": null
+    },
+    {
+      "category": "international",
+      "displayCategory": "International spends",
+      "rate": 2,
+      "displayRate": "2 Reward Points / Rs 100 spent",
       "capMonthly": null
     },
     {
       "category": "base",
+      "displayCategory": "All other eligible spends",
       "rate": 1,
+      "displayRate": "1 Reward Point / Rs 100 spent",
       "capMonthly": null
     }
   ],
@@ -49,32 +60,43 @@
     "utilities above fee threshold",
     "transactions excluded under LIC Axis Bank Platinum Credit Card terms"
   ],
+  "exclusionCodes": [
+    "fuel",
+    "wallet_load",
+    "emi",
+    "rent",
+    "education",
+    "utilities"
+  ],
   "milestoneBenefits": [],
   "additionalBenefits": [
     "Nil joining fee and nil annual fee",
-    "2 Reward Points per Rs 100 on LIC premium payments and foreign currency transactions",
-    "1 Reward Point per Rs 100 on other eligible transactions",
     "Complimentary lost card liability insurance cover up to credit limit",
     "1% fuel surcharge waiver on fuel purchases from Rs 400 to Rs 4,000, capped at Rs 400 per month",
-    "Dining Delights discounts at participating restaurants",
-    "Convert purchases of Rs 2,500 or more into EMI",
-    "Wednesday Delight offers as per Axis Bank programme terms"
+    "Dining Delights discounts at participating restaurants"
   ],
   "redemption": {
-    "statementBalanceValue": null,
-    "pointsExpiryYears": 3
+    "statementBalanceValue": 0.25,
+    "pointsExpiryYears": 3,
+    "redemptionFee": 30
   },
   "eligibility": {
     "salaried": [
-      "Primary cardholder should be between 18 and 70 years and resident of India or NRI"
+      "Age: 18 to 70 years",
+      "Resident of India or NRI"
     ],
     "selfEmployed": [
-      "Primary cardholder should be between 18 and 70 years and resident of India or NRI"
+      "Age: 18 to 70 years",
+      "Resident of India or NRI"
     ]
   },
   "sourceUrl": "https://www.axisbank.com/retail/cards/credit-card/lic-axis-bank-platinum-credit-card",
   "applyUrl": "https://www.axisbank.com/retail/cards/credit-card/lic-axis-bank-platinum-credit-card",
-  "lastVerified": "2026-05-10",
+  "imageUrl": "/images/axis-lic-platinum.webp",
+  "internalNotes": [
+    "Card details manually reviewed and verified by user on 2026-06-13."
+  ],
+  "lastVerified": "2026-06-13",
   "verificationStatus": "official-direct",
   "popularityScore": 54
 }
