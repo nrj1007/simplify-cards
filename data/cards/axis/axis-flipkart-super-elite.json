@@ -43,6 +43,13 @@
     "flights",
     "low fee"
   ],
+  "specialSpendRules": [
+    {
+      "category": "online",
+      "treatment": "capped",
+      "notes": "Flipkart spends earn 12 SuperCoins per Rs 100 spent for Plus members (capped at 1,500 SuperCoins per order) and 6 SuperCoins per Rs 100 spent for non-Plus members (capped at 750 SuperCoins per order)."
+    }
+  ],
   "exclusions": [
     "Fuel transactions",
     "Rent payments",
@@ -81,8 +88,6 @@
   ],
   "milestoneBenefits": [],
   "additionalBenefits": [
-    "Earn 12 SuperCoins per Rs 100 spent on Flipkart for Plus members (capped at 1,500 SuperCoins per order)",
-    "Earn 6 SuperCoins per Rs 100 spent on Flipkart for non-Plus members (capped at 750 SuperCoins per order)",
     "1% fuel surcharge waiver on transactions between Rs 400 and Rs 4,000, capped at Rs 400 per billing cycle",
     "Dining Delights discounts of up to 15% at participating partner restaurants"
   ],
