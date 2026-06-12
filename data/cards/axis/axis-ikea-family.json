@@ -5,40 +5,55 @@
   "network": [
     "Visa"
   ],
-  "joiningFee": 500,
-  "annualFee": 500,
+  "joiningFee": 0,
+  "annualFee": 0,
   "feeWaiverSpend": null,
   "bestFor": [
     "ikea",
     "home furnishing",
     "shopping",
     "lounge",
-    "cashback"
+    "dining"
   ],
-  "rewardType": "cashback",
+  "rewardType": "edge reward points",
   "rewards": [
     {
-      "category": "retail",
+      "category": "ikea",
+      "displayCategory": "IKEA spends",
       "rate": 3,
+      "displayRate": "3 EDGE REWARD Points / Rs 100 spent",
+      "capMonthly": null
+    },
+    {
+      "category": "dining",
+      "displayCategory": "Dining spends",
+      "rate": 2,
+      "displayRate": "2 EDGE REWARD Points / Rs 100 spent",
       "capMonthly": null
     },
     {
       "category": "base",
+      "displayCategory": "All other spends",
       "rate": 1,
+      "displayRate": "1 EDGE REWARD Point / Rs 100 spent",
       "capMonthly": null
     }
   ],
   "loungeDomestic": 4,
   "loungeInternational": 0,
+  "lounge": {
+    "domestic": [
+      "4 complimentary domestic airport lounge visits per calendar year (limited to 1 visit per quarter)."
+    ]
+  },
   "forexMarkup": 3.5,
   "tags": [
     "ikea",
     "family",
     "home furnishing",
     "shopping",
-    "cashback",
     "lounge",
-    "milestone"
+    "dining"
   ],
   "exclusions": [
     "fuel",
@@ -48,30 +63,41 @@
     "online skill-based gaming",
     "transactions excluded under IKEA Family Credit Card terms"
   ],
-  "milestoneBenefits": [
-    "IKEA voucher worth Rs 1,000 as milestone benefit, subject to product terms"
+  "exclusionCodes": [
+    "fuel",
+    "rent",
+    "wallet_load",
+    "education",
+    "gaming"
   ],
+  "milestoneBenefits": [],
   "additionalBenefits": [
-    "Unlimited 3% cashback on IKEA spends as listed on Axis Bank catalogue",
-    "4 complimentary domestic airport lounge visits at select domestic airports",
-    "Dining Delights offers may apply as per Axis Bank programme terms",
-    "1% fuel surcharge waiver on eligible fuel transactions"
+    "Preferred 13% p.a. EMI interest rate on IKEA store purchases (minimum purchase Rs 2,500)",
+    "Dining Delights benefits at participating restaurants",
+    "1% fuel surcharge waiver on transactions between Rs 400 and Rs 5,000, capped at Rs 400 per billing cycle"
   ],
   "redemption": {
-    "statementBalanceValue": 1,
-    "pointsExpiryYears": null
+    "statementBalanceValue": 0.2,
+    "pointsExpiryYears": 3,
+    "redemptionFee": 0
   },
   "eligibility": {
     "salaried": [
-      "Eligibility is subject to Axis Bank approval criteria"
+      "Age: 18 to 70 years",
+      "Resident of India or NRI"
     ],
     "selfEmployed": [
-      "Eligibility is subject to Axis Bank approval criteria"
+      "Age: 18 to 70 years",
+      "Resident of India or NRI"
     ]
   },
-  "sourceUrl": "https://www.axis.bank.in/cards/credit-card",
-  "applyUrl": "https://www.axis.bank.in/cards/credit-card",
-  "lastVerified": "2026-05-10",
-  "verificationStatus": "official-catalogue",
+  "sourceUrl": "https://www.axisbank.com/retail/cards/credit-card/ikea-family-credit-card",
+  "applyUrl": "https://www.axisbank.com/retail/cards/credit-card/ikea-family-credit-card",
+  "imageUrl": "/images/axis-ikea-family.webp",
+  "internalNotes": [
+    "Card details manually reviewed and verified by user on 2026-06-13."
+  ],
+  "lastVerified": "2026-06-13",
+  "verificationStatus": "official-direct",
   "popularityScore": 55
 }

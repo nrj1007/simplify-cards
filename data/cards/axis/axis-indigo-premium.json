@@ -12,34 +12,51 @@
     "indigo",
     "flights",
     "travel",
-    "hotel",
+    "hotels",
     "lounge"
   ],
   "rewardType": "indigo bluchips",
   "rewards": [
     {
       "category": "airlines",
+      "displayCategory": "IndiGo flight bookings",
       "rate": 7,
+      "displayRate": "7 IndiGo BluChips / Rs 100 spent",
       "capMonthly": null
     },
     {
       "category": "grocery",
+      "displayCategory": "Grocery spends",
       "rate": 3,
+      "displayRate": "3 IndiGo BluChips / Rs 100 spent",
       "capMonthly": null
     },
     {
-      "category": "hotel",
+      "category": "hotels",
+      "displayCategory": "Hotel bookings",
       "rate": 3,
+      "displayRate": "3 IndiGo BluChips / Rs 100 spent",
       "capMonthly": null
     },
     {
       "category": "base",
+      "displayCategory": "All other eligible spends",
       "rate": 2,
+      "displayRate": "2 IndiGo BluChips / Rs 100 spent",
       "capMonthly": null
     }
   ],
   "loungeDomestic": 8,
   "loungeInternational": 2,
+  "lounge": {
+    "domestic": [
+      "8 complimentary domestic airport lounge visits per calendar year (limited to 2 visits per quarter).",
+      "Requires spends of Rs 50,000 in the preceding 3 calendar months to unlock access (new cardholders are exempt for the month of card issuance and the next 3 calendar months)."
+    ],
+    "international": [
+      "2 complimentary international lounge visits per calendar year through Priority Pass."
+    ]
+  },
   "forexMarkup": 2.5,
   "tags": [
     "indigo",
@@ -54,47 +71,109 @@
     "bookmyshow"
   ],
   "exclusions": [
-    "fuel above fee threshold",
+    "fuel",
     "rent",
     "wallet load",
     "education payments via third-party apps",
-    "utilities above fee threshold",
+    "utilities",
     "transactions excluded under IndiGo Axis Bank Premium Credit Card terms"
   ],
-  "milestoneBenefits": [
-    "Voucher worth 5,000 IndiGo BluChips at annual spends of Rs 2 lakh",
-    "Voucher worth 5,000 IndiGo BluChips at annual spends of Rs 5 lakh",
-    "Voucher worth 5,000 IndiGo BluChips at annual spends of Rs 8 lakh",
-    "Voucher worth 5,000 IndiGo BluChips at annual spends of Rs 12 lakh"
+  "exclusionCodes": [
+    "fuel",
+    "rent",
+    "wallet_load",
+    "education",
+    "utilities"
+  ],
+  "milestoneBenefits": [],
+  "milestones": [
+    {
+      "threshold": 200000,
+      "period": "annual",
+      "value": 5000,
+      "kind": "points",
+      "label": "5,000 IndiGo BluChips voucher on annual spends of Rs 2 lakh"
+    },
+    {
+      "threshold": 500000,
+      "period": "annual",
+      "value": 5000,
+      "kind": "points",
+      "label": "5,000 IndiGo BluChips voucher on annual spends of Rs 5 lakh"
+    },
+    {
+      "threshold": 800000,
+      "period": "annual",
+      "value": 5000,
+      "kind": "points",
+      "label": "5,000 IndiGo BluChips voucher on annual spends of Rs 8 lakh"
+    },
+    {
+      "threshold": 1200000,
+      "period": "annual",
+      "value": 5000,
+      "kind": "points",
+      "label": "5,000 IndiGo BluChips voucher on annual spends of Rs 12 lakh"
+    }
+  ],
+  "joiningBenefits": [
+    "Voucher worth 5,000 IndiGo BluChips plus one complimentary 6E Eats voucher as welcome gift on payment of joining fee"
+  ],
+  "joiningBenefitsValued": [
+    {
+      "value": 5000,
+      "kind": "points",
+      "label": "5,000 IndiGo BluChips welcome voucher"
+    },
+    {
+      "value": 350,
+      "kind": "voucher",
+      "label": "Complimentary 6E Eats voucher"
+    }
+  ],
+  "renewalBenefits": [
+    "Voucher worth 5,000 IndiGo BluChips plus one complimentary 6E Eats voucher every year as renewal benefit on payment of annual fee"
+  ],
+  "renewalBenefitsValued": [
+    {
+      "value": 5000,
+      "kind": "points",
+      "label": "5,000 IndiGo BluChips renewal voucher"
+    },
+    {
+      "value": 350,
+      "kind": "voucher",
+      "label": "Complimentary 6E Eats renewal voucher"
+    }
   ],
   "additionalBenefits": [
-    "Voucher worth 5,000 IndiGo BluChips plus one complimentary 6E Eats voucher as welcome gift on payment of joining fee",
-    "Voucher worth 5,000 IndiGo BluChips plus one complimentary 6E Eats voucher every year as renewal benefit on payment of annual fee",
-    "7 IndiGo BluChips per Rs 100 on all IndiGo channels",
-    "3 IndiGo BluChips per Rs 100 on groceries and hotel spends",
-    "2 IndiGo BluChips per Rs 100 on other eligible categories",
-    "2 complimentary international lounge visits through Priority Pass",
-    "2 complimentary domestic airport lounge visits per quarter, applicable on spends of Rs 50,000 in the preceding 3 months",
     "Buy one get one movie ticket offer on BookMyShow once every month",
     "Low forex markup of 2.5% on foreign currency transactions",
     "Dining Delights offers through Axis Bank dining programme",
     "EMI conversion available for transactions exceeding Rs 1,500"
   ],
   "redemption": {
-    "statementBalanceValue": null,
-    "pointsExpiryYears": null
+    "ecosystemLabel": "IndiGo flight bookings",
+    "ecosystemValue": 1.0,
+    "pointsExpiryYears": 2
   },
   "eligibility": {
     "salaried": [
-      "Primary cardholder should be 18 to 70 years of age, resident of India and have net income of at least Rs 6 lakh per annum"
+      "Age: 18 to 70 years",
+      "Resident of India or NRI"
     ],
     "selfEmployed": [
-      "Primary cardholder should be 18 to 70 years of age, resident of India and have net income of at least Rs 6 lakh per annum"
+      "Age: 18 to 70 years",
+      "Resident of India or NRI"
     ]
   },
-  "sourceUrl": "https://www.axis.bank.in/cards/credit-card/indigo-axis-bank-premium-credit-card",
-  "applyUrl": "https://www.axis.bank.in/cards/credit-card/indigo-axis-bank-premium-credit-card",
-  "lastVerified": "2026-05-10",
+  "sourceUrl": "https://www.axisbank.com/retail/cards/credit-card/indigo-axis-bank-premium-credit-card",
+  "applyUrl": "https://www.axisbank.com/retail/cards/credit-card/indigo-axis-bank-premium-credit-card",
+  "imageUrl": "/images/axis-indigo-premium.webp",
+  "internalNotes": [
+    "Card details manually reviewed and verified by user on 2026-06-13."
+  ],
+  "lastVerified": "2026-06-13",
   "verificationStatus": "official-direct",
   "popularityScore": 55
 }

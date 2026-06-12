@@ -80,6 +80,7 @@ const allowedRewardCategories = new Set([
   "groceries",
   "hotel",
   "hotels",
+  "ikea",
   "irctc",
   "international",
   "lifestyle",
