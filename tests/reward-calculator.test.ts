@@ -1,8 +1,45 @@
 import { describe, expect, it } from "vitest";
 import { getCardById } from "../lib/cards";
+import { cards } from "../lib/cards";
 import { calculateRewards } from "../lib/reward-calculator";
 import { milestoneRulesForCard } from "../lib/recommend";
+import { parseDisplayRateUnits } from "../lib/reward-rate-parse";
 import type { Milestone } from "../lib/types";
+
+// Rows whose displayRate text is intentionally inconsistent with the (correct) rate.
+const RATE_DISPLAY_ALLOWLIST = new Set([
+  "hdfc-diners-club-black-metal::smartbuy hotels",
+  "hdfc-diners-club-black-metal::smartbuy flights"
+]);
+const isCashbackType = (rt: string) => /cashback/i.test(rt) && !/point|mile|coin|star|credit|neucoin/i.test(rt);
+
+describe("reward rate convention", () => {
+  it("keeps reward.rate (units per Rs 100) consistent with every parseable displayRate", () => {
+    const offenders: string[] = [];
+    for (const card of cards) {
+      if (isCashbackType(card.rewardType)) continue;
+      for (const reward of card.rewards) {
+        if (RATE_DISPLAY_ALLOWLIST.has(`${card.id}::${reward.category}`)) continue;
+        const parsed = parseDisplayRateUnits(reward.displayRate);
+        if (parsed && Math.abs(parsed.basePerRs100 - reward.rate) > 0.01) {
+          offenders.push(`${card.id} [${reward.category}] rate=${reward.rate} vs ${parsed.basePerRs100.toFixed(3)}`);
+        }
+      }
+    }
+    expect(offenders).toEqual([]);
+  });
+
+  it("scores Amex MR earn as units (not the old %-return), e.g. amex-gold base = 2 points/Rs100", () => {
+    const card = getCardById("amex-gold");
+    expect(card).toBeTruthy();
+    // "1 Membership Rewards Point / Rs 50" = 2 units per Rs 100 (was mis-stored as 0.5 %-return).
+    const retail = card!.rewards.find((r) => r.category === "retail");
+    expect(retail!.rate).toBe(2);
+    // Rs 50,000 retail/mo earns 1,000 MR points/mo (uncapped retail row).
+    const result = calculateRewards(card!, { base: 50000 });
+    expect(result.rows.find((r) => r.category === "base")!.monthlyUnits).toBe(1000);
+  });
+});
 
 describe("reward calculator", () => {
   // TODO: Add reward calculator test cases for each card to ensure comprehensive coverage across all cards in data/cards/
@@ -526,16 +563,20 @@ describe("reward calculator", () => {
     });
   });
 
-  it("extracts 12 Lakhs threshold from Sapphiro cap milestone benefit description", () => {
+  it("derives Sapphiro milestone rules from the structured milestones field", () => {
     const card = getCardById("icici-sapphiro");
     expect(card).toBeTruthy();
 
     const rules = milestoneRulesForCard(card!);
-    
-    // Sapphiro has 3 milestone benefits. The last one is "Maximum milestone rewards capped..." at Rs 12 Lakhs spend.
-    const capMilestone = rules.find(r => r.label.includes("Maximum milestone rewards"));
-    expect(capMilestone).toBeTruthy();
-    expect(capMilestone!.threshold).toBe(1200000);
+
+    // Structured milestones: a Rs 4 lakh base unlock and an incremental "beyond Rs 4 lakh"
+    // milestone whose 20,000-point cap is folded into its label (no separate cap milestone row).
+    const base = rules.find((r) => r.threshold === 400000);
+    expect(base).toBeTruthy();
+
+    const incremental = rules.find((r) => r.threshold === 500000);
+    expect(incremental).toBeTruthy();
+    expect(incremental!.label).toMatch(/capped at 20,000 points total/i);
   });
 
   describe("structured milestones field", () => {

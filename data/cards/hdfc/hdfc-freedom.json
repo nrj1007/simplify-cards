@@ -21,21 +21,21 @@
     {
       "category": "dining, travel, grocery, hotels, online",
       "displayCategory": "BigBasket, BookMyShow, OYO, Swiggy, and Uber (10X CashPoints)",
-      "rate": 1,
+      "rate": 6.666666666666667,
       "displayRate": "10 CashPoints / Rs 150 spent",
       "capMonthly": 2500
     },
     {
       "category": "upi",
       "displayCategory": "UPI transactions (RuPay variant)",
-      "rate": 0.1,
+      "rate": 0.6666666666666666,
       "displayRate": "1 CashPoint / Rs 150 spent",
       "capMonthly": 500
     },
     {
       "category": "base",
       "displayCategory": "Other retail spends",
-      "rate": 0.1,
+      "rate": 0.6666666666666666,
       "displayRate": "1 CashPoint / Rs 150 spent",
       "capMonthly": null
     }

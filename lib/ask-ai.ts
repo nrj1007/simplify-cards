@@ -879,12 +879,15 @@ function subjectMatchesExclusions(exclusions: string[], subject: string) {
 }
 
 function rewardRateLabelForAnswer(cardScore: CardScore, rate: number) {
+  // `rate` is the canonical earn rate and may carry full precision (e.g. 3.3333333333333335 for a
+  // "5 points / Rs 150" row); round for display so the user sees a clean figure.
+  const display = Number(rate.toFixed(2));
   const rewardTypeLower = cardScore.card.rewardType.toLowerCase();
   if (rewardTypeLower.includes("point") || rewardTypeLower.includes("mile")) {
-    return `${rate} ${cardScore.card.rewardType} per Rs 100`;
+    return `${display} ${cardScore.card.rewardType} per Rs 100`;
   }
 
-  return `${rate}%`;
+  return `${display}%`;
 }
 
 function buildSpecificQuestionAnswer(input: RecommendationInput, topCard: CardScore) {

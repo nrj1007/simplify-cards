@@ -41,7 +41,7 @@
     {
       "category": "dining",
       "displayCategory": "weekend dining",
-      "rate": 6.67,
+      "rate": 6.666666666666667,
       "displayRate": "10 Reward Points / Rs 150 on weekend dining at standalone restaurants",
       "capDaily": 1000,
       "capMonthly": null
@@ -49,7 +49,7 @@
     {
       "category": "base",
       "displayCategory": "others",
-      "rate": 3.33,
+      "rate": 3.3333333333333335,
       "displayRate": "5 Reward Points / Rs 150",
       "capMonthly": null
     }

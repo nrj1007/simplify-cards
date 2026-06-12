@@ -20,21 +20,21 @@
     {
       "category": "fuel",
       "displayCategory": "IndianOil fuel outlets (up to Rs 15,000 spend/month)",
-      "rate": 1.33,
+      "rate": 4,
       "displayRate": "6 EDGE Miles / Rs 150 spent at IndianOil outlets",
       "capMonthly": 600
     },
     {
       "category": "grocery",
       "displayCategory": "Grocery and supermarket spends (up to Rs 5,000 spend/month)",
-      "rate": 0.44,
+      "rate": 1.3333333333333333,
       "displayRate": "2 EDGE Miles / Rs 150 spent on grocery and supermarket",
       "capMonthly": 67
     },
     {
       "category": "base",
       "displayCategory": "Other eligible retail spends",
-      "rate": 0.22,
+      "rate": 0.6666666666666666,
       "displayRate": "1 EDGE Mile / Rs 150 spent on other eligible spends",
       "capMonthly": null
     }

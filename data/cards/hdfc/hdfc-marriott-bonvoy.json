@@ -19,14 +19,14 @@
   "rewards": [
     {
       "category": "marriott",
-      "rate": 5.33,
+      "rate": 5.333333333333333,
       "displayRate": "8 Marriott Bonvoy Points / Rs 150",
       "capMonthly": 3200,
       "postCapRate": 1.33
     },
     {
       "category": "travel, dining, entertainment",
-      "rate": 2.67,
+      "rate": 2.6666666666666665,
       "displayCategory": "travel, dining and entertainment",
       "displayRate": "4 Marriott Bonvoy Points / Rs 150",
       "capMonthly": 1600,
@@ -35,7 +35,7 @@
     {
       "category": "base",
       "displayCategory": "others",
-      "rate": 1.33,
+      "rate": 1.3333333333333333,
       "displayRate": "2 Marriott Bonvoy Points / Rs 150",
       "capMonthly": null
     }

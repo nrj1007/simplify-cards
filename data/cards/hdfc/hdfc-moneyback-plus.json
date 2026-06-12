@@ -20,28 +20,28 @@
     {
       "category": "amazon, dining, online",
       "displayCategory": "Amazon, Flipkart, Swiggy (10X CashPoints)",
-      "rate": 2.5,
+      "rate": 10,
       "displayRate": "20 CashPoints / Rs 200 spent",
       "capMonthly": 2500
     },
     {
       "category": "grocery",
       "displayCategory": "Reliance Smart SuperStore & BigBasket (10X CashPoints)",
-      "rate": 2.5,
+      "rate": 10,
       "displayRate": "20 CashPoints / Rs 200 spent",
       "capMonthly": 1000
     },
     {
       "category": "base",
       "displayCategory": "Other retail spends",
-      "rate": 0.25,
+      "rate": 1,
       "displayRate": "2 CashPoints / Rs 200 spent",
       "capMonthly": null
     },
     {
       "category": "upi",
       "displayCategory": "UPI transactions (RuPay variant)",
-      "rate": 0.25,
+      "rate": 1,
       "displayRate": "2 CashPoints / Rs 200 spent",
       "capMonthly": null
     }

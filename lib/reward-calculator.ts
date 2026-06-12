@@ -1,4 +1,5 @@
 import { SPEND_CATEGORY_EXCLUSION_CODE_MAP } from "./exclusion-constants";
+import { parseDisplayRateUnits } from "./reward-rate-parse";
 import type { CreditCard, Reward, SpendCategory, SpendProfile } from "./types";
 
 // Spend-category → reward-category aliases. Kept in sync with lib/recommend.ts so the
@@ -209,46 +210,20 @@ function isCashbackRewardType(rewardType: string) {
   return /cashback/i.test(rewardType) && !/point|mile|coin|star|credit|neucoin/i.test(rewardType);
 }
 
-function parsePerRsRate(displayRate: string | undefined) {
-  if (!displayRate) return null;
-
-  const normalized = displayRate.replace(/,/g, "");
-  const firstMatch = normalized.match(/(\d+(?:\.\d+)?)\s+[a-z ]+?\/\s*rs\s*(\d+(?:\.\d+)?)/i);
-  if (!firstMatch) return null;
-
-  const units = Number(firstMatch[1]);
-  const spend = Number(firstMatch[2]);
-  if (!units || !spend || Number.isNaN(units) || Number.isNaN(spend)) return null;
-
-  const basePerRs100 = (units * 100) / spend;
-
-  const tail = normalized.slice(firstMatch.index! + firstMatch[0].length);
-  const thenMatch = tail.match(/then\s+(\d+(?:\.\d+)?)\s+[a-z ]+?\/\s*rs\s*(\d+(?:\.\d+)?)/i);
-  if (!thenMatch) {
-    return { basePerRs100, postCapPerRs100: null as number | null };
-  }
-
-  const postUnits = Number(thenMatch[1]);
-  const postSpend = Number(thenMatch[2]);
-  if (!postUnits || !postSpend || Number.isNaN(postUnits) || Number.isNaN(postSpend)) {
-    return { basePerRs100, postCapPerRs100: null as number | null };
-  }
-
-  return {
-    basePerRs100,
-    postCapPerRs100: (postUnits * 100) / postSpend
-  };
-}
-
+// `reward.rate` is the canonical base earn rate: reward-currency units earned per Rs 100 of spend
+// (for cashback cards, rupees per Rs 100 = the cashback %). It is kept numerically consistent with
+// `displayRate` by the card validator, so the base rate is read structurally rather than mined from
+// prose. Post-cap sourcing intentionally mirrors the legacy behavior to keep displayed values
+// unchanged: when the displayRate encodes a "then …/Rs …" reduced rate it wins, otherwise the
+// structured `postCapRate` applies. (Note: recommend.ts always applies the structured `postCapRate`;
+// reconciling the calculator's post-cap handling with it is a separate follow-up.)
 function rewardEarnRatePerRs100(card: CreditCard, reward: Reward) {
   if (isCashbackRewardType(card.rewardType)) {
     return { basePerRs100: reward.rate, postCapPerRs100: reward.postCapRate ?? null };
   }
-
-  const parsed = parsePerRsRate(reward.displayRate);
-  if (parsed) return parsed;
-
-  return { basePerRs100: reward.rate, postCapPerRs100: reward.postCapRate ?? null };
+  const parsed = parseDisplayRateUnits(reward.displayRate);
+  const postCapPerRs100 = parsed ? parsed.postCapPerRs100 : reward.postCapRate ?? null;
+  return { basePerRs100: reward.rate, postCapPerRs100 };
 }
 
 function parseTierAmount(amount: string, unit: string | undefined) {

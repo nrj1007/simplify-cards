@@ -20,19 +20,19 @@
   "rewards": [
     {
       "category": "fuel",
-      "rate": 4,
+      "rate": 20,
       "displayRate": "20 EDGE REWARD Points / Rs 100 spent at IndianOil outlets",
       "capMonthly": 1000
     },
     {
       "category": "online",
-      "rate": 1,
+      "rate": 5,
       "displayRate": "5 EDGE REWARD Points / Rs 100 spent on online shopping",
       "capMonthly": null
     },
     {
       "category": "base",
-      "rate": 0.2,
+      "rate": 1,
       "displayRate": "1 EDGE REWARD Point / Rs 100 spent on other eligible retail spends",
       "capMonthly": null
     }

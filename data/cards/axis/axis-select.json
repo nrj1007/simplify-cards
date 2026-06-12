@@ -20,14 +20,14 @@
     {
       "category": "base",
       "displayCategory": "Retail shopping spends (up to Rs 20,000 spend/month)",
-      "rate": 2,
+      "rate": 10,
       "displayRate": "20 EDGE REWARD Points / Rs 200 spent on retail shopping",
       "capMonthly": 2000
     },
     {
       "category": "base",
       "displayCategory": "Other eligible spends",
-      "rate": 1,
+      "rate": 5,
       "displayRate": "10 EDGE REWARD Points / Rs 200 spent",
       "capMonthly": null
     }

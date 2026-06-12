@@ -283,14 +283,32 @@ The calculator computes `value per card unit = partnerPointValue × transferRati
 
 ### D. Reward Rates and Display Uniformity (`displayRate` vs. `rate`)
 
-To ensure that the UI renders reward rates exactly as they are advertised on official bank websites (rather than exposing raw yield decimals or default percentage fallbacks), follow these guidelines:
+`rate` is the canonical number the engine scores on; `displayRate` is the user-facing string. They
+must agree numerically (the validator enforces it), so the UI shows the advertised wording while the
+engine never has to parse prose. Follow these guidelines:
 
-*   **`rate` (Numeric Earning Rate / Net Yield):** This is a decimal number representing the direct yield/percentage for the recommendation scoring calculations.
-    *   *Example:* If a card earns 6 reward points per ₹100 online and each point is worth ₹0.40, the net yield is `2.4%`. Set `"rate": 2.4` for scoring accuracy.
-*   **`displayRate` (Uniform Visual Representation):** Define this string property whenever a card expresses its rewards in terms of reward points, EazyPoints, savings points, or other specific metrics on its official page, rather than flat percentages.
-    *   *Example:* For the card above, set `"displayRate": "6 reward points per Rs 100"`.
+*   **`rate` (Canonical Earn Rate — reward-currency units per Rs 100):** A decimal giving the number
+    of **reward-currency units** (points / miles / cashback-rupees) earned per **Rs 100** of spend.
+    The rupee value is applied separately by the engine via the `redemption` point value — **do not**
+    bake the point value into `rate`.
+    *   *Example:* A card earning **6 reward points per ₹100** has `"rate": 6` (not `2.4`). If each
+        point is worth ₹0.40, the engine multiplies `6 × 0.40` to get the 2.4% yield at scoring time.
+    *   *Cashback cards* (rewardType contains "cashback") are the one case where a unit **is** a rupee,
+        so `rate` = rupees per Rs 100 = the cashback % (e.g. a 5% card has `"rate": 5`).
+    *   `rate` must equal the units implied by `displayRate` (the validator enforces this — see below).
+        Store the **exact** division: `"5 Reward Points / Rs 150"` → `rate = 5 × 100 / 150 =
+        3.3333333333333335`. Long decimals on `/Rs 150`-style rows are expected and correct; the UI
+        rounds them for display. Run `npm run normalize:reward-rates` to derive `rate` from `displayRate`.
+*   **`displayRate` (Uniform Visual Representation):** The user-facing string, matching the official
+    page. Define it whenever a card expresses rewards as points / miles / EazyPoints / etc.
+    *   *Example:* For the card above, `"displayRate": "6 reward points per Rs 100"`.
     *   Always use a clear, user-friendly format matching the official website (e.g. `"X reward points per Rs 100"`, `"X EazyPoints per Rs 100"`, or `"X reward points per Rs 150"`).
-    *   Defining `displayRate` prevents the UI from incorrectly defaulting to the raw yield decimal (like displaying `2.4 reward points / Rs 100` instead of `6`) or appending `%` to non-percentage rates.
+    *   `displayRate` is **display-only** — the engines never parse it for scoring. But because the
+        validator checks `rate` against the `"<units> … / Rs <amount>"` pattern in `displayRate`, the
+        two must stay numerically consistent. Editing the points/spend in `displayRate` means re-running
+        `npm run normalize:reward-rates` (or updating `rate` by hand). A reward whose `displayRate` is
+        intentionally inconsistent with a correct `rate` (rare) must be added to the validator's
+        `RATE_DISPLAY_MISMATCH_ALLOWLIST`.
 *   If a reward category has its own issuer-published cap, keep that cap in the reward row itself rather than moving it to `additionalDetails`.
 *   Use `capDaily` for daily caps, `capMonthly` for monthly caps, and `capStatementQuarter` for statement-quarter caps.
 *   Only fall back to cap wording inside `displayRate` if the cap period cannot be represented through the structured reward fields.

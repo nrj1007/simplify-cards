@@ -20,19 +20,19 @@
   "rewards": [
     {
       "category": "retail",
-      "rate": 0.625,
+      "rate": 2.5,
       "displayRate": "1 Membership Rewards Point / Rs 40 spent on eligible categories",
       "capMonthly": null
     },
     {
       "category": "travel",
-      "rate": 1.875,
+      "rate": 7.5,
       "displayRate": "3 Membership Rewards Points / Rs 40 spent on overseas spends",
       "capMonthly": null
     },
     {
       "category": "fuel",
-      "rate": 1.25,
+      "rate": 5,
       "displayRate": "5 Membership Rewards Points / Rs 100 spent on fuel",
       "capMonthly": null
     },

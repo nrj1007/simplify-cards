@@ -19,19 +19,19 @@
   "rewards": [
     {
       "category": "retail",
-      "rate": 0.5,
+      "rate": 2,
       "displayRate": "1 Membership Rewards Point / Rs 50 spent on eligible categories",
       "capMonthly": null
     },
     {
       "category": "utilities",
-      "rate": 0.5,
+      "rate": 2,
       "displayRate": "1 Membership Rewards Point / Rs 50 spent on utility payments",
       "capMonthly": 10000
     },
     {
       "category": "online",
-      "rate": 2.5,
+      "rate": 10,
       "displayRate": "5 Membership Rewards Points / Rs 50 spent via Reward Multiplier on select brands",
       "capMonthly": null
     }

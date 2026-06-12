@@ -1,6 +1,20 @@
 import fs from "node:fs";
 import path from "node:path";
 import { EXCLUSION_CODES, type ExclusionCode } from "../lib/exclusion-constants";
+import { parseDisplayRateUnits } from "../lib/reward-rate-parse";
+
+// `reward.rate` is the canonical earn rate (units per Rs 100) and must stay numerically consistent
+// with the human `displayRate` so the two never silently diverge again. Rows here are known, reviewed
+// exceptions where the displayRate text is intentionally inconsistent with the (correct) rate. Kept
+// in sync with DISPLAYRATE_SKIP in scripts/normalize-reward-rates.ts.
+const RATE_DISPLAY_MISMATCH_ALLOWLIST = new Set([
+  "hdfc-diners-club-black-metal::smartbuy hotels",
+  "hdfc-diners-club-black-metal::smartbuy flights"
+]);
+
+function isCashbackRewardType(rewardType: unknown) {
+  return typeof rewardType === "string" && /cashback/i.test(rewardType) && !/point|mile|coin|star|credit|neucoin/i.test(rewardType);
+}
 
 type ValidationIssue = {
   cardId?: string;
@@ -470,6 +484,31 @@ if (cardFiles.length === 0) {
 
         if (typeof reward.rate !== "number" || !Number.isFinite(reward.rate) || reward.rate < 0) {
           addIssue(`reward ${rewardIndex} rate must be a non-negative number`, cardId, "rewards");
+        } else if (!isCashbackRewardType(card.rewardType)) {
+          // `rate` is units per Rs 100; for non-cashback rows with a parseable displayRate it must
+          // match the displayRate-implied units so the calculator and recommend.ts never diverge.
+          const parsed = parseDisplayRateUnits(typeof reward.displayRate === "string" ? reward.displayRate : undefined);
+          const allowlisted = RATE_DISPLAY_MISMATCH_ALLOWLIST.has(`${cardId}::${reward.category}`);
+          if (parsed && !allowlisted) {
+            if (Math.abs(parsed.basePerRs100 - reward.rate) > 0.01) {
+              addIssue(
+                `reward ${rewardIndex} rate (${reward.rate}) disagrees with displayRate-implied units (${parsed.basePerRs100.toFixed(3)} from "${reward.displayRate}"); run npm run normalize:reward-rates`,
+                cardId,
+                "rewards"
+              );
+            }
+            if (
+              parsed.postCapPerRs100 != null &&
+              typeof reward.postCapRate === "number" &&
+              Math.abs(parsed.postCapPerRs100 - reward.postCapRate) > 0.01
+            ) {
+              addIssue(
+                `reward ${rewardIndex} postCapRate (${reward.postCapRate}) disagrees with displayRate "then" units (${parsed.postCapPerRs100.toFixed(3)})`,
+                cardId,
+                "rewards"
+              );
+            }
+          }
         }
 
         if (reward.capMonthly !== null && !isMoneyNumber(reward.capMonthly)) {
