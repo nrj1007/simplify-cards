@@ -1476,11 +1476,17 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
         .map((monthlySpend) => scoreCardForSpend(card, scaleSpendProfileToMonthly(defaultSpendProfile, monthlySpend), monthlySpend))
         .sort((a, b) => (b.envelopeScoring?.normalizedFitScore ?? 0) - (a.envelopeScoring?.normalizedFitScore ?? 0))[0];
     })
-    .sort((a, b) =>
-      useEnvelopeScoring
+    .sort((a, b) => {
+      const primary = useEnvelopeScoring
         ? (b.envelopeScoring?.normalizedFitScore ?? 0) - (a.envelopeScoring?.normalizedFitScore ?? 0)
-        : b.fitScore - a.fitScore
-    );
+        : b.fitScore - a.fitScore;
+      if (primary !== 0) return primary;
+      // Deterministic tie-break so equal-scoring cards keep a stable order regardless of input
+      // order: more popular first, then card id.
+      const popularity = b.card.popularityScore - a.card.popularityScore;
+      if (popularity !== 0) return popularity;
+      return a.card.id.localeCompare(b.card.id);
+    });
 }
 
 export function answerFromCards(input: RecommendationInput) {
