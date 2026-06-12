@@ -19,17 +19,23 @@
   "rewards": [
     {
       "category": "airlines",
-      "rate": 2,
+      "displayCategory": "Airline spends",
+      "rate": 2.0,
+      "displayRate": "4 Award Miles / Rs 200 spent",
       "capMonthly": null
     },
     {
       "category": "travel",
-      "rate": 2,
+      "displayCategory": "Travel spends",
+      "rate": 2.0,
+      "displayRate": "4 Award Miles / Rs 200 spent",
       "capMonthly": null
     },
     {
       "category": "base",
-      "rate": 2,
+      "displayCategory": "Other eligible retail spends",
+      "rate": 2.0,
+      "displayRate": "4 Award Miles / Rs 200 spent",
       "capMonthly": null
     }
   ],
@@ -46,33 +52,39 @@
     "lounge"
   ],
   "exclusions": [
+    "Fuel transactions",
+    "Rent payments",
+    "E-wallet loading transactions",
+    "Insurance premium payments",
+    "Utilities and telecom spends",
+    "Government services spends",
+    "Purchase of gold or jewellery",
+    "Cash withdrawals",
+    "EMI transactions"
+  ],
+  "exclusionCodes": [
     "fuel",
-    "wallet",
     "rent",
+    "wallet_load",
     "insurance",
     "utilities",
-    "government spends",
+    "government",
     "gold",
     "jewellery",
-    "cash withdrawals",
-    "emi transactions",
-    "transactions excluded under Miles and More Axis Bank Credit Card terms"
+    "cash_withdrawal",
+    "emi"
   ],
-  "milestoneBenefits": [
-    "3,000 award miles annual renewal bonus for Miles and More Axis Bank World Credit Card",
-    "World Select variant offers 4,000 award miles annual renewal bonus"
+  "joiningBenefits": [
+    "5,000 welcome Award Miles upon first transaction within 30 days of card activation"
   ],
+  "renewalBenefits": [
+    "3,000 annual renewal bonus Award Miles upon payment of the annual fee"
+  ],
+  "milestoneBenefits": [],
   "additionalBenefits": [
-    "5,000 welcome award miles on first transaction for Miles and More Axis Bank World Credit Card",
-    "World Select variant offers 15,000 welcome award miles",
-    "4 award miles per Rs 200 of eligible spends on World Credit Card",
-    "World Select variant earns 6 award miles per Rs 200 of eligible spends",
-    "Award miles do not expire while card terms for activity are met",
-    "2 complimentary Priority Pass lounge visits per card membership year on World Credit Card",
-    "World Select variant offers 4 complimentary Priority Pass lounge visits per card membership year",
-    "4 complimentary domestic Mastercard lounge visits per quarter on World Credit Card, subject to spends criteria",
-    "World Select variant offers 8 complimentary domestic Mastercard lounge visits per quarter, subject to spends criteria",
-    "Dining Delights offers may apply; Axis page lists enhanced dining offers for World Select"
+    "Award Miles do not expire as long as the card account remains active",
+    "1% fuel surcharge waiver on transactions between Rs 400 and Rs 4,000, capped at Rs 400 per billing cycle",
+    "Complimentary Dining Delights program benefits at participating restaurants"
   ],
   "redemption": {
     "statementBalanceValue": null,
@@ -80,15 +92,26 @@
   },
   "eligibility": {
     "salaried": [
-      "Primary cardholder should be 18 to 70 years of age and resident of India or NRI"
+      "Age: 18 to 70 years",
+      "Resident of India or NRI"
     ],
     "selfEmployed": [
-      "Primary cardholder should be 18 to 70 years of age and resident of India or NRI"
+      "Age: 18 to 70 years",
+      "Resident of India or NRI"
     ]
   },
   "sourceUrl": "https://www.axisbank.com/retail/cards/credit-card/miles-more-credit-card",
   "applyUrl": "https://www.axisbank.com/retail/cards/credit-card/miles-more-credit-card",
-  "lastVerified": "2026-05-10",
-  "verificationStatus": "official-mixed",
+  "imageUrl": "/images/axis-miles-and-more.webp",
+  "additionalDetails": [],
+  "internalNotes": [
+    "Axis Bank Miles & More Credit Card is offered in World and World Select variants.",
+    "This file represents the World variant (annual/joining fee of Rs 3,500).",
+    "The World Select variant has a joining fee of Rs 10,000, annual fee of Rs 4,500, welcome bonus of 15,000 miles, annual renewal bonus of 4,000 miles, and earns 6 miles per Rs 200 spent.",
+    "Complimentary domestic lounge access (4 visits/quarter) requires spends of Rs 50,000 in the previous 3 calendar months. New cardholders are exempt from this criteria for the month of card issuance and the next 3 calendar months.",
+    "Card details manually reviewed and verified by user on 2026-06-12"
+  ],
+  "lastVerified": "2026-06-12",
+  "verificationStatus": "official-direct",
   "popularityScore": 62
 }

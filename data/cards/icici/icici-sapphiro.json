@@ -136,6 +136,13 @@
       "value": 500,
       "kind": "points",
       "label": "2,000 additional Reward Points for every Rs 1 lakh spent beyond Rs 4 lakh in an anniversary year, capped at 20,000 points total"
+    },
+    {
+      "threshold": 1200000,
+      "period": "annual",
+      "value": 5000,
+      "kind": "points",
+      "label": "Maximum milestone rewards capped at 20,000 Reward Points (on Rs 12 Lakhs annual spend) per anniversary year"
     }
   ],
   "milestoneBenefits": [

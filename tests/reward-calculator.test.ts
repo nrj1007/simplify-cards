@@ -1914,6 +1914,106 @@ describe("reward calculator", () => {
       });
     });
   });
+
+  describe("Axis Bank Batch 4 Cards", () => {
+    describe("Platinum Credit Card", () => {
+      it("earns 0.6% return on base domestic spends and 1.2% on international spends", () => {
+        const card = getCardById("axis-platinum");
+        expect(card).toBeTruthy();
+
+        const result = calculateRewards(card!, { base: 20000, international: 20000 });
+        expect(result.monthlyUnits).toBe(1800); // 600 domestic + 1200 international points
+      });
+
+      it("excludes fuel, rent, insurance, utilities, government, and education spends", () => {
+        const card = getCardById("axis-platinum");
+        const result = calculateRewards(card!, {
+          fuel: 5000,
+          rent: 5000,
+          insurance: 5000,
+          utilities: 5000,
+          government: 5000,
+          education: 5000
+        });
+        expect(result.monthlyUnits).toBe(0);
+      });
+    });
+
+    describe("Axis Bank Freecharge Credit Card", () => {
+      it("earns 1 Edge reward point per Rs 200 spent on eligible base spends", () => {
+        const card = getCardById("axis-freecharge");
+        expect(card).toBeTruthy();
+
+        const result = calculateRewards(card!, { base: 10000 });
+        expect(result.monthlyUnits).toBe(50);
+      });
+
+      it("earns monthly milestone bonus points based on spend thresholds", () => {
+        const card = getCardById("axis-freecharge");
+        expect(card).toBeTruthy();
+
+        const milestones = milestoneRulesForCard(card!);
+        expect(milestones).toHaveLength(2);
+
+        const first = milestones[0];
+        expect(first.threshold).toBe(24000); // 2000 * 12
+        expect(first.value).toBe(240); // 20 * 12
+        expect(first.period).toBe("monthly");
+      });
+    });
+
+    describe("Fibe Axis Bank Credit Card", () => {
+      it("earns 3% cashback on food delivery, entertainment & local commute, capped at Rs 1,500/month", () => {
+        const card = getCardById("axis-fibe");
+        expect(card).toBeTruthy();
+
+        const result1 = calculateRewards(card!, { dining: 10000, online: 10000, travel: 10000 });
+        expect(result1.monthlyUnits).toBe(900); // 30,000 * 3%
+
+        const result2 = calculateRewards(card!, { online: 60000 });
+        expect(result2.monthlyUnits).toBe(1500); // capped
+      });
+
+      it("earns 1% cashback on other eligible retail spends", () => {
+        const card = getCardById("axis-fibe");
+        const result = calculateRewards(card!, { base: 10000 });
+        expect(result.monthlyUnits).toBe(100);
+      });
+    });
+
+    describe("Flipkart Axis Bank Super Elite Credit Card", () => {
+      it("earns 12 SuperCoins per Rs 100 spent on Flipkart, and 2 SuperCoins per Rs 100 spent elsewhere", () => {
+        const card = getCardById("axis-flipkart-super-elite");
+        expect(card).toBeTruthy();
+
+        const result = calculateRewards(card!, { online: 10000, base: 10000 });
+        expect(result.monthlyUnits).toBe(1400); // 1200 + 200
+      });
+    });
+
+    describe("Miles and More Axis Bank Credit Card", () => {
+      it("earns flat 4 Award Miles per Rs 200 spent on eligible transactions", () => {
+        const card = getCardById("axis-miles-and-more");
+        expect(card).toBeTruthy();
+
+        const result = calculateRewards(card!, { base: 10000, airlines: 10000, travel: 10000 });
+        expect(result.monthlyUnits).toBe(600); // 30,000 / 200 * 4
+      });
+
+      it("excludes fuel, rent, insurance, utilities, government, and gold spends", () => {
+        const card = getCardById("axis-miles-and-more");
+        const result = calculateRewards(card!, {
+          fuel: 5000,
+          rent: 5000,
+          insurance: 5000,
+          utilities: 5000,
+          government: 5000,
+          gold: 5000
+        });
+        expect(result.monthlyUnits).toBe(0);
+      });
+    });
+  });
 });
 
 

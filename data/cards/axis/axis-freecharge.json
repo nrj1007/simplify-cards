@@ -19,7 +19,9 @@
   "rewards": [
     {
       "category": "base",
+      "displayCategory": "Eligible spends",
       "rate": 0.1,
+      "displayRate": "1 EDGE REWARD Point / Rs 200 spent",
       "capMonthly": null
     }
   ],
@@ -31,47 +33,256 @@
     "virtual card",
     "low fee",
     "monthly milestones",
-    "edge rewards",
-    "myntra",
-    "freshmenu"
+    "edge rewards"
   ],
   "exclusions": [
-    "rent",
-    "wallet load",
+    "Fuel transactions",
+    "Rent payments",
+    "E-wallet loading transactions",
+    "Insurance premium payments",
+    "Utilities and telecom spends",
+    "Government services spends",
+    "Educational institution payments",
+    "Purchase of gold or jewellery",
+    "Spends at financial institutions (cash advances, repayments, etc.)",
+    "Online skill-based gaming transactions",
+    "EMI transactions"
+  ],
+  "exclusionCodes": [
     "fuel",
-    "education payments via third-party apps",
-    "utilities above fee threshold",
-    "online skill-based gaming above fee threshold",
-    "transactions excluded under Axis Bank Freecharge Credit Card terms"
+    "rent",
+    "wallet_load",
+    "insurance",
+    "utilities",
+    "government",
+    "education",
+    "gold",
+    "jewellery",
+    "cash_advance",
+    "gaming",
+    "emi"
   ],
-  "milestoneBenefits": [
-    "100 EDGE REWARD Points on monthly spends from Rs 2,000 to Rs 4,999",
-    "350 EDGE REWARD Points on monthly spends above Rs 5,000"
+  "joiningBenefits": [
+    "Virtual card issued instantly on the Freecharge app upon approval"
   ],
+  "renewalBenefits": [],
+  "milestones": [
+    {
+      "threshold": 2000,
+      "period": "monthly",
+      "value": 20,
+      "kind": "points",
+      "label": "100 EDGE REWARD Points on monthly spends of Rs 2,000 - Rs 4,999"
+    },
+    {
+      "threshold": 5000,
+      "period": "monthly",
+      "value": 70,
+      "kind": "points",
+      "label": "350 EDGE REWARD Points on monthly spends of Rs 5,000 or above"
+    }
+  ],
+  "milestoneBenefits": [],
   "additionalBenefits": [
     "Virtual card can be issued instantly on the Freecharge app",
-    "1 EDGE REWARD Point per Rs 200 spent",
-    "Bonus EDGE REWARD Points on crossing monthly thresholds of Rs 2,000 and Rs 5,000",
-    "Up to 10% off on Myntra as per product offers",
-    "Up to Rs 100 credit on Shuttl every month as per product offers",
-    "Save up to Rs 120 on FreshMenu every month as per product offers",
-    "50% discount on Eros Now annual subscription as per product offers"
+    "Dining Delights discounts of up to 15% at participating partner restaurants"
   ],
   "redemption": {
     "statementBalanceValue": 0.2,
-    "pointsExpiryYears": 3
+    "airMilesValue": 0.1,
+    "pointsExpiryYears": 3,
+    "transferPartnerValuations": [
+      {
+        "partner": "Club ITC",
+        "partnerPointValue": 1,
+        "transferRatio": 0.1,
+        "basis": "fixed",
+        "note": "10 EDGE REWARD Points -> 1 Club ITC point"
+      }
+    ],
+    "airlinePartners": [
+      {
+        "airline": "airasia",
+        "programme": "airasia rewards",
+        "ratio": "10:1",
+        "group": "Group B",
+        "annualCap": 400000
+      },
+      {
+        "airline": "Air Canada",
+        "programme": "Aeroplan",
+        "ratio": "20:1",
+        "group": "Group A",
+        "annualCap": 100000
+      },
+      {
+        "airline": "Air France-KLM",
+        "programme": "Flying Blue",
+        "ratio": "20:1",
+        "group": "Group B",
+        "annualCap": 400000
+      },
+      {
+        "airline": "Air India",
+        "programme": "Maharaja Club",
+        "ratio": "20:1",
+        "group": "Group B",
+        "annualCap": 400000
+      },
+      {
+        "airline": "British Airways",
+        "programme": "The British Airways Club",
+        "ratio": "10:1",
+        "group": "Group A",
+        "annualCap": 100000
+      },
+      {
+        "airline": "Ethiopian Airlines",
+        "programme": "ShebaMiles",
+        "ratio": "20:1",
+        "group": "Group A",
+        "annualCap": 100000
+      },
+      {
+        "airline": "Etihad Airways",
+        "programme": "Etihad Guest",
+        "ratio": "20:1",
+        "group": "Group A",
+        "annualCap": 100000
+      },
+      {
+        "airline": "Finnair",
+        "programme": "Finnair Plus",
+        "ratio": "10:1",
+        "group": "Group A",
+        "annualCap": 100000
+      },
+      {
+        "airline": "Japan Airlines",
+        "programme": "JAL Mileage Bank",
+        "ratio": "20:1",
+        "group": "Group A",
+        "annualCap": 100000
+      },
+      {
+        "airline": "Qantas",
+        "programme": "Qantas Frequent Flyer",
+        "ratio": "20:1",
+        "group": "Group B",
+        "annualCap": 400000
+      },
+      {
+        "airline": "Singapore Airlines",
+        "programme": "KrisFlyer",
+        "ratio": "20:1",
+        "group": "Group A",
+        "annualCap": 100000
+      },
+      {
+        "airline": "SpiceJet",
+        "programme": "SpiceClub",
+        "ratio": "10:1",
+        "group": "Group B",
+        "annualCap": 400000
+      },
+      {
+        "airline": "Thai Airways",
+        "programme": "Royal Orchid Plus",
+        "ratio": "20:1",
+        "group": "Group A",
+        "annualCap": 100000
+      },
+      {
+        "airline": "Turkish Airlines",
+        "programme": "Miles&Smiles",
+        "ratio": "20:1",
+        "group": "Group A",
+        "annualCap": 100000
+      },
+      {
+        "airline": "United Airlines",
+        "programme": "MileagePlus",
+        "ratio": "20:1",
+        "group": "Group A",
+        "annualCap": 100000
+      },
+      {
+        "airline": "Vietnam Airlines",
+        "programme": "Lotusmiles",
+        "ratio": "10:1",
+        "group": "Group A",
+        "annualCap": 100000
+      }
+    ],
+    "hotelPartners": [
+      {
+        "hotelGroup": "IHG Hotels & Resorts",
+        "programme": "IHG One Rewards",
+        "ratio": "20:1",
+        "group": "Group B",
+        "annualCap": 400000
+      },
+      {
+        "hotelGroup": "ITC Hotels",
+        "programme": "Club ITC",
+        "ratio": "10:1",
+        "group": "Group B",
+        "annualCap": 400000
+      },
+      {
+        "hotelGroup": "Orchid Hotels",
+        "programme": "Orchid Rewards",
+        "ratio": "20:1",
+        "group": "Group B",
+        "annualCap": 400000
+      },
+      {
+        "hotelGroup": "The Postcard Hotel",
+        "programme": "The Postcard Sunshine Club",
+        "ratio": "20:1",
+        "group": "Group B",
+        "annualCap": 400000
+      },
+      {
+        "hotelGroup": "Radisson Hotels",
+        "programme": "Radisson Rewards",
+        "ratio": "20:1",
+        "group": "Group B",
+        "annualCap": 400000
+      },
+      {
+        "hotelGroup": "Wyndham Hotels & Resorts",
+        "programme": "Wyndham Rewards",
+        "ratio": "20:1",
+        "group": "Group B",
+        "annualCap": 400000
+      }
+    ]
   },
   "eligibility": {
     "salaried": [
-      "Eligibility is subject to Axis Bank approval criteria"
+      "Age: 18 to 70 years",
+      "Minimum Net Monthly Salary: Rs 20,000",
+      "Resident of India"
     ],
     "selfEmployed": [
-      "Eligibility is subject to Axis Bank approval criteria"
+      "Age: 18 to 70 years",
+      "Minimum Annual Income (ITR): Rs 3,50,000",
+      "Resident of India"
     ]
   },
-  "sourceUrl": "https://www.axisbank.com/retail/cards/credit-card/axis-bank-freecharge-credit-card/fees-charges",
-  "applyUrl": "https://www.axisbank.com/retail/cards/credit-card/axis-bank-freecharge-credit-card/features-benefits",
-  "lastVerified": "2026-05-10",
-  "verificationStatus": "official-mixed",
-  "popularityScore": 63
+  "sourceUrl": "https://www.axisbank.com/retail/cards/credit-card/axis-bank-freecharge-credit-card",
+  "applyUrl": "https://www.axisbank.com/retail/cards/credit-card/axis-bank-freecharge-credit-card",
+  "additionalDetails": [
+    "Travel EDGE transfers for Other cards are capped at 5,00,000 EDGE REWARD Points per customer ID per calendar year, including up to 1,00,000 to Group A partners and 4,00,000 to Group B partners.",
+    "Minimum 300 EDGE REWARD Points are required per partner-transfer request."
+  ],
+  "internalNotes": [
+    "Axis Bank Freecharge Credit Card is an invite-only card issued through the Freecharge app.",
+    "Card details manually reviewed and verified by user on 2026-06-12."
+  ],
+  "lastVerified": "2026-06-12",
+  "verificationStatus": "official-direct",
+  "popularityScore": 63,
+  "imageUrl": "/images/axis-freecharge.webp"
 }

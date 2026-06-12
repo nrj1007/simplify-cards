@@ -2,6 +2,7 @@
   "id": "axis-platinum",
   "issuer": "Axis Bank",
   "name": "Platinum Credit Card",
+  "status": "discontinued",
   "network": [
     "Visa"
   ],
@@ -18,18 +19,17 @@
   "rewardType": "edge reward points and cashback",
   "rewards": [
     {
-      "category": "entertainment",
-      "rate": 25,
-      "capMonthly": null
-    },
-    {
       "category": "base",
+      "displayCategory": "Domestic spends",
       "rate": 0.6,
+      "displayRate": "6 EDGE REWARD Points / Rs 200 spent",
       "capMonthly": null
     },
     {
-      "category": "travel",
+      "category": "international",
+      "displayCategory": "International spends",
       "rate": 1.2,
+      "displayRate": "12 EDGE REWARD Points / Rs 200 spent",
       "capMonthly": null
     }
   ],
@@ -46,41 +46,242 @@
     "edge rewards"
   ],
   "exclusions": [
+    "Fuel transactions",
+    "Rent payments",
+    "E-wallet loading transactions",
+    "Insurance premium payments",
+    "Utilities and telecom spends",
+    "Government services spends",
+    "Educational institution payments",
+    "Purchase of gold or jewellery",
+    "Spends at financial institutions (cash advances, repayments, etc.)",
+    "Online skill-based gaming transactions",
+    "Movie ticket purchases",
+    "EMI transactions"
+  ],
+  "exclusionCodes": [
     "fuel",
     "rent",
-    "wallet load",
-    "movie offer transactions for reward points",
-    "transactions excluded under Platinum Credit Card terms"
+    "wallet_load",
+    "insurance",
+    "utilities",
+    "government",
+    "education",
+    "gold",
+    "jewellery",
+    "cash_advance",
+    "gaming",
+    "emi"
   ],
-  "milestoneBenefits": [
-    "Joining fee waived on spends of Rs 5,000 within 45 days of card setup",
+  "joiningBenefits": [
+    "100 EDGE REWARD Points on first online transaction",
+    "Joining fee waived on spends of Rs 5,000 within 45 days of card setup"
+  ],
+  "renewalBenefits": [
     "Annual fee waived on spends of Rs 1 lakh in the preceding year"
   ],
+  "milestoneBenefits": [],
   "additionalBenefits": [
     "25% cashback on online and box office movie ticket purchases, capped at Rs 1,000 per calendar year",
-    "6 EDGE REWARD Points per Rs 200 spent domestically",
-    "12 EDGE REWARD Points per Rs 200 spent internationally",
-    "100 EDGE REWARD Points on first online transaction",
-    "1% fuel surcharge waiver on fuel transactions from Rs 400 to Rs 4,000, capped at Rs 400 per statement cycle",
-    "Dining Delights discounts at participating restaurants",
-    "Convert purchases over Rs 2,500 into EMI",
-    "Visa International Global Card Assistance Services"
+    "1% fuel surcharge waiver on transactions between Rs 400 and Rs 4,000, capped at Rs 400 per billing cycle",
+    "Dining Delights discounts of up to 15% at participating partner restaurants"
   ],
   "redemption": {
     "statementBalanceValue": 0.2,
-    "pointsExpiryYears": 3
+    "airMilesValue": 0.1,
+    "pointsExpiryYears": 3,
+    "transferPartnerValuations": [
+      {
+        "partner": "Club ITC",
+        "partnerPointValue": 1,
+        "transferRatio": 0.1,
+        "basis": "fixed",
+        "note": "10 EDGE REWARD Points -> 1 Club ITC point"
+      }
+    ],
+    "airlinePartners": [
+      {
+        "airline": "airasia",
+        "programme": "airasia rewards",
+        "ratio": "10:1",
+        "group": "Group B",
+        "annualCap": 400000
+      },
+      {
+        "airline": "Air Canada",
+        "programme": "Aeroplan",
+        "ratio": "20:1",
+        "group": "Group A",
+        "annualCap": 100000
+      },
+      {
+        "airline": "Air France-KLM",
+        "programme": "Flying Blue",
+        "ratio": "20:1",
+        "group": "Group B",
+        "annualCap": 400000
+      },
+      {
+        "airline": "Air India",
+        "programme": "Maharaja Club",
+        "ratio": "20:1",
+        "group": "Group B",
+        "annualCap": 400000
+      },
+      {
+        "airline": "British Airways",
+        "programme": "The British Airways Club",
+        "ratio": "10:1",
+        "group": "Group A",
+        "annualCap": 100000
+      },
+      {
+        "airline": "Ethiopian Airlines",
+        "programme": "ShebaMiles",
+        "ratio": "20:1",
+        "group": "Group A",
+        "annualCap": 100000
+      },
+      {
+        "airline": "Etihad Airways",
+        "programme": "Etihad Guest",
+        "ratio": "20:1",
+        "group": "Group A",
+        "annualCap": 100000
+      },
+      {
+        "airline": "Finnair",
+        "programme": "Finnair Plus",
+        "ratio": "10:1",
+        "group": "Group A",
+        "annualCap": 100000
+      },
+      {
+        "airline": "Japan Airlines",
+        "programme": "JAL Mileage Bank",
+        "ratio": "20:1",
+        "group": "Group A",
+        "annualCap": 100000
+      },
+      {
+        "airline": "Qantas",
+        "programme": "Qantas Frequent Flyer",
+        "ratio": "20:1",
+        "group": "Group B",
+        "annualCap": 400000
+      },
+      {
+        "airline": "Singapore Airlines",
+        "programme": "KrisFlyer",
+        "ratio": "20:1",
+        "group": "Group A",
+        "annualCap": 100000
+      },
+      {
+        "airline": "SpiceJet",
+        "programme": "SpiceClub",
+        "ratio": "10:1",
+        "group": "Group B",
+        "annualCap": 400000
+      },
+      {
+        "airline": "Thai Airways",
+        "programme": "Royal Orchid Plus",
+        "ratio": "20:1",
+        "group": "Group A",
+        "annualCap": 100000
+      },
+      {
+        "airline": "Turkish Airlines",
+        "programme": "Miles&Smiles",
+        "ratio": "20:1",
+        "group": "Group A",
+        "annualCap": 100000
+      },
+      {
+        "airline": "United Airlines",
+        "programme": "MileagePlus",
+        "ratio": "20:1",
+        "group": "Group A",
+        "annualCap": 100000
+      },
+      {
+        "airline": "Vietnam Airlines",
+        "programme": "Lotusmiles",
+        "ratio": "10:1",
+        "group": "Group A",
+        "annualCap": 100000
+      }
+    ],
+    "hotelPartners": [
+      {
+        "hotelGroup": "IHG Hotels & Resorts",
+        "programme": "IHG One Rewards",
+        "ratio": "20:1",
+        "group": "Group B",
+        "annualCap": 400000
+      },
+      {
+        "hotelGroup": "ITC Hotels",
+        "programme": "Club ITC",
+        "ratio": "10:1",
+        "group": "Group B",
+        "annualCap": 400000
+      },
+      {
+        "hotelGroup": "Orchid Hotels",
+        "programme": "Orchid Rewards",
+        "ratio": "20:1",
+        "group": "Group B",
+        "annualCap": 400000
+      },
+      {
+        "hotelGroup": "The Postcard Hotel",
+        "programme": "The Postcard Sunshine Club",
+        "ratio": "20:1",
+        "group": "Group B",
+        "annualCap": 400000
+      },
+      {
+        "hotelGroup": "Radisson Hotels",
+        "programme": "Radisson Rewards",
+        "ratio": "20:1",
+        "group": "Group B",
+        "annualCap": 400000
+      },
+      {
+        "hotelGroup": "Wyndham Hotels & Resorts",
+        "programme": "Wyndham Rewards",
+        "ratio": "20:1",
+        "group": "Group B",
+        "annualCap": 400000
+      }
+    ]
   },
   "eligibility": {
     "salaried": [
-      "Eligibility is subject to Axis Bank approval criteria"
+      "Age: 18 to 70 years",
+      "Minimum Net Monthly Salary: Rs 20,000",
+      "Resident of India"
     ],
     "selfEmployed": [
-      "Eligibility is subject to Axis Bank approval criteria"
+      "Age: 18 to 70 years",
+      "Minimum Annual Income (ITR): Rs 3,50,000",
+      "Resident of India"
     ]
   },
   "sourceUrl": "https://www.axisbank.com/retail/cards/credit-card/platinum-credit-card",
   "applyUrl": "https://www.axisbank.com/retail/cards/credit-card/platinum-credit-card",
-  "lastVerified": "2026-05-10",
+  "additionalDetails": [
+    "Travel EDGE transfers for Other cards are capped at 5,00,000 EDGE REWARD Points per customer ID per calendar year, including up to 1,00,000 to Group A partners and 4,00,000 to Group B partners.",
+    "Minimum 300 EDGE REWARD Points are required per partner-transfer request."
+  ],
+  "internalNotes": [
+    "Axis Bank Platinum Credit Card has been discontinued.",
+    "Card details manually reviewed and verified by user on 2026-06-12."
+  ],
+  "lastVerified": "2026-06-12",
   "verificationStatus": "official-direct",
-  "popularityScore": 64
+  "popularityScore": 64,
+  "imageUrl": "/images/axis-platinum.webp"
 }

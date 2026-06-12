@@ -18,13 +18,17 @@
   "rewardType": "supercoins",
   "rewards": [
     {
-      "category": "flipkart",
+      "category": "online",
+      "displayCategory": "Flipkart spends (Plus members)",
       "rate": 12,
+      "displayRate": "12 SuperCoins / Rs 100 spent",
       "capMonthly": null
     },
     {
       "category": "base",
+      "displayCategory": "Other eligible retail spends",
       "rate": 2,
+      "displayRate": "2 SuperCoins / Rs 100 spent",
       "capMonthly": null
     }
   ],
@@ -37,47 +41,76 @@
     "supercoins",
     "myntra",
     "flights",
-    "youtube premium",
-    "gaana",
-    "lenskart",
     "low fee"
   ],
   "exclusions": [
-    "rent",
-    "wallet load",
+    "Fuel transactions",
+    "Rent payments",
+    "E-wallet loading transactions",
+    "Insurance premium payments",
+    "Utilities and telecom spends",
+    "Government services spends",
+    "Educational institution payments",
+    "Purchase of gold or jewellery",
+    "Spends at financial institutions (cash advances, repayments, etc.)",
+    "Online skill-based gaming transactions",
+    "EMI transactions"
+  ],
+  "exclusionCodes": [
     "fuel",
-    "transactions excluded under Flipkart Axis Bank Super Elite Credit Card terms"
+    "rent",
+    "wallet_load",
+    "insurance",
+    "utilities",
+    "government",
+    "education",
+    "gold",
+    "jewellery",
+    "cash_advance",
+    "gaming",
+    "emi"
   ],
-  "milestoneBenefits": [
-    "Annual fee waived on annual spends greater than Rs 2 lakh, excluding rent and wallet load transactions"
-  ],
-  "additionalBenefits": [
+  "joiningBenefits": [
     "500 SuperCoins on card activation",
-    "Additional 12 SuperCoins per Rs 100 spent on Flipkart for Plus members",
-    "Additional 6 SuperCoins per Rs 100 spent on Flipkart for non-Plus members",
-    "2 SuperCoins per Rs 100 on other eligible spends",
-    "2 months trial membership of YouTube Premium",
-    "3 months trial subscription of Gaana Plus",
+    "2 months complimentary trial membership of YouTube Premium",
     "1 year Lenskart Gold membership",
-    "Extra Rs 500 off on Myntra select styles on maximum 3 transactions above Rs 2,999",
-    "15% off on domestic flight booking via Flipkart Flights, capped at Rs 1,500",
     "Flat 30% off on first medicine order from Flipkart Health"
   ],
+  "renewalBenefits": [
+    "Annual fee waived on spends of Rs 2 lakh or more in the preceding year"
+  ],
+  "milestoneBenefits": [],
+  "additionalBenefits": [
+    "Earn 12 SuperCoins per Rs 100 spent on Flipkart for Plus members (capped at 1,500 SuperCoins per order)",
+    "Earn 6 SuperCoins per Rs 100 spent on Flipkart for non-Plus members (capped at 750 SuperCoins per order)",
+    "1% fuel surcharge waiver on transactions between Rs 400 and Rs 4,000, capped at Rs 400 per billing cycle",
+    "Dining Delights discounts of up to 15% at participating partner restaurants"
+  ],
   "redemption": {
-    "statementBalanceValue": null,
-    "pointsExpiryYears": null
+    "statementBalanceValue": 1,
+    "pointsExpiryYears": 1
   },
   "eligibility": {
     "salaried": [
-      "Primary cardholder should be between 18 and 70 years and resident of India"
+      "Age: 18 to 70 years",
+      "Resident of India"
     ],
     "selfEmployed": [
-      "Primary cardholder should be between 18 and 70 years and resident of India"
+      "Age: 18 to 70 years",
+      "Resident of India"
     ]
   },
   "sourceUrl": "https://www.axis.bank.in/cards/credit-card/flipkart-axis-bank-super-elite-credit-card",
   "applyUrl": "https://www.axis.bank.in/cards/credit-card/flipkart-axis-bank-super-elite-credit-card",
-  "lastVerified": "2026-05-10",
+  "additionalDetails": [
+    "1 SuperCoin = Re 1, redeemable on Flipkart, Myntra, and Cleartrip for vouchers, products, and travel bookings."
+  ],
+  "internalNotes": [
+    "Flipkart Axis Bank Super Elite Credit Card is a SuperCoin-earning card where 1 SuperCoin = Re 1 in the Flipkart ecosystem.",
+    "Card details manually reviewed and verified by user on 2026-06-12."
+  ],
+  "lastVerified": "2026-06-12",
   "verificationStatus": "official-direct",
-  "popularityScore": 62
+  "popularityScore": 62,
+  "imageUrl": "/images/axis-flipkart-super-elite.webp"
 }
