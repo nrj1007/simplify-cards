@@ -73,7 +73,8 @@ describe("reward rate convention", () => {
 });
 
 describe("reward calculator", () => {
-  // TODO: Add reward calculator test cases for each card to ensure comprehensive coverage across all cards in data/cards/
+  // Catalog-wide coverage lives in tests/calculator-golden.test.ts (a snapshot of every card's earn
+  // at moderate and high spend). The cases below assert specific, hand-checked behaviors.
 
   it("derives Burgundy EDGE REWARD Point earn correctly from display rates", () => {
     const card = getCardById("axis-magnus-burgundy");
