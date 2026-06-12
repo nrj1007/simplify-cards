@@ -39,6 +39,24 @@ describe("reward rate convention", () => {
     const result = calculateRewards(card!, { base: 50000 });
     expect(result.rows.find((r) => r.category === "base")!.monthlyUnits).toBe(1000);
   });
+
+  it("applies the structured postCapRate beyond a reward cap (matching recommend.ts)", () => {
+    // Marriott Bonvoy "travel, dining, entertainment": 2.6667 pts/Rs100, capped at 1,600 pts/mo,
+    // then a reduced 1.33 pts/Rs100. The displayRate has no "then" clause, so this earning comes
+    // purely from the structured `postCapRate` field — which the calculator must honor.
+    const card = getCardById("hdfc-marriott-bonvoy");
+    expect(card).toBeTruthy();
+    const reward = card!.rewards.find((r) => r.category.includes("dining"))!;
+    expect(reward.capMonthly).toBe(1600);
+    expect(reward.postCapRate).toBeGreaterThan(0);
+
+    // Rs 1,00,000/mo travel: 60k reaches the 1,600-pt cap, the remaining 40k earns at 1.33/100.
+    const result = calculateRewards(card!, { travel: 100000 });
+    const travel = result.rows.find((r) => r.category === "travel")!;
+    // 1,600 (capped) + 40,000 * 1.33 / 100 = 2,132 — strictly above the bare cap.
+    expect(travel.monthlyUnits).toBeGreaterThan(reward.capMonthly!);
+    expect(travel.monthlyUnits).toBeCloseTo(1600 + (40000 * reward.postCapRate!) / 100, 2);
+  });
 });
 
 describe("reward calculator", () => {

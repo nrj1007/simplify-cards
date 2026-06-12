@@ -1,5 +1,4 @@
 import { SPEND_CATEGORY_EXCLUSION_CODE_MAP } from "./exclusion-constants";
-import { parseDisplayRateUnits } from "./reward-rate-parse";
 import type { CreditCard, Reward, SpendCategory, SpendProfile } from "./types";
 
 // Spend-category → reward-category aliases. Kept in sync with lib/recommend.ts so the
@@ -206,24 +205,12 @@ function findRewardsForCategory(card: CreditCard, category: SpendCategory): Rewa
   return card.rewards.filter((reward) => isBaseRewardCategory(reward.category));
 }
 
-function isCashbackRewardType(rewardType: string) {
-  return /cashback/i.test(rewardType) && !/point|mile|coin|star|credit|neucoin/i.test(rewardType);
-}
-
-// `reward.rate` is the canonical base earn rate: reward-currency units earned per Rs 100 of spend
-// (for cashback cards, rupees per Rs 100 = the cashback %). It is kept numerically consistent with
-// `displayRate` by the card validator, so the base rate is read structurally rather than mined from
-// prose. Post-cap sourcing intentionally mirrors the legacy behavior to keep displayed values
-// unchanged: when the displayRate encodes a "then …/Rs …" reduced rate it wins, otherwise the
-// structured `postCapRate` applies. (Note: recommend.ts always applies the structured `postCapRate`;
-// reconciling the calculator's post-cap handling with it is a separate follow-up.)
-function rewardEarnRatePerRs100(card: CreditCard, reward: Reward) {
-  if (isCashbackRewardType(card.rewardType)) {
-    return { basePerRs100: reward.rate, postCapPerRs100: reward.postCapRate ?? null };
-  }
-  const parsed = parseDisplayRateUnits(reward.displayRate);
-  const postCapPerRs100 = parsed ? parsed.postCapPerRs100 : reward.postCapRate ?? null;
-  return { basePerRs100: reward.rate, postCapPerRs100 };
+// Both the base earn rate (`rate`) and the reduced post-cap rate (`postCapRate`) are read from the
+// structured fields, which the card validator keeps numerically consistent with `displayRate`. This
+// matches how lib/recommend.ts scores rewards, so the calculator and the recommender agree on a card's
+// post-cap earning. (For cashback cards a unit is a rupee, so `rate`/`postCapRate` are already the %.)
+function rewardEarnRatePerRs100(_card: CreditCard, reward: Reward) {
+  return { basePerRs100: reward.rate, postCapPerRs100: reward.postCapRate ?? null };
 }
 
 function parseTierAmount(amount: string, unit: string | undefined) {
