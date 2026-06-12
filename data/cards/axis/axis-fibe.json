@@ -18,23 +18,17 @@
   "rewardType": "cashback",
   "rewards": [
     {
-      "category": "dining",
-      "rate": 3,
-      "capMonthly": null
-    },
-    {
-      "category": "entertainment",
-      "rate": 3,
-      "capMonthly": null
-    },
-    {
-      "category": "travel",
-      "rate": 3,
-      "capMonthly": null
+      "category": "dining,online,travel",
+      "displayCategory": "Food delivery, entertainment & local commute",
+      "rate": 3.0,
+      "displayRate": "3% Cashback",
+      "capMonthly": 1500
     },
     {
       "category": "base",
-      "rate": 1,
+      "displayCategory": "Other eligible retail spends",
+      "rate": 1.0,
+      "displayRate": "1% Cashback",
       "capMonthly": null
     }
   ],
@@ -53,42 +47,71 @@
     "lounge"
   ],
   "exclusions": [
+    "Fuel transactions",
+    "Rent payments",
+    "E-wallet loading transactions",
+    "Insurance premium payments",
+    "Utilities and telecom spends",
+    "Government services spends",
+    "Educational institution payments",
+    "Purchase of gold or jewellery",
+    "Spends at financial institutions (cash advances, repayments, etc.)",
+    "Online skill-based gaming transactions",
+    "EMI transactions"
+  ],
+  "exclusionCodes": [
     "fuel",
     "rent",
-    "wallet load",
-    "education payments via third-party apps",
-    "online skill-based gaming",
-    "transactions excluded under Fibe Axis Bank Credit Card terms"
+    "wallet_load",
+    "insurance",
+    "utilities",
+    "government",
+    "education",
+    "gold",
+    "jewellery",
+    "cash_advance",
+    "gaming",
+    "emi"
   ],
+  "joiningBenefits": [],
+  "renewalBenefits": [],
   "milestoneBenefits": [],
   "additionalBenefits": [
-    "Lifetime free card with nil joining fee and nil annual fee",
-    "3% cashback on food delivery, entertainment and local commute",
-    "1% cashback on all other eligible spends",
-    "RuPay credit card on UPI support",
-    "4 complimentary domestic lounge visits per calendar year at select airport lounges",
-    "1% fuel surcharge waiver on fuel spends between Rs 400 and Rs 5,000, capped at Rs 400 per month",
-    "Dining Delights offers through Axis Bank dining programme",
-    "Wednesday Delight offers including MakeMyTrip, Swiggy and Tira offers as per Axis programme terms",
-    "Fibe Axis Bank Credit Card is sourced only to existing Fibe customers"
+    "RuPay credit card on UPI support (link card to UPI apps for direct merchant payments)",
+    "1% fuel surcharge waiver on transactions between Rs 400 and Rs 5,000, capped at Rs 400 per monthly billing cycle",
+    "Dining Delights discounts of up to 15% (up to Rs 500) at partner restaurants via EazyDiner",
+    "Wednesday Delight offers including MakeMyTrip, Swiggy, and Tira discounts",
+    "Numberless card design for enhanced visual security"
   ],
   "redemption": {
-    "statementBalanceValue": 1,
+    "statementBalanceValue": 1.0,
     "pointsExpiryYears": null
+  },
+  "lounge": {
+    "domestic": [
+      "1 complimentary domestic airport lounge visit per calendar quarter (up to 4 per calendar year)"
+    ]
   },
   "eligibility": {
     "salaried": [
-      "Primary cardholder should be 18 to 70 years of age and resident of India or NRI",
-      "Card is sourced only to existing Fibe customers"
+      "Age: 18 to 70 years",
+      "Resident of India or NRI",
+      "Sourced exclusively to existing Fibe customers"
     ],
     "selfEmployed": [
-      "Primary cardholder should be 18 to 70 years of age and resident of India or NRI",
-      "Card is sourced only to existing Fibe customers"
+      "Age: 18 to 70 years",
+      "Resident of India or NRI",
+      "Sourced exclusively to existing Fibe customers"
     ]
   },
   "sourceUrl": "https://www.axis.bank.in/cards/credit-card/fibe-axis-bank-credit-card",
   "applyUrl": "https://www.axis.bank.in/cards/credit-card/fibe-axis-bank-credit-card",
-  "lastVerified": "2026-05-10",
+  "internalNotes": [
+    "Fibe Axis Bank Credit Card is a numberless RuPay card sourced exclusively to existing Fibe customers.",
+    "Card details manually reviewed and verified by user on 2026-06-12."
+  ],
+  "lastVerified": "2026-06-12",
   "verificationStatus": "official-direct",
-  "popularityScore": 62
+  "popularityScore": 62,
+  "imageUrl": "/images/axis-fibe.webp"
 }
