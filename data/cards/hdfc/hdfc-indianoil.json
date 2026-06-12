@@ -19,35 +19,35 @@
     {
       "category": "fuel",
       "displayCategory": "Fuel spends at IndianOil outlets",
-      "rate": 4.8,
+      "rate": 5,
       "displayRate": "5 Fuel Points / Rs 100 spent",
       "capMonthly": 150
     },
     {
       "category": "grocery",
       "displayCategory": "Grocery spends",
-      "rate": 4.8,
+      "rate": 5,
       "displayRate": "5 Fuel Points / Rs 100 spent",
       "capMonthly": 100
     },
     {
       "category": "utilities",
       "displayCategory": "Utility & Bill Payments",
-      "rate": 4.8,
+      "rate": 5,
       "displayRate": "5 Fuel Points / Rs 100 spent",
       "capMonthly": 100
     },
     {
       "category": "base",
       "displayCategory": "Other retail spends",
-      "rate": 0.64,
+      "rate": 0.6666666666666666,
       "displayRate": "1 Fuel Point / Rs 150 spent",
       "capMonthly": null
     },
     {
       "category": "upi",
       "displayCategory": "UPI transactions",
-      "rate": 0.64,
+      "rate": 0.6666666666666666,
       "displayRate": "1 Fuel Point / Rs 150 spent",
       "capMonthly": null
     }

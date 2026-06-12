@@ -22,35 +22,35 @@
     {
       "category": "utility bills",
       "displayCategory": "utility standing instructions",
-      "rate": 5,
+      "rate": 20,
       "displayRate": "20 Reward Points / Rs 100",
       "capMonthly": null
     },
     {
       "category": "grocery",
       "displayCategory": "grocery and departmental stores",
-      "rate": 2.5,
+      "rate": 10,
       "displayRate": "10 Reward Points / Rs 100",
       "capMonthly": null
     },
     {
       "category": "dining",
       "displayCategory": "dining",
-      "rate": 2.5,
+      "rate": 10,
       "displayRate": "10 Reward Points / Rs 100",
       "capMonthly": null
     },
     {
       "category": "entertainment",
       "displayCategory": "movies",
-      "rate": 2.5,
+      "rate": 10,
       "displayRate": "10 Reward Points / Rs 100",
       "capMonthly": null
     },
     {
       "category": "base",
       "displayCategory": "other retail spends",
-      "rate": 0.5,
+      "rate": 2,
       "displayRate": "2 Reward Points / Rs 100",
       "capMonthly": null
     }

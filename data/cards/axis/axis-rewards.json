@@ -20,14 +20,14 @@
     {
       "category": "departmental stores",
       "displayCategory": "Apparel and departmental stores (up to Rs 7,000 spend/month)",
-      "rate": 3.2,
+      "rate": 16,
       "displayRate": "20 EDGE REWARD Points / Rs 125 spent on apparel and departmental stores",
       "capMonthly": 1120
     },
     {
       "category": "base",
       "displayCategory": "Other eligible retail spends",
-      "rate": 0.32,
+      "rate": 1.6,
       "displayRate": "2 EDGE REWARD Points / Rs 125 spent",
       "capMonthly": null
     }

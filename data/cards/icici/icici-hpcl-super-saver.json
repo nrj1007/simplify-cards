@@ -28,14 +28,14 @@
     {
       "category": "utilities, departmental stores, grocery",
       "displayCategory": "Utility, Departmental Store & Grocery spends",
-      "rate": 5,
+      "rate": 20,
       "displayRate": "20 Reward Points / Rs 100 spent",
       "capMonthly": 400
     },
     {
       "category": "base",
       "displayCategory": "Other retail spends",
-      "rate": 0.5,
+      "rate": 2,
       "displayRate": "2 Reward Points / Rs 100 spent",
       "capMonthly": null
     }

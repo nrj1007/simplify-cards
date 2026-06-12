@@ -20,14 +20,14 @@
     {
       "category": "base",
       "displayCategory": "Retail spends",
-      "rate": 0.5,
+      "rate": 2,
       "displayRate": "2 Reward Points / Rs 100 spent",
       "capMonthly": null
     },
     {
       "category": "utilities, insurance",
       "displayCategory": "Utility & Insurance spends",
-      "rate": 0.25,
+      "rate": 1,
       "displayRate": "1 Reward Point / Rs 100 spent",
       "capMonthly": null
     }

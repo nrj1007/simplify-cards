@@ -21,21 +21,21 @@
     {
       "category": "partner merchants",
       "displayCategory": "Online and retail Landmark stores",
-      "rate": 6.25,
+      "rate": 25,
       "displayRate": "25 Reward Points / Rs 100",
       "capMonthly": null
     },
     {
       "category": "dining, entertainment, travel",
       "displayCategory": "dining, movies, and international spends",
-      "rate": 2.5,
+      "rate": 10,
       "displayRate": "10 Reward Points / Rs 100",
       "capMonthly": null
     },
     {
       "category": "base",
       "displayCategory": "other retail purchases",
-      "rate": 0.5,
+      "rate": 2,
       "displayRate": "2 Reward Points / Rs 100",
       "capMonthly": null
     }

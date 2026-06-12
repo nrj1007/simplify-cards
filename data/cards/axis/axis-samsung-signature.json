@@ -27,14 +27,14 @@
     {
       "category": "dining, grocery, online",
       "displayCategory": "Preferred partners (BigBasket, Myntra, Tata 1mg, Urban Company, Zomato)",
-      "rate": 2,
+      "rate": 10,
       "displayRate": "10 EDGE REWARD Points / Rs 100 spent (2.0% return value)",
       "capMonthly": null
     },
     {
       "category": "base",
       "displayCategory": "Other eligible retail spends",
-      "rate": 1,
+      "rate": 5,
       "displayRate": "5 EDGE REWARD Points / Rs 100 spent (1.0% return value)",
       "capMonthly": null
     }

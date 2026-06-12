@@ -20,7 +20,7 @@
     {
       "category": "base",
       "displayCategory": "Eligible retail spends",
-      "rate": 1,
+      "rate": 5,
       "displayRate": "10 EDGE REWARD Points / Rs 200 spent",
       "capMonthly": null
     }

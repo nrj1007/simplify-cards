@@ -20,14 +20,14 @@
     {
       "category": "base",
       "displayCategory": "Domestic spends",
-      "rate": 1.5,
+      "rate": 7.5,
       "displayRate": "15 EDGE REWARD Points / Rs 200 spent on domestic spends",
       "capMonthly": null
     },
     {
       "category": "international",
       "displayCategory": "International spends",
-      "rate": 3,
+      "rate": 15,
       "displayRate": "30 EDGE REWARD Points / Rs 200 spent on international spends",
       "capMonthly": null
     }
