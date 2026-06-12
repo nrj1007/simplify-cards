@@ -82,6 +82,13 @@ const envelopeBaselineMonthlyTiers = [50000, 100000, 250000];
 const relevanceWeightExactMatch = 1.0;
 const relevanceWeightBroadGeneric = 0.3;
 const relevanceWeightDefault = 0.5;
+
+// Ceiling on the net yield used in envelope (broad "best card") ranking. The envelope picks each
+// card's most flattering spend tier, where a low-fee card's yield (net value / spend) can blow up at
+// trivial spend — e.g. a Rs 0-fee card showing ~10% on a tiny envelope, outranking genuinely
+// high-value premium cards. Strong real-world sustained yields top out around 8%, so clamping here
+// removes the low-spend artifact while leaving legitimately high-yield cards unaffected.
+const maxNetYieldForRanking = 0.08;
 const exactCardNameMatchThreshold = 50000;
 
 function isBroadNoSpendQuery(input: RecommendationInput, intent: ReturnType<typeof parseQueryIntent>) {
@@ -1430,7 +1437,8 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
     // Guard: skip normalization for very low spend to avoid yield blow-up.
     const normalizedFitScore = envelopeMonthlySpend
       ? (() => {
-          const netYield = annualSpend >= 10000 ? estimatedNetValue / annualSpend : 0;
+          const rawYield = annualSpend >= 10000 ? estimatedNetValue / annualSpend : 0;
+          const netYield = Math.min(rawYield, maxNetYieldForRanking);
           const economicScore = netYield * 1000000;
           return economicScore + sharedBoosts + relevanceWeight * relevanceScore;
         })()

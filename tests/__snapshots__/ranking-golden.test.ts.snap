@@ -3,11 +3,11 @@
 exports[`ranking golden (representative queries) > produces stable top-N ordering per scenario 1`] = `
 {
   "broad-generic": [
-    "indusind-eazydiner",
-    "hdfc-regalia-gold",
     "hdfc-infinia-metal",
+    "hdfc-regalia-gold",
     "hdfc-diners-club-black-metal",
     "icici-emeralde-private-metal",
+    "indusind-eazydiner",
     "amex-platinum-travel",
     "titan-sbi",
     "axis-samsung-signature",
@@ -102,12 +102,12 @@ exports[`ranking golden (representative queries) > produces stable top-N orderin
   ],
   "segment-premium": [
     "axis-indigo-premium",
-    "indusind-eazydiner",
-    "hdfc-regalia-gold",
     "hdfc-infinia-metal",
+    "hdfc-regalia-gold",
     "hdfc-diners-club-black-metal",
     "icici-emeralde-private-metal",
     "amex-platinum-travel",
+    "indusind-eazydiner",
     "axis-indianoil-premium",
     "titan-sbi",
     "axis-samsung-signature",
@@ -157,10 +157,10 @@ exports[`ranking golden (representative queries) > produces stable top-N orderin
     "axis-indigo-premium",
   ],
   "usecase-dining": [
-    "indusind-eazydiner",
     "hdfc-regalia-gold",
     "hdfc-infinia-metal",
     "hdfc-diners-club-black-metal",
+    "indusind-eazydiner",
     "icici-emeralde-private-metal",
     "amex-platinum-travel",
     "titan-sbi",
