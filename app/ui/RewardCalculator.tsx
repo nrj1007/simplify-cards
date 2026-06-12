@@ -242,7 +242,9 @@ export default function RewardCalculator({ card, milestones = [], isStandalone =
   }, [rupeeOptions, partnerValuations, voucherValuations, unitLower]);
   const visibleRedeemRows = showAllRedeem ? redeemRows : redeemRows.slice(0, 3);
   const topRatePerUnit = redeemRows.length > 0 && annualUnits > 0 ? redeemRows[0].value / annualUnits : null;
+  const totalRedeemRows = redeemRows.length + (airMilesPerPoint ? 1 : 0);
   const hasClearBest =
+    totalRedeemRows >= 2 &&
     redeemRows.length > 0 &&
     (redeemRows.length === 1 || redeemRows[0].value > redeemRows[1].value) &&
     !(airMilesPerPoint && topRatePerUnit !== null && topRatePerUnit === airMilesPerPoint);
