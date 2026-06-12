@@ -241,7 +241,11 @@ export default function RewardCalculator({ card, milestones = [], isStandalone =
     return rows.sort((a, b) => b.value - a.value);
   }, [rupeeOptions, partnerValuations, voucherValuations, unitLower]);
   const visibleRedeemRows = showAllRedeem ? redeemRows : redeemRows.slice(0, 3);
-  const hasClearBest = redeemRows.length > 0 && (redeemRows.length === 1 || redeemRows[0].value > redeemRows[1].value);
+  const topRatePerUnit = redeemRows.length > 0 && annualUnits > 0 ? redeemRows[0].value / annualUnits : null;
+  const hasClearBest =
+    redeemRows.length > 0 &&
+    (redeemRows.length === 1 || redeemRows[0].value > redeemRows[1].value) &&
+    !(airMilesPerPoint && topRatePerUnit !== null && topRatePerUnit === airMilesPerPoint);
 
   // Best rupee outcome across direct redemptions, valued transfer partners, and vouchers.
   const bestRupeeValue = Math.max(
