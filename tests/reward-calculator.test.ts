@@ -503,6 +503,71 @@ describe("reward calculator", () => {
       expect(primeResult.annualUnits).toBe(6000);
     });
 
+    it("calculates rewards correctly for standard SBI Card MILES", () => {
+      const card = getCardById("sbi-card-miles");
+      expect(card).toBeTruthy();
+
+      const result = calculateRewards(card!, {
+        travel: 20000,
+        base: 10000
+      });
+      expect(result.monthlyUnits).toBe(250);
+      expect(result.annualUnits).toBe(3000);
+    });
+
+    it("calculates rewards correctly for SimplySAVE SBI Card", () => {
+      const card = getCardById("simplysave-sbi");
+      expect(card).toBeTruthy();
+
+      const result = calculateRewards(card!, {
+        dining: 3000,
+        grocery: 3000,
+        base: 15000
+      });
+      expect(result.monthlyUnits).toBeCloseTo(500, 0);
+      expect(result.annualUnits).toBeCloseTo(6000, 0);
+    });
+
+    it("calculates rewards correctly for IndiGo SBI Card ELITE", () => {
+      const card = getCardById("indigo-sbi-elite");
+      expect(card).toBeTruthy();
+
+      const result = calculateRewards(card!, {
+        travel: 10000,
+        hotels: 10000,
+        base: 10000
+      });
+      expect(result.monthlyUnits).toBe(1200);
+      expect(result.annualUnits).toBe(14400);
+    });
+
+    it("calculates rewards correctly for IndiGo SBI Card", () => {
+      const card = getCardById("indigo-sbi");
+      expect(card).toBeTruthy();
+
+      const result = calculateRewards(card!, {
+        travel: 10000,
+        hotels: 10000,
+        base: 10000
+      });
+      expect(result.monthlyUnits).toBe(600);
+      expect(result.annualUnits).toBe(7200);
+    });
+
+    it("calculates rewards correctly for BPCL SBI Card with monthly caps", () => {
+      const card = getCardById("bpcl-sbi");
+      expect(card).toBeTruthy();
+
+      const result = calculateRewards(card!, {
+        fuel: 12000, // 13 points / Rs 100 -> 1560 points, capped at 1300 points
+        grocery: 10000, // 5 points / Rs 100 -> 500 points
+        dining: 10000, // 5 points / Rs 100 -> 500 points
+        base: 10000 // 1 point / Rs 100 -> 100 points
+      });
+      expect(result.monthlyUnits).toBe(1300 + 1000 + 100);
+      expect(result.annualUnits).toBe(2400 * 12);
+    });
+
     it("calculates rewards correctly for SBI Card PULSE base spends and excludes fuel", () => {
       const card = getCardById("sbi-card-pulse");
       expect(card).toBeTruthy();

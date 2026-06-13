@@ -2,8 +2,10 @@
   "id": "indigo-sbi-elite",
   "issuer": "SBI Card",
   "name": "IndiGo SBI Card ELITE",
+  "imageUrl": "/images/indigo-sbi-elite.webp",
   "network": [
-    "Mastercard"
+    "Mastercard",
+    "RuPay"
   ],
   "joiningFee": 4999,
   "annualFee": 4999,
@@ -15,26 +17,41 @@
     "lounge",
     "forex"
   ],
-  "rewardType": "IndiGo BluChips",
+  "rewardType": "indigo bluchips",
   "rewards": [
     {
       "category": "travel",
+      "displayCategory": "IndiGo flight spends",
       "rate": 7,
+      "displayRate": "7 IndiGo BluChips / Rs 100 spent",
       "capMonthly": null
     },
     {
       "category": "hotels",
+      "displayCategory": "Hotel and lodging spends",
       "rate": 3,
+      "displayRate": "3 IndiGo BluChips / Rs 100 spent",
       "capMonthly": null
     },
     {
       "category": "base",
+      "displayCategory": "Other eligible spends",
       "rate": 2,
+      "displayRate": "2 IndiGo BluChips / Rs 100 spent",
       "capMonthly": null
     }
   ],
   "loungeDomestic": 8,
   "loungeInternational": 6,
+  "lounge": {
+    "domestic": [
+      "8 complimentary domestic airport lounge visits per calendar year (limited to 2 visits per quarter).",
+      "Requires spends of Rs 1 lakh in the preceding calendar quarter to unlock access."
+    ],
+    "international": [
+      "6 complimentary international airport lounge visits per calendar year (limited to 2 visits per quarter)."
+    ]
+  },
   "forexMarkup": 1.99,
   "tags": [
     "indigo",
@@ -48,39 +65,120 @@
     "fuel",
     "wallet loading",
     "rent",
+    "education",
+    "cash withdrawal",
     "cash advance",
-    "balance transfer",
-    "merchant EMI",
-    "transactions excluded under IndiGo SBI Card ELITE terms"
+    "fees and charges",
+    "emi",
+    "disputed transactions"
+  ],
+  "exclusionCodes": [
+    "fuel",
+    "wallet_load",
+    "rent",
+    "education",
+    "cash_withdrawal",
+    "cash_advance",
+    "fees_and_charges",
+    "emi",
+    "disputed_transactions"
+  ],
+  "joiningBenefitsValued": [
+    {
+      "value": 5000,
+      "kind": "points",
+      "label": "5,000 IndiGo BluChips welcome voucher"
+    },
+    {
+      "value": 350,
+      "kind": "voucher",
+      "label": "Complimentary 6E Eats voucher"
+    }
+  ],
+  "joiningBenefits": [
+    "5,000 IndiGo BluChips and 1 6E Eats voucher as welcome benefit after annual fee payment and first transaction within 60 days"
+  ],
+  "renewalBenefitsValued": [
+    {
+      "value": 5000,
+      "kind": "points",
+      "label": "5,000 IndiGo BluChips renewal voucher"
+    },
+    {
+      "value": 350,
+      "kind": "voucher",
+      "label": "Complimentary 6E Eats renewal voucher"
+    }
+  ],
+  "renewalBenefits": [
+    "5,000 IndiGo BluChips and 1 6E Eats voucher as renewal benefit after annual fee payment"
+  ],
+  "milestones": [
+    {
+      "threshold": 300000,
+      "period": "annual",
+      "value": 6000,
+      "kind": "points",
+      "label": "6,000 IndiGo BluChips on annual spends of Rs 3 lakh"
+    },
+    {
+      "threshold": 600000,
+      "period": "annual",
+      "value": 6000,
+      "kind": "points",
+      "label": "6,000 IndiGo BluChips on annual spends of Rs 6 lakh"
+    },
+    {
+      "threshold": 900000,
+      "period": "annual",
+      "value": 6000,
+      "kind": "points",
+      "label": "6,000 IndiGo BluChips on annual spends of Rs 9 lakh"
+    },
+    {
+      "threshold": 1200000,
+      "period": "annual",
+      "value": 6000,
+      "kind": "points",
+      "label": "6,000 IndiGo BluChips on annual spends of Rs 12 lakh"
+    }
   ],
   "milestoneBenefits": [
     "6,000 IndiGo BluChips on annual spends of Rs 3 lakh",
     "6,000 IndiGo BluChips on annual spends of Rs 6 lakh",
     "6,000 IndiGo BluChips on annual spends of Rs 9 lakh",
-    "6,000 IndiGo BluChips on annual spends of Rs 12 lakh",
-    "5,000 IndiGo BluChips and 1 6E Eats voucher as renewal benefit after annual fee payment"
+    "6,000 IndiGo BluChips on annual spends of Rs 12 lakh"
   ],
   "additionalBenefits": [
-    "5,000 IndiGo BluChips and 1 6E Eats voucher as welcome benefit after annual fee payment and first transaction within 60 days",
     "4 6E Prime passes on spending Rs 1 lakh within 90 days of account opening",
-    "7 IndiGo BluChips per Rs 100 on IndiGo app and website spends",
-    "3 IndiGo BluChips per Rs 100 on hotel, lodging and select travel MCC spends",
-    "2 IndiGo BluChips per Rs 100 on other eligible spends",
-    "IndiGo BluChips can be redeemed on IndiGo website or app against IndiGo flights and other eligible activities",
-    "8 complimentary domestic airport lounge visits per year, capped at 2 per quarter, subject to Rs 1 lakh spend in the previous quarter",
-    "6 complimentary international lounge visits per year, capped at 2 per quarter",
     "4 flight cancellation covers per year, worth up to Rs 3,000 each",
-    "Lost card liability cover up to Rs 1 lakh",
-    "Check-in baggage loss cover up to Rs 72,000",
-    "1% fuel surcharge waiver on eligible fuel spends from Rs 500 to Rs 4,000, capped at Rs 400 per month"
+    "1% fuel surcharge waiver up to Rs 400 per month on eligible fuel spends from Rs 500 to Rs 4,000"
   ],
   "redemption": {
-    "statementBalanceValue": 1,
     "pointsExpiryYears": 2
   },
-  "sourceUrl": "https://www.sbicard.com/en/personal/sbi-credit-card.page",
-  "applyUrl": "https://www.sbicard.com/en/personal/sbi-credit-card.page",
-  "lastVerified": "2026-05-09",
-  "verificationStatus": "official-mixed",
+  "eligibility": {
+    "salaried": [
+      "Age 21 to 60 years",
+      "Stable income as per SBI Card credit assessment",
+      "Good credit profile and address in a serviced location"
+    ],
+    "selfEmployed": [
+      "Age 25 to 60 years",
+      "Stable business income as per SBI Card credit assessment",
+      "Good credit profile and address in a serviced location"
+    ]
+  },
+  "internalNotes": [
+    "Audited against official SBI Card IndiGo ELITE product page on 2026-06-13.",
+    "Card details manually reviewed and verified by user on 2026-06-13."
+  ],
+  "supportingSourceUrls": [
+    "https://www.sbicard.com/en/personal/credit-cards/travel/indigo-sbi-card-elite.page"
+  ],
+  "sourceUrl": "https://www.sbicard.com/en/personal/credit-cards/travel/indigo-sbi-card-elite.page",
+  "applyUrl": "https://www.sbicard.com/en/personal/credit-cards/travel/indigo-sbi-card-elite.page",
+  "lastVerified": "2026-06-13",
+  "verificationStatus": "official-direct",
   "popularityScore": 65
 }

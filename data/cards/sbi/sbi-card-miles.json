@@ -2,8 +2,10 @@
   "id": "sbi-card-miles",
   "issuer": "SBI Card",
   "name": "SBI Card MILES",
+  "imageUrl": "/images/sbi-card-miles.webp",
   "network": [
-    "Visa"
+    "Mastercard",
+    "RuPay"
   ],
   "joiningFee": 1499,
   "annualFee": 1499,
@@ -17,19 +19,32 @@
   "rewardType": "Travel Credits",
   "rewards": [
     {
-      "category": "travel credits",
+      "category": "travel",
+      "displayCategory": "Travel spends",
       "rate": 1,
+      "displayRate": "2 Travel Credits / Rs 200 spent",
       "capMonthly": null
     },
     {
       "category": "base",
+      "displayCategory": "Other eligible spends",
       "rate": 0.5,
+      "displayRate": "1 Travel Credit / Rs 200 spent",
       "capMonthly": null
     }
   ],
-  "loungeDomestic": 12,
+  "loungeDomestic": 4,
   "loungeInternational": 0,
-  "forexMarkup": 3,
+  "lounge": {
+    "domestic": [
+      "4 complimentary domestic airport lounge visits per calendar year (limited to 1 visit per quarter).",
+      "1 additional domestic lounge visit on every Rs 1 lakh spend, up to 8 additional visits per year."
+    ],
+    "international": [
+      "Complimentary Priority Pass membership for the first 2 years, with no complimentary visits (all visits are charged at standard Priority Pass rates)."
+    ]
+  },
+  "forexMarkup": 3.5,
   "tags": [
     "travel",
     "miles",
@@ -39,36 +54,264 @@
   ],
   "exclusions": [
     "fuel",
-    "cash advance",
-    "balance transfer",
     "wallet loading",
-    "transactions excluded under SBI Card reward terms"
+    "rent",
+    "education",
+    "cash withdrawal",
+    "cash advance",
+    "fees and charges",
+    "emi",
+    "disputed transactions"
+  ],
+  "exclusionCodes": [
+    "fuel",
+    "wallet_load",
+    "rent",
+    "education",
+    "cash_withdrawal",
+    "cash_advance",
+    "fees_and_charges",
+    "emi",
+    "disputed_transactions"
+  ],
+  "joiningBenefitsValued": [
+    {
+      "value": 375,
+      "kind": "points",
+      "label": "1,500 Travel Credits on spends of Rs 30,000 within 60 days of card issuance, credited on payment of joining fee"
+    }
+  ],
+  "joiningBenefits": [
+    "1,500 Travel Credits on spends of Rs 30,000 within 60 days of card issuance, credited on payment of joining fee"
+  ],
+  "renewalBenefits": [],
+  "milestones": [
+    {
+      "threshold": 500000,
+      "period": "annual",
+      "value": 5000,
+      "kind": "points",
+      "label": "5,000 bonus Travel Credits on annual spends of Rs 5 lakh"
+    }
   ],
   "milestoneBenefits": [
-    "1 additional domestic lounge visit on every Rs 1 lakh spend, up to 8 additional visits per year",
-    "5,000 bonus Travel Credits on annual spends of Rs 5 lakh",
-    "Annual fee reversal on annual spends of Rs 6 lakh"
+    "5,000 bonus Travel Credits on annual spends of Rs 5 lakh"
   ],
   "additionalBenefits": [
-    "1,500 Travel Credits on spends of Rs 30,000 within 60 days of card issuance after joining fee payment",
-    "2 Travel Credits per Rs 200 spent on travel",
-    "1 Travel Credit per Rs 200 spent on other purchases",
-    "1 Travel Credit worth up to Rs 1 for air miles or hotel points conversion",
-    "1 Travel Credit worth Rs 0.50 for travel bookings",
-    "1 Travel Credit worth Rs 0.25 for Shop & Smile catalogue products",
-    "4 complimentary domestic lounge visits every year, capped at 2 visits per quarter",
-    "Complimentary Priority Pass membership worth USD 99 for first 2 years",
-    "1% fuel surcharge waiver on transactions from Rs 500 to Rs 4,000, capped at Rs 250 per month"
+    "Air accident cover up to Rs 50 lakh",
+    "Lost card liability cover up to Rs 1 lakh",
+    "1% fuel surcharge waiver up to Rs 250 per month on eligible fuel spends from Rs 500 to Rs 4,000"
   ],
   "redemption": {
     "statementBalanceValue": 0.25,
     "smartBuyFlightHotelValue": 0.5,
     "airMilesValue": 1,
+    "transferPartnerValuations": [
+      {
+        "partner": "Accor (ALL)",
+        "partnerPointValue": 2.2,
+        "transferRatio": 0.5,
+        "basis": "fixed",
+        "note": "2 Travel Credits -> 1 Accor ALL point · Rs 2.2/point"
+      },
+      {
+        "partner": "Club ITC",
+        "partnerPointValue": 1,
+        "transferRatio": 0.5,
+        "basis": "fixed",
+        "note": "2 Travel Credits -> 1 Club ITC point · Rs 1/point"
+      }
+    ],
+    "airlinePartners": [
+      {
+        "airline": "Air Arabia",
+        "programme": "AA Rewards",
+        "ratio": "2:1",
+        "tatDays": 21
+      },
+      {
+        "airline": "AirAsia",
+        "programme": "AirAsia Rewards",
+        "ratio": "1:1",
+        "tatDays": 21
+      },
+      {
+        "airline": "Air Canada",
+        "programme": "Aeroplan",
+        "ratio": "1:1",
+        "tatDays": 21
+      },
+      {
+        "airline": "Air France-KLM",
+        "programme": "Flying Blue",
+        "ratio": "1:1",
+        "tatDays": 21
+      },
+      {
+        "airline": "Air India",
+        "programme": "Flying Returns",
+        "ratio": "1:1",
+        "tatDays": 21
+      },
+      {
+        "airline": "British Airways",
+        "programme": "The British Airways Club",
+        "ratio": "1:1",
+        "tatDays": 21
+      },
+      {
+        "airline": "Cathay Pacific",
+        "programme": "Cathay",
+        "ratio": "1:1",
+        "tatDays": 21
+      },
+      {
+        "airline": "Etihad Airways",
+        "programme": "Etihad Guest",
+        "ratio": "1:1",
+        "tatDays": 21
+      },
+      {
+        "airline": "Emirates",
+        "programme": "Emirates Skywards",
+        "ratio": "2:1",
+        "tatDays": 21
+      },
+      {
+        "airline": "Ethiopian Airlines",
+        "programme": "ShebaMiles",
+        "ratio": "2:1",
+        "tatDays": 21
+      },
+      {
+        "airline": "Japan Airlines",
+        "programme": "JAL Mileage Bank",
+        "ratio": "2:1",
+        "tatDays": 21
+      },
+      {
+        "airline": "Saudia",
+        "programme": "AlFursan",
+        "ratio": "2:1",
+        "tatDays": 21
+      },
+      {
+        "airline": "SpiceJet",
+        "programme": "SpiceClub",
+        "ratio": "1:1",
+        "tatDays": 21
+      },
+      {
+        "airline": "Thai Airways",
+        "programme": "Royal Orchid Plus",
+        "ratio": "1:1",
+        "tatDays": 21
+      },
+      {
+        "airline": "Turkish Airlines",
+        "programme": "Miles&Smiles",
+        "ratio": "2:1",
+        "tatDays": 21
+      },
+      {
+        "airline": "United Airlines",
+        "programme": "MileagePlus",
+        "ratio": "2:1",
+        "tatDays": 21
+      },
+      {
+        "airline": "Qantas Airways",
+        "programme": "Qantas Frequent Flyer",
+        "ratio": "1:1",
+        "tatDays": 21
+      },
+      {
+        "airline": "Vietnam Airlines",
+        "programme": "Lotusmiles",
+        "ratio": "1:1",
+        "tatDays": 21
+      }
+    ],
+    "hotelPartners": [
+      {
+        "hotelGroup": "Accor",
+        "programme": "Accor - ALL",
+        "ratio": "2:1",
+        "tatDays": 21
+      },
+      {
+        "hotelGroup": "IHG Hotels & Resorts",
+        "programme": "IHG One Rewards",
+        "ratio": "1:1",
+        "tatDays": 21
+      },
+      {
+        "hotelGroup": "ITC Hotels",
+        "programme": "Club ITC",
+        "ratio": "2:1",
+        "tatDays": 21
+      },
+      {
+        "hotelGroup": "Jumeirah Hotels & Resorts",
+        "programme": "Jumeirah One",
+        "ratio": "2:1",
+        "tatDays": 21
+      },
+      {
+        "hotelGroup": "Orchid Hotels",
+        "programme": "Orchid Rewards",
+        "ratio": "1:1",
+        "tatDays": 21
+      },
+      {
+        "hotelGroup": "Wyndham Hotels & Resorts",
+        "programme": "Wyndham Rewards",
+        "ratio": "1:1",
+        "tatDays": 21
+      },
+      {
+        "hotelGroup": "Shangri-La Group",
+        "programme": "Shangri-La Circle",
+        "ratio": "6:1",
+        "tatDays": 21
+      },
+      {
+        "hotelGroup": "Radisson Hotel Group",
+        "programme": "Radisson Rewards",
+        "ratio": "1:1",
+        "tatDays": 21
+      }
+    ],
     "pointsExpiryYears": 2
   },
+  "eligibility": {
+    "salaried": [
+      "Age 21 to 60 years",
+      "Stable income as per SBI Card credit assessment",
+      "Good credit profile and address in a serviced location"
+    ],
+    "selfEmployed": [
+      "Age 25 to 60 years",
+      "Stable business income as per SBI Card credit assessment",
+      "Good credit profile and address in a serviced location"
+    ]
+  },
+  "additionalDetails": [
+    "1 Travel Credit = Re 1 for air mile or hotel point conversion",
+    "1 Travel Credit = Rs 0.50 for travel bookings",
+    "1 Travel Credit = Rs 0.25 for Shop & Smile product catalogue"
+  ],
+  "internalNotes": [
+    "Audited against official SBI Card MILES product page on 2026-06-13.",
+    "Reviewed SBI's public rewards-program-TnC-miles.pdf for the current airline and hotel transfer tables; requests are processed within up to 21 days.",
+    "Card details manually reviewed and verified by user on 2026-06-13."
+  ],
+  "supportingSourceUrls": [
+    "https://www.sbicard.com/en/personal/credit-cards/travel/sbi-card-miles.page"
+  ],
   "sourceUrl": "https://www.sbicard.com/en/personal/credit-cards/travel/sbi-card-miles.page",
   "applyUrl": "https://www.sbicard.com/en/personal/credit-cards/travel/sbi-card-miles.page",
-  "lastVerified": "2026-05-09",
-  "verificationStatus": "official-mixed",
+  "lastVerified": "2026-06-13",
+  "verificationStatus": "official-direct",
   "popularityScore": 67
 }

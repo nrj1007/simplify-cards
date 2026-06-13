@@ -2,8 +2,10 @@
   "id": "simplysave-sbi",
   "issuer": "SBI Card",
   "name": "SimplySAVE SBI Card",
+  "imageUrl": "/images/simplysave-sbi.webp",
   "network": [
-    "Visa"
+    "Visa",
+    "RuPay"
   ],
   "joiningFee": 499,
   "annualFee": 499,
@@ -17,13 +19,17 @@
   "rewardType": "reward points",
   "rewards": [
     {
-      "category": "dining movies grocery",
-      "rate": 1.67,
+      "category": "dining, grocery",
+      "displayCategory": "Dining, movies, grocery, and departmental store spends",
+      "rate": 6.6667,
+      "displayRate": "10 Reward Points / Rs 150 spent",
       "capMonthly": null
     },
     {
       "category": "base",
-      "rate": 0.17,
+      "displayCategory": "Other eligible spends",
+      "rate": 0.6667,
+      "displayRate": "1 Reward Point / Rs 150 spent",
       "capMonthly": null
     }
   ],
@@ -45,16 +51,28 @@
     "wallet loading",
     "transactions excluded under SBI Card reward terms"
   ],
-  "milestoneBenefits": [
-    "2,000 bonus Reward Points on spends of Rs 2,000 or more in first 60 days",
-    "Renewal fee reversal on annual spends of Rs 1 lakh or more in the previous year"
+  "exclusionCodes": [
+    "fuel",
+    "cash_advance",
+    "balance_transfer",
+    "wallet_load",
+    "fees_and_charges"
   ],
+  "joiningBenefitsValued": [
+    {
+      "value": 500,
+      "kind": "points",
+      "label": "2,000 bonus Reward Points on spends of Rs 2,000 or more in first 60 days"
+    }
+  ],
+  "joiningBenefits": [
+    "2,000 bonus Reward Points on spends of Rs 2,000 or more in first 60 days"
+  ],
+  "renewalBenefits": [],
+  "milestones": [],
+  "milestoneBenefits": [],
   "additionalBenefits": [
-    "10 Reward Points per Rs 150 spent on dining, movies, departmental stores and grocery spends",
-    "1 Reward Point per Rs 150 spent on all other eligible spends",
-    "4 Reward Points equal Rs 1",
-    "1% fuel surcharge waiver at petrol pumps in India on transactions from Rs 500 to Rs 3,000, capped at Rs 100 per statement cycle",
-    "Contactless payments enabled"
+    "1% fuel surcharge waiver at petrol pumps in India on transactions from Rs 500 to Rs 3,000, capped at Rs 100 per statement cycle"
   ],
   "redemption": {
     "statementBalanceValue": 0.25,
@@ -62,9 +80,28 @@
     "pointsExpiryYears": 2,
     "redemptionFee": 99
   },
+  "eligibility": {
+    "salaried": [
+      "Age 21 to 60 years",
+      "Stable income as per SBI Card credit assessment",
+      "Good credit profile and address in a serviced location"
+    ],
+    "selfEmployed": [
+      "Age 25 to 60 years",
+      "Stable business income as per SBI Card credit assessment",
+      "Good credit profile and address in a serviced location"
+    ]
+  },
+  "internalNotes": [
+    "Audited against official SBI Card SimplySAVE product page on 2026-06-13.",
+    "Card details manually reviewed and verified by user on 2026-06-13."
+  ],
+  "supportingSourceUrls": [
+    "https://www.sbicard.com/en/personal/credit-cards/shopping/simplysave-sbi-card-sprint.page"
+  ],
   "sourceUrl": "https://www.sbicard.com/en/personal/credit-cards/shopping/simplysave-sbi-card-sprint.page",
   "applyUrl": "https://www.sbicard.com/en/personal/credit-cards/shopping/simplysave-sbi-card-sprint.page",
-  "lastVerified": "2026-05-09",
+  "lastVerified": "2026-06-13",
   "verificationStatus": "official-direct",
   "popularityScore": 66
 }

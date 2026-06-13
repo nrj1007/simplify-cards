@@ -2,8 +2,10 @@
   "id": "indigo-sbi",
   "issuer": "SBI Card",
   "name": "IndiGo SBI Card",
+  "imageUrl": "/images/indigo-sbi.webp",
   "network": [
-    "Mastercard"
+    "Mastercard",
+    "RuPay"
   ],
   "joiningFee": 1499,
   "annualFee": 1499,
@@ -14,26 +16,39 @@
     "travel",
     "lounge"
   ],
-  "rewardType": "IndiGo BluChips",
+  "rewardType": "indigo bluchips",
   "rewards": [
     {
       "category": "travel",
+      "displayCategory": "IndiGo flight spends",
       "rate": 3,
+      "displayRate": "3 IndiGo BluChips / Rs 100 spent",
       "capMonthly": null
     },
     {
-      "category": "travel",
+      "category": "hotels",
+      "displayCategory": "Hotel and lodging spends",
       "rate": 2,
+      "displayRate": "2 IndiGo BluChips / Rs 100 spent",
       "capMonthly": null
     },
     {
       "category": "base",
+      "displayCategory": "Other eligible spends",
       "rate": 1,
+      "displayRate": "1 IndiGo BluChip / Rs 100 spent",
       "capMonthly": null
     }
   ],
   "loungeDomestic": 4,
   "loungeInternational": 0,
+  "lounge": {
+    "domestic": [
+      "4 complimentary domestic airport lounge visits per calendar year (limited to 1 visit per quarter).",
+      "Requires spends of Rs 50,000 in the preceding calendar quarter to unlock access."
+    ],
+    "international": []
+  },
   "forexMarkup": 3.5,
   "tags": [
     "indigo",
@@ -46,33 +61,100 @@
     "fuel",
     "wallet loading",
     "rent",
+    "education",
+    "cash withdrawal",
     "cash advance",
-    "balance transfer",
-    "merchant EMI",
-    "transactions excluded under IndiGo SBI Card terms"
+    "fees and charges",
+    "emi",
+    "disputed transactions"
+  ],
+  "exclusionCodes": [
+    "fuel",
+    "wallet_load",
+    "rent",
+    "education",
+    "cash_withdrawal",
+    "cash_advance",
+    "fees_and_charges",
+    "emi",
+    "disputed_transactions"
+  ],
+  "joiningBenefitsValued": [
+    {
+      "value": 2500,
+      "kind": "points",
+      "label": "2,500 IndiGo BluChips welcome voucher"
+    }
+  ],
+  "joiningBenefits": [
+    "2,500 IndiGo BluChips as welcome benefit after joining fee payment and first transaction within 60 days"
+  ],
+  "renewalBenefitsValued": [
+    {
+      "value": 2500,
+      "kind": "points",
+      "label": "2,500 IndiGo BluChips renewal voucher"
+    }
+  ],
+  "renewalBenefits": [
+    "2,500 IndiGo BluChips as renewal benefit after annual fee payment"
+  ],
+  "milestones": [
+    {
+      "threshold": 200000,
+      "period": "annual",
+      "value": 2500,
+      "kind": "points",
+      "label": "2,500 IndiGo BluChips on annual spends of Rs 2 lakh"
+    },
+    {
+      "threshold": 400000,
+      "period": "annual",
+      "value": 2500,
+      "kind": "points",
+      "label": "2,500 IndiGo BluChips on annual spends of Rs 4 lakh"
+    },
+    {
+      "threshold": 600000,
+      "period": "annual",
+      "value": 2500,
+      "kind": "points",
+      "label": "2,500 IndiGo BluChips on annual spends of Rs 6 lakh"
+    }
   ],
   "milestoneBenefits": [
     "2,500 IndiGo BluChips on annual spends of Rs 2 lakh",
     "2,500 IndiGo BluChips on annual spends of Rs 4 lakh",
-    "2,500 IndiGo BluChips on annual spends of Rs 6 lakh",
-    "2,500 IndiGo BluChips as renewal benefit after annual fee payment"
+    "2,500 IndiGo BluChips on annual spends of Rs 6 lakh"
   ],
   "additionalBenefits": [
-    "2,500 IndiGo BluChips as welcome benefit after joining fee payment and first transaction within 60 days",
-    "3 IndiGo BluChips per Rs 100 on IndiGo app and website spends",
-    "2 IndiGo BluChips per Rs 100 on hotel, lodging and select travel MCC spends",
-    "1 IndiGo BluChip per Rs 100 on other eligible spends",
-    "IndiGo BluChips can be redeemed on IndiGo website or app against IndiGo flights and other eligible activities",
-    "4 complimentary domestic airport lounge visits per year, capped at 1 per quarter, subject to Rs 50,000 spend in the previous quarter",
-    "1% fuel surcharge waiver on eligible fuel spends from Rs 500 to Rs 4,000, capped at Rs 200 per month"
+    "1% fuel surcharge waiver up to Rs 200 per month on eligible fuel spends from Rs 500 to Rs 4,000"
   ],
   "redemption": {
-    "statementBalanceValue": 1,
     "pointsExpiryYears": 2
   },
+  "eligibility": {
+    "salaried": [
+      "Age 21 to 60 years",
+      "Stable income as per SBI Card credit assessment",
+      "Good credit profile and address in a serviced location"
+    ],
+    "selfEmployed": [
+      "Age 25 to 60 years",
+      "Stable business income as per SBI Card credit assessment",
+      "Good credit profile and address in a serviced location"
+    ]
+  },
+  "internalNotes": [
+    "Audited against official SBI Card IndiGo product page on 2026-06-13.",
+    "Card details manually reviewed and verified by user on 2026-06-13."
+  ],
+  "supportingSourceUrls": [
+    "https://www.sbicard.com/en/personal/credit-cards/indigo-sbi-card.html"
+  ],
   "sourceUrl": "https://www.sbicard.com/en/personal/credit-cards/indigo-sbi-card.html",
   "applyUrl": "https://www.sbicard.com/en/personal/credit-cards/indigo-sbi-card.html",
-  "lastVerified": "2026-05-09",
-  "verificationStatus": "official-mixed",
+  "lastVerified": "2026-06-13",
+  "verificationStatus": "official-direct",
   "popularityScore": 62
 }

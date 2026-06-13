@@ -2,6 +2,7 @@
   "id": "bpcl-sbi",
   "issuer": "SBI Card",
   "name": "BPCL SBI Card",
+  "imageUrl": "/images/bpcl-sbi.png",
   "network": [
     "Visa",
     "RuPay"
@@ -20,22 +21,23 @@
   "rewards": [
     {
       "category": "fuel",
-      "rate": 3.25,
-      "capMonthly": 325
+      "displayCategory": "Fuel spends at BPCL petrol pumps",
+      "rate": 13,
+      "displayRate": "13 Reward Points / Rs 100 spent",
+      "capMonthly": 1300
     },
     {
-      "category": "grocery",
-      "rate": 1.25,
-      "capMonthly": 1250
-    },
-    {
-      "category": "dining",
-      "rate": 1.25,
-      "capMonthly": 1250
+      "category": "grocery, dining",
+      "displayCategory": "Grocery, departmental stores, movies, and dining spends",
+      "rate": 5,
+      "displayRate": "5 Reward Points / Rs 100 spent",
+      "capMonthly": 5000
     },
     {
       "category": "base",
-      "rate": 0.25,
+      "displayCategory": "Other eligible spends",
+      "rate": 1,
+      "displayRate": "1 Reward Point / Rs 100 spent",
       "capMonthly": null
     }
   ],
@@ -56,25 +58,61 @@
     "fuel spends outside eligible BPCL reward construct",
     "transactions excluded under BPCL SBI Card terms"
   ],
-  "milestoneBenefits": [
-    "Annual fee reversal on annual spends of Rs 50,000 or more in the previous year"
+  "exclusionCodes": [
+    "cash_withdrawal",
+    "balance_transfer",
+    "fees_and_charges"
+  ],
+  "joiningBenefitsValued": [
+    {
+      "value": 500,
+      "kind": "points",
+      "label": "2,000 activation bonus Reward Points worth Rs 500 on payment of joining fee"
+    }
+  ],
+  "joiningBenefits": [
+    "2,000 activation bonus Reward Points worth Rs 500 on payment of joining fee"
+  ],
+  "renewalBenefits": [],
+  "milestones": [],
+  "milestoneBenefits": [],
+  "specialSpendRules": [
+    {
+      "category": "fuel",
+      "treatment": "capped",
+      "notes": "Earn 13 Reward Points per Rs 100 spent at BPCL petrol pumps, capped at 1,300 points per month."
+    }
   ],
   "additionalBenefits": [
-    "2,000 activation bonus Reward Points worth Rs 500 on payment of joining fee",
-    "13 Reward Points per Rs 100 on fuel purchases at BPCL petrol pumps, capped at 1,300 Reward Points per billing cycle",
-    "5 Reward Points per Rs 100 on grocery, departmental stores, movies and dining spends, capped at 5,000 Reward Points per month",
-    "1 Reward Point per Rs 100 on other eligible non-fuel retail purchases",
-    "4 Reward Points equal Re 1 and can be redeemed for fuel at participating BPCL outlets or through SBI Card rewards options",
-    "1% fuel surcharge waiver on eligible BPCL fuel transactions up to Rs 4,000, capped at Rs 100 per month",
-    "No minimum reward point threshold for eligible BPCL fuel redemption"
+    "1% fuel surcharge waiver up to Rs 100 per month on eligible BPCL fuel transactions up to Rs 4,000"
   ],
   "redemption": {
     "statementBalanceValue": 0.25,
-    "pointsExpiryYears": 2
+    "pointsExpiryYears": 2,
+    "redemptionFee": 99
   },
+  "eligibility": {
+    "salaried": [
+      "Age 21 to 60 years",
+      "Stable income as per SBI Card credit assessment",
+      "Good credit profile and address in a serviced location"
+    ],
+    "selfEmployed": [
+      "Age 25 to 60 years",
+      "Stable business income as per SBI Card credit assessment",
+      "Good credit profile and address in a serviced location"
+    ]
+  },
+  "internalNotes": [
+    "Audited against official SBI Card BPCL product page on 2026-06-13.",
+    "Card details manually reviewed and verified by user on 2026-06-13."
+  ],
+  "supportingSourceUrls": [
+    "https://www.sbicard.com/en/personal/credit-cards/bpcl-sbi-card.html"
+  ],
   "sourceUrl": "https://www.sbicard.com/en/personal/credit-cards/bpcl-sbi-card.html",
   "applyUrl": "https://www.sbicard.com/en/personal/credit-cards/bpcl-sbi-card.html",
-  "lastVerified": "2026-05-09",
-  "verificationStatus": "official-mixed",
+  "lastVerified": "2026-06-13",
+  "verificationStatus": "official-direct",
   "popularityScore": 64
 }

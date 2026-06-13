@@ -274,18 +274,40 @@ async function main() {
     console.log(`[${index + 1}] Score: ${candidate.score} | ${candidate.attr} | ${candidate.url}${altPart}`);
   });
 
-  const bestUrl = uniqueCandidates[0].url;
-  const ext = inferExtension(bestUrl);
-  const destName = `${cardId}${ext}`;
-  const destPath = path.join(repoRoot, "public", "images", destName);
+  let downloadSuccess = false;
+  for (const candidate of uniqueCandidates) {
+    const currentUrl = candidate.url;
+    const ext = inferExtension(currentUrl);
+    const destName = `${cardId}${ext}`;
+    const destPath = path.join(repoRoot, "public", "images", destName);
 
-  console.log(`\nDownloading top candidate image to public/images/${destName}`);
-  console.log(`Source URL: ${bestUrl}`);
+    console.log(`\nTrying candidate image: ${currentUrl}`);
+    try {
+      await downloadFile(currentUrl, destPath);
+      // Double check that it's a valid non-empty file
+      if (fs.existsSync(destPath) && fs.statSync(destPath).size > 1000) {
+        console.log(`Saved image to public/images/${destName}`);
+        
+        // Update the JSON file
+        card.imageUrl = `/images/${destName}`;
+        fs.writeFileSync(sbiCardPath, JSON.stringify(card, null, 2) + "\n", "utf8");
+        console.log(`Updated data/cards/sbi/${cardId}.json with imageUrl: "/images/${destName}"`);
+        downloadSuccess = true;
+        break;
+      } else {
+        if (fs.existsSync(destPath)) {
+          fs.unlinkSync(destPath);
+        }
+        console.log(`Skipping: Downloaded file is too small or invalid.`);
+      }
+    } catch (err) {
+      console.log(`Download failed for ${currentUrl}: ${err.message}`);
+    }
+  }
 
-  await downloadFile(bestUrl, destPath);
-
-  console.log(`Saved image to public/images/${destName}`);
-  console.log(`Set this in data/cards/sbi/${cardId}.json: "imageUrl": "/images/${destName}"`);
+  if (!downloadSuccess) {
+    throw new Error(`Failed to download any candidate image for card '${cardId}'`);
+  }
 }
 
 main().catch((err) => {
