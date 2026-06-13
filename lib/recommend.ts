@@ -83,6 +83,13 @@ const relevanceWeightExactMatch = 1.0;
 const relevanceWeightBroadGeneric = 0.3;
 const relevanceWeightDefault = 0.5;
 
+// Popularity acts as a gentle secondary prior — a near-tie nudge toward recognizable cards, not a
+// driver that competes with economic value. At ~50–100 popularity this contributes 750–1,500, in
+// line with the other small preference boosts (tags, segments) and well below typical net-value
+// differences, so it only matters when cards are otherwise close. (Was popularityScore * 50, which
+// was inert at the top — value dominates — but large enough on paper to look value-competitive.)
+const popularityRankingWeight = 15;
+
 // Ceiling on the net yield used in envelope (broad "best card") ranking. The envelope picks each
 // card's most flattering spend tier, where a low-fee card's yield (net value / spend) can blow up at
 // trivial spend — e.g. a Rs 0-fee card showing ~10% on a tiny envelope, outranking genuinely
@@ -1418,8 +1425,7 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
       brandPenalty +
       specialSpendBoost +
       milestoneBoost +
-      // TODO: Review popularity score weight (currently popularityScore * 50)
-      card.popularityScore * 50;
+      card.popularityScore * popularityRankingWeight;
 
     // Value score: economic quality and preference fit signals
     const valueScore = estimatedNetValue + sharedBoosts;

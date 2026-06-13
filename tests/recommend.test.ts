@@ -307,7 +307,9 @@ describe("scoreCards", () => {
     expect(travelOne?.reasons).toEqual(
       expect.arrayContaining([expect.stringMatching(/Higher milestone and fee-waiver upside can add about Rs 6,000/i)])
     );
-    expect((travelOne?.fitScore ?? 0) - (travelOne?.estimatedNetValue ?? 0)).toBeGreaterThan(8000);
+    // The non-value boosts (dominated by the ~Rs 6,000 milestone/fee-waiver upside) add several
+    // thousand on top of net value. Threshold reflects the gentle popularity prior (popularityScore * 15).
+    expect((travelOne?.fitScore ?? 0) - (travelOne?.estimatedNetValue ?? 0)).toBeGreaterThan(5000);
   });
 
   it("avoids invite-only luxury cards for generic ltf asks", () => {
