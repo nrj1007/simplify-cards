@@ -4,9 +4,7 @@
   "name": "Landmark Rewards SBI Card",
   "imageUrl": "/images/landmark-rewards-sbi.webp",
   "network": [
-    "Visa",
-    "Mastercard",
-    "RuPay"
+    "Visa"
   ],
   "joiningFee": 499,
   "annualFee": 499,
