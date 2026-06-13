@@ -3,7 +3,8 @@
   "issuer": "YES Bank",
   "name": "YES BANK RESERV Credit Card",
   "network": [
-    "Mastercard"
+    "Mastercard",
+    "Visa"
   ],
   "joiningFee": 2499,
   "annualFee": 2499,

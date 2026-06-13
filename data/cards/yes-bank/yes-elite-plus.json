@@ -4,8 +4,7 @@
   "name": "YES BANK ELITE+ Credit Card",
   "network": [
     "Mastercard",
-    "Visa",
-    "RuPay"
+    "Visa"
   ],
   "joiningFee": 999,
   "annualFee": 999,

@@ -3,7 +3,6 @@
   "issuer": "YES Bank",
   "name": "YES BANK ACE Credit Card",
   "network": [
-    "Mastercard",
     "Visa",
     "RuPay"
   ],

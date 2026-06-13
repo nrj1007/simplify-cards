@@ -3,6 +3,7 @@
   "issuer": "YES Bank",
   "name": "YES First Preferred Credit Card",
   "network": [
+    "Visa",
     "Mastercard"
   ],
   "joiningFee": 999,

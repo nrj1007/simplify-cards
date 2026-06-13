@@ -4,8 +4,7 @@
   "name": "YES BANK SELECT Credit Card",
   "network": [
     "Mastercard",
-    "Visa",
-    "RuPay"
+    "Visa"
   ],
   "joiningFee": 599,
   "annualFee": 599,
