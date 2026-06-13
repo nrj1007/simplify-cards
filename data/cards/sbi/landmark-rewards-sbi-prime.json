@@ -2,7 +2,6 @@
   "id": "landmark-rewards-sbi-prime",
   "issuer": "SBI Card",
   "name": "Landmark Rewards SBI Card PRIME",
-  "status": "discontinued",
   "imageUrl": "/images/landmark-rewards-sbi-prime.png",
   "network": [
     "Visa"

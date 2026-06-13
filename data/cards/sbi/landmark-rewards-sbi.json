@@ -2,7 +2,6 @@
   "id": "landmark-rewards-sbi",
   "issuer": "SBI Card",
   "name": "Landmark Rewards SBI Card",
-  "status": "discontinued",
   "network": [
     "Visa",
     "Mastercard",
