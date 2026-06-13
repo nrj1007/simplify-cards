@@ -139,8 +139,8 @@ exports[`ranking golden (representative queries) > produces stable top-N orderin
     "axis-atlas",
     "axis-magnus",
     "hdfc-regalia-gold",
-    "landmark-rewards-sbi-select",
     "indigo-sbi-elite",
+    "sc-ultimate",
   ],
   "spend-travel-heavy": [
     "hdfc-infinia-metal",

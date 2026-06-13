@@ -19,18 +19,24 @@
   "rewardType": "reward points",
   "rewards": [
     {
-      "category": "base",
-      "rate": 2.5,
+      "category": "partner merchants",
+      "displayCategory": "Online and retail Landmark stores",
+      "rate": 10,
+      "displayRate": "10 Reward Points / Rs 100 spent",
       "capMonthly": null
     },
     {
       "category": "dining",
-      "rate": 1.25,
+      "displayCategory": "Dining and movie spends",
+      "rate": 5,
+      "displayRate": "5 Reward Points / Rs 100 spent",
       "capMonthly": null
     },
     {
       "category": "base",
-      "rate": 0.25,
+      "displayCategory": "Other retail purchases",
+      "rate": 1,
+      "displayRate": "1 Reward Point / Rs 100 spent",
       "capMonthly": null
     }
   ],

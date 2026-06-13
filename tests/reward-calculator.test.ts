@@ -693,11 +693,11 @@ describe("reward calculator", () => {
       const result = calculateRewards(card!, {
         dining: 10000,          // 10 Reward Points / Rs 100 = 1000 units
         international: 10000,   // 10 Reward Points / Rs 100 = 1000 units
-        base: 10000,            // Landmark Stores row at 15 Reward Points / Rs 100 = 1500 units
+        base: 10000,            // Other retail purchases at 2 Reward Points / Rs 100 = 200 units
         fuel: 5000
       });
 
-      expect(result.monthlyUnits).toBe(3500);
+      expect(result.monthlyUnits).toBe(2200);
 
       const fuelRow = result.rows.find((r) => r.category === "fuel");
       expect(fuelRow?.monthlyUnits).toBe(0);

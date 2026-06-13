@@ -4,9 +4,7 @@
   "name": "Landmark Rewards SBI Card SELECT",
   "imageUrl": "/images/landmark-rewards-sbi-select.webp",
   "network": [
-    "Visa",
-    "Mastercard",
-    "RuPay"
+    "Visa"
   ],
   "joiningFee": 1499,
   "annualFee": 1499,
@@ -33,7 +31,7 @@
       "capMonthly": null
     },
     {
-      "category": "base",
+      "category": "partner merchants",
       "displayCategory": "Landmark Stores (Lifestyle, Max, Home Centre, Spar, Babyshop, EasyBuy)",
       "rate": 15,
       "displayRate": "15 Reward Points / Rs 100 spent",
