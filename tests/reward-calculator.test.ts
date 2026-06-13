@@ -709,6 +709,162 @@ describe("reward calculator", () => {
       expect(rules[0].threshold).toBe(300000);
       expect(rules[0].value).toBe(3000);
     });
+
+    it("calculates rewards correctly for Doctor's SBI Card", () => {
+      const card = getCardById("doctors-sbi");
+      expect(card).toBeTruthy();
+
+      const result = calculateRewards(card!, {
+        travel: 10000,
+        base: 10000,
+        international: 10000,
+        fuel: 5000,
+        rent: 5000
+      });
+
+      // travel: 10,000 * 5 = 500
+      // base: 10,000 * 1 = 100
+      // international: 10,000 * 5 = 500
+      // fuel: 0 (excluded)
+      // rent: 0 (excluded)
+      expect(result.monthlyUnits).toBe(1100);
+
+      const fuelRow = result.rows.find((r) => r.category === "fuel");
+      const rentRow = result.rows.find((r) => r.category === "rent");
+      expect(fuelRow?.monthlyUnits).toBe(0);
+      expect(fuelRow?.excluded).toBe(true);
+      expect(rentRow?.monthlyUnits).toBe(0);
+      expect(rentRow?.excluded).toBe(true);
+
+      // Travel cap: 800,000 * 5 / 100 = 40,000 units, capped at 7500
+      const capResult = calculateRewards(card!, {
+        travel: 800000
+      });
+      expect(capResult.monthlyUnits).toBe(7500);
+    });
+
+    it("calculates rewards correctly for Reliance SBI Card PRIME", () => {
+      const card = getCardById("reliance-sbi-prime");
+      expect(card).toBeTruthy();
+
+      const result = calculateRewards(card!, {
+        dining: 10000, // 5 pts/Rs 100 = 500
+        base: 10000,   // 2 pts/Rs 100 = 200
+        fuel: 5000     // excluded
+      });
+
+      expect(result.monthlyUnits).toBe(700);
+
+      const fuelRow = result.rows.find((r) => r.category === "fuel");
+      expect(fuelRow?.monthlyUnits).toBe(0);
+      expect(fuelRow?.excluded).toBe(true);
+
+      // dining/travel/intl combined cap: 200,000 * 5/100 = 10,000 units, capped at 7500
+      const capResult = calculateRewards(card!, {
+        dining: 200000
+      });
+      expect(capResult.monthlyUnits).toBe(7500);
+
+      // Verify milestones
+      const rules = milestoneRulesForCard(card!);
+      expect(rules).toHaveLength(1);
+      expect(rules[0].threshold).toBe(300000);
+      expect(rules[0].value).toBe(4375);
+      expect(rules[0].isVoucher).toBe(true);
+    });
+
+    it("calculates rewards correctly for Reliance SBI Card", () => {
+      const card = getCardById("reliance-sbi");
+      expect(card).toBeTruthy();
+
+      const result = calculateRewards(card!, {
+        dining: 10000, // 5 pts/Rs 100 = 500
+        base: 10000,   // 1 pt/Rs 100 = 100
+        fuel: 5000     // excluded
+      });
+
+      expect(result.monthlyUnits).toBe(600);
+
+      // Dining cap: 120,000 * 5/100 = 6,000 units, capped at 5000
+      const capResult = calculateRewards(card!, {
+        dining: 120000
+      });
+      expect(capResult.monthlyUnits).toBe(5000);
+    });
+
+    it("calculates rewards correctly for AURUM SBI Card", () => {
+      const card = getCardById("aurum-sbi");
+      expect(card).toBeTruthy();
+
+      const result = calculateRewards(card!, {
+        base: 10000,     // 4 pts/Rs 100 = 400
+        fuel: 5000,      // excluded
+        rent: 5000,      // excluded
+        government: 5000 // excluded
+      });
+
+      expect(result.monthlyUnits).toBe(400);
+
+      const governmentRow = result.rows.find((r) => r.category === "government");
+      expect(governmentRow?.monthlyUnits).toBe(0);
+      expect(governmentRow?.excluded).toBe(true);
+
+      // Verify milestones
+      const rules = milestoneRulesForCard(card!);
+      // monthly milestone 1500 * 12 = 18000, annual 5000, 10000, 20000. Total = 4 rules
+      expect(rules).toHaveLength(4);
+    });
+
+    it("calculates rewards correctly for Apollo SBI Card SELECT", () => {
+      const card = getCardById("apollo-sbi-select");
+      expect(card).toBeTruthy();
+
+      const result = calculateRewards(card!, {
+        dining: 10000, // 2 pts/Rs 100 = 200
+        base: 10000,   // 0.5 pts/Rs 100 = 50
+        fuel: 5000     // excluded
+      });
+
+      expect(result.monthlyUnits).toBe(250);
+
+      // Dining/Travel cap: 300,000 * 2/100 = 6,000 units, capped at 5000
+      const capResult = calculateRewards(card!, {
+        dining: 300000
+      });
+      expect(capResult.monthlyUnits).toBe(5000);
+    });
+
+    it("calculates rewards correctly for Shaurya SBI Card", () => {
+      const card = getCardById("shaurya-sbi");
+      expect(card).toBeTruthy();
+
+      const result = calculateRewards(card!, {
+        dining: 10000, // 5 pts/Rs 100 = 500
+        grocery: 10000, // 5 pts/Rs 100 = 500
+        base: 10000,   // 1 pt/Rs 100 = 100
+        fuel: 5000     // excluded
+      });
+
+      expect(result.monthlyUnits).toBe(1100);
+    });
+
+    it("calculates rewards correctly for Landmark Rewards SBI Card", () => {
+      const card = getCardById("landmark-rewards-sbi");
+      expect(card).toBeTruthy();
+
+      const result = calculateRewards(card!, {
+        dining: 10000, // 5 pts/Rs 100 = 500
+        base: 10000    // Base row at 1 RP/Rs 100 = 100 units
+      });
+
+      expect(result.monthlyUnits).toBe(600);
+
+      // Verify milestones
+      const rules = milestoneRulesForCard(card!);
+      expect(rules).toHaveLength(1);
+      expect(rules[0].threshold).toBe(200000);
+      expect(rules[0].value).toBe(2000);
+    });
   });
 
   it("derives Sapphiro milestone rules from the structured milestones field", () => {

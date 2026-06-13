@@ -2,6 +2,7 @@
   "id": "apollo-sbi-select",
   "issuer": "SBI Card",
   "name": "Apollo SBI Card SELECT",
+  "imageUrl": "/images/apollo-sbi-select.webp",
   "network": [
     "Visa"
   ],
@@ -15,31 +16,40 @@
     "diagnostics",
     "lounge"
   ],
-  "rewardType": "reward points and health credits",
+  "rewardType": "reward points",
   "rewards": [
     {
-      "category": "online",
-      "rate": 10,
-      "capMonthly": 5000
+      "category": "partner merchants",
+      "displayCategory": "Apollo 24/7 and Apollo Pharmacy spends",
+      "rate": 10.0,
+      "displayRate": "10 Reward Points / Rs 100 spent",
+      "capMonthly": null
     },
     {
-      "category": "dining",
-      "rate": 2,
-      "capMonthly": 5000
-    },
-    {
-      "category": "travel",
-      "rate": 2,
+      "category": "dining, travel",
+      "displayCategory": "Dining, travel, movies & entertainment spends",
+      "rate": 2.0,
+      "displayRate": "2 Reward Points / Rs 100 spent",
       "capMonthly": 5000
     },
     {
       "category": "base",
+      "displayCategory": "Other eligible retail purchases",
       "rate": 0.5,
-      "capMonthly": 5000
+      "displayRate": "1 Reward Point / Rs 200 spent",
+      "capMonthly": null
     }
   ],
   "loungeDomestic": 4,
   "loungeInternational": 0,
+  "lounge": {
+    "domestic": [
+      "4 complimentary domestic airport lounge visits per year, capped at 1 visit per quarter"
+    ],
+    "international": [
+      "Complimentary Priority Pass membership for two years (lounge visits are chargeable)"
+    ]
+  },
   "forexMarkup": 3.5,
   "tags": [
     "apollo",
@@ -50,33 +60,76 @@
     "wellness"
   ],
   "exclusions": [
+    "fuel spends",
+    "cash advances",
+    "balance transfers",
+    "wallet loading transactions",
+    "rent payments",
+    "government services spends",
+    "merchant EMI transactions"
+  ],
+  "exclusionCodes": [
     "fuel",
-    "cash withdrawal",
-    "balance transfer",
-    "transactions excluded under Apollo SBI Card SELECT terms"
+    "cash_advance",
+    "balance_transfer",
+    "wallet_load",
+    "rent",
+    "government",
+    "emi"
+  ],
+  "joiningBenefitsValued": [
+    {
+      "value": 1500,
+      "kind": "voucher",
+      "label": "Apollo 24/7 e-Gift Voucher worth Rs 1,500"
+    }
+  ],
+  "joiningBenefits": [
+    "Apollo 24/7 e-Gift Voucher worth Rs 1,500 upon payment of joining fee"
+  ],
+  "renewalBenefitsValued": [],
+  "renewalBenefits": [],
+  "milestones": [
+    {
+      "threshold": 600000,
+      "period": "annual",
+      "value": 1500,
+      "kind": "voucher",
+      "label": "Complimentary Noise Smartwatch on overall annual spends of Rs 6 lakh"
+    }
   ],
   "milestoneBenefits": [
-    "Annual fee waiver on annual spends of Rs 3 lakh in the previous year",
-    "Noise smartwatch benefit on annual spends of Rs 6 lakh, subject to product terms"
+    "Complimentary Noise Smartwatch on overall annual spends of Rs 6 lakh"
   ],
   "additionalBenefits": [
-    "Apollo 24/7 e-gift voucher worth Rs 1,500 on eligible joining fee payment",
-    "10 Reward Points per Rs 100 on Apollo 24/7 and Apollo Pharmacy spends",
-    "Up to 15% Health Credits on medicine purchases, up to 20% on diagnostic tests, and up to 10% on doctor consultations under Apollo Circle benefits",
-    "2 Reward Points per Rs 100 on dining, travel, movies and entertainment spends",
-    "1 Reward Point per Rs 200 on other eligible spends",
-    "1 Reward Point can be redeemed as 1 Apollo Health Credit",
-    "4 complimentary domestic airport lounge visits per year, capped at 1 per quarter",
-    "Complimentary Priority Pass membership for two years",
-    "1-year complimentary FITPASS PRO membership and annual health check-up package, subject to product terms"
+    " FITPASS PRO membership (1 year) and annual health check-up package",
+    "1% fuel surcharge waiver on eligible fuel transactions between Rs 500 and Rs 4,000, capped at Rs 250 per month"
   ],
   "redemption": {
-    "statementBalanceValue": 1,
-    "pointsExpiryYears": 2
+    "statementBalanceValue": 1.0,
+    "pointsExpiryYears": 2,
+    "redemptionFee": 99
   },
+  "eligibility": {
+    "salaried": [
+      "Age: 21 to 60 years",
+      "Stable monthly income"
+    ],
+    "selfEmployed": [
+      "Age: 21 to 60 years",
+      "Stable annual income"
+    ]
+  },
+  "internalNotes": [
+    "Audited against official Apollo SBI Card SELECT page and terms on 2026-06-13.",
+    "Card details manually reviewed and verified by user on 2026-06-13."
+  ],
+  "supportingSourceUrls": [
+    "https://www.sbicard.com/en/personal/credit-cards/apollo-sbi-card.html"
+  ],
   "sourceUrl": "https://www.sbicard.com/en/personal/credit-cards/apollo-sbi-card.html",
   "applyUrl": "https://www.apollo247.com/apollo-sbi-credit-card-faqs",
-  "lastVerified": "2026-05-09",
-  "verificationStatus": "official-mixed",
+  "lastVerified": "2026-06-13",
+  "verificationStatus": "official-direct",
   "popularityScore": 49
 }

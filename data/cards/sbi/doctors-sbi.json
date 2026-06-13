@@ -2,6 +2,7 @@
   "id": "doctors-sbi",
   "issuer": "SBI Card",
   "name": "Doctor's SBI Card",
+  "imageUrl": "/images/doctors-sbi.webp",
   "network": [
     "Visa"
   ],
@@ -19,54 +20,80 @@
   "rewards": [
     {
       "category": "travel",
-      "rate": 1.25,
+      "displayCategory": "Travel bookings & medical supplies",
+      "rate": 5,
+      "displayRate": "5 Reward Points / Rs 100 spent",
       "capMonthly": 7500
     },
     {
-      "category": "online",
-      "rate": 1.25,
+      "category": "international",
+      "displayCategory": "International spends",
+      "rate": 5,
+      "displayRate": "5 Reward Points / Rs 100 spent",
       "capMonthly": 7500
     },
     {
       "category": "base",
-      "rate": 0.25,
+      "displayCategory": "Other eligible retail purchases",
+      "rate": 1,
+      "displayRate": "1 Reward Point / Rs 100 spent",
       "capMonthly": null
     }
   ],
   "loungeDomestic": 8,
   "loungeInternational": 4,
+  "lounge": {
+    "domestic": [
+      "8 complimentary domestic airport lounge visits per year, capped at 2 visits per quarter"
+    ],
+    "international": [
+      "4 complimentary international airport lounge visits per year through Priority Pass membership, capped at 2 visits per quarter"
+    ]
+  },
   "forexMarkup": 3.5,
   "tags": [
     "doctors",
     "healthcare",
     "medical supplies",
     "travel",
-    "lounge",
-    "insurance"
+    "lounge"
   ],
   "exclusions": [
+    "fuel spends",
+    "cash advances",
+    "balance transfers",
+    "wallet loading transactions",
+    "rent payments",
+    "government services spends",
+    "merchant EMI transactions"
+  ],
+  "exclusionCodes": [
     "fuel",
-    "cash withdrawal",
-    "balance transfer",
-    "merchant EMI",
-    "wallet loading",
+    "cash_advance",
+    "balance_transfer",
+    "wallet_load",
     "rent",
-    "transactions excluded under Doctor's SBI Card terms"
+    "government",
+    "emi"
   ],
-  "milestoneBenefits": [
-    "Renewal fee waiver on annual spends of Rs 2 lakh or more in the preceding year"
+  "joiningBenefitsValued": [
+    {
+      "value": 1500,
+      "kind": "voucher",
+      "label": "Yatra Travel e-Gift Voucher worth Rs 1,500"
+    }
   ],
+  "joiningBenefits": [
+    "Yatra Travel e-Gift Voucher worth Rs 1,500 upon payment of joining fee"
+  ],
+  "renewalBenefitsValued": [],
+  "renewalBenefits": [],
+  "milestones": [],
+  "milestoneBenefits": [],
   "additionalBenefits": [
-    "Travel e-gift voucher worth Rs 1,500 as joining benefit, subject to product terms",
-    "5 Reward Points per Rs 100 on eligible medical supplies and travel bookings, capped at 7,500 accelerated Reward Points per month",
-    "5 Reward Points per Rs 100 on eligible international spends, capped separately at 7,500 accelerated Reward Points per month",
-    "5 Reward Points per Rs 100 on all eligible spends on Doctor's Day, subject to product terms",
-    "1 Reward Point per Rs 100 on other eligible retail spends",
-    "4 Reward Points equal Re 1",
-    "Professional indemnity insurance cover for doctors, subject to policy terms",
-    "8 complimentary domestic airport lounge visits per year",
-    "4 complimentary international lounge visits per year through Priority Pass",
-    "1% fuel surcharge waiver on eligible fuel transactions"
+    "Professional indemnity insurance cover of Rs 20 Lakhs for doctors",
+    "5 Reward Points per Rs 100 on all eligible spends on Doctor's Day (1st July)",
+    "1% fuel surcharge waiver on eligible fuel transactions between Rs 500 and Rs 4,000, capped at Rs 250 per month"
   ],
   "redemption": {
     "statementBalanceValue": 0.25,
@@ -75,15 +102,26 @@
   },
   "eligibility": {
     "salaried": [
-      "Designed for doctors and medical professionals"
+      "Age: 21 to 65 years",
+      "Must be a practicing doctor or medical professional",
+      "Proof of medical registration/degree is required"
     ],
     "selfEmployed": [
-      "Designed for doctors and medical professionals"
+      "Age: 21 to 65 years",
+      "Must be a practicing doctor or medical professional",
+      "Proof of medical registration/degree is required"
     ]
   },
+  "internalNotes": [
+    "Audited against official SBI Card Doctor's Card page on 2026-06-13.",
+    "Card details manually reviewed and verified by user on 2026-06-13."
+  ],
+  "supportingSourceUrls": [
+    "https://www.sbicard.com/en/personal/credit-cards/lifestyle/doctors-sbi-card.page"
+  ],
   "sourceUrl": "https://www.sbicard.com/en/personal/credit-cards/lifestyle/doctors-sbi-card.page",
   "applyUrl": "https://www.sbicard.com/en/personal/credit-cards/lifestyle/doctors-sbi-card.page",
-  "lastVerified": "2026-05-09",
-  "verificationStatus": "official-mixed",
+  "lastVerified": "2026-06-13",
+  "verificationStatus": "official-direct",
   "popularityScore": 40
 }

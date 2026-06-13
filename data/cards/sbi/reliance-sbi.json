@@ -2,6 +2,7 @@
   "id": "reliance-sbi",
   "issuer": "SBI Card",
   "name": "Reliance SBI Card",
+  "imageUrl": "/images/reliance-sbi.webp",
   "network": [
     "Mastercard",
     "RuPay"
@@ -19,23 +20,31 @@
   "rewardType": "reward points",
   "rewards": [
     {
-      "category": "online",
-      "rate": 2.5,
+      "category": "partner merchants",
+      "displayCategory": "AJIO and JioMart online spends",
+      "rate": 10,
+      "displayRate": "10 Reward Points / Rs 100 spent",
       "capMonthly": null
     },
     {
-      "category": "base",
-      "rate": 1.25,
+      "category": "partner merchants",
+      "displayCategory": "Other participating Reliance Retail stores",
+      "rate": 5,
+      "displayRate": "5 Reward Points / Rs 100 spent",
       "capMonthly": null
     },
     {
       "category": "dining",
-      "rate": 1.25,
-      "capMonthly": null
+      "displayCategory": "Dining & movie spends",
+      "rate": 5,
+      "displayRate": "5 Reward Points / Rs 100 spent",
+      "capMonthly": 5000
     },
     {
       "category": "base",
-      "rate": 0.25,
+      "displayCategory": "Other eligible retail purchases",
+      "rate": 1,
+      "displayRate": "1 Reward Point / Rs 100 spent",
       "capMonthly": null
     }
   ],
@@ -52,35 +61,95 @@
     "low fee"
   ],
   "exclusions": [
+    "fuel spends",
+    "cash advances",
+    "balance transfers",
+    "wallet loading transactions",
+    "rent payments",
+    "digital gaming transactions",
+    "government services spends",
+    "merchant EMI transactions"
+  ],
+  "exclusionCodes": [
     "fuel",
+    "cash_advance",
+    "balance_transfer",
+    "wallet_load",
     "rent",
-    "wallet loading",
-    "upi payments for selected accelerated Reliance categories",
-    "transactions excluded under Reliance SBI Card terms"
+    "gaming",
+    "government",
+    "emi"
+  ],
+  "joiningBenefitsValued": [
+    {
+      "value": 500,
+      "kind": "voucher",
+      "label": "Reliance Retail Voucher worth Rs 500"
+    }
+  ],
+  "joiningBenefits": [
+    "Reliance Retail Voucher worth Rs 500 upon payment of joining fee"
+  ],
+  "renewalBenefitsValued": [],
+  "renewalBenefits": [],
+  "milestones": [
+    {
+      "threshold": 25000,
+      "period": "annual",
+      "value": 250,
+      "kind": "voucher",
+      "label": "Reliance Retail voucher worth Rs 500 on annual spends of Rs 25,000"
+    },
+    {
+      "threshold": 50000,
+      "period": "annual",
+      "value": 375,
+      "kind": "voucher",
+      "label": "Reliance Retail voucher worth Rs 750 on annual spends of Rs 50,000"
+    },
+    {
+      "threshold": 80000,
+      "period": "annual",
+      "value": 500,
+      "kind": "voucher",
+      "label": "Reliance Retail voucher worth Rs 1,000 on annual spends of Rs 80,000"
+    }
   ],
   "milestoneBenefits": [
     "Reliance Retail voucher worth Rs 500 on annual spends of Rs 25,000 at eligible Reliance formats",
     "Reliance Retail voucher worth Rs 750 on annual spends of Rs 50,000 at eligible Reliance formats",
-    "Reliance Retail voucher worth Rs 1,000 on annual spends of Rs 80,000 at eligible Reliance formats",
-    "Renewal fee waiver on annual spends of Rs 1 lakh or more"
+    "Reliance Retail voucher worth Rs 1,000 on annual spends of Rs 80,000 at eligible Reliance formats"
   ],
   "additionalBenefits": [
-    "Reliance Retail voucher worth Rs 500 as activation or welcome benefit",
     "Additional Reliance discount vouchers worth up to Rs 3,200 at participating Reliance brands",
-    "10 Reward Points per Rs 100 on AJIO and JioMart online spends, except UPI payments",
-    "5 Reward Points per Rs 100 at other participating Reliance Retail stores, except UPI payments",
-    "5 Reward Points per Rs 100 on dining and movies",
-    "1 Reward Point per Rs 100 on other eligible retail purchases",
-    "4 Reward Points equal Re 1",
-    "1% fuel surcharge waiver on eligible fuel transactions, capped as per product terms"
+    "1% fuel surcharge waiver on eligible fuel transactions between Rs 500 and Rs 4,000, capped at Rs 100 per month"
   ],
   "redemption": {
     "statementBalanceValue": 0.25,
-    "pointsExpiryYears": 2
+    "pointsExpiryYears": 2,
+    "redemptionFee": 99
   },
+  "eligibility": {
+    "salaried": [
+      "Age: 21 to 60 years",
+      "Stable monthly income"
+    ],
+    "selfEmployed": [
+      "Age: 21 to 60 years",
+      "Stable annual income"
+    ]
+  },
+  "internalNotes": [
+    "Audited against official Reliance SBI Card terms on 2026-06-13.",
+    "Card details manually reviewed and verified by user on 2026-06-13.",
+    "Effective September 1, 2025, reward points accrual discontinued on Digital Gaming and Government spends. Rent payments also excluded from rewards."
+  ],
+  "supportingSourceUrls": [
+    "https://www.sbicard.com/en/personal/credit-cards/shopping/reliance-sbi-card.page"
+  ],
   "sourceUrl": "https://www.sbicard.com/en/personal/credit-cards/shopping/reliance-sbi-card.page",
   "applyUrl": "https://www.sbicard.com/en/personal/credit-cards/shopping/reliance-sbi-card.page",
-  "lastVerified": "2026-05-09",
-  "verificationStatus": "official-mixed",
+  "lastVerified": "2026-06-13",
+  "verificationStatus": "official-direct",
   "popularityScore": 55
 }

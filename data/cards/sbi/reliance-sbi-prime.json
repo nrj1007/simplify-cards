@@ -2,6 +2,7 @@
   "id": "reliance-sbi-prime",
   "issuer": "SBI Card",
   "name": "Reliance SBI Card PRIME",
+  "imageUrl": "/images/reliance-sbi-prime.webp",
   "network": [
     "Mastercard",
     "RuPay"
@@ -19,49 +20,44 @@
   "rewardType": "reward points",
   "rewards": [
     {
-      "category": "online",
+      "category": "partner merchants",
+      "displayCategory": "AJIO and JioMart online spends",
       "rate": 20,
-      "capMonthly": null,
-      "displayCategory": "AJIO and JioMart online",
-      "displayRate": "20 Reward Points / Rs 100"
+      "displayRate": "20 Reward Points / Rs 100 spent",
+      "capMonthly": null
     },
     {
-      "category": "retail",
+      "category": "partner merchants",
+      "displayCategory": "Other participating Reliance Retail stores spends",
       "rate": 10,
-      "capMonthly": null,
-      "displayCategory": "other participating Reliance Retail stores",
-      "displayRate": "10 Reward Points / Rs 100"
+      "displayRate": "10 Reward Points / Rs 100 spent",
+      "capMonthly": null
     },
     {
-      "category": "dining",
+      "category": "dining, travel, international",
+      "displayCategory": "Dining, movies, entertainment, domestic airlines & international spends",
       "rate": 5,
-      "capMonthly": null,
-      "displayRate": "5 Reward Points / Rs 100"
-    },
-    {
-      "category": "entertainment",
-      "rate": 5,
-      "capMonthly": null,
-      "displayCategory": "movies and entertainment",
-      "displayRate": "5 Reward Points / Rs 100"
-    },
-    {
-      "category": "travel",
-      "rate": 5,
-      "capMonthly": null,
-      "displayCategory": "domestic airlines and international",
-      "displayRate": "5 Reward Points / Rs 100"
+      "displayRate": "5 Reward Points / Rs 100 spent",
+      "capMonthly": 7500
     },
     {
       "category": "base",
+      "displayCategory": "Other eligible retail purchases",
       "rate": 2,
-      "capMonthly": null,
-      "displayRate": "2 Reward Points / Rs 100",
-      "displayCategory": "others"
+      "displayRate": "2 Reward Points / Rs 100 spent",
+      "capMonthly": null
     }
   ],
   "loungeDomestic": 8,
   "loungeInternational": 4,
+  "lounge": {
+    "domestic": [
+      "8 complimentary domestic airport lounge visits per year, capped at 2 visits per quarter"
+    ],
+    "international": [
+      "4 complimentary international airport lounge visits per year through Priority Pass membership, capped at 2 visits per quarter"
+    ]
+  },
   "forexMarkup": 3.5,
   "tags": [
     "reliance",
@@ -73,36 +69,81 @@
     "lounge"
   ],
   "exclusions": [
+    "fuel spends",
+    "cash advances",
+    "balance transfers",
+    "wallet loading transactions",
+    "rent payments",
+    "digital gaming transactions",
+    "government services spends",
+    "merchant EMI transactions"
+  ],
+  "exclusionCodes": [
     "fuel",
+    "cash_advance",
+    "balance_transfer",
+    "wallet_load",
     "rent",
-    "wallet loading",
-    "upi payments for selected accelerated Reliance categories",
-    "transactions excluded under Reliance SBI Card PRIME terms"
+    "gaming",
+    "government",
+    "emi"
+  ],
+  "joiningBenefitsValued": [
+    {
+      "value": 3000,
+      "kind": "voucher",
+      "label": "Reliance Retail Voucher worth Rs 3,000"
+    }
+  ],
+  "joiningBenefits": [
+    "Reliance Retail Voucher worth Rs 3,000 upon payment of joining fee"
+  ],
+  "renewalBenefitsValued": [],
+  "renewalBenefits": [],
+  "milestones": [
+    {
+      "threshold": 300000,
+      "period": "annual",
+      "value": 4375,
+      "kind": "voucher",
+      "label": "Reliance Retail Vouchers worth Rs 8,750 on overall annual retail spends of Rs 3 lakh"
+    }
   ],
   "milestoneBenefits": [
-    "Reliance Retail vouchers worth Rs 8,750 on annual spends of Rs 3 lakh or more at participating Reliance Retail stores",
-    "Renewal fee waiver on annual spends of Rs 3 lakh or more"
+    "Reliance Retail Vouchers worth Rs 8,750 on overall annual retail spends of Rs 3 lakh"
   ],
   "additionalBenefits": [
-    "Reliance Retail voucher worth Rs 3,000 as welcome gift",
     "Additional Reliance discount vouchers worth up to Rs 11,999 at participating Reliance Retail stores",
-    "20 Reward Points per Rs 100 on AJIO and JioMart online spends, except UPI payments",
-    "10 Reward Points per Rs 100 at other participating Reliance Retail stores, except UPI payments",
-    "5 Reward Points per Rs 100 on dining, movies and entertainment, domestic airline and international spends",
-    "2 Reward Points per Rs 100 on other eligible retail purchases",
-    "1 Reward Point equals Rs 0.25",
-    "One monthly BookMyShow movie ticket benefit worth up to Rs 250, subject to product terms",
-    "8 complimentary domestic airport lounge visits per year, capped at 2 per quarter",
-    "4 complimentary international lounge visits per year, capped at 2 per quarter",
-    "1% fuel surcharge waiver on eligible fuel transactions, capped as per product terms"
+    "One monthly BookMyShow movie ticket benefit worth up to Rs 250",
+    "1% fuel surcharge waiver on eligible fuel transactions between Rs 500 and Rs 4,000, capped at Rs 250 per month"
   ],
   "redemption": {
     "statementBalanceValue": 0.25,
-    "pointsExpiryYears": 2
+    "pointsExpiryYears": 2,
+    "redemptionFee": 99
   },
+  "eligibility": {
+    "salaried": [
+      "Age: 21 to 60 years",
+      "Stable monthly income"
+    ],
+    "selfEmployed": [
+      "Age: 21 to 60 years",
+      "Stable annual income"
+    ]
+  },
+  "internalNotes": [
+    "Audited against official Reliance SBI Card PRIME terms on 2026-06-13.",
+    "Card details manually reviewed and verified by user on 2026-06-13.",
+    "Effective September 1, 2025, reward points accrual discontinued on Digital Gaming and Government spends. Rent payments also excluded from rewards.",
+    "7,500 Reward Points cap per statement cycle applies to accelerated reward categories (dining, movies, airlines, international)."
+  ],
+  "supportingSourceUrls": [
+    "https://www.sbicard.com/en/personal/credit-cards/shopping/reliance-sbi-card-prime.page"
+  ],
   "sourceUrl": "https://www.sbicard.com/en/personal/credit-cards/shopping/reliance-sbi-card-prime.page",
   "applyUrl": "https://www.sbicard.com/en/personal/credit-cards/shopping/reliance-sbi-card-prime.page",
-  "lastVerified": "2026-05-09",
-  "verificationStatus": "official-mixed",
+  "lastVerified": "2026-06-13",
+  "verificationStatus": "official-direct",
   "popularityScore": 60
 }

@@ -2,6 +2,7 @@
   "id": "shaurya-sbi",
   "issuer": "SBI Card",
   "name": "Shaurya SBI Card",
+  "imageUrl": "/images/shaurya-sbi.png",
   "network": [
     "Visa",
     "RuPay"
@@ -19,18 +20,24 @@
   "rewardType": "reward points",
   "rewards": [
     {
-      "category": "grocery",
-      "rate": 1.25,
+      "category": "dining",
+      "displayCategory": "Dining and movie spends",
+      "rate": 5,
+      "displayRate": "5 Reward Points / Rs 100 spent",
       "capMonthly": null
     },
     {
-      "category": "dining",
-      "rate": 1.25,
+      "category": "grocery",
+      "displayCategory": "CSD, departmental stores & grocery spends",
+      "rate": 5,
+      "displayRate": "5 Reward Points / Rs 100 spent",
       "capMonthly": null
     },
     {
       "category": "base",
-      "rate": 0.25,
+      "displayCategory": "Other eligible retail purchases",
+      "rate": 1,
+      "displayRate": "1 Reward Point / Rs 100 spent",
       "capMonthly": null
     }
   ],
@@ -46,35 +53,65 @@
     "low fee"
   ],
   "exclusions": [
+    "fuel spends",
+    "cash advances",
+    "balance transfers",
+    "wallet loading transactions",
+    "rent payments",
+    "government services spends",
+    "merchant EMI transactions"
+  ],
+  "exclusionCodes": [
     "fuel",
-    "cash withdrawal",
-    "balance transfer",
-    "transactions excluded under Shaurya SBI Card terms"
+    "cash_advance",
+    "balance_transfer",
+    "wallet_load",
+    "rent",
+    "government",
+    "emi"
   ],
-  "milestoneBenefits": [
-    "Renewal fee waiver on annual spends of Rs 50,000 or more in the preceding year"
+  "joiningBenefitsValued": [
+    {
+      "value": 250,
+      "kind": "points",
+      "label": "1,000 Reward Points upon payment of joining fee"
+    }
   ],
+  "joiningBenefits": [
+    "1,000 Reward Points upon payment of joining fee"
+  ],
+  "renewalBenefitsValued": [],
+  "renewalBenefits": [],
+  "milestones": [],
+  "milestoneBenefits": [],
   "additionalBenefits": [
-    "1,000 Reward Points on payment of joining fee",
-    "5 Reward Points per Rs 100 on Canteen Stores Department (CSD) military canteens, dining, movies, departmental stores and grocery spends",
-    "1 Reward Point per Rs 100 on other eligible non-fuel retail purchases",
-    "4 Reward Points equal Re 1",
     "Personal accident insurance cover of Rs 2 lakh, subject to policy terms",
     "Card can be embossed with service branch such as Army, Navy, Air Force or Paramilitary",
     "1% fuel surcharge waiver on eligible fuel transactions from Rs 500 to Rs 3,000, capped at Rs 100 per month"
   ],
   "redemption": {
     "statementBalanceValue": 0.25,
-    "pointsExpiryYears": 2
+    "pointsExpiryYears": 2,
+    "redemptionFee": 99
   },
   "eligibility": {
     "salaried": [
-      "Designed for eligible serving or retired defence and paramilitary personnel"
+      "Designed for serving or retired defence and paramilitary personnel"
+    ],
+    "selfEmployed": [
+      "Designed for serving or retired defence and paramilitary personnel"
     ]
   },
+  "internalNotes": [
+    "Audited against official SBI Card Shaurya page and terms on 2026-06-13.",
+    "Card details manually reviewed and verified by user on 2026-06-13."
+  ],
+  "supportingSourceUrls": [
+    "https://www.sbicard.com/en/personal/credit-cards/defense/shaurya-sbi-card.page"
+  ],
   "sourceUrl": "https://www.sbicard.com/en/personal/credit-cards/defense/shaurya-sbi-card.page",
   "applyUrl": "https://www.sbicard.com/en/personal/credit-cards/defense/shaurya-sbi-card.page",
-  "lastVerified": "2026-05-09",
+  "lastVerified": "2026-06-13",
   "verificationStatus": "official-direct",
   "popularityScore": 56
 }

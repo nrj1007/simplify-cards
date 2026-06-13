@@ -2,6 +2,7 @@
   "id": "landmark-rewards-sbi",
   "issuer": "SBI Card",
   "name": "Landmark Rewards SBI Card",
+  "imageUrl": "/images/landmark-rewards-sbi.webp",
   "network": [
     "Visa",
     "Mastercard",
@@ -52,31 +53,75 @@
     "low fee"
   ],
   "exclusions": [
+    "fuel spends",
+    "cash advances",
+    "balance transfers",
+    "wallet loading transactions",
+    "rent payments",
+    "government services spends",
+    "merchant EMI transactions"
+  ],
+  "exclusionCodes": [
     "fuel",
-    "cash advance",
-    "balance transfer",
-    "wallet loading",
+    "cash_advance",
+    "balance_transfer",
+    "wallet_load",
     "rent",
-    "transactions excluded under Landmark Rewards SBI Card terms"
+    "government",
+    "emi"
+  ],
+  "joiningBenefitsValued": [
+    {
+      "value": 500,
+      "kind": "points",
+      "label": "2,000 bonus reward points upon payment of joining fee"
+    }
+  ],
+  "joiningBenefits": [
+    "2,000 bonus reward points upon payment of joining fee"
+  ],
+  "renewalBenefitsValued": [],
+  "renewalBenefits": [],
+  "milestones": [
+    {
+      "threshold": 200000,
+      "period": "annual",
+      "value": 2000,
+      "kind": "points",
+      "label": "8,000 bonus reward points on overall annual retail spends of Rs 2 lakh"
+    }
   ],
   "milestoneBenefits": [
-    "8,000 bonus reward points on annual retail spends of Rs 2 lakh"
+    "8,000 bonus reward points on overall annual retail spends of Rs 2 lakh"
   ],
   "additionalBenefits": [
-    "2,000 bonus reward points after joining fee payment",
-    "10 reward points per Rs 100 at Landmark stores including Lifestyle, Max, Home Centre, Spar, Babyshop and EasyBuy",
-    "5 reward points per Rs 100 on dining and movie spends",
-    "1 reward point per Rs 100 on other non-fuel eligible retail spends",
-    "4 reward points equal Rs 1 when redeemed at eligible Landmark stores",
-    "1% fuel surcharge waiver on eligible fuel spends from Rs 500 to Rs 3,000, capped at Rs 100 per month"
+    "1% fuel surcharge waiver on eligible fuel transactions between Rs 500 and Rs 3,000, capped at Rs 100 per month"
   ],
   "redemption": {
     "statementBalanceValue": 0.25,
-    "pointsExpiryYears": 2
+    "pointsExpiryYears": 2,
+    "redemptionFee": 99
   },
+  "eligibility": {
+    "salaried": [
+      "Age: 21 to 60 years",
+      "Stable monthly income"
+    ],
+    "selfEmployed": [
+      "Age: 21 to 60 years",
+      "Stable annual income"
+    ]
+  },
+  "internalNotes": [
+    "Audited against official Landmark Rewards SBI Card page on 2026-06-13.",
+    "Card details manually reviewed and verified by user on 2026-06-13."
+  ],
+  "supportingSourceUrls": [
+    "https://www.sbicard.com/en/personal/credit-cards/landmark-sbi-card.html"
+  ],
   "sourceUrl": "https://www.sbicard.com/en/personal/credit-cards/landmark-sbi-card.html",
   "applyUrl": "https://www.sbicard.com/en/personal/credit-cards/landmark-sbi-card.html",
-  "lastVerified": "2026-05-09",
-  "verificationStatus": "official-mixed",
+  "lastVerified": "2026-06-13",
+  "verificationStatus": "official-direct",
   "popularityScore": 59
 }

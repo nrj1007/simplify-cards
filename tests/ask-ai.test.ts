@@ -65,8 +65,8 @@ describe("ask ai fallback policy", () => {
         expect.stringMatching(/Closest alternative: HSBC TravelOne Credit Card/i)
       ])
     );
-    expect(answer.highlights.length).toBeLessThanOrEqual(4);
-    expect(answer.highlights.some((h: string) => /lounge visits/i.test(h))).toBe(false);
+    expect(answer.highlights?.length).toBeLessThanOrEqual(4);
+    expect(answer.highlights?.some((h: string) => /lounge visits/i.test(h))).toBe(false);
     expect(answer.cards[0]?.card.id).toBe("axis-atlas");
   });
 

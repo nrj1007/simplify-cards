@@ -59,6 +59,7 @@ exports[`ranking golden (representative queries) > produces stable top-N orderin
     "scapia-federal",
   ],
   "lounge": [
+    "aurum-sbi",
     "sc-priority-visa-infinite",
     "hdfc-diners-club-black-metal",
     "icici-emeralde-private-metal",
@@ -70,7 +71,6 @@ exports[`ranking golden (representative queries) > produces stable top-N orderin
     "hdfc-shoppers-stop-black",
     "icici-times-black",
     "indigo-sbi-elite",
-    "hdfc-marriott-bonvoy",
   ],
   "max-fee-zero": [
     "au-ixigo",
@@ -192,11 +192,11 @@ exports[`ranking golden (representative queries) > produces stable top-N orderin
     "icici-emeralde-private-metal",
     "hdfc-diners-club-black-metal",
     "indigo-sbi-elite",
-    "apollo-sbi-select",
     "kotak-solitaire",
     "axis-atlas",
     "bobcard-eterna",
     "axis-indigo-premium",
+    "scapia-federal",
   ],
 }
 `;

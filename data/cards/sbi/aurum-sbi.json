@@ -2,8 +2,10 @@
   "id": "aurum-sbi",
   "issuer": "SBI Card",
   "name": "AURUM SBI Card",
+  "imageUrl": "/images/aurum-sbi.webp",
   "network": [
-    "Mastercard"
+    "Mastercard",
+    "Visa"
   ],
   "joiningFee": 9999,
   "annualFee": 9999,
@@ -16,26 +18,26 @@
     "movies",
     "forex"
   ],
-  "rewardType": "AURUM reward points",
+  "rewardType": "reward points",
   "rewards": [
     {
-      "category": "travel",
-      "rate": 1,
-      "capMonthly": null
-    },
-    {
-      "category": "online",
-      "rate": 1,
-      "capMonthly": null
-    },
-    {
       "category": "base",
-      "rate": 1,
+      "displayCategory": "All eligible purchases",
+      "rate": 4,
+      "displayRate": "4 Reward Points / Rs 100 spent",
       "capMonthly": null
     }
   ],
   "loungeDomestic": 16,
-  "loungeInternational": "unlimited",
+  "loungeInternational": 99,
+  "lounge": {
+    "domestic": [
+      "16 complimentary domestic airport lounge visits per year, capped at 4 visits per quarter"
+    ],
+    "international": [
+      "Unlimited complimentary international airport lounge access with DreamFolks membership"
+    ]
+  },
   "forexMarkup": 1.99,
   "tags": [
     "premium",
@@ -46,38 +48,104 @@
     "golf"
   ],
   "exclusions": [
+    "fuel spends",
+    "cash advances",
+    "balance transfers",
+    "wallet loading transactions",
+    "rent payments",
+    "government services spends",
+    "merchant EMI transactions"
+  ],
+  "exclusionCodes": [
     "fuel",
-    "cash withdrawal",
-    "transactions excluded under AURUM SBI Card terms"
+    "cash_advance",
+    "balance_transfer",
+    "wallet_load",
+    "rent",
+    "government",
+    "emi"
+  ],
+  "joiningBenefitsValued": [
+    {
+      "value": 10000,
+      "kind": "points",
+      "label": "40,000 AURUM Reward Points worth Rs 10,000"
+    }
+  ],
+  "joiningBenefits": [
+    "40,000 AURUM Reward Points worth Rs 10,000 upon payment of joining fee"
+  ],
+  "renewalBenefitsValued": [],
+  "renewalBenefits": [],
+  "milestones": [
+    {
+      "threshold": 100000,
+      "period": "monthly",
+      "value": 750,
+      "kind": "voucher",
+      "label": "Monthly Tata CLiQ Luxury voucher worth Rs 1,500 on monthly spends of Rs 1 lakh"
+    },
+    {
+      "threshold": 500000,
+      "period": "annual",
+      "value": 2500,
+      "kind": "voucher",
+      "label": "Tata CLiQ Luxury voucher worth Rs 5,000 on annual spends of Rs 5 lakh"
+    },
+    {
+      "threshold": 1000000,
+      "period": "annual",
+      "value": 5000,
+      "kind": "voucher",
+      "label": "Taj experience voucher worth Rs 10,000 on annual spends of Rs 10 lakh"
+    },
+    {
+      "threshold": 2000000,
+      "period": "annual",
+      "value": 10000,
+      "kind": "voucher",
+      "label": "Apple voucher worth Rs 20,000 on annual spends of Rs 20 lakh"
+    }
   ],
   "milestoneBenefits": [
-    "Monthly Tata CLiQ Fashion voucher worth Rs 1,500 on monthly spends of Rs 1 lakh",
+    "Monthly Tata CLiQ Luxury voucher worth Rs 1,500 on monthly spends of Rs 1 lakh",
     "Tata CLiQ Luxury voucher worth Rs 5,000 on annual spends of Rs 5 lakh",
     "Taj experience voucher worth Rs 10,000 on annual spends of Rs 10 lakh",
-    "Apple voucher worth Rs 20,000 on annual spends of Rs 20 lakh",
-    "Renewal fee waiver on annual spends of Rs 12 lakh or more in the preceding year"
+    "Apple voucher worth Rs 20,000 on annual spends of Rs 20 lakh"
   ],
   "additionalBenefits": [
-    "40,000 AURUM Reward Points worth Rs 10,000 as activation benefit, subject to product terms",
-    "4 AURUM Reward Points per Rs 100 on eligible spends",
-    "1 AURUM Reward Point equals Rs 0.25 for statement credit redemption",
-    "Transfer partners include select airline, hotel and loyalty partners as per AURUM programme terms",
-    "Unlimited complimentary international lounge access with DreamFolks membership",
-    "16 complimentary domestic airport lounge visits per year, capped at 4 per quarter",
     "4 complimentary movie tickets per month via BookMyShow, capped at Rs 1,000 per month",
-    "16 complimentary golf rounds and 12 golf lessons per year, subject to availability and programme terms",
+    "16 complimentary golf rounds and 12 golf lessons per year",
     "1 complimentary airport spa session per quarter at select airports",
-    "Complimentary premium memberships and subscriptions may include Club Marriott, Wall Street Journal, Mint and IPV membership in the first year, subject to current offer terms",
-    "1% fuel surcharge waiver on eligible fuel transactions from Rs 500 to Rs 4,000, capped at Rs 250 per month"
+    "Complimentary premium memberships including Club Marriott, Wall Street Journal, Mint and IPV membership",
+    "1% fuel surcharge waiver on eligible fuel transactions between Rs 500 and Rs 4,000, capped at Rs 250 per month"
   ],
   "redemption": {
     "statementBalanceValue": 0.25,
-    "airMilesValue": 0.2,
-    "pointsExpiryYears": 2
+    "pointsExpiryYears": 2,
+    "redemptionFee": 0
   },
-  "sourceUrl": "https://www.sbicard.com/en/most-important-terms-and-conditions.page",
+  "eligibility": {
+    "salaried": [
+      "Age: 21 to 65 years",
+      "Audited income verification or relationship status checks apply"
+    ],
+    "selfEmployed": [
+      "Age: 21 to 65 years",
+      "Audited income verification or relationship status checks apply"
+    ]
+  },
+  "internalNotes": [
+    "Audited against official SBI Card AURUM page and terms on 2026-06-13.",
+    "Card details manually reviewed and verified by user on 2026-06-13.",
+    "DreamFolks membership offers unlimited international lounge access for primary cardholder. Guest visits are chargeable."
+  ],
+  "supportingSourceUrls": [
+    "https://www.aurumcreditcard.com/"
+  ],
+  "sourceUrl": "https://www.aurumcreditcard.com/",
   "applyUrl": "https://www.aurumcreditcard.com/",
-  "lastVerified": "2026-05-09",
-  "verificationStatus": "official-mixed",
+  "lastVerified": "2026-06-13",
+  "verificationStatus": "official-direct",
   "popularityScore": 54
 }
