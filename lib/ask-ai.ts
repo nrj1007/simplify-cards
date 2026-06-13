@@ -248,15 +248,15 @@ function buildImportantFeatures(cardScore: CardScore) {
   return features.slice(0, 3);
 }
 
-function buildFallbackHighlights(topCard: CardScore, alternativeNames: string[]) {
-  const highlights = [
-    ...buildImportantFeatures(topCard),
+function buildBestFitHighlights(topCard: CardScore, alternativeNames: string[], scenarioHighlights: string[]) {
+  // Keep the "take" skimmable: a single headline feature, then the decision guidance and the closest
+  // alternative — deduped and capped, instead of dumping every card spec, scenario, and fee-waiver.
+  const headlineFeature = buildImportantFeatures(topCard).slice(0, 1);
+  const alternativeLine =
     alternativeNames.length > 0
-      ? `${alternativeNames.length === 1 ? "Closest alternative" : "Closest alternatives"}: ${joinNatural(alternativeNames)}.`
-      : ""
-  ].filter(Boolean);
-
-  return highlights;
+      ? [`${alternativeNames.length === 1 ? "Closest alternative" : "Closest alternatives"}: ${joinNatural(alternativeNames)}.`]
+      : [];
+  return [...new Set([...headlineFeature, ...scenarioHighlights, ...alternativeLine])].slice(0, 4);
 }
 
 function monthlySpendTotal(spend: RecommendationInput["spend"] | Record<string, number>) {
@@ -435,29 +435,33 @@ function buildScenarioHighlights(
   const topCardId = answerCards[0]?.card.id;
   const answerCardIds = new Set(answerCards.map((item) => item.card.id));
 
-  if (smartbuyWinner && smartbuyWinner.card.id !== topCardId && answerCardIds.has(smartbuyWinner.card.id)) {
-    scenarioHighlights.push(`If you lean more on SmartBuy-style and partner-brand spending, ${smartbuyWinner.card.name} gets stronger.`);
+  const isAltWinner = (winner: CardScore | null): winner is CardScore =>
+    Boolean(winner && winner.card.id !== topCardId && answerCardIds.has(winner.card.id));
+  const smartbuyAlt = isAltWinner(smartbuyWinner) ? smartbuyWinner : null;
+  const travelAlt = isAltWinner(travelWinner) ? travelWinner : null;
+
+  // Collapse to a single guidance line when both scenarios point to the same alternative.
+  if (smartbuyAlt && travelAlt && smartbuyAlt.card.id === travelAlt.card.id) {
+    scenarioHighlights.push(`For heavier online or travel spend, ${smartbuyAlt.card.name} pulls ahead.`);
+  } else {
+    if (smartbuyAlt) scenarioHighlights.push(`For online and partner-brand spend, ${smartbuyAlt.card.name} pulls ahead.`);
+    if (travelAlt) scenarioHighlights.push(`For travel-heavy spend, ${travelAlt.card.name} pulls ahead.`);
   }
 
-  if (travelWinner && travelWinner.card.id !== topCardId && answerCardIds.has(travelWinner.card.id)) {
-    scenarioHighlights.push(`If your spending is more travel-heavy, ${travelWinner.card.name} gets stronger.`);
-  }
-
-  const cardsToInspect = [
-    ...answerCards,
-    ...(smartbuyWinner ? [smartbuyWinner] : []),
-    ...(travelWinner ? [travelWinner] : [])
-  ];
-
+  // Consolidate fee-waiver thresholds into one line instead of one bullet per card.
+  const cardsToInspect = [...answerCards, ...(smartbuyWinner ? [smartbuyWinner] : []), ...(travelWinner ? [travelWinner] : [])];
   const seenThresholdCards = new Set<string>();
+  const waiverParts: Array<{ name: string; amount: string }> = [];
   for (const score of cardsToInspect) {
     if (!score?.card.feeWaiverSpend || seenThresholdCards.has(score.card.id)) continue;
     if (score.card.feeWaiverSpend < 500000 || score.card.feeWaiverSpend > 1500000) continue;
-
     seenThresholdCards.add(score.card.id);
-    scenarioHighlights.push(
-      `${score.card.name}: fee waiver kicks in at ${formatWaiverRupees(score.card.feeWaiverSpend)}/year spend, making it even better for high spenders.`
-    );
+    waiverParts.push({ name: score.card.name, amount: formatWaiverRupees(score.card.feeWaiverSpend) });
+  }
+  if (waiverParts.length === 1) {
+    scenarioHighlights.push(`Fee waiver kicks in around ${waiverParts[0].amount}/year spend.`);
+  } else if (waiverParts.length > 1) {
+    scenarioHighlights.push(`Fee waivers per year — ${waiverParts.map((part) => `${part.name}: ${part.amount}`).join(" · ")}.`);
   }
 
   return [...new Set(scenarioHighlights)];
@@ -502,7 +506,14 @@ function buildFallbackSummary(input: RecommendationInput, shortlistedCards: Card
         lowerQuery.split(/\s+/).every((token) => token.length > 2 && normalizeQuery(topCard.card.name).includes(token))));
 
   const fitReasons = topCard.reasons
-    .filter((reason) => !reason.startsWith("Strong card-name match") && !reason.startsWith("Matches "))
+    .filter(
+      (reason) =>
+        !reason.startsWith("Strong card-name match") &&
+        !reason.startsWith("Matches ") &&
+        !reason.startsWith("Best at ") &&
+        !reason.startsWith("Fee waiver needs") &&
+        !/\buses\b.*\brewards\b/i.test(reason) // skip mechanical "<category> uses <type> rewards"
+    )
     .slice(0, 2);
 
   const curatedAlternativeNames = getAlternativeNames(topCard, shortlistedCards);
@@ -1541,10 +1552,11 @@ export async function answerQuestion(input: RecommendationInput): Promise<AskAiR
     return {
       ...answer,
       summary: generatedSummary,
-      highlights: [
-        ...buildFallbackHighlights(topCard, curatedAlternativeNames.length > 0 ? curatedAlternativeNames : fallbackAlternativeNames),
-        ...genericScenarioHighlights
-      ],
+      highlights: buildBestFitHighlights(
+        topCard,
+        curatedAlternativeNames.length > 0 ? curatedAlternativeNames : fallbackAlternativeNames,
+        genericScenarioHighlights
+      ),
       meta: buildAskMeta(specificCardLookup || namedCardQuestion ? "specific-card" : "best-fit", { topFit: topCard.fitScore })
     };
   }
@@ -1559,10 +1571,11 @@ export async function answerQuestion(input: RecommendationInput): Promise<AskAiR
   return {
     ...answer,
     summary: buildFallbackSummary(input, answer.cards),
-    highlights: [
-      ...buildFallbackHighlights(topCard, curatedAlternativeNames.length > 0 ? curatedAlternativeNames : fallbackAlternativeNames),
-      ...genericScenarioHighlights
-    ],
+    highlights: buildBestFitHighlights(
+      topCard,
+      curatedAlternativeNames.length > 0 ? curatedAlternativeNames : fallbackAlternativeNames,
+      genericScenarioHighlights
+    ),
     meta: buildAskMeta(specificCardLookup || namedCardQuestion ? "specific-card" : "best-fit", { topFit: topCard.fitScore })
   };
 }

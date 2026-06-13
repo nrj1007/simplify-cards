@@ -57,13 +57,16 @@ describe("ask ai fallback policy", () => {
     const answer = await answerQuestion({ query: "Axis Atlas", maxAnnualFee: 5000 });
 
     expect(answer.summary).toMatch(/If you specifically mean Axis Bank Atlas Credit Card/i);
+    // The take is kept skimmable: one headline feature + closest alternative, not a dump of every
+    // card spec (lounge counts etc. are shown on the card tile/comparison table instead).
     expect(answer.highlights).toEqual(
       expect.arrayContaining([
         expect.stringMatching(/travel, hotels, and flights/i),
-        expect.stringMatching(/8 domestic lounge visits and 4 international lounge visits/i),
         expect.stringMatching(/Closest alternative: HSBC TravelOne Credit Card/i)
       ])
     );
+    expect(answer.highlights.length).toBeLessThanOrEqual(4);
+    expect(answer.highlights.some((h: string) => /lounge visits/i.test(h))).toBe(false);
     expect(answer.cards[0]?.card.id).toBe("axis-atlas");
   });
 
