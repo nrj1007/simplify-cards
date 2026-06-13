@@ -2,6 +2,7 @@
   "id": "landmark-rewards-sbi-select",
   "issuer": "SBI Card",
   "name": "Landmark Rewards SBI Card SELECT",
+  "imageUrl": "/images/landmark-rewards-sbi-select.webp",
   "network": [
     "Visa",
     "Mastercard",
@@ -13,65 +14,122 @@
   "bestFor": [
     "shopping",
     "lifestyle",
-    "dining",
-    "movies"
+    "dining"
   ],
   "rewardType": "reward points",
   "rewards": [
     {
-      "category": "base",
-      "rate": 3.75,
-      "capMonthly": null
-    },
-    {
       "category": "dining",
-      "rate": 2.5,
+      "displayCategory": "Dining and movie spends",
+      "rate": 10,
+      "displayRate": "10 Reward Points / Rs 100 spent",
+      "capMonthly": null
+    },
+    {
+      "category": "international",
+      "displayCategory": "International purchases",
+      "rate": 10,
+      "displayRate": "10 Reward Points / Rs 100 spent",
       "capMonthly": null
     },
     {
       "category": "base",
-      "rate": 0.5,
+      "displayCategory": "Landmark Stores (Lifestyle, Max, Home Centre, Spar, Babyshop, EasyBuy)",
+      "rate": 15,
+      "displayRate": "15 Reward Points / Rs 100 spent",
+      "capMonthly": null
+    },
+    {
+      "category": "base",
+      "displayCategory": "Other eligible retail purchases",
+      "rate": 2,
+      "displayRate": "2 Reward Points / Rs 100 spent",
       "capMonthly": null
     }
   ],
   "loungeDomestic": 0,
   "loungeInternational": 0,
+  "lounge": {
+    "domestic": [],
+    "international": []
+  },
   "forexMarkup": 3.5,
   "tags": [
-    "landmark",
     "lifestyle",
-    "max",
-    "home centre",
     "shopping",
-    "dining",
-    "movies"
+    "dining"
   ],
   "exclusions": [
-    "fuel",
-    "cash advance",
-    "balance transfer",
+    "fuel spends",
+    "cash advances",
+    "balance transfers",
     "wallet loading",
+    "rent payments",
+    "digital gaming transactions",
+    "government services spends"
+  ],
+  "exclusionCodes": [
+    "fuel",
+    "cash_advance",
+    "balance_transfer",
+    "wallet_load",
     "rent",
-    "transactions excluded under Landmark Rewards SBI Card SELECT terms"
+    "gaming",
+    "government"
+  ],
+  "joiningBenefitsValued": [
+    {
+      "value": 1500,
+      "kind": "points",
+      "label": "6,000 welcome bonus Reward Points worth Rs 1,500"
+    }
+  ],
+  "joiningBenefits": [
+    "6,000 welcome bonus Reward Points (worth Rs 1,500) upon payment of joining fee"
+  ],
+  "renewalBenefitsValued": [],
+  "renewalBenefits": [],
+  "milestones": [
+    {
+      "threshold": 300000,
+      "period": "annual",
+      "value": 3000,
+      "kind": "points",
+      "label": "12,000 bonus Reward Points (worth Rs 3,000) on overall annual retail spends of Rs 3 lakh"
+    }
   ],
   "milestoneBenefits": [
-    "12,000 bonus reward points on annual retail spends of Rs 3 lakh"
+    "12,000 bonus Reward Points (worth Rs 3,000) on overall annual retail spends of Rs 3 lakh"
   ],
   "additionalBenefits": [
-    "6,000 bonus reward points after joining fee payment",
-    "15 reward points per Rs 100 at Landmark stores including Lifestyle, Max, Home Centre, Spar, Babyshop and EasyBuy",
-    "10 reward points per Rs 100 on dining, movies and international spends",
-    "2 reward points per Rs 100 on other non-fuel eligible retail spends",
-    "4 reward points equal Rs 1 when redeemed against eligible Landmark store spends or statement debit where applicable",
-    "1% fuel surcharge waiver on eligible fuel spends from Rs 500 to Rs 3,000, capped at Rs 100 per month"
+    "1% fuel surcharge waiver on transactions between Rs 500 and Rs 3,000, capped at Rs 100 per statement cycle"
   ],
   "redemption": {
     "statementBalanceValue": 0.25,
-    "pointsExpiryYears": 2
+    "pointsExpiryYears": 2,
+    "redemptionFee": 99
   },
+  "eligibility": {
+    "salaried": [
+      "Age: 21 to 65 years",
+      "Steady monthly income source"
+    ],
+    "selfEmployed": [
+      "Age: 21 to 65 years",
+      "Steady annual income source"
+    ]
+  },
+  "internalNotes": [
+    "Audited against official SBI Card Landmark Rewards SELECT terms on 2026-06-13.",
+    "Card details manually reviewed and verified by user on 2026-06-13.",
+    "Effective September 1, 2025, reward points accrual discontinued on Digital Gaming and Government spends. Rent payments also excluded from rewards."
+  ],
+  "supportingSourceUrls": [
+    "https://www.sbicard.com/en/personal/credit-cards/landmark-sbi-card.html"
+  ],
   "sourceUrl": "https://www.sbicard.com/en/personal/credit-cards/landmark-sbi-card.html",
   "applyUrl": "https://www.sbicard.com/en/personal/credit-cards/landmark-sbi-card.html",
-  "lastVerified": "2026-05-09",
-  "verificationStatus": "official-mixed",
+  "lastVerified": "2026-06-13",
+  "verificationStatus": "official-direct",
   "popularityScore": 60
 }

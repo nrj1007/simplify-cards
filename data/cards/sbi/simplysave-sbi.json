@@ -21,14 +21,14 @@
     {
       "category": "dining, grocery",
       "displayCategory": "Dining, movies, grocery, and departmental store spends",
-      "rate": 6.6667,
+      "rate": 6.666666666666667,
       "displayRate": "10 Reward Points / Rs 150 spent",
       "capMonthly": null
     },
     {
       "category": "base",
       "displayCategory": "Other eligible spends",
-      "rate": 0.6667,
+      "rate": 0.6666666666666666,
       "displayRate": "1 Reward Point / Rs 150 spent",
       "capMonthly": null
     }
