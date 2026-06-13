@@ -82,7 +82,33 @@
   ],
   "redemption": {
     "statementBalanceValue": 0.25,
-    "pointsExpiryYears": null
+    "pointsExpiryYears": null,
+    "airlinePartners": [
+      {
+        "airline": "Club Vistara",
+        "programme": "Club Vistara",
+        "ratio": "4:1"
+      },
+      {
+        "airline": "InterMiles",
+        "programme": "InterMiles",
+        "ratio": "4:1"
+      },
+      {
+        "airline": "Air India",
+        "programme": "Maharaja Club",
+        "ratio": "10:1"
+      }
+    ],
+    "voucherRedemptions": [
+      {
+        "partner": "Adani One",
+        "programme": "Adani One Rewards",
+        "ratio": "100:10",
+        "valuePerPoint": 0.1,
+        "note": "100 YES Rewardz points -> 10 Adani Reward Points"
+      }
+    ]
   },
   "eligibility": {
     "salaried": [
