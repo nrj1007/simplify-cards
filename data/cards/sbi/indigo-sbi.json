@@ -2,7 +2,7 @@
   "id": "indigo-sbi",
   "issuer": "SBI Card",
   "name": "IndiGo SBI Card",
-  "imageUrl": "/images/indigo-sbi.webp",
+  "imageUrl": "/images/indigo-sbi.png",
   "network": [
     "Mastercard",
     "RuPay"
