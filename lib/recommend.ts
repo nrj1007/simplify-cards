@@ -1285,7 +1285,6 @@ function specialSpendFlexibilityBoost(card: CreditCard, input: RecommendationInp
 // card's ranking — economic value first, then the standout perks and the notable downsides.
 function buildRankingSummary(
   card: CreditCard,
-  estimatedNetValue: number,
   rewardBreakdown: CardScore["rewardBreakdown"],
   estimatedMilestoneValue: number,
   estimatedJoiningAndRenewalValue: number
@@ -1308,8 +1307,8 @@ function buildRankingSummary(
   if (card.feeWaiverSpend && card.feeWaiverSpend >= 600000) cons.push(`needs Rs ${formatSpendInLakhs(card.feeWaiverSpend)}/yr to waive fee`);
   if (loungeScore(card) === 0 && card.annualFee >= 2500) cons.push("no lounge access");
 
-  const lead = estimatedNetValue > 0 ? `~${inr(estimatedNetValue)}/yr value` : "best for higher spenders";
-  let summary = pros.length ? `${lead} — ${pros.slice(0, 3).join(", ")}` : lead;
+  const headline = pros.length ? pros.slice(0, 3).join(", ") : "balanced everyday rewards";
+  let summary = headline.charAt(0).toUpperCase() + headline.slice(1);
   if (cons.length) summary += ` · cons: ${cons.slice(0, 2).join(", ")}`;
   return summary;
 }
@@ -1472,7 +1471,6 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
       reasons,
       rankingSummary: buildRankingSummary(
         card,
-        estimatedNetValue,
         rewardBreakdown,
         estimatedMilestoneValue,
         estimatedJoiningAndRenewalValue
