@@ -18,12 +18,16 @@
   "rewards": [
     {
       "category": "upi",
-      "rate": 0.5,
+      "rate": 2,
+      "displayCategory": "UPI transactions above Rs 2,000",
+      "displayRate": "4 YES Rewardz Points / Rs 200 spent on UPI transactions above Rs 2,000",
       "capMonthly": null
     },
     {
       "category": "base",
-      "rate": 0.25,
+      "rate": 1,
+      "displayCategory": "Other retail spends",
+      "displayRate": "2 YES Rewardz Points / Rs 200 spent",
       "capMonthly": null
     }
   ],
@@ -41,16 +45,41 @@
     "rewardz"
   ],
   "exclusions": [
-    "upi rewards apply on eligible UPI transactions above Rs 2,000",
-    "cash withdrawal not available",
-    "card is virtual only"
+    "fuel spends",
+    "rental payments",
+    "wallet loading transactions",
+    "government transactions",
+    "marketing and advertising services",
+    "cash advances / cash withdrawals",
+    "insurance premium payments",
+    "gold or jewellery purchases",
+    "utility and telecom bill payments",
+    "toll and transportation payments",
+    "educational services",
+    "EMI transactions (including post-facto conversions)"
+  ],
+  "exclusionCodes": [
+    "fuel",
+    "rent",
+    "wallet_load",
+    "government",
+    "cash_advance",
+    "emi",
+    "insurance",
+    "gold",
+    "jewellery",
+    "utilities",
+    "telecom",
+    "education"
   ],
   "milestoneBenefits": [],
   "additionalBenefits": [
-    "4 reward points per Rs 200 on UPI transactions above Rs 2,000",
-    "2 reward points per Rs 200 on non-UPI transactions",
-    "Lifetime free virtual-only RuPay credit card",
-    "Existing YES BANK credit cardholders are not eligible for this offer"
+    "Virtual-only RuPay credit card with lifetime free membership",
+    "1% fuel surcharge waiver on transactions between Rs 400 and Rs 5,000, capped at Rs 250 per month"
+  ],
+  "additionalDetails": [
+    "UPI transactions of Rs 2,000 or below do not earn reward points",
+    "Existing YES BANK credit cardholders are not eligible for this card"
   ],
   "redemption": {
     "statementBalanceValue": 0.25,
@@ -58,14 +87,22 @@
   },
   "eligibility": {
     "salaried": [
+      "Age: 21 to 60 years",
       "Eligibility is subject to YES BANK approval criteria"
     ],
     "selfEmployed": [
+      "Age: 21 to 60 years",
       "Eligibility is subject to YES BANK approval criteria"
     ]
   },
+  "imageUrl": "/images/yes-klick-rupay.webp",
   "sourceUrl": "https://www.yesbank.in/content/published/api/v1.1/assets/CONTEC25C9A4B18F4AA7BA64228D65B6F8F6/native/ybl_user_guide_klick_rupay_credit_card.pdf",
   "applyUrl": "https://www.yesbank.in/personal-banking/yes-individual/cards/credit-cards",
-  "lastVerified": "2026-05-11",
-  "verificationStatus": "official-mixed"
+  "lastVerified": "2026-06-13",
+  "verificationStatus": "official-direct",
+  "internalNotes": [
+    "Card details manually reviewed and verified by user on 2026-06-13.",
+    "Virtual RuPay credit card issued by YES Bank.",
+    "UPI transactions of Rs 2,000 or below are excluded from rewards."
+  ]
 }

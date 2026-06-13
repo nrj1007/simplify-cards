@@ -2,6 +2,7 @@
   "id": "yes-anq-phi",
   "issuer": "YES Bank",
   "name": "YES BANK Anq Phi Credit Card",
+  "status": "discontinued",
   "network": [
     "Mastercard"
   ],
@@ -18,27 +19,37 @@
   "rewards": [
     {
       "category": "travel",
-      "rate": 3,
+      "rate": 12,
+      "displayCategory": "Travel and hotels",
+      "displayRate": "24 YES Rewardz Points / Rs 200 spent",
       "capMonthly": null
     },
     {
       "category": "dining",
-      "rate": 3,
+      "rate": 12,
+      "displayCategory": "Dining",
+      "displayRate": "24 YES Rewardz Points / Rs 200 spent",
       "capMonthly": null
     },
     {
       "category": "grocery",
-      "rate": 3,
+      "rate": 12,
+      "displayCategory": "Groceries and supermarkets",
+      "displayRate": "24 YES Rewardz Points / Rs 200 spent",
       "capMonthly": null
     },
     {
       "category": "online",
-      "rate": 3,
+      "rate": 12,
+      "displayCategory": "Apparel, online entertainment, OTT, and digital goods",
+      "displayRate": "24 YES Rewardz Points / Rs 200 spent",
       "capMonthly": null
     },
     {
       "category": "base",
-      "rate": 0.5,
+      "rate": 2,
+      "displayCategory": "Other retail spends",
+      "displayRate": "4 YES Rewardz Points / Rs 200 spent",
       "capMonthly": null
     }
   ],
@@ -61,27 +72,37 @@
     "rewardz"
   ],
   "exclusions": [
+    "fuel spends",
+    "rental payments",
+    "wallet loading transactions",
+    "government transactions",
+    "marketing and advertising services",
+    "cash advances / cash withdrawals",
+    "utility and telecom bill payments",
+    "insurance premium payments",
+    "toll payments",
+    "educational services",
+    "hospital spends",
+    "EMI transactions (including post-facto conversions)"
+  ],
+  "exclusionCodes": [
     "fuel",
     "rent",
-    "wallet load",
-    "government services",
-    "atm withdrawal",
-    "utility and telecom bill payments",
+    "wallet_load",
+    "government",
+    "cash_advance",
+    "emi",
+    "utilities",
+    "telecom",
     "insurance",
-    "toll",
-    "education",
-    "hospitals",
-    "transactions converted into EMI"
+    "education"
   ],
-  "milestoneBenefits": [
-    "Renewal fee waiver on spending Rs 1,20,000 in a card anniversary year"
-  ],
+  "milestoneBenefits": [],
   "additionalBenefits": [
-    "24 reward points per Rs 200 on groceries, supermarkets, travel, dining and hotels",
-    "24 reward points per Rs 200 on apparels and online entertainment including OTT and digital goods",
-    "4 reward points per Rs 200 on other eligible categories",
-    "3 complimentary international lounge visits per calendar year",
-    "1% fuel surcharge waiver with monthly cap of Rs 300"
+    "1% fuel surcharge waiver on transactions between Rs 400 and Rs 5,000, capped at Rs 300 per month"
+  ],
+  "additionalDetails": [
+    "Co-branded credit card issued in partnership with Anq Finance"
   ],
   "redemption": {
     "statementBalanceValue": 0.25,
@@ -89,14 +110,21 @@
   },
   "eligibility": {
     "salaried": [
+      "Age: 21 to 60 years",
       "Eligibility is subject to YES BANK and Anq approval criteria"
     ],
     "selfEmployed": [
+      "Age: 21 to 60 years",
       "Eligibility is subject to YES BANK and Anq approval criteria"
     ]
   },
+  "imageUrl": "/images/yes-anq-phi.webp",
   "sourceUrl": "https://www.yesbank.in/content/published/api/v1.1/assets/CONTF836E5CA21A444F98D273334B61F0900/native/yb_yes_bank_anq_phi_credit_card_one_pager.pdf",
   "applyUrl": "https://anq.finance/",
-  "lastVerified": "2026-05-11",
-  "verificationStatus": "official-mixed"
+  "lastVerified": "2026-06-13",
+  "verificationStatus": "official-direct",
+  "internalNotes": [
+    "Card details manually reviewed and verified by user on 2026-06-13.",
+    "YES BANK Anq Phi is a co-branded card in partnership with Anq Finance. It has been discontinued."
+  ]
 }

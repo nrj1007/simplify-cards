@@ -19,17 +19,30 @@
   "rewards": [
     {
       "category": "travel",
-      "rate": 2,
+      "rate": 8,
+      "displayCategory": "Travel spends",
+      "displayRate": "16 YES Rewardz Points / Rs 200 spent",
       "capMonthly": 3000
     },
     {
       "category": "dining",
-      "rate": 2,
+      "rate": 8,
+      "displayCategory": "Dining spends",
+      "displayRate": "16 YES Rewardz Points / Rs 200 spent",
       "capMonthly": 3000
     },
     {
       "category": "base",
-      "rate": 1,
+      "rate": 4,
+      "displayCategory": "Other retail spends",
+      "displayRate": "8 YES Rewardz Points / Rs 200 spent",
+      "capMonthly": null
+    },
+    {
+      "category": "utilities",
+      "rate": 2,
+      "displayCategory": "Select categories (utilities, grocery, insurance, government/taxes)",
+      "displayRate": "4 YES Rewardz Points / Rs 200 spent",
       "capMonthly": null
     }
   ],
@@ -38,11 +51,12 @@
   "loungeInternational": 4,
   "lounge": {
     "domestic": [
-      "2 complimentary domestic airport lounge visits per quarter"
+      "2 complimentary domestic lounge visits per calendar quarter",
+      "Access is subject to a spend threshold of Rs 75,000 in the previous calendar quarter."
     ],
     "international": [
       "Priority Pass or LoungeKey membership for the primary cardmember",
-      "4 complimentary international airport lounge visits per year"
+      "4 complimentary international lounge visits per calendar year"
     ]
   },
   "forexMarkup": 1.75,
@@ -56,36 +70,77 @@
     "rewardz"
   ],
   "exclusions": [
-    "fuel",
-    "cash withdrawals",
-    "transactions converted into EMI"
+    "fuel spends",
+    "rental payments",
+    "wallet loading transactions",
+    "government transactions",
+    "marketing and advertising services",
+    "cash advances / cash withdrawals",
+    "EMI transactions (including post-facto conversions)"
   ],
-  "milestoneBenefits": [
+  "exclusionCodes": [
+    "fuel",
+    "rent",
+    "wallet_load",
+    "government",
+    "cash_advance",
+    "emi"
+  ],
+  "joiningBenefits": [
     "First-year membership fee waived on spending Rs 50,000 within 90 days of card issuance",
-    "Renewal fee waiver on spending Rs 2,50,000 in a card anniversary year",
-    "20,000 annual bonus reward points on spending Rs 7,50,000 in an anniversary year"
+    "10,000 bonus YES Rewardz points on first transaction within 90 days of card issuance (worth Rs 2,500)"
+  ],
+  "milestoneBenefits": [],
+  "milestones": [
+    {
+      "threshold": 750000,
+      "period": "annual",
+      "value": 5000,
+      "kind": "points",
+      "label": "20,000 bonus YES Rewardz points on annual spends of Rs 7.5 Lakhs"
+    }
   ],
   "additionalBenefits": [
-    "Priority Pass or LoungeKey membership for the primary cardmember",
-    "4 complimentary international airport lounge visits per year",
-    "2 complimentary domestic airport lounge visits per quarter",
-    "BookMyShow discount up to 25% with monthly cap",
+    "25% discount on movie tickets on BookMyShow, up to Rs 250 per month",
+    "1% fuel surcharge waiver on transactions between Rs 400 and Rs 5,000, capped at Rs 250 per month",
     "Green fee waiver and complimentary golf lessons at select golf courses"
+  ],
+  "additionalDetails": [
+    "1% fee + GST on utility transactions when cumulative spends exceed Rs 15,000 in a calendar month",
+    "1% fee + GST on rental transactions",
+    "1% fee + GST on wallet load transactions when cumulative spends exceed Rs 15,000 in a calendar month"
   ],
   "redemption": {
     "statementBalanceValue": 0.25,
-    "pointsExpiryYears": null
+    "pointsExpiryYears": null,
+    "airMilesValue": 0.1,
+    "airlinePartners": [
+      {
+        "airline": "Air India",
+        "programme": "Maharaja Club",
+        "ratio": "10:1"
+      }
+    ]
   },
   "eligibility": {
     "salaried": [
+      "Age: 21 to 60 years",
       "Eligibility is subject to YES BANK approval criteria"
     ],
     "selfEmployed": [
+      "Age: 21 to 60 years",
       "Eligibility is subject to YES BANK approval criteria"
     ]
   },
+  "imageUrl": "/images/yes-first-preferred.webp",
   "sourceUrl": "https://www.yesbank.in/content/published/api/v1.1/assets/CONT245A99A043C042B0B77BE647A6C987DD/native/value_chart_for_yes_first_preferred_credit_card.pdf",
   "applyUrl": "https://applycc.yesbank.in/creditCardTemplates/yesFirstPreffered.html",
-  "lastVerified": "2026-05-11",
-  "verificationStatus": "official-mixed"
+  "lastVerified": "2026-06-13",
+  "verificationStatus": "official-direct",
+  "internalNotes": [
+    "Card details manually reviewed and verified by user on 2026-06-13.",
+    "Utility, rental, and wallet transactions are eligible to earn rewards at 4 points per Rs 200 spent (except utilities which earn 4 points per Rs 200).",
+    "1% fee on utility, rent, and wallet load transactions above thresholds.",
+    "Air miles transfer to Air India Maharaja Club at 10:1 ratio."
+  ]
 }

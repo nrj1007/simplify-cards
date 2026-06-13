@@ -20,18 +20,24 @@
   "rewards": [
     {
       "category": "online",
-      "rate": 1,
-      "capMonthly": 1250
+      "rate": 4,
+      "displayCategory": "Online shopping",
+      "displayRate": "8 YES Rewardz Points / Rs 200 spent",
+      "capMonthly": 5000
     },
     {
       "category": "base",
-      "rate": 0.5,
+      "rate": 2,
+      "displayCategory": "Other retail spends",
+      "displayRate": "4 YES Rewardz Points / Rs 200 spent",
       "capMonthly": null
     },
     {
       "category": "utilities",
-      "rate": 0.25,
-      "capMonthly": 150
+      "rate": 1,
+      "displayCategory": "Select categories (utilities, insurance, education, telecom)",
+      "displayRate": "2 YES Rewardz Points / Rs 200 spent",
+      "capMonthly": 600
     }
   ],
   "popularityScore": 72,
@@ -46,18 +52,34 @@
     "utility bills"
   ],
   "exclusions": [
+    "fuel spends",
+    "rental payments",
+    "wallet loading transactions",
+    "government transactions",
+    "marketing and advertising services",
+    "cash advances / cash withdrawals",
+    "EMI transactions (including post-facto conversions)"
+  ],
+  "exclusionCodes": [
     "fuel",
-    "cash withdrawals",
-    "transactions converted into EMI"
+    "rent",
+    "wallet_load",
+    "government",
+    "cash_advance",
+    "emi"
   ],
-  "milestoneBenefits": [
-    "First-year membership fee waived on spending Rs 5,000 within 30 days of card issuance",
-    "Renewal fee waiver on spending Rs 50,000 in a card anniversary year"
+  "joiningBenefits": [
+    "First-year membership fee waived on spending Rs 5,000 within 30 days of card issuance"
   ],
+  "milestoneBenefits": [],
   "additionalBenefits": [
-    "Card was earlier known as YES Prosperity Rewards Plus",
-    "Purchase protection cover on eligible electronics",
-    "Green fee waiver and golf lessons at select golf courses"
+    "1% fuel surcharge waiver on transactions between Rs 400 and Rs 5,000, capped at Rs 250 per month",
+    "Green fee waiver and complimentary golf lessons at select golf courses"
+  ],
+  "additionalDetails": [
+    "1% fee + GST on utility transactions when cumulative spends exceed Rs 15,000 in a calendar month",
+    "1% fee + GST on rental transactions",
+    "1% fee + GST on wallet load transactions when cumulative spends exceed Rs 15,000 in a calendar month"
   ],
   "redemption": {
     "statementBalanceValue": 0.25,
@@ -65,14 +87,23 @@
   },
   "eligibility": {
     "salaried": [
-      "Eligibility is subject to YES BANK approval criteria"
+      "Age: 21 to 60 years",
+      "Minimum monthly income: Rs 25,000"
     ],
     "selfEmployed": [
-      "Eligibility is subject to YES BANK approval criteria"
+      "Age: 21 to 60 years",
+      "Minimum annual income (ITR): Rs 7.5 Lakhs"
     ]
   },
+  "imageUrl": "/images/yes-ace.webp",
   "sourceUrl": "https://www.yesbank.in/content/published/api/v1.1/assets/CONT088843DCD7EF4481B44CBD56B307F379/native/yesbank_credit_card_ace_value_chart_nov23.pdf",
   "applyUrl": "https://www.yesbank.in/personal-banking/yes-individual/cards/credit-cards",
-  "lastVerified": "2026-05-11",
-  "verificationStatus": "official-mixed"
+  "lastVerified": "2026-06-13",
+  "verificationStatus": "official-direct",
+  "internalNotes": [
+    "Card details manually reviewed and verified by user on 2026-06-13.",
+    "Utility, rental, and wallet transactions are eligible to earn rewards at 2 points per Rs 200 spent, capped at 600 points per month for utilities.",
+    "1% fee on utility, rent, and wallet load transactions above thresholds.",
+    "Card was earlier known as YES Prosperity Rewards Plus."
+  ]
 }

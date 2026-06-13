@@ -56,7 +56,7 @@ exports[`ranking golden (representative queries) > produces stable top-N orderin
     "axis-indianoil-easy",
     "hsbc-visa-platinum",
     "federal-signet",
-    "scapia-federal",
+    "yes-kiwi",
   ],
   "lounge": [
     "sc-priority-visa-infinite",
@@ -84,7 +84,7 @@ exports[`ranking golden (representative queries) > produces stable top-N orderin
     "idfc-first-wealth",
     "onecard",
     "axis-indianoil-easy",
-    "idfc-first-millennia",
+    "yes-kiwi",
   ],
   "network-rupay": [
     "irctc-rupay-sbi",

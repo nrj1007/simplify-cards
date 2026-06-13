@@ -19,16 +19,22 @@
     {
       "category": "upi",
       "rate": 1.5,
+      "displayCategory": "UPI scan & pay spends through Kiwi app",
+      "displayRate": "1.5% cashback",
       "capMonthly": null
     },
     {
       "category": "online",
       "rate": 0.5,
+      "displayCategory": "Online spends through Kiwi app",
+      "displayRate": "0.5% cashback",
       "capMonthly": null
     },
     {
-      "category": "retail",
-      "rate": 0.25,
+      "category": "base",
+      "rate": 1,
+      "displayCategory": "Other non-UPI spends",
+      "displayRate": "2 YES Rewardz Points / Rs 200 spent",
       "capMonthly": null
     }
   ],
@@ -45,17 +51,41 @@
     "lifetime free"
   ],
   "exclusions": [
-    "enhanced cashback depends on Kiwi app and membership structure",
-    "rewards structure differs across eligible UPI and non-UPI transaction types"
+    "fuel spends",
+    "rental payments",
+    "wallet loading transactions",
+    "government transactions",
+    "marketing and advertising services",
+    "cash advances / cash withdrawals",
+    "insurance premium payments",
+    "gold or jewellery purchases",
+    "utility and telecom bill payments",
+    "toll and transportation payments",
+    "educational services",
+    "EMI transactions (including post-facto conversions)"
+  ],
+  "exclusionCodes": [
+    "fuel",
+    "rent",
+    "wallet_load",
+    "government",
+    "cash_advance",
+    "emi",
+    "insurance",
+    "gold",
+    "jewellery",
+    "utilities",
+    "telecom",
+    "education"
   ],
   "milestoneBenefits": [],
   "additionalBenefits": [
-    "Zero joining fee and zero annual fee",
-    "1.5% cashback on UPI scan and pay through Kiwi",
-    "0.5% cashback on online payments through Kiwi",
-    "2 YES Bank Rewards points for every Rs 200 non-UPI spends",
-    "1% fuel surcharge waiver",
-    "Card is distributed through the Kiwi app with YES Bank as issuing partner"
+    "1% fuel surcharge waiver on transactions between Rs 400 and Rs 4,000, capped at Rs 100 per month",
+    "Redeem Kiwis instantly as cashback into bank account via UPI at a rate of 4 Kiwis = Rs 1"
+  ],
+  "additionalDetails": [
+    "Co-branded credit card issued in partnership with Kiwi (GoKiwi)",
+    "UPI scan and pay transaction rewards are only credited when processed through the Kiwi app"
   ],
   "redemption": {
     "statementBalanceValue": 1,
@@ -63,14 +93,23 @@
   },
   "eligibility": {
     "salaried": [
+      "Age: 21 to 60 years",
       "Eligibility is subject to YES BANK and Kiwi approval criteria"
     ],
     "selfEmployed": [
+      "Age: 21 to 60 years",
       "Eligibility is subject to YES BANK and Kiwi approval criteria"
     ]
   },
+  "imageUrl": "/images/yes-kiwi.webp",
   "sourceUrl": "https://gokiwi.in/cards/yesbank/",
   "applyUrl": "https://gokiwi.in/cards/yesbank/",
-  "lastVerified": "2026-05-11",
-  "verificationStatus": "official-mixed"
+  "lastVerified": "2026-06-13",
+  "verificationStatus": "official-direct",
+  "internalNotes": [
+    "Card details manually reviewed and verified by user on 2026-06-13.",
+    "Virtual RuPay credit card issued by YES Bank in partnership with Kiwi (GoKiwi).",
+    "Rewards are earned as Kiwis where 4 Kiwis = Rs 1, redeemable directly to bank account via UPI.",
+    "Non-UPI spends earn 2 YES Rewardz points per Rs 200 spent."
+  ]
 }

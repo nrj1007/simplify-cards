@@ -2359,7 +2359,168 @@ describe("reward calculator", () => {
       });
     });
   });
+
+  describe("audited YES Bank cards", () => {
+    describe("YES BANK ACE Credit Card", () => {
+      it("earns online accelerated, base, and utilities rewards at correct rates", () => {
+        const card = getCardById("yes-ace");
+        expect(card).toBeTruthy();
+
+        // Online rate: 4 points / Rs 100
+        // Base rate: 2 points / Rs 100
+        // Utilities rate: 1 point / Rs 100
+        const result = calculateRewards(card!, {
+          online: 10000,
+          base: 10000,
+          utilities: 10000
+        });
+
+        // Online: 400 points, Base: 200 points, Utilities: 100 points
+        expect(result.monthlyUnits).toBe(700);
+      });
+
+      it("enforces monthly caps on online and utilities", () => {
+        const card = getCardById("yes-ace");
+        expect(card).toBeTruthy();
+
+        // Online cap: 5000 points (reached at Rs 1,25,000 spend)
+        // Utilities cap: 600 points (reached at Rs 60,000 spend)
+        const result = calculateRewards(card!, {
+          online: 150000,
+          utilities: 70000
+        });
+
+        expect(result.rows.find((r) => r.category === "online")!.monthlyUnits).toBe(5000);
+        expect(result.rows.find((r) => r.category === "utilities")!.monthlyUnits).toBe(600);
+      });
+
+      it("excludes fuel, rent, wallet load, government, and EMI", () => {
+        const card = getCardById("yes-ace");
+        expect(card).toBeTruthy();
+
+        const result = calculateRewards(card!, {
+          fuel: 5000,
+          rent: 5000,
+          government: 5000
+        });
+
+        expect(result.monthlyUnits).toBe(0);
+      });
+    });
+
+    describe("YES BANK Anq Phi Credit Card", () => {
+      it("earns accelerated travel, dining, grocery, online, and base rewards", () => {
+        const card = getCardById("yes-anq-phi");
+        expect(card).toBeTruthy();
+
+        // Travel, dining, grocery, online rate: 12 points / Rs 100
+        // Base rate: 2 points / Rs 100
+        const result = calculateRewards(card!, {
+          travel: 5000,
+          dining: 5000,
+          grocery: 5000,
+          online: 5000,
+          base: 5000
+        });
+
+        // 12 * 50 * 4 + 2 * 50 = 2400 + 100 = 2500 points
+        expect(result.monthlyUnits).toBe(2500);
+      });
+    });
+
+    describe("YES BANK ELITE+ Credit Card", () => {
+      it("earns online, base, and utilities rewards with correct caps", () => {
+        const card = getCardById("yes-elite-plus");
+        expect(card).toBeTruthy();
+
+        // Online rate: 6 points / Rs 100, cap: 3000 (reached at Rs 50k spend)
+        // Base rate: 3 points / Rs 100
+        // Utilities rate: 2 points / Rs 100, cap: 1200 (reached at Rs 60k spend)
+        const result = calculateRewards(card!, {
+          online: 60000,
+          base: 10000,
+          utilities: 70000
+        });
+
+        expect(result.rows.find((r) => r.category === "online")!.monthlyUnits).toBe(3000);
+        expect(result.rows.find((r) => r.category === "base")!.monthlyUnits).toBe(300);
+        expect(result.rows.find((r) => r.category === "utilities")!.monthlyUnits).toBe(1200);
+      });
+    });
+
+    describe("YES First Preferred Credit Card", () => {
+      it("earns travel, dining, utilities, and base rewards with correct caps", () => {
+        const card = getCardById("yes-first-preferred");
+        expect(card).toBeTruthy();
+
+        // Travel rate: 8 points / Rs 100, cap: 3000 (reached at Rs 37,500 spend)
+        // Dining rate: 8 points / Rs 100, cap: 3000 (reached at Rs 37,500 spend)
+        // Base rate: 4 points / Rs 100
+        // Utilities rate: 2 points / Rs 100
+        const result = calculateRewards(card!, {
+          travel: 40000,
+          dining: 40000,
+          base: 10000,
+          utilities: 10000
+        });
+
+        expect(result.rows.find((r) => r.category === "travel")!.monthlyUnits).toBe(3000);
+        expect(result.rows.find((r) => r.category === "dining")!.monthlyUnits).toBe(3000);
+        expect(result.rows.find((r) => r.category === "base")!.monthlyUnits).toBe(400);
+        expect(result.rows.find((r) => r.category === "utilities")!.monthlyUnits).toBe(200);
+      });
+
+      it("verifies the structured milestone rewards", () => {
+        const card = getCardById("yes-first-preferred");
+        expect(card).toBeTruthy();
+
+        const rules = milestoneRulesForCard(card!);
+        expect(rules.length).toBe(1);
+        expect(rules[0].threshold).toBe(750000);
+        expect(rules[0].value).toBe(5000);
+        expect(rules[0].period).toBe("annual");
+        expect(rules[0].isVoucher).toBe(false);
+      });
+    });
+
+    describe("YES Bank Kiwi Credit Card", () => {
+      it("earns UPI, online, and base rewards", () => {
+        const card = getCardById("yes-kiwi");
+        expect(card).toBeTruthy();
+
+        // UPI rate: 1.5% cashback (rupees)
+        // Online rate: 0.5% cashback (rupees)
+        // Base rate: 1 point / Rs 100 (which is 1 unit per Rs 100)
+        const result = calculateRewards(card!, {
+          upi: 10000,
+          online: 10000,
+          base: 10000
+        });
+
+        // UPI: 150 Rs, Online: 50 Rs, Base: 100 units
+        // Since rewardType is "cashback and reward points", the monthlyUnits is the sum of these values.
+        expect(result.monthlyUnits).toBe(300);
+      });
+    });
+
+    describe("YES BANK Klick RuPay Credit Card", () => {
+      it("earns UPI and base rewards", () => {
+        const card = getCardById("yes-klick-rupay");
+        expect(card).toBeTruthy();
+
+        // UPI rate: 2 points / Rs 100
+        // Base rate: 1 point / Rs 100
+        const result = calculateRewards(card!, {
+          upi: 10000,
+          base: 10000
+        });
+
+        expect(result.monthlyUnits).toBe(300); // 200 + 100
+      });
+    });
+  });
 });
+
 
 
 

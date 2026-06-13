@@ -21,24 +21,39 @@
   "rewards": [
     {
       "category": "online",
-      "rate": 1.5,
+      "rate": 6,
+      "displayCategory": "Online shopping",
+      "displayRate": "12 YES Rewardz Points / Rs 200 spent",
       "capMonthly": 3000
     },
     {
       "category": "base",
-      "rate": 0.75,
+      "rate": 3,
+      "displayCategory": "Other retail spends",
+      "displayRate": "6 YES Rewardz Points / Rs 200 spent",
       "capMonthly": null
     },
     {
       "category": "utilities",
-      "rate": 0.5,
-      "capMonthly": 300
+      "rate": 2,
+      "displayCategory": "Select categories (utilities, insurance, education, telecom)",
+      "displayRate": "4 YES Rewardz Points / Rs 200 spent",
+      "capMonthly": 1200
     }
   ],
   "popularityScore": 76,
   "loungeDomestic": 8,
   "loungeInternational": 3,
-  "forexMarkup": 2.5,
+  "lounge": {
+    "domestic": [
+      "2 complimentary domestic lounge visits per calendar quarter",
+      "Access is subject to a spend threshold of Rs 50,000 in the previous calendar quarter."
+    ],
+    "international": [
+      "3 complimentary international lounge visits per calendar year via Priority Pass."
+    ]
+  },
+  "forexMarkup": 2.75,
   "tags": [
     "yes bank",
     "online",
@@ -49,21 +64,35 @@
     "rewardz"
   ],
   "exclusions": [
+    "fuel spends",
+    "rental payments",
+    "wallet loading transactions",
+    "government transactions",
+    "marketing and advertising services",
+    "cash advances / cash withdrawals",
+    "EMI transactions (including post-facto conversions)"
+  ],
+  "exclusionCodes": [
     "fuel",
-    "cash withdrawals",
-    "transactions converted into EMI"
+    "rent",
+    "wallet_load",
+    "government",
+    "cash_advance",
+    "emi"
   ],
-  "milestoneBenefits": [
-    "First-year membership fee waived on spending Rs 20,000 within 30 days of card issuance",
-    "Renewal fee waiver on spending Rs 2,00,000 in a card anniversary year"
+  "joiningBenefits": [
+    "First-year membership fee waived on spending Rs 20,000 within 30 days of card issuance"
   ],
+  "milestoneBenefits": [],
   "additionalBenefits": [
-    "Card was earlier known as YES Premia",
-    "3 complimentary international airport lounge visits per year",
-    "2 complimentary domestic airport lounge visits per quarter",
-    "BookMyShow discount up to 25% with monthly cap",
-    "Purchase protection cover on eligible electronics",
+    "25% discount on movie tickets on BookMyShow, up to Rs 250 per month",
+    "1% fuel surcharge waiver on transactions between Rs 400 and Rs 5,000, capped at Rs 250 per month",
     "Green fee waiver and complimentary golf lessons at select golf courses"
+  ],
+  "additionalDetails": [
+    "1% fee + GST on utility transactions when cumulative spends exceed Rs 15,000 in a calendar month",
+    "1% fee + GST on rental transactions",
+    "1% fee + GST on wallet load transactions when cumulative spends exceed Rs 15,000 in a calendar month"
   ],
   "redemption": {
     "statementBalanceValue": 0.25,
@@ -71,14 +100,23 @@
   },
   "eligibility": {
     "salaried": [
+      "Age: 21 to 60 years",
       "Eligibility is subject to YES BANK approval criteria"
     ],
     "selfEmployed": [
+      "Age: 21 to 60 years",
       "Eligibility is subject to YES BANK approval criteria"
     ]
   },
+  "imageUrl": "/images/yes-elite-plus.webp",
   "sourceUrl": "https://www.yesbank.in/content/published/api/v1.1/assets/CONT8410175D038545F1BC2EEC7B35DFA756/native/yesbank_credit_card_elite_plus_value_chart.pdf",
   "applyUrl": "https://www.yesbank.in/content/published/api/v1.1/assets/CONTFE9DC64AC2554126A0B393725E1425A9/native/yes_premia_brochure_pdf.pdf?channelToken=21f7ccfa2fc3401091938f541a6f8f2a&download=false",
-  "lastVerified": "2026-05-11",
-  "verificationStatus": "official-mixed"
+  "lastVerified": "2026-06-13",
+  "verificationStatus": "official-direct",
+  "internalNotes": [
+    "Card details manually reviewed and verified by user on 2026-06-13.",
+    "Utility, rental, and wallet transactions are eligible to earn rewards at 2 points per Rs 200 spent, capped at 1200 points per month for utilities.",
+    "1% fee on utility, rent, and wallet load transactions above thresholds.",
+    "Card was earlier known as YES Premia / YES ELITE."
+  ]
 }
