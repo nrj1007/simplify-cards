@@ -280,6 +280,10 @@ export default function RecommendCalculator({ defaultSpend, initialResults }: Pr
                   ))}
                 </div>
 
+                {result.rankingSummary ? (
+                  <p className="ranking-summary">{result.rankingSummary}</p>
+                ) : null}
+
                 <div className="stats recommend-stats">
                   <div className="stat">
                     <strong>{formatINR(result.estimatedAnnualRewards)}</strong>

@@ -76,26 +76,19 @@ const blendedSmartbuySpendCategories: SpendCategory[] = ["online"];
 const broadComparisonUpsideWeight = 0.4;
 const defaultTopCardCount = 3;
 const joiningBenefitAmortizationYears = 3;
-const envelopeBaselineMonthlyTiers = [50000, 100000, 250000];
 
 // Scoring stage weights: relevance (text/identity match) vs value (economic/preference fit)
 const relevanceWeightExactMatch = 1.0;
 const relevanceWeightBroadGeneric = 0.3;
 const relevanceWeightDefault = 0.5;
 
-// Popularity acts as a gentle secondary prior — a near-tie nudge toward recognizable cards, not a
-// driver that competes with economic value. At ~50–100 popularity this contributes 750–1,500, in
-// line with the other small preference boosts (tags, segments) and well below typical net-value
-// differences, so it only matters when cards are otherwise close. (Was popularityScore * 50, which
-// was inert at the top — value dominates — but large enough on paper to look value-competitive.)
-const popularityRankingWeight = 15;
+// Popularity prior added to every card's score (popularityScore is ~50–100, so ~2,500–5,000).
+const popularityRankingWeight = 50;
 
-// Ceiling on the net yield used in envelope (broad "best card") ranking. The envelope picks each
-// card's most flattering spend tier, where a low-fee card's yield (net value / spend) can blow up at
-// trivial spend — e.g. a Rs 0-fee card showing ~10% on a tiny envelope, outranking genuinely
-// high-value premium cards. Strong real-world sustained yields top out around 8%, so clamping here
-// removes the low-spend artifact while leaving legitimately high-yield cards unaffected.
-const maxNetYieldForRanking = 0.08;
+// Broad "best card" ranking blends each card's score across fixed light/mid/heavy annual-spend
+// levels (instead of cherry-picking its single most-flattering tier, which let low-fee cards' yield
+// blow up at trivial spend). A card must hold up across the range to rank high.
+const blendAnnualSpendLevels = [300000, 1000000, 2000000]; // Rs 3L, Rs 10L, Rs 20L per year
 const exactCardNameMatchThreshold = 50000;
 
 function isBroadNoSpendQuery(input: RecommendationInput, intent: ReturnType<typeof parseQueryIntent>) {
@@ -129,23 +122,6 @@ function shouldUseEnvelopeScoring(
     !wantsLifetimeFree &&
     !wantsLounge
   );
-}
-
-function envelopeTiersForCard(card: CreditCard): number[] {
-  const tiers = new Set(envelopeBaselineMonthlyTiers);
-
-  // Add fee waiver threshold (annual → monthly)
-  if (card.feeWaiverSpend && card.feeWaiverSpend > 0) {
-    tiers.add(Math.round(card.feeWaiverSpend / 12));
-  }
-
-  // Add milestone thresholds (annual → monthly)
-  for (const benefit of card.milestoneBenefits ?? []) {
-    const threshold = extractMilestoneThreshold(benefit);
-    if (threshold && threshold > 0) tiers.add(Math.round(threshold / 12));
-  }
-
-  return [...tiers].sort((a, b) => a - b);
 }
 
 function scaleSpendProfileToMonthly(baseSpend: SpendProfile, monthlyTarget: number): SpendProfile {
@@ -1305,6 +1281,39 @@ function specialSpendFlexibilityBoost(card: CreditCard, input: RecommendationInp
   }, 0);
 }
 
+// A short, plain-language one-liner distilling the main pros (and a couple of watch-outs) behind a
+// card's ranking — economic value first, then the standout perks and the notable downsides.
+function buildRankingSummary(
+  card: CreditCard,
+  estimatedNetValue: number,
+  rewardBreakdown: CardScore["rewardBreakdown"],
+  estimatedMilestoneValue: number,
+  estimatedJoiningAndRenewalValue: number
+): string {
+  const inr = (value: number) => `Rs ${Math.round(value).toLocaleString("en-IN")}`;
+  const readableCategory = (category: string) => (category === "base" ? "everyday" : category);
+
+  const pros: string[] = [];
+  const topReward = [...rewardBreakdown].sort((a, b) => b.annualReward - a.annualReward)[0];
+  if (topReward && topReward.annualReward > 0) pros.push(`strong ${readableCategory(topReward.spendCategory)} rewards`);
+  if (card.loungeDomestic === "unlimited" || card.loungeInternational === "unlimited") pros.push("unlimited lounge access");
+  else if (loungeScore(card) >= 8) pros.push("wide lounge access");
+  if (estimatedMilestoneValue >= 2000) pros.push(`${inr(estimatedMilestoneValue)} milestone value`);
+  if (estimatedJoiningAndRenewalValue >= 2000) pros.push(`${inr(estimatedJoiningAndRenewalValue)} welcome value`);
+  if (card.annualFee === 0) pros.push("lifetime-free");
+
+  const cons: string[] = [];
+  if (card.forexMarkup >= 3.5) cons.push(`${card.forexMarkup}% forex markup`);
+  if (card.annualFee >= 5000) cons.push(`${inr(card.annualFee)} annual fee`);
+  if (card.feeWaiverSpend && card.feeWaiverSpend >= 600000) cons.push(`needs Rs ${formatSpendInLakhs(card.feeWaiverSpend)}/yr to waive fee`);
+  if (loungeScore(card) === 0 && card.annualFee >= 2500) cons.push("no lounge access");
+
+  const lead = estimatedNetValue > 0 ? `~${inr(estimatedNetValue)}/yr value` : "best for higher spenders";
+  let summary = pros.length ? `${lead} — ${pros.slice(0, 3).join(", ")}` : lead;
+  if (cons.length) summary += ` · cons: ${cons.slice(0, 2).join(", ")}`;
+  return summary;
+}
+
 export function scoreCards(input: RecommendationInput): CardScore[] {
   const intent = parseQueryIntent(input);
   const queryTags = extractQueryTags(input.query);
@@ -1437,18 +1446,10 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
       : relevanceWeightDefault;
     const fitScore = valueScore + relevanceWeight * relevanceScore;
 
-    // Envelope-only: normalize economic value to net yield so cards scored at different
-    // spend tiers are comparable. Yield (e.g. 0.03 for 3%) is scaled by 1,000,000 to
-    // match the magnitude of the sharedBoosts components (~500–40,000 range).
-    // Guard: skip normalization for very low spend to avoid yield blow-up.
-    const normalizedFitScore = envelopeMonthlySpend
-      ? (() => {
-          const rawYield = annualSpend >= 10000 ? estimatedNetValue / annualSpend : 0;
-          const netYield = Math.min(rawYield, maxNetYieldForRanking);
-          const economicScore = netYield * 1000000;
-          return economicScore + sharedBoosts + relevanceWeight * relevanceScore;
-        })()
-      : undefined;
+    // Per-level fit score for envelope ranking; the aggregation step blends these across the fixed
+    // light/mid/heavy spend levels (see blendAnnualSpendLevels) so absolute rupee value drives the
+    // ranking without a single low-spend tier being able to dominate.
+    const normalizedFitScore = envelopeMonthlySpend ? fitScore : undefined;
 
     return {
       card,
@@ -1469,6 +1470,13 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
       fitScore,
       matchedTags,
       reasons,
+      rankingSummary: buildRankingSummary(
+        card,
+        estimatedNetValue,
+        rewardBreakdown,
+        estimatedMilestoneValue,
+        estimatedJoiningAndRenewalValue
+      ),
       rewardBreakdown
     };
   };
@@ -1485,10 +1493,18 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
     .map((card) => {
       if (!useEnvelopeScoring) return scoreCardForSpend(card, spend);
 
-      const tiers = envelopeTiersForCard(card);
-      return tiers
-        .map((monthlySpend) => scoreCardForSpend(card, scaleSpendProfileToMonthly(defaultSpendProfile, monthlySpend), monthlySpend))
-        .sort((a, b) => (b.envelopeScoring?.normalizedFitScore ?? 0) - (a.envelopeScoring?.normalizedFitScore ?? 0))[0];
+      // Score the card at each fixed light/mid/heavy spend level and blend (average) the per-level
+      // fit scores into the ranking key. The card is displayed at its strongest of these levels, but
+      // ranked on its all-round performance — so no single trivial-spend tier can inflate it.
+      const perLevel = blendAnnualSpendLevels.map((annualSpend) => {
+        const monthlySpend = Math.round(annualSpend / 12);
+        return scoreCardForSpend(card, scaleSpendProfileToMonthly(defaultSpendProfile, monthlySpend), monthlySpend);
+      });
+      const blendedFitScore = perLevel.reduce((total, score) => total + score.fitScore, 0) / perLevel.length;
+      const representative = perLevel.reduce((best, score) => (score.fitScore > best.fitScore ? score : best));
+      return representative.envelopeScoring
+        ? { ...representative, envelopeScoring: { ...representative.envelopeScoring, normalizedFitScore: blendedFitScore } }
+        : representative;
     })
     .sort((a, b) => {
       const primary = useEnvelopeScoring

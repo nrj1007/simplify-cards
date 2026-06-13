@@ -1528,6 +1528,13 @@ textarea {
   grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
 }
 
+.ranking-summary {
+  margin: 4px 0 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
+
 .recommend-explain {
   border-top: 1px solid var(--line);
   display: grid;

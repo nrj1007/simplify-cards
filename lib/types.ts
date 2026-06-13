@@ -203,6 +203,8 @@ export type CardScore = {
   fitScore: number;
   matchedTags: string[];
   reasons: string[];
+  // Short plain-language one-liner summarizing the pros (and a couple of cons) behind the ranking.
+  rankingSummary: string;
   rewardBreakdown: Array<{
     spendCategory: SpendCategory;
     monthlySpend: number;
@@ -220,6 +222,7 @@ export type RecommendResult = {
   issuer: string;
   applyUrl: string;
   tags: string[];
+  rankingSummary: string;
   estimatedAnnualRewards: number;
   estimatedMilestoneValue: number;
   estimatedAnnualFee: number;
