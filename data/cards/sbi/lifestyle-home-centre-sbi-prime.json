@@ -2,6 +2,7 @@
   "id": "lifestyle-home-centre-sbi-prime",
   "issuer": "SBI Card",
   "name": "Lifestyle Home Centre SBI Card PRIME",
+  "status": "discontinued",
   "network": [
     "Visa"
   ],

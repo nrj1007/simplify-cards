@@ -2,6 +2,7 @@
   "id": "spar-sbi",
   "issuer": "SBI Card",
   "name": "Spar SBI Card",
+  "status": "discontinued",
   "imageUrl": "/images/spar-sbi.webp",
   "network": [
     "Visa"

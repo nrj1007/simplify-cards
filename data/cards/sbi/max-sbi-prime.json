@@ -2,6 +2,7 @@
   "id": "max-sbi-prime",
   "issuer": "SBI Card",
   "name": "Max SBI Card PRIME",
+  "status": "discontinued",
   "network": [
     "Visa"
   ],

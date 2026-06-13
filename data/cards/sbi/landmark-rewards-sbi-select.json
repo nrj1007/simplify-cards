@@ -2,6 +2,7 @@
   "id": "landmark-rewards-sbi-select",
   "issuer": "SBI Card",
   "name": "Landmark Rewards SBI Card SELECT",
+  "status": "discontinued",
   "imageUrl": "/images/landmark-rewards-sbi-select.webp",
   "network": [
     "Visa",

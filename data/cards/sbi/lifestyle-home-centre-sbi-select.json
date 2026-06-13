@@ -2,6 +2,7 @@
   "id": "lifestyle-home-centre-sbi-select",
   "issuer": "SBI Card",
   "name": "Lifestyle Home Centre SBI Card SELECT",
+  "status": "discontinued",
   "network": [
     "Visa"
   ],

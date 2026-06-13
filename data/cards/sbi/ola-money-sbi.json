@@ -2,6 +2,7 @@
   "id": "ola-money-sbi",
   "issuer": "SBI Card",
   "name": "OLA Money SBI Card",
+  "status": "discontinued",
   "network": [
     "Visa"
   ],

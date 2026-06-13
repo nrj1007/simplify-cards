@@ -2,6 +2,7 @@
   "id": "max-sbi",
   "issuer": "SBI Card",
   "name": "Max SBI Card",
+  "status": "discontinued",
   "imageUrl": "/images/max-sbi.png",
   "network": [
     "Visa"

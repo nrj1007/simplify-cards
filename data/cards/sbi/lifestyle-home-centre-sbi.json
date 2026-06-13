@@ -2,6 +2,7 @@
   "id": "lifestyle-home-centre-sbi",
   "issuer": "SBI Card",
   "name": "Lifestyle Home Centre SBI Card",
+  "status": "discontinued",
   "imageUrl": "/images/lifestyle-home-centre-sbi.webp",
   "network": [
     "Visa"

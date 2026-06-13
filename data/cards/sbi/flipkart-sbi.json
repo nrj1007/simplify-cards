@@ -2,6 +2,7 @@
   "id": "flipkart-sbi",
   "issuer": "SBI Card",
   "name": "Flipkart SBI Card",
+  "status": "discontinued",
   "imageUrl": "/images/flipkart-sbi.png",
   "network": [
     "Visa",
