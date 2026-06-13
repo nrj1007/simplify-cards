@@ -296,11 +296,7 @@
       "Good credit profile and address in a serviced location"
     ]
   },
-  "additionalDetails": [
-    "1 Travel Credit = Re 1 for air mile or hotel point conversion",
-    "1 Travel Credit = Rs 0.50 for travel bookings",
-    "1 Travel Credit = Rs 0.25 for Shop & Smile product catalogue"
-  ],
+  "additionalDetails": [],
   "internalNotes": [
     "Audited against official SBI Card MILES product page on 2026-06-13.",
     "Reviewed SBI's public rewards-program-TnC-miles.pdf for the current airline and hotel transfer tables; requests are processed within up to 21 days.",
