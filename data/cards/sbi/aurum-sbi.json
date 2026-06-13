@@ -29,7 +29,7 @@
     }
   ],
   "loungeDomestic": 16,
-  "loungeInternational": 99,
+  "loungeInternational": "unlimited",
   "lounge": {
     "domestic": [
       "16 complimentary domestic airport lounge visits per year, capped at 4 visits per quarter"

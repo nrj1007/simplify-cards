@@ -59,7 +59,6 @@ exports[`ranking golden (representative queries) > produces stable top-N orderin
     "scapia-federal",
   ],
   "lounge": [
-    "aurum-sbi",
     "sc-priority-visa-infinite",
     "hdfc-diners-club-black-metal",
     "icici-emeralde-private-metal",
@@ -71,6 +70,7 @@ exports[`ranking golden (representative queries) > produces stable top-N orderin
     "hdfc-shoppers-stop-black",
     "icici-times-black",
     "indigo-sbi-elite",
+    "hdfc-marriott-bonvoy",
   ],
   "max-fee-zero": [
     "au-ixigo",
