@@ -448,6 +448,7 @@ export default async function AskPage({ searchParams }: Props) {
                                 <div>
                                   <h3>{item.card.name}</h3>
                                   <p>{getCardUsp(item.card)}</p>
+                                  {item.rankingSummary ? <p className="ranking-summary">{item.rankingSummary}</p> : null}
                                   <div className="result-meta">
                                     <span className="mini-tag">Fit {toFitPercent(item.fitScore)}/100</span>
                                     {item.card.bestFor[0] ? <span className="mini-tag">{item.card.bestFor[0]}</span> : null}
