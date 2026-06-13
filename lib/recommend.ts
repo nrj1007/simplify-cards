@@ -1281,38 +1281,6 @@ function specialSpendFlexibilityBoost(card: CreditCard, input: RecommendationInp
   }, 0);
 }
 
-// A short, plain-language one-liner distilling the main pros (and a couple of watch-outs) behind a
-// card's ranking — economic value first, then the standout perks and the notable downsides.
-function buildRankingSummary(
-  card: CreditCard,
-  rewardBreakdown: CardScore["rewardBreakdown"],
-  estimatedMilestoneValue: number,
-  estimatedJoiningAndRenewalValue: number
-): string {
-  const inr = (value: number) => `Rs ${Math.round(value).toLocaleString("en-IN")}`;
-  const readableCategory = (category: string) => (category === "base" ? "everyday" : category);
-
-  const pros: string[] = [];
-  const topReward = [...rewardBreakdown].sort((a, b) => b.annualReward - a.annualReward)[0];
-  if (topReward && topReward.annualReward > 0) pros.push(`strong ${readableCategory(topReward.spendCategory)} rewards`);
-  if (card.loungeDomestic === "unlimited" || card.loungeInternational === "unlimited") pros.push("unlimited lounge access");
-  else if (loungeScore(card) >= 8) pros.push("wide lounge access");
-  if (estimatedMilestoneValue >= 2000) pros.push(`${inr(estimatedMilestoneValue)} milestone value`);
-  if (estimatedJoiningAndRenewalValue >= 2000) pros.push(`${inr(estimatedJoiningAndRenewalValue)} welcome value`);
-  if (card.annualFee === 0) pros.push("lifetime-free");
-
-  const cons: string[] = [];
-  if (card.forexMarkup >= 3.5) cons.push(`${card.forexMarkup}% forex markup`);
-  if (card.annualFee >= 5000) cons.push(`${inr(card.annualFee)} annual fee`);
-  if (card.feeWaiverSpend && card.feeWaiverSpend >= 600000) cons.push(`needs Rs ${formatSpendInLakhs(card.feeWaiverSpend)}/yr to waive fee`);
-  if (loungeScore(card) === 0 && card.annualFee >= 2500) cons.push("no lounge access");
-
-  const headline = pros.length ? pros.slice(0, 3).join(", ") : "balanced everyday rewards";
-  let summary = headline.charAt(0).toUpperCase() + headline.slice(1);
-  if (cons.length) summary += ` · cons: ${cons.slice(0, 2).join(", ")}`;
-  return summary;
-}
-
 export function scoreCards(input: RecommendationInput): CardScore[] {
   const intent = parseQueryIntent(input);
   const queryTags = extractQueryTags(input.query);
@@ -1469,12 +1437,6 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
       fitScore,
       matchedTags,
       reasons,
-      rankingSummary: buildRankingSummary(
-        card,
-        rewardBreakdown,
-        estimatedMilestoneValue,
-        estimatedJoiningAndRenewalValue
-      ),
       rewardBreakdown
     };
   };

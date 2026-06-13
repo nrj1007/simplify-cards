@@ -1528,7 +1528,7 @@ textarea {
   grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
 }
 
-.ranking-summary {
+.card-usp {
   margin: 4px 0 0;
   color: var(--muted);
   font-size: 0.9rem;

@@ -1,4 +1,5 @@
 import { stripScoringAnnotations } from "./card-index";
+import { getCardUsp } from "./card-usp";
 import type { CardScore, RecommendResult, SpendCategory } from "./types";
 
 // Canonical order of the spend categories the recommender accepts.
@@ -73,7 +74,7 @@ export function toRecommendResult(score: CardScore): RecommendResult {
     issuer: card.issuer,
     applyUrl: card.applyUrl,
     tags: card.tags.slice(0, 4),
-    rankingSummary: score.rankingSummary,
+    usp: getCardUsp(card),
     estimatedAnnualRewards: Math.round(score.estimatedAnnualRewards),
     estimatedMilestoneValue: Math.round(score.estimatedMilestoneValue),
     estimatedAnnualFee: Math.round(score.estimatedAnnualFee),

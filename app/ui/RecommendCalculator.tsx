@@ -280,8 +280,8 @@ export default function RecommendCalculator({ defaultSpend, initialResults }: Pr
                   ))}
                 </div>
 
-                {result.rankingSummary ? (
-                  <p className="ranking-summary">{result.rankingSummary}</p>
+                {result.usp ? (
+                  <p className="card-usp">{result.usp}</p>
                 ) : null}
 
                 <div className="stats recommend-stats">
