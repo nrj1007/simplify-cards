@@ -153,8 +153,6 @@
     "EMI conversion available for transactions exceeding Rs 1,500"
   ],
   "redemption": {
-    "ecosystemLabel": "IndiGo flight bookings",
-    "ecosystemValue": 1.0,
     "pointsExpiryYears": 2
   },
   "eligibility": {
@@ -169,7 +167,7 @@
   },
   "sourceUrl": "https://www.axisbank.com/retail/cards/credit-card/indigo-axis-bank-premium-credit-card",
   "applyUrl": "https://www.axisbank.com/retail/cards/credit-card/indigo-axis-bank-premium-credit-card",
-  "imageUrl": "/images/axis-indigo-premium.webp",
+  "imageUrl": "/images/axis-indigo-premium.png",
   "internalNotes": [
     "Card details manually reviewed and verified by user on 2026-06-13."
   ],
