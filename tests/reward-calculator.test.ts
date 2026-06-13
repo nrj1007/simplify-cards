@@ -686,57 +686,6 @@ describe("reward calculator", () => {
       expect(quarterly?.isVoucher).toBe(true);
     });
 
-    it("calculates rewards correctly for Lifestyle Home Centre SBI Card", () => {
-      const card = getCardById("lifestyle-home-centre-sbi");
-      expect(card).toBeTruthy();
-
-      const result = calculateRewards(card!, {
-        dining: 10000,    // 5 Reward Points / Rs 100 spent = 500 units
-        grocery: 10000,   // 5 Reward Points / Rs 100 spent = 500 units
-        base: 20000,      // Landmark (10k at 5 RP = 500) + Base (10k at 1 RP = 100) = 600 units
-        fuel: 5000        // excluded
-      });
-
-      // Total spends: dining (10k @ 1.25% = 125 Rs equivalent / 500 pts)
-      // grocery (10k @ 1.25% = 125 Rs / 500 pts)
-      // base spends in calculator will be mapped to Landmark and Base.
-      // Wait, let's verify exact monthlyUnits.
-      // In our test, if we input { dining: 10000, grocery: 10000, base: 20000 }
-      // - dining: 10000 -> 500 pts
-      // - grocery: 10000 -> 500 pts
-      // - base: 20000 -> here we have two base entries. The calculator matches the first matching base row (which is Landmark base row at 1.25% = 1000 pts).
-      // So total units = 500 + 500 + 1000 = 2000 pts.
-      expect(result.monthlyUnits).toBe(2000);
-
-      const fuelRow = result.rows.find((r) => r.category === "fuel");
-      expect(fuelRow?.monthlyUnits).toBe(0);
-      expect(fuelRow?.excluded).toBe(true);
-    });
-
-    it("calculates rewards correctly for Max SBI Card", () => {
-      const card = getCardById("max-sbi");
-      expect(card).toBeTruthy();
-
-      const result = calculateRewards(card!, {
-        dining: 10000,    // 5 Reward Points / Rs 100 = 500 units
-        base: 10000       // Landmark base row at 5 RP/Rs 100 = 500 units
-      });
-
-      expect(result.monthlyUnits).toBe(1000);
-    });
-
-    it("calculates rewards correctly for Spar SBI Card", () => {
-      const card = getCardById("spar-sbi");
-      expect(card).toBeTruthy();
-
-      const result = calculateRewards(card!, {
-        dining: 10000,    // 5 Reward Points / Rs 100 = 500 units
-        base: 10000       // Landmark base row at 5 RP/Rs 100 = 500 units
-      });
-
-      expect(result.monthlyUnits).toBe(1000);
-    });
-
     it("calculates rewards correctly for Landmark Rewards SBI Card SELECT", () => {
       const card = getCardById("landmark-rewards-sbi-select");
       expect(card).toBeTruthy();

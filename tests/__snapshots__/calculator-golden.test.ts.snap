@@ -598,34 +598,6 @@ exports[`reward calculator golden (all cards) > computes stable earn for every c
     "high": "online:30000 dining:20000 travel:30000 hotels:30000 airlines:30000 fuel:x grocery:30000 utilities:30000 upi:30000 amazon:30000 international:20000 base:30000 rent:x insurance:30000 education:30000 gold:30000 government:x |400000",
     "moderate": "online:3750 dining:2500 travel:3750 hotels:3750 airlines:3750 fuel:x grocery:3750 utilities:3750 upi:3750 amazon:3750 international:2500 base:3750 rent:x insurance:3750 education:3750 gold:3750 government:x |50000",
   },
-  "lifestyle-home-centre-sbi": {
-    "high": "online:10000 dining:10000 travel:10000 hotels:10000 airlines:10000 fuel:x grocery:10000 utilities:10000 upi:10000 amazon:10000 international:10000 base:10000 rent:x insurance:10000 education:10000 gold:10000 government:x |140000",
-    "moderate": "online:1250 dining:1250 travel:1250 hotels:1250 airlines:1250 fuel:x grocery:1250 utilities:1250 upi:1250 amazon:1250 international:1250 base:1250 rent:x insurance:1250 education:1250 gold:1250 government:x |17500",
-  },
-  "lifestyle-home-centre-sbi-prime": {
-    "high": "online:4000 dining:20000 travel:4000 hotels:4000 airlines:4000 fuel:x grocery:4000 utilities:4000 upi:4000 amazon:4000 international:4000 base:4000 rent:4000 insurance:4000 education:4000 gold:4000 government:x |76000",
-    "moderate": "online:500 dining:2500 travel:500 hotels:500 airlines:500 fuel:x grocery:500 utilities:500 upi:500 amazon:500 international:500 base:500 rent:500 insurance:500 education:500 gold:500 government:x |9500",
-  },
-  "lifestyle-home-centre-sbi-select": {
-    "high": "online:4000 dining:20000 travel:4000 hotels:4000 airlines:4000 fuel:x grocery:4000 utilities:4000 upi:4000 amazon:4000 international:4000 base:4000 rent:4000 insurance:4000 education:4000 gold:4000 government:x |76000",
-    "moderate": "online:500 dining:2500 travel:500 hotels:500 airlines:500 fuel:x grocery:500 utilities:500 upi:500 amazon:500 international:500 base:500 rent:500 insurance:500 education:500 gold:500 government:x |9500",
-  },
-  "max-sbi": {
-    "high": "online:10000 dining:10000 travel:10000 hotels:10000 airlines:10000 fuel:x grocery:10000 utilities:10000 upi:10000 amazon:10000 international:10000 base:10000 rent:x insurance:10000 education:10000 gold:10000 government:x |140000",
-    "moderate": "online:1250 dining:1250 travel:1250 hotels:1250 airlines:1250 fuel:x grocery:1250 utilities:1250 upi:1250 amazon:1250 international:1250 base:1250 rent:x insurance:1250 education:1250 gold:1250 government:x |17500",
-  },
-  "max-sbi-prime": {
-    "high": "online:4000 dining:20000 travel:4000 hotels:4000 airlines:4000 fuel:x grocery:4000 utilities:4000 upi:4000 amazon:4000 international:4000 base:4000 rent:4000 insurance:4000 education:4000 gold:4000 government:x |76000",
-    "moderate": "online:500 dining:2500 travel:500 hotels:500 airlines:500 fuel:x grocery:500 utilities:500 upi:500 amazon:500 international:500 base:500 rent:500 insurance:500 education:500 gold:500 government:x |9500",
-  },
-  "max-sbi-select": {
-    "high": "online:4000 dining:20000 travel:4000 hotels:4000 airlines:4000 fuel:x grocery:4000 utilities:4000 upi:4000 amazon:4000 international:4000 base:4000 rent:4000 insurance:4000 education:4000 gold:4000 government:x |76000",
-    "moderate": "online:500 dining:2500 travel:500 hotels:500 airlines:500 fuel:x grocery:500 utilities:500 upi:500 amazon:500 international:500 base:500 rent:500 insurance:500 education:500 gold:500 government:x |9500",
-  },
-  "ola-money-sbi": {
-    "high": "online:2000 dining:2000 travel:x hotels:2000 airlines:2000 fuel:x grocery:2000 utilities:2000 upi:2000 amazon:2000 international:2000 base:2000 rent:x insurance:2000 education:2000 gold:2000 government:2000 |28000",
-    "moderate": "online:250 dining:250 travel:x hotels:250 airlines:250 fuel:x grocery:250 utilities:250 upi:250 amazon:250 international:250 base:250 rent:x insurance:250 education:250 gold:250 government:250 |3500",
-  },
   "onecard": {
     "high": "online:2000 dining:2000 travel:2000 hotels:2000 airlines:2000 fuel:2000 grocery:2000 utilities:2000 upi:2000 amazon:2000 international:2000 base:2000 rent:2000 insurance:2000 education:2000 gold:2000 government:2000 |34000",
     "moderate": "online:250 dining:250 travel:250 hotels:250 airlines:250 fuel:250 grocery:250 utilities:250 upi:250 amazon:250 international:250 base:250 rent:250 insurance:250 education:250 gold:250 government:250 |4250",
@@ -781,10 +753,6 @@ exports[`reward calculator golden (all cards) > computes stable earn for every c
   "simplysave-sbi": {
     "high": "online:1333 dining:13333 travel:1333 hotels:1333 airlines:1333 fuel:x grocery:13333 utilities:1333 upi:1333 amazon:1333 international:1333 base:1333 rent:1333 insurance:1333 education:1333 gold:1333 government:1333 |45333",
     "moderate": "online:167 dining:1667 travel:167 hotels:167 airlines:167 fuel:x grocery:1667 utilities:167 upi:167 amazon:167 international:167 base:167 rent:167 insurance:167 education:167 gold:167 government:167 |5667",
-  },
-  "spar-sbi": {
-    "high": "online:10000 dining:10000 travel:10000 hotels:10000 airlines:10000 fuel:x grocery:10000 utilities:10000 upi:10000 amazon:10000 international:10000 base:10000 rent:x insurance:10000 education:10000 gold:10000 government:x |140000",
-    "moderate": "online:1250 dining:1250 travel:1250 hotels:1250 airlines:1250 fuel:x grocery:1250 utilities:1250 upi:1250 amazon:1250 international:1250 base:1250 rent:x insurance:1250 education:1250 gold:1250 government:x |17500",
   },
   "tata-neu-infinity-sbi": {
     "high": "online:3000 dining:3000 travel:3000 hotels:3000 airlines:3000 fuel:x grocery:3000 utilities:3000 upi:500 amazon:3000 international:3000 base:3000 rent:x insurance:3000 education:x gold:3000 government:x |36500",
