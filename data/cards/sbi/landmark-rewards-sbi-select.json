@@ -17,24 +17,17 @@
   "rewardType": "reward points",
   "rewards": [
     {
-      "category": "dining",
-      "displayCategory": "Dining and movie spends",
-      "rate": 10,
-      "displayRate": "10 Reward Points / Rs 100 spent",
-      "capMonthly": null
-    },
-    {
-      "category": "international",
-      "displayCategory": "International purchases",
-      "rate": 10,
-      "displayRate": "10 Reward Points / Rs 100 spent",
-      "capMonthly": null
-    },
-    {
       "category": "partner merchants",
       "displayCategory": "Landmark Stores (Lifestyle, Max, Home Centre, Spar, Babyshop, EasyBuy)",
       "rate": 15,
       "displayRate": "15 Reward Points / Rs 100 spent",
+      "capMonthly": null
+    },
+    {
+      "category": "dining, international",
+      "displayCategory": "Dining, movie, and international spends",
+      "rate": 10,
+      "displayRate": "10 Reward Points / Rs 100 spent",
       "capMonthly": null
     },
     {
