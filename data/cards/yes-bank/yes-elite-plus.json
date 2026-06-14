@@ -95,7 +95,24 @@
   ],
   "redemption": {
     "statementBalanceValue": 0.25,
-    "pointsExpiryYears": null
+    "pointsExpiryYears": null,
+    "airMilesValue": 0.1,
+    "airlinePartners": [
+      {
+        "airline": "Air India",
+        "programme": "Maharaja Club",
+        "ratio": "10:1"
+      }
+    ],
+    "voucherRedemptions": [
+      {
+        "partner": "Adani One",
+        "programme": "Adani One Rewards",
+        "ratio": "100:10",
+        "valuePerPoint": 0.1,
+        "note": "100 YES Rewardz points -> 10 Adani Reward Points"
+      }
+    ]
   },
   "eligibility": {
     "salaried": [
