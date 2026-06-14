@@ -85,7 +85,8 @@
   ],
   "additionalDetails": [
     "Co-branded credit card issued in partnership with Kiwi (GoKiwi)",
-    "UPI scan and pay transaction rewards are only credited when processed through the Kiwi app"
+    "UPI scan and pay transaction rewards are only credited when processed through the Kiwi app",
+    "Optional 'Kiwi Neon' annual subscription (Rs 999/year) upgrades UPI Scan & Pay rewards to 2%, adds milestone cashback up to 5%, and provides 1 complimentary domestic lounge visit per quarter."
   ],
   "redemption": {
     "statementBalanceValue": 1,
@@ -104,10 +105,10 @@
   "imageUrl": "/images/yes-kiwi.webp",
   "sourceUrl": "https://gokiwi.in/cards/yesbank/",
   "applyUrl": "https://gokiwi.in/cards/yesbank/",
-  "lastVerified": "2026-06-13",
+  "lastVerified": "2026-06-14",
   "verificationStatus": "official-direct",
   "internalNotes": [
-    "Card details manually reviewed and verified by user on 2026-06-13.",
+    "Card details manually reviewed and verified by user on 2026-06-14.",
     "Virtual RuPay credit card issued by YES Bank in partnership with Kiwi (GoKiwi).",
     "Rewards are earned as Kiwis where 4 Kiwis = Rs 1, redeemable directly to bank account via UPI.",
     "Non-UPI spends earn 2 YES Rewardz points per Rs 200 spent."
