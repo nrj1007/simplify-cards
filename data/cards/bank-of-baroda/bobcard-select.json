@@ -47,6 +47,10 @@
     "accelerated reward points are subject to monthly cap",
     "taxes and charges excluded as per BOBCARD terms"
   ],
+  "exclusionCodes": [
+    "fuel",
+    "cash_advance"
+  ],
   "milestoneBenefits": [
     "First year fee reversal on spending Rs 7,500 within first 60 days",
     "Annual fee waiver on spending Rs 70,000 in a year"

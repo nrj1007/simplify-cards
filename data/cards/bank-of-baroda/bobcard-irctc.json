@@ -20,21 +20,22 @@
     {
       "category": "irctc",
       "rate": 10,
+      "displayCategory": "IRCTC train ticket bookings (via IRCTC website/app)",
+      "displayRate": "Up to 40 reward points per Rs 100",
       "capMonthly": null
     },
     {
-      "category": "grocery",
+      "category": "grocery, departmental stores",
       "rate": 1,
-      "capMonthly": null
-    },
-    {
-      "category": "departmental stores",
-      "rate": 1,
-      "capMonthly": null
+      "displayCategory": "Grocery and departmental store spends",
+      "displayRate": "4 reward points per Rs 100",
+      "capMonthly": 1000
     },
     {
       "category": "retail",
       "rate": 0.5,
+      "displayCategory": "Other eligible spends",
+      "displayRate": "2 reward points per Rs 100",
       "capMonthly": null
     }
   ],
@@ -54,6 +55,10 @@
     "IRCTC rewards require linking the card loyalty number with IRCTC login ID",
     "taxes and charges excluded as per BOBCARD terms"
   ],
+  "exclusionCodes": [
+    "fuel",
+    "cash_advance"
+  ],
   "milestoneBenefits": [
     "1,000 bonus reward points on a single transaction of Rs 1,000 or more within 45 days of card issuance"
   ],
@@ -64,7 +69,8 @@
     "Up to 3 lifetime free add-on cards"
   ],
   "additionalDetails": [
-    "Link the IRCTC BOBCARD loyalty number with the IRCTC login ID to unlock the accelerated reward rate on IRCTC bookings."
+    "Link the IRCTC BOBCARD loyalty number with the IRCTC login ID to unlock the accelerated reward rate on IRCTC bookings.",
+    "Minimum 1,000 points required for statement balance redemption (effective July 1, 2025)."
   ],
   "redemption": {
     "statementBalanceValue": 0.25,
@@ -84,12 +90,14 @@
   },
   "sourceUrl": "https://bankofbaroda.bank.in/personal-banking/digital-products/cards/credit-cards/irctc-bob-credit-card",
   "applyUrl": "https://bankofbaroda.bank.in/personal-banking/digital-products/cards/credit-cards/irctc-bob-credit-card",
+  "imageUrl": "/images/bobcard-irctc.png",
   "lastVerified": "2026-06-14",
   "verificationStatus": "official-direct",
   "popularityScore": 70,
   "internalNotes": [
+    "Card details manually reviewed and verified by user on 2026-06-14.",
     "Audited against the official IRCTC BOBCARD product page on 2026-06-14.",
-    "The official page frames the train-booking earn rate as up to 40 reward points per Rs 100 on IRCTC bookings and separately notes 4 reward points per Rs 100 on grocery and department stores plus 2 reward points per Rs 100 on other eligible spends.",
+    "The official page confirms: up to 40 reward points per Rs 100 on IRCTC train bookings, 4 reward points per Rs 100 on grocery and departmental store spends (capped at 1,000 pts/month), 2 reward points per Rs 100 on other eligible spends.",
     "The lounge benefit is for partner railway lounges only, not airport lounges, so loungeDomestic remains 0 to avoid mislabeling in airport-lounge UI."
   ]
 }
