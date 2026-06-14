@@ -1,68 +1,134 @@
 {
   "id": "federal-imperio",
   "issuer": "Federal Bank",
+  "imageUrl": "/images/federal-imperio.webp",
   "name": "Federal Bank Imperio Credit Card",
   "network": [
-    "Visa"
+    "Mastercard"
   ],
-  "joiningFee": 999,
-  "annualFee": 999,
+  "joiningFee": 0,
+  "annualFee": 0,
   "feeWaiverSpend": null,
   "bestFor": [
-    "travel",
+    "grocery",
+    "healthcare",
     "lounge",
-    "movies"
+    "movies",
+    "lifetime free"
   ],
   "rewardType": "reward points",
   "rewards": [
     {
-      "category": "online",
-      "rate": 1,
+      "category": "grocery",
+      "rate": 3,
+      "displayCategory": "Grocery spends",
+      "displayRate": "3 Reward Points / Rs 100 spent",
       "capMonthly": null
     },
     {
       "category": "base",
-      "rate": 0.5,
+      "rate": 3,
+      "displayCategory": "Healthcare spends",
+      "displayRate": "3 Reward Points / Rs 100 spent",
+      "capMonthly": null
+    },
+    {
+      "category": "utilities",
+      "rate": 2,
+      "displayCategory": "Utility spends",
+      "displayRate": "2 Reward Points / Rs 100 spent",
+      "capMonthly": null
+    },
+    {
+      "category": "base",
+      "rate": 1,
+      "displayCategory": "All other retail spends",
+      "displayRate": "1 Reward Point / Rs 100 spent",
       "capMonthly": null
     }
   ],
   "popularityScore": 72,
-  "loungeDomestic": 4,
+  "loungeDomestic": 8,
   "loungeInternational": 0,
+  "lounge": {
+    "domestic": [
+      "2 complimentary domestic airport lounge visits per quarter (subject to minimum spend of Rs 40,000 in the preceding quarter)."
+    ]
+  },
   "forexMarkup": 3.5,
   "tags": [
     "federal bank",
     "imperio",
-    "travel",
+    "mastercard",
+    "grocery",
+    "healthcare",
     "lounge",
-    "movies"
+    "movies",
+    "lifetime free"
   ],
   "exclusions": [
+    "Fuel transactions",
+    "Cash advance transactions",
+    "Rent payments",
+    "Wallet loading transactions",
+    "EMI transactions"
+  ],
+  "exclusionCodes": [
     "fuel",
-    "cash advances",
-    "reward earning follows Federal Bank terms"
+    "cash_advance",
+    "rent",
+    "wallet_load",
+    "emi"
+  ],
+  "milestones": [
+    {
+      "threshold": 5000,
+      "period": "annual",
+      "value": 400,
+      "kind": "voucher",
+      "label": "Amazon Pay e-voucher worth Rs 400 on spending Rs 5,000 within first 30 days of card issuance"
+    },
+    {
+      "threshold": 50000,
+      "period": "quarterly",
+      "value": 0,
+      "kind": "voucher",
+      "label": "Complimentary Big Basket vouchers on quarterly spend of Rs 50,000"
+    }
   ],
   "milestoneBenefits": [
-    "Milestone rewards and welcome benefits as per current Federal Bank programme"
+    "Amazon Pay e-voucher worth Rs 400 on spending Rs 5,000 within the first 30 days of card issuance",
+    "Complimentary Big Basket vouchers on achieving quarterly spend of Rs 50,000"
   ],
   "additionalBenefits": [
-    "Domestic lounge access",
-    "Movie and lifestyle benefits",
-    "Improved reward earning over Signet"
+    "Buy One Get One complimentary INOX movie ticket (once per quarter)",
+    "1% fuel surcharge waiver on eligible transactions (Rs 400–Rs 5,000, capped at Rs 150 per month)"
   ],
   "redemption": {
     "statementBalanceValue": 0.25
   },
   "eligibility": {
     "salaried": [
-      "Eligibility is subject to Federal Bank approval criteria"
+      "Minimum age: 21 years",
+      "Subject to Federal Bank credit guidelines"
     ],
     "selfEmployed": [
-      "Eligibility is subject to Federal Bank approval criteria"
+      "Minimum age: 21 years",
+      "Subject to Federal Bank credit guidelines"
     ]
   },
   "sourceUrl": "https://www.federalbank.co.in/imperio-credit-card",
-  "applyUrl": "https://www.federalbank.co.in/credit-cards",
-  "lastVerified": "2026-05-11",
-  "verificationStatus": "official-mixed"
+  "applyUrl": "https://www.federalbank.co.in/imperio-credit-card",
+  "lastVerified": "2026-06-14",
+  "verificationStatus": "official-direct",
+  "internalNotes": [
+    "Card details manually reviewed and verified by user on 2026-06-14.",
+    "Network confirmed as Mastercard per official Federal Bank page title (Federal Bank Mastercard Imperio Credit Card). Visa variant is also available.",
+    "Fees confirmed as Lifetime Free (nil joining and annual fee).",
+    "Rewards follow a 3-2-1 structure: 3x on healthcare and grocery, 2x on utilities, 1x on all other retail.",
+    "Domestic lounge access: 2 visits per quarter, subject to minimum spend of Rs 40,000 in the preceding calendar quarter.",
+    "Welcome benefit: Amazon Pay e-voucher worth Rs 400 on spending Rs 5,000 within the first 30 days.",
+    "Milestone benefit: Complimentary Big Basket vouchers on achieving quarterly spend of Rs 50,000.",
+    "Note: The healthcare category is mapped to base as there is no dedicated healthcare SpendCategory in the system."
+  ]
 }

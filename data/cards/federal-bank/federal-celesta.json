@@ -1,76 +1,133 @@
 {
   "id": "federal-celesta",
   "issuer": "Federal Bank",
+  "imageUrl": "/images/federal-celesta.webp",
   "name": "Federal Bank Celesta Credit Card",
   "network": [
-    "Visa"
+    "Mastercard"
   ],
-  "joiningFee": 3000,
-  "annualFee": 3000,
+  "joiningFee": 0,
+  "annualFee": 0,
   "feeWaiverSpend": null,
   "bestFor": [
     "travel",
     "lounge",
-    "movies",
+    "dining",
+    "international",
+    "lifetime free",
     "premium"
   ],
   "rewardType": "reward points",
   "rewards": [
     {
-      "category": "online",
-      "rate": 2,
+      "category": "travel",
+      "rate": 3,
+      "displayCategory": "Travel spends",
+      "displayRate": "3 Reward Points / Rs 100 spent",
       "capMonthly": null
     },
     {
-      "category": "travel",
-      "rate": 1.5,
+      "category": "international",
+      "rate": 3,
+      "displayCategory": "International spends",
+      "displayRate": "3 Reward Points / Rs 100 spent",
+      "capMonthly": null
+    },
+    {
+      "category": "dining",
+      "rate": 2,
+      "displayCategory": "Dining spends",
+      "displayRate": "2 Reward Points / Rs 100 spent",
       "capMonthly": null
     },
     {
       "category": "base",
-      "rate": 0.75,
+      "rate": 1,
+      "displayCategory": "All other retail spends",
+      "displayRate": "1 Reward Point / Rs 100 spent",
       "capMonthly": null
     }
   ],
   "popularityScore": 75,
   "loungeDomestic": 8,
   "loungeInternational": 2,
-  "forexMarkup": 3.5,
+  "lounge": {
+    "domestic": [
+      "2 complimentary domestic airport lounge visits per quarter (subject to minimum spend of Rs 60,000 in the preceding quarter)."
+    ],
+    "international": [
+      "2 complimentary international airport lounge visits per calendar year."
+    ]
+  },
+  "forexMarkup": 2,
   "tags": [
     "federal bank",
     "celesta",
+    "mastercard",
     "travel",
     "lounge",
-    "movies",
+    "dining",
+    "international",
+    "lifetime free",
     "premium"
   ],
   "exclusions": [
+    "Fuel transactions",
+    "Cash advance transactions",
+    "Rent payments",
+    "Wallet loading transactions",
+    "EMI transactions"
+  ],
+  "exclusionCodes": [
     "fuel",
-    "cash advances",
-    "reward earning follows Federal Bank terms"
+    "cash_advance",
+    "rent",
+    "wallet_load",
+    "emi"
+  ],
+  "milestones": [
+    {
+      "threshold": 10000,
+      "period": "annual",
+      "value": 600,
+      "kind": "voucher",
+      "label": "Amazon Pay e-voucher worth Rs 600 on spending Rs 10,000 within first 30 days of card issuance"
+    }
   ],
   "milestoneBenefits": [
-    "Premium welcome and milestone privileges as per current Federal Bank programme"
+    "Amazon Pay e-voucher worth Rs 600 on spending Rs 10,000 within the first 30 days of card issuance"
   ],
   "additionalBenefits": [
-    "Domestic lounge access",
-    "International lounge access via partner programme",
-    "Enhanced rewards on online and travel spends",
-    "Movie and lifestyle benefits"
+    "Buy One Get One complimentary INOX movie ticket (once per quarter)",
+    "Up to 15% off at partner hotels via FedDelights dining program",
+    "1% fuel surcharge waiver on eligible transactions (Rs 400–Rs 5,000, capped at Rs 150 per month)"
   ],
   "redemption": {
     "statementBalanceValue": 0.25
   },
   "eligibility": {
     "salaried": [
-      "Eligibility is subject to Federal Bank approval criteria"
+      "Minimum age: 21 years",
+      "Subject to Federal Bank credit guidelines"
     ],
     "selfEmployed": [
-      "Eligibility is subject to Federal Bank approval criteria"
+      "Minimum age: 21 years",
+      "Subject to Federal Bank credit guidelines"
     ]
   },
   "sourceUrl": "https://www.federalbank.co.in/celesta-credit-card",
-  "applyUrl": "https://www.federalbank.co.in/credit-cards",
-  "lastVerified": "2026-05-11",
-  "verificationStatus": "official-mixed"
+  "applyUrl": "https://www.federalbank.co.in/celesta-credit-card",
+  "lastVerified": "2026-06-14",
+  "verificationStatus": "official-direct",
+  "internalNotes": [
+    "Card details manually reviewed and verified by user on 2026-06-14.",
+    "Network confirmed as Mastercard per official Federal Bank page title (Federal Bank Mastercard Celesta Credit Card). Visa variant is available but Mastercard is the primary promoted variant.",
+    "Fees confirmed as Lifetime Free (nil joining and annual fee).",
+    "Rewards follow a 3-2-1 structure: 3x on travel and international spends, 2x on dining, 1x on all other retail.",
+    "Domestic lounge access: 2 visits per quarter, subject to minimum spend of Rs 60,000 in the preceding calendar quarter.",
+    "International lounge access: 2 visits per year.",
+    "Forex markup confirmed at 2% (reduced from the standard 3.5%).",
+    "Welcome benefit: Amazon Pay e-voucher worth Rs 600 on spending Rs 10,000 within the first 30 days.",
+    "Reward point value estimated at Rs 0.25 per point on statement credit redemption."
+  ]
 }

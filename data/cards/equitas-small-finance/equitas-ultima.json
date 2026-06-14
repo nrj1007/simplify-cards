@@ -18,23 +18,37 @@
   "rewards": [
     {
       "category": "travel",
-      "rate": 1.5,
+      "rate": 6,
+      "displayCategory": "Travel spends",
+      "displayRate": "6 Reward Points / Rs 100 spent",
       "capMonthly": null
     },
     {
       "category": "online",
-      "rate": 1.5,
+      "rate": 6,
+      "displayCategory": "Online spends",
+      "displayRate": "6 Reward Points / Rs 100 spent",
       "capMonthly": null
     },
     {
       "category": "base",
-      "rate": 0.5,
+      "rate": 2,
+      "displayCategory": "Other retail spends",
+      "displayRate": "2 Reward Points / Rs 100 spent",
       "capMonthly": null
     }
   ],
   "popularityScore": 73,
   "loungeDomestic": 8,
   "loungeInternational": 2,
+  "lounge": {
+    "domestic": [
+      "8 complimentary domestic airport lounge visits per calendar year (max 2 visits per quarter)."
+    ],
+    "international": [
+      "2 complimentary international airport lounge visits per calendar year (via Priority Pass)."
+    ]
+  },
   "forexMarkup": 3.5,
   "tags": [
     "equitas",
@@ -45,15 +59,38 @@
     "premium"
   ],
   "exclusions": [
-    "reward values follow current Equitas rewards terms",
+    "Fuel transactions",
+    "Cash advance transactions",
+    "Rent payments",
+    "Wallet loading transactions",
+    "EMI transactions",
+    "Government spends & tax payments",
+    "Fees and charges"
+  ],
+  "exclusionCodes": [
     "fuel",
-    "cash advances"
+    "cash_advance",
+    "rent",
+    "wallet_load",
+    "emi",
+    "government",
+    "tax",
+    "fees_and_charges"
+  ],
+  "milestones": [
+    {
+      "threshold": 0,
+      "period": "annual",
+      "value": 0,
+      "kind": "points",
+      "label": "Access to Club Xplorer quarterly spend-based privilege tier program benefits"
+    }
   ],
   "milestoneBenefits": [
-    "Premium welcome and milestone benefits as per Equitas current programme"
+    "Access to Club Xplorer quarterly spend-based privilege tier program benefits"
   ],
   "additionalBenefits": [
-    "Airport lounge access",
+    "Complimentary domestic and international airport lounge access",
     "Movie and lifestyle privileges",
     "Accelerated rewards on select travel and online categories"
   ],
@@ -62,14 +99,21 @@
   },
   "eligibility": {
     "salaried": [
-      "Eligibility is subject to Equitas Small Finance Bank approval criteria"
+      "Minimum age: 21 years",
+      "Subject to Equitas Small Finance Bank credit guidelines"
     ],
     "selfEmployed": [
-      "Eligibility is subject to Equitas Small Finance Bank approval criteria"
+      "Minimum age: 21 years",
+      "Subject to Equitas Small Finance Bank credit guidelines"
     ]
   },
+  "imageUrl": "/images/equitas-ultima.webp",
   "sourceUrl": "https://www.equitasbank.com/credit-cards/ultima-credit-card",
   "applyUrl": "https://www.equitasbank.com/credit-cards/ultima-credit-card",
-  "lastVerified": "2026-05-11",
-  "verificationStatus": "official-mixed"
+  "lastVerified": "2026-06-14",
+  "verificationStatus": "official-direct",
+  "internalNotes": [
+    "Card details manually reviewed and verified by user on 2026-06-14.",
+    "Cashback redemption value is Rs 0.25 per point, while voucher redemption is up to Rs 0.50 per point."
+  ]
 }

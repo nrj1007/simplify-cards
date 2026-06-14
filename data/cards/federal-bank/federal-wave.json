@@ -1,6 +1,7 @@
 {
   "id": "federal-wave",
   "issuer": "Federal Bank",
+  "imageUrl": "/images/federal-wave.webp",
   "name": "Federal Bank Wave RuPay Credit Card",
   "network": [
     "RuPay"
@@ -18,11 +19,15 @@
     {
       "category": "upi",
       "rate": 0.5,
+      "displayCategory": "UPI spends",
+      "displayRate": "1 Reward Point / Rs 200 spent",
       "capMonthly": null
     },
     {
       "category": "base",
-      "rate": 0.25,
+      "rate": 0.5,
+      "displayCategory": "All other retail spends",
+      "displayRate": "1 Reward Point / Rs 200 spent",
       "capMonthly": null
     }
   ],
@@ -38,29 +43,53 @@
     "lifetime free"
   ],
   "exclusions": [
-    "fuel",
-    "cash advances",
-    "reward earning follows Federal Bank RuPay terms"
+    "Fuel transactions",
+    "Cash advance transactions",
+    "Rent payments",
+    "Wallet loading transactions"
   ],
-  "milestoneBenefits": [],
+  "exclusionCodes": [
+    "fuel",
+    "cash_advance",
+    "rent",
+    "wallet_load"
+  ],
+  "milestoneBenefits": [
+    "1,000 bonus reward points on achieving quarterly spend of Rs 50,000"
+  ],
   "additionalBenefits": [
-    "RuPay card usable for UPI-linked spends",
-    "Lifetime-free positioning on Federal Bank's RuPay card surface",
-    "Base reward accumulation on UPI and retail transactions"
+    "RuPay card enabled for UPI payments — link to any UPI app and pay via QR codes",
+    "10% cashback on first 5 UPI transactions within the first 30 days (capped at Rs 200)"
+  ],
+  "additionalDetails": [
+    "The Wave card is a floater RuPay card linked to your primary Federal Bank Visa or Mastercard credit card. It shares the same credit limit but generates a separate billing statement and requires separate payment.",
+    "Eligible only for existing Federal Bank Visa or Mastercard credit card holders. Not available if your primary card is already a RuPay variant."
   ],
   "redemption": {
     "statementBalanceValue": 0.25
   },
   "eligibility": {
     "salaried": [
-      "Eligibility is subject to Federal Bank approval criteria"
+      "Existing Federal Bank Visa or Mastercard credit card holder",
+      "Minimum age: 21 years",
+      "Subject to Federal Bank credit guidelines"
     ],
     "selfEmployed": [
-      "Eligibility is subject to Federal Bank approval criteria"
+      "Existing Federal Bank Visa or Mastercard credit card holder",
+      "Minimum age: 21 years",
+      "Subject to Federal Bank credit guidelines"
     ]
   },
-  "sourceUrl": "https://www.federalbank.co.in/wave-credit-card",
+  "sourceUrl": "https://www.federalbank.co.in/credit-cards",
   "applyUrl": "https://www.federalbank.co.in/credit-cards",
-  "lastVerified": "2026-05-11",
-  "verificationStatus": "official-mixed"
+  "lastVerified": "2026-06-14",
+  "verificationStatus": "official-direct",
+  "internalNotes": [
+    "Card details manually reviewed and verified by user on 2026-06-14.",
+    "The Wave card is a floater/add-on RuPay credit card linked to an existing Federal Bank Visa or Mastercard credit card. It shares the credit limit but has a separate billing statement.",
+    "Base reward rate: 1 point per Rs 200 spent (0.5% earn rate).",
+    "Welcome offer: 10% cashback on first 5 UPI transactions within first 30 days, capped at Rs 200.",
+    "Milestone: 1,000 bonus reward points on quarterly spend of Rs 50,000.",
+    "Original sourceUrl returned 404 (https://www.federalbank.co.in/wave-credit-card). Updated to main credit cards page."
+  ]
 }
