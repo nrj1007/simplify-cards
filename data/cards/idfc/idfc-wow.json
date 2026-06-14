@@ -17,13 +17,17 @@
   "rewardType": "reward points",
   "rewards": [
     {
-      "category": "base",
-      "rate": 0.75,
+      "category": "online, base, international",
+      "rate": 2.0,
+      "displayCategory": "Online, offline, and international spends",
+      "displayRate": "4 Reward Points per INR 200 spent",
       "capMonthly": null
     },
     {
-      "category": "online",
-      "rate": 0.75,
+      "category": "utilities, insurance, government, travel",
+      "rate": 0.5,
+      "displayCategory": "Utility, insurance, government, and railway transactions",
+      "displayRate": "1 Reward Point per INR 200 spent",
       "capMonthly": null
     }
   ],
@@ -38,26 +42,47 @@
     "beginner"
   ],
   "exclusions": [
-    "cash withdrawal",
-    "fuel surcharge beyond terms",
-    "transactions excluded under IDFC FIRST WOW! Credit Card terms"
+    "Fuel transactions",
+    "EMI transactions",
+    "Cash withdrawal / cash advance transactions"
+  ],
+  "exclusionCodes": [
+    "fuel",
+    "emi",
+    "cash_advance"
   ],
   "milestoneBenefits": [],
   "additionalBenefits": [
     "Lifetime free fixed deposit backed credit card",
-    "0% forex markup",
-    "No credit history needed",
-    "Never-expiring reward points",
-    "Useful for credit building and international travel"
+    "0% forex markup on all international spends",
+    "No credit history or income proof required",
+    "Reward points are valid for 24 months"
   ],
   "redemption": {
     "statementBalanceValue": 0.25,
-    "pointsExpiryYears": null,
+    "pointsExpiryYears": 2,
     "redemptionFee": 99
   },
+  "eligibility": {
+    "salaried": [
+      "Age: 18 to 75 years",
+      "Minimum Fixed Deposit of Rs 20,000"
+    ],
+    "selfEmployed": [
+      "Age: 18 to 75 years",
+      "Minimum Fixed Deposit of Rs 20,000"
+    ]
+  },
+  "imageUrl": "/images/idfc-wow.webp",
   "sourceUrl": "https://www.idfcfirstbank.com/credit-card",
   "applyUrl": "https://www.idfcfirstbank.com/credit-card",
-  "lastVerified": "2026-05-10",
-  "verificationStatus": "official-catalogue",
+  "lastVerified": "2026-06-14",
+  "verificationStatus": "official-direct",
+  "internalNotes": [
+    "Card details manually reviewed and verified by user on 2026-06-14.",
+    "Secured credit card issued against a Fixed Deposit (minimum Rs 20,000).",
+    "4 Reward Points per Rs 200 spent (value: 0.5% return), 1 Reward Point per Rs 200 spent on utility/insurance/FASTag/railways (value: 0.125% return).",
+    "Reward points are valid for 24 months."
+  ],
   "popularityScore": 84
 }
