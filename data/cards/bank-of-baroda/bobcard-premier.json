@@ -53,10 +53,6 @@
     "Annual fee waiver on spending Rs 1,20,000 in a year"
   ],
   "additionalBenefits": [
-    "10 reward points per Rs 100 on travel, dining and international spends",
-    "2 reward points per Rs 100 on other categories",
-    "1 complimentary domestic airport lounge visit every calendar quarter",
-    "1% fuel surcharge waiver on fuel transactions between Rs 400 and Rs 5,000, capped at Rs 250 per statement cycle",
     "Up to 3 lifetime free add-on cards",
     "Personal accidental death cover"
   ],
@@ -66,15 +62,24 @@
   },
   "eligibility": {
     "salaried": [
-      "Eligibility details to be confirmed during Bank of Baroda application"
+      "Current official product page does not publish a detailed salaried eligibility grid",
+      "Approval remains subject to BOBCARD credit assessment",
+      "Resident Indian applicants can proceed through the official application flow"
     ],
     "selfEmployed": [
-      "Eligibility details to be confirmed during Bank of Baroda application"
+      "Current official product page does not publish a detailed self-employed eligibility grid",
+      "Approval remains subject to BOBCARD credit assessment",
+      "Resident Indian applicants can proceed through the official application flow"
     ]
   },
   "sourceUrl": "https://bankofbaroda.bank.in/personal-banking/digital-products/cards/credit-cards/premier",
   "applyUrl": "https://bankofbaroda.bank.in/personal-banking/digital-products/cards/credit-cards/premier",
-  "lastVerified": "2026-05-10",
+  "lastVerified": "2026-06-14",
   "verificationStatus": "official-direct",
-  "popularityScore": 72
+  "popularityScore": 72,
+  "internalNotes": [
+    "Audited against the official Bank of Baroda Premier product page on 2026-06-14.",
+    "The current official page confirms 10 reward points per Rs 100 on travel, dining, and international spends, 2 reward points per Rs 100 on other eligible spends, and a 2,000 reward-point monthly cap on the 5X categories.",
+    "The official product page currently shows 'Coming soon...' under detailed eligibility and document sections."
+  ]
 }
