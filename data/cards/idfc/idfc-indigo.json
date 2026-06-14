@@ -115,7 +115,7 @@
     "RuPay network card enables UPI payments"
   ],
   "redemption": {
-    "statementBalanceValue": 1.0,
+    "statementBalanceValue": null,
     "pointsExpiryYears": null,
     "redemptionFee": 99
   },
