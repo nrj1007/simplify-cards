@@ -20,21 +20,21 @@
       "category": "travel",
       "rate": 6.0,
       "displayCategory": "Travel spends",
-      "displayRate": "6% cashback",
+      "displayRate": "12 Reward Points per INR 200 spent on Travel transactions",
       "capMonthly": 3000
     },
     {
       "category": "dining",
       "rate": 6.0,
       "displayCategory": "Dining spends",
-      "displayRate": "6% cashback",
+      "displayRate": "12 Reward Points per INR 200 spent on Dining transactions",
       "capMonthly": 3000
     },
     {
       "category": "base",
       "rate": 1.0,
       "displayCategory": "Other retail spends",
-      "displayRate": "1% cashback",
+      "displayRate": "2 Reward Points per INR 200 spent on other retail transactions",
       "capMonthly": null
     }
   ],
