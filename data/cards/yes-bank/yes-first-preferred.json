@@ -121,6 +121,15 @@
         "programme": "Maharaja Club",
         "ratio": "10:1"
       }
+    ],
+    "voucherRedemptions": [
+      {
+        "partner": "Adani One",
+        "programme": "Adani One Rewards",
+        "ratio": "100:10",
+        "valuePerPoint": 0.1,
+        "note": "100 YES Rewardz points -> 10 Adani Reward Points"
+      }
     ]
   },
   "eligibility": {
