@@ -59,7 +59,8 @@
   ],
   "exclusionCodes": [
     "fuel",
-    "cash_advance"
+    "cash_advance",
+    "fees_and_charges"
   ],
   "milestoneBenefits": [
     "10,000 bonus reward points on spending Rs 50,000 within first 60 days",

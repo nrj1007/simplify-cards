@@ -265,7 +265,7 @@ describe("ask ai fallback policy", () => {
   it("does not show redundant LTF spend ladders when the balanced winner does not change", async () => {
     const answer = await answerQuestion({ query: "top OneCard life time free cards" });
 
-    expect(answer.highlights?.join(" ")).not.toMatch(/balanced mix/i);
+    expect(answer.highlights?.join(" ")).not.toMatch(/best by yearly spend/i);
   });
 
   it("uses super-premium scenario ladders for super-premium asks", { timeout: 60000 }, async () => {

@@ -351,12 +351,9 @@ function buildBalancedScenarioHighlights(input: RecommendationInput, answerCards
     }
   }
 
-  const groupedEntries = [...groupedByWinner.values()].map(({ cardName, labels }) => {
-    const labelText = labels.length === 1 ? labels[0] : joinNatural(labels);
-    return `around ${labelText}, ${cardName}`;
-  });
+  const groupedEntries = [...groupedByWinner.values()].map(({ cardName, labels }) => `${cardName} at ${labels.join("/")}`);
 
-  return [`By yearly spend on a balanced mix: ${groupedEntries.join("; ")}.`];
+  return [`Best by yearly spend — ${groupedEntries.join("; ")}.`];
 }
 
 function buildTopCardsHighlights(input: RecommendationInput, answerCards: CardScore[]) {
@@ -529,8 +526,12 @@ function buildFallbackSummary(input: RecommendationInput, shortlistedCards: Card
     ? `If you specifically mean ${topCard.card.name}, that looks like the right fit.`
     : `${topCard.card.name} looks like the best fit.`;
 
+  // Lowercase only each reason's leading letter so the clause reads naturally after "because"
+  // while preserving units and proper nouns inside (e.g. "Rs 5,000", card names).
   const whyItFits =
-    fitReasons.length > 0 ? `It stands out because ${joinNatural(fitReasons).toLowerCase()}.` : "";
+    fitReasons.length > 0
+      ? `It stands out because ${joinNatural(fitReasons.map((reason) => reason.charAt(0).toLowerCase() + reason.slice(1)))}.`
+      : "";
 
   return [opener, whyItFits].filter(Boolean).join(" ");
 }

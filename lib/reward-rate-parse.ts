@@ -16,7 +16,10 @@ export function parseDisplayRateUnits(displayRate: string | undefined): ParsedDi
   if (!displayRate) return null;
 
   const normalized = displayRate.replace(/,/g, "");
-  const firstMatch = normalized.match(/(\d+(?:\.\d+)?)\s+[a-z ]+?\/\s*rs\s*(\d+(?:\.\d+)?)/i);
+  const spendCurrencyPattern = String.raw`(?:rs|inr|₹)`;
+  const firstMatch = normalized.match(
+    new RegExp(String.raw`(\d+(?:\.\d+)?)\s+[a-z ]+?\/\s*${spendCurrencyPattern}\s*(\d+(?:\.\d+)?)`, "i")
+  );
   if (!firstMatch) return null;
 
   const units = Number(firstMatch[1]);
@@ -26,7 +29,9 @@ export function parseDisplayRateUnits(displayRate: string | undefined): ParsedDi
   const basePerRs100 = (units * 100) / spend;
 
   const tail = normalized.slice(firstMatch.index! + firstMatch[0].length);
-  const thenMatch = tail.match(/then\s+(\d+(?:\.\d+)?)\s+[a-z ]+?\/\s*rs\s*(\d+(?:\.\d+)?)/i);
+  const thenMatch = tail.match(
+    new RegExp(String.raw`then\s+(\d+(?:\.\d+)?)\s+[a-z ]+?\/\s*${spendCurrencyPattern}\s*(\d+(?:\.\d+)?)`, "i")
+  );
   if (!thenMatch) {
     return { basePerRs100, postCapPerRs100: null };
   }

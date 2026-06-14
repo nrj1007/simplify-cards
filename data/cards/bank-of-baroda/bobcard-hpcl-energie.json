@@ -60,7 +60,9 @@
   ],
   "exclusionCodes": [
     "fuel",
-    "cash_advance"
+    "cash_advance",
+    "tax",
+    "fees_and_charges"
   ],
   "milestoneBenefits": [
     "2,000 joining reward points on spending Rs 5,000 or more within 60 days",
