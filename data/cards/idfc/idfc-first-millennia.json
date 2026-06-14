@@ -3,7 +3,9 @@
   "issuer": "IDFC FIRST Bank",
   "name": "IDFC FIRST Millennia Credit Card",
   "network": [
-    "Visa"
+    "Visa",
+    "Mastercard",
+    "RuPay"
   ],
   "joiningFee": 0,
   "annualFee": 0,
@@ -18,13 +20,24 @@
   "rewardType": "reward points",
   "rewards": [
     {
-      "category": "online",
-      "rate": 2.5,
+      "category": "base",
+      "rate": 1.5,
+      "displayCategory": "Other retail spends up to Rs 20,000",
+      "displayRate": "3 Reward Points per INR 200 spent",
       "capMonthly": null
     },
     {
-      "category": "base",
-      "rate": 0.75,
+      "category": "dining, travel, international",
+      "rate": 5.0,
+      "displayCategory": "Dining, Travel, International, Birthday, and incremental spends above Rs 20,000",
+      "displayRate": "10 Reward Points per INR 200 spent",
+      "capMonthly": null
+    },
+    {
+      "category": "utilities, insurance",
+      "rate": 0.5,
+      "displayCategory": "Utility, insurance, FASTag, and railway transactions",
+      "displayRate": "1 Reward Point per INR 200 spent",
       "capMonthly": null
     }
   ],
@@ -36,39 +49,52 @@
     "lifetime free",
     "shopping",
     "movies",
-    "never expiring rewards",
-    "fuel waiver"
+    "rewardz"
   ],
   "exclusions": [
+    "Fuel transactions",
+    "EMI transactions",
+    "Cash withdrawal / cash advance transactions"
+  ],
+  "exclusionCodes": [
     "fuel",
-    "cash withdrawal",
-    "transactions excluded under IDFC FIRST Millennia Credit Card terms"
+    "emi",
+    "cash_advance"
   ],
   "milestoneBenefits": [],
   "additionalBenefits": [
-    "Lifetime free credit card",
-    "Welcome benefits worth up to Rs 1,500",
-    "Up to 10X never-expiring reward points",
-    "300+ merchant offers",
-    "Movie ticket offers",
-    "Fuel surcharge waiver"
+    "Lifetime free credit card with zero joining and annual fees",
+    "4 complimentary railway lounge visits per quarter",
+    "25% off on movie tickets up to Rs 100 per month via District app",
+    "1% fuel surcharge waiver up to Rs 200 per statement cycle",
+    "Reward points are valid for 24 months"
   ],
   "redemption": {
     "statementBalanceValue": 0.25,
-    "pointsExpiryYears": null,
+    "pointsExpiryYears": 2,
     "redemptionFee": 99
   },
   "eligibility": {
     "salaried": [
-      "Annual income greater than Rs 3 lakh"
+      "Age: 21 to 60 years",
+      "Minimum net monthly salary of Rs 25,000"
     ],
     "selfEmployed": [
-      "Annual income greater than Rs 3 lakh"
+      "Age: 21 to 60 years",
+      "Minimum annual ITR of Rs 3,00,000"
     ]
   },
+  "imageUrl": "/images/idfc-first-millennia.webp",
   "sourceUrl": "https://www.idfcfirstbank.com/credit-card",
   "applyUrl": "https://www.idfcfirstbank.com/credit-card",
-  "lastVerified": "2026-05-10",
-  "verificationStatus": "official-catalogue",
+  "lastVerified": "2026-06-14",
+  "verificationStatus": "official-direct",
+  "internalNotes": [
+    "Card details manually reviewed and verified by user on 2026-06-14.",
+    "3X reward points (1.5 per Rs 100 spent) on standard spends up to Rs 20,000 per statement cycle.",
+    "10X reward points (5.0 per Rs 100 spent) on Dining, Travel, International, Birthday spends, and incremental spends above Rs 20,000.",
+    "1X reward points (0.5 per Rs 100 spent) on utility, insurance, FASTag, and railway spends.",
+    "Complimentary railway lounge access is subject to a spend threshold of Rs 20,000 in the previous calendar month."
+  ],
   "popularityScore": 73
 }
