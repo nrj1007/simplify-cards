@@ -24,19 +24,7 @@
       "capMonthly": null
     },
     {
-      "category": "utility bills",
-      "rate": 6.666666666666667,
-      "displayRate": "10 Reward Points / ₹150",
-      "capMonthly": null
-    },
-    {
-      "category": "grocery",
-      "rate": 6.666666666666667,
-      "displayRate": "10 Reward Points / ₹150",
-      "capMonthly": null
-    },
-    {
-      "category": "departmental stores",
+      "category": "utility bills, grocery, departmental stores",
       "rate": 6.666666666666667,
       "displayRate": "10 Reward Points / ₹150",
       "capMonthly": null
