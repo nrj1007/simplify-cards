@@ -69,12 +69,7 @@
   "milestoneBenefits": [
     "Annual fee waiver on spends of Rs 90,000 or more in the previous year"
   ],
-  "additionalBenefits": [
-    "5% cashback on fuel spends up to Rs 200 per month (max Rs 2,000 per transaction)",
-    "5% cashback on telephone bills up to Rs 200 per month (min Rs 750 per transaction via BillPay)",
-    "5% cashback on utility bills up to Rs 100 per month (min Rs 750 per transaction via BillPay)",
-    "1 reward point per Rs 150 spent on other retail spends (worth Rs 0.25 per point)"
-  ],
+  "additionalBenefits": [],
   "redemption": {
     "statementBalanceValue": 0.25,
     "redemptionFee": 99
