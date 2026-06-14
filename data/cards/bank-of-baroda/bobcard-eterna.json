@@ -21,14 +21,14 @@
       "category": "travel, dining, online, international",
       "rate": 15,
       "displayCategory": "Travel, dining, online, and international spends",
-      "displayRate": "15 Reward Points / ₹100",
+      "displayRate": "15 reward points per Rs 100",
       "capMonthly": 5000
     },
     {
       "category": "retail",
       "rate": 3,
       "displayCategory": "Other eligible spends",
-      "displayRate": "3 Reward Points / ₹100",
+      "displayRate": "3 reward points per Rs 100",
       "capMonthly": null
     }
   ],
