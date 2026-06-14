@@ -17,18 +17,17 @@
   "rewardType": "reward points",
   "rewards": [
     {
-      "category": "travel",
-      "rate": 2.5,
-      "capMonthly": 2000
-    },
-    {
-      "category": "dining",
-      "rate": 2.5,
+      "category": "travel, dining, international",
+      "rate": 10,
+      "displayCategory": "Travel, dining, and abroad (international) spends",
+      "displayRate": "10 Reward Points / Rs 100",
       "capMonthly": 2000
     },
     {
       "category": "retail",
-      "rate": 0.5,
+      "rate": 2,
+      "displayCategory": "Other eligible spends",
+      "displayRate": "2 Reward Points / Rs 100",
       "capMonthly": null
     }
   ],
