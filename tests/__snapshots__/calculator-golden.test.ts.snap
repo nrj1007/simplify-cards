@@ -167,8 +167,8 @@ exports[`reward calculator golden (all cards) > computes stable earn for every c
     "moderate": "online:200 dining:200 travel:200 hotels:200 airlines:200 fuel:x grocery:200 utilities:x upi:200 amazon:200 international:200 base:200 rent:x insurance:x education:x gold:x government:x |2000",
   },
   "bobcard-easy": {
-    "high": "online:2000 dining:500 travel:500 hotels:500 airlines:500 fuel:x grocery:2000 utilities:500 upi:500 amazon:500 international:500 base:500 rent:500 insurance:500 education:500 gold:500 government:x |10500",
-    "moderate": "online:313 dining:63 travel:63 hotels:63 airlines:63 fuel:x grocery:313 utilities:63 upi:63 amazon:63 international:63 base:63 rent:63 insurance:63 education:63 gold:63 government:x |1438",
+    "high": "online:2000 dining:2000 travel:500 hotels:500 airlines:500 fuel:x grocery:500 utilities:2000 upi:500 amazon:500 international:500 base:500 rent:500 insurance:500 education:500 gold:500 government:x |12000",
+    "moderate": "online:313 dining:313 travel:63 hotels:63 airlines:63 fuel:x grocery:63 utilities:313 upi:63 amazon:63 international:63 base:63 rent:63 insurance:63 education:63 gold:63 government:x |1688",
   },
   "bobcard-eterna": {
     "high": "online:5000 dining:5000 travel:5000 hotels:1500 airlines:1500 fuel:x grocery:1500 utilities:1500 upi:1500 amazon:1500 international:1500 base:1500 rent:1500 insurance:1500 education:1500 gold:1500 government:x |33000",
