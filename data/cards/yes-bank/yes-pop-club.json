@@ -91,7 +91,51 @@
   ],
   "redemption": {
     "statementBalanceValue": null,
-    "pointsExpiryYears": null
+    "pointsExpiryYears": null,
+    "voucherRedemptions": [
+      {
+        "partner": "Blinkit",
+        "programme": "POP Reward Store",
+        "ratio": "1:1",
+        "valuePerPoint": 0.25,
+        "note": "Redeemable for Blinkit vouchers"
+      },
+      {
+        "partner": "Zomato",
+        "programme": "POP Reward Store",
+        "ratio": "1:1",
+        "valuePerPoint": 0.25,
+        "note": "Redeemable for Zomato vouchers"
+      },
+      {
+        "partner": "Cult",
+        "programme": "POP Reward Store",
+        "ratio": "1:1",
+        "valuePerPoint": 0.25,
+        "note": "Redeemable for Cult vouchers"
+      },
+      {
+        "partner": "Cleartrip",
+        "programme": "POP Reward Store",
+        "ratio": "1:1",
+        "valuePerPoint": 0.25,
+        "note": "Redeemable for Cleartrip vouchers"
+      },
+      {
+        "partner": "Rapido",
+        "programme": "POP Reward Store",
+        "ratio": "1:1",
+        "valuePerPoint": 0.25,
+        "note": "Redeemable for Rapido vouchers"
+      },
+      {
+        "partner": "Pharmeasy",
+        "programme": "POP Reward Store",
+        "ratio": "1:1",
+        "valuePerPoint": 0.25,
+        "note": "Redeemable for Pharmeasy vouchers"
+      }
+    ]
   },
   "eligibility": {
     "salaried": [
@@ -110,7 +154,8 @@
   "verificationStatus": "official-direct",
   "internalNotes": [
     "Card details manually reviewed and verified by user on 2026-06-14.",
-    "1 POPcoin = Rs 1, redeemable on POPclub app.",
+    "1 POPcoin = Rs 1 on POPclub app (direct purchase/brand discount).",
+    "1 POPcoin = Rs 0.25 when redeemed for anchor brand vouchers (Blinkit, Zomato, Cult, Cleartrip, Rapido, Pharmeasy) on POP Reward Store.",
     "Standard RuPay UPI transactions earn 2 POPcoins per Rs 100.",
     "UPI transactions via POP UPI App earn 7 POPcoins per Rs 100."
   ]
