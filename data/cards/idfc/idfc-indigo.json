@@ -20,17 +20,32 @@
   "rewards": [
     {
       "category": "airlines",
-      "rate": 22,
+      "rate": 6.0,
+      "displayCategory": "IndiGo flight bookings",
+      "displayRate": "6 IndiGo BluChips per INR 100 spent",
       "capMonthly": null
     },
     {
-      "category": "upi",
-      "rate": 3,
+      "category": "base",
+      "rate": 3.0,
+      "displayCategory": "Other eligible retail spends",
+      "displayRate": "3 IndiGo BluChips per INR 100 spent",
+      "capMonthly": null
+    },
+    {
+      "category": "upi, insurance, utilities, fuel, rent",
+      "rate": 0.5,
+      "displayCategory": "UPI, insurance, utilities, fuel, rent, and wallet spends",
+      "displayRate": "0.5 IndiGo BluChips per INR 100 spent",
       "capMonthly": null
     }
   ],
-  "loungeDomestic": 8,
+  "loungeDomestic": 0,
   "loungeInternational": 0,
+  "lounge": {
+    "domestic": [],
+    "international": []
+  },
   "forexMarkup": 1.49,
   "tags": [
     "indigo",
@@ -43,37 +58,91 @@
     "low forex"
   ],
   "exclusions": [
-    "cash withdrawal",
-    "transactions excluded under IndiGo IDFC FIRST Credit Card terms"
+    "EMI transactions",
+    "Cash withdrawal / cash advance transactions"
+  ],
+  "exclusionCodes": [
+    "emi",
+    "cash_advance"
+  ],
+  "milestones": [
+    {
+      "threshold": 200000,
+      "period": "annual",
+      "value": 5000,
+      "kind": "voucher",
+      "label": "5,000 IndiGo BluChips on annual spend of Rs 2 Lakh"
+    },
+    {
+      "threshold": 500000,
+      "period": "annual",
+      "value": 5000,
+      "kind": "voucher",
+      "label": "5,000 IndiGo BluChips on annual spend of Rs 5 Lakh"
+    },
+    {
+      "threshold": 800000,
+      "period": "annual",
+      "value": 5000,
+      "kind": "voucher",
+      "label": "5,000 IndiGo BluChips on annual spend of Rs 8 Lakh"
+    },
+    {
+      "threshold": 1000000,
+      "period": "annual",
+      "value": 5000,
+      "kind": "voucher",
+      "label": "5,000 IndiGo BluChips on annual spend of Rs 10 Lakh"
+    },
+    {
+      "threshold": 1200000,
+      "period": "annual",
+      "value": 5000,
+      "kind": "voucher",
+      "label": "5,000 IndiGo BluChips on annual spend of Rs 12 Lakh"
+    }
   ],
   "milestoneBenefits": [
-    "Vouchers of 5,000 IndiGo BluChips at annual spending milestones of Rs 2 lakh, Rs 5 lakh, Rs 8 lakh, Rs 10 lakh and Rs 12 lakh"
+    "Vouchers of 5,000 IndiGo BluChips at annual spending milestones of Rs 2 Lakh, Rs 5 Lakh, Rs 8 Lakh, Rs 10 Lakh and Rs 12 Lakh (Up to 25,000 BluChips annually)"
   ],
   "additionalBenefits": [
-    "Dual credit card on Mastercard and RuPay networks",
-    "Earn up to 22 IndiGo BluChips per Rs 100",
-    "Welcome benefits include voucher of 5,000 IndiGo BluChips plus 1 IndiGo meal voucher",
-    "Voucher of 3,000 IndiGo BluChips on spending Rs 1 lakh or more in first 90 days",
-    "1.49% forex markup",
+    "Dual credit card issued on Mastercard and RuPay networks",
+    "Welcome benefit of 5,000 IndiGo BluChips voucher plus 1 complimentary IndiGo meal voucher upon fee payment",
+    "Activation bonus of 3,000 IndiGo BluChips on spending Rs 1 Lakh or more within the first 90 days",
+    "Complimentary Mastercard World/Elite privileges including golf rounds/lessons (4 rounds and 12 lessons annually)",
+    "Low forex markup of 1.49%",
     "Up to Rs 25,000 reimbursement per year for non-refundable flight and hotel cancellations",
-    "RuPay card enables UPI payments"
+    "RuPay network card enables UPI payments"
   ],
   "redemption": {
-    "statementBalanceValue": null,
+    "statementBalanceValue": 1.0,
     "pointsExpiryYears": null,
     "redemptionFee": 99
   },
   "eligibility": {
     "salaried": [
-      "Eligibility is subject to IDFC FIRST Bank approval criteria"
+      "Age: 21 to 65 years",
+      "Minimum net monthly salary of Rs 1,50,000 for unsecured variant",
+      "FD-backed variant available with minimum Fixed Deposit of Rs 1 Lakh"
     ],
     "selfEmployed": [
-      "Eligibility is subject to IDFC FIRST Bank approval criteria"
+      "Age: 21 to 65 years",
+      "Minimum annual ITR of Rs 18,00,000 for unsecured variant",
+      "FD-backed variant available with minimum Fixed Deposit of Rs 1 Lakh"
     ]
   },
-  "sourceUrl": "https://www.idfcfirstbank.com/personal-banking/payments/cards/co-branded-card",
+  "imageUrl": "/images/idfc-indigo.webp",
+  "sourceUrl": "https://www.idfcfirstbank.com/personal-banking/payments/cards/co-branded-card/indigo-credit-card",
   "applyUrl": "https://www.idfcfirstbank.com/credit-card",
-  "lastVerified": "2026-05-10",
-  "verificationStatus": "official-mixed",
+  "lastVerified": "2026-06-14",
+  "verificationStatus": "official-direct",
+  "internalNotes": [
+    "Card details manually reviewed and verified by user on 2026-06-14.",
+    "IndiGo co-branded credit card. Earns IndiGo BluChips directly credited to user's 6E Rewards account.",
+    "Earns 6 BluChips per Rs 100 spent on IndiGo flights, and 3 BluChips per Rs 100 spent on other retail transactions.",
+    "UPI, insurance, utilities, fuel, rent, and wallet spends earn a reduced rate of 0.5 BluChips per Rs 100 spent.",
+    "This card does not offer airport lounge access. It offers golf privileges (4 rounds and 12 lessons annually) via Mastercard.",
+    "Fee waiver option available by opening a Fixed Deposit of Rs 1 Lakh with the bank."
+  ],
   "popularityScore": 56
 }

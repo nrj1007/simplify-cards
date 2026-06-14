@@ -5,9 +5,9 @@
   "network": [
     "RuPay"
   ],
-  "joiningFee": 499,
+  "joiningFee": 0,
   "annualFee": 499,
-  "feeWaiverSpend": null,
+  "feeWaiverSpend": 100000,
   "bestFor": [
     "secured card",
     "upi",
@@ -19,17 +19,25 @@
   "rewards": [
     {
       "category": "upi",
-      "rate": 1,
-      "capMonthly": null
+      "rate": 1.0,
+      "displayCategory": "UPI spends via IDFC FIRST Bank Mobile App",
+      "displayRate": "1% cashback",
+      "capMonthly": 500
     },
     {
-      "category": "online",
-      "rate": 5,
-      "capMonthly": null
+      "category": "base, online, utilities, insurance, fuel",
+      "rate": 0.5,
+      "displayCategory": "Other spends (including offline, online, utility, insurance, fuel, and third-party UPI)",
+      "displayRate": "0.5% cashback",
+      "capMonthly": 500
     }
   ],
   "loungeDomestic": 0,
   "loungeInternational": 0,
+  "lounge": {
+    "domestic": [],
+    "international": []
+  },
   "forexMarkup": 3.5,
   "tags": [
     "earn",
@@ -41,34 +49,51 @@
     "virtual card"
   ],
   "exclusions": [
-    "cash withdrawal",
-    "transactions excluded under IDFC FIRST EA₹N Credit Card terms"
+    "EMI transactions",
+    "Cash withdrawal / cash advance transactions"
   ],
+  "exclusionCodes": [
+    "emi",
+    "cash_advance"
+  ],
+  "milestones": [],
   "milestoneBenefits": [],
   "additionalBenefits": [
-    "Fixed deposit backed virtual RuPay credit card",
-    "No income document required",
-    "Up to 1% cashback on UPI spends",
-    "Up to 5% cashback on online spends as per catalogue positioning",
-    "Welcome offer of 100% cashback up to Rs 200",
-    "Designed for first-time and credit-constrained users"
+    "Fixed deposit backed virtual RuPay credit card (minimum FD Rs 5,000)",
+    "No income proof or credit score documentation required",
+    "1% cashback on UPI spends made via IDFC FIRST Bank Mobile App",
+    "0.5% cashback on other UPI spends, online spends, utility, insurance, and fuel spends",
+    "Cashback is automatically credited to the card account in the next cycle (capped at Rs 500 per cycle)",
+    "Complimentary Roadside Assistance (RSA) worth Rs 1,399",
+    "Personal accident cover of Rs 2,00,000 and lost card liability of Rs 25,000"
   ],
   "redemption": {
-    "statementBalanceValue": 1,
+    "statementBalanceValue": 1.0,
     "pointsExpiryYears": null,
-    "redemptionFee": 99
+    "redemptionFee": 0
   },
   "eligibility": {
     "salaried": [
-      "No income document required; fixed deposit backed card"
+      "Age: 18 to 80 years",
+      "Fixed Deposit backed card; minimum FD amount of Rs 5,000"
     ],
     "selfEmployed": [
-      "No income document required; fixed deposit backed card"
+      "Age: 18 to 80 years",
+      "Fixed Deposit backed card; minimum FD amount of Rs 5,000"
     ]
   },
-  "sourceUrl": "https://www.idfcfirstbank.com/credit-card",
+  "imageUrl": "/images/idfc-first-earn.webp",
+  "sourceUrl": "https://www.idfcfirstbank.com/credit-card/secured/first-earn",
   "applyUrl": "https://www.idfcfirstbank.com/credit-card",
-  "lastVerified": "2026-05-10",
-  "verificationStatus": "official-catalogue",
+  "lastVerified": "2026-06-14",
+  "verificationStatus": "official-direct",
+  "internalNotes": [
+    "Card details manually reviewed and verified by user on 2026-06-14.",
+    "Secured credit card backed by fixed deposit (min Rs 5,000 FD). No credit check or salary slip required.",
+    "1% cashback on UPI transactions made specifically via IDFC FIRST Bank mobile app QR scans.",
+    "0.5% cashback on other spends including utility, insurance, fuel, online/offline, and other third-party UPI apps.",
+    "Combined monthly cashback is capped at Rs 500 per statement cycle. EMI transactions are excluded.",
+    "Annual fee of Rs 499 is waived on spending Rs 1,00,000 in the previous anniversary year."
+  ],
   "popularityScore": 62
 }

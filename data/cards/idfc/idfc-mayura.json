@@ -18,13 +18,44 @@
   "rewardType": "reward points",
   "rewards": [
     {
-      "category": "retail",
-      "rate": 2.5,
+      "category": "base",
+      "rate": 3.3333,
+      "displayCategory": "Other retail spends up to Rs 20,000",
+      "displayRate": "5 Reward Points per Rs 150 spent",
+      "capMonthly": null
+    },
+    {
+      "category": "dining, travel, online, international",
+      "rate": 6.6667,
+      "displayCategory": "Dining, Travel, Online, International, Birthday, and incremental spends above Rs 20,000",
+      "displayRate": "10 Reward Points per Rs 150 spent",
+      "capMonthly": null
+    },
+    {
+      "category": "rent, education, government",
+      "rate": 2.0,
+      "displayCategory": "Rent, education, wallet load, and government spends",
+      "displayRate": "3 Reward Points per Rs 150 spent",
+      "capMonthly": null
+    },
+    {
+      "category": "utilities, insurance",
+      "rate": 0.6667,
+      "displayCategory": "Utility, insurance, FASTag, and railway spends",
+      "displayRate": "1 Reward Point per Rs 150 spent",
       "capMonthly": null
     }
   ],
-  "loungeDomestic": 12,
-  "loungeInternational": 6,
+  "loungeDomestic": 16,
+  "loungeInternational": 16,
+  "lounge": {
+    "domestic": [
+      "4 complimentary domestic airport lounge visits per quarter (including 1 guest visit), subject to a minimum spend of Rs 20,000 in the previous calendar month."
+    ],
+    "international": [
+      "4 complimentary international airport lounge visits per quarter, subject to a minimum spend of Rs 20,000 in the previous calendar month."
+    ]
+  },
   "forexMarkup": 0,
   "tags": [
     "mayura",
@@ -36,34 +67,72 @@
     "movies"
   ],
   "exclusions": [
-    "cash withdrawal",
-    "transactions excluded under IDFC FIRST Mayura Credit Card terms"
+    "Fuel transactions",
+    "EMI transactions",
+    "Cash withdrawal / cash advance transactions"
   ],
-  "milestoneBenefits": [],
+  "exclusionCodes": [
+    "fuel",
+    "emi",
+    "cash_advance"
+  ],
+  "milestones": [
+    {
+      "threshold": 800000,
+      "period": "annual",
+      "value": 1875,
+      "kind": "points",
+      "label": "7,500 Reward Points on annual spending of Rs 8 Lakh"
+    },
+    {
+      "threshold": 1500000,
+      "period": "annual",
+      "value": 3750,
+      "kind": "points",
+      "label": "15,000 Reward Points on annual spending of Rs 15 Lakh"
+    }
+  ],
+  "milestoneBenefits": [
+    "Earn 7,500 Reward Points on annual spending of Rs 8 Lakh",
+    "Earn 15,000 Reward Points on annual spending of Rs 15 Lakh"
+  ],
   "additionalBenefits": [
-    "Premium metal credit card",
-    "Cashback up to Rs 4,000 as welcome benefit",
-    "Up to 10X reward points",
-    "Zero forex markup",
-    "Complimentary golf rounds and airport lounge visits",
-    "Movie benefit worth Rs 1,000 every month"
+    "Premium metal credit card with peacock design",
+    "Welcome benefit of up to 12,000 Reward Points upon fee realization and meeting spend milestones",
+    "4 complimentary railway lounge visits per quarter",
+    "Complimentary golf privileges (up to 40 rounds/lessons per year)",
+    "Buy 1 Get 1 free movie ticket offer up to Rs 500 twice a month via District app",
+    "1% fuel surcharge waiver up to Rs 300 per statement cycle at HPCL stations",
+    "Reward points are valid for 24 months"
   ],
   "redemption": {
     "statementBalanceValue": 0.25,
-    "pointsExpiryYears": null,
+    "pointsExpiryYears": 2,
     "redemptionFee": 99
   },
   "eligibility": {
     "salaried": [
-      "Annual income greater than Rs 25 lakh"
+      "Age: 21 to 65 years",
+      "Minimum annual income of Rs 25,000,000 (Rs 25 Lakh)"
     ],
     "selfEmployed": [
-      "Annual income greater than Rs 25 lakh"
+      "Age: 21 to 65 years",
+      "Minimum annual income of Rs 25,000,000 (Rs 25 Lakh)"
     ]
   },
-  "sourceUrl": "https://www.idfcfirstbank.com/credit-card",
+  "imageUrl": "/images/idfc-mayura.webp",
+  "sourceUrl": "https://www.idfcfirstbank.com/credit-card/mayura",
   "applyUrl": "https://www.idfcfirstbank.com/credit-card",
-  "lastVerified": "2026-05-10",
-  "verificationStatus": "official-catalogue",
+  "lastVerified": "2026-06-14",
+  "verificationStatus": "official-direct",
+  "internalNotes": [
+    "Card details manually reviewed and verified by user on 2026-06-14.",
+    "5X reward points (3.33 points per Rs 100 spent) up to Rs 20,000 per statement cycle.",
+    "10X reward points (6.67 points per Rs 100 spent) on incremental spends above Rs 20,000 and birthday spends.",
+    "3X reward points (2.0 points per Rs 100 spent) on rent, education, wallet load, and government spends.",
+    "1X reward points (0.67 points per Rs 100 spent) on utilities, insurance, railways, and FASTag recharges.",
+    "Airport lounge access requires a minimum spend of Rs 20,000 in the previous calendar month.",
+    "Buy 1 Get 1 movie ticket offer is subject to a spend threshold of Rs 20,000 in the previous calendar month."
+  ],
   "popularityScore": 66
 }
