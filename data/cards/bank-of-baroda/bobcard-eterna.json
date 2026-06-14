@@ -61,10 +61,6 @@
     "20,000 bonus reward points on annual spends of Rs 5,00,000"
   ],
   "additionalBenefits": [
-    "15 reward points per Rs 100 on travel, dining, online and international transactions",
-    "3 reward points per Rs 100 on other categories",
-    "Reward points redeemable as cashback at 1 reward point = Rs 0.25",
-    "1% fuel surcharge waiver on fuel transactions between Rs 400 and Rs 5,000, capped at Rs 250 per statement cycle",
     "Free personal accident death cover: air Rs 1 crore, non-air Rs 10 lakh",
     "Up to 3 lifetime free add-on cards"
   ],
@@ -74,17 +70,24 @@
   },
   "eligibility": {
     "salaried": [
-      "Resident Indian primary cardholder between 21 and 65 years",
-      "Income of Rs 12 lakh per annum or more"
+      "Resident Indian",
+      "Age between 21 and 65 years",
+      "Annual income of Rs 12 lakh or more"
     ],
     "selfEmployed": [
-      "Resident Indian primary cardholder between 21 and 65 years",
-      "Income of Rs 12 lakh per annum or more"
+      "Resident Indian",
+      "Age between 21 and 65 years",
+      "Annual income of Rs 12 lakh or more"
     ]
   },
   "sourceUrl": "https://bankofbaroda.bank.in/personal-banking/digital-products/cards/credit-cards/eterna",
   "applyUrl": "https://bankofbaroda.bank.in/personal-banking/digital-products/cards/credit-cards/eterna",
-  "lastVerified": "2026-05-10",
+  "lastVerified": "2026-06-14",
   "verificationStatus": "official-direct",
-  "popularityScore": 76
+  "popularityScore": 76,
+  "internalNotes": [
+    "Audited against the official Bank of Baroda Eterna product page on 2026-06-14.",
+    "The current product page explicitly confirms milestone rewards, cashback redemption at 1 reward point = Rs 0.25, fuel surcharge waiver, insurance cover, and the Rs 12 lakh annual income eligibility threshold.",
+    "The current captured page copy highlights travel, dining, fitness, and movie or shopping benefits, but does not expose the detailed accelerated reward table in readable text; the existing reward-category mapping was retained pending a newer MITC or reward-sheet link."
+  ]
 }
