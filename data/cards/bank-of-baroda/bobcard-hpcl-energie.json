@@ -45,6 +45,11 @@
   ],
   "loungeDomestic": 4,
   "loungeInternational": 0,
+  "lounge": {
+    "domestic": [
+      "4 complimentary domestic airport lounge visits per year, limited to 1 visit per quarter."
+    ]
+  },
   "forexMarkup": 3.5,
   "tags": [
     "bobcard",
@@ -65,12 +70,12 @@
     "Renewal fee waiver on annual spends of Rs 50,000"
   ],
   "additionalBenefits": [
-    "24 reward points per Rs 150 on HPCL fuel and LPG purchases through eligible modes",
-    "10 reward points per Rs 150 on utility, grocery and departmental store spends",
-    "2 reward points per Rs 150 on other categories",
-    "1% fuel surcharge waiver on HPCL fuel transactions between Rs 400 and Rs 5,000",
-    "4 complimentary domestic airport lounge visits per year",
     "25% off up to Rs 100 on Paytm Movies on minimum 2 tickets per transaction"
+  ],
+  "additionalDetails": [
+    "The headline 5% fuel-savings framing combines 24 reward points per Rs 150 at HPCL with the 1% fuel surcharge waiver on eligible HPCL fuel spends.",
+    "Fuel savings also apply on eligible LPG purchases and HP Pay QR fuel transactions; direct payment mode on HP Pay does not qualify.",
+    "HPCL additionally offers 1.5% cashback as Payback points on fuel purchases through the HP Pay app and a Rs 100 joining benefit on the first recharge of at least Rs 1,000."
   ],
   "redemption": {
     "statementBalanceValue": 0.25,
@@ -78,17 +83,24 @@
   },
   "eligibility": {
     "salaried": [
-      "Resident Indian primary cardholder between 21 and 65 years",
-      "Income of Rs 3.6 lakh per annum or more"
+      "Resident Indian",
+      "Age between 21 and 65 years",
+      "Annual income of Rs 3.6 lakh or more"
     ],
     "selfEmployed": [
-      "Resident Indian primary cardholder between 21 and 65 years",
-      "Income of Rs 4.8 lakh per annum or more"
+      "Resident Indian",
+      "Age between 21 and 65 years",
+      "Annual income of Rs 4.8 lakh or more"
     ]
   },
   "sourceUrl": "https://bankofbaroda.bank.in/hi-in/personal-banking/digital-products/cards/credit-cards/hpcl-bob-energie-credit-card",
   "applyUrl": "https://bankofbaroda.bank.in/personal-banking/digital-products/cards/credit-cards",
-  "lastVerified": "2026-05-10",
+  "lastVerified": "2026-06-14",
   "verificationStatus": "official-direct",
-  "popularityScore": 73
+  "popularityScore": 73,
+  "internalNotes": [
+    "Audited against the official Bank of Baroda HPCL Energie product page on 2026-06-14.",
+    "The current official page confirms 24 reward points per Rs 150 on HPCL fuel spends, 10 reward points per Rs 150 on utilities, grocery, and departmental stores, 2 reward points per Rs 150 on other eligible spends, and 4 domestic lounge visits at 1 per quarter.",
+    "HP Pay direct payment mode is excluded from the QR-based fuel benefit wording on the official page."
+  ]
 }
