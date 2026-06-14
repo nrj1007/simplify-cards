@@ -18,18 +18,30 @@
   "rewards": [
     {
       "category": "travel",
-      "rate": 1.25,
+      "rate": 5,
+      "displayCategory": "International and retail fashion spends",
+      "displayRate": "5 reward points / Rs 100 spent",
       "capMonthly": null
     },
     {
       "category": "base",
-      "rate": 0.5,
+      "rate": 2,
+      "displayCategory": "Other retail spends",
+      "displayRate": "2 reward points / Rs 100 spent",
       "capMonthly": null
     }
   ],
   "popularityScore": 74,
   "loungeDomestic": 16,
   "loungeInternational": 24,
+  "lounge": {
+    "domestic": [
+      "4 complimentary domestic lounge visits per calendar quarter"
+    ],
+    "international": [
+      "2 complimentary international lounge visits per month for FUM qualified clients"
+    ]
+  },
   "forexMarkup": 3.5,
   "tags": [
     "standard chartered",
@@ -41,16 +53,17 @@
     "priority banking"
   ],
   "exclusions": [
-    "reserved for Priority Banking customers",
-    "international lounge benefits are FUM-qualified"
+    "Cash withdrawal / cash advance transactions",
+    "Fees and charges (including annual fee and finance charges)"
   ],
+  "exclusionCodes": [
+    "cash_advance"
+  ],
+  "milestones": [],
   "milestoneBenefits": [],
   "additionalBenefits": [
-    "Complimentary for Priority Banking relationship",
-    "5 reward points for every INR 100 spent overseas or on retail fashion",
-    "2 reward points for every INR 100 on all other spends",
-    "4 complimentary domestic lounge accesses per calendar quarter",
-    "2 complimentary international lounge accesses per month for FUM qualified clients"
+    "Complimentary for Standard Chartered Priority Banking relationship clients",
+    "Complimentary Priority Pass membership for international lounge access"
   ],
   "redemption": {
     "statementBalanceValue": 0.25,
@@ -64,8 +77,16 @@
       "Priority Banking relationship and bank approval required"
     ]
   },
+  "imageUrl": "/images/sc-priority-visa-infinite.webp",
   "sourceUrl": "https://www.sc.com/in/credit-cards/visa-infinite-card",
   "applyUrl": "https://www.sc.com/in/credit-cards/visa-infinite-card",
-  "lastVerified": "2026-05-11",
-  "verificationStatus": "official-direct"
+  "lastVerified": "2026-06-14",
+  "verificationStatus": "official-direct",
+  "internalNotes": [
+    "Card details manually reviewed and verified by user on 2026-06-14.",
+    "Earns 5 reward points per Rs 100 spent on overseas or retail fashion transactions (1.25% return value). 1 point = Rs 0.25.",
+    "Earns 2 reward points per Rs 100 spent on other transactions (0.50% return value).",
+    "Complimentary domestic lounge access (4 per quarter) is provided unconditionally.",
+    "Complimentary international lounge access (2 per month via Priority Pass) is provided only for FUM (Funds Under Management) qualified Priority Banking clients."
+  ]
 }

@@ -7,7 +7,7 @@
   ],
   "joiningFee": 999,
   "annualFee": 999,
-  "feeWaiverSpend": null,
+  "feeWaiverSpend": 120000,
   "bestFor": [
     "supermarkets",
     "shopping",
@@ -18,11 +18,15 @@
     {
       "category": "grocery",
       "rate": 5,
-      "capMonthly": null
+      "displayCategory": "Supermarket & Departmental store spends (min transaction Rs 1,000)",
+      "displayRate": "5% cashback (up to Rs 150/txn)",
+      "capMonthly": 500
     },
     {
       "category": "base",
-      "rate": 0.5,
+      "rate": 2,
+      "displayCategory": "Other retail spends",
+      "displayRate": "3 reward points / Rs 150 spent",
       "capMonthly": null
     }
   ],
@@ -38,12 +42,18 @@
     "cashback"
   ],
   "exclusions": [
-    "supermarket cashback and reward treatment follow current Manhattan product terms"
+    "Cash withdrawal / cash advance transactions",
+    "Fees and charges (including annual fee and finance charges)"
   ],
-  "milestoneBenefits": [],
+  "exclusionCodes": [
+    "cash_advance"
+  ],
+  "milestones": [],
+  "milestoneBenefits": [
+    "Annual fee waiver on spends of Rs 1,20,000 or more in the previous year"
+  ],
   "additionalBenefits": [
-    "5% cashback at supermarkets",
-    "3x rewards for every other purchase according to current Standard Chartered product lineup"
+    "1% fuel surcharge waiver at authorized pumps"
   ],
   "redemption": {
     "statementBalanceValue": 0.25,
@@ -57,8 +67,15 @@
       "Eligibility is subject to Standard Chartered approval criteria"
     ]
   },
-  "sourceUrl": "https://www.sc.com/in/credit-cards/",
-  "applyUrl": "https://www.sc.com/in/credit-cards/",
-  "lastVerified": "2026-05-11",
-  "verificationStatus": "official-indexed"
+  "imageUrl": "/images/sc-manhattan-platinum.webp",
+  "sourceUrl": "https://www.sc.com/in/credit-cards/manhattan-platinum-card/",
+  "applyUrl": "https://www.sc.com/in/credit-cards/manhattan-platinum-card/",
+  "lastVerified": "2026-06-14",
+  "verificationStatus": "official-direct",
+  "internalNotes": [
+    "Card details manually reviewed and verified by user on 2026-06-14.",
+    "5% cashback applies on grocery, supermarket, and departmental store purchases of Rs 1,000 or more.",
+    "Groceries cashback is capped at Rs 150 per transaction and Rs 500 per calendar month.",
+    "Other spends earn 3 reward points per Rs 150 spent (effectively 0.5% return value)."
+  ]
 }

@@ -17,17 +17,23 @@
   "rewards": [
     {
       "category": "fuel",
-      "rate": 0.83,
+      "rate": 3.3333333333333335,
+      "displayCategory": "Fuel spends",
+      "displayRate": "5 reward points / Rs 150 spent",
       "capMonthly": null
     },
     {
       "category": "dining",
-      "rate": 0.83,
+      "rate": 3.3333333333333335,
+      "displayCategory": "Dining spends at fine-dining outlets",
+      "displayRate": "5 reward points / Rs 150 spent",
       "capMonthly": null
     },
     {
       "category": "base",
-      "rate": 0.17,
+      "rate": 0.6666666666666666,
+      "displayCategory": "Other retail spends",
+      "displayRate": "1 reward point / Rs 150 spent",
       "capMonthly": null
     }
   ],
@@ -43,29 +49,39 @@
     "lifetime free"
   ],
   "exclusions": [
-    "one-time fee of INR 250 plus GST applies if spend of INR 500 or more is not done within 30 days from issuance"
+    "Cash withdrawal / cash advance transactions",
+    "Fees and charges (including annual fee and finance charges)"
   ],
+  "exclusionCodes": [
+    "cash_advance"
+  ],
+  "milestones": [],
   "milestoneBenefits": [],
   "additionalBenefits": [
-    "5 reward points for every INR 150 spent at fine-dining outlets",
-    "5 reward points for every INR 150 spent on fuel",
-    "1 reward point for every INR 150 spent on all other categories",
-    "Lifetime-free style acquisition if first-30-day spend condition is met"
+    "1% fuel surcharge waiver at authorized pumps",
+    "First-year and renewal fee waived on spending Rs 500 or more within the first 30 days of card issuance"
   ],
   "redemption": {
-    "statementBalanceValue": 0.17,
+    "statementBalanceValue": 0.25,
     "redemptionFee": 99
   },
   "eligibility": {
     "salaried": [
-      "Applicant age should be between 18 and 65 years"
+      "Age: 18 to 65 years"
     ],
     "selfEmployed": [
-      "Applicant age should be between 18 and 67 years"
+      "Age: 18 to 67 years"
     ]
   },
+  "imageUrl": "/images/sc-platinum-rewards.webp",
   "sourceUrl": "https://www.sc.com/in/credit-cards/platinum-rewards/",
   "applyUrl": "https://www.sc.com/in/credit-cards/platinum-rewards/",
-  "lastVerified": "2026-05-11",
-  "verificationStatus": "official-direct"
+  "lastVerified": "2026-06-14",
+  "verificationStatus": "official-direct",
+  "internalNotes": [
+    "Card details manually reviewed and verified by user on 2026-06-14.",
+    "Earns 5 reward points per Rs 150 spent on fuel and fine dining (0.83% return value). 1 point = Rs 0.25.",
+    "All other retail spends earn 1 reward point per Rs 150 spent (0.17% return value).",
+    "Joining fee of Rs 250 is waived if Rs 500 or more is spent within the first 30 days of card issuance. This also waives the subsequent annual fees, effectively making it lifetime free under this condition."
+  ]
 }
