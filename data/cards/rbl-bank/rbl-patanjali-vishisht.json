@@ -3,73 +3,87 @@
   "issuer": "RBL Bank",
   "name": "Patanjali RBL Bank Vishisht Credit Card",
   "network": [
-    "Visa"
+    "Visa",
+    "RuPay"
   ],
-  "joiningFee": 1499,
-  "annualFee": 1499,
-  "feeWaiverSpend": 200000,
+  "joiningFee": 499,
+  "annualFee": 499,
+  "feeWaiverSpend": 150000,
   "bestFor": [
-    "grocery",
-    "dining",
     "co-branded",
-    "premium everyday"
+    "grocery",
+    "entry level"
   ],
   "rewardType": "cashback",
   "rewards": [
     {
       "category": "grocery",
-      "rate": 7,
-      "capMonthly": 750
-    },
-    {
-      "category": "dining",
-      "rate": 5,
-      "capMonthly": null
+      "displayCategory": "Patanjali online & offline spends",
+      "rate": 10,
+      "displayRate": "10% Cashback",
+      "capMonthly": 500
     },
     {
       "category": "base",
-      "rate": 1,
+      "displayCategory": "Other eligible retail spends",
+      "rate": 0.25,
+      "displayRate": "1 Reward Point / Rs 100 spent",
       "capMonthly": null
     }
   ],
   "popularityScore": 71,
-  "loungeDomestic": 4,
+  "loungeDomestic": 0,
   "loungeInternational": 0,
+  "lounge": {},
   "forexMarkup": 3.5,
   "tags": [
     "rbl",
     "patanjali",
     "vishisht",
     "grocery",
-    "dining",
     "co-branded"
   ],
   "exclusions": [
-    "accelerated cashback on Patanjali ecosystem and selected categories follows card terms",
-    "fuel",
-    "cash advances"
+    "Fuel transactions",
+    "Cash advance transactions",
+    "EMI transactions"
   ],
+  "exclusionCodes": [
+    "fuel",
+    "cash_advance",
+    "emi"
+  ],
+  "milestones": [],
   "milestoneBenefits": [
-    "Annual fee waiver on eligible yearly spends of Rs 2,00,000"
+    "Annual fee waiver on annual spends of ₹1.5 Lakhs or more"
   ],
   "additionalBenefits": [
-    "Higher cashback on Patanjali and everyday-use categories than Swarn variant",
-    "Domestic lounge access",
-    "Fuel surcharge waiver on eligible transactions"
+    "Welcome benefit of 3,000 Reward Points (worth ₹750) on first transaction of ₹1,000 or more within 30 days of card issuance"
+  ],
+  "additionalDetails": [
+    "Redemption fee of ₹99 + GST applies per redemption request.",
+    "Fuel surcharge waiver of 1% at all fuel stations for transactions between ₹400 and ₹5,000 (Max waiver ₹100/month).",
+    "10% cashback is applicable on Patanjali spends for transactions of ₹500 or more."
   ],
   "redemption": {
     "statementBalanceValue": 1
   },
   "eligibility": {
     "salaried": [
-      "Eligibility is subject to RBL Bank approval criteria"
+      "Minimum age: 21 years, Maximum age: 70 years",
+      "Stable income source meeting bank criteria"
     ],
     "selfEmployed": [
-      "Eligibility is subject to RBL Bank approval criteria"
+      "Minimum age: 21 years, Maximum age: 70 years",
+      "Stable business income meeting bank criteria"
     ]
   },
   "sourceUrl": "https://www.rblbank.com/personal-banking/cards/credit-cards/patanjali-rbl-bank-vishisht-credit-card",
   "applyUrl": "https://www.rblbank.com/personal-banking/cards/credit-cards/patanjali-rbl-bank-vishisht-credit-card",
-  "lastVerified": "2026-05-11",
-  "verificationStatus": "official-direct"
+  "internalNotes": [
+    "Card details manually reviewed and verified by user on 2026-06-14. 10% cashback on Patanjali spends is capped at ₹500 per month. Annual fee is ₹499. The card is offered on both RuPay and Visa networks, allowing UPI linkage for the RuPay variant."
+  ],
+  "lastVerified": "2026-06-14",
+  "verificationStatus": "official-direct",
+  "imageUrl": "/images/rbl-patanjali-vishisht.webp"
 }

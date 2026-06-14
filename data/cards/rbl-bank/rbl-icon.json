@@ -18,23 +18,34 @@
   "rewards": [
     {
       "category": "dining",
-      "rate": 5,
-      "capMonthly": 500
+      "displayCategory": "Dining spends on weekends",
+      "rate": 20,
+      "displayRate": "20 Reward Points / Rs 100 spent",
+      "capMonthly": 2000
     },
     {
-      "category": "travel",
-      "rate": 5,
-      "capMonthly": 500
+      "category": "international",
+      "displayCategory": "International spends",
+      "rate": 20,
+      "displayRate": "20 Reward Points / Rs 100 spent",
+      "capMonthly": 2000
     },
     {
       "category": "base",
-      "rate": 0.5,
+      "displayCategory": "Other eligible retail spends (including weekday dining)",
+      "rate": 2,
+      "displayRate": "2 Reward Points / Rs 100 spent",
       "capMonthly": null
     }
   ],
   "popularityScore": 75,
   "loungeDomestic": 8,
   "loungeInternational": 0,
+  "lounge": {
+    "domestic": [
+      "2 complimentary visits per quarter, unlocked by spending ₹35,000 or more in the previous calendar quarter"
+    ]
+  },
   "forexMarkup": 2,
   "tags": [
     "rbl",
@@ -46,33 +57,85 @@
     "premium"
   ],
   "exclusions": [
-    "accelerated rewards on international and weekend dining categories are capped",
+    "Fuel transactions",
+    "Utility bill payments",
+    "Insurance spends",
+    "Rent and real estate payments",
+    "Education payments",
+    "Wallet loading",
+    "Government services spends",
+    "EMI transactions",
+    "Cash advance transactions",
+    "Railways spends"
+  ],
+  "exclusionCodes": [
     "fuel",
-    "cash advances"
+    "utilities",
+    "insurance",
+    "rent",
+    "education",
+    "wallet_load",
+    "government",
+    "emi",
+    "cash_advance"
+  ],
+  "milestones": [
+    {
+      "threshold": 300000,
+      "period": "annual",
+      "value": 2500,
+      "kind": "points",
+      "label": "10,000 bonus reward points on annual spend of ₹3 Lakhs"
+    },
+    {
+      "threshold": 500000,
+      "period": "annual",
+      "value": 3750,
+      "kind": "points",
+      "label": "15,000 additional bonus reward points on annual spend of ₹5 Lakhs"
+    },
+    {
+      "threshold": 800000,
+      "period": "annual",
+      "value": 5000,
+      "kind": "points",
+      "label": "20,000 additional bonus reward points on annual spend of ₹8 Lakhs"
+    }
   ],
   "milestoneBenefits": [
-    "Premium welcome / annual benefits as per current RBL offer set"
+    "Earn 10,000 bonus reward points on annual spends of ₹3 Lakhs",
+    "Earn additional 15,000 bonus points on annual spends of ₹5 Lakhs",
+    "Earn additional 20,000 bonus points on annual spends of ₹8 Lakhs"
   ],
   "additionalBenefits": [
-    "20 reward points per Rs 100 on weekend dining and international spends",
-    "2 reward points per Rs 100 on other eligible spends",
-    "Domestic lounge access",
-    "Golf programme access",
-    "Lower forex markup than standard RBL cards"
+    "Welcome benefit of 20,000 Reward Points upon card activation and payment of joining fee",
+    "Buy 1 Get 1 free movie ticket on BookMyShow up to ₹200, twice a month",
+    "Complimentary golf rounds and discount on green fees at select golf courses in India"
+  ],
+  "additionalDetails": [
+    "Redemption fee of ₹99 + GST applies per redemption request.",
+    "Fuel surcharge waiver of 1% at all fuel stations for transactions between ₹500 and ₹4,000 (Max waiver ₹150/month).",
+    "Concierge services including golf course referrals, car rentals, and hotel bookings."
   ],
   "redemption": {
     "statementBalanceValue": 0.25
   },
   "eligibility": {
     "salaried": [
-      "Eligibility is subject to RBL Bank approval criteria"
+      "Minimum age: 21 years, Maximum age: 70 years",
+      "Stable income source meeting bank criteria"
     ],
     "selfEmployed": [
-      "Eligibility is subject to RBL Bank approval criteria"
+      "Minimum age: 21 years, Maximum age: 70 years",
+      "Stable business income meeting bank criteria"
     ]
   },
   "sourceUrl": "https://www.rblbank.com/personal-banking/cards/credit-cards/icon-credit-card",
   "applyUrl": "https://www.rblbank.com/personal-banking/cards/credit-cards/icon-credit-card",
-  "lastVerified": "2026-05-11",
-  "verificationStatus": "official-direct"
+  "internalNotes": [
+    "Card details manually reviewed and verified by user on 2026-06-14. Weekend dining is defined as spends on Saturday and Sunday. International lounge access is chargeable at up to $35 per visit."
+  ],
+  "lastVerified": "2026-06-14",
+  "verificationStatus": "official-direct",
+  "imageUrl": "/images/rbl-icon.webp"
 }

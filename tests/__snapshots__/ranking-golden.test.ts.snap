@@ -196,7 +196,7 @@ exports[`ranking golden (representative queries) > produces stable top-N orderin
     "axis-atlas",
     "axis-indigo-premium",
     "idfc-indigo",
-    "scapia-federal",
+    "rbl-world-safari",
   ],
 }
 `;

@@ -3,72 +3,110 @@
   "issuer": "RBL Bank",
   "name": "Patanjali RBL Bank Swarn Credit Card",
   "network": [
-    "Visa"
+    "Visa",
+    "RuPay"
   ],
-  "joiningFee": 499,
-  "annualFee": 499,
-  "feeWaiverSpend": 50000,
+  "joiningFee": 1499,
+  "annualFee": 1499,
+  "feeWaiverSpend": null,
   "bestFor": [
+    "co-branded",
     "grocery",
-    "dining",
-    "co-branded"
+    "movies",
+    "lounge"
   ],
   "rewardType": "cashback",
   "rewards": [
     {
       "category": "grocery",
-      "rate": 5,
-      "capMonthly": 500
-    },
-    {
-      "category": "dining",
-      "rate": 3,
-      "capMonthly": null
+      "displayCategory": "Patanjali online & offline spends",
+      "rate": 10,
+      "displayRate": "10% Cashback",
+      "capMonthly": 750
     },
     {
       "category": "base",
-      "rate": 1,
+      "displayCategory": "Other eligible retail spends",
+      "rate": 0.25,
+      "displayRate": "1 Reward Point / Rs 100 spent",
       "capMonthly": null
     }
   ],
   "popularityScore": 73,
-  "loungeDomestic": 0,
+  "loungeDomestic": 8,
   "loungeInternational": 0,
+  "lounge": {
+    "domestic": [
+      "2 complimentary visits per quarter, unlocked by spending ₹50,000 or more in the preceding calendar quarter"
+    ]
+  },
   "forexMarkup": 3.5,
   "tags": [
     "rbl",
     "patanjali",
     "swarn",
     "grocery",
-    "dining",
-    "co-branded"
+    "co-branded",
+    "lounge"
   ],
   "exclusions": [
-    "accelerated cashback on Patanjali ecosystem and selected categories follows card terms",
+    "Fuel transactions",
+    "Cash advance transactions",
+    "EMI transactions"
+  ],
+  "exclusionCodes": [
     "fuel",
-    "cash advances"
+    "cash_advance",
+    "emi"
+  ],
+  "milestones": [
+    {
+      "threshold": 300000,
+      "period": "annual",
+      "value": 1500,
+      "kind": "voucher",
+      "label": "₹1,500 Patanjali shopping voucher on annual spends of ₹3 Lakhs (incl. ₹12,000 at Patanjali)"
+    },
+    {
+      "threshold": 500000,
+      "period": "annual",
+      "value": 5000,
+      "kind": "voucher",
+      "label": "4-night/5-day Patanjali Wellness stay on annual spends of ₹5 Lakhs (incl. ₹15,000 at Patanjali)"
+    }
   ],
   "milestoneBenefits": [
-    "Annual fee waiver on eligible yearly spends of Rs 50,000"
+    "Earn ₹1,500 Patanjali voucher on annual spends of ₹3 Lakhs (minimum ₹12,000 at Patanjali)",
+    "Earn 4-night/5-day Patanjali Wellness stay on annual spends of ₹5 Lakhs (minimum ₹15,000 at Patanjali)"
   ],
   "additionalBenefits": [
-    "Higher cashback on Patanjali and everyday-use categories",
-    "Base cashback on other eligible spends",
-    "Fuel surcharge waiver on eligible transactions"
+    "Welcome benefit of 6,000 Reward Points (worth ₹1,500) on first transaction of ₹1,000 or more within 30 days of card issuance",
+    "Buy 1 Get 1 free movie ticket (up to ₹200 off) on BookMyShow once a month on weekends"
+  ],
+  "additionalDetails": [
+    "Redemption fee of ₹99 + GST applies per redemption request.",
+    "Fuel surcharge waiver of 1% at all fuel stations for transactions between ₹400 and ₹5,000 (Max waiver ₹200/month).",
+    "10% cashback is applicable on Patanjali spends for transactions of ₹500 or more."
   ],
   "redemption": {
     "statementBalanceValue": 1
   },
   "eligibility": {
     "salaried": [
-      "Eligibility is subject to RBL Bank approval criteria"
+      "Minimum age: 21 years, Maximum age: 70 years",
+      "Stable income source meeting bank criteria"
     ],
     "selfEmployed": [
-      "Eligibility is subject to RBL Bank approval criteria"
+      "Minimum age: 21 years, Maximum age: 70 years",
+      "Stable business income meeting bank criteria"
     ]
   },
   "sourceUrl": "https://www.rblbank.com/personal-banking/cards/credit-cards/patanjali-rbl-bank-swarn-credit-card",
   "applyUrl": "https://www.rblbank.com/personal-banking/cards/credit-cards/patanjali-rbl-bank-swarn-credit-card",
-  "lastVerified": "2026-05-11",
-  "verificationStatus": "official-direct"
+  "internalNotes": [
+    "Card details manually reviewed and verified by user on 2026-06-14. 10% cashback on Patanjali spends is capped at ₹750 per month. Annual fee is ₹1,499. The card is offered on both RuPay and Visa networks, allowing UPI linkage for the RuPay variant."
+  ],
+  "lastVerified": "2026-06-14",
+  "verificationStatus": "official-direct",
+  "imageUrl": "/images/rbl-patanjali-swarn.webp"
 }

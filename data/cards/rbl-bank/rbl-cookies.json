@@ -16,13 +16,38 @@
   "rewardType": "reward points",
   "rewards": [
     {
+      "category": "dining",
+      "displayCategory": "Zomato spends (10% cashback)",
+      "rate": 10,
+      "displayRate": "10% Cashback",
+      "capMonthly": 300
+    },
+    {
       "category": "online",
-      "rate": 1,
+      "displayCategory": "Myntra spends (10% cashback)",
+      "rate": 10,
+      "displayRate": "10% Cashback",
+      "capMonthly": 300
+    },
+    {
+      "category": "base",
+      "displayCategory": "Uber spends (10% cashback)",
+      "rate": 10,
+      "displayRate": "10% Cashback",
+      "capMonthly": 300
+    },
+    {
+      "category": "online",
+      "displayCategory": "Other online purchases (5X points)",
+      "rate": 5,
+      "displayRate": "5 Reward Points / Rs 100 spent",
       "capMonthly": null
     },
     {
       "category": "base",
-      "rate": 0.2,
+      "displayCategory": "Other eligible retail spends",
+      "rate": 1,
+      "displayRate": "1 Reward Point / Rs 100 spent",
       "capMonthly": null
     }
   ],
@@ -38,32 +63,75 @@
     "entry level"
   ],
   "exclusions": [
-    "card uses monthly fee model rather than conventional annual fee",
-    "5x rewards apply on eligible online spend only",
-    "cash advances",
-    "fuel"
+    "Fuel transactions",
+    "Utility bill payments",
+    "Insurance spends",
+    "Rent and real estate payments",
+    "Cash advance transactions"
+  ],
+  "exclusionCodes": [
+    "fuel",
+    "utilities",
+    "insurance",
+    "rent",
+    "cash_advance"
+  ],
+  "milestones": [
+    {
+      "threshold": 5000,
+      "period": "monthly",
+      "value": 100,
+      "kind": "other",
+      "label": "Monthly fee waiver of ₹100 on monthly spends of ₹5,000 or more"
+    },
+    {
+      "threshold": 200000,
+      "period": "annual",
+      "value": 1000,
+      "kind": "voucher",
+      "label": "₹1,000 brand voucher on annual spend of ₹2 Lakhs"
+    },
+    {
+      "threshold": 500000,
+      "period": "annual",
+      "value": 5000,
+      "kind": "voucher",
+      "label": "₹5,000 brand voucher on annual spend of ₹5 Lakhs"
+    }
   ],
   "milestoneBenefits": [
-    "Monthly card fee can be waived on meeting eligible monthly spend threshold as per RBL terms"
+    "Monthly card fee of ₹100 is waived on spending ₹5,000 or more in a calendar month",
+    "Earn ₹1,000 brand voucher (Amazon, Flipkart, Myntra, Croma, Shoppers Stop) on annual spends of ₹2 Lakhs",
+    "Earn ₹5,000 brand voucher (Amazon, Flipkart, Myntra, Croma, Shoppers Stop) on annual spends of ₹5 Lakhs"
   ],
   "additionalBenefits": [
-    "5x reward points on online purchases",
-    "1 reward point per Rs 100 on other eligible spends",
-    "Useful for entry-level online spenders who can hit monthly waiver threshold"
+    "10% instant discount up to ₹300 per month on BookMyShow movie tickets",
+    "10% cashback on Zomato, Myntra, and Uber (capped at ₹300 per brand per month, overall cap ₹900/month)"
+  ],
+  "additionalDetails": [
+    "Redemption fee of ₹99 + GST applies per redemption request.",
+    "Fuel surcharge waiver of 1% at all fuel stations for transactions between ₹500 and ₹4,000 (Max waiver ₹150/month).",
+    "Cashback is applicable only on transactions above ₹100."
   ],
   "redemption": {
     "statementBalanceValue": 0.2
   },
   "eligibility": {
     "salaried": [
-      "Eligibility is subject to RBL Bank approval criteria"
+      "Minimum age: 21 years, Maximum age: 70 years",
+      "Stable income source meeting bank criteria"
     ],
     "selfEmployed": [
-      "Eligibility is subject to RBL Bank approval criteria"
+      "Minimum age: 21 years, Maximum age: 70 years",
+      "Stable business income meeting bank criteria"
     ]
   },
   "sourceUrl": "https://www.rblbank.com/personal-banking/cards/credit-cards/cookies-credit-card",
   "applyUrl": "https://www.rblbank.com/personal-banking/cards/credit-cards/cookies-credit-card",
-  "lastVerified": "2026-05-11",
-  "verificationStatus": "official-direct"
+  "internalNotes": [
+    "Card details manually reviewed and verified by user on 2026-06-14. This card has a monthly membership fee model of ₹100 + GST (annual equivalent ₹1,200). 10% cashback on Zomato, Myntra, and Uber has a transaction minimum threshold of ₹100."
+  ],
+  "lastVerified": "2026-06-14",
+  "verificationStatus": "official-direct",
+  "imageUrl": "/images/rbl-cookies.webp"
 }

@@ -7,7 +7,7 @@
   ],
   "joiningFee": 1000,
   "annualFee": 1000,
-  "feeWaiverSpend": null,
+  "feeWaiverSpend": 200000,
   "bestFor": [
     "shopping",
     "weekend rewards",
@@ -17,12 +17,16 @@
   "rewards": [
     {
       "category": "base",
-      "rate": 0.5,
-      "capMonthly": null
+      "displayCategory": "Weekend spends (2X points)",
+      "rate": 4,
+      "displayRate": "4 Reward Points / Rs 100 spent",
+      "capMonthly": 1000
     },
     {
-      "category": "online",
-      "rate": 1,
+      "category": "base",
+      "displayCategory": "Other eligible retail spends",
+      "rate": 2,
+      "displayRate": "2 Reward Points / Rs 100 spent",
       "capMonthly": null
     }
   ],
@@ -38,31 +42,68 @@
     "reward points"
   ],
   "exclusions": [
-    "accelerated weekend / milestone benefits follow RBL thresholds",
+    "Fuel transactions",
+    "Utility bill payments",
+    "Insurance spends",
+    "Rent and real estate payments",
+    "Education payments",
+    "Wallet loading",
+    "Government services spends",
+    "EMI transactions",
+    "Cash advance transactions",
+    "Railways spends"
+  ],
+  "exclusionCodes": [
     "fuel",
-    "cash advances"
+    "utilities",
+    "insurance",
+    "rent",
+    "education",
+    "wallet_load",
+    "government",
+    "emi",
+    "cash_advance"
+  ],
+  "milestones": [
+    {
+      "threshold": 5000,
+      "period": "monthly",
+      "value": 250,
+      "kind": "points",
+      "label": "1,000 bonus reward points on swiping 5 times for ₹1,000+ each in a calendar month"
+    }
   ],
   "milestoneBenefits": [
-    "Monthly bonus points on completing eligible transaction-count milestone"
+    "Earn 1,000 bonus reward points on swiping your card 5 times for transactions of ₹1,000 or more in a calendar month",
+    "Annual fee waiver on annual spends of ₹2 Lakhs or more"
   ],
   "additionalBenefits": [
-    "2 reward points per Rs 100 on eligible spends",
-    "Higher reward accrual on select spend windows according to current RBL programme",
-    "Fuel surcharge waiver on eligible transactions"
+    "Welcome benefit of 4,000 Reward Points (worth ₹1,000) on payment of joining fee and first swipe within 30 days"
+  ],
+  "additionalDetails": [
+    "Redemption fee of ₹99 + GST applies per redemption request.",
+    "Fuel surcharge waiver of 1% at all fuel stations for transactions between ₹500 and ₹4,000 (Max waiver ₹150/month).",
+    "Excluded spends do not count towards milestone benefits or annual fee waivers."
   ],
   "redemption": {
     "statementBalanceValue": 0.25
   },
   "eligibility": {
     "salaried": [
-      "Eligibility is subject to RBL Bank approval criteria"
+      "Minimum age: 21 years, Maximum age: 70 years",
+      "Stable income source meeting bank criteria"
     ],
     "selfEmployed": [
-      "Eligibility is subject to RBL Bank approval criteria"
+      "Minimum age: 21 years, Maximum age: 70 years",
+      "Stable business income meeting bank criteria"
     ]
   },
   "sourceUrl": "https://www.rblbank.com/personal-banking/cards/credit-cards/platinum-delight-credit-card",
   "applyUrl": "https://www.rblbank.com/personal-banking/cards/credit-cards/platinum-delight-credit-card",
-  "lastVerified": "2026-05-11",
-  "verificationStatus": "official-direct"
+  "internalNotes": [
+    "Card details manually reviewed and verified by user on 2026-06-14. Weekend spends 2X rate has a cap of 1,000 bonus points per month. Transaction count milestones and annual fee waivers exclude fuel, utilities, insurance, rent, education, railways, wallet load, and government transactions."
+  ],
+  "lastVerified": "2026-06-14",
+  "verificationStatus": "official-direct",
+  "imageUrl": "/images/rbl-platinum-delight.webp"
 }

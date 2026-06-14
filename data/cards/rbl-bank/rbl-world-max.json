@@ -18,23 +18,34 @@
   "rewards": [
     {
       "category": "dining",
-      "rate": 5,
-      "capMonthly": 500
+      "displayCategory": "Weekend dining spends",
+      "rate": 20,
+      "displayRate": "20 Reward Points / Rs 100 spent",
+      "capMonthly": 1000
     },
     {
       "category": "online",
-      "rate": 1,
+      "displayCategory": "Online spends",
+      "rate": 4,
+      "displayRate": "4 Reward Points / Rs 100 spent",
       "capMonthly": null
     },
     {
       "category": "base",
-      "rate": 0.5,
+      "displayCategory": "Other eligible retail spends (including weekday dining)",
+      "rate": 2,
+      "displayRate": "2 Reward Points / Rs 100 spent",
       "capMonthly": null
     }
   ],
   "popularityScore": 72,
   "loungeDomestic": 6,
   "loungeInternational": 0,
+  "lounge": {
+    "domestic": [
+      "2 complimentary visits per quarter, unlocked by spending ₹35,000 or more in the preceding calendar quarter (excl. rental spends)"
+    ]
+  },
   "forexMarkup": 2,
   "tags": [
     "rbl",
@@ -45,33 +56,84 @@
     "premium"
   ],
   "exclusions": [
-    "accelerated weekend-dining rewards are capped monthly",
+    "Fuel transactions",
+    "Utility bill payments",
+    "Insurance spends",
+    "Rent and real estate payments",
+    "Education payments",
+    "Wallet loading",
+    "Government services spends",
+    "EMI transactions",
+    "Cash advance transactions",
+    "Railways spends"
+  ],
+  "exclusionCodes": [
     "fuel",
-    "cash advances"
+    "utilities",
+    "insurance",
+    "rent",
+    "education",
+    "wallet_load",
+    "government",
+    "emi",
+    "cash_advance"
+  ],
+  "milestones": [
+    {
+      "threshold": 25000,
+      "period": "monthly",
+      "value": 375,
+      "kind": "points",
+      "label": "1,500 bonus reward points on monthly spend of ₹25,000"
+    },
+    {
+      "threshold": 40000,
+      "period": "monthly",
+      "value": 250,
+      "kind": "points",
+      "label": "1,000 additional bonus reward points on monthly spend of ₹40,000"
+    },
+    {
+      "threshold": 50000,
+      "period": "monthly",
+      "value": 250,
+      "kind": "points",
+      "label": "1,000 additional bonus reward points on monthly spend of ₹50,000"
+    }
   ],
   "milestoneBenefits": [
-    "Premium welcome and annual offer bundle as per RBL programme"
+    "Earn 1,500 bonus reward points on monthly spends of ₹25,000",
+    "Earn additional 1,000 bonus points on monthly spends of ₹40,000",
+    "Earn additional 1,000 bonus points on monthly spends of ₹50,000"
   ],
   "additionalBenefits": [
-    "20 reward points per Rs 100 on weekend dining",
-    "4 reward points per Rs 100 on online spends",
-    "2 reward points per Rs 100 on other eligible spends",
-    "Domestic lounge access",
-    "Lower forex markup than standard RBL cards"
+    "Welcome benefit of 12,000 Reward Points (worth ₹3,000) upon payment of joining fee and first swipe within 30 days",
+    "Buy 1 Get 1 free movie ticket (up to ₹200 off) on BookMyShow once a month on any day of the week"
+  ],
+  "additionalDetails": [
+    "Redemption fee of ₹99 + GST applies per redemption request.",
+    "Fuel surcharge waiver of 1% at all fuel stations for transactions between ₹500 and ₹4,000 (Max waiver ₹150/month).",
+    "Concierge services including booking, travel and hotel assistance."
   ],
   "redemption": {
     "statementBalanceValue": 0.25
   },
   "eligibility": {
     "salaried": [
-      "Eligibility is subject to RBL Bank approval criteria"
+      "Minimum age: 21 years, Maximum age: 70 years",
+      "Stable income source meeting bank criteria"
     ],
     "selfEmployed": [
-      "Eligibility is subject to RBL Bank approval criteria"
+      "Minimum age: 21 years, Maximum age: 70 years",
+      "Stable business income meeting bank criteria"
     ]
   },
   "sourceUrl": "https://www.rblbank.com/personal-banking/cards/credit-cards/world-max-credit-card",
   "applyUrl": "https://www.rblbank.com/personal-banking/cards/credit-cards/world-max-credit-card",
-  "lastVerified": "2026-05-11",
-  "verificationStatus": "official-direct"
+  "internalNotes": [
+    "Card details manually reviewed and verified by user on 2026-06-14. Weekend dining spends of 20 points/₹100 is capped at 1,000 points per month. Lounge access spend threshold calculation excludes rent payment transactions."
+  ],
+  "lastVerified": "2026-06-14",
+  "verificationStatus": "official-direct",
+  "imageUrl": "/images/rbl-world-max.webp"
 }

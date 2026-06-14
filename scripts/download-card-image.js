@@ -230,11 +230,14 @@ async function main() {
     await downloadFile(fullImageUrl, destPath);
     console.log(`Successfully downloaded card image to public/images/${destName}`);
     console.log(`You can now reference this image in your JSON file: "imageUrl": "/images/${destName}"`);
+    process.exit(0);
   } catch (err) {
     console.error(`Failed to download image: ${err.message}`);
+    process.exit(1);
   }
 }
 
 main().catch((err) => {
   console.error(err);
+  process.exit(1);
 });

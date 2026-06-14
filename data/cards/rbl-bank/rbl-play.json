@@ -17,7 +17,9 @@
   "rewards": [
     {
       "category": "base",
+      "displayCategory": "All spends",
       "rate": 0,
+      "displayRate": "Does not earn reward points",
       "capMonthly": null
     }
   ],
@@ -33,29 +35,63 @@
     "dining"
   ],
   "exclusions": [
-    "movie and dining benefits depend on partner platforms and monthly caps",
+    "Fuel transactions",
+    "Cash advance transactions",
+    "Insurance spends",
+    "Utility bill payments",
+    "Rent payments",
+    "Education payments",
+    "Wallet loading",
+    "Government services spends"
+  ],
+  "exclusionCodes": [
     "fuel",
-    "cash advances"
+    "cash_advance",
+    "insurance",
+    "utilities",
+    "rent",
+    "education",
+    "wallet_load",
+    "government"
+  ],
+  "milestones": [
+    {
+      "threshold": 5000,
+      "period": "monthly",
+      "value": 500,
+      "kind": "voucher",
+      "label": "2 free BookMyShow movie tickets (up to ₹250 each) on monthly spend of ₹5,000"
+    }
   ],
   "milestoneBenefits": [
-    "Annual fee waiver on eligible yearly spends of Rs 1,50,000"
+    "Spend ₹5,000 or more in a billing month to get 2 free movie/stream/event tickets worth up to ₹250 each on BookMyShow"
   ],
   "additionalBenefits": [
-    "Monthly movie benefit on BookMyShow",
-    "Dining savings through restaurant partner programme",
-    "Entertainment-focused RBL entry card"
+    "₹500 welcome discount on BookMyShow on any booking within 30 days of card issuance",
+    "Up to ₹100 off on food and beverages when booking movie tickets with the card on BookMyShow",
+    "Annual fee waived for BookMyShow Superstar members (users who complete 10 transactions on BookMyShow in a membership year)"
+  ],
+  "additionalDetails": [
+    "Excluded categories from the ₹1.5 Lakhs fee waiver spend include: Fuel, Auto, Insurance, Utilities, Real Estate/Rental, Cash/Quasi-cash, Railways, Education, Wallet, Government.",
+    "Fuel surcharge waiver of 1% at all fuel stations for transactions between ₹500 and ₹4,000 (Max waiver ₹100/month)."
   ],
   "redemption": {},
   "eligibility": {
     "salaried": [
-      "Eligibility is subject to RBL Bank approval criteria"
+      "Minimum age: 21 years, Maximum age: 70 years",
+      "Stable income source meeting bank criteria"
     ],
     "selfEmployed": [
-      "Eligibility is subject to RBL Bank approval criteria"
+      "Minimum age: 21 years, Maximum age: 70 years",
+      "Stable business income meeting bank criteria"
     ]
   },
   "sourceUrl": "https://www.rblbank.com/personal-banking/cards/credit-cards/rbl-bank-play-credit-card",
   "applyUrl": "https://www.rblbank.com/personal-banking/cards/credit-cards/rbl-bank-play-credit-card",
-  "lastVerified": "2026-05-11",
-  "verificationStatus": "official-direct"
+  "internalNotes": [
+    "Card details manually reviewed and verified by user on 2026-06-14. Card does not earn reward points. Welcome and monthly benefits are delivered through BookMyShow platform."
+  ],
+  "lastVerified": "2026-06-14",
+  "verificationStatus": "official-direct",
+  "imageUrl": "/images/rbl-play.webp"
 }

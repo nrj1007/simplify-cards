@@ -17,12 +17,16 @@
   "rewards": [
     {
       "category": "travel",
-      "rate": 1.25,
+      "displayCategory": "Travel purchases",
+      "rate": 5,
+      "displayRate": "5 Reward Points / Rs 100 spent",
       "capMonthly": null
     },
     {
       "category": "base",
-      "rate": 0.5,
+      "displayCategory": "Domestic retail spends",
+      "rate": 2,
+      "displayRate": "2 Reward Points / Rs 100 spent",
       "capMonthly": null
     }
   ],
@@ -31,10 +35,11 @@
   "loungeInternational": 2,
   "lounge": {
     "domestic": [
-      "Domestic and international airport lounge access"
+      "2 complimentary visits per quarter, unlocked by spending ₹35,000 or more in the previous calendar quarter"
     ],
     "international": [
-      "Domestic and international airport lounge access"
+      "2 complimentary visits per calendar year via Priority Pass",
+      "1 additional spend-based lounge visit per quarter on spending ₹50,000 or more in a calendar quarter"
     ]
   },
   "forexMarkup": 0,
@@ -46,32 +51,70 @@
     "low forex"
   ],
   "exclusions": [
-    "international transactions do not earn reward points",
+    "Fuel transactions",
+    "Cash advance transactions",
+    "International transactions"
+  ],
+  "exclusionCodes": [
     "fuel",
-    "cash advances"
+    "cash_advance"
+  ],
+  "milestones": [
+    {
+      "threshold": 250000,
+      "period": "annual",
+      "value": 2500,
+      "kind": "points",
+      "label": "10,000 bonus reward points on annual spend of ₹2.5 Lakhs"
+    },
+    {
+      "threshold": 500000,
+      "period": "annual",
+      "value": 3750,
+      "kind": "points",
+      "label": "15,000 bonus reward points on annual spend of ₹5 Lakhs"
+    },
+    {
+      "threshold": 750000,
+      "period": "annual",
+      "value": 10000,
+      "kind": "voucher",
+      "label": "₹10,000 Taj, Amazon, Croma, Myntra or MakeMyTrip voucher on annual spend of ₹7.5 Lakhs"
+    }
   ],
   "milestoneBenefits": [
-    "Welcome travel voucher / benefit bundle as per current RBL offer set"
+    "Earn 10,000 bonus reward points on annual spends of ₹2.5 Lakhs",
+    "Earn 15,000 bonus reward points on annual spends of ₹5 Lakhs",
+    "Earn ₹10,000 brand voucher (Taj, Amazon, Croma, Myntra, MakeMyTrip) on annual spends of ₹7.5 Lakhs"
   ],
   "additionalBenefits": [
     "Zero forex markup on international transactions",
-    "5 reward points per Rs 100 on travel spends",
-    "2 reward points per Rs 100 on other eligible spends",
-    "Domestic and international airport lounge access"
+    "Complimentary Priority Pass membership",
+    "4 complimentary rounds of golf and 1 golf lesson per month"
+  ],
+  "additionalDetails": [
+    "Redemption fee of ₹99 + GST applies per redemption request.",
+    "Fuel surcharge waiver of 1% at all fuel stations for transactions between ₹500 and ₹4,000 (Max waiver ₹250/month)."
   ],
   "redemption": {
     "statementBalanceValue": 0.25
   },
   "eligibility": {
     "salaried": [
-      "Eligibility is subject to RBL Bank approval criteria"
+      "Minimum age: 21 years, Maximum age: 70 years",
+      "Stable income source with monthly salary meeting bank criteria"
     ],
     "selfEmployed": [
-      "Eligibility is subject to RBL Bank approval criteria"
+      "Minimum age: 21 years, Maximum age: 70 years",
+      "Stable business income meeting bank criteria"
     ]
   },
   "sourceUrl": "https://www.rblbank.com/personal-banking/cards/credit-cards/world-safari-credit-card",
   "applyUrl": "https://www.rblbank.com/personal-banking/cards/credit-cards/world-safari-credit-card",
-  "lastVerified": "2026-05-11",
-  "verificationStatus": "official-direct"
+  "internalNotes": [
+    "Card details manually reviewed and verified by user on 2026-06-14. International transactions do not earn reward points. Spend based extra lounge visit can be accessed through a voucher issued by Lounge Key. Subsequent Priority Pass visits charged at $35."
+  ],
+  "lastVerified": "2026-06-14",
+  "verificationStatus": "official-direct",
+  "imageUrl": "/images/rbl-world-safari.webp"
 }

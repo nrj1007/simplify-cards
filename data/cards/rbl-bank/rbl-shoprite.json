@@ -19,12 +19,16 @@
   "rewards": [
     {
       "category": "grocery",
-      "rate": 5,
-      "capMonthly": null
+      "displayCategory": "Grocery spends",
+      "rate": 20,
+      "displayRate": "20 Reward Points / Rs 100 spent",
+      "capMonthly": 1000
     },
     {
       "category": "base",
-      "rate": 0.25,
+      "displayCategory": "Other eligible retail spends",
+      "rate": 1,
+      "displayRate": "1 Reward Point / Rs 100 spent",
       "capMonthly": null
     }
   ],
@@ -41,33 +45,48 @@
     "entry level"
   ],
   "exclusions": [
-    "fuel",
-    "cash advances",
-    "emi transactions",
-    "grocery accelerated rewards follow RBL merchant-category rules"
+    "Fuel transactions",
+    "Cash advance transactions",
+    "EMI transactions",
+    "E-wallet loading transactions"
   ],
+  "exclusionCodes": [
+    "fuel",
+    "cash_advance",
+    "emi",
+    "wallet_load"
+  ],
+  "milestones": [],
   "milestoneBenefits": [
-    "Annual fee waiver on spends of Rs 1,50,000 in the previous year"
+    "Annual fee waiver on spends of ₹1.5 Lakhs in the previous membership year"
   ],
   "additionalBenefits": [
-    "20 reward points for every Rs 100 spent on grocery",
-    "1 reward point for every Rs 100 on other eligible spends",
-    "Monthly movie discount benefit on BookMyShow",
-    "Fuel surcharge waiver on eligible spends"
+    "10% discount on movie tickets on BookMyShow up to ₹100 per transaction, up to 15 times a calendar year",
+    "Welcome benefit of 2,000 Reward Points upon card activation and payment of joining fee"
+  ],
+  "additionalDetails": [
+    "Redemption fee of ₹99 + GST applies per redemption request.",
+    "Fuel surcharge waiver of 1% at all fuel stations for transactions between ₹500 and ₹4,000 (Max waiver ₹100/month)."
   ],
   "redemption": {
     "statementBalanceValue": 0.25
   },
   "eligibility": {
     "salaried": [
-      "Eligibility is subject to RBL Bank approval criteria"
+      "Minimum age: 21 years, Maximum age: 70 years",
+      "Stable income source meeting bank criteria"
     ],
     "selfEmployed": [
-      "Eligibility is subject to RBL Bank approval criteria"
+      "Minimum age: 21 years, Maximum age: 70 years",
+      "Stable business income meeting bank criteria"
     ]
   },
   "sourceUrl": "https://www.rblbank.com/personal-banking/cards/credit-cards/shoprite-credit-card",
   "applyUrl": "https://www.rblbank.com/personal-banking/cards/credit-cards/shoprite-credit-card",
-  "lastVerified": "2026-05-11",
-  "verificationStatus": "official-direct"
+  "internalNotes": [
+    "Card details manually reviewed and verified by user on 2026-06-14. Grocery reward rate of 20 Reward Points per ₹100 spent is capped at 1,000 reward points per calendar month. Welcome points are credited within 30 days of joining fee payment."
+  ],
+  "lastVerified": "2026-06-14",
+  "verificationStatus": "official-direct",
+  "imageUrl": "/images/rbl-shoprite.webp"
 }
