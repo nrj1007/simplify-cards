@@ -695,8 +695,8 @@ exports[`reward calculator golden (all cards) > computes stable earn for every c
     "moderate": "online:833 dining:833 travel:833 hotels:833 airlines:833 fuel:x grocery:833 utilities:500 upi:833 amazon:833 international:833 base:833 rent:833 insurance:833 education:833 gold:833 government:833 |12988",
   },
   "sc-digismart": {
-    "high": "online:0 dining:0 travel:0 hotels:0 airlines:0 fuel:0 grocery:0 utilities:0 upi:0 amazon:0 international:0 base:0 rent:0 insurance:0 education:0 gold:0 government:0 |0",
-    "moderate": "online:0 dining:0 travel:0 hotels:0 airlines:0 fuel:0 grocery:0 utilities:0 upi:0 amazon:0 international:0 base:0 rent:0 insurance:0 education:0 gold:0 government:0 |0",
+    "high": "online:0 dining:0 travel:0 hotels:0 airlines:0 fuel:x grocery:0 utilities:0 upi:0 amazon:0 international:0 base:0 rent:0 insurance:0 education:0 gold:0 government:0 |0",
+    "moderate": "online:0 dining:0 travel:0 hotels:0 airlines:0 fuel:x grocery:0 utilities:0 upi:0 amazon:0 international:0 base:0 rent:0 insurance:0 education:0 gold:0 government:0 |0",
   },
   "sc-easemytrip": {
     "high": "online:500 dining:500 travel:5000 hotels:x airlines:x fuel:500 grocery:500 utilities:500 upi:500 amazon:500 international:500 base:500 rent:500 insurance:500 education:500 gold:500 government:500 |12000",
@@ -715,20 +715,20 @@ exports[`reward calculator golden (all cards) > computes stable earn for every c
     "moderate": "online:125 dining:125 travel:313 hotels:125 airlines:125 fuel:125 grocery:125 utilities:125 upi:125 amazon:125 international:x base:125 rent:125 insurance:125 education:125 gold:125 government:125 |2188",
   },
   "sc-rewards": {
-    "high": "online:1340 dining:1340 travel:1340 hotels:1340 airlines:1340 fuel:x grocery:1340 utilities:1340 upi:1340 amazon:1340 international:1340 base:1340 rent:1340 insurance:x education:1340 gold:1340 government:x |18760",
-    "moderate": "online:168 dining:168 travel:168 hotels:168 airlines:168 fuel:x grocery:168 utilities:168 upi:168 amazon:168 international:168 base:168 rent:168 insurance:x education:168 gold:168 government:x |2345",
+    "high": "online:5333 dining:5333 travel:5333 hotels:5333 airlines:5333 fuel:x grocery:5333 utilities:5333 upi:5333 amazon:5333 international:5333 base:5333 rent:5333 insurance:1333 education:5333 gold:5333 government:1333 |77333",
+    "moderate": "online:667 dining:667 travel:667 hotels:667 airlines:667 fuel:x grocery:667 utilities:667 upi:667 amazon:667 international:667 base:667 rent:667 insurance:167 education:667 gold:667 government:167 |9667",
   },
   "sc-smart": {
     "high": "online:1000 dining:33 travel:33 hotels:33 airlines:33 fuel:x grocery:33 utilities:33 upi:33 amazon:33 international:33 base:33 rent:33 insurance:33 education:33 gold:33 government:33 |1500",
     "moderate": "online:500 dining:33 travel:33 hotels:33 airlines:33 fuel:x grocery:33 utilities:33 upi:33 amazon:33 international:33 base:33 rent:33 insurance:33 education:33 gold:33 government:33 |1000",
   },
   "sc-super-value-titanium": {
-    "high": "online:340 dining:340 travel:340 hotels:340 airlines:340 fuel:x grocery:340 utilities:100 upi:340 amazon:340 international:340 base:340 rent:340 insurance:340 education:340 gold:340 government:340 |5200",
-    "moderate": "online:43 dining:43 travel:43 hotels:43 airlines:43 fuel:x grocery:43 utilities:100 upi:43 amazon:43 international:43 base:43 rent:43 insurance:43 education:43 gold:43 government:43 |738",
+    "high": "online:1333 dining:1333 travel:1333 hotels:1333 airlines:1333 fuel:x grocery:1333 utilities:200 upi:1333 amazon:1333 international:1333 base:1333 rent:1333 insurance:1333 education:1333 gold:1333 government:1333 |20200",
+    "moderate": "online:167 dining:167 travel:167 hotels:167 airlines:167 fuel:x grocery:167 utilities:200 upi:167 amazon:167 international:167 base:167 rent:167 insurance:167 education:167 gold:167 government:167 |2700",
   },
   "sc-ultimate": {
-    "high": "online:6660 dining:6660 travel:6660 hotels:6660 airlines:6660 fuel:6660 grocery:6660 utilities:x upi:6660 amazon:6660 international:6660 base:6660 rent:6660 insurance:x education:6660 gold:6660 government:x |93240",
-    "moderate": "online:833 dining:833 travel:833 hotels:833 airlines:833 fuel:833 grocery:833 utilities:x upi:833 amazon:833 international:833 base:833 rent:833 insurance:x education:833 gold:833 government:x |11655",
+    "high": "online:6667 dining:6667 travel:6667 hotels:6667 airlines:6667 fuel:x grocery:4000 utilities:4000 upi:6667 amazon:6667 international:6667 base:6667 rent:4000 insurance:4000 education:4000 gold:6667 government:4000 |90667",
+    "moderate": "online:833 dining:833 travel:833 hotels:833 airlines:833 fuel:x grocery:500 utilities:500 upi:833 amazon:833 international:833 base:833 rent:500 insurance:500 education:500 gold:833 government:500 |11333",
   },
   "scapia-bobcard": {
     "high": "online:4000 dining:0 travel:8000 hotels:0 airlines:0 fuel:x grocery:0 utilities:x upi:2000 amazon:0 international:0 base:4000 rent:x insurance:x education:x gold:0 government:x |18000",

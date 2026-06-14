@@ -123,10 +123,10 @@ exports[`ranking golden (representative queries) > produces stable top-N orderin
     "axis-samsung-signature",
     "hdfc-diners-club-black-metal",
     "idfc-indigo",
-    "sc-ultimate",
     "hsbc-premier",
     "icici-hpcl-super-saver",
     "axis-atlas",
+    "amex-gold",
   ],
   "spend-high-base": [
     "icici-emeralde-private-metal",
@@ -139,8 +139,8 @@ exports[`ranking golden (representative queries) > produces stable top-N orderin
     "axis-atlas",
     "axis-magnus",
     "hdfc-regalia-gold",
+    "sc-ultimate",
     "indigo-sbi-elite",
-    "idfc-indigo",
   ],
   "spend-travel-heavy": [
     "hdfc-infinia-metal",
