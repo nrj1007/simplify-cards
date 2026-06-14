@@ -107,7 +107,23 @@
   ],
   "redemption": {
     "statementBalanceValue": 0.25,
-    "pointsExpiryYears": 3
+    "pointsExpiryYears": 3,
+    "voucherRedemptions": [
+      {
+        "partner": "Anq App",
+        "programme": "Digital Gold",
+        "ratio": "4:1",
+        "valuePerPoint": 0.25,
+        "note": "Redeem points for 24K Digital Gold in the Anq app (4 points = Rs 1 value)"
+      },
+      {
+        "partner": "Anq App",
+        "programme": "Bitcoin",
+        "ratio": "4:1",
+        "valuePerPoint": 0.25,
+        "note": "Redeem points for Bitcoin in the Anq app (4 points = Rs 1 value, subject to market fluctuation)"
+      }
+    ]
   },
   "eligibility": {
     "salaried": [
