@@ -351,12 +351,9 @@ function buildBalancedScenarioHighlights(input: RecommendationInput, answerCards
     }
   }
 
-  const groupedEntries = [...groupedByWinner.values()].map(({ cardName, labels }) => {
-    const labelText = labels.length === 1 ? labels[0] : joinNatural(labels);
-    return `around ${labelText}, ${cardName}`;
-  });
+  const groupedEntries = [...groupedByWinner.values()].map(({ cardName, labels }) => `${cardName} at ${labels.join("/")}`);
 
-  return [`By yearly spend on a balanced mix: ${groupedEntries.join("; ")}.`];
+  return [`Best by yearly spend — ${groupedEntries.join("; ")}.`];
 }
 
 function buildTopCardsHighlights(input: RecommendationInput, answerCards: CardScore[]) {
