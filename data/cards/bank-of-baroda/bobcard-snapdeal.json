@@ -18,23 +18,24 @@
   "rewardType": "cashback",
   "rewards": [
     {
-      "category": "online",
+      "category": "snapdeal",
       "rate": 5,
+      "displayCategory": "Snapdeal platform spends",
+      "displayRate": "20 reward points per Rs 100 (5% cashback)",
       "capMonthly": null
     },
     {
-      "category": "grocery",
+      "category": "online, grocery, departmental stores",
       "rate": 2.5,
-      "capMonthly": null
-    },
-    {
-      "category": "departmental stores",
-      "rate": 2.5,
-      "capMonthly": null
+      "displayCategory": "Online shopping, grocery, and departmental store spends",
+      "displayRate": "10 reward points per Rs 100 (2.5% cashback)",
+      "capMonthly": 2000
     },
     {
       "category": "retail",
       "rate": 1,
+      "displayCategory": "All other eligible spends (including UPI)",
+      "displayRate": "4 reward points per Rs 100 (1% cashback)",
       "capMonthly": null
     }
   ],
@@ -51,14 +52,19 @@
   ],
   "exclusions": [
     "fuel transactions eligible for surcharge waiver do not earn reward points",
-    "Snapdeal cashback applies on eligible Snapdeal website and app purchases",
+    "accelerated reward points on online/grocery/dept stores capped at 2,000 RP per statement",
     "taxes and charges excluded as per BOBCARD terms"
   ],
+  "exclusionCodes": [
+    "fuel",
+    "cash_advance"
+  ],
   "milestoneBenefits": [
-    "Shopping vouchers worth up to Rs 500 on card usage within first 30 days of issuance"
+    "500 bonus reward points (worth Rs 125) on spending Rs 5,000 or more within first 60 days of card issuance",
+    "Snapdeal vouchers worth up to Rs 500 on performing a transaction within first 30 days of issuance"
   ],
   "additionalBenefits": [
-    "Reward points are auto-credited as cashback to the monthly statement",
+    "Reward points auto-credited as cashback to monthly statement (manual redemption required from July 1, 2025 — minimum 1,000 points)",
     "1% fuel surcharge waiver on fuel transactions between Rs 400 and Rs 5,000, capped at Rs 250 per month"
   ],
   "redemption": {
@@ -82,8 +88,9 @@
   "verificationStatus": "official-direct",
   "popularityScore": 58,
   "internalNotes": [
-    "Rechecked the historical official Snapdeal BOBCARD source URL on 2026-06-14; the product page was not publicly retrievable during this audit.",
-    "Retained the prior official reward, fee, and eligibility mapping pending an updated issuer-hosted replacement page or current MITC link.",
-    "The card's reward points are modeled as cashback because the issuer language historically stated that accrued points are auto-credited against the monthly statement."
+    "Card details manually reviewed and verified by user on 2026-06-14.",
+    "Reward structure corrected on 2026-06-14: Snapdeal spends earn 20 RP/Rs 100 (5%), online/grocery/dept stores earn 10 RP/Rs 100 (2.5%, capped at 2,000 RP/statement), all other spends earn 4 RP/Rs 100 (1%).",
+    "From July 1, 2025, redemption requires manual initiation via BOBCARD portal/app with a minimum of 1,000 reward points.",
+    "The card's reward points are modeled as cashback (1 RP = Rs 0.25) because points are auto-credited against the monthly statement."
   ]
 }
