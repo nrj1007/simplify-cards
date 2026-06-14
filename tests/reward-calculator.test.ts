@@ -2720,6 +2720,123 @@ describe("reward calculator", () => {
       });
     });
   });
+
+  describe("IDFC FIRST Bank Cards", () => {
+    describe("IDFC FIRST WOW! Credit Card", () => {
+      it("earns rewards at correct rates", () => {
+        const card = getCardById("idfc-wow");
+        expect(card).toBeTruthy();
+        
+        // Online: 2.0 per Rs 100 spent (4 points per Rs 200)
+        // Utilities: 0.5 per Rs 100 spent (1 point per Rs 200)
+        const result = calculateRewards(card!, {
+          online: 10000,
+          utilities: 10000
+        });
+        
+        // 200 + 50 = 250 points
+        expect(result.monthlyUnits).toBe(250);
+      });
+    });
+
+    describe("IDFC FIRST Classic Credit Card", () => {
+      it("earns rewards at correct rates", () => {
+        const card = getCardById("idfc-first-classic");
+        expect(card).toBeTruthy();
+        
+        // Base: 1.5 per Rs 100 spent (3 points per Rs 200)
+        // Dining: 5.0 per Rs 100 spent (10 points per Rs 200)
+        // Utilities: 0.5 per Rs 100 spent (1 point per Rs 200)
+        const result = calculateRewards(card!, {
+          base: 10000,
+          dining: 10000,
+          utilities: 10000
+        });
+        
+        // 150 + 500 + 50 = 700 points
+        expect(result.monthlyUnits).toBe(700);
+      });
+    });
+
+    describe("IDFC FIRST Millennia Credit Card", () => {
+      it("earns rewards at correct rates", () => {
+        const card = getCardById("idfc-first-millennia");
+        expect(card).toBeTruthy();
+        
+        // Base: 1.5 per Rs 100 spent
+        // Travel: 5.0 per Rs 100 spent
+        // Utilities: 0.5 per Rs 100 spent
+        const result = calculateRewards(card!, {
+          base: 10000,
+          travel: 10000,
+          utilities: 10000
+        });
+        
+        // 150 + 500 + 50 = 700 points
+        expect(result.monthlyUnits).toBe(700);
+      });
+    });
+
+    describe("IDFC FIRST Select Credit Card", () => {
+      it("earns rewards at correct rates", () => {
+        const card = getCardById("idfc-first-select");
+        expect(card).toBeTruthy();
+        
+        // Base: 1.5 per Rs 100 spent
+        // International: 5.0 per Rs 100 spent
+        // Utilities: 0.5 per Rs 100 spent
+        const result = calculateRewards(card!, {
+          base: 10000,
+          international: 10000,
+          utilities: 10000
+        });
+        
+        // 150 + 500 + 50 = 700 points
+        expect(result.monthlyUnits).toBe(700);
+      });
+    });
+
+    describe("IDFC FIRST Wealth Credit Card", () => {
+      it("earns rewards at correct rates", () => {
+        const card = getCardById("idfc-first-wealth");
+        expect(card).toBeTruthy();
+        
+        // Base: 1.5 per Rs 100 spent
+        // Dining: 5.0 per Rs 100 spent
+        // Utilities: 0.5 per Rs 100 spent
+        const result = calculateRewards(card!, {
+          base: 10000,
+          dining: 10000,
+          utilities: 10000
+        });
+        
+        // 150 + 500 + 50 = 700 points
+        expect(result.monthlyUnits).toBe(700);
+      });
+    });
+
+    describe("IDFC FIRST Power+ Credit Card", () => {
+      it("earns rewards and applies caps correctly", () => {
+        const card = getCardById("idfc-first-power-plus");
+        expect(card).toBeTruthy();
+        
+        // Fuel: 20.0 per Rs 100 spent, capped at 2400 points (reached at Rs 12,000 spend)
+        // Grocery: 20.0 per Rs 100 spent, capped at 400 points (reached at Rs 2,000 spend)
+        // Base: 2.0 per Rs 100 spent
+        const result = calculateRewards(card!, {
+          fuel: 20000,
+          grocery: 5000,
+          base: 10000
+        });
+        
+        // Fuel: 2400 points (capped)
+        // Grocery: 400 points (capped)
+        // Base: 200 points
+        // Total: 2400 + 400 + 200 = 3000 points
+        expect(result.monthlyUnits).toBe(3000);
+      });
+    });
+  });
 });
 
 
