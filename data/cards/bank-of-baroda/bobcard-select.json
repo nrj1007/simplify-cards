@@ -17,23 +17,17 @@
   "rewardType": "reward points",
   "rewards": [
     {
-      "category": "dining",
-      "rate": 1.25,
-      "capMonthly": 1000
-    },
-    {
-      "category": "utility bills",
-      "rate": 1.25,
-      "capMonthly": 1000
-    },
-    {
-      "category": "online",
-      "rate": 1.25,
+      "category": "dining, utility bills, online",
+      "rate": 5,
+      "displayCategory": "Dining, utility bills, and online spends",
+      "displayRate": "5 Reward Points / Rs 100",
       "capMonthly": 1000
     },
     {
       "category": "retail",
-      "rate": 0.25,
+      "rate": 1,
+      "displayCategory": "Other eligible spends",
+      "displayRate": "1 Reward Point / Rs 100",
       "capMonthly": null
     }
   ],
