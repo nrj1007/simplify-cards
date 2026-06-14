@@ -415,17 +415,5 @@
         "publishedAt": "2026-06-08"
       }
     ]
-  },
-  "bobcard-eterna": {
-    "updates": [
-      {
-        "title": "Limited-period lifetime free offer currently live",
-        "summary": "BOBCARD is currently showing a limited-period lifetime free card offer for new applicants on the Eterna product page.",
-        "sourceType": "manual",
-        "sourceLabel": "BOBCARD official product page",
-        "sourceUrl": "https://www.bobcard.co.in/credit-card-types/eterna",
-        "publishedAt": "2026-06-14"
-      }
-    ]
   }
 }
