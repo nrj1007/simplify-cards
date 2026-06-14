@@ -18,7 +18,9 @@
   "rewards": [
     {
       "category": "online",
-      "rate": 0,
+      "rate": 0.0,
+      "displayCategory": "Partner discount offers",
+      "displayRate": "Offer-led savings via promo code DIGISMART",
       "capMonthly": null
     }
   ],
@@ -35,28 +37,46 @@
     "travel"
   ],
   "exclusions": [
-    "benefits are merchant-offer led and depend on promo codes and partner caps",
-    "monthly fee model"
+    "Fuel transactions",
+    "Cash withdrawal / cash advance transactions",
+    "Fees and charges (including monthly fee and finance charges)"
   ],
-  "milestoneBenefits": [],
+  "exclusionCodes": [
+    "fuel",
+    "cash_advance"
+  ],
+  "milestones": [],
+  "milestoneBenefits": [
+    "Monthly fee of Rs 49 is waived on spending Rs 5,000 or more in the previous calendar month"
+  ],
   "additionalBenefits": [
-    "10% off at Blinkit with monthly cap",
-    "10% off at Zomato with per-transaction and monthly usage limits",
-    "Buy 1 Get 1 movie ticket free at INOX on Saturdays and Sundays",
-    "Yatra discounts on flights and hotel bookings",
-    "15% cashback on Ola cab bookings up to monthly cap"
+    "10% off at Blinkit (up to Rs 1,000 off per month, maximum 5 transactions)",
+    "10% off at Zomato (up to Rs 150 off per transaction, maximum 5 transactions per month)",
+    "20% off at Myntra (up to Rs 700 off once per month)",
+    "Buy 1 Get 1 free movie ticket at INOX on weekends (up to Rs 200 off per transaction, max 2 tickets per month)",
+    "15% cashback on Ola cab bookings (up to Rs 600 cashback per month)",
+    "Yatra discounts on flight and hotel bookings (up to Rs 10,000 off per transaction, once per quarter)"
   ],
   "redemption": {},
   "eligibility": {
     "salaried": [
-      "Minimum monthly income of INR 50,000 is required"
+      "Age: 18 to 65 years",
+      "Minimum monthly income of Rs 50,000"
     ],
     "selfEmployed": [
-      "Eligibility is subject to Standard Chartered approval criteria"
+      "Age: 18 to 65 years",
+      "Minimum annual income of Rs 6,000,000 equivalent or subject to bank criteria"
     ]
   },
+  "imageUrl": "/images/sc-digismart.webp",
   "sourceUrl": "https://www.sc.com/in/credit-cards/digismart-card/",
   "applyUrl": "https://www.sc.com/in/credit-cards/digismart-card/",
-  "lastVerified": "2026-05-11",
-  "verificationStatus": "official-direct"
+  "lastVerified": "2026-06-14",
+  "verificationStatus": "official-direct",
+  "internalNotes": [
+    "Card details manually reviewed and verified by user on 2026-06-14.",
+    "This is a monthly fee card with a Rs 49 monthly charge. The fee is waived if spends in the previous month reach Rs 5,000.",
+    "All benefits are discount/cashback offers requiring the promo code DIGISMART on checkout.",
+    "No standard reward points or cashbacks are accumulated outside the partner offers."
+  ]
 }

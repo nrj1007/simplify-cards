@@ -18,16 +18,29 @@
     {
       "category": "fuel",
       "rate": 5,
+      "displayCategory": "Fuel spends (max transaction Rs 2,000)",
+      "displayRate": "5% cashback",
       "capMonthly": 200
     },
     {
       "category": "utilities",
       "rate": 5,
+      "displayCategory": "Telephone & mobile bills (min transaction Rs 750 via BillPay)",
+      "displayRate": "5% cashback",
+      "capMonthly": 200
+    },
+    {
+      "category": "utilities",
+      "rate": 5,
+      "displayCategory": "Other utility bills (min transaction Rs 750 via BillPay)",
+      "displayRate": "5% cashback",
       "capMonthly": 100
     },
     {
       "category": "base",
-      "rate": 0.17,
+      "rate": 0.6666666666666666,
+      "displayCategory": "Other retail spends",
+      "displayRate": "1 reward point / Rs 150 spent",
       "capMonthly": null
     }
   ],
@@ -44,33 +57,48 @@
     "cashback"
   ],
   "exclusions": [
-    "telephone and utility cashback require use of Standard Chartered bill pay platforms and transaction thresholds",
-    "fuel cashback only on transactions of INR 2,000 or below",
-    "1% fuel surcharge waiver on this card has been discontinued"
+    "Cash withdrawal / cash advance transactions",
+    "Fees and charges (including annual fee and finance charges)",
+    "Fuel transactions above Rs 2,000",
+    "Utility/Telecom transactions below Rs 750 or made outside SC BillPay"
   ],
+  "exclusionCodes": [
+    "cash_advance"
+  ],
+  "milestones": [],
   "milestoneBenefits": [
-    "Annual fee reversal on meeting INR 90,000 spends"
+    "Annual fee waiver on spends of Rs 90,000 or more in the previous year"
   ],
   "additionalBenefits": [
-    "5% cashback on fuel up to INR 200 per month",
-    "5% cashback on phone bills up to INR 200 per month",
-    "5% cashback on utility bills up to INR 100 per month",
-    "1 reward point per INR 150 on other spends"
+    "5% cashback on fuel spends up to Rs 200 per month (max Rs 2,000 per transaction)",
+    "5% cashback on telephone bills up to Rs 200 per month (min Rs 750 per transaction via BillPay)",
+    "5% cashback on utility bills up to Rs 100 per month (min Rs 750 per transaction via BillPay)",
+    "1 reward point per Rs 150 spent on other retail spends (worth Rs 0.25 per point)"
   ],
   "redemption": {
-    "statementBalanceValue": 0.17,
+    "statementBalanceValue": 0.25,
     "redemptionFee": 99
   },
   "eligibility": {
     "salaried": [
-      "Minimum monthly income of INR 55,000 is required"
+      "Age: 21 to 65 years",
+      "Minimum monthly income of Rs 55,000"
     ],
     "selfEmployed": [
-      "Eligibility is subject to Standard Chartered approval criteria"
+      "Age: 21 to 65 years",
+      "Minimum annual income equivalent to Rs 55,000/month or subject to bank criteria"
     ]
   },
+  "imageUrl": "/images/sc-super-value-titanium.webp",
   "sourceUrl": "https://www.sc.com/in/credit-cards/super-value-titanium/",
   "applyUrl": "https://www.sc.com/in/credit-cards/super-value-titanium/",
-  "lastVerified": "2026-05-11",
-  "verificationStatus": "official-direct"
+  "lastVerified": "2026-06-14",
+  "verificationStatus": "official-direct",
+  "internalNotes": [
+    "Card details manually reviewed and verified by user on 2026-06-14.",
+    "5% cashback on fuel transactions up to Rs 2,000 (monthly cashback cap of Rs 200). Fuel surcharge waiver is not applicable.",
+    "5% cashback on telephone bills via BillPay (minimum transaction of Rs 750, monthly cap of Rs 200).",
+    "5% cashback on utility bills via BillPay (minimum transaction of Rs 750, monthly cap of Rs 100).",
+    "Other retail spends earn 1 reward point per Rs 150 spent. 1 point = Rs 0.25 (effectively 0.17% return value)."
+  ]
 }
