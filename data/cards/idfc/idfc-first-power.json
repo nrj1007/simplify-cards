@@ -7,7 +7,7 @@
   ],
   "joiningFee": 199,
   "annualFee": 199,
-  "feeWaiverSpend": null,
+  "feeWaiverSpend": 50000,
   "bestFor": [
     "fuel",
     "hpcl",
@@ -19,22 +19,32 @@
   "rewards": [
     {
       "category": "fuel",
-      "rate": 5,
-      "capMonthly": null
+      "rate": 14.0,
+      "displayCategory": "HPCL Fuel spends",
+      "displayRate": "21 Reward Points per INR 150 spent",
+      "capMonthly": 700
     },
     {
-      "category": "grocery",
-      "rate": 2.5,
-      "capMonthly": null
+      "category": "grocery, utilities",
+      "rate": 10.0,
+      "displayCategory": "Grocery and utility spends",
+      "displayRate": "15 Reward Points per INR 150 spent",
+      "capMonthly": 400
     },
     {
-      "category": "utility bills",
-      "rate": 2.5,
+      "category": "base",
+      "rate": 1.3333,
+      "displayCategory": "Other retail and UPI spends",
+      "displayRate": "2 Reward Points per INR 150 spent",
       "capMonthly": null
     }
   ],
   "loungeDomestic": 0,
   "loungeInternational": 0,
+  "lounge": {
+    "domestic": [],
+    "international": []
+  },
   "forexMarkup": 3.5,
   "tags": [
     "power",
@@ -46,33 +56,66 @@
     "utility bills"
   ],
   "exclusions": [
-    "cash withdrawal",
-    "transactions excluded under IDFC FIRST Power Credit Card terms"
+    "Fuel transactions at non-HPCL stations",
+    "EMI transactions",
+    "Cash withdrawal / cash advance transactions"
   ],
+  "exclusionCodes": [
+    "fuel",
+    "emi",
+    "cash_advance"
+  ],
+  "milestones": [],
   "milestoneBenefits": [],
+  "specialSpendRules": [
+    {
+      "category": "fuel",
+      "treatment": "capped",
+      "notes": "21X points per Rs 150 spent on HPCL fuel (capped at 700 points/cycle on spends up to Rs 5,000)."
+    },
+    {
+      "category": "grocery",
+      "treatment": "capped",
+      "notes": "15X points per Rs 150 spent on grocery and utility bills (capped at 400 points/cycle on combined spends up to Rs 4,000)."
+    },
+    {
+      "category": "utilities",
+      "treatment": "capped",
+      "notes": "15X points per Rs 150 spent on grocery and utility bills (capped at 400 points/cycle on combined spends up to Rs 4,000)."
+    }
+  ],
   "additionalBenefits": [
-    "Powered with UPI",
-    "Welcome benefit worth Rs 1,400",
-    "5% savings on fuel spends",
-    "2.5% savings on grocery and utility spends",
-    "HPCL fuel co-branded card"
+    "3.5% return value in Reward Points on HPCL fuel spends plus 1.5% as Happy Coins on HP Pay app",
+    "2.5% return value on grocery and utility spends",
+    "1% fuel surcharge waiver up to Rs 100 per statement cycle at HPCL stations",
+    "Reward points are valid for 24 months"
   ],
   "redemption": {
     "statementBalanceValue": 0.25,
-    "pointsExpiryYears": null,
+    "pointsExpiryYears": 2,
     "redemptionFee": 99
   },
   "eligibility": {
     "salaried": [
-      "Annual income greater than Rs 3 lakh"
+      "Age: 21 to 60 years",
+      "Minimum net monthly salary of Rs 20,000"
     ],
     "selfEmployed": [
-      "Annual income greater than Rs 3 lakh"
+      "Age: 21 to 60 years",
+      "Minimum annual ITR of Rs 2,40,000"
     ]
   },
-  "sourceUrl": "https://www.idfcfirstbank.com/credit-card",
+  "imageUrl": "/images/idfc-first-power.webp",
+  "sourceUrl": "https://www.idfcfirstbank.com/credit-card/co-branded/hpcl-power",
   "applyUrl": "https://www.idfcfirstbank.com/credit-card",
-  "lastVerified": "2026-05-10",
-  "verificationStatus": "official-catalogue",
+  "lastVerified": "2026-06-14",
+  "verificationStatus": "official-direct",
+  "internalNotes": [
+    "Card details manually reviewed and verified by user on 2026-06-14.",
+    "HPCL fuel co-branded credit card. 21X points per Rs 150 spent on HPCL fuel (capped at 700 points/cycle).",
+    "15X points per Rs 150 spent on grocery and utility bills (capped at 400 points/cycle on combined spends up to Rs 4,000).",
+    "2X points per Rs 150 spent on other retail and UPI transactions (value: 0.33% return).",
+    "Annual fee of Rs 199 is waived on spending Rs 50,000 in the preceding anniversary year."
+  ],
   "popularityScore": 65
 }
