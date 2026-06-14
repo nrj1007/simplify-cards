@@ -7,6 +7,7 @@
     "Mastercard",
     "RuPay"
   ],
+  "imageUrl": "/images/onecard.webp",
   "joiningFee": 0,
   "annualFee": 0,
   "feeWaiverSpend": null,
@@ -20,12 +21,16 @@
   "rewards": [
     {
       "category": "online",
-      "rate": 1,
+      "rate": 5,
+      "displayCategory": "Top 2 spend categories of the month (5X multiplier)",
+      "displayRate": "5 OneReward Points / Rs 100 spent",
       "capMonthly": null
     },
     {
       "category": "base",
-      "rate": 1,
+      "rate": 2,
+      "displayCategory": "All other retail spends",
+      "displayRate": "1 OneReward Point / Rs 50 spent",
       "capMonthly": null
     }
   ],
@@ -39,21 +44,34 @@
     "lifetime free",
     "low forex",
     "app control",
-    "partner banks"
+    "partner banks",
+    "5x rewards"
   ],
   "exclusions": [
-    "reward multipliers depend on top 2 spend categories each month",
-    "issuing bank and network may vary by applicant",
-    "some partner-bank-specific MITC terms differ"
+    "Fuel transactions",
+    "Rent payments",
+    "Cash advance transactions",
+    "Wallet loading transactions",
+    "Money transfer transactions"
+  ],
+  "exclusionCodes": [
+    "fuel",
+    "rent",
+    "cash_advance",
+    "wallet_load",
+    "balance_transfer"
   ],
   "milestoneBenefits": [],
   "additionalBenefits": [
-    "Lifetime-free metal credit card",
-    "5X rewards on top 2 spend categories each month",
-    "Points are credited instantly and do not expire under active-use conditions",
-    "No rewards redemption fee or minimum threshold for standard app redemption",
-    "Low forex fee of 1%",
-    "Managed through the OneCard app"
+    "India's first metal credit card — lifetime free",
+    "5X rewards on top 2 spend categories each month (requires spending in at least 3 categories)",
+    "Reward points credited on the 10th of the following month",
+    "No rewards redemption fee; no minimum points threshold for in-app redemption",
+    "1% fuel surcharge waiver (capped at Rs 400 per month)"
+  ],
+  "additionalDetails": [
+    "5X multiplier applies to your top 2 highest-spend categories in a given month. You must spend in at least 3 different categories to unlock the 5X benefit.",
+    "Card is issued by partner banks: Federal Bank, SBM Bank, South Indian Bank, BOB Financial (BOBCARD), Indian Bank, and CSB Bank. Network and specific MITC terms may vary by issuing bank."
   ],
   "redemption": {
     "statementBalanceValue": 0.1,
@@ -63,16 +81,33 @@
   },
   "eligibility": {
     "salaried": [
-      "Minimum age 18 years",
-      "Eligibility is subject to partner-bank approval criteria"
+      "Minimum age: 18 years",
+      "Subject to issuing partner bank credit approval criteria"
     ],
     "selfEmployed": [
-      "Minimum age 18 years",
-      "Eligibility is subject to partner-bank approval criteria"
+      "Minimum age: 18 years",
+      "Subject to issuing partner bank credit approval criteria"
     ]
   },
+  "supportingSourceUrls": [
+    "https://www.getonecard.app/legal/federal_conditions/",
+    "https://assets.getonecard.app/assets/legal/Federal_MITC.pdf"
+  ],
   "sourceUrl": "https://www.getonecard.app/credit-card/",
   "applyUrl": "https://www.getonecard.app/apply/",
-  "lastVerified": "2026-05-11",
-  "verificationStatus": "official-mixed"
+  "lastVerified": "2026-06-14",
+  "verificationStatus": "official-direct",
+  "internalNotes": [
+    "Card details manually reviewed and verified by user on 2026-06-14.",
+    "Network confirmed as Visa, Mastercard, and RuPay — all three variants are actively offered depending on issuing partner bank.",
+    "Fees confirmed as Lifetime Free (nil joining and annual fee).",
+    "Base reward rate: 1 OneReward Point per Rs 50 spent across all categories.",
+    "5X multiplier: Top 2 spend categories of the month earn 5X (5 points per Rs 100 = 0.5 Rs value). Requires spending in at least 3 different categories in that month.",
+    "5X reward points are credited to the account on the 10th of the following month.",
+    "Reward point exclusions confirmed from official T&C: fuel, rent, cash withdrawals, wallet loads, and money transfers.",
+    "Fuel surcharge waiver: 1% waiver at all fuel stations, capped at Rs 400 per month.",
+    "OneReward Points value: Rs 0.10 per point on statement credit redemption. Minimum 500 points required for statement credit. No redemption fee.",
+    "Issuing partner banks include: Federal Bank, SBM Bank, South Indian Bank, BOB Financial (BOBCARD), Indian Bank, and CSB Bank. Card-specific MITC terms vary by issuing bank.",
+    "The card image downloaded is the partner bank logos grid — not the physical card face. A proper card face image needs to be manually sourced."
+  ]
 }
