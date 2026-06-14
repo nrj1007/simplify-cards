@@ -58,9 +58,6 @@
     "Annual fee waiver on spending Rs 70,000 in a year"
   ],
   "additionalBenefits": [
-    "5 reward points per Rs 100 on dining, utility bills and online spends",
-    "1 reward point per Rs 100 on other categories",
-    "1% fuel surcharge waiver on fuel transactions between Rs 400 and Rs 5,000, capped at Rs 250 per statement cycle",
     "Up to 3 lifetime free add-on cards",
     "Personal accidental death cover"
   ],
@@ -70,15 +67,24 @@
   },
   "eligibility": {
     "salaried": [
-      "Eligibility details to be confirmed during Bank of Baroda application"
+      "Current official product page does not publish a detailed salaried eligibility grid",
+      "Approval remains subject to BOBCARD credit assessment",
+      "Resident Indian applicants can proceed through the official application flow"
     ],
     "selfEmployed": [
-      "Eligibility details to be confirmed during Bank of Baroda application"
+      "Current official product page does not publish a detailed self-employed eligibility grid",
+      "Approval remains subject to BOBCARD credit assessment",
+      "Resident Indian applicants can proceed through the official application flow"
     ]
   },
   "sourceUrl": "https://bankofbaroda.bank.in/personal-banking/digital-products/cards/credit-cards/select",
   "applyUrl": "https://bankofbaroda.bank.in/personal-banking/digital-products/cards/credit-cards/select",
-  "lastVerified": "2026-05-10",
+  "lastVerified": "2026-06-14",
   "verificationStatus": "official-direct",
-  "popularityScore": 70
+  "popularityScore": 70,
+  "internalNotes": [
+    "Audited against the official Bank of Baroda Select product page on 2026-06-14.",
+    "The current official page confirms 5 reward points per Rs 100 on dining, utility bills, and online spends, 1 reward point per Rs 100 on other eligible spends, and a 1,000 reward-point monthly cap on the 5X categories.",
+    "The official product page currently shows 'Coming soon...' under detailed eligibility, document, and terms sections."
+  ]
 }
