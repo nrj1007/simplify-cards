@@ -58,6 +58,11 @@
     "HP Pay direct payment mode is not eligible for listed fuel savings",
     "taxes and charges excluded as per BOBCARD terms"
   ],
+  "exclusionCodes": [
+    "fuel",
+    "tax",
+    "fees_and_charges"
+  ],
   "milestoneBenefits": [
     "2,000 joining reward points on spending Rs 5,000 or more within 60 days",
     "Renewal fee waiver on annual spends of Rs 50,000"
@@ -95,6 +100,7 @@
   "internalNotes": [
     "Audited against the official Bank of Baroda HPCL Energie product page on 2026-06-14.",
     "The current official page confirms 24 reward points per Rs 150 on HPCL fuel spends, 10 reward points per Rs 150 on utilities, grocery, and departmental stores, 2 reward points per Rs 150 on other eligible spends, and 4 domestic lounge visits at 1 per quarter.",
-    "HP Pay direct payment mode is excluded from the QR-based fuel benefit wording on the official page."
+    "HP Pay direct payment mode is excluded from the QR-based fuel benefit wording on the official page.",
+    "Card details manually reviewed and verified by user on 2026-06-14."
   ]
 }
