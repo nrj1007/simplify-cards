@@ -415,5 +415,17 @@
         "publishedAt": "2026-06-08"
       }
     ]
+  },
+  "bobcard-eterna": {
+    "updates": [
+      {
+        "title": "Limited-period lifetime free offer valid until 30 June 2026",
+        "summary": "BOBCARD is offering a limited-period lifetime free card offer for new Eterna applicants through 30 June 2026.",
+        "sourceType": "manual",
+        "sourceLabel": "BOBCARD official product page",
+        "sourceUrl": "https://www.bobcard.co.in/credit-card-types/eterna",
+        "publishedAt": "2026-06-30"
+      }
+    ]
   }
 }
