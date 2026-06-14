@@ -18,17 +18,23 @@
   "rewards": [
     {
       "category": "travel",
-      "rate": 6,
+      "rate": 6.0,
+      "displayCategory": "Travel spends",
+      "displayRate": "6% cashback",
       "capMonthly": 3000
     },
     {
       "category": "dining",
-      "rate": 6,
+      "rate": 6.0,
+      "displayCategory": "Dining spends",
+      "displayRate": "6% cashback",
       "capMonthly": 3000
     },
     {
       "category": "base",
-      "rate": 1,
+      "rate": 1.0,
+      "displayCategory": "Other retail spends",
+      "displayRate": "1% cashback",
       "capMonthly": null
     }
   ],
@@ -46,31 +52,42 @@
     "rewardz"
   ],
   "exclusions": [
-    "emi transactions",
-    "utility",
-    "insurance",
+    "Fuel transactions",
+    "Rental payments",
+    "Wallet loading transactions",
+    "Cash withdrawal / cash advance transactions",
+    "EMI transactions",
+    "Utility payments",
+    "Insurance premium payments",
+    "Education fees / school fee payments",
+    "Jewellery purchases",
+    "Government services / tax payments",
+    "Hospital and pharmacy spends",
+    "Toll payments"
+  ],
+  "exclusionCodes": [
     "fuel",
     "rent",
-    "wallet loading",
+    "wallet_load",
+    "cash_advance",
+    "emi",
+    "utilities",
+    "insurance",
     "education",
-    "jewellery",
-    "government services",
-    "hospital and pharmacy",
-    "toll",
-    "cash advance"
+    "gold",
+    "government",
+    "jewellery"
   ],
-  "milestoneBenefits": [
-    "Renewal fee waiver on spending Rs 1,20,000 in a card anniversary year"
-  ],
+  "milestoneBenefits": [],
   "additionalBenefits": [
-    "6% cashback on eligible dining spends",
-    "6% cashback on eligible travel spends",
-    "1% base cashback on other eligible spends",
-    "Reward points redeem at 1 point = Rs 1 with no redemption fee",
     "1% fuel surcharge waiver on transactions between Rs 500 and Rs 3,000 with monthly cap"
   ],
+  "additionalDetails": [
+    "6% cashback is capped at Rs 3,000 per calendar month each for travel and dining spends.",
+    "Renewal fee waiver is applicable on spending Rs 1,20,000 in a card anniversary year."
+  ],
   "redemption": {
-    "statementBalanceValue": 1,
+    "statementBalanceValue": 1.0,
     "pointsExpiryYears": 3
   },
   "eligibility": {
@@ -81,8 +98,13 @@
       "Eligibility is subject to YES BANK and Paisabazaar approval criteria"
     ]
   },
+  "imageUrl": "/images/yes-paisabazaar-paisasave.webp",
   "sourceUrl": "https://www.yesbank.in/content/published/api/v1.1/assets/CONTC46D4F0EE9B04E8296130DCBAB6FC48B/native/ybl_overview_of_features_and_Benefits_on_your_paisasave_card.pdf",
   "applyUrl": "https://www.paisabazaar.com/yes-bank/paisabazaar-paisasave-credit-card/",
-  "lastVerified": "2026-05-11",
-  "verificationStatus": "official-mixed"
+  "lastVerified": "2026-06-14",
+  "verificationStatus": "official-direct",
+  "internalNotes": [
+    "Card details manually reviewed and verified by user on 2026-06-14.",
+    "6% cashback on travel and dining capped at Rs 3,000 per calendar month per category."
+  ]
 }

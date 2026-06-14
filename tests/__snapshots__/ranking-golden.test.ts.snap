@@ -13,8 +13,8 @@ exports[`ranking golden (representative queries) > produces stable top-N orderin
     "hsbc-premier",
     "hsbc-travelone",
     "amex-gold",
+    "yes-pop-club",
     "indigo-sbi-elite",
-    "axis-flipkart-super-elite",
   ],
   "exact-card-atlas": [
     "axis-atlas",
@@ -68,9 +68,9 @@ exports[`ranking golden (representative queries) > produces stable top-N orderin
     "titan-sbi",
     "hsbc-premier",
     "hdfc-shoppers-stop-black",
+    "yes-marquee",
     "icici-times-black",
     "indigo-sbi-elite",
-    "hdfc-marriott-bonvoy",
   ],
   "max-fee-zero": [
     "au-ixigo",
@@ -95,9 +95,9 @@ exports[`ranking golden (representative queries) > produces stable top-N orderin
     "hsbc-rupay-platinum",
     "indusind-platinum-rupay",
     "federal-wave",
+    "yes-paisabazaar-paisasave-rupay",
     "yes-klick-rupay",
     "hdfc-regalia-gold",
-    "yes-paisabazaar-paisasave-rupay",
     "hdfc-infinia-metal",
   ],
   "segment-premium": [
@@ -166,9 +166,9 @@ exports[`ranking golden (representative queries) > produces stable top-N orderin
     "axis-samsung-signature",
     "hsbc-premier",
     "amex-gold",
+    "yes-pop-club",
     "axis-flipkart-super-elite",
     "hsbc-travelone",
-    "tata-neu-infinity-sbi",
   ],
   "usecase-fuel": [
     "kotak-cashback-plus",

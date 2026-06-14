@@ -834,7 +834,7 @@ function isSpendCategoryExcluded(card: CreditCard, category: SpendCategory) {
       return false;
     }
 
-    if (/\b(cap|capped|upto|up to|up-to|max|max\.?)\b/.test(normalizedLine)) {
+    if (/\b(cap|capped|upto|up to|up-to|max|max\.?|below|under|less than|or below|or less)\b/.test(normalizedLine)) {
       return false;
     }
 

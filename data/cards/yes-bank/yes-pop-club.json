@@ -17,8 +17,24 @@
   "rewardType": "POPcoins",
   "rewards": [
     {
+      "category": "online",
+      "rate": 10.0,
+      "displayCategory": "Online spends",
+      "displayRate": "10 POPcoins / Rs 100 spent",
+      "capMonthly": null
+    },
+    {
       "category": "upi",
-      "rate": 2,
+      "rate": 7.0,
+      "displayCategory": "UPI scans via POP UPI App",
+      "displayRate": "7 POPcoins / Rs 100 spent",
+      "capMonthly": null
+    },
+    {
+      "category": "base",
+      "rate": 2.0,
+      "displayCategory": "Other UPI and offline retail spends",
+      "displayRate": "2 POPcoins / Rs 100 spent",
       "capMonthly": null
     }
   ],
@@ -36,33 +52,66 @@
     "popcoins"
   ],
   "exclusions": [
-    "detailed earn rules depend on POP app and partner campaigns",
-    "cash advance fee applies",
-    "rent",
-    "wallet loading"
+    "Fuel transactions",
+    "Rental payments",
+    "Wallet loading transactions",
+    "Utility payments",
+    "Insurance premium payments",
+    "Real estate payments",
+    "Government services / tax payments",
+    "Cash withdrawal / cash advance transactions"
   ],
-  "milestoneBenefits": [
-    "Renewal fee waiver on spending Rs 1,50,000 in a card anniversary year"
+  "exclusionCodes": [
+    "fuel",
+    "rent",
+    "wallet_load",
+    "utilities",
+    "insurance",
+    "real_estate",
+    "government",
+    "cash_advance"
+  ],
+  "joiningBenefits": [
+    "Welcome offers worth up to Rs 5,000 including 500 POPcoins and brand vouchers (Blinkit, Cleartrip, Zomato Gold, PharmEasy Plus, Rapido)"
+  ],
+  "milestones": [
+    {
+      "threshold": 150000,
+      "period": "annual",
+      "value": 1500,
+      "kind": "points",
+      "label": "1,500 bonus POPcoins on annual spends of Rs 1.5 Lakh"
+    }
   ],
   "additionalBenefits": [
-    "2% POPcoins on UPI transactions through POP UPI",
-    "Joining benefits worth about Rs 2,000 highlighted on POP's official site",
-    "1% fuel surcharge waiver on eligible transactions with monthly cap of Rs 300"
+    "1% fuel surcharge waiver on transactions between Rs 1,000 and Rs 3,500 (capped at Rs 300 per month)"
+  ],
+  "additionalDetails": [
+    "Annual fee of Rs 399 is waived if spends exceed Rs 1,50,000 in the preceding anniversary year."
   ],
   "redemption": {
-    "statementBalanceValue": 1,
+    "statementBalanceValue": 1.0,
     "pointsExpiryYears": null
   },
   "eligibility": {
     "salaried": [
-      "Eligibility is subject to YES BANK and POP approval criteria"
+      "Age: 21 to 60 years",
+      "Minimum net monthly salary of Rs 25,000"
     ],
     "selfEmployed": [
-      "Eligibility is subject to YES BANK and POP approval criteria"
+      "Age: 21 to 60 years",
+      "Minimum annual ITR of Rs 7,50,000"
     ]
   },
-  "sourceUrl": "https://popclub.co/",
+  "imageUrl": "/images/yes-pop-club.webp",
+  "sourceUrl": "https://www.yesbank.in/personal-banking/yes-individual/cards/credit-cards/yes-bank-pop-club-credit-card",
   "applyUrl": "https://popclub.co/",
-  "lastVerified": "2026-05-11",
-  "verificationStatus": "official-mixed"
+  "lastVerified": "2026-06-14",
+  "verificationStatus": "official-direct",
+  "internalNotes": [
+    "Card details manually reviewed and verified by user on 2026-06-14.",
+    "1 POPcoin = Rs 1, redeemable on POPclub app.",
+    "Standard RuPay UPI transactions earn 2 POPcoins per Rs 100.",
+    "UPI transactions via POP UPI App earn 7 POPcoins per Rs 100."
+  ]
 }

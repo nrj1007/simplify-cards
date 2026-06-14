@@ -4,7 +4,8 @@
   "name": "YES BANK RESERV Credit Card",
   "network": [
     "Mastercard",
-    "Visa"
+    "Visa",
+    "RuPay"
   ],
   "joiningFee": 2499,
   "annualFee": 2499,
@@ -20,17 +21,23 @@
   "rewards": [
     {
       "category": "online",
-      "rate": 3,
+      "rate": 12.0,
+      "displayCategory": "Online spends",
+      "displayRate": "24 YES Rewardz Points / Rs 200 spent",
       "capMonthly": 9000
     },
     {
       "category": "base",
-      "rate": 1.5,
+      "rate": 6.0,
+      "displayCategory": "Other retail spends",
+      "displayRate": "12 YES Rewardz Points / Rs 200 spent",
       "capMonthly": null
     },
     {
       "category": "utilities",
-      "rate": 0.75,
+      "rate": 3.0,
+      "displayCategory": "Select categories (utilities, insurance, education, telecom)",
+      "displayRate": "6 YES Rewardz Points / Rs 200 spent",
       "capMonthly": 750
     }
   ],
@@ -56,26 +63,55 @@
     "rewardz"
   ],
   "exclusions": [
+    "Fuel transactions",
+    "Rental payments",
+    "Wallet loading transactions",
+    "Cash withdrawal / cash advance transactions",
+    "EMI transactions (including post-purchase and instant EMI)"
+  ],
+  "exclusionCodes": [
     "fuel",
-    "cash withdrawals",
-    "transactions converted into EMI"
+    "rent",
+    "wallet_load",
+    "cash_advance",
+    "emi"
   ],
-  "milestoneBenefits": [
-    "First-year membership fee waived on spending Rs 40,000 within 30 days of card issuance",
-    "Renewal fee waiver on spending Rs 3,00,000 in a card anniversary year",
-    "8,000 YES Rewardz points on renewal fee realization"
+  "joiningBenefits": [
+    "8,000 YES Rewardz points credited on joining fee realization"
   ],
+  "renewalBenefits": [
+    "8,000 YES Rewardz points credited on renewal fee realization"
+  ],
+  "milestones": [],
   "additionalBenefits": [
-    "Card was earlier known as YES First Exclusive",
-    "6 complimentary international lounge visits in 12 months for primary and add-on cardmembers",
-    "3 complimentary domestic lounge visits per quarter for primary cardmember",
-    "BookMyShow discount up to 25% with monthly cap",
+    "BookMyShow discount up to 25% on movie tickets (up to Rs 250 per transaction)",
     "Purchase protection cover on eligible electronics",
     "Green fee waiver and golf lessons at select golf courses"
   ],
+  "additionalDetails": [
+    "Domestic lounge access is subject to a spend threshold of Rs 1,00,000 in the previous calendar quarter.",
+    "First-year membership fee is waived on spending Rs 40,000 within 30 days of card issuance."
+  ],
   "redemption": {
     "statementBalanceValue": 0.25,
-    "pointsExpiryYears": null
+    "pointsExpiryYears": null,
+    "airMilesValue": 0.1,
+    "airlinePartners": [
+      {
+        "airline": "Air India",
+        "programme": "Maharaja Club",
+        "ratio": "10:1"
+      }
+    ],
+    "voucherRedemptions": [
+      {
+        "partner": "Adani One",
+        "programme": "Adani One Rewards",
+        "ratio": "100:10",
+        "valuePerPoint": 0.1,
+        "note": "100 YES Rewardz points -> 10 Adani Reward Points"
+      }
+    ]
   },
   "eligibility": {
     "salaried": [
@@ -85,8 +121,14 @@
       "Eligibility is subject to YES BANK approval criteria"
     ]
   },
+  "imageUrl": "/images/yes-reserv.webp",
   "sourceUrl": "https://www.yesbank.in/content/published/api/v1.1/assets/CONT4EAD59EF49CE4B8EADB3234B1D9AF541/native/yesbank_credit_card_reserv_value_chart_nov23.pdf",
   "applyUrl": "https://www.yesbank.in/personal-banking/yes-individual/cards/credit-cards",
-  "lastVerified": "2026-05-11",
-  "verificationStatus": "official-mixed"
+  "lastVerified": "2026-06-14",
+  "verificationStatus": "official-direct",
+  "internalNotes": [
+    "Card details manually reviewed and verified by user on 2026-06-14.",
+    "Domestic lounge access requires Rs 1 Lakh spend in the previous calendar quarter.",
+    "Forex markup fee is 1.75%."
+  ]
 }

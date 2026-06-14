@@ -107,8 +107,8 @@ exports[`reward calculator golden (all cards) > computes stable earn for every c
     "moderate": "online:500 dining:500 travel:500 hotels:750 airlines:1750 fuel:x grocery:750 utilities:x upi:500 amazon:500 international:500 base:500 rent:x insurance:500 education:x gold:500 government:500 |8250",
   },
   "axis-kwik": {
-    "high": "online:2000 dining:2000 travel:2000 hotels:2000 airlines:2000 fuel:x grocery:2000 utilities:2000 upi:x amazon:2000 international:2000 base:2000 rent:x insurance:x education:x gold:x government:x |20000",
-    "moderate": "online:250 dining:250 travel:250 hotels:250 airlines:250 fuel:x grocery:250 utilities:250 upi:x amazon:250 international:250 base:250 rent:x insurance:x education:x gold:x government:x |2500",
+    "high": "online:2000 dining:2000 travel:2000 hotels:2000 airlines:2000 fuel:x grocery:2000 utilities:2000 upi:10000 amazon:2000 international:2000 base:2000 rent:x insurance:x education:x gold:x government:x |30000",
+    "moderate": "online:250 dining:250 travel:250 hotels:250 airlines:250 fuel:x grocery:250 utilities:250 upi:1250 amazon:250 international:250 base:250 rent:x insurance:x education:x gold:x government:x |3750",
   },
   "axis-lic-platinum": {
     "high": "online:2000 dining:2000 travel:2000 hotels:2000 airlines:2000 fuel:x grocery:2000 utilities:x upi:2000 amazon:2000 international:4000 base:2000 rent:x insurance:4000 education:x gold:2000 government:2000 |30000",
@@ -791,28 +791,28 @@ exports[`reward calculator golden (all cards) > computes stable earn for every c
     "moderate": "online:250 dining:250 travel:250 hotels:250 airlines:250 fuel:x grocery:250 utilities:x upi:500 amazon:250 international:250 base:250 rent:x insurance:x education:x gold:x government:x |2750",
   },
   "yes-marquee": {
-    "high": "online:9000 dining:4500 travel:4500 hotels:4500 airlines:4500 fuel:x grocery:4500 utilities:1500 upi:4500 amazon:4500 international:4500 base:4500 rent:x insurance:4500 education:4500 gold:4500 government:4500 |69000",
-    "moderate": "online:1125 dining:563 travel:563 hotels:563 airlines:563 fuel:x grocery:563 utilities:313 upi:563 amazon:563 international:563 base:563 rent:x insurance:563 education:563 gold:563 government:563 |8750",
+    "high": "online:36000 dining:7692 travel:7692 hotels:7692 airlines:7692 fuel:x grocery:7692 utilities:1250 upi:7692 amazon:7692 international:7692 base:7692 rent:x insurance:7692 education:7692 gold:7692 government:7692 |137250",
+    "moderate": "online:4500 dining:2250 travel:2250 hotels:2250 airlines:2250 fuel:x grocery:2250 utilities:1250 upi:2250 amazon:2250 international:2250 base:2250 rent:x insurance:2250 education:2250 gold:2250 government:2250 |35000",
   },
   "yes-paisabazaar-paisasave": {
-    "high": "online:2000 dining:3000 travel:3000 hotels:2000 airlines:2000 fuel:x grocery:2000 utilities:2000 upi:2000 amazon:2000 international:2000 base:2000 rent:x insurance:x education:x gold:x government:x |24000",
-    "moderate": "online:250 dining:1500 travel:1500 hotels:250 airlines:250 fuel:x grocery:250 utilities:250 upi:250 amazon:250 international:250 base:250 rent:x insurance:x education:x gold:x government:x |5250",
+    "high": "online:2000 dining:3000 travel:3000 hotels:2000 airlines:2000 fuel:x grocery:2000 utilities:x upi:2000 amazon:2000 international:2000 base:2000 rent:x insurance:x education:x gold:x government:x |22000",
+    "moderate": "online:250 dining:1500 travel:1500 hotels:250 airlines:250 fuel:x grocery:250 utilities:x upi:250 amazon:250 international:250 base:250 rent:x insurance:x education:x gold:x government:x |5000",
   },
   "yes-paisabazaar-paisasave-rupay": {
-    "high": "online:0 dining:0 travel:0 hotels:0 airlines:0 fuel:0 grocery:0 utilities:0 upi:x amazon:0 international:0 base:0 rent:x insurance:0 education:0 gold:0 government:0 |0",
-    "moderate": "online:0 dining:0 travel:0 hotels:0 airlines:0 fuel:0 grocery:0 utilities:0 upi:x amazon:0 international:0 base:0 rent:x insurance:0 education:0 gold:0 government:0 |0",
+    "high": "online:0 dining:0 travel:0 hotels:0 airlines:0 fuel:0 grocery:0 utilities:0 upi:2000 amazon:0 international:0 base:0 rent:x insurance:0 education:0 gold:0 government:0 |2000",
+    "moderate": "online:0 dining:0 travel:0 hotels:0 airlines:0 fuel:0 grocery:0 utilities:0 upi:250 amazon:0 international:0 base:0 rent:x insurance:0 education:0 gold:0 government:0 |250",
   },
   "yes-pop-club": {
-    "high": "online:0 dining:0 travel:0 hotels:0 airlines:0 fuel:0 grocery:0 utilities:0 upi:4000 amazon:0 international:0 base:0 rent:x insurance:0 education:0 gold:0 government:0 |4000",
-    "moderate": "online:0 dining:0 travel:0 hotels:0 airlines:0 fuel:0 grocery:0 utilities:0 upi:500 amazon:0 international:0 base:0 rent:x insurance:0 education:0 gold:0 government:0 |500",
+    "high": "online:20000 dining:4000 travel:4000 hotels:4000 airlines:4000 fuel:x grocery:4000 utilities:x upi:14000 amazon:4000 international:4000 base:4000 rent:x insurance:x education:4000 gold:4000 government:x |74000",
+    "moderate": "online:2500 dining:500 travel:500 hotels:500 airlines:500 fuel:x grocery:500 utilities:x upi:1750 amazon:500 international:500 base:500 rent:x insurance:x education:500 gold:500 government:x |9250",
   },
   "yes-reserv": {
-    "high": "online:6000 dining:3000 travel:3000 hotels:3000 airlines:3000 fuel:x grocery:3000 utilities:750 upi:3000 amazon:3000 international:3000 base:3000 rent:3000 insurance:3000 education:3000 gold:3000 government:3000 |48750",
-    "moderate": "online:750 dining:375 travel:375 hotels:375 airlines:375 fuel:x grocery:375 utilities:188 upi:375 amazon:375 international:375 base:375 rent:375 insurance:375 education:375 gold:375 government:375 |6188",
+    "high": "online:9000 dining:12000 travel:12000 hotels:12000 airlines:12000 fuel:x grocery:12000 utilities:750 upi:12000 amazon:12000 international:12000 base:12000 rent:x insurance:12000 education:12000 gold:12000 government:12000 |165750",
+    "moderate": "online:3000 dining:1500 travel:1500 hotels:1500 airlines:1500 fuel:x grocery:1500 utilities:750 upi:1500 amazon:1500 international:1500 base:1500 rent:x insurance:1500 education:1500 gold:1500 government:1500 |23250",
   },
   "yes-select": {
-    "high": "online:1250 dining:1000 travel:1000 hotels:1000 airlines:1000 fuel:x grocery:1000 utilities:150 upi:1000 amazon:1000 international:1000 base:1000 rent:1000 insurance:1000 education:1000 gold:1000 government:1000 |15400",
-    "moderate": "online:250 dining:125 travel:125 hotels:125 airlines:125 fuel:x grocery:125 utilities:63 upi:125 amazon:125 international:125 base:125 rent:125 insurance:125 education:125 gold:125 government:125 |2063",
+    "high": "online:1250 dining:4000 travel:4000 hotels:4000 airlines:4000 fuel:x grocery:4000 utilities:150 upi:4000 amazon:4000 international:4000 base:4000 rent:x insurance:4000 education:4000 gold:4000 government:4000 |53400",
+    "moderate": "online:1000 dining:500 travel:500 hotels:500 airlines:500 fuel:x grocery:500 utilities:150 upi:500 amazon:500 international:500 base:500 rent:x insurance:500 education:500 gold:500 government:500 |7650",
   },
 }
 `;

@@ -19,18 +19,24 @@
   "rewards": [
     {
       "category": "online",
-      "rate": 4.5,
-      "capMonthly": 25000
+      "rate": 18.0,
+      "displayCategory": "Online spends",
+      "displayRate": "36 YES Rewardz Points / Rs 200 spent",
+      "capMonthly": 100000
     },
     {
       "category": "base",
-      "rate": 2.25,
-      "capMonthly": null
+      "rate": 9.0,
+      "displayCategory": "Other retail spends",
+      "displayRate": "18 YES Rewardz Points / Rs 200 spent",
+      "capMonthly": 100000
     },
     {
       "category": "utilities",
-      "rate": 1.25,
-      "capMonthly": 1500
+      "rate": 5.0,
+      "displayCategory": "Select categories (utilities, insurance, education, telecom)",
+      "displayRate": "10 YES Rewardz Points / Rs 200 spent",
+      "capMonthly": 1250
     }
   ],
   "popularityScore": 84,
@@ -44,7 +50,7 @@
       "Unlimited international lounge access for primary and add-on cardmembers"
     ]
   },
-  "forexMarkup": 1.75,
+  "forexMarkup": 1.0,
   "tags": [
     "yes bank",
     "premium",
@@ -55,30 +61,55 @@
     "rewardz"
   ],
   "exclusions": [
+    "Fuel transactions",
+    "Rental payments",
+    "Wallet loading transactions",
+    "Cash withdrawal / cash advance transactions",
+    "EMI transactions (including post-purchase and instant EMI)"
+  ],
+  "exclusionCodes": [
     "fuel",
     "rent",
-    "wallet",
-    "cash withdrawals",
-    "post purchase EMI",
-    "instant EMI"
+    "wallet_load",
+    "cash_advance",
+    "emi"
   ],
-  "milestoneBenefits": [
-    "40,000 YES Rewardz points credited on fee realization in first year",
-    "20,000 YES Rewardz points credited on renewal fee realization",
-    "Renewal fee waiver on spending Rs 10,00,000 in a card anniversary year"
+  "joiningBenefits": [
+    "40,000 YES Rewardz points credited on joining fee realization",
+    "Economic Times Prime subscription"
   ],
+  "renewalBenefits": [
+    "20,000 YES Rewardz points credited on renewal fee realization"
+  ],
+  "milestoneBenefits": [],
   "additionalBenefits": [
-    "Economic Times Prime subscription as joining benefit",
-    "Unlimited international lounge access for primary and add-on cardmembers",
-    "Domestic lounge access up to 6 visits per quarter for primary and add-on cardmembers, subject to spend threshold",
-    "Buy one get one movie benefit on BookMyShow with monthly cap",
+    "Buy one get one movie benefit on BookMyShow with monthly cap (up to 3 tickets per month, max discount Rs 800 per ticket)",
     "Purchase protection cover on eligible electronics",
-    "Green fee waiver and golf lessons at select golf courses",
-    "YES Rewardz point value up to Rs 0.25 per point"
+    "Green fee waiver and golf lessons at select golf courses"
+  ],
+  "additionalDetails": [
+    "Domestic lounge access is subject to a spend threshold of Rs 1,00,000 in the previous calendar quarter."
   ],
   "redemption": {
     "statementBalanceValue": 0.25,
-    "pointsExpiryYears": null
+    "pointsExpiryYears": null,
+    "airMilesValue": 0.1,
+    "airlinePartners": [
+      {
+        "airline": "Air India",
+        "programme": "Maharaja Club",
+        "ratio": "10:1"
+      }
+    ],
+    "voucherRedemptions": [
+      {
+        "partner": "Adani One",
+        "programme": "Adani One Rewards",
+        "ratio": "100:10",
+        "valuePerPoint": 0.1,
+        "note": "100 YES Rewardz points -> 10 Adani Reward Points"
+      }
+    ]
   },
   "eligibility": {
     "salaried": [
@@ -88,8 +119,14 @@
       "Eligibility is subject to YES BANK approval criteria"
     ]
   },
+  "imageUrl": "/images/yes-marquee.webp",
   "sourceUrl": "https://www.yesbank.in/content/published/api/v1.1/assets/CONT49316C1151134FA58F444758AF08712C/native/yesbank_marquee_credit_card.pdf",
   "applyUrl": "https://www.yesbank.in/personal-banking/yes-individual/cards/credit-cards",
-  "lastVerified": "2026-05-11",
-  "verificationStatus": "official-mixed"
+  "lastVerified": "2026-06-14",
+  "verificationStatus": "official-direct",
+  "internalNotes": [
+    "Card details manually reviewed and verified by user on 2026-06-14.",
+    "Overall reward points capped at 1,00,000 per statement cycle.",
+    "Utility rewards are capped at 1,250 points per statement cycle."
+  ]
 }

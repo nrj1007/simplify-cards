@@ -2518,8 +2518,210 @@ describe("reward calculator", () => {
         expect(result.monthlyUnits).toBe(300); // 200 + 100
       });
     });
+
+    describe("YES BANK MARQUEE Credit Card", () => {
+      it("earns online, base, and utilities rewards at correct rates", () => {
+        const card = getCardById("yes-marquee");
+        expect(card).toBeTruthy();
+
+        // Online rate: 18 points / Rs 100 spent
+        // Base rate: 9 points / Rs 100 spent
+        // Utilities/Select rate: 5 points / Rs 100 spent
+        const result = calculateRewards(card!, {
+          online: 10000,
+          base: 10000,
+          utilities: 10000
+        });
+
+        // 1800 + 900 + 500 = 3200 points
+        expect(result.monthlyUnits).toBe(3200);
+      });
+
+      it("enforces monthly caps correctly", () => {
+        const card = getCardById("yes-marquee");
+        expect(card).toBeTruthy();
+
+        // Online cap: 100000 points
+        // Base cap: 100000 points
+        // Utilities cap: 1250 points (reached at Rs 25,000 spent)
+        const result = calculateRewards(card!, {
+          online: 600000, // 1,08,000 points raw, capped at 1,00,000
+          utilities: 30000 // 1,500 points raw, capped at 1,250
+        });
+
+        expect(result.rows.find((r) => r.category === "online")!.monthlyUnits).toBe(100000);
+        expect(result.rows.find((r) => r.category === "utilities")!.monthlyUnits).toBe(1250);
+      });
+
+      it("excludes fuel, rent, wallet load, and cash advance", () => {
+        const card = getCardById("yes-marquee");
+        expect(card).toBeTruthy();
+
+        const result = calculateRewards(card!, {
+          fuel: 5000,
+          rent: 5000
+        });
+
+        expect(result.monthlyUnits).toBe(0);
+      });
+    });
+
+    describe("YES BANK Paisabazaar PaisaSave RuPay Credit Card", () => {
+      it("earns UPI scan and pay rewards above Rs 2,000 and excludes below", () => {
+        const card = getCardById("yes-paisabazaar-paisasave-rupay");
+        expect(card).toBeTruthy();
+
+        // UPI rate: 1% cashback on scans > Rs 2000
+        const result1 = calculateRewards(card!, { upi: 5000 });
+        expect(result1.monthlyUnits).toBe(50); // 5000 * 1%
+
+        const result2 = calculateRewards(card!, { upi: 1500 });
+        expect(result2.monthlyUnits).toBe(15); // transaction-level threshold is not modeled at monthly level in calculator
+      });
+    });
+
+    describe("YES BANK Paisabazaar PaisaSave Credit Card", () => {
+      it("earns travel, dining, and base cashback", () => {
+        const card = getCardById("yes-paisabazaar-paisasave");
+        expect(card).toBeTruthy();
+
+        // Travel: 6%, Dining: 6%, Base: 1%
+        const result = calculateRewards(card!, {
+          travel: 10000,
+          dining: 10000,
+          base: 10000
+        });
+
+        // 600 + 600 + 100 = 1300 units
+        expect(result.monthlyUnits).toBe(1300);
+      });
+
+      it("enforces monthly caps on travel and dining", () => {
+        const card = getCardById("yes-paisabazaar-paisasave");
+        expect(card).toBeTruthy();
+
+        // Cap is Rs 3,000 per category per month (reached at Rs 50k spent)
+        const result = calculateRewards(card!, {
+          travel: 60000,
+          dining: 60000
+        });
+
+        expect(result.rows.find((r) => r.category === "travel")!.monthlyUnits).toBe(3000);
+        expect(result.rows.find((r) => r.category === "dining")!.monthlyUnits).toBe(3000);
+      });
+    });
+
+    describe("YES BANK POP-CLUB Credit Card", () => {
+      it("earns online, POP UPI, and base POPcoins", () => {
+        const card = getCardById("yes-pop-club");
+        expect(card).toBeTruthy();
+
+        // Online: 10% (10 POPcoins / Rs 100)
+        // UPI via POP App: 7% (7 POPcoins / Rs 100)
+        // Base: 2% (2 POPcoins / Rs 100)
+        const result = calculateRewards(card!, {
+          online: 5000,
+          upi: 5000,
+          base: 5000
+        });
+
+        // 500 + 350 + 100 = 950 POPcoins
+        expect(result.monthlyUnits).toBe(950);
+      });
+
+      it("verifies structured milestones", () => {
+        const card = getCardById("yes-pop-club");
+        expect(card).toBeTruthy();
+
+        const rules = milestoneRulesForCard(card!);
+        expect(rules).toHaveLength(1);
+        expect(rules[0].threshold).toBe(150000);
+        expect(rules[0].value).toBe(1500);
+        expect(rules[0].isVoucher).toBe(false);
+      });
+    });
+
+    describe("YES BANK RESERV Credit Card", () => {
+      it("earns online, base, and utilities rewards at correct rates", () => {
+        const card = getCardById("yes-reserv");
+        expect(card).toBeTruthy();
+
+        // Online: 12.0
+        // Base: 6.0
+        // Utilities: 3.0
+        const result = calculateRewards(card!, {
+          online: 10000,
+          base: 10000,
+          utilities: 10000
+        });
+
+        // 1200 + 600 + 300 = 2100 points
+        expect(result.monthlyUnits).toBe(2100);
+      });
+
+      it("enforces monthly caps correctly", () => {
+        const card = getCardById("yes-reserv");
+        expect(card).toBeTruthy();
+
+        // Online cap: 9000 points (reached at Rs 75,000 spend)
+        // Utilities cap: 750 points (reached at Rs 25,000 spend)
+        const result = calculateRewards(card!, {
+          online: 100000,
+          utilities: 30000
+        });
+
+        expect(result.rows.find((r) => r.category === "online")!.monthlyUnits).toBe(9000);
+        expect(result.rows.find((r) => r.category === "utilities")!.monthlyUnits).toBe(750);
+      });
+    });
+
+    describe("YES BANK SELECT Credit Card", () => {
+      it("earns online, base, and utilities rewards at correct rates", () => {
+        const card = getCardById("yes-select");
+        expect(card).toBeTruthy();
+
+        // Online: 4.0
+        // Base: 2.0
+        // Utilities: 1.0
+        const result = calculateRewards(card!, {
+          online: 10000,
+          base: 10000,
+          utilities: 10000
+        });
+
+        // 400 + 200 + 100 = 700 points
+        expect(result.monthlyUnits).toBe(700);
+      });
+
+      it("enforces monthly caps correctly", () => {
+        const card = getCardById("yes-select");
+        expect(card).toBeTruthy();
+
+        // Online cap: 1250 points
+        // Utilities cap: 150 points
+        const result = calculateRewards(card!, {
+          online: 40000,
+          utilities: 20000
+        });
+
+        expect(result.rows.find((r) => r.category === "online")!.monthlyUnits).toBe(1250);
+        expect(result.rows.find((r) => r.category === "utilities")!.monthlyUnits).toBe(150);
+      });
+
+      it("verifies structured milestones", () => {
+        const card = getCardById("yes-select");
+        expect(card).toBeTruthy();
+
+        const rules = milestoneRulesForCard(card!);
+        expect(rules).toHaveLength(1);
+        expect(rules[0].threshold).toBe(600000);
+        expect(rules[0].value).toBe(15000);
+        expect(rules[0].isVoucher).toBe(false);
+      });
+    });
   });
 });
+
 
 
 

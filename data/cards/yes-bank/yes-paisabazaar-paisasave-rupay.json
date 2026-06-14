@@ -18,7 +18,9 @@
   "rewards": [
     {
       "category": "upi",
-      "rate": 1,
+      "rate": 1.0,
+      "displayCategory": "UPI scan & pay spends",
+      "displayRate": "1% cashback on transactions above Rs 2,000",
       "capMonthly": null
     }
   ],
@@ -36,10 +38,15 @@
     "rewardz"
   ],
   "exclusions": [
-    "upi rewards only apply on eligible transactions above Rs 2,000",
-    "cash withdrawal not available",
+    "Rental payments",
+    "Wallet loading transactions",
+    "Cash withdrawal / cash advance transactions",
+    "UPI scan & pay transactions up to Rs 2,000"
+  ],
+  "exclusionCodes": [
     "rent",
-    "wallet loading"
+    "wallet_load",
+    "cash_advance"
   ],
   "milestoneBenefits": [],
   "additionalBenefits": [
@@ -49,7 +56,7 @@
     "Lifetime free card with nil joining and annual fee"
   ],
   "redemption": {
-    "statementBalanceValue": 1,
+    "statementBalanceValue": 1.0,
     "pointsExpiryYears": 3
   },
   "eligibility": {
@@ -60,8 +67,13 @@
       "Eligibility is subject to YES BANK and Paisabazaar approval criteria"
     ]
   },
+  "imageUrl": "/images/yes-paisabazaar-paisasave-rupay.webp",
   "sourceUrl": "https://www.yesbank.in/content/published/api/v1.1/assets/CONT07A77C257C7A4BDD85DB97E51D2B5B8F/native/yesbank_key_fact_statement.pdf",
   "applyUrl": "https://www.paisabazaar.com/yes-bank/paisabazaar-paisasave-credit-card/",
-  "lastVerified": "2026-05-11",
-  "verificationStatus": "official-mixed"
+  "lastVerified": "2026-06-14",
+  "verificationStatus": "official-direct",
+  "internalNotes": [
+    "Card details manually reviewed and verified by user on 2026-06-14.",
+    "UPI scan and pay transaction rewards only apply to transactions above Rs 2,000."
+  ]
 }
