@@ -4,8 +4,7 @@
   "name": "IDFC FIRST Millennia Credit Card",
   "network": [
     "Visa",
-    "Mastercard",
-    "RuPay"
+    "Mastercard"
   ],
   "joiningFee": 0,
   "annualFee": 0,
@@ -84,7 +83,7 @@
       "Minimum annual ITR of Rs 3,00,000"
     ]
   },
-  "imageUrl": "/images/idfc-first-millennia.webp",
+  "imageUrl": "/images/idfc-first-millennia.png",
   "sourceUrl": "https://www.idfcfirstbank.com/credit-card",
   "applyUrl": "https://www.idfcfirstbank.com/credit-card",
   "lastVerified": "2026-06-14",
