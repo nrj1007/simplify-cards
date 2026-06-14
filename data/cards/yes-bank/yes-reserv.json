@@ -46,7 +46,8 @@
   "loungeInternational": 6,
   "lounge": {
     "domestic": [
-      "3 complimentary domestic lounge visits per quarter for primary cardmember"
+      "3 complimentary domestic lounge visits per quarter for primary cardmember",
+      "Domestic lounge access is subject to a spend threshold of Rs 1,00,000 in the previous calendar quarter."
     ],
     "international": [
       "6 complimentary international lounge visits in 12 months for primary and add-on cardmembers"
@@ -89,7 +90,6 @@
     "Green fee waiver and golf lessons at select golf courses"
   ],
   "additionalDetails": [
-    "Domestic lounge access is subject to a spend threshold of Rs 1,00,000 in the previous calendar quarter.",
     "First-year membership fee is waived on spending Rs 40,000 within 30 days of card issuance."
   ],
   "redemption": {

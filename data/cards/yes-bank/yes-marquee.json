@@ -44,7 +44,8 @@
   "loungeInternational": "unlimited",
   "lounge": {
     "domestic": [
-      "Domestic lounge access up to 6 visits per quarter for primary and add-on cardmembers, subject to spend threshold"
+      "Domestic lounge access up to 6 visits per quarter for primary and add-on cardmembers",
+      "Domestic lounge access is subject to a spend threshold of Rs 1,00,000 in the previous calendar quarter."
     ],
     "international": [
       "Unlimited international lounge access for primary and add-on cardmembers"
@@ -87,9 +88,7 @@
     "Purchase protection cover on eligible electronics",
     "Green fee waiver and golf lessons at select golf courses"
   ],
-  "additionalDetails": [
-    "Domestic lounge access is subject to a spend threshold of Rs 1,00,000 in the previous calendar quarter."
-  ],
+  "additionalDetails": [],
   "redemption": {
     "statementBalanceValue": 0.25,
     "pointsExpiryYears": null,
