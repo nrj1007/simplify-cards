@@ -51,9 +51,10 @@
     "low fee"
   ],
   "exclusions": [
-    "fuel transactions eligible for surcharge waiver do not earn reward points",
-    "accelerated reward points on online/grocery/dept stores capped at 2,000 RP per statement",
-    "taxes and charges excluded as per BOBCARD terms"
+    "Fuel transactions",
+    "Cash advance / cash withdrawal transactions",
+    "EMI transactions",
+    "Fees and charges (joining fee, annual fee, finance charges, and other levied charges)"
   ],
   "exclusionCodes": [
     "fuel",
