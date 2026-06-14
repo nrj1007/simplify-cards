@@ -747,6 +747,42 @@ export default async function CardPage({ params, searchParams }: Props) {
               </section>
             ) : null}
 
+            {cardContent?.updates.length ? (
+              <section className="panel">
+                <div className="panel-body">
+                  <div className="section-head">
+                    <div>
+                      <h2 className="section-title">Latest updates</h2>
+                      <p className="section-sub">Recent changes to this card.</p>
+                    </div>
+                  </div>
+                  <div className="content-list content-list-updates">
+                    {cardContent.updates.map((update) => (
+                      <article className="content-item content-item-update" key={`${update.publishedAt}-${update.title}`}>
+                        <div className="content-update-bullet" aria-hidden="true" />
+                        <div className="content-update-body">
+                          <div className="content-item-head">
+                            <strong>{update.title}</strong>
+                            <span className="badge">{formatUpdateDate(update.publishedAt)}</span>
+                          </div>
+                          <ul className="detail-list content-update-points">
+                            {updateSummaryPoints(update.summary).map((point) => (
+                              <li key={point}>{point}</li>
+                            ))}
+                          </ul>
+                        </div>
+                        {update.sourceUrl ? (
+                          <a className="button secondary" href={update.sourceUrl} rel="nofollow" target="_blank">
+                            Open update <ExternalLink size={15} />
+                          </a>
+                        ) : null}
+                      </article>
+                    ))}
+                  </div>
+                </div>
+              </section>
+            ) : null}
+
             {hasEligibility ? (
               <section className="panel">
                 <div className="panel-body">
@@ -828,42 +864,6 @@ export default async function CardPage({ params, searchParams }: Props) {
                         {tip.sourceUrl ? (
                           <a className="button secondary" href={tip.sourceUrl} rel="nofollow" target="_blank">
                             Open source <ExternalLink size={15} />
-                          </a>
-                        ) : null}
-                      </article>
-                    ))}
-                  </div>
-                </div>
-              </section>
-            ) : null}
-
-            {cardContent?.updates.length ? (
-              <section className="panel">
-                <div className="panel-body">
-                  <div className="section-head">
-                    <div>
-                      <h2 className="section-title">Latest updates</h2>
-                      <p className="section-sub">Recent changes to this card.</p>
-                    </div>
-                  </div>
-                  <div className="content-list content-list-updates">
-                    {cardContent.updates.map((update) => (
-                      <article className="content-item content-item-update" key={`${update.publishedAt}-${update.title}`}>
-                        <div className="content-update-bullet" aria-hidden="true" />
-                        <div className="content-update-body">
-                          <div className="content-item-head">
-                            <strong>{update.title}</strong>
-                            <span className="badge">{formatUpdateDate(update.publishedAt)}</span>
-                          </div>
-                          <ul className="detail-list content-update-points">
-                            {updateSummaryPoints(update.summary).map((point) => (
-                              <li key={point}>{point}</li>
-                            ))}
-                          </ul>
-                        </div>
-                        {update.sourceUrl ? (
-                          <a className="button secondary" href={update.sourceUrl} rel="nofollow" target="_blank">
-                            Open update <ExternalLink size={15} />
                           </a>
                         ) : null}
                       </article>

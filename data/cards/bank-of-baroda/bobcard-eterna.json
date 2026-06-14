@@ -18,28 +18,29 @@
   "rewardType": "reward points",
   "rewards": [
     {
-      "category": "travel",
-      "rate": 3.75,
-      "capMonthly": 5000
-    },
-    {
-      "category": "dining",
-      "rate": 3.75,
-      "capMonthly": 5000
-    },
-    {
-      "category": "online",
-      "rate": 3.75,
+      "category": "travel, dining, online, international",
+      "rate": 15,
+      "displayCategory": "Travel, dining, online, and international spends",
+      "displayRate": "15 reward points per Rs 100",
       "capMonthly": 5000
     },
     {
       "category": "retail",
-      "rate": 0.75,
+      "rate": 3,
+      "displayCategory": "Other eligible spends",
+      "displayRate": "3 reward points per Rs 100",
       "capMonthly": null
     }
   ],
   "loungeDomestic": "unlimited",
   "loungeInternational": 0,
+  "lounge": {
+    "domestic": [
+      "Unlimited complimentary domestic lounge access requires Rs 40,000 net spends in the preceding calendar quarter.",
+      "For newly issued fresh cards, the spend threshold is waived in the quarter of card issuance; if the card is issued in the last month of a quarter, the waiver extends through the following quarter.",
+      "Interest, fees, reversed transactions, and EMI instalments are excluded from the lounge-eligibility spend calculation."
+    ]
+  },
   "forexMarkup": 2,
   "tags": [
     "bobcard",
@@ -89,6 +90,7 @@
   "internalNotes": [
     "Audited against the official Bank of Baroda Eterna product page on 2026-06-14.",
     "The current product page explicitly confirms milestone rewards, cashback redemption at 1 reward point = Rs 0.25, fuel surcharge waiver, insurance cover, and the Rs 12 lakh annual income eligibility threshold.",
-    "The current captured page copy highlights travel, dining, fitness, and movie or shopping benefits, but does not expose the detailed accelerated reward table in readable text; the existing reward-category mapping was retained pending a newer MITC or reward-sheet link."
+    "The current official rewards copy says 15 reward points per Rs 100 on online shopping, international, dining, and travel spends with a maximum of 5,000 reward points per statement, so the accelerated row is modeled as one combined capped bucket rather than separate per-category caps.",
+    "BOBCARD's lounge terms PDF dated 1 April 2026 confirms that domestic lounge access requires Rs 40,000 net spends in the preceding calendar quarter, with a fresh-card waiver in the issuance quarter."
   ]
 }
