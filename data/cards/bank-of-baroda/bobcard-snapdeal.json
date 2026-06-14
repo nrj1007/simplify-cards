@@ -58,11 +58,7 @@
     "Shopping vouchers worth up to Rs 500 on card usage within first 30 days of issuance"
   ],
   "additionalBenefits": [
-    "Up to 5% unlimited cashback on Snapdeal website and mobile app purchases",
-    "10 reward points per Rs 100 on online shopping, grocery and departmental stores",
-    "4 reward points per Rs 100 on other categories",
     "Reward points are auto-credited as cashback to the monthly statement",
-    "1 reward point = Rs 0.25",
     "1% fuel surcharge waiver on fuel transactions between Rs 400 and Rs 5,000, capped at Rs 250 per month"
   ],
   "redemption": {
@@ -72,16 +68,21 @@
   "eligibility": {
     "salaried": [
       "Resident Indian",
-      "Income of Rs 3.6 lakh per annum or more"
+      "Annual income of Rs 3.6 lakh or more"
     ],
     "selfEmployed": [
       "Resident Indian",
-      "Income of Rs 4.8 lakh per annum or more"
+      "Annual income of Rs 4.8 lakh or more"
     ]
   },
   "sourceUrl": "https://bankofbaroda.bank.in/personal-banking/digital-products/cards/credit-cards/snapdeal-bob-credit-card",
   "applyUrl": "https://bankofbaroda.bank.in/personal-banking/digital-products/cards/credit-cards/snapdeal-bob-credit-card",
-  "lastVerified": "2026-05-10",
+  "lastVerified": "2026-06-14",
   "verificationStatus": "official-direct",
-  "popularityScore": 58
+  "popularityScore": 58,
+  "internalNotes": [
+    "Rechecked the historical official Snapdeal BOBCARD source URL on 2026-06-14; the product page was not publicly retrievable during this audit.",
+    "Retained the prior official reward, fee, and eligibility mapping pending an updated issuer-hosted replacement page or current MITC link.",
+    "The card's reward points are modeled as cashback because the issuer language historically stated that accrued points are auto-credited against the monthly statement."
+  ]
 }
