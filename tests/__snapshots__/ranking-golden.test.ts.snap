@@ -66,11 +66,11 @@ exports[`ranking golden (representative queries) > produces stable top-N orderin
     "hdfc-regalia-gold",
     "idfc-mayura",
     "sc-ultimate",
+    "indusind-indulge",
     "titan-sbi",
     "hsbc-premier",
     "hdfc-shoppers-stop-black",
     "idfc-ashva",
-    "yes-marquee",
   ],
   "max-fee-zero": [
     "au-ixigo",

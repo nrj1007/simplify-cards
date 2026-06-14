@@ -2945,6 +2945,91 @@ describe("reward calculator", () => {
         expect(result.monthlyUnits).toBe(950);
       });
     });
+
+    describe("IndusInd Bank Platinum Aura Edge Credit Card", () => {
+      it("earns rewards at correct rates including utility reduction", () => {
+        const card = getCardById("indusind-aura-edge");
+        expect(card).toBeTruthy();
+
+        // grocery: 10000 * 1.6% = 160
+        // base: 10000 * 0.2% = 20
+        // utilities: 10000 * 0.28% = 28
+        const result = calculateRewards(card!, {
+          grocery: 10000,
+          base: 10000,
+          utilities: 10000
+        });
+
+        // Total: 160 + 20 + 28 = 208 value return
+        expect(result.monthlyUnits).toBe(208);
+      });
+    });
+
+    describe("IndusInd Bank Celesta Credit Card", () => {
+      it("earns rewards at correct rates including utility reduction", () => {
+        const card = getCardById("indusind-celesta");
+        expect(card).toBeTruthy();
+
+        // base: 10000 * 1.05% = 105
+        // utilities: 10000 * 0.49% = 49
+        const result = calculateRewards(card!, {
+          base: 10000,
+          utilities: 10000
+        });
+
+        // Total: 105 + 49 = 154 value return
+        expect(result.monthlyUnits).toBe(154);
+      });
+    });
+
+    describe("IndusInd Bank Crest Credit Card", () => {
+      it("earns rewards at correct rates including utility reduction", () => {
+        const card = getCardById("indusind-crest");
+        expect(card).toBeTruthy();
+
+        // base: 10000 * 1.05% = 105
+        // utilities: 10000 * 0.49% = 49
+        const result = calculateRewards(card!, {
+          base: 10000,
+          utilities: 10000
+        });
+
+        // Total: 105 + 49 = 154 value return
+        expect(result.monthlyUnits).toBe(154);
+      });
+    });
+
+    describe("IndusInd Bank Indulge Credit Card", () => {
+      it("earns rewards at correct rates including utility reduction", () => {
+        const card = getCardById("indusind-indulge");
+        expect(card).toBeTruthy();
+
+        // base: 10000 * 1.05% = 105
+        // utilities: 10000 * 0.49% = 49
+        const result = calculateRewards(card!, {
+          base: 10000,
+          utilities: 10000
+        });
+
+        // Total: 105 + 49 = 154 value return
+        expect(result.monthlyUnits).toBe(154);
+      });
+    });
+
+    describe("IndusInd Bank Nexxt Credit Card", () => {
+      it("earns rewards at correct base rates", () => {
+        const card = getCardById("indusind-nexxt");
+        expect(card).toBeTruthy();
+
+        // base: 15000 * 0.2% = 30
+        const result = calculateRewards(card!, {
+          base: 15000
+        });
+
+        // Total: 30 value return
+        expect(result.monthlyUnits).toBeCloseTo(30, 1);
+      });
+    });
   });
 });
 
