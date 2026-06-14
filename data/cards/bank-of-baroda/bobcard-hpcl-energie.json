@@ -19,27 +19,20 @@
   "rewards": [
     {
       "category": "fuel",
-      "rate": 4,
+      "rate": 16,
+      "displayRate": "24 Reward Points / ₹150",
       "capMonthly": null
     },
     {
-      "category": "utility bills",
-      "rate": 1.67,
-      "capMonthly": null
-    },
-    {
-      "category": "grocery",
-      "rate": 1.67,
-      "capMonthly": null
-    },
-    {
-      "category": "departmental stores",
-      "rate": 1.67,
+      "category": "utility bills, grocery, departmental stores",
+      "rate": 6.666666666666667,
+      "displayRate": "10 Reward Points / ₹150",
       "capMonthly": null
     },
     {
       "category": "retail",
-      "rate": 0.33,
+      "rate": 1.3333333333333333,
+      "displayRate": "2 Reward Points / ₹150",
       "capMonthly": null
     }
   ],
@@ -64,6 +57,10 @@
     "fuel spends eligible for surcharge waiver do not earn reward points",
     "HP Pay direct payment mode is not eligible for listed fuel savings",
     "taxes and charges excluded as per BOBCARD terms"
+  ],
+  "exclusionCodes": [
+    "fuel",
+    "cash_advance"
   ],
   "milestoneBenefits": [
     "2,000 joining reward points on spending Rs 5,000 or more within 60 days",
@@ -95,10 +92,12 @@
   },
   "sourceUrl": "https://bankofbaroda.bank.in/hi-in/personal-banking/digital-products/cards/credit-cards/hpcl-bob-energie-credit-card",
   "applyUrl": "https://bankofbaroda.bank.in/personal-banking/digital-products/cards/credit-cards",
+  "imageUrl": "/images/bobcard-hpcl-energie.png",
   "lastVerified": "2026-06-14",
   "verificationStatus": "official-direct",
   "popularityScore": 73,
   "internalNotes": [
+    "Card details manually reviewed and verified by user on 2026-06-14.",
     "Audited against the official Bank of Baroda HPCL Energie product page on 2026-06-14.",
     "The current official page confirms 24 reward points per Rs 150 on HPCL fuel spends, 10 reward points per Rs 150 on utilities, grocery, and departmental stores, 2 reward points per Rs 150 on other eligible spends, and 4 domestic lounge visits at 1 per quarter.",
     "HP Pay direct payment mode is excluded from the QR-based fuel benefit wording on the official page."
