@@ -602,9 +602,16 @@ function findMentionedCardId(query?: string) {
   );
   if (directPhraseMatch) return directPhraseMatch.cardId;
 
+  const intent = parseQueryIntent({ query });
+  const queryIssuers = intent.issuers;
+
   let bestMatch: { id: string; score: number; matchedCardTokens: number; exactMatch: boolean } | null = null;
 
   for (const card of cards) {
+    if (queryIssuers.length > 0 && !queryIssuers.includes(card.issuer)) {
+      continue;
+    }
+
     const nameText = normalizeForMatch(card.name);
     const idText = normalizeForMatch(card.id.replace(/-/g, " "));
     const compactName = normalizeCompact(card.name);
