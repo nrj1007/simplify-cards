@@ -301,10 +301,11 @@ engine never has to parse prose. Follow these guidelines:
         rounds them for display. Run `npm run normalize:reward-rates` to derive `rate` from `displayRate`.
 *   **`displayRate` (Uniform Visual Representation):** The user-facing string, matching the official
     page. Define it whenever a card expresses rewards as points / miles / EazyPoints / etc.
-    *   *Example:* For the card above, `"displayRate": "6 reward points per Rs 100"`.
-    *   Always use a clear, user-friendly format matching the official website (e.g. `"X reward points per Rs 100"`, `"X EazyPoints per Rs 100"`, or `"X reward points per Rs 150"`).
+    *   *Example:* For the card above, `"displayRate": "6 reward points per ₹100"`.
+    *   Preserve the issuer's displayed spend currency and wording on the website. Do **not** normalize display text from `₹` to `Rs`, from `INR` to `Rs`, or from `for every ₹100` to `/ Rs 100` just for consistency.
+    *   Always use a clear, user-friendly format matching the official website (e.g. `"X reward points / ₹100"`, `"X EazyPoints / INR 100"`, or `"X reward points / ₹150"`).
     *   `displayRate` is **display-only** — the engines never parse it for scoring. But because the
-        validator checks `rate` against the `"<units> … / Rs <amount>"` pattern in `displayRate`, the
+        validator checks `rate` against the `"<units> … / Rs|INR|₹ <amount>"`-style pattern in `displayRate`, the
         two must stay numerically consistent. Editing the points/spend in `displayRate` means re-running
         `npm run normalize:reward-rates` (or updating `rate` by hand). A reward whose `displayRate` is
         intentionally inconsistent with a correct `rate` (rare) must be added to the validator's
