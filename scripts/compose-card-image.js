@@ -10,7 +10,14 @@ const path  = require('path');
 const cardId = process.argv[2];
 if (!cardId) { console.error('Usage: node scripts/compose-card-image.js <card-id>'); process.exit(1); }
 
-const inputPath  = path.join('public', 'images', `${cardId}.webp`);
+const fs = require('fs');
+let inputPath = path.join('public', 'images', `${cardId}.webp`);
+if (!fs.existsSync(inputPath)) {
+  const pngPath = path.join('public', 'images', `${cardId}.png`);
+  const jpgPath = path.join('public', 'images', `${cardId}.jpg`);
+  if (fs.existsSync(pngPath)) inputPath = pngPath;
+  else if (fs.existsSync(jpgPath)) inputPath = jpgPath;
+}
 const outputPath = path.join('public', 'images', `${cardId}-composed.webp`);
 
 // 16:10 canvas at high resolution
