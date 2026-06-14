@@ -96,42 +96,42 @@
       {
         "partner": "Blinkit",
         "programme": "POP Reward Store",
-        "ratio": "1:1",
+        "ratio": "4:1",
         "valuePerPoint": 0.25,
         "note": "Redeemable for Blinkit vouchers"
       },
       {
         "partner": "Zomato",
         "programme": "POP Reward Store",
-        "ratio": "1:1",
+        "ratio": "4:1",
         "valuePerPoint": 0.25,
         "note": "Redeemable for Zomato vouchers"
       },
       {
         "partner": "Cult",
         "programme": "POP Reward Store",
-        "ratio": "1:1",
+        "ratio": "4:1",
         "valuePerPoint": 0.25,
         "note": "Redeemable for Cult vouchers"
       },
       {
         "partner": "Cleartrip",
         "programme": "POP Reward Store",
-        "ratio": "1:1",
+        "ratio": "4:1",
         "valuePerPoint": 0.25,
         "note": "Redeemable for Cleartrip vouchers"
       },
       {
         "partner": "Rapido",
         "programme": "POP Reward Store",
-        "ratio": "1:1",
+        "ratio": "4:1",
         "valuePerPoint": 0.25,
         "note": "Redeemable for Rapido vouchers"
       },
       {
         "partner": "Pharmeasy",
         "programme": "POP Reward Store",
-        "ratio": "1:1",
+        "ratio": "4:1",
         "valuePerPoint": 0.25,
         "note": "Redeemable for Pharmeasy vouchers"
       }
