@@ -20,18 +20,28 @@
     {
       "category": "grocery",
       "rate": 1.6,
+      "displayCategory": "Grocery spends under Home plan",
       "displayRate": "4 savings points per Rs 100",
       "capMonthly": null
     },
     {
       "category": "travel",
       "rate": 1.6,
+      "displayCategory": "Travel spends under Travel plan",
       "displayRate": "4 savings points per Rs 100",
+      "capMonthly": null
+    },
+    {
+      "category": "utilities, insurance, government, education, real estate, rent",
+      "rate": 0.28,
+      "displayCategory": "Utility, insurance, government, education, real estate, and rent spends",
+      "displayRate": "0.7 savings points per Rs 100 spent",
       "capMonthly": null
     },
     {
       "category": "base",
       "rate": 0.2,
+      "displayCategory": "Base retail spends (weekday)",
       "displayRate": "0.5 savings points per Rs 100",
       "capMonthly": null
     }
@@ -49,20 +59,25 @@
     "travel"
   ],
   "exclusions": [
-    "reward rate depends on selected plan",
+    "Fuel transactions",
+    "Cash withdrawal / cash advance transactions",
+    "Fees and charges (including annual fee and finance charges)"
+  ],
+  "exclusionCodes": [
     "fuel",
-    "cash redemption value follows current savings-point rules"
+    "cash_advance"
   ],
   "milestoneBenefits": [],
   "additionalBenefits": [
     "Choose from 4 reward plans: Shop, Home, Travel and Party",
     "Earn up to 8x reward points on select merchant categories",
-    "1% fuel surcharge waiver",
-    "Marketed by IndusInd as a lifetime-free card"
+    "1% fuel surcharge waiver"
   ],
   "redemption": {
     "statementBalanceValue": 0.4,
     "pointsExpiryYears": null,
+    "redemptionFee": 149,
+    "airMilesValue": 0.5,
     "airlinePartners": [
       {
         "airline": "Singapore Airlines",
@@ -73,14 +88,23 @@
   },
   "eligibility": {
     "salaried": [
-      "Eligibility is subject to IndusInd Bank approval criteria"
+      "Age: 21 to 65 years",
+      "Minimum net monthly salary of Rs 20,000"
     ],
     "selfEmployed": [
-      "Eligibility is subject to IndusInd Bank approval criteria"
+      "Age: 21 to 65 years",
+      "Minimum annual income/ITR of Rs 2.4 Lakhs"
     ]
   },
+  "imageUrl": "/images/indusind-aura-edge.webp",
   "sourceUrl": "https://www.indusind.com/in/en/personal/cards/credit-card/platinum-aura-edge-visa-and-mastercard-credit-card-easy-credit.html",
   "applyUrl": "https://www.indusind.com/in/en/personal/cards/credit-card/platinum-aura-edge-visa-and-mastercard-credit-card-easy-credit.html",
-  "lastVerified": "2026-05-11",
-  "verificationStatus": "official-mixed"
+  "lastVerified": "2026-06-14",
+  "verificationStatus": "official-direct",
+  "internalNotes": [
+    "Card details manually reviewed and verified by user on 2026-06-14.",
+    "Offered primarily as a lifetime-free card with no joining or annual fees.",
+    "Standard rewards are 1 point per Rs 100 spent on weekdays and 2 points per Rs 100 spent on weekends (at Rs 0.4 per point value).",
+    "Utility, insurance, government, education, and rent spends earn at a flat rate of 0.7 savings points per Rs 100 spent."
+  ]
 }

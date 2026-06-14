@@ -183,8 +183,8 @@ exports[`reward calculator golden (all cards) > computes stable earn for every c
     "moderate": "online:250 dining:125 travel:x hotels:125 airlines:125 fuel:x grocery:250 utilities:125 upi:125 amazon:125 international:125 base:125 rent:125 insurance:125 education:125 gold:125 government:x |2000",
   },
   "bobcard-premier": {
-    "high": "online:1000 dining:2000 travel:2000 hotels:1000 airlines:1000 fuel:x grocery:1000 utilities:1000 upi:1000 amazon:1000 international:1000 base:1000 rent:1000 insurance:1000 education:1000 gold:1000 government:x |17000",
-    "moderate": "online:125 dining:625 travel:625 hotels:125 airlines:125 fuel:x grocery:125 utilities:125 upi:125 amazon:125 international:125 base:125 rent:125 insurance:125 education:125 gold:125 government:x |2875",
+    "high": "online:4000 dining:667 travel:667 hotels:4000 airlines:4000 fuel:x grocery:4000 utilities:4000 upi:4000 amazon:4000 international:667 base:4000 rent:4000 insurance:4000 education:4000 gold:4000 government:x |50000",
+    "moderate": "online:500 dining:667 travel:667 hotels:500 airlines:500 fuel:x grocery:500 utilities:500 upi:500 amazon:500 international:667 base:500 rent:500 insurance:500 education:500 gold:500 government:x |8000",
   },
   "bobcard-select": {
     "high": "online:1000 dining:1000 travel:500 hotels:500 airlines:500 fuel:x grocery:500 utilities:1000 upi:500 amazon:500 international:500 base:500 rent:500 insurance:500 education:500 gold:500 government:x |9000",
@@ -463,16 +463,16 @@ exports[`reward calculator golden (all cards) > computes stable earn for every c
     "moderate": "online:500 dining:500 travel:1750 hotels:750 airlines:500 fuel:x grocery:500 utilities:500 upi:500 amazon:500 international:500 base:500 rent:x insurance:500 education:x gold:500 government:500 |8500",
   },
   "indusind-aura-edge": {
-    "high": "online:400 dining:400 travel:3200 hotels:400 airlines:400 fuel:x grocery:3200 utilities:400 upi:400 amazon:400 international:400 base:400 rent:400 insurance:400 education:400 gold:400 government:400 |12000",
-    "moderate": "online:50 dining:50 travel:400 hotels:50 airlines:50 fuel:x grocery:400 utilities:50 upi:50 amazon:50 international:50 base:50 rent:50 insurance:50 education:50 gold:50 government:50 |1500",
+    "high": "online:400 dining:400 travel:3200 hotels:400 airlines:400 fuel:x grocery:3200 utilities:560 upi:400 amazon:400 international:400 base:400 rent:560 insurance:560 education:560 gold:400 government:560 |12800",
+    "moderate": "online:50 dining:50 travel:400 hotels:50 airlines:50 fuel:x grocery:400 utilities:70 upi:50 amazon:50 international:50 base:50 rent:70 insurance:70 education:70 gold:50 government:70 |1600",
   },
   "indusind-celesta": {
-    "high": "online:2100 dining:2100 travel:2100 hotels:2100 airlines:2100 fuel:x grocery:2100 utilities:2100 upi:2100 amazon:2100 international:2100 base:2100 rent:2100 insurance:2100 education:2100 gold:2100 government:2100 |33600",
-    "moderate": "online:263 dining:263 travel:263 hotels:263 airlines:263 fuel:x grocery:263 utilities:263 upi:263 amazon:263 international:263 base:263 rent:263 insurance:263 education:263 gold:263 government:263 |4200",
+    "high": "online:2100 dining:2100 travel:2100 hotels:2100 airlines:2100 fuel:x grocery:2100 utilities:980 upi:2100 amazon:2100 international:2100 base:2100 rent:980 insurance:980 education:980 gold:2100 government:980 |28000",
+    "moderate": "online:263 dining:263 travel:263 hotels:263 airlines:263 fuel:x grocery:263 utilities:123 upi:263 amazon:263 international:263 base:263 rent:123 insurance:123 education:123 gold:263 government:123 |3500",
   },
   "indusind-crest": {
-    "high": "online:3000 dining:3000 travel:3000 hotels:3000 airlines:3000 fuel:3000 grocery:3000 utilities:3000 upi:3000 amazon:3000 international:3000 base:3000 rent:3000 insurance:3000 education:3000 gold:3000 government:3000 |51000",
-    "moderate": "online:375 dining:375 travel:375 hotels:375 airlines:375 fuel:375 grocery:375 utilities:375 upi:375 amazon:375 international:375 base:375 rent:375 insurance:375 education:375 gold:375 government:375 |6375",
+    "high": "online:2100 dining:2100 travel:2100 hotels:2100 airlines:2100 fuel:x grocery:2100 utilities:980 upi:2100 amazon:2100 international:2100 base:2100 rent:980 insurance:980 education:980 gold:2100 government:980 |28000",
+    "moderate": "online:263 dining:263 travel:263 hotels:263 airlines:263 fuel:x grocery:263 utilities:123 upi:263 amazon:263 international:263 base:263 rent:123 insurance:123 education:123 gold:263 government:123 |3500",
   },
   "indusind-eazydiner": {
     "high": "online:4000 dining:4000 travel:4000 hotels:1600 airlines:1600 fuel:x grocery:1600 utilities:1600 upi:1600 amazon:1600 international:1600 base:1600 rent:1600 insurance:1600 education:1600 gold:1600 government:1600 |32800",
@@ -483,16 +483,16 @@ exports[`reward calculator golden (all cards) > computes stable earn for every c
     "moderate": "online:100 dining:100 travel:100 hotels:100 airlines:100 fuel:x grocery:100 utilities:35 upi:100 amazon:100 international:100 base:100 rent:35 insurance:35 education:100 gold:100 government:35 |1340",
   },
   "indusind-indulge": {
-    "high": "online:2100 dining:2100 travel:2100 hotels:2100 airlines:2100 fuel:x grocery:2100 utilities:2100 upi:2100 amazon:2100 international:2100 base:2100 rent:2100 insurance:2100 education:2100 gold:2100 government:2100 |33600",
-    "moderate": "online:263 dining:263 travel:263 hotels:263 airlines:263 fuel:x grocery:263 utilities:263 upi:263 amazon:263 international:263 base:263 rent:263 insurance:263 education:263 gold:263 government:263 |4200",
+    "high": "online:2100 dining:2100 travel:2100 hotels:2100 airlines:2100 fuel:x grocery:2100 utilities:980 upi:2100 amazon:2100 international:2100 base:2100 rent:980 insurance:980 education:980 gold:2100 government:980 |28000",
+    "moderate": "online:263 dining:263 travel:263 hotels:263 airlines:263 fuel:x grocery:263 utilities:123 upi:263 amazon:263 international:263 base:263 rent:123 insurance:123 education:123 gold:263 government:123 |3500",
   },
   "indusind-legend": {
     "high": "online:1000 dining:1000 travel:1000 hotels:1000 airlines:1000 fuel:x grocery:1000 utilities:700 upi:1000 amazon:1000 international:1000 base:1000 rent:700 insurance:700 education:700 gold:1000 government:700 |14500",
     "moderate": "online:125 dining:125 travel:125 hotels:125 airlines:125 fuel:x grocery:125 utilities:88 upi:125 amazon:125 international:125 base:125 rent:88 insurance:88 education:88 gold:125 government:88 |1813",
   },
   "indusind-nexxt": {
-    "high": "online:800 dining:800 travel:800 hotels:800 airlines:800 fuel:x grocery:800 utilities:800 upi:800 amazon:800 international:800 base:800 rent:800 insurance:800 education:800 gold:800 government:800 |12800",
-    "moderate": "online:100 dining:100 travel:100 hotels:100 airlines:100 fuel:x grocery:100 utilities:100 upi:100 amazon:100 international:100 base:100 rent:100 insurance:100 education:100 gold:100 government:100 |1600",
+    "high": "online:400 dining:400 travel:400 hotels:400 airlines:400 fuel:x grocery:400 utilities:400 upi:400 amazon:400 international:400 base:400 rent:400 insurance:400 education:400 gold:400 government:400 |6400",
+    "moderate": "online:50 dining:50 travel:50 hotels:50 airlines:50 fuel:x grocery:50 utilities:50 upi:50 amazon:50 international:50 base:50 rent:50 insurance:50 education:50 gold:50 government:50 |800",
   },
   "indusind-pinnacle": {
     "high": "online:3750 dining:1500 travel:2250 hotels:1500 airlines:1500 fuel:x grocery:1500 utilities:1050 upi:1500 amazon:1500 international:1500 base:1500 rent:1050 insurance:1050 education:1050 gold:1500 government:1050 |24750",

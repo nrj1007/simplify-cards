@@ -17,8 +17,9 @@
   "rewards": [
     {
       "category": "base",
-      "rate": 0.4,
-      "displayRate": "1 reward point per Rs 150",
+      "rate": 0.2,
+      "displayCategory": "Other retail spends",
+      "displayRate": "1 reward point per Rs 150 spent",
       "capMonthly": null
     }
   ],
@@ -34,20 +35,25 @@
     "interactive card"
   ],
   "exclusions": [
+    "Fuel transactions",
+    "Cash withdrawal / cash advance transactions",
+    "Fees and charges (including annual fee and finance charges)"
+  ],
+  "exclusionCodes": [
     "fuel",
-    "cash redemption capped monthly",
-    "welcome gifts available only at select fee points"
+    "cash_advance"
   ],
   "milestoneBenefits": [],
   "additionalBenefits": [
     "India's first interactive card with reward, EMI and credit buttons",
-    "1 reward point for every Rs 150 spent",
     "2 complimentary movie tickets up to Rs 200 every month via BookMyShow",
     "1% fuel surcharge waiver"
   ],
   "redemption": {
     "statementBalanceValue": 0.3,
     "minimumPointsForStatementCredit": 500,
+    "redemptionFee": 149,
+    "airMilesValue": 0.5,
     "airlinePartners": [
       {
         "airline": "Singapore Airlines",
@@ -58,14 +64,22 @@
   },
   "eligibility": {
     "salaried": [
-      "Eligibility is subject to IndusInd Bank approval criteria"
+      "Age: 21 to 65 years",
+      "Minimum net monthly salary of Rs 20,000"
     ],
     "selfEmployed": [
-      "Eligibility is subject to IndusInd Bank approval criteria"
+      "Age: 21 to 65 years",
+      "Minimum annual income/ITR of Rs 2.4 Lakhs"
     ]
   },
+  "imageUrl": "/images/indusind-nexxt.webp",
   "sourceUrl": "https://www.indusind.com/in/en/personal/cards/credit-card/nexxt-credit-card.html",
   "applyUrl": "https://www.indusind.com/in/en/personal/cards/credit-card/nexxt-credit-card.html",
-  "lastVerified": "2026-05-11",
-  "verificationStatus": "official-direct"
+  "lastVerified": "2026-06-14",
+  "verificationStatus": "official-direct",
+  "internalNotes": [
+    "Card details manually reviewed and verified by user on 2026-06-14.",
+    "India's first interactive credit card with built-in buttons to choose payment options (Credit, EMI, Rewards) at POS.",
+    "Cash credit redemption is capped at 2,500 reward points per calendar month."
+  ]
 }
