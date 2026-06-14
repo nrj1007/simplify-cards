@@ -2836,6 +2836,115 @@ describe("reward calculator", () => {
         expect(result.monthlyUnits).toBe(3000);
       });
     });
+
+    describe("IDFC FIRST Power Credit Card", () => {
+      it("earns rewards and applies caps correctly", () => {
+        const card = getCardById("idfc-first-power");
+        expect(card).toBeTruthy();
+
+        // Fuel: 14.0 per Rs 100 spent, capped at 700 points (reached at Rs 5,000 spend)
+        // Grocery: 10.0 per Rs 100 spent, capped at 400 points (reached at Rs 4,000 spend)
+        // Base: 1.3333 per Rs 100 spent
+        const result = calculateRewards(card!, {
+          fuel: 10000,
+          grocery: 5000,
+          base: 15000
+        });
+
+        // Fuel: 700 points (capped)
+        // Grocery: 400 points (capped)
+        // Base: 15000 * 1.3333 / 100 = 200 points
+        // Total: 700 + 400 + 200 = 1300 points
+        expect(result.monthlyUnits).toBeCloseTo(1300, 1);
+      });
+    });
+
+    describe("IDFC FIRST Mayura Credit Card", () => {
+      it("earns rewards at correct rates", () => {
+        const card = getCardById("idfc-mayura");
+        expect(card).toBeTruthy();
+
+        // Base: 3.3333 per Rs 100 spent
+        // Travel: 6.6667 per Rs 100 spent
+        // Utilities: 0.6667 per Rs 100 spent
+        const result = calculateRewards(card!, {
+          base: 15000,
+          travel: 15000,
+          utilities: 15000
+        });
+
+        // Base: 15000 * 3.3333 / 100 = 500 points
+        // Travel: 15000 * 6.6667 / 100 = 1000 points
+        // Utilities: 15000 * 0.6667 / 100 = 100 points
+        // Total: 500 + 1000 + 100 = 1600 points
+        expect(result.monthlyUnits).toBeCloseTo(1600, 1);
+      });
+    });
+
+    describe("IDFC FIRST Ashva Credit Card", () => {
+      it("earns rewards at correct rates", () => {
+        const card = getCardById("idfc-ashva");
+        expect(card).toBeTruthy();
+
+        // Base: 3.3333 per Rs 100 spent
+        // Travel: 6.6667 per Rs 100 spent
+        // Utilities: 0.6667 per Rs 100 spent
+        const result = calculateRewards(card!, {
+          base: 15000,
+          travel: 15000,
+          utilities: 15000
+        });
+
+        // Base: 15000 * 3.3333 / 100 = 500 points
+        // Travel: 15000 * 6.6667 / 100 = 1000 points
+        // Utilities: 15000 * 0.6667 / 100 = 100 points
+        // Total: 500 + 1000 + 100 = 1600 points
+        expect(result.monthlyUnits).toBeCloseTo(1600, 1);
+      });
+    });
+
+    describe("IDFC FIRST EA₹N Credit Card", () => {
+      it("earns rewards and applies caps correctly", () => {
+        const card = getCardById("idfc-first-earn");
+        expect(card).toBeTruthy();
+
+        // UPI (via IDFC app): 1.0% cashback, capped at Rs 500
+        // Online / base: 0.5% cashback, capped at Rs 500
+        const result = calculateRewards(card!, {
+          upi: 20000,
+          online: 20000,
+          base: 20000
+        });
+
+        // UPI: 20000 * 1% = 200
+        // Online: 20000 * 0.5% = 100
+        // Base: 20000 * 0.5% = 100
+        // Total: 200 + 100 + 100 = 400 cashback
+        expect(result.monthlyUnits).toBe(400);
+      });
+    });
+
+    describe("IndiGo IDFC FIRST Credit Card", () => {
+      it("earns rewards at correct rates", () => {
+        const card = getCardById("idfc-indigo");
+        expect(card).toBeTruthy();
+
+        // Airlines (IndiGo): 6.0 per Rs 100 spent
+        // Base: 3.0 per Rs 100 spent
+        // UPI / Utility: 0.5 per Rs 100 spent
+        const result = calculateRewards(card!, {
+          airlines: 10000,
+          base: 10000,
+          upi: 10000
+        });
+
+        // Airlines: 10000 * 6 / 100 = 600 BluChips
+        // Base: 10000 * 3 / 100 = 300 BluChips
+        // UPI: 10000 * 0.5 / 100 = 50 BluChips
+        // Total: 600 + 300 + 50 = 950 BluChips
+        expect(result.monthlyUnits).toBe(950);
+      });
+    });
   });
 });
 
