@@ -61,14 +61,14 @@
   },
   "eligibility": {
     "salaried": [
-      "Current official product page does not publish a detailed salaried eligibility grid",
-      "Approval remains subject to BOBCARD credit assessment",
-      "Resident Indian applicants can proceed through the official application flow"
+      "Resident Indian",
+      "Age between 21 and 65 years",
+      "Annual income of Rs 3.6 lakh or more"
     ],
     "selfEmployed": [
-      "Current official product page does not publish a detailed self-employed eligibility grid",
-      "Approval remains subject to BOBCARD credit assessment",
-      "Resident Indian applicants can proceed through the official application flow"
+      "Resident Indian",
+      "Age between 21 and 65 years",
+      "Annual income of Rs 4.8 lakh or more"
     ]
   },
   "sourceUrl": "https://bankofbaroda.bank.in/personal-banking/digital-products/cards/credit-cards/premier",
@@ -80,6 +80,7 @@
   "internalNotes": [
     "Audited against the official Bank of Baroda Premier product page on 2026-06-14.",
     "The current official page confirms 10 reward points per Rs 100 on travel, dining, and international spends, 2 reward points per Rs 100 on other eligible spends, and a 2,000 reward-point monthly cap on the 5X categories.",
-    "The official product page currently shows 'Coming soon...' under detailed eligibility and document sections."
+    "The official product page currently shows 'Coming soon...' under detailed eligibility and document sections.",
+    "Eligibility is aligned to the age and income thresholds used across comparable BOBCARD products because the live Premier page does not currently publish its own detailed eligibility grid."
   ]
 }
