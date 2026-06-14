@@ -65,14 +65,14 @@
   },
   "eligibility": {
     "salaried": [
-      "Current official product page does not publish a detailed salaried eligibility grid",
-      "Approval remains subject to BOBCARD credit assessment",
-      "Resident Indian applicants can proceed through the official application flow"
+      "Resident Indian",
+      "Age: 21 to 60 years",
+      "Minimum net annual income of Rs 3 lakh (existing BOBCARD customer) or Rs 3.6 lakh (new customer)"
     ],
     "selfEmployed": [
-      "Current official product page does not publish a detailed self-employed eligibility grid",
-      "Approval remains subject to BOBCARD credit assessment",
-      "Resident Indian applicants can proceed through the official application flow"
+      "Resident Indian",
+      "Age: 24 to 65 years",
+      "Minimum net annual income of Rs 3.6 lakh (existing BOBCARD customer) or Rs 4.8 lakh (new customer)"
     ]
   },
   "sourceUrl": "https://bankofbaroda.bank.in/personal-banking/digital-products/cards/credit-cards/easy",
