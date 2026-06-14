@@ -18,17 +18,17 @@
   "rewardType": "reward points",
   "rewards": [
     {
-      "category": "base",
-      "rate": 3.3333,
-      "displayCategory": "Other retail spends up to Rs 20,000",
-      "displayRate": "5 Reward Points per Rs 150 spent",
-      "capMonthly": null
-    },
-    {
       "category": "dining, travel, online, international",
       "rate": 6.6667,
       "displayCategory": "Dining, Travel, Online, International, Birthday, and incremental spends above Rs 20,000",
       "displayRate": "10 Reward Points per Rs 150 spent",
+      "capMonthly": null
+    },
+    {
+      "category": "base",
+      "rate": 3.3333,
+      "displayCategory": "Other retail spends up to Rs 20,000",
+      "displayRate": "5 Reward Points per Rs 150 spent",
       "capMonthly": null
     },
     {
