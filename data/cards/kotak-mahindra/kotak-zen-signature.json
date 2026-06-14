@@ -7,7 +7,7 @@
   ],
   "joiningFee": 1500,
   "annualFee": 1500,
-  "feeWaiverSpend": null,
+  "feeWaiverSpend": 150000,
   "bestFor": [
     "shopping",
     "lifestyle",
@@ -16,19 +16,61 @@
   "rewardType": "Zen Points",
   "rewards": [
     {
-      "category": "online",
-      "rate": 1.33,
-      "capMonthly": null
+      "category": "base",
+      "displayCategory": "Shopping spends (Apparel, Lifestyle, Departmental Stores & Jewellery)",
+      "rate": 6.6667,
+      "displayRate": "10 Zen Points / ₹150 spent on shopping",
+      "capMonthly": 6500
     },
     {
       "category": "base",
-      "rate": 0.67,
-      "capMonthly": null
+      "displayCategory": "Other eligible retail spends",
+      "rate": 3.3333,
+      "displayRate": "5 Zen Points / ₹150 spent",
+      "capMonthly": 6500
+    },
+    {
+      "category": "education",
+      "displayCategory": "Education spends",
+      "rate": 3.3333,
+      "displayRate": "5 Zen Points / ₹150 spent",
+      "capMonthly": 2333
+    },
+    {
+      "category": "insurance",
+      "displayCategory": "Insurance spends",
+      "rate": 3.3333,
+      "displayRate": "5 Zen Points / ₹150 spent",
+      "capMonthly": 2333
+    },
+    {
+      "category": "utilities",
+      "displayCategory": "Utility spends",
+      "rate": 3.3333,
+      "displayRate": "5 Zen Points / ₹150 spent",
+      "capMonthly": 1666
+    },
+    {
+      "category": "government",
+      "displayCategory": "Government spends",
+      "rate": 3.3333,
+      "displayRate": "5 Zen Points / ₹150 spent",
+      "capMonthly": 1333
     }
   ],
   "popularityScore": 75,
-  "loungeDomestic": 0,
-  "loungeInternational": 0,
+  "loungeDomestic": 8,
+  "loungeInternational": 3,
+  "lounge": {
+    "domestic": [
+      "8 complimentary domestic lounge visits per year (max 2 per quarter).",
+      "Spend-gated: requires spends of ₹75,000 or more in the previous calendar quarter to unlock access."
+    ],
+    "international": [
+      "3 complimentary international lounge visits per calendar year for the primary cardholder.",
+      "Priority Pass card no longer required; access international lounges using the credit card directly."
+    ]
+  },
   "forexMarkup": 3.5,
   "tags": [
     "kotak",
@@ -38,32 +80,74 @@
     "zen points"
   ],
   "exclusions": [
+    "Wallet loading transactions",
+    "Fuel spends",
+    "Rent payments",
+    "Online skill-based gaming transactions",
+    "EMI transactions",
+    "Cash advance / withdrawals"
+  ],
+  "exclusionCodes": [
+    "wallet_load",
     "fuel",
+    "rent",
+    "gaming",
     "emi",
-    "reward point cash redemption value revised by Kotak from June 2025"
+    "cash_advance"
   ],
-  "milestoneBenefits": [
-    "7,500 bonus Zen points on spending Rs 3,00,000 in an anniversary year",
-    "15,000 bonus Zen points on spending Rs 6,00,000 in an anniversary year"
+  "joiningBenefitsValued": [
+    {
+      "value": 375,
+      "kind": "points",
+      "label": "1,500 bonus Zen Points (worth Rs 375) upon payment of joining fee"
+    }
   ],
+  "renewalBenefitsValued": [],
+  "milestones": [
+    {
+      "threshold": 300000,
+      "period": "annual",
+      "value": 1875,
+      "kind": "points",
+      "label": "7,500 bonus Zen Points (worth Rs 1,875) on spending ₹3 Lakhs annually"
+    },
+    {
+      "threshold": 600000,
+      "period": "annual",
+      "value": 1875,
+      "kind": "points",
+      "label": "7,500 additional bonus Zen Points (worth Rs 1,875) on spending ₹6 Lakhs annually"
+    }
+  ],
+  "milestoneBenefits": [],
   "additionalBenefits": [
-    "10 Zen points for every Rs 150 spent on shopping categories like lifestyle goods, jewellery, departmental stores and apparel",
-    "5 Zen points for every Rs 150 on other eligible spends"
+    "1% fuel surcharge waiver on transactions between ₹500 and ₹5,000 (max ₹3,500 per anniversary year)",
+    "Railway surcharge waiver (max ₹500 per anniversary year)",
+    "KASSIST: Priority assistance within 2 hours by SMSing 'KASSIST' to 5676788"
   ],
   "redemption": {
-    "statementBalanceValue": 0.2,
+    "statementBalanceValue": 0.07,
     "minimumPointsForStatementCredit": 2000
   },
   "eligibility": {
     "salaried": [
-      "Applicant must meet Kotak's eligibility criteria"
+      "Age: 21 to 60 years",
+      "Minimum Annual Income: Rs 5,00,000",
+      "Resident of India"
     ],
     "selfEmployed": [
-      "Applicant must meet Kotak's eligibility criteria"
+      "Age: 21 to 60 years",
+      "Minimum Annual Income: Rs 5,00,000",
+      "Resident of India"
     ]
   },
-  "sourceUrl": "https://www.kotak.com/en/personal-banking/cards/credit-cards/zen-signature-credit-card/eligibility-criteria.html",
+  "sourceUrl": "https://www.kotak.com/en/personal-banking/cards/credit-cards/zen-signature-credit-card.html",
   "applyUrl": "https://www.kotak.com/en/personal-banking/cards/credit-cards.html",
-  "lastVerified": "2026-05-11",
-  "verificationStatus": "official-mixed"
+  "lastVerified": "2026-06-14",
+  "verificationStatus": "official-direct",
+  "imageUrl": "/images/kotak-zen-signature.webp",
+  "internalNotes": [
+    "Redemption rate for vouchers and merchandise is 1 point = Rs 0.25. Cash statement credit rate is 1 point = Rs 0.07. Total reward points earned on all transactions capped at 6,500 points per billing cycle.",
+    "Card details manually reviewed and verified by user on 2026-06-14."
+  ]
 }

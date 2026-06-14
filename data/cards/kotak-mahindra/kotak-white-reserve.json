@@ -3,7 +3,8 @@
   "issuer": "Kotak Mahindra Bank",
   "name": "White Reserve Credit Card",
   "network": [
-    "Visa"
+    "Visa",
+    "RuPay"
   ],
   "joiningFee": 12500,
   "annualFee": 12500,
@@ -19,14 +20,24 @@
   "rewards": [
     {
       "category": "base",
+      "displayCategory": "All retail spends",
       "rate": 0,
+      "displayRate": "Earns White Pass value on milestone spends",
       "capMonthly": null
     }
   ],
   "popularityScore": 76,
   "loungeDomestic": "unlimited",
   "loungeInternational": "unlimited",
-  "forexMarkup": 3.5,
+  "lounge": {
+    "domestic": [
+      "Unlimited domestic lounge access for primary and add-on cardholders."
+    ],
+    "international": [
+      "Unlimited international lounge access via Priority Pass for primary and add-on cardholders."
+    ]
+  },
+  "forexMarkup": 2,
   "tags": [
     "kotak",
     "white reserve",
@@ -37,34 +48,126 @@
     "travel"
   ],
   "exclusions": [
-    "white pass value depends on spend milestones",
-    "as per internal norms, customer can hold only one active White or White Reserve Credit Card",
-    "guest charges apply after complimentary visits are exhausted"
+    "Fuel spends",
+    "Rent payments",
+    "EMI transactions",
+    "E-wallet loading transactions",
+    "Insurance spends",
+    "Government spends",
+    "Education spends",
+    "Cash advance / withdrawals"
   ],
-  "milestoneBenefits": [
-    "Annual fee can be waived on annual spends of Rs 10,00,000",
-    "Earn White Pass value at milestone spends up to Rs 2.5 lakhs annually"
+  "exclusionCodes": [
+    "fuel",
+    "rent",
+    "emi",
+    "wallet_load",
+    "insurance",
+    "government",
+    "education",
+    "cash_advance"
   ],
+  "joiningBenefitsValued": [
+    {
+      "value": 7500,
+      "kind": "voucher",
+      "label": "Complimentary Club Marriott membership (worth Rs 15,000)"
+    }
+  ],
+  "renewalBenefitsValued": [
+    {
+      "value": 7500,
+      "kind": "voucher",
+      "label": "Complimentary Club Marriott membership (worth Rs 15,000) on card renewal"
+    }
+  ],
+  "milestones": [
+    {
+      "threshold": 300000,
+      "period": "annual",
+      "value": 5000,
+      "kind": "points",
+      "label": "Earn ₹5,000 White Pass value on spending ₹3 Lakhs"
+    },
+    {
+      "threshold": 1000000,
+      "period": "annual",
+      "value": 15000,
+      "kind": "points",
+      "label": "Earn ₹15,000 White Pass value on spending ₹10 Lakhs"
+    },
+    {
+      "threshold": 2000000,
+      "period": "annual",
+      "value": 22000,
+      "kind": "points",
+      "label": "Earn ₹22,000 White Pass value on spending ₹20 Lakhs"
+    },
+    {
+      "threshold": 3000000,
+      "period": "annual",
+      "value": 24000,
+      "kind": "points",
+      "label": "Earn ₹24,000 White Pass value on spending ₹30 Lakhs"
+    },
+    {
+      "threshold": 4000000,
+      "period": "annual",
+      "value": 26000,
+      "kind": "points",
+      "label": "Earn ₹26,000 White Pass value on spending ₹40 Lakhs"
+    },
+    {
+      "threshold": 5000000,
+      "period": "annual",
+      "value": 28000,
+      "kind": "points",
+      "label": "Earn ₹28,000 White Pass value on spending ₹50 Lakhs"
+    },
+    {
+      "threshold": 7500000,
+      "period": "annual",
+      "value": 63000,
+      "kind": "points",
+      "label": "Earn ₹63,000 White Pass value on spending ₹75 Lakhs"
+    },
+    {
+      "threshold": 10000000,
+      "period": "annual",
+      "value": 67000,
+      "kind": "points",
+      "label": "Earn ₹67,000 White Pass value on spending ₹1 Crore"
+    }
+  ],
+  "milestoneBenefits": [],
   "additionalBenefits": [
-    "Unlimited global airport lounge access for primary and add-on card holders",
-    "Luxury lifestyle concierge",
-    "Annual Club Marriott membership",
-    "Golf privileges",
-    "1 White Pass = Rs 1 on White Pass catalogue and Rs 0.70 for cashback"
+    "Metal credit card format",
+    "2 Free golf rounds each month at select courses worldwide for the primary cardholder",
+    "Luxury lifestyle concierge and assistance services",
+    "1% fuel surcharge waiver on transactions between ₹400 and ₹7,500 (max ₹4,500 per calendar year)"
   ],
   "redemption": {
     "statementBalanceValue": 0.7
   },
   "eligibility": {
     "salaried": [
-      "Eligibility is subject to Kotak Mahindra Bank approval criteria"
+      "Age: 21 to 65 years",
+      "Resident of India",
+      "Subject to Kotak Mahindra Bank premium segment criteria"
     ],
     "selfEmployed": [
-      "Eligibility is subject to Kotak Mahindra Bank approval criteria"
+      "Age: 21 to 65 years",
+      "Resident of India",
+      "Subject to Kotak Mahindra Bank premium segment criteria"
     ]
   },
   "sourceUrl": "https://www.kotak.com/en/personal-banking/cards/credit-cards/white-reserve-credit-card/value.html",
   "applyUrl": "https://www.kotak.com/en/personal-banking/cards/credit-cards/white-reserve-credit-card.html",
-  "lastVerified": "2026-05-11",
-  "verificationStatus": "official-mixed"
+  "lastVerified": "2026-06-14",
+  "verificationStatus": "official-direct",
+  "imageUrl": "/images/kotak-white-reserve.webp",
+  "internalNotes": [
+    "White Pass value can be redeemed at 1 White Pass = Rs 1.0 on vouchers, flights, and hotels, and Rs 0.70 for statement cashback. Guest charges for lounges are $35 per guest per visit. Customer can hold only one active White/White Reserve card.",
+    "Card details manually reviewed and verified by user on 2026-06-14."
+  ]
 }

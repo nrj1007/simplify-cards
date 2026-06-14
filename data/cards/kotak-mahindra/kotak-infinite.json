@@ -19,13 +19,20 @@
   "rewards": [
     {
       "category": "base",
+      "displayCategory": "All retail spends",
       "rate": 0.4,
+      "displayRate": "1 Reward Point / ₹250 spent",
       "capMonthly": null
     }
   ],
   "popularityScore": 72,
   "loungeDomestic": 16,
   "loungeInternational": 0,
+  "lounge": {
+    "domestic": [
+      "16 complimentary domestic lounge visits per year (max 4 per quarter)."
+    ]
+  },
   "forexMarkup": 2,
   "tags": [
     "kotak",
@@ -38,34 +45,67 @@
     "wealth"
   ],
   "exclusions": [
-    "positioned as a wealth-management card and eligibility is relationship-based",
-    "reward points are often presented alongside travel-mile conversion rather than high direct cashback value",
-    "domestic lounge access is capped at 4 visits per quarter"
+    "E-wallet loading transactions",
+    "Fuel spends",
+    "Rent payments",
+    "Insurance spends",
+    "Utility spends",
+    "Education spends",
+    "Government spends",
+    "Online skill-based gaming transactions",
+    "EMI transactions",
+    "Cash advance / withdrawals"
   ],
-  "milestoneBenefits": [
-    "800 reward points worth Rs 800 every month in lieu of the current PVR-ticket interim benefit",
-    "Fuel surcharge waiver up to annual cap as per Kotak terms"
+  "exclusionCodes": [
+    "wallet_load",
+    "fuel",
+    "rent",
+    "insurance",
+    "utilities",
+    "education",
+    "government",
+    "gaming",
+    "emi",
+    "cash_advance"
   ],
+  "joiningBenefitsValued": [],
+  "renewalBenefitsValued": [],
+  "milestones": [
+    {
+      "threshold": 0,
+      "period": "monthly",
+      "value": 800,
+      "kind": "points",
+      "label": "800 Reward Points (worth ₹800) credited free every month"
+    }
+  ],
+  "milestoneBenefits": [],
   "additionalBenefits": [
-    "4 complimentary domestic lounge visits every quarter",
-    "2 complimentary rounds of golf in a month and quarterly guest golf benefit as per current Kotak page",
-    "Premium concierge support",
-    "Every 1 reward point converts to 2 air miles for partner travel redemption",
-    "2% forex markup"
+    "Personalized card design featuring a handcrafted illustration of the cardholder",
+    "2 complimentary rounds of golf per month, plus 2 complimentary guest rounds per quarter",
+    "Premium concierge assistance (hotel/dining bookings, travel ticketing, event planning)",
+    "1% fuel surcharge waiver on transactions between ₹400 and ₹4,000 (max ₹4,500 per calendar year)"
   ],
   "redemption": {
     "statementBalanceValue": 0.25
   },
   "eligibility": {
     "salaried": [
-      "Wealth-management relationship and Kotak approval may be required"
+      "Exclusively for Kotak Wealth Management Banking Relationship clients",
+      "Age: 21 to 65 years"
     ],
     "selfEmployed": [
-      "Wealth-management relationship and Kotak approval may be required"
+      "Exclusively for Kotak Wealth Management Banking Relationship clients",
+      "Age: 21 to 65 years"
     ]
   },
   "sourceUrl": "https://www.kotak.com/en/personal-banking/cards/credit-cards/wealth-management-infinite-credit-card.html",
   "applyUrl": "https://www.kotak.com/en/personal-banking/cards/credit-cards/wealth-management-infinite-credit-card.html",
-  "lastVerified": "2026-05-11",
-  "verificationStatus": "official-mixed"
+  "lastVerified": "2026-06-14",
+  "verificationStatus": "official-direct",
+  "imageUrl": "/images/kotak-infinite.webp",
+  "internalNotes": [
+    "Invite-only credit card for Wealth Management clients. Every 1 Reward Point converts to 2 Air Miles for partner travel redemptions. Foreign markup fee is reduced to 2%. Spends on wallet, fuel, rent, insurance, utilities, education, government, and gaming do not earn reward points.",
+    "Card details manually reviewed and verified by user on 2026-06-14."
+  ]
 }

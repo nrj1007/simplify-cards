@@ -16,15 +16,35 @@
   "rewardType": "Kotak Reward Points",
   "rewards": [
     {
-      "category": "base",
-      "rate": 0.37,
+      "category": "travel,airlines",
+      "displayCategory": "Special Categories (Travel, Airlines, Department Stores, Electronics & Durable Goods)",
+      "rate": 5.3333,
+      "displayRate": "8 Reward Points / ₹150 spent on special categories",
       "capMonthly": null
+    },
+    {
+      "category": "base",
+      "displayCategory": "Other eligible spends (under ₹2 Lakhs annual spends)",
+      "rate": 2.6667,
+      "displayRate": "4 Reward Points / ₹150 spent",
+      "capMonthly": null,
+      "tierLowerBound": 0,
+      "tierUpperBound": 16667
+    },
+    {
+      "category": "base",
+      "displayCategory": "Other eligible spends (above ₹2 Lakhs annual spends)",
+      "rate": 5.3333,
+      "displayRate": "8 Reward Points / ₹150 spent",
+      "capMonthly": null,
+      "tierLowerBound": 16667,
+      "tierUpperBound": null
     }
   ],
   "popularityScore": 76,
   "loungeDomestic": 0,
   "loungeInternational": 0,
-  "forexMarkup": 4,
+  "forexMarkup": 3.5,
   "tags": [
     "kotak",
     "visa",
@@ -33,33 +53,74 @@
     "reward points"
   ],
   "exclusions": [
-    "reward point cash redemption value revised by Kotak from June 2025",
+    "Fuel spends",
+    "Rent payments",
+    "E-wallet loading transactions",
+    "Online skill-based gaming transactions",
+    "Insurance spends",
+    "Government spends",
+    "Education spends",
+    "Railway ticket bookings",
+    "EMI transactions",
+    "Cash advance / withdrawals"
+  ],
+  "exclusionCodes": [
     "fuel",
-    "cash spends"
+    "rent",
+    "wallet_load",
+    "gaming",
+    "insurance",
+    "government",
+    "education",
+    "emi",
+    "cash_advance"
   ],
-  "milestoneBenefits": [
-    "Get 4 free PVR tickets or 10,000 reward points on spends of Rs 1,25,000 every 6 months",
-    "Annual fee waiver on annual retail spends of Rs 50,000"
+  "joiningBenefitsValued": [
+    {
+      "value": 500,
+      "kind": "points",
+      "label": "5,000 Reward Points (worth Rs 500) upon payment of joining fee"
+    }
   ],
+  "renewalBenefitsValued": [],
+  "milestones": [
+    {
+      "threshold": 250000,
+      "period": "annual",
+      "value": 2000,
+      "kind": "points",
+      "label": "4 free PVR movie tickets (up to ₹400 each) or 10,000 Reward Points on spending ₹1,25,000 every 6 months (up to twice a year)"
+    }
+  ],
+  "milestoneBenefits": [],
   "additionalBenefits": [
-    "Earn up to 8 reward points on every Rs 150 spent across categories",
-    "Designed for high-income or high-net-worth individuals according to Kotak FAQ"
+    "1% fuel surcharge waiver on transactions between ₹500 and ₹4,000 (max ₹3,500 per anniversary year)",
+    "Railway surcharge waiver (max ₹500 per anniversary year)"
   ],
   "redemption": {
     "statementBalanceValue": 0.07,
     "minimumPointsForStatementCredit": 2000
   },
-  "interestRateMonthly": 4,
+  "interestRateMonthly": 3.5,
   "eligibility": {
     "salaried": [
-      "Eligibility is subject to Kotak Mahindra Bank approval criteria"
+      "Age: 21 to 60 years",
+      "Minimum Annual Income: Rs 5,00,000",
+      "Resident of India"
     ],
     "selfEmployed": [
-      "Eligibility is subject to Kotak Mahindra Bank approval criteria"
+      "Age: 21 to 60 years",
+      "Minimum Annual Income: Rs 5,00,000",
+      "Resident of India"
     ]
   },
-  "sourceUrl": "https://www.kotak.com/en/personal-banking/cards/credit-cards/league-platinum-card/league-platinum-card-faqs.html",
+  "sourceUrl": "https://www.kotak.com/en/personal-banking/cards/credit-cards/league-platinum-card.html",
   "applyUrl": "https://www.kotak.com/en/personal-banking/cards/credit-cards.html",
-  "lastVerified": "2026-05-11",
-  "verificationStatus": "official-mixed"
+  "lastVerified": "2026-06-14",
+  "verificationStatus": "official-direct",
+  "imageUrl": "/images/kotak-league-platinum.webp",
+  "internalNotes": [
+    "Redemption rate for vouchers and merchandise is 1 point = Rs 0.10. Cash statement credit rate is 1 point = Rs 0.07.",
+    "Card details manually reviewed and verified by user on 2026-06-14."
+  ]
 }

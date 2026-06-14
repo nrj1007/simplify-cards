@@ -17,7 +17,23 @@
   "rewards": [
     {
       "category": "online",
-      "rate": 0.2,
+      "displayCategory": "Online spends",
+      "rate": 2,
+      "displayRate": "2 Reward Points / ₹100 spent online",
+      "capMonthly": null
+    },
+    {
+      "category": "utilities",
+      "displayCategory": "Utility spends",
+      "rate": 1,
+      "displayRate": "1 Reward Point / ₹100 spent on utilities",
+      "capMonthly": 350
+    },
+    {
+      "category": "base",
+      "displayCategory": "Other eligible offline spends",
+      "rate": 1,
+      "displayRate": "1 Reward Point / ₹100 spent offline",
       "capMonthly": null
     }
   ],
@@ -33,29 +49,70 @@
     "entry level"
   ],
   "exclusions": [
-    "reward point cash redemption value revised by Kotak from June 2025"
+    "Education spends",
+    "E-wallet loading transactions",
+    "Fuel spends",
+    "Rent payments",
+    "Government spends",
+    "Insurance spends",
+    "Online skill-based gaming transactions",
+    "EMI transactions",
+    "Cash advance / withdrawals"
   ],
-  "milestoneBenefits": [
-    "Get Rs 750 cashback on crossing Rs 75,000 spends every year",
-    "Annual fee waiver on retail spends of Rs 50,000 in the previous anniversary year"
+  "exclusionCodes": [
+    "education",
+    "wallet_load",
+    "fuel",
+    "rent",
+    "government",
+    "insurance",
+    "gaming",
+    "emi",
+    "cash_advance"
   ],
+  "joiningBenefitsValued": [
+    {
+      "value": 50,
+      "kind": "points",
+      "label": "500 bonus Reward Points (worth Rs 50) on spending Rs 3,000 within the first 30 days of card setup"
+    }
+  ],
+  "renewalBenefitsValued": [],
+  "milestones": [
+    {
+      "threshold": 75000,
+      "period": "annual",
+      "value": 1200,
+      "kind": "voucher",
+      "label": "3 complimentary PVR movie tickets (worth up to ₹1,200) on spending ₹75,000 in an anniversary year"
+    }
+  ],
+  "milestoneBenefits": [],
   "additionalBenefits": [
-    "Earn 2 reward points for every Rs 100 spent online"
+    "1% fuel surcharge waiver on transactions between ₹500 and ₹4,000 (max ₹3,500 per calendar year)",
+    "Railway surcharge waiver (max ₹500 per calendar year)"
   ],
   "redemption": {
-    "statementBalanceValue": 0.1,
+    "statementBalanceValue": 0.07,
     "minimumPointsForStatementCredit": 2000
   },
   "eligibility": {
     "salaried": [
-      "Eligibility is subject to Kotak Mahindra Bank approval criteria"
+      "Age: 18 to 65 years",
+      "Resident of India"
     ],
     "selfEmployed": [
-      "Eligibility is subject to Kotak Mahindra Bank approval criteria"
+      "Age: 18 to 65 years",
+      "Resident of India"
     ]
   },
   "sourceUrl": "https://www.kotak.com/en/personal-banking/cards/credit-cards/kotak-811-credit-card.html",
   "applyUrl": "https://www.kotak.com/en/personal-banking/cards/credit-cards/kotak-811-credit-card.html",
-  "lastVerified": "2026-05-11",
-  "verificationStatus": "official-direct"
+  "lastVerified": "2026-06-14",
+  "verificationStatus": "official-direct",
+  "imageUrl": "/images/kotak-811.webp",
+  "internalNotes": [
+    "Redemption rate for vouchers and merchandise is 1 point = Rs 0.10. Cash statement credit rate is 1 point = Rs 0.07. Spends on utility, education, wallet loading, government, insurance, gaming, fuel, and rent do not count towards milestone benefits.",
+    "Card details manually reviewed and verified by user on 2026-06-14."
+  ]
 }

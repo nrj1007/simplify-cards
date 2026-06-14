@@ -3,11 +3,12 @@
   "issuer": "Kotak Mahindra Bank",
   "name": "Kotak Cashback+ Credit Card",
   "network": [
-    "Visa"
+    "Visa",
+    "RuPay"
   ],
   "joiningFee": 750,
   "annualFee": 750,
-  "feeWaiverSpend": null,
+  "feeWaiverSpend": 200000,
   "bestFor": [
     "cashback",
     "online food",
@@ -15,26 +16,41 @@
     "entertainment",
     "fuel"
   ],
-  "rewardType": "cashback as reward points",
+  "rewardType": "cashback",
   "rewards": [
     {
       "category": "grocery",
+      "displayCategory": "Online grocery and food delivery",
       "rate": 5,
-      "capMonthly": 500
+      "displayRate": "5% cashback",
+      "capMonthly": 750
     },
     {
       "category": "online",
+      "displayCategory": "Online movies and OTT entertainment",
       "rate": 5,
-      "capMonthly": 500
+      "displayRate": "5% cashback",
+      "capMonthly": 750
     },
     {
       "category": "fuel",
+      "displayCategory": "Fuel spends",
       "rate": 3,
+      "displayRate": "3% cashback",
+      "capMonthly": 750
+    },
+    {
+      "category": "upi",
+      "displayCategory": "UPI transactions (RuPay variant only)",
+      "rate": 0.5,
+      "displayRate": "0.5% cashback",
       "capMonthly": null
     },
     {
       "category": "base",
+      "displayCategory": "Other eligible retail spends",
       "rate": 0.5,
+      "displayRate": "0.5% cashback",
       "capMonthly": null
     }
   ],
@@ -51,30 +67,57 @@
     "fuel"
   ],
   "exclusions": [
-    "accelerated cashback categories and caps follow Kotak Cashback+ terms",
-    "cashback expires one year from accrual date",
-    "excluded categories do not earn cashback"
+    "Rent payments",
+    "B2B transactions",
+    "Utility bills",
+    "Insurance premiums",
+    "Education spends",
+    "Government services spends",
+    "E-wallet loading transactions",
+    "Online skill-based gaming transactions",
+    "EMI transactions",
+    "Cash advance / withdrawals"
   ],
+  "exclusionCodes": [
+    "rent",
+    "utilities",
+    "insurance",
+    "education",
+    "government",
+    "wallet_load",
+    "gaming",
+    "emi",
+    "cash_advance"
+  ],
+  "milestones": [],
   "milestoneBenefits": [],
   "additionalBenefits": [
-    "5% cashback on online food delivery, grocery delivery and online entertainment",
-    "3% cashback on fuel spends across fuel stations",
-    "0.5% unlimited cashback on other eligible spends"
+    "PVR INOX Buy 1 Get 1 Free movie ticket offer (up to ₹250 discount per card per month)",
+    "BookMyShow: 20% off up to ₹150 on minimum spends of ₹299 per month",
+    "1% fuel surcharge waiver on transactions between ₹500 and ₹4,000 (max ₹3,500 per anniversary year)"
   ],
   "redemption": {
     "statementBalanceValue": 1,
+    "minimumPointsForStatementCredit": 500,
     "pointsExpiryYears": 1
   },
   "eligibility": {
     "salaried": [
-      "Eligibility is subject to Kotak Mahindra Bank approval criteria"
+      "Age: 18 to 65 years",
+      "Resident of India"
     ],
     "selfEmployed": [
-      "Eligibility is subject to Kotak Mahindra Bank approval criteria"
+      "Age: 18 to 65 years",
+      "Resident of India"
     ]
   },
   "sourceUrl": "https://www.kotak.com/en/personal-banking/cards/credit-cards/kotak-cashback-plus-credit-card.html",
   "applyUrl": "https://www.kotak.com/en/personal-banking/cards/credit-cards/kotak-cashback-plus-credit-card.html",
-  "lastVerified": "2026-05-11",
-  "verificationStatus": "official-direct"
+  "lastVerified": "2026-06-14",
+  "verificationStatus": "official-direct",
+  "imageUrl": "/images/kotak-cashback-plus.webp",
+  "internalNotes": [
+    "Accelerated cashback categories (online grocery, food, movies, OTT, fuel) share a combined billing cycle cap of 750 points. No base cashback is earned on these once the cap is reached.",
+    "Card details manually reviewed and verified by user on 2026-06-14."
+  ]
 }

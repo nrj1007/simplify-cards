@@ -18,19 +18,23 @@
   "rewards": [
     {
       "category": "online",
-      "rate": 0.4,
+      "displayCategory": "Online spends",
+      "rate": 2,
+      "displayRate": "2 Reward Points / ₹100 spent online",
       "capMonthly": null
     },
     {
       "category": "base",
-      "rate": 0.2,
+      "displayCategory": "Other eligible offline spends",
+      "rate": 1,
+      "displayRate": "1 Reward Point / ₹100 spent offline",
       "capMonthly": null
     }
   ],
   "popularityScore": 71,
   "loungeDomestic": 0,
   "loungeInternational": 0,
-  "forexMarkup": 4,
+  "forexMarkup": 3.5,
   "tags": [
     "kotak",
     "811",
@@ -40,32 +44,75 @@
     "railway"
   ],
   "exclusions": [
-    "fuel and railway transactions are excluded from reward-point accrual because surcharge waivers apply",
-    "reward point cash redemption value revised by Kotak from June 2025"
+    "Fuel spends",
+    "Railway ticket bookings",
+    "Rent payments",
+    "E-wallet loading transactions",
+    "Online skill-based gaming transactions",
+    "Education spends",
+    "Government spends",
+    "Insurance spends",
+    "EMI transactions",
+    "Cash advance / withdrawals"
   ],
-  "milestoneBenefits": [
-    "Earn 500 bonus reward points on activation plus Rs 5,000 spends in the first 45 days",
-    "Spend Rs 75,000 in a year and get cashback of Rs 750"
+  "exclusionCodes": [
+    "fuel",
+    "rent",
+    "wallet_load",
+    "gaming",
+    "education",
+    "government",
+    "insurance",
+    "emi",
+    "cash_advance"
   ],
+  "joiningBenefitsValued": [
+    {
+      "value": 50,
+      "kind": "points",
+      "label": "500 bonus Reward Points (worth Rs 50) on spending ₹5,000 within the first 45 days of card setup"
+    }
+  ],
+  "renewalBenefitsValued": [],
+  "milestones": [
+    {
+      "threshold": 75000,
+      "period": "annual",
+      "value": 750,
+      "kind": "cashback",
+      "label": "₹750 cashback on spending ₹75,000 in a card anniversary year"
+    }
+  ],
+  "milestoneBenefits": [],
   "additionalBenefits": [
-    "1% fuel surcharge waiver across domestic petrol pumps",
-    "Railway surcharge waiver",
-    "Higher cash limit and up to 48 days interest-free period on cash advances according to Kotak FAQ"
+    "Interest-free cash withdrawals for up to 48 days (subject to ₹100 processing fee)",
+    "Credit limit up to 90% of your fixed deposit amount",
+    "1% fuel surcharge waiver on transactions between ₹500 and ₹4,000 (max ₹3,500 per year)",
+    "Railway surcharge waiver on irctc.co.in and counter bookings (max ₹500 per year)"
   ],
   "redemption": {
-    "statementBalanceValue": 0.2,
+    "statementBalanceValue": 0.07,
     "minimumPointsForStatementCredit": 2000
   },
   "eligibility": {
     "salaried": [
-      "Eligibility is subject to Kotak Mahindra Bank approval criteria"
+      "Age: 18 to 75 years",
+      "Minimum Fixed Deposit backing of Rs 10,000",
+      "No income proof or CIBIL score checks required"
     ],
     "selfEmployed": [
-      "Eligibility is subject to Kotak Mahindra Bank approval criteria"
+      "Age: 18 to 75 years",
+      "Minimum Fixed Deposit backing of Rs 10,000",
+      "No income proof or CIBIL score checks required"
     ]
   },
-  "sourceUrl": "https://www.kotak.com/en/personal-banking/cards/credit-cards/811-dream-different-credit-card/811-dream-different-credit-card-faqs.html",
+  "sourceUrl": "https://www.kotak.com/en/personal-banking/cards/credit-cards/811-dream-different-credit-card.html",
   "applyUrl": "https://www.kotak.com/en/personal-banking/cards/credit-cards/811-dream-different-credit-card/eligibility.html",
-  "lastVerified": "2026-05-11",
-  "verificationStatus": "official-mixed"
+  "lastVerified": "2026-06-14",
+  "verificationStatus": "official-direct",
+  "imageUrl": "/images/kotak-811-dream-different.webp",
+  "internalNotes": [
+    "Redemption rate for vouchers and merchandise is 1 point = Rs 0.10. Cash statement credit rate is 1 point = Rs 0.07. Spends on utility, education, wallet loading, government, insurance, gaming, fuel, and rent do not count towards milestone benefits.",
+    "Card details manually reviewed and verified by user on 2026-06-14."
+  ]
 }

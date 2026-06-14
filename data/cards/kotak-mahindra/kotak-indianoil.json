@@ -18,18 +18,31 @@
   "rewards": [
     {
       "category": "fuel",
-      "rate": 5,
-      "capMonthly": 300
+      "displayCategory": "IndianOil fuel spends",
+      "rate": 16,
+      "displayRate": "24 Reward Points / ₹150 spent on IndianOil fuel spends",
+      "capMonthly": 1200
     },
     {
-      "category": "grocery",
-      "rate": 2,
-      "capMonthly": 200
+      "category": "grocery,dining",
+      "displayCategory": "Grocery and dining spends",
+      "rate": 8,
+      "displayRate": "12 Reward Points / ₹150 spent on grocery and dining",
+      "capMonthly": 800
     },
     {
-      "category": "dining",
+      "category": "upi",
+      "displayCategory": "UPI spends",
       "rate": 2,
-      "capMonthly": 200
+      "displayRate": "3 Reward Points / ₹150 spent on UPI transactions",
+      "capMonthly": null
+    },
+    {
+      "category": "base",
+      "displayCategory": "Other eligible retail spends",
+      "rate": 2,
+      "displayRate": "3 Reward Points / ₹150 spent",
+      "capMonthly": null
     }
   ],
   "popularityScore": 77,
@@ -45,19 +58,42 @@
     "dining"
   ],
   "exclusions": [
-    "fuel and category caps apply monthly as per Kotak terms",
-    "reward point cash redemption value revised by Kotak from June 2025",
-    "cash advance",
-    "emi"
+    "Fuel spends at non-IndianOil outlets",
+    "Rent payments",
+    "E-wallet loading transactions",
+    "EMI transactions",
+    "Education spends",
+    "Government spends",
+    "Insurance spends",
+    "Online skill-based gaming transactions",
+    "Cash advance / withdrawal",
+    "Balance transfer"
   ],
-  "milestoneBenefits": [
-    "Annual fee waiver on retail spends of Rs 50,000 in the previous anniversary year"
+  "exclusionCodes": [
+    "fuel",
+    "rent",
+    "wallet_load",
+    "emi",
+    "education",
+    "government",
+    "insurance",
+    "gaming",
+    "cash_advance",
+    "balance_transfer"
   ],
+  "joiningBenefitsValued": [
+    {
+      "value": 250,
+      "kind": "points",
+      "label": "1,000 Reward Points (worth Rs 250) on spending ₹500 or above within 30 days of card issuance"
+    }
+  ],
+  "renewalBenefitsValued": [],
+  "milestones": [],
+  "milestoneBenefits": [],
   "additionalBenefits": [
-    "Save 5% on fuel spends at IndianOil fuel pumps",
-    "Earn 2% back as reward points on grocery and dining spends",
-    "1% fuel surcharge waiver up to monthly cap",
-    "Interest-free credit period up to 48 days"
+    "1% fuel surcharge waiver on transactions between ₹100 to ₹5,000 (max ₹100 per statement cycle) at IndianOil outlets",
+    "Concierge and assistance services (RuPay variant only)"
   ],
   "redemption": {
     "statementBalanceValue": 0.2,
@@ -65,14 +101,21 @@
   },
   "eligibility": {
     "salaried": [
-      "Eligibility is subject to Kotak Mahindra Bank approval criteria"
+      "Age: 18 to 65 years",
+      "Resident of India"
     ],
     "selfEmployed": [
-      "Eligibility is subject to Kotak Mahindra Bank approval criteria"
+      "Age: 18 to 65 years",
+      "Resident of India"
     ]
   },
   "sourceUrl": "https://www.kotak.com/en/personal-banking/cards/credit-cards/indian-oil-credit-card.html",
   "applyUrl": "https://www.kotak.com/en/personal-banking/cards/credit-cards/indian-oil-credit-card.html",
-  "lastVerified": "2026-05-11",
-  "verificationStatus": "official-direct"
+  "lastVerified": "2026-06-14",
+  "verificationStatus": "official-direct",
+  "imageUrl": "/images/kotak-indianoil.webp",
+  "internalNotes": [
+    "Fuel rewards are capped at 1,200 points per cycle. Grocery/dining rewards share a combined monthly cap of 800 points.",
+    "Card details manually reviewed and verified by user on 2026-06-14."
+  ]
 }

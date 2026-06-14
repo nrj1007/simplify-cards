@@ -7,7 +7,7 @@
   ],
   "joiningFee": 3000,
   "annualFee": 3000,
-  "feeWaiverSpend": null,
+  "feeWaiverSpend": 500000,
   "bestFor": [
     "premium",
     "milestones",
@@ -18,13 +18,23 @@
   "rewards": [
     {
       "category": "base",
+      "displayCategory": "All retail spends",
       "rate": 0,
+      "displayRate": "Earns White Pass value on spends milestones",
       "capMonthly": null
     }
   ],
   "popularityScore": 74,
   "loungeDomestic": 8,
   "loungeInternational": 4,
+  "lounge": {
+    "domestic": [
+      "8 complimentary domestic lounge visits per year (max 2 per quarter)."
+    ],
+    "international": [
+      "4 complimentary international lounge visits per year via Priority Pass."
+    ]
+  },
   "forexMarkup": 3.5,
   "tags": [
     "kotak",
@@ -34,17 +44,72 @@
     "lounge"
   ],
   "exclusions": [
-    "white pass value depends on spend milestones",
-    "guest charges apply after complimentary lounge visits are exhausted"
+    "Fuel spends",
+    "Rent payments",
+    "EMI transactions",
+    "E-wallet loading transactions",
+    "Insurance spends",
+    "Government spends",
+    "Education spends",
+    "Cash advance / withdrawals"
   ],
-  "milestoneBenefits": [
-    "Special introductory offer: spend Rs 30,000 within the first 60 days and receive a voucher worth Rs 1,500",
-    "Earn White Pass value on spend milestones"
+  "exclusionCodes": [
+    "fuel",
+    "rent",
+    "emi",
+    "wallet_load",
+    "insurance",
+    "government",
+    "education",
+    "cash_advance"
   ],
+  "joiningBenefitsValued": [
+    {
+      "value": 1500,
+      "kind": "voucher",
+      "label": "₹1,500 White Pass welcome voucher on spending ₹30,000 within 60 days of card setup"
+    }
+  ],
+  "renewalBenefitsValued": [],
+  "milestones": [
+    {
+      "threshold": 200000,
+      "period": "annual",
+      "value": 2000,
+      "kind": "points",
+      "label": "Earn ₹2,000 White Pass value on spending ₹2 Lakhs"
+    },
+    {
+      "threshold": 400000,
+      "period": "annual",
+      "value": 4000,
+      "kind": "points",
+      "label": "Earn ₹4,000 White Pass value on spending ₹4 Lakhs"
+    },
+    {
+      "threshold": 600000,
+      "period": "annual",
+      "value": 6000,
+      "kind": "points",
+      "label": "Earn ₹6,000 White Pass value on spending ₹6 Lakhs"
+    },
+    {
+      "threshold": 900000,
+      "period": "annual",
+      "value": 7000,
+      "kind": "points",
+      "label": "Earn ₹7,000 White Pass value on spending ₹9 Lakhs"
+    },
+    {
+      "threshold": 1200000,
+      "period": "annual",
+      "value": 8000,
+      "kind": "points",
+      "label": "Earn ₹8,000 White Pass value on spending ₹12 Lakhs"
+    }
+  ],
+  "milestoneBenefits": [],
   "additionalBenefits": [
-    "Earn vouchers redeemable on premium brands on meeting spend milestones",
-    "8 complimentary domestic airport lounge access per year",
-    "4 complimentary international airport lounge access per year with Priority Pass according to Kotak White product positioning",
     "1% fuel surcharge waiver across petrol pumps in India",
     "Railway surcharge waiver on IRCTC and railway booking counter transactions"
   ],
@@ -53,14 +118,23 @@
   },
   "eligibility": {
     "salaried": [
-      "Eligibility is subject to Kotak Mahindra Bank approval criteria"
+      "Age: 28 to 60 years",
+      "Minimum Annual Income: Rs 25,00,000",
+      "Resident of India"
     ],
     "selfEmployed": [
-      "Eligibility is subject to Kotak Mahindra Bank approval criteria"
+      "Age: 28 to 60 years",
+      "Minimum Annual Income: Rs 25,0,000",
+      "Resident of India"
     ]
   },
   "sourceUrl": "https://www.kotak.com/en/personal-banking/cards/credit-cards/white-credit-card.html",
   "applyUrl": "https://www.kotak.com/en/personal-banking/cards/credit-cards/white-credit-card.html",
-  "lastVerified": "2026-05-11",
-  "verificationStatus": "official-direct"
+  "lastVerified": "2026-06-14",
+  "verificationStatus": "official-direct",
+  "imageUrl": "/images/kotak-white.webp",
+  "internalNotes": [
+    "White Pass value can be redeemed at 1 White Pass = Rs 1.0 on vouchers, flights, and hotels, and Rs 0.70 for statement cashback. Spends on rent, wallet, EMI, insurance, utilities, education, government, and fuel do not earn White Pass milestones.",
+    "Card details manually reviewed and verified by user on 2026-06-14."
+  ]
 }

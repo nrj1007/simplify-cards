@@ -16,7 +16,9 @@
   "rewards": [
     {
       "category": "base",
+      "displayCategory": "All retail spends",
       "rate": 0,
+      "displayRate": "Earns movie ticket vouchers on milestones",
       "capMonthly": null
     }
   ],
@@ -32,27 +34,56 @@
     "visa"
   ],
   "exclusions": [
-    "movie coupon benefit depends on monthly spend threshold and claim flow",
-    "annual fee is not waived according to Kotak product content"
+    "Rent payments",
+    "E-wallet loading transactions",
+    "Online skill-based gaming transactions",
+    "EMI transactions",
+    "Cash advance / withdrawals"
   ],
-  "milestoneBenefits": [
-    "Get 2 free PVR tickets every month on spends of Rs 10,000, each ticket up to Rs 400"
+  "exclusionCodes": [
+    "rent",
+    "wallet_load",
+    "gaming",
+    "emi",
+    "cash_advance"
   ],
+  "joiningBenefitsValued": [],
+  "renewalBenefitsValued": [],
+  "milestones": [
+    {
+      "threshold": 10000,
+      "period": "monthly",
+      "value": 800,
+      "kind": "voucher",
+      "label": "2 PVR Movie Tickets (worth up to ₹400 each) on spending ₹10,000 in a billing cycle"
+    }
+  ],
+  "milestoneBenefits": [],
   "additionalBenefits": [
     "15% cashback on food and beverages at PVR",
-    "5% cashback on movie tickets at PVR box office"
+    "5% cashback on movie tickets at PVR box office",
+    "Complimentary entry to premium PVR INOX in-cinema lounges",
+    "Up to ₹75,000 protection against lost/stolen card with PVR Shield"
   ],
   "redemption": {},
   "eligibility": {
     "salaried": [
-      "Eligibility is subject to Kotak Mahindra Bank approval criteria"
+      "Age: 21 to 65 years",
+      "Resident of India"
     ],
     "selfEmployed": [
-      "Eligibility is subject to Kotak Mahindra Bank approval criteria"
+      "Age: 21 to 65 years",
+      "Resident of India"
     ]
   },
   "sourceUrl": "https://www.kotak.com/en/personal-banking/cards/credit-cards.html",
   "applyUrl": "https://www.kotak.com/en/personal-banking/cards/credit-cards.html",
-  "lastVerified": "2026-05-11",
-  "verificationStatus": "official-indexed"
+  "lastVerified": "2026-06-14",
+  "verificationStatus": "official-direct",
+  "imageUrl": "/images/kotak-pvr-platinum.webp",
+  "internalNotes": [
+    "Card has been discontinued for new applications. Milestone rewards are movie ticket codes valid for 2 months.",
+    "Card details manually reviewed and verified by user on 2026-06-14."
+  ],
+  "status": "discontinued"
 }

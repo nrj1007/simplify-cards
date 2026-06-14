@@ -17,12 +17,23 @@
   "rewards": [
     {
       "category": "upi",
-      "rate": 0.21,
+      "displayCategory": "UPI transactions",
+      "rate": 3,
+      "displayRate": "3 Reward Points / ₹100 spent",
       "capMonthly": null
     },
     {
+      "category": "utilities",
+      "displayCategory": "Utility spends",
+      "rate": 3,
+      "displayRate": "3 Reward Points / ₹100 spent",
+      "capMonthly": 1050
+    },
+    {
       "category": "base",
-      "rate": 0.21,
+      "displayCategory": "Other eligible spends",
+      "rate": 3,
+      "displayRate": "3 Reward Points / ₹100 spent",
       "capMonthly": null
     }
   ],
@@ -38,15 +49,34 @@
     "virtual card"
   ],
   "exclusions": [
-    "reward point cash redemption value revised by Kotak from June 2025",
-    "virtual card",
-    "cashback redemption requires minimum reward-point threshold"
+    "Fuel spends",
+    "Rent payments",
+    "Railway ticket bookings",
+    "E-wallet loading transactions",
+    "EMI transactions",
+    "Education spends",
+    "Balance Transfer",
+    "Insurance spends",
+    "Government services spends",
+    "Online skill-based gaming transactions"
   ],
+  "exclusionCodes": [
+    "fuel",
+    "rent",
+    "insurance",
+    "education",
+    "wallet_load",
+    "government",
+    "emi",
+    "balance_transfer",
+    "gaming",
+    "cash_advance"
+  ],
+  "milestones": [],
   "milestoneBenefits": [],
   "additionalBenefits": [
-    "Earn 3 reward points per Rs 100 spent",
-    "Facility of UPI payment on credit card",
-    "Virtual lifetime free credit card"
+    "UPI payments on credit card linked via major UPI apps",
+    "Virtual card auto-registered and managed via Kotak Mobile Banking App"
   ],
   "redemption": {
     "statementBalanceValue": 0.07,
@@ -54,14 +84,21 @@
   },
   "eligibility": {
     "salaried": [
-      "Eligibility is subject to Kotak Mahindra Bank approval criteria"
+      "Age: 18 years and above",
+      "Must be an existing Kotak Credit Card holder"
     ],
     "selfEmployed": [
-      "Eligibility is subject to Kotak Mahindra Bank approval criteria"
+      "Age: 18 years and above",
+      "Must be an existing Kotak Credit Card holder"
     ]
   },
   "sourceUrl": "https://www.kotak.com/en/personal-banking/cards/credit-cards/kotak-upi-rupay-credit-card.html",
   "applyUrl": "https://www.kotak.com/en/personal-banking/cards/credit-cards/kotak-upi-rupay-credit-card.html",
-  "lastVerified": "2026-05-11",
-  "verificationStatus": "official-direct"
+  "lastVerified": "2026-06-14",
+  "verificationStatus": "official-direct",
+  "imageUrl": "/images/kotak-upi-rupay.webp",
+  "internalNotes": [
+    "Kotak UPI RuPay credit card is issued as a virtual-only card. Spends on fuel, rent, railway, wallet, EMI, education, balance transfer, insurance, government, and skill gaming do not earn reward points.",
+    "Card details manually reviewed and verified by user on 2026-06-14."
+  ]
 }
