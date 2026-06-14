@@ -7,7 +7,7 @@
   ],
   "joiningFee": 499,
   "annualFee": 499,
-  "feeWaiverSpend": null,
+  "feeWaiverSpend": 150000,
   "bestFor": [
     "fuel",
     "hpcl",
@@ -19,22 +19,33 @@
   "rewards": [
     {
       "category": "fuel",
-      "rate": 6.5,
-      "capMonthly": null
+      "rate": 20.0,
+      "displayCategory": "HPCL Fuel spends",
+      "displayRate": "30 Reward Points per INR 150 spent",
+      "capMonthly": 2400
     },
     {
-      "category": "grocery",
-      "rate": 5,
-      "capMonthly": null
+      "category": "grocery, utilities",
+      "rate": 20.0,
+      "displayCategory": "Grocery and utility bills spends",
+      "displayRate": "30 Reward Points per INR 150 spent",
+      "capMonthly": 400
     },
     {
-      "category": "utility bills",
-      "rate": 5,
+      "category": "base",
+      "rate": 2.0,
+      "displayCategory": "Other retail and UPI spends",
+      "displayRate": "3 Reward Points per INR 150 spent",
       "capMonthly": null
     }
   ],
   "loungeDomestic": 4,
   "loungeInternational": 0,
+  "lounge": {
+    "domestic": [
+      "1 complimentary domestic airport lounge visit per quarter, subject to a minimum spend of Rs 20,000 in the previous calendar month."
+    ]
+  },
   "forexMarkup": 3.5,
   "tags": [
     "power plus",
@@ -43,37 +54,70 @@
     "rupay",
     "upi",
     "grocery",
-    "utility bills",
     "lounge"
   ],
   "exclusions": [
-    "cash withdrawal",
-    "transactions excluded under IDFC FIRST Power+ Credit Card terms"
+    "Fuel transactions at non-HPCL stations",
+    "EMI transactions",
+    "Cash withdrawal / cash advance transactions"
+  ],
+  "exclusionCodes": [
+    "fuel",
+    "emi",
+    "cash_advance"
   ],
   "milestoneBenefits": [],
+  "specialSpendRules": [
+    {
+      "category": "fuel",
+      "treatment": "capped",
+      "notes": "30X points per Rs 150 spent on HPCL fuel (capped at 2400 points/cycle)."
+    },
+    {
+      "category": "grocery",
+      "treatment": "capped",
+      "notes": "30X points per Rs 150 spent on grocery and utility bills (capped at 400 points/cycle on combined spends up to Rs 2,000)."
+    },
+    {
+      "category": "utilities",
+      "treatment": "capped",
+      "notes": "30X points per Rs 150 spent on grocery and utility bills (capped at 400 points/cycle on combined spends up to Rs 2,000)."
+    }
+  ],
   "additionalBenefits": [
-    "Powered with UPI",
-    "6.5% savings on fuel spends",
-    "5% savings on grocery and utility spends",
-    "Complimentary airport lounge access",
-    "HPCL fuel co-branded card"
+    "5.0% return value in Reward Points on HPCL fuel spends plus 1.5% as Happy Coins on HP Pay app",
+    "5.0% return value on grocery and utility spends",
+    "1 complimentary domestic airport lounge visit per quarter",
+    "1% fuel surcharge waiver up to Rs 200 per statement cycle at HPCL stations",
+    "Reward points are valid for 24 months"
   ],
   "redemption": {
     "statementBalanceValue": 0.25,
-    "pointsExpiryYears": null,
+    "pointsExpiryYears": 2,
     "redemptionFee": 99
   },
   "eligibility": {
     "salaried": [
-      "Annual income greater than Rs 3 lakh"
+      "Age: 21 to 60 years",
+      "Minimum net monthly salary of Rs 25,000"
     ],
     "selfEmployed": [
-      "Annual income greater than Rs 3 lakh"
+      "Age: 21 to 60 years",
+      "Minimum annual ITR of Rs 3,00,000"
     ]
   },
+  "imageUrl": "/images/idfc-first-power-plus.webp",
   "sourceUrl": "https://www.idfcfirstbank.com/credit-card",
   "applyUrl": "https://www.idfcfirstbank.com/credit-card",
-  "lastVerified": "2026-05-10",
-  "verificationStatus": "official-catalogue",
+  "lastVerified": "2026-06-14",
+  "verificationStatus": "official-direct",
+  "internalNotes": [
+    "Card details manually reviewed and verified by user on 2026-06-14.",
+    "HPCL fuel co-branded credit card. 30X points per Rs 150 spent on HPCL fuel (capped at 2400 points/cycle).",
+    "30X points per Rs 150 spent on grocery and utility bills (capped at 400 points/cycle on combined spends up to Rs 2,000).",
+    "3X points per Rs 150 spent on other retail and UPI transactions (value: 0.5% return).",
+    "Airport lounge access is subject to a spend threshold of Rs 20,000 in the previous calendar month.",
+    "Annual fee of Rs 499 is waived on spending Rs 1,50,000 in the preceding anniversary year."
+  ],
   "popularityScore": 72
 }
