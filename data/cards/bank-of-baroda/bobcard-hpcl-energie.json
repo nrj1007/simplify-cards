@@ -19,27 +19,32 @@
   "rewards": [
     {
       "category": "fuel",
-      "rate": 4,
+      "rate": 16,
+      "displayRate": "24 Reward Points / ₹150",
       "capMonthly": null
     },
     {
       "category": "utility bills",
-      "rate": 1.67,
+      "rate": 6.666666666666667,
+      "displayRate": "10 Reward Points / ₹150",
       "capMonthly": null
     },
     {
       "category": "grocery",
-      "rate": 1.67,
+      "rate": 6.666666666666667,
+      "displayRate": "10 Reward Points / ₹150",
       "capMonthly": null
     },
     {
       "category": "departmental stores",
-      "rate": 1.67,
+      "rate": 6.666666666666667,
+      "displayRate": "10 Reward Points / ₹150",
       "capMonthly": null
     },
     {
       "category": "retail",
-      "rate": 0.33,
+      "rate": 1.3333333333333333,
+      "displayRate": "2 Reward Points / ₹150",
       "capMonthly": null
     }
   ],
