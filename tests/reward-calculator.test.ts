@@ -3311,6 +3311,35 @@ describe("reward calculator", () => {
         expect(rules[0].isVoucher).toBe(true);
       });
     });
+
+    describe("Federal Bank Signet Credit Card", () => {
+      it("earns rewards at correct rates (3% base, 1% insurance capped at 250)", () => {
+        const card = getCardById("federal-signet");
+        expect(card).toBeTruthy();
+
+        const resultRates = calculateRewards(card!, {
+          base: 10000
+        });
+        expect(resultRates.rows.find((r) => r.category === "base")!.monthlyUnits).toBe(300);
+        expect(resultRates.monthlyUnits).toBe(300);
+
+        const resultInsuranceCapped = calculateRewards(card!, {
+          insurance: 50000
+        });
+        expect(resultInsuranceCapped.rows.find((r) => r.category === "insurance")!.monthlyUnits).toBe(250);
+        expect(resultInsuranceCapped.monthlyUnits).toBe(250);
+
+        const resultExclusions = calculateRewards(card!, {
+          fuel: 10000,
+          rent: 10000,
+          government: 10000
+        });
+        expect(resultExclusions.monthlyUnits).toBe(0);
+
+        const rules = milestoneRulesForCard(card!);
+        expect(rules.length).toBe(0);
+      });
+    });
   });
 });
 
