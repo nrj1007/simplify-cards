@@ -207,20 +207,20 @@ exports[`reward calculator golden (all cards) > computes stable earn for every c
     "moderate": "online:250 dining:250 travel:1250 hotels:250 airlines:250 fuel:x grocery:250 utilities:250 upi:250 amazon:250 international:1250 base:250 rent:x insurance:250 education:250 gold:250 government:x |5500",
   },
   "equitas-powermiles": {
-    "high": "online:2000 dining:2000 travel:2000 hotels:2000 airlines:2000 fuel:x grocery:2000 utilities:2000 upi:2000 amazon:2000 international:6000 base:2000 rent:x insurance:2000 education:2000 gold:2000 government:x |32000",
-    "moderate": "online:250 dining:250 travel:250 hotels:250 airlines:250 fuel:x grocery:250 utilities:250 upi:250 amazon:250 international:750 base:250 rent:x insurance:250 education:250 gold:250 government:x |4000",
+    "high": "online:6000 dining:6000 travel:6000 hotels:6000 airlines:6000 fuel:x grocery:6000 utilities:6000 upi:6000 amazon:6000 international:18000 base:6000 rent:x insurance:6000 education:6000 gold:6000 government:x |96000",
+    "moderate": "online:750 dining:750 travel:750 hotels:750 airlines:750 fuel:x grocery:750 utilities:750 upi:750 amazon:750 international:2250 base:750 rent:x insurance:750 education:750 gold:750 government:x |12000",
   },
   "equitas-selfe": {
-    "high": "online:10000 dining:10000 travel:4000 hotels:4000 airlines:4000 fuel:x grocery:10000 utilities:10000 upi:4000 amazon:4000 international:4000 base:10000 rent:x insurance:4000 education:4000 gold:4000 government:x |86000",
-    "moderate": "online:1250 dining:1250 travel:500 hotels:500 airlines:500 fuel:x grocery:1250 utilities:1250 upi:500 amazon:500 international:500 base:1250 rent:x insurance:500 education:500 gold:500 government:x |10750",
+    "high": "online:4000 dining:20000 travel:4000 hotels:4000 airlines:4000 fuel:x grocery:20000 utilities:20000 upi:4000 amazon:4000 international:4000 base:4000 rent:x insurance:4000 education:4000 gold:4000 government:x |104000",
+    "moderate": "online:500 dining:2500 travel:500 hotels:500 airlines:500 fuel:x grocery:2500 utilities:2500 upi:500 amazon:500 international:500 base:500 rent:x insurance:500 education:500 gold:500 government:x |13000",
   },
   "equitas-tiga": {
     "high": "online:2000 dining:2000 travel:2000 hotels:2000 airlines:2000 fuel:x grocery:2000 utilities:2000 upi:6000 amazon:2000 international:2000 base:2000 rent:x insurance:2000 education:2000 gold:2000 government:x |32000",
     "moderate": "online:250 dining:250 travel:250 hotels:250 airlines:250 fuel:x grocery:250 utilities:250 upi:750 amazon:250 international:250 base:250 rent:x insurance:250 education:250 gold:250 government:x |4000",
   },
   "federal-celesta": {
-    "high": "online:2000 dining:4000 travel:6000 hotels:2000 airlines:2000 fuel:x grocery:2000 utilities:2000 upi:2000 amazon:2000 international:6000 base:2000 rent:x insurance:2000 education:2000 gold:2000 government:2000 |40000",
-    "moderate": "online:250 dining:500 travel:750 hotels:250 airlines:250 fuel:x grocery:250 utilities:250 upi:250 amazon:250 international:750 base:250 rent:x insurance:250 education:250 gold:250 government:250 |5000",
+    "high": "online:2000 dining:4000 travel:6000 hotels:2000 airlines:2000 fuel:x grocery:2000 utilities:2000 upi:2000 amazon:2000 international:6000 base:2000 rent:x insurance:250 education:2000 gold:2000 government:x |36250",
+    "moderate": "online:250 dining:500 travel:750 hotels:250 airlines:250 fuel:x grocery:250 utilities:250 upi:250 amazon:250 international:750 base:250 rent:x insurance:250 education:250 gold:250 government:x |4750",
   },
   "federal-imperio": {
     "high": "online:6000 dining:6000 travel:6000 hotels:6000 airlines:6000 fuel:x grocery:6000 utilities:4000 upi:6000 amazon:6000 international:6000 base:6000 rent:x insurance:6000 education:6000 gold:6000 government:6000 |88000",

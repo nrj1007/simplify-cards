@@ -46,6 +46,13 @@
       "displayCategory": "All other retail spends",
       "displayRate": "1 Reward Point / Rs 100 spent",
       "capMonthly": null
+    },
+    {
+      "category": "insurance",
+      "rate": 1,
+      "displayCategory": "Insurance premium spends",
+      "displayRate": "1 Reward Point / Rs 100 spent (capped at 250 points per month)",
+      "capMonthly": 250
     }
   ],
   "popularityScore": 75,
@@ -71,30 +78,44 @@
     "lifetime free",
     "premium"
   ],
+  "specialSpendRules": [
+    {
+      "category": "insurance",
+      "treatment": "capped",
+      "notes": "Reward points on insurance transactions are capped at 250 points per calendar month."
+    },
+    {
+      "category": "government",
+      "treatment": "excluded",
+      "notes": "Government services/transactions do not earn reward points."
+    }
+  ],
   "exclusions": [
     "Fuel transactions",
     "Cash advance transactions",
     "Rent payments",
     "Wallet loading transactions",
-    "EMI transactions"
+    "EMI transactions",
+    "Government transactions"
   ],
   "exclusionCodes": [
     "fuel",
     "cash_advance",
     "rent",
     "wallet_load",
-    "emi"
+    "emi",
+    "government"
   ],
-  "milestones": [
+  "milestones": [],
+  "milestoneBenefits": [],
+  "joiningBenefitsValued": [
     {
-      "threshold": 10000,
-      "period": "annual",
       "value": 600,
       "kind": "voucher",
       "label": "Amazon Pay e-voucher worth Rs 600 on spending Rs 10,000 within first 30 days of card issuance"
     }
   ],
-  "milestoneBenefits": [
+  "joiningBenefits": [
     "Amazon Pay e-voucher worth Rs 600 on spending Rs 10,000 within the first 30 days of card issuance"
   ],
   "additionalBenefits": [
@@ -102,8 +123,26 @@
     "Up to 15% off at partner hotels via FedDelights dining program",
     "1% fuel surcharge waiver on eligible transactions (Rs 400–Rs 5,000, capped at Rs 150 per month)"
   ],
+  "additionalDetails": [
+    "A redemption convenience fee of Rs 99 + GST applies per redemption request."
+  ],
   "redemption": {
-    "statementBalanceValue": 0.25
+    "statementBalanceValue": 0.25,
+    "redemptionFee": 99,
+    "airMilesValue": 0.1667,
+    "transferPartnerValuations": [],
+    "airlinePartners": [
+      {
+        "airline": "Singapore Airlines",
+        "programme": "KrisFlyer",
+        "ratio": "7:1"
+      },
+      {
+        "airline": "Air India",
+        "programme": "Maharaja Club",
+        "ratio": "6:1"
+      }
+    ]
   },
   "eligibility": {
     "salaried": [
@@ -117,17 +156,21 @@
   },
   "sourceUrl": "https://www.federalbank.co.in/celesta-credit-card",
   "applyUrl": "https://www.federalbank.co.in/celesta-credit-card",
-  "lastVerified": "2026-06-14",
+  "lastVerified": "2026-06-15",
   "verificationStatus": "official-direct",
   "internalNotes": [
-    "Card details manually reviewed and verified by user on 2026-06-14.",
+    "Card details manually reviewed and verified by user on 2026-06-15.",
     "Network confirmed as Mastercard per official Federal Bank page title (Federal Bank Mastercard Celesta Credit Card). Visa variant is available but Mastercard is the primary promoted variant.",
     "Fees confirmed as Lifetime Free (nil joining and annual fee).",
     "Rewards follow a 3-2-1 structure: 3x on travel and international spends, 2x on dining, 1x on all other retail.",
+    "Insurance transactions (MCC 6300 & 5960) earn 1x reward point capped at 250 points per calendar month, effective July 15, 2024.",
+    "Government transactions are excluded from rewards, effective July 15, 2024.",
+    "Redemption convenience fee of Rs 99 + GST per redemption request.",
     "Domestic lounge access: 2 visits per quarter, subject to minimum spend of Rs 60,000 in the preceding calendar quarter.",
     "International lounge access: 2 visits per year.",
     "Forex markup confirmed at 2% (reduced from the standard 3.5%).",
     "Welcome benefit: Amazon Pay e-voucher worth Rs 600 on spending Rs 10,000 within the first 30 days.",
-    "Reward point value estimated at Rs 0.25 per point on statement credit redemption."
+    "Reward point value estimated at Rs 0.25 per point on statement credit redemption.",
+    "Miles transfer partners: Singapore Airlines KrisFlyer (7:1) and Air India Maharaja Club (6:1) via Federal Rewards portal."
   ]
 }
