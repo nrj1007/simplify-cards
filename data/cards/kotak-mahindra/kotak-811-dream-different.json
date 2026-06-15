@@ -24,6 +24,13 @@
       "capMonthly": null
     },
     {
+      "category": "utilities",
+      "displayCategory": "Utility spends",
+      "rate": 1,
+      "displayRate": "1 Reward Point / ₹100 spent on utilities",
+      "capMonthly": 350
+    },
+    {
       "category": "base",
       "displayCategory": "Other eligible offline spends",
       "rate": 1,
@@ -74,15 +81,7 @@
     }
   ],
   "renewalBenefitsValued": [],
-  "milestones": [
-    {
-      "threshold": 75000,
-      "period": "annual",
-      "value": 750,
-      "kind": "cashback",
-      "label": "₹750 cashback on spending ₹75,000 in a card anniversary year"
-    }
-  ],
+  "milestones": [],
   "milestoneBenefits": [],
   "additionalBenefits": [
     "Interest-free cash withdrawals for up to 48 days (subject to ₹100 processing fee)",
@@ -90,9 +89,30 @@
     "1% fuel surcharge waiver on transactions between ₹500 and ₹4,000 (max ₹3,500 per year)",
     "Railway surcharge waiver on irctc.co.in and counter bookings (max ₹500 per year)"
   ],
+  "additionalDetails": [
+    "Reward Points can be redeemed for brand e-vouchers or travel bookings via the Kotak Rewards portal at a rate of 1 Reward Point = ₹0.10.",
+    "Reward Points can also be redeemed as statement credit (cashback) at a rate of 1 Reward Point = ₹0.07.",
+    "A minimum of 2,00,000 Reward Points is not required; a minimum of 2,000 Reward Points is required for statement credit (cashback) redemptions, and a minimum of 300 Reward Points is required for vouchers.",
+    "Effective April 1, 2026, the milestone program offering ₹750 cashback has been discontinued."
+  ],
   "redemption": {
     "statementBalanceValue": 0.07,
-    "minimumPointsForStatementCredit": 2000
+    "travelPortalValue": 0.10,
+    "minimumPointsForStatementCredit": 2000,
+    "voucherRedemptions": [
+      {
+        "partner": "Brand e-Vouchers",
+        "programme": "Brand e-vouchers via Kotak Rewards",
+        "ratio": "1 point = Rs 0.10",
+        "valuePerPoint": 0.10
+      },
+      {
+        "partner": "Travel bookings",
+        "programme": "Flight & hotel bookings via Kotak Rewards",
+        "ratio": "1 point = Rs 0.10",
+        "valuePerPoint": 0.10
+      }
+    ]
   },
   "eligibility": {
     "salaried": [
@@ -108,11 +128,11 @@
   },
   "sourceUrl": "https://www.kotak.com/en/personal-banking/cards/credit-cards/811-dream-different-credit-card.html",
   "applyUrl": "https://www.kotak.com/en/personal-banking/cards/credit-cards/811-dream-different-credit-card/eligibility.html",
-  "lastVerified": "2026-06-14",
+  "lastVerified": "2026-06-15",
   "verificationStatus": "official-direct",
   "imageUrl": "/images/kotak-811-dream-different.webp",
   "internalNotes": [
-    "Redemption rate for vouchers and merchandise is 1 point = Rs 0.10. Cash statement credit rate is 1 point = Rs 0.07. Spends on utility, education, wallet loading, government, insurance, gaming, fuel, and rent do not count towards milestone benefits.",
-    "Card details manually reviewed and verified by user on 2026-06-14."
+    "Redemption rate for vouchers and merchandise is 1 point = Rs 0.10. Cash statement credit rate is devalued to 1 point = Rs 0.07. Spends on utility, education, wallet loading, government, insurance, gaming, fuel, and rent do not count towards milestone benefits. The anniversary milestone program of ₹750 cashback has been discontinued effective April 1, 2026.",
+    "Card details manually reviewed and verified by user on 2026-06-15."
   ]
 }

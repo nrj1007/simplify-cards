@@ -3181,6 +3181,51 @@ describe("reward calculator", () => {
         expect(rules[0].value).toBe(9600);
       });
     });
+
+    describe("811 Dream Different Credit Card", () => {
+      it("earns rewards at correct rates (2 points / Rs 100 online, 1 point / Rs 100 base/offline/utilities)", () => {
+        const card = getCardById("kotak-811-dream-different");
+        expect(card).toBeTruthy();
+
+        // online: 10000 -> 200 Reward Points
+        // utilities: 10000 -> 100 Reward Points
+        // base: 10000 -> 100 Reward Points
+        const result = calculateRewards(card!, {
+          online: 10000,
+          utilities: 10000,
+          base: 10000
+        });
+
+        expect(result.rows.find((r) => r.category === "online")!.monthlyUnits).toBe(200);
+        expect(result.rows.find((r) => r.category === "utilities")!.monthlyUnits).toBe(100);
+        expect(result.rows.find((r) => r.category === "base")!.monthlyUnits).toBe(100);
+        expect(result.monthlyUnits).toBe(400);
+      });
+
+      it("excludes education, wallet load, fuel, rent, government, and insurance spends", () => {
+        const card = getCardById("kotak-811-dream-different");
+        expect(card).toBeTruthy();
+
+        const result = calculateRewards(card!, {
+          fuel: 10000,
+          rent: 10000,
+          insurance: 10000,
+          education: 10000,
+          government: 10000
+        });
+
+        expect(result.monthlyUnits).toBe(0);
+        expect(result.rows.every((row) => row.monthlyUnits === 0)).toBe(true);
+      });
+
+      it("does not have active milestone rules", () => {
+        const card = getCardById("kotak-811-dream-different");
+        expect(card).toBeTruthy();
+
+        const rules = milestoneRulesForCard(card!);
+        expect(rules.length).toBe(0);
+      });
+    });
   });
 });
 
