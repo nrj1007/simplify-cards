@@ -536,8 +536,13 @@ export default async function AskPage({ searchParams }: Props) {
                       <h2 className="section-title">Card snapshot</h2>
                       <div className="stats answer-stats">
                         <div className="stat">
-                          <strong>Rs {topCard.estimatedAnnualFee.toLocaleString("en-IN")}</strong>
-                          <span>Effective annual fee</span>
+                          <strong>{topCard.card.annualFee === 0 ? "Lifetime free" : formatCurrency(topCard.card.annualFee)}</strong>
+                          <span>
+                            Annual fee
+                            {hasFeeWaiverSpend(topCard.card.feeWaiverSpend)
+                              ? ` · waiver at ${formatFeeWaiverSpend(topCard.card.feeWaiverSpend)} spend`
+                              : ""}
+                          </span>
                         </div>
                         {topCard.card.combinedLoungeAccess !== undefined ? (
                           <div className="stat">
