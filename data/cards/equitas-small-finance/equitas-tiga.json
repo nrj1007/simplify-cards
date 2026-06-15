@@ -19,7 +19,7 @@
     {
       "category": "upi",
       "rate": 3,
-      "displayCategory": "UPI transactions",
+      "displayCategory": "UPI, contactless, and Pay-by-3 merchant spends",
       "displayRate": "3 Reward Points / Rs 100 spent",
       "capMonthly": null
     },
@@ -65,6 +65,7 @@
   "milestones": [],
   "milestoneBenefits": [],
   "additionalBenefits": [
+    "Limited-period first-year-free offer currently live, excluding GST",
     "Pay by 3: Eligible transactions at select merchants (TATA Cliq, Netmeds, Skull Candy, 1% Club, etc.) auto-converted into 3-month low-cost EMI",
     "Introductory interest rate of 0.99% per month for first 3 months from card issuance",
     "Up to 50 days interest-free credit period on regular purchases",
@@ -72,12 +73,9 @@
     "Complimentary air accident cover, credit shield, and lost card liability insurance"
   ],
   "additionalDetails": [
-    "3X reward points on UPI payments, contactless (tap-to-pay) transactions, and Pay-by-3 partner merchant spends",
-    "Base earn rate: 1 reward point per Rs 100 on all other spends",
     "Reward points redeemable on Equitas Xchange portal (xchange.equitasbank.com) for products, vouchers, and travel"
   ],
   "redemption": {
-    "statementBalanceValue": 0.10,
     "travelPortalValue": 0.15,
     "airlinePartners": [],
     "hotelPartners": []
@@ -100,12 +98,11 @@
   "lastVerified": "2026-06-15",
   "verificationStatus": "official-direct",
   "internalNotes": [
-    "Card details verified from official Equitas Bank archived page (Wayback Machine snapshot Nov 2025) on 2026-06-15.",
+    "Card details audited against the live official Equitas Tiga Credit Card page on 2026-06-15.",
     "Card details manually reviewed and verified by user on 2026-06-15.",
-    "Reward value: 1 RP = Rs 0.10 for cashback/statement credit; Rs 0.15 for products/vouchers on Xchange portal.",
+    "The live page explicitly shows 3X rewards on UPI, contactless, and Pay-by-3 merchant spends, a 1 RP per Rs 100 base earn rate, and 1 RP = Rs 0.15 on Xchange redemption.",
     "Pay-by-3 merchants include: TATA Cliq, Tony & Guy, SLAM, Netmeds, Skull Candy, 1% Club, Prashanti Sarees, Wedtree, Lectrix.",
-    "Annual fee waiver threshold of Rs 1.2 lakh per anniversary year (as per sources; verify against latest MITC).",
-    "First year joining fee may be waived under promotional/bank conditions.",
+    "The live page explicitly confirms a renewal fee waiver on Rs 1.2 lakh annual spends in the previous anniversary year and a limited-period first-year-free offer excluding GST.",
     "Finance charges: 3.75% per month (45% per annum) on revolving balances.",
     "Cash advance fee: 2.5% or Rs 250 whichever is higher."
   ]

@@ -8,7 +8,7 @@
   ],
   "joiningFee": 1000,
   "annualFee": 1000,
-  "feeWaiverSpend": 200000,
+  "feeWaiverSpend": 240000,
   "bestFor": [
     "dining",
     "grocery",
@@ -18,10 +18,10 @@
   "rewardType": "reward points",
   "rewards": [
     {
-      "category": "dining, grocery, utilities, online, base",
-      "rate": 5,
-      "displayCategory": "2 chosen accelerated categories (Apparel, Dining, Grocery, Utility, or Taxi)",
-      "displayRate": "5 Reward Points / Rs 100 spent (on 2 chosen categories)",
+      "category": "dining, grocery, utility bills, lifestyle",
+      "rate": 10,
+      "displayCategory": "2 chosen accelerated categories: apparel, dining, grocery, utility, or taxi",
+      "displayRate": "10 Reward Points / Rs 100 spent (on 2 chosen categories)",
       "capMonthly": null
     },
     {
@@ -74,6 +74,7 @@
   "milestones": [],
   "milestoneBenefits": [],
   "additionalBenefits": [
+    "Limited-period first-year-free offer currently live, excluding GST",
     "Choice of 2 complimentary OTT/brand memberships from: Amazon Prime, Jio Hotstar, Sony LIV, Zee5, or Discovery+ (claim within 90 days of issuance)",
     "Choice of card style: Regular plastic, eco-friendly Green (recycled plastic), or premium Metal variant",
     "Flexible billing date: Choose 12th, 16th, or 20th of every month",
@@ -81,13 +82,10 @@
     "Up to 50 days interest-free credit period on regular purchases"
   ],
   "additionalDetails": [
-    "5X reward points on any 2 self-chosen categories out of: Apparel, Dining, Grocery, Utility, Taxi",
-    "2 reward points per Rs 100 on all other retail spends",
     "Reward points redeemable on Equitas Xchange portal (xchange.equitasbank.com) for products, vouchers, and travel"
   ],
   "redemption": {
-    "statementBalanceValue": 0.10,
-    "travelPortalValue": 0.15,
+    "travelPortalValue": 0.35,
     "airlinePartners": [],
     "hotelPartners": []
   },
@@ -109,11 +107,11 @@
   "lastVerified": "2026-06-15",
   "verificationStatus": "official-direct",
   "internalNotes": [
-    "Card details verified from official Equitas Bank archived page (Wayback Machine snapshot Dec 2025) on 2026-06-15.",
+    "Card details audited against the live official Equitas Selfe Credit Card page on 2026-06-15.",
     "Card details manually reviewed and verified by user on 2026-06-15.",
-    "The 5X accelerated reward categories are user-selectable (2 of 5): Apparel, Dining, Grocery, Utility, Taxi. Reward rate row is kept generic in rewards array; actual scoring requires knowing chosen categories.",
-    "Annual fee waiver: Rs 2,00,000 spend in anniversary year (per archived page FAQ section).",
-    "Reward value: 1 RP = Rs 0.10 for cashback; Rs 0.15 for products/vouchers on Xchange portal.",
+    "The live page explicitly shows 5X rewards on 2 self-chosen categories and a base earn rate of 2 RP per Rs 100, so the accelerated row is modeled as 10 RP per Rs 100 on the two selected categories.",
+    "The live page explicitly confirms a renewal fee waiver on Rs 2.4 lakh annual spends in the previous anniversary year and a limited-period first-year-free offer excluding GST.",
+    "The live page explicitly shows 1 RP = Rs 0.35 on Xchange redemption.",
     "Metal card variant may carry additional charges; confirm with bank at time of issuance.",
     "Finance charges: 3.75% per month. Cash advance fee: 2.5% or Rs 250 whichever is higher."
   ]
