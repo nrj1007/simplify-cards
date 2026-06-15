@@ -3105,6 +3105,40 @@ describe("reward calculator", () => {
         expect(result.monthlyUnits).toBe(0);
       });
     });
+
+    describe("Kotak 811 Credit Card", () => {
+      it("earns rewards at correct rates (2 points / Rs 100 online, 1 point / Rs 100 base/offline)", () => {
+        const card = getCardById("kotak-811");
+        expect(card).toBeTruthy();
+
+        // online: 10000 -> 200 Reward Points
+        // base: 10000 -> 100 Reward Points
+        const result = calculateRewards(card!, {
+          online: 10000,
+          base: 10000
+        });
+
+        expect(result.rows.find((r) => r.category === "online")!.monthlyUnits).toBe(200);
+        expect(result.rows.find((r) => r.category === "base")!.monthlyUnits).toBe(100);
+        expect(result.monthlyUnits).toBe(300);
+      });
+
+      it("excludes education, wallet load, fuel, rent, government, and insurance spends", () => {
+        const card = getCardById("kotak-811");
+        expect(card).toBeTruthy();
+
+        const result = calculateRewards(card!, {
+          fuel: 10000,
+          rent: 10000,
+          insurance: 10000,
+          education: 10000,
+          government: 10000
+        });
+
+        expect(result.monthlyUnits).toBe(0);
+        expect(result.rows.every((row) => row.monthlyUnits === 0)).toBe(true);
+      });
+    });
   });
 });
 

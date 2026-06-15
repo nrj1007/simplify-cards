@@ -5,6 +5,7 @@
   "network": [
     "Visa"
   ],
+  "imageUrl": "/images/equitas-premio.webp",
   "joiningFee": 0,
   "annualFee": 0,
   "feeWaiverSpend": null,
@@ -17,12 +18,16 @@
   "rewards": [
     {
       "category": "online",
-      "rate": 0.5,
+      "rate": 2,
+      "displayCategory": "Online spends",
+      "displayRate": "2 Reward Points / Rs 100 spent",
       "capMonthly": null
     },
     {
       "category": "base",
-      "rate": 0.25,
+      "rate": 1,
+      "displayCategory": "Other retail spends",
+      "displayRate": "1 Reward Point / Rs 100 spent",
       "capMonthly": null
     }
   ],
@@ -38,9 +43,23 @@
     "movies"
   ],
   "exclusions": [
-    "reward values follow current Equitas rewards terms",
+    "Fuel transactions",
+    "Cash advance transactions",
+    "Rent payments",
+    "Wallet loading transactions",
+    "EMI transactions",
+    "Government spends & tax payments",
+    "Fees and charges"
+  ],
+  "exclusionCodes": [
     "fuel",
-    "cash advances"
+    "cash_advance",
+    "rent",
+    "wallet_load",
+    "emi",
+    "government",
+    "tax",
+    "fees_and_charges"
   ],
   "milestoneBenefits": [],
   "additionalBenefits": [
@@ -53,14 +72,20 @@
   },
   "eligibility": {
     "salaried": [
-      "Eligibility is subject to Equitas Small Finance Bank approval criteria"
+      "Minimum age: 21 years",
+      "Subject to Equitas Small Finance Bank credit guidelines"
     ],
     "selfEmployed": [
-      "Eligibility is subject to Equitas Small Finance Bank approval criteria"
+      "Minimum age: 21 years",
+      "Subject to Equitas Small Finance Bank credit guidelines"
     ]
   },
   "sourceUrl": "https://www.equitasbank.com/credit-cards/premio-credit-card",
   "applyUrl": "https://www.equitasbank.com/credit-cards/premio-credit-card",
-  "lastVerified": "2026-05-11",
-  "verificationStatus": "official-mixed"
+  "lastVerified": "2026-06-14",
+  "verificationStatus": "official-direct",
+  "internalNotes": [
+    "Card details manually reviewed and verified by user on 2026-06-14.",
+    "Cashback redemption value is Rs 0.25 per point, while voucher redemption is up to Rs 0.50 per point."
+  ]
 }

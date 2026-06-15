@@ -22,7 +22,7 @@
       "category": "base",
       "displayCategory": "All retail spends",
       "rate": 0,
-      "displayRate": "Earns White Pass value on milestone spends",
+      "displayRate": "No transactional rewards (Earns White Pass value on milestones only)",
       "capMonthly": null
     }
   ],

@@ -115,7 +115,9 @@
   ],
   "additionalDetails": [
     "White Pass value can be redeemed at a 1:1 ratio (1 White Pass = ₹1.0) on the Kotak Rewards portal for brand vouchers, flights, and hotel bookings.",
-    "White Pass value can also be redeemed as statement credit to pay off the card bill at a rate of 1 White Pass = ₹0.70."
+    "White Pass value can also be redeemed as statement credit to pay off the card bill at a rate of 1 White Pass = ₹0.70.",
+    "White Pass balance is valid for 15 months from the date of credit, and resets annually with a 90-day grace period post-anniversary.",
+    "Effective April 1, 2026, spends on education and transportation do not count toward milestone calculations."
   ],
   "redemption": {
     "statementBalanceValue": 0.7,
@@ -154,6 +156,7 @@
   "imageUrl": "/images/kotak-white.webp",
   "internalNotes": [
     "Card details manually reviewed and verified by user on 2026-06-15.",
-    "White Pass value can be redeemed at 1 White Pass = Rs 1.0 on vouchers, flights, and hotels, and Rs 0.70 for statement cashback. Spends on rent, wallet, EMI, insurance, utilities, education, government, and fuel do not earn White Pass milestones."
+    "White Pass value can be redeemed at 1 White Pass = Rs 1.0 on vouchers, flights, and hotels, and Rs 0.70 for statement cashback.",
+    "Spends on rent, wallet, EMI, insurance, utilities, education, government, transportation, and fuel do not earn White Pass milestones."
   ]
 }
