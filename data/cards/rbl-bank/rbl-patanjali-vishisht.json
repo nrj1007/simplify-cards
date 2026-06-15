@@ -61,12 +61,35 @@
     "Welcome benefit of 3,000 Reward Points (worth ₹750) on first transaction of ₹1,000 or more within 30 days of card issuance"
   ],
   "additionalDetails": [
-    "Redemption fee of ₹99 + GST applies per redemption request.",
+    "10% cashback on Patanjali spends is credited directly to the credit card statement.",
+    "Base spends earn reward points which can be redeemed via the RBL Rewards portal (rblrewards.rbl.bank.in) for travel or brand vouchers at Rs 0.25 per point.",
+    "Redemption fee of ₹99 + GST applies per portal redemption request.",
     "Fuel surcharge waiver of 1% at all fuel stations for transactions between ₹400 and ₹5,000 (Max waiver ₹100/month).",
     "10% cashback is applicable on Patanjali spends for transactions of ₹500 or more."
   ],
   "redemption": {
-    "statementBalanceValue": 1
+    "travelPortalValue": 0.25,
+    "redemptionFee": 99,
+    "voucherRedemptions": [
+      {
+        "partner": "Brand e-Vouchers",
+        "programme": "Shopping, lifestyle & brand gift vouchers",
+        "ratio": "1 point = Rs 0.25",
+        "valuePerPoint": 0.25
+      },
+      {
+        "partner": "MakeMyTrip / Travel",
+        "programme": "Flight & hotel bookings via RBL Rewards portal",
+        "ratio": "1 point = Rs 0.25",
+        "valuePerPoint": 0.25
+      },
+      {
+        "partner": "Merchandise",
+        "programme": "Electronics, apparel & catalogue products",
+        "ratio": "1 point = Rs 0.25",
+        "valuePerPoint": 0.25
+      }
+    ]
   },
   "eligibility": {
     "salaried": [
@@ -81,9 +104,12 @@
   "sourceUrl": "https://www.rblbank.com/personal-banking/cards/credit-cards/patanjali-rbl-bank-vishisht-credit-card",
   "applyUrl": "https://www.rblbank.com/personal-banking/cards/credit-cards/patanjali-rbl-bank-vishisht-credit-card",
   "internalNotes": [
-    "Card details manually reviewed and verified by user on 2026-06-14. 10% cashback on Patanjali spends is capped at ₹500 per month. Annual fee is ₹499. The card is offered on both RuPay and Visa networks, allowing UPI linkage for the RuPay variant."
+    "Card details manually reviewed and verified by user on 2026-06-15.",
+    "10% cashback on Patanjali spends is capped at ₹500 per month.",
+    "Annual fee is ₹499.",
+    "The card is offered on both RuPay and Visa networks, allowing UPI linkage for the RuPay variant."
   ],
-  "lastVerified": "2026-06-14",
+  "lastVerified": "2026-06-15",
   "verificationStatus": "official-direct",
   "imageUrl": "/images/rbl-patanjali-vishisht.webp"
 }
