@@ -599,8 +599,8 @@ exports[`reward calculator golden (all cards) > computes stable earn for every c
     "moderate": "online:500 dining:2500 travel:500 hotels:500 airlines:500 fuel:x grocery:500 utilities:500 upi:500 amazon:500 international:2500 base:500 rent:x insurance:500 education:500 gold:500 government:x |11000",
   },
   "onecard": {
-    "high": "online:10000 dining:4000 travel:4000 hotels:4000 airlines:4000 fuel:x grocery:4000 utilities:4000 upi:4000 amazon:4000 international:4000 base:4000 rent:x insurance:4000 education:4000 gold:4000 government:4000 |66000",
-    "moderate": "online:1250 dining:500 travel:500 hotels:500 airlines:500 fuel:x grocery:500 utilities:500 upi:500 amazon:500 international:500 base:500 rent:x insurance:500 education:500 gold:500 government:500 |8250",
+    "high": "online:20000 dining:4000 travel:4000 hotels:4000 airlines:4000 fuel:x grocery:4000 utilities:4000 upi:4000 amazon:4000 international:4000 base:4000 rent:x insurance:4000 education:4000 gold:4000 government:4000 |76000",
+    "moderate": "online:2500 dining:500 travel:500 hotels:500 airlines:500 fuel:x grocery:500 utilities:500 upi:500 amazon:500 international:500 base:500 rent:x insurance:500 education:500 gold:500 government:500 |9500",
   },
   "phonepe-sbi-purple": {
     "high": "online:1000 dining:100 travel:100 hotels:100 airlines:100 fuel:x grocery:100 utilities:1000 upi:1000 amazon:100 international:100 base:100 rent:x insurance:100 education:x gold:100 government:x |4000",
