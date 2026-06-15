@@ -5,6 +5,11 @@ import { ChevronDown } from "lucide-react";
 import type { CreditCard, SpendCategory } from "@/lib/types";
 import type { MilestoneRule } from "@/lib/recommend";
 import {
+  equitasPrivilegeTierForMonthlySpend,
+  equitasPrivilegeTierNote,
+  isEquitasPrivilegeCard
+} from "@/lib/equitas-privilege";
+import {
   CALCULATOR_CATEGORIES,
   CATEGORY_LABELS,
   calculateRewards,
@@ -147,6 +152,9 @@ export default function RewardCalculator({ card, milestones = [], isStandalone =
 
   const totalMonthlySpend = CALCULATOR_CATEGORIES.reduce((sum, category) => sum + spend[category], 0);
   const annualSpend = totalMonthlySpend * 12;
+  const equitasPrivilegeTier = isEquitasPrivilegeCard(card)
+    ? equitasPrivilegeTierForMonthlySpend(totalMonthlySpend)
+    : null;
   const { annualUnits } = result;
 
   const cashback = isCashbackRewardType(card.rewardType);
@@ -376,6 +384,12 @@ export default function RewardCalculator({ card, milestones = [], isStandalone =
               </div>
             ) : null}
           </div>
+
+          {equitasPrivilegeTier ? (
+            <p className="calc-tier-note">
+              {equitasPrivilegeTierNote(equitasPrivilegeTier)}
+            </p>
+          ) : null}
 
           {annualUnits <= 0 ? (
             <p className="muted calc-empty">Set your monthly spend on the left to see what this card earns.</p>

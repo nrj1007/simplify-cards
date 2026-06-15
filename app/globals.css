@@ -2983,6 +2983,17 @@ textarea {
   margin: 0;
 }
 
+.calc-tier-note {
+  background: var(--line-2);
+  border-left: 3px solid var(--brand);
+  border-radius: 6px;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.5;
+  margin: 10px 0 0;
+  padding: 8px 10px;
+}
+
 @media (max-width: 720px) {
   .calc-grid {
     grid-template-columns: minmax(0, 1fr);
