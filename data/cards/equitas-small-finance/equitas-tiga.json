@@ -1,0 +1,112 @@
+{
+  "id": "equitas-tiga",
+  "issuer": "Equitas Small Finance Bank",
+  "name": "Equitas Tiga Credit Card",
+  "network": [
+    "Visa",
+    "RuPay"
+  ],
+  "joiningFee": 500,
+  "annualFee": 500,
+  "feeWaiverSpend": 120000,
+  "bestFor": [
+    "upi",
+    "cashback",
+    "fuel"
+  ],
+  "rewardType": "reward points",
+  "rewards": [
+    {
+      "category": "upi",
+      "rate": 3,
+      "displayCategory": "UPI transactions",
+      "displayRate": "3 Reward Points / Rs 100 spent",
+      "capMonthly": null
+    },
+    {
+      "category": "base",
+      "rate": 1,
+      "displayCategory": "Other retail spends",
+      "displayRate": "1 Reward Point / Rs 100 spent",
+      "capMonthly": null
+    }
+  ],
+  "popularityScore": 45,
+  "loungeDomestic": 0,
+  "loungeInternational": 0,
+  "forexMarkup": 3.5,
+  "tags": [
+    "equitas",
+    "tiga",
+    "upi",
+    "emi",
+    "entry-level",
+    "everyday"
+  ],
+  "exclusions": [
+    "Fuel transactions (surcharge waiver only, no reward points)",
+    "Cash advance transactions",
+    "EMI conversion transactions",
+    "Wallet loading transactions",
+    "Rent payments",
+    "Government spends & tax payments",
+    "Fees and charges"
+  ],
+  "exclusionCodes": [
+    "fuel",
+    "cash_advance",
+    "emi",
+    "wallet_load",
+    "rent",
+    "government",
+    "tax",
+    "fees_and_charges"
+  ],
+  "milestones": [],
+  "milestoneBenefits": [],
+  "additionalBenefits": [
+    "Pay by 3: Eligible transactions at select merchants (TATA Cliq, Netmeds, Skull Candy, 1% Club, etc.) auto-converted into 3-month low-cost EMI",
+    "Introductory interest rate of 0.99% per month for first 3 months from card issuance",
+    "Up to 50 days interest-free credit period on regular purchases",
+    "1% fuel surcharge waiver on transactions between Rs 500 and Rs 3,000 (up to Rs 100 per month)",
+    "Complimentary air accident cover, credit shield, and lost card liability insurance"
+  ],
+  "additionalDetails": [
+    "3X reward points on UPI payments, contactless (tap-to-pay) transactions, and Pay-by-3 partner merchant spends",
+    "Base earn rate: 1 reward point per Rs 100 on all other spends",
+    "Reward points redeemable on Equitas Xchange portal (xchange.equitasbank.com) for products, vouchers, and travel"
+  ],
+  "redemption": {
+    "statementBalanceValue": 0.10,
+    "travelPortalValue": 0.15,
+    "airlinePartners": [],
+    "hotelPartners": []
+  },
+  "eligibility": {
+    "salaried": [
+      "Minimum annual income: Rs 4.2 – 5 lakhs",
+      "Age: 21 – 60 years",
+      "Subject to Equitas Small Finance Bank credit approval"
+    ],
+    "selfEmployed": [
+      "Minimum annual income: Rs 4.2 – 5 lakhs",
+      "Age: 21 – 60 years",
+      "Subject to Equitas Small Finance Bank credit approval"
+    ]
+  },
+  "imageUrl": "/images/equitas-tiga.webp",
+  "sourceUrl": "https://equitas.bank.in/personal-banking/pay/credit-cards/tiga-credit-card/",
+  "applyUrl": "https://equitas.bank.in/personal-banking/pay/credit-cards/tiga-credit-card/",
+  "lastVerified": "2026-06-15",
+  "verificationStatus": "official-direct",
+  "internalNotes": [
+    "Card details verified from official Equitas Bank archived page (Wayback Machine snapshot Nov 2025) on 2026-06-15.",
+    "Card details manually reviewed and verified by user on 2026-06-15.",
+    "Reward value: 1 RP = Rs 0.10 for cashback/statement credit; Rs 0.15 for products/vouchers on Xchange portal.",
+    "Pay-by-3 merchants include: TATA Cliq, Tony & Guy, SLAM, Netmeds, Skull Candy, 1% Club, Prashanti Sarees, Wedtree, Lectrix.",
+    "Annual fee waiver threshold of Rs 1.2 lakh per anniversary year (as per sources; verify against latest MITC).",
+    "First year joining fee may be waived under promotional/bank conditions.",
+    "Finance charges: 3.75% per month (45% per annum) on revolving balances.",
+    "Cash advance fee: 2.5% or Rs 250 whichever is higher."
+  ]
+}

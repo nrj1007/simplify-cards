@@ -1,0 +1,153 @@
+{
+  "id": "equitas-powermiles",
+  "issuer": "Equitas Small Finance Bank",
+  "name": "Equitas PowerMiles Credit Card",
+  "network": [
+    "Visa"
+  ],
+  "joiningFee": 5000,
+  "annualFee": 5000,
+  "feeWaiverSpend": 480000,
+  "bestFor": [
+    "travel",
+    "international",
+    "lounge",
+    "premium"
+  ],
+  "rewardType": "reward points",
+  "rewards": [
+    {
+      "category": "international",
+      "rate": 3,
+      "displayCategory": "International POS & online purchases",
+      "displayRate": "3 Reward Points / Rs 100 spent (3X on international)",
+      "capMonthly": null
+    },
+    {
+      "category": "base",
+      "rate": 1,
+      "displayCategory": "All other retail spends",
+      "displayRate": "1 Reward Point / Rs 100 spent",
+      "capMonthly": null
+    }
+  ],
+  "popularityScore": 58,
+  "loungeDomestic": 8,
+  "loungeInternational": 4,
+  "lounge": {
+    "domestic": [
+      "2 complimentary domestic airport lounge visits per calendar quarter (8 per year) at 40+ lounges."
+    ],
+    "international": [
+      "1 complimentary international airport lounge visit per calendar quarter (4 per year) at 1000+ lounges worldwide."
+    ]
+  },
+  "forexMarkup": 2.0,
+  "tags": [
+    "equitas",
+    "powermiles",
+    "travel",
+    "international",
+    "lounge",
+    "metal",
+    "premium",
+    "air-miles"
+  ],
+  "exclusions": [
+    "Fuel transactions (surcharge waiver only, no reward points)",
+    "Cash advance transactions",
+    "EMI conversion transactions",
+    "Wallet loading transactions",
+    "Rent payments",
+    "Government spends & tax payments",
+    "Fees and charges"
+  ],
+  "exclusionCodes": [
+    "fuel",
+    "cash_advance",
+    "emi",
+    "wallet_load",
+    "rent",
+    "government",
+    "tax",
+    "fees_and_charges"
+  ],
+  "milestones": [],
+  "milestoneBenefits": [],
+  "additionalBenefits": [
+    "Premium metal card",
+    "Complimentary Club Marriott membership (up to 25% off on F&B, Hotel & Spa; complimentary membership for spouse)",
+    "Complimentary EazyDiner Prime membership (25–50% savings + 2,000 welcome EazyPoints + 2X EazyPoints on every meal)",
+    "24x7 global personal concierge services for travel, entertainment, and business",
+    "Air accident cover of Rs 1 crore (when flight tickets booked with PowerMiles card)",
+    "Zero lost card liability after reporting theft or fraud",
+    "1% fuel surcharge waiver on eligible transactions",
+    "Up to 50 days interest-free credit period"
+  ],
+  "additionalDetails": [
+    "3X reward points on all international POS and online purchases",
+    "Base earn rate: 1 reward point per Rs 100 on domestic spends",
+    "1:1 Xchange Brands: Redeem points at 1:1 ratio (1 RP = Rs 1) for luxury brands – Apple iMagine, Tanishq, Taj Vouchers, M&S, The Body Shop",
+    "1:1 Xchange Miles: Convert reward points to miles/points with 10+ airline and hotel partners at 1:1 ratio (feature available from 01 Jul 2026)"
+  ],
+  "redemption": {
+    "statementBalanceValue": 0.50,
+    "travelPortalValue": 1.00,
+    "airMilesValue": 1.0,
+    "airlinePartners": [
+      {
+        "airline": "10+ Airline & Hotel Partners",
+        "programme": "Xchange Miles",
+        "ratio": "1:1"
+      }
+    ],
+    "hotelPartners": [
+      {
+        "programme": "Xchange Brands – Taj Vouchers / Luxury Catalog",
+        "ratio": "1:1"
+      }
+    ],
+    "transferPartnerValuations": [
+      {
+        "partner": "Xchange Miles Partners",
+        "programme": "Xchange Miles (10+ airline & hotel partners)",
+        "ratio": "1:1",
+        "valuePerPoint": 1.0
+      },
+      {
+        "partner": "Xchange Brands",
+        "programme": "Xchange Brands (Apple iMagine, Tanishq, Taj, M&S, The Body Shop)",
+        "ratio": "1:1",
+        "valuePerPoint": 1.0
+      }
+    ]
+  },
+  "eligibility": {
+    "salaried": [
+      "Age: 21 – 60 years",
+      "Higher income bracket (premium card tier)",
+      "Subject to Equitas Small Finance Bank credit approval"
+    ],
+    "selfEmployed": [
+      "Age: 21 – 60 years",
+      "Higher income bracket (premium card tier)",
+      "Subject to Equitas Small Finance Bank credit approval"
+    ]
+  },
+  "imageUrl": "/images/equitas-powermiles.webp",
+  "sourceUrl": "https://equitas.bank.in/personal-banking/pay/credit-cards/powermiles-credit-card/",
+  "applyUrl": "https://equitas.bank.in/personal-banking/pay/credit-cards/powermiles-credit-card/",
+  "lastVerified": "2026-06-15",
+  "verificationStatus": "official-direct",
+  "internalNotes": [
+    "Card details verified from official Equitas Bank archived page (Wayback Machine snapshot Jan 2026) on 2026-06-15.",
+    "Card details manually reviewed and verified by user on 2026-06-15.",
+    "Annual fee waiver: Rs 4,80,000 spend in anniversary year.",
+    "Forex markup: 2% on all foreign currency transactions (lower than Tiga/Selfe at 3.5%).",
+    "Xchange Miles (1:1 transfer to 10+ airline & hotel partners) feature is available from 01 Jul 2026 per official page.",
+    "Xchange Brands 1:1 luxury catalog redemption is live.",
+    "Lounge: 2 domestic per quarter (40+ lounges), 1 international per quarter (1000+ lounges).",
+    "Finance charges: 3.75% per month. Cash advance fee: 2.5% or Rs 250 whichever is higher.",
+    "Specific list of airline/hotel Xchange Miles partners not publicly disclosed on archived page; verify on Xchange portal (xchange.equitasbank.com)."
+  ]
+}

@@ -1,0 +1,120 @@
+{
+  "id": "equitas-selfe",
+  "issuer": "Equitas Small Finance Bank",
+  "name": "Equitas Selfe Credit Card",
+  "network": [
+    "Visa",
+    "RuPay"
+  ],
+  "joiningFee": 1000,
+  "annualFee": 1000,
+  "feeWaiverSpend": 200000,
+  "bestFor": [
+    "dining",
+    "grocery",
+    "online",
+    "lifestyle"
+  ],
+  "rewardType": "reward points",
+  "rewards": [
+    {
+      "category": "dining, grocery, utilities, online, base",
+      "rate": 5,
+      "displayCategory": "2 chosen accelerated categories (Apparel, Dining, Grocery, Utility, or Taxi)",
+      "displayRate": "5 Reward Points / Rs 100 spent (on 2 chosen categories)",
+      "capMonthly": null
+    },
+    {
+      "category": "base",
+      "rate": 2,
+      "displayCategory": "All other retail spends",
+      "displayRate": "2 Reward Points / Rs 100 spent",
+      "capMonthly": null
+    }
+  ],
+  "popularityScore": 52,
+  "loungeDomestic": 4,
+  "loungeInternational": 0,
+  "lounge": {
+    "domestic": [
+      "1 complimentary domestic airport lounge access per calendar quarter (4 per year)."
+    ],
+    "international": []
+  },
+  "forexMarkup": 3.5,
+  "tags": [
+    "equitas",
+    "selfe",
+    "lifestyle",
+    "dining",
+    "grocery",
+    "ott",
+    "customizable",
+    "lounge"
+  ],
+  "exclusions": [
+    "Fuel transactions (surcharge waiver only, no reward points)",
+    "Cash advance transactions",
+    "EMI conversion transactions",
+    "Wallet loading transactions",
+    "Rent payments",
+    "Government spends & tax payments",
+    "Fees and charges"
+  ],
+  "exclusionCodes": [
+    "fuel",
+    "cash_advance",
+    "emi",
+    "wallet_load",
+    "rent",
+    "government",
+    "tax",
+    "fees_and_charges"
+  ],
+  "milestones": [],
+  "milestoneBenefits": [],
+  "additionalBenefits": [
+    "Choice of 2 complimentary OTT/brand memberships from: Amazon Prime, Jio Hotstar, Sony LIV, Zee5, or Discovery+ (claim within 90 days of issuance)",
+    "Choice of card style: Regular plastic, eco-friendly Green (recycled plastic), or premium Metal variant",
+    "Flexible billing date: Choose 12th, 16th, or 20th of every month",
+    "1% fuel surcharge waiver on transactions between Rs 500 and Rs 3,000",
+    "Up to 50 days interest-free credit period on regular purchases"
+  ],
+  "additionalDetails": [
+    "5X reward points on any 2 self-chosen categories out of: Apparel, Dining, Grocery, Utility, Taxi",
+    "2 reward points per Rs 100 on all other retail spends",
+    "Reward points redeemable on Equitas Xchange portal (xchange.equitasbank.com) for products, vouchers, and travel"
+  ],
+  "redemption": {
+    "statementBalanceValue": 0.10,
+    "travelPortalValue": 0.15,
+    "airlinePartners": [],
+    "hotelPartners": []
+  },
+  "eligibility": {
+    "salaried": [
+      "Age: 22 – 60 years",
+      "Minimum annual income: Rs 5 – 18 lakhs (approximate range)",
+      "Subject to Equitas Small Finance Bank credit approval"
+    ],
+    "selfEmployed": [
+      "Age: 22 – 60 years",
+      "Minimum annual income: Rs 5 lakhs (approximate)",
+      "Subject to Equitas Small Finance Bank credit approval"
+    ]
+  },
+  "imageUrl": "/images/equitas-selfe.webp",
+  "sourceUrl": "https://equitas.bank.in/personal-banking/pay/credit-cards/selfe-credit-card/",
+  "applyUrl": "https://equitas.bank.in/personal-banking/pay/credit-cards/selfe-credit-card/",
+  "lastVerified": "2026-06-15",
+  "verificationStatus": "official-direct",
+  "internalNotes": [
+    "Card details verified from official Equitas Bank archived page (Wayback Machine snapshot Dec 2025) on 2026-06-15.",
+    "Card details manually reviewed and verified by user on 2026-06-15.",
+    "The 5X accelerated reward categories are user-selectable (2 of 5): Apparel, Dining, Grocery, Utility, Taxi. Reward rate row is kept generic in rewards array; actual scoring requires knowing chosen categories.",
+    "Annual fee waiver: Rs 2,00,000 spend in anniversary year (per archived page FAQ section).",
+    "Reward value: 1 RP = Rs 0.10 for cashback; Rs 0.15 for products/vouchers on Xchange portal.",
+    "Metal card variant may carry additional charges; confirm with bank at time of issuance.",
+    "Finance charges: 3.75% per month. Cash advance fee: 2.5% or Rs 250 whichever is higher."
+  ]
+}
