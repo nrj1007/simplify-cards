@@ -3340,6 +3340,40 @@ describe("reward calculator", () => {
         expect(rules.length).toBe(0);
       });
     });
+
+    describe("Federal Bank Wave RuPay Credit Card", () => {
+      it("earns rewards at correct rates (0.5% upi, 0.5% base, 0.5% insurance capped at 250)", () => {
+        const card = getCardById("federal-wave");
+        expect(card).toBeTruthy();
+
+        const resultRates = calculateRewards(card!, {
+          upi: 10000,
+          base: 10000
+        });
+        expect(resultRates.rows.find((r) => r.category === "upi")!.monthlyUnits).toBe(50);
+        expect(resultRates.rows.find((r) => r.category === "base")!.monthlyUnits).toBe(50);
+        expect(resultRates.monthlyUnits).toBe(100);
+
+        const resultInsuranceCapped = calculateRewards(card!, {
+          insurance: 100000
+        });
+        expect(resultInsuranceCapped.rows.find((r) => r.category === "insurance")!.monthlyUnits).toBe(250);
+        expect(resultInsuranceCapped.monthlyUnits).toBe(250);
+
+        const resultExclusions = calculateRewards(card!, {
+          fuel: 10000,
+          rent: 10000,
+          government: 10000
+        });
+        expect(resultExclusions.monthlyUnits).toBe(0);
+
+        const rules = milestoneRulesForCard(card!);
+        expect(rules.length).toBe(1);
+        expect(rules[0].threshold).toBe(200000);
+        expect(rules[0].value).toBe(1000);
+        expect(rules[0].isVoucher).toBe(false);
+      });
+    });
   });
 });
 

@@ -231,8 +231,8 @@ exports[`reward calculator golden (all cards) > computes stable earn for every c
     "moderate": "online:750 dining:750 travel:750 hotels:750 airlines:750 fuel:x grocery:750 utilities:750 upi:750 amazon:750 international:750 base:750 rent:x insurance:250 education:750 gold:750 government:x |10000",
   },
   "federal-wave": {
-    "high": "online:1000 dining:1000 travel:1000 hotels:1000 airlines:1000 fuel:x grocery:1000 utilities:1000 upi:1000 amazon:1000 international:1000 base:1000 rent:x insurance:1000 education:1000 gold:1000 government:1000 |15000",
-    "moderate": "online:125 dining:125 travel:125 hotels:125 airlines:125 fuel:x grocery:125 utilities:125 upi:125 amazon:125 international:125 base:125 rent:x insurance:125 education:125 gold:125 government:125 |1875",
+    "high": "online:1000 dining:1000 travel:1000 hotels:1000 airlines:1000 fuel:x grocery:1000 utilities:1000 upi:1000 amazon:1000 international:1000 base:1000 rent:x insurance:250 education:1000 gold:1000 government:x |13250",
+    "moderate": "online:125 dining:125 travel:125 hotels:125 airlines:125 fuel:x grocery:125 utilities:125 upi:125 amazon:125 international:125 base:125 rent:x insurance:125 education:125 gold:125 government:x |1750",
   },
   "flipkart-sbi": {
     "high": "online:2000 dining:2000 travel:10000 hotels:2000 airlines:2000 fuel:x grocery:2000 utilities:x upi:2000 amazon:2000 international:2000 base:2000 rent:x insurance:x education:x gold:x government:x |28000",
