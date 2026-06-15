@@ -146,8 +146,27 @@
     "Luxury lifestyle concierge and assistance services",
     "1% fuel surcharge waiver on transactions between ₹400 and ₹7,500 (max ₹4,500 per calendar year)"
   ],
+  "additionalDetails": [
+    "White Pass value can be redeemed at a 1:1 ratio (1 White Pass = ₹1.0) on the Kotak Rewards portal for brand vouchers, flights, and hotel bookings.",
+    "White Pass value can also be redeemed as statement credit to pay off the card bill at a rate of 1 White Pass = ₹0.70."
+  ],
   "redemption": {
-    "statementBalanceValue": 0.7
+    "statementBalanceValue": 0.7,
+    "travelPortalValue": 1.0,
+    "voucherRedemptions": [
+      {
+        "partner": "Brand e-Vouchers",
+        "programme": "Premium brand e-vouchers via Kotak Rewards",
+        "ratio": "1 White Pass = Rs 1.0",
+        "valuePerPoint": 1.0
+      },
+      {
+        "partner": "Travel bookings",
+        "programme": "Flight & hotel bookings via Kotak Rewards",
+        "ratio": "1 White Pass = Rs 1.0",
+        "valuePerPoint": 1.0
+      }
+    ]
   },
   "eligibility": {
     "salaried": [
