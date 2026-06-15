@@ -105,9 +105,13 @@
   "sourceUrl": "https://www.rblbank.com/personal-banking/cards/credit-cards/shoprite-credit-card",
   "applyUrl": "https://www.rblbank.com/personal-banking/cards/credit-cards/shoprite-credit-card",
   "internalNotes": [
-    "Card details manually reviewed and verified by user on 2026-06-14. Grocery reward rate of 20 Reward Points per ₹100 spent is capped at 1,000 reward points per calendar month. Welcome points are credited within 30 days of joining fee payment."
+    "Card details manually reviewed and verified by user on 2026-06-15.",
+    "Grocery reward rate of 20 Reward Points per Rs 100 spent is capped at 1,000 reward points per calendar month.",
+    "Welcome benefit of 2,000 Reward Points is credited within 30 days of joining fee payment.",
+    "Annual fee waiver applies on spends of Rs 1.5 Lakhs in the previous membership year.",
+    "Redemption fee of Rs 99 + GST applies per request via the RBL Rewards portal (rblrewards.rbl.bank.in). Statement credit redemption at Rs 0.25 per point is supported."
   ],
-  "lastVerified": "2026-06-14",
+  "lastVerified": "2026-06-15",
   "verificationStatus": "official-direct",
   "imageUrl": "/images/rbl-shoprite.webp"
 }
