@@ -1,7 +1,7 @@
 {
   "id": "kotak-league-platinum",
   "issuer": "Kotak Mahindra Bank",
-  "name": "League Platinum Credit Card",
+  "name": "Kotak League Platinum Credit Card",
   "network": [
     "Visa"
   ],
@@ -18,14 +18,14 @@
     {
       "category": "travel,airlines",
       "displayCategory": "Special Categories (Travel, Airlines, Department Stores, Electronics & Durable Goods)",
-      "rate": 5.3333,
+      "rate": 5.333333333333333,
       "displayRate": "8 Reward Points / ₹150 spent on special categories",
       "capMonthly": null
     },
     {
       "category": "base",
       "displayCategory": "Other eligible spends (under ₹2 Lakhs annual spends)",
-      "rate": 2.6667,
+      "rate": 2.6666666666666665,
       "displayRate": "4 Reward Points / ₹150 spent",
       "capMonthly": null,
       "tierLowerBound": 0,
@@ -34,7 +34,7 @@
     {
       "category": "base",
       "displayCategory": "Other eligible spends (above ₹2 Lakhs annual spends)",
-      "rate": 5.3333,
+      "rate": 5.333333333333333,
       "displayRate": "8 Reward Points / ₹150 spent",
       "capMonthly": null,
       "tierLowerBound": 16667,
@@ -116,11 +116,11 @@
   },
   "sourceUrl": "https://www.kotak.com/en/personal-banking/cards/credit-cards/league-platinum-card.html",
   "applyUrl": "https://www.kotak.com/en/personal-banking/cards/credit-cards.html",
-  "lastVerified": "2026-06-14",
+  "lastVerified": "2026-06-15",
   "verificationStatus": "official-direct",
   "imageUrl": "/images/kotak-league-platinum.webp",
   "internalNotes": [
-    "Redemption rate for vouchers and merchandise is 1 point = Rs 0.10. Cash statement credit rate is 1 point = Rs 0.07.",
-    "Card details manually reviewed and verified by user on 2026-06-14."
+    "Card details manually reviewed and verified by user on 2026-06-15.",
+    "Redemption rate for vouchers and merchandise is 1 point = Rs 0.10. Cash statement credit rate is 1 point = Rs 0.07."
   ]
 }
