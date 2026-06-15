@@ -98,11 +98,34 @@
     "Buy 1 Get 1 free movie ticket on BookMyShow up to ₹200, twice a month"
   ],
   "additionalDetails": [
-    "Redemption fee of ₹99 + GST applies per redemption request.",
+    "Redemption fee of ₹99 + GST applies per redemption request via the RBL Rewards portal (rblrewards.rbl.bank.in).",
+    "Reward points cannot be redeemed as statement credit against the card bill.",
+    "No direct airline miles transfer — points are redeemed for travel bookings and vouchers through the RBL Rewards portal at Rs 0.25 per point.",
     "Fuel surcharge waiver of 1% at all fuel stations for transactions between ₹500 and ₹4,000 (Max waiver ₹150/month)."
   ],
   "redemption": {
-    "statementBalanceValue": 0.25
+    "travelPortalValue": 0.25,
+    "redemptionFee": 99,
+    "voucherRedemptions": [
+      {
+        "partner": "Brand e-Vouchers",
+        "programme": "Shopping, lifestyle & brand gift vouchers",
+        "ratio": "1 point = Rs 0.25",
+        "valuePerPoint": 0.25
+      },
+      {
+        "partner": "MakeMyTrip / Travel",
+        "programme": "Flight & hotel bookings via RBL Rewards portal",
+        "ratio": "1 point = Rs 0.25",
+        "valuePerPoint": 0.25
+      },
+      {
+        "partner": "Merchandise",
+        "programme": "Electronics, apparel & catalogue products",
+        "ratio": "1 point = Rs 0.25",
+        "valuePerPoint": 0.25
+      }
+    ]
   },
   "eligibility": {
     "salaried": [
@@ -117,9 +140,11 @@
   "sourceUrl": "https://www.rblbank.com/personal-banking/cards/credit-cards/world-prime-credit-card",
   "applyUrl": "https://www.rblbank.com/personal-banking/cards/credit-cards/world-prime-credit-card",
   "internalNotes": [
-    "Card details manually reviewed and verified by user on 2026-06-14. 2X online reward points are capped at 1,000 bonus points per month. Lounge access spend threshold calculation excludes rent payment transactions."
+    "Card details manually reviewed and verified by user on 2026-06-15.",
+    "2X online reward points are capped at 1,000 bonus points per month.",
+    "Lounge access spend threshold calculation excludes rent payment transactions."
   ],
-  "lastVerified": "2026-06-14",
+  "lastVerified": "2026-06-15",
   "verificationStatus": "official-direct",
   "imageUrl": "/images/rbl-world-prime.webp"
 }
