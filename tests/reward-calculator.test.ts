@@ -3139,6 +3139,48 @@ describe("reward calculator", () => {
         expect(result.rows.every((row) => row.monthlyUnits === 0)).toBe(true);
       });
     });
+
+    describe("Kotak Infinite Credit Card", () => {
+      it("earns rewards at correct base rate (1 point / Rs 250 spent)", () => {
+        const card = getCardById("kotak-infinite");
+        expect(card).toBeTruthy();
+
+        // base: 10000 -> 40 Reward Points
+        const result = calculateRewards(card!, {
+          base: 10000
+        });
+
+        expect(result.rows.find((r) => r.category === "base")!.monthlyUnits).toBe(40);
+        expect(result.monthlyUnits).toBe(40);
+      });
+
+      it("excludes wallet, fuel, rent, insurance, utilities, education, government, and gaming spends", () => {
+        const card = getCardById("kotak-infinite");
+        expect(card).toBeTruthy();
+
+        const result = calculateRewards(card!, {
+          fuel: 10000,
+          rent: 10000,
+          insurance: 10000,
+          utilities: 10000,
+          education: 10000,
+          government: 10000
+        });
+
+        expect(result.monthlyUnits).toBe(0);
+        expect(result.rows.every((row) => row.monthlyUnits === 0)).toBe(true);
+      });
+
+      it("annualises the monthly milestone correctly", () => {
+        const card = getCardById("kotak-infinite");
+        expect(card).toBeTruthy();
+
+        const rules = milestoneRulesForCard(card!);
+        expect(rules.length).toBe(1);
+        expect(rules[0].threshold).toBe(0);
+        expect(rules[0].value).toBe(9600);
+      });
+    });
   });
 });
 
