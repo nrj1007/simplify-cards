@@ -40,15 +40,8 @@
       "capMonthly": 750
     },
     {
-      "category": "upi",
-      "displayCategory": "UPI transactions (RuPay variant only)",
-      "rate": 0.5,
-      "displayRate": "0.5% cashback",
-      "capMonthly": null
-    },
-    {
-      "category": "base",
-      "displayCategory": "Other eligible retail spends",
+      "category": "upi, base",
+      "displayCategory": "UPI and other eligible retail spends",
       "rate": 0.5,
       "displayRate": "0.5% cashback",
       "capMonthly": null
@@ -113,11 +106,11 @@
   },
   "sourceUrl": "https://www.kotak.com/en/personal-banking/cards/credit-cards/kotak-cashback-plus-credit-card.html",
   "applyUrl": "https://www.kotak.com/en/personal-banking/cards/credit-cards/kotak-cashback-plus-credit-card.html",
-  "lastVerified": "2026-06-14",
+  "lastVerified": "2026-06-15",
   "verificationStatus": "official-direct",
   "imageUrl": "/images/kotak-cashback-plus.webp",
   "internalNotes": [
-    "Accelerated cashback categories (online grocery, food, movies, OTT, fuel) share a combined billing cycle cap of 750 points. No base cashback is earned on these once the cap is reached.",
-    "Card details manually reviewed and verified by user on 2026-06-14."
+    "Card details manually reviewed and verified by user on 2026-06-15.",
+    "Accelerated cashback categories (online grocery, food, movies, OTT, fuel) share a combined billing cycle cap of 750 points. No base cashback is earned on these once the cap is reached."
   ]
 }
