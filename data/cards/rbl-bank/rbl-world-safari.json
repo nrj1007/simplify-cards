@@ -93,11 +93,47 @@
     "4 complimentary rounds of golf and 1 golf lesson per month"
   ],
   "additionalDetails": [
-    "Redemption fee of ₹99 + GST applies per redemption request.",
-    "Fuel surcharge waiver of 1% at all fuel stations for transactions between ₹500 and ₹4,000 (Max waiver ₹250/month)."
+    "Redemption fee of ₹99 + GST applies per redemption request via the RBL Rewards portal.",
+    "Reward points cannot be redeemed as statement credit against the card bill.",
+    "No direct airline miles transfer — points are redeemed for travel bookings and vouchers through the RBL Rewards portal (rblrewards.rbl.bank.in) at Rs 0.25 per point.",
+    "Fuel surcharge waiver of 1% at all fuel stations for transactions between ₹500 and ₹4,000 (Max waiver ₹250/month).",
+    "International transactions do not earn reward points (zero forex markup still applies)."
   ],
   "redemption": {
-    "statementBalanceValue": 0.25
+    "travelPortalValue": 0.25,
+    "redemptionFee": 99,
+    "voucherRedemptions": [
+      {
+        "partner": "MakeMyTrip",
+        "programme": "Travel bookings",
+        "ratio": "1 point = Rs 0.25",
+        "valuePerPoint": 0.25
+      },
+      {
+        "partner": "Taj Experiences",
+        "programme": "Hotel voucher (milestone reward)",
+        "ratio": "1 point = Rs 0.25",
+        "valuePerPoint": 0.25
+      },
+      {
+        "partner": "Amazon",
+        "programme": "Amazon Pay / Gift voucher (milestone reward)",
+        "ratio": "1 point = Rs 0.25",
+        "valuePerPoint": 0.25
+      },
+      {
+        "partner": "Croma",
+        "programme": "Gift voucher (milestone reward)",
+        "ratio": "1 point = Rs 0.25",
+        "valuePerPoint": 0.25
+      },
+      {
+        "partner": "Myntra",
+        "programme": "Gift voucher (milestone reward)",
+        "ratio": "1 point = Rs 0.25",
+        "valuePerPoint": 0.25
+      }
+    ]
   },
   "eligibility": {
     "salaried": [
