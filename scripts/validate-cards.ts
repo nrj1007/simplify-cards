@@ -275,6 +275,30 @@ if (cardFiles.length === 0) {
       addIssue("status must be 'active' or 'discontinued' when present", cardId, "status");
     }
 
+    if (card.rewardLiquidity !== undefined && card.rewardLiquidity !== "cash" && card.rewardLiquidity !== "brand-locked") {
+      addIssue("rewardLiquidity must be 'cash' or 'brand-locked' when present", cardId, "rewardLiquidity");
+    }
+
+    if (
+      card.rewardLiquidityFactor !== undefined &&
+      (typeof card.rewardLiquidityFactor !== "number" || card.rewardLiquidityFactor <= 0 || card.rewardLiquidityFactor > 1)
+    ) {
+      addIssue("rewardLiquidityFactor must be a number in (0, 1] when present", cardId, "rewardLiquidityFactor");
+    }
+
+    if (card.acceleratedShare !== undefined) {
+      const share = card.acceleratedShare as Record<string, unknown>;
+      if (typeof share !== "object" || share === null || Array.isArray(share)) {
+        addIssue("acceleratedShare must be an object mapping spend categories to a number in [0, 1]", cardId, "acceleratedShare");
+      } else {
+        for (const [cat, value] of Object.entries(share)) {
+          if (typeof value !== "number" || value < 0 || value > 1) {
+            addIssue(`acceleratedShare.${cat} must be a number in [0, 1]`, cardId, "acceleratedShare");
+          }
+        }
+      }
+    }
+
     for (const field of ["network", "bestFor", "tags", "exclusions"]) {
       if (!isStringArray(card[field])) addIssue("must be an array of non-empty strings", cardId, field);
     }
@@ -481,6 +505,13 @@ if (cardFiles.length === 0) {
               addWarning(`unknown reward category "${cat}"`, cardId, "rewards");
             }
           }
+        }
+
+        if (
+          reward.valuePerUnit !== undefined &&
+          (typeof reward.valuePerUnit !== "number" || !Number.isFinite(reward.valuePerUnit) || reward.valuePerUnit <= 0)
+        ) {
+          addIssue(`reward ${rewardIndex} valuePerUnit must be a positive number when present`, cardId, "rewards");
         }
 
         if (typeof reward.rate !== "number" || !Number.isFinite(reward.rate) || reward.rate < 0) {

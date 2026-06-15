@@ -105,7 +105,7 @@
     {
       "threshold": 50000,
       "period": "quarterly",
-      "value": 300,
+      "value": 150,
       "kind": "voucher",
       "label": "Complimentary Big Basket voucher worth Rs 300 on achieving quarterly spend of Rs 50,000"
     }

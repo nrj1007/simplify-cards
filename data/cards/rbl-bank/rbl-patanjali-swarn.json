@@ -63,7 +63,7 @@
     {
       "threshold": 300000,
       "period": "annual",
-      "value": 1500,
+      "value": 750,
       "kind": "voucher",
       "label": "₹1,500 Patanjali shopping voucher on annual spends of ₹3 Lakhs (incl. ₹12,000 at Patanjali)"
     },

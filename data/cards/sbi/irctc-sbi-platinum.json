@@ -17,6 +17,7 @@
     "low fee"
   ],
   "rewardType": "reward points",
+  "rewardLiquidity": "brand-locked",
   "rewards": [
     {
       "category": "travel",

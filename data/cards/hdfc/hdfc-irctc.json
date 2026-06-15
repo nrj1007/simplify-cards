@@ -15,6 +15,7 @@
     "low fee"
   ],
   "rewardType": "reward points",
+  "rewardLiquidity": "brand-locked",
   "rewards": [
     {
       "category": "irctc",
@@ -104,7 +105,7 @@
     {
       "threshold": 30000,
       "period": "quarterly",
-      "value": 500,
+      "value": 250,
       "kind": "voucher",
       "label": "Rs 500 gift voucher on Rs 30,000+ spend in the quarter"
     }

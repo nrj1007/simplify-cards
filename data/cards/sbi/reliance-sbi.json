@@ -18,6 +18,10 @@
     "dining"
   ],
   "rewardType": "reward points",
+  "acceleratedShare": {
+    "online": 0.25,
+    "grocery": 0.25
+  },
   "rewards": [
     {
       "category": "partner merchants",

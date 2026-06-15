@@ -58,6 +58,11 @@ export type Reward = {
   displayCategory?: string;
   rate: number;
   displayRate?: string;
+  // Rupee value of one unit (point) earned by THIS reward, overriding the card-level reward-unit
+  // value in scoring. Needed for mixed-currency cards (rewardType "cashback and reward points"),
+  // where cashback rows are worth Rs 1/unit but co-existing point rows are worth less — e.g. Titan's
+  // base "6 Reward Points / Rs 100" at Rs 0.25/point, or Samsung's EDGE points at Rs 0.2.
+  valuePerUnit?: number;
   capMonthly: number | null;
   capDaily?: number | null;
   capStatementQuarter?: number | null;
@@ -131,6 +136,22 @@ export type CreditCard = {
   feeWaiverSpend: number | null;
   bestFor: string[];
   rewardType: string;
+  // Liquidity of the reward currency for ranking. "brand-locked" cards (rewards redeemable only
+  // inside one narrow brand ecosystem — e.g. Adani, IRCTC, IndiGo BluChips, MakeMyTrip myCash,
+  // Reliance) have their reward value discounted in scoring (see brandLockedRewardValueMultiplier in
+  // lib/recommend.ts). Omit (or "cash") for near-cash rewards: statement credit, points with a cash
+  // path, and famous liquid brands (Flipkart, Amazon, Myntra, Swiggy/Zomato, Tata Neu).
+  rewardLiquidity?: "cash" | "brand-locked";
+  // Optional fine-grained override (0–1) for the fraction of nominal reward value realized in
+  // scoring. When set it takes precedence over the rewardLiquidity default (brand-locked = 0.75).
+  // Use for currencies that are even less liquid than a typical brand voucher — e.g. IndiGo BluChips
+  // (airline currency with blackout dates / dynamic pricing) at 0.5.
+  rewardLiquidityFactor?: number;
+  // Per-category override (0–1) for the fraction of spend that earns the accelerated rate (vs base)
+  // on blended categories (online, grocery). Defaults to 0.5. Use a smaller share when the
+  // accelerated merchant set is narrow (e.g. Titan's "partner merchants" only covers Titan-group
+  // brands: online 0.25, grocery 0), or a larger one when it's broad.
+  acceleratedShare?: Partial<Record<SpendCategory, number>>;
   rewards: Reward[];
   popularityScore: number;
   loungeDomestic: number | "unlimited";

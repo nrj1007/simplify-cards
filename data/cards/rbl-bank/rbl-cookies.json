@@ -87,14 +87,14 @@
     {
       "threshold": 200000,
       "period": "annual",
-      "value": 1000,
+      "value": 500,
       "kind": "voucher",
       "label": "₹1,000 brand voucher on annual spend of ₹2 Lakhs"
     },
     {
       "threshold": 500000,
       "period": "annual",
-      "value": 5000,
+      "value": 2500,
       "kind": "voucher",
       "label": "₹5,000 brand voucher on annual spend of ₹5 Lakhs"
     }

@@ -17,6 +17,7 @@
     "rupay"
   ],
   "rewardType": "myCash",
+  "rewardLiquidity": "brand-locked",
   "rewards": [
     {
       "category": "hotels",

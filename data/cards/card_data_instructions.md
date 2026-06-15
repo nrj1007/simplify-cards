@@ -456,7 +456,7 @@ explicitly, so nothing has to be parsed and quarterly/monthly milestones are sco
 
 ```json
 "milestones": [
-  { "threshold": 500000, "period": "annual", "value": 5000, "kind": "voucher",
+  { "threshold": 500000, "period": "annual", "value": 2500, "kind": "voucher",
     "label": "Rs 5,000 flight voucher on annual spends of Rs 5 lakh" },
   { "threshold": 75000, "period": "quarterly", "value": 2500, "kind": "points",
     "label": "5,000 bonus Reward Points on Rs 75,000 spend per calendar quarter" }
@@ -467,8 +467,15 @@ explicitly, so nothing has to be parsed and quarterly/monthly milestones are sco
   per-quarter spend and per-quarter value). The engine annualizes internally
   (`milestoneRulesForCard` in `lib/recommend.ts`): `quarterly × 4`, `monthly × 12`, `annual × 1`.
   This is the fix for the long-standing bug where quarterly/monthly milestones were scored as annual.
-* `kind`: `"voucher"` (engine still applies the 50% voucher discount), `"points"`, `"cashback"`,
-  or `"other"`. `threshold: 0` means it always applies (e.g. a transaction-count milestone).
+* `kind`: `"voucher"`, `"points"`, `"cashback"`, or `"other"`. `threshold: 0` means it always
+  applies (e.g. a transaction-count milestone).
+* **`value` is the net rupee value we score — already discounted, same convention as
+  `joiningBenefitsValued` / `renewalBenefitsValued`.** Unlike the `milestoneBenefits` prose path
+  (where the engine halves voucher amounts at runtime), the structured `milestones` path uses
+  `value` as-is — so for a `"voucher"` write **50% of face value** yourself (e.g. a Rs 5,000 gift
+  voucher → `value: 2500`) to account for restricted use, expiry, and breakage. Famous near-cash
+  vouchers (Amazon/Flipkart/Myntra) can be valued closer to face; brand-locked vouchers should be
+  discounted harder.
 * `label` is the user-facing string — **no embedded `(worth Rs …)`** annotation; the value lives in
   the `value` field.
 * **Coexistence rule:** when `milestones` is present it is the source of truth for that card; its

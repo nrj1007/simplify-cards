@@ -98,7 +98,7 @@
     {
       "threshold": 500000,
       "period": "annual",
-      "value": 5000,
+      "value": 2500,
       "kind": "voucher",
       "label": "Yatra e-Voucher worth Rs 5,000 on annual spends of Rs 5 lakh"
     }

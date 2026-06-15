@@ -17,6 +17,11 @@
     "lounge"
   ],
   "rewardType": "reward points",
+  "acceleratedShare": {
+    "online": 0.2,
+    "grocery": 0.25
+  },
+  "rewardLiquidity": "brand-locked",
   "rewards": [
     {
       "category": "partner merchants",

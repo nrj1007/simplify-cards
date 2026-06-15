@@ -17,6 +17,7 @@
     "lifetime free"
   ],
   "rewardType": "scapia coins",
+  "rewardLiquidity": "brand-locked",
   "rewards": [
     {
       "category": "travel",

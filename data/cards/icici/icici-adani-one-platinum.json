@@ -16,6 +16,7 @@
     "movies"
   ],
   "rewardType": "adani reward points",
+  "rewardLiquidity": "brand-locked",
   "rewards": [
     {
       "category": "travel",

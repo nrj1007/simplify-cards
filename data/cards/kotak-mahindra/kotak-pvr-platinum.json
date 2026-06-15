@@ -53,7 +53,7 @@
     {
       "threshold": 10000,
       "period": "monthly",
-      "value": 800,
+      "value": 400,
       "kind": "voucher",
       "label": "2 PVR Movie Tickets (worth up to ₹400 each) on spending ₹10,000 in a billing cycle"
     }

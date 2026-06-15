@@ -17,6 +17,9 @@
     "premium rewards"
   ],
   "rewardType": "reward points",
+  "acceleratedShare": {
+    "grocery": 0
+  },
   "rewards": [
     {
       "category": "smartbuy hotels",

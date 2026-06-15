@@ -17,6 +17,10 @@
     "online shopping"
   ],
   "rewardType": "cashback",
+  "acceleratedShare": {
+    "online": 0.3,
+    "grocery": 0
+  },
   "rewards": [
     {
       "category": "myntra",

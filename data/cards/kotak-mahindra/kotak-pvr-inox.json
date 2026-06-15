@@ -53,35 +53,35 @@
     {
       "threshold": 10000,
       "period": "monthly",
-      "value": 300,
+      "value": 150,
       "kind": "voucher",
       "label": "1 PVR INOX Movie Ticket (worth up to ₹300) on spending ₹10,000 in a billing cycle"
     },
     {
       "threshold": 20000,
       "period": "monthly",
-      "value": 300,
+      "value": 150,
       "kind": "voucher",
       "label": "1 additional PVR INOX Movie Ticket (worth up to ₹300) on spending ₹20,000 in a billing cycle"
     },
     {
       "threshold": 30000,
       "period": "monthly",
-      "value": 300,
+      "value": 150,
       "kind": "voucher",
       "label": "1 additional PVR INOX Movie Ticket (worth up to ₹300) on spending ₹30,000 in a billing cycle"
     },
     {
       "threshold": 40000,
       "period": "monthly",
-      "value": 300,
+      "value": 150,
       "kind": "voucher",
       "label": "1 additional PVR INOX Movie Ticket (worth up to ₹300) on spending ₹40,000 in a billing cycle"
     },
     {
       "threshold": 50000,
       "period": "monthly",
-      "value": 300,
+      "value": 150,
       "kind": "voucher",
       "label": "1 additional PVR INOX Movie Ticket (worth up to ₹300) on spending ₹50,000 in a billing cycle"
     }

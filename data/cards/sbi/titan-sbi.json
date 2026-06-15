@@ -17,6 +17,10 @@
     "lounge"
   ],
   "rewardType": "cashback and reward points",
+  "acceleratedShare": {
+    "online": 0.25,
+    "grocery": 0
+  },
   "rewards": [
     {
       "category": "partner merchants",
@@ -44,6 +48,7 @@
       "displayCategory": "Other eligible spends",
       "rate": 6,
       "displayRate": "6 Reward Points / Rs 100",
+      "valuePerUnit": 0.25,
       "capMonthly": null
     }
   ],
@@ -106,14 +111,14 @@
     {
       "threshold": 500000,
       "period": "annual",
-      "value": 5000,
+      "value": 2500,
       "kind": "voucher",
       "label": "Additional gift voucher worth Rs 5,000 on annual spends of Rs 5 lakh"
     },
     {
       "threshold": 1000000,
       "period": "annual",
-      "value": 10000,
+      "value": 5000,
       "kind": "voucher",
       "label": "Additional gift voucher worth Rs 10,000 on annual spends of Rs 10 lakh"
     }

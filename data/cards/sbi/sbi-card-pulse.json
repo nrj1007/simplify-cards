@@ -17,6 +17,10 @@
     "domestic lounge"
   ],
   "rewardType": "reward points",
+  "acceleratedShare": {
+    "online": 0,
+    "grocery": 0
+  },
   "rewards": [
     {
       "category": "partner merchants",

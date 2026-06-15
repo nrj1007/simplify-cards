@@ -677,12 +677,12 @@ describe("reward calculator", () => {
       expect(fuelRow?.excluded).toBe(true);
 
       const rules = milestoneRulesForCard(card!);
-      // Quarterly milestone: Rs 500 voucher at Rs 50k -> annualized: Rs 2000 at Rs 200k
-      // Annual milestone: Rs 7000 voucher at Rs 5L -> Rs 7000 at Rs 500k
+      // Quarterly milestone: Rs 500 voucher (net Rs 250) at Rs 50k -> annualized: Rs 1000 at Rs 200k
+      // Annual milestone: Rs 7000 voucher (net Rs 3500) at Rs 5L -> Rs 3500 at Rs 500k
       expect(rules).toHaveLength(2);
       const quarterly = rules.find(r => r.period === "quarterly");
       expect(quarterly?.threshold).toBe(200000);
-      expect(quarterly?.value).toBe(2000);
+      expect(quarterly?.value).toBe(1000);
       expect(quarterly?.isVoucher).toBe(true);
     });
 
@@ -1506,10 +1506,10 @@ describe("reward calculator", () => {
 
       const rules = milestoneRulesForCard(card!);
 
-      // Quarterly Rs 30k = annualised Rs 1,20,000 threshold; Rs 500 GV × 4 quarters = Rs 2,000 annualised value
+      // Quarterly Rs 30k = annualised Rs 1,20,000 threshold; Rs 500 GV (net Rs 250) × 4 quarters = Rs 1,000 annualised value
       const quarterlyMilestone = rules.find((r) => r.threshold === 120000);
       expect(quarterlyMilestone).toBeTruthy();
-      expect(quarterlyMilestone!.value).toBe(2000);  // 500 × 4 quarters
+      expect(quarterlyMilestone!.value).toBe(1000);  // 250 net × 4 quarters
       expect(quarterlyMilestone!.period).toBe("quarterly");
       expect(quarterlyMilestone!.isVoucher).toBe(true);
     });
@@ -3307,7 +3307,7 @@ describe("reward calculator", () => {
         const rules = milestoneRulesForCard(card!);
         expect(rules.length).toBe(1);
         expect(rules[0].threshold).toBe(200000);
-        expect(rules[0].value).toBe(1200);
+        expect(rules[0].value).toBe(600); // Rs 300 BigBasket voucher (net Rs 150) × 4 quarters
         expect(rules[0].isVoucher).toBe(true);
       });
     });

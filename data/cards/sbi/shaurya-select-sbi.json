@@ -81,14 +81,14 @@
     {
       "threshold": 50000,
       "period": "quarterly",
-      "value": 500,
+      "value": 250,
       "kind": "voucher",
       "label": "Rs 500 Pizza Hut e-gift voucher on spends of Rs 50,000 in a calendar quarter"
     },
     {
       "threshold": 500000,
       "period": "annual",
-      "value": 7000,
+      "value": 3500,
       "kind": "voucher",
       "label": "Rs 7,000 Yatra or Pantaloons e-gift voucher on annual spends of Rs 5 lakh"
     }

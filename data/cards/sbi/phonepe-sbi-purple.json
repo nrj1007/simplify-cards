@@ -90,7 +90,7 @@
     {
       "threshold": 300000,
       "period": "annual",
-      "value": 3000,
+      "value": 1500,
       "kind": "voucher",
       "label": "Yatra voucher worth Rs 3,000 on annual spends of Rs 3 lakh"
     }

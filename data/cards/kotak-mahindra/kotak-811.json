@@ -82,7 +82,7 @@
     {
       "threshold": 75000,
       "period": "annual",
-      "value": 1200,
+      "value": 600,
       "kind": "voucher",
       "label": "3 complimentary PVR movie tickets (worth up to ₹1,200) on spending ₹75,000 in an anniversary year"
     }

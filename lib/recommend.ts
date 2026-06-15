@@ -72,7 +72,17 @@ const specialOnlineSpendAliases = [
 ];
 
 const specialTravelSpendAliases = ["smartbuy flights", "smartbuy hotels", "smartbuy train"];
-const blendedSmartbuySpendCategories: SpendCategory[] = ["online"];
+// Categories whose accelerated (smartbuy/partner) earn is blended 50/50 with the base rate, since a
+// real cardholder routes only part of this spend through the accelerated merchant/portal set.
+const blendedSmartbuySpendCategories: SpendCategory[] = ["online", "grocery"];
+// Default fraction of a blended category's spend that earns the accelerated (vs base) rate. Cards can
+// override per category via `acceleratedShare` when their accelerator is narrower or broader.
+const defaultAcceleratedShare = 0.5;
+
+function acceleratedShareForCategory(card: CreditCard, category: SpendCategory) {
+  const override = card.acceleratedShare?.[category];
+  return typeof override === "number" && override >= 0 && override <= 1 ? override : defaultAcceleratedShare;
+}
 const broadComparisonUpsideWeight = 0.4;
 const defaultTopCardCount = 3;
 const joiningBenefitAmortizationYears = 3;
@@ -519,7 +529,26 @@ function estimatePointUnitValue(card: CreditCard) {
   return Math.max(...values);
 }
 
+// Brand-locked reward currencies (Adani, IRCTC, IndiGo BluChips, etc.) are worth less than their
+// nominal rupee value because redemption is confined to one ecosystem with limited choice. Discount
+// their reward value for ranking; near-cash rewards (statement credit, Flipkart/Amazon/Myntra/Swiggy/
+// Tata Neu) keep full value. See the rewardLiquidity field in lib/types.ts.
+const brandLockedRewardValueMultiplier = 0.75;
+
+// Fraction of nominal reward value realized in scoring. An explicit rewardLiquidityFactor wins;
+// otherwise brand-locked currencies take the default haircut and everything else is full value.
+function rewardLiquidityMultiplier(card: CreditCard) {
+  if (typeof card.rewardLiquidityFactor === "number" && card.rewardLiquidityFactor > 0 && card.rewardLiquidityFactor <= 1) {
+    return card.rewardLiquidityFactor;
+  }
+  return card.rewardLiquidity === "brand-locked" ? brandLockedRewardValueMultiplier : 1;
+}
+
 function rewardUnitValue(card: CreditCard) {
+  return baseRewardUnitValue(card) * rewardLiquidityMultiplier(card);
+}
+
+function baseRewardUnitValue(card: CreditCard) {
   const rewardType = normalizeForMatch(card.rewardType);
 
   if (rewardType.includes("cashback")) return 1;
@@ -876,6 +905,18 @@ function findBaseRewardForSpend(card: CreditCard, category: SpendCategory) {
   );
 }
 
+// Finds the first reward whose (comma-split) category matches any of the given aliases, with no base
+// fallback — returns null when the card has no such row. Used to detect distinct flights/hotels rows.
+function findRewardByCategoryAliases(card: CreditCard, aliases: string[]) {
+  const normalizedAliases = aliases.map((alias) => alias.toLowerCase());
+  return (
+    card.rewards.find((reward) => {
+      const rewardCategories = reward.category.split(",").map((c) => c.trim().toLowerCase());
+      return normalizedAliases.some((alias) => rewardCategories.includes(alias));
+    }) ?? null
+  );
+}
+
 function findSpecialRewardForSpend(card: CreditCard, category: SpendCategory) {
   const aliases = specialAliasesForSpendCategory(category);
   if (aliases.length === 0) return null;
@@ -929,13 +970,28 @@ function rewardAllocationsForSpend(
   }
 
   if (category === "travel") {
+    // Prefer the card's everyday travel rate when it has a dedicated one (a flat "travel"/IRCTC row).
+    // Portal-only flights/hotels tiers (e.g. "travel with points flights") apply only to bookings made
+    // through the issuer portal, so they must not credit general travel spend on these cards.
+    const everydayTravelReward = findDirectRewardForSpend(card, category, false);
+    if (everydayTravelReward) {
+      return [{ amount: effectiveAmount, reward: everydayTravelReward }];
+    }
+    // Otherwise the card earns on travel only via issuer-portal flights/hotels tiers (e.g. SmartBuy or
+    // "travel with points"). Split 50/50 between the flights and hotels rows when both exist, rather
+    // than routing all travel to the single higher-rate (hotels) tier. Matching is limited to portal
+    // tiers — generic "airlines"/"hotels" co-brand rows represent direct airline/hotel spend, not
+    // general travel, so they must not capture it. Falls back to the best single travel reward.
+    const flightsReward = findRewardByCategoryAliases(card, ["smartbuy flights", "travel with points flights"]);
+    const hotelsReward = findRewardByCategoryAliases(card, ["smartbuy hotels", "travel with points hotels"]);
+    if (flightsReward && hotelsReward && flightsReward !== hotelsReward) {
+      return [
+        { amount: effectiveAmount * 0.5, reward: flightsReward },
+        { amount: effectiveAmount * 0.5, reward: hotelsReward }
+      ];
+    }
     const travelReward = findRewardForSpend(card, category, true);
     return travelReward ? [{ amount: effectiveAmount, reward: travelReward }] : [];
-  }
-
-  if (category === "grocery") {
-    const groceryReward = findRewardForSpend(card, category, true);
-    return groceryReward ? [{ amount: effectiveAmount, reward: groceryReward }] : [];
   }
 
   const tieredAllocations = tieredAllocationsForCategory(card, category, effectiveAmount);
@@ -945,9 +1001,16 @@ function rewardAllocationsForSpend(
   const specialReward = blendedSmartbuySpendCategories.includes(category) ? findSpecialRewardForSpend(card, category) : null;
 
   if (specialReward && baseReward && specialReward.category !== baseReward.category) {
+    // Only a share of this category's spend earns the accelerated rate; the rest earns base. The
+    // default 50/50 reflects a broad accelerator (SmartBuy, select-lifestyle). Narrow co-brand
+    // accelerators (e.g. Titan's Titan-group "partner merchants") cover much less, so a card can
+    // override the share per category (0 = no acceleration, all base).
+    const share = acceleratedShareForCategory(card, category);
+    if (share <= 0) return [{ amount: effectiveAmount, reward: baseReward }];
+    if (share >= 1) return [{ amount: effectiveAmount, reward: specialReward }];
     return [
-      { amount: effectiveAmount * 0.5, reward: specialReward },
-      { amount: effectiveAmount * 0.5, reward: baseReward }
+      { amount: effectiveAmount * share, reward: specialReward },
+      { amount: effectiveAmount * (1 - share), reward: baseReward }
     ];
   }
 
@@ -1000,7 +1063,7 @@ function findDirectRewardForSpend(card: CreditCard, category: SpendCategory, inc
 }
 
 function rewardBreakdownForCard(card: CreditCard, spend: SpendProfile, includeSmartbuyLikeRewards: boolean) {
-  const unitValue = rewardUnitValue(card);
+  const cardUnitValue = rewardUnitValue(card);
 
   type ActiveAllocation = {
     category: SpendCategory;
@@ -1032,6 +1095,9 @@ function rewardBreakdownForCard(card: CreditCard, spend: SpendProfile, includeSm
   }
 
   return Array.from(groups.entries()).flatMap(([reward, items]) => {
+    // Per-reward unit value: cards can mix currencies (a Rs 1 cashback row alongside a lower-value
+    // point row), so an explicit valuePerUnit on the row overrides the card-level value.
+    const unitValue = typeof reward.valuePerUnit === "number" && reward.valuePerUnit > 0 ? reward.valuePerUnit : cardUnitValue;
     const totalRawReward = items.reduce((sum, item) => sum + (item.allocatedAmount * reward.rate) / 100, 0);
     let totalCappedReward = totalRawReward;
 
@@ -1245,23 +1311,6 @@ export function requestedTopCardCount(query?: string) {
   return Math.min(parsed, 20);
 }
 
-function brandUtilityPenalty(card: CreditCard, input: RecommendationInput, intent: ReturnType<typeof parseQueryIntent>) {
-  if (!isBroadGenericRankingQuery(input, intent)) return 0;
-
-  const normalizedQuery = normalizeForMatch(input.query);
-
-  const searchableText = normalizeForMatch([card.name, ...card.tags, ...card.bestFor].join(" "));
-
-  if (containsNormalizedPhrase(normalizedQuery, "reliance") || containsNormalizedPhrase(normalizedQuery, "apollo") || containsNormalizedPhrase(normalizedQuery, "titan")) {
-    return 0;
-  }
-
-  if (containsNormalizedPhrase(searchableText, "reliance")) return -5000;
-  if (containsNormalizedPhrase(searchableText, "apollo")) return -6000;
-  if (containsNormalizedPhrase(searchableText, "titan")) return -5000;
-
-  return 0;
-}
 
 function specialSpendFlexibilityBoost(card: CreditCard, input: RecommendationInput, intent: ReturnType<typeof parseQueryIntent>) {
   if (!isBroadGenericRankingQuery(input, intent)) return 0;
@@ -1336,7 +1385,6 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
     });
     const ltfQueryBoost = genericLtfAdjustment(card, intent);
     const relationshipPenalty = genericRelationshipPenalty(card, input, intent);
-    const brandPenalty = brandUtilityPenalty(card, input, intent);
     const specialSpendBoost = specialSpendFlexibilityBoost(card, input, intent);
     const milestoneBoost = milestoneSpecialistBoost(card, broadNoSpendRankingQuery);
     const envelopeLabel = envelopeMonthlySpend ? formatEnvelopeSpendLabel(envelopeMonthlySpend) : null;
@@ -1369,7 +1417,6 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
         : []),
       ...(milestoneBoost > 0 ? ["Strong milestone-led value closer to Rs 7 lakh yearly spend"] : []),
       ...(specialSpendBoost > 0 ? ["Rewards on usually excluded categories improve broader card utility"] : []),
-      ...(brandPenalty < 0 ? ["Broader ranking reduced for a narrower co-brand ecosystem fit"] : []),
       card.annualFee === 0 ? "No annual fee" : `Effective annual fee is Rs ${estimatedAnnualFee}`,
       feeWaiverReason,
       loungeScore(card) > 0
@@ -1398,7 +1445,6 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
       comparisonMilestoneAndWaiverDelta +
       ltfQueryBoost +
       relationshipPenalty +
-      brandPenalty +
       specialSpendBoost +
       milestoneBoost +
       card.popularityScore * popularityRankingWeight;

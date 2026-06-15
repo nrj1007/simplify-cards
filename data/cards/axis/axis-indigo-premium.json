@@ -16,6 +16,8 @@
     "lounge"
   ],
   "rewardType": "indigo bluchips",
+  "rewardLiquidity": "brand-locked",
+  "rewardLiquidityFactor": 0.5,
   "rewards": [
     {
       "category": "airlines",

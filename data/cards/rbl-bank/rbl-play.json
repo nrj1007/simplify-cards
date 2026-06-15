@@ -58,7 +58,7 @@
     {
       "threshold": 5000,
       "period": "monthly",
-      "value": 500,
+      "value": 250,
       "kind": "voucher",
       "label": "2 free BookMyShow movie tickets (up to ₹250 each) on monthly spend of ₹5,000"
     }

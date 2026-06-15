@@ -369,17 +369,25 @@ describe("scoreCards", () => {
     expect(travelOneTravelRewards).toEqual(["travel"]);
   });
 
-  it("treats generic grocery spend as fully SmartBuy-like when a card has that grocery path", () => {
+  it("honors acceleratedShare grocery:0 — Regalia grocery earns base only, while online still blends", () => {
     const genericScores = scoreCards({
       query: "top card under 5000"
     });
 
     const regalia = genericScores.find((score) => score.card.id === "hdfc-regalia-gold");
+
+    // Select-lifestyle brands do not include grocery, so Regalia sets acceleratedShare.grocery = 0:
+    // grocery earns the base rate only, never the accelerated tier.
     const regaliaGroceryRewards = regalia?.rewardBreakdown
       .filter((item) => item.spendCategory === "grocery")
       .map((item) => item.rewardCategory);
+    expect(regaliaGroceryRewards).toEqual(["base"]);
 
-    expect(regaliaGroceryRewards).toEqual(["select lifestyle brands"]);
+    // Online still blends the accelerated tier with base (default share).
+    const regaliaOnlineRewards = regalia?.rewardBreakdown
+      .filter((item) => item.spendCategory === "online")
+      .map((item) => item.rewardCategory);
+    expect(regaliaOnlineRewards).toEqual(expect.arrayContaining(["select lifestyle brands", "base"]));
   });
 
   it("does not over-penalize premium travel cards on broad mixed-spend queries", () => {
