@@ -1,5 +1,7 @@
 import { describe, expect, it } from "vitest";
 import {
+  EQUITAS_PRIVILEGE_BENEFITS,
+  EQUITAS_PRIVILEGE_TIERS,
   equitasPrivilegeTierForMonthlySpend,
   equitasPrivilegeTierNote
 } from "../lib/equitas-privilege";
@@ -23,5 +25,20 @@ describe("Equitas Privilege Program", () => {
     expect(equitasPrivilegeTierNote("Gold")).toBe(
       "Considering Gold tier assumes your total spend is distributed evenly and the monthly threshold is met in all three months of each calendar quarter."
     );
+  });
+
+  it("exposes the official monthly and quarterly qualification thresholds", () => {
+    expect(EQUITAS_PRIVILEGE_TIERS).toEqual([
+      { tier: "Blue", monthlySpend: 0, quarterlySpend: 0 },
+      { tier: "Silver", monthlySpend: 20000, quarterlySpend: 60000 },
+      { tier: "Gold", monthlySpend: 40000, quarterlySpend: 120000 },
+      { tier: "Platinum", monthlySpend: 60000, quarterlySpend: 180000 },
+      { tier: "Diamond", monthlySpend: 100000, quarterlySpend: 300000 }
+    ]);
+  });
+
+  it("lists the benefit categories described by Equitas", () => {
+    expect(EQUITAS_PRIVILEGE_BENEFITS).toContain("Higher reward redemption value");
+    expect(EQUITAS_PRIVILEGE_BENEFITS).toContain("Hotel room night worth Rs 3,500");
   });
 });

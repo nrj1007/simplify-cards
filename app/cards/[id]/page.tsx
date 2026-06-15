@@ -12,6 +12,12 @@ import RewardCalculator from "@/app/ui/RewardCalculator";
 import CardImageFallback from "@/app/ui/CardImageFallback";
 import { TrackedExternalLink } from "@/app/ui/TrackedLink";
 import { buildCardDetailMetadata } from "@/lib/analytics-events";
+import {
+  EQUITAS_PRIVILEGE_BENEFITS,
+  EQUITAS_PRIVILEGE_TIERS,
+  EQUITAS_PRIVILEGE_URL,
+  isEquitasPrivilegeCard
+} from "@/lib/equitas-privilege";
 import { milestoneRulesForCard, scoreCards } from "@/lib/recommend";
 import {
   alternativeIntent,
@@ -286,6 +292,7 @@ export default async function CardPage({ params, searchParams }: Props) {
   const loungeMilestoneRules = deriveLoungeMilestoneRules(card);
   const alternatives = findAlternativeCards(card);
   const firstAlternative = alternatives[0];
+  const showEquitasPrivilegeProgram = isEquitasPrivilegeCard(card);
 
   // Optional, clearly-labelled query-context fit — only when a query is passed in. Never a
   // standalone/generic fit score.
@@ -484,6 +491,65 @@ export default async function CardPage({ params, searchParams }: Props) {
                 <RewardCalculator card={card} milestones={milestoneRulesForCard(card)} />
               </div>
             </section>
+
+            {showEquitasPrivilegeProgram ? (
+              <section className="panel" id="privilege-program">
+                <div className="panel-body">
+                  <div className="section-head">
+                    <div>
+                      <h2 className="section-title">Equitas Privilege Program</h2>
+                      <p className="section-sub">Shared spend-based tiers for Tiga, Selfe, and PowerMiles.</p>
+                    </div>
+                  </div>
+
+                  <div className="table-wrap">
+                    <table className="compare-table">
+                      <thead>
+                        <tr>
+                          <th>Tier</th>
+                          <th>Required monthly spend</th>
+                          <th>Equivalent quarterly spend</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {EQUITAS_PRIVILEGE_TIERS.map((tier) => (
+                          <tr key={tier.tier}>
+                            <td>
+                              <strong>{tier.tier}</strong>
+                            </td>
+                            <td>{tier.monthlySpend === 0 ? "Base tier" : formatCurrency(tier.monthlySpend)}</td>
+                            <td>{tier.quarterlySpend === 0 ? "-" : formatCurrency(tier.quarterlySpend)}</td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+
+                  <div className="detail-section">
+                    <h3>How tier qualification works</h3>
+                    <DetailList
+                      items={[
+                        "Meet the monthly threshold in all 3 months of the calendar quarter.",
+                        "Tier status is reviewed quarterly and may be upgraded or downgraded.",
+                        "Calendar quarters are Apr-Jun, Jul-Sep, Oct-Dec, and Jan-Mar."
+                      ]}
+                    />
+                  </div>
+
+                  <div className="detail-section">
+                    <h3>Benefits available across tiers</h3>
+                    <DetailList items={[...EQUITAS_PRIVILEGE_BENEFITS]} className="detail-list-columns" />
+                    <p className="muted">
+                      Benefit availability varies by tier. The reward calculator&apos;s tier estimate assumes your
+                      spend is maintained evenly each month.
+                    </p>
+                    <a className="button secondary" href={EQUITAS_PRIVILEGE_URL} rel="nofollow" target="_blank">
+                      Official program terms <ExternalLink size={15} />
+                    </a>
+                  </div>
+                </div>
+              </section>
+            ) : null}
 
             {bestFor.length > 0 || avoidIf.length > 0 ? (
               <section className="panel">

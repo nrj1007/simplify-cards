@@ -2,6 +2,31 @@ import type { CreditCard } from "./types";
 
 export type EquitasPrivilegeTier = "Blue" | "Silver" | "Gold" | "Platinum" | "Diamond";
 
+export type EquitasPrivilegeTierDefinition = {
+  tier: EquitasPrivilegeTier;
+  monthlySpend: number;
+  quarterlySpend: number;
+};
+
+export const EQUITAS_PRIVILEGE_TIERS: EquitasPrivilegeTierDefinition[] = [
+  { tier: "Blue", monthlySpend: 0, quarterlySpend: 0 },
+  { tier: "Silver", monthlySpend: 20000, quarterlySpend: 60000 },
+  { tier: "Gold", monthlySpend: 40000, quarterlySpend: 120000 },
+  { tier: "Platinum", monthlySpend: 60000, quarterlySpend: 180000 },
+  { tier: "Diamond", monthlySpend: 100000, quarterlySpend: 300000 }
+];
+
+export const EQUITAS_PRIVILEGE_BENEFITS = [
+  "Higher reward redemption value",
+  "Bonus reward points",
+  "Movie and shopping vouchers worth Rs 250",
+  "Golf benefits",
+  "One-way flight booking worth Rs 3,000",
+  "Hotel room night worth Rs 3,500"
+] as const;
+
+export const EQUITAS_PRIVILEGE_URL = "https://equitas.bank.in/privilege-program/";
+
 export function isEquitasPrivilegeCard(card: CreditCard) {
   return card.issuer === "Equitas Small Finance Bank";
 }
