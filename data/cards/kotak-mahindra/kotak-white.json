@@ -20,7 +20,7 @@
       "category": "base",
       "displayCategory": "All retail spends",
       "rate": 0,
-      "displayRate": "Earns White Pass value on spends milestones",
+      "displayRate": "No transactional rewards (Earns White Pass value on milestones only)",
       "capMonthly": null
     }
   ],
@@ -113,8 +113,27 @@
     "1% fuel surcharge waiver across petrol pumps in India",
     "Railway surcharge waiver on IRCTC and railway booking counter transactions"
   ],
+  "additionalDetails": [
+    "White Pass value can be redeemed at a 1:1 ratio (1 White Pass = ₹1.0) on the Kotak Rewards portal for brand vouchers, flights, and hotel bookings.",
+    "White Pass value can also be redeemed as statement credit to pay off the card bill at a rate of 1 White Pass = ₹0.70."
+  ],
   "redemption": {
-    "statementBalanceValue": 0.7
+    "statementBalanceValue": 0.7,
+    "travelPortalValue": 1.0,
+    "voucherRedemptions": [
+      {
+        "partner": "Brand e-Vouchers",
+        "programme": "Premium brand e-vouchers via Kotak Rewards",
+        "ratio": "1 White Pass = Rs 1.0",
+        "valuePerPoint": 1.0
+      },
+      {
+        "partner": "Travel bookings",
+        "programme": "Flight & hotel bookings via Kotak Rewards",
+        "ratio": "1 White Pass = Rs 1.0",
+        "valuePerPoint": 1.0
+      }
+    ]
   },
   "eligibility": {
     "salaried": [
@@ -130,11 +149,11 @@
   },
   "sourceUrl": "https://www.kotak.com/en/personal-banking/cards/credit-cards/white-credit-card.html",
   "applyUrl": "https://www.kotak.com/en/personal-banking/cards/credit-cards/white-credit-card.html",
-  "lastVerified": "2026-06-14",
+  "lastVerified": "2026-06-15",
   "verificationStatus": "official-direct",
   "imageUrl": "/images/kotak-white.webp",
   "internalNotes": [
-    "White Pass value can be redeemed at 1 White Pass = Rs 1.0 on vouchers, flights, and hotels, and Rs 0.70 for statement cashback. Spends on rent, wallet, EMI, insurance, utilities, education, government, and fuel do not earn White Pass milestones.",
-    "Card details manually reviewed and verified by user on 2026-06-14."
+    "Card details manually reviewed and verified by user on 2026-06-15.",
+    "White Pass value can be redeemed at 1 White Pass = Rs 1.0 on vouchers, flights, and hotels, and Rs 0.70 for statement cashback. Spends on rent, wallet, EMI, insurance, utilities, education, government, and fuel do not earn White Pass milestones."
   ]
 }
