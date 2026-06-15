@@ -48,7 +48,6 @@ exports[`ranking golden (representative queries) > produces stable top-N orderin
     "au-ixigo",
     "idfc-wow",
     "indusind-eazydiner-platinum",
-    "equitas-premio",
     "axis-fibe",
     "indusind-platinum-rupay",
     "icici-platinum-chip",
@@ -57,6 +56,7 @@ exports[`ranking golden (representative queries) > produces stable top-N orderin
     "yes-kiwi",
     "hsbc-visa-platinum",
     "sc-priority-visa-infinite",
+    "onecard",
   ],
   "lounge": [
     "kotak-white-reserve",
