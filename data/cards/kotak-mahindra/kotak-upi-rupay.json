@@ -16,8 +16,8 @@
   "rewardType": "Kotak Reward Points",
   "rewards": [
     {
-      "category": "upi",
-      "displayCategory": "UPI transactions",
+      "category": "upi, base",
+      "displayCategory": "UPI and other eligible spends",
       "rate": 3,
       "displayRate": "3 Reward Points / ₹100 spent",
       "capMonthly": null
@@ -28,13 +28,6 @@
       "rate": 3,
       "displayRate": "3 Reward Points / ₹100 spent",
       "capMonthly": 1050
-    },
-    {
-      "category": "base",
-      "displayCategory": "Other eligible spends",
-      "rate": 3,
-      "displayRate": "3 Reward Points / ₹100 spent",
-      "capMonthly": null
     }
   ],
   "popularityScore": 78,
@@ -78,9 +71,27 @@
     "UPI payments on credit card linked via major UPI apps",
     "Virtual card auto-registered and managed via Kotak Mobile Banking App"
   ],
+  "additionalDetails": [
+    "Minimum of 2,000 reward points required to redeem.",
+    "Points can be redeemed as statement credit or for vouchers/travel via the Kotak Rewards portal (kotakrewards.com)."
+  ],
   "redemption": {
     "statementBalanceValue": 0.07,
-    "minimumPointsForStatementCredit": 2000
+    "travelPortalValue": 0.07,
+    "voucherRedemptions": [
+      {
+        "partner": "Brand e-Vouchers",
+        "programme": "Shopping & gift vouchers via Kotak Rewards",
+        "ratio": "1 point = Rs 0.07",
+        "valuePerPoint": 0.07
+      },
+      {
+        "partner": "Travel bookings",
+        "programme": "Flight & hotel bookings via Kotak Rewards",
+        "ratio": "1 point = Rs 0.07",
+        "valuePerPoint": 0.07
+      }
+    ]
   },
   "eligibility": {
     "salaried": [
