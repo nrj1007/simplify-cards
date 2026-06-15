@@ -91,7 +91,6 @@
     "10% cashback is applicable on Patanjali spends for transactions of ₹500 or more."
   ],
   "redemption": {
-    "statementBalanceValue": 1,
     "travelPortalValue": 0.25,
     "redemptionFee": 99,
     "voucherRedemptions": [
