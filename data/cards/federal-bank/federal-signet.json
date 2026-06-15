@@ -38,6 +38,13 @@
       "displayCategory": "All other retail spends",
       "displayRate": "1 Reward Point / Rs 100 spent",
       "capMonthly": null
+    },
+    {
+      "category": "insurance",
+      "rate": 1,
+      "displayCategory": "Insurance premium spends",
+      "displayRate": "1 Reward Point / Rs 100 spent (capped at 250 points per month)",
+      "capMonthly": 250
     }
   ],
   "popularityScore": 70,
@@ -58,19 +65,44 @@
     "electronics",
     "entertainment"
   ],
+  "specialSpendRules": [
+    {
+      "category": "insurance",
+      "treatment": "capped",
+      "notes": "Reward points on insurance transactions are capped at 250 points per calendar month."
+    },
+    {
+      "category": "government",
+      "treatment": "excluded",
+      "notes": "Government services/transactions do not earn reward points."
+    }
+  ],
   "exclusions": [
     "Fuel transactions",
     "Cash advance transactions",
     "Rent payments",
-    "Wallet loading transactions"
+    "Wallet loading transactions",
+    "EMI transactions",
+    "Government transactions"
   ],
   "exclusionCodes": [
     "fuel",
     "cash_advance",
     "rent",
-    "wallet_load"
+    "wallet_load",
+    "emi",
+    "government"
   ],
-  "milestoneBenefits": [
+  "milestones": [],
+  "milestoneBenefits": [],
+  "joiningBenefitsValued": [
+    {
+      "value": 200,
+      "kind": "voucher",
+      "label": "Amazon Pay e-voucher worth Rs 200 on spending Rs 3,000 within first 30 days of card issuance"
+    }
+  ],
+  "joiningBenefits": [
     "Amazon Pay e-voucher worth Rs 200 on spending Rs 3,000 within the first 30 days of card issuance"
   ],
   "additionalBenefits": [
@@ -78,8 +110,21 @@
     "1% fuel surcharge waiver on eligible transactions (Rs 400–Rs 5,000, capped at Rs 150 per month)",
     "Personal accident insurance cover of Rs 2 Lakhs"
   ],
+  "additionalDetails": [
+    "A redemption convenience fee of Rs 99 + GST applies per redemption request."
+  ],
   "redemption": {
-    "statementBalanceValue": 0.25
+    "statementBalanceValue": 0.25,
+    "redemptionFee": 99,
+    "airMilesValue": 0.0769,
+    "transferPartnerValuations": [],
+    "airlinePartners": [
+      {
+        "airline": "Singapore Airlines",
+        "programme": "KrisFlyer",
+        "ratio": "13:1"
+      }
+    ]
   },
   "eligibility": {
     "salaried": [
@@ -93,15 +138,18 @@
   },
   "sourceUrl": "https://www.federalbank.co.in/signet-credit-card",
   "applyUrl": "https://www.federalbank.co.in/signet-credit-card",
-  "lastVerified": "2026-06-14",
+  "lastVerified": "2026-06-15",
   "verificationStatus": "official-direct",
   "internalNotes": [
-    "Card details manually reviewed and verified by user on 2026-06-14.",
+    "Card details manually reviewed and verified by user on 2026-06-15.",
     "Network confirmed as Mastercard per official Federal Bank page title (Federal Bank Mastercard Signet Credit Card). RuPay variant may also be available.",
     "Fees confirmed as Lifetime Free (nil joining and annual fee).",
     "Rewards follow a 3-2-1 structure: 3x on electronics and apparel, 2x on entertainment, 1x on all other retail.",
+    "Insurance transactions (MCC 6300 & 5960) earn 1x reward point capped at 250 points per calendar month, effective July 15, 2024.",
+    "Government transactions are excluded from rewards, effective July 15, 2024.",
+    "Redemption convenience fee of Rs 99 + GST per redemption request.",
     "Domestic lounge access is spend-gated: requires minimum spend of Rs 20,000 in the preceding quarter.",
-    "Reward points can be redeemed through the Federal Rewards website and FedMobile App.",
-    "Rental payments, fuel, wallet loads, and cash withdrawals do not earn reward points."
+    "Welcome benefit: Amazon Pay e-voucher worth Rs 200 on spending Rs 3,000 within the first 30 days.",
+    "Miles transfer partners: Singapore Airlines KrisFlyer (13:1) via Federal Rewards portal."
   ]
 }
