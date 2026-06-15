@@ -45,6 +45,13 @@
       "displayCategory": "All other retail spends",
       "displayRate": "1 Reward Point / Rs 100 spent",
       "capMonthly": null
+    },
+    {
+      "category": "insurance",
+      "rate": 1,
+      "displayCategory": "Insurance premium spends",
+      "displayRate": "1 Reward Point / Rs 100 spent (capped at 250 points per month)",
+      "capMonthly": 250
     }
   ],
   "popularityScore": 72,
@@ -66,46 +73,78 @@
     "movies",
     "lifetime free"
   ],
+  "specialSpendRules": [
+    {
+      "category": "insurance",
+      "treatment": "capped",
+      "notes": "Reward points on insurance transactions are capped at 250 points per calendar month."
+    },
+    {
+      "category": "government",
+      "treatment": "excluded",
+      "notes": "Government services/transactions do not earn reward points."
+    }
+  ],
   "exclusions": [
     "Fuel transactions",
     "Cash advance transactions",
     "Rent payments",
     "Wallet loading transactions",
-    "EMI transactions"
+    "EMI transactions",
+    "Government transactions"
   ],
   "exclusionCodes": [
     "fuel",
     "cash_advance",
     "rent",
     "wallet_load",
-    "emi"
+    "emi",
+    "government"
   ],
   "milestones": [
     {
-      "threshold": 5000,
-      "period": "annual",
+      "threshold": 50000,
+      "period": "quarterly",
+      "value": 300,
+      "kind": "voucher",
+      "label": "Complimentary Big Basket voucher worth Rs 300 on achieving quarterly spend of Rs 50,000"
+    }
+  ],
+  "milestoneBenefits": [],
+  "joiningBenefitsValued": [
+    {
       "value": 400,
       "kind": "voucher",
       "label": "Amazon Pay e-voucher worth Rs 400 on spending Rs 5,000 within first 30 days of card issuance"
-    },
-    {
-      "threshold": 50000,
-      "period": "quarterly",
-      "value": 0,
-      "kind": "voucher",
-      "label": "Complimentary Big Basket vouchers on quarterly spend of Rs 50,000"
     }
   ],
-  "milestoneBenefits": [
-    "Amazon Pay e-voucher worth Rs 400 on spending Rs 5,000 within the first 30 days of card issuance",
-    "Complimentary Big Basket vouchers on achieving quarterly spend of Rs 50,000"
+  "joiningBenefits": [
+    "Amazon Pay e-voucher worth Rs 400 on spending Rs 5,000 within the first 30 days of card issuance"
   ],
   "additionalBenefits": [
     "Buy One Get One complimentary INOX movie ticket (once per quarter)",
     "1% fuel surcharge waiver on eligible transactions (Rs 400–Rs 5,000, capped at Rs 150 per month)"
   ],
+  "additionalDetails": [
+    "A redemption convenience fee of Rs 99 + GST applies per redemption request."
+  ],
   "redemption": {
-    "statementBalanceValue": 0.25
+    "statementBalanceValue": 0.25,
+    "redemptionFee": 99,
+    "airMilesValue": 0.1429,
+    "transferPartnerValuations": [],
+    "airlinePartners": [
+      {
+        "airline": "Singapore Airlines",
+        "programme": "KrisFlyer",
+        "ratio": "9:1"
+      },
+      {
+        "airline": "Air India",
+        "programme": "Maharaja Club",
+        "ratio": "7:1"
+      }
+    ]
   },
   "eligibility": {
     "salaried": [
@@ -119,16 +158,20 @@
   },
   "sourceUrl": "https://www.federalbank.co.in/imperio-credit-card",
   "applyUrl": "https://www.federalbank.co.in/imperio-credit-card",
-  "lastVerified": "2026-06-14",
+  "lastVerified": "2026-06-15",
   "verificationStatus": "official-direct",
   "internalNotes": [
-    "Card details manually reviewed and verified by user on 2026-06-14.",
+    "Card details manually reviewed and verified by user on 2026-06-15.",
     "Network confirmed as Mastercard per official Federal Bank page title (Federal Bank Mastercard Imperio Credit Card). Visa variant is also available.",
     "Fees confirmed as Lifetime Free (nil joining and annual fee).",
     "Rewards follow a 3-2-1 structure: 3x on healthcare and grocery, 2x on utilities, 1x on all other retail.",
+    "Insurance transactions (MCC 6300 & 5960) earn 1x reward point capped at 250 points per calendar month, effective July 15, 2024.",
+    "Government transactions are excluded from rewards, effective July 15, 2024.",
+    "Redemption convenience fee of Rs 99 + GST per redemption request.",
     "Domestic lounge access: 2 visits per quarter, subject to minimum spend of Rs 40,000 in the preceding calendar quarter.",
     "Welcome benefit: Amazon Pay e-voucher worth Rs 400 on spending Rs 5,000 within the first 30 days.",
-    "Milestone benefit: Complimentary Big Basket vouchers on achieving quarterly spend of Rs 50,000.",
-    "Note: The healthcare category is mapped to base as there is no dedicated healthcare SpendCategory in the system."
+    "Milestone benefit: Complimentary Big Basket voucher worth Rs 300 on achieving quarterly spend of Rs 50,000.",
+    "Note: The healthcare category is mapped to base as there is no dedicated healthcare SpendCategory in the system.",
+    "Miles transfer partners: Singapore Airlines KrisFlyer (9:1) and Air India Maharaja Club (7:1) via Federal Rewards portal."
   ]
 }
