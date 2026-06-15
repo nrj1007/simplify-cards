@@ -3030,6 +3030,54 @@ describe("reward calculator", () => {
         expect(result.monthlyUnits).toBeCloseTo(30, 1);
       });
     });
+
+    describe("Kotak Solitaire Credit Card", () => {
+      it("earns rewards at correct rates (10 Air Miles per Rs 100 on travel via Kotak Unbox, 3 Air Miles per Rs 100 base)", () => {
+        const card = getCardById("kotak-solitaire");
+        expect(card).toBeTruthy();
+
+        // travel: 10000 -> 1000 Air Miles
+        // base: 10000 -> 300 Air Miles
+        const result = calculateRewards(card!, {
+          travel: 10000,
+          base: 10000
+        });
+
+        expect(result.rows.find((r) => r.category === "travel")!.monthlyUnits).toBe(1000);
+        expect(result.rows.find((r) => r.category === "base")!.monthlyUnits).toBe(300);
+        expect(result.monthlyUnits).toBe(1300);
+      });
+
+      it("enforces monthly cap of 1,00,000 Air Miles on travel and postCapRate of 3 Air Miles per Rs 100", () => {
+        const card = getCardById("kotak-solitaire");
+        expect(card).toBeTruthy();
+
+        // travel: 11,00,000 spend -> 1,00,000 capped at travel rate, plus 1,00,000 * 3 / 100 = 3000 at post-cap rate.
+        // Total travel units: 1,00,000 + 3000 = 1,03,000 Air Miles.
+        const result = calculateRewards(card!, {
+          travel: 1100000
+        });
+
+        expect(result.rows.find((r) => r.category === "travel")!.monthlyUnits).toBe(103000);
+      });
+
+      it("excludes fuel, rent, wallet load, utilities, insurance, education, government, and gaming", () => {
+        const card = getCardById("kotak-solitaire");
+        expect(card).toBeTruthy();
+
+        const result = calculateRewards(card!, {
+          fuel: 10000,
+          rent: 10000,
+          insurance: 10000,
+          education: 10000,
+          government: 10000,
+          utilities: 10000
+        });
+
+        expect(result.monthlyUnits).toBe(0);
+        expect(result.rows.every((row) => row.monthlyUnits === 0)).toBe(true);
+      });
+    });
   });
 });
 

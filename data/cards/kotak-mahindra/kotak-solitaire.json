@@ -91,9 +91,108 @@
     "Complimentary Zomato Gold membership for a full year at ₹1",
     "1% fuel surcharge waiver on transactions between ₹400 and ₹7,500 (max ₹10,000 per anniversary year)"
   ],
+  "additionalDetails": [
+    "Air Miles can be redeemed for flight and hotel bookings via Kotak Unbox, or for gift vouchers and statement credit.",
+    "A minimum of 500 Air Miles is required for Kotak Unbox redemptions and vouchers.",
+    "A minimum of 2,00,000 Air Miles is not required; a minimum of 2,000 Air Miles is required for partner miles/points transfers.",
+    "Air Miles are valid for 3 years from the date of credit."
+  ],
   "redemption": {
     "statementBalanceValue": 0.5,
-    "minimumPointsForStatementCredit": 500
+    "travelPortalValue": 1.0,
+    "airMilesValue": 1.0,
+    "minimumPointsForStatementCredit": 500,
+    "voucherRedemptions": [
+      {
+        "partner": "Brand e-Vouchers",
+        "programme": "Brand e-vouchers via Kotak Unbox",
+        "ratio": "1 Air Mile = Rs 0.50",
+        "valuePerPoint": 0.5
+      },
+      {
+        "partner": "Travel bookings",
+        "programme": "Flight & hotel bookings via Kotak Unbox",
+        "ratio": "1 Air Mile = Rs 1.0",
+        "valuePerPoint": 1.0
+      }
+    ],
+    "airlinePartners": [
+      {
+        "airline": "Air India",
+        "programme": "Maharaja Club",
+        "ratio": "1:1"
+      },
+      {
+        "airline": "Etihad Airways",
+        "programme": "Etihad Guest",
+        "ratio": "2:1"
+      },
+      {
+        "airline": "Qatar Airways",
+        "programme": "Privilege Club",
+        "ratio": "2:1"
+      },
+      {
+        "airline": "British Airways",
+        "programme": "Executive Club",
+        "ratio": "2:1"
+      },
+      {
+        "airline": "Air Canada",
+        "programme": "Aeroplan",
+        "ratio": "2:1"
+      },
+      {
+        "airline": "Cathay Pacific",
+        "programme": "Asia Miles",
+        "ratio": "2:1"
+      },
+      {
+        "airline": "Flying Blue",
+        "programme": "Flying Blue",
+        "ratio": "2:1"
+      },
+      {
+        "airline": "United Airlines",
+        "programme": "MileagePlus",
+        "ratio": "2:1"
+      }
+    ],
+    "hotelPartners": [
+      {
+        "hotelGroup": "Marriott Bonvoy",
+        "programme": "Marriott Bonvoy",
+        "ratio": "3:1"
+      },
+      {
+        "hotelGroup": "Accor",
+        "programme": "ALL (Accor Live Limitless)",
+        "ratio": "2:1"
+      }
+    ],
+    "transferPartnerValuations": [
+      {
+        "partner": "Maharaja Club",
+        "partnerPointValue": 1.0,
+        "transferRatio": 1.0,
+        "basis": "dynamic",
+        "note": "1 Air Mile → 1 Maharaja Club point · Rs 1.0/point"
+      },
+      {
+        "partner": "Marriott Bonvoy",
+        "partnerPointValue": 0.6,
+        "transferRatio": 0.3333333333333333,
+        "basis": "dynamic",
+        "note": "3 Air Miles → 1 Marriott Bonvoy point · avg Rs 0.6/point"
+      },
+      {
+        "partner": "Accor (ALL)",
+        "partnerPointValue": 2.2,
+        "transferRatio": 0.5,
+        "basis": "fixed",
+        "note": "2 Air Miles → 1 Accor ALL point · Rs 2.2/point"
+      }
+    ]
   },
   "eligibility": {
     "salaried": [
@@ -107,11 +206,12 @@
   },
   "sourceUrl": "https://www.kotak.com/en/personal-banking/cards/credit-cards/kotak-solitaire-credit-card.html",
   "applyUrl": "https://www.kotak.com/en/solitaire.html",
-  "lastVerified": "2026-06-14",
+  "lastVerified": "2026-06-15",
   "verificationStatus": "official-direct",
   "imageUrl": "/images/kotak-solitaire.webp",
   "internalNotes": [
-    "No air miles are earned on international transactions despite zero forex markup. 1 Air Mile = Rs 1.0 for Kotak Unbox travel bookings, and Rs 0.50 for other voucher redemptions. Minimum 2,00,000 Air Miles not required, minimum 2,000 Air Miles required for partner miles transfer.",
-    "Card details manually reviewed and verified by user on 2026-06-14."
+    "No air miles are earned on international transactions despite zero forex markup.",
+    "Air Miles expire 3 years from the date of credit.",
+    "Card details manually reviewed and verified by user on 2026-06-15."
   ]
 }
