@@ -243,7 +243,7 @@ export function getIssuers() {
 }
 
 export function getTags() {
-  return Object.keys(cardIndexes.byTag);
+  return Object.keys(cardIndexes.byTag).sort();
 }
 
 export function getNetworks() {
