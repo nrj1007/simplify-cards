@@ -53,10 +53,10 @@ exports[`ranking golden (representative queries) > produces stable top-N orderin
     "icici-platinum-chip",
     "federal-signet",
     "axis-indianoil-easy",
+    "onecard",
     "yes-kiwi",
     "hsbc-visa-platinum",
     "sc-priority-visa-infinite",
-    "federal-imperio",
   ],
   "lounge": [
     "kotak-white-reserve",

@@ -3374,8 +3374,46 @@ describe("reward calculator", () => {
         expect(rules[0].isVoucher).toBe(false);
       });
     });
+
+    describe("OneCard Partner Banks", () => {
+      it("earns rewards at correct rates (10% online, 2% base)", () => {
+        const card = getCardById("onecard");
+        expect(card).toBeTruthy();
+
+        const resultRates = calculateRewards(card!, {
+          online: 10000,
+          base: 10000
+        });
+        expect(resultRates.rows.find((r) => r.category === "online")!.monthlyUnits).toBe(1000);
+        expect(resultRates.rows.find((r) => r.category === "base")!.monthlyUnits).toBe(200);
+        expect(resultRates.monthlyUnits).toBe(1200);
+
+        const resultExclusions = calculateRewards(card!, {
+          fuel: 10000,
+          rent: 10000
+        });
+        expect(resultExclusions.monthlyUnits).toBe(0);
+        expect(resultExclusions.rows.every((row) => row.monthlyUnits === 0)).toBe(true);
+
+        const resultBaseFallback = calculateRewards(card!, {
+          utilities: 10000,
+          insurance: 10000,
+          education: 10000,
+          government: 10000
+        });
+        expect(resultBaseFallback.rows.find((r) => r.category === "utilities")!.monthlyUnits).toBe(200);
+        expect(resultBaseFallback.rows.find((r) => r.category === "insurance")!.monthlyUnits).toBe(200);
+        expect(resultBaseFallback.rows.find((r) => r.category === "education")!.monthlyUnits).toBe(200);
+        expect(resultBaseFallback.rows.find((r) => r.category === "government")!.monthlyUnits).toBe(200);
+        expect(resultBaseFallback.monthlyUnits).toBe(800);
+
+        const rules = milestoneRulesForCard(card!);
+        expect(rules.length).toBe(0);
+      });
+    });
   });
 });
+
 
 
 
