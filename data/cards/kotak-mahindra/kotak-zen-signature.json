@@ -18,42 +18,42 @@
     {
       "category": "base",
       "displayCategory": "Shopping spends (Apparel, Lifestyle, Departmental Stores & Jewellery)",
-      "rate": 6.6667,
+      "rate": 6.666666666666667,
       "displayRate": "10 Zen Points / ₹150 spent on shopping",
       "capMonthly": 6500
     },
     {
       "category": "base",
       "displayCategory": "Other eligible retail spends",
-      "rate": 3.3333,
+      "rate": 3.3333333333333335,
       "displayRate": "5 Zen Points / ₹150 spent",
       "capMonthly": 6500
     },
     {
       "category": "education",
       "displayCategory": "Education spends",
-      "rate": 3.3333,
+      "rate": 3.3333333333333335,
       "displayRate": "5 Zen Points / ₹150 spent",
       "capMonthly": 2333
     },
     {
       "category": "insurance",
       "displayCategory": "Insurance spends",
-      "rate": 3.3333,
+      "rate": 3.3333333333333335,
       "displayRate": "5 Zen Points / ₹150 spent",
       "capMonthly": 2333
     },
     {
       "category": "utilities",
       "displayCategory": "Utility spends",
-      "rate": 3.3333,
+      "rate": 3.3333333333333335,
       "displayRate": "5 Zen Points / ₹150 spent",
       "capMonthly": 1666
     },
     {
       "category": "government",
       "displayCategory": "Government spends",
-      "rate": 3.3333,
+      "rate": 3.3333333333333335,
       "displayRate": "5 Zen Points / ₹150 spent",
       "capMonthly": 1333
     }
@@ -125,9 +125,29 @@
     "Railway surcharge waiver (max ₹500 per anniversary year)",
     "KASSIST: Priority assistance within 2 hours by SMSing 'KASSIST' to 5676788"
   ],
+  "additionalDetails": [
+    "Zen Points can be redeemed for flight and hotel bookings, or brand e-vouchers via the Kotak Rewards portal at a rate of 1 Zen Point = ₹0.25.",
+    "Zen Points can also be redeemed as statement credit (cashback) at a rate of 1 Zen Point = ₹0.20.",
+    "A minimum of 2,00,000 Zen Points is not required; a minimum of 2,000 Zen Points is required for statement credit (cashback) redemptions, and a minimum of 300 Zen Points is required for vouchers."
+  ],
   "redemption": {
-    "statementBalanceValue": 0.07,
-    "minimumPointsForStatementCredit": 2000
+    "statementBalanceValue": 0.20,
+    "travelPortalValue": 0.25,
+    "minimumPointsForStatementCredit": 2000,
+    "voucherRedemptions": [
+      {
+        "partner": "Brand e-Vouchers",
+        "programme": "Brand e-vouchers via Kotak Rewards",
+        "ratio": "1 Zen Point = Rs 0.25",
+        "valuePerPoint": 0.25
+      },
+      {
+        "partner": "Travel bookings",
+        "programme": "Flight & hotel bookings via Kotak Rewards",
+        "ratio": "1 Zen Point = Rs 0.25",
+        "valuePerPoint": 0.25
+      }
+    ]
   },
   "eligibility": {
     "salaried": [
@@ -143,11 +163,11 @@
   },
   "sourceUrl": "https://www.kotak.com/en/personal-banking/cards/credit-cards/zen-signature-credit-card.html",
   "applyUrl": "https://www.kotak.com/en/personal-banking/cards/credit-cards.html",
-  "lastVerified": "2026-06-14",
+  "lastVerified": "2026-06-15",
   "verificationStatus": "official-direct",
   "imageUrl": "/images/kotak-zen-signature.webp",
   "internalNotes": [
-    "Redemption rate for vouchers and merchandise is 1 point = Rs 0.25. Cash statement credit rate is 1 point = Rs 0.07. Total reward points earned on all transactions capped at 6,500 points per billing cycle.",
-    "Card details manually reviewed and verified by user on 2026-06-14."
+    "Redemption rate for vouchers and merchandise is 1 point = Rs 0.25. Cash statement credit rate was devalued to 1 point = Rs 0.20 on June 1, 2025. Total reward points earned on all transactions capped at 6,500 points per billing cycle.",
+    "Card details manually reviewed and verified by user on 2026-06-15."
   ]
 }

@@ -3078,6 +3078,33 @@ describe("reward calculator", () => {
         expect(result.rows.every((row) => row.monthlyUnits === 0)).toBe(true);
       });
     });
+
+    describe("Kotak Zen Signature Credit Card", () => {
+      it("earns rewards at correct rates (5 Zen Points per Rs 150 base)", () => {
+        const card = getCardById("kotak-zen-signature");
+        expect(card).toBeTruthy();
+
+        // base: 15000 spend -> 1000 Zen Points (matches the first 'base' row which is the shopping row at 10 Zen Points / Rs 150)
+        const result = calculateRewards(card!, {
+          base: 15000
+        });
+
+        // 15000 * (10/150) = 1000 Zen Points
+        expect(result.monthlyUnits).toBeCloseTo(1000, 1);
+      });
+
+      it("excludes wallet load, fuel, rent, gaming, and EMI", () => {
+        const card = getCardById("kotak-zen-signature");
+        expect(card).toBeTruthy();
+
+        const result = calculateRewards(card!, {
+          fuel: 10000,
+          rent: 10000
+        });
+
+        expect(result.monthlyUnits).toBe(0);
+      });
+    });
   });
 });
 
