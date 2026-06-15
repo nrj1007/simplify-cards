@@ -3226,6 +3226,47 @@ describe("reward calculator", () => {
         expect(rules.length).toBe(0);
       });
     });
+
+    describe("Federal Bank Celesta Credit Card", () => {
+      it("earns rewards at correct rates (3x travel/intl, 2x dining, 1x base, 1x insurance capped at 250)", () => {
+        const card = getCardById("federal-celesta");
+        expect(card).toBeTruthy();
+
+        const resultAccelerated = calculateRewards(card!, {
+          travel: 10000,
+          dining: 10000,
+          base: 10000
+        });
+        expect(resultAccelerated.rows.find((r) => r.category === "travel")!.monthlyUnits).toBe(300);
+        expect(resultAccelerated.rows.find((r) => r.category === "dining")!.monthlyUnits).toBe(200);
+        expect(resultAccelerated.rows.find((r) => r.category === "base")!.monthlyUnits).toBe(100);
+        expect(resultAccelerated.monthlyUnits).toBe(600);
+
+        const resultInsuranceCapped = calculateRewards(card!, {
+          insurance: 50000
+        });
+        expect(resultInsuranceCapped.rows.find((r) => r.category === "insurance")!.monthlyUnits).toBe(250);
+        expect(resultInsuranceCapped.monthlyUnits).toBe(250);
+
+        const resultCombined = calculateRewards(card!, {
+          travel: 5000,
+          dining: 10000,
+          base: 5000,
+          insurance: 10000
+        });
+        expect(resultCombined.monthlyUnits).toBe(500);
+
+        const resultExclusions = calculateRewards(card!, {
+          fuel: 10000,
+          rent: 10000,
+          government: 10000
+        });
+        expect(resultExclusions.monthlyUnits).toBe(0);
+
+        const rules = milestoneRulesForCard(card!);
+        expect(rules.length).toBe(0);
+      });
+    });
   });
 });
 

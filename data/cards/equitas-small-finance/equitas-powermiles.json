@@ -18,16 +18,16 @@
   "rewards": [
     {
       "category": "international",
-      "rate": 3,
-      "displayCategory": "International POS & online purchases",
-      "displayRate": "3 Reward Points / Rs 100 spent (3X on international)",
+      "rate": 9,
+      "displayCategory": "International POS and online purchases",
+      "displayRate": "9 Reward Points / Rs 100 spent (3X on international)",
       "capMonthly": null
     },
     {
       "category": "base",
-      "rate": 1,
+      "rate": 3,
       "displayCategory": "All other retail spends",
-      "displayRate": "1 Reward Point / Rs 100 spent",
+      "displayRate": "3 Reward Points / Rs 100 spent",
       "capMonthly": null
     }
   ],
@@ -76,60 +76,33 @@
   "milestoneBenefits": [],
   "additionalBenefits": [
     "Premium metal card",
-    "Complimentary Club Marriott membership (up to 25% off on F&B, Hotel & Spa; complimentary membership for spouse)",
-    "Complimentary EazyDiner Prime membership (25–50% savings + 2,000 welcome EazyPoints + 2X EazyPoints on every meal)",
+    "Complimentary Club Marriott membership (up to 25% off on F&B, Hotel and Spa; complimentary membership for spouse)",
+    "Complimentary EazyDiner Prime membership (25-50% savings, 2,000 welcome EazyPoints, and 2X EazyPoints on every meal)",
     "24x7 global personal concierge services for travel, entertainment, and business",
-    "Air accident cover of Rs 1 crore (when flight tickets booked with PowerMiles card)",
+    "Air accident cover of Rs 1 crore when flight tickets are booked with the PowerMiles card",
     "Zero lost card liability after reporting theft or fraud",
     "1% fuel surcharge waiver on eligible transactions",
     "Up to 50 days interest-free credit period"
   ],
   "additionalDetails": [
-    "3X reward points on all international POS and online purchases",
-    "Base earn rate: 1 reward point per Rs 100 on domestic spends",
-    "1:1 Xchange Brands: Redeem points at 1:1 ratio (1 RP = Rs 1) for luxury brands – Apple iMagine, Tanishq, Taj Vouchers, M&S, The Body Shop",
-    "1:1 Xchange Miles: Convert reward points to miles/points with 10+ airline and hotel partners at 1:1 ratio (feature available from 01 Jul 2026)"
+    "Xchange Brands redemption is available at a 1:1 rate for Apple iMagine, Tanishq, Taj, M&S, and The Body Shop.",
+    "The live public page says points can be converted to leading airline miles, but it does not publish the current partner list or transfer ratios."
   ],
   "redemption": {
-    "statementBalanceValue": 0.50,
-    "travelPortalValue": 1.00,
-    "airMilesValue": 1.0,
-    "airlinePartners": [
-      {
-        "airline": "10+ Airline & Hotel Partners",
-        "programme": "Xchange Miles",
-        "ratio": "1:1"
-      }
-    ],
-    "hotelPartners": [
-      {
-        "programme": "Xchange Brands – Taj Vouchers / Luxury Catalog",
-        "ratio": "1:1"
-      }
-    ],
-    "transferPartnerValuations": [
-      {
-        "partner": "Xchange Miles Partners",
-        "programme": "Xchange Miles (10+ airline & hotel partners)",
-        "ratio": "1:1",
-        "valuePerPoint": 1.0
-      },
-      {
-        "partner": "Xchange Brands",
-        "programme": "Xchange Brands (Apple iMagine, Tanishq, Taj, M&S, The Body Shop)",
-        "ratio": "1:1",
-        "valuePerPoint": 1.0
-      }
-    ]
+    "travelPortalValue": 0.50,
+    "ecosystemLabel": "Xchange Brands",
+    "ecosystemValue": 1.0,
+    "airlinePartners": [],
+    "hotelPartners": []
   },
   "eligibility": {
     "salaried": [
-      "Age: 21 – 60 years",
+      "Age: 21 - 60 years",
       "Higher income bracket (premium card tier)",
       "Subject to Equitas Small Finance Bank credit approval"
     ],
     "selfEmployed": [
-      "Age: 21 – 60 years",
+      "Age: 21 - 60 years",
       "Higher income bracket (premium card tier)",
       "Subject to Equitas Small Finance Bank credit approval"
     ]
@@ -140,14 +113,14 @@
   "lastVerified": "2026-06-15",
   "verificationStatus": "official-direct",
   "internalNotes": [
-    "Card details verified from official Equitas Bank archived page (Wayback Machine snapshot Jan 2026) on 2026-06-15.",
+    "Card details audited against the live official Equitas PowerMiles Credit Card page on 2026-06-15.",
     "Card details manually reviewed and verified by user on 2026-06-15.",
     "Annual fee waiver: Rs 4,80,000 spend in anniversary year.",
-    "Forex markup: 2% on all foreign currency transactions (lower than Tiga/Selfe at 3.5%).",
-    "Xchange Miles (1:1 transfer to 10+ airline & hotel partners) feature is available from 01 Jul 2026 per official page.",
-    "Xchange Brands 1:1 luxury catalog redemption is live.",
+    "Forex markup: 2% on all foreign currency transactions (lower than Tiga and Selfe at 3.5%).",
+    "The live page explicitly shows a base earn rate of 3 RP per Rs 100 and 3X rewards on international spends, so the international row is modeled as 9 RP per Rs 100.",
+    "The live page explicitly shows 1 RP = Rs 0.50 on Xchange redemption and 1:1 Xchange Brands redemption for Apple iMagine, Tanishq, Taj, M&S, and The Body Shop.",
     "Lounge: 2 domestic per quarter (40+ lounges), 1 international per quarter (1000+ lounges).",
     "Finance charges: 3.75% per month. Cash advance fee: 2.5% or Rs 250 whichever is higher.",
-    "Specific list of airline/hotel Xchange Miles partners not publicly disclosed on archived page; verify on Xchange portal (xchange.equitasbank.com)."
+    "The live public page says reward points can be converted to airline miles, but it does not disclose the current partner list or transfer ratios; those fields are left blank until an official public source is available."
   ]
 }
