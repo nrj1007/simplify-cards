@@ -131,12 +131,14 @@ export function deriveTake(card: CreditCard): CardTake | null {
     .filter((entry) => !/cashback|reward/i.test(entry))
     .slice(0, 3)
     .map(prettyInline);
-  const tail = isCashbackCard(card)
-    ? "want your rewards as simple, no-tracking cashback"
-    : "will actually use and redeem your reward points";
+  const tail = isCashbackCard(card) ? "want your rewards as simple, no-tracking cashback" : null;
   const goodFitIf = focuses.length
-    ? `you want a card built for ${joinNatural(focuses)}, and you ${tail}`
-    : `you ${tail}`;
+    ? tail
+      ? `you want a card built for ${joinNatural(focuses)}, and you ${tail}`
+      : `you want a card built for ${joinNatural(focuses)}`
+    : tail
+      ? `you ${tail}`
+      : "";
 
   const positives: string[] = [];
   if (hasLounge(card)) positives.push("complimentary airport lounge access");
