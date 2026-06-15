@@ -76,7 +76,8 @@
     "Reward points redeemable on Equitas Xchange portal (xchange.equitasbank.com) for products, vouchers, and travel"
   ],
   "redemption": {
-    "travelPortalValue": 0.15,
+    "ecosystemLabel": "Equitas Xchange",
+    "ecosystemValue": 0.15,
     "airlinePartners": [],
     "hotelPartners": []
   },
