@@ -662,10 +662,15 @@ export function estimateMilestoneLineValue(card: CreditCard, benefit: string) {
 }
 
 function milestoneValueForCard(card: CreditCard, annualSpend: number) {
-  return milestoneRulesForCard(card).reduce(
-    (total, rule) => (annualSpend >= rule.threshold ? total + rule.value : total),
-    0
-  );
+  // Currency (non-voucher) milestones are paid in the card's reward currency, so a brand-locked
+  // currency (e.g. IndiGo BluChips at 0.5) is worth proportionally less here too — apply the same
+  // liquidity haircut as per-spend rewards. Vouchers are excluded: they're already net via the
+  // voucher convention, and double-discounting them would understate their value.
+  const liquidity = rewardLiquidityMultiplier(card);
+  return milestoneRulesForCard(card).reduce((total, rule) => {
+    if (annualSpend < rule.threshold) return total;
+    return total + (rule.isVoucher ? rule.value : Math.round(rule.value * liquidity));
+  }, 0);
 }
 
 export type MilestoneRule = {

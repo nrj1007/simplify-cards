@@ -72,35 +72,35 @@
       "threshold": 200000,
       "period": "annual",
       "value": 5000,
-      "kind": "voucher",
+      "kind": "points",
       "label": "5,000 IndiGo BluChips on annual spend of Rs 2 Lakh"
     },
     {
       "threshold": 500000,
       "period": "annual",
       "value": 5000,
-      "kind": "voucher",
+      "kind": "points",
       "label": "5,000 IndiGo BluChips on annual spend of Rs 5 Lakh"
     },
     {
       "threshold": 800000,
       "period": "annual",
       "value": 5000,
-      "kind": "voucher",
+      "kind": "points",
       "label": "5,000 IndiGo BluChips on annual spend of Rs 8 Lakh"
     },
     {
       "threshold": 1000000,
       "period": "annual",
       "value": 5000,
-      "kind": "voucher",
+      "kind": "points",
       "label": "5,000 IndiGo BluChips on annual spend of Rs 10 Lakh"
     },
     {
       "threshold": 1200000,
       "period": "annual",
       "value": 5000,
-      "kind": "voucher",
+      "kind": "points",
       "label": "5,000 IndiGo BluChips on annual spend of Rs 12 Lakh"
     }
   ],
