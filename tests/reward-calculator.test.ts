@@ -2327,12 +2327,14 @@ describe("reward calculator", () => {
     });
 
     describe("Flipkart Axis Bank Super Elite Credit Card", () => {
-      it("earns 12 SuperCoins per Rs 100 spent on Flipkart, and 2 SuperCoins per Rs 100 spent elsewhere", () => {
+      it("earns 2 SuperCoins per Rs 100 on general spend (the 12-SuperCoin rate is Flipkart-only, a brand-specific reward not tied to the generic online slider)", () => {
         const card = getCardById("axis-flipkart-super-elite");
         expect(card).toBeTruthy();
 
+        // The Flipkart 12-SuperCoin reward is categorised "partner merchants" (Flipkart only), so the
+        // generic online/base sliders earn the 2-SuperCoin base rate, not 12.
         const result = calculateRewards(card!, { online: 10000, base: 10000 });
-        expect(result.monthlyUnits).toBe(1400); // 1200 + 200
+        expect(result.monthlyUnits).toBe(400); // 200 + 200
       });
     });
 

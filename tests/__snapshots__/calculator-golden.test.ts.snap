@@ -63,8 +63,8 @@ exports[`reward calculator golden (all cards) > computes stable earn for every c
     "moderate": "online:250 dining:250 travel:1250 hotels:250 airlines:250 fuel:x grocery:250 utilities:x upi:250 amazon:250 international:250 base:250 rent:x insurance:x education:x gold:x government:x |3500",
   },
   "axis-flipkart-super-elite": {
-    "high": "online:24000 dining:4000 travel:4000 hotels:4000 airlines:4000 fuel:x grocery:4000 utilities:x upi:4000 amazon:4000 international:4000 base:4000 rent:x insurance:x education:x gold:x government:x |60000",
-    "moderate": "online:3000 dining:500 travel:500 hotels:500 airlines:500 fuel:x grocery:500 utilities:x upi:500 amazon:500 international:500 base:500 rent:x insurance:x education:x gold:x government:x |7500",
+    "high": "online:4000 dining:4000 travel:4000 hotels:4000 airlines:4000 fuel:x grocery:4000 utilities:x upi:4000 amazon:4000 international:4000 base:4000 rent:x insurance:x education:x gold:x government:x |40000",
+    "moderate": "online:500 dining:500 travel:500 hotels:500 airlines:500 fuel:x grocery:500 utilities:x upi:500 amazon:500 international:500 base:500 rent:x insurance:x education:x gold:x government:x |5000",
   },
   "axis-freecharge": {
     "high": "online:1000 dining:1000 travel:1000 hotels:1000 airlines:1000 fuel:x grocery:1000 utilities:x upi:1000 amazon:1000 international:1000 base:1000 rent:x insurance:x education:x gold:x government:x |10000",

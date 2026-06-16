@@ -16,9 +16,13 @@
     "online shopping"
   ],
   "rewardType": "supercoins",
+  "acceleratedShare": {
+    "online": 0.5,
+    "grocery": 0
+  },
   "rewards": [
     {
-      "category": "online",
+      "category": "partner merchants",
       "displayCategory": "Flipkart spends (Plus members)",
       "rate": 12,
       "displayRate": "12 SuperCoins / Rs 100 spent",
@@ -92,7 +96,8 @@
     "Dining Delights discounts of up to 15% at participating partner restaurants"
   ],
   "redemption": {
-    "statementBalanceValue": 1,
+    "ecosystemLabel": "Flipkart SuperCoins",
+    "ecosystemValue": 1,
     "pointsExpiryYears": 1
   },
   "eligibility": {
