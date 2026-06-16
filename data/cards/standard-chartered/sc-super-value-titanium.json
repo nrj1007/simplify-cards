@@ -41,6 +41,7 @@
       "rate": 0.6666666666666666,
       "displayCategory": "Other retail spends",
       "displayRate": "1 reward point / Rs 150 spent",
+      "valuePerUnit": 0.25,
       "capMonthly": null
     }
   ],

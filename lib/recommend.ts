@@ -95,10 +95,12 @@ const relevanceWeightDefault = 0.5;
 // Popularity prior added to every card's score (popularityScore is ~50–100, so ~2,500–5,000).
 const popularityRankingWeight = 50;
 
-// Broad "best card" ranking blends each card's score across fixed light/mid/heavy annual-spend
-// levels (instead of cherry-picking its single most-flattering tier, which let low-fee cards' yield
-// blow up at trivial spend). A card must hold up across the range to rank high.
-const blendAnnualSpendLevels = [300000, 1000000, 2000000]; // Rs 3L, Rs 10L, Rs 20L per year
+// Broad "best card" ranking blends each card's score across fixed light/mid/heavy/very-heavy
+// annual-spend levels (instead of cherry-picking its single most-flattering tier, which let low-fee
+// cards' yield blow up at trivial spend). A card must hold up across the range to rank high. The
+// Rs 30L tier lets super-premium cards (e.g. Magnus Burgundy) that only pull ahead at very high
+// spend show that strength instead of being capped at the Rs 20L tier.
+const blendAnnualSpendLevels = [300000, 1000000, 2000000, 3000000]; // Rs 3L, 10L, 20L, 30L per year
 const exactCardNameMatchThreshold = 50000;
 
 function isBroadNoSpendQuery(input: RecommendationInput, intent: ReturnType<typeof parseQueryIntent>) {
@@ -516,13 +518,22 @@ export function extractMilestoneThreshold(text: string) {
 }
 
 function estimatePointUnitValue(card: CreditCard) {
+  // Transfer-partner value per card reward unit = partnerPointValue x transferRatio (same formula the
+  // calculator uses). Without this the ranking ignored cards whose best redemption is a partner
+  // transfer (e.g. Magnus Burgundy's EDGE points -> Club ITC at Rs 0.8), undervaluing them.
+  const transferValues = (card.redemption?.transferPartnerValuations ?? [])
+    .map((partner) => partner.partnerPointValue * partner.transferRatio)
+    .filter((value) => typeof value === "number" && value > 0);
+
   const values = [
     card.redemption?.ecosystemValue,
     card.redemption?.smartBuyFlightHotelValue,
     card.redemption?.travelEdgeValue,
+    card.redemption?.travelPortalValue,
     card.redemption?.airMilesValue,
     card.redemption?.statementBalanceValue,
-    card.redemption?.accorValue
+    card.redemption?.accorValue,
+    ...transferValues
   ].filter((value): value is number => typeof value === "number" && value > 0);
 
   if (values.length === 0) return 0;

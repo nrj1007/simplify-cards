@@ -107,6 +107,7 @@ export type Redemption = {
   smartBuyFlightHotelValue?: number;
   smartBuyCatalogueValue?: number;
   travelEdgeValue?: number;
+  travelPortalValue?: number;
   airMilesValue?: number;
   accorValue?: number;
   // Valuations for specific transfer partners. partnerPointValue is Rs per partner programme

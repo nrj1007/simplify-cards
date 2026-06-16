@@ -611,8 +611,8 @@ exports[`reward calculator golden (all cards) > computes stable earn for every c
     "moderate": "online:1250 dining:200 travel:200 hotels:200 airlines:200 fuel:x grocery:200 utilities:2000 upi:250 amazon:200 international:200 base:200 rent:x insurance:200 education:x gold:200 government:x |5500",
   },
   "rbl-cookies": {
-    "high": "online:300 dining:300 travel:27 hotels:27 airlines:27 fuel:x grocery:27 utilities:x upi:27 amazon:27 international:27 base:27 rent:x insurance:x education:27 gold:27 government:27 |900",
-    "moderate": "online:300 dining:300 travel:27 hotels:27 airlines:27 fuel:x grocery:27 utilities:x upi:27 amazon:27 international:27 base:27 rent:x insurance:x education:27 gold:27 government:27 |900",
+    "high": "online:10000 dining:2000 travel:2000 hotels:2000 airlines:2000 fuel:x grocery:2000 utilities:x upi:2000 amazon:2000 international:2000 base:2000 rent:x insurance:x education:2000 gold:2000 government:2000 |34000",
+    "moderate": "online:1250 dining:250 travel:250 hotels:250 airlines:250 fuel:x grocery:250 utilities:x upi:250 amazon:250 international:250 base:250 rent:x insurance:x education:250 gold:250 government:250 |4250",
   },
   "rbl-icon": {
     "high": "online:4000 dining:2000 travel:4000 hotels:4000 airlines:4000 fuel:x grocery:4000 utilities:x upi:4000 amazon:4000 international:2000 base:4000 rent:x insurance:x education:x gold:4000 government:x |40000",

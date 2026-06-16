@@ -28,6 +28,7 @@
       "displayCategory": "Retail spends (excl. fuel)",
       "rate": 2,
       "displayRate": "2 Reward Points / Rs 100 spent",
+      "valuePerUnit": 0.25,
       "capMonthly": null
     }
   ],

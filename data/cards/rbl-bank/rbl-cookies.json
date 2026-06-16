@@ -14,23 +14,27 @@
     "entry level"
   ],
   "rewardType": "reward points",
+  "acceleratedShare": {
+    "online": 0,
+    "grocery": 0
+  },
   "rewards": [
     {
-      "category": "dining",
+      "category": "partner merchants",
       "displayCategory": "Zomato spends (10% cashback)",
       "rate": 10,
       "displayRate": "10% Cashback",
       "capMonthly": 300
     },
     {
-      "category": "online",
+      "category": "partner merchants",
       "displayCategory": "Myntra spends (10% cashback)",
       "rate": 10,
       "displayRate": "10% Cashback",
       "capMonthly": 300
     },
     {
-      "category": "base",
+      "category": "partner merchants",
       "displayCategory": "Uber spends (10% cashback)",
       "rate": 10,
       "displayRate": "10% Cashback",
