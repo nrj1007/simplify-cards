@@ -157,10 +157,12 @@
   },
   "sourceUrl": "https://www.bobcard.co.in/etihad-guest-bobcard",
   "applyUrl": "https://www.bobcard.co.in/etihad-guest-bobcard",
+  "imageUrl": "/images/bobcard-etihad-guest.png",
   "lastVerified": "2026-06-17",
   "verificationStatus": "official-direct",
   "popularityScore": 60,
   "internalNotes": [
+    "Card details manually reviewed and verified by user on 2026-06-17.",
     "Audited against the official BOBCARD Etihad Guest product page and terms on 2026-06-17.",
     "Etihad Guest Miles are brand-locked in the Etihad ecosystem, so rewardLiquidity is set to brand-locked.",
     "Standard monthly, quarterly, and annual spends milestones mapped under structured milestones list.",

@@ -6,7 +6,7 @@ import { readUnsupportedQuestionLog, unsupportedQuestionLogPath } from "../lib/q
 const logDir = path.dirname(unsupportedQuestionLogPath);
 
 function cleanupLogFile() {
-  if (fs.existsSync(unsupportedQuestionLogPath)) fs.rmSync(unsupportedQuestionLogPath);
+  if (fs.existsSync(unsupportedQuestionLogPath)) fs.rmSync(unsupportedQuestionLogPath, { force: true });
 }
 
 describe("question log helpers", () => {

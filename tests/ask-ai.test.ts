@@ -9,7 +9,7 @@ const originalApiKey = process.env.OPENAI_API_KEY;
 const originalFetch = global.fetch;
 
 function cleanupLogFile() {
-  if (fs.existsSync(logPath)) fs.rmSync(logPath);
+  if (fs.existsSync(logPath)) fs.rmSync(logPath, { force: true });
 }
 
 describe("ask ai fallback policy", () => {
