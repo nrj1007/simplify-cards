@@ -15,6 +15,7 @@
     "duty free"
   ],
   "rewardType": "360° Rewards points",
+  "rewardLiquidityFactor": 0.8,
   "rewards": [
     {
       "category": "base",
@@ -72,7 +73,8 @@
     "Reduced foreign currency markup of 2.0%"
   ],
   "redemption": {
-    "statementBalanceValue": 1.0,
+    "ecosystemLabel": "360° Rewards Portal vouchers (1 point = Rs 1, no statement cashback)",
+    "ecosystemValue": 1.0,
     "redemptionFee": 99
   },
   "eligibility": {
@@ -92,7 +94,7 @@
   "verificationStatus": "official-direct",
   "internalNotes": [
     "Card details manually reviewed and verified by user on 2026-06-14.",
-    "Earns 5 reward points per Rs 150 spent on base retail spends (3.33% return value). 1 point = Rs 1.",
+    "Earns 5 reward points per Rs 150 spent on base retail spends (3.33% return value). 1 point = Rs 1 redeemable for vouchers/products via the 360 Rewards Portal only — there is no statement-credit/cashback redemption (Rs 99 + GST redemption fee).",
     "Utility, supermarket, insurance, rent/property management, school/education, and government payments earn a lower rate of 3 reward points per Rs 150 spent (2.0% return value).",
     "Fuel spends are completely excluded from earning rewards.",
     "International lounge access via Priority Pass requires a spend of Rs 20,000 in the previous calendar month."
