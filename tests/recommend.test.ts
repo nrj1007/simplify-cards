@@ -158,6 +158,27 @@ describe("scoreCards", () => {
     expect(scores.every((score) => score.card.issuer === "HSBC Bank")).toBe(true);
   });
 
+  it("restricts UPI recommendation queries to UPI or RuPay cards", () => {
+    const scores = scoreCards({
+      query: "Best UPI card for rewards?"
+    });
+
+    expect(scores.length).toBeGreaterThan(0);
+    expect(
+      scores.every((score) => {
+        const rewardCategories = score.card.rewards.flatMap((reward) =>
+          reward.category.split(",").map((category) => category.trim().toLowerCase())
+        );
+        return (
+          score.card.network.includes("RuPay") ||
+          score.card.tags.includes("upi") ||
+          score.card.bestFor.includes("upi") ||
+          rewardCategories.includes("upi")
+        );
+      })
+    ).toBe(true);
+  });
+
   it("surfaces Atlas for Axis travel intent", () => {
     const scores = scoreCards({
       query: "best axis travel card"

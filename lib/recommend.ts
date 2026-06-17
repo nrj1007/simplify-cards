@@ -362,6 +362,39 @@ function shouldRestrictToIssuer(intent: ReturnType<typeof parseQueryIntent>, que
   return true;
 }
 
+function hasUpiCardSignal(card: CreditCard) {
+  const rewardCategories = card.rewards.flatMap((reward) =>
+    reward.category.split(",").map((category) => normalizeForMatch(category))
+  );
+  const directSignals = [
+    card.name,
+    card.id.replace(/-/g, " "),
+    ...card.tags,
+    ...card.bestFor,
+    ...rewardCategories,
+    ...(card.specialSpendRules?.map((rule) => rule.category) ?? [])
+  ];
+
+  return card.network.includes("RuPay") || directSignals.some((value) => containsNormalizedPhrase(normalizeForMatch(value), "upi"));
+}
+
+function shouldRestrictToUpiCards(input: RecommendationInput, intent: ReturnType<typeof parseQueryIntent>) {
+  const hasUpiIntent = intent.tags.includes("upi") || intent.networks.includes("RuPay");
+  if (!hasUpiIntent) return false;
+
+  const normalizedQuery = normalizeForMatch(input.query);
+  if (!normalizedQuery) return false;
+
+  const asksForRecommendation = /\b(best|top|recommend|recommended|suggest|which)\b/.test(normalizedQuery);
+  const mentionsCard = /\bcards?\b/.test(normalizedQuery);
+
+  return (
+    (asksForRecommendation && mentionsCard) ||
+    containsNormalizedPhrase(normalizedQuery, "upi card") ||
+    containsNormalizedPhrase(normalizedQuery, "rupay card")
+  );
+}
+
 function requiresRelationshipAccess(card: CreditCard) {
   const haystack = normalizeForMatch(
     [
@@ -1424,6 +1457,7 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
   const broadNoSpendRankingQuery = isBroadNoSpendQuery(input, intent);
   const broadGenericRanking = isBroadGenericRankingQuery(input, intent);
   const useEnvelopeScoring = shouldUseEnvelopeScoring(input, intent, effectiveMaxAnnualFee, wantsLifetimeFree, wantsLounge);
+  const restrictToUpiCards = shouldRestrictToUpiCards(input, intent);
 
   const scoreCardForSpend = (
     card: CreditCard,
@@ -1577,6 +1611,7 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
     .filter((card) => (wantsLifetimeFree ? (card.annualFee === 0 && card.joiningFee === 0) : true))
     .filter((card) => (wantsLounge ? loungeScore(card) > 0 : true))
     .filter((card) => (restrictToIssuer ? normalizeIssuer(card.issuer) === normalizeIssuer(intent.issuers[0]) : true))
+    .filter((card) => (restrictToUpiCards ? hasUpiCardSignal(card) : true))
     .map((card) => {
       if (!useEnvelopeScoring) return scoreCardForSpend(card, spend);
 
