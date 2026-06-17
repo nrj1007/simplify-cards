@@ -2,6 +2,7 @@
   "id": "axis-flipkart-super-elite",
   "issuer": "Axis Bank",
   "name": "Flipkart Axis Bank Super Elite Credit Card",
+  "status": "discontinued",
   "network": [
     "Visa"
   ],
@@ -112,14 +113,18 @@
   },
   "sourceUrl": "https://www.axis.bank.in/cards/credit-card/flipkart-axis-bank-super-elite-credit-card",
   "applyUrl": "https://www.axis.bank.in/cards/credit-card/flipkart-axis-bank-super-elite-credit-card",
+  "supportingSourceUrls": [
+    "https://technofino.in/community/threads/axis-bank-flipkart-super-elite-credit-card-is-discontinued.31029/"
+  ],
   "additionalDetails": [
     "1 SuperCoin = Re 1, redeemable on Flipkart, Myntra, and Cleartrip for vouchers, products, and travel bookings."
   ],
   "internalNotes": [
     "Flipkart Axis Bank Super Elite Credit Card is a SuperCoin-earning card where 1 SuperCoin = Re 1 in the Flipkart ecosystem.",
-    "Card details manually reviewed and verified by user on 2026-06-12."
+    "Flipkart Axis Bank Super Elite Credit Card has been discontinued, as confirmed by Technofino community discussion on June 17, 2026.",
+    "Card details manually reviewed and verified by user on 2026-06-17."
   ],
-  "lastVerified": "2026-06-12",
+  "lastVerified": "2026-06-17",
   "verificationStatus": "official-direct",
   "popularityScore": 62,
   "imageUrl": "/images/axis-flipkart-super-elite.webp"

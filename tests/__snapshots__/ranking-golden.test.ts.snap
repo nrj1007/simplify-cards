@@ -167,8 +167,8 @@ exports[`ranking golden (representative queries) > produces stable top-N orderin
     "yes-pop-club",
     "sc-ultimate",
     "amex-platinum-travel",
-    "axis-flipkart-super-elite",
     "kotak-solitaire",
+    "yes-marquee",
   ],
   "usecase-fuel": [
     "icici-hpcl-coral",
