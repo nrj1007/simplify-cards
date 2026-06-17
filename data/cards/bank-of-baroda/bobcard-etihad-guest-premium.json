@@ -160,10 +160,12 @@
   },
   "sourceUrl": "https://www.bobcard.co.in/etihad-guest-premium-bobcard",
   "applyUrl": "https://www.bobcard.co.in/etihad-guest-premium-bobcard",
+  "imageUrl": "/images/bobcard-etihad-guest-premium.png",
   "lastVerified": "2026-06-17",
   "verificationStatus": "official-direct",
   "popularityScore": 70,
   "internalNotes": [
+    "Card details manually reviewed and verified by user on 2026-06-17.",
     "Audited against the official BOBCARD Etihad Guest Premium product page and terms on 2026-06-17.",
     "Etihad Guest Miles are brand-locked in the Etihad ecosystem, so rewardLiquidity is set to brand-locked.",
     "Premium variant has a zero forex markup on international spends.",
