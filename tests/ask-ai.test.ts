@@ -178,6 +178,17 @@ describe("ask ai fallback policy", () => {
     expect(answer.summary).toBe("Top 10 picks for this query.");
   });
 
+  it("keeps the top-cards take skimmable and free of stale spend-tier framing", { timeout: 45000 }, async () => {
+    const answer = await answerQuestion({ query: "top 10 credit cards" });
+    const highlights = answer.highlights ?? [];
+
+    expect(highlights.length).toBeLessThanOrEqual(4);
+    // No per-card "best at <label>" lines and no stale "strongest spend level" framing.
+    expect(highlights.some((h: string) => /best at/i.test(h) || /strongest spend level/i.test(h))).toBe(false);
+    // The single framing line reflects the all-round (blended) ranking.
+    expect(highlights.some((h: string) => /all-round value/i.test(h))).toBe(true);
+  });
+
   it("uses AI to improve the summary for broad top-card queries when an OpenAI API key is configured", async () => {
     process.env.OPENAI_API_KEY = "test-key";
     global.fetch = vi.fn(async () =>

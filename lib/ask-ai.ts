@@ -357,16 +357,13 @@ function buildBalancedScenarioHighlights(input: RecommendationInput, answerCards
 }
 
 function buildTopCardsHighlights(input: RecommendationInput, answerCards: CardScore[]) {
-  const envelopeCards = answerCards.filter((score) => score.envelopeScoring).slice(0, 3);
-  const envelopeHighlights =
-    envelopeCards.length > 0
-      ? [
-          "Since no monthly spend was mentioned, each card is ranked at its strongest spend level.",
-          ...envelopeCards.map((score) => `${score.card.name}: best at ${score.envelopeScoring?.bestSpendLabel}.`)
-        ]
-      : [];
+  // No spend was given, so cards are ranked on blended all-round value across light/mid/heavy spend
+  // (not a single "strongest" tier). One short framing line, then the scenario guidance — capped.
+  const framing = answerCards.some((score) => score.envelopeScoring)
+    ? ["No monthly spend was given, so these are ranked on all-round value across light, mid, and heavy spend."]
+    : [];
 
-  return [...envelopeHighlights, ...buildScenarioHighlights(input, answerCards)];
+  return [...framing, ...buildScenarioHighlights(input, answerCards)].slice(0, 4);
 }
 
 function getBalancedScenarioWinnerCards(input: RecommendationInput, answerCards: CardScore[]) {
@@ -458,7 +455,10 @@ function buildScenarioHighlights(
   if (waiverParts.length === 1) {
     scenarioHighlights.push(`Fee waiver kicks in around ${waiverParts[0].amount}/year spend.`);
   } else if (waiverParts.length > 1) {
-    scenarioHighlights.push(`Fee waivers per year — ${waiverParts.map((part) => `${part.name}: ${part.amount}`).join(" · ")}.`);
+    // Cap the list so a large top-N answer doesn't produce a 10-card line.
+    const shown = waiverParts.slice(0, 3).map((part) => `${part.name}: ${part.amount}`);
+    const suffix = waiverParts.length > 3 ? " · and more" : "";
+    scenarioHighlights.push(`Fee waivers per year — ${shown.join(" · ")}${suffix}.`);
   }
 
   return [...new Set(scenarioHighlights)];
