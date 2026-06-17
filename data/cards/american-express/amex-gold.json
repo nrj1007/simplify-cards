@@ -16,6 +16,10 @@
     "dining"
   ],
   "rewardType": "membership rewards",
+  "acceleratedShare": {
+    "online": 0.5,
+    "grocery": 0.3
+  },
   "rewards": [
     {
       "category": "retail",
@@ -30,7 +34,7 @@
       "capMonthly": 10000
     },
     {
-      "category": "online",
+      "category": "partner merchants",
       "rate": 10,
       "displayRate": "5 Membership Rewards Points / Rs 50 spent via Reward Multiplier on select brands",
       "capMonthly": null
@@ -86,7 +90,7 @@
     {
       "threshold": 6000,
       "period": "monthly",
-      "value": 250,
+      "value": 600,
       "kind": "points",
       "label": "1,000 bonus Membership Rewards points on completing 6 transactions of Rs 1,000 or more every calendar month"
     }
@@ -100,7 +104,7 @@
   ],
   "redemption": {
     "statementBalanceValue": 0.25,
-    "airMilesValue": 1,
+    "airMilesValue": 0.6,
     "pointsExpiryYears": null,
     "transferPartnerValuations": [
       {

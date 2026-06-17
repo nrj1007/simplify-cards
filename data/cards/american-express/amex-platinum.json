@@ -100,7 +100,7 @@
   ],
   "redemption": {
     "statementBalanceValue": 0.25,
-    "airMilesValue": 1,
+    "airMilesValue": 0.6,
     "pointsExpiryYears": null,
     "transferPartnerValuations": [
       {

@@ -220,7 +220,7 @@ Define the redemption values for different options, along with transfer ratios f
   "smartBuyFlightHotelValue": 1,
   "airMilesValue": 1,
   "transferPartnerValuations": [
-    { "partner": "Accor (ALL)", "partnerPointValue": 2.2, "transferRatio": 0.5, "basis": "fixed", "note": "2 reward points → 1 Accor ALL point · Rs 2.2/point" }
+    { "partner": "Accor (ALL)", "partnerPointValue": 2, "transferRatio": 0.5, "basis": "fixed", "note": "2 reward points → 1 Accor ALL point · Rs 2/point" }
   ],
   "airlinePartners": [
     {
@@ -254,7 +254,7 @@ Each entry has four fields:
     *   `3:1` → `0.333`
     *   `5:1` → `0.2`
 *   **`basis`**: `"fixed"` if the partner has a published/stable conversion (Accor, Club ITC), `"dynamic"` if value swings with award availability (most airline miles, Marriott Bonvoy) — for dynamic partners use a typical-case average.
-*   **`note`** (optional): A short human-readable line, e.g. `"2 reward points → 1 Accor ALL point · Rs 2.2/point"`.
+*   **`note`** (optional): A short human-readable line, e.g. `"2 reward points → 1 Accor ALL point · Rs 2/point"`.
 
 The calculator computes `value per card unit = partnerPointValue × transferRatio`, so the same `partnerPointValue` produces card-specific results purely through `transferRatio`.
 

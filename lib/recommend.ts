@@ -986,24 +986,45 @@ function rewardAllocationsForSpend(
   }
 
   if (category === "travel") {
-    // Prefer the card's everyday travel rate when it has a dedicated one (a flat "travel"/IRCTC row).
-    // Portal-only flights/hotels tiers (e.g. "travel with points flights") apply only to bookings made
-    // through the issuer portal, so they must not credit general travel spend on these cards.
+    // Issuer-portal flights/hotels tiers (e.g. SmartBuy or "travel with points") apply only to
+    // bookings made through the portal. Matching is limited to those — generic "airlines"/"hotels"
+    // co-brand rows represent direct airline/hotel spend, not general travel.
+    const flightsReward = findRewardByCategoryAliases(card, ["smartbuy flights", "travel with points flights"]);
+    const hotelsReward = findRewardByCategoryAliases(card, ["smartbuy hotels", "travel with points hotels"]);
+    const hasPortalPair = Boolean(flightsReward && hotelsReward && flightsReward !== hotelsReward);
+    // The card's everyday travel rate, if it has a dedicated flat "travel"/IRCTC row.
     const everydayTravelReward = findDirectRewardForSpend(card, category, false);
+
+    if (hasPortalPair && everydayTravelReward) {
+      // Card has both a portal (flights+hotels) and a flat everyday rate (e.g. HSBC TravelOne): a
+      // share of travel is booked via the portal at the higher tier (split 50/50 flights/hotels,
+      // each capped), the rest earns the everyday rate.
+      const portalShare = acceleratedShareForCategory(card, "travel");
+      if (portalShare <= 0) return [{ amount: effectiveAmount, reward: everydayTravelReward }];
+      if (portalShare >= 1) {
+        return [
+          { amount: effectiveAmount * 0.5, reward: flightsReward! },
+          { amount: effectiveAmount * 0.5, reward: hotelsReward! }
+        ];
+      }
+      return [
+        { amount: effectiveAmount * portalShare * 0.5, reward: flightsReward! },
+        { amount: effectiveAmount * portalShare * 0.5, reward: hotelsReward! },
+        { amount: effectiveAmount * (1 - portalShare), reward: everydayTravelReward }
+      ];
+    }
+
+    // Everyday rate only: portal tiers don't apply to general travel on these cards.
     if (everydayTravelReward) {
       return [{ amount: effectiveAmount, reward: everydayTravelReward }];
     }
-    // Otherwise the card earns on travel only via issuer-portal flights/hotels tiers (e.g. SmartBuy or
-    // "travel with points"). Split 50/50 between the flights and hotels rows when both exist, rather
-    // than routing all travel to the single higher-rate (hotels) tier. Matching is limited to portal
-    // tiers — generic "airlines"/"hotels" co-brand rows represent direct airline/hotel spend, not
-    // general travel, so they must not capture it. Falls back to the best single travel reward.
-    const flightsReward = findRewardByCategoryAliases(card, ["smartbuy flights", "travel with points flights"]);
-    const hotelsReward = findRewardByCategoryAliases(card, ["smartbuy hotels", "travel with points hotels"]);
-    if (flightsReward && hotelsReward && flightsReward !== hotelsReward) {
+
+    // Portal only (no everyday rate, e.g. SmartBuy cards): split 50/50 flights/hotels rather than
+    // routing all travel to the single higher-rate (hotels) tier.
+    if (hasPortalPair) {
       return [
-        { amount: effectiveAmount * 0.5, reward: flightsReward },
-        { amount: effectiveAmount * 0.5, reward: hotelsReward }
+        { amount: effectiveAmount * 0.5, reward: flightsReward! },
+        { amount: effectiveAmount * 0.5, reward: hotelsReward! }
       ];
     }
     const travelReward = findRewardForSpend(card, category, true);

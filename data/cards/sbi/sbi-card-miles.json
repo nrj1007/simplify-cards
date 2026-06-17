@@ -109,10 +109,10 @@
     "transferPartnerValuations": [
       {
         "partner": "Accor (ALL)",
-        "partnerPointValue": 2.2,
+        "partnerPointValue": 2,
         "transferRatio": 0.5,
         "basis": "fixed",
-        "note": "2 Travel Credits -> 1 Accor ALL point · Rs 2.2/point"
+        "note": "2 Travel Credits -> 1 Accor ALL point · Rs 2/point"
       },
       {
         "partner": "Club ITC",

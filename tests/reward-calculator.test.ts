@@ -210,8 +210,8 @@ describe("reward calculator", () => {
     expect(tajMilestone).toBeTruthy();
     expect(tajMilestone!.isVoucher).toBe(true);
 
-    // 22500 MR points * 1.0 = 22500. Taj stay voucher 10000 * 0.5 = 5000. Total value = 27500.
-    expect(tajMilestone!.value).toBe(27500);
+    // 22500 MR points * 0.6 = 13500. Taj stay voucher 10000 * 0.5 = 5000. Total value = 18500.
+    expect(tajMilestone!.value).toBe(18500);
     expect(tajMilestone!.label).toContain("Taj stay voucher");
 
     // The other two milestones do not contain the word 'voucher'
@@ -257,14 +257,14 @@ describe("reward calculator", () => {
 
       const result = calculateRewards(card!, {
         base: 10000,   // 200
-        online: 10000  // 2 MR / Rs 50 = 400
+        online: 10000  // base 1 MR / Rs 50 = 200 (the 2X Reward Multiplier is select-brands only, not all online)
       });
 
-      expect(result.monthlyUnits).toBe(600);
-      expect(result.annualUnits).toBe(7200);
+      expect(result.monthlyUnits).toBe(400);
+      expect(result.annualUnits).toBe(4800);
 
       const onlineRow = result.rows.find((r) => r.category === "online");
-      expect(onlineRow?.monthlyUnits).toBe(400);
+      expect(onlineRow?.monthlyUnits).toBe(200);
     });
 
     it("excludes utilities on Amex Membership Rewards Credit Card", () => {
@@ -288,14 +288,14 @@ describe("reward calculator", () => {
 
       const result = calculateRewards(card!, {
         base: 10000,   // 200
-        online: 10000  // 3 MR / Rs 50 = 600
+        online: 10000  // base 1 MR / Rs 50 = 200 (the 3X Reward Multiplier is select-brands only, not all online)
       });
 
-      expect(result.monthlyUnits).toBe(800);
-      expect(result.annualUnits).toBe(9600);
+      expect(result.monthlyUnits).toBe(400);
+      expect(result.annualUnits).toBe(4800);
 
       const onlineRow = result.rows.find((r) => r.category === "online");
-      expect(onlineRow?.monthlyUnits).toBe(600);
+      expect(onlineRow?.monthlyUnits).toBe(200);
     });
 
     it("calculates rewards correctly for Amex Platinum including overseas and fuel spend", () => {
@@ -322,13 +322,13 @@ describe("reward calculator", () => {
       expect(card).toBeTruthy();
 
       const result = calculateRewards(card!, {
-        online: 2500,  // 10X => 500 MR
+        online: 2500,  // base 1 MR / Rs 50 => 50 (the 10X is select-merchant only, not all online)
         amazon: 2500,  // 5X => 250 MR
         base: 5000     // 1 MR / Rs 50 => 100 MR
       });
 
-      expect(result.monthlyUnits).toBe(850);
-      expect(result.annualUnits).toBe(10200);
+      expect(result.monthlyUnits).toBe(400);
+      expect(result.annualUnits).toBe(4800);
     });
 
     it("applies SmartEarn accelerated caps correctly", () => {
@@ -336,16 +336,16 @@ describe("reward calculator", () => {
       expect(card).toBeTruthy();
 
       const result = calculateRewards(card!, {
-        online: 10000, // raw 2,000 MR, capped at 500
+        online: 10000, // base 1 MR / Rs 50 => 200 (the 10X select-merchant rate is not on the generic online slider)
         amazon: 10000  // raw 1,000 MR, capped at 250
       });
 
-      expect(result.monthlyUnits).toBe(750);
-      expect(result.annualUnits).toBe(9000);
+      expect(result.monthlyUnits).toBe(450);
+      expect(result.annualUnits).toBe(5400);
 
       const onlineRow = result.rows.find((r) => r.category === "online");
       const amazonRow = result.rows.find((r) => r.category === "amazon");
-      expect(onlineRow?.monthlyUnits).toBe(500);
+      expect(onlineRow?.monthlyUnits).toBe(200);
       expect(amazonRow?.monthlyUnits).toBe(250);
     });
   });

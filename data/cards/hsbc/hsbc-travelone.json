@@ -170,10 +170,10 @@
     "transferPartnerValuations": [
       {
         "partner": "Accor (ALL)",
-        "partnerPointValue": 2.2,
+        "partnerPointValue": 2,
         "transferRatio": 1,
         "basis": "fixed",
-        "note": "1 reward point → 1 Accor ALL point · Rs 2.2/point"
+        "note": "1 reward point → 1 Accor ALL point · Rs 2/point"
       },
       {
         "partner": "Marriott Bonvoy",

@@ -3,27 +3,27 @@
 exports[`reward calculator golden (all cards) > computes stable earn for every card at moderate and high spend 1`] = `
 {
   "amex-gold": {
-    "high": "online:20000 dining:4000 travel:4000 hotels:4000 airlines:4000 fuel:x grocery:4000 utilities:4000 upi:4000 amazon:4000 international:4000 base:4000 rent:4000 insurance:x education:4000 gold:4000 government:4000 |76000",
-    "moderate": "online:2500 dining:500 travel:500 hotels:500 airlines:500 fuel:x grocery:500 utilities:500 upi:500 amazon:500 international:500 base:500 rent:500 insurance:x education:500 gold:500 government:500 |9500",
+    "high": "online:4000 dining:4000 travel:4000 hotels:4000 airlines:4000 fuel:x grocery:4000 utilities:4000 upi:4000 amazon:4000 international:4000 base:4000 rent:4000 insurance:x education:4000 gold:4000 government:4000 |60000",
+    "moderate": "online:500 dining:500 travel:500 hotels:500 airlines:500 fuel:x grocery:500 utilities:500 upi:500 amazon:500 international:500 base:500 rent:500 insurance:x education:500 gold:500 government:500 |7500",
   },
   "amex-membership-rewards": {
-    "high": "online:8000 dining:4000 travel:4000 hotels:4000 airlines:4000 fuel:x grocery:4000 utilities:x upi:4000 amazon:4000 international:4000 base:4000 rent:4000 insurance:x education:4000 gold:4000 government:4000 |60000",
-    "moderate": "online:1000 dining:500 travel:500 hotels:500 airlines:500 fuel:x grocery:500 utilities:x upi:500 amazon:500 international:500 base:500 rent:500 insurance:x education:500 gold:500 government:500 |7500",
+    "high": "online:4000 dining:4000 travel:4000 hotels:4000 airlines:4000 fuel:x grocery:4000 utilities:x upi:4000 amazon:4000 international:4000 base:4000 rent:4000 insurance:x education:4000 gold:4000 government:4000 |56000",
+    "moderate": "online:500 dining:500 travel:500 hotels:500 airlines:500 fuel:x grocery:500 utilities:x upi:500 amazon:500 international:500 base:500 rent:500 insurance:x education:500 gold:500 government:500 |7000",
   },
   "amex-platinum": {
     "high": "online:5000 dining:5000 travel:15000 hotels:5000 airlines:5000 fuel:10000 grocery:5000 utilities:x upi:5000 amazon:5000 international:5000 base:5000 rent:5000 insurance:x education:5000 gold:5000 government:5000 |90000",
     "moderate": "online:625 dining:625 travel:1875 hotels:625 airlines:625 fuel:1250 grocery:625 utilities:x upi:625 amazon:625 international:625 base:625 rent:625 insurance:x education:625 gold:625 government:625 |11250",
   },
   "amex-platinum-reserve": {
-    "high": "online:12000 dining:4000 travel:4000 hotels:4000 airlines:4000 fuel:4000 grocery:4000 utilities:x upi:4000 amazon:4000 international:4000 base:4000 rent:4000 insurance:x education:4000 gold:4000 government:4000 |68000",
-    "moderate": "online:1500 dining:500 travel:500 hotels:500 airlines:500 fuel:500 grocery:500 utilities:x upi:500 amazon:500 international:500 base:500 rent:500 insurance:x education:500 gold:500 government:500 |8500",
+    "high": "online:4000 dining:4000 travel:4000 hotels:4000 airlines:4000 fuel:4000 grocery:4000 utilities:x upi:4000 amazon:4000 international:4000 base:4000 rent:4000 insurance:x education:4000 gold:4000 government:4000 |60000",
+    "moderate": "online:500 dining:500 travel:500 hotels:500 airlines:500 fuel:500 grocery:500 utilities:x upi:500 amazon:500 international:500 base:500 rent:500 insurance:x education:500 gold:500 government:500 |7500",
   },
   "amex-platinum-travel": {
-    "high": "online:12000 dining:4000 travel:4000 hotels:4000 airlines:4000 fuel:x grocery:4000 utilities:x upi:4000 amazon:4000 international:4000 base:4000 rent:4000 insurance:x education:4000 gold:4000 government:4000 |64000",
-    "moderate": "online:1500 dining:500 travel:500 hotels:500 airlines:500 fuel:x grocery:500 utilities:x upi:500 amazon:500 international:500 base:500 rent:500 insurance:x education:500 gold:500 government:500 |8000",
+    "high": "online:4000 dining:4000 travel:4000 hotels:4000 airlines:4000 fuel:x grocery:4000 utilities:x upi:4000 amazon:4000 international:4000 base:4000 rent:4000 insurance:x education:4000 gold:4000 government:4000 |56000",
+    "moderate": "online:500 dining:500 travel:500 hotels:500 airlines:500 fuel:x grocery:500 utilities:x upi:500 amazon:500 international:500 base:500 rent:500 insurance:x education:500 gold:500 government:500 |7000",
   },
   "amex-smartearn": {
-    "high": "online:500 dining:4000 travel:4000 hotels:4000 airlines:4000 fuel:x grocery:4000 utilities:x upi:4000 amazon:250 international:4000 base:4000 rent:4000 insurance:x education:4000 gold:4000 government:4000 |48750",
+    "high": "online:4000 dining:4000 travel:4000 hotels:4000 airlines:4000 fuel:x grocery:4000 utilities:x upi:4000 amazon:250 international:4000 base:4000 rent:4000 insurance:x education:4000 gold:4000 government:4000 |52250",
     "moderate": "online:500 dining:500 travel:500 hotels:500 airlines:500 fuel:x grocery:500 utilities:x upi:500 amazon:250 international:500 base:500 rent:500 insurance:x education:500 gold:500 government:500 |6750",
   },
   "apollo-sbi-select": {

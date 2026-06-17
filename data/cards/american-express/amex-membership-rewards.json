@@ -16,6 +16,10 @@
     "vouchers"
   ],
   "rewardType": "membership rewards",
+  "acceleratedShare": {
+    "online": 0.5,
+    "grocery": 0.3
+  },
   "rewards": [
     {
       "category": "retail",
@@ -24,7 +28,7 @@
       "capMonthly": null
     },
     {
-      "category": "online",
+      "category": "partner merchants",
       "rate": 4,
       "displayRate": "2 Membership Rewards Points / Rs 50 spent via Reward Multiplier on select brands",
       "capMonthly": null
@@ -83,14 +87,14 @@
     {
       "threshold": 6000,
       "period": "monthly",
-      "value": 250,
+      "value": 600,
       "kind": "points",
       "label": "1,000 Bonus Membership Rewards points on 4 transactions of Rs 1,500 or more in a calendar month"
     },
     {
       "threshold": 20000,
       "period": "monthly",
-      "value": 250,
+      "value": 600,
       "kind": "points",
       "label": "Additional 1,000 Membership Rewards points on spending Rs 20,000 or more in a calendar month"
     }

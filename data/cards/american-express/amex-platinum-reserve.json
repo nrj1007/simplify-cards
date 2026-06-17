@@ -17,6 +17,10 @@
     "hotel benefits"
   ],
   "rewardType": "membership rewards",
+  "acceleratedShare": {
+    "online": 0.5,
+    "grocery": 0.3
+  },
   "rewards": [
     {
       "category": "retail",
@@ -25,7 +29,7 @@
       "capMonthly": null
     },
     {
-      "category": "online",
+      "category": "partner merchants",
       "rate": 6,
       "displayRate": "3 Membership Rewards Points / Rs 50 spent via Reward Multiplier on select brands",
       "capMonthly": null

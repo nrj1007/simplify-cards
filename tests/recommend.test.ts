@@ -240,7 +240,7 @@ describe("scoreCards", () => {
 
     const travelOneRank = scores.findIndex((score) => score.card.id === "hsbc-travelone");
     const travelOne = scores.find((score) => score.card.id === "hsbc-travelone");
-    expect(travelOne?.card.redemption?.accorValue).toBe(2.2);
+    expect(travelOne?.card.redemption?.accorValue).toBe(2);
     expect(travelOneRank).toBeGreaterThanOrEqual(0);
   });
 
@@ -356,17 +356,21 @@ describe("scoreCards", () => {
     expect(smartbuyDinersOnlineRewards).toEqual(["smartbuy"]);
   });
 
-  it("treats generic travel spend as fully travel-routed instead of a 50-50 SmartBuy blend", () => {
+  it("splits TravelOne travel between the portal flights/hotels tiers and the everyday rate", () => {
     const genericScores = scoreCards({
       query: "top card under 5000"
     });
 
+    // TravelOne has both portal tiers (flights/hotels via HSBC) and a flat everyday "travel" rate, so a
+    // share of travel is booked via the portal and the rest earns the everyday rate.
     const travelOne = genericScores.find((score) => score.card.id === "hsbc-travelone");
     const travelOneTravelRewards = travelOne?.rewardBreakdown
       .filter((item) => item.spendCategory === "travel")
       .map((item) => item.rewardCategory);
 
-    expect(travelOneTravelRewards).toEqual(["travel"]);
+    expect(travelOneTravelRewards).toEqual(
+      expect.arrayContaining(["travel with points flights", "travel with points hotels", "travel"])
+    );
   });
 
   it("honors acceleratedShare grocery:0 — Regalia grocery earns base only, while online still blends", () => {
@@ -422,12 +426,15 @@ describe("scoreCards", () => {
       }
     });
 
+    // The portal flights tier (16 RP/Rs 100, cap 18,000 RP/mo, post-cap 4) takes a 25% share of travel.
+    // At this spend it blows past the cap and earns the post-cap rate on the excess rather than
+    // hard-stopping at the cap.
     const travelOne = scores.find((score) => score.card.id === "hsbc-travelone");
-    const travelBreakdown = travelOne?.rewardBreakdown.find((item) => item.spendCategory === "travel");
+    const flightsBreakdown = travelOne?.rewardBreakdown.find((item) => item.rewardCategory === "travel with points flights");
 
-    expect(travelBreakdown).toBeDefined();
-    expect(travelBreakdown?.monthlyReward).toBe(143000);
-    expect(travelBreakdown?.annualReward).toBe(1716000);
+    expect(flightsBreakdown).toBeDefined();
+    expect(flightsBreakdown?.monthlyReward).toBe(67000);
+    expect(flightsBreakdown?.annualReward).toBe(804000);
   });
 
   it("does not treat capped insurance wording as fully excluded when a card explicitly allows insurance rewards", () => {
