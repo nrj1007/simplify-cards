@@ -286,6 +286,24 @@ if (cardFiles.length === 0) {
       addIssue("rewardLiquidityFactor must be a number in (0, 1] when present", cardId, "rewardLiquidityFactor");
     }
 
+    const redemption = card.redemption as { pointValueTiers?: unknown } | undefined;
+    const pointValueTiers = redemption?.pointValueTiers;
+    if (pointValueTiers !== undefined) {
+      if (!Array.isArray(pointValueTiers) || pointValueTiers.length === 0) {
+        addIssue("redemption.pointValueTiers must be a non-empty array when present", cardId, "redemption");
+      } else {
+        for (const [tierIndex, entry] of pointValueTiers.entries()) {
+          const tier = entry as { minMonthlySpend?: unknown; value?: unknown };
+          if (typeof tier.minMonthlySpend !== "number" || tier.minMonthlySpend < 0) {
+            addIssue(`redemption.pointValueTiers[${tierIndex}].minMonthlySpend must be a number >= 0`, cardId, "redemption");
+          }
+          if (typeof tier.value !== "number" || tier.value <= 0) {
+            addIssue(`redemption.pointValueTiers[${tierIndex}].value must be a number > 0`, cardId, "redemption");
+          }
+        }
+      }
+    }
+
     if (card.acceleratedShare !== undefined) {
       const share = card.acceleratedShare as Record<string, unknown>;
       if (typeof share !== "object" || share === null || Array.isArray(share)) {

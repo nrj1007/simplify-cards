@@ -92,6 +92,11 @@
     "travelPortalValue": 0.50,
     "ecosystemLabel": "Xchange Brands",
     "ecosystemValue": 1.0,
+    "pointValueTiers": [
+      { "minMonthlySpend": 0, "value": 0.5 },
+      { "minMonthlySpend": 60000, "value": 0.75 },
+      { "minMonthlySpend": 100000, "value": 1.0 }
+    ],
     "airlinePartners": [],
     "hotelPartners": []
   },

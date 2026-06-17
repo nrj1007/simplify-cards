@@ -108,6 +108,11 @@ export type Redemption = {
   }>;
   ecosystemLabel?: string;
   ecosystemValue?: number;
+  // Spend-tiered redemption value for bank "tier" programs (e.g. Equitas PowerMiles: Rs 0.50 Blue ->
+  // Rs 0.75 Platinum -> Rs 1.00 Diamond by monthly spend). When present, the ranking engine values
+  // points at the tier matching the cardholder's monthly spend instead of the flat point value.
+  // Display fields (ecosystemValue etc.) are unaffected. See effectivePointValue in lib/recommend.ts.
+  pointValueTiers?: Array<{ minMonthlySpend: number; value: number }>;
   statementBalanceValue?: number;
   smartBuyFlightHotelValue?: number;
   smartBuyCatalogueValue?: number;

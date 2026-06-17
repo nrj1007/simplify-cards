@@ -559,6 +559,21 @@ function rewardUnitValue(card: CreditCard) {
   return baseRewardUnitValue(card) * rewardLiquidityMultiplier(card);
 }
 
+// Point value used for scoring at a given monthly spend. Cards with a bank spend-tier program
+// (redemption.pointValueTiers, e.g. Equitas PowerMiles) are valued at the tier matching the spend
+// — a low-spender gets the floor value, a high-spender the top value — so the envelope blend
+// reflects "you need high spend to unlock the good redemption". Everything else uses the flat value.
+function effectivePointValue(card: CreditCard, monthlySpend: number): number {
+  const tiers = card.redemption?.pointValueTiers;
+  if (tiers && tiers.length) {
+    const tier = [...tiers]
+      .sort((a, b) => b.minMonthlySpend - a.minMonthlySpend)
+      .find((t) => monthlySpend >= t.minMonthlySpend);
+    if (tier) return tier.value;
+  }
+  return rewardUnitValue(card);
+}
+
 function baseRewardUnitValue(card: CreditCard) {
   const rewardType = normalizeForMatch(card.rewardType);
 
@@ -1103,7 +1118,7 @@ function findDirectRewardForSpend(card: CreditCard, category: SpendCategory, inc
 }
 
 function rewardBreakdownForCard(card: CreditCard, spend: SpendProfile, includeSmartbuyLikeRewards: boolean) {
-  const cardUnitValue = rewardUnitValue(card);
+  const cardUnitValue = effectivePointValue(card, monthlySpendTotal(spend));
 
   type ActiveAllocation = {
     category: SpendCategory;
