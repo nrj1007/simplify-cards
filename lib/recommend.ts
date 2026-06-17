@@ -952,6 +952,9 @@ function tieredAllocationsForCategory(card: CreditCard, category: SpendCategory,
   const aliases = spendAliases[category];
   const targetCategoryLower = category.toLowerCase();
   const matching = card.rewards.filter((reward) => {
+    // total-monthly-spend tiers are pooled across categories in rewardBreakdownForCard, not bucketed
+    // per category here, so exclude them from per-category tiering.
+    if (reward.tierScope === "total-monthly-spend") return false;
     const rewardCategories = reward.category.split(",").map((c) => c.trim().toLowerCase());
     return aliases.some((alias) => rewardCategories.includes(alias.toLowerCase())) || rewardCategories.includes(targetCategoryLower);
   });
@@ -1122,6 +1125,32 @@ function rewardBreakdownForCard(card: CreditCard, spend: SpendProfile, includeSm
       });
     }
   });
+
+  // Total-monthly-spend tiered base: spend across categories pools to the lower tier; once that pool
+  // exceeds the threshold, the excess is credited at the higher tier (e.g. Magnus base earns 6 EDGE
+  // up to Rs 1.5L/month total and 17.5 above). Portal/dedicated spend earns its own reward and never
+  // lands on the lower tier, so it is naturally excluded from the pool.
+  const totalScoped = card.rewards.filter((reward) => reward.tierScope === "total-monthly-spend");
+  const lowerTier = totalScoped.find((reward) => reward.tierUpperBound != null);
+  const upperTier = totalScoped.find((reward) => (reward.tierUpperBound ?? null) === null && (reward.tierLowerBound ?? 0) > 0);
+  if (lowerTier && upperTier && lowerTier !== upperTier && lowerTier.tierUpperBound != null) {
+    const threshold = lowerTier.tierUpperBound;
+    const pool = allocations.filter((a) => a.reward === lowerTier).reduce((sum, a) => sum + a.allocatedAmount, 0);
+    if (pool > threshold) {
+      const lowerShare = threshold / pool;
+      const retiered: ActiveAllocation[] = [];
+      for (const a of allocations) {
+        if (a.reward !== lowerTier) {
+          retiered.push(a);
+          continue;
+        }
+        retiered.push({ category: a.category, allocatedAmount: a.allocatedAmount * lowerShare, reward: lowerTier });
+        retiered.push({ category: a.category, allocatedAmount: a.allocatedAmount * (1 - lowerShare), reward: upperTier });
+      }
+      allocations.length = 0;
+      allocations.push(...retiered);
+    }
+  }
 
   const groups = new Map<Reward, ActiveAllocation[]>();
   for (const alloc of allocations) {

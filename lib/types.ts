@@ -74,6 +74,11 @@ export type Reward = {
   // open-ended top tier. A row is "tiered" when `tierLowerBound` is defined.
   tierLowerBound?: number;
   tierUpperBound?: number | null;
+  // Scope of the tier bounds. "category" (default) tiers the spend within this reward's own category.
+  // "total-monthly-spend" tiers against the card's pooled monthly spend across all categories that
+  // fall to this reward — e.g. Axis Magnus' base earns 6 EDGE/Rs 100 up to Rs 1.5L total/month and
+  // 17.5 above, regardless of which categories make up that spend.
+  tierScope?: "category" | "total-monthly-spend";
 };
 
 export type Redemption = {

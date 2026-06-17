@@ -32,7 +32,8 @@
       "displayRate": "12 EDGE REWARD Points / Rs 200",
       "capMonthly": null,
       "tierLowerBound": 0,
-      "tierUpperBound": 150000
+      "tierUpperBound": 150000,
+      "tierScope": "total-monthly-spend"
     },
     {
       "category": "base",
@@ -41,7 +42,8 @@
       "displayRate": "35 EDGE REWARD Points / Rs 200",
       "capMonthly": null,
       "tierLowerBound": 150000,
-      "tierUpperBound": null
+      "tierUpperBound": null,
+      "tierScope": "total-monthly-spend"
     }
   ],
   "loungeDomestic": "unlimited",
