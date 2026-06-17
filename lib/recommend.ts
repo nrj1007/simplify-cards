@@ -362,6 +362,16 @@ function shouldRestrictToIssuer(intent: ReturnType<typeof parseQueryIntent>, que
   return true;
 }
 
+function isCardRecommendationQuery(query?: string) {
+  const normalizedQuery = normalizeForMatch(query);
+  if (!normalizedQuery) return false;
+
+  const asksForRecommendation = /\b(best|top|recommend|recommended|suggest|which)\b/.test(normalizedQuery);
+  const mentionsCard = /\bcards?\b/.test(normalizedQuery);
+
+  return asksForRecommendation && mentionsCard;
+}
+
 function hasUpiCardSignal(card: CreditCard) {
   const rewardCategories = card.rewards.flatMap((reward) =>
     reward.category.split(",").map((category) => normalizeForMatch(category))
@@ -385,14 +395,75 @@ function shouldRestrictToUpiCards(input: RecommendationInput, intent: ReturnType
   const normalizedQuery = normalizeForMatch(input.query);
   if (!normalizedQuery) return false;
 
-  const asksForRecommendation = /\b(best|top|recommend|recommended|suggest|which)\b/.test(normalizedQuery);
-  const mentionsCard = /\bcards?\b/.test(normalizedQuery);
-
   return (
-    (asksForRecommendation && mentionsCard) ||
+    isCardRecommendationQuery(input.query) ||
     containsNormalizedPhrase(normalizedQuery, "upi card") ||
     containsNormalizedPhrase(normalizedQuery, "rupay card")
   );
+}
+
+function explicitNetworkFilters(input: RecommendationInput, intent: ReturnType<typeof parseQueryIntent>) {
+  if (!isCardRecommendationQuery(input.query)) return [];
+
+  const normalizedQuery = normalizeForMatch(input.query);
+  return intent.networks.filter((network) => {
+    const normalizedNetwork = normalizeForMatch(network);
+    if (normalizedNetwork === "american express") return /\b(amex|american express)\b/.test(normalizedQuery);
+    if (normalizedNetwork === "diners club") return containsNormalizedPhrase(normalizedQuery, "diners");
+    return containsNormalizedPhrase(normalizedQuery, normalizedNetwork);
+  });
+}
+
+function cardMatchesNetworkFilter(card: CreditCard, network: string) {
+  const normalizedNetwork = normalizeForMatch(network);
+  return card.network.some((cardNetwork) => {
+    const normalizedCardNetwork = normalizeForMatch(cardNetwork);
+    return normalizedCardNetwork === normalizedNetwork || containsNormalizedPhrase(normalizedCardNetwork, normalizedNetwork);
+  });
+}
+
+function hasFuelCardSignal(card: CreditCard) {
+  const rewardCategories = card.rewards.flatMap((reward) =>
+    reward.category.split(",").map((category) => normalizeForMatch(category))
+  );
+  const haystack = normalizeForMatch(
+    [
+      card.name,
+      card.id.replace(/-/g, " "),
+      ...card.bestFor,
+      ...rewardCategories,
+      ...(card.specialSpendRules?.map((rule) => rule.category) ?? [])
+    ].join(" ")
+  );
+
+  const hasFuelIdentity = ["fuel", "petrol", "diesel", "hpcl", "bpcl", "indianoil", "indian oil", "iocl"].some((token) =>
+    containsNormalizedPhrase(haystack, token)
+  );
+  const hasFuelTag = card.tags.some((tag) => {
+    const normalizedTag = normalizeForMatch(tag);
+    return normalizedTag === "fuel" || containsNormalizedPhrase(normalizedTag, "fuel card");
+  });
+
+  return hasFuelIdentity || hasFuelTag;
+}
+
+function shouldRestrictToFuelCards(input: RecommendationInput, intent: ReturnType<typeof parseQueryIntent>) {
+  const hasFuelIntent = intent.tags.includes("fuel") || normalizeForMatch(input.query).includes("fuel");
+  if (!hasFuelIntent) return false;
+
+  const normalizedQuery = normalizeForMatch(input.query);
+  return (
+    isCardRecommendationQuery(input.query) ||
+    containsNormalizedPhrase(normalizedQuery, "fuel card") ||
+    containsNormalizedPhrase(normalizedQuery, "petrol card")
+  );
+}
+
+function focusedSpendProfile(category: SpendCategory) {
+  const monthlyTotal = Object.values(defaultSpendProfile).reduce((total, amount = 0) => total + amount, 0);
+  return Object.fromEntries(
+    Object.keys(defaultSpendProfile).map((key) => [key, key === category ? monthlyTotal : 0])
+  ) as SpendProfile;
 }
 
 function requiresRelationshipAccess(card: CreditCard) {
@@ -1450,14 +1521,18 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
   const effectiveMaxAnnualFee = input.maxAnnualFee ?? intent.maxAnnualFee;
   const wantsLifetimeFree = input.wantsLifetimeFree ?? intent.wantsLifetimeFree;
   const wantsLounge = input.wantsLounge ?? intent.wantsLounge;
-  const spend = { ...defaultSpendProfile, ...(intent.inferredSpend ?? {}), ...(input.spend ?? {}) };
+  const restrictToFuelCards = shouldRestrictToFuelCards(input, intent);
+  const fuelFocusedSpend = restrictToFuelCards && !intent.inferredSpend && !input.spend ? focusedSpendProfile("fuel") : undefined;
+  const spend = { ...defaultSpendProfile, ...(fuelFocusedSpend ?? {}), ...(intent.inferredSpend ?? {}), ...(input.spend ?? {}) };
   const restrictToIssuer = shouldRestrictToIssuer(intent, input.query);
   const includeSmartbuyLikeRewards = shouldIncludeSmartbuyLikeRewards(input.query);
   const broadMixedSpendQuery = isBroadMixedSpendQuery(input, intent);
   const broadNoSpendRankingQuery = isBroadNoSpendQuery(input, intent);
   const broadGenericRanking = isBroadGenericRankingQuery(input, intent);
-  const useEnvelopeScoring = shouldUseEnvelopeScoring(input, intent, effectiveMaxAnnualFee, wantsLifetimeFree, wantsLounge);
+  const useEnvelopeScoring =
+    !restrictToFuelCards && shouldUseEnvelopeScoring(input, intent, effectiveMaxAnnualFee, wantsLifetimeFree, wantsLounge);
   const restrictToUpiCards = shouldRestrictToUpiCards(input, intent);
+  const networkFilters = explicitNetworkFilters(input, intent);
 
   const scoreCardForSpend = (
     card: CreditCard,
@@ -1612,6 +1687,8 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
     .filter((card) => (wantsLounge ? loungeScore(card) > 0 : true))
     .filter((card) => (restrictToIssuer ? normalizeIssuer(card.issuer) === normalizeIssuer(intent.issuers[0]) : true))
     .filter((card) => (restrictToUpiCards ? hasUpiCardSignal(card) : true))
+    .filter((card) => (networkFilters.length ? networkFilters.some((network) => cardMatchesNetworkFilter(card, network)) : true))
+    .filter((card) => (restrictToFuelCards ? hasFuelCardSignal(card) : true))
     .map((card) => {
       if (!useEnvelopeScoring) return scoreCardForSpend(card, spend);
 

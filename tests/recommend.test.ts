@@ -179,6 +179,49 @@ describe("scoreCards", () => {
     ).toBe(true);
   });
 
+  it("restricts explicit network recommendation queries to that network", () => {
+    const scenarios = [
+      { query: "best visa card", network: "visa" },
+      { query: "best mastercard card", network: "mastercard" },
+      { query: "best diners card", network: "diners club" }
+    ];
+
+    for (const scenario of scenarios) {
+      const scores = scoreCards({ query: scenario.query });
+
+      expect(scores.length).toBeGreaterThan(0);
+      expect(
+        scores.every((score) =>
+          score.card.network.some((network) => network.toLowerCase().includes(scenario.network))
+        )
+      ).toBe(true);
+    }
+  });
+
+  it("restricts fuel-card recommendation queries to fuel cards", () => {
+    const scores = scoreCards({
+      query: "best fuel card"
+    });
+
+    expect(scores.length).toBeGreaterThan(0);
+    expect(
+      scores.every((score) => {
+        const rewardCategories = score.card.rewards.flatMap((reward) =>
+          reward.category.split(",").map((category) => category.trim().toLowerCase())
+        );
+        const searchable = [
+          score.card.name,
+          score.card.id,
+          ...score.card.bestFor,
+          ...rewardCategories,
+          ...(score.card.specialSpendRules?.map((rule) => rule.category) ?? [])
+        ].join(" ").toLowerCase();
+
+        return /\b(fuel|petrol|diesel|hpcl|bpcl|indianoil|indian oil|iocl)\b/.test(searchable);
+      })
+    ).toBe(true);
+  });
+
   it("surfaces Atlas for Axis travel intent", () => {
     const scores = scoreCards({
       query: "best axis travel card"
