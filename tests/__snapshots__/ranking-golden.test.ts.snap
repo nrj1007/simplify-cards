@@ -13,8 +13,8 @@ exports[`ranking golden (representative queries) > produces stable top-N orderin
     "amex-platinum-travel",
     "kotak-solitaire",
     "axis-magnus",
+    "bobcard-etihad-guest-premium",
     "yes-marquee",
-    "sc-ultimate",
   ],
   "exact-card-atlas": [
     "axis-atlas",
@@ -69,8 +69,8 @@ exports[`ranking golden (representative queries) > produces stable top-N orderin
     "sc-ultimate",
     "indusind-indulge",
     "hdfc-regalia-gold",
+    "bobcard-etihad-guest-premium",
     "hdfc-shoppers-stop-black",
-    "idfc-ashva",
   ],
   "max-fee-zero": [
     "au-ixigo",
@@ -103,6 +103,7 @@ exports[`ranking golden (representative queries) > produces stable top-N orderin
   "segment-premium": [
     "hsbc-premier",
     "hdfc-diners-club-black-metal",
+    "bobcard-etihad-guest-premium",
     "hdfc-infinia-metal",
     "icici-emeralde-private-metal",
     "hdfc-regalia-gold",
@@ -112,7 +113,6 @@ exports[`ranking golden (representative queries) > produces stable top-N orderin
     "axis-indianoil-premium",
     "amex-platinum-travel",
     "kotak-solitaire",
-    "axis-magnus",
   ],
   "spend-fuel-heavy": [
     "hsbc-premier",
@@ -152,9 +152,9 @@ exports[`ranking golden (representative queries) > produces stable top-N orderin
     "hdfc-regalia-gold",
     "axis-atlas",
     "kotak-solitaire",
+    "bobcard-etihad-guest-premium",
     "axis-magnus",
     "hsbc-visa-platinum",
-    "indigo-sbi-elite",
   ],
   "usecase-dining": [
     "hsbc-premier",
@@ -193,10 +193,10 @@ exports[`ranking golden (representative queries) > produces stable top-N orderin
     "hsbc-premier",
     "hdfc-diners-club-black-metal",
     "kotak-solitaire",
+    "bobcard-etihad-guest-premium",
     "axis-atlas",
     "indigo-sbi-elite",
     "rbl-world-safari",
-    "scapia-federal",
   ],
 }
 `;

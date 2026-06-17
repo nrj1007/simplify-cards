@@ -1,0 +1,169 @@
+{
+  "id": "bobcard-etihad-guest",
+  "issuer": "Bank of Baroda",
+  "name": "BOBCARD Etihad Guest Credit Card",
+  "network": [
+    "Visa"
+  ],
+  "joiningFee": 2500,
+  "annualFee": 2500,
+  "feeWaiverSpend": 300000,
+  "bestFor": [
+    "travel",
+    "etihad",
+    "flights",
+    "lounge"
+  ],
+  "rewardType": "etihad guest miles",
+  "rewardLiquidity": "brand-locked",
+  "rewards": [
+    {
+      "category": "travel",
+      "displayCategory": "Etihad Airways spends",
+      "rate": 3,
+      "displayRate": "3 Etihad Guest Miles / Rs 100 spent",
+      "capMonthly": null
+    },
+    {
+      "category": "base",
+      "displayCategory": "Other eligible spends",
+      "rate": 1,
+      "displayRate": "1 Etihad Guest Mile / Rs 100 spent",
+      "capMonthly": null
+    }
+  ],
+  "loungeDomestic": 8,
+  "loungeInternational": 4,
+  "lounge": {
+    "domestic": [
+      "8 complimentary domestic airport lounge visits per calendar year (limited to 2 visits per quarter).",
+      "Access is powered by the DreamFolks web-access portal and requires card tokenization and generating a QR code.",
+      "A cooling-off period of 5 hours applies between consecutive visits at the same lounge outlet."
+    ],
+    "international": [
+      "4 complimentary international airport lounge visits per calendar year (limited to 1 visit per quarter) via DreamFolks web-access portal or Priority Pass."
+    ]
+  },
+  "forexMarkup": 1,
+  "tags": [
+    "bobcard",
+    "travel",
+    "etihad",
+    "flights",
+    "lounge",
+    "milestone",
+    "silver tier"
+  ],
+  "exclusions": [
+    "Fuel transactions",
+    "Rent payments",
+    "E-wallet loading transactions",
+    "Insurance premium payments",
+    "Utilities spends",
+    "Government services spends",
+    "Educational institution payments",
+    "Purchase of gold or jewellery",
+    "Spends at financial institutions (cash advances, repayments, etc.)",
+    "Online skill-based gaming transactions",
+    "EMI transactions"
+  ],
+  "exclusionCodes": [
+    "fuel",
+    "rent",
+    "wallet_load",
+    "insurance",
+    "utilities",
+    "government",
+    "education",
+    "gold",
+    "jewellery",
+    "cash_advance",
+    "gaming",
+    "emi"
+  ],
+  "specialSpendRules": [
+    {
+      "category": "rent",
+      "treatment": "excluded",
+      "notes": "Rent payments earn no rewards and incur a 1% processing fee."
+    },
+    {
+      "category": "utilities",
+      "treatment": "excluded",
+      "notes": "Utility payments earn no rewards and utility spends of Rs 50,000 or above incur a 1% processing fee (capped at Rs 3,000)."
+    }
+  ],
+  "joiningBenefits": [
+    "Complimentary Silver Tier membership in the Etihad Guest program.",
+    "Up to 7,500 bonus Etihad Guest Miles: 5,000 miles on spending Rs 25,000 and another 2,500 miles on cumulative spends of Rs 50,000 within the first 60 days of card issuance."
+  ],
+  "joiningBenefitsValued": [
+    {
+      "value": 7500,
+      "kind": "points",
+      "label": "Up to 7,500 Etihad Guest Miles welcome bonus"
+    }
+  ],
+  "renewalBenefits": [
+    "Annual fee waived on spends of Rs 3 lakh or more in the preceding anniversary year."
+  ],
+  "milestoneBenefits": [],
+  "milestones": [
+    {
+      "threshold": 25000,
+      "period": "monthly",
+      "value": 250,
+      "kind": "points",
+      "label": "250 bonus miles on completing 4 transactions totaling Rs 25,000 in a month"
+    },
+    {
+      "threshold": 200000,
+      "period": "quarterly",
+      "value": 2000,
+      "kind": "points",
+      "label": "2,000 bonus miles on quarterly spends of Rs 2,00,000"
+    },
+    {
+      "threshold": 750000,
+      "period": "annual",
+      "value": 12000,
+      "kind": "points",
+      "label": "12,000 bonus miles on annual spends of Rs 7.5 lakh"
+    }
+  ],
+  "additionalBenefits": [
+    "1% fuel surcharge waiver on transactions between Rs 400 and Rs 4,000 across fuel stations in India.",
+    "Complimentary Silver Tier status offering 25% bonus miles on Etihad flights and extra baggage allowance."
+  ],
+  "additionalDetails": [
+    "Etihad Guest Miles are credited directly to your Etihad Guest account and are redeemable only through the Etihad platform for travel rewards."
+  ],
+  "redemption": {
+    "ecosystemLabel": "Etihad Guest Miles",
+    "ecosystemValue": 1.0,
+    "pointsExpiryYears": null
+  },
+  "eligibility": {
+    "salaried": [
+      "Resident Indian",
+      "Age between 21 and 60 years",
+      "Annual income of Rs 18 lakh or more"
+    ],
+    "selfEmployed": [
+      "Resident Indian",
+      "Age between 21 and 60 years",
+      "Annual income of Rs 18 lakh or more"
+    ]
+  },
+  "sourceUrl": "https://www.bobcard.co.in/etihad-guest-bobcard",
+  "applyUrl": "https://www.bobcard.co.in/etihad-guest-bobcard",
+  "lastVerified": "2026-06-17",
+  "verificationStatus": "official-direct",
+  "popularityScore": 60,
+  "internalNotes": [
+    "Audited against the official BOBCARD Etihad Guest product page and terms on 2026-06-17.",
+    "Etihad Guest Miles are brand-locked in the Etihad ecosystem, so rewardLiquidity is set to brand-locked.",
+    "Standard monthly, quarterly, and annual spends milestones mapped under structured milestones list.",
+    "Lounge access terms and DreamFolks web portal tokenization requirements documented in lounge/internalNotes."
+  ]
+}

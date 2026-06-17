@@ -3413,6 +3413,88 @@ describe("reward calculator", () => {
         expect(rules.length).toBe(0);
       });
     });
+
+    describe("Bank of Baroda / BOBCARD", () => {
+      describe("BOBCARD Etihad Guest", () => {
+        it("earns rewards at correct rates (3% Etihad, 1% base)", () => {
+          const card = getCardById("bobcard-etihad-guest");
+          expect(card).toBeTruthy();
+
+          const result = calculateRewards(card!, {
+            travel: 10000,
+            base: 10000
+          });
+          expect(result.rows.find((r) => r.category === "travel")!.monthlyUnits).toBe(300);
+          expect(result.rows.find((r) => r.category === "base")!.monthlyUnits).toBe(100);
+          expect(result.monthlyUnits).toBe(400);
+
+          const resultExclusions = calculateRewards(card!, {
+            fuel: 10000,
+            rent: 10000,
+            wallet_load: 10000
+          });
+          expect(resultExclusions.monthlyUnits).toBe(0);
+        });
+
+        it("milestone rules return correct thresholds and values", () => {
+          const card = getCardById("bobcard-etihad-guest");
+          const rules = milestoneRulesForCard(card!);
+          expect(rules.length).toBe(3);
+          
+          expect(rules[0].threshold).toBe(300000);
+          expect(rules[0].value).toBe(3000);
+          expect(rules[0].period).toBe("monthly");
+
+          expect(rules[2].threshold).toBe(800000);
+          expect(rules[2].value).toBe(8000);
+          expect(rules[2].period).toBe("quarterly");
+
+          expect(rules[1].threshold).toBe(750000);
+          expect(rules[1].value).toBe(12000);
+          expect(rules[1].period).toBe("annual");
+        });
+      });
+
+      describe("BOBCARD Etihad Guest Premium", () => {
+        it("earns rewards at correct rates (6% Etihad, 2% base)", () => {
+          const card = getCardById("bobcard-etihad-guest-premium");
+          expect(card).toBeTruthy();
+
+          const result = calculateRewards(card!, {
+            travel: 10000,
+            base: 10000
+          });
+          expect(result.rows.find((r) => r.category === "travel")!.monthlyUnits).toBe(600);
+          expect(result.rows.find((r) => r.category === "base")!.monthlyUnits).toBe(200);
+          expect(result.monthlyUnits).toBe(800);
+
+          const resultExclusions = calculateRewards(card!, {
+            fuel: 10000,
+            rent: 10000
+          });
+          expect(resultExclusions.monthlyUnits).toBe(0);
+        });
+
+        it("milestone rules return correct thresholds and values", () => {
+          const card = getCardById("bobcard-etihad-guest-premium");
+          const rules = milestoneRulesForCard(card!);
+          expect(rules.length).toBe(3);
+
+          const quarterly = rules.find((r) => r.period === "quarterly")!;
+          const annual = rules.find((r) => r.period === "annual")!;
+          const monthly = rules.find((r) => r.period === "monthly")!;
+
+          expect(monthly.threshold).toBe(600000);
+          expect(monthly.value).toBe(6000);
+
+          expect(quarterly.threshold).toBe(1200000);
+          expect(quarterly.value).toBe(16000);
+
+          expect(annual.threshold).toBe(1200000);
+          expect(annual.value).toBe(24000);
+        });
+      });
+    });
   });
 });
 
