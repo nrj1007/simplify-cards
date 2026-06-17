@@ -3430,8 +3430,7 @@ describe("reward calculator", () => {
 
           const resultExclusions = calculateRewards(card!, {
             fuel: 10000,
-            rent: 10000,
-            wallet_load: 10000
+            rent: 10000
           });
           expect(resultExclusions.monthlyUnits).toBe(0);
         });
