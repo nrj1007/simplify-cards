@@ -195,7 +195,6 @@ exports[`ranking golden (representative queries) > produces stable top-N orderin
     "hdfc-indianoil",
   ],
   "usecase-grocery": [
-    "icici-emeralde-private-metal",
     "sbi-card-prime",
     "sbi-card-elite",
     "kotak-cashback-plus",
@@ -207,6 +206,7 @@ exports[`ranking golden (representative queries) > produces stable top-N orderin
     "hdfc-swiggy-black",
     "rbl-patanjali-swarn",
     "rbl-platinum-maxima-plus",
+    "hdfc-swiggy",
   ],
   "usecase-online": [
     "axis-samsung-signature",

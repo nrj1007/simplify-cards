@@ -525,20 +525,41 @@ function detectCategoryFocus(
   return null;
 }
 
-function cardMatchesCategoryFocus(card: CreditCard, config: CategoryFocusConfig) {
-  return card.rewards.some((reward) => config.rewardPattern.test(reward.category));
+// The card's general/base earn rate. Many cards don't name the row "base" (e.g. ICICI Emeralde's
+// catch-all is "retail"), so match common base aliases and fall back to the lowest reward rate. Used
+// to decide whether a category row is genuinely ACCELERATED (above base) versus the same rate merely
+// carrying a category cap — a capped-at-base row (e.g. Emeralde grocery) is a restriction, not an
+// accelerator, and must not qualify a card as a category specialist.
+const baseRowAliasSet = new Set(["base", "offline", "retail", "others", "other", "all other spends"]);
+function cardBaseRate(card: CreditCard): number {
+  const baseRow = card.rewards.find((reward) =>
+    reward.category
+      .split(",")
+      .map((part) => part.trim().toLowerCase())
+      .some((part) => baseRowAliasSet.has(part))
+  );
+  if (baseRow) return baseRow.rate;
+  return card.rewards.length ? Math.min(...card.rewards.map((reward) => reward.rate)) : 0;
 }
 
-// Specialist score for a category-focused ranking: rewards an accelerated category reward row and
-// category-forward positioning, so a category-specific card outranks one with only incidental
-// earning there. Returns 0 for cards with no matching accelerator (they get the non-specialist
-// penalty / are filtered out).
+// A card matches a category focus only if it ACCELERATES that category (a matching reward row whose
+// rate exceeds the card's base rate). A row at the base rate with a category cap does not qualify.
+function cardMatchesCategoryFocus(card: CreditCard, config: CategoryFocusConfig) {
+  const baseRate = cardBaseRate(card);
+  return card.rewards.some((reward) => config.rewardPattern.test(reward.category) && reward.rate > baseRate);
+}
+
+// Specialist score for a category-focused ranking: rewards a genuinely accelerated category reward
+// row (above base) and category-forward positioning, so a category-specific card outranks one with
+// only incidental earning there. Returns 0 for cards with no matching accelerator (they get the
+// non-specialist penalty / are filtered out).
 function categorySpecialistScore(card: CreditCard, config: CategoryFocusConfig) {
-  const rows = card.rewards.filter((reward) => config.rewardPattern.test(reward.category));
-  const baseRate = card.rewards.find((reward) => reward.category === "base")?.rate ?? 0;
+  const baseRate = cardBaseRate(card);
+  const acceleratedRows = card.rewards.filter(
+    (reward) => config.rewardPattern.test(reward.category) && reward.rate > baseRate
+  );
   let score = 0;
-  if (rows.some((reward) => reward.rate > Math.max(baseRate, 1.5))) score += 3;
-  else if (rows.length) score += 1;
+  if (acceleratedRows.length) score += 3;
   const haystack = normalizeForMatch([card.name, ...card.bestFor, ...card.tags].join(" "));
   if (config.positioning.some((token) => containsNormalizedPhrase(haystack, token))) score += 2;
   return score;
