@@ -1905,7 +1905,7 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
     // Only for the broad no-spend "best card" ranking — not for focused category/forex queries, where
     // it would swamp the actual category economics with generic milestone/waiver upside.
     const comparisonMilestoneAndWaiverDelta =
-      broadNoSpendRankingQuery && !useEnvelopeScoring && !forexFocus && !categoryFocus
+      broadNoSpendRankingQuery && !useEnvelopeScoring && !forexFocus && !categoryFocus && !restrictToFuelCards
         ? Math.round(Math.max(maxComparisonMilestoneAndWaiverValue - currentMilestoneAndWaiverValue, 0) * broadComparisonUpsideWeight)
         : 0;
     const tagBoost = matchedTags.length * 500;
@@ -2005,8 +2005,19 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
       milestoneBoost +
       card.popularityScore * popularityRankingWeight;
 
-    // Value score: economic quality and preference fit signals
-    const valueScore = estimatedNetValue + sharedBoosts;
+    // Value score: economic quality and preference fit signals. For a category/fuel query the card is
+    // chosen to be used specifically for that category (often a secondary card), so rank by how much it
+    // earns ON that category — fee-independent and not diluted by the rest of the profile — so the
+    // category specialist (e.g. SBI Prime for utilities, an HPCL card for fuel) wins, not a high-fee
+    // all-rounder. The displayed estimatedNetValue is unchanged. Focuses without a spend category
+    // (Flipkart/Swiggy) keep the net-value ranking.
+    const focusedSpendCategory: SpendCategory | undefined =
+      categoryFocus?.spendCategory ?? (restrictToFuelCards ? "fuel" : undefined);
+    const valueScore = focusedSpendCategory
+      ? rewardBreakdown
+          .filter((item) => item.spendCategory === focusedSpendCategory)
+          .reduce((total, item) => total + item.annualReward, 0) + sharedBoosts
+      : estimatedNetValue + sharedBoosts;
 
     // Query-type-dependent blending
     const isExactCardLookup = cardNameBoost >= exactCardNameMatchThreshold;
