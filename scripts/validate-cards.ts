@@ -286,6 +286,20 @@ if (cardFiles.length === 0) {
       addIssue("rewardLiquidityFactor must be a number in (0, 1] when present", cardId, "rewardLiquidityFactor");
     }
 
+    if (card.capGroups !== undefined) {
+      const capGroups = card.capGroups as Record<string, unknown>;
+      if (typeof capGroups !== "object" || capGroups === null || Array.isArray(capGroups)) {
+        addIssue("capGroups must be an object mapping group id to { capMonthly }", cardId, "capGroups");
+      } else {
+        for (const [groupId, def] of Object.entries(capGroups)) {
+          const capMonthly = (def as { capMonthly?: unknown } | null)?.capMonthly;
+          if (typeof capMonthly !== "number" || capMonthly < 0) {
+            addIssue(`capGroups.${groupId}.capMonthly must be a number >= 0`, cardId, "capGroups");
+          }
+        }
+      }
+    }
+
     const redemption = card.redemption as { pointValueTiers?: unknown } | undefined;
     const pointValueTiers = redemption?.pointValueTiers;
     if (pointValueTiers !== undefined) {

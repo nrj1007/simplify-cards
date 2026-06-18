@@ -1302,11 +1302,31 @@ function rewardBreakdownForCard(card: CreditCard, spend: SpendProfile, includeSm
     const totalRawReward = itemRaw.reduce((sum, x) => sum + x.raw, 0);
 
     if (typeof key === "string") {
-      // Shared cap-group: hard combined cap across all rows in the group (post-cap fallback is not
-      // modelled here). All grouped rows carry the same capMonthly, so use the first.
-      const cap = items[0].reward.capMonthly;
-      const totalCapped = typeof cap === "number" && cap > 0 ? Math.min(totalRawReward, cap) : totalRawReward;
-      return itemRaw.map(({ item, raw }) => toRow(item, totalRawReward > 0 ? (totalCapped * raw) / totalRawReward : 0));
+      // Shared cap-group, two-level: each row is first capped at its own capMonthly (e.g. the
+      // single-booking daily cap on lumpy SmartBuy hotels/flights), then the whole group is capped at
+      // the combined cap (card.capGroups[group], else the largest row cap). Post-cap fallback is not
+      // modelled for groups. When all rows share one cap and there is no card.capGroups entry, this
+      // reduces to the previous pool-and-cap behaviour.
+      const rewardSubgroups = new Map<Reward, Array<{ item: ActiveAllocation; raw: number }>>();
+      for (const x of itemRaw) {
+        if (!rewardSubgroups.has(x.item.reward)) rewardSubgroups.set(x.item.reward, []);
+        rewardSubgroups.get(x.item.reward)!.push(x);
+      }
+      const perItem: Array<{ item: ActiveAllocation; capped: number }> = [];
+      let groupTotal = 0;
+      for (const [reward, xs] of rewardSubgroups) {
+        const rawSum = xs.reduce((sum, x) => sum + x.raw, 0);
+        const rowCap = reward.capMonthly;
+        const rowScale = typeof rowCap === "number" && rowCap > 0 && rawSum > rowCap ? rowCap / rawSum : 1;
+        for (const x of xs) {
+          const capped = x.raw * rowScale;
+          perItem.push({ item: x.item, capped });
+          groupTotal += capped;
+        }
+      }
+      const groupCap = card.capGroups?.[key]?.capMonthly ?? Math.max(0, ...items.map((i) => i.reward.capMonthly ?? 0));
+      const groupScale = groupCap > 0 && groupTotal > groupCap ? groupCap / groupTotal : 1;
+      return perItem.map(({ item, capped }) => toRow(item, capped * groupScale));
     }
 
     // Single reward: existing per-reward cap with post-cap fallback rate.
