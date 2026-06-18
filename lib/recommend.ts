@@ -507,6 +507,9 @@ const categoryFocusConfigs: CategoryFocusConfig[] = [
   }
 ];
 
+// Valid keys for a card's categoryFocusTags override (kept in sync with categoryFocusConfigs).
+export const categoryFocusKeys = categoryFocusConfigs.map((config) => config.key);
+
 // Which category focus (if any) a query asks for. Mirrors the fuel trigger: needs a recommendation
 // query (or an explicit "<category> card" phrase), and is suppressed when the caller passed an
 // explicit/inferred spend profile (then we score on that instead).
@@ -542,24 +545,32 @@ function cardBaseRate(card: CreditCard): number {
   return card.rewards.length ? Math.min(...card.rewards.map((reward) => reward.rate)) : 0;
 }
 
-// A card matches a category focus only if it ACCELERATES that category (a matching reward row whose
-// rate exceeds the card's base rate). A row at the base rate with a category cap does not qualify.
+// Explicit additive override: the card is hand-tagged for this category (used when its category
+// value lives outside the reward rows, e.g. movie BOGO benefits for "entertainment").
+function cardHasCategoryFocusTag(card: CreditCard, config: CategoryFocusConfig) {
+  return (card.categoryFocusTags ?? []).includes(config.key);
+}
+
+// A card matches a category focus if it ACCELERATES that category (a matching reward row whose rate
+// exceeds the card's base rate) OR is explicitly tagged for it. A row at the base rate with a
+// category cap does not qualify on its own.
 function cardMatchesCategoryFocus(card: CreditCard, config: CategoryFocusConfig) {
+  if (cardHasCategoryFocusTag(card, config)) return true;
   const baseRate = cardBaseRate(card);
   return card.rewards.some((reward) => config.rewardPattern.test(reward.category) && reward.rate > baseRate);
 }
 
 // Specialist score for a category-focused ranking: rewards a genuinely accelerated category reward
-// row (above base) and category-forward positioning, so a category-specific card outranks one with
-// only incidental earning there. Returns 0 for cards with no matching accelerator (they get the
-// non-specialist penalty / are filtered out).
+// row (above base) or an explicit category tag, plus category-forward positioning, so a
+// category-specific card outranks one with only incidental earning there. Returns 0 for cards with
+// no matching accelerator (they get the non-specialist penalty / are filtered out).
 function categorySpecialistScore(card: CreditCard, config: CategoryFocusConfig) {
   const baseRate = cardBaseRate(card);
   const acceleratedRows = card.rewards.filter(
     (reward) => config.rewardPattern.test(reward.category) && reward.rate > baseRate
   );
   let score = 0;
-  if (acceleratedRows.length) score += 3;
+  if (acceleratedRows.length || cardHasCategoryFocusTag(card, config)) score += 3;
   const haystack = normalizeForMatch([card.name, ...card.bestFor, ...card.tags].join(" "));
   if (config.positioning.some((token) => containsNormalizedPhrase(haystack, token))) score += 2;
   return score;

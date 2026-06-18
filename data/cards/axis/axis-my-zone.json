@@ -16,6 +16,7 @@
     "lounge"
   ],
   "rewardType": "edge reward points",
+  "categoryFocusTags": ["entertainment"],
   "rewards": [
     {
       "category": "base",

@@ -300,6 +300,24 @@ if (cardFiles.length === 0) {
       }
     }
 
+    if (card.categoryFocusTags !== undefined) {
+      // Keep in sync with categoryFocusConfigs keys in lib/recommend.ts.
+      const allowedCategoryFocusKeys = new Set(["dining", "grocery", "online", "entertainment"]);
+      if (!Array.isArray(card.categoryFocusTags)) {
+        addIssue("categoryFocusTags must be an array of category keys when present", cardId, "categoryFocusTags");
+      } else {
+        for (const tag of card.categoryFocusTags) {
+          if (typeof tag !== "string" || !allowedCategoryFocusKeys.has(tag)) {
+            addIssue(
+              `categoryFocusTags entry "${String(tag)}" is not a valid category key (${[...allowedCategoryFocusKeys].join(", ")})`,
+              cardId,
+              "categoryFocusTags"
+            );
+          }
+        }
+      }
+    }
+
     const redemption = card.redemption as { pointValueTiers?: unknown } | undefined;
     const pointValueTiers = redemption?.pointValueTiers;
     if (pointValueTiers !== undefined) {

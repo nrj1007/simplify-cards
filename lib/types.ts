@@ -163,6 +163,13 @@ export type CreditCard = {
   // the whole group capped at Rs 4,000/month). If a group id is absent here, the group cap falls
   // back to the largest capMonthly among its rows. See rewardBreakdownForCard in lib/recommend.ts.
   capGroups?: Record<string, { capMonthly: number }>;
+  // Additive override for the category-focused rankings ("best dining/grocery/online/entertainment
+  // card"). A card normally qualifies for a category by ACCELERATING it in its reward rows (rate
+  // above base). List a category key here only when the card's category value is real but lives
+  // outside the reward rows — e.g. movie BOGO / free-ticket benefits for "entertainment", which
+  // aren't a reward row. Allowed values are the category focus keys (dining, grocery, online,
+  // entertainment). Does not replace the reward-row derivation; it only adds the card in.
+  categoryFocusTags?: string[];
   rewardLiquidity?: "cash" | "brand-locked";
   // Optional fine-grained override (0–1) for the fraction of nominal reward value realized in
   // scoring. When set it takes precedence over the rewardLiquidity default (brand-locked = 0.75).

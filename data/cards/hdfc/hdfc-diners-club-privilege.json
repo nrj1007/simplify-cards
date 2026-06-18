@@ -16,6 +16,7 @@
     "lifestyle"
   ],
   "rewardType": "reward points",
+  "categoryFocusTags": ["entertainment"],
   "capGroups": {
     "smartbuy": { "capMonthly": 4000 }
   },

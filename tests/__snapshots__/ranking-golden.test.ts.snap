@@ -171,14 +171,17 @@ exports[`ranking golden (representative queries) > produces stable top-N orderin
     "hdfc-marriott-bonvoy",
   ],
   "usecase-entertainment": [
+    "hdfc-diners-club-privilege",
     "hsbc-live-plus",
     "sbi-card-prime",
     "sbi-card-elite",
     "hdfc-marriott-bonvoy",
     "landmark-rewards-sbi-prime",
+    "icici-coral",
     "bobcard-easy",
     "hsbc-rupay-cashback",
     "bpcl-sbi-octane",
+    "axis-my-zone",
   ],
   "usecase-fuel": [
     "icici-hpcl-coral",
