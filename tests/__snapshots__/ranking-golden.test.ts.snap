@@ -194,9 +194,9 @@ exports[`ranking golden (representative queries) > produces stable top-N orderin
     "hdfc-diners-club-black-metal",
     "kotak-solitaire",
     "bobcard-etihad-guest-premium",
+    "hdfc-diners-club-privilege",
     "axis-atlas",
     "indigo-sbi-elite",
-    "rbl-world-safari",
   ],
 }
 `;

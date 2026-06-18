@@ -341,70 +341,97 @@ export function calculateRewards(card: CreditCard, spend: SpendProfile): RewardC
     });
   }
 
-  const groups = new Map<Reward, ActiveCategoryRow[]>();
+  const groups = new Map<string | Reward, ActiveCategoryRow[]>();
   for (const active of activeRows) {
-    if (!groups.has(active.reward)) {
-      groups.set(active.reward, []);
+    const key = active.reward.capGroup ?? active.reward;
+    if (!groups.has(key)) {
+      groups.set(key, []);
     }
-    groups.get(active.reward)!.push(active);
+    groups.get(key)!.push(active);
   }
 
-  for (const [reward, items] of groups.entries()) {
-    const isTiered = items.length > 0 && allocateTieredRewardUnits(card, items[0].monthlySpend, items[0].rewards) !== null;
-
-    if (isTiered) {
-      for (const item of items) {
-        const tieredAllocation = allocateTieredRewardUnits(card, item.monthlySpend, item.rewards);
-        const monthlyUnits = tieredAllocation?.monthlyUnits ?? cappedMonthlyUnits(card, item.monthlySpend, reward);
-        rows.push({
-          category: item.category,
-          monthlySpend: item.monthlySpend,
-          matchedRewardCategory: tieredAllocation?.matchedRewardCategory ?? reward.category,
-          monthlyUnits,
-          annualUnits: monthlyUnits * 12,
-          excluded: false,
-          earnsBaseRateOnly: isBaseRewardCategory(reward.category) && item.category !== "base"
-        });
-      }
-    } else {
+  for (const [key, items] of groups.entries()) {
+    if (typeof key === "string") {
       const itemRawUnits = items.map((item) => {
-        const earnRate = rewardEarnRatePerRs100(card, reward);
+        const earnRate = rewardEarnRatePerRs100(card, item.reward);
         const rawUnits = (item.monthlySpend * earnRate.basePerRs100) / 100;
         return { item, rawUnits };
       });
 
       const totalRawUnits = itemRawUnits.reduce((sum, entry) => sum + entry.rawUnits, 0);
-
-      let totalCappedUnits = totalRawUnits;
-      if (reward.capMonthly) {
-        const earnRate = rewardEarnRatePerRs100(card, reward);
-        if (
-          earnRate.postCapPerRs100 &&
-          earnRate.postCapPerRs100 > 0 &&
-          totalRawUnits > reward.capMonthly &&
-          earnRate.postCapPerRs100 < earnRate.basePerRs100
-        ) {
-          const totalSpend = items.reduce((sum, item) => sum + item.monthlySpend, 0);
-          const spendAtCap = (reward.capMonthly * 100) / earnRate.basePerRs100;
-          const excessSpend = Math.max(totalSpend - spendAtCap, 0);
-          const postCapUnits = (excessSpend * earnRate.postCapPerRs100) / 100;
-          totalCappedUnits = reward.capMonthly + postCapUnits;
-        } else {
-          totalCappedUnits = Math.min(totalRawUnits, reward.capMonthly);
-        }
-      }
+      const cap = items[0].reward.capMonthly;
+      const totalCappedUnits = typeof cap === "number" && cap > 0 ? Math.min(totalRawUnits, cap) : totalRawUnits;
 
       for (const { item, rawUnits } of itemRawUnits) {
         const monthlyUnits = totalRawUnits > 0 ? (totalCappedUnits * rawUnits) / totalRawUnits : 0;
         rows.push({
           category: item.category,
           monthlySpend: item.monthlySpend,
-          matchedRewardCategory: reward.category,
+          matchedRewardCategory: item.reward.category,
           monthlyUnits,
           annualUnits: monthlyUnits * 12,
           excluded: false,
-          earnsBaseRateOnly: isBaseRewardCategory(reward.category) && item.category !== "base"
+          earnsBaseRateOnly: isBaseRewardCategory(item.reward.category) && item.category !== "base"
         });
+      }
+    } else {
+      const reward = key;
+      const isTiered = items.length > 0 && allocateTieredRewardUnits(card, items[0].monthlySpend, items[0].rewards) !== null;
+
+      if (isTiered) {
+        for (const item of items) {
+          const tieredAllocation = allocateTieredRewardUnits(card, item.monthlySpend, item.rewards);
+          const monthlyUnits = tieredAllocation?.monthlyUnits ?? cappedMonthlyUnits(card, item.monthlySpend, reward);
+          rows.push({
+            category: item.category,
+            monthlySpend: item.monthlySpend,
+            matchedRewardCategory: tieredAllocation?.matchedRewardCategory ?? reward.category,
+            monthlyUnits,
+            annualUnits: monthlyUnits * 12,
+            excluded: false,
+            earnsBaseRateOnly: isBaseRewardCategory(reward.category) && item.category !== "base"
+          });
+        }
+      } else {
+        const itemRawUnits = items.map((item) => {
+          const earnRate = rewardEarnRatePerRs100(card, reward);
+          const rawUnits = (item.monthlySpend * earnRate.basePerRs100) / 100;
+          return { item, rawUnits };
+        });
+
+        const totalRawUnits = itemRawUnits.reduce((sum, entry) => sum + entry.rawUnits, 0);
+
+        let totalCappedUnits = totalRawUnits;
+        if (reward.capMonthly) {
+          const earnRate = rewardEarnRatePerRs100(card, reward);
+          if (
+            earnRate.postCapPerRs100 &&
+            earnRate.postCapPerRs100 > 0 &&
+            totalRawUnits > reward.capMonthly &&
+            earnRate.postCapPerRs100 < earnRate.basePerRs100
+          ) {
+            const totalSpend = items.reduce((sum, item) => sum + item.monthlySpend, 0);
+            const spendAtCap = (reward.capMonthly * 100) / earnRate.basePerRs100;
+            const excessSpend = Math.max(totalSpend - spendAtCap, 0);
+            const postCapUnits = (excessSpend * earnRate.postCapPerRs100) / 100;
+            totalCappedUnits = reward.capMonthly + postCapUnits;
+          } else {
+            totalCappedUnits = Math.min(totalRawUnits, reward.capMonthly);
+          }
+        }
+
+        for (const { item, rawUnits } of itemRawUnits) {
+          const monthlyUnits = totalRawUnits > 0 ? (totalCappedUnits * rawUnits) / totalRawUnits : 0;
+          rows.push({
+            category: item.category,
+            monthlySpend: item.monthlySpend,
+            matchedRewardCategory: reward.category,
+            monthlyUnits,
+            annualUnits: monthlyUnits * 12,
+            excluded: false,
+            earnsBaseRateOnly: isBaseRewardCategory(reward.category) && item.category !== "base"
+          });
+        }
       }
     }
   }

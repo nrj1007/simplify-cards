@@ -415,9 +415,9 @@ describe("scoreCards", () => {
       .filter((item) => item.spendCategory === "online")
       .map((item) => item.rewardCategory);
 
-    expect(genericDinersOnlineRewards).toEqual(expect.arrayContaining(["smartbuy", "base"]));
+    expect(genericDinersOnlineRewards).toEqual(expect.arrayContaining(["smartbuy flights, smartbuy", "base"]));
     expect(genericRegaliaOnlineRewards).toEqual(expect.arrayContaining(["select lifestyle brands", "base"]));
-    expect(smartbuyDinersOnlineRewards).toEqual(["smartbuy"]);
+    expect(smartbuyDinersOnlineRewards).toEqual(["smartbuy flights, smartbuy"]);
   });
 
   it("splits TravelOne travel between the portal flights/hotels tiers and the everyday rate", () => {

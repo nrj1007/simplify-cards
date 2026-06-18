@@ -3494,6 +3494,52 @@ describe("reward calculator", () => {
         });
       });
     });
+
+    describe("SBM Bank", () => {
+      describe("SBM Paisabazaar Paisa+", () => {
+        it("calculates rewards correctly for online, base, and UPI categories", () => {
+          const card = getCardById("sbm-paisabazaar-paisa-plus");
+          expect(card).toBeTruthy();
+
+          const resultOnline = calculateRewards(card!, { online: 10000 });
+          const onlineRow = resultOnline.rows.find((r) => r.category === "online")!;
+          expect(onlineRow.monthlyUnits).toBe(150);
+
+          const resultBase = calculateRewards(card!, { base: 10000 });
+          const baseRow = resultBase.rows.find((r) => r.category === "base")!;
+          expect(baseRow.monthlyUnits).toBe(100);
+
+          const resultUpi = calculateRewards(card!, { upi: 10000 });
+          const upiRow = resultUpi.rows.find((r) => r.category === "upi")!;
+          expect(upiRow.monthlyUnits).toBe(100);
+        });
+
+        it("enforces combined monthly cap on rewards", () => {
+          const card = getCardById("sbm-paisabazaar-paisa-plus");
+          expect(card).toBeTruthy();
+
+          const resultCapped = calculateRewards(card!, { online: 300000 });
+          expect(resultCapped.monthlyUnits).toBe(3000);
+
+          const resultCombined = calculateRewards(card!, { online: 200000, base: 100000 });
+          expect(resultCombined.monthlyUnits).toBe(3000);
+        });
+
+        it("enforces exclusions", () => {
+          const card = getCardById("sbm-paisabazaar-paisa-plus");
+          expect(card).toBeTruthy();
+
+          const resultExclusions = calculateRewards(card!, {
+            fuel: 10000,
+            rent: 10000,
+            utilities: 10000,
+            education: 10000,
+            government: 10000
+          });
+          expect(resultExclusions.monthlyUnits).toBe(0);
+        });
+      });
+    });
   });
 });
 

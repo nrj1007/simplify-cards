@@ -43,6 +43,7 @@ describe("card data files", () => {
       "onecard-partners",
       "rbl-bank",
       "sbi",
+      "sbm-bank",
       "standard-chartered",
       "yes-bank"
     ]);

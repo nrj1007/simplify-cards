@@ -536,6 +536,10 @@ if (cardFiles.length === 0) {
           addIssue(`reward ${rewardIndex} tierScope must be 'category' or 'total-monthly-spend' when present`, cardId, "rewards");
         }
 
+        if (reward.capGroup !== undefined && !isNonEmptyString(reward.capGroup)) {
+          addIssue(`reward ${rewardIndex} capGroup must be a non-empty string when present`, cardId, "rewards");
+        }
+
         if (typeof reward.rate !== "number" || !Number.isFinite(reward.rate) || reward.rate < 0) {
           addIssue(`reward ${rewardIndex} rate must be a non-negative number`, cardId, "rewards");
         } else if (!isCashbackRewardType(card.rewardType)) {

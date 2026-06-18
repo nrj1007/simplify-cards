@@ -24,11 +24,22 @@
       "capMonthly": 2500
     },
     {
-      "category": "smartbuy",
+      "category": "smartbuy hotels",
+      "displayCategory": "Hotels via SmartBuy (10X)",
       "rate": 20,
-      "displayRate": "Up to 10X Reward Points (40 Reward Points / Rs 200 spent via SmartBuy)",
+      "displayRate": "40 Reward Points / Rs 200 spent on hotels via SmartBuy (10X)",
       "capMonthly": 4000,
-      "capDaily": 2000
+      "capDaily": 2000,
+      "capGroup": "smartbuy"
+    },
+    {
+      "category": "smartbuy flights, smartbuy",
+      "displayCategory": "Flights and other SmartBuy spends (5X)",
+      "rate": 10,
+      "displayRate": "20 Reward Points / Rs 200 spent via SmartBuy (5X)",
+      "capMonthly": 4000,
+      "capDaily": 2000,
+      "capGroup": "smartbuy"
     },
     {
       "category": "base",

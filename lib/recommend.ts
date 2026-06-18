@@ -1271,21 +1271,47 @@ function rewardBreakdownForCard(card: CreditCard, spend: SpendProfile, includeSm
     }
   }
 
-  const groups = new Map<Reward, ActiveAllocation[]>();
+  // Capping bucket: rewards sharing a capGroup pool into one combined cap; others cap per reward
+  // object. Key is the capGroup string when set, else the reward object.
+  const buckets = new Map<string | Reward, ActiveAllocation[]>();
   for (const alloc of allocations) {
-    if (!groups.has(alloc.reward)) {
-      groups.set(alloc.reward, []);
+    const key = alloc.reward.capGroup ?? alloc.reward;
+    if (!buckets.has(key)) {
+      buckets.set(key, []);
     }
-    groups.get(alloc.reward)!.push(alloc);
+    buckets.get(key)!.push(alloc);
   }
 
-  return Array.from(groups.entries()).flatMap(([reward, items]) => {
-    // Per-reward unit value: cards can mix currencies (a Rs 1 cashback row alongside a lower-value
-    // point row), so an explicit valuePerUnit on the row overrides the card-level value.
-    const unitValue = typeof reward.valuePerUnit === "number" && reward.valuePerUnit > 0 ? reward.valuePerUnit : cardUnitValue;
-    const totalRawReward = items.reduce((sum, item) => sum + (item.allocatedAmount * reward.rate) / 100, 0);
-    let totalCappedReward = totalRawReward;
+  const itemUnitValue = (reward: Reward) =>
+    typeof reward.valuePerUnit === "number" && reward.valuePerUnit > 0 ? reward.valuePerUnit : cardUnitValue;
+  const toRow = (item: ActiveAllocation, cappedUnits: number) => {
+    const monthlyReward = cappedUnits * itemUnitValue(item.reward);
+    return {
+      spendCategory: item.category,
+      monthlySpend: Math.round(item.allocatedAmount),
+      rewardCategory: item.reward.category,
+      monthlyReward: Math.round(monthlyReward),
+      annualReward: Math.round(monthlyReward * 12)
+    };
+  };
 
+  return Array.from(buckets.entries()).flatMap(([key, items]) => {
+    // Raw reward units per allocation use that allocation's own reward rate (rates can differ within
+    // a cap-group, e.g. SmartBuy hotels 10X vs flights 5X).
+    const itemRaw = items.map((item) => ({ item, raw: (item.allocatedAmount * item.reward.rate) / 100 }));
+    const totalRawReward = itemRaw.reduce((sum, x) => sum + x.raw, 0);
+
+    if (typeof key === "string") {
+      // Shared cap-group: hard combined cap across all rows in the group (post-cap fallback is not
+      // modelled here). All grouped rows carry the same capMonthly, so use the first.
+      const cap = items[0].reward.capMonthly;
+      const totalCapped = typeof cap === "number" && cap > 0 ? Math.min(totalRawReward, cap) : totalRawReward;
+      return itemRaw.map(({ item, raw }) => toRow(item, totalRawReward > 0 ? (totalCapped * raw) / totalRawReward : 0));
+    }
+
+    // Single reward: existing per-reward cap with post-cap fallback rate.
+    const reward = key;
+    let totalCappedReward = totalRawReward;
     if (reward.capMonthly) {
       if (reward.postCapRate && reward.postCapRate > 0 && totalRawReward > reward.capMonthly && reward.postCapRate < reward.rate) {
         const totalSpend = items.reduce((sum, item) => sum + item.allocatedAmount, 0);
@@ -1297,20 +1323,7 @@ function rewardBreakdownForCard(card: CreditCard, spend: SpendProfile, includeSm
         totalCappedReward = Math.min(totalRawReward, reward.capMonthly);
       }
     }
-
-    return items.map((item) => {
-      const rawReward = (item.allocatedAmount * reward.rate) / 100;
-      const cappedRewardUnits = totalRawReward > 0 ? (totalCappedReward * rawReward) / totalRawReward : 0;
-      const monthlyReward = cappedRewardUnits * unitValue;
-
-      return {
-        spendCategory: item.category,
-        monthlySpend: Math.round(item.allocatedAmount),
-        rewardCategory: reward.category,
-        monthlyReward: Math.round(monthlyReward),
-        annualReward: Math.round(monthlyReward * 12)
-      };
-    });
+    return itemRaw.map(({ item, raw }) => toRow(item, totalRawReward > 0 ? (totalCappedReward * raw) / totalRawReward : 0));
   });
 }
 
