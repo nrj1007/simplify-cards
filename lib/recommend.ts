@@ -106,6 +106,17 @@ const blendAnnualSpendLevels = [300000, 1000000, 2000000, 3000000]; // Rs 3L, 10
 // tier programs that lift point value with spend, high fee-waiver thresholds, programme caps that
 // only bind at low spend) are judged more on their heavy-spend strength than on trivial-spend yield.
 const blendAnnualSpendLevelWeights = [1, 1.25, 1.5, 2];
+
+// Representative monthly spend for each segment tier. A segment query implies a spend/income level,
+// so instead of the envelope blend we score segment queries at the tier's typical spend (the default
+// category mix scaled to this total). Higher tier -> higher spend.
+const segmentRepresentativeMonthlySpend: Record<string, number> = {
+  beginner: 25000,
+  ltf: 25000,
+  "mid-premium": 60000,
+  premium: 120000,
+  "super-premium": 250000
+};
 const exactCardNameMatchThreshold = 50000;
 
 function isBroadNoSpendQuery(input: RecommendationInput, intent: ReturnType<typeof parseQueryIntent>) {
@@ -1757,8 +1768,18 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
     ? weightedFocusSpendProfile(categoryFocus.spendCategory, 0.5)
     : undefined;
   const forexFocusedSpend = forexFocus ? weightedFocusSpendProfile("international", 0.5) : undefined;
+  // Segment queries are scored at the tier's representative spend (not the envelope blend), unless a
+  // category/forex focus already sets the spend or the caller passed an explicit spend.
+  const segmentSpend =
+    restrictToSegments && !input.spend && !intent.inferredSpend && !categoryFocus && !forexFocus && !restrictToFuelCards
+      ? scaleSpendProfileToMonthly(
+          defaultSpendProfile,
+          Math.max(...restrictToSegments.map((segment) => segmentRepresentativeMonthlySpend[segment] ?? 50000))
+        )
+      : undefined;
   const spend = {
     ...defaultSpendProfile,
+    ...(segmentSpend ?? {}),
     ...(fuelFocusedSpend ?? {}),
     ...(categoryFocusedSpend ?? {}),
     ...(forexFocusedSpend ?? {}),
@@ -1774,6 +1795,7 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
     !restrictToFuelCards &&
     !categoryFocus &&
     !forexFocus &&
+    !restrictToSegments &&
     shouldUseEnvelopeScoring(input, intent, effectiveMaxAnnualFee, wantsLifetimeFree, wantsLounge);
   const restrictToUpiCards = shouldRestrictToUpiCards(input, intent);
   const networkFilters = explicitNetworkFilters(input, intent);
