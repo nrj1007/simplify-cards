@@ -93,21 +93,21 @@
     {
       "threshold": 600000,
       "period": "annual",
-      "value": 7500,
+      "value": 9000,
       "kind": "points",
       "label": "1 Free Night Award redeemable for a one-night stay up to 15,000 Marriott Bonvoy Points on eligible spend of Rs 6 lakh in an anniversary year"
     },
     {
       "threshold": 900000,
       "period": "annual",
-      "value": 7500,
+      "value": 9000,
       "kind": "points",
       "label": "1 Free Night Award redeemable for a one-night stay up to 15,000 Marriott Bonvoy Points on eligible spend of Rs 9 lakh in an anniversary year"
     },
     {
       "threshold": 1500000,
       "period": "annual",
-      "value": 7500,
+      "value": 9000,
       "kind": "points",
       "label": "1 Free Night Award redeemable for a one-night stay up to 15,000 Marriott Bonvoy Points on eligible spend of Rs 15 lakh in an anniversary year"
     }
@@ -119,7 +119,7 @@
   ],
   "joiningBenefitsValued": [
     {
-      "value": 7500,
+      "value": 9000,
       "kind": "points",
       "label": "1 Free Night Award redeemable for a one-night stay up to 15,000 Marriott Bonvoy Points on the first eligible transaction of Rs 500 within 90 days of card open date or on card fee levy, whichever is earlier"
     },
@@ -148,6 +148,7 @@
     "Card details manually reviewed and verified by user on 2026-06-01",
     "Audited against official HDFC Marriott Bonvoy product page, FAQ PDF and card benefit terms PDF on 2026-06-01.",
     "Annual fee is Rs 3,000 plus taxes with no annual fee waiver currently listed on the official product page.",
+    "Marriott Bonvoy Points are valued at Rs 0.60 each for scoring. Each Free Night Award (welcome + the three milestones) is redeemable for a stay worth up to 15,000 points, so valued at 15,000 x 0.60 = Rs 9,000.",
     "The card offers 12 total complimentary lounge accesses per year across domestic and international lounges.",
     "International lounge access is provided via the DCI travel tool app.",
     "Marriott hotel spends earn 8 Marriott Bonvoy Points per Rs 150 only on the first Rs 60,000 spent in a calendar month; spends beyond that threshold earn 2 Marriott Bonvoy Points per Rs 150.",

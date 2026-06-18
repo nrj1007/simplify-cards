@@ -708,7 +708,7 @@ function estimateFallbackPointUnitValue(card: CreditCard) {
   const rewardType = normalizeForMatch(card.rewardType);
   if (rewardType.includes("edge miles")) return 1;
   if (rewardType.includes("mile")) return 1;
-  if (rewardType.includes("marriott bonvoy")) return 0.5;
+  if (rewardType.includes("marriott bonvoy")) return 0.6;
   if (rewardType.includes("membership rewards")) return 0.6;
 
   return 0;
