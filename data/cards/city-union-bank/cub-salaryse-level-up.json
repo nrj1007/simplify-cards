@@ -1,0 +1,189 @@
+{
+  "id": "cub-salaryse-level-up",
+  "issuer": "City Union Bank",
+  "name": "CUB SalarySe Level UP Credit Card",
+  "network": [
+    "RuPay"
+  ],
+  "joiningFee": 500,
+  "annualFee": 500,
+  "feeWaiverSpend": 200000,
+  "bestFor": [
+    "salary",
+    "upi",
+    "online",
+    "lounge",
+    "low forex"
+  ],
+  "rewardType": "SalarySe SCoins",
+  "rewards": [
+    {
+      "category": "upi",
+      "displayCategory": "SalarySe UPI, online, and eligible card spends up to Rs 20,000 per billing cycle",
+      "rate": 5,
+      "displayRate": "5 SCoins / Rs 100",
+      "valuePerUnit": 0.2,
+      "capMonthly": 1000,
+      "tierLowerBound": 0,
+      "tierUpperBound": 20000
+    },
+    {
+      "category": "upi",
+      "displayCategory": "SalarySe UPI, online, and eligible card spends above Rs 20,000 per billing cycle",
+      "rate": 10,
+      "displayRate": "10 SCoins / Rs 100 on spends above Rs 20,000",
+      "valuePerUnit": 0.2,
+      "capMonthly": null,
+      "tierLowerBound": 20000,
+      "tierUpperBound": null
+    },
+    {
+      "category": "online",
+      "displayCategory": "Online checkout using Level UP card details up to Rs 20,000 per billing cycle",
+      "rate": 5,
+      "displayRate": "5 SCoins / Rs 100",
+      "valuePerUnit": 0.2,
+      "capMonthly": 1000,
+      "tierLowerBound": 0,
+      "tierUpperBound": 20000
+    },
+    {
+      "category": "online",
+      "displayCategory": "Online checkout using Level UP card details above Rs 20,000 per billing cycle",
+      "rate": 10,
+      "displayRate": "10 SCoins / Rs 100 on spends above Rs 20,000",
+      "valuePerUnit": 0.2,
+      "capMonthly": null,
+      "tierLowerBound": 20000,
+      "tierUpperBound": null
+    },
+    {
+      "category": "base",
+      "displayCategory": "Base categories and non-SalarySe UPI spends",
+      "rate": 1,
+      "displayRate": "1 SCoin / Rs 100",
+      "valuePerUnit": 0.2,
+      "capMonthly": null
+    }
+  ],
+  "popularityScore": 50,
+  "loungeDomestic": 12,
+  "loungeInternational": 0,
+  "lounge": {
+    "domestic": [
+      "1 domestic lounge access is unlocked on spending Rs 10,000 or more in the previous billing cycle.",
+      "Unlocked lounge access is credited after the monthly bill is generated and remains valid for 30 days.",
+      "Lounge access follows the RuPay Card airport lounge programme and applies on the physical card."
+    ]
+  },
+  "forexMarkup": 1,
+  "tags": [
+    "salary",
+    "salaryse",
+    "upi",
+    "rupay",
+    "online",
+    "lounge",
+    "low forex",
+    "fee waiver"
+  ],
+  "exclusions": [
+    "Cash withdrawal transactions",
+    "Wallet and service provider transactions",
+    "Fuel and auto transactions",
+    "Quasi-cash transactions",
+    "Gambling transactions",
+    "Jewellery transactions",
+    "Spends eligible for SalaryDay Bonus do not also earn accelerated or super accelerated rewards"
+  ],
+  "exclusionCodes": [
+    "cash_advance",
+    "wallet_load",
+    "fuel",
+    "gaming",
+    "gold"
+  ],
+  "specialSpendRules": [
+    {
+      "category": "upi",
+      "treatment": "capped",
+      "capMonthlySpend": 15000,
+      "notes": "SalaryDay Bonus is available only on SalarySe UPI spends on the 1st and last day of the month, after at least Rs 5,000 spend on non-SalaryDay Bonus days. Bonus-eligible spend is capped at Rs 15,000 per billing cycle."
+    },
+    {
+      "category": "rent",
+      "treatment": "rewarded",
+      "notes": "Rent is a base category and earns 1 SCoin per Rs 100, not accelerated rewards."
+    },
+    {
+      "category": "insurance",
+      "treatment": "rewarded",
+      "notes": "Insurance is a base category and earns 1 SCoin per Rs 100, not accelerated rewards."
+    },
+    {
+      "category": "education",
+      "treatment": "rewarded",
+      "notes": "Education is a base category and earns 1 SCoin per Rs 100, not accelerated rewards."
+    },
+    {
+      "category": "government",
+      "treatment": "rewarded",
+      "notes": "Government services are base categories and earn 1 SCoin per Rs 100, not accelerated rewards."
+    }
+  ],
+  "milestones": [],
+  "milestoneBenefits": [],
+  "additionalBenefits": [
+    "SalaryDay Bonus offers up to 37.5 SCoins / Rs 100 on eligible SalarySe UPI spends on the 1st and last day of the month",
+    "Virtual-only lifetime-free variant is available for digital-first users",
+    "1% fuel surcharge waiver on eligible fuel purchases of Rs 400 to Rs 3,000, capped at Rs 300 per statement cycle"
+  ],
+  "additionalDetails": [
+    "SalaryDay Bonus requires at least Rs 5,000 spend on non-SalaryDay Bonus days and is capped at Rs 15,000 eligible SalaryDay spend per billing cycle.",
+    "Base, accelerated, and super accelerated rewards are capped at 10% of the card credit limit per month; SalaryDay Bonus is over and above this cap.",
+    "Paid physical card variant has 1% forex markup; virtual-only lifetime-free variant has 2% forex markup."
+  ],
+  "redemption": {
+    "ecosystemLabel": "SalarySe SCoins",
+    "ecosystemValue": 0.2,
+    "statementBalanceValue": 0.2,
+    "pointsExpiryYears": 1.5
+  },
+  "eligibility": {
+    "salaried": [
+      "Designed for salaried professionals using the SalarySe ecosystem",
+      "Subject to City Union Bank credit assessment and approved credit limit",
+      "Detailed offer and eligibility conditions are shown in the SalarySe app"
+    ],
+    "selfEmployed": [
+      "This card is positioned for salaried professionals",
+      "Subject to City Union Bank credit assessment and approved credit limit",
+      "Detailed offer and eligibility conditions are shown in the SalarySe app"
+    ]
+  },
+  "sourceUrl": "https://www.cityunionbank.bank.in/cub-salaryse-level-up-credit-card",
+  "applyUrl": "https://www.cityunionbank.bank.in/cub-salaryse-level-up-credit-card",
+  "supportingSourceUrls": [
+    "https://www.cityunionbank.bank.in/filemanager/Nov25/MITC_Salary_SE.pdf",
+    "https://www.cityunionbank.bank.in/filemanager/Nov25/KFS_Salary_SE.pdf",
+    "https://www.cityunionbank.bank.in/filemanager/Mar26/CreditCardFeatureDocument.pdf"
+  ],
+  "lastVerified": "2026-06-18",
+  "verificationStatus": "official-direct",
+  "internalNotes": [
+    "Audited from the official CUB SalarySe product page, MITC, KFS, and reward structure document on 2026-06-18.",
+    "CUB product page showed Last Updated on 26-05-2026 12:30:34 PM during audit.",
+    "Reward currency: 1 Reward Point equals 1 SalarySe SCoin, and 5 SCoins equal Rs 1.",
+    "Base rewards: 1 SCoin per Rs 100 for any UPI app other than SalarySe UPI and for base categories including rent, railways, insurance, education, telecom, government services, contracted services, agriculture services, transportation/transit, post office, small offline merchant transactions below Rs 2,000, and BillPay.",
+    "Accelerated rewards: 5 SCoins per Rs 100 on SalarySe UPI, online checkout using card details, and physical-card in-store spends up to Rs 20,000 in a billing cycle, excluding restricted/base categories.",
+    "Super accelerated rewards: 10 SCoins per Rs 100 only on eligible spends above Rs 20,000 in a billing cycle; the first Rs 20,000 continues at the accelerated rate.",
+    "SalaryDay Bonus: virtual-only card earns 25 SCoins per Rs 100 and physical plus virtual card earns 37.5 SCoins per Rs 100 on eligible SalarySe UPI spends on the 1st and last day of the month. It unlocks after Rs 5,000 spend on non-SalaryDay Bonus days, has Rs 15,000 eligible spend cap per billing cycle, and maximum bonus rewards are 3,750 SCoins for virtual-only or 5,625 SCoins for physical plus virtual.",
+    "Maximum monthly rewards excluding SalaryDay Bonus are capped at 10% of the card credit limit.",
+    "Restricted MCC groups: cash 6011/6010, wallet/service providers 6540, fuel and auto 0032/2541/4001/5542/5541/5172, quasi-cash 6050/6051/4829, gambling 7801/7995/9754, jewellery 5944/5094.",
+    "Paid card variant: joining fee Rs 500 plus GST, annual fee Rs 500 plus GST waived on spends of Rs 2 lakh, add-on card Rs 500 plus GST. Lifetime-free variant: joining fee nil and annual fee nil, add-on card Rs 500 plus GST.",
+    "Foreign currency transaction fee: 1% for paid/physical card and 2% for lifetime-free/virtual card.",
+    "Utility transaction fee: 1% when cumulative utility spends reach Rs 25,000 or more per statement cycle. Fuel transaction fee: 1% when cumulative fuel spends reach Rs 50,000 or more per statement cycle. Online skill-based gaming fee: 1% when cumulative spends reach Rs 10,000 or more per statement cycle.",
+    "Redemption: SCoins can be redeemed only in the SalarySe app for gift vouchers from 200+ brands and other available options including cash conversion and merchant offers; SalarySe may change redemption offers."
+  ],
+  "imageUrl": "/images/cub-salaryse-level-up.png"
+}
