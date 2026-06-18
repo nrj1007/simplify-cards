@@ -101,6 +101,11 @@ const popularityRankingWeight = 50;
 // Rs 30L tier lets super-premium cards (e.g. Magnus Burgundy) that only pull ahead at very high
 // spend show that strength instead of being capped at the Rs 20L tier.
 const blendAnnualSpendLevels = [300000, 1000000, 2000000, 3000000]; // Rs 3L, 10L, 20L, 30L per year
+// Weights for the envelope blend, aligned index-for-index with blendAnnualSpendLevels. Leaning the
+// blend toward the higher-spend levels means cards whose value is gated behind heavy spend (bank
+// tier programs that lift point value with spend, high fee-waiver thresholds, programme caps that
+// only bind at low spend) are judged more on their heavy-spend strength than on trivial-spend yield.
+const blendAnnualSpendLevelWeights = [1, 2, 3, 4];
 const exactCardNameMatchThreshold = 50000;
 
 function isBroadNoSpendQuery(input: RecommendationInput, intent: ReturnType<typeof parseQueryIntent>) {
@@ -1725,14 +1730,17 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
     .map((card) => {
       if (!useEnvelopeScoring) return scoreCardForSpend(card, spend);
 
-      // Score the card at each fixed light/mid/heavy spend level and blend (average) the per-level
-      // fit scores into the ranking key. The card is displayed at its strongest of these levels, but
-      // ranked on its all-round performance — so no single trivial-spend tier can inflate it.
+      // Score the card at each fixed light/mid/heavy spend level and blend the per-level fit scores
+      // into the ranking key. The card is displayed at its strongest of these levels, but ranked on
+      // its all-round performance — so no single trivial-spend tier can inflate it. The blend is a
+      // weighted average leaning toward higher-spend levels (see blendAnnualSpendLevelWeights).
       const perLevel = blendAnnualSpendLevels.map((annualSpend) => {
         const monthlySpend = Math.round(annualSpend / 12);
         return scoreCardForSpend(card, scaleSpendProfileToMonthly(defaultSpendProfile, monthlySpend), monthlySpend);
       });
-      const blendedFitScore = perLevel.reduce((total, score) => total + score.fitScore, 0) / perLevel.length;
+      const blendWeightSum = blendAnnualSpendLevelWeights.reduce((total, weight) => total + weight, 0);
+      const blendedFitScore =
+        perLevel.reduce((total, score, i) => total + score.fitScore * blendAnnualSpendLevelWeights[i], 0) / blendWeightSum;
       const representative = perLevel.reduce((best, score) => (score.fitScore > best.fitScore ? score : best));
       return representative.envelopeScoring
         ? { ...representative, envelopeScoring: { ...representative.envelopeScoring, normalizedFitScore: blendedFitScore } }
