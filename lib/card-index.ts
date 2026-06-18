@@ -107,6 +107,8 @@ function cardSegmentsForCard(card: CreditCard, searchableText: string): CardSegm
     segments.add("beginner");
   }
 
+  // Fee tiers (non-overlapping): mid-premium Rs 1,000–5,000, premium Rs 5,000–10,000, super-premium
+  // Rs 10,000+ (or explicit ultra/super-premium positioning).
   if (
     card.tags.includes("ultra premium") ||
     card.bestFor.includes("luxury") ||
@@ -115,13 +117,10 @@ function cardSegmentsForCard(card: CreditCard, searchableText: string): CardSegm
     card.annualFee >= 10000
   ) {
     segments.add("super-premium");
-  } else if (
-    card.tags.includes("premium") ||
-    card.bestFor.includes("premium") ||
-    searchableText.includes("premium") ||
-    card.annualFee >= 2000
-  ) {
+  } else if (card.annualFee >= 5000 && card.annualFee < 10000) {
     segments.add("premium");
+  } else if (card.annualFee > 1000 && card.annualFee < 5000) {
+    segments.add("mid-premium");
   }
 
   return [...segments];

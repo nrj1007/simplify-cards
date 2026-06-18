@@ -682,16 +682,17 @@ function cardMatchesSegment(card: CreditCard, segment: string) {
   const haystack = normalizeForMatch([card.name, ...card.tags, ...card.bestFor].join(" "));
 
   if (segment === "ltf") return card.annualFee === 0 || containsNormalizedPhrase(haystack, "lifetime free") || containsNormalizedPhrase(haystack, "ltf");
+  // Fee-based tiers (non-overlapping): mid-premium Rs 1,000–5,000, premium Rs 5,000–10,000,
+  // super-premium Rs 10,000+. Super-premium also covers invite-only cards regardless of listed fee.
   if (segment === "super-premium") return containsNormalizedPhrase(haystack, "super premium") || containsNormalizedPhrase(haystack, "invite") || card.annualFee >= 10000;
-  if (segment === "premium") return containsNormalizedPhrase(haystack, "premium") || card.annualFee >= 3000;
+  if (segment === "premium") return card.annualFee >= 5000 && card.annualFee < 10000;
   if (segment === "mid-premium") {
-    // The mid-range paid tier: above entry-level (> Rs 1,000) and below super-premium (< Rs 10,000).
     // Invite-only/relationship cards are premium products, not mid-tier.
     if (requiresRelationshipAccess(card)) return false;
     return (
       containsNormalizedPhrase(haystack, "mid premium") ||
       containsNormalizedPhrase(haystack, "mid-tier") ||
-      (card.annualFee > 1000 && card.annualFee < 10000)
+      (card.annualFee > 1000 && card.annualFee < 5000)
     );
   }
   if (segment === "beginner") {

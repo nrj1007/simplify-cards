@@ -251,9 +251,8 @@ export function parseQueryIntent(input: RecommendationInput): QueryIntent {
     normalizedQuery.includes("ultra premium") ||
     normalizedQuery.includes("invite only")
   ) {
-    // Super-premium implies premium too, so the "match all segments" filter narrows to high-fee cards.
+    // Fee tiers are disjoint (premium is Rs 5k–10k, super-premium is Rs 10k+), so add only super-premium.
     segments.add("super-premium");
-    segments.add("premium");
   } else if (
     normalizedQuery.includes("mid premium") ||
     normalizedQuery.includes("mid-premium") ||
