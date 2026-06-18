@@ -684,7 +684,17 @@ function cardMatchesSegment(card: CreditCard, segment: string) {
   if (segment === "ltf") return card.annualFee === 0 || containsNormalizedPhrase(haystack, "lifetime free") || containsNormalizedPhrase(haystack, "ltf");
   if (segment === "super-premium") return containsNormalizedPhrase(haystack, "super premium") || containsNormalizedPhrase(haystack, "invite") || card.annualFee >= 10000;
   if (segment === "premium") return containsNormalizedPhrase(haystack, "premium") || card.annualFee >= 3000;
-  if (segment === "beginner") return containsNormalizedPhrase(haystack, "beginner") || containsNormalizedPhrase(haystack, "starter") || containsNormalizedPhrase(haystack, "secured") || card.annualFee <= 1000;
+  if (segment === "beginner") {
+    // Invite-only / relationship cards (e.g. an LTF Kotak Solitaire) are premium products, not
+    // beginner cards, even when their fee is 0.
+    if (requiresRelationshipAccess(card)) return false;
+    return (
+      containsNormalizedPhrase(haystack, "beginner") ||
+      containsNormalizedPhrase(haystack, "starter") ||
+      containsNormalizedPhrase(haystack, "secured") ||
+      card.annualFee <= 1000
+    );
+  }
 
   return false;
 }
@@ -1719,6 +1729,12 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
   const wantsInternationalLounge =
     wantsLounge && /\binternational\b|\boverseas\b|\babroad\b|outside india|\bglobal\b/i.test(normalizeForMatch(input.query));
   const restrictToFuelCards = shouldRestrictToFuelCards(input, intent);
+  // Explicit segment query ("best beginner/premium/super premium card"): restrict the pool to cards
+  // matching ALL named segments (so "super premium" = premium AND super-premium = high-fee cards, and
+  // "beginner" = entry cards), instead of the +3000 segment boost being swamped by premium value and
+  // every segment query returning the same premium ranking. Envelope scoring is kept.
+  const restrictToSegments =
+    intent.segments.length > 0 && isCardRecommendationQuery(input.query) ? intent.segments : null;
   const categoryFocus = detectCategoryFocus(input, intent);
   // A forex-focused query ("best forex card", "zero forex card") is scored like the category focuses:
   // assume 50% of spend is international and compute net value (rewards earned abroad minus the card's
@@ -1930,6 +1946,7 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
     .filter((card) => (restrictToUpiCards ? hasUpiCardSignal(card) : true))
     .filter((card) => (networkFilters.length ? networkFilters.some((network) => cardMatchesNetworkFilter(card, network)) : true))
     .filter((card) => (restrictToFuelCards ? hasFuelCardSignal(card) : true))
+    .filter((card) => (restrictToSegments ? restrictToSegments.every((segment) => cardMatchesSegment(card, segment)) : true))
     .filter((card) => (categoryFocus ? cardMatchesCategoryFocus(card, categoryFocus) : true))
     .map((card) => {
       if (!useEnvelopeScoring) return scoreCardForSpend(card, spend);
