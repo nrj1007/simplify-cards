@@ -67,6 +67,11 @@ export type Reward = {
   capDaily?: number | null;
   capStatementQuarter?: number | null;
   postCapRate?: number | null;
+  // Shared-cap group: reward rows on the same card with the same capGroup pool their earnings into a
+  // single combined capMonthly (instead of each row capping independently). Use when an issuer caps a
+  // whole programme together regardless of sub-rate — e.g. HDFC SmartBuy hotels (10X) and flights/
+  // other (5X) share one monthly cap. All rows in a group should carry the same capMonthly.
+  capGroup?: string;
   // Spend-tiered earning: when a spend category maps to several reward rows that each apply to a
   // different monthly-spend band (e.g. base earn up to Rs 1.5L/mo vs above), set these per row. The
   // scoring engine and calculator bucket monthly spend across the tiers. `tierLowerBound` is the
