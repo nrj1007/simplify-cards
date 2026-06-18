@@ -1695,6 +1695,11 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
   const wantsLounge = input.wantsLounge ?? intent.wantsLounge;
   const restrictToFuelCards = shouldRestrictToFuelCards(input, intent);
   const categoryFocus = detectCategoryFocus(input, intent);
+  // A forex-focused query ("best forex card", "zero forex card") is a card-attribute preference like
+  // lounge — not a spend pattern. Treat it like wantsLounge: skip envelope scoring so the strong
+  // forexPreferenceBoost actually decides the order (under envelope blending the boost is swamped by
+  // high-spend rupee value, which is why "best forex card" used to return the generic ranking).
+  const forexFocus = intent.tags.includes("forex") && !input.spend && !intent.inferredSpend;
   const fuelFocusedSpend = restrictToFuelCards && !intent.inferredSpend && !input.spend ? focusedSpendProfile("fuel") : undefined;
   const categoryFocusedSpend = categoryFocus?.spendCategory
     ? weightedFocusSpendProfile(categoryFocus.spendCategory, 0.5)
@@ -1714,6 +1719,7 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
   const useEnvelopeScoring =
     !restrictToFuelCards &&
     !categoryFocus &&
+    !forexFocus &&
     shouldUseEnvelopeScoring(input, intent, effectiveMaxAnnualFee, wantsLifetimeFree, wantsLounge);
   const restrictToUpiCards = shouldRestrictToUpiCards(input, intent);
   const networkFilters = explicitNetworkFilters(input, intent);
