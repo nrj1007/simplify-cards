@@ -684,6 +684,16 @@ function cardMatchesSegment(card: CreditCard, segment: string) {
   if (segment === "ltf") return card.annualFee === 0 || containsNormalizedPhrase(haystack, "lifetime free") || containsNormalizedPhrase(haystack, "ltf");
   if (segment === "super-premium") return containsNormalizedPhrase(haystack, "super premium") || containsNormalizedPhrase(haystack, "invite") || card.annualFee >= 10000;
   if (segment === "premium") return containsNormalizedPhrase(haystack, "premium") || card.annualFee >= 3000;
+  if (segment === "mid-premium") {
+    // The mid-range paid tier: above entry-level (> Rs 1,000) and below super-premium (< Rs 10,000).
+    // Invite-only/relationship cards are premium products, not mid-tier.
+    if (requiresRelationshipAccess(card)) return false;
+    return (
+      containsNormalizedPhrase(haystack, "mid premium") ||
+      containsNormalizedPhrase(haystack, "mid-tier") ||
+      (card.annualFee > 1000 && card.annualFee < 10000)
+    );
+  }
   if (segment === "beginner") {
     // Invite-only / relationship cards (e.g. an LTF Kotak Solitaire) are premium products, not
     // beginner cards, even when their fee is 0.

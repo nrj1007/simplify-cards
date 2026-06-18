@@ -5,7 +5,7 @@ import type { CreditCard } from "./types";
 export type PopularityBand = "90-plus" | "80-89" | "70-79" | "below-70";
 export type UseCaseBucket = "cashback" | "travel";
 export type RedemptionBucket = "accor" | "air-india";
-export type CardSegment = "super-premium" | "premium" | "beginner" | "ltf";
+export type CardSegment = "super-premium" | "premium" | "mid-premium" | "beginner" | "ltf";
 
 function sortCards(left: CreditCard, right: CreditCard) {
   return right.popularityScore - left.popularityScore || left.name.localeCompare(right.name);

@@ -251,9 +251,20 @@ export function parseQueryIntent(input: RecommendationInput): QueryIntent {
     normalizedQuery.includes("ultra premium") ||
     normalizedQuery.includes("invite only")
   ) {
+    // Super-premium implies premium too, so the "match all segments" filter narrows to high-fee cards.
     segments.add("super-premium");
+    segments.add("premium");
+  } else if (
+    normalizedQuery.includes("mid premium") ||
+    normalizedQuery.includes("mid-premium") ||
+    normalizedQuery.includes("mid tier") ||
+    normalizedQuery.includes("mid-tier")
+  ) {
+    // Mid-premium is its own band; do not also add "premium" (which would force the high-fee cut-off).
+    segments.add("mid-premium");
+  } else if (normalizedQuery.includes("premium")) {
+    segments.add("premium");
   }
-  if (normalizedQuery.includes("premium")) segments.add("premium");
   if (
     normalizedQuery.includes("beginner") ||
     normalizedQuery.includes("starter") ||

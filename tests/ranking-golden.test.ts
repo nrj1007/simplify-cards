@@ -20,6 +20,7 @@ const scenarios: Record<string, RecommendationInput> = {
   "usecase-travel": { query: "best travel card" },
   "issuer-hdfc": { query: "best hdfc card" },
   "segment-beginner": { query: "best beginner card" },
+  "segment-mid-premium": { query: "best mid premium card" },
   "segment-premium": { query: "best premium card" },
   "segment-super-premium": { query: "best super premium card" },
   "network-rupay": { query: "best rupay card" },
