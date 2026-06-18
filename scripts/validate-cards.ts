@@ -309,7 +309,9 @@ if (cardFiles.length === 0) {
         "entertainment",
         "amazon",
         "flipkart",
-        "swiggy"
+        "swiggy",
+        "utilities",
+        "rent"
       ]);
       if (!Array.isArray(card.categoryFocusTags)) {
         addIssue("categoryFocusTags must be an array of category keys when present", cardId, "categoryFocusTags");

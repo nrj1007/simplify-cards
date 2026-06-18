@@ -490,6 +490,10 @@ type CategoryFocusConfig = {
   // for brand/merchant focuses (Amazon, Flipkart, Swiggy) where the flagship co-brand cards carry the
   // merchant in their name/bestFor rather than in a reward-row category.
   matchPositioning?: boolean;
+  // When true, a card qualifies if it simply EARNS on the category (not excluded), rather than needing
+  // an accelerated row above base. Needed for rent/utilities, where most cards exclude the category and
+  // the best card is the one that rewards it at all (e.g. HSBC Premier rewards rent at its base rate).
+  matchByEarning?: boolean;
 };
 
 const categoryFocusConfigs: CategoryFocusConfig[] = [
@@ -541,6 +545,22 @@ const categoryFocusConfigs: CategoryFocusConfig[] = [
     queryPattern: /\bswiggy\b/i,
     positioning: ["swiggy", "food delivery"],
     matchPositioning: true
+  },
+  {
+    key: "utilities",
+    spendCategory: "utilities",
+    rewardPattern: /utilit|\bbill/i,
+    queryPattern: /\butilit|\bbill/i,
+    positioning: ["utility", "utilities", "bill payment", "bills"],
+    matchByEarning: true
+  },
+  {
+    key: "rent",
+    spendCategory: "rent",
+    rewardPattern: /\brent\b/i,
+    queryPattern: /\brent\b/i,
+    positioning: ["rent", "rent payment"],
+    matchByEarning: true
   }
 ];
 
@@ -554,13 +574,19 @@ function detectCategoryFocus(
   input: RecommendationInput,
   intent: ReturnType<typeof parseQueryIntent>
 ): CategoryFocusConfig | null {
-  if (input.spend || intent.inferredSpend) return null;
+  if (input.spend) return null;
+  const hasInferredSpend = Boolean(
+    intent.inferredSpend && Object.values(intent.inferredSpend).some((amount) => amount && amount > 0)
+  );
   const normalizedQuery = normalizeForMatch(input.query);
   for (const config of categoryFocusConfigs) {
     if (!config.queryPattern.test(normalizedQuery)) continue;
-    if (isCardRecommendationQuery(input.query) || containsNormalizedPhrase(normalizedQuery, `${config.key} card`)) {
-      return config;
-    }
+    if (!(isCardRecommendationQuery(input.query) || containsNormalizedPhrase(normalizedQuery, `${config.key} card`))) continue;
+    // When the query already infers a spend profile, only earn-based focuses (rent/utilities) take it
+    // over — so every phrasing of "rent"/"utility bills" ranks consistently. Other focuses defer to the
+    // inferred spend (preserving e.g. "card for grocery spends" as a 100%-grocery profile).
+    if (hasInferredSpend && !config.matchByEarning) return null;
+    return config;
   }
   return null;
 }
@@ -596,8 +622,17 @@ function cardPositioningMatchesFocus(card: CreditCard, config: CategoryFocusConf
   return config.positioning.some((token) => containsNormalizedPhrase(haystack, token));
 }
 
+// Whether the card earns any reward on a spend category (i.e. the category is not excluded). Used by
+// matchByEarning focuses (rent/utilities) where rewarding the category at all is the relevant signal.
+function cardEarnsOnSpendCategory(card: CreditCard, category: SpendCategory) {
+  const breakdown = rewardBreakdownForCard(card, { [category]: 10000 } as SpendProfile, true);
+  return breakdown.some((row) => row.spendCategory === category && row.monthlyReward > 0);
+}
+
 function cardMatchesCategoryFocus(card: CreditCard, config: CategoryFocusConfig) {
   if (cardHasCategoryFocusTag(card, config)) return true;
+  // Earn-based focuses (rent/utilities): qualify if the card rewards the category at all.
+  if (config.matchByEarning && config.spendCategory) return cardEarnsOnSpendCategory(card, config.spendCategory);
   const baseRate = cardBaseRate(card);
   if (card.rewards.some((reward) => config.rewardPattern.test(reward.category) && reward.rate > baseRate)) return true;
   // Brand/merchant focuses also qualify on positioning (the flagship co-brand carries the merchant in
@@ -615,10 +650,13 @@ function categorySpecialistScore(card: CreditCard, config: CategoryFocusConfig) 
     (reward) => config.rewardPattern.test(reward.category) && reward.rate > baseRate
   );
   const hasPositioning = cardPositioningMatchesFocus(card, config);
+  const earnsOnCategory = Boolean(
+    config.matchByEarning && config.spendCategory && cardEarnsOnSpendCategory(card, config.spendCategory)
+  );
   let score = 0;
-  // A genuine accelerator, an explicit tag, or — for merchant focuses — merchant positioning makes the
-  // card a specialist.
-  if (hasAcceleratedRow || cardHasCategoryFocusTag(card, config) || (config.matchPositioning && hasPositioning)) {
+  // A genuine accelerator, an explicit tag, merchant positioning, or — for earn-based focuses —
+  // simply rewarding the category makes the card a specialist.
+  if (hasAcceleratedRow || cardHasCategoryFocusTag(card, config) || (config.matchPositioning && hasPositioning) || earnsOnCategory) {
     score += 3;
   }
   if (hasPositioning) score += 2;
@@ -1819,9 +1857,11 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
     ...defaultSpendProfile,
     ...(segmentSpend ?? {}),
     ...(fuelFocusedSpend ?? {}),
-    ...(categoryFocusedSpend ?? {}),
     ...(forexFocusedSpend ?? {}),
     ...(intent.inferredSpend ?? {}),
+    // Category focus spend wins over a single-category inferred spend, so "best card for rent payment"
+    // (inferred: rent) and "best rent card" both score at the focus's 50% category profile.
+    ...(categoryFocusedSpend ?? {}),
     ...(input.spend ?? {})
   };
   const restrictToIssuer = shouldRestrictToIssuer(intent, input.query);

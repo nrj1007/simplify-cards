@@ -23,6 +23,12 @@ const scenarios: Record<string, RecommendationInput> = {
   "merchant-amazon": { query: "best amazon card" },
   "merchant-flipkart": { query: "best flipkart card" },
   "merchant-swiggy": { query: "best swiggy card" },
+  // Rent and utilities focuses, locked across multiple phrasings (these should rank consistently).
+  "category-rent": { query: "best rent card" },
+  "category-rent-payment": { query: "best card for rent payment" },
+  "category-utilities": { query: "best utility card" },
+  "category-utility-bills": { query: "best card for utility bills" },
+  "category-bill-payments": { query: "best card for bill payments" },
   "issuer-hdfc": { query: "best hdfc card" },
   "issuer-sbi": { query: "best sbi card" },
   "issuer-axis": { query: "best axis card" },
