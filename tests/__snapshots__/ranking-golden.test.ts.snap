@@ -41,8 +41,8 @@ exports[`ranking golden (representative queries) > produces stable top-N orderin
     "hdfc-swiggy",
     "hdfc-moneyback-plus",
     "hdfc-swiggy-orange",
+    "hdfc-marriott-bonvoy",
     "hdfc-pixel-go",
-    "hdfc-shoppers-stop-black",
   ],
   "lifetime-free": [
     "au-ixigo",
@@ -70,7 +70,7 @@ exports[`ranking golden (representative queries) > produces stable top-N orderin
     "indusind-indulge",
     "hdfc-regalia-gold",
     "bobcard-etihad-guest-premium",
-    "hdfc-shoppers-stop-black",
+    "hdfc-marriott-bonvoy",
   ],
   "max-fee-zero": [
     "au-ixigo",
@@ -126,7 +126,7 @@ exports[`ranking golden (representative queries) > produces stable top-N orderin
     "amex-platinum-travel",
     "idfc-indigo",
     "amex-platinum-reserve",
-    "idfc-first-power-plus",
+    "hdfc-marriott-bonvoy",
   ],
   "spend-high-base": [
     "hsbc-premier",

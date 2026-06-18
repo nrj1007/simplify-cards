@@ -119,9 +119,9 @@
   ],
   "joiningBenefitsValued": [
     {
-      "value": 9000,
+      "value": 0,
       "kind": "points",
-      "label": "1 Free Night Award redeemable for a one-night stay up to 15,000 Marriott Bonvoy Points on the first eligible transaction of Rs 500 within 90 days of card open date or on card fee levy, whichever is earlier"
+      "label": "1 Free Night Award redeemable for a one-night stay up to 15,000 Marriott Bonvoy Points on the first eligible transaction of Rs 500 within 90 days of card open date or on card fee levy, whichever is earlier (counted under renewal — granted every fee cycle)"
     },
     {
       "value": 0,
@@ -139,6 +139,16 @@
     "10 Elite Night Credits on meeting the welcome benefit condition",
     "Marriott Bonvoy Silver Elite Status"
   ],
+  "renewalBenefitsValued": [
+    {
+      "value": 9000,
+      "kind": "points",
+      "label": "1 Free Night Award (up to 15,000 Marriott Bonvoy Points) granted each year on annual fee levy"
+    }
+  ],
+  "renewalBenefits": [
+    "1 Free Night Award redeemable for a one-night stay up to 15,000 Marriott Bonvoy Points, granted each year on payment of the annual fee"
+  ],
   "additionalBenefits": [
     "5% cashback on SmartBuy bookings and purchases",
     "2 complimentary golf lessons per quarter at select driving ranges in India",
@@ -148,7 +158,7 @@
     "Card details manually reviewed and verified by user on 2026-06-01",
     "Audited against official HDFC Marriott Bonvoy product page, FAQ PDF and card benefit terms PDF on 2026-06-01.",
     "Annual fee is Rs 3,000 plus taxes with no annual fee waiver currently listed on the official product page.",
-    "Marriott Bonvoy Points are valued at Rs 0.60 each for scoring. Each Free Night Award (welcome + the three milestones) is redeemable for a stay worth up to 15,000 points, so valued at 15,000 x 0.60 = Rs 9,000.",
+    "Marriott Bonvoy Points are valued at Rs 0.60 each for scoring. Each Free Night Award is redeemable for a stay worth up to 15,000 points, so valued at 15,000 x 0.60 = Rs 9,000. The fee-levy Free Night recurs every anniversary year, so it is modelled as a renewal benefit (counted in full each year), not a one-time joining benefit (which would be amortized over 3 years). The three spend-milestone Free Nights are valued the same.",
     "The card offers 12 total complimentary lounge accesses per year across domestic and international lounges.",
     "International lounge access is provided via the DCI travel tool app.",
     "Marriott hotel spends earn 8 Marriott Bonvoy Points per Rs 150 only on the first Rs 60,000 spent in a calendar month; spends beyond that threshold earn 2 Marriott Bonvoy Points per Rs 150.",
