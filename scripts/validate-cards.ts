@@ -302,7 +302,15 @@ if (cardFiles.length === 0) {
 
     if (card.categoryFocusTags !== undefined) {
       // Keep in sync with categoryFocusConfigs keys in lib/recommend.ts.
-      const allowedCategoryFocusKeys = new Set(["dining", "grocery", "online", "entertainment"]);
+      const allowedCategoryFocusKeys = new Set([
+        "dining",
+        "grocery",
+        "online",
+        "entertainment",
+        "amazon",
+        "flipkart",
+        "swiggy"
+      ]);
       if (!Array.isArray(card.categoryFocusTags)) {
         addIssue("categoryFocusTags must be an array of category keys when present", cardId, "categoryFocusTags");
       } else {

@@ -486,6 +486,10 @@ type CategoryFocusConfig = {
   rewardPattern: RegExp;
   queryPattern: RegExp;
   positioning: string[];
+  // When true, a card also qualifies (and is treated as a specialist) on positioning alone — needed
+  // for brand/merchant focuses (Amazon, Flipkart, Swiggy) where the flagship co-brand cards carry the
+  // merchant in their name/bestFor rather than in a reward-row category.
+  matchPositioning?: boolean;
 };
 
 const categoryFocusConfigs: CategoryFocusConfig[] = [
@@ -515,6 +519,28 @@ const categoryFocusConfigs: CategoryFocusConfig[] = [
     rewardPattern: /entertainment|movie/i,
     queryPattern: /\bentertainment\b|\bmovies?\b/i,
     positioning: ["entertainment", "movies", "movie", "bookmyshow", "pvr", "inox"]
+  },
+  {
+    key: "amazon",
+    spendCategory: "amazon",
+    rewardPattern: /amazon/i,
+    queryPattern: /\bamazon\b/i,
+    positioning: ["amazon", "amazon pay"],
+    matchPositioning: true
+  },
+  {
+    key: "flipkart",
+    rewardPattern: /flipkart/i,
+    queryPattern: /\bflipkart\b/i,
+    positioning: ["flipkart", "myntra"],
+    matchPositioning: true
+  },
+  {
+    key: "swiggy",
+    rewardPattern: /swiggy/i,
+    queryPattern: /\bswiggy\b/i,
+    positioning: ["swiggy", "food delivery"],
+    matchPositioning: true
   }
 ];
 
@@ -565,10 +591,18 @@ function cardHasCategoryFocusTag(card: CreditCard, config: CategoryFocusConfig) 
 // A card matches a category focus if it ACCELERATES that category (a matching reward row whose rate
 // exceeds the card's base rate) OR is explicitly tagged for it. A row at the base rate with a
 // category cap does not qualify on its own.
+function cardPositioningMatchesFocus(card: CreditCard, config: CategoryFocusConfig) {
+  const haystack = normalizeForMatch([card.name, ...card.bestFor, ...card.tags].join(" "));
+  return config.positioning.some((token) => containsNormalizedPhrase(haystack, token));
+}
+
 function cardMatchesCategoryFocus(card: CreditCard, config: CategoryFocusConfig) {
   if (cardHasCategoryFocusTag(card, config)) return true;
   const baseRate = cardBaseRate(card);
-  return card.rewards.some((reward) => config.rewardPattern.test(reward.category) && reward.rate > baseRate);
+  if (card.rewards.some((reward) => config.rewardPattern.test(reward.category) && reward.rate > baseRate)) return true;
+  // Brand/merchant focuses also qualify on positioning (the flagship co-brand carries the merchant in
+  // its name/bestFor, not always in a reward-row category — e.g. HDFC Swiggy rewards under "dining").
+  return Boolean(config.matchPositioning && cardPositioningMatchesFocus(card, config));
 }
 
 // Specialist score for a category-focused ranking: rewards a genuinely accelerated category reward
@@ -577,13 +611,17 @@ function cardMatchesCategoryFocus(card: CreditCard, config: CategoryFocusConfig)
 // no matching accelerator (they get the non-specialist penalty / are filtered out).
 function categorySpecialistScore(card: CreditCard, config: CategoryFocusConfig) {
   const baseRate = cardBaseRate(card);
-  const acceleratedRows = card.rewards.filter(
+  const hasAcceleratedRow = card.rewards.some(
     (reward) => config.rewardPattern.test(reward.category) && reward.rate > baseRate
   );
+  const hasPositioning = cardPositioningMatchesFocus(card, config);
   let score = 0;
-  if (acceleratedRows.length || cardHasCategoryFocusTag(card, config)) score += 3;
-  const haystack = normalizeForMatch([card.name, ...card.bestFor, ...card.tags].join(" "));
-  if (config.positioning.some((token) => containsNormalizedPhrase(haystack, token))) score += 2;
+  // A genuine accelerator, an explicit tag, or — for merchant focuses — merchant positioning makes the
+  // card a specialist.
+  if (hasAcceleratedRow || cardHasCategoryFocusTag(card, config) || (config.matchPositioning && hasPositioning)) {
+    score += 3;
+  }
+  if (hasPositioning) score += 2;
   return score;
 }
 
