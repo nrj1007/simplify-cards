@@ -508,6 +508,28 @@ function focusedSpendProfile(category: SpendCategory) {
   ) as SpendProfile;
 }
 
+// Spend profile for a category-focused recommendation that does NOT assume the card is used for
+// nothing else: `share` of total monthly spend goes to the focused category, the rest keeps the
+// default mix (re-normalised across the other categories). Reflects a realistic "I'd put most of my
+// dining on this card and use other cards elsewhere" pattern instead of an unrealistic 100% focus.
+function weightedFocusSpendProfile(category: SpendCategory, share: number): SpendProfile {
+  const monthlyTotal = Object.values(defaultSpendProfile).reduce((total, amount = 0) => total + amount, 0);
+  const focusAmount = monthlyTotal * share;
+  const remaining = monthlyTotal - focusAmount;
+  const entries = Object.entries(defaultSpendProfile) as Array<[SpendCategory, number]>;
+  const othersSum = entries.reduce((sum, [key, amount]) => (key === category ? sum : sum + (amount ?? 0)), 0);
+  return Object.fromEntries(
+    entries.map(([key, amount]) => [
+      key,
+      key === category
+        ? Math.round(focusAmount)
+        : othersSum > 0
+          ? Math.round(remaining * ((amount ?? 0) / othersSum))
+          : 0
+    ])
+  ) as SpendProfile;
+}
+
 function requiresRelationshipAccess(card: CreditCard) {
   const haystack = normalizeForMatch(
     [
@@ -1599,7 +1621,7 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
   const restrictToFuelCards = shouldRestrictToFuelCards(input, intent);
   const focusDiningSpend = shouldFocusDiningSpend(input, intent);
   const fuelFocusedSpend = restrictToFuelCards && !intent.inferredSpend && !input.spend ? focusedSpendProfile("fuel") : undefined;
-  const diningFocusedSpend = focusDiningSpend ? focusedSpendProfile("dining") : undefined;
+  const diningFocusedSpend = focusDiningSpend ? weightedFocusSpendProfile("dining", 0.5) : undefined;
   const spend = {
     ...defaultSpendProfile,
     ...(fuelFocusedSpend ?? {}),
@@ -1783,6 +1805,7 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
     .filter((card) => (restrictToUpiCards ? hasUpiCardSignal(card) : true))
     .filter((card) => (networkFilters.length ? networkFilters.some((network) => cardMatchesNetworkFilter(card, network)) : true))
     .filter((card) => (restrictToFuelCards ? hasFuelCardSignal(card) : true))
+    .filter((card) => (focusDiningSpend ? card.rewards.some((reward) => /\bdining\b|restaurant/i.test(reward.category)) : true))
     .map((card) => {
       if (!useEnvelopeScoring) return scoreCardForSpend(card, spend);
 
