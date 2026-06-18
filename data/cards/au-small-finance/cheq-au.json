@@ -1,0 +1,170 @@
+{
+  "id": "cheq-au",
+  "issuer": "AU Small Finance Bank",
+  "name": "CheQ AU Credit Card",
+  "network": [
+    "Visa",
+    "RuPay"
+  ],
+  "joiningFee": 499,
+  "annualFee": 499,
+  "feeWaiverSpend": 300000,
+  "bestFor": [
+    "cheq",
+    "travel",
+    "upi",
+    "utility bills",
+    "amazon"
+  ],
+  "rewardType": "CheQ points",
+  "capGroups": {
+    "accelerated": {
+      "capMonthly": 12000
+    }
+  },
+  "rewards": [
+    {
+      "category": "amazon,online,grocery",
+      "displayCategory": "Select brands on CheQ (Amazon, Flipkart, Zomato, BigBasket, Apple via Unicorn)",
+      "rate": 12,
+      "displayRate": "24 CheQ Points per ₹200 spent",
+      "capMonthly": 12000,
+      "capGroup": "accelerated"
+    },
+    {
+      "category": "travel,utilities",
+      "displayCategory": "CheQ Travel bookings and utility bill payments on CheQ app",
+      "rate": 12,
+      "displayRate": "24 CheQ Points per ₹200 spent",
+      "capMonthly": 12000,
+      "capGroup": "accelerated"
+    },
+    {
+      "category": "online",
+      "displayCategory": "Other eligible shopping, food delivery, and online grocery spends",
+      "rate": 5,
+      "displayRate": "10 CheQ Points per ₹200 spent",
+      "capMonthly": 12000,
+      "capGroup": "accelerated"
+    },
+    {
+      "category": "upi",
+      "displayCategory": "CheQ UPI on linked RuPay card",
+      "rate": 2.5,
+      "displayRate": "5 CheQ Points per ₹200 spent",
+      "capMonthly": 12000,
+      "capGroup": "accelerated"
+    },
+    {
+      "category": "base",
+      "displayCategory": "Other eligible spends",
+      "rate": 1,
+      "displayRate": "2 CheQ Points per ₹200 spent",
+      "capMonthly": null
+    }
+  ],
+  "acceleratedShare": {
+    "online": 0.2,
+    "dining": 0,
+    "grocery": 0
+  },
+  "loungeDomestic": 0,
+  "loungeInternational": 0,
+  "forexMarkup": 3.49,
+  "tags": [
+    "cheq",
+    "visa",
+    "rupay",
+    "upi",
+    "travel",
+    "amazon",
+    "flipkart",
+    "zomato",
+    "bigbasket",
+    "utility bills"
+  ],
+  "exclusions": [
+    "Fuel purchases",
+    "Education spends",
+    "Gold purchases",
+    "Gambling transactions",
+    "Insurance payments",
+    "Utility payments made outside the CheQ app",
+    "Rent-related spends",
+    "Transactions below ₹200",
+    "EMI transactions",
+    "UPI transactions made outside the CheQ app"
+  ],
+  "exclusionCodes": [
+    "fuel",
+    "education",
+    "gold",
+    "gaming",
+    "insurance",
+    "rent",
+    "emi"
+  ],
+  "joiningBenefitsValued": [
+    {
+      "value": 695,
+      "kind": "other",
+      "label": "EazyDiner membership on joining"
+    }
+  ],
+  "additionalBenefits": [
+    "1% fuel surcharge waiver up to ₹150 on fuel spends",
+    "Zero processing fee on Xpress EMI conversions"
+  ],
+  "additionalDetails": [
+    "CheQ points are typically credited within 2-3 working days after the transaction is completed and settled.",
+    "Base rewards are uncapped, while accelerated categories share a cap of 12,000 CheQ points per month.",
+    "Bill-payment redemptions on the CheQ app work at 4 CheQ Points = ₹1 and are available within 2 days of monthly statement generation."
+  ],
+  "redemption": {
+    "ecosystemLabel": "CheQ Travel",
+    "ecosystemValue": 0.5,
+    "statementBalanceValue": 0.25,
+    "voucherRedemptions": [
+      {
+        "partner": "30+ top brands",
+        "programme": "Gift cards",
+        "ratio": "2:1",
+        "valuePerPoint": 0.5
+      }
+    ],
+    "pointsExpiryYears": 2
+  },
+  "eligibility": {
+    "salaried": [
+      "Age 21 to 60 years",
+      "Monthly income of ₹25,000 or above",
+      "Resident Indian with credit score 750+ and address in an AU Bank serviceable area"
+    ],
+    "selfEmployed": [
+      "Age 25 to 65 years",
+      "Monthly income of ₹25,000 or above",
+      "Resident Indian with credit score 750+ and address in an AU Bank serviceable area"
+    ]
+  },
+  "supportingSourceUrls": [
+    "https://www.au.bank.in/personal-banking/credit-cards/cheq-au-credit-card",
+    "https://cheq.one/cheq-au-credit-card"
+  ],
+  "sourceUrl": "https://www.au.bank.in/personal-banking/credit-cards/cheq-au-credit-card",
+  "applyUrl": "https://cheq.one/cheq-au-credit-card",
+  "imageUrl": "/images/cheq-au-composed.webp",
+  "lastVerified": "2026-06-18",
+  "verificationStatus": "official-mixed",
+  "internalNotes": [
+    "Card details manually reviewed and verified by user on 2026-06-18.",
+    "Audited against the official AU Small Finance Bank product page and the official CheQ co-branded product page on 2026-06-18.",
+    "A single application issues 2 cards: 1 Visa variant and 1 RuPay variant.",
+    "Accelerated reward points are capped at 12,000 CheQ points per month across accelerated categories; base rewards are not capped.",
+    "Reward points are valid for 2 years from the date they are credited into the CheQ account.",
+    "The 12% select-brand earn applies on Amazon, Flipkart, Zomato, BigBasket, and Apple products powered by Unicorn on the Visa variant, and through CheQ UPI using the CheQ AU RuPay Credit Card.",
+    "CheQ points can be redeemed on flights and hotels at 2 points = ₹1, on gift cards at 2 points = ₹1, and on monthly bill payments at 4 points = ₹1.",
+    "The LED Visa variant carries a one-time issuance fee of ₹999; standard Visa and RuPay cards do not carry that one-time issuance fee.",
+    "Both cards must be closed together; partial closure is not supported."
+  ],
+  "popularityScore": 76
+}
