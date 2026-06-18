@@ -1,0 +1,144 @@
+{
+  "id": "csb-jupiter-edge-plus",
+  "issuer": "CSB Bank",
+  "name": "Jupiter Edge+ Credit Card",
+  "network": [
+    "RuPay"
+  ],
+  "joiningFee": 0,
+  "annualFee": 0,
+  "feeWaiverSpend": null,
+  "bestFor": [
+    "cashback",
+    "upi",
+    "online spends"
+  ],
+  "rewardType": "jewels",
+  "rewards": [
+    {
+      "category": "online",
+      "displayCategory": "Preferred Brands shopping",
+      "rate": 50,
+      "displayRate": "50 Jewels per ₹100 spent",
+      "capMonthly": 10000
+    },
+    {
+      "category": "airlines",
+      "displayCategory": "Jupiter Flights",
+      "rate": 25,
+      "displayRate": "25 Jewels per ₹100 spent",
+      "capMonthly": 5000
+    },
+    {
+      "category": "base, upi",
+      "displayCategory": "Base retail & UPI spends",
+      "rate": 5,
+      "displayRate": "5 Jewels per ₹100 spent",
+      "capMonthly": 5000
+    }
+  ],
+  "loungeDomestic": 0,
+  "loungeInternational": 0,
+  "forexMarkup": 2,
+  "tags": [
+    "cashback",
+    "upi",
+    "online spends"
+  ],
+  "exclusions": [
+    "Fuel spends",
+    "Government-related transactions",
+    "Rent payments",
+    "Utility bill payments",
+    "E-wallet loading transactions",
+    "Cash advances and ATM withdrawals",
+    "Payment of outstanding balances and credit card bills",
+    "Payment of card fees and other charges",
+    "All types of EMI transactions",
+    "Education payments"
+  ],
+  "exclusionCodes": [
+    "fuel",
+    "government",
+    "rent",
+    "utilities",
+    "wallet_load",
+    "cash_advance",
+    "cash_withdrawal",
+    "fees_and_charges",
+    "emi",
+    "education"
+  ],
+  "specialSpendRules": [
+    {
+      "category": "education",
+      "treatment": "excluded",
+      "notes": "Education payments do not earn Jewels and attract a 1% transaction fee."
+    },
+    {
+      "category": "utilities",
+      "treatment": "excluded",
+      "notes": "Utility bill payments do not earn Jewels."
+    },
+    {
+      "category": "rent",
+      "treatment": "excluded",
+      "notes": "Rent payments do not earn Jewels."
+    },
+    {
+      "category": "fuel",
+      "treatment": "excluded",
+      "notes": "Fuel spends do not earn Jewels; eligible for 1% surcharge waiver."
+    }
+  ],
+  "milestoneBenefits": [],
+  "additionalBenefits": [
+    "1% fuel surcharge waiver on transactions between ₹400 and ₹3,000, capped at ₹100 per billing cycle",
+    "Link with preferred UPI apps to make credit card payments directly via UPI QR codes"
+  ],
+  "additionalDetails": [
+    "Jewels are worth ₹0.20 when redeemed for vouchers, digital gold, or flights/hotels via the Jupiter ecosystem",
+    "Jewels are worth ₹0.14 when redeemed as statement credit or cash equivalents",
+    "A per-merchant capping of 3,000 Jewels and a per-transaction capping of 1,000 Jewels applies on Preferred Brands shopping",
+    "A 1% transaction fee applies on education spends"
+  ],
+  "redemption": {
+    "statementBalanceValue": 0.14,
+    "travelPortalValue": 0.20,
+    "voucherRedemptions": [
+      {
+        "partner": "Jupiter Vouchers / Digital Gold / Jupiter Flights",
+        "programme": "Jewels",
+        "ratio": "1:1",
+        "valuePerPoint": 0.20,
+        "note": "₹0.20 per Jewel when redeemed for brand vouchers, digital gold, or flights via Jupiter"
+      }
+    ]
+  },
+  "interestRateMonthly": 3.5,
+  "eligibility": {
+    "salaried": [
+      "Age: 21 to 65 years",
+      "Available directly on the Jupiter app based on eligibility checks"
+    ],
+    "selfEmployed": [
+      "Age: 21 to 65 years",
+      "Available directly on the Jupiter app based on eligibility checks"
+    ]
+  },
+  "sourceUrl": "https://jupiter.money/credit-card/",
+  "applyUrl": "https://jupiter.money/credit-card/",
+  "lastVerified": "2026-06-18",
+  "verificationStatus": "official-direct",
+  "internalNotes": [
+    "Card details manually reviewed and verified by user on 2026-06-18",
+    "Jupiter Edge+ CSB Bank credit card is a co-branded RuPay credit card issued by CSB Bank in partnership with Jupiter (Amica Financial Technologies).",
+    "Effective June 1, 2026, the redemption value of Jewels for statement credit was devalued to ₹0.14 per Jewel. Vouchers, flights, and gold redemption remain at ₹0.20 per Jewel.",
+    "Effective March 21, 2026, the 5% accelerated rewards on external OTAs (MakeMyTrip, Yatra) were removed, and spends on those categories now earn at the base rate.",
+    "Accelerated shopping category cap is 10,000 Jewels per billing cycle, with a 3,000 Jewels per-merchant cap and a 1,000 Jewels per-transaction cap.",
+    "Base category includes offline, other online, and UPI spends, capped at 5,000 Jewels per billing cycle.",
+    "Interest rate of 3.5% per month (42% per annum) applies."
+  ],
+  "popularityScore": 70,
+  "imageUrl": "/images/csb-jupiter-edge-plus.webp"
+}

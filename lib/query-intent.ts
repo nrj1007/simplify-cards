@@ -50,7 +50,8 @@ const issuerAliases: Array<{ issuer: string; aliases: string[] }> = [
   { issuer: "Federal Bank", aliases: ["federal"] },
   { issuer: "Bank of Baroda", aliases: ["bank of baroda", "bob", "bobcard"] },
   { issuer: "OneCard Partner Banks", aliases: ["onecard", "one card"] },
-  { issuer: "SBM Bank", aliases: ["sbm", "sbm bank", "sbm bank india"] }
+  { issuer: "SBM Bank", aliases: ["sbm", "sbm bank", "sbm bank india"] },
+  { issuer: "CSB Bank", aliases: ["csb", "csb bank", "jupiter csb", "jupiter edge"] }
 ];
 
 const tagKeywords = [
