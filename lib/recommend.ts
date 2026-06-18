@@ -670,6 +670,24 @@ function focusedSpendProfile(category: SpendCategory) {
   ) as SpendProfile;
 }
 
+// Realistic monthly spend on a focused category, used when scoring a "best <category>/fuel card"
+// query. Putting 100% of the default total on one category (~Rs 53k) made caps misfire — dedicated
+// fuel cards hit their monthly caps while uncapped premium cards ran free. Since the category ranking
+// uses only the focused category's reward, the rest of the profile is the default mix and doesn't
+// affect order; only this amount (which drives caps) matters.
+const categoryFocusMonthlySpend: Partial<Record<SpendCategory, number>> = {
+  fuel: 6000,
+  dining: 8000,
+  grocery: 10000,
+  online: 15000,
+  amazon: 8000,
+  utilities: 5000,
+  rent: 50000
+};
+function categoryFocusSpendProfile(category: SpendCategory): SpendProfile {
+  return { ...defaultSpendProfile, [category]: categoryFocusMonthlySpend[category] ?? 8000 };
+}
+
 // Spend profile for a category-focused recommendation that does NOT assume the card is used for
 // nothing else: `share` of total monthly spend goes to the focused category, the rest keeps the
 // default mix (re-normalised across the other categories). Reflects a realistic "I'd put most of my
@@ -1839,9 +1857,9 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
   // forex markup cost — see estimatedForexCost below). This makes low-markup cards with decent
   // international earning win, instead of the generic high-spend ranking.
   const forexFocus = intent.tags.includes("forex") && !input.spend && !intent.inferredSpend;
-  const fuelFocusedSpend = restrictToFuelCards && !intent.inferredSpend && !input.spend ? focusedSpendProfile("fuel") : undefined;
+  const fuelFocusedSpend = restrictToFuelCards && !input.spend ? categoryFocusSpendProfile("fuel") : undefined;
   const categoryFocusedSpend = categoryFocus?.spendCategory
-    ? weightedFocusSpendProfile(categoryFocus.spendCategory, 0.5)
+    ? categoryFocusSpendProfile(categoryFocus.spendCategory)
     : undefined;
   const forexFocusedSpend = forexFocus ? weightedFocusSpendProfile("international", 0.5) : undefined;
   // Segment queries are scored at the tier's representative spend (not the envelope blend), unless a
@@ -1856,11 +1874,12 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
   const spend = {
     ...defaultSpendProfile,
     ...(segmentSpend ?? {}),
-    ...(fuelFocusedSpend ?? {}),
-    ...(forexFocusedSpend ?? {}),
     ...(intent.inferredSpend ?? {}),
-    // Category focus spend wins over a single-category inferred spend, so "best card for rent payment"
-    // (inferred: rent) and "best rent card" both score at the focus's 50% category profile.
+    ...(forexFocusedSpend ?? {}),
+    // Fuel/category focus spend wins over a single-category inferred spend, so every phrasing of a
+    // category query scores at the realistic per-category profile (e.g. "best card for rent payment"
+    // and "best rent card" both use the rent focus amount).
+    ...(fuelFocusedSpend ?? {}),
     ...(categoryFocusedSpend ?? {}),
     ...(input.spend ?? {})
   };
