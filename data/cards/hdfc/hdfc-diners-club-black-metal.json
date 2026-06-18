@@ -16,27 +16,33 @@
     "golf"
   ],
   "rewardType": "reward points",
+  "capGroups": {
+    "smartbuy": { "capMonthly": 10000 }
+  },
   "rewards": [
     {
       "category": "smartbuy hotels",
       "rate": 33.33,
       "displayRate": "Up to 10X Reward Points (10 RP / Rs 150 spent via SmartBuy)",
       "capMonthly": 10000,
-      "capDaily": 10000
+      "capDaily": 10000,
+      "capGroup": "smartbuy"
     },
     {
       "category": "smartbuy flights",
       "rate": 16.67,
       "displayRate": "Up to 5X Reward Points (5 RP / Rs 150 spent via SmartBuy)",
       "capMonthly": 10000,
-      "capDaily": 10000
+      "capDaily": 10000,
+      "capGroup": "smartbuy"
     },
     {
       "category": "smartbuy gyftr",
       "rate": 10,
       "displayRate": "Up to 3X Reward Points (15 RP / Rs 150 spent on instant vouchers via SmartBuy)",
       "capMonthly": 10000,
-      "capDaily": 10000
+      "capDaily": 10000,
+      "capGroup": "smartbuy"
     },
     {
       "category": "dining",

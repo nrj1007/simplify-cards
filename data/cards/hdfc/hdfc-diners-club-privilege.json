@@ -16,6 +16,9 @@
     "lifestyle"
   ],
   "rewardType": "reward points",
+  "capGroups": {
+    "smartbuy": { "capMonthly": 4000 }
+  },
   "rewards": [
     {
       "category": "swiggy zomato",
