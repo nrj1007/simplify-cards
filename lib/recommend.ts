@@ -2,7 +2,7 @@ import { cards } from "./cards";
 import { SPEND_CATEGORY_EXCLUSION_CODE_MAP } from "./exclusion-constants";
 import { parseQueryIntent } from "./query-intent";
 import type { CardScore, CreditCard, Milestone, RecommendationInput, SpendCategory, SpendProfile, Reward } from "./types";
-import { getTotalLoungeAccess } from "./lounge";
+import { getTotalLoungeAccess, getInternationalLoungeAccess } from "./lounge";
 import { stripScoringAnnotations } from "./card-index";
 
 export const defaultSpendProfile: SpendProfile = {
@@ -1609,22 +1609,44 @@ function loungeScore(card: CreditCard) {
   return totalLoungeAccess;
 }
 
-function loungePreferenceBoost(card: CreditCard, wantsLounge: boolean, intent: ReturnType<typeof parseQueryIntent>) {
+function internationalLoungeScore(card: CreditCard) {
+  const access = getInternationalLoungeAccess(card);
+  if (access === "unlimited") return 20;
+  return access;
+}
+
+function loungePreferenceBoost(
+  card: CreditCard,
+  wantsLounge: boolean,
+  wantsInternationalLounge: boolean,
+  intent: ReturnType<typeof parseQueryIntent>
+) {
   const score = loungeScore(card);
+
+  // International-lounge query: rank by overseas lounge access specifically (unlimited -> 20); a
+  // domestic-only card is not an international lounge card.
+  if (wantsInternationalLounge) {
+    const intlScore = internationalLoungeScore(card);
+    if (intlScore <= 0) return -15000;
+    return intlScore * 4000 + score * 300;
+  }
+
   if (score <= 0) {
     if (wantsLounge) return -12000;
     if (intent.useCases.includes("travel")) return -3000;
     return 0;
   }
 
+  // General lounge / travel paths keep their original international weighting (unlimited -> 8) so this
+  // change doesn't move the existing lounge ranking.
   const hasInternationalLounge = card.loungeInternational === "unlimited" || card.loungeInternational > 0;
-  const internationalLoungeScore =
+  const generalIntlScore =
     card.loungeInternational === "unlimited" ? 8 : typeof card.loungeInternational === "number" ? card.loungeInternational : 0;
   let boost = 0;
 
   if (wantsLounge) {
     boost += score * 1500;
-    boost += internationalLoungeScore * 2500;
+    boost += generalIntlScore * 2500;
     if (hasInternationalLounge) boost += 8000;
   }
 
@@ -1693,21 +1715,26 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
   const effectiveMaxAnnualFee = input.maxAnnualFee ?? intent.maxAnnualFee;
   const wantsLifetimeFree = input.wantsLifetimeFree ?? intent.wantsLifetimeFree;
   const wantsLounge = input.wantsLounge ?? intent.wantsLounge;
+  // International-lounge sub-intent: a lounge query that specifically asks for overseas access.
+  const wantsInternationalLounge =
+    wantsLounge && /\binternational\b|\boverseas\b|\babroad\b|outside india|\bglobal\b/i.test(normalizeForMatch(input.query));
   const restrictToFuelCards = shouldRestrictToFuelCards(input, intent);
   const categoryFocus = detectCategoryFocus(input, intent);
-  // A forex-focused query ("best forex card", "zero forex card") is a card-attribute preference like
-  // lounge — not a spend pattern. Treat it like wantsLounge: skip envelope scoring so the strong
-  // forexPreferenceBoost actually decides the order (under envelope blending the boost is swamped by
-  // high-spend rupee value, which is why "best forex card" used to return the generic ranking).
+  // A forex-focused query ("best forex card", "zero forex card") is scored like the category focuses:
+  // assume 50% of spend is international and compute net value (rewards earned abroad minus the card's
+  // forex markup cost — see estimatedForexCost below). This makes low-markup cards with decent
+  // international earning win, instead of the generic high-spend ranking.
   const forexFocus = intent.tags.includes("forex") && !input.spend && !intent.inferredSpend;
   const fuelFocusedSpend = restrictToFuelCards && !intent.inferredSpend && !input.spend ? focusedSpendProfile("fuel") : undefined;
   const categoryFocusedSpend = categoryFocus?.spendCategory
     ? weightedFocusSpendProfile(categoryFocus.spendCategory, 0.5)
     : undefined;
+  const forexFocusedSpend = forexFocus ? weightedFocusSpendProfile("international", 0.5) : undefined;
   const spend = {
     ...defaultSpendProfile,
     ...(fuelFocusedSpend ?? {}),
     ...(categoryFocusedSpend ?? {}),
+    ...(forexFocusedSpend ?? {}),
     ...(intent.inferredSpend ?? {}),
     ...(input.spend ?? {})
   };
@@ -1739,12 +1766,21 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
     const { joiningValue: rawJoiningValue, renewalValue: rawRenewalValue } = joiningAndRenewalBenefitValueForCard(card);
     const estimatedJoiningAndRenewalValue = Math.round(rawJoiningValue / joiningBenefitAmortizationYears) + rawRenewalValue;
     const estimatedAnnualFee = feeAfterWaiver(card, spendForScore);
-    const estimatedNetValue = estimatedAnnualRewards + estimatedMilestoneValue + estimatedJoiningAndRenewalValue - estimatedAnnualFee;
+    // Forex markup is a real cost on international spend; deduct it from net value. Only bites when the
+    // profile has international spend (forex-focused queries, or an explicit international spend), so
+    // it doesn't affect other rankings. A near-zero-forex card keeps almost all of its abroad rewards.
+    const forexMarkup = typeof card.forexMarkup === "number" ? card.forexMarkup : 3.5;
+    const estimatedForexCost = Math.round(((spendForScore.international ?? 0) * 12 * forexMarkup) / 100);
+    const estimatedNetValue =
+      estimatedAnnualRewards + estimatedMilestoneValue + estimatedJoiningAndRenewalValue - estimatedAnnualFee - estimatedForexCost;
     const currentMilestoneAndWaiverValue = estimatedMilestoneValue + (card.annualFee - estimatedAnnualFee);
     const maxComparisonMilestoneAndWaiverValue = comparisonMilestoneAndWaiverValue(card);
-    const comparisonMilestoneAndWaiverDelta = broadNoSpendRankingQuery && !useEnvelopeScoring
-      ? Math.round(Math.max(maxComparisonMilestoneAndWaiverValue - currentMilestoneAndWaiverValue, 0) * broadComparisonUpsideWeight)
-      : 0;
+    // Only for the broad no-spend "best card" ranking — not for focused category/forex queries, where
+    // it would swamp the actual category economics with generic milestone/waiver upside.
+    const comparisonMilestoneAndWaiverDelta =
+      broadNoSpendRankingQuery && !useEnvelopeScoring && !forexFocus && !categoryFocus
+        ? Math.round(Math.max(maxComparisonMilestoneAndWaiverValue - currentMilestoneAndWaiverValue, 0) * broadComparisonUpsideWeight)
+        : 0;
     const tagBoost = matchedTags.length * 500;
     const keywordBoost = computeQueryKeywordBoost(card, input.query);
     const useCaseBoost = intent.useCases.reduce((total, useCase) => {
@@ -1767,8 +1803,11 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
       0
     );
     const networkBoost = intent.networks.some((network) => card.network.includes(network)) ? 3000 : 0;
-    const loungeBoost = loungePreferenceBoost(card, wantsLounge, intent);
-    const forexBoost = forexPreferenceBoost(card, intent);
+    const loungeBoost = loungePreferenceBoost(card, wantsLounge, wantsInternationalLounge, intent);
+    // For a forex-focused query the markup is already costed into net value (estimatedForexCost), so
+    // the heuristic forex boost would double-count — suppress it. It still applies to travel queries,
+    // where international spend isn't focused and the boost is the only forex signal.
+    const forexBoost = forexFocus ? 0 : forexPreferenceBoost(card, intent);
     const spendCategoryBoost = categoryFitAdjustment(card, spendForScore, includeSmartbuyLikeRewards, {
       broadMixedSpendQuery
     });
@@ -1884,7 +1923,9 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
       effectiveMaxAnnualFee === undefined || hasExplicitAnnualFeeLanguage(input.query) ? true : card.joiningFee <= effectiveMaxAnnualFee
     )
     .filter((card) => (wantsLifetimeFree ? (card.annualFee === 0 && card.joiningFee === 0) : true))
-    .filter((card) => (wantsLounge ? loungeScore(card) > 0 : true))
+    .filter((card) =>
+      wantsInternationalLounge ? internationalLoungeScore(card) > 0 : wantsLounge ? loungeScore(card) > 0 : true
+    )
     .filter((card) => (restrictToIssuer ? normalizeIssuer(card.issuer) === normalizeIssuer(intent.issuers[0]) : true))
     .filter((card) => (restrictToUpiCards ? hasUpiCardSignal(card) : true))
     .filter((card) => (networkFilters.length ? networkFilters.some((network) => cardMatchesNetworkFilter(card, network)) : true))
