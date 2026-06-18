@@ -34,7 +34,8 @@
       "category": "fuel",
       "rate": 5,
       "displayRate": "5 Membership Rewards Points / Rs 100 spent on fuel",
-      "capMonthly": null
+      "capMonthly": 5000,
+      "postCapRate": 1
     },
     {
       "category": "retail",

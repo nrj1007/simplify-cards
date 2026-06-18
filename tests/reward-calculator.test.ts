@@ -398,15 +398,16 @@ describe("reward calculator", () => {
         base: 10000
       });
 
-      expect(result.monthlyUnits).toBe(3100);
-      expect(result.annualUnits).toBe(37200);
+      expect(result.monthlyUnits).toBe(5600);
+      expect(result.annualUnits).toBe(67200);
 
       const fuelRow = result.rows.find((r) => r.category === "fuel");
       const utilitiesRow = result.rows.find((r) => r.category === "utilities");
       const groceryRow = result.rows.find((r) => r.category === "grocery");
       const baseRow = result.rows.find((r) => r.category === "base");
-      expect(fuelRow?.monthlyUnits).toBe(0);
-      expect(fuelRow?.excluded).toBe(true);
+      // BPCL fuel earns 25 RP/Rs 100 capped at 2,500/mo (Rs 10k spend hits the cap exactly).
+      expect(fuelRow?.monthlyUnits).toBe(2500);
+      expect(fuelRow?.excluded).toBe(false);
       expect(utilitiesRow?.monthlyUnits).toBe(2500);
       expect(groceryRow?.monthlyUnits).toBe(500);
       expect(baseRow?.monthlyUnits).toBe(100);
