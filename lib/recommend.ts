@@ -105,7 +105,7 @@ const blendAnnualSpendLevels = [300000, 1000000, 2000000, 3000000]; // Rs 3L, 10
 // blend toward the higher-spend levels means cards whose value is gated behind heavy spend (bank
 // tier programs that lift point value with spend, high fee-waiver thresholds, programme caps that
 // only bind at low spend) are judged more on their heavy-spend strength than on trivial-spend yield.
-const blendAnnualSpendLevelWeights = [1, 2, 3, 4];
+const blendAnnualSpendLevelWeights = [1, 1.25, 1.5, 2];
 const exactCardNameMatchThreshold = 50000;
 
 function isBroadNoSpendQuery(input: RecommendationInput, intent: ReturnType<typeof parseQueryIntent>) {
