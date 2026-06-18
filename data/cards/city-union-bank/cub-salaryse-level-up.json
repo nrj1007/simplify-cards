@@ -185,5 +185,5 @@
     "Utility transaction fee: 1% when cumulative utility spends reach Rs 25,000 or more per statement cycle. Fuel transaction fee: 1% when cumulative fuel spends reach Rs 50,000 or more per statement cycle. Online skill-based gaming fee: 1% when cumulative spends reach Rs 10,000 or more per statement cycle.",
     "Redemption: SCoins can be redeemed only in the SalarySe app for gift vouchers from 200+ brands and other available options including cash conversion and merchant offers; SalarySe may change redemption offers."
   ],
-  "imageUrl": "/images/cub-salaryse-level-up.png"
+  "imageUrl": "/images/cub-salaryse-level-up.webp"
 }
