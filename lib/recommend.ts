@@ -464,40 +464,83 @@ function shouldRestrictToFuelCards(input: RecommendationInput, intent: ReturnTyp
   );
 }
 
-// "best dining card" should be scored as a dining-heavy spender would experience it, so cards with a
-// dining accelerator surface above generic premium all-rounders. Unlike fuel we do NOT hard-restrict
-// the candidate pool (dining is a broad category — premium cards with strong dining belong in the
-// list too); we only focus the spend profile and add a dining-specialist boost.
-function shouldFocusDiningSpend(input: RecommendationInput, intent: ReturnType<typeof parseQueryIntent>) {
-  if (input.spend || intent.inferredSpend) return false;
+// Category-focused recommendation queries ("best dining/grocery/online/entertainment card") are
+// ranked so cards that actually accelerate that category lead — instead of collapsing to the generic
+// premium-card ranking. Each config drives: a query trigger, the reward rows that count, positioning
+// signals, and (when the category is a real SpendCategory) a focused spend profile so the value score
+// reflects the category too. Entertainment has no SpendCategory, so it gets filter+boost only.
+type CategoryFocusConfig = {
+  key: string;
+  spendCategory?: SpendCategory;
+  rewardPattern: RegExp;
+  queryPattern: RegExp;
+  positioning: string[];
+};
+
+const categoryFocusConfigs: CategoryFocusConfig[] = [
+  {
+    key: "dining",
+    spendCategory: "dining",
+    rewardPattern: /\bdining\b|restaurant/i,
+    queryPattern: /\bdining\b|\brestaurant/i,
+    positioning: ["dining", "restaurant", "food", "eazydiner", "swiggy", "zomato"]
+  },
+  {
+    key: "grocery",
+    spendCategory: "grocery",
+    rewardPattern: /\bgrocer/i,
+    queryPattern: /\bgrocer/i,
+    positioning: ["grocery", "groceries", "supermarket", "bigbasket", "dmart", "blinkit", "instamart", "jiomart"]
+  },
+  {
+    key: "online",
+    spendCategory: "online",
+    rewardPattern: /\bonline\b/i,
+    queryPattern: /\bonline\b|e-commerce|ecommerce/i,
+    positioning: ["online", "online shopping", "e-commerce", "ecommerce", "shopping"]
+  },
+  {
+    key: "entertainment",
+    rewardPattern: /entertainment|movie/i,
+    queryPattern: /\bentertainment\b|\bmovies?\b/i,
+    positioning: ["entertainment", "movies", "movie", "bookmyshow", "pvr", "inox"]
+  }
+];
+
+// Which category focus (if any) a query asks for. Mirrors the fuel trigger: needs a recommendation
+// query (or an explicit "<category> card" phrase), and is suppressed when the caller passed an
+// explicit/inferred spend profile (then we score on that instead).
+function detectCategoryFocus(
+  input: RecommendationInput,
+  intent: ReturnType<typeof parseQueryIntent>
+): CategoryFocusConfig | null {
+  if (input.spend || intent.inferredSpend) return null;
   const normalizedQuery = normalizeForMatch(input.query);
-  const hasDiningIntent =
-    intent.tags.includes("dining") ||
-    containsNormalizedPhrase(normalizedQuery, "dining") ||
-    containsNormalizedPhrase(normalizedQuery, "restaurant");
-  if (!hasDiningIntent) return false;
-  return (
-    isCardRecommendationQuery(input.query) ||
-    containsNormalizedPhrase(normalizedQuery, "dining card") ||
-    containsNormalizedPhrase(normalizedQuery, "restaurant card")
-  );
+  for (const config of categoryFocusConfigs) {
+    if (!config.queryPattern.test(normalizedQuery)) continue;
+    if (isCardRecommendationQuery(input.query) || containsNormalizedPhrase(normalizedQuery, `${config.key} card`)) {
+      return config;
+    }
+  }
+  return null;
 }
 
-// Dining-specialist score for the dining-focused ranking: rewards an accelerated dining reward row
-// and dining-forward positioning, so a dining-specific card outranks one with only base earning on
-// dining. Returns 0 for cards with no dining accelerator (they get the non-specialist penalty).
-function diningSpecialistScore(card: CreditCard) {
-  const diningRows = card.rewards.filter((reward) => /\bdining\b|restaurant/i.test(reward.category));
+function cardMatchesCategoryFocus(card: CreditCard, config: CategoryFocusConfig) {
+  return card.rewards.some((reward) => config.rewardPattern.test(reward.category));
+}
+
+// Specialist score for a category-focused ranking: rewards an accelerated category reward row and
+// category-forward positioning, so a category-specific card outranks one with only incidental
+// earning there. Returns 0 for cards with no matching accelerator (they get the non-specialist
+// penalty / are filtered out).
+function categorySpecialistScore(card: CreditCard, config: CategoryFocusConfig) {
+  const rows = card.rewards.filter((reward) => config.rewardPattern.test(reward.category));
   const baseRate = card.rewards.find((reward) => reward.category === "base")?.rate ?? 0;
   let score = 0;
-  // An accelerated dining row (earns meaningfully more than base).
-  if (diningRows.some((reward) => reward.rate > Math.max(baseRate, 1.5))) score += 3;
-  else if (diningRows.length) score += 1;
-  // Dining-forward positioning in name / bestFor / tags.
+  if (rows.some((reward) => reward.rate > Math.max(baseRate, 1.5))) score += 3;
+  else if (rows.length) score += 1;
   const haystack = normalizeForMatch([card.name, ...card.bestFor, ...card.tags].join(" "));
-  if (["dining", "restaurant", "food", "eazydiner", "swiggy", "zomato"].some((token) => containsNormalizedPhrase(haystack, token))) {
-    score += 2;
-  }
+  if (config.positioning.some((token) => containsNormalizedPhrase(haystack, token))) score += 2;
   return score;
 }
 
@@ -1619,13 +1662,15 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
   const wantsLifetimeFree = input.wantsLifetimeFree ?? intent.wantsLifetimeFree;
   const wantsLounge = input.wantsLounge ?? intent.wantsLounge;
   const restrictToFuelCards = shouldRestrictToFuelCards(input, intent);
-  const focusDiningSpend = shouldFocusDiningSpend(input, intent);
+  const categoryFocus = detectCategoryFocus(input, intent);
   const fuelFocusedSpend = restrictToFuelCards && !intent.inferredSpend && !input.spend ? focusedSpendProfile("fuel") : undefined;
-  const diningFocusedSpend = focusDiningSpend ? weightedFocusSpendProfile("dining", 0.5) : undefined;
+  const categoryFocusedSpend = categoryFocus?.spendCategory
+    ? weightedFocusSpendProfile(categoryFocus.spendCategory, 0.5)
+    : undefined;
   const spend = {
     ...defaultSpendProfile,
     ...(fuelFocusedSpend ?? {}),
-    ...(diningFocusedSpend ?? {}),
+    ...(categoryFocusedSpend ?? {}),
     ...(intent.inferredSpend ?? {}),
     ...(input.spend ?? {})
   };
@@ -1636,7 +1681,7 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
   const broadGenericRanking = isBroadGenericRankingQuery(input, intent);
   const useEnvelopeScoring =
     !restrictToFuelCards &&
-    !focusDiningSpend &&
+    !categoryFocus &&
     shouldUseEnvelopeScoring(input, intent, effectiveMaxAnnualFee, wantsLifetimeFree, wantsLounge);
   const restrictToUpiCards = shouldRestrictToUpiCards(input, intent);
   const networkFilters = explicitNetworkFilters(input, intent);
@@ -1668,11 +1713,12 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
       const strength = cardUseCaseStrength(card, useCase);
       return total + (strength > 0 ? strength * 7000 : -12000);
     }, 0);
-    // Dining-focused ranking: lift cards with a dining accelerator, penalise cards with none, so
-    // dining-specific cards lead "best dining card" (the focused dining spend already favours them).
-    const diningSpecialistBoost = focusDiningSpend
+    // Category-focused ranking: lift cards with a category accelerator, penalise cards with none, so
+    // category-specific cards lead "best <category> card" (focused spend, where applicable, already
+    // favours them).
+    const categorySpecialistBoost = categoryFocus
       ? (() => {
-          const strength = diningSpecialistScore(card);
+          const strength = categorySpecialistScore(card, categoryFocus);
           return strength > 0 ? strength * 7000 : -12000;
         })()
       : 0;
@@ -1742,7 +1788,7 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
     // Non-economic preference and penalty signals shared by both scoring paths
     const sharedBoosts =
       useCaseBoost +
-      diningSpecialistBoost +
+      categorySpecialistBoost +
       segmentBoost +
       redemptionBoost +
       loungeBoost +
@@ -1805,7 +1851,7 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
     .filter((card) => (restrictToUpiCards ? hasUpiCardSignal(card) : true))
     .filter((card) => (networkFilters.length ? networkFilters.some((network) => cardMatchesNetworkFilter(card, network)) : true))
     .filter((card) => (restrictToFuelCards ? hasFuelCardSignal(card) : true))
-    .filter((card) => (focusDiningSpend ? card.rewards.some((reward) => /\bdining\b|restaurant/i.test(reward.category)) : true))
+    .filter((card) => (categoryFocus ? cardMatchesCategoryFocus(card, categoryFocus) : true))
     .map((card) => {
       if (!useEnvelopeScoring) return scoreCardForSpend(card, spend);
 
