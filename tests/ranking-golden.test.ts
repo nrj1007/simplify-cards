@@ -29,7 +29,18 @@ const scenarios: Record<string, RecommendationInput> = {
   "max-fee-zero": { maxAnnualFee: 0 },
   "spend-fuel-heavy": { spend: { fuel: 15000, base: 30000 } },
   "spend-travel-heavy": { spend: { travel: 40000, hotels: 20000, airlines: 20000, base: 20000 } },
-  "spend-high-base": { spend: { base: 200000, dining: 50000, travel: 50000 } }
+  "spend-high-base": { spend: { base: 200000, dining: 50000, travel: 50000 } },
+  // Spend levels: the same balanced mix at light / mid / heavy monthly totals (~20k / 75k / 250k),
+  // so the ranking's sensitivity to spend amount is locked.
+  "spend-level-light": {
+    spend: { online: 6000, dining: 2000, grocery: 3000, travel: 2000, fuel: 1000, utilities: 1000, base: 5000 }
+  },
+  "spend-level-mid": {
+    spend: { online: 22000, dining: 7000, grocery: 11000, travel: 8000, fuel: 4000, utilities: 4000, base: 19000 }
+  },
+  "spend-level-heavy": {
+    spend: { online: 75000, dining: 25000, grocery: 35000, travel: 25000, fuel: 10000, utilities: 10000, base: 70000 }
+  }
 };
 
 describe("ranking golden (representative queries)", () => {
