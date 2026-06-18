@@ -16,6 +16,7 @@
   ],
   "rewardType": "etihad guest miles",
   "rewardLiquidity": "brand-locked",
+  "rewardLiquidityFactor": 0.8,
   "rewards": [
     {
       "category": "travel",
@@ -164,7 +165,7 @@
   "internalNotes": [
     "Card details manually reviewed and verified by user on 2026-06-17.",
     "Audited against the official BOBCARD Etihad Guest product page and terms on 2026-06-17.",
-    "Etihad Guest Miles are brand-locked in the Etihad ecosystem, so rewardLiquidity is set to brand-locked.",
+    "Etihad Guest Miles are brand-locked in the Etihad ecosystem, so rewardLiquidity is set to brand-locked. Internal ranking values miles at Rs 0.80 (rewardLiquidityFactor 0.8); display keeps the Rs 1.0 ecosystemValue.",
     "Standard monthly, quarterly, and annual spends milestones mapped under structured milestones list.",
     "Lounge access terms and DreamFolks web portal tokenization requirements documented in lounge/internalNotes."
   ]
