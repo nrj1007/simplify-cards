@@ -197,9 +197,23 @@ export default function RewardCalculator({ card, milestones = [], isStandalone =
     return options.sort((a, b) => b.value - a.value);
   }, [annualUnits, cashback, redemption]);
 
-  const airMilesPerPoint = !cashback && typeof redemption?.airMilesValue === "number" && redemption.airMilesValue > 0
+  // Rupee value of one point when transferred to air miles (airMilesValue is a Rs value, e.g. 0.6).
+  const airMilesRupeePerPoint = !cashback && typeof redemption?.airMilesValue === "number" && redemption.airMilesValue > 0
     ? redemption.airMilesValue
     : null;
+  // Air miles earned per card point — the transfer RATIO (not the rupee value). Parsed from the
+  // airlinePartners ratios (e.g. "2:1" = 2 points -> 1 mile = 0.5 miles/point); best across partners,
+  // default 1:1 when no airline ratio is listed.
+  const airMilesPerPoint = useMemo(() => {
+    if (!airMilesRupeePerPoint) return null;
+    const ratios = (redemption?.airlinePartners ?? [])
+      .map((partner) => {
+        const match = /^\s*(\d+(?:\.\d+)?)\s*:\s*(\d+(?:\.\d+)?)\s*$/.exec(partner.ratio ?? "");
+        return match && Number(match[1]) > 0 ? Number(match[2]) / Number(match[1]) : null;
+      })
+      .filter((ratio): ratio is number => ratio != null && ratio > 0);
+    return ratios.length ? Math.max(...ratios) : 1;
+  }, [airMilesRupeePerPoint, redemption]);
 
   const partnerValuations = useMemo(() => {
     return (redemption?.transferPartnerValuations ?? [])
@@ -255,7 +269,7 @@ export default function RewardCalculator({ card, milestones = [], isStandalone =
     totalRedeemRows >= 2 &&
     redeemRows.length > 0 &&
     (redeemRows.length === 1 || redeemRows[0].value > redeemRows[1].value) &&
-    !(airMilesPerPoint && topRatePerUnit !== null && topRatePerUnit === airMilesPerPoint);
+    !(airMilesRupeePerPoint && topRatePerUnit !== null && topRatePerUnit === airMilesRupeePerPoint);
 
   // Best rupee outcome across direct redemptions, valued transfer partners, and vouchers.
   const bestRupeeValue = Math.max(
@@ -375,11 +389,11 @@ export default function RewardCalculator({ card, milestones = [], isStandalone =
                     : `${cashback ? "cashback value" : "best redemption"} · ${effectiveRate.toFixed(1)}% effective`}
                 </span>
               </div>
-            ) : airMilesPerPoint && annualUnits > 0 ? (
+            ) : airMilesPerPoint && airMilesRupeePerPoint && annualUnits > 0 ? (
               <div className="calc-headline-aside">
                 <span>{formatUnits(annualUnits * airMilesPerPoint)} air miles</span>
                 <span className="muted">
-                  best via transfer · {airMilesPerPoint} / {unitLabel.toLowerCase()}
+                  best via transfer · {airMilesPerPoint} mile{airMilesPerPoint === 1 ? "" : "s"} / {unitLabel.toLowerCase()} · {formatINR(annualUnits * airMilesRupeePerPoint)}
                 </span>
               </div>
             ) : null}
@@ -449,7 +463,7 @@ export default function RewardCalculator({ card, milestones = [], isStandalone =
                       </div>
                     ))}
 
-                    {airMilesPerPoint ? (
+                    {airMilesPerPoint && airMilesRupeePerPoint ? (
                       <div className="calc-redeem-row" key="airmiles">
                         <div className="calc-redeem-main">
                           <span className="calc-redeem-type" data-type="transfer">
@@ -459,7 +473,7 @@ export default function RewardCalculator({ card, milestones = [], isStandalone =
                         </div>
                         <div className="calc-redeem-val">
                           <strong>{formatUnits(annualUnits * airMilesPerPoint)} miles</strong>
-                          <span className="muted">{airMilesPerPoint} / {unitLower}</span>
+                          <span className="muted">{airMilesPerPoint} mile{airMilesPerPoint === 1 ? "" : "s"} / {unitLower} · {formatINR(annualUnits * airMilesRupeePerPoint)}</span>
                         </div>
                       </div>
                     ) : null}
