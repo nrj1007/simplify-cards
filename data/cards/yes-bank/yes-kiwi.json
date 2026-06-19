@@ -17,11 +17,27 @@
   "rewardType": "cashback and reward points",
   "rewards": [
     {
-      "category": "upi, online, base, travel, dining, grocery, amazon",
+      "category": "upi",
       "rate": 1.5,
-      "displayCategory": "All spends via UPI (Kiwi app scan & pay)",
+      "displayCategory": "Eligible UPI spends via Kiwi",
       "displayRate": "1.5% cashback",
       "capMonthly": null
+    }
+  ],
+  "paidRewardOptions": [
+    {
+      "id": "kiwi-neon",
+      "label": "Kiwi Neon membership",
+      "annualCost": 999,
+      "rewards": [
+        {
+          "category": "upi",
+          "rate": 2,
+          "displayCategory": "Eligible UPI spends via Kiwi Neon",
+          "displayRate": "2% cashback",
+          "capMonthly": null
+        }
+      ]
     }
   ],
   "popularityScore": 100,
@@ -64,7 +80,11 @@
     "telecom",
     "education"
   ],
-  "milestoneBenefits": [],
+  "milestoneBenefits": [
+    "Kiwi Neon milestone: 3% cashback on eligible yearly Kiwi App spends of Rs 50,000 + 1 lounge access",
+    "Kiwi Neon milestone: 4% cashback on eligible yearly Kiwi App spends of Rs 1,00,000 + 1 lounge access",
+    "Kiwi Neon milestone: 5% cashback on eligible yearly Kiwi App spends of Rs 1,50,000 + 1 lounge access"
+  ],
   "additionalBenefits": [
     "1% fuel surcharge waiver on transactions between Rs 400 and Rs 4,000, capped at Rs 100 per month",
     "Redeem Kiwis instantly as cashback into bank account via UPI at a rate of 4 Kiwis = Rs 1"
@@ -72,7 +92,7 @@
   "additionalDetails": [
     "Co-branded credit card issued in partnership with Kiwi (GoKiwi)",
     "All spends are processed via UPI scan & pay through the Kiwi app, earning 1.5% cashback across all non-excluded categories",
-    "Optional 'Kiwi Neon' annual subscription (Rs 999/year) upgrades UPI Scan & Pay rewards to 2%, adds milestone cashback up to 5%, and provides 1 complimentary domestic lounge visit per quarter."
+    "Optional 'Kiwi Neon' annual subscription (Rs 999/year) upgrades eligible Kiwi App spends to 2% cashback; above Rs 1.5 lakh yearly spend continues at 2% unless a Neon milestone applies."
   ],
   "redemption": {
     "statementBalanceValue": 1,

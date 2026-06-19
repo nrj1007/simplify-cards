@@ -261,6 +261,16 @@ export default async function CardPage({ params, searchParams }: Props) {
     ratio: v.ratio,
     tatDays: v.tatDays
   }));
+  const rewardRows = [
+    ...card.rewards.map((reward) => ({ reward, optionLabel: null as string | null, optionAnnualCost: 0 })),
+    ...(card.paidRewardOptions ?? []).flatMap((option) =>
+      option.rewards.map((reward) => ({
+        reward,
+        optionLabel: option.label,
+        optionAnnualCost: option.annualCost
+      }))
+    )
+  ];
   const hasRedemptionSection = Boolean(
     redemptions.length || airlinePartners.length || hotelPartners.length || voucherPartners.length
   );
@@ -269,10 +279,10 @@ export default async function CardPage({ params, searchParams }: Props) {
   const showAirlineGroup = airlinePartners.some((partner) => typeof partner.group === "string");
   const showHotelGroup = hotelPartners.some((partner) => typeof partner.group === "string");
   const showVoucherTat = voucherPartners.some((partner) => typeof partner.tatDays === "number");
-  const hasDailyCap = card.rewards.some((reward) => typeof reward.capDaily === "number" && reward.capDaily > 0);
-  const hasMonthlyCap = card.rewards.some((reward) => typeof reward.capMonthly === "number" && reward.capMonthly > 0);
-  const hasStatementQuarterCap = card.rewards.some(
-    (reward) => typeof reward.capStatementQuarter === "number" && reward.capStatementQuarter > 0
+  const hasDailyCap = rewardRows.some(({ reward }) => typeof reward.capDaily === "number" && reward.capDaily > 0);
+  const hasMonthlyCap = rewardRows.some(({ reward }) => typeof reward.capMonthly === "number" && reward.capMonthly > 0);
+  const hasStatementQuarterCap = rewardRows.some(
+    ({ reward }) => typeof reward.capStatementQuarter === "number" && reward.capStatementQuarter > 0
   );
 
   // Prefer the structured valued labels when present, else the free-text string arrays.
@@ -614,9 +624,16 @@ export default async function CardPage({ params, searchParams }: Props) {
                       </tr>
                     </thead>
                     <tbody>
-                      {card.rewards.map((reward) => (
-                        <tr key={`${reward.category}-${reward.displayCategory ?? ""}`}>
-                          <td>{reward.displayCategory ?? reward.category}</td>
+                      {rewardRows.map(({ reward, optionLabel, optionAnnualCost }) => (
+                        <tr key={`${optionLabel ?? "base"}-${reward.category}-${reward.displayCategory ?? ""}`}>
+                          <td>
+                            {optionLabel ? (
+                              <span className="muted" style={{ display: "block", marginBottom: 4 }}>
+                                {optionLabel} {optionAnnualCost > 0 ? `(Rs ${optionAnnualCost.toLocaleString("en-IN")}/yr)` : ""}
+                              </span>
+                            ) : null}
+                            {reward.displayCategory ?? reward.category}
+                          </td>
                           <td>{formatRewardRate(card, reward)}</td>
                           {hasDailyCap && <td className="cap-column">{formatRewardCap(reward.capDaily, card.rewardType)}</td>}
                           {hasMonthlyCap && <td className="cap-column">{formatRewardCap(reward.capMonthly, card.rewardType)}</td>}

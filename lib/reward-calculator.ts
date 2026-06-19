@@ -205,6 +205,26 @@ function findRewardsForCategory(card: CreditCard, category: SpendCategory): Rewa
   return card.rewards.filter((reward) => isBaseRewardCategory(reward.category));
 }
 
+const upiRoutableSpendCategories = new Set<SpendCategory>([
+  "online",
+  "base",
+  "travel",
+  "hotels",
+  "airlines",
+  "dining",
+  "grocery",
+  "amazon",
+  "utilities"
+]);
+
+function rewardHasCategory(reward: Reward, category: string) {
+  return reward.category.split(",").map((c) => c.trim().toLowerCase()).includes(category);
+}
+
+function findDirectUpiRewards(card: CreditCard): Reward[] {
+  return card.rewards.filter((reward) => rewardHasCategory(reward, "upi"));
+}
+
 // Both the base earn rate (`rate`) and the reduced post-cap rate (`postCapRate`) are read from the
 // structured fields, which the card validator keeps numerically consistent with `displayRate`. This
 // matches how lib/recommend.ts scores rewards, so the calculator and the recommender agree on a card's
@@ -274,6 +294,24 @@ function cappedMonthlyUnits(card: CreditCard, monthlySpend: number, reward: Rewa
   return Math.min(rawUnits, reward.capMonthly);
 }
 
+function estimateMonthlyUnits(card: CreditCard, monthlySpend: number, rewards: Reward[]) {
+  const tiered = allocateTieredRewardUnits(card, monthlySpend, rewards);
+  if (tiered) return tiered.monthlyUnits;
+  return rewards[0] ? cappedMonthlyUnits(card, monthlySpend, rewards[0]) : 0;
+}
+
+function chooseRewardsForCategory(card: CreditCard, category: SpendCategory, monthlySpend: number) {
+  const rewards = findRewardsForCategory(card, category);
+  if (category === "upi" || !upiRoutableSpendCategories.has(category)) return rewards;
+
+  const upiRewards = findDirectUpiRewards(card);
+  if (upiRewards.length === 0) return rewards;
+
+  const nativeUnits = estimateMonthlyUnits(card, monthlySpend, rewards);
+  const upiUnits = estimateMonthlyUnits(card, monthlySpend, upiRewards);
+  return upiUnits > nativeUnits ? upiRewards : rewards;
+}
+
 export type RewardCalcRow = {
   category: SpendCategory;
   monthlySpend: number;
@@ -318,7 +356,7 @@ export function calculateRewards(card: CreditCard, spend: SpendProfile): RewardC
       continue;
     }
 
-    const rewards = findRewardsForCategory(card, category);
+    const rewards = chooseRewardsForCategory(card, category, monthlySpend);
     const reward = rewards[0] ?? null;
     if (!reward) {
       rows.push({

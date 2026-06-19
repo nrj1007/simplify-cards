@@ -246,6 +246,107 @@ function validateDate(value: unknown, cardId: string, field: string) {
   if (Number.isNaN(date.getTime())) addIssue("must be a valid date", cardId, field);
 }
 
+function validateRewards(value: unknown, cardId: string, rewardType: unknown, field: string) {
+  if (!Array.isArray(value) || value.length === 0) {
+    addIssue("must be a non-empty reward array", cardId, field);
+    return;
+  }
+
+  value.forEach((reward, rewardIndex) => {
+    if (!isObject(reward)) {
+      addIssue(`reward at index ${rewardIndex} must be an object`, cardId, field);
+      return;
+    }
+
+    if (!isNonEmptyString(reward.category)) {
+      addIssue(`reward ${rewardIndex} category must be a non-empty string`, cardId, field);
+    } else {
+      const rewardCategories = reward.category.split(",").map((c) => c.trim().toLowerCase());
+      for (const cat of rewardCategories) {
+        if (!allowedRewardCategories.has(cat)) {
+          addWarning(`unknown reward category "${cat}"`, cardId, field);
+        }
+      }
+    }
+
+    if (
+      reward.valuePerUnit !== undefined &&
+      (typeof reward.valuePerUnit !== "number" || !Number.isFinite(reward.valuePerUnit) || reward.valuePerUnit <= 0)
+    ) {
+      addIssue(`reward ${rewardIndex} valuePerUnit must be a positive number when present`, cardId, field);
+    }
+
+    if (reward.tierScope !== undefined && reward.tierScope !== "category" && reward.tierScope !== "total-monthly-spend") {
+      addIssue(`reward ${rewardIndex} tierScope must be 'category' or 'total-monthly-spend' when present`, cardId, field);
+    }
+
+    if (reward.capGroup !== undefined && !isNonEmptyString(reward.capGroup)) {
+      addIssue(`reward ${rewardIndex} capGroup must be a non-empty string when present`, cardId, field);
+    }
+
+    if (typeof reward.rate !== "number" || !Number.isFinite(reward.rate) || reward.rate < 0) {
+      addIssue(`reward ${rewardIndex} rate must be a non-negative number`, cardId, field);
+    } else if (!isCashbackRewardType(rewardType)) {
+      const parsed = parseDisplayRateUnits(typeof reward.displayRate === "string" ? reward.displayRate : undefined);
+      const allowlisted = RATE_DISPLAY_MISMATCH_ALLOWLIST.has(`${cardId}::${reward.category}`);
+      if (parsed && !allowlisted) {
+        if (Math.abs(parsed.basePerRs100 - reward.rate) > 0.01) {
+          addIssue(
+            `reward ${rewardIndex} rate (${reward.rate}) disagrees with displayRate-implied units (${parsed.basePerRs100.toFixed(3)} from "${reward.displayRate}"); run npm run normalize:reward-rates`,
+            cardId,
+            field
+          );
+        }
+        if (
+          parsed.postCapPerRs100 != null &&
+          typeof reward.postCapRate === "number" &&
+          Math.abs(parsed.postCapPerRs100 - reward.postCapRate) > 0.01
+        ) {
+          addIssue(
+            `reward ${rewardIndex} postCapRate (${reward.postCapRate}) disagrees with displayRate "then" units (${parsed.postCapPerRs100.toFixed(3)})`,
+            cardId,
+            field
+          );
+        }
+      }
+    }
+
+    if (reward.capMonthly !== null && !isMoneyNumber(reward.capMonthly)) {
+      addIssue(`reward ${rewardIndex} capMonthly must be a non-negative number or null`, cardId, field);
+    }
+
+    if (reward.capDaily !== undefined && reward.capDaily !== null && !isMoneyNumber(reward.capDaily)) {
+      addIssue(`reward ${rewardIndex} capDaily must be a non-negative number or null`, cardId, field);
+    }
+
+    if (
+      reward.capStatementQuarter !== undefined &&
+      reward.capStatementQuarter !== null &&
+      !isMoneyNumber(reward.capStatementQuarter)
+    ) {
+      addIssue(`reward ${rewardIndex} capStatementQuarter must be a non-negative number or null`, cardId, field);
+    }
+
+    if (reward.tierLowerBound !== undefined) {
+      const lower = reward.tierLowerBound;
+      if (typeof lower !== "number" || !Number.isFinite(lower) || lower < 0) {
+        addIssue(`reward ${rewardIndex} tierLowerBound must be a non-negative number`, cardId, field);
+      } else {
+        const upper = reward.tierUpperBound;
+        if (
+          upper !== undefined &&
+          upper !== null &&
+          (typeof upper !== "number" || !Number.isFinite(upper) || upper <= lower)
+        ) {
+          addIssue(`reward ${rewardIndex} tierUpperBound must be null or greater than tierLowerBound`, cardId, field);
+        }
+      }
+    } else if (reward.tierUpperBound !== undefined) {
+      addIssue(`reward ${rewardIndex} has tierUpperBound without tierLowerBound`, cardId, field);
+    }
+  });
+}
+
 if (cardFiles.length === 0) {
   addIssue("data/cards must contain at least one JSON file");
 } else {
@@ -547,106 +648,26 @@ if (cardFiles.length === 0) {
     if (!isValidUrl(card.applyUrl)) addIssue("must be a valid https URL", cardId, "applyUrl");
     validateDate(card.lastVerified, cardId, "lastVerified");
 
-    if (!Array.isArray(card.rewards) || card.rewards.length === 0) {
-      addIssue("must be a non-empty reward array", cardId, "rewards");
-    } else {
-      card.rewards.forEach((reward, rewardIndex) => {
-        if (!isObject(reward)) {
-          addIssue(`reward at index ${rewardIndex} must be an object`, cardId, "rewards");
-          return;
-        }
+    validateRewards(card.rewards, cardId, card.rewardType, "rewards");
 
-        if (!isNonEmptyString(reward.category)) {
-          addIssue(`reward ${rewardIndex} category must be a non-empty string`, cardId, "rewards");
-        } else {
-          const rewardCategories = reward.category.split(",").map((c) => c.trim().toLowerCase());
-          for (const cat of rewardCategories) {
-            if (!allowedRewardCategories.has(cat)) {
-              addWarning(`unknown reward category "${cat}"`, cardId, "rewards");
-            }
+    if (card.paidRewardOptions !== undefined) {
+      if (!Array.isArray(card.paidRewardOptions)) {
+        addIssue("must be an array when present", cardId, "paidRewardOptions");
+      } else if (card.paidRewardOptions.length === 0) {
+        addIssue("must not be empty when present", cardId, "paidRewardOptions");
+      } else {
+        card.paidRewardOptions.forEach((option, optionIndex) => {
+          const field = `paidRewardOptions[${optionIndex}]`;
+          if (!isObject(option)) {
+            addIssue("must be an object", cardId, field);
+            return;
           }
-        }
-
-        if (
-          reward.valuePerUnit !== undefined &&
-          (typeof reward.valuePerUnit !== "number" || !Number.isFinite(reward.valuePerUnit) || reward.valuePerUnit <= 0)
-        ) {
-          addIssue(`reward ${rewardIndex} valuePerUnit must be a positive number when present`, cardId, "rewards");
-        }
-
-        if (reward.tierScope !== undefined && reward.tierScope !== "category" && reward.tierScope !== "total-monthly-spend") {
-          addIssue(`reward ${rewardIndex} tierScope must be 'category' or 'total-monthly-spend' when present`, cardId, "rewards");
-        }
-
-        if (reward.capGroup !== undefined && !isNonEmptyString(reward.capGroup)) {
-          addIssue(`reward ${rewardIndex} capGroup must be a non-empty string when present`, cardId, "rewards");
-        }
-
-        if (typeof reward.rate !== "number" || !Number.isFinite(reward.rate) || reward.rate < 0) {
-          addIssue(`reward ${rewardIndex} rate must be a non-negative number`, cardId, "rewards");
-        } else if (!isCashbackRewardType(card.rewardType)) {
-          // `rate` is units per Rs 100; for non-cashback rows with a parseable displayRate it must
-          // match the displayRate-implied units so the calculator and recommend.ts never diverge.
-          const parsed = parseDisplayRateUnits(typeof reward.displayRate === "string" ? reward.displayRate : undefined);
-          const allowlisted = RATE_DISPLAY_MISMATCH_ALLOWLIST.has(`${cardId}::${reward.category}`);
-          if (parsed && !allowlisted) {
-            if (Math.abs(parsed.basePerRs100 - reward.rate) > 0.01) {
-              addIssue(
-                `reward ${rewardIndex} rate (${reward.rate}) disagrees with displayRate-implied units (${parsed.basePerRs100.toFixed(3)} from "${reward.displayRate}"); run npm run normalize:reward-rates`,
-                cardId,
-                "rewards"
-              );
-            }
-            if (
-              parsed.postCapPerRs100 != null &&
-              typeof reward.postCapRate === "number" &&
-              Math.abs(parsed.postCapPerRs100 - reward.postCapRate) > 0.01
-            ) {
-              addIssue(
-                `reward ${rewardIndex} postCapRate (${reward.postCapRate}) disagrees with displayRate "then" units (${parsed.postCapPerRs100.toFixed(3)})`,
-                cardId,
-                "rewards"
-              );
-            }
-          }
-        }
-
-        if (reward.capMonthly !== null && !isMoneyNumber(reward.capMonthly)) {
-          addIssue(`reward ${rewardIndex} capMonthly must be a non-negative number or null`, cardId, "rewards");
-        }
-
-        if (reward.capDaily !== undefined && reward.capDaily !== null && !isMoneyNumber(reward.capDaily)) {
-          addIssue(`reward ${rewardIndex} capDaily must be a non-negative number or null`, cardId, "rewards");
-        }
-
-        if (
-          reward.capStatementQuarter !== undefined &&
-          reward.capStatementQuarter !== null &&
-          !isMoneyNumber(reward.capStatementQuarter)
-        ) {
-          addIssue(`reward ${rewardIndex} capStatementQuarter must be a non-negative number or null`, cardId, "rewards");
-        }
-
-        // Spend-tier bounds: tierLowerBound is a non-negative number; tierUpperBound is null or a
-        // number strictly greater than the lower bound.
-        if (reward.tierLowerBound !== undefined) {
-          const lower = reward.tierLowerBound;
-          if (typeof lower !== "number" || !Number.isFinite(lower) || lower < 0) {
-            addIssue(`reward ${rewardIndex} tierLowerBound must be a non-negative number`, cardId, "rewards");
-          } else {
-            const upper = reward.tierUpperBound;
-            if (
-              upper !== undefined &&
-              upper !== null &&
-              (typeof upper !== "number" || !Number.isFinite(upper) || upper <= lower)
-            ) {
-              addIssue(`reward ${rewardIndex} tierUpperBound must be null or greater than tierLowerBound`, cardId, "rewards");
-            }
-          }
-        } else if (reward.tierUpperBound !== undefined) {
-          addIssue(`reward ${rewardIndex} has tierUpperBound without tierLowerBound`, cardId, "rewards");
-        }
-      });
+          if (!isNonEmptyString(option.id)) addIssue("id must be a non-empty string", cardId, field);
+          if (!isNonEmptyString(option.label)) addIssue("label must be a non-empty string", cardId, field);
+          if (!isMoneyNumber(option.annualCost)) addIssue("annualCost must be a non-negative number", cardId, field);
+          validateRewards(option.rewards, cardId, card.rewardType, `${field}.rewards`);
+        });
+      }
     }
 
     if (card.redemption !== undefined) {

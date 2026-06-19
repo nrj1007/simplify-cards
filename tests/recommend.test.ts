@@ -179,6 +179,94 @@ describe("scoreCards", () => {
     ).toBe(true);
   });
 
+  it("scores best UPI queries with Kiwi Neon when the paid membership wins net value", () => {
+    const kiwi = scoreCards({
+      query: "Best UPI card for rewards?"
+    }).find((score) => score.card.id === "yes-kiwi");
+
+    expect(kiwi).toBeTruthy();
+    expect(kiwi?.annualSpend).toBe(636000);
+    expect(kiwi?.estimatedAnnualRewards).toBe(12720);
+    expect(kiwi?.estimatedAnnualFee).toBe(999);
+    expect(kiwi?.estimatedNetValue).toBe(11721);
+    expect(kiwi?.rewardBreakdown).toEqual([
+      {
+        spendCategory: "upi",
+        monthlySpend: 53000,
+        rewardCategory: "upi",
+        monthlyReward: 1060,
+        annualReward: 12720
+      }
+    ]);
+    expect(kiwi?.reasons).toContain("Best net value uses Kiwi Neon membership after Rs 999 yearly cost");
+  });
+
+  it("compares base and Kiwi Neon rewards for mixed open-category spend", () => {
+    const kiwi = scoreCards({
+      spend: {
+        online: 25000,
+        base: 25000,
+        travel: 0,
+        dining: 0,
+        grocery: 0,
+        fuel: 0,
+        amazon: 0,
+        upi: 0,
+        utilities: 0
+      }
+    }).find((score) => score.card.id === "yes-kiwi");
+
+    expect(kiwi).toBeTruthy();
+    expect(kiwi?.estimatedAnnualRewards).toBe(12000);
+    expect(kiwi?.estimatedAnnualFee).toBe(999);
+    expect(kiwi?.estimatedNetValue).toBe(11001);
+    expect(kiwi?.rewardBreakdown).toEqual([
+      {
+        spendCategory: "online",
+        monthlySpend: 25000,
+        rewardCategory: "upi",
+        monthlyReward: 500,
+        annualReward: 6000
+      },
+      {
+        spendCategory: "base",
+        monthlySpend: 25000,
+        rewardCategory: "upi",
+        monthlyReward: 500,
+        annualReward: 6000
+      }
+    ]);
+    expect(kiwi?.reasons).toContain("Best net value uses Kiwi Neon membership after Rs 999 yearly cost");
+  });
+
+  it("routes non-excluded open spend to a UPI reward row when it is the highest earning path", () => {
+    const kwik = scoreCards({
+      spend: {
+        online: 10000,
+        base: 0,
+        travel: 0,
+        dining: 0,
+        grocery: 0,
+        fuel: 0,
+        amazon: 0,
+        upi: 0,
+        utilities: 0
+      }
+    }).find((score) => score.card.id === "axis-kwik");
+
+    expect(kwik).toBeTruthy();
+    expect(kwik?.estimatedAnnualRewards).toBe(1200);
+    expect(kwik?.rewardBreakdown).toEqual([
+      {
+        spendCategory: "online",
+        monthlySpend: 10000,
+        rewardCategory: "upi",
+        monthlyReward: 100,
+        annualReward: 1200
+      }
+    ]);
+  });
+
   it("restricts explicit network recommendation queries to that network", () => {
     const scenarios = [
       { query: "best visa card", network: "visa" },

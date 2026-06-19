@@ -1356,20 +1356,125 @@ function tieredAllocationsForCategory(card: CreditCard, category: SpendCategory,
   return allocations.length ? allocations : null;
 }
 
+type RewardAllocation = { amount: number; reward: Reward };
+
+const upiRoutableSpendCategories = new Set<SpendCategory>([
+  "online",
+  "base",
+  "travel",
+  "hotels",
+  "airlines",
+  "dining",
+  "grocery",
+  "amazon",
+  "utilities"
+]);
+
+function rewardHasCategory(reward: Reward, category: string) {
+  return reward.category.split(",").map((c) => c.trim().toLowerCase()).includes(category);
+}
+
+function findUpiRewardForRouting(card: CreditCard) {
+  return card.rewards.find((reward) => rewardHasCategory(reward, "upi")) ?? null;
+}
+
+function estimateMonthlyRewardForAllocations(card: CreditCard, allocations: RewardAllocation[], totalMonthlySpend: number) {
+  const cardUnitValue = effectivePointValue(card, totalMonthlySpend);
+  const working = [...allocations];
+
+  const totalScoped = card.rewards.filter((reward) => reward.tierScope === "total-monthly-spend");
+  const lowerTier = totalScoped.find((reward) => reward.tierUpperBound != null);
+  const upperTier = totalScoped.find((reward) => (reward.tierUpperBound ?? null) === null && (reward.tierLowerBound ?? 0) > 0);
+  if (lowerTier && upperTier && lowerTier !== upperTier && lowerTier.tierUpperBound != null) {
+    const threshold = lowerTier.tierUpperBound;
+    const pool = working.filter((a) => a.reward === lowerTier).reduce((sum, a) => sum + a.amount, 0);
+    if (pool > threshold) {
+      const lowerShare = threshold / pool;
+      const retiered: RewardAllocation[] = [];
+      for (const allocation of working) {
+        if (allocation.reward !== lowerTier) {
+          retiered.push(allocation);
+          continue;
+        }
+        retiered.push({ amount: allocation.amount * lowerShare, reward: lowerTier });
+        retiered.push({ amount: allocation.amount * (1 - lowerShare), reward: upperTier });
+      }
+      working.length = 0;
+      working.push(...retiered);
+    }
+  }
+
+  const itemUnitValue = (reward: Reward) =>
+    typeof reward.valuePerUnit === "number" && reward.valuePerUnit > 0 ? reward.valuePerUnit : cardUnitValue;
+  const buckets = new Map<string | Reward, RewardAllocation[]>();
+  for (const allocation of working) {
+    const key = allocation.reward.capGroup ?? allocation.reward;
+    if (!buckets.has(key)) buckets.set(key, []);
+    buckets.get(key)!.push(allocation);
+  }
+
+  let total = 0;
+  for (const [key, items] of buckets.entries()) {
+    const itemRaw = items.map((item) => ({ item, raw: (item.amount * item.reward.rate) / 100 }));
+    const totalRawReward = itemRaw.reduce((sum, x) => sum + x.raw, 0);
+    let totalCappedReward = totalRawReward;
+
+    if (typeof key === "string") {
+      const cap = items[0].reward.capMonthly;
+      totalCappedReward = typeof cap === "number" && cap > 0 ? Math.min(totalRawReward, cap) : totalRawReward;
+    } else if (key.capMonthly) {
+      if (key.postCapRate && key.postCapRate > 0 && totalRawReward > key.capMonthly && key.postCapRate < key.rate) {
+        const totalSpend = items.reduce((sum, item) => sum + item.amount, 0);
+        const spendAtCap = (key.capMonthly * 100) / key.rate;
+        const excessSpend = Math.max(totalSpend - spendAtCap, 0);
+        totalCappedReward = key.capMonthly + (excessSpend * key.postCapRate) / 100;
+      } else {
+        totalCappedReward = Math.min(totalRawReward, key.capMonthly);
+      }
+    }
+
+    for (const { item, raw } of itemRaw) {
+      const cappedUnits = totalRawReward > 0 ? (totalCappedReward * raw) / totalRawReward : 0;
+      total += cappedUnits * itemUnitValue(item.reward);
+    }
+  }
+
+  return total;
+}
+
+function routeToUpiWhenBetter(
+  card: CreditCard,
+  category: SpendCategory,
+  amount: number,
+  nativeAllocations: RewardAllocation[],
+  totalMonthlySpend: number
+) {
+  if (category === "upi" || !upiRoutableSpendCategories.has(category)) return nativeAllocations;
+  const upiReward = findUpiRewardForRouting(card);
+  if (!upiReward || nativeAllocations.some((allocation) => allocation.reward === upiReward)) return nativeAllocations;
+
+  const upiAllocations = [{ amount, reward: upiReward }];
+  const nativeValue = estimateMonthlyRewardForAllocations(card, nativeAllocations, totalMonthlySpend);
+  const upiValue = estimateMonthlyRewardForAllocations(card, upiAllocations, totalMonthlySpend);
+  return upiValue > nativeValue ? upiAllocations : nativeAllocations;
+}
+
 function rewardAllocationsForSpend(
   card: CreditCard,
   category: SpendCategory,
   amount: number,
-  includeSmartbuyLikeRewards: boolean
+  includeSmartbuyLikeRewards: boolean,
+  totalMonthlySpend: number
 ) {
-  if (!amount || amount <= 0) return [] as Array<{ amount: number; reward: CreditCard["rewards"][number] }>;
+  if (!amount || amount <= 0) return [] as RewardAllocation[];
 
   const effectiveAmount = cappedSpendAmountForCategory(card, category, amount);
-  if (!effectiveAmount || effectiveAmount <= 0) return [] as Array<{ amount: number; reward: CreditCard["rewards"][number] }>;
+  if (!effectiveAmount || effectiveAmount <= 0) return [] as RewardAllocation[];
 
   if (includeSmartbuyLikeRewards) {
     const matchingReward = findRewardForSpend(card, category, true);
-    return matchingReward ? [{ amount: effectiveAmount, reward: matchingReward }] : [];
+    const allocations = matchingReward ? [{ amount: effectiveAmount, reward: matchingReward }] : [];
+    return routeToUpiWhenBetter(card, category, effectiveAmount, allocations, totalMonthlySpend);
   }
 
   if (category === "travel") {
@@ -1387,39 +1492,42 @@ function rewardAllocationsForSpend(
       // share of travel is booked via the portal at the higher tier (split 50/50 flights/hotels,
       // each capped), the rest earns the everyday rate.
       const portalShare = acceleratedShareForCategory(card, "travel");
-      if (portalShare <= 0) return [{ amount: effectiveAmount, reward: everydayTravelReward }];
+      if (portalShare <= 0) {
+        return routeToUpiWhenBetter(card, category, effectiveAmount, [{ amount: effectiveAmount, reward: everydayTravelReward }], totalMonthlySpend);
+      }
       if (portalShare >= 1) {
-        return [
+        return routeToUpiWhenBetter(card, category, effectiveAmount, [
           { amount: effectiveAmount * 0.5, reward: flightsReward! },
           { amount: effectiveAmount * 0.5, reward: hotelsReward! }
-        ];
+        ], totalMonthlySpend);
       }
-      return [
+      return routeToUpiWhenBetter(card, category, effectiveAmount, [
         { amount: effectiveAmount * portalShare * 0.5, reward: flightsReward! },
         { amount: effectiveAmount * portalShare * 0.5, reward: hotelsReward! },
         { amount: effectiveAmount * (1 - portalShare), reward: everydayTravelReward }
-      ];
+      ], totalMonthlySpend);
     }
 
     // Everyday rate only: portal tiers don't apply to general travel on these cards.
     if (everydayTravelReward) {
-      return [{ amount: effectiveAmount, reward: everydayTravelReward }];
+      return routeToUpiWhenBetter(card, category, effectiveAmount, [{ amount: effectiveAmount, reward: everydayTravelReward }], totalMonthlySpend);
     }
 
     // Portal only (no everyday rate, e.g. SmartBuy cards): split 50/50 flights/hotels rather than
     // routing all travel to the single higher-rate (hotels) tier.
     if (hasPortalPair) {
-      return [
+      return routeToUpiWhenBetter(card, category, effectiveAmount, [
         { amount: effectiveAmount * 0.5, reward: flightsReward! },
         { amount: effectiveAmount * 0.5, reward: hotelsReward! }
-      ];
+      ], totalMonthlySpend);
     }
     const travelReward = findRewardForSpend(card, category, true);
-    return travelReward ? [{ amount: effectiveAmount, reward: travelReward }] : [];
+    const allocations = travelReward ? [{ amount: effectiveAmount, reward: travelReward }] : [];
+    return routeToUpiWhenBetter(card, category, effectiveAmount, allocations, totalMonthlySpend);
   }
 
   const tieredAllocations = tieredAllocationsForCategory(card, category, effectiveAmount);
-  if (tieredAllocations) return tieredAllocations;
+  if (tieredAllocations) return routeToUpiWhenBetter(card, category, effectiveAmount, tieredAllocations, totalMonthlySpend);
 
   const baseReward = findBaseRewardForSpend(card, category);
   const specialReward = blendedSmartbuySpendCategories.includes(category) ? findSpecialRewardForSpend(card, category) : null;
@@ -1430,16 +1538,17 @@ function rewardAllocationsForSpend(
     // accelerators (e.g. Titan's Titan-group "partner merchants") cover much less, so a card can
     // override the share per category (0 = no acceleration, all base).
     const share = acceleratedShareForCategory(card, category);
-    if (share <= 0) return [{ amount: effectiveAmount, reward: baseReward }];
-    if (share >= 1) return [{ amount: effectiveAmount, reward: specialReward }];
-    return [
+    if (share <= 0) return routeToUpiWhenBetter(card, category, effectiveAmount, [{ amount: effectiveAmount, reward: baseReward }], totalMonthlySpend);
+    if (share >= 1) return routeToUpiWhenBetter(card, category, effectiveAmount, [{ amount: effectiveAmount, reward: specialReward }], totalMonthlySpend);
+    return routeToUpiWhenBetter(card, category, effectiveAmount, [
       { amount: effectiveAmount * share, reward: specialReward },
       { amount: effectiveAmount * (1 - share), reward: baseReward }
-    ];
+    ], totalMonthlySpend);
   }
 
   const matchingReward = baseReward ?? specialReward;
-  return matchingReward ? [{ amount: effectiveAmount, reward: matchingReward }] : [];
+  const allocations = matchingReward ? [{ amount: effectiveAmount, reward: matchingReward }] : [];
+  return routeToUpiWhenBetter(card, category, effectiveAmount, allocations, totalMonthlySpend);
 }
 
 function isDirectRewardMatch(category: SpendCategory, rewardCategory: string, includeSmartbuyLikeRewards: boolean) {
@@ -1487,7 +1596,8 @@ function findDirectRewardForSpend(card: CreditCard, category: SpendCategory, inc
 }
 
 function rewardBreakdownForCard(card: CreditCard, spend: SpendProfile, includeSmartbuyLikeRewards: boolean) {
-  const cardUnitValue = effectivePointValue(card, monthlySpendTotal(spend));
+  const totalMonthlySpend = monthlySpendTotal(spend);
+  const cardUnitValue = effectivePointValue(card, totalMonthlySpend);
 
   type ActiveAllocation = {
     category: SpendCategory;
@@ -1500,7 +1610,7 @@ function rewardBreakdownForCard(card: CreditCard, spend: SpendProfile, includeSm
     if (amount <= 0 || isSpendCategoryExcluded(card, category)) {
       return;
     }
-    const currentAllocations = rewardAllocationsForSpend(card, category, amount, includeSmartbuyLikeRewards);
+    const currentAllocations = rewardAllocationsForSpend(card, category, amount, includeSmartbuyLikeRewards, totalMonthlySpend);
     for (const alloc of currentAllocations) {
       allocations.push({
         category,
@@ -1616,6 +1726,59 @@ function annualRewardForCard(card: CreditCard, spend: SpendProfile, includeSmart
   return rewardBreakdownForCard(card, spend, includeSmartbuyLikeRewards).reduce((total, item) => total + item.annualReward, 0);
 }
 
+type RewardEconomics = {
+  scoringCard: CreditCard;
+  optionLabel: string | null;
+  optionAnnualCost: number;
+  rewardBreakdown: ReturnType<typeof rewardBreakdownForCard>;
+  estimatedAnnualRewards: number;
+  estimatedAnnualFee: number;
+  estimatedNetValue: number;
+};
+
+function bestRewardEconomicsForCard(
+  card: CreditCard,
+  spend: SpendProfile,
+  includeSmartbuyLikeRewards: boolean,
+  estimatedMilestoneValue: number,
+  estimatedJoiningAndRenewalValue: number
+): RewardEconomics {
+  const baseAnnualFee = feeAfterWaiver(card, spend);
+  const baseBreakdown = rewardBreakdownForCard(card, spend, includeSmartbuyLikeRewards);
+  const baseRewards = baseBreakdown.reduce((total, item) => total + item.annualReward, 0);
+  const candidates: RewardEconomics[] = [
+    {
+      scoringCard: card,
+      optionLabel: null,
+      optionAnnualCost: 0,
+      rewardBreakdown: baseBreakdown,
+      estimatedAnnualRewards: baseRewards,
+      estimatedAnnualFee: baseAnnualFee,
+      estimatedNetValue: baseRewards + estimatedMilestoneValue + estimatedJoiningAndRenewalValue - baseAnnualFee
+    }
+  ];
+
+  for (const option of card.paidRewardOptions ?? []) {
+    const scoringCard = { ...card, rewards: option.rewards };
+    const rewardBreakdown = rewardBreakdownForCard(scoringCard, spend, includeSmartbuyLikeRewards);
+    const estimatedAnnualRewards = rewardBreakdown.reduce((total, item) => total + item.annualReward, 0);
+    const estimatedAnnualFee = baseAnnualFee + option.annualCost;
+    candidates.push({
+      scoringCard,
+      optionLabel: option.label,
+      optionAnnualCost: option.annualCost,
+      rewardBreakdown,
+      estimatedAnnualRewards,
+      estimatedAnnualFee,
+      estimatedNetValue: estimatedAnnualRewards + estimatedMilestoneValue + estimatedJoiningAndRenewalValue - estimatedAnnualFee
+    });
+  }
+
+  return candidates.reduce((best, candidate) =>
+    candidate.estimatedNetValue > best.estimatedNetValue ? candidate : best
+  );
+}
+
 function isPremiumTravelCard(card: CreditCard) {
   const haystack = normalizeForMatch(
     [
@@ -1671,7 +1834,7 @@ function categoryFitAdjustment(
   return activeCategories.reduce((total, [category, amount]) => {
     if (!amount || amount <= 0) return total;
     const isExcluded = isSpendCategoryExcluded(card, category);
-    const allocations = rewardAllocationsForSpend(card, category, amount, includeSmartbuyLikeRewards);
+    const allocations = rewardAllocationsForSpend(card, category, amount, includeSmartbuyLikeRewards, monthlyTotal);
     const specialRule = specialSpendRuleForCard(card, category);
 
     if (isExcluded) {
@@ -1871,30 +2034,30 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
           Math.max(...restrictToSegments.map((segment) => segmentRepresentativeMonthlySpend[segment] ?? 50000))
         )
       : undefined;
-  const spend = {
-    ...defaultSpendProfile,
-    ...(segmentSpend ?? {}),
-    ...(intent.inferredSpend ?? {}),
-    ...(forexFocusedSpend ?? {}),
-    // Fuel/category focus spend wins over a single-category inferred spend, so every phrasing of a
-    // category query scores at the realistic per-category profile (e.g. "best card for rent payment"
-    // and "best rent card" both use the rent focus amount).
-    ...(fuelFocusedSpend ?? {}),
-    ...(categoryFocusedSpend ?? {}),
-    ...(input.spend ?? {})
-  };
   const restrictToIssuer = shouldRestrictToIssuer(intent, input.query);
   const includeSmartbuyLikeRewards = shouldIncludeSmartbuyLikeRewards(input.query);
   const broadMixedSpendQuery = isBroadMixedSpendQuery(input, intent);
   const broadNoSpendRankingQuery = isBroadNoSpendQuery(input, intent);
   const broadGenericRanking = isBroadGenericRankingQuery(input, intent);
+  const restrictToUpiCards = shouldRestrictToUpiCards(input, intent);
+  const upiFocusedSpend = restrictToUpiCards && !intent.inferredSpend && !input.spend ? focusedSpendProfile("upi") : undefined;
   const useEnvelopeScoring =
     !restrictToFuelCards &&
     !categoryFocus &&
     !forexFocus &&
     !restrictToSegments &&
+    !restrictToUpiCards &&
     shouldUseEnvelopeScoring(input, intent, effectiveMaxAnnualFee, wantsLifetimeFree, wantsLounge);
-  const restrictToUpiCards = shouldRestrictToUpiCards(input, intent);
+  const spend = {
+    ...defaultSpendProfile,
+    ...(segmentSpend ?? {}),
+    ...(intent.inferredSpend ?? {}),
+    ...(forexFocusedSpend ?? {}),
+    ...(fuelFocusedSpend ?? {}),
+    ...(upiFocusedSpend ?? {}),
+    ...(categoryFocusedSpend ?? {}),
+    ...(input.spend ?? {})
+  };
   const networkFilters = explicitNetworkFilters(input, intent);
 
   const scoreCardForSpend = (
@@ -1906,19 +2069,25 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
     const matchedTags = card.tags.filter((tag) => queryTags.has(tag));
     const cardNameBoost = computeCardNameBoost(card, input.query);
     const issuerBoost = intent.issuers.includes(card.issuer) ? 20000 : 0;
-    const rewardBreakdown = rewardBreakdownForCard(card, spendForScore, includeSmartbuyLikeRewards);
-    const estimatedAnnualRewards = annualRewardForCard(card, spendForScore, includeSmartbuyLikeRewards);
     const estimatedMilestoneValue = milestoneValueForCard(card, annualSpend);
     const { joiningValue: rawJoiningValue, renewalValue: rawRenewalValue } = joiningAndRenewalBenefitValueForCard(card);
     const estimatedJoiningAndRenewalValue = Math.round(rawJoiningValue / joiningBenefitAmortizationYears) + rawRenewalValue;
-    const estimatedAnnualFee = feeAfterWaiver(card, spendForScore);
+    // main's bestRewardEconomicsForCard picks the best reward option (base vs a paid membership like
+    // Kiwi Neon) and returns the breakdown, rewards, fee, and net value.
+    const rewardEconomics = bestRewardEconomicsForCard(
+      card,
+      spendForScore,
+      includeSmartbuyLikeRewards,
+      estimatedMilestoneValue,
+      estimatedJoiningAndRenewalValue
+    );
+    const { rewardBreakdown, estimatedAnnualRewards, estimatedAnnualFee, optionLabel, optionAnnualCost } = rewardEconomics;
     // Forex markup is a real cost on international spend; deduct it from net value. Only bites when the
-    // profile has international spend (forex-focused queries, or an explicit international spend), so
-    // it doesn't affect other rankings. A near-zero-forex card keeps almost all of its abroad rewards.
+    // profile has international spend (forex-focused queries, or an explicit international spend), so it
+    // doesn't affect other rankings. A near-zero-forex card keeps almost all of its abroad rewards.
     const forexMarkup = typeof card.forexMarkup === "number" ? card.forexMarkup : 3.5;
     const estimatedForexCost = Math.round(((spendForScore.international ?? 0) * 12 * forexMarkup) / 100);
-    const estimatedNetValue =
-      estimatedAnnualRewards + estimatedMilestoneValue + estimatedJoiningAndRenewalValue - estimatedAnnualFee - estimatedForexCost;
+    const estimatedNetValue = rewardEconomics.estimatedNetValue - estimatedForexCost;
     const currentMilestoneAndWaiverValue = estimatedMilestoneValue + (card.annualFee - estimatedAnnualFee);
     const maxComparisonMilestoneAndWaiverValue = comparisonMilestoneAndWaiverValue(card);
     // Only for the broad no-spend "best card" ranking — not for focused category/forex queries, where
@@ -1986,6 +2155,7 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
       ...(estimatedJoiningAndRenewalValue > 0
         ? [`Joining and renewal benefits add about Rs ${estimatedJoiningAndRenewalValue.toLocaleString("en-IN")} per year`]
         : []),
+      ...(optionLabel ? [`Best net value uses ${optionLabel} after Rs ${optionAnnualCost.toLocaleString("en-IN")} yearly cost`] : []),
       ...(comparisonMilestoneAndWaiverDelta > 0
         ? [`Higher milestone and fee-waiver upside can add about Rs ${comparisonMilestoneAndWaiverDelta.toLocaleString("en-IN")} in broader comparisons`]
         : []),
