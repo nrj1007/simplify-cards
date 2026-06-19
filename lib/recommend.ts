@@ -241,7 +241,12 @@ const genericQueryWords = new Set([
   "have",
   "has",
   "on",
-  "for"
+  "for",
+  "upi",
+  "rupay",
+  "cashback",
+  "travel",
+  "lounge"
 ]);
 
 function getMeaningfulQueryTokens(query?: string) {
