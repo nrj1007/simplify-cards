@@ -2058,7 +2058,6 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
     !categoryFocus &&
     !forexFocus &&
     !restrictToSegments &&
-    !restrictToUpiCards &&
     shouldUseEnvelopeScoring(input, intent, effectiveMaxAnnualFee, wantsLifetimeFree, wantsLounge);
   const spend = {
     ...defaultSpendProfile,
@@ -2278,13 +2277,15 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
       // into the ranking key. The card is displayed at its strongest of these levels, but ranked on
       // its all-round performance — so no single trivial-spend tier can inflate it. The blend is a
       // weighted average leaning toward higher-spend levels (see blendAnnualSpendLevelWeights).
-      const perLevel = blendAnnualSpendLevels.map((annualSpend) => {
+      const spendLevels = restrictToUpiCards ? [100000, 200000, 300000] : blendAnnualSpendLevels;
+      const spendWeights = restrictToUpiCards ? [2, 1.5, 1] : blendAnnualSpendLevelWeights;
+      const perLevel = spendLevels.map((annualSpend) => {
         const monthlySpend = Math.round(annualSpend / 12);
-        return scoreCardForSpend(card, scaleSpendProfileToMonthly(defaultSpendProfile, monthlySpend), monthlySpend);
+        return scoreCardForSpend(card, scaleSpendProfileToMonthly(spend, monthlySpend), monthlySpend);
       });
-      const blendWeightSum = blendAnnualSpendLevelWeights.reduce((total, weight) => total + weight, 0);
+      const blendWeightSum = spendWeights.reduce((total, weight) => total + weight, 0);
       const blendedFitScore =
-        perLevel.reduce((total, score, i) => total + score.fitScore * blendAnnualSpendLevelWeights[i], 0) / blendWeightSum;
+        perLevel.reduce((total, score, i) => total + score.fitScore * spendWeights[i], 0) / blendWeightSum;
       const representative = perLevel.reduce((best, score) => (score.fitScore > best.fitScore ? score : best));
       return representative.envelopeScoring
         ? { ...representative, envelopeScoring: { ...representative.envelopeScoring, normalizedFitScore: blendedFitScore } }
