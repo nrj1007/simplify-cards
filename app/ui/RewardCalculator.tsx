@@ -201,18 +201,22 @@ export default function RewardCalculator({ card, milestones = [], isStandalone =
   const airMilesRupeePerPoint = !cashback && typeof redemption?.airMilesValue === "number" && redemption.airMilesValue > 0
     ? redemption.airMilesValue
     : null;
-  // Air miles earned per card point — the transfer RATIO (not the rupee value). Parsed from the
-  // airlinePartners ratios (e.g. "2:1" = 2 points -> 1 mile = 0.5 miles/point); best across partners,
-  // default 1:1 when no airline ratio is listed.
+  // Partner points/miles earned per card point — the transfer RATIO (not the rupee value). Best ratio
+  // across BOTH airline transfers (airlinePartners "2:1" = 0.5/point) AND hotel/point-program
+  // transfers (transferPartnerValuations, e.g. Marriott 1:1 = 1/point). Default 1:1 when none listed.
   const airMilesPerPoint = useMemo(() => {
     if (!airMilesRupeePerPoint) return null;
-    const ratios = (redemption?.airlinePartners ?? [])
+    const airlineRatios = (redemption?.airlinePartners ?? [])
       .map((partner) => {
         const match = /^\s*(\d+(?:\.\d+)?)\s*:\s*(\d+(?:\.\d+)?)\s*$/.exec(partner.ratio ?? "");
         return match && Number(match[1]) > 0 ? Number(match[2]) / Number(match[1]) : null;
       })
       .filter((ratio): ratio is number => ratio != null && ratio > 0);
-    return ratios.length ? Math.max(...ratios) : 1;
+    const partnerRatios = (redemption?.transferPartnerValuations ?? [])
+      .map((partner) => partner.transferRatio)
+      .filter((ratio): ratio is number => typeof ratio === "number" && ratio > 0);
+    const allRatios = [...airlineRatios, ...partnerRatios];
+    return allRatios.length ? Math.max(...allRatios) : 1;
   }, [airMilesRupeePerPoint, redemption]);
 
   const partnerValuations = useMemo(() => {
@@ -391,9 +395,9 @@ export default function RewardCalculator({ card, milestones = [], isStandalone =
               </div>
             ) : airMilesPerPoint && airMilesRupeePerPoint && annualUnits > 0 ? (
               <div className="calc-headline-aside">
-                <span>{formatUnits(annualUnits * airMilesPerPoint)} air miles</span>
+                <span>{formatUnits(annualUnits * airMilesPerPoint)} miles/points</span>
                 <span className="muted">
-                  best via transfer · {airMilesPerPoint} mile{airMilesPerPoint === 1 ? "" : "s"} / {unitLabel.toLowerCase()} · {formatINR(annualUnits * airMilesRupeePerPoint)}
+                  best transfer · {airMilesPerPoint} / {unitLabel.toLowerCase()} · {formatINR(annualUnits * airMilesRupeePerPoint)}
                 </span>
               </div>
             ) : null}
@@ -469,11 +473,11 @@ export default function RewardCalculator({ card, milestones = [], isStandalone =
                           <span className="calc-redeem-type" data-type="transfer">
                             miles
                           </span>
-                          <span className="calc-redeem-label">Transfer to air miles</span>
+                          <span className="calc-redeem-label">Transfer to airline miles / hotel points</span>
                         </div>
                         <div className="calc-redeem-val">
-                          <strong>{formatUnits(annualUnits * airMilesPerPoint)} miles</strong>
-                          <span className="muted">{airMilesPerPoint} mile{airMilesPerPoint === 1 ? "" : "s"} / {unitLower} · {formatINR(annualUnits * airMilesRupeePerPoint)}</span>
+                          <strong>{formatUnits(annualUnits * airMilesPerPoint)} miles/pts</strong>
+                          <span className="muted">{airMilesPerPoint} / {unitLower} · {formatINR(annualUnits * airMilesRupeePerPoint)}</span>
                         </div>
                       </div>
                     ) : null}
