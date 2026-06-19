@@ -338,6 +338,46 @@ Some cards redeem into a closed ecosystem rather than statement credit, miles, o
 *   Prefer output such as `upto Rs 1 per NeuCoin` rather than vague text like `Rs 1`.
 *   Keep ecosystem value in structured `redemption` data, not only in prose.
 
+### G. Shared / two-level caps (`capGroup` + card-level `capGroups`)
+
+Some cards cap several accelerated rows **together** under one shared monthly ceiling — and
+sometimes also cap each row individually (HDFC SmartBuy is the canonical case: each accelerated
+category has its own `capMonthly`, but they all also draw from one combined SmartBuy points pool).
+Model this as a **two-level cap**:
+
+*   On each participating reward row, set the row's own `capMonthly` (the per-category ceiling) and
+    tag it with a **`capGroup`** string naming the shared pool (e.g. `"smartbuy"`).
+*   On the card, add a **`capGroups`** map from that name to the shared ceiling:
+    ```json
+    "capGroups": { "smartbuy": { "capMonthly": 7500 } }
+    ```
+*   The calculator and recommender apply **both** levels: a row earns at its accelerated rate until
+    *either* its own `capMonthly` *or* the remaining shared `capGroups` budget is exhausted, then
+    drops to the post-cap / base rate. Rows in a group are filled in dataset order.
+*   Use a group only for genuinely shared pools. Categories with independent caps stay as separate
+    rows with no `capGroup` (see section D).
+
+### H. Category-focus ranking tags (`categoryFocusTags`)
+
+The recommender routes "best <category> card" queries (dining / grocery / online / entertainment /
+amazon / flipkart / swiggy / utilities / rent) to a category-focused ranking that scores cards on
+the reward earned **on that category** at a realistic per-category spend. A card normally qualifies
+automatically (it accelerates the category, or its name/`bestFor` marks it as a merchant co-brand).
+Use the optional card-level **`categoryFocusTags`** array only to **add** a card to a focus the
+auto-detection misses — e.g. a movies/entertainment card whose benefit is BOGO tickets rather than
+an accelerated reward row:
+
+```json
+"categoryFocusTags": ["entertainment"]
+```
+
+*   Values are focus keys (`dining`, `grocery`, `online`, `entertainment`, `amazon`, `flipkart`,
+    `swiggy`, `utilities`, `rent`). It is additive — it never removes a card the engine already
+    matched, and it does not change the card's reward math, only its eligibility for that focus list.
+*   Prefer fixing the underlying data (a real accelerated row, accurate `bestFor`) over tagging;
+    reach for `categoryFocusTags` when the benefit genuinely isn't an earn-rate (vouchers, BOGO,
+    free tickets) yet the card is a true specialist for that category.
+
 
 ---
 
@@ -447,6 +487,16 @@ Use the following value benchmarks when writing benefit strings for complimentar
 > [!TIP]
 > If a benefit has a capped or conditional value (e.g. "up to Rs 5,000"), use the **capped figure**, not an assumed average. The engine sums the stated amount, so overstating leads to inflated scoring.
 
+> [!IMPORTANT]
+> **Value a benefit paid in the card's own reward currency at the card's point value, not the
+> marketed rupee figure.** A "welcome 4,000 Membership Rewards points" perk on a card whose points
+> are worth ₹0.60 is worth **₹2,400** (`4000 × 0.60`), even if the issuer advertises it as "₹4,000".
+> Likewise welcome/milestone awards denominated in airline miles or hotel points use the card's
+> per-unit valuation (`airMilesValue` / `transferPartnerValuations`), and miles/tier benefits we
+> don't value stay text-only (see the milestones no-value rule). `npx tsx
+> scripts/audit-reward-categorization.ts all` (the `audit-reward-categorization` skill) flags
+> **BENEFIT VALUE MISMATCH** when a valued benefit exceeds `points × point-value` by more than 15%.
+
 ### Milestones (`milestones`) — preferred over `milestoneBenefits` parsing
 
 `milestoneBenefits` is free text the scoring engine and reward calculator must **regex-parse at
@@ -510,6 +560,11 @@ Joining and renewal benefit **value** is parsed from prose at runtime today
 * `value` is the **net** rupee value (vouchers already discounted — same convention as milestones);
   `kind` ∈ {voucher, points, cashback, other}; `label` carries no embedded `(worth Rs …)`.
 * Joining value is amortized over 3 years in scoring; renewal value counts each year.
+* **Recurring "welcome" perks are renewal, not joining.** A benefit the cardholder receives **every
+  year** the card is held — even if the issuer markets it as a "welcome"/"annual" benefit, e.g. a
+  Marriott Bonvoy free-night award each anniversary, or HDFC Millennia's annual gift voucher — goes
+  in `renewalBenefitsValued` (counted yearly), not `joiningBenefitsValued` (amortized /3). Reserve
+  `joiningBenefitsValued` for genuinely one-time sign-up perks.
 * **Coexistence rule:** when the valued field is present it is the source of truth for that side's
   value **and** display; the `joiningBenefits` / `renewalBenefits` string arrays (and any
   joining/renewal-keyword `additionalBenefits` lines) are ignored for that card. **Move** joining/

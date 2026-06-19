@@ -11,7 +11,7 @@ merchant set) isn't being credited as if it applied to a whole broad category (a
 dining, all base, etc.), and that point values / caps are realistic.
 
 This matters because the recommender ranks on `estimatedNetValue`, so an over-broad accelerator or
-an over-valued point currency silently inflates a card up the list (see `lib/CLAUDE.md`).
+an over-valued point currency silently inflates a card up the list (see `lib/AGENTS.md`).
 
 ## Workflow
 
