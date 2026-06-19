@@ -20,6 +20,7 @@ exports[`ranking golden (representative queries) > produces stable top-N orderin
     "hdfc-indianoil",
     "icici-hpcl-super-saver",
     "hdfc-phonepe-ultimo",
+    "cheq-au",
     "axis-cashback",
     "bobcard-select",
     "idfc-first-power",
@@ -28,7 +29,6 @@ exports[`ranking golden (representative queries) > produces stable top-N orderin
     "yes-ace",
     "bobcard-hpcl-energie",
     "hdfc-phonepe-uno",
-    "sc-super-value-titanium",
   ],
   "category-rent": [
     "hsbc-premier",
@@ -63,6 +63,7 @@ exports[`ranking golden (representative queries) > produces stable top-N orderin
     "sbi-card-prime",
     "icici-hpcl-super-saver",
     "hdfc-indianoil",
+    "cheq-au",
     "axis-cashback",
     "bobcard-select",
     "idfc-first-power",
@@ -70,10 +71,10 @@ exports[`ranking golden (representative queries) > produces stable top-N orderin
     "hsbc-premier",
     "yes-ace",
     "hdfc-infinia-metal",
-    "bobcard-hpcl-energie",
   ],
   "category-utility-bills": [
     "icici-hpcl-super-saver",
+    "cheq-au",
     "axis-cashback",
     "bobcard-select",
     "idfc-first-power",
@@ -84,7 +85,6 @@ exports[`ranking golden (representative queries) > produces stable top-N orderin
     "hdfc-indianoil",
     "hdfc-phonepe-ultimo",
     "sc-super-value-titanium",
-    "hdfc-phonepe-uno",
   ],
   "combo-dining-under-5000": [
     "hdfc-swiggy-black",
@@ -292,6 +292,7 @@ exports[`ranking golden (representative queries) > produces stable top-N orderin
   ],
   "merchant-amazon": [
     "icici-amazon-pay",
+    "cheq-au",
     "hdfc-moneyback-plus",
     "amex-smartearn",
   ],
@@ -300,6 +301,7 @@ exports[`ranking golden (representative queries) > produces stable top-N orderin
     "axis-flipkart",
     "flipkart-sbi",
     "axis-samsung-signature",
+    "cheq-au",
     "axis-neo",
   ],
   "merchant-swiggy": [
@@ -342,7 +344,7 @@ exports[`ranking golden (representative queries) > produces stable top-N orderin
     "yes-paisabazaar-paisasave-rupay",
     "yes-klick-rupay",
     "hdfc-pixel-play",
-    "phonepe-sbi-select-black",
+    "cheq-au",
   ],
   "network-visa": [
     "hsbc-visa-platinum",
@@ -352,11 +354,11 @@ exports[`ranking golden (representative queries) > produces stable top-N orderin
     "hdfc-infinia-metal",
     "indusind-eazydiner",
     "hdfc-pixel-play",
+    "cheq-au",
     "hdfc-millennia",
     "phonepe-sbi-select-black",
     "bobcard-eterna",
     "axis-samsung-signature",
-    "hdfc-moneyback-plus",
   ],
   "segment-beginner": [
     "hdfc-diners-club-privilege",
@@ -491,11 +493,11 @@ exports[`ranking golden (representative queries) > produces stable top-N orderin
     "hdfc-diners-club-black-metal",
     "hsbc-travelone",
     "axis-atlas",
+    "cheq-au",
     "hdfc-swiggy-black",
     "hdfc-swiggy",
     "amex-platinum-travel",
     "axis-samsung-signature",
-    "hdfc-diners-club-privilege",
   ],
   "spend-travel-heavy": [
     "hsbc-premier",
@@ -568,6 +570,7 @@ exports[`ranking golden (representative queries) > produces stable top-N orderin
   ],
   "usecase-grocery": [
     "kotak-cashback-plus",
+    "cheq-au",
     "bpcl-sbi-octane",
     "hdfc-indianoil",
     "rbl-patanjali-swarn",
@@ -578,7 +581,6 @@ exports[`ranking golden (representative queries) > produces stable top-N orderin
     "hsbc-live-plus",
     "hdfc-swiggy-black",
     "sbi-card-prime",
-    "bobcard-hpcl-energie",
   ],
   "usecase-online": [
     "axis-samsung-signature",
@@ -611,6 +613,7 @@ exports[`ranking golden (representative queries) > produces stable top-N orderin
   "usecase-upi": [
     "kotak-upi-rupay",
     "hdfc-pixel-play",
+    "cheq-au",
     "phonepe-sbi-select-black",
     "hdfc-moneyback-plus",
     "kotak-cashback-plus",
@@ -620,7 +623,6 @@ exports[`ranking golden (representative queries) > produces stable top-N orderin
     "bpcl-sbi-octane",
     "phonepe-sbi-purple",
     "yes-reserv",
-    "tata-neu-infinity-sbi",
   ],
 }
 `;
