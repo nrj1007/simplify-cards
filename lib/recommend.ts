@@ -301,8 +301,10 @@ function computeCardNameBoost(card: CreditCard, query?: string) {
     boost += 60000;
   }
 
+  const nameTokens = new Set(normalizedName.split(" "));
+  const idTokens = new Set(normalizedId.split(" "));
   const matchedNameTokenCount = meaningfulTokens.filter(
-    (token) => normalizedName.includes(token) || normalizedId.includes(token)
+    (token) => nameTokens.has(token) || idTokens.has(token)
   ).length;
 
   if (meaningfulTokens.length === 1) {

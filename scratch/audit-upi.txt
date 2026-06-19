@@ -1,0 +1,3981 @@
+
+############ #26 American Express Gold Card (amex-gold) ############
+rewardType=membership rewards  acceleratedShare={"online":0.5,"grocery":0.3}
+REWARD ROWS:
+  [retail] rate=2 cap=null  «1 Membership Rewards Point / Rs 50 spent on eligible categories»
+  [utilities] rate=2 cap=10000  «1 Membership Rewards Point / Rs 50 spent on utility payments»
+  [partner merchants] rate=10 cap=null  «5 Membership Rewards Points / Rs 50 spent via Reward Multiplier on sel»
+VALUED BENEFITS (point value Rs 0.60/unit):
+  [milestone monthly >=6000] value=600  «1,000 bonus Membership Rewards points on completing 6 transa»
+  [joining] value=2400  «Welcome gift of 4,000 Bonus Membership Rewards points on pay»
+  [renewal] value=3000  «5,000 Membership Rewards points on first-year card renewal a»
+ROUTING (spend category -> reward earning it):
+  online      -> partner merchants + retail
+  grocery     -> partner merchants + retail
+  base        -> retail
+  travel      -> retail
+  dining      -> retail
+  amazon      -> retail
+  upi         -> retail
+  utilities   -> utilities
+FLAGS:
+  ⚠ UNCAPPED HIGH RATE: row "partner merchants" rate 10 has no capMonthly — scales unbounded at high spend.
+
+############ #41 American Express Membership Rewards Credit Card (amex-membership-rewards) ############
+rewardType=membership rewards  acceleratedShare={"online":0.5,"grocery":0.3}
+REWARD ROWS:
+  [retail] rate=2 cap=null  «1 Membership Rewards Point / Rs 50 spent on eligible categories»
+  [partner merchants] rate=4 cap=null  «2 Membership Rewards Points / Rs 50 spent via Reward Multiplier on sel»
+VALUED BENEFITS (point value Rs 0.60/unit):
+  [milestone monthly >=6000] value=600  «1,000 Bonus Membership Rewards points on 4 transactions of R»
+  [milestone monthly >=20000] value=600  «Additional 1,000 Membership Rewards points on spending Rs 20»
+  [joining] value=2000  «Welcome gift of 4,000 Bonus Membership Rewards points»
+  [renewal] value=2500  «5,000 Membership Rewards points upon first-year card renewal»
+ROUTING (spend category -> reward earning it):
+  online      -> partner merchants + retail
+  grocery     -> partner merchants + retail
+  base        -> retail
+  travel      -> retail
+  dining      -> retail
+  amazon      -> retail
+  upi         -> retail
+FLAGS: none
+
+############ #28 American Express Platinum Reserve Credit Card (amex-platinum-reserve) ############
+rewardType=membership rewards  acceleratedShare={"online":0.5,"grocery":0.3}
+REWARD ROWS:
+  [retail] rate=2 cap=null  «1 Membership Rewards Point / Rs 50 spent on eligible categories»
+  [partner merchants] rate=6 cap=null  «3 Membership Rewards Points / Rs 50 spent via Reward Multiplier on sel»
+VALUED BENEFITS (point value Rs 0.60/unit):
+  [milestone monthly >=50000] value=500  «Rs 1,000 monthly voucher on spending Rs 50,000 or more in a »
+  [joining] value=5500  «11,000 Membership Rewards points as welcome gift on spending»
+ROUTING (spend category -> reward earning it):
+  online      -> partner merchants + retail
+  grocery     -> partner merchants + retail
+  base        -> retail
+  travel      -> retail
+  dining      -> retail
+  fuel        -> retail
+  amazon      -> retail
+  upi         -> retail
+FLAGS:
+  ⚠ UNCAPPED HIGH RATE: row "partner merchants" rate 6 has no capMonthly — scales unbounded at high spend.
+
+############ #10 American Express Platinum Travel Credit Card (amex-platinum-travel) ############
+rewardType=membership rewards  acceleratedShare={"online":0.5,"grocery":0.3}
+REWARD ROWS:
+  [base] rate=2 cap=null  «1 Membership Rewards Point / Rs 50 spent»
+  [partner merchants] rate=6 cap=null  «3 Membership Rewards Points / Rs 50 spent via Reward Multiplier on sel»
+VALUED BENEFITS (point value Rs 0.60/unit):
+  [milestone annual >=190000] value=4500  «7,500 Membership Rewards points on spending Rs 1.9 lakh in a»
+  [milestone annual >=400000] value=6000  «10,000 Membership Rewards points on spending Rs 4 lakh in a »
+  [milestone annual >=700000] value=18500  «22,500 Membership Rewards points and a Taj stay voucher wort»
+  [joining] value=6000  «Welcome gift of 10,000 Membership Rewards points on payment »
+ROUTING (spend category -> reward earning it):
+  online      -> partner merchants + base
+  grocery     -> partner merchants + base
+  base        -> base
+  travel      -> base
+  dining      -> base
+  amazon      -> base
+  upi         -> base
+FLAGS:
+  ⚠ UNCAPPED HIGH RATE: row "partner merchants" rate 6 has no capMonthly — scales unbounded at high spend.
+  ⚠ BENEFIT VALUE MISMATCH (milestone): "22,500 Membership Rewards points and a Taj stay voucher…" grants 22500 pts/miles but is valued at Rs 18500; at the card's Rs 0.60/point that implies Rs 13500.
+
+############ #202 American Express Platinum Card (amex-platinum) ############
+rewardType=membership rewards  acceleratedShare=-
+REWARD ROWS:
+  [retail] rate=2.5 cap=null  «1 Membership Rewards Point / Rs 40 spent on eligible categories»
+  [travel] rate=7.5 cap=null  «3 Membership Rewards Points / Rs 40 spent on overseas spends»
+  [fuel] rate=5 cap=5000  «5 Membership Rewards Points / Rs 100 spent on fuel»
+  [retail] rate=0 cap=null  «Reward Xcelerator (select brands)»
+VALUED BENEFITS (point value Rs 0.60/unit):
+  [joining] value=30000  «Welcome gift worth up to Rs 60,000 on payment of annual fee »
+ROUTING (spend category -> reward earning it):
+  online      -> retail
+  base        -> retail
+  dining      -> retail
+  grocery     -> retail
+  amazon      -> retail
+  upi         -> retail
+  travel      -> travel
+  fuel        -> fuel
+FLAGS:
+  ⚠ UNCAPPED HIGH RATE: row "travel" rate 7.5 has no capMonthly — scales unbounded at high spend.
+
+############ #122 American Express SmartEarn Credit Card (amex-smartearn) ############
+rewardType=membership rewards  acceleratedShare={"online":0.5,"grocery":0}
+REWARD ROWS:
+  [partner merchants] rate=20 cap=500  «10 Membership Rewards Points / Rs 50 spent on select 10X merchants»
+  [amazon] rate=10 cap=250  «5 Membership Rewards Points / Rs 50 spent on Amazon»
+  [retail] rate=2 cap=null  «1 Membership Rewards Point / Rs 50 spent on other eligible spends»
+VALUED BENEFITS (point value Rs 0.60/unit):
+  [milestone annual >=120000] value=250  «Vouchers worth Rs 500 each on reaching spends of Rs 1.20 lak»
+  [joining] value=500  «Rs 500 cashback as welcome gift on eligible spends of Rs 10,»
+ROUTING (spend category -> reward earning it):
+  online      -> partner merchants + retail
+  base        -> retail
+  travel      -> retail
+  dining      -> retail
+  grocery     -> retail
+  upi         -> retail
+  amazon      -> amazon
+FLAGS: none
+
+############ #51 AU ixigo Credit Card (au-ixigo) ############
+rewardType=reward points  acceleratedShare=-
+REWARD ROWS:
+  [online] rate=2.5 cap=null  «Online spends»
+  [base] rate=1.25 cap=null  «Offline spends»
+  [upi] rate=1.25 cap=null  «UPI transactions on RuPay»
+  [utilities] rate=0.5 cap=null  «Telecom & Utilities transactions»
+  [insurance] rate=0.5 cap=null  «Insurance transactions»
+VALUED BENEFITS (point value Rs 2.00/unit):
+  [milestone quarterly >=75000] value=2500  «Earn 5,000 bonus Reward Points (worth up to Rs 2,500) on spe»
+  [joining] value=500  «Get 1,000 Reward Points on the first successful transaction »
+  [joining] value=500  «Get Rs 1,000 ixigo money voucher on the first successful tra»
+ROUTING (spend category -> reward earning it):
+  online      -> online
+  base        -> base
+  travel      -> base
+  dining      -> base
+  grocery     -> base
+  amazon      -> base
+  upi         -> upi
+  utilities   -> upi
+FLAGS: none
+
+############ #13 CheQ AU Credit Card (cheq-au) ############
+rewardType=CheQ points  acceleratedShare={"online":0.2,"dining":0,"grocery":0}
+REWARD ROWS:
+  [amazon,online,grocery] rate=12 cap=12000  «Select brands on CheQ (Amazon, Flipkart, Zomato, BigBasket, Apple via »
+  [travel,utilities] rate=12 cap=12000  «CheQ Travel bookings and utility bill payments on CheQ app»
+  [online] rate=5 cap=12000  «Other eligible shopping, food delivery, and online grocery spends»
+  [upi] rate=2.5 cap=12000  «CheQ UPI on linked RuPay card»
+  [base] rate=1 cap=null  «Other eligible spends»
+VALUED BENEFITS (point value Rs 2.00/unit):
+  [joining] value=695  «EazyDiner membership on joining»
+ROUTING (spend category -> reward earning it):
+  online      -> amazon,online,grocery
+  grocery     -> amazon,online,grocery
+  amazon      -> amazon,online,grocery
+  base        -> upi
+  dining      -> upi
+  travel      -> travel,utilities
+  utilities   -> travel,utilities
+FLAGS:
+  ⚠ OVER-BROAD: row "amazon,online,grocery" (rate 12) is actually narrow — «Select brands on CheQ (Amazon, Flipkart, Zomato, BigBasket, ». All "amazon/online/grocery" spend earns it; consider a narrow category + acceleratedShare.
+
+############ #61 Axis Bank ACE Credit Card (axis-ace) ############
+rewardType=cashback  acceleratedShare=-
+REWARD ROWS:
+  [utility bills] rate=5 cap=500  «Utility bill payments and recharges on Google Pay»
+  [swiggy zomato, travel] rate=4 cap=500  «Swiggy, Zomato, and Ola»
+  [base] rate=1.5 cap=null  «Other eligible spends»
+ROUTING (spend category -> reward earning it):
+  online      -> base
+  base        -> base
+  grocery     -> base
+  amazon      -> base
+  upi         -> base
+  travel      -> swiggy zomato, travel
+  dining      -> swiggy zomato, travel
+  utilities   -> utility bills
+FLAGS: none
+
+############ #91 Airtel Axis Bank Credit Card (axis-airtel) ############
+rewardType=cashback  acceleratedShare=-
+REWARD ROWS:
+  [online] rate=25 cap=250  «Airtel recharges and bill payments via Airtel Thanks App»
+  [utility bills] rate=10 cap=250  «Utility bill payments via Airtel Thanks App»
+  [swiggy zomato] rate=10 cap=500  «Swiggy and Zomato»
+  [bigbasket] rate=10 cap=500  «bigbasket and BBnow»
+  [base] rate=1 cap=null  «Other eligible spends»
+VALUED BENEFITS (point value Rs 1.00/unit):
+  [joining] value=250  «Amazon eVoucher worth Rs 500 on first transaction within 30 »
+ROUTING (spend category -> reward earning it):
+  online      -> online
+  base        -> base
+  travel      -> base
+  amazon      -> base
+  upi         -> base
+  dining      -> swiggy zomato
+  grocery     -> bigbasket
+FLAGS: none
+
+############ Axis Bank Atlas Credit Card (axis-atlas) ############
+rewardType=edge miles  acceleratedShare=-
+REWARD ROWS:
+  [travel] rate=5 cap=10000  «5 EDGE Miles per Rs 100»
+  [base] rate=2 cap=null  «2 EDGE Miles per Rs 100»
+VALUED BENEFITS (point value Rs 3.00/unit):
+  [milestone annual >=300000] value=5000  «2,500 EDGE Miles on annual spend of Rs 3 lakh.»
+  [milestone annual >=750000] value=5000  «Additional 2,500 EDGE Miles on annual spend of Rs 7.5 lakh.»
+  [milestone annual >=1500000] value=10000  «Additional 5,000 EDGE Miles on annual spend of Rs 15 lakh.»
+  [joining] value=5000  «2,500 EDGE Miles upon completing the first transaction withi»
+FLAGS: none
+
+############ #24 Cashback Credit Card (axis-cashback) ############
+rewardType=cashback  acceleratedShare=-
+REWARD ROWS:
+  [online] rate=7 cap=4000  «Online spends (tiered up to 7%)»
+  [base] rate=0.75 cap=null  «Offline retail spends»
+  [travel] rate=0.75 cap=null  «Travel spends (online and offline)»
+  [utilities] rate=0.5 cap=100  «Utility spends»
+ROUTING (spend category -> reward earning it):
+  online      -> online
+  base        -> base
+  dining      -> base
+  grocery     -> base
+  amazon      -> base
+  upi         -> base
+  travel      -> travel
+  utilities   -> utilities
+FLAGS: none
+
+############ #85 Fibe Axis Bank Credit Card (axis-fibe) ############
+rewardType=cashback  acceleratedShare=-
+REWARD ROWS:
+  [dining,online,travel] rate=3 cap=1500  «Food delivery, entertainment & local commute»
+  [base] rate=1 cap=null  «Other eligible retail spends»
+ROUTING (spend category -> reward earning it):
+  online      -> dining,online,travel
+  travel      -> dining,online,travel
+  dining      -> dining,online,travel
+  base        -> base
+  grocery     -> base
+  amazon      -> base
+  upi         -> base
+FLAGS: none
+
+############ Flipkart Axis Bank Super Elite Credit Card (axis-flipkart-super-elite) ############
+rewardType=supercoins  acceleratedShare={"online":0.5,"grocery":0}
+REWARD ROWS:
+  [partner merchants] rate=12 cap=null  «Flipkart spends (Plus members)»
+  [base] rate=2 cap=null  «Other eligible retail spends»
+FLAGS:
+  ⚠ UNCAPPED HIGH RATE: row "partner merchants" rate 12 has no capMonthly — scales unbounded at high spend.
+
+############ #69 FLIPKART AXIS BANK Credit Card (axis-flipkart) ############
+rewardType=cashback  acceleratedShare={"online":0.3,"grocery":0}
+REWARD ROWS:
+  [myntra] rate=7.5 cap=null  «Myntra»
+  [flipkart] rate=5 cap=null  «Flipkart»
+  [cleartrip] rate=5 cap=null  «Cleartrip»
+  [partner merchants] rate=4 cap=null  «Preferred merchants»
+  [base] rate=1 cap=null  «Other eligible spends»
+VALUED BENEFITS (point value Rs 1.00/unit):
+  [joining] value=350  «Welcome benefits worth Rs 350 on eligible paid cards and fir»
+ROUTING (spend category -> reward earning it):
+  online      -> myntra + base
+  base        -> base
+  dining      -> base
+  grocery     -> base
+  amazon      -> base
+  upi         -> base
+  travel      -> cleartrip
+FLAGS:
+  ⚠ UNCAPPED HIGH RATE: row "myntra" rate 7.5 has no capMonthly — scales unbounded at high spend.
+  ⚠ UNCAPPED HIGH RATE: row "flipkart" rate 5 has no capMonthly — scales unbounded at high spend.
+  ⚠ UNCAPPED HIGH RATE: row "cleartrip" rate 5 has no capMonthly — scales unbounded at high spend.
+
+############ #34 Axis Bank Freecharge Plus Credit Card (axis-freecharge-plus) ############
+rewardType=cashback  acceleratedShare=-
+REWARD ROWS:
+  [online] rate=5 cap=null  «Freecharge app spends»
+  [travel] rate=2 cap=null  «Local commute spends»
+  [base] rate=1 cap=null  «Other eligible retail spends»
+ROUTING (spend category -> reward earning it):
+  online      -> online
+  base        -> base
+  dining      -> base
+  grocery     -> base
+  amazon      -> base
+  upi         -> base
+  travel      -> travel
+FLAGS:
+  ⚠ UNCAPPED HIGH RATE: row "online" rate 5 has no capMonthly — scales unbounded at high spend.
+
+############ #200 Axis Bank Freecharge Credit Card (axis-freecharge) ############
+rewardType=edge reward points  acceleratedShare=-
+REWARD ROWS:
+  [base] rate=0.5 cap=null  «Eligible spends»
+VALUED BENEFITS (point value Rs 3.00/unit):
+  [milestone monthly >=2000] value=20  «100 EDGE REWARD Points on monthly spends of Rs 2,000 - Rs 4,»
+  [milestone monthly >=5000] value=70  «350 EDGE REWARD Points on monthly spends of Rs 5,000 or abov»
+ROUTING (spend category -> reward earning it):
+  online      -> base
+  base        -> base
+  travel      -> base
+  dining      -> base
+  grocery     -> base
+  amazon      -> base
+  upi         -> base
+FLAGS: none
+
+############ #182 Google Pay Flex Axis Bank Credit Card (axis-google-pay-flex) ############
+rewardType=stars  acceleratedShare=-
+REWARD ROWS:
+  [upi] rate=0.2 cap=null  «UPI payments on Google Pay»
+  [base] rate=0.2 cap=null  «Other eligible retail spends»
+VALUED BENEFITS (point value Rs 1.00/unit):
+  [milestone monthly >=100] value=0  «Unlock 2X stars in the current reward cycle by spending Rs 1»
+  [milestone monthly >=15000] value=0  «Unlock promotional 4X stars after spending more than Rs 15,0»
+  [milestone monthly >=30000] value=0  «Unlock promotional 8X stars after spending more than Rs 30,0»
+  [joining] value=125  «Welcome reward includes Rs 250 gift card and 250 stars on Go»
+ROUTING (spend category -> reward earning it):
+  online      -> base
+  base        -> base
+  travel      -> base
+  dining      -> base
+  grocery     -> base
+  fuel        -> base
+  amazon      -> base
+  utilities   -> base
+  upi         -> upi
+FLAGS: none
+
+############ #30 HORIZON Credit Card (axis-horizon) ############
+rewardType=edge miles  acceleratedShare=-
+REWARD ROWS:
+  [travel] rate=5 cap=null  «Travel EDGE and airline websites»
+  [base] rate=2 cap=null  «Other eligible retail spends»
+VALUED BENEFITS (point value Rs 3.00/unit):
+  [milestone annual >=0] value=1500  «1,500 EDGE Miles renewal benefit from the second card annive»
+ROUTING (spend category -> reward earning it):
+  online      -> base
+  base        -> base
+  dining      -> base
+  grocery     -> base
+  amazon      -> base
+  upi         -> base
+  travel      -> travel
+FLAGS:
+  ⚠ UNCAPPED HIGH RATE: row "travel" rate 5 has no capMonthly — scales unbounded at high spend.
+
+############ #192 IKEA Family Axis Bank Credit Card (axis-ikea-family) ############
+rewardType=edge reward points  acceleratedShare=-
+REWARD ROWS:
+  [ikea] rate=3 cap=null  «IKEA spends»
+  [dining] rate=2 cap=null  «Dining spends»
+  [base] rate=1 cap=null  «All other spends»
+ROUTING (spend category -> reward earning it):
+  online      -> base
+  base        -> base
+  travel      -> base
+  grocery     -> base
+  amazon      -> base
+  upi         -> base
+  utilities   -> base
+  dining      -> dining
+FLAGS: none
+
+############ #144 IndianOil Easy Axis Bank Credit Card (axis-indianoil-easy) ############
+rewardType=edge reward points  acceleratedShare=-
+REWARD ROWS:
+  [fuel] rate=20 cap=1000  «Fuel spends at IndianOil outlets»
+  [online] rate=5 cap=null  «Online shopping spends»
+  [base] rate=1 cap=null  «Other eligible retail spends»
+VALUED BENEFITS (point value Rs 3.00/unit):
+  [joining] value=250  «Up to 1,250 EDGE REWARD Points on first fuel transaction wit»
+ROUTING (spend category -> reward earning it):
+  online      -> online
+  base        -> base
+  travel      -> base
+  dining      -> base
+  grocery     -> base
+  amazon      -> base
+  upi         -> base
+  fuel        -> fuel
+FLAGS:
+  ⚠ UNCAPPED HIGH RATE: row "online" rate 5 has no capMonthly — scales unbounded at high spend.
+
+############ #132 IndianOil Axis Bank Premium Credit Card (axis-indianoil-premium) ############
+rewardType=edge miles  acceleratedShare=-
+REWARD ROWS:
+  [fuel] rate=4 cap=600  «IndianOil fuel outlets (up to Rs 15,000 spend/month)»
+  [grocery] rate=1.3333333333333333 cap=67  «Grocery and supermarket spends (up to Rs 5,000 spend/month)»
+  [base] rate=0.6666666666666666 cap=null  «Other eligible retail spends»
+ROUTING (spend category -> reward earning it):
+  online      -> base
+  base        -> base
+  travel      -> base
+  dining      -> base
+  amazon      -> base
+  upi         -> base
+  grocery     -> grocery
+  fuel        -> fuel
+FLAGS: none
+
+############ #143 INDIANOIL AXIS BANK Credit Card (axis-indianoil) ############
+rewardType=edge reward points  acceleratedShare=-
+REWARD ROWS:
+  [fuel] rate=20 cap=1000  «20 EDGE REWARD Points / Rs 100 spent at IndianOil outlets»
+  [online] rate=5 cap=null  «5 EDGE REWARD Points / Rs 100 spent on online shopping»
+  [base] rate=1 cap=null  «1 EDGE REWARD Point / Rs 100 spent on other eligible retail spends»
+ROUTING (spend category -> reward earning it):
+  online      -> online
+  base        -> base
+  travel      -> base
+  dining      -> base
+  grocery     -> base
+  amazon      -> base
+  upi         -> base
+  fuel        -> fuel
+FLAGS:
+  ⚠ UNCAPPED HIGH RATE: row "online" rate 5 has no capMonthly — scales unbounded at high spend.
+
+############ #60 IndiGo Axis Bank Premium Credit Card (axis-indigo-premium) ############
+rewardType=indigo bluchips  acceleratedShare=-
+REWARD ROWS:
+  [airlines] rate=7 cap=null  «IndiGo flight bookings»
+  [grocery] rate=3 cap=null  «Grocery spends»
+  [hotels] rate=3 cap=null  «Hotel bookings»
+  [base] rate=2 cap=null  «All other eligible spends»
+VALUED BENEFITS (point value Rs 1.00/unit):
+  [milestone annual >=200000] value=5000  «5,000 IndiGo BluChips voucher on annual spends of Rs 2 lakh»
+  [milestone annual >=500000] value=5000  «5,000 IndiGo BluChips voucher on annual spends of Rs 5 lakh»
+  [milestone annual >=800000] value=5000  «5,000 IndiGo BluChips voucher on annual spends of Rs 8 lakh»
+  [milestone annual >=1200000] value=5000  «5,000 IndiGo BluChips voucher on annual spends of Rs 12 lakh»
+  [joining] value=5000  «5,000 IndiGo BluChips welcome voucher»
+  [joining] value=350  «Complimentary 6E Eats voucher»
+  [renewal] value=5000  «5,000 IndiGo BluChips renewal voucher»
+  [renewal] value=350  «Complimentary 6E Eats renewal voucher»
+ROUTING (spend category -> reward earning it):
+  online      -> base
+  base        -> base
+  travel      -> base
+  dining      -> base
+  amazon      -> base
+  upi         -> base
+  grocery     -> grocery
+FLAGS:
+  ⚠ UNCAPPED HIGH RATE: row "airlines" rate 7 has no capMonthly — scales unbounded at high spend.
+
+############ #181 Indigo Axis Bank Credit Card (axis-indigo) ############
+rewardType=indigo bluchips  acceleratedShare=-
+REWARD ROWS:
+  [airlines] rate=3 cap=null  «IndiGo flight bookings»
+  [grocery] rate=2 cap=null  «Grocery spends»
+  [dining] rate=2 cap=null  «Dining spends»
+  [base] rate=1 cap=null  «All other eligible spends»
+VALUED BENEFITS (point value Rs 1.00/unit):
+  [milestone annual >=150000] value=1200  «1,200 IndiGo BluChips voucher on annual spends of Rs 1.5 lak»
+  [milestone annual >=300000] value=1200  «1,200 IndiGo BluChips voucher on annual spends of Rs 3 lakh»
+  [joining] value=1200  «1,200 IndiGo BluChips welcome voucher»
+  [renewal] value=1200  «1,200 IndiGo BluChips renewal voucher»
+ROUTING (spend category -> reward earning it):
+  online      -> base
+  base        -> base
+  travel      -> base
+  amazon      -> base
+  upi         -> base
+  dining      -> dining
+  grocery     -> grocery
+FLAGS: none
+
+############ #105 Kwik Axis Bank Credit Card (axis-kwik) ############
+rewardType=edge reward points  acceleratedShare=-
+REWARD ROWS:
+  [upi] rate=5 cap=null  «UPI spends via Kiwi app»
+  [base] rate=1 cap=null  «All other eligible spends»
+ROUTING (spend category -> reward earning it):
+  online      -> upi
+  base        -> upi
+  travel      -> upi
+  dining      -> upi
+  grocery     -> upi
+  amazon      -> upi
+  upi         -> upi
+  utilities   -> upi
+FLAGS:
+  ⚠ UNCAPPED HIGH RATE: row "upi" rate 5 has no capMonthly — scales unbounded at high spend.
+
+############ #199 LIC Axis Bank Platinum Credit Card (axis-lic-platinum) ############
+rewardType=reward points  acceleratedShare=-
+REWARD ROWS:
+  [insurance] rate=2 cap=null  «LIC Premium payments»
+  [international] rate=2 cap=null  «International spends»
+  [base] rate=1 cap=null  «All other eligible spends»
+ROUTING (spend category -> reward earning it):
+  online      -> base
+  base        -> base
+  travel      -> base
+  dining      -> base
+  grocery     -> base
+  amazon      -> base
+  upi         -> base
+FLAGS: none
+
+############ #175 LIC Axis Bank Signature Credit Card (axis-lic-signature) ############
+rewardType=reward points  acceleratedShare=-
+REWARD ROWS:
+  [insurance] rate=2 cap=null  «LIC Premium payments»
+  [international] rate=2 cap=null  «International spends»
+  [base] rate=1 cap=null  «All other eligible spends»
+ROUTING (spend category -> reward earning it):
+  online      -> base
+  base        -> base
+  travel      -> base
+  dining      -> base
+  grocery     -> base
+  amazon      -> base
+  upi         -> base
+FLAGS: none
+
+############ #5 Axis Bank Magnus Credit Card for Burgundy (axis-magnus-burgundy) ############
+rewardType=edge reward points  acceleratedShare=-
+REWARD ROWS:
+  [travel] rate=30 cap=60000  «Travel EDGE»
+  [base] rate=6 cap=null tierScope=total-monthly-spend  «Eligible spends up to Rs 1.5 lakh per calendar month»
+  [base] rate=17.5 cap=null tierScope=total-monthly-spend  «Eligible incremental spends above Rs 1.5 lakh per calendar month»
+VALUED BENEFITS (point value Rs 0.80/unit):
+  [joining] value=2500  «Choose any one voucher worth Rs 5,000 from Luxe, The Postcar»
+ROUTING (spend category -> reward earning it):
+  online      -> base
+  base        -> base
+  dining      -> base
+  grocery     -> base
+  amazon      -> base
+  upi         -> base
+  travel      -> travel
+FLAGS: none
+
+############ #9 AXIS BANK MAGNUS Credit Card (axis-magnus) ############
+rewardType=edge reward points  acceleratedShare=-
+REWARD ROWS:
+  [travel] rate=30 cap=60000  «Travel EDGE»
+  [base] rate=6 cap=null tierScope=total-monthly-spend  «Eligible spends up to Rs 1.5 lakh per calendar month»
+  [base] rate=17.5 cap=null tierScope=total-monthly-spend  «Eligible incremental spends above Rs 1.5 lakh per calendar month»
+VALUED BENEFITS (point value Rs 3.00/unit):
+  [joining] value=6250  «Welcome voucher worth Rs 12,500 from eligible options such a»
+ROUTING (spend category -> reward earning it):
+  online      -> base
+  base        -> base
+  dining      -> base
+  grocery     -> base
+  amazon      -> base
+  upi         -> base
+  travel      -> travel
+FLAGS: none
+
+############ #94 Miles and More Axis Bank Credit Card (axis-miles-and-more) ############
+rewardType=miles and more award miles  acceleratedShare=-
+REWARD ROWS:
+  [base] rate=2 cap=null  «All eligible spends»
+ROUTING (spend category -> reward earning it):
+  online      -> base
+  base        -> base
+  travel      -> base
+  dining      -> base
+  grocery     -> base
+  amazon      -> base
+  upi         -> base
+FLAGS: none
+
+############ #196 Axis Bank My Zone Credit Card (axis-my-zone) ############
+rewardType=edge reward points  acceleratedShare=-
+REWARD ROWS:
+  [base] rate=2 cap=null  «Eligible retail spends»
+ROUTING (spend category -> reward earning it):
+  online      -> base
+  base        -> base
+  travel      -> base
+  dining      -> base
+  grocery     -> base
+  amazon      -> base
+  upi         -> base
+FLAGS: none
+
+############ #201 Neo Credit Card (axis-neo) ############
+rewardType=edge reward points and merchant discounts  acceleratedShare=-
+REWARD ROWS:
+  [base] rate=0.5 cap=null  «Eligible spends»
+ROUTING (spend category -> reward earning it):
+  online      -> base
+  base        -> base
+  travel      -> base
+  dining      -> base
+  grocery     -> base
+  amazon      -> base
+  upi         -> base
+FLAGS: none
+
+############ Axis Bank Platinum Credit Card (axis-platinum) ############
+rewardType=edge reward points  acceleratedShare=-
+REWARD ROWS:
+  [base] rate=3 cap=null  «Domestic spends»
+  [international] rate=6 cap=null  «International spends»
+FLAGS:
+  ⚠ UNCAPPED HIGH RATE: row "international" rate 6 has no capMonthly — scales unbounded at high spend.
+
+############ #93 Privilege Easy Credit Card (axis-privilege-easy) ############
+rewardType=edge reward points  acceleratedShare=-
+REWARD ROWS:
+  [base] rate=5 cap=null  «Eligible retail spends»
+VALUED BENEFITS (point value Rs 3.00/unit):
+  [milestone annual >=250000] value=2000  «10,000 bonus EDGE REWARD Points on spending Rs 2.5 lakh in a»
+  [joining] value=2500  «12,500 EDGE REWARD Points worth Rs 2,500 (or redeemable for »
+ROUTING (spend category -> reward earning it):
+  online      -> base
+  base        -> base
+  travel      -> base
+  dining      -> base
+  grocery     -> base
+  amazon      -> base
+  upi         -> base
+FLAGS: none
+
+############ #99 AXIS BANK PRIVILEGE Credit Card (axis-privilege) ############
+rewardType=edge reward points  acceleratedShare=-
+REWARD ROWS:
+  [base] rate=5 cap=null  «Eligible retail spends»
+VALUED BENEFITS (point value Rs 3.00/unit):
+  [milestone annual >=250000] value=2000  «10,000 bonus EDGE REWARD Points on spending Rs 2.5 lakh in a»
+ROUTING (spend category -> reward earning it):
+  online      -> base
+  base        -> base
+  travel      -> base
+  dining      -> base
+  grocery     -> base
+  amazon      -> base
+  upi         -> base
+FLAGS: none
+
+############ #174 Axis Bank Reserve Credit Card (axis-reserve) ############
+rewardType=edge reward points  acceleratedShare=-
+REWARD ROWS:
+  [base] rate=7.5 cap=null  «Domestic spends»
+  [international] rate=15 cap=null  «International spends»
+ROUTING (spend category -> reward earning it):
+  online      -> base
+  base        -> base
+  travel      -> base
+  dining      -> base
+  grocery     -> base
+  amazon      -> base
+  upi         -> base
+  utilities   -> base
+FLAGS:
+  ⚠ UNCAPPED HIGH RATE: row "international" rate 15 has no capMonthly — scales unbounded at high spend.
+
+############ #130 Axis Bank REWARDS Credit Card (axis-rewards) ############
+rewardType=edge reward points  acceleratedShare=-
+REWARD ROWS:
+  [departmental stores] rate=16 cap=1120  «Apparel and departmental stores (up to Rs 7,000 spend/month)»
+  [base] rate=1.6 cap=null  «Other eligible retail spends»
+VALUED BENEFITS (point value Rs 3.00/unit):
+  [milestone monthly >=30000] value=300  «1,500 bonus EDGE REWARD Points on spends of Rs 30,000 per st»
+ROUTING (spend category -> reward earning it):
+  online      -> departmental stores + base
+  grocery     -> departmental stores + base
+  base        -> base
+  travel      -> base
+  dining      -> base
+  amazon      -> base
+  upi         -> base
+FLAGS: none
+
+############ #18 Samsung Axis Bank Signature Credit Card (axis-samsung-signature) ############
+rewardType=cashback and edge reward points  acceleratedShare=-
+REWARD ROWS:
+  [online] rate=10 cap=2500  «Samsung purchases (eligible online & offline channels)»
+  [dining, grocery, online] rate=10 cap=null  «Preferred partners (BigBasket, Myntra, Tata 1mg, Urban Company, Zomato»
+  [base] rate=5 cap=null  «Other eligible retail spends»
+VALUED BENEFITS (point value Rs 1.00/unit):
+  [joining] value=500  «2,500 EDGE REWARD Points on completing 3 transactions within»
+ROUTING (spend category -> reward earning it):
+  online      -> online
+  base        -> base
+  travel      -> base
+  amazon      -> base
+  upi         -> base
+  dining      -> dining, grocery, online
+  grocery     -> dining, grocery, online
+FLAGS:
+  ⚠ OVER-BROAD: row "online" (rate 10) is actually narrow — «Samsung purchases (eligible online & offline channels)». All "online" spend earns it; consider a narrow category + acceleratedShare.
+  ⚠ OVER-BROAD: row "dining, grocery, online" (rate 10) is actually narrow — «Preferred partners (BigBasket, Myntra, Tata 1mg, Urban Compa». All "dining/grocery/online" spend earns it; consider a narrow category + acceleratedShare.
+  ⚠ UNCAPPED HIGH RATE: row "dining, grocery, online" rate 10 has no capMonthly — scales unbounded at high spend.
+
+############ #166 Axis Bank Select Credit Card (axis-select) ############
+rewardType=edge reward points  acceleratedShare=-
+REWARD ROWS:
+  [base] rate=10 cap=2000  «Retail shopping spends (up to Rs 20,000 spend/month)»
+  [base] rate=5 cap=null  «Other eligible spends»
+ROUTING (spend category -> reward earning it):
+  online      -> base
+  base        -> base
+  travel      -> base
+  dining      -> base
+  grocery     -> base
+  amazon      -> base
+  upi         -> base
+FLAGS: none
+
+############ #185 BOBCARD EASY (bobcard-easy) ############
+rewardType=reward points  acceleratedShare=-
+REWARD ROWS:
+  [movies, grocery, departmental stores] rate=5 cap=1000  «Movies, grocery, and departmental store spends»
+  [retail] rate=1 cap=null  «All other eligible spends»
+ROUTING (spend category -> reward earning it):
+  online      -> movies, grocery, departmental stores + retail
+  grocery     -> movies, grocery, departmental stores
+  base        -> retail
+  travel      -> retail
+  dining      -> retail
+  amazon      -> retail
+  upi         -> retail
+  utilities   -> retail
+FLAGS: none
+
+############ #43 BOBCARD ETERNA (bobcard-eterna) ############
+rewardType=reward points  acceleratedShare=-
+REWARD ROWS:
+  [travel, dining, online, international] rate=15 cap=5000  «Travel, dining, online, and international spends»
+  [retail] rate=3 cap=null  «Other eligible spends»
+ROUTING (spend category -> reward earning it):
+  online      -> travel, dining, online, international
+  travel      -> travel, dining, online, international
+  dining      -> travel, dining, online, international
+  base        -> retail
+  grocery     -> retail
+  amazon      -> retail
+  upi         -> retail
+  utilities   -> retail
+FLAGS: none
+
+############ #12 BOBCARD Etihad Guest Premium Credit Card (bobcard-etihad-guest-premium) ############
+rewardType=etihad guest miles  acceleratedShare=-
+REWARD ROWS:
+  [travel] rate=6 cap=null  «Etihad Airways spends»
+  [base] rate=2 cap=null  «Other eligible spends»
+VALUED BENEFITS (point value Rs 0.80/unit):
+  [milestone monthly >=50000] value=400  «500 bonus miles on completing 4 transactions totaling Rs 50,»
+  [milestone quarterly >=300000] value=3200  «4,000 bonus miles on quarterly spends of Rs 3,00,000»
+  [milestone annual >=1200000] value=19200  «24,000 bonus miles on annual spends of Rs 12 lakh»
+  [joining] value=12000  «Up to 15,000 Etihad Guest Miles welcome bonus»
+ROUTING (spend category -> reward earning it):
+  online      -> base
+  base        -> base
+  dining      -> base
+  grocery     -> base
+  amazon      -> base
+  upi         -> base
+  travel      -> travel
+FLAGS:
+  ⚠ UNCAPPED HIGH RATE: row "travel" rate 6 has no capMonthly — scales unbounded at high spend.
+
+############ #52 BOBCARD Etihad Guest Credit Card (bobcard-etihad-guest) ############
+rewardType=etihad guest miles  acceleratedShare=-
+REWARD ROWS:
+  [travel] rate=3 cap=null  «Etihad Airways spends»
+  [base] rate=1 cap=null  «Other eligible spends»
+VALUED BENEFITS (point value Rs 0.80/unit):
+  [milestone monthly >=25000] value=200  «250 bonus miles on completing 4 transactions totaling Rs 25,»
+  [milestone quarterly >=200000] value=1600  «2,000 bonus miles on quarterly spends of Rs 2,00,000»
+  [milestone annual >=750000] value=9600  «12,000 bonus miles on annual spends of Rs 7.5 lakh»
+  [joining] value=6000  «Up to 7,500 Etihad Guest Miles welcome bonus»
+ROUTING (spend category -> reward earning it):
+  online      -> base
+  base        -> base
+  dining      -> base
+  grocery     -> base
+  amazon      -> base
+  upi         -> base
+  travel      -> travel
+FLAGS: none
+
+############ #134 HPCL ENERGIE BOBCARD (bobcard-hpcl-energie) ############
+rewardType=reward points  acceleratedShare=-
+REWARD ROWS:
+  [fuel] rate=16 cap=null  «24 Reward Points / ₹150»
+  [utility bills, grocery, departmental stores] rate=6.666666666666667 cap=null  «10 Reward Points / ₹150»
+  [retail] rate=1.3333333333333333 cap=null  «2 Reward Points / ₹150»
+ROUTING (spend category -> reward earning it):
+  online      -> utility bills, grocery, departmental stores + retail
+  grocery     -> utility bills, grocery, departmental stores
+  utilities   -> utility bills, grocery, departmental stores
+  base        -> retail
+  travel      -> retail
+  dining      -> retail
+  amazon      -> retail
+  upi         -> retail
+FLAGS:
+  ⚠ UNCAPPED HIGH RATE: row "fuel" rate 16 has no capMonthly — scales unbounded at high spend.
+  ⚠ UNCAPPED HIGH RATE: row "utility bills, grocery, departmental stores" rate 6.666666666666667 has no capMonthly — scales unbounded at high spend.
+
+############ #197 IRCTC BOBCARD (bobcard-irctc) ############
+rewardType=reward points  acceleratedShare=-
+REWARD ROWS:
+  [irctc] rate=10 cap=null  «IRCTC train ticket bookings (via IRCTC website/app)»
+  [grocery, departmental stores] rate=1 cap=1000  «Grocery and departmental store spends»
+  [retail] rate=0.5 cap=null  «Other eligible spends»
+ROUTING (spend category -> reward earning it):
+  online      -> grocery, departmental stores + retail
+  grocery     -> grocery, departmental stores
+  base        -> retail
+  dining      -> retail
+  amazon      -> retail
+  upi         -> retail
+  utilities   -> retail
+FLAGS:
+  ⚠ UNCAPPED HIGH RATE: row "irctc" rate 10 has no capMonthly — scales unbounded at high spend.
+
+############ #106 BOBCARD PREMIER (bobcard-premier) ############
+rewardType=reward points  acceleratedShare=-
+REWARD ROWS:
+  [travel, dining, international] rate=10 cap=2000  «Travel, dining, and abroad (international) spends»
+  [retail] rate=2 cap=null  «Other eligible spends»
+ROUTING (spend category -> reward earning it):
+  online      -> retail
+  base        -> retail
+  grocery     -> retail
+  amazon      -> retail
+  upi         -> retail
+  utilities   -> retail
+  travel      -> travel, dining, international
+  dining      -> travel, dining, international
+FLAGS: none
+
+############ #152 BOBCARD SELECT (bobcard-select) ############
+rewardType=reward points  acceleratedShare=-
+REWARD ROWS:
+  [dining, utility bills, online] rate=5 cap=1000  «Dining, utility bills, and online spends»
+  [retail] rate=1 cap=null  «Other eligible spends»
+ROUTING (spend category -> reward earning it):
+  online      -> dining, utility bills, online
+  dining      -> dining, utility bills, online
+  utilities   -> dining, utility bills, online
+  base        -> retail
+  travel      -> retail
+  grocery     -> retail
+  amazon      -> retail
+  upi         -> retail
+FLAGS: none
+
+############ #66 Snapdeal BOBCARD (bobcard-snapdeal) ############
+rewardType=cashback  acceleratedShare=-
+REWARD ROWS:
+  [snapdeal] rate=5 cap=null  «Snapdeal platform spends»
+  [online, grocery, departmental stores] rate=2.5 cap=2000  «Online shopping, grocery, and departmental store spends»
+  [retail] rate=1 cap=null  «All other eligible spends (including UPI)»
+ROUTING (spend category -> reward earning it):
+  online      -> online, grocery, departmental stores
+  grocery     -> online, grocery, departmental stores
+  base        -> retail
+  travel      -> retail
+  dining      -> retail
+  amazon      -> retail
+  upi         -> retail
+  utilities   -> retail
+FLAGS:
+  ⚠ UNCAPPED HIGH RATE: row "snapdeal" rate 5 has no capMonthly — scales unbounded at high spend.
+
+############ #127 BOBCARD Scapia Credit Card (scapia-bobcard) ############
+rewardType=scapia coins  acceleratedShare=-
+REWARD ROWS:
+  [travel] rate=4 cap=null  «Travel bookings on Scapia app»
+  [online, retail] rate=2 cap=null  «Visa online and offline spends»
+  [upi] rate=1 cap=null  «UPI spends of Rs 500 or more on RuPay»
+ROUTING (spend category -> reward earning it):
+  online      -> online, retail
+  base        -> online, retail
+  travel      -> travel
+  dining      -> upi
+  grocery     -> upi
+  amazon      -> upi
+  upi         -> upi
+FLAGS: none
+
+############ #50 CUB SalarySe Level UP Credit Card (cub-salaryse-level-up) ############
+rewardType=SalarySe SCoins  acceleratedShare=-
+REWARD ROWS:
+  [upi] rate=5 cap=null  «SalarySe UPI, online, and eligible card spends up to Rs 20,000 per bil»
+  [upi] rate=10 cap=null  «SalarySe UPI, online, and eligible card spends above Rs 20,000 per bil»
+  [online] rate=5 cap=null  «Online checkout using Level UP card details up to Rs 20,000 per billin»
+  [online] rate=10 cap=null  «Online checkout using Level UP card details above Rs 20,000 per billin»
+  [base] rate=1 cap=null  «Base categories and non-SalarySe UPI spends»
+ROUTING (spend category -> reward earning it):
+  online      -> online
+  base        -> upi
+  travel      -> upi
+  dining      -> upi
+  grocery     -> upi
+  amazon      -> upi
+  upi         -> upi
+  utilities   -> upi
+FLAGS:
+  ⚠ UNCAPPED HIGH RATE: row "upi" rate 5 has no capMonthly — scales unbounded at high spend.
+  ⚠ UNCAPPED HIGH RATE: row "upi" rate 10 has no capMonthly — scales unbounded at high spend.
+  ⚠ UNCAPPED HIGH RATE: row "online" rate 5 has no capMonthly — scales unbounded at high spend.
+  ⚠ UNCAPPED HIGH RATE: row "online" rate 10 has no capMonthly — scales unbounded at high spend.
+
+############ #55 Jupiter Edge+ Credit Card (csb-jupiter-edge-plus) ############
+rewardType=jewels  acceleratedShare=-
+REWARD ROWS:
+  [online] rate=50 cap=10000  «Preferred Brands shopping»
+  [airlines] rate=25 cap=5000  «Jupiter Flights»
+  [base, upi] rate=5 cap=5000  «Base retail & UPI spends»
+ROUTING (spend category -> reward earning it):
+  online      -> online
+  base        -> base, upi
+  travel      -> base, upi
+  dining      -> base, upi
+  grocery     -> base, upi
+  amazon      -> base, upi
+  upi         -> base, upi
+FLAGS: none
+
+############ #15 Equitas PowerMiles Credit Card (equitas-powermiles) ############
+rewardType=reward points  acceleratedShare=-
+REWARD ROWS:
+  [international] rate=9 cap=null  «International POS and online purchases»
+  [base] rate=3 cap=null  «All other retail spends»
+ROUTING (spend category -> reward earning it):
+  online      -> base
+  base        -> base
+  travel      -> base
+  dining      -> base
+  grocery     -> base
+  amazon      -> base
+  upi         -> base
+  utilities   -> base
+FLAGS:
+  ⚠ UNCAPPED HIGH RATE: row "international" rate 9 has no capMonthly — scales unbounded at high spend.
+
+############ #86 Equitas Selfe Credit Card (equitas-selfe) ############
+rewardType=reward points  acceleratedShare=-
+REWARD ROWS:
+  [dining, grocery, utility bills, lifestyle] rate=10 cap=null  «2 chosen accelerated categories: apparel, dining, grocery, utility, or»
+  [base] rate=2 cap=null  «All other retail spends»
+ROUTING (spend category -> reward earning it):
+  online      -> base
+  base        -> base
+  travel      -> base
+  amazon      -> base
+  upi         -> base
+  dining      -> dining, grocery, utility bills, lifestyle
+  grocery     -> dining, grocery, utility bills, lifestyle
+  utilities   -> dining, grocery, utility bills, lifestyle
+FLAGS:
+  ⚠ UNCAPPED HIGH RATE: row "dining, grocery, utility bills, lifestyle" rate 10 has no capMonthly — scales unbounded at high spend.
+
+############ #165 Equitas Tiga Credit Card (equitas-tiga) ############
+rewardType=reward points  acceleratedShare=-
+REWARD ROWS:
+  [upi] rate=3 cap=null  «UPI, contactless, and Pay-by-3 merchant spends»
+  [base] rate=1 cap=null  «Other retail spends»
+ROUTING (spend category -> reward earning it):
+  online      -> upi
+  base        -> upi
+  travel      -> upi
+  dining      -> upi
+  grocery     -> upi
+  amazon      -> upi
+  upi         -> upi
+  utilities   -> upi
+FLAGS: none
+
+############ #138 Federal Bank Celesta Credit Card (federal-celesta) ############
+rewardType=reward points  acceleratedShare=-
+REWARD ROWS:
+  [travel] rate=3 cap=null  «Travel spends»
+  [international] rate=3 cap=null  «International spends»
+  [dining] rate=2 cap=null  «Dining spends»
+  [base] rate=1 cap=null  «All other retail spends»
+  [insurance] rate=1 cap=250  «Insurance premium spends»
+VALUED BENEFITS (point value Rs 99.00/unit):
+  [joining] value=600  «Amazon Pay e-voucher worth Rs 600 on spending Rs 10,000 with»
+ROUTING (spend category -> reward earning it):
+  online      -> base
+  base        -> base
+  grocery     -> base
+  amazon      -> base
+  upi         -> base
+  utilities   -> base
+  travel      -> travel
+  dining      -> dining
+FLAGS: none
+
+############ #96 Federal Bank Imperio Credit Card (federal-imperio) ############
+rewardType=reward points  acceleratedShare=-
+REWARD ROWS:
+  [grocery] rate=3 cap=null  «Grocery spends»
+  [base] rate=3 cap=null  «Healthcare spends»
+  [utilities] rate=2 cap=null  «Utility spends»
+  [base] rate=1 cap=null  «All other retail spends»
+  [insurance] rate=1 cap=250  «Insurance premium spends»
+VALUED BENEFITS (point value Rs 99.00/unit):
+  [milestone quarterly >=50000] value=150  «Complimentary Big Basket voucher worth Rs 300 on achieving q»
+  [joining] value=400  «Amazon Pay e-voucher worth Rs 400 on spending Rs 5,000 withi»
+ROUTING (spend category -> reward earning it):
+  online      -> base
+  base        -> base
+  travel      -> base
+  dining      -> base
+  amazon      -> base
+  upi         -> base
+  grocery     -> grocery
+  utilities   -> utilities
+FLAGS: none
+
+############ #156 Federal Bank Signet Credit Card (federal-signet) ############
+rewardType=reward points  acceleratedShare=-
+REWARD ROWS:
+  [base] rate=3 cap=null  «Electronics and apparel spends»
+  [base] rate=2 cap=null  «Entertainment spends»
+  [base] rate=1 cap=null  «All other retail spends»
+  [insurance] rate=1 cap=250  «Insurance premium spends»
+VALUED BENEFITS (point value Rs 99.00/unit):
+  [joining] value=200  «Amazon Pay e-voucher worth Rs 200 on spending Rs 3,000 withi»
+ROUTING (spend category -> reward earning it):
+  online      -> base
+  base        -> base
+  travel      -> base
+  dining      -> base
+  grocery     -> base
+  amazon      -> base
+  upi         -> base
+  utilities   -> base
+FLAGS: none
+
+############ #189 Federal Bank Wave RuPay Credit Card (federal-wave) ############
+rewardType=reward points  acceleratedShare=-
+REWARD ROWS:
+  [upi] rate=0.5 cap=null  «UPI spends»
+  [base] rate=0.5 cap=null  «All other retail spends»
+  [insurance] rate=0.5 cap=250  «Insurance premium spends»
+VALUED BENEFITS (point value Rs 99.00/unit):
+  [milestone quarterly >=50000] value=250  «1,000 bonus Reward Points on achieving quarterly spend of Rs»
+  [joining] value=200  «10% cashback on first 5 UPI transactions within first 30 day»
+ROUTING (spend category -> reward earning it):
+  online      -> base
+  base        -> base
+  travel      -> base
+  dining      -> base
+  grocery     -> base
+  amazon      -> base
+  utilities   -> base
+  upi         -> upi
+FLAGS: none
+
+############ #126 Scapia Federal Credit Card (scapia-federal) ############
+rewardType=scapia coins  acceleratedShare=-
+REWARD ROWS:
+  [travel] rate=4 cap=null  «Travel bookings on Scapia app»
+  [online, retail] rate=2 cap=null  «Visa online and offline spends»
+  [upi] rate=1 cap=null  «UPI spends of Rs 500 or more on RuPay»
+ROUTING (spend category -> reward earning it):
+  online      -> online, retail
+  base        -> online, retail
+  travel      -> travel
+  dining      -> upi
+  grocery     -> upi
+  amazon      -> upi
+  upi         -> upi
+FLAGS: none
+
+############ #2 HDFC Bank Diners Club Black Metal Edition Credit Card (hdfc-diners-club-black-metal) ############
+rewardType=reward points  acceleratedShare=-
+REWARD ROWS:
+  [smartbuy hotels] rate=33.33 cap=10000  «Up to 10X Reward Points (10 RP / Rs 150 spent via SmartBuy)»
+  [smartbuy flights] rate=16.67 cap=10000  «Up to 5X Reward Points (5 RP / Rs 150 spent via SmartBuy)»
+  [smartbuy gyftr] rate=10 cap=10000  «Up to 3X Reward Points (15 RP / Rs 150 spent on instant vouchers via S»
+  [dining] rate=6.666666666666667 cap=null  «weekend dining»
+  [base] rate=3.3333333333333335 cap=null  «others»
+VALUED BENEFITS (point value Rs 1.00/unit):
+  [milestone quarterly >=400000] value=10000  «10,000 bonus reward points per quarter on spends of Rs 4 lak»
+  [joining] value=0  «Complimentary annual memberships of Club Marriott, Amazon Pr»
+ROUTING (spend category -> reward earning it):
+  online      -> base
+  base        -> base
+  grocery     -> base
+  amazon      -> base
+  upi         -> base
+  utilities   -> base
+  travel      -> smartbuy flights + smartbuy hotels
+  dining      -> dining
+FLAGS:
+  ⚠ OVER-BROAD: row "dining" (rate 6.666666666666667) is actually narrow — «weekend dining». All "dining" spend earns it; consider a narrow category + acceleratedShare.
+  ⚠ UNCAPPED HIGH RATE: row "dining" rate 6.666666666666667 has no capMonthly — scales unbounded at high spend.
+
+############ #16 HDFC Bank Diners Club Privilege Credit Card (hdfc-diners-club-privilege) ############
+rewardType=reward points  acceleratedShare=-
+REWARD ROWS:
+  [swiggy zomato] rate=10 cap=2500  «20 Reward Points / Rs 200 spent on Swiggy and Zomato»
+  [smartbuy hotels] rate=20 cap=2000  «Hotels via SmartBuy (10X)»
+  [smartbuy flights] rate=10 cap=2000  «Flights via SmartBuy (5X)»
+  [smartbuy] rate=10 cap=4000  «Other SmartBuy spends, e.g. online (5X)»
+  [base] rate=2 cap=null  «others»
+VALUED BENEFITS (point value Rs 2.00/unit):
+  [milestone quarterly >=150000] value=750  «Vouchers worth Rs 1,500 from brands like Marriott Experience»
+  [joining] value=0  «Complimentary annual memberships of Swiggy One and Times Pri»
+ROUTING (spend category -> reward earning it):
+  online      -> smartbuy + base
+  grocery     -> smartbuy + base
+  travel      -> smartbuy flights + smartbuy hotels
+  base        -> base
+  amazon      -> base
+  upi         -> base
+  utilities   -> base
+  dining      -> swiggy zomato
+FLAGS: none
+
+############ #110 HDFC Bank Freedom Credit Card (hdfc-freedom) ############
+rewardType=CashPoints  acceleratedShare=-
+REWARD ROWS:
+  [dining, travel, grocery, hotels, online] rate=6.666666666666667 cap=2500  «BigBasket, BookMyShow, OYO, Swiggy, and Uber (10X CashPoints)»
+  [upi] rate=0.6666666666666666 cap=500  «UPI transactions (RuPay variant)»
+  [base] rate=0.6666666666666666 cap=null  «Other retail spends»
+VALUED BENEFITS (point value Rs 3334.00/unit):
+  [joining] value=100  «500 CashPoints on payment of joining membership fee»
+ROUTING (spend category -> reward earning it):
+  online      -> dining, travel, grocery, hotels, online
+  travel      -> dining, travel, grocery, hotels, online
+  dining      -> dining, travel, grocery, hotels, online
+  grocery     -> dining, travel, grocery, hotels, online
+  base        -> base
+  amazon      -> base
+  utilities   -> base
+  upi         -> upi
+FLAGS:
+  ⚠ OVER-BROAD: row "dining, travel, grocery, hotels, online" (rate 6.666666666666667) is actually narrow — «BigBasket, BookMyShow, OYO, Swiggy, and Uber (10X CashPoints». All "dining/travel/grocery/hotels/online" spend earns it; consider a narrow category + acceleratedShare.
+
+############ #101 IndianOil HDFC Bank Credit Card (hdfc-indianoil) ############
+rewardType=fuel points  acceleratedShare=-
+REWARD ROWS:
+  [fuel] rate=5 cap=150  «Fuel spends at IndianOil outlets»
+  [grocery] rate=5 cap=100  «Grocery spends»
+  [utilities] rate=5 cap=100  «Utility & Bill Payments»
+  [base] rate=0.6666666666666666 cap=null  «Other retail spends»
+  [upi] rate=0.6666666666666666 cap=null  «UPI transactions»
+VALUED BENEFITS (point value Rs 50000.00/unit):
+  [joining] value=125  «INR 250 worth of voucher upon card activation and completion»
+ROUTING (spend category -> reward earning it):
+  online      -> base
+  base        -> base
+  travel      -> base
+  dining      -> base
+  amazon      -> base
+  grocery     -> upi
+  upi         -> upi
+  fuel        -> fuel
+  utilities   -> utilities
+FLAGS: none
+
+############ #3 HDFC Bank Infinia Metal Edition Credit Card (hdfc-infinia-metal) ############
+rewardType=reward points  acceleratedShare=-
+REWARD ROWS:
+  [smartbuy hotels] rate=33.33 cap=15000  «Up to 10X Reward Points»
+  [smartbuy flights] rate=16.67 cap=15000  «Up to 5X Reward Points»
+  [smartbuy gyftr] rate=16.67 cap=15000  «Up to 5X Reward Points»
+  [base] rate=3.3333333333333335 cap=null  «others»
+VALUED BENEFITS (point value Rs 1.00/unit):
+  [joining] value=12500  «12,500 Reward Points upon joining fee realization and card a»
+  [joining] value=0  «Complimentary Club Marriott membership for the first year, o»
+  [renewal] value=12500  «12,500 Reward Points as renewal benefit after fee realizatio»
+ROUTING (spend category -> reward earning it):
+  online      -> base
+  base        -> base
+  dining      -> base
+  grocery     -> base
+  amazon      -> base
+  upi         -> base
+  utilities   -> base
+  travel      -> smartbuy flights + smartbuy hotels
+FLAGS: none
+
+############ #113 IRCTC HDFC Bank Credit Card (hdfc-irctc) ############
+rewardType=reward points  acceleratedShare=-
+REWARD ROWS:
+  [irctc] rate=5 cap=null  «IRCTC ticketing website and Rail Connect App»
+  [base] rate=1 cap=null  «Other eligible retail spends»
+  [insurance] rate=1 cap=2000  «Insurance spends (capped)»
+VALUED BENEFITS (point value Rs 75.00/unit):
+  [milestone quarterly >=30000] value=250  «Rs 500 gift voucher on Rs 30,000+ spend in the quarter»
+  [joining] value=250  «Gift voucher worth Rs 500 on card activation by completing 1»
+ROUTING (spend category -> reward earning it):
+  online      -> base
+  base        -> base
+  dining      -> base
+  grocery     -> base
+  amazon      -> base
+  upi         -> base
+  utilities   -> base
+  travel      -> irctc
+FLAGS:
+  ⚠ UNCAPPED HIGH RATE: row "irctc" rate 5 has no capMonthly — scales unbounded at high spend.
+
+############ #17 Marriott Bonvoy HDFC Bank Credit Card (hdfc-marriott-bonvoy) ############
+rewardType=Marriott Bonvoy Points  acceleratedShare=-
+REWARD ROWS:
+  [marriott] rate=5.333333333333333 cap=3200  «8 Marriott Bonvoy Points / Rs 150»
+  [travel, dining, entertainment] rate=2.6666666666666665 cap=1600  «travel, dining and entertainment»
+  [base] rate=1.3333333333333333 cap=null  «others»
+VALUED BENEFITS (point value Rs 0.60/unit):
+  [milestone annual >=600000] value=9000  «1 Free Night Award redeemable for a one-night stay up to 15,»
+  [milestone annual >=900000] value=9000  «1 Free Night Award redeemable for a one-night stay up to 15,»
+  [milestone annual >=1500000] value=9000  «1 Free Night Award redeemable for a one-night stay up to 15,»
+  [joining] value=0  «1 Free Night Award redeemable for a one-night stay up to 15,»
+  [joining] value=0  «10 Elite Night Credits on meeting the welcome benefit condit»
+  [joining] value=0  «Marriott Bonvoy Silver Elite Status»
+  [renewal] value=9000  «1 Free Night Award (up to 15,000 Marriott Bonvoy Points) gra»
+ROUTING (spend category -> reward earning it):
+  online      -> base
+  base        -> base
+  grocery     -> base
+  amazon      -> base
+  upi         -> base
+  utilities   -> base
+  travel      -> travel, dining, entertainment
+  dining      -> travel, dining, entertainment
+FLAGS:
+  ⚠ MISSING POINT VALUE: redemption has no numeric value field; engine falls back to Rs 0.60/point. Add an explicit redemption value for auditability.
+
+############ #36 HDFC Millennia Credit Card (hdfc-millennia) ############
+rewardType=cashback  acceleratedShare=-
+REWARD ROWS:
+  [online] rate=5 cap=1000  «select online merchants»
+  [base] rate=1 cap=1000  «others»
+  [smartbuy] rate=10 cap=1000  «Up to 10% CashBack»
+VALUED BENEFITS (point value Rs 1.00/unit):
+  [milestone quarterly >=100000] value=500  «Either Rs 1,000 gift voucher or 1 domestic lounge access vou»
+  [joining] value=0  «1,000 CashPoints on payment of joining or renewal membership»
+  [renewal] value=1000  «1,000 CashPoints on payment of the renewal membership fee, e»
+ROUTING (spend category -> reward earning it):
+  online      -> smartbuy + online
+  grocery     -> smartbuy + base
+  base        -> base
+  travel      -> base
+  dining      -> base
+  amazon      -> base
+  upi         -> base
+  utilities   -> base
+FLAGS:
+  ⚠ OVER-BROAD: row "online" (rate 5) is actually narrow — «select online merchants». All "online" spend earns it; consider a narrow category + acceleratedShare.
+
+############ #82 HDFC Bank MoneyBack+ Credit Card (hdfc-moneyback-plus) ############
+rewardType=CashPoints  acceleratedShare=-
+REWARD ROWS:
+  [amazon, dining, online] rate=10 cap=2500  «Amazon, Flipkart, Swiggy (10X CashPoints)»
+  [grocery] rate=10 cap=1000  «Reliance Smart SuperStore & BigBasket (10X CashPoints)»
+  [base] rate=1 cap=null  «Other retail spends»
+  [upi] rate=1 cap=null  «UPI transactions (RuPay variant)»
+VALUED BENEFITS (point value Rs 3000.00/unit):
+  [milestone quarterly >=50000] value=250  «Gift voucher worth Rs 500 on spends of Rs 50,000 per calenda»
+  [joining] value=100  «500 CashPoints upon payment of the joining fee»
+ROUTING (spend category -> reward earning it):
+  online      -> amazon, dining, online
+  dining      -> amazon, dining, online
+  amazon      -> amazon, dining, online
+  base        -> base
+  travel      -> base
+  utilities   -> base
+  grocery     -> grocery
+  upi         -> upi
+FLAGS:
+  ⚠ OVER-BROAD: row "amazon, dining, online" (rate 10) is actually narrow — «Amazon, Flipkart, Swiggy (10X CashPoints)». All "amazon/dining/online" spend earns it; consider a narrow category + acceleratedShare.
+  ⚠ OVER-BROAD: row "grocery" (rate 10) is actually narrow — «Reliance Smart SuperStore & BigBasket (10X CashPoints)». All "grocery" spend earns it; consider a narrow category + acceleratedShare.
+
+############ #78 PhonePe HDFC Bank Ultimo Credit Card (hdfc-phonepe-ultimo) ############
+rewardType=reward points  acceleratedShare=-
+REWARD ROWS:
+  [phonepe] rate=10 cap=1000  «Select PhonePe transactions (recharges, utilities, bill payments, and »
+  [online] rate=5 cap=500  «Select online brands (Amazon, Flipkart, Myntra, Ajio, Swiggy, Zomato, »
+  [upi] rate=1 cap=500  «UPI Scan & Pay transactions»
+VALUED BENEFITS (point value Rs 7500.00/unit):
+  [joining] value=499  «PhonePe gift card worth Rs 499 on first RuPay credit-card-on»
+  [joining] value=50  «Additional scratch cards worth Rs 50 each on next 10 RuPay c»
+ROUTING (spend category -> reward earning it):
+  online      -> online
+  base        -> upi
+  travel      -> upi
+  dining      -> upi
+  grocery     -> upi
+  amazon      -> upi
+  upi         -> upi
+  utilities   -> phonepe
+FLAGS:
+  ⚠ OVER-BROAD: row "online" (rate 5) is actually narrow — «Select online brands (Amazon, Flipkart, Myntra, Ajio, Swiggy». All "online" spend earns it; consider a narrow category + acceleratedShare.
+
+############ #108 PhonePe HDFC Bank Uno Credit Card (hdfc-phonepe-uno) ############
+rewardType=reward points  acceleratedShare=-
+REWARD ROWS:
+  [phonepe] rate=2 cap=500  «Select PhonePe transactions (recharges, utilities, bill payments, and »
+  [online] rate=1 cap=500  «Select online platforms (Amazon, Flipkart, Myntra, Ajio, Swiggy, Zomat»
+  [upi] rate=1 cap=500  «UPI Scan & Pay transactions»
+VALUED BENEFITS (point value Rs 7500.00/unit):
+  [joining] value=249  «PhonePe gift card worth Rs 249 on first RuPay credit-card-on»
+  [joining] value=25  «Additional scratch cards worth Rs 25 each on next 10 RuPay c»
+ROUTING (spend category -> reward earning it):
+  online      -> online
+  base        -> upi
+  travel      -> upi
+  dining      -> upi
+  grocery     -> upi
+  amazon      -> upi
+  upi         -> upi
+  utilities   -> phonepe
+FLAGS:
+  ⚠ OVER-BROAD: row "online" (rate 1) is actually narrow — «Select online platforms (Amazon, Flipkart, Myntra, Ajio, Swi». All "online" spend earns it; consider a narrow category + acceleratedShare.
+
+############ #76 HDFC Bank PIXEL Go Credit Card (hdfc-pixel-go) ############
+rewardType=PIXEL CashPoints  acceleratedShare=-
+REWARD ROWS:
+  [smartbuy] rate=5 cap=500  «SmartBuy transactions»
+  [upi] rate=1 cap=500  «UPI transactions (RuPay variant)»
+  [online] rate=1 cap=null  «Online spends»
+  [base] rate=1 cap=null  «Other eligible transactions»
+ROUTING (spend category -> reward earning it):
+  online      -> smartbuy + online
+  grocery     -> smartbuy + base
+  base        -> base
+  travel      -> base
+  dining      -> base
+  amazon      -> base
+  utilities   -> base
+  upi         -> upi
+FLAGS: none
+
+############ #45 HDFC Bank PIXEL Play Credit Card (hdfc-pixel-play) ############
+rewardType=PIXEL CashPoints  acceleratedShare=-
+REWARD ROWS:
+  [dining, travel, grocery] rate=5 cap=500  «Selected 5% merchant packs (Dining & Entertainment, Travel, Grocery, E»
+  [smartbuy] rate=5 cap=500  «SmartBuy transactions»
+  [online] rate=3 cap=500  «Selected 3% e-commerce platform (Amazon, Flipkart, or PayZapp)»
+  [upi] rate=1 cap=500  «UPI transactions (RuPay variant)»
+  [base] rate=1 cap=null  «Other eligible transactions»
+ROUTING (spend category -> reward earning it):
+  online      -> smartbuy + online
+  grocery     -> smartbuy + dining, travel, grocery
+  base        -> base
+  amazon      -> base
+  utilities   -> base
+  travel      -> dining, travel, grocery
+  dining      -> dining, travel, grocery
+  upi         -> upi
+FLAGS:
+  ⚠ OVER-BROAD: row "dining, travel, grocery" (rate 5) is actually narrow — «Selected 5% merchant packs (Dining & Entertainment, Travel, ». All "dining/travel/grocery" spend earns it; consider a narrow category + acceleratedShare.
+  ⚠ OVER-BROAD: row "online" (rate 3) is actually narrow — «Selected 3% e-commerce platform (Amazon, Flipkart, or PayZap». All "online" spend earns it; consider a narrow category + acceleratedShare.
+
+############ #6 HDFC Bank Regalia Gold Credit Card (hdfc-regalia-gold) ############
+rewardType=reward points  acceleratedShare={"grocery":0}
+REWARD ROWS:
+  [smartbuy hotels] rate=25 cap=2000  «Up to 10X Reward Points (50 RP / Rs 200 spent via SmartBuy)»
+  [smartbuy flights] rate=12.5 cap=2000  «Up to 5X Reward Points (25 RP / Rs 200 spent via SmartBuy)»
+  [smartbuy gyftr] rate=12.5 cap=4000  «Up to 5X Reward Points (25 RP / Rs 200 spent on instant vouchers via S»
+  [smartbuy train] rate=7.5 cap=4000  «3X Reward Points (15 RP / Rs 200 spent via SmartBuy)»
+  [select lifestyle brands] rate=12.5 cap=5000  «25 Reward Points / Rs 200 (5X Reward Points)»
+  [base] rate=2.5 cap=50000  «others»
+VALUED BENEFITS (point value Rs 2.00/unit):
+  [milestone annual >=500000] value=2500  «Rs 5,000 worth flight vouchers on spends of Rs 5 lakh»
+  [milestone annual >=750000] value=2500  «Rs 5,000 worth flight vouchers on spends of Rs 7.5 lakh»
+  [milestone quarterly >=150000] value=750  «Rs 1,500 worth Myntra or Nykaa vouchers on quarterly spends »
+  [joining] value=0  «Complimentary Swiggy One and MMTBLACK Gold membership as wel»
+ROUTING (spend category -> reward earning it):
+  online      -> select lifestyle brands + base
+  base        -> base
+  dining      -> base
+  grocery     -> base
+  amazon      -> base
+  upi         -> base
+  utilities   -> base
+  travel      -> smartbuy flights + smartbuy hotels
+FLAGS: none
+
+############ #67 Shoppers Stop BLACK HDFC Bank Credit Card (hdfc-shoppers-stop-black) ############
+rewardType=reward points  acceleratedShare=-
+REWARD ROWS:
+  [shoppers stop] rate=7 cap=2000  «Shoppers Stop spends»
+  [base] rate=2 cap=2000  «Other spends»
+VALUED BENEFITS (point value Rs 2.00/unit):
+  [milestone monthly >=50000] value=2000  «2,000 Reward Points on weekend spends of Rs 50,000 or above »
+  [joining] value=750  «Rs 1,500 Shoppers Stop voucher as welcome benefit on any tra»
+  [joining] value=4500  «Complimentary Shoppers Stop Black membership worth Rs 4,500»
+ROUTING (spend category -> reward earning it):
+  online      -> base
+  base        -> base
+  travel      -> base
+  dining      -> base
+  grocery     -> base
+  amazon      -> base
+  upi         -> base
+FLAGS: none
+
+############ #191 Shoppers Stop HDFC Bank Credit Card (hdfc-shoppers-stop) ############
+rewardType=reward points  acceleratedShare=-
+REWARD ROWS:
+  [shoppers stop] rate=3 cap=500  «Shoppers Stop spends»
+  [base] rate=1 cap=1000  «Other spends»
+VALUED BENEFITS (point value Rs 2.00/unit):
+  [milestone monthly >=15000] value=500  «500 Reward Points on weekend spends of Rs 15,000 or above at»
+  [milestone annual >=200000] value=2000  «2,000 Reward Points on annual spends of Rs 2 Lakhs or more»
+  [joining] value=250  «Rs 500 Shoppers Stop voucher as welcome benefit, redeemable »
+  [joining] value=350  «Complimentary Shoppers Stop Silver Edge membership worth Rs »
+ROUTING (spend category -> reward earning it):
+  online      -> base
+  base        -> base
+  travel      -> base
+  dining      -> base
+  grocery     -> base
+  amazon      -> base
+  upi         -> base
+FLAGS: none
+
+############ #29 Swiggy HDFC Bank BLCK Credit Card (hdfc-swiggy-black) ############
+rewardType=cashback  acceleratedShare=-
+REWARD ROWS:
+  [dining, grocery] rate=10 cap=1500  «Swiggy App transactions (Food delivery, Instamart, Dineout, Genie)»
+  [online] rate=5 cap=1500  «Select online categories and merchants (Amazon, Flipkart, Myntra, Nyka»
+  [base] rate=1 cap=500  «Other eligible retail spends»
+VALUED BENEFITS (point value Rs 1.00/unit):
+  [joining] value=0  «Complimentary 3-month Swiggy BLCK membership on card activat»
+ROUTING (spend category -> reward earning it):
+  online      -> online
+  base        -> base
+  travel      -> base
+  amazon      -> base
+  upi         -> base
+  utilities   -> base
+  dining      -> dining, grocery
+  grocery     -> dining, grocery
+FLAGS:
+  ⚠ OVER-BROAD: row "dining, grocery" (rate 10) is actually narrow — «Swiggy App transactions (Food delivery, Instamart, Dineout, ». All "dining/grocery" spend earns it; consider a narrow category + acceleratedShare.
+  ⚠ OVER-BROAD: row "online" (rate 5) is actually narrow — «Select online categories and merchants (Amazon, Flipkart, My». All "online" spend earns it; consider a narrow category + acceleratedShare.
+
+############ #49 Swiggy Orange HDFC Bank Credit Card (hdfc-swiggy-orange) ############
+rewardType=cashback  acceleratedShare=-
+REWARD ROWS:
+  [dining, grocery] rate=10 cap=1500  «Swiggy App transactions (Food delivery, Instamart, Dineout, Genie)»
+  [online] rate=5 cap=1500  «Select online merchants (Amazon, Flipkart, Myntra, Nykaa, Ola, Uber, e»
+  [base] rate=1 cap=500  «Other eligible retail spends»
+VALUED BENEFITS (point value Rs 1.00/unit):
+  [joining] value=1199  «Complimentary 3-month Swiggy One membership worth Rs 1,199 o»
+ROUTING (spend category -> reward earning it):
+  online      -> online
+  base        -> base
+  travel      -> base
+  amazon      -> base
+  upi         -> base
+  dining      -> dining, grocery
+  grocery     -> dining, grocery
+FLAGS:
+  ⚠ OVER-BROAD: row "dining, grocery" (rate 10) is actually narrow — «Swiggy App transactions (Food delivery, Instamart, Dineout, ». All "dining/grocery" spend earns it; consider a narrow category + acceleratedShare.
+  ⚠ OVER-BROAD: row "online" (rate 5) is actually narrow — «Select online merchants (Amazon, Flipkart, Myntra, Nykaa, Ol». All "online" spend earns it; consider a narrow category + acceleratedShare.
+
+############ #37 Swiggy HDFC Bank Credit Card (hdfc-swiggy) ############
+rewardType=cashback  acceleratedShare=-
+REWARD ROWS:
+  [dining, grocery] rate=10 cap=1500  «Swiggy App transactions (Food delivery, Instamart, Dineout, Genie)»
+  [online] rate=5 cap=1500  «Select online merchants (Amazon, Flipkart, Myntra, Nykaa, Ola, Uber, e»
+  [base] rate=1 cap=500  «Other eligible retail spends»
+VALUED BENEFITS (point value Rs 1.00/unit):
+  [joining] value=1199  «Complimentary 3-month Swiggy One membership worth Rs 1,199 o»
+ROUTING (spend category -> reward earning it):
+  online      -> online
+  base        -> base
+  travel      -> base
+  amazon      -> base
+  upi         -> base
+  dining      -> dining, grocery
+  grocery     -> dining, grocery
+FLAGS:
+  ⚠ OVER-BROAD: row "dining, grocery" (rate 10) is actually narrow — «Swiggy App transactions (Food delivery, Instamart, Dineout, ». All "dining/grocery" spend earns it; consider a narrow category + acceleratedShare.
+  ⚠ OVER-BROAD: row "online" (rate 5) is actually narrow — «Select online merchants (Amazon, Flipkart, Myntra, Nykaa, Ol». All "online" spend earns it; consider a narrow category + acceleratedShare.
+
+############ #31 Tata Neu Infinity HDFC Bank Credit Card (hdfc-tata-neu-infinity) ############
+rewardType=NeuCoins  acceleratedShare=-
+REWARD ROWS:
+  [tata neu] rate=10 cap=null  «Tata Neu and partner Tata brands with NeuPass»
+  [tata brands] rate=5 cap=null  «partner Tata brands»
+  [base] rate=1.5 cap=null  «other eligible spends»
+  [grocery] rate=1.5 cap=2000  «grocery»
+  [insurance] rate=1.5 cap=2000  «insurance»
+  [utilities] rate=1.5 cap=2000  «utility»
+  [utilities] rate=1.5 cap=2000  «telecom and cable»
+  [upi] rate=1.5 cap=500  «UPI on RuPay variant»
+VALUED BENEFITS (point value Rs 1.00/unit):
+  [joining] value=1499  «1,499 NeuCoins on Tata Neu app as reversal of first-year mem»
+ROUTING (spend category -> reward earning it):
+  online      -> base
+  base        -> base
+  travel      -> base
+  dining      -> base
+  amazon      -> base
+  grocery     -> grocery
+  upi         -> upi
+  utilities   -> utilities
+FLAGS:
+  ⚠ UNCAPPED HIGH RATE: row "tata neu" rate 10 has no capMonthly — scales unbounded at high spend.
+  ⚠ UNCAPPED HIGH RATE: row "tata brands" rate 5 has no capMonthly — scales unbounded at high spend.
+
+############ #92 Tata Neu Plus HDFC Bank Credit Card (hdfc-tata-neu-plus) ############
+rewardType=NeuCoins  acceleratedShare=-
+REWARD ROWS:
+  [tata neu] rate=7 cap=null  «Tata Neu and partner Tata brands with NeuPass»
+  [tata brands] rate=2 cap=null  «partner Tata brands»
+  [base] rate=1 cap=null  «other eligible spends»
+  [grocery] rate=1 cap=1000  «grocery»
+  [insurance] rate=1 cap=2000  «insurance»
+  [utilities] rate=1 cap=2000  «utility»
+  [utilities] rate=1 cap=2000  «telecom and cable»
+  [upi] rate=1 cap=500  «UPI on RuPay variant»
+VALUED BENEFITS (point value Rs 1.00/unit):
+  [joining] value=499  «499 NeuCoins on Tata Neu app as reversal of first-year membe»
+ROUTING (spend category -> reward earning it):
+  online      -> base
+  base        -> base
+  travel      -> base
+  dining      -> base
+  amazon      -> base
+  grocery     -> grocery
+  upi         -> upi
+  utilities   -> utilities
+FLAGS:
+  ⚠ UNCAPPED HIGH RATE: row "tata neu" rate 7 has no capMonthly — scales unbounded at high spend.
+
+############ #39 HSBC Live+ Credit Card (hsbc-live-plus) ############
+rewardType=cashback  acceleratedShare=-
+REWARD ROWS:
+  [grocery dining movies] rate=10 cap=1000  «Dining, Food Delivery, and Grocery spends»
+  [base] rate=1.5 cap=null  «Other spends»
+VALUED BENEFITS (point value Rs 1.00/unit):
+  [joining] value=1000  «Rs 1,000 cashback after logging into the HSBC India app and »
+  [joining] value=250  «Voucher worth up to Rs 500 for Amazon Pay, Zomato, and Swigg»
+ROUTING (spend category -> reward earning it):
+  online      -> base
+  base        -> base
+  travel      -> base
+  amazon      -> base
+  upi         -> base
+  dining      -> grocery dining movies
+  grocery     -> grocery dining movies
+FLAGS: none
+
+############ #1 HSBC Premier Credit Card (hsbc-premier) ############
+rewardType=reward points  acceleratedShare=-
+REWARD ROWS:
+  [travel with points hotels] rate=36 cap=18000  «Hotels via HSBC»
+  [travel with points flights] rate=18 cap=18000  «Flights via HSBC»
+  [travel with points car rentals] rate=6 cap=18000  «Car rentals via HSBC»
+  [utilities, insurance, rent, education, government, gold] rate=3 cap=3000  «Utility, insurance, rent, education, tax, and jewelry spends»
+  [base] rate=3 cap=null  «Other eligible spends»
+VALUED BENEFITS (point value Rs 2.00/unit):
+  [joining] value=20000  «20,000 reward points as a welcome benefit on card activation»
+ROUTING (spend category -> reward earning it):
+  online      -> base
+  base        -> base
+  dining      -> base
+  grocery     -> base
+  amazon      -> base
+  upi         -> base
+  travel      -> travel with points flights + travel with points hotels
+  utilities   -> utilities, insurance, rent, education, government, gold
+FLAGS: none
+
+############ #84 HSBC RuPay Cashback Credit Card (hsbc-rupay-cashback) ############
+rewardType=cashback  acceleratedShare=-
+REWARD ROWS:
+  [grocery dining movies] rate=10 cap=400  «Dining, Food Delivery, and Grocery spends»
+  [base] rate=1 cap=null  «Other spends»
+VALUED BENEFITS (point value Rs 1.00/unit):
+  [joining] value=500  «Rs 500 cashback after logging into the HSBC India app and sp»
+  [joining] value=125  «Rs 250 Amazon eGift Voucher for online application and video»
+  [joining] value=0  «2-month EazyDiner membership on RuPay card activation»
+ROUTING (spend category -> reward earning it):
+  online      -> base
+  base        -> base
+  travel      -> base
+  amazon      -> base
+  upi         -> base
+  dining      -> grocery dining movies
+  grocery     -> grocery dining movies
+FLAGS: none
+
+############ #137 HSBC RuPay Platinum Credit Card (hsbc-rupay-platinum) ############
+rewardType=reward points  acceleratedShare=-
+REWARD ROWS:
+  [upi] rate=1.3333333333333333 cap=null  «UPI spends»
+  [base] rate=1.3333333333333333 cap=null  «Other eligible spends»
+VALUED BENEFITS (point value Rs 1.00/unit):
+  [joining] value=500  «Rs 500 cashback after logging into the HSBC India app and sp»
+  [joining] value=125  «Rs 250 Amazon eGift Voucher for online application and video»
+  [joining] value=0  «2-month EazyDiner membership on RuPay card activation»
+ROUTING (spend category -> reward earning it):
+  online      -> base
+  base        -> base
+  travel      -> base
+  dining      -> base
+  grocery     -> base
+  amazon      -> base
+  upi         -> upi
+FLAGS: none
+
+############ #203 HSBC Taj Credit Card (hsbc-taj) ############
+rewardType=reward points  acceleratedShare=-
+REWARD ROWS:
+  [hotels] rate=5 cap=null  «Taj, SeleQtions, Gateway, Vivanta, and amã Stays & Trails spends»
+  [base] rate=1.5 cap=null  «Other eligible spends»
+ROUTING (spend category -> reward earning it):
+  online      -> base
+  base        -> base
+  travel      -> base
+  dining      -> base
+  grocery     -> base
+  amazon      -> base
+  upi         -> base
+FLAGS:
+  ⚠ UNCAPPED HIGH RATE: row "hotels" rate 5 has no capMonthly — scales unbounded at high spend.
+
+############ #7 HSBC TravelOne Credit Card (hsbc-travelone) ############
+rewardType=reward points  acceleratedShare=-
+REWARD ROWS:
+  [travel with points hotels] rate=24 cap=18000  «Hotels via HSBC»
+  [travel with points flights] rate=16 cap=18000  «Flights via HSBC»
+  [travel with points car rentals] rate=8 cap=18000  «Car rentals via HSBC»
+  [travel] rate=4 cap=50000  «4 Reward Points / Rs 100»
+  [base] rate=2 cap=null  «others»
+VALUED BENEFITS (point value Rs 2.00/unit):
+  [milestone annual >=1200000] value=10000  «10,000 bonus reward points on annual spends above Rs 12 lakh»
+  [joining] value=2500  «Rs 1,000 cashback, Rs 3,000 PostCard voucher and 3 months Ea»
+  [joining] value=3000  «3,000 bonus reward points on spending Rs 1 lakh in first 90 »
+ROUTING (spend category -> reward earning it):
+  online      -> base
+  base        -> base
+  dining      -> base
+  grocery     -> base
+  amazon      -> base
+  upi         -> base
+  travel      -> travel with points flights + travel with points hotels + travel
+FLAGS: none
+
+############ #35 HSBC Visa Platinum Credit Card (hsbc-visa-platinum) ############
+rewardType=reward points  acceleratedShare=-
+REWARD ROWS:
+  [travel] rate=8 cap=null  «Travel spends (Travel with Points)»
+  [base] rate=1.3333333333333333 cap=null  «Other eligible spends»
+VALUED BENEFITS (point value Rs 1.00/unit):
+  [joining] value=1000  «2,000 reward points after logging into the HSBC India app an»
+  [joining] value=0  «Complimentary 3-month Swiggy One membership on card activati»
+  [joining] value=250  «Voucher worth up to Rs 500 (Amazon Pay, Zomato, and Swiggy) »
+ROUTING (spend category -> reward earning it):
+  online      -> base
+  base        -> base
+  dining      -> base
+  grocery     -> base
+  amazon      -> base
+  upi         -> base
+  travel      -> travel
+FLAGS:
+  ⚠ UNCAPPED HIGH RATE: row "travel" rate 8 has no capMonthly — scales unbounded at high spend.
+
+############ #88 Adani One ICICI Bank Platinum Credit Card (icici-adani-one-platinum) ############
+rewardType=adani reward points  acceleratedShare=-
+REWARD ROWS:
+  [travel] rate=3 cap=null  «Adani One ecosystem spends (flights, hotels, airports, CNG, electricit»
+  [international] rate=1.5 cap=null  «International spends»
+  [base] rate=1 cap=null  «Other domestic spends (excl. fuel, rent)»
+  [utilities] rate=0.5 cap=null  «Utility & Insurance spends»
+VALUED BENEFITS (point value Rs 0.75/unit):
+  [joining] value=1000  «Flight ticket voucher worth Rs 2,000 on spending Rs 10,000 w»
+  [joining] value=1500  «Hotel & holiday vouchers worth Rs 3,000 on card activation»
+ROUTING (spend category -> reward earning it):
+  online      -> base
+  base        -> base
+  dining      -> base
+  grocery     -> base
+  amazon      -> base
+  upi         -> base
+  travel      -> travel
+  utilities   -> utilities
+FLAGS: none
+
+############ #53 Adani One ICICI Bank Signature Credit Card (icici-adani-one-signature) ############
+rewardType=adani reward points  acceleratedShare=-
+REWARD ROWS:
+  [travel] rate=7 cap=null  «Adani One ecosystem spends (flights, hotels, airports, CNG, electricit»
+  [international] rate=2 cap=null  «International spends»
+  [base] rate=1.5 cap=null  «Other domestic spends (excl. fuel, rent)»
+  [utilities] rate=0.5 cap=null  «Utility & Insurance spends»
+VALUED BENEFITS (point value Rs 0.75/unit):
+  [joining] value=2500  «Flight ticket voucher worth Rs 5,000 on spending Rs 25,000 w»
+  [joining] value=2000  «Hotel & holiday vouchers worth Rs 4,000 on spending Rs 25,00»
+ROUTING (spend category -> reward earning it):
+  online      -> base
+  base        -> base
+  dining      -> base
+  grocery     -> base
+  amazon      -> base
+  upi         -> base
+  travel      -> travel
+  utilities   -> utilities
+FLAGS:
+  ⚠ UNCAPPED HIGH RATE: row "travel" rate 7 has no capMonthly — scales unbounded at high spend.
+
+############ #150 Amazon Pay ICICI Bank Credit Card (icici-amazon-pay) ############
+rewardType=cashback  acceleratedShare=-
+REWARD ROWS:
+  [amazon] rate=5 cap=null  «Amazon.in (Prime members)»
+  [amazon] rate=3 cap=null  «Amazon.in (Non-Prime members)»
+  [online] rate=2 cap=null  «Amazon Pay partner merchants»
+  [online] rate=2 cap=null  «E-books, gift cards, bill payments, recharges, and Amazon Pay loading»
+  [base] rate=1 cap=null  «Other spends»
+ROUTING (spend category -> reward earning it):
+  online      -> online
+  base        -> base
+  travel      -> base
+  dining      -> base
+  grocery     -> base
+  upi         -> base
+FLAGS:
+  ⚠ UNCAPPED HIGH RATE: row "amazon" rate 5 has no capMonthly — scales unbounded at high spend.
+  ⚠ OVER-BROAD: row "online" (rate 2) is actually narrow — «Amazon Pay partner merchants». All "online" spend earns it; consider a narrow category + acceleratedShare.
+
+############ #153 ICICI Bank Coral RuPay Credit Card (icici-coral-rupay) ############
+rewardType=reward points  acceleratedShare=-
+REWARD ROWS:
+  [base] rate=2 cap=null  «Other retail spends»
+  [utilities, insurance] rate=1 cap=null  «Utility & Insurance spends»
+  [upi] rate=2 cap=null  «Merchant UPI spends»
+VALUED BENEFITS (point value Rs 99.00/unit):
+  [milestone annual >=200000] value=3250  «2,000 reward points on spending Rs 2,00,000 and 1,000 reward»
+ROUTING (spend category -> reward earning it):
+  online      -> base
+  base        -> base
+  travel      -> base
+  dining      -> base
+  grocery     -> base
+  amazon      -> base
+  upi         -> upi
+  utilities   -> upi
+FLAGS: none
+
+############ #148 ICICI Bank Coral Credit Card (icici-coral) ############
+rewardType=reward points  acceleratedShare=-
+REWARD ROWS:
+  [utilities, insurance] rate=1 cap=null  «Utility & Insurance spends»
+  [base] rate=2 cap=null  «Other spends»
+VALUED BENEFITS (point value Rs 0.25/unit):
+  [milestone annual >=200000] value=3250  «2,000 reward points on spending Rs 2,00,000 and 1,000 reward»
+ROUTING (spend category -> reward earning it):
+  online      -> base
+  base        -> base
+  travel      -> base
+  dining      -> base
+  grocery     -> base
+  amazon      -> base
+  upi         -> base
+  utilities   -> utilities, insurance
+FLAGS:
+  ⚠ BENEFIT VALUE MISMATCH (milestone): "2,000 reward points on spending Rs 2,00,000 and 1,000 r…" grants 2000 pts/miles but is valued at Rs 3250; at the card's Rs 0.25/point that implies Rs 500.
+
+############ #4 ICICI Bank Emeralde Private Metal Credit Card (icici-emeralde-private-metal) ############
+rewardType=reward points  acceleratedShare=-
+REWARD ROWS:
+  [smartbuy hotels] rate=36 cap=18000  «Hotels via iShop»
+  [smartbuy flights] rate=18 cap=18000  «Flights via iShop»
+  [utilities] rate=3 cap=1000  «Utility spends»
+  [grocery] rate=3 cap=1000  «Grocery spends»
+  [education] rate=3 cap=1000  «Education spends»
+  [insurance] rate=3 cap=5000  «Insurance spends»
+  [retail] rate=3 cap=null  «Other spends»
+VALUED BENEFITS (point value Rs 1.00/unit):
+  [milestone annual >=400000] value=1500  «EaseMyTrip air travel voucher worth Rs 3,000 on reaching Rs »
+  [milestone annual >=800000] value=1500  «Additional EaseMyTrip air travel voucher worth Rs 3,000 on r»
+  [joining] value=12500  «12,500 ICICI Bank Reward Points on payment of joining fee»
+  [joining] value=6000  «Complimentary one-year Taj Epicure Plus membership including»
+  [joining] value=2995  «Complimentary one-year EazyDiner Prime membership on card ac»
+  [renewal] value=12500  «12,500 ICICI Bank Reward Points on payment of annual fee»
+  [renewal] value=0  «Complimentary annual renewal of Taj Epicure and EazyDiner Pr»
+ROUTING (spend category -> reward earning it):
+  online      -> retail
+  base        -> retail
+  dining      -> retail
+  amazon      -> retail
+  upi         -> retail
+  travel      -> smartbuy flights + smartbuy hotels
+  grocery     -> grocery
+  utilities   -> utilities
+FLAGS: none
+
+############ #90 ICICI Bank Emeralde Credit Card (icici-emeralde) ############
+rewardType=reward points  acceleratedShare=-
+REWARD ROWS:
+  [international] rate=4 cap=null  «International spends»
+  [utilities, insurance] rate=1 cap=null  «Utility & Insurance spends»
+  [base] rate=4 cap=null  «Other spends»
+ROUTING (spend category -> reward earning it):
+  online      -> base
+  base        -> base
+  travel      -> base
+  dining      -> base
+  grocery     -> base
+  amazon      -> base
+  upi         -> base
+  utilities   -> utilities, insurance
+FLAGS: none
+
+############ #146 ICICI Bank HPCL Coral Credit Card (icici-hpcl-coral) ############
+rewardType=cashback and reward points  acceleratedShare=-
+REWARD ROWS:
+  [fuel] rate=2.5 cap=null  «Fuel spends at HPCL outlets»
+  [base] rate=2 cap=null  «Retail spends (excl. fuel)»
+ROUTING (spend category -> reward earning it):
+  online      -> base
+  base        -> base
+  travel      -> base
+  dining      -> base
+  grocery     -> base
+  amazon      -> base
+  upi         -> base
+  utilities   -> base
+  fuel        -> fuel
+FLAGS: none
+
+############ #115 ICICI Bank HPCL Super Saver Credit Card (icici-hpcl-super-saver) ############
+rewardType=cashback and reward points  acceleratedShare=-
+REWARD ROWS:
+  [fuel] rate=4 cap=200  «Fuel spends at HPCL outlets»
+  [utilities, departmental stores, grocery] rate=20 cap=400  «Utility, Departmental Store & Grocery spends»
+  [base] rate=2 cap=null  «Other retail spends»
+VALUED BENEFITS (point value Rs 1.00/unit):
+  [joining] value=500  «2,000 Reward Points upon card activation and payment of join»
+  [joining] value=100  «Rs 100 cashback on HP Pay app upon first successful fuel tra»
+ROUTING (spend category -> reward earning it):
+  online      -> utilities, departmental stores, grocery + base
+  grocery     -> utilities, departmental stores, grocery
+  utilities   -> utilities, departmental stores, grocery
+  base        -> base
+  travel      -> base
+  dining      -> base
+  amazon      -> base
+  upi         -> base
+  fuel        -> fuel
+FLAGS: none
+
+############ #118 MakeMyTrip ICICI Bank Credit Card (icici-makemytrip) ############
+rewardType=myCash  acceleratedShare=-
+REWARD ROWS:
+  [hotels] rate=6 cap=null  «MakeMyTrip Hotel bookings»
+  [airlines] rate=3 cap=null  «MakeMyTrip flight bookings»
+  [base] rate=1 cap=null  «Other retail spends»
+VALUED BENEFITS (point value Rs 0.75/unit):
+  [milestone annual >=200000] value=0  «Upgrade to a higher MMTBLACK membership tier on spending Rs »
+  [joining] value=500  «MakeMyTrip voucher worth Rs 1,000»
+  [joining] value=0  «Complimentary 1-year MMTBLACK Gold membership»
+  [renewal] value=500  «MakeMyTrip hotel voucher worth Rs 1,000»
+ROUTING (spend category -> reward earning it):
+  online      -> base
+  base        -> base
+  travel      -> base
+  dining      -> base
+  grocery     -> base
+  amazon      -> base
+  upi         -> base
+  utilities   -> base
+FLAGS:
+  ⚠ UNCAPPED HIGH RATE: row "hotels" rate 6 has no capMonthly — scales unbounded at high spend.
+
+############ #183 ICICI Bank Platinum Chip Credit Card (icici-platinum-chip) ############
+rewardType=reward points  acceleratedShare=-
+REWARD ROWS:
+  [base] rate=2 cap=null  «Retail spends»
+  [utilities, insurance] rate=1 cap=null  «Utility & Insurance spends»
+ROUTING (spend category -> reward earning it):
+  online      -> base
+  base        -> base
+  travel      -> base
+  dining      -> base
+  grocery     -> base
+  amazon      -> base
+  upi         -> base
+  utilities   -> utilities, insurance
+FLAGS: none
+
+############ #112 ICICI Bank Rubyx Credit Card (icici-rubyx) ############
+rewardType=reward points  acceleratedShare=-
+REWARD ROWS:
+  [base] rate=2 cap=null  «Domestic retail spends»
+  [international] rate=4 cap=null  «International spends»
+  [utilities, insurance] rate=1 cap=null  «Utility & Insurance spends»
+VALUED BENEFITS (point value Rs 99.00/unit):
+  [milestone annual >=300000] value=750  «Earn 3,000 reward points on spending Rs 3,00,000 in an anniv»
+  [milestone annual >=400000] value=375  «1,500 additional Reward Points for every Rs 1 lakh spent bey»
+  [joining] value=1000  «Tata CLiQ voucher worth Rs 2,000»
+  [joining] value=1000  «EaseMyTrip vouchers worth Rs 2,000 (two vouchers of Rs 1,000»
+  [joining] value=500  «Croma vouchers worth Rs 1,000 (two vouchers of Rs 500 each)»
+  [joining] value=125  «Uber voucher worth Rs 250»
+ROUTING (spend category -> reward earning it):
+  online      -> base
+  base        -> base
+  travel      -> base
+  dining      -> base
+  grocery     -> base
+  amazon      -> base
+  upi         -> base
+  utilities   -> utilities, insurance
+FLAGS: none
+
+############ #103 ICICI Bank Sapphiro RuPay Credit Card (icici-sapphiro-rupay) ############
+rewardType=reward points  acceleratedShare=-
+REWARD ROWS:
+  [international] rate=4 cap=null  «International spends»
+  [utilities, insurance] rate=1 cap=null  «Utility & Insurance spends»
+  [upi] rate=2 cap=null  «UPI spends»
+  [base] rate=2 cap=null  «Other spends»
+VALUED BENEFITS (point value Rs 0.25/unit):
+  [milestone annual >=400000] value=1000  «Earn 4,000 Reward Points on spending Rs 4 Lakhs in an annive»
+  [milestone annual >=500000] value=500  «2,000 additional Reward Points for every Rs 1 lakh spent bey»
+  [joining] value=1500  «Tata CLiQ voucher worth Rs 3,000»
+  [joining] value=2000  «EaseMyTrip vouchers worth Rs 4,000 (four vouchers of Rs 1,00»
+  [joining] value=750  «Croma voucher worth Rs 1,500»
+  [joining] value=500  «Uber vouchers worth Rs 1,000 (four vouchers of Rs 250 each)»
+ROUTING (spend category -> reward earning it):
+  online      -> base
+  base        -> base
+  travel      -> base
+  dining      -> base
+  grocery     -> base
+  amazon      -> base
+  upi         -> upi
+  utilities   -> upi
+FLAGS: none
+
+############ #97 ICICI Bank Sapphiro Credit Card (icici-sapphiro) ############
+rewardType=reward points  acceleratedShare=-
+REWARD ROWS:
+  [international] rate=4 cap=null  «International spends»
+  [utilities, insurance] rate=1 cap=null  «Utility & Insurance spends»
+  [base] rate=2 cap=null  «Other spends»
+VALUED BENEFITS (point value Rs 0.25/unit):
+  [milestone annual >=400000] value=1000  «Earn 4,000 Reward Points on spending Rs 4 Lakhs in an annive»
+  [milestone annual >=500000] value=500  «2,000 additional Reward Points for every Rs 1 lakh spent bey»
+  [milestone annual >=1200000] value=5000  «Maximum milestone rewards capped at 20,000 Reward Points (on»
+  [joining] value=1500  «Tata CLiQ voucher worth Rs 3,000»
+  [joining] value=2000  «EaseMyTrip vouchers worth Rs 4,000 (four vouchers of Rs 1,00»
+  [joining] value=750  «Croma voucher worth Rs 1,500»
+  [joining] value=500  «Uber vouchers worth Rs 1,000 (four vouchers of Rs 250 each)»
+ROUTING (spend category -> reward earning it):
+  online      -> base
+  base        -> base
+  travel      -> base
+  dining      -> base
+  grocery     -> base
+  amazon      -> base
+  upi         -> base
+  utilities   -> utilities, insurance
+FLAGS: none
+
+############ #19 Times Black ICICI Bank Credit Card (icici-times-black) ############
+rewardType=ICICI Bank Reward Points  acceleratedShare=-
+REWARD ROWS:
+  [international] rate=2.5 cap=null  «International spends»
+  [utilities, insurance, education, government] rate=2 cap=5000  «Utility, Insurance, Education & Government spends»
+  [retail] rate=2 cap=null  «Other spends»
+VALUED BENEFITS (point value Rs 1.00/unit):
+  [milestone annual >=200000] value=5000  «Klook international experiences worth ₹10,000 on reaching ₹2»
+  [milestone annual >=500000] value=5000  «WeWork day passes or airport transfers worth ₹10,000 on reac»
+  [milestone annual >=1000000] value=5000  «Tata CLiQ Luxury Gift Card worth ₹10,000 on reaching ₹10 Lak»
+  [milestone annual >=2000000] value=10000  «One-night luxury stay at Ayatana or Lohono worth ₹20,000 on »
+  [joining] value=5000  «Luxury Stay Gift Card from EaseMyTrip (₹10,000) or Lohono St»
+  [joining] value=2000  «Lifestyle Gift Cards from Toni & Guy and Interflora»
+  [joining] value=5000  «Travel visa benefits with Atlys and OneVasco»
+  [joining] value=0  «Special membership offers and event access at The Quorum Clu»
+ROUTING (spend category -> reward earning it):
+  online      -> retail
+  base        -> retail
+  travel      -> retail
+  dining      -> retail
+  grocery     -> retail
+  amazon      -> retail
+  upi         -> retail
+  utilities   -> utilities, insurance, education, government
+FLAGS: none
+
+############ #58 IDFC FIRST Ashva Credit Card (idfc-ashva) ############
+rewardType=reward points  acceleratedShare=-
+REWARD ROWS:
+  [dining, travel, online, international] rate=6.6667 cap=null  «Dining, Travel, Online, International, Birthday, and incremental spend»
+  [base] rate=3.3333 cap=null  «Other retail spends up to Rs 20,000»
+  [rent, education, government] rate=2 cap=null  «Rent, education, wallet load, and government spends»
+  [utilities, insurance] rate=0.6667 cap=null  «Utility, insurance, FASTag, and railway spends»
+VALUED BENEFITS (point value Rs 99.00/unit):
+  [milestone annual >=800000] value=1875  «7,500 Reward Points on annual spending of Rs 8 Lakh»
+ROUTING (spend category -> reward earning it):
+  online      -> dining, travel, online, international
+  travel      -> dining, travel, online, international
+  dining      -> dining, travel, online, international
+  base        -> base
+  grocery     -> base
+  amazon      -> base
+  upi         -> base
+  utilities   -> utilities, insurance
+FLAGS:
+  ⚠ UNCAPPED HIGH RATE: row "dining, travel, online, international" rate 6.6667 has no capMonthly — scales unbounded at high spend.
+
+############ #158 IDFC FIRST Classic Credit Card (idfc-first-classic) ############
+rewardType=reward points  acceleratedShare=-
+REWARD ROWS:
+  [base] rate=1.5 cap=null  «Other retail spends up to Rs 20,000»
+  [dining, travel, international] rate=5 cap=null  «Dining, Travel, International, Birthday, and incremental spends above »
+  [utilities, insurance] rate=0.5 cap=null  «Utility, insurance, FASTag, and railway transactions»
+ROUTING (spend category -> reward earning it):
+  online      -> base
+  base        -> base
+  grocery     -> base
+  amazon      -> base
+  upi         -> base
+  travel      -> dining, travel, international
+  dining      -> dining, travel, international
+  utilities   -> utilities, insurance
+FLAGS:
+  ⚠ UNCAPPED HIGH RATE: row "dining, travel, international" rate 5 has no capMonthly — scales unbounded at high spend.
+
+############ #141 IDFC FIRST EA₹N Credit Card (idfc-first-earn) ############
+rewardType=cashback  acceleratedShare=-
+REWARD ROWS:
+  [upi] rate=1 cap=500  «UPI spends via IDFC FIRST Bank Mobile App»
+  [base, online, utilities, insurance, fuel] rate=0.5 cap=500  «Other spends (including offline, online, utility, insurance, fuel, and»
+ROUTING (spend category -> reward earning it):
+  online      -> upi
+  base        -> upi
+  travel      -> upi
+  dining      -> upi
+  grocery     -> upi
+  amazon      -> upi
+  upi         -> upi
+  utilities   -> upi
+  fuel        -> base, online, utilities, insurance, fuel
+FLAGS: none
+
+############ #157 IDFC FIRST Millennia Credit Card (idfc-first-millennia) ############
+rewardType=reward points  acceleratedShare=-
+REWARD ROWS:
+  [base] rate=1.5 cap=null  «Other retail spends up to Rs 20,000»
+  [dining, travel, international] rate=5 cap=null  «Dining, Travel, International, Birthday, and incremental spends above »
+  [utilities, insurance] rate=0.5 cap=null  «Utility, insurance, FASTag, and railway transactions»
+ROUTING (spend category -> reward earning it):
+  online      -> base
+  base        -> base
+  grocery     -> base
+  amazon      -> base
+  upi         -> base
+  travel      -> dining, travel, international
+  dining      -> dining, travel, international
+  utilities   -> utilities, insurance
+FLAGS:
+  ⚠ UNCAPPED HIGH RATE: row "dining, travel, international" rate 5 has no capMonthly — scales unbounded at high spend.
+
+############ #117 IDFC FIRST Power+ Credit Card (idfc-first-power-plus) ############
+rewardType=reward points  acceleratedShare=-
+REWARD ROWS:
+  [fuel] rate=20 cap=2400  «HPCL Fuel spends»
+  [grocery, utilities] rate=20 cap=400  «Grocery and utility bills spends»
+  [base] rate=2 cap=null  «Other retail and UPI spends»
+ROUTING (spend category -> reward earning it):
+  online      -> base
+  base        -> base
+  travel      -> base
+  dining      -> base
+  amazon      -> base
+  upi         -> base
+  grocery     -> grocery, utilities
+  utilities   -> grocery, utilities
+  fuel        -> fuel
+FLAGS: none
+
+############ #147 IDFC FIRST Power Credit Card (idfc-first-power) ############
+rewardType=reward points  acceleratedShare=-
+REWARD ROWS:
+  [fuel] rate=14 cap=700  «HPCL Fuel spends»
+  [grocery, utilities] rate=10 cap=400  «Grocery and utility spends»
+  [base] rate=1.3333 cap=null  «Other retail and UPI spends»
+ROUTING (spend category -> reward earning it):
+  online      -> base
+  base        -> base
+  travel      -> base
+  dining      -> base
+  amazon      -> base
+  upi         -> base
+  grocery     -> grocery, utilities
+  utilities   -> grocery, utilities
+  fuel        -> fuel
+FLAGS: none
+
+############ #155 IDFC FIRST Select Credit Card (idfc-first-select) ############
+rewardType=reward points  acceleratedShare=-
+REWARD ROWS:
+  [base] rate=1.5 cap=null  «Other retail spends up to Rs 20,000»
+  [dining, travel, international] rate=5 cap=null  «Dining, Travel, International, Birthday, and incremental spends above »
+  [utilities, insurance] rate=0.5 cap=null  «Utility, insurance, FASTag, and railway transactions»
+ROUTING (spend category -> reward earning it):
+  online      -> base
+  base        -> base
+  grocery     -> base
+  amazon      -> base
+  upi         -> base
+  travel      -> dining, travel, international
+  dining      -> dining, travel, international
+  utilities   -> utilities, insurance
+FLAGS:
+  ⚠ UNCAPPED HIGH RATE: row "dining, travel, international" rate 5 has no capMonthly — scales unbounded at high spend.
+
+############ #120 IDFC FIRST Wealth Credit Card (idfc-first-wealth) ############
+rewardType=reward points  acceleratedShare=-
+REWARD ROWS:
+  [base] rate=1.5 cap=null  «Other retail spends up to Rs 20,000»
+  [dining, travel, international] rate=5 cap=null  «Dining, Travel, International, Birthday, and incremental spends above »
+  [utilities, insurance] rate=0.5 cap=null  «Utility, insurance, FASTag, and railway transactions»
+ROUTING (spend category -> reward earning it):
+  online      -> base
+  base        -> base
+  grocery     -> base
+  amazon      -> base
+  upi         -> base
+  travel      -> dining, travel, international
+  dining      -> dining, travel, international
+  utilities   -> utilities, insurance
+FLAGS:
+  ⚠ UNCAPPED HIGH RATE: row "dining, travel, international" rate 5 has no capMonthly — scales unbounded at high spend.
+
+############ #40 IndiGo IDFC FIRST Credit Card (idfc-indigo) ############
+rewardType=indigo bluchips  acceleratedShare=-
+REWARD ROWS:
+  [airlines] rate=6 cap=null  «IndiGo flight bookings»
+  [base] rate=3 cap=null  «Other eligible retail spends»
+  [upi, insurance, utilities, fuel, rent] rate=0.5 cap=null  «UPI, insurance, utilities, fuel, rent, and wallet spends»
+VALUED BENEFITS (point value Rs 49.50/unit):
+  [milestone annual >=200000] value=5000  «5,000 IndiGo BluChips on annual spend of Rs 2 Lakh»
+  [milestone annual >=500000] value=5000  «5,000 IndiGo BluChips on annual spend of Rs 5 Lakh»
+  [milestone annual >=800000] value=5000  «5,000 IndiGo BluChips on annual spend of Rs 8 Lakh»
+  [milestone annual >=1000000] value=5000  «5,000 IndiGo BluChips on annual spend of Rs 10 Lakh»
+  [milestone annual >=1200000] value=5000  «5,000 IndiGo BluChips on annual spend of Rs 12 Lakh»
+ROUTING (spend category -> reward earning it):
+  online      -> base
+  base        -> base
+  travel      -> base
+  dining      -> base
+  grocery     -> base
+  amazon      -> base
+  fuel        -> upi, insurance, utilities, fuel, rent
+  upi         -> upi, insurance, utilities, fuel, rent
+  utilities   -> upi, insurance, utilities, fuel, rent
+FLAGS:
+  ⚠ UNCAPPED HIGH RATE: row "airlines" rate 6 has no capMonthly — scales unbounded at high spend.
+
+############ #59 IDFC FIRST Mayura Credit Card (idfc-mayura) ############
+rewardType=reward points  acceleratedShare=-
+REWARD ROWS:
+  [dining, travel, online, international] rate=6.6667 cap=null  «Dining, Travel, Online, International, Birthday, and incremental spend»
+  [base] rate=3.3333 cap=null  «Other retail spends up to Rs 20,000»
+  [rent, education, government] rate=2 cap=null  «Rent, education, wallet load, and government spends»
+  [utilities, insurance] rate=0.6667 cap=null  «Utility, insurance, FASTag, and railway spends»
+VALUED BENEFITS (point value Rs 99.00/unit):
+  [milestone annual >=800000] value=1875  «7,500 Reward Points on annual spending of Rs 8 Lakh»
+  [milestone annual >=1500000] value=3750  «15,000 Reward Points on annual spending of Rs 15 Lakh»
+ROUTING (spend category -> reward earning it):
+  online      -> dining, travel, online, international
+  travel      -> dining, travel, online, international
+  dining      -> dining, travel, online, international
+  base        -> base
+  grocery     -> base
+  amazon      -> base
+  upi         -> base
+  utilities   -> utilities, insurance
+FLAGS:
+  ⚠ UNCAPPED HIGH RATE: row "dining, travel, online, international" rate 6.6667 has no capMonthly — scales unbounded at high spend.
+
+############ #154 IDFC FIRST WOW! Credit Card (idfc-wow) ############
+rewardType=reward points  acceleratedShare=-
+REWARD ROWS:
+  [online, base, international] rate=2 cap=null  «Online, offline, and international spends»
+  [utilities, insurance, government, travel] rate=0.5 cap=null  «Utility, insurance, government, and railway transactions»
+ROUTING (spend category -> reward earning it):
+  online      -> online, base, international
+  base        -> online, base, international
+  travel      -> utilities, insurance, government, travel
+  utilities   -> utilities, insurance, government, travel
+FLAGS: none
+
+############ #180 IndusInd Bank Platinum Aura Edge Credit Card (indusind-aura-edge) ############
+rewardType=savings points  acceleratedShare=-
+REWARD ROWS:
+  [grocery] rate=1.6 cap=null  «Grocery spends under Home plan»
+  [travel] rate=1.6 cap=null  «Travel spends under Travel plan»
+  [utilities, insurance, government, education, real estate, rent] rate=0.28 cap=null  «Utility, insurance, government, education, real estate, and rent spend»
+  [base] rate=0.2 cap=null  «Base retail spends (weekday)»
+ROUTING (spend category -> reward earning it):
+  online      -> base
+  base        -> base
+  dining      -> base
+  amazon      -> base
+  upi         -> base
+  travel      -> travel
+  grocery     -> grocery
+  utilities   -> utilities, insurance, government, education, real estate, rent
+FLAGS: none
+
+############ #121 IndusInd Bank Celesta Credit Card (indusind-celesta) ############
+rewardType=reward points  acceleratedShare=-
+REWARD ROWS:
+  [base] rate=1.05 cap=null  «Other retail spends»
+  [utilities, insurance, government, education, real estate, rent] rate=0.49 cap=null  «Utility, insurance, government, education, real estate, and rent spend»
+ROUTING (spend category -> reward earning it):
+  online      -> base
+  base        -> base
+  travel      -> base
+  dining      -> base
+  grocery     -> base
+  amazon      -> base
+  upi         -> base
+  utilities   -> utilities, insurance, government, education, real estate, rent
+FLAGS: none
+
+############ #129 IndusInd Bank Crest Credit Card (indusind-crest) ############
+rewardType=reward points  acceleratedShare=-
+REWARD ROWS:
+  [base] rate=1.05 cap=null  «Other retail spends»
+  [utilities, insurance, government, education, real estate, rent] rate=0.49 cap=null  «Utility, insurance, government, education, real estate, and rent spend»
+ROUTING (spend category -> reward earning it):
+  online      -> base
+  base        -> base
+  travel      -> base
+  dining      -> base
+  grocery     -> base
+  amazon      -> base
+  upi         -> base
+  utilities   -> utilities, insurance, government, education, real estate, rent
+FLAGS: none
+
+############ #188 EazyDiner IndusInd Bank Platinum Credit Card (indusind-eazydiner-platinum) ############
+rewardType=EazyPoints and discounts  acceleratedShare=-
+REWARD ROWS:
+  [dining] rate=0.4 cap=1500  «Extra 20% off up to Rs 500 + 2X EazyPoints»
+  [utilities, insurance, government, rent] rate=0.14 cap=null  «Utility, insurance, government, and rent spends»
+  [base] rate=0.4 cap=null  «2 reward points per Rs 100»
+VALUED BENEFITS (point value Rs 0.20/unit):
+  [milestone quarterly >=30000] value=400  «2,000 bonus Reward Points upon spending Rs 30,000 every 90 d»
+  [joining] value=1095  «Complimentary 3-month EazyDiner Prime membership»
+  [joining] value=0  «500 welcome bonus EazyPoints»
+  [renewal] value=1095  «3-month EazyDiner Prime membership renewal upon spending Rs »
+ROUTING (spend category -> reward earning it):
+  online      -> base
+  base        -> base
+  travel      -> base
+  grocery     -> base
+  amazon      -> base
+  upi         -> base
+  dining      -> dining
+  utilities   -> utilities, insurance, government, rent
+FLAGS: none
+
+############ #68 EazyDiner IndusInd Bank Credit Card (indusind-eazydiner) ############
+rewardType=EazyPoints and discounts  acceleratedShare=-
+REWARD ROWS:
+  [dining] rate=2 cap=5000  «Extra 25% off up to Rs 1,000 + 3X EazyPoints»
+  [online] rate=2 cap=null  «10 reward points per Rs 100»
+  [travel] rate=2 cap=null  «10 reward points per Rs 100»
+  [base] rate=0.8 cap=null  «4 reward points per Rs 100»
+VALUED BENEFITS (point value Rs 0.20/unit):
+  [milestone monthly >=30000] value=1500  «Additional Rs 3,000 monthly dining discount cap unlocked upo»
+  [joining] value=3550  «12-month EazyDiner Prime membership»
+  [joining] value=0  «2,000 welcome EazyPoints»
+  [joining] value=3750  «The Postcard Hotel voucher worth Rs 7,500»
+  [renewal] value=3550  «12-month EazyDiner Prime membership renewal»
+  [renewal] value=0  «2,000 bonus EazyPoints»
+ROUTING (spend category -> reward earning it):
+  online      -> online
+  base        -> base
+  grocery     -> base
+  amazon      -> base
+  upi         -> base
+  utilities   -> base
+  travel      -> travel
+  dining      -> dining
+FLAGS: none
+
+############ #167 IndusInd Bank Indulge Credit Card (indusind-indulge) ############
+rewardType=reward points  acceleratedShare=-
+REWARD ROWS:
+  [base] rate=1.05 cap=null  «Other retail spends»
+  [utilities, insurance, government, education, real estate, rent] rate=0.49 cap=null  «Utility, insurance, government, education, real estate, and rent spend»
+ROUTING (spend category -> reward earning it):
+  online      -> base
+  base        -> base
+  travel      -> base
+  dining      -> base
+  grocery     -> base
+  amazon      -> base
+  upi         -> base
+  utilities   -> utilities, insurance, government, education, real estate, rent
+FLAGS: none
+
+############ #186 IndusInd Bank Legend Credit Card (indusind-legend) ############
+rewardType=reward points  acceleratedShare=-
+REWARD ROWS:
+  [utilities, insurance, government, education, real estate, rent] rate=0.35 cap=null  «Utility, insurance, government, education, real estate, and rent spend»
+  [base] rate=0.5 cap=null  «Base spends (Weekdays)»
+  [base] rate=1 cap=null  «Base spends (Weekends)»
+VALUED BENEFITS (point value Rs 149.00/unit):
+  [milestone annual >=600000] value=4000  «4,000 bonus reward points on annual spends of Rs 6,00,000 or»
+ROUTING (spend category -> reward earning it):
+  online      -> base
+  base        -> base
+  travel      -> base
+  dining      -> base
+  grocery     -> base
+  amazon      -> base
+  upi         -> base
+  utilities   -> utilities, insurance, government, education, real estate, rent
+FLAGS: none
+
+############ #193 IndusInd Bank Nexxt Credit Card (indusind-nexxt) ############
+rewardType=reward points  acceleratedShare=-
+REWARD ROWS:
+  [base] rate=0.2 cap=null  «Other retail spends»
+ROUTING (spend category -> reward earning it):
+  online      -> base
+  base        -> base
+  travel      -> base
+  dining      -> base
+  grocery     -> base
+  amazon      -> base
+  upi         -> base
+  utilities   -> base
+FLAGS: none
+
+############ #73 IndusInd Bank Pinnacle Credit Card (indusind-pinnacle) ############
+rewardType=reward points  acceleratedShare=-
+REWARD ROWS:
+  [online] rate=1.875 cap=null  «E-commerce transactions»
+  [travel] rate=1.125 cap=null  «E-com travel and airline transactions»
+  [utilities, insurance, government, education, real estate, rent] rate=0.525 cap=null  «Utility, insurance, government, education, real estate, and rent spend»
+  [base] rate=0.75 cap=null  «base»
+VALUED BENEFITS (point value Rs 0.75/unit):
+  [joining] value=0  «Choice of Montblanc luxury merchandise (watches, writing ins»
+  [joining] value=6000  «Complimentary luxury stays at The Postcard Hotel»
+  [joining] value=0  «Choice of brand and e-commerce vouchers via Vouchagram or Vo»
+ROUTING (spend category -> reward earning it):
+  online      -> online
+  base        -> base
+  dining      -> base
+  grocery     -> base
+  amazon      -> base
+  upi         -> base
+  travel      -> travel
+  utilities   -> utilities, insurance, government, education, real estate, rent
+FLAGS: none
+
+############ #102 PIONEER Heritage Metal Credit Card (indusind-pioneer-heritage-metal) ############
+rewardType=Pioneer Rewards  acceleratedShare=-
+REWARD ROWS:
+  [base] rate=1 cap=null  «1 reward point per Rs 100»
+  [travel] rate=2.5 cap=null  «2.5 reward points per Rs 100»
+  [utilities] rate=0.7 cap=null  «Utility bill payments»
+  [insurance] rate=0.7 cap=null  «Insurance premium payments»
+  [education] rate=0.7 cap=null  «Education fees»
+  [rent] rate=0.7 cap=null  «Rent payments»
+VALUED BENEFITS (point value Rs 1.00/unit):
+  [joining] value=1  «Welcome vouchers worth Rs 1 lakh upon joining fee payment of»
+ROUTING (spend category -> reward earning it):
+  online      -> base
+  base        -> base
+  dining      -> base
+  grocery     -> base
+  amazon      -> base
+  upi         -> base
+  travel      -> travel
+  utilities   -> utilities
+FLAGS: none
+
+############ #38 PIONEER Legacy Credit Card (indusind-pioneer-legacy) ############
+rewardType=Pioneer Rewards  acceleratedShare=-
+REWARD ROWS:
+  [base] rate=1 cap=null  «weekday spends»
+  [online] rate=2 cap=null  «weekend spends»
+  [utilities] rate=0.7 cap=null  «Utility bill payments»
+  [insurance] rate=0.7 cap=null  «Insurance premium payments»
+  [education] rate=0.7 cap=null  «Education fees»
+  [rent] rate=0.7 cap=null  «Rent payments»
+VALUED BENEFITS (point value Rs 1.00/unit):
+  [joining] value=25000  «Welcome vouchers worth Rs 50,000 on joining at a discounted »
+ROUTING (spend category -> reward earning it):
+  online      -> online
+  base        -> base
+  travel      -> base
+  dining      -> base
+  grocery     -> base
+  amazon      -> base
+  upi         -> base
+  utilities   -> utilities
+FLAGS:
+  ⚠ OVER-BROAD: row "online" (rate 2) is actually narrow — «weekend spends». All "online" spend earns it; consider a narrow category + acceleratedShare.
+
+############ #172 IndusInd Bank Platinum RuPay Credit Card (indusind-platinum-rupay) ############
+rewardType=reward points  acceleratedShare=-
+REWARD ROWS:
+  [upi] rate=0.7 cap=null  «2 reward points per Rs 100»
+  [utilities, insurance, government, rent] rate=0.245 cap=null  «Utility, insurance, government, and rent spends»
+  [base] rate=0.35 cap=null  «1 reward point per Rs 100»
+ROUTING (spend category -> reward earning it):
+  online      -> upi
+  base        -> upi
+  travel      -> upi
+  dining      -> upi
+  grocery     -> upi
+  amazon      -> upi
+  upi         -> upi
+  utilities   -> upi
+FLAGS: none
+
+############ #142 IndusInd Bank Tiger Credit Card (indusind-tiger) ############
+rewardType=reward points  acceleratedShare=-
+REWARD ROWS:
+  [utilities, insurance, government, education, real estate, rent] rate=1 cap=null  «Utility, insurance, government, education, real estate, and rent spend»
+  [base] rate=1 cap=null  «Base spends (up to Rs 1L)»
+  [base] rate=2 cap=null  «Base spends (Rs 1.01L - 2.5L)»
+  [base] rate=4 cap=null  «Base spends (Rs 2.51L - 5L)»
+  [base] rate=6 cap=null  «Base spends (above Rs 5L)»
+ROUTING (spend category -> reward earning it):
+  online      -> base
+  base        -> base
+  travel      -> base
+  dining      -> base
+  grocery     -> base
+  amazon      -> base
+  upi         -> base
+  utilities   -> utilities, insurance, government, education, real estate, rent
+FLAGS: none
+
+############ #179 811 Dream Different Credit Card (kotak-811-dream-different) ############
+rewardType=Kotak Reward Points  acceleratedShare=-
+REWARD ROWS:
+  [online] rate=2 cap=null  «Online spends»
+  [utilities] rate=1 cap=350  «Utility spends»
+  [base] rate=1 cap=null  «Other eligible offline spends»
+VALUED BENEFITS (point value Rs 2000.00/unit):
+  [joining] value=50  «500 bonus Reward Points (worth Rs 50) on spending ₹5,000 wit»
+ROUTING (spend category -> reward earning it):
+  online      -> online
+  base        -> base
+  travel      -> base
+  dining      -> base
+  grocery     -> base
+  amazon      -> base
+  upi         -> base
+  utilities   -> utilities
+FLAGS: none
+
+############ #176 Kotak 811 Credit Card (kotak-811) ############
+rewardType=Kotak Reward Points  acceleratedShare=-
+REWARD ROWS:
+  [online] rate=2 cap=null  «Online spends»
+  [utilities] rate=1 cap=350  «Utility spends»
+  [base] rate=1 cap=null  «Other eligible offline spends»
+VALUED BENEFITS (point value Rs 2000.00/unit):
+  [milestone annual >=75000] value=600  «3 complimentary PVR movie tickets (worth up to ₹1,200) on sp»
+  [joining] value=50  «500 bonus Reward Points (worth Rs 50) on spending Rs 3,000 w»
+ROUTING (spend category -> reward earning it):
+  online      -> online
+  base        -> base
+  travel      -> base
+  dining      -> base
+  grocery     -> base
+  amazon      -> base
+  upi         -> base
+  utilities   -> utilities
+FLAGS: none
+
+############ #54 Kotak Cashback+ Credit Card (kotak-cashback-plus) ############
+rewardType=cashback  acceleratedShare=-
+REWARD ROWS:
+  [grocery] rate=5 cap=750  «Online grocery and food delivery»
+  [online] rate=5 cap=750  «Online movies and OTT entertainment»
+  [fuel] rate=3 cap=750  «Fuel spends»
+  [upi, base] rate=0.5 cap=null  «UPI and other eligible retail spends»
+ROUTING (spend category -> reward earning it):
+  online      -> online
+  base        -> upi, base
+  travel      -> upi, base
+  dining      -> upi, base
+  amazon      -> upi, base
+  upi         -> upi, base
+  grocery     -> grocery
+  fuel        -> fuel
+FLAGS: none
+
+############ #125 IndianOil Kotak Credit Card (kotak-indianoil) ############
+rewardType=Kotak Reward Points  acceleratedShare=-
+REWARD ROWS:
+  [fuel] rate=16 cap=1200  «IndianOil fuel spends»
+  [grocery,dining] rate=8 cap=800  «Grocery and dining spends»
+  [upi, base] rate=2 cap=null  «UPI and other eligible retail spends»
+VALUED BENEFITS (point value Rs 0.25/unit):
+  [joining] value=250  «1,000 Reward Points (worth Rs 250) on spending ₹500 or above»
+ROUTING (spend category -> reward earning it):
+  online      -> upi, base
+  base        -> upi, base
+  travel      -> upi, base
+  amazon      -> upi, base
+  upi         -> upi, base
+  utilities   -> upi, base
+  dining      -> grocery,dining
+  grocery     -> grocery,dining
+FLAGS: none
+
+############ #104 Kotak Infinite Credit Card (kotak-infinite) ############
+rewardType=Kotak Reward Points  acceleratedShare=-
+REWARD ROWS:
+  [base] rate=0.4 cap=null  «All retail spends»
+VALUED BENEFITS (point value Rs 2000.00/unit):
+  [milestone monthly >=0] value=800  «800 Reward Points (worth ₹800) credited free every month»
+ROUTING (spend category -> reward earning it):
+  online      -> base
+  base        -> base
+  travel      -> base
+  dining      -> base
+  grocery     -> base
+  amazon      -> base
+  upi         -> base
+FLAGS: none
+
+############ #184 Kotak League Platinum Credit Card (kotak-league-platinum) ############
+rewardType=Kotak Reward Points  acceleratedShare=-
+REWARD ROWS:
+  [travel,airlines] rate=5.333333333333333 cap=null  «Special Categories (Travel, Airlines, Department Stores, Electronics &»
+  [base] rate=2.6666666666666665 cap=null  «Other eligible spends (under ₹2 Lakhs annual spends)»
+  [base] rate=5.333333333333333 cap=null  «Other eligible spends (above ₹2 Lakhs annual spends)»
+VALUED BENEFITS (point value Rs 0.10/unit):
+  [milestone annual >=250000] value=2000  «4 free PVR movie tickets (up to ₹400 each) or 10,000 Reward »
+  [joining] value=500  «5,000 Reward Points (worth Rs 500) upon payment of joining f»
+ROUTING (spend category -> reward earning it):
+  online      -> base
+  base        -> base
+  dining      -> base
+  grocery     -> base
+  amazon      -> base
+  upi         -> base
+  utilities   -> base
+  travel      -> travel,airlines
+FLAGS:
+  ⚠ UNCAPPED HIGH RATE: row "travel,airlines" rate 5.333333333333333 has no capMonthly — scales unbounded at high spend.
+  ⚠ BENEFIT VALUE MISMATCH (milestone): "4 free PVR movie tickets (up to ₹400 each) or 10,000 Re…" grants 10000 pts/miles but is valued at Rs 2000; at the card's Rs 0.10/point that implies Rs 1000.
+
+############ PVR Kotak Gold Credit Card (kotak-pvr-gold) ############
+rewardType=movie benefits  acceleratedShare=-
+REWARD ROWS:
+  [base] rate=0 cap=null  «All retail spends»
+VALUED BENEFITS (point value Rs 1.00/unit):
+  [milestone monthly >=10000] value=200  «1 PVR Movie Ticket (worth up to ₹400) on spending ₹10,000 in»
+  [milestone monthly >=15000] value=200  «1 additional PVR Movie Ticket (worth up to ₹400) on spending»
+FLAGS: none
+
+############ #169 PVR INOX Kotak Credit Card (kotak-pvr-inox) ############
+rewardType=movie benefits  acceleratedShare=-
+REWARD ROWS:
+  [base] rate=0 cap=null  «All retail spends»
+VALUED BENEFITS (point value Rs 1.00/unit):
+  [milestone monthly >=10000] value=150  «1 PVR INOX Movie Ticket (worth up to ₹300) on spending ₹10,0»
+  [milestone monthly >=20000] value=150  «1 additional PVR INOX Movie Ticket (worth up to ₹300) on spe»
+  [milestone monthly >=30000] value=150  «1 additional PVR INOX Movie Ticket (worth up to ₹300) on spe»
+  [milestone monthly >=40000] value=150  «1 additional PVR INOX Movie Ticket (worth up to ₹300) on spe»
+  [milestone monthly >=50000] value=150  «1 additional PVR INOX Movie Ticket (worth up to ₹300) on spe»
+ROUTING (spend category -> reward earning it):
+FLAGS: none
+
+############ PVR Kotak Platinum Credit Card (kotak-pvr-platinum) ############
+rewardType=movie benefits  acceleratedShare=-
+REWARD ROWS:
+  [base] rate=0 cap=null  «All retail spends»
+VALUED BENEFITS (point value Rs 1.00/unit):
+  [milestone monthly >=10000] value=400  «2 PVR Movie Tickets (worth up to ₹400 each) on spending ₹10,»
+FLAGS: none
+
+############ #8 Kotak Solitaire Credit Card (kotak-solitaire) ############
+rewardType=Air Miles  acceleratedShare=-
+REWARD ROWS:
+  [travel] rate=10 cap=100000  «Travel bookings via Kotak Unbox»
+  [base] rate=3 cap=null  «Other eligible retail spends»
+ROUTING (spend category -> reward earning it):
+  online      -> base
+  base        -> base
+  dining      -> base
+  grocery     -> base
+  amazon      -> base
+  upi         -> base
+  travel      -> travel
+FLAGS: none
+
+############ #161 Kotak UPI RuPay Credit Card (kotak-upi-rupay) ############
+rewardType=Kotak Reward Points  acceleratedShare=-
+REWARD ROWS:
+  [upi, base] rate=3 cap=null  «UPI and other eligible spends»
+  [utilities] rate=3 cap=1050  «Utility spends»
+ROUTING (spend category -> reward earning it):
+  online      -> upi, base
+  base        -> upi, base
+  travel      -> upi, base
+  dining      -> upi, base
+  grocery     -> upi, base
+  amazon      -> upi, base
+  upi         -> upi, base
+  utilities   -> utilities
+FLAGS: none
+
+############ #25 White Reserve Credit Card (kotak-white-reserve) ############
+rewardType=White Pass  acceleratedShare=-
+REWARD ROWS:
+  [base] rate=0 cap=null  «All retail spends»
+VALUED BENEFITS (point value Rs 1.00/unit):
+  [milestone annual >=300000] value=5000  «Earn ₹5,000 White Pass value on spending ₹3 Lakhs»
+  [milestone annual >=1000000] value=15000  «Earn ₹15,000 White Pass value on spending ₹10 Lakhs»
+  [milestone annual >=2000000] value=22000  «Earn ₹22,000 White Pass value on spending ₹20 Lakhs»
+  [milestone annual >=3000000] value=24000  «Earn ₹24,000 White Pass value on spending ₹30 Lakhs»
+  [milestone annual >=4000000] value=26000  «Earn ₹26,000 White Pass value on spending ₹40 Lakhs»
+  [milestone annual >=5000000] value=28000  «Earn ₹28,000 White Pass value on spending ₹50 Lakhs»
+  [milestone annual >=7500000] value=63000  «Earn ₹63,000 White Pass value on spending ₹75 Lakhs»
+  [milestone annual >=10000000] value=67000  «Earn ₹67,000 White Pass value on spending ₹1 Crore»
+  [joining] value=7500  «Complimentary Club Marriott membership (worth Rs 15,000)»
+  [renewal] value=7500  «Complimentary Club Marriott membership (worth Rs 15,000) on »
+ROUTING (spend category -> reward earning it):
+FLAGS: none
+
+############ #79 White Credit Card (kotak-white) ############
+rewardType=White Pass  acceleratedShare=-
+REWARD ROWS:
+  [base] rate=0 cap=null  «All retail spends»
+VALUED BENEFITS (point value Rs 1.00/unit):
+  [milestone annual >=200000] value=2000  «Earn ₹2,000 White Pass value on spending ₹2 Lakhs»
+  [milestone annual >=400000] value=4000  «Earn ₹4,000 White Pass value on spending ₹4 Lakhs»
+  [milestone annual >=600000] value=6000  «Earn ₹6,000 White Pass value on spending ₹6 Lakhs»
+  [milestone annual >=900000] value=7000  «Earn ₹7,000 White Pass value on spending ₹9 Lakhs»
+  [milestone annual >=1200000] value=8000  «Earn ₹8,000 White Pass value on spending ₹12 Lakhs»
+  [joining] value=1500  «₹1,500 White Pass welcome voucher on spending ₹30,000 within»
+ROUTING (spend category -> reward earning it):
+FLAGS: none
+
+############ #123 Zen Signature Credit Card (kotak-zen-signature) ############
+rewardType=Zen Points  acceleratedShare=-
+REWARD ROWS:
+  [base] rate=6.666666666666667 cap=6500  «Shopping spends (Apparel, Lifestyle, Departmental Stores & Jewellery)»
+  [base] rate=3.3333333333333335 cap=6500  «Other eligible retail spends»
+  [education] rate=3.3333333333333335 cap=2333  «Education spends»
+  [insurance] rate=3.3333333333333335 cap=2333  «Insurance spends»
+  [utilities] rate=3.3333333333333335 cap=1666  «Utility spends»
+  [government] rate=3.3333333333333335 cap=1333  «Government spends»
+VALUED BENEFITS (point value Rs 2000.00/unit):
+  [milestone annual >=300000] value=1875  «7,500 bonus Zen Points (worth Rs 1,875) on spending ₹3 Lakhs»
+  [milestone annual >=600000] value=1875  «7,500 additional bonus Zen Points (worth Rs 1,875) on spendi»
+  [joining] value=375  «1,500 bonus Zen Points (worth Rs 375) upon payment of joinin»
+ROUTING (spend category -> reward earning it):
+  online      -> base
+  base        -> base
+  travel      -> base
+  dining      -> base
+  grocery     -> base
+  amazon      -> base
+  upi         -> base
+  utilities   -> utilities
+FLAGS: none
+
+############ #139 One Credit Card (onecard) ############
+rewardType=OneRewards  acceleratedShare=-
+REWARD ROWS:
+  [online] rate=10 cap=null  «Top 2 spend categories of the month (5X multiplier)»
+  [base] rate=2 cap=null  «All other retail spends»
+ROUTING (spend category -> reward earning it):
+  online      -> online
+  base        -> base
+  travel      -> base
+  dining      -> base
+  grocery     -> base
+  amazon      -> base
+  upi         -> base
+  utilities   -> base
+FLAGS:
+  ⚠ UNCAPPED HIGH RATE: row "online" rate 10 has no capMonthly — scales unbounded at high spend.
+
+############ #159 RBL Bank Cookies Credit Card (rbl-cookies) ############
+rewardType=reward points  acceleratedShare={"online":0,"grocery":0}
+REWARD ROWS:
+  [partner merchants] rate=10 cap=300  «Zomato spends (10% cashback)»
+  [partner merchants] rate=10 cap=300  «Myntra spends (10% cashback)»
+  [partner merchants] rate=10 cap=300  «Uber spends (10% cashback)»
+  [online] rate=5 cap=null  «Other online purchases (5X points)»
+  [base] rate=1 cap=null  «Other eligible retail spends»
+VALUED BENEFITS (point value Rs 99.00/unit):
+  [milestone monthly >=5000] value=100  «Monthly fee waiver of ₹100 on monthly spends of ₹5,000 or mo»
+  [milestone annual >=200000] value=500  «₹1,000 brand voucher on annual spend of ₹2 Lakhs»
+  [milestone annual >=500000] value=2500  «₹5,000 brand voucher on annual spend of ₹5 Lakhs»
+ROUTING (spend category -> reward earning it):
+  online      -> online
+  base        -> base
+  travel      -> base
+  dining      -> base
+  grocery     -> base
+  amazon      -> base
+  upi         -> base
+FLAGS:
+  ⚠ UNCAPPED HIGH RATE: row "online" rate 5 has no capMonthly — scales unbounded at high spend.
+
+############ #89 RBL Bank Icon Credit Card (rbl-icon) ############
+rewardType=reward points  acceleratedShare=-
+REWARD ROWS:
+  [dining] rate=20 cap=2000  «Dining spends on weekends»
+  [international] rate=20 cap=2000  «International spends»
+  [base] rate=2 cap=null  «Other eligible retail spends (including weekday dining)»
+VALUED BENEFITS (point value Rs 99.00/unit):
+  [milestone annual >=300000] value=2500  «10,000 bonus reward points on annual spend of ₹3 Lakhs»
+  [milestone annual >=500000] value=3750  «15,000 additional bonus reward points on annual spend of ₹5 »
+  [milestone annual >=800000] value=5000  «20,000 additional bonus reward points on annual spend of ₹8 »
+ROUTING (spend category -> reward earning it):
+  online      -> base
+  base        -> base
+  travel      -> base
+  grocery     -> base
+  amazon      -> base
+  upi         -> base
+  dining      -> dining
+FLAGS: none
+
+############ #98 Patanjali RBL Bank Swarn Credit Card (rbl-patanjali-swarn) ############
+rewardType=cashback  acceleratedShare=-
+REWARD ROWS:
+  [grocery] rate=10 cap=750  «Patanjali online & offline spends»
+  [base] rate=0.25 cap=null  «Other eligible retail spends»
+VALUED BENEFITS (point value Rs 1.00/unit):
+  [milestone annual >=300000] value=750  «₹1,500 Patanjali shopping voucher on annual spends of ₹3 Lak»
+  [milestone annual >=500000] value=5000  «4-night/5-day Patanjali Wellness stay on annual spends of ₹5»
+ROUTING (spend category -> reward earning it):
+  online      -> base
+  base        -> base
+  travel      -> base
+  dining      -> base
+  amazon      -> base
+  upi         -> base
+  utilities   -> base
+  grocery     -> grocery
+FLAGS: none
+
+############ #171 Patanjali RBL Bank Vishisht Credit Card (rbl-patanjali-vishisht) ############
+rewardType=cashback  acceleratedShare=-
+REWARD ROWS:
+  [grocery] rate=10 cap=500  «Patanjali online & offline spends»
+  [base] rate=0.25 cap=null  «Other eligible retail spends»
+ROUTING (spend category -> reward earning it):
+  online      -> base
+  base        -> base
+  travel      -> base
+  dining      -> base
+  amazon      -> base
+  upi         -> base
+  utilities   -> base
+  grocery     -> grocery
+FLAGS: none
+
+############ #194 RBL Bank Platinum Delight Credit Card (rbl-platinum-delight) ############
+rewardType=reward points  acceleratedShare=-
+REWARD ROWS:
+  [base] rate=4 cap=1000  «Weekend spends (2X points)»
+  [base] rate=2 cap=null  «Other eligible retail spends»
+VALUED BENEFITS (point value Rs 99.00/unit):
+  [milestone monthly >=5000] value=250  «1,000 bonus reward points on swiping 5 times for ₹1,000+ eac»
+ROUTING (spend category -> reward earning it):
+  online      -> base
+  base        -> base
+  travel      -> base
+  dining      -> base
+  grocery     -> base
+  amazon      -> base
+  upi         -> base
+FLAGS: none
+
+############ #81 RBL Bank Platinum Maxima Plus Credit Card (rbl-platinum-maxima-plus) ############
+rewardType=reward points  acceleratedShare=-
+REWARD ROWS:
+  [dining, grocery, international] rate=10 cap=null  «Dining, grocery, and international spends»
+  [base] rate=2 cap=null  «Other eligible retail spends»
+VALUED BENEFITS (point value Rs 99.00/unit):
+  [milestone annual >=200000] value=2500  «10,000 bonus reward points on annual spend of ₹2 Lakhs»
+  [milestone annual >=350000] value=2500  «10,000 additional bonus reward points on annual spend of ₹3.»
+  [milestone annual >=500000] value=2500  «10,000 additional bonus reward points on annual spend of ₹5 »
+ROUTING (spend category -> reward earning it):
+  online      -> base
+  base        -> base
+  travel      -> base
+  amazon      -> base
+  upi         -> base
+  dining      -> dining, grocery, international
+  grocery     -> dining, grocery, international
+FLAGS:
+  ⚠ UNCAPPED HIGH RATE: row "dining, grocery, international" rate 10 has no capMonthly — scales unbounded at high spend.
+
+############ #198 RBL Bank PLAY Credit Card (rbl-play) ############
+rewardType=entertainment benefits  acceleratedShare=-
+REWARD ROWS:
+  [base] rate=0 cap=null  «All spends»
+VALUED BENEFITS (point value Rs 1.00/unit):
+  [milestone monthly >=5000] value=250  «2 free BookMyShow movie tickets (up to ₹250 each) on monthly»
+ROUTING (spend category -> reward earning it):
+FLAGS: none
+
+############ #187 RBL Bank ShopRite Credit Card (rbl-shoprite) ############
+rewardType=reward points  acceleratedShare=-
+REWARD ROWS:
+  [grocery] rate=20 cap=1000  «Grocery spends»
+  [base] rate=1 cap=null  «Other eligible retail spends»
+ROUTING (spend category -> reward earning it):
+  online      -> base
+  base        -> base
+  travel      -> base
+  dining      -> base
+  amazon      -> base
+  upi         -> base
+  utilities   -> base
+  grocery     -> grocery
+FLAGS: none
+
+############ #75 RBL Bank World Max Credit Card (rbl-world-max) ############
+rewardType=reward points  acceleratedShare=-
+REWARD ROWS:
+  [dining] rate=20 cap=1000  «Weekend dining spends»
+  [online] rate=4 cap=null  «Online spends»
+  [base] rate=2 cap=null  «Other eligible retail spends (including weekday dining)»
+VALUED BENEFITS (point value Rs 99.00/unit):
+  [milestone monthly >=25000] value=375  «1,500 bonus reward points on monthly spend of ₹25,000»
+  [milestone monthly >=40000] value=250  «1,000 additional bonus reward points on monthly spend of ₹40»
+  [milestone monthly >=50000] value=250  «1,000 additional bonus reward points on monthly spend of ₹50»
+ROUTING (spend category -> reward earning it):
+  online      -> online
+  base        -> base
+  travel      -> base
+  grocery     -> base
+  amazon      -> base
+  upi         -> base
+  dining      -> dining
+FLAGS:
+  ⚠ OVER-BROAD: row "dining" (rate 20) is actually narrow — «Weekend dining spends». All "dining" spend earns it; consider a narrow category + acceleratedShare.
+
+############ #111 RBL Bank World Prime Credit Card (rbl-world-prime) ############
+rewardType=reward points  acceleratedShare=-
+REWARD ROWS:
+  [online] rate=4 cap=1000  «Online spends (2X points)»
+  [base] rate=2 cap=null  «Other eligible retail spends»
+VALUED BENEFITS (point value Rs 99.00/unit):
+  [milestone annual >=150000] value=2500  «10,000 bonus reward points on annual spend of ₹1.5 Lakhs»
+  [milestone annual >=350000] value=2500  «10,000 additional bonus reward points on annual spend of ₹3.»
+ROUTING (spend category -> reward earning it):
+  online      -> online
+  base        -> base
+  travel      -> base
+  dining      -> base
+  grocery     -> base
+  amazon      -> base
+  upi         -> base
+FLAGS: none
+
+############ #87 RBL Bank World Safari Credit Card (rbl-world-safari) ############
+rewardType=reward points  acceleratedShare=-
+REWARD ROWS:
+  [travel] rate=5 cap=null  «Travel purchases»
+  [base] rate=2 cap=null  «Domestic retail spends»
+VALUED BENEFITS (point value Rs 99.00/unit):
+  [milestone annual >=250000] value=2500  «10,000 bonus reward points on annual spend of ₹2.5 Lakhs»
+  [milestone annual >=500000] value=3750  «15,000 bonus reward points on annual spend of ₹5 Lakhs»
+  [milestone annual >=750000] value=5000  «₹10,000 Taj, Amazon, Croma, Myntra or MakeMyTrip voucher on »
+ROUTING (spend category -> reward earning it):
+  online      -> base
+  base        -> base
+  dining      -> base
+  grocery     -> base
+  amazon      -> base
+  upi         -> base
+  utilities   -> base
+  travel      -> travel
+FLAGS:
+  ⚠ UNCAPPED HIGH RATE: row "travel" rate 5 has no capMonthly — scales unbounded at high spend.
+
+############ #109 Apollo SBI Card SELECT (apollo-sbi-select) ############
+rewardType=reward points  acceleratedShare={"online":0.1,"grocery":0}
+REWARD ROWS:
+  [partner merchants] rate=10 cap=null  «Apollo 24/7 and Apollo Pharmacy spends»
+  [dining, travel] rate=2 cap=5000  «Dining, travel, movies & entertainment spends»
+  [base] rate=0.5 cap=null  «Other eligible retail purchases»
+VALUED BENEFITS (point value Rs 99.00/unit):
+  [milestone annual >=600000] value=1500  «Complimentary Noise Smartwatch on overall annual spends of R»
+  [joining] value=1500  «Apollo 24/7 e-Gift Voucher worth Rs 1,500»
+ROUTING (spend category -> reward earning it):
+  online      -> partner merchants + base
+  base        -> base
+  grocery     -> base
+  amazon      -> base
+  upi         -> base
+  utilities   -> base
+  travel      -> dining, travel
+  dining      -> dining, travel
+FLAGS:
+  ⚠ UNCAPPED HIGH RATE: row "partner merchants" rate 10 has no capMonthly — scales unbounded at high spend.
+
+############ #46 AURUM SBI Card (aurum-sbi) ############
+rewardType=reward points  acceleratedShare=-
+REWARD ROWS:
+  [base] rate=4 cap=null  «All eligible purchases»
+VALUED BENEFITS (point value Rs 2.00/unit):
+  [milestone monthly >=100000] value=750  «Monthly Tata CLiQ Luxury voucher worth Rs 1,500 on monthly s»
+  [milestone annual >=500000] value=2500  «Tata CLiQ Luxury voucher worth Rs 5,000 on annual spends of »
+  [milestone annual >=1000000] value=5000  «Taj experience voucher worth Rs 10,000 on annual spends of R»
+  [milestone annual >=2000000] value=10000  «Apple voucher worth Rs 20,000 on annual spends of Rs 20 lakh»
+  [joining] value=10000  «40,000 AURUM Reward Points worth Rs 10,000»
+ROUTING (spend category -> reward earning it):
+  online      -> base
+  base        -> base
+  travel      -> base
+  dining      -> base
+  grocery     -> base
+  amazon      -> base
+  upi         -> base
+  utilities   -> base
+FLAGS: none
+
+############ #70 BPCL SBI Card OCTANE (bpcl-sbi-octane) ############
+rewardType=reward points  acceleratedShare=-
+REWARD ROWS:
+  [fuel] rate=25 cap=2500  «Fuel and lubricant purchases at BPCL petrol pumps»
+  [utilities] rate=25 cap=2500  «Bharatgas online payments»
+  [grocery, dining, entertainment] rate=10 cap=5000  «Grocery, departmental stores, movies, and dining»
+  [base] rate=1 cap=null  «Other eligible non-fuel retail spends»
+VALUED BENEFITS (point value Rs 0.25/unit):
+  [joining] value=1500  «6,000 bonus Reward Points worth Rs 1,500 on payment of annua»
+ROUTING (spend category -> reward earning it):
+  online      -> base
+  base        -> base
+  travel      -> base
+  amazon      -> base
+  upi         -> base
+  dining      -> grocery, dining, entertainment
+  grocery     -> grocery, dining, entertainment
+  fuel        -> fuel
+  utilities   -> utilities
+FLAGS: none
+
+############ #135 BPCL SBI Card (bpcl-sbi) ############
+rewardType=reward points  acceleratedShare=-
+REWARD ROWS:
+  [fuel] rate=13 cap=1300  «Fuel spends at BPCL petrol pumps»
+  [grocery, dining] rate=5 cap=5000  «Grocery, departmental stores, movies, and dining spends»
+  [base] rate=1 cap=null  «Other eligible spends»
+VALUED BENEFITS (point value Rs 99.00/unit):
+  [joining] value=500  «2,000 activation bonus Reward Points worth Rs 500 on payment»
+ROUTING (spend category -> reward earning it):
+  online      -> base
+  base        -> base
+  travel      -> base
+  amazon      -> base
+  upi         -> base
+  utilities   -> base
+  dining      -> grocery, dining
+  grocery     -> grocery, dining
+  fuel        -> fuel
+FLAGS: none
+
+############ #149 Doctor's SBI Card (doctors-sbi) ############
+rewardType=reward points  acceleratedShare=-
+REWARD ROWS:
+  [travel] rate=5 cap=7500  «Travel bookings & medical supplies»
+  [international] rate=5 cap=7500  «International spends»
+  [base] rate=1 cap=null  «Other eligible retail purchases»
+VALUED BENEFITS (point value Rs 99.00/unit):
+  [joining] value=1500  «Yatra Travel e-Gift Voucher worth Rs 1,500»
+ROUTING (spend category -> reward earning it):
+  online      -> base
+  base        -> base
+  dining      -> base
+  grocery     -> base
+  amazon      -> base
+  upi         -> base
+  utilities   -> base
+  travel      -> travel
+FLAGS: none
+
+############ #71 Flipkart SBI Card (flipkart-sbi) ############
+rewardType=cashback  acceleratedShare={"online":0.3,"grocery":0}
+REWARD ROWS:
+  [myntra] rate=7.5 cap=null  «Myntra»
+  [flipkart] rate=5 cap=null  «Flipkart»
+  [cleartrip] rate=5 cap=null  «Cleartrip»
+  [partner merchants] rate=4 cap=null  «Preferred/Select merchants»
+  [base] rate=1 cap=null  «Other eligible spends»
+VALUED BENEFITS (point value Rs 1.00/unit):
+  [joining] value=125  «Rs 250 Flipkart Gift Card on fee realisation»
+  [joining] value=500  «Rs 1,000 additional Flipkart benefit on the first transactio»
+ROUTING (spend category -> reward earning it):
+  online      -> myntra + base
+  base        -> base
+  dining      -> base
+  grocery     -> base
+  amazon      -> base
+  upi         -> base
+  travel      -> cleartrip
+FLAGS:
+  ⚠ UNCAPPED HIGH RATE: row "myntra" rate 7.5 has no capMonthly — scales unbounded at high spend.
+  ⚠ UNCAPPED HIGH RATE: row "flipkart" rate 5 has no capMonthly — scales unbounded at high spend.
+  ⚠ UNCAPPED HIGH RATE: row "cleartrip" rate 5 has no capMonthly — scales unbounded at high spend.
+
+############ #32 IndiGo SBI Card ELITE (indigo-sbi-elite) ############
+rewardType=indigo bluchips  acceleratedShare=-
+REWARD ROWS:
+  [travel] rate=7 cap=null  «IndiGo flight spends»
+  [hotels] rate=3 cap=null  «Hotel and lodging spends»
+  [base] rate=2 cap=null  «Other eligible spends»
+VALUED BENEFITS (point value Rs 1.00/unit):
+  [milestone annual >=300000] value=6000  «6,000 IndiGo BluChips on annual spends of Rs 3 lakh»
+  [milestone annual >=600000] value=6000  «6,000 IndiGo BluChips on annual spends of Rs 6 lakh»
+  [milestone annual >=900000] value=6000  «6,000 IndiGo BluChips on annual spends of Rs 9 lakh»
+  [milestone annual >=1200000] value=6000  «6,000 IndiGo BluChips on annual spends of Rs 12 lakh»
+  [joining] value=5000  «5,000 IndiGo BluChips welcome voucher»
+  [joining] value=350  «Complimentary 6E Eats voucher»
+  [renewal] value=5000  «5,000 IndiGo BluChips renewal voucher»
+  [renewal] value=350  «Complimentary 6E Eats renewal voucher»
+ROUTING (spend category -> reward earning it):
+  online      -> base
+  base        -> base
+  dining      -> base
+  grocery     -> base
+  amazon      -> base
+  upi         -> base
+  utilities   -> base
+  travel      -> travel
+FLAGS:
+  ⚠ UNCAPPED HIGH RATE: row "travel" rate 7 has no capMonthly — scales unbounded at high spend.
+
+############ #145 IndiGo SBI Card (indigo-sbi) ############
+rewardType=indigo bluchips  acceleratedShare=-
+REWARD ROWS:
+  [travel] rate=3 cap=null  «IndiGo flight spends»
+  [hotels] rate=2 cap=null  «Hotel and lodging spends»
+  [base] rate=1 cap=null  «Other eligible spends»
+VALUED BENEFITS (point value Rs 1.00/unit):
+  [milestone annual >=200000] value=2500  «2,500 IndiGo BluChips on annual spends of Rs 2 lakh»
+  [milestone annual >=400000] value=2500  «2,500 IndiGo BluChips on annual spends of Rs 4 lakh»
+  [milestone annual >=600000] value=2500  «2,500 IndiGo BluChips on annual spends of Rs 6 lakh»
+  [joining] value=2500  «2,500 IndiGo BluChips welcome voucher»
+  [renewal] value=2500  «2,500 IndiGo BluChips renewal voucher»
+ROUTING (spend category -> reward earning it):
+  online      -> base
+  base        -> base
+  dining      -> base
+  grocery     -> base
+  amazon      -> base
+  upi         -> base
+  utilities   -> base
+  travel      -> travel
+FLAGS: none
+
+############ #100 IRCTC SBI Card on RuPay (irctc-rupay-sbi) ############
+rewardType=reward points  acceleratedShare=-
+REWARD ROWS:
+  [travel] rate=10 cap=null  «Eligible railway ticket bookings on IRCTC»
+  [base] rate=0.8 cap=null  «Other eligible non-fuel retail purchases»
+VALUED BENEFITS (point value Rs 1.50/unit):
+  [joining] value=350  «350 activation bonus Reward Points on a single transaction o»
+  [renewal] value=500  «500 Reward Points on payment of renewal fee»
+ROUTING (spend category -> reward earning it):
+  online      -> base
+  base        -> base
+  dining      -> base
+  grocery     -> base
+  amazon      -> base
+  upi         -> base
+  utilities   -> base
+  travel      -> travel
+FLAGS:
+  ⚠ UNCAPPED HIGH RATE: row "travel" rate 10 has no capMonthly — scales unbounded at high spend.
+
+############ #119 IRCTC SBI Platinum Card (irctc-sbi-platinum) ############
+rewardType=reward points  acceleratedShare=-
+REWARD ROWS:
+  [travel] rate=8 cap=null  «Eligible AC rail ticket bookings on IRCTC»
+  [base] rate=0.8 cap=null  «Other eligible non-fuel retail purchases»
+VALUED BENEFITS (point value Rs 1.50/unit):
+  [joining] value=350  «350 activation bonus Reward Points on a single transaction o»
+  [renewal] value=500  «500 Reward Points on payment of renewal fee»
+ROUTING (spend category -> reward earning it):
+  online      -> base
+  base        -> base
+  dining      -> base
+  grocery     -> base
+  amazon      -> base
+  upi         -> base
+  utilities   -> base
+  travel      -> travel
+FLAGS:
+  ⚠ UNCAPPED HIGH RATE: row "travel" rate 8 has no capMonthly — scales unbounded at high spend.
+
+############ #22 KrisFlyer SBI Card Apex (krisflyer-sbi-apex) ############
+rewardType=KrisFlyer Miles  acceleratedShare=-
+REWARD ROWS:
+  [travel] rate=5 cap=null  «Singapore Airlines Group Spends»
+  [travel] rate=4 cap=null  «International Spends»
+  [base] rate=3 cap=null  «Other Eligible Spends»
+VALUED BENEFITS (point value Rs 2.00/unit):
+  [milestone annual >=500000] value=8000  «10,000 bonus KrisFlyer Miles on reaching Rs 5 Lakh in annual»
+  [milestone annual >=750000] value=0  «KrisFlyer Elite Gold tier upgrade on spending Rs 7.5 Lakh or»
+  [milestone annual >=1000000] value=2400  «3,000 bonus KrisFlyer Miles on cumulative annual spends of R»
+  [joining] value=8000  «10,000 KrisFlyer Miles as welcome benefit after joining fee »
+ROUTING (spend category -> reward earning it):
+  online      -> base
+  base        -> base
+  dining      -> base
+  grocery     -> base
+  amazon      -> base
+  upi         -> base
+  travel      -> travel
+FLAGS:
+  ⚠ UNCAPPED HIGH RATE: row "travel" rate 5 has no capMonthly — scales unbounded at high spend.
+
+############ #163 KrisFlyer SBI Card (krisflyer-sbi) ############
+rewardType=KrisFlyer Miles  acceleratedShare=-
+REWARD ROWS:
+  [travel] rate=3 cap=null  «Singapore Airlines Group Spends»
+  [travel] rate=2 cap=null  «International Spends»
+  [base] rate=1 cap=null  «Other Eligible Spends»
+ROUTING (spend category -> reward earning it):
+  online      -> base
+  base        -> base
+  dining      -> base
+  grocery     -> base
+  amazon      -> base
+  upi         -> base
+  travel      -> travel
+FLAGS: none
+
+############ #65 Landmark Rewards SBI Card PRIME (landmark-rewards-sbi-prime) ############
+rewardType=reward points  acceleratedShare={"online":0.2,"grocery":0.25}
+REWARD ROWS:
+  [partner merchants] rate=25 cap=null  «Online and retail Landmark stores»
+  [dining, entertainment, travel] rate=10 cap=null  «dining, movies, and international spends»
+  [base] rate=2 cap=null  «other retail purchases»
+VALUED BENEFITS (point value Rs 1.50/unit):
+  [milestone annual >=500000] value=5000  «20,000 bonus Reward Points on overall annual retail spends o»
+  [joining] value=3000  «12,000 bonus Reward Points worth Rs 3,000 on payment of annu»
+  [renewal] value=3000  «12,000 Reward Points worth Rs 3,000 on payment of renewal fe»
+ROUTING (spend category -> reward earning it):
+  online      -> partner merchants + base
+  grocery     -> partner merchants + base
+  base        -> base
+  amazon      -> base
+  upi         -> base
+  utilities   -> base
+  travel      -> dining, entertainment, travel
+  dining      -> dining, entertainment, travel
+FLAGS:
+  ⚠ UNCAPPED HIGH RATE: row "partner merchants" rate 25 has no capMonthly — scales unbounded at high spend.
+  ⚠ UNCAPPED HIGH RATE: row "dining, entertainment, travel" rate 10 has no capMonthly — scales unbounded at high spend.
+
+############ #128 Landmark Rewards SBI Card SELECT (landmark-rewards-sbi-select) ############
+rewardType=reward points  acceleratedShare={"online":0.2,"grocery":0.25}
+REWARD ROWS:
+  [partner merchants] rate=15 cap=null  «Landmark Stores (Lifestyle, Max, Home Centre, Spar, Babyshop, EasyBuy)»
+  [dining, international] rate=10 cap=null  «Dining, movie, and international spends»
+  [base] rate=2 cap=null  «Other eligible retail purchases»
+VALUED BENEFITS (point value Rs 99.00/unit):
+  [milestone annual >=300000] value=3000  «12,000 bonus Reward Points (worth Rs 3,000) on overall annua»
+  [joining] value=1500  «6,000 welcome bonus Reward Points worth Rs 1,500»
+ROUTING (spend category -> reward earning it):
+  online      -> partner merchants + base
+  grocery     -> partner merchants + base
+  base        -> base
+  travel      -> base
+  amazon      -> base
+  upi         -> base
+  utilities   -> base
+  dining      -> dining, international
+FLAGS:
+  ⚠ UNCAPPED HIGH RATE: row "partner merchants" rate 15 has no capMonthly — scales unbounded at high spend.
+  ⚠ UNCAPPED HIGH RATE: row "dining, international" rate 10 has no capMonthly — scales unbounded at high spend.
+
+############ #164 Landmark Rewards SBI Card (landmark-rewards-sbi) ############
+rewardType=reward points  acceleratedShare={"online":0.2,"grocery":0.25}
+REWARD ROWS:
+  [partner merchants] rate=10 cap=null  «Online and retail Landmark stores»
+  [dining] rate=5 cap=null  «Dining and movie spends»
+  [base] rate=1 cap=null  «Other retail purchases»
+VALUED BENEFITS (point value Rs 99.00/unit):
+  [milestone annual >=200000] value=2000  «8,000 bonus reward points on overall annual retail spends of»
+  [joining] value=500  «2,000 bonus reward points upon payment of joining fee»
+ROUTING (spend category -> reward earning it):
+  online      -> partner merchants + base
+  grocery     -> partner merchants + base
+  base        -> base
+  travel      -> base
+  amazon      -> base
+  upi         -> base
+  utilities   -> base
+  dining      -> dining
+FLAGS:
+  ⚠ UNCAPPED HIGH RATE: row "partner merchants" rate 10 has no capMonthly — scales unbounded at high spend.
+  ⚠ UNCAPPED HIGH RATE: row "dining" rate 5 has no capMonthly — scales unbounded at high spend.
+
+############ #72 PhonePe SBI Card PURPLE (phonepe-sbi-purple) ############
+rewardType=reward points  acceleratedShare=-
+REWARD ROWS:
+  [phonepe] rate=3 cap=1000  «Eligible PhonePe spends»
+  [online] rate=2 cap=1000  «Eligible online spends»
+  [upi] rate=1 cap=1000  «Scan & Pay using PhonePe»
+  [base] rate=1 cap=1000  «Other eligible spends»
+VALUED BENEFITS (point value Rs 3.00/unit):
+  [milestone annual >=300000] value=1500  «Yatra voucher worth Rs 3,000 on annual spends of Rs 3 lakh»
+  [joining] value=500  «PhonePe e-Gift Card worth Rs 500 after payment of annual fee»
+ROUTING (spend category -> reward earning it):
+  online      -> online
+  base        -> base
+  travel      -> base
+  dining      -> base
+  grocery     -> base
+  amazon      -> base
+  upi         -> upi
+  utilities   -> phonepe
+FLAGS: none
+
+############ #21 PhonePe SBI Card SELECT BLACK (phonepe-sbi-select-black) ############
+rewardType=reward points  acceleratedShare=-
+REWARD ROWS:
+  [phonepe] rate=10 cap=2000  «Eligible PhonePe spends»
+  [online] rate=5 cap=2000  «Eligible online spends»
+  [upi] rate=1 cap=2000  «Scan & Pay using PhonePe»
+  [base] rate=1 cap=2000  «Other eligible spends»
+VALUED BENEFITS (point value Rs 3.00/unit):
+  [milestone annual >=500000] value=2500  «Yatra e-Voucher worth Rs 5,000 on annual spends of Rs 5 lakh»
+  [joining] value=1500  «PhonePe e-Gift Card worth Rs 1,500 after payment of annual f»
+ROUTING (spend category -> reward earning it):
+  online      -> online
+  base        -> base
+  travel      -> base
+  dining      -> base
+  grocery     -> base
+  amazon      -> base
+  upi         -> upi
+  utilities   -> phonepe
+FLAGS: none
+
+############ #62 Reliance SBI Card PRIME (reliance-sbi-prime) ############
+rewardType=reward points  acceleratedShare={"online":0.25,"grocery":0.25}
+REWARD ROWS:
+  [partner merchants] rate=20 cap=null  «AJIO and JioMart online spends»
+  [partner merchants] rate=10 cap=null  «Other participating Reliance Retail stores spends»
+  [dining, travel, international] rate=5 cap=7500  «Dining, movies, entertainment, domestic airlines & international spend»
+  [base] rate=2 cap=null  «Other eligible retail purchases»
+VALUED BENEFITS (point value Rs 99.00/unit):
+  [milestone annual >=300000] value=4375  «Reliance Retail Vouchers worth Rs 8,750 on overall annual re»
+  [joining] value=3000  «Reliance Retail Voucher worth Rs 3,000»
+ROUTING (spend category -> reward earning it):
+  online      -> partner merchants + base
+  grocery     -> partner merchants + base
+  base        -> base
+  amazon      -> base
+  upi         -> base
+  utilities   -> base
+  travel      -> dining, travel, international
+  dining      -> dining, travel, international
+FLAGS:
+  ⚠ UNCAPPED HIGH RATE: row "partner merchants" rate 20 has no capMonthly — scales unbounded at high spend.
+  ⚠ UNCAPPED HIGH RATE: row "partner merchants" rate 10 has no capMonthly — scales unbounded at high spend.
+
+############ #160 Reliance SBI Card (reliance-sbi) ############
+rewardType=reward points  acceleratedShare={"online":0.25,"grocery":0.25}
+REWARD ROWS:
+  [partner merchants] rate=10 cap=null  «AJIO and JioMart online spends»
+  [partner merchants] rate=5 cap=null  «Other participating Reliance Retail stores»
+  [dining] rate=5 cap=5000  «Dining & movie spends»
+  [base] rate=1 cap=null  «Other eligible retail purchases»
+VALUED BENEFITS (point value Rs 99.00/unit):
+  [milestone annual >=25000] value=250  «Reliance Retail voucher worth Rs 500 on annual spends of Rs »
+  [milestone annual >=50000] value=375  «Reliance Retail voucher worth Rs 750 on annual spends of Rs »
+  [milestone annual >=80000] value=500  «Reliance Retail voucher worth Rs 1,000 on annual spends of R»
+  [joining] value=500  «Reliance Retail Voucher worth Rs 500»
+ROUTING (spend category -> reward earning it):
+  online      -> partner merchants + base
+  grocery     -> partner merchants + base
+  base        -> base
+  travel      -> base
+  amazon      -> base
+  upi         -> base
+  utilities   -> base
+  dining      -> dining
+FLAGS:
+  ⚠ UNCAPPED HIGH RATE: row "partner merchants" rate 10 has no capMonthly — scales unbounded at high spend.
+  ⚠ UNCAPPED HIGH RATE: row "partner merchants" rate 5 has no capMonthly — scales unbounded at high spend.
+
+############ #57 SBI Card ELITE (sbi-card-elite) ############
+rewardType=reward points  acceleratedShare=-
+REWARD ROWS:
+  [grocery, dining, entertainment] rate=10 cap=null  «Grocery, dining, movies, and departmental stores»
+  [base] rate=2 cap=null  «Other eligible spends»
+VALUED BENEFITS (point value Rs 60000.00/unit):
+  [milestone annual >=200000] value=2500  «10,000 bonus Reward Points on annual spends of Rs 2 lakh»
+  [milestone annual >=300000] value=2500  «10,000 bonus Reward Points on annual spends of Rs 3 lakh»
+  [milestone annual >=400000] value=2500  «10,000 bonus Reward Points on annual spends of Rs 4 lakh»
+  [milestone annual >=500000] value=5000  «20,000 bonus Reward Points on annual spends of Rs 5 lakh»
+  [joining] value=2500  «Welcome e-Gift Voucher worth Rs 5,000 from select brands suc»
+ROUTING (spend category -> reward earning it):
+  online      -> base
+  base        -> base
+  travel      -> base
+  amazon      -> base
+  upi         -> base
+  utilities   -> base
+  dining      -> grocery, dining, entertainment
+  grocery     -> grocery, dining, entertainment
+FLAGS:
+  ⚠ UNCAPPED HIGH RATE: row "grocery, dining, entertainment" rate 10 has no capMonthly — scales unbounded at high spend.
+
+############ #48 SBI Card MILES ELITE (sbi-card-miles-elite) ############
+rewardType=Travel Credits  acceleratedShare=-
+REWARD ROWS:
+  [travel] rate=3 cap=null  «Travel spends»
+  [base] rate=1 cap=null  «Other eligible spends»
+VALUED BENEFITS (point value Rs 2.00/unit):
+  [milestone annual >=1200000] value=20000  «20,000 bonus Travel Credits on annual spends of Rs 12 lakh»
+  [joining] value=1250  «5,000 Travel Credits on spends of Rs 1 lakh within 60 days o»
+ROUTING (spend category -> reward earning it):
+  online      -> base
+  base        -> base
+  dining      -> base
+  grocery     -> base
+  amazon      -> base
+  upi         -> base
+  travel      -> travel
+FLAGS: none
+
+############ #63 SBI Card MILES PRIME (sbi-card-miles-prime) ############
+rewardType=Travel Credits  acceleratedShare=-
+REWARD ROWS:
+  [travel] rate=2 cap=null  «Travel spends»
+  [base] rate=1 cap=null  «Other eligible spends»
+VALUED BENEFITS (point value Rs 2.00/unit):
+  [milestone annual >=800000] value=10000  «10,000 bonus Travel Credits on annual spends of Rs 8 lakh»
+  [joining] value=750  «3,000 Travel Credits on spends of Rs 60,000 within 60 days o»
+ROUTING (spend category -> reward earning it):
+  online      -> base
+  base        -> base
+  dining      -> base
+  grocery     -> base
+  amazon      -> base
+  upi         -> base
+  travel      -> travel
+FLAGS: none
+
+############ #151 SBI Card MILES (sbi-card-miles) ############
+rewardType=Travel Credits  acceleratedShare=-
+REWARD ROWS:
+  [travel] rate=1 cap=null  «Travel spends»
+  [base] rate=0.5 cap=null  «Other eligible spends»
+VALUED BENEFITS (point value Rs 2.00/unit):
+  [milestone annual >=500000] value=5000  «5,000 bonus Travel Credits on annual spends of Rs 5 lakh»
+  [joining] value=375  «1,500 Travel Credits on spends of Rs 30,000 within 60 days o»
+ROUTING (spend category -> reward earning it):
+  online      -> base
+  base        -> base
+  dining      -> base
+  grocery     -> base
+  amazon      -> base
+  upi         -> base
+  utilities   -> base
+  travel      -> travel
+FLAGS: none
+
+############ #42 SBI Card PRIME (sbi-card-prime) ############
+rewardType=reward points  acceleratedShare=-
+REWARD ROWS:
+  [utility bills] rate=20 cap=null  «utility standing instructions»
+  [grocery] rate=10 cap=null  «grocery and departmental stores»
+  [dining] rate=10 cap=null  «dining»
+  [entertainment] rate=10 cap=null  «movies»
+  [base] rate=2 cap=null  «other retail spends»
+VALUED BENEFITS (point value Rs 4000.00/unit):
+  [milestone quarterly >=50000] value=500  «Pizza Hut e-Gift Voucher worth Rs 1,000 on quarterly spends »
+  [milestone annual >=500000] value=3500  «E-Gift Voucher worth Rs 7,000 from Yatra.com or Pantaloons o»
+  [joining] value=1500  «Welcome e-Gift Voucher worth Rs 3,000 from select brands (in»
+  [renewal] value=3000  «If not waived, 12,000 bonus Reward Points are credited upon »
+ROUTING (spend category -> reward earning it):
+  online      -> base
+  base        -> base
+  travel      -> base
+  amazon      -> base
+  upi         -> base
+  dining      -> dining
+  grocery     -> grocery
+  utilities   -> utility bills
+FLAGS:
+  ⚠ UNCAPPED HIGH RATE: row "utility bills" rate 20 has no capMonthly — scales unbounded at high spend.
+  ⚠ UNCAPPED HIGH RATE: row "grocery" rate 10 has no capMonthly — scales unbounded at high spend.
+  ⚠ UNCAPPED HIGH RATE: row "dining" rate 10 has no capMonthly — scales unbounded at high spend.
+  ⚠ UNCAPPED HIGH RATE: row "entertainment" rate 10 has no capMonthly — scales unbounded at high spend.
+
+############ #170 SBI Card PULSE (sbi-card-pulse) ############
+rewardType=reward points  acceleratedShare={"online":0,"grocery":0}
+REWARD ROWS:
+  [partner merchants] rate=10 cap=null  «Chemist, pharmacy, sports, dining, and movies»
+  [base] rate=2 cap=null  «Other eligible spends»
+VALUED BENEFITS (point value Rs 4000.00/unit):
+  [milestone annual >=400000] value=750  «Rs 1,500 voucher on annual retail spends of Rs 4 lakh»
+  [joining] value=7999  «Noise ColorFit Pulse 4 Pro smart watch worth Rs 7,999 on pay»
+  [joining] value=0  «Complimentary 1-year Netmeds First membership subject to joi»
+  [renewal] value=0  «Complimentary 1-year FITPASS PRO membership on card renewal »
+ROUTING (spend category -> reward earning it):
+  online      -> base
+  base        -> base
+  travel      -> base
+  dining      -> base
+  grocery     -> base
+  amazon      -> base
+  upi         -> base
+  utilities   -> base
+FLAGS:
+  ⚠ UNCAPPED HIGH RATE: row "partner merchants" rate 10 has no capMonthly — scales unbounded at high spend.
+
+############ #74 SBI Cashback Credit Card (sbi-cashback) ############
+rewardType=cashback  acceleratedShare=-
+REWARD ROWS:
+  [online] rate=5 cap=2000  «Online spends»
+  [base] rate=1 cap=2000  «Offline spends»
+ROUTING (spend category -> reward earning it):
+  online      -> online
+  base        -> base
+  travel      -> base
+  dining      -> base
+  grocery     -> base
+  amazon      -> base
+  upi         -> base
+FLAGS: none
+
+############ #177 Shaurya SBI Card (shaurya-sbi) ############
+rewardType=reward points  acceleratedShare=-
+REWARD ROWS:
+  [dining] rate=5 cap=null  «Dining and movie spends»
+  [grocery] rate=5 cap=null  «CSD, departmental stores & grocery spends»
+  [base] rate=1 cap=null  «Other eligible retail purchases»
+VALUED BENEFITS (point value Rs 99.00/unit):
+  [joining] value=250  «1,000 Reward Points upon payment of joining fee»
+ROUTING (spend category -> reward earning it):
+  online      -> base
+  base        -> base
+  travel      -> base
+  amazon      -> base
+  upi         -> base
+  utilities   -> base
+  dining      -> dining
+  grocery     -> grocery
+FLAGS:
+  ⚠ UNCAPPED HIGH RATE: row "dining" rate 5 has no capMonthly — scales unbounded at high spend.
+  ⚠ UNCAPPED HIGH RATE: row "grocery" rate 5 has no capMonthly — scales unbounded at high spend.
+
+############ #116 Shaurya Select SBI Card (shaurya-select-sbi) ############
+rewardType=reward points  acceleratedShare=-
+REWARD ROWS:
+  [grocery, dining] rate=10 cap=null  «Canteen Stores Department (CSD) military canteens, dining, movies, dep»
+  [base] rate=2 cap=null  «Other eligible purchases»
+VALUED BENEFITS (point value Rs 99.00/unit):
+  [milestone quarterly >=50000] value=250  «Rs 500 Pizza Hut e-gift voucher on spends of Rs 50,000 in a »
+  [milestone annual >=500000] value=3500  «Rs 7,000 Yatra or Pantaloons e-gift voucher on annual spends»
+  [renewal] value=375  «1,500 renewal bonus Reward Points worth Rs 375»
+ROUTING (spend category -> reward earning it):
+  online      -> base
+  base        -> base
+  travel      -> base
+  amazon      -> base
+  upi         -> base
+  utilities   -> base
+  dining      -> grocery, dining
+  grocery     -> grocery, dining
+FLAGS:
+  ⚠ UNCAPPED HIGH RATE: row "grocery, dining" rate 10 has no capMonthly — scales unbounded at high spend.
+
+############ #133 SimplyCLICK SBI Card (simplyclick-sbi) ############
+rewardType=reward points  acceleratedShare={"online":0.25,"grocery":0}
+REWARD ROWS:
+  [partner merchants] rate=10 cap=null  «Exclusive online partners»
+  [online] rate=5 cap=null  «Other online spends»
+  [base] rate=1 cap=null  «Other eligible spends»
+VALUED BENEFITS (point value Rs 4000.00/unit):
+  [milestone annual >=100000] value=1000  «Cleartrip or Yatra e-voucher worth Rs 2,000 on annual online»
+  [milestone annual >=200000] value=1000  «Cleartrip or Yatra e-voucher worth Rs 2,000 on annual online»
+  [joining] value=250  «Amazon e-gift voucher worth Rs 500 on payment of joining fee»
+ROUTING (spend category -> reward earning it):
+  online      -> partner merchants + online
+  base        -> base
+  travel      -> base
+  dining      -> base
+  grocery     -> base
+  amazon      -> base
+  upi         -> base
+  utilities   -> base
+FLAGS:
+  ⚠ UNCAPPED HIGH RATE: row "partner merchants" rate 10 has no capMonthly — scales unbounded at high spend.
+  ⚠ UNCAPPED HIGH RATE: row "online" rate 5 has no capMonthly — scales unbounded at high spend.
+
+############ #173 SimplySAVE SBI Card (simplysave-sbi) ############
+rewardType=reward points  acceleratedShare=-
+REWARD ROWS:
+  [dining, grocery] rate=6.666666666666667 cap=null  «Dining, movies, grocery, and departmental store spends»
+  [base] rate=0.6666666666666666 cap=null  «Other eligible spends»
+VALUED BENEFITS (point value Rs 4000.00/unit):
+  [joining] value=500  «2,000 bonus Reward Points on spends of Rs 2,000 or more in f»
+ROUTING (spend category -> reward earning it):
+  online      -> base
+  base        -> base
+  travel      -> base
+  amazon      -> base
+  upi         -> base
+  utilities   -> base
+  dining      -> dining, grocery
+  grocery     -> dining, grocery
+FLAGS:
+  ⚠ UNCAPPED HIGH RATE: row "dining, grocery" rate 6.666666666666667 has no capMonthly — scales unbounded at high spend.
+
+############ #20 Tata Neu Infinity SBI Card (tata-neu-infinity-sbi) ############
+rewardType=NeuCoins  acceleratedShare={"online":0.25,"grocery":0.25}
+REWARD ROWS:
+  [partner merchants] rate=10 cap=null  «Select categories on Tata Neu App/Website»
+  [partner merchants] rate=5 cap=null  «Partner Tata brands and other Tata Neu spends»
+  [upi] rate=1.5 cap=500  «UPI spends on RuPay variant»
+  [base] rate=1.5 cap=null  «Other eligible spends»
+ROUTING (spend category -> reward earning it):
+  online      -> partner merchants + base
+  grocery     -> partner merchants + base
+  base        -> base
+  travel      -> base
+  dining      -> base
+  amazon      -> base
+  utilities   -> base
+  upi         -> upi
+FLAGS:
+  ⚠ UNCAPPED HIGH RATE: row "partner merchants" rate 10 has no capMonthly — scales unbounded at high spend.
+  ⚠ UNCAPPED HIGH RATE: row "partner merchants" rate 5 has no capMonthly — scales unbounded at high spend.
+
+############ #77 Tata Neu Plus SBI Card (tata-neu-plus-sbi) ############
+rewardType=NeuCoins  acceleratedShare={"online":0.25,"grocery":0.25}
+REWARD ROWS:
+  [partner merchants] rate=7 cap=null  «Select categories on Tata Neu App/Website»
+  [partner merchants] rate=2 cap=null  «Partner Tata brands and other Tata Neu spends»
+  [upi] rate=1 cap=500  «UPI spends on RuPay variant»
+  [base] rate=1 cap=null  «Other eligible spends»
+VALUED BENEFITS (point value Rs 1.00/unit):
+  [joining] value=499  «499 NeuCoins as welcome benefit within 15 days of joining fe»
+ROUTING (spend category -> reward earning it):
+  online      -> partner merchants + base
+  grocery     -> partner merchants + base
+  base        -> base
+  travel      -> base
+  dining      -> base
+  amazon      -> base
+  utilities   -> base
+  upi         -> upi
+FLAGS:
+  ⚠ UNCAPPED HIGH RATE: row "partner merchants" rate 7 has no capMonthly — scales unbounded at high spend.
+
+############ #23 Titan SBI Card (titan-sbi) ############
+rewardType=cashback and reward points  acceleratedShare={"online":0.25,"grocery":0}
+REWARD ROWS:
+  [partner merchants] rate=7.5 cap=null  «World of Titan, Taneira, Titan Eye+, Helios, Fastrack, Skinn, Irth, an»
+  [partner merchants] rate=5 cap=null  «Mia, CaratLane, and Zoya»
+  [partner merchants] rate=3 cap=null  «Tanishq»
+  [base] rate=6 cap=null  «Other eligible spends»
+VALUED BENEFITS (point value Rs 1.00/unit):
+  [milestone annual >=500000] value=2500  «Additional gift voucher worth Rs 5,000 on annual spends of R»
+  [milestone annual >=1000000] value=5000  «Additional gift voucher worth Rs 10,000 on annual spends of »
+  [joining] value=6000  «12,000 Reward Points worth Rs 3,000 on payment of annual fee»
+ROUTING (spend category -> reward earning it):
+  online      -> partner merchants + base
+  base        -> base
+  travel      -> base
+  dining      -> base
+  grocery     -> base
+  amazon      -> base
+  upi         -> base
+  utilities   -> base
+FLAGS:
+  ⚠ UNCAPPED HIGH RATE: row "partner merchants" rate 7.5 has no capMonthly — scales unbounded at high spend.
+  ⚠ UNCAPPED HIGH RATE: row "partner merchants" rate 5 has no capMonthly — scales unbounded at high spend.
+
+############ #114 Paisabazaar Paisa+ Credit Card (sbm-paisabazaar-paisa-plus) ############
+rewardType=cashback  acceleratedShare=-
+REWARD ROWS:
+  [online] rate=1.5 cap=3000  «Online spends»
+  [base] rate=1 cap=3000  «Offline retail spends»
+  [upi] rate=1 cap=3000  «UPI spends»
+ROUTING (spend category -> reward earning it):
+  online      -> online
+  base        -> base
+  travel      -> base
+  dining      -> base
+  grocery     -> base
+  amazon      -> base
+  upi         -> upi
+FLAGS: none
+
+############ #44 Standard Chartered Beyond Credit Card (sc-beyond) ############
+rewardType=360° Rewards points  acceleratedShare=-
+REWARD ROWS:
+  [base] rate=3.3333333333333335 cap=null  «Other retail spends»
+  [utilities, insurance, government, education, grocery] rate=2 cap=null  «Utility, insurance, grocery, school, property management and governmen»
+ROUTING (spend category -> reward earning it):
+  online      -> base
+  base        -> base
+  travel      -> base
+  dining      -> base
+  amazon      -> base
+  upi         -> base
+  grocery     -> utilities, insurance, government, education, grocery
+  utilities   -> utilities, insurance, government, education, grocery
+FLAGS: none
+
+############ #195 Standard Chartered DigiSmart Credit Card (sc-digismart) ############
+rewardType=offer-led savings  acceleratedShare=-
+REWARD ROWS:
+  [online] rate=0 cap=null  «Partner discount offers»
+ROUTING (spend category -> reward earning it):
+FLAGS:
+  ⚠ OVER-BROAD: row "online" (rate 0) is actually narrow — «Partner discount offers». All "online" spend earns it; consider a narrow category + acceleratedShare.
+
+############ #136 Standard Chartered EaseMyTrip Credit Card (sc-easemytrip) ############
+rewardType=360° Rewards points and instant discounts  acceleratedShare=-
+REWARD ROWS:
+  [travel] rate=10 cap=null  «Standalone hotel and airline spends»
+  [base] rate=2 cap=null  «Other retail spends»
+ROUTING (spend category -> reward earning it):
+  online      -> base
+  base        -> base
+  dining      -> base
+  grocery     -> base
+  fuel        -> base
+  amazon      -> base
+  upi         -> base
+  utilities   -> base
+  travel      -> travel
+FLAGS:
+  ⚠ UNCAPPED HIGH RATE: row "travel" rate 10 has no capMonthly — scales unbounded at high spend.
+
+############ #131 Standard Chartered Manhattan Platinum Credit Card (sc-manhattan-platinum) ############
+rewardType=cashback and reward points  acceleratedShare=-
+REWARD ROWS:
+  [grocery] rate=5 cap=500  «Supermarket & Departmental store spends (min transaction Rs 1,000)»
+  [base] rate=2 cap=null  «Other retail spends»
+ROUTING (spend category -> reward earning it):
+  online      -> base
+  base        -> base
+  travel      -> base
+  dining      -> base
+  fuel        -> base
+  amazon      -> base
+  upi         -> base
+  utilities   -> base
+  grocery     -> grocery
+FLAGS: none
+
+############ #168 Standard Chartered Platinum Rewards Credit Card (sc-platinum-rewards) ############
+rewardType=360° Rewards points  acceleratedShare=-
+REWARD ROWS:
+  [fuel] rate=3.3333333333333335 cap=null  «Fuel spends»
+  [dining] rate=3.3333333333333335 cap=null  «Dining spends at fine-dining outlets»
+  [base] rate=0.6666666666666666 cap=null  «Other retail spends»
+ROUTING (spend category -> reward earning it):
+  online      -> base
+  base        -> base
+  travel      -> base
+  grocery     -> base
+  amazon      -> base
+  upi         -> base
+  utilities   -> base
+  dining      -> dining
+  fuel        -> fuel
+FLAGS: none
+
+############ #107 Standard Chartered Priority Visa Infinite Credit Card (sc-priority-visa-infinite) ############
+rewardType=360° Rewards points  acceleratedShare=-
+REWARD ROWS:
+  [travel] rate=5 cap=null  «International and retail fashion spends»
+  [base] rate=2 cap=null  «Other retail spends»
+ROUTING (spend category -> reward earning it):
+  online      -> base
+  base        -> base
+  dining      -> base
+  grocery     -> base
+  fuel        -> base
+  amazon      -> base
+  upi         -> base
+  utilities   -> base
+  travel      -> travel
+FLAGS:
+  ⚠ UNCAPPED HIGH RATE: row "travel" rate 5 has no capMonthly — scales unbounded at high spend.
+
+############ #162 Standard Chartered Rewards Credit Card (sc-rewards) ############
+rewardType=360° Rewards points  acceleratedShare=-
+REWARD ROWS:
+  [base] rate=2.6666666666666665 cap=null  «Retail spends (up to Rs 20,000 per month)»
+  [base] rate=5.333333333333333 cap=2000  «Incremental retail spends above Rs 20,000 per month»
+  [government, insurance] rate=0.6666666666666666 cap=null  «Government and insurance spends»
+ROUTING (spend category -> reward earning it):
+  online      -> base
+  base        -> base
+  travel      -> base
+  dining      -> base
+  grocery     -> base
+  amazon      -> base
+  upi         -> base
+  utilities   -> base
+FLAGS: none
+
+############ #124 Standard Chartered Smart Credit Card (sc-smart) ############
+rewardType=cashback  acceleratedShare=-
+REWARD ROWS:
+  [online] rate=2 cap=1000  «Online retail spends (excl. fuel)»
+  [base] rate=1 cap=500  «Other eligible retail spends (excl. fuel)»
+ROUTING (spend category -> reward earning it):
+  online      -> online
+  base        -> base
+  travel      -> base
+  dining      -> base
+  grocery     -> base
+  amazon      -> base
+  upi         -> base
+  utilities   -> base
+FLAGS: none
+
+############ #190 Standard Chartered Super Value Titanium Credit Card (sc-super-value-titanium) ############
+rewardType=cashback and reward points  acceleratedShare=-
+REWARD ROWS:
+  [fuel] rate=5 cap=200  «Fuel spends (max transaction Rs 2,000)»
+  [utilities] rate=5 cap=200  «Telephone & mobile bills (min transaction Rs 750 via BillPay)»
+  [utilities] rate=5 cap=100  «Other utility bills (min transaction Rs 750 via BillPay)»
+  [base] rate=0.6666666666666666 cap=null  «Other retail spends»
+ROUTING (spend category -> reward earning it):
+  online      -> base
+  base        -> base
+  travel      -> base
+  dining      -> base
+  grocery     -> base
+  amazon      -> base
+  upi         -> base
+  utilities   -> utilities
+FLAGS: none
+
+############ #14 Standard Chartered Ultimate Credit Card (sc-ultimate) ############
+rewardType=360° Rewards points  acceleratedShare=-
+REWARD ROWS:
+  [base] rate=3.3333333333333335 cap=null  «General retail spends (excl. fuel and capped categories)»
+  [utilities, grocery, insurance, rent, education, government] rate=2 cap=null  «Utility, supermarket, insurance, rent, school fees, and government spe»
+ROUTING (spend category -> reward earning it):
+  online      -> base
+  base        -> base
+  travel      -> base
+  dining      -> base
+  amazon      -> base
+  upi         -> base
+  grocery     -> utilities, grocery, insurance, rent, education, government
+  utilities   -> utilities, grocery, insurance, rent, education, government
+FLAGS: none
+
+############ #140 YES BANK ACE Credit Card (yes-ace) ############
+rewardType=YES Rewardz points  acceleratedShare=-
+REWARD ROWS:
+  [online] rate=4 cap=5000  «Online shopping»
+  [base] rate=2 cap=null  «Other retail spends»
+  [utilities] rate=1 cap=600  «Select categories (utilities, insurance, education, telecom)»
+ROUTING (spend category -> reward earning it):
+  online      -> online
+  base        -> base
+  travel      -> base
+  dining      -> base
+  grocery     -> base
+  amazon      -> base
+  upi         -> base
+  utilities   -> utilities
+FLAGS: none
+
+############ YES BANK Anq Phi Credit Card (yes-anq-phi) ############
+rewardType=YES Rewardz points  acceleratedShare=-
+REWARD ROWS:
+  [travel] rate=12 cap=null  «Travel and hotels»
+  [dining] rate=12 cap=null  «Dining»
+  [grocery] rate=12 cap=null  «Groceries and supermarkets»
+  [online] rate=12 cap=null  «Apparel, online entertainment, OTT, and digital goods»
+  [base] rate=2 cap=null  «Other retail spends»
+FLAGS:
+  ⚠ UNCAPPED HIGH RATE: row "travel" rate 12 has no capMonthly — scales unbounded at high spend.
+  ⚠ UNCAPPED HIGH RATE: row "dining" rate 12 has no capMonthly — scales unbounded at high spend.
+  ⚠ UNCAPPED HIGH RATE: row "grocery" rate 12 has no capMonthly — scales unbounded at high spend.
+  ⚠ UNCAPPED HIGH RATE: row "online" rate 12 has no capMonthly — scales unbounded at high spend.
+
+############ #80 YES BANK ELITE+ Credit Card (yes-elite-plus) ############
+rewardType=YES Rewardz points  acceleratedShare=-
+REWARD ROWS:
+  [online] rate=6 cap=3000  «Online shopping»
+  [base] rate=3 cap=null  «Other retail spends»
+  [utilities] rate=2 cap=1200  «Select categories (utilities, insurance, education, telecom)»
+ROUTING (spend category -> reward earning it):
+  online      -> online
+  base        -> base
+  travel      -> base
+  dining      -> base
+  grocery     -> base
+  amazon      -> base
+  upi         -> base
+  utilities   -> utilities
+FLAGS: none
+
+############ #56 YES First Preferred Credit Card (yes-first-preferred) ############
+rewardType=YES Rewardz points  acceleratedShare=-
+REWARD ROWS:
+  [travel] rate=8 cap=3000  «Travel spends»
+  [dining] rate=8 cap=3000  «Dining spends»
+  [base] rate=4 cap=null  «Other retail spends»
+  [utilities] rate=2 cap=null  «Select categories (utilities, grocery, insurance, government/taxes)»
+VALUED BENEFITS (point value Rs 0.25/unit):
+  [milestone annual >=750000] value=5000  «20,000 bonus YES Rewardz points on annual spends of Rs 7.5 L»
+ROUTING (spend category -> reward earning it):
+  online      -> base
+  base        -> base
+  grocery     -> base
+  amazon      -> base
+  upi         -> base
+  travel      -> travel
+  dining      -> dining
+  utilities   -> utilities
+FLAGS: none
+
+############ #64 YES Bank Kiwi Credit Card (yes-kiwi) ############
+rewardType=cashback and reward points  acceleratedShare=-
+REWARD ROWS:
+  [upi] rate=1.5 cap=null  «Eligible UPI spends via Kiwi»
+ROUTING (spend category -> reward earning it):
+  online      -> upi
+  base        -> upi
+  travel      -> upi
+  dining      -> upi
+  grocery     -> upi
+  amazon      -> upi
+  upi         -> upi
+FLAGS: none
+
+############ #178 YES BANK Klick RuPay Credit Card (yes-klick-rupay) ############
+rewardType=YES Rewardz points  acceleratedShare=-
+REWARD ROWS:
+  [upi] rate=2 cap=null  «UPI transactions above Rs 2,000»
+  [base] rate=1 cap=null  «Other retail spends»
+ROUTING (spend category -> reward earning it):
+  online      -> upi
+  base        -> upi
+  travel      -> upi
+  dining      -> upi
+  grocery     -> upi
+  amazon      -> upi
+  upi         -> upi
+FLAGS: none
+
+############ #11 YES BANK MARQUEE Credit Card (yes-marquee) ############
+rewardType=YES Rewardz points  acceleratedShare=-
+REWARD ROWS:
+  [online] rate=18 cap=100000  «Online spends»
+  [base] rate=9 cap=100000  «Other retail spends»
+  [utilities] rate=5 cap=1250  «Select categories (utilities, insurance, education, telecom)»
+ROUTING (spend category -> reward earning it):
+  online      -> online
+  base        -> base
+  travel      -> base
+  dining      -> base
+  grocery     -> base
+  amazon      -> base
+  upi         -> base
+  utilities   -> utilities
+FLAGS: none
+
+############ #83 YES BANK Paisabazaar PaisaSave RuPay Credit Card (yes-paisabazaar-paisasave-rupay) ############
+rewardType=cashback as YES Rewardz points  acceleratedShare=-
+REWARD ROWS:
+  [upi] rate=1 cap=null  «UPI scan & pay spends»
+ROUTING (spend category -> reward earning it):
+  online      -> upi
+  base        -> upi
+  travel      -> upi
+  dining      -> upi
+  grocery     -> upi
+  amazon      -> upi
+  upi         -> upi
+  utilities   -> upi
+FLAGS: none
+
+############ #33 YES BANK Paisabazaar PaisaSave Credit Card (yes-paisabazaar-paisasave) ############
+rewardType=cashback as YES Rewardz points  acceleratedShare=-
+REWARD ROWS:
+  [travel] rate=6 cap=3000  «Travel spends»
+  [dining] rate=6 cap=3000  «Dining spends»
+  [base] rate=1 cap=null  «Other retail spends»
+ROUTING (spend category -> reward earning it):
+  online      -> base
+  base        -> base
+  grocery     -> base
+  amazon      -> base
+  upi         -> base
+  travel      -> travel
+  dining      -> dining
+FLAGS: none
+
+############ #47 YES BANK POP-CLUB Credit Card (yes-pop-club) ############
+rewardType=POPcoins  acceleratedShare=-
+REWARD ROWS:
+  [online] rate=10 cap=null  «Online spends»
+  [upi] rate=7 cap=null  «UPI scans via POP UPI App»
+  [base] rate=2 cap=null  «Other UPI and offline retail spends»
+VALUED BENEFITS (point value Rs 0.25/unit):
+  [milestone annual >=150000] value=1500  «1,500 bonus POPcoins on annual spends of Rs 1.5 Lakh»
+ROUTING (spend category -> reward earning it):
+  online      -> online
+  base        -> upi
+  travel      -> upi
+  dining      -> upi
+  grocery     -> upi
+  amazon      -> upi
+  upi         -> upi
+FLAGS:
+  ⚠ UNCAPPED HIGH RATE: row "online" rate 10 has no capMonthly — scales unbounded at high spend.
+  ⚠ UNCAPPED HIGH RATE: row "upi" rate 7 has no capMonthly — scales unbounded at high spend.
+
+############ #27 YES BANK RESERV Credit Card (yes-reserv) ############
+rewardType=YES Rewardz points  acceleratedShare=-
+REWARD ROWS:
+  [online] rate=12 cap=9000  «Online spends»
+  [base] rate=6 cap=null  «Other retail spends»
+  [utilities] rate=3 cap=750  «Select categories (utilities, insurance, education, telecom)»
+ROUTING (spend category -> reward earning it):
+  online      -> online
+  base        -> base
+  travel      -> base
+  dining      -> base
+  grocery     -> base
+  amazon      -> base
+  upi         -> base
+  utilities   -> utilities
+FLAGS: none
+
+############ #95 YES BANK SELECT Credit Card (yes-select) ############
+rewardType=YES Rewardz points  acceleratedShare=-
+REWARD ROWS:
+  [online] rate=4 cap=1250  «Online spends»
+  [base] rate=2 cap=null  «Other retail spends»
+  [utilities] rate=1 cap=150  «Select categories (utilities, insurance, education, telecom)»
+VALUED BENEFITS (point value Rs 0.25/unit):
+  [milestone annual >=600000] value=3750  «15,000 bonus Reward Points on annual spends of Rs 6 Lakh»
+ROUTING (spend category -> reward earning it):
+  online      -> online
+  base        -> base
+  travel      -> base
+  dining      -> base
+  grocery     -> base
+  amazon      -> base
+  upi         -> base
+  utilities   -> utilities
+FLAGS: none
+
+Audited 209 card(s).

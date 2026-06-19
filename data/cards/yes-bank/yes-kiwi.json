@@ -80,6 +80,29 @@
     "telecom",
     "education"
   ],
+  "milestones": [
+    {
+      "threshold": 50000,
+      "period": "annual",
+      "value": 500,
+      "kind": "cashback",
+      "label": "Kiwi Neon milestone: 3% cashback on eligible yearly Kiwi App spends of Rs 50,000 + 1 lounge access"
+    },
+    {
+      "threshold": 100000,
+      "period": "annual",
+      "value": 1500,
+      "kind": "cashback",
+      "label": "Kiwi Neon milestone: 4% cashback on eligible yearly Kiwi App spends of Rs 1,00,000 + 1 lounge access"
+    },
+    {
+      "threshold": 150000,
+      "period": "annual",
+      "value": 2500,
+      "kind": "cashback",
+      "label": "Kiwi Neon milestone: 5% cashback on eligible yearly Kiwi App spends of Rs 1,50,000 + 1 lounge access"
+    }
+  ],
   "milestoneBenefits": [
     "Kiwi Neon milestone: 3% cashback on eligible yearly Kiwi App spends of Rs 50,000 + 1 lounge access",
     "Kiwi Neon milestone: 4% cashback on eligible yearly Kiwi App spends of Rs 1,00,000 + 1 lounge access",

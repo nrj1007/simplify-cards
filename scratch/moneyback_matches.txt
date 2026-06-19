@@ -1,0 +1,1742 @@
+[
+  {
+    "lineNum": 141,
+    "text": "\"annualPercentageRate\": \"23.88% to 43.2%*\","
+  },
+  {
+    "lineNum": 142,
+    "text": "\"feesAndCommissionsSpecification\": \"https://www.hdfcbank.com/credit-cards/moneyback-plus-credit-card\""
+  },
+  {
+    "lineNum": 159,
+    "text": "{\"@context\":\"http://schema.org\",\"@type\":\"WebPage\",\"name\":\"Apply for MoneyBack Plus Credit Card Online | HDFC Bank\",\"url\":\"https://www.hdfc.bank.in/credit-cards/moneyback-plus-credit-card\",\"description\":\"Discover the features of HDFC Bank MoneyBack Plus Credit Card. Earn accelerated rewards on your spending & enjoy multiple benefits with this premium rewards card.\",\"publisher\":{\"@type\":\"Organization\",\"name\":\"HDFC Bank\",\"url\":\"https://www.hdfc.bank.in/\"}}"
+  },
+  {
+    "lineNum": 162,
+    "text": "{\"@context\":\"http://schema.org/\",\"@type\":\"LoanOrCredit\",\"logo\":{\"@type\":\"ImageObject\",\"contentUrl\":\"https://www.hdfc.bank.in/content/dam/hdfcbankpws/home-page/hdfc-bank-logo.svg\",\"copyrightYear\":2026},\"provider\":\"HDFC Bank Ltd.\",\"serviceArea\":\"India\",\"description\":\"Discover the features of HDFC Bank MoneyBack Plus Credit Card. Earn accelerated rewards on your spending & enjoy multiple benefits with this premium rewards card.\",\"mainEntityOfPage\":\"https://www.hdfc.bank.in/credit-cards/moneyback-plus-credit-card\",\"name\":\"Apply for MoneyBack Plus Credit Card Online | HDFC Bank\",\"potentialAction\":{\"@type\":\"Action\",\"description\":\"Discover the features of HDFC Bank MoneyBack Plus Credit Card. Earn accelerated rewards on your spending & enjoy multiple benefits with this premium rewards card.\",\"mainEntityOfPage\":\"https://www.hdfc.bank.in/credit-cards/moneyback-plus-credit-card\",\"name\":\"Apply Online\"},\"availableChannel\":[\"Internet\",\"In Branch\"]}"
+  },
+  {
+    "lineNum": 165,
+    "text": "{\"@context\":\"http://schema.org\",\"@type\":\"FinancialProduct\",\"name\":\"Apply for MoneyBack Plus Credit Card Online | HDFC Bank\",\"url\":\"https://www.hdfc.bank.in/credit-cards/moneyback-plus-credit-card\",\"mainEntityOfPage\":{\"@type\":\"WebPage\",\"@id\":\"https://www.hdfc.bank.in/credit-cards/moneyback-plus-credit-card\"},\"broker\":{\"@type\":\"Organization\",\"name\":\"HDFC Bank\",\"url\":\"https://www.hdfc.bank.in/credit-cards/moneyback-plus-credit-card\",\"logo\":\"https://www.hdfc.bank.in/content/dam/hdfcbankpws/home-page/hdfc-bank-logo.svg\"},\"description\":\"Discover the features of HDFC Bank MoneyBack Plus Credit Card. Earn accelerated rewards on your spending & enjoy multiple benefits with this premium rewards card.\"}"
+  },
+  {
+    "lineNum": 256,
+    "text": "var nv = nv || function () { (window.nv.q = window.nv.q || []).push(arguments) }; nv.l = new Date; var notify_visitors = notify_visitors || function () { var t = { initialize: !1, ab_overlay: !1, async: !0, on_load: !1, auth: { bid_e: \"41AB636116009089E43B5F284A9B5FDD\", bid: \"9072\", t: \"420\" } }; return t.data = { bid_e: t.auth.bid_e, bid: t.auth.bid, t: t.auth.t, iFrame: window !== window.parent, trafficSource: document.referrer, link_referrer: document.referrer, pageUrl: document.location, path: location.pathname, domain: location.origin, gmOffset: 60 * (new Date).getTimezoneOffset() * -1, screenWidth: screen.width, screenHeight: screen.height, isPwa: window.matchMedia && window.matchMedia(\"(display-mode: standalone)\").matches ? 1 : 0 }, t.options = function (e) { if (t._option = { ab_overlay: !1, async: !0, on_load: !1, cookie_domain: null }, e && \"object\" == typeof e) for (var n in t._option) void 0 !== e[n] && (t[n] = e[n]); else console.log(\"Not a valid option\") }, t.tokens = function (e) { t.data.tokens = e && \"object\" == typeof e ? JSON.stringify(e) : \"\" }, t.ruleData = function (e) { t.data.ruleData = e && \"object\" == typeof e ? JSON.stringify(e) : \"\" }, t.cookies = function (e) { t.data.cookies = e && (Array.isArray(e) || \"all\" === e) ? e : [] }, t.getParams = function (e) { var url = window.location.href.toLowerCase(), e = e.replace(/[\\[\\]]/g, \"\\\\$&\").toLowerCase(); var t = new RegExp(\"[?&]\" + e + \"(=([^&#]*)|&|#|$)\").exec(url); return t && t[2] ? decodeURIComponent(t[2].replace(/\\+/g, \" \")) : \"\" }, t.init = function () { if (\"complete\" != document.readyState && t.on_load) { if (window.addEventListener) window.addEventListener(\"load\", t._init); else if (window.attachEvent) return window.attachEvent(\"onload\", t._init) } else t._init() }, t._init = function () { if (t.auth && !t.initialize && (t.data.storage = t.browserStorage(), t.data.cookieData = t.filterCookies(t.data.cookies), t.cookie_domain && (t.data.cookieDomain = t.cookie_domain), t.js_callback = \"nv_json1\", !t.data.iFrame && \"noapi\" !== t.getParams(\"nvcheck\"))) { var n = \"?\"; if (t.ab_overlay) { var o = document.createElement(\"style\"), i = \"body{opacity:0 !important;filter:alpha(opacity=0) !important;background:none !important;}\", a = document.getElementsByTagName(\"head\")[0]; o.setAttribute(\"id\", \"_nv_hm_hidden_element\"), o.setAttribute(\"type\", \"text/css\"), o.styleSheet ? o.styleSheet.cssText = i : o.appendChild(document.createTextNode(i)), a.appendChild(o), setTimeout(function () { var t = this.document.getElementById(\"_nv_hm_hidden_element\"); if (t) try { t.parentNode.removeChild(e) } catch (e) { t.remove() } }, 2e3) } for (var r in t.data) t.data.hasOwnProperty(r) && (n += encodeURIComponent(r) + \"=\" + encodeURIComponent(t.data[r]) + \"&\"); t.load(\"https://ext-api.notifyvisitors.com/ext/v1/settings\" + n), t.initialize = !0 } }, t.browserStorage = function () { var e = { session: t.storage(\"sessionStorage\"), local: t.storage(\"localStorage\") }; return JSON.stringify(e) }, t.storage = function (e) { var t = {}; return window[e] && window[e].length > 0 && Object.keys(window[e]).forEach(function (n) { -1 !== n.indexOf(\"_nv_\") && (t[n] = window[e][n]) }), t }, t.filterCookies = function (e) { e = e || []; var t = []; if (document && document.cookie) { var n = document.cookie.split(\";\"); \"all\" === e && (t = n), Array.isArray(e) && n && n.length > 0 && (t = n.filter(function (t) { var n = t.trim().split(\"=\")[0]; return -1 !== e.indexOf(n) || 0 === n.indexOf(\"_nv_\") })) } return t.join(\";\") }, t.load = function (e) { var n = document, o = n.createElement(\"script\"); o.type = \"text/javascript\", o.async = t.async, o.src = e, n.body ? n.body.appendChild(o) : n.head.appendChild(o) }, t }(); notify_visitors.options({ ab_overlay: false, on_load: false }); notify_visitors.init();"
+  },
+  {
+    "lineNum": 290,
+    "text": "cursor: pointer;"
+  },
+  {
+    "lineNum": 762,
+    "text": "Kids Advantage"
+  },
+  {
+    "lineNum": 813,
+    "text": "Rewarding account for our Home Loan customers"
+  },
+  {
+    "lineNum": 970,
+    "text": "Add/Modify Nominee"
+  },
+  {
+    "lineNum": 973,
+    "text": "Change Mobile Number"
+  },
+  {
+    "lineNum": 976,
+    "text": "Apply For Cheque book"
+  },
+  {
+    "lineNum": 982,
+    "text": "Update Email ID"
+  },
+  {
+    "lineNum": 985,
+    "text": "Account Transfer"
+  },
+  {
+    "lineNum": 991,
+    "text": "Aadhaar Seeding"
+  },
+  {
+    "lineNum": 994,
+    "text": "DigiPassBook"
+  },
+  {
+    "lineNum": 1407,
+    "text": "Address Change"
+  },
+  {
+    "lineNum": 1410,
+    "text": "Add/Modify Nominee"
+  },
+  {
+    "lineNum": 1413,
+    "text": "Change Mobile Number"
+  },
+  {
+    "lineNum": 1416,
+    "text": "Apply For Cheque book"
+  },
+  {
+    "lineNum": 1422,
+    "text": "Update Email ID"
+  },
+  {
+    "lineNum": 1425,
+    "text": "Account Transfer"
+  },
+  {
+    "lineNum": 1428,
+    "text": "Safe Deposit Locker"
+  },
+  {
+    "lineNum": 1431,
+    "text": "Aadhaar Seeding"
+  },
+  {
+    "lineNum": 1582,
+    "text": "Address Change"
+  },
+  {
+    "lineNum": 1585,
+    "text": "Add/Modify Nominee"
+  },
+  {
+    "lineNum": 1588,
+    "text": "Change Mobile Number"
+  },
+  {
+    "lineNum": 1591,
+    "text": "Apply For Cheque book"
+  },
+  {
+    "lineNum": 1597,
+    "text": "Update Email ID"
+  },
+  {
+    "lineNum": 1600,
+    "text": "Account Transfer"
+  },
+  {
+    "lineNum": 1603,
+    "text": "Safe Deposit Locker Services"
+  },
+  {
+    "lineNum": 1606,
+    "text": "Aadhaar Seeding"
+  },
+  {
+    "lineNum": 1670,
+    "text": "Address Change"
+  },
+  {
+    "lineNum": 1673,
+    "text": "Add/Modify Nominee"
+  },
+  {
+    "lineNum": 1676,
+    "text": "Change Mobile Number"
+  },
+  {
+    "lineNum": 1679,
+    "text": "Apply For Cheque book"
+  },
+  {
+    "lineNum": 1685,
+    "text": "Update Email ID"
+  },
+  {
+    "lineNum": 1688,
+    "text": "Account Transfer"
+  },
+  {
+    "lineNum": 1691,
+    "text": "Safe Deposit Locker Services"
+  },
+  {
+    "lineNum": 1694,
+    "text": "Aadhaar Seeding"
+  },
+  {
+    "lineNum": 1840,
+    "text": "Add/Modify Nominee"
+  },
+  {
+    "lineNum": 1843,
+    "text": "Break Fixed Deposit"
+  },
+  {
+    "lineNum": 1849,
+    "text": "Comprehensive Deposit Policy"
+  },
+  {
+    "lineNum": 1852,
+    "text": "Erstwhile HDFC Ltd Deposits"
+  },
+  {
+    "lineNum": 1890,
+    "text": "Recurring Deposits Eligibility"
+  },
+  {
+    "lineNum": 1913,
+    "text": "My Passion Fund"
+  },
+  {
+    "lineNum": 1950,
+    "text": "Deposit Locker Eligibility"
+  },
+  {
+    "lineNum": 1959,
+    "text": "Deposit Locker Fees &amp; Charges"
+  },
+  {
+    "lineNum": 2045,
+    "text": "Everyday Rewards 5"
+  },
+  {
+    "lineNum": 2100,
+    "text": "Rewarding Credit Card For Everyday Spends"
+  },
+  {
+    "lineNum": 2277,
+    "text": "Extraordinary Rewards. Ready for You."
+  },
+  {
+    "lineNum": 2292,
+    "text": "Extraordinary Rewards. Ready for You."
+  },
+  {
+    "lineNum": 2305,
+    "text": "Swiggy HDFC Bank Credit Card"
+  },
+  {
+    "lineNum": 2307,
+    "text": "Delightful Rewards. Ready For You"
+  },
+  {
+    "lineNum": 2320,
+    "text": "Swiggy Ornge HDFC Bank Credit Card"
+  },
+  {
+    "lineNum": 2322,
+    "text": "Rewards that keep up with your appetite, everywhere"
+  },
+  {
+    "lineNum": 2335,
+    "text": "Swiggy BLCK HDFC Bank Credit Card"
+  },
+  {
+    "lineNum": 2408,
+    "text": "Block My Credit Card"
+  },
+  {
+    "lineNum": 2411,
+    "text": "Activate your Credit Card"
+  },
+  {
+    "lineNum": 2414,
+    "text": "Forgot Pin?"
+  },
+  {
+    "lineNum": 2417,
+    "text": "Track Your Application Status"
+  },
+  {
+    "lineNum": 2420,
+    "text": "Set Your Card Control"
+  },
+  {
+    "lineNum": 2423,
+    "text": "Claim Your Rewards Points"
+  },
+  {
+    "lineNum": 2426,
+    "text": "Enhance Your Credit Limit"
+  },
+  {
+    "lineNum": 2429,
+    "text": "Manage Your Credit Card"
+  },
+  {
+    "lineNum": 2577,
+    "text": "Flipkart Wholesale HDFC Bank Credit Card"
+  },
+  {
+    "lineNum": 2646,
+    "text": "Forgot Credit Card Pin?"
+  },
+  {
+    "lineNum": 2649,
+    "text": "Track Credit Card"
+  },
+  {
+    "lineNum": 2652,
+    "text": "Credit Card Activation"
+  },
+  {
+    "lineNum": 2655,
+    "text": "Block Lost/Stolen Card"
+  },
+  {
+    "lineNum": 2734,
+    "text": "Womans Advantage Debit Card"
+  },
+  {
+    "lineNum": 2755,
+    "text": "Times points debit card"
+  },
+  {
+    "lineNum": 2801,
+    "text": "Block Your Debit Card Instantly"
+  },
+  {
+    "lineNum": 2804,
+    "text": "Forgot your Debit Card PIN?"
+  },
+  {
+    "lineNum": 2807,
+    "text": "Claim your Reward Points"
+  },
+  {
+    "lineNum": 2810,
+    "text": "Manage Your Debit Card"
+  },
+  {
+    "lineNum": 2891,
+    "text": "Forex Card Services"
+  },
+  {
+    "lineNum": 3101,
+    "text": "Reload Your Prepaid Card"
+  },
+  {
+    "lineNum": 3201,
+    "text": "Purchase Reward Card"
+  },
+  {
+    "lineNum": 3223,
+    "text": "Forgot Credit Card Pin?"
+  },
+  {
+    "lineNum": 3226,
+    "text": "Track Credit Card"
+  },
+  {
+    "lineNum": 3229,
+    "text": "Credit Card Activation"
+  },
+  {
+    "lineNum": 3350,
+    "text": "Marriage Loan"
+  },
+  {
+    "lineNum": 3384,
+    "text": "Track Loan Application"
+  },
+  {
+    "lineNum": 3387,
+    "text": "Resume Your Application"
+  },
+  {
+    "lineNum": 3390,
+    "text": "Manage Your Loan Account"
+  },
+  {
+    "lineNum": 3477,
+    "text": "Track Loan Application"
+  },
+  {
+    "lineNum": 3480,
+    "text": "Resume Your Application"
+  },
+  {
+    "lineNum": 3483,
+    "text": "Manage Your Loan Account"
+  },
+  {
+    "lineNum": 3486,
+    "text": "New Car Loan status"
+  },
+  {
+    "lineNum": 3489,
+    "text": "Customer literature on NPA and SMA"
+  },
+  {
+    "lineNum": 3492,
+    "text": "Retail Assets Service"
+  },
+  {
+    "lineNum": 3495,
+    "text": "Loan e NACH &amp; e Mandate"
+  },
+  {
+    "lineNum": 3594,
+    "text": "Home Loan Portal"
+  },
+  {
+    "lineNum": 3647,
+    "text": "Home Loan Portal"
+  },
+  {
+    "lineNum": 3746,
+    "text": "Track Loan Application"
+  },
+  {
+    "lineNum": 3749,
+    "text": "Resume Your Application"
+  },
+  {
+    "lineNum": 3752,
+    "text": "Manage Your Loan Account"
+  },
+  {
+    "lineNum": 3845,
+    "text": "Track Loan Application"
+  },
+  {
+    "lineNum": 3848,
+    "text": "Resume Your Application"
+  },
+  {
+    "lineNum": 3851,
+    "text": "Manage Your Loan Account"
+  },
+  {
+    "lineNum": 3854,
+    "text": "Loan Restructuring FAQs"
+  },
+  {
+    "lineNum": 3959,
+    "text": "Track Loan Application"
+  },
+  {
+    "lineNum": 3962,
+    "text": "Resume Your Application"
+  },
+  {
+    "lineNum": 3965,
+    "text": "Manage Your Loan Account"
+  },
+  {
+    "lineNum": 3968,
+    "text": "Loan Restructuring FAQs"
+  },
+  {
+    "lineNum": 4441,
+    "text": "Demat Digital Services"
+  },
+  {
+    "lineNum": 4444,
+    "text": "Explore Demat Features"
+  },
+  {
+    "lineNum": 4447,
+    "text": "Important Notices For Demat"
+  },
+  {
+    "lineNum": 4485,
+    "text": "Sec-54 EC Capital Gains Bonds"
+  },
+  {
+    "lineNum": 4792,
+    "text": "Home Loan Eligibility Calculator"
+  },
+  {
+    "lineNum": 4882,
+    "text": "Gold Loan Eligibility Calculator"
+  },
+  {
+    "lineNum": 4910,
+    "text": "Personal Loan Calculator"
+  },
+  {
+    "lineNum": 4913,
+    "text": "Fixed Deposit (FD) Calculator"
+  },
+  {
+    "lineNum": 4916,
+    "text": "Car Loan EMI - New Calculator"
+  },
+  {
+    "lineNum": 4919,
+    "text": "Home Loan EMI Calculator"
+  },
+  {
+    "lineNum": 4964,
+    "text": "Credit Card - Swiggy Calculator"
+  },
+  {
+    "lineNum": 5060,
+    "text": "Women&#39;s Advantage Calculator"
+  },
+  {
+    "lineNum": 5184,
+    "text": "Overdraft Calculator"
+  },
+  {
+    "lineNum": 5193,
+    "text": "Working Capital Calculator"
+  },
+  {
+    "lineNum": 5290,
+    "text": "Recurring Deposit Application Form"
+  },
+  {
+    "lineNum": 5536,
+    "text": "Fees &amp; Charges"
+  },
+  {
+    "lineNum": 5577,
+    "text": "Apply For FASTAG"
+  },
+  {
+    "lineNum": 5692,
+    "text": "Add Beneficiary"
+  },
+  {
+    "lineNum": 5695,
+    "text": "Report UPI Frauds"
+  },
+  {
+    "lineNum": 5698,
+    "text": "Generate MPIN"
+  },
+  {
+    "lineNum": 5701,
+    "text": "Stop repeating Transfers"
+  },
+  {
+    "lineNum": 5704,
+    "text": "Legal Entity Identifier Code"
+  },
+  {
+    "lineNum": 5707,
+    "text": "Register For Net Banking"
+  },
+  {
+    "lineNum": 5802,
+    "text": "Merchant SI"
+  },
+  {
+    "lineNum": 5851,
+    "text": "Pay A Biller"
+  },
+  {
+    "lineNum": 5857,
+    "text": "View Payment History"
+  },
+  {
+    "lineNum": 5860,
+    "text": "Retail FASTag Login"
+  },
+  {
+    "lineNum": 5863,
+    "text": "Corporate FASTag Login"
+  },
+  {
+    "lineNum": 5932,
+    "text": "Check Recharge Status"
+  },
+  {
+    "lineNum": 5935,
+    "text": "View Scheduled Recharges"
+  },
+  {
+    "lineNum": 5938,
+    "text": "View Recharge History"
+  },
+  {
+    "lineNum": 6015,
+    "text": "Education Fees"
+  },
+  {
+    "lineNum": 6037,
+    "text": "File Your Taxes Or Verify Your Returns"
+  },
+  {
+    "lineNum": 6040,
+    "text": "View And Download Tax Reciepts"
+  },
+  {
+    "lineNum": 6043,
+    "text": "Download TDS Certificate"
+  },
+  {
+    "lineNum": 6046,
+    "text": "Get New Cheque Book"
+  },
+  {
+    "lineNum": 6049,
+    "text": "Stop Payment Of Cheque"
+  },
+  {
+    "lineNum": 6213,
+    "text": "Travel &amp; Stays"
+  },
+  {
+    "lineNum": 6231,
+    "text": "Savings Calculator"
+  },
+  {
+    "lineNum": 6416,
+    "text": "Manage Your Accounts"
+  },
+  {
+    "lineNum": 6425,
+    "text": "Open Subsequent NRE/NRO account"
+  },
+  {
+    "lineNum": 6428,
+    "text": "Add Resident Indian as Joint holder"
+  },
+  {
+    "lineNum": 6431,
+    "text": "Change Mailing Address"
+  },
+  {
+    "lineNum": 6434,
+    "text": "Add/Modify Nominee"
+  },
+  {
+    "lineNum": 6437,
+    "text": "Change Contact Details"
+  },
+  {
+    "lineNum": 6440,
+    "text": "NRO to NRE Fund Transfer"
+  },
+  {
+    "lineNum": 6443,
+    "text": "Outward Remittance from your NRO Account"
+  },
+  {
+    "lineNum": 6493,
+    "text": "Manage Your Accounts"
+  },
+  {
+    "lineNum": 6502,
+    "text": "Open Subsequent NRE/NRO account"
+  },
+  {
+    "lineNum": 6505,
+    "text": "Add Resident Indian as Joint holder"
+  },
+  {
+    "lineNum": 6508,
+    "text": "Change Mailing Address"
+  },
+  {
+    "lineNum": 6511,
+    "text": "Add/Modify Nominee"
+  },
+  {
+    "lineNum": 6514,
+    "text": "Change Contact Details"
+  },
+  {
+    "lineNum": 6517,
+    "text": "NRO to NRE Fund Transfer"
+  },
+  {
+    "lineNum": 6520,
+    "text": "Outward Remittance from your NRO Account"
+  },
+  {
+    "lineNum": 6570,
+    "text": "Manage Your Accounts"
+  },
+  {
+    "lineNum": 6579,
+    "text": "Open Subsequent NRE/NRO account"
+  },
+  {
+    "lineNum": 6582,
+    "text": "Add Resident Indian as Joint holder"
+  },
+  {
+    "lineNum": 6585,
+    "text": "Change Mailing Address"
+  },
+  {
+    "lineNum": 6588,
+    "text": "Add/Modify Nominee"
+  },
+  {
+    "lineNum": 6591,
+    "text": "Change Contact Details"
+  },
+  {
+    "lineNum": 6594,
+    "text": "NRO to NRE Fund Transfer"
+  },
+  {
+    "lineNum": 6597,
+    "text": "Outward Remittance from your NRO Account"
+  },
+  {
+    "lineNum": 6661,
+    "text": "Manage Your Accounts"
+  },
+  {
+    "lineNum": 6670,
+    "text": "Change Mailing Address"
+  },
+  {
+    "lineNum": 6673,
+    "text": "Add/Modify Nominee"
+  },
+  {
+    "lineNum": 6676,
+    "text": "Consent For EKYC"
+  },
+  {
+    "lineNum": 6679,
+    "text": "Change Contact Details"
+  },
+  {
+    "lineNum": 6682,
+    "text": "Register For Email Statement"
+  },
+  {
+    "lineNum": 6858,
+    "text": "Manage Your Accounts"
+  },
+  {
+    "lineNum": 6867,
+    "text": "Interest Rate"
+  },
+  {
+    "lineNum": 6870,
+    "text": "Book NRE/NRO Fixed Deposit"
+  },
+  {
+    "lineNum": 6873,
+    "text": "Download Interest Certificate"
+  },
+  {
+    "lineNum": 6876,
+    "text": "Download TDS Certificate"
+  },
+  {
+    "lineNum": 6879,
+    "text": "Add/Modify Nominee"
+  },
+  {
+    "lineNum": 6882,
+    "text": "Avail Overdraft"
+  },
+  {
+    "lineNum": 6885,
+    "text": "Break Fixed Deposit"
+  },
+  {
+    "lineNum": 6973,
+    "text": "Manage Your Accounts"
+  },
+  {
+    "lineNum": 6982,
+    "text": "Interest Rate"
+  },
+  {
+    "lineNum": 6988,
+    "text": "Add/Modify Nominee"
+  },
+  {
+    "lineNum": 6991,
+    "text": "Download Interest Certificate"
+  },
+  {
+    "lineNum": 7036,
+    "text": "Manage Your Accounts"
+  },
+  {
+    "lineNum": 7045,
+    "text": "Add/Change Nominee"
+  },
+  {
+    "lineNum": 7286,
+    "text": "NRI Portfolio Investment Scheme Fees &amp; Charges"
+  },
+  {
+    "lineNum": 7385,
+    "text": "Manage Your Accounts"
+  },
+  {
+    "lineNum": 7394,
+    "text": "Insure Loan"
+  },
+  {
+    "lineNum": 7397,
+    "text": "Download Interest Certificate"
+  },
+  {
+    "lineNum": 7801,
+    "text": "Travel &amp; Stays"
+  },
+  {
+    "lineNum": 7819,
+    "text": "Savings Calculator"
+  },
+  {
+    "lineNum": 8134,
+    "text": "Travel &amp; Stays"
+  },
+  {
+    "lineNum": 8152,
+    "text": "Savings Calculator"
+  },
+  {
+    "lineNum": 8330,
+    "text": "Cash Management Services"
+  },
+  {
+    "lineNum": 8374,
+    "text": "Supply Chain Management"
+  },
+  {
+    "lineNum": 8484,
+    "text": "Fees and Charges"
+  },
+  {
+    "lineNum": 8498,
+    "text": "Penal Charges ECG"
+  },
+  {
+    "lineNum": 8735,
+    "text": "Cash Management Services"
+  },
+  {
+    "lineNum": 8794,
+    "text": "Capital &amp; Commodity Market Brokers"
+  },
+  {
+    "lineNum": 8808,
+    "text": "Capital Market Brokers"
+  },
+  {
+    "lineNum": 9185,
+    "text": "Travel &amp; Stays"
+  },
+  {
+    "lineNum": 9203,
+    "text": "Savings Calculator"
+  },
+  {
+    "lineNum": 9590,
+    "text": "Access Exclusive Value Added Agriculture Service"
+  },
+  {
+    "lineNum": 9730,
+    "text": "Travel &amp; Stays"
+  },
+  {
+    "lineNum": 9748,
+    "text": "Savings Calculator"
+  },
+  {
+    "lineNum": 9994,
+    "text": "Address Change"
+  },
+  {
+    "lineNum": 9997,
+    "text": "Add/Modify Nominee"
+  },
+  {
+    "lineNum": 10000,
+    "text": "Change Mobile Number"
+  },
+  {
+    "lineNum": 10003,
+    "text": "Apply For Cheque book"
+  },
+  {
+    "lineNum": 10009,
+    "text": "Update Email ID"
+  },
+  {
+    "lineNum": 10012,
+    "text": "Account Transfer"
+  },
+  {
+    "lineNum": 10015,
+    "text": "Safe Deposit Locker Services"
+  },
+  {
+    "lineNum": 10018,
+    "text": "Aadhaar Seeding"
+  },
+  {
+    "lineNum": 10282,
+    "text": "Cash Management Services"
+  },
+  {
+    "lineNum": 10352,
+    "text": "Working Capital Loan"
+  },
+  {
+    "lineNum": 10372,
+    "text": "Working Capital For Contractors"
+  },
+  {
+    "lineNum": 10381,
+    "text": "Turnover Less Than Equal To ₹ 7.5 Crores"
+  },
+  {
+    "lineNum": 10387,
+    "text": "Working Capital Loan For Transporters"
+  },
+  {
+    "lineNum": 10396,
+    "text": "Turnover Greater Than ₹ 7.5 Crores"
+  },
+  {
+    "lineNum": 10758,
+    "text": "Flipkart Wholesale HDFC Bank Credit Card"
+  },
+  {
+    "lineNum": 10925,
+    "text": "Purchase Reward Card"
+  },
+  {
+    "lineNum": 11136,
+    "text": "Capital Account Transactions"
+  },
+  {
+    "lineNum": 11309,
+    "text": "Travel &amp; Stays"
+  },
+  {
+    "lineNum": 11327,
+    "text": "Savings Calculator"
+  },
+  {
+    "lineNum": 11614,
+    "text": "HDFC Limited"
+  },
+  {
+    "lineNum": 11650,
+    "text": "Merchant Standing Instructions"
+  },
+  {
+    "lineNum": 11662,
+    "text": "Prepaid/Forex Card"
+  },
+  {
+    "lineNum": 11729,
+    "text": "Senior Management Team"
+  },
+  {
+    "lineNum": 11873,
+    "text": "Exclusive deals with your card on electronics, travel and shopping!"
+  },
+  {
+    "lineNum": 11995,
+    "text": "HDFC Limited"
+  },
+  {
+    "lineNum": 12222,
+    "text": "Exclusive deals with your card on electronics, travel and shopping!"
+  },
+  {
+    "lineNum": 12356,
+    "text": "Add/Modify Nominee"
+  },
+  {
+    "lineNum": 12360,
+    "text": "Change Mobile Number"
+  },
+  {
+    "lineNum": 12364,
+    "text": "Apply For Cheque book"
+  },
+  {
+    "lineNum": 12372,
+    "text": "Update Email ID"
+  },
+  {
+    "lineNum": 12376,
+    "text": "Account Transfer"
+  },
+  {
+    "lineNum": 12384,
+    "text": "Aadhaar Seeding"
+  },
+  {
+    "lineNum": 12388,
+    "text": "DigiPassBook"
+  },
+  {
+    "lineNum": 12500,
+    "text": "Add/Modify Nominee"
+  },
+  {
+    "lineNum": 12504,
+    "text": "Break Fixed Deposit"
+  },
+  {
+    "lineNum": 12512,
+    "text": "Comprehensive Deposit Policy"
+  },
+  {
+    "lineNum": 12516,
+    "text": "Erstwhile HDFC Ltd Deposits"
+  },
+  {
+    "lineNum": 12637,
+    "text": "Block My Credit Card"
+  },
+  {
+    "lineNum": 12641,
+    "text": "Activate your Credit Card"
+  },
+  {
+    "lineNum": 12645,
+    "text": "Forgot Pin?"
+  },
+  {
+    "lineNum": 12649,
+    "text": "Track Your Application Status"
+  },
+  {
+    "lineNum": 12653,
+    "text": "Set Your Card Control"
+  },
+  {
+    "lineNum": 12657,
+    "text": "Claim Your Rewards Points"
+  },
+  {
+    "lineNum": 12661,
+    "text": "Enhance Your Credit Limit"
+  },
+  {
+    "lineNum": 12665,
+    "text": "Manage Your Credit Card"
+  },
+  {
+    "lineNum": 12795,
+    "text": "Track Loan Application"
+  },
+  {
+    "lineNum": 12799,
+    "text": "Resume Your Application"
+  },
+  {
+    "lineNum": 12803,
+    "text": "Manage Your Loan Account"
+  },
+  {
+    "lineNum": 13064,
+    "text": "Demat Digital Services"
+  },
+  {
+    "lineNum": 13068,
+    "text": "Explore Demat Features"
+  },
+  {
+    "lineNum": 13072,
+    "text": "Important Notices For Demat"
+  },
+  {
+    "lineNum": 13190,
+    "text": "Personal Loan Calculator"
+  },
+  {
+    "lineNum": 13194,
+    "text": "Fixed Deposit (FD) Calculator"
+  },
+  {
+    "lineNum": 13198,
+    "text": "Car Loan EMI - New Calculator"
+  },
+  {
+    "lineNum": 13202,
+    "text": "Home Loan EMI Calculator"
+  },
+  {
+    "lineNum": 14097,
+    "text": "Travel &amp; Stays"
+  },
+  {
+    "lineNum": 14265,
+    "text": "Savings Calculator"
+  },
+  {
+    "lineNum": 15333,
+    "text": "Manage Your Accounts"
+  },
+  {
+    "lineNum": 15339,
+    "text": "Open Subsequent NRE/NRO account"
+  },
+  {
+    "lineNum": 15343,
+    "text": "Add Resident Indian as Joint holder"
+  },
+  {
+    "lineNum": 15347,
+    "text": "Change Mailing Address"
+  },
+  {
+    "lineNum": 15351,
+    "text": "Add/Modify Nominee"
+  },
+  {
+    "lineNum": 15355,
+    "text": "Change Contact Details"
+  },
+  {
+    "lineNum": 15359,
+    "text": "NRO to NRE Fund Transfer"
+  },
+  {
+    "lineNum": 15363,
+    "text": "Outward Remittance from your NRO Account"
+  },
+  {
+    "lineNum": 15466,
+    "text": "Manage Your Accounts"
+  },
+  {
+    "lineNum": 15472,
+    "text": "Interest Rate"
+  },
+  {
+    "lineNum": 15476,
+    "text": "Book NRE/NRO Fixed Deposit"
+  },
+  {
+    "lineNum": 15480,
+    "text": "Download Interest Certificate"
+  },
+  {
+    "lineNum": 15484,
+    "text": "Download TDS Certificate"
+  },
+  {
+    "lineNum": 15488,
+    "text": "Add/Modify Nominee"
+  },
+  {
+    "lineNum": 15492,
+    "text": "Avail Overdraft"
+  },
+  {
+    "lineNum": 15496,
+    "text": "Break Fixed Deposit"
+  },
+  {
+    "lineNum": 15648,
+    "text": "NRI Portfolio Investment Scheme Fees &amp; Charges"
+  },
+  {
+    "lineNum": 15786,
+    "text": "Manage Your Accounts"
+  },
+  {
+    "lineNum": 15792,
+    "text": "Insure Loan"
+  },
+  {
+    "lineNum": 15796,
+    "text": "Download Interest Certificate"
+  },
+  {
+    "lineNum": 16533,
+    "text": "Travel &amp; Stays"
+  },
+  {
+    "lineNum": 16701,
+    "text": "Savings Calculator"
+  },
+  {
+    "lineNum": 17752,
+    "text": "Travel &amp; Stays"
+  },
+  {
+    "lineNum": 17920,
+    "text": "Savings Calculator"
+  },
+  {
+    "lineNum": 18972,
+    "text": "Fees and Charges"
+  },
+  {
+    "lineNum": 19180,
+    "text": "Capital &amp; Commodity Market Brokers"
+  },
+  {
+    "lineNum": 19670,
+    "text": "Travel &amp; Stays"
+  },
+  {
+    "lineNum": 19838,
+    "text": "Savings Calculator"
+  },
+  {
+    "lineNum": 21121,
+    "text": "Travel &amp; Stays"
+  },
+  {
+    "lineNum": 21289,
+    "text": "Savings Calculator"
+  },
+  {
+    "lineNum": 21593,
+    "text": "Address Change"
+  },
+  {
+    "lineNum": 21597,
+    "text": "Add/Modify Nominee"
+  },
+  {
+    "lineNum": 21601,
+    "text": "Change Mobile Number"
+  },
+  {
+    "lineNum": 21605,
+    "text": "Apply For Cheque book"
+  },
+  {
+    "lineNum": 21613,
+    "text": "Update Email ID"
+  },
+  {
+    "lineNum": 21617,
+    "text": "Account Transfer"
+  },
+  {
+    "lineNum": 21621,
+    "text": "Safe Deposit Locker Services"
+  },
+  {
+    "lineNum": 21625,
+    "text": "Aadhaar Seeding"
+  },
+  {
+    "lineNum": 21775,
+    "text": "Working Capital Loan"
+  },
+  {
+    "lineNum": 22339,
+    "text": "Travel &amp; Stays"
+  },
+  {
+    "lineNum": 22507,
+    "text": "Savings Calculator"
+  },
+  {
+    "lineNum": 24146,
+    "text": "&lt;p&gt;&lt;b&gt;Most Rewarding card for Household spends&lt;br /&gt;"
+  },
+  {
+    "lineNum": 24149,
+    "text": "&lt;li&gt;&lt;span class=&#34;icon-right-tick icon&#34;&gt;&lt;/span&gt;10X CashPoints at select merchants&lt;/li&gt;"
+  },
+  {
+    "lineNum": 24150,
+    "text": "&lt;li&gt;&lt;span class=&#34;icon-right-tick icon&#34;&gt;&lt;/span&gt;2 CashPoints on every Rs. 200 spent on other spends&lt;/li&gt;"
+  },
+  {
+    "lineNum": 24154,
+    "text": "Most Rewarding card for Household spends"
+  },
+  {
+    "lineNum": 24157,
+    "text": "10X CashPoints at select merchants"
+  },
+  {
+    "lineNum": 24158,
+    "text": "2 CashPoints on every Rs. 200 spent on other spends"
+  },
+  {
+    "lineNum": 24357,
+    "text": "&lt;li&gt;&lt;a href=&#34;#eligibility&#34; title=&#34;Eligibility Criteria&#34;&gt;Eligibility Criteria&lt;span class=&#34;viewarrow-icon icon-arrow-right-bold&#34;&gt;&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;"
+  },
+  {
+    "lineNum": 24359,
+    "text": "&lt;li&gt;&lt;a href=&#34;#redemption&#34; title=&#34;Card Management and Control&#34; target=&#34;_self&#34;&gt;Card Management &amp;amp; Controls &lt;span class=&#34;viewarrow-icon icon-arrow-right-bold&#34;&gt;&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;"
+  },
+  {
+    "lineNum": 24368,
+    "text": "Eligibility Criteria"
+  },
+  {
+    "lineNum": 24370,
+    "text": "Card Management &amp; Controls"
+  },
+  {
+    "lineNum": 24716,
+    "text": "<div id=\"text-a19fe1a2d3\" class=\"cmp-extended-text\" data-aos=\"fade-up\" data-aos-duration=\"700\" data-aos-delay=\"700\" data-onparent=\"true\" jsname=\"aosInit\" data-label=\"&lt;h2&gt;&lt;span class=&#34;card-subtitle&#34;&gt;&lt;span class=&#34;section-title&#34;&gt;&lt;span class=&#34;pd-millennia_title&#34;&gt;More rewards than ever before &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/h2&gt;"
+  },
+  {
+    "lineNum": 24721,
+    "text": "More rewards than ever before"
+  },
+  {
+    "lineNum": 24761,
+    "text": "&lt;li&gt;&lt;p&gt;&lt;span class=&#34;icon icon-cashback2&#34;&gt;&lt;/span&gt;&lt;span class=&#34;item-heading&#34;&gt;Get additional 10% off on Swiggy Dineout&lt;/span&gt;&lt;/p&gt;"
+  },
+  {
+    "lineNum": 24766,
+    "text": "Get additional 10% off on Swiggy Dineout"
+  },
+  {
+    "lineNum": 24822,
+    "text": "&lt;li&gt;&lt;span class=&#34;item-heading&#34;&gt;Note: Already Qualified for Milestone voucher: &lt;a target=&#34;_blank&#34;&gt;&lt;a href=&#34;https://www.gyftr.com/myrewards/hdfcbankmoneybackplus/login&#34; target=&#34;_blank&#34;&gt;Click here&lt;/a&gt;&lt;/a&gt; to redeem&lt;/span&gt;&lt;/li&gt;"
+  },
+  {
+    "lineNum": 24829,
+    "text": "Note: Already Qualified for Milestone voucher: Click here to redeem"
+  },
+  {
+    "lineNum": 24883,
+    "text": "<div class=\"cmp-teaser__description\" data-label='&lt;p&gt;&lt;span class=&#34;smalltext&#34;&gt;Cashpoint Benefits&lt;/span&gt;&lt;/p&gt;"
+  },
+  {
+    "lineNum": 24885,
+    "text": "&lt;li&gt;&lt;p&gt;&lt;span class=&#34;icon icon-cashback2&#34;&gt;&lt;/span&gt;&lt;span class=&#34;item-heading&#34;&gt;10X CashPoints ( Upto 2.5% valueback ) on Amazon, Flipkart, Swiggy and more&lt;/span&gt;&lt;/p&gt;"
+  },
+  {
+    "lineNum": 24888,
+    "text": "'> Cashpoint Benefits"
+  },
+  {
+    "lineNum": 24890,
+    "text": "10X CashPoints ( Upto 2.5% valueback ) on Amazon, Flipkart, Swiggy and more"
+  },
+  {
+    "lineNum": 25148,
+    "text": "<div class=\"cmp-teaser__description\" data-label='&lt;h3&gt;&lt;span class=&#34;section-title&#34;&gt;CashPoint benefits&lt;/span&gt;&lt;/h3&gt;"
+  },
+  {
+    "lineNum": 25150,
+    "text": "&lt;li&gt;&lt;span class=&#34;icon-right-tick &#34;&gt;&lt;/span&gt;10X CashPoints(Upto 2.5% Valueback) on Amazon, Flipkart, Swiggy, Reliance Smart SuperStore &amp;amp; BigBasket&lt;/li&gt;"
+  },
+  {
+    "lineNum": 25151,
+    "text": "&lt;li&gt;&lt;span class=&#34;icon-right-tick &#34;&gt;&lt;/span&gt;2 CashPoints per ₹200 spent on other spends&lt;/li&gt;"
+  },
+  {
+    "lineNum": 25152,
+    "text": "&lt;li&gt;&lt;span class=&#34;icon-right-tick &#34;&gt;&lt;/span&gt;Pay your Joining Membership fee and get 500 Reward Points&lt;/li&gt;"
+  },
+  {
+    "lineNum": 25154,
+    "text": "'> CashPoint benefits"
+  },
+  {
+    "lineNum": 25156,
+    "text": "10X CashPoints(Upto 2.5% Valueback) on Amazon, Flipkart, Swiggy, Reliance Smart SuperStore &amp; BigBasket"
+  },
+  {
+    "lineNum": 25157,
+    "text": "2 CashPoints per ₹200 spent on other spends"
+  },
+  {
+    "lineNum": 25158,
+    "text": "Pay your Joining Membership fee and get 500 Reward Points"
+  },
+  {
+    "lineNum": 25257,
+    "text": "&lt;li&gt;&lt;span class=&#34;icon-right-tick bf-checkmark&#34;&gt;&lt;/span&gt;&lt;span class=&#34;bf-checkmark&#34;&gt;&lt;/span&gt;1% Fuel Surcharge waiver on fuel transactions (Minimum transaction of ₹400, Maximum transaction of ₹5,000 &amp;amp; Maximum waiver of ₹250 per statement cycle)&lt;/li&gt;"
+  },
+  {
+    "lineNum": 25258,
+    "text": "&lt;li&gt;&lt;span class=&#34;icon-right-tick &#34;&gt;&lt;/span&gt;CashPoints can be used for redemption against travel benefits like Flight &amp;amp; Hotel bookings via &lt;a href=&#34;https://offers.reward360.in/v2/foryou&#34; target=&#34;_blank&#34;&gt;SmartBuy&lt;/a&gt;&lt;/li&gt;"
+  },
+  {
+    "lineNum": 25259,
+    "text": "&lt;li&gt;&lt;span class=&#34;icon-right-tick &#34;&gt;&lt;/span&gt;&lt;span class=&#34;bf-checkmark&#34;&gt;&lt;/span&gt;10%* additional discount on Swiggy Dineout using coupon code HDFCCARDS &lt;a href=&#34;https://webviews.swiggy.com/portal-static-page/dineout-hdfc-tnc/&#34; target=&#34;_blank&#34;&gt;TnC&lt;/a&gt;&lt;/li&gt;"
+  },
+  {
+    "lineNum": 25263,
+    "text": "1% Fuel Surcharge waiver on fuel transactions (Minimum transaction of ₹400, Maximum transaction of ₹5,000 &amp; Maximum waiver of ₹250 per statement cycle)"
+  },
+  {
+    "lineNum": 25264,
+    "text": "CashPoints can be used for redemption against travel benefits like Flight &amp; Hotel bookings via SmartBuy"
+  },
+  {
+    "lineNum": 25265,
+    "text": "10%* additional discount on Swiggy Dineout using coupon code HDFCCARDS TnC"
+  },
+  {
+    "lineNum": 25368,
+    "text": "&lt;li&gt;&lt;span class=&#34;icon-right-tick &#34;&gt;&lt;/span&gt;&lt;span class=&#34;bf-checkmark&#34;&gt;&lt;/span&gt;&lt;b&gt;Card Management:&lt;/b&gt; Made simple via HDFC Bank &lt;a href=&#34;https://mycards.hdfc.bank.in/&#34; target=&#34;_blank&#34;&gt;MyCards&lt;/a&gt;&lt;/li&gt;"
+  },
+  {
+    "lineNum": 25376,
+    "text": "Card Management: Made simple via HDFC Bank MyCards"
+  },
+  {
+    "lineNum": 25545,
+    "text": "<div id=\"text-8ed3ebbf01\" class=\"cmp-extended-text\" data-aos=\"fade-up\" data-aos-duration=\"700\" data-aos-delay=\"200\" data-delaystep=\"100\" data-durationstep=\"100\" data-onparent=\"false\" jsname=\"aosInit\" data-label=\"&lt;h2&gt;&lt;span class=&#34;card-subtitle&#34;&gt;&lt;span class=&#34;section-title&#34;&gt;Wondering if you are eligible?&lt;/span&gt;&lt;/span&gt;&lt;/h2&gt;"
+  },
+  {
+    "lineNum": 25560,
+    "text": "Wondering if you are eligible?"
+  },
+  {
+    "lineNum": 25637,
+    "text": "<div class=\"cmp-teaser__description\" data-label='&lt;p&gt;&lt;span class=&#34;quick-eligibility_heading&#34;&gt;&lt;span class=&#34;icon-salaried icon&#34;&gt;&lt;/span&gt;Salaried&lt;/span&gt;&lt;/p&gt;"
+  },
+  {
+    "lineNum": 25640,
+    "text": "&lt;li&gt;&lt;span class=&#34;icon-age icon&#34;&gt;&lt;/span&gt;&lt;span class=&#34;pd-beneftis_title&#34;&gt;&lt;b&gt;Age: &lt;/b&gt;Minimum 21 years &amp;amp; Maximum 60 years&lt;/span&gt;&lt;/li&gt;"
+  },
+  {
+    "lineNum": 25641,
+    "text": "&lt;li&gt;&lt;span class=&#34;icon-income icon&#34;&gt;&lt;/span&gt;&lt;span class=&#34;pd-beneftis_title&#34;&gt;&lt;b&gt;Income:&amp;nbsp;&lt;/b&gt;Net Monthly Income &amp;gt; ₹20,000&lt;/span&gt;&lt;/li&gt;"
+  },
+  {
+    "lineNum": 25643,
+    "text": "'> Salaried"
+  },
+  {
+    "lineNum": 25646,
+    "text": "Age: Minimum 21 years &amp; Maximum 60 years"
+  },
+  {
+    "lineNum": 25647,
+    "text": "Income: Net Monthly Income &gt; ₹20,000"
+  },
+  {
+    "lineNum": 25696,
+    "text": "<div class=\"cmp-teaser__description\" data-label='&lt;p&gt;&lt;span class=&#34;quick-eligibility_heading&#34;&gt;&lt;span class=&#34;icon icon-self-employed&#34;&gt;&lt;/span&gt;Self-Employed&lt;/span&gt;&lt;/p&gt;"
+  },
+  {
+    "lineNum": 25699,
+    "text": "&lt;li&gt;&lt;span class=&#34;icon icon-age&#34;&gt;&lt;/span&gt;&lt;span class=&#34;pd-beneftis_title&#34;&gt;&lt;b&gt;Age&lt;/b&gt;: Minimum 21 years &amp;amp; Maximum 65 years&lt;/span&gt;&lt;/li&gt;"
+  },
+  {
+    "lineNum": 25700,
+    "text": "&lt;li&gt;&lt;span class=&#34;icon icon-age&#34;&gt;&lt;/span&gt;&lt;span class=&#34;pd-beneftis_title&#34;&gt;&lt;b&gt;Income&lt;/b&gt;: ITR &amp;gt; ₹6 Lakh per annum&lt;/span&gt;&lt;/li&gt;"
+  },
+  {
+    "lineNum": 25702,
+    "text": "'> Self-Employed"
+  },
+  {
+    "lineNum": 25705,
+    "text": "Age : Minimum 21 years &amp; Maximum 65 years"
+  },
+  {
+    "lineNum": 25706,
+    "text": "Income : ITR &gt; ₹6 Lakh per annum"
+  },
+  {
+    "lineNum": 25842,
+    "text": "Save up to Rs. 10,000* annually just like 30 lakh + HDFC Bank MoneyBack Plus Credit card holders"
+  },
+  {
+    "lineNum": 26228,
+    "text": "Fees &amp; Charges"
+  },
+  {
+    "lineNum": 26244,
+    "text": "Redemption Limit"
+  },
+  {
+    "lineNum": 26311,
+    "text": "<div class=\"cmp-teaser__description\" data-label='&lt;p&gt;&lt;a href=&#34;https://mycards.hdfcbank.com/&#34; target=&#34;_blank&#34;&gt;MyCards&lt;/a&gt;&lt;b&gt;,&lt;/b&gt; a mobile-based service platform for all Credit Card needs, facilitates convenient activation and management of your&amp;nbsp;MoneyBack Plus Credit Card on the go. It ensures a seamless experience without the need for passwords or downloads.&lt;/p&gt;"
+  },
+  {
+    "lineNum": 26315,
+    "text": "&lt;li&gt;Manage Card Controls like Online Spends, Contactless Transactions&lt;/li&gt;"
+  },
+  {
+    "lineNum": 26317,
+    "text": "&lt;li&gt;Check Reward Points&lt;/li&gt;"
+  },
+  {
+    "lineNum": 26319,
+    "text": "&lt;li&gt;Apply for an Add-on Card, Manage, Set PIN and Card Controls for Add-on card&lt;/li&gt;"
+  },
+  {
+    "lineNum": 26326,
+    "text": "&lt;li&gt;Reward Points&lt;br&gt;"
+  },
+  {
+    "lineNum": 26327,
+    "text": "View and redeem points at the push of a button&lt;/li&gt;"
+  },
+  {
+    "lineNum": 26329,
+    "text": "'> MyCards , a mobile-based service platform for all Credit Card needs, facilitates convenient activation and management of your MoneyBack Plus Credit Card on the go. It ensures a seamless experience without the need for passwords or downloads."
+  },
+  {
+    "lineNum": 26333,
+    "text": "Manage Card Controls like Online Spends, Contactless Transactions"
+  },
+  {
+    "lineNum": 26335,
+    "text": "Check Reward Points"
+  },
+  {
+    "lineNum": 26337,
+    "text": "Apply for an Add-on Card, Manage, Set PIN and Card Controls for Add-on card"
+  },
+  {
+    "lineNum": 26344,
+    "text": "Reward Points"
+  },
+  {
+    "lineNum": 26345,
+    "text": "View and redeem points at the push of a button"
+  },
+  {
+    "lineNum": 26420,
+    "text": "Fees &amp; Charges"
+  },
+  {
+    "lineNum": 26428,
+    "text": "&lt;li&gt;&lt;p&gt;Joining/Renewal Membership Fee – ₹500/- + Applicable Taxes&lt;/p&gt;"
+  },
+  {
+    "lineNum": 26432,
+    "text": "&lt;li&gt;&lt;p&gt;Spend ₹50,000 or more in a year, before your Credit Card renewal date and get your renewal fee waived off&amp;nbsp;&lt;/p&gt;"
+  },
+  {
+    "lineNum": 26435,
+    "text": "&lt;p&gt;Please &lt;a href=&#34;/content/dam/hdfcbankpws/in/en/personal-banking/discover-products/cards/credit-cards/moneyback-plus-credit-card/pdf/14jan-fees-charges.pdf&#34; target=&#34;_blank&#34;&gt;click here&lt;/a&gt;&amp;nbsp;for detailed fees and charges applicable on your HDFC Bank MoneyBack+ Credit Card.&lt;/p&gt;"
+  },
+  {
+    "lineNum": 26439,
+    "text": "Joining/Renewal Membership Fee – ₹500/- + Applicable Taxes"
+  },
+  {
+    "lineNum": 26443,
+    "text": "Spend ₹50,000 or more in a year, before your Credit Card renewal date and get your renewal fee waived off"
+  },
+  {
+    "lineNum": 26446,
+    "text": "Please click here for detailed fees and charges applicable on your HDFC Bank MoneyBack+ Credit Card."
+  },
+  {
+    "lineNum": 26530,
+    "text": "&lt;li&gt;&lt;p&gt;1 CashPoint = Upto ₹ 0.25&lt;/p&gt;"
+  },
+  {
+    "lineNum": 26532,
+    "text": "&lt;li&gt;&lt;p&gt;CashPoints can be redeemed via HDFC Bank NetBanking or by visiting and filling the physical redemption form in the nearest HDFC Bank branch&lt;/p&gt;"
+  },
+  {
+    "lineNum": 26534,
+    "text": "&lt;li style=&#34;text-align: justify;&#34;&gt;&lt;p style=&#34;text-align: justify;&#34;&gt;CashPoints Redemption against each category can be redeemed at:&lt;/p&gt;"
+  },
+  {
+    "lineNum": 26538,
+    "text": "&lt;thead&gt;&lt;tr&gt;&lt;th style=&#34;text-align: center;&#34; colspan=&#34;2&#34;&gt;1 CashPoint Equivalent to&lt;/th&gt;"
+  },
+  {
+    "lineNum": 26549,
+    "text": "1 CashPoint = Upto ₹ 0.25"
+  },
+  {
+    "lineNum": 26551,
+    "text": "CashPoints can be redeemed via HDFC Bank NetBanking or by visiting and filling the physical redemption form in the nearest HDFC Bank branch"
+  },
+  {
+    "lineNum": 26553,
+    "text": "CashPoints Redemption against each category can be redeemed at:"
+  },
+  {
+    "lineNum": 26557,
+    "text": "1 CashPoint Equivalent to"
+  },
+  {
+    "lineNum": 26640,
+    "text": "Redemption Limit"
+  },
+  {
+    "lineNum": 26648,
+    "text": "&lt;li&gt;&lt;p&gt;A minimum balance&amp;nbsp;of Rs. 500 equivalent CashPoints is required for redemption against the statement.&lt;/p&gt;"
+  },
+  {
+    "lineNum": 26650,
+    "text": "&lt;li&gt;&lt;p&gt;CashPoints can be redeemed up to 50% of the booking value for Flights and Hotel booking. The remaining amount will have to be paid via Credit Card.&amp;nbsp;&amp;nbsp;&lt;/p&gt;"
+  },
+  {
+    "lineNum": 26652,
+    "text": "&lt;li&gt;&lt;p&gt;With effect from 1st January 2023, CashPoint redemption for Flights and Hotel bookings are capped per month at 50,000 CashPoints.&lt;/p&gt;"
+  },
+  {
+    "lineNum": 26656,
+    "text": "&lt;li&gt;&lt;p&gt;CashPoint redemptions are capped per month upto 3,000 CashPoints.&lt;/p&gt;"
+  },
+  {
+    "lineNum": 26658,
+    "text": "&lt;li&gt;&lt;p&gt;Up to 70% of Product/ Voucher Value can be redeemed through CashPoints on select products/ vouchers. The remaining amount must be paid via Credit Card.&lt;/p&gt;"
+  },
+  {
+    "lineNum": 26664,
+    "text": "A minimum balance of Rs. 500 equivalent CashPoints is required for redemption against the statement."
+  },
+  {
+    "lineNum": 26666,
+    "text": "CashPoints can be redeemed up to 50% of the booking value for Flights and Hotel booking. The remaining amount will have to be paid via Credit Card."
+  },
+  {
+    "lineNum": 26668,
+    "text": "With effect from 1st January 2023, CashPoint redemption for Flights and Hotel bookings are capped per month at 50,000 CashPoints."
+  },
+  {
+    "lineNum": 26672,
+    "text": "CashPoint redemptions are capped per month upto 3,000 CashPoints."
+  },
+  {
+    "lineNum": 26674,
+    "text": "Up to 70% of Product/ Voucher Value can be redeemed through CashPoints on select products/ vouchers. The remaining amount must be paid via Credit Card."
+  },
+  {
+    "lineNum": 26853,
+    "text": "&lt;li&gt;Available at a nominate nominal interest rate. (Check Fees and Charges section for more details)&lt;/li&gt;"
+  },
+  {
+    "lineNum": 26857,
+    "text": "&lt;li&gt;Unredeemed CashPoints will expire/ lapse after 2 years of accumulation&lt;/li&gt;"
+  },
+  {
+    "lineNum": 26865,
+    "text": "Available at a nominate nominal interest rate. (Check Fees and Charges section for more details)"
+  },
+  {
+    "lineNum": 26869,
+    "text": "Unredeemed CashPoints will expire/ lapse after 2 years of accumulation"
+  },
+  {
+    "lineNum": 27243,
+    "text": "&lt;li&gt;&lt;span class=&#34;item-title&#34;&gt;&lt;a href=&#34;/credit-cards/rewards-credit-card&#34; target=&#34;_self&#34;&gt;Rewards Credit Card&lt;/a&gt;&lt;span class=&#34;viewarrow-icon icon-arrow-right-bold&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/li&gt;"
+  },
+  {
+    "lineNum": 27256,
+    "text": "Rewards Credit Card"
+  },
+  {
+    "lineNum": 27275,
+    "text": "&lt;li data-font-size=&#34;16&#34; data-line-height=&#34;19.2&#34; data-letter-spacing=&#34;normal&#34;&gt;&lt;span class=&#34;item-title&#34; data-font-size=&#34;16&#34; data-line-height=&#34;19.2&#34; data-letter-spacing=&#34;normal&#34;&gt;&lt;a href=&#34;/credit-cards/services/limit-enhancement&#34; target=&#34;_self&#34; data-font-size=&#34;14&#34; data-line-height=&#34;21&#34; data-letter-spacing=&#34;normal&#34;&gt;Credit Card Limit &lt;br&gt;"
+  },
+  {
+    "lineNum": 27288,
+    "text": "Credit Card Limit"
+  },
+  {
+    "lineNum": 27308,
+    "text": "&lt;li&gt;&lt;span class=&#34;item-title&#34;&gt;&lt;a href=&#34;/credit-cards/services/claim-rewards&#34; target=&#34;_self&#34;&gt;Redeem Reward Points&lt;/a&gt;&lt;span class=&#34;viewarrow-icon icon-arrow-right-bold&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/li&gt;"
+  },
+  {
+    "lineNum": 27320,
+    "text": "Redeem Reward Points"
+  },
+  {
+    "lineNum": 27341,
+    "text": "&lt;li&gt;&lt;span class=&#34;item-title&#34;&gt;&lt;a href=&#34;https://www.hdfc.bank.in/blogs/credit-cards/what-is-airport-lounge-access-credit-card&#34; target=&#34;_self&#34;&gt;Airport Lounge Access Credit Card&lt;/a&gt;&lt;span class=&#34;viewarrow-icon icon-arrow-right-bold&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/li&gt;"
+  },
+  {
+    "lineNum": 27354,
+    "text": "Airport Lounge Access Credit Card"
+  },
+  {
+    "lineNum": 27501,
+    "text": "The MoneyBack+ Credit Card is a versatile card offered by HDFC Bank, providing a range of benefits such as reward points, EMI and a fuel surcharge waiver. This card combines the flexibility of EMI transactions with the added advantage of earning reward points on various expenditures which you can exchange for exciting rewards."
+  },
+  {
+    "lineNum": 27538,
+    "text": "What is the credit limit of the MoneyBack+ Credit Card?"
+  },
+  {
+    "lineNum": 27548,
+    "text": "The credit limit for the MoneyBack+ Credit Card is determined by various factors, including the applicant's creditworthiness, financial history, and income. HDFC Bank assesses each application individually, tailoring the credit limit to align with the applicant's financial profile. Higher incomes and stronger credit histories generally result in more substantial credit limits."
+  },
+  {
+    "lineNum": 27586,
+    "text": "{\"@context\":\"https://schema.org\",\"@type\":\"FAQPage\",\"mainEntity\":[{\"@type\":\"Question\",\"name\":\"What is the MoneyBack+ Credit Card?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"The&nbsp;MoneyBack+ Credit Card is a versatile card offered by HDFC Bank, providing a range of benefits such as reward points, EMI and a fuel surcharge waiver. This card combines the flexibility of EMI transactions with the added advantage of earning reward points on various expenditures which you can exchange for exciting rewards.\\n\"}},{\"@type\":\"Question\",\"name\":\"How much credit score is required to apply for the MoneyBack+ Credit Card?\\n\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"To apply for the MoneyBack+ Credit Card, a healthy credit score is essential. While specific credit score requirements can vary, a score typically above 650 is recommended for a higher chance of approval. Maintaining a good credit score demonstrates financial responsibility and enhances the chances of a successful credit card application.\\n\"}},{\"@type\":\"Question\",\"name\":\"What is the credit limit of the MoneyBack+ Credit Card?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"The credit limit for the MoneyBack+ Credit Card is determined by various factors, including the applicant's creditworthiness, financial history, and income. HDFC Bank assesses each application individually, tailoring the credit limit to align with the applicant's financial profile. Higher incomes and stronger credit histories generally result in more substantial credit limits.\\n\"}},{\"@type\":\"Question\",\"name\":\"How can you apply for the MoneyBack+ Credit Card?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"You can apply for this card only by clicking here. Other than the official HDFC Bank website, you can also go to the nearest HDFC branch to find the online application form. Fill out the application form. Once submitted, the bank will review the application. Upon approval, the MoneyBack+ Credit Card will be issued.\\n\"}}]}"
+  },
+  {
+    "lineNum": 27800,
+    "text": "&lt;li&gt;&lt;span class=&#34;icon-right-tick icon&#34;&gt;&lt;/span&gt;&lt;span class=&#34;link-span&#34;&gt;Fuel waiver&lt;/span&gt;&lt;/li&gt;"
+  },
+  {
+    "lineNum": 27801,
+    "text": "&lt;li&gt;&lt;span class=&#34;icon-right-tick icon&#34;&gt;&lt;/span&gt;&lt;span class=&#34;link-span&#34;&gt;Annual fee waiver&lt;/span&gt;&lt;/li&gt;"
+  },
+  {
+    "lineNum": 27806,
+    "text": "Fuel waiver"
+  },
+  {
+    "lineNum": 27807,
+    "text": "Annual fee waiver"
+  },
+  {
+    "lineNum": 27997,
+    "text": "Erstwhile HDFC Limited T&amp;C"
+  },
+  {
+    "lineNum": 28036,
+    "text": "List of third parties engaged by Bank"
+  },
+  {
+    "lineNum": 28048,
+    "text": "Important Messages"
+  },
+  {
+    "lineNum": 28060,
+    "text": "RBI Complaint Management System"
+  },
+  {
+    "lineNum": 28099,
+    "text": "Fees &amp; Charges"
+  },
+  {
+    "lineNum": 28245,
+    "text": "Use Of Unparliamentary Language By Customers"
+  },
+  {
+    "lineNum": 28253,
+    "text": "Digital Lending-Important Links"
+  },
+  {
+    "lineNum": 28424,
+    "text": "AMB Calculator"
+  },
+  {
+    "lineNum": 28506,
+    "text": "Swiggy HDFC Bank Credit Card"
+  },
+  {
+    "lineNum": 28572,
+    "text": "Credit Card Reward Points"
+  },
+  {
+    "lineNum": 28596,
+    "text": "Airport Lounge Access On Debit Cards"
+  },
+  {
+    "lineNum": 28785,
+    "text": "HDFC Capital"
+  },
+  {
+    "lineNum": 28848,
+    "text": "We use translation software to display our pages in your preferred language. If any questions arise related to the accuracy of the information in the translated webpage, then please refer to the English version of the webpage which is the original."
+  },
+  {
+    "lineNum": 28906,
+    "text": "Website Usage Terms"
+  },
+  {
+    "lineNum": 29084,
+    "text": "const pageProId = skipButton.getAttribute(\"data-skipmainText\");"
+  },
+  {
+    "lineNum": 29090,
+    "text": "const targetElement = document.getElementById(pageProId);"
+  },
+  {
+    "lineNum": 29094,
+    "text": "const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - offset;"
+  }
+]

@@ -1,0 +1,3797 @@
+[
+  {
+    "cardId": "amex-gold",
+    "name": "American Express Gold Card",
+    "issuer": "American Express",
+    "filePath": "data\\cards\\american-express\\amex-gold.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.americanexpress.com/in/charge-cards/gold-card/",
+      "ok": true,
+      "status": 200,
+      "redirected": false,
+      "finalUrl": "https://www.americanexpress.com/in/charge-cards/gold-card/",
+      "matchedKeywords": [],
+      "length": 695113
+    }
+  },
+  {
+    "cardId": "amex-membership-rewards",
+    "name": "American Express Membership Rewards Credit Card",
+    "issuer": "American Express",
+    "filePath": "data\\cards\\american-express\\amex-membership-rewards.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.americanexpress.com/in/credit-cards/membership-rewards-card/",
+      "ok": true,
+      "status": 200,
+      "redirected": false,
+      "finalUrl": "https://www.americanexpress.com/in/credit-cards/membership-rewards-card/",
+      "matchedKeywords": [],
+      "length": 696629
+    }
+  },
+  {
+    "cardId": "amex-platinum-reserve",
+    "name": "American Express Platinum Reserve Credit Card",
+    "issuer": "American Express",
+    "filePath": "data\\cards\\american-express\\amex-platinum-reserve.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.americanexpress.com/in/credit-cards/platinum-reserve-credit-card/",
+      "ok": true,
+      "status": 200,
+      "redirected": false,
+      "finalUrl": "https://www.americanexpress.com/in/credit-cards/platinum-reserve-credit-card/",
+      "matchedKeywords": [
+        "discontinued",
+        "withdrawn"
+      ],
+      "length": 698156
+    }
+  },
+  {
+    "cardId": "amex-platinum-travel",
+    "name": "American Express Platinum Travel Credit Card",
+    "issuer": "American Express",
+    "filePath": "data\\cards\\american-express\\amex-platinum-travel.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.americanexpress.com/in/credit-cards/platinum-travel-credit-card/",
+      "ok": true,
+      "status": 200,
+      "redirected": false,
+      "finalUrl": "https://www.americanexpress.com/in/credit-cards/platinum-travel-credit-card/",
+      "matchedKeywords": [],
+      "length": 701299
+    }
+  },
+  {
+    "cardId": "amex-platinum",
+    "name": "American Express Platinum Card",
+    "issuer": "American Express",
+    "filePath": "data\\cards\\american-express\\amex-platinum.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.americanexpress.com/in/charge-cards/platinum-card/",
+      "ok": true,
+      "status": 200,
+      "redirected": false,
+      "finalUrl": "https://www.americanexpress.com/in/charge-cards/platinum-card/",
+      "matchedKeywords": [],
+      "length": 737335
+    }
+  },
+  {
+    "cardId": "amex-smartearn",
+    "name": "American Express SmartEarn Credit Card",
+    "issuer": "American Express",
+    "filePath": "data\\cards\\american-express\\amex-smartearn.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.americanexpress.com/in/credit-cards/smart-earn-credit-card/",
+      "ok": true,
+      "status": 200,
+      "redirected": false,
+      "finalUrl": "https://www.americanexpress.com/in/credit-cards/smart-earn-credit-card/",
+      "matchedKeywords": [],
+      "length": 697983
+    }
+  },
+  {
+    "cardId": "au-ixigo",
+    "name": "AU ixigo Credit Card",
+    "issuer": "AU Small Finance Bank",
+    "filePath": "data\\cards\\au-small-finance\\au-ixigo.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.aubank.in/personal-banking/credit-cards/ixigo-au-credit-card",
+      "ok": false,
+      "status": 403,
+      "redirected": true,
+      "finalUrl": "https://www.au.bank.in/personal-banking/credit-cards/ixigo-au-credit-card",
+      "matchedKeywords": [],
+      "length": 5968
+    },
+    "applyUrlCheck": {
+      "url": "https://www.ixigo.com/travel-credit-card",
+      "ok": true,
+      "status": 200,
+      "redirected": false,
+      "finalUrl": "https://www.ixigo.com/travel-credit-card",
+      "matchedKeywords": [],
+      "length": 214769
+    }
+  },
+  {
+    "cardId": "axis-ace",
+    "name": "Axis Bank ACE Credit Card",
+    "issuer": "Axis Bank",
+    "filePath": "data\\cards\\axis\\axis-ace.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.axisbank.com/retail/cards/credit-card/axis-bank-ace-credit-card/fees-and-charges",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://www.axis.bank.in/cards/credit-card/axis-bank-ace-credit-card",
+      "matchedKeywords": [],
+      "length": 791682
+    },
+    "applyUrlCheck": {
+      "url": "https://www.axisbank.com/retail/cards/credit-card/axis-bank-ace-credit-card",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://www.axis.bank.in/cards/credit-card/axis-bank-ace-credit-card",
+      "matchedKeywords": [],
+      "length": 791682
+    }
+  },
+  {
+    "cardId": "axis-airtel",
+    "name": "Airtel Axis Bank Credit Card",
+    "issuer": "Axis Bank",
+    "filePath": "data\\cards\\axis\\axis-airtel.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.axisbank.com/retail/cards/credit-card/airtel-axis-bank-credit-card",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://www.axis.bank.in/cards/credit-card/airtel-axis-bank-credit-card",
+      "matchedKeywords": [],
+      "length": 809167
+    }
+  },
+  {
+    "cardId": "axis-atlas",
+    "name": "Axis Bank Atlas Credit Card",
+    "issuer": "Axis Bank",
+    "filePath": "data\\cards\\axis\\axis-atlas.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.axisbank.com/retail/cards/credit-card/axis-bank-atlas-credit-card",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://www.axis.bank.in/cards/credit-card/axis-bank-atlas-credit-card",
+      "matchedKeywords": [],
+      "length": 771811
+    }
+  },
+  {
+    "cardId": "axis-aura",
+    "name": "Axis Bank AURA Credit Card",
+    "issuer": "Axis Bank",
+    "filePath": "data\\cards\\axis\\axis-aura.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.axis.bank.in/cards/credit-card/axis-bank-aura-credit-card",
+      "ok": true,
+      "status": 200,
+      "redirected": false,
+      "finalUrl": "https://www.axis.bank.in/cards/credit-card/axis-bank-aura-credit-card",
+      "matchedKeywords": [
+        "no longer available"
+      ],
+      "length": 802380
+    }
+  },
+  {
+    "cardId": "axis-cashback",
+    "name": "Cashback Credit Card",
+    "issuer": "Axis Bank",
+    "filePath": "data\\cards\\axis\\axis-cashback.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.axisbank.com/retail/cards/credit-card/cashback-credit-card",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://www.axis.bank.in/cards/credit-card/cashback-credit-card",
+      "matchedKeywords": [],
+      "length": 796832
+    }
+  },
+  {
+    "cardId": "axis-fibe",
+    "name": "Fibe Axis Bank Credit Card",
+    "issuer": "Axis Bank",
+    "filePath": "data\\cards\\axis\\axis-fibe.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.axis.bank.in/cards/credit-card/fibe-axis-bank-credit-card",
+      "ok": true,
+      "status": 200,
+      "redirected": false,
+      "finalUrl": "https://www.axis.bank.in/cards/credit-card/fibe-axis-bank-credit-card",
+      "matchedKeywords": [],
+      "length": 802358
+    }
+  },
+  {
+    "cardId": "axis-flipkart-super-elite",
+    "name": "Flipkart Axis Bank Super Elite Credit Card",
+    "issuer": "Axis Bank",
+    "filePath": "data\\cards\\axis\\axis-flipkart-super-elite.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.axis.bank.in/cards/credit-card/flipkart-axis-bank-super-elite-credit-card",
+      "ok": true,
+      "status": 200,
+      "redirected": false,
+      "finalUrl": "https://www.axis.bank.in/cards/credit-card/flipkart-axis-bank-super-elite-credit-card",
+      "matchedKeywords": [],
+      "length": 802560
+    }
+  },
+  {
+    "cardId": "axis-flipkart",
+    "name": "FLIPKART AXIS BANK Credit Card",
+    "issuer": "Axis Bank",
+    "filePath": "data\\cards\\axis\\axis-flipkart.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.axis.bank.in/cards/credit-card/flipkart-axisbank-credit-card",
+      "ok": true,
+      "status": 200,
+      "redirected": false,
+      "finalUrl": "https://www.axis.bank.in/cards/credit-card/flipkart-axisbank-credit-card",
+      "matchedKeywords": [],
+      "length": 803909
+    }
+  },
+  {
+    "cardId": "axis-freecharge-plus",
+    "name": "Axis Bank Freecharge Plus Credit Card",
+    "issuer": "Axis Bank",
+    "filePath": "data\\cards\\axis\\axis-freecharge-plus.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.axisbank.com/retail/cards/credit-card/axis-bank-freecharge-plus-credit-card/features-benefits",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://www.axis.bank.in/cards/credit-card/axis-bank-freecharge-plus-credit-card",
+      "matchedKeywords": [],
+      "length": 794755
+    }
+  },
+  {
+    "cardId": "axis-freecharge",
+    "name": "Axis Bank Freecharge Credit Card",
+    "issuer": "Axis Bank",
+    "filePath": "data\\cards\\axis\\axis-freecharge.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.axisbank.com/retail/cards/credit-card/axis-bank-freecharge-credit-card",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://www.axis.bank.in/cards/credit-card/axis-bank-freecharge-credit-card",
+      "matchedKeywords": [],
+      "length": 790476
+    }
+  },
+  {
+    "cardId": "axis-google-pay-flex",
+    "name": "Google Pay Flex Axis Bank Credit Card",
+    "issuer": "Axis Bank",
+    "filePath": "data\\cards\\axis\\axis-google-pay-flex.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.axisbank.com/retail/cards/credit-card",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://www.axis.bank.in/cards/credit-card",
+      "matchedKeywords": [],
+      "length": 1165751
+    }
+  },
+  {
+    "cardId": "axis-horizon",
+    "name": "HORIZON Credit Card",
+    "issuer": "Axis Bank",
+    "filePath": "data\\cards\\axis\\axis-horizon.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.axisbank.com/retail/cards/credit-card/axis-horizon-credit-card",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://www.axis.bank.in/cards/credit-card/axis-horizon-credit-card",
+      "matchedKeywords": [],
+      "length": 799338
+    }
+  },
+  {
+    "cardId": "axis-ikea-family",
+    "name": "Ikea Family Credit Card",
+    "issuer": "Axis Bank",
+    "filePath": "data\\cards\\axis\\axis-ikea-family.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.axis.bank.in/cards/credit-card",
+      "ok": true,
+      "status": 200,
+      "redirected": false,
+      "finalUrl": "https://www.axis.bank.in/cards/credit-card",
+      "matchedKeywords": [],
+      "length": 1165751
+    }
+  },
+  {
+    "cardId": "axis-indianoil-easy",
+    "name": "IndianOil Easy Axis Bank Credit Card",
+    "issuer": "Axis Bank",
+    "filePath": "data\\cards\\axis\\axis-indianoil-easy.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.axisbank.com/retail/cards/credit-card/indianoil-axis-bank-credit-card",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://www.axis.bank.in/cards/credit-card/indianoil-axis-bank-credit-card",
+      "matchedKeywords": [],
+      "length": 806628
+    }
+  },
+  {
+    "cardId": "axis-indianoil-premium",
+    "name": "IndianOil Axis Bank Premium Credit Card",
+    "issuer": "Axis Bank",
+    "filePath": "data\\cards\\axis\\axis-indianoil-premium.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.axisbank.com/retail/cards/credit-card/indianoil-premium-credit-card",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://www.axis.bank.in/cards/credit-card/indianoil-premium-credit-card",
+      "matchedKeywords": [
+        "withdrawn"
+      ],
+      "length": 801687
+    }
+  },
+  {
+    "cardId": "axis-indianoil",
+    "name": "INDIANOIL AXIS BANK Credit Card",
+    "issuer": "Axis Bank",
+    "filePath": "data\\cards\\axis\\axis-indianoil.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.axisbank.com/retail/cards/credit-card/indianoil-axis-bank-credit-card",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://www.axis.bank.in/cards/credit-card/indianoil-axis-bank-credit-card",
+      "matchedKeywords": [],
+      "length": 806628
+    }
+  },
+  {
+    "cardId": "axis-indigo-premium",
+    "name": "IndiGo Axis Bank Premium Credit Card",
+    "issuer": "Axis Bank",
+    "filePath": "data\\cards\\axis\\axis-indigo-premium.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.axis.bank.in/cards/credit-card/indigo-axis-bank-premium-credit-card",
+      "ok": true,
+      "status": 200,
+      "redirected": false,
+      "finalUrl": "https://www.axis.bank.in/cards/credit-card/indigo-axis-bank-premium-credit-card",
+      "matchedKeywords": [],
+      "length": 769483
+    }
+  },
+  {
+    "cardId": "axis-indigo",
+    "name": "Indigo Axis Bank Credit Card",
+    "issuer": "Axis Bank",
+    "filePath": "data\\cards\\axis\\axis-indigo.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.axis.bank.in/cards/credit-card/indigo-axis-bank-credit-card",
+      "ok": true,
+      "status": 200,
+      "redirected": false,
+      "finalUrl": "https://www.axis.bank.in/cards/credit-card/indigo-axis-bank-credit-card",
+      "matchedKeywords": [],
+      "length": 767642
+    }
+  },
+  {
+    "cardId": "axis-kwik",
+    "name": "Kwik Axis Bank Credit Card",
+    "issuer": "Axis Bank",
+    "filePath": "data\\cards\\axis\\axis-kwik.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.axis.bank.in/cards/credit-card/axis-bank-kwik-credit-card",
+      "ok": true,
+      "status": 200,
+      "redirected": false,
+      "finalUrl": "https://www.axis.bank.in/cards/credit-card/axis-bank-kwik-credit-card",
+      "matchedKeywords": [],
+      "length": 798011
+    }
+  },
+  {
+    "cardId": "axis-lic-platinum",
+    "name": "LIC Axis Bank Platinum Credit Card",
+    "issuer": "Axis Bank",
+    "filePath": "data\\cards\\axis\\axis-lic-platinum.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.axisbank.com/retail/cards/credit-card/lic-axis-bank-platinum-credit-card",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://www.axis.bank.in/cards/credit-card/lic-axis-bank-platinum-credit-card",
+      "matchedKeywords": [],
+      "length": 795081
+    }
+  },
+  {
+    "cardId": "axis-lic-signature",
+    "name": "LIC Axis Bank Signature Credit Card",
+    "issuer": "Axis Bank",
+    "filePath": "data\\cards\\axis\\axis-lic-signature.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.axisbank.com/retail/cards/credit-card/lic-axis-bank-signature-credit-card",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://www.axis.bank.in/cards/credit-card/lic-axis-bank-signature-credit-card",
+      "matchedKeywords": [],
+      "length": 801170
+    }
+  },
+  {
+    "cardId": "axis-magnus-burgundy",
+    "name": "Axis Bank Magnus Credit Card for Burgundy",
+    "issuer": "Axis Bank",
+    "filePath": "data\\cards\\axis\\axis-magnus-burgundy.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.axis.bank.in/cards/credit-card/axis-bank-magnus-credit-card",
+      "ok": true,
+      "status": 200,
+      "redirected": false,
+      "finalUrl": "https://www.axis.bank.in/cards/credit-card/axis-bank-magnus-credit-card",
+      "matchedKeywords": [],
+      "length": 757567
+    },
+    "applyUrlCheck": {
+      "url": "https://www.axisbank.com/retail/cards/credit-card/axis-bank-magnus-card",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://www.axis.bank.in/cards/credit-card/axis-bank-magnus-credit-card",
+      "matchedKeywords": [],
+      "length": 757567
+    }
+  },
+  {
+    "cardId": "axis-magnus",
+    "name": "AXIS BANK MAGNUS Credit Card",
+    "issuer": "Axis Bank",
+    "filePath": "data\\cards\\axis\\axis-magnus.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.axisbank.com/retail/cards/credit-card/axis-bank-magnus-card/more-benefits",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://www.axis.bank.in/cards/credit-card/axis-bank-magnus-credit-card",
+      "matchedKeywords": [],
+      "length": 757567
+    },
+    "applyUrlCheck": {
+      "url": "https://www.axisbank.com/retail/cards/credit-card/axis-bank-magnus-card",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://www.axis.bank.in/cards/credit-card/axis-bank-magnus-credit-card",
+      "matchedKeywords": [],
+      "length": 757567
+    }
+  },
+  {
+    "cardId": "axis-miles-and-more",
+    "name": "Miles and More Axis Bank Credit Card",
+    "issuer": "Axis Bank",
+    "filePath": "data\\cards\\axis\\axis-miles-and-more.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.axisbank.com/retail/cards/credit-card/miles-more-credit-card",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://www.axis.bank.in/cards/credit-card/miles-more-credit-card",
+      "matchedKeywords": [],
+      "length": 825200
+    }
+  },
+  {
+    "cardId": "axis-my-zone",
+    "name": "Axis Bank My Zone Credit Card",
+    "issuer": "Axis Bank",
+    "filePath": "data\\cards\\axis\\axis-my-zone.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.axisbank.com/retail/cards/credit-card/my-zone-credit-card",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://www.axis.bank.in/cards/credit-card/axis-bank-my-zone-credit-card",
+      "matchedKeywords": [],
+      "length": 816056
+    }
+  },
+  {
+    "cardId": "axis-neo",
+    "name": "Neo Credit Card",
+    "issuer": "Axis Bank",
+    "filePath": "data\\cards\\axis\\axis-neo.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.axisbank.com/retail/cards/credit-card/neo-credit-card",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://www.axis.bank.in/cards/credit-card/axis-bank-neo-credit-card",
+      "matchedKeywords": [],
+      "length": 812042
+    }
+  },
+  {
+    "cardId": "axis-platinum",
+    "name": "Axis Bank Platinum Credit Card",
+    "issuer": "Axis Bank",
+    "filePath": "data\\cards\\axis\\axis-platinum.json",
+    "currentStatus": "discontinued",
+    "sourceUrlCheck": {
+      "url": "https://www.axisbank.com/retail/cards/credit-card/platinum-credit-card",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://www.axis.bank.in/cards/credit-card/platinum-credit-card",
+      "matchedKeywords": [
+        "discontinued"
+      ],
+      "length": 796580
+    }
+  },
+  {
+    "cardId": "axis-privilege-easy",
+    "name": "Privilege Easy Credit Card",
+    "issuer": "Axis Bank",
+    "filePath": "data\\cards\\axis\\axis-privilege-easy.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.axisbank.com/retail/cards/credit-card/privilege-easy-credit-card",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://www.axis.bank.in/cards/credit-card/privilege-easy-credit-card",
+      "matchedKeywords": [],
+      "length": 815171
+    }
+  },
+  {
+    "cardId": "axis-privilege",
+    "name": "AXIS BANK PRIVILEGE Credit Card",
+    "issuer": "Axis Bank",
+    "filePath": "data\\cards\\axis\\axis-privilege.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.axisbank.com/retail/cards/credit-card/privilege-credit-card-with-unlimited-benefits",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://www.axis.bank.in/cards/credit-card/privilege-credit-card-with-unlimited-benefits",
+      "matchedKeywords": [],
+      "length": 813571
+    }
+  },
+  {
+    "cardId": "axis-reserve",
+    "name": "Axis Bank Reserve Credit Card",
+    "issuer": "Axis Bank",
+    "filePath": "data\\cards\\axis\\axis-reserve.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.axisbank.com/retail/cards/credit-card/reserve-credit-card",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://www.axis.bank.in/cards/credit-card/reserve-credit-card",
+      "matchedKeywords": [
+        "discontinued"
+      ],
+      "length": 751763
+    }
+  },
+  {
+    "cardId": "axis-rewards",
+    "name": "Axis Bank REWARDS Credit Card",
+    "issuer": "Axis Bank",
+    "filePath": "data\\cards\\axis\\axis-rewards.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.axisbank.com/retail/cards/credit-card/rewards-credit-card",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://www.axis.bank.in/cards/credit-card/rewards-credit-card",
+      "matchedKeywords": [],
+      "length": 805502
+    }
+  },
+  {
+    "cardId": "axis-samsung-signature",
+    "name": "Samsung Axis Bank Signature Credit Card",
+    "issuer": "Axis Bank",
+    "filePath": "data\\cards\\axis\\axis-samsung-signature.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.axisbank.com/retail/cards/credit-card/samsung-axis-bank-signature-credit-card",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://www.axis.bank.in/cards/credit-card/samsung-axis-bank-signature-credit-card",
+      "matchedKeywords": [],
+      "length": 801639
+    }
+  },
+  {
+    "cardId": "axis-select",
+    "name": "Axis Bank Select Credit Card",
+    "issuer": "Axis Bank",
+    "filePath": "data\\cards\\axis\\axis-select.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.axisbank.com/retail/cards/credit-card/axis-bank-select-credit-card",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://www.axis.bank.in/cards/credit-card/axis-bank-select-credit-card",
+      "matchedKeywords": [],
+      "length": 815711
+    }
+  },
+  {
+    "cardId": "bobcard-easy",
+    "name": "BOBCARD EASY",
+    "issuer": "Bank of Baroda",
+    "filePath": "data\\cards\\bank-of-baroda\\bobcard-easy.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://bankofbaroda.bank.in/personal-banking/digital-products/cards/credit-cards/easy",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://bankofbaroda.bank.in/digital-products/cards/credit-cards/easy",
+      "matchedKeywords": [],
+      "length": 441682
+    }
+  },
+  {
+    "cardId": "bobcard-eterna",
+    "name": "BOBCARD ETERNA",
+    "issuer": "Bank of Baroda",
+    "filePath": "data\\cards\\bank-of-baroda\\bobcard-eterna.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://bankofbaroda.bank.in/personal-banking/digital-products/cards/credit-cards/eterna",
+      "ok": false,
+      "status": 404,
+      "redirected": false,
+      "finalUrl": "https://bankofbaroda.bank.in/personal-banking/digital-products/cards/credit-cards/eterna",
+      "matchedKeywords": [],
+      "length": 382550
+    }
+  },
+  {
+    "cardId": "bobcard-hpcl-energie",
+    "name": "HPCL ENERGIE BOBCARD",
+    "issuer": "Bank of Baroda",
+    "filePath": "data\\cards\\bank-of-baroda\\bobcard-hpcl-energie.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://bankofbaroda.bank.in/hi-in/personal-banking/digital-products/cards/credit-cards/hpcl-bob-energie-credit-card",
+      "ok": false,
+      "status": 404,
+      "redirected": false,
+      "finalUrl": "https://bankofbaroda.bank.in/hi-in/personal-banking/digital-products/cards/credit-cards/hpcl-bob-energie-credit-card",
+      "matchedKeywords": [],
+      "length": 382622
+    },
+    "applyUrlCheck": {
+      "url": "https://bankofbaroda.bank.in/personal-banking/digital-products/cards/credit-cards",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://bankofbaroda.bank.in/digital-products/cards/credit-cards",
+      "matchedKeywords": [],
+      "length": 551599
+    }
+  },
+  {
+    "cardId": "bobcard-irctc",
+    "name": "IRCTC BOBCARD",
+    "issuer": "Bank of Baroda",
+    "filePath": "data\\cards\\bank-of-baroda\\bobcard-irctc.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://bankofbaroda.bank.in/personal-banking/digital-products/cards/credit-cards/irctc-bob-credit-card",
+      "ok": false,
+      "status": 404,
+      "redirected": false,
+      "finalUrl": "https://bankofbaroda.bank.in/personal-banking/digital-products/cards/credit-cards/irctc-bob-credit-card",
+      "matchedKeywords": [],
+      "length": 382595
+    }
+  },
+  {
+    "cardId": "bobcard-premier",
+    "name": "BOBCARD PREMIER",
+    "issuer": "Bank of Baroda",
+    "filePath": "data\\cards\\bank-of-baroda\\bobcard-premier.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://bankofbaroda.bank.in/personal-banking/digital-products/cards/credit-cards/premier",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://bankofbaroda.bank.in/digital-products/cards/credit-cards/premier",
+      "matchedKeywords": [],
+      "length": 446451
+    }
+  },
+  {
+    "cardId": "bobcard-select",
+    "name": "BOBCARD SELECT",
+    "issuer": "Bank of Baroda",
+    "filePath": "data\\cards\\bank-of-baroda\\bobcard-select.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://bankofbaroda.bank.in/personal-banking/digital-products/cards/credit-cards/select",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://bankofbaroda.bank.in/digital-products/cards/credit-cards/select",
+      "matchedKeywords": [],
+      "length": 442205
+    }
+  },
+  {
+    "cardId": "bobcard-snapdeal",
+    "name": "Snapdeal BOBCARD",
+    "issuer": "Bank of Baroda",
+    "filePath": "data\\cards\\bank-of-baroda\\bobcard-snapdeal.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://bankofbaroda.bank.in/personal-banking/digital-products/cards/credit-cards/snapdeal-bob-credit-card",
+      "ok": false,
+      "status": 404,
+      "redirected": false,
+      "finalUrl": "https://bankofbaroda.bank.in/personal-banking/digital-products/cards/credit-cards/snapdeal-bob-credit-card",
+      "matchedKeywords": [],
+      "length": 382604
+    }
+  },
+  {
+    "cardId": "scapia-bobcard",
+    "name": "BOBCARD Scapia Credit Card",
+    "issuer": "Bank of Baroda",
+    "filePath": "data\\cards\\bank-of-baroda\\scapia-bobcard.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.bobcard.co.in/credit-card-types/bobcard-scapia-credit-card",
+      "ok": true,
+      "status": 200,
+      "redirected": false,
+      "finalUrl": "https://www.bobcard.co.in/credit-card-types/bobcard-scapia-credit-card",
+      "matchedKeywords": [],
+      "length": 114040
+    }
+  },
+  {
+    "cardId": "equitas-premio",
+    "name": "Equitas Premio Credit Card",
+    "issuer": "Equitas Small Finance Bank",
+    "filePath": "data\\cards\\equitas-small-finance\\equitas-premio.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.equitasbank.com/credit-cards/premio-credit-card",
+      "ok": false,
+      "status": 404,
+      "redirected": true,
+      "finalUrl": "https://equitas.bank.in/credit-cards/premio-credit-card",
+      "matchedKeywords": [],
+      "length": 248440
+    }
+  },
+  {
+    "cardId": "equitas-tiger",
+    "name": "Equitas Tiger Credit Card",
+    "issuer": "Equitas Small Finance Bank",
+    "filePath": "data\\cards\\equitas-small-finance\\equitas-tiger.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.equitasbank.com/credit-cards/tiger-credit-card",
+      "ok": false,
+      "status": 404,
+      "redirected": true,
+      "finalUrl": "https://equitas.bank.in/credit-cards/tiger-credit-card",
+      "matchedKeywords": [],
+      "length": 248440
+    }
+  },
+  {
+    "cardId": "equitas-ultima",
+    "name": "Equitas Ultima Credit Card",
+    "issuer": "Equitas Small Finance Bank",
+    "filePath": "data\\cards\\equitas-small-finance\\equitas-ultima.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.equitasbank.com/credit-cards/ultima-credit-card",
+      "ok": false,
+      "status": 404,
+      "redirected": true,
+      "finalUrl": "https://equitas.bank.in/credit-cards/ultima-credit-card",
+      "matchedKeywords": [],
+      "length": 248440
+    }
+  },
+  {
+    "cardId": "federal-celesta",
+    "name": "Federal Bank Celesta Credit Card",
+    "issuer": "Federal Bank",
+    "filePath": "data\\cards\\federal-bank\\federal-celesta.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.federalbank.co.in/celesta-credit-card",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://www.federal.bank.in/celesta-credit-card",
+      "matchedKeywords": [],
+      "length": 326929
+    },
+    "applyUrlCheck": {
+      "url": "https://www.federalbank.co.in/credit-cards",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://www.federal.bank.in/credit-cards",
+      "matchedKeywords": [
+        "withdrawn"
+      ],
+      "length": 524550
+    }
+  },
+  {
+    "cardId": "federal-imperio",
+    "name": "Federal Bank Imperio Credit Card",
+    "issuer": "Federal Bank",
+    "filePath": "data\\cards\\federal-bank\\federal-imperio.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.federalbank.co.in/imperio-credit-card",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://www.federal.bank.in/imperio-credit-card",
+      "matchedKeywords": [],
+      "length": 321692
+    },
+    "applyUrlCheck": {
+      "url": "https://www.federalbank.co.in/credit-cards",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://www.federal.bank.in/credit-cards",
+      "matchedKeywords": [
+        "withdrawn"
+      ],
+      "length": 524550
+    }
+  },
+  {
+    "cardId": "federal-signet",
+    "name": "Federal Bank Signet Credit Card",
+    "issuer": "Federal Bank",
+    "filePath": "data\\cards\\federal-bank\\federal-signet.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.federalbank.co.in/signet-credit-card",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://www.federal.bank.in/signet-credit-card",
+      "matchedKeywords": [],
+      "length": 321966
+    },
+    "applyUrlCheck": {
+      "url": "https://www.federalbank.co.in/credit-cards",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://www.federal.bank.in/credit-cards",
+      "matchedKeywords": [
+        "withdrawn"
+      ],
+      "length": 524550
+    }
+  },
+  {
+    "cardId": "federal-wave",
+    "name": "Federal Bank Wave RuPay Credit Card",
+    "issuer": "Federal Bank",
+    "filePath": "data\\cards\\federal-bank\\federal-wave.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.federalbank.co.in/wave-credit-card",
+      "ok": false,
+      "status": 404,
+      "redirected": true,
+      "finalUrl": "https://www.federal.bank.in/wave-credit-card",
+      "matchedKeywords": [],
+      "length": 281135
+    },
+    "applyUrlCheck": {
+      "url": "https://www.federalbank.co.in/credit-cards",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://www.federal.bank.in/credit-cards",
+      "matchedKeywords": [
+        "withdrawn"
+      ],
+      "length": 524550
+    }
+  },
+  {
+    "cardId": "scapia-federal",
+    "name": "Scapia Federal Credit Card",
+    "issuer": "Federal Bank",
+    "filePath": "data\\cards\\federal-bank\\scapia-federal.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.federalbank.co.in/scapia",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://www.federal.bank.in/scapia",
+      "matchedKeywords": [],
+      "length": 290963
+    },
+    "applyUrlCheck": {
+      "url": "https://www.scapia.cards",
+      "ok": true,
+      "status": 200,
+      "redirected": false,
+      "finalUrl": "https://www.scapia.cards/",
+      "matchedKeywords": [],
+      "length": 1014239
+    }
+  },
+  {
+    "cardId": "hdfc-diners-club-black-metal",
+    "name": "HDFC Bank Diners Club Black Metal Edition Credit Card",
+    "issuer": "HDFC Bank",
+    "filePath": "data\\cards\\hdfc\\hdfc-diners-club-black-metal.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.hdfc.bank.in/credit-cards/diners-club-black-metal-edition-credit-card",
+      "ok": true,
+      "status": 200,
+      "redirected": false,
+      "finalUrl": "https://www.hdfc.bank.in/credit-cards/diners-club-black-metal-edition-credit-card",
+      "matchedKeywords": [],
+      "length": 1215739
+    }
+  },
+  {
+    "cardId": "hdfc-diners-club-privilege",
+    "name": "HDFC Bank Diners Club Privilege Credit Card",
+    "issuer": "HDFC Bank",
+    "filePath": "data\\cards\\hdfc\\hdfc-diners-club-privilege.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.hdfc.bank.in/credit-cards/diners-privilege-credit-card",
+      "ok": true,
+      "status": 200,
+      "redirected": false,
+      "finalUrl": "https://www.hdfc.bank.in/credit-cards/diners-privilege-credit-card",
+      "matchedKeywords": [],
+      "length": 1211365
+    }
+  },
+  {
+    "cardId": "hdfc-freedom",
+    "name": "HDFC Bank Freedom Credit Card",
+    "issuer": "HDFC Bank",
+    "filePath": "data\\cards\\hdfc\\hdfc-freedom.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.hdfc.bank.in/credit-cards/freedom-credit-card",
+      "ok": true,
+      "status": 200,
+      "redirected": false,
+      "finalUrl": "https://www.hdfc.bank.in/credit-cards/freedom-credit-card",
+      "matchedKeywords": [],
+      "length": 1173520
+    }
+  },
+  {
+    "cardId": "hdfc-indianoil",
+    "name": "IndianOil HDFC Bank Credit Card",
+    "issuer": "HDFC Bank",
+    "filePath": "data\\cards\\hdfc\\hdfc-indianoil.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.hdfc.bank.in/credit-cards/indianoil-hdfc-bank-credit-card",
+      "ok": true,
+      "status": 200,
+      "redirected": false,
+      "finalUrl": "https://www.hdfc.bank.in/credit-cards/indianoil-hdfc-bank-credit-card",
+      "matchedKeywords": [],
+      "length": 1209715
+    }
+  },
+  {
+    "cardId": "hdfc-infinia-metal",
+    "name": "HDFC Bank Infinia Metal Edition Credit Card",
+    "issuer": "HDFC Bank",
+    "filePath": "data\\cards\\hdfc\\hdfc-infinia-metal.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.hdfc.bank.in/credit-cards/infinia-credit-card",
+      "ok": true,
+      "status": 200,
+      "redirected": false,
+      "finalUrl": "https://www.hdfc.bank.in/credit-cards/infinia-credit-card",
+      "matchedKeywords": [],
+      "length": 1163644
+    }
+  },
+  {
+    "cardId": "hdfc-irctc",
+    "name": "IRCTC HDFC Bank Credit Card",
+    "issuer": "HDFC Bank",
+    "filePath": "data\\cards\\hdfc\\hdfc-irctc.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.hdfcbank.com/personal/pay/cards/credit-cards/irctc-credit-card",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://www.hdfc.bank.in/credit-cards/irctc-credit-card",
+      "matchedKeywords": [],
+      "length": 1246675
+    }
+  },
+  {
+    "cardId": "hdfc-marriott-bonvoy",
+    "name": "Marriott Bonvoy HDFC Bank Credit Card",
+    "issuer": "HDFC Bank",
+    "filePath": "data\\cards\\hdfc\\hdfc-marriott-bonvoy.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.hdfc.bank.in/credit-cards/marriott-bonvoy-credit-card",
+      "ok": true,
+      "status": 200,
+      "redirected": false,
+      "finalUrl": "https://www.hdfc.bank.in/credit-cards/marriott-bonvoy-credit-card",
+      "matchedKeywords": [],
+      "length": 1198758
+    }
+  },
+  {
+    "cardId": "hdfc-millennia",
+    "name": "HDFC Millennia Credit Card",
+    "issuer": "HDFC Bank",
+    "filePath": "data\\cards\\hdfc\\hdfc-millennia.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.hdfc.bank.in/credit-cards/millennia-credit-card",
+      "ok": true,
+      "status": 200,
+      "redirected": false,
+      "finalUrl": "https://www.hdfc.bank.in/credit-cards/millennia-credit-card",
+      "matchedKeywords": [],
+      "length": 1173803
+    }
+  },
+  {
+    "cardId": "hdfc-moneyback-plus",
+    "name": "HDFC Bank MoneyBack+ Credit Card",
+    "issuer": "HDFC Bank",
+    "filePath": "data\\cards\\hdfc\\hdfc-moneyback-plus.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.hdfc.bank.in/credit-cards/moneyback-plus-credit-card",
+      "ok": true,
+      "status": 200,
+      "redirected": false,
+      "finalUrl": "https://www.hdfc.bank.in/credit-cards/moneyback-plus-credit-card",
+      "matchedKeywords": [],
+      "length": 1167656
+    }
+  },
+  {
+    "cardId": "hdfc-phonepe-ultimo",
+    "name": "PhonePe HDFC Bank Ultimo Credit Card",
+    "issuer": "HDFC Bank",
+    "filePath": "data\\cards\\hdfc\\hdfc-phonepe-ultimo.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.hdfcbank.com/personal/pay/cards/credit-cards/phonepe-hdfc-bank-ultimo-credit-card",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://www.hdfc.bank.in/credit-cards/phonepe-hdfc-bank-ultimo-credit-card",
+      "matchedKeywords": [],
+      "length": 1162013
+    }
+  },
+  {
+    "cardId": "hdfc-phonepe-uno",
+    "name": "PhonePe HDFC Bank Uno Credit Card",
+    "issuer": "HDFC Bank",
+    "filePath": "data\\cards\\hdfc\\hdfc-phonepe-uno.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.hdfcbank.com/personal/pay/cards/credit-cards/phonepe-hdfc-bank-uno-credit-card",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://www.hdfc.bank.in/credit-cards/phonepe-hdfc-bank-uno-credit-card",
+      "matchedKeywords": [],
+      "length": 1154016
+    }
+  },
+  {
+    "cardId": "hdfc-pixel-go",
+    "name": "HDFC Bank PIXEL Go Credit Card",
+    "issuer": "HDFC Bank",
+    "filePath": "data\\cards\\hdfc\\hdfc-pixel-go.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.hdfc.bank.in/credit-cards/pixel-go-credit-card",
+      "ok": true,
+      "status": 200,
+      "redirected": false,
+      "finalUrl": "https://www.hdfc.bank.in/credit-cards/pixel-go-credit-card",
+      "matchedKeywords": [],
+      "length": 1187909
+    }
+  },
+  {
+    "cardId": "hdfc-pixel-play",
+    "name": "HDFC Bank PIXEL Play Credit Card",
+    "issuer": "HDFC Bank",
+    "filePath": "data\\cards\\hdfc\\hdfc-pixel-play.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.hdfc.bank.in/credit-cards/pixel-play-credit-card",
+      "ok": true,
+      "status": 200,
+      "redirected": false,
+      "finalUrl": "https://www.hdfc.bank.in/credit-cards/pixel-play-credit-card",
+      "matchedKeywords": [],
+      "length": 1222971
+    }
+  },
+  {
+    "cardId": "hdfc-regalia-gold",
+    "name": "HDFC Bank Regalia Gold Credit Card",
+    "issuer": "HDFC Bank",
+    "filePath": "data\\cards\\hdfc\\hdfc-regalia-gold.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.hdfc.bank.in/credit-cards/regalia-gold-credit-card",
+      "ok": true,
+      "status": 200,
+      "redirected": false,
+      "finalUrl": "https://www.hdfc.bank.in/credit-cards/regalia-gold-credit-card",
+      "matchedKeywords": [],
+      "length": 1228622
+    }
+  },
+  {
+    "cardId": "hdfc-shoppers-stop-black",
+    "name": "Shoppers Stop BLACK HDFC Bank Credit Card",
+    "issuer": "HDFC Bank",
+    "filePath": "data\\cards\\hdfc\\hdfc-shoppers-stop-black.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.hdfcbank.com/personal/pay/cards/credit-cards/shoppers-stop-black-credit-card",
+      "ok": false,
+      "status": 0,
+      "reason": "The operation was aborted due to timeout"
+    }
+  },
+  {
+    "cardId": "hdfc-shoppers-stop",
+    "name": "Shoppers Stop HDFC Bank Credit Card",
+    "issuer": "HDFC Bank",
+    "filePath": "data\\cards\\hdfc\\hdfc-shoppers-stop.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.hdfcbank.com/personal/pay/cards/credit-cards/shoppers-stop-credit-card",
+      "ok": false,
+      "status": 0,
+      "reason": "The operation was aborted due to timeout"
+    }
+  },
+  {
+    "cardId": "hdfc-swiggy-black",
+    "name": "Swiggy HDFC Bank BLCK Credit Card",
+    "issuer": "HDFC Bank",
+    "filePath": "data\\cards\\hdfc\\hdfc-swiggy-black.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.hdfcbank.com/personal/pay/cards/credit-cards/swiggy-hdfc-bank-credit-card",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://www.hdfc.bank.in/credit-cards/swiggy-hdfc-bank-credit-card",
+      "matchedKeywords": [],
+      "length": 1204020
+    }
+  },
+  {
+    "cardId": "hdfc-swiggy-orange",
+    "name": "Swiggy Orange HDFC Bank Credit Card",
+    "issuer": "HDFC Bank",
+    "filePath": "data\\cards\\hdfc\\hdfc-swiggy-orange.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.hdfcbank.com/personal/pay/cards/credit-cards/swiggy-hdfc-bank-credit-card",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://www.hdfc.bank.in/credit-cards/swiggy-hdfc-bank-credit-card",
+      "matchedKeywords": [],
+      "length": 1204020
+    }
+  },
+  {
+    "cardId": "hdfc-swiggy",
+    "name": "Swiggy HDFC Bank Credit Card",
+    "issuer": "HDFC Bank",
+    "filePath": "data\\cards\\hdfc\\hdfc-swiggy.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.hdfcbank.com/personal/pay/cards/credit-cards/swiggy-hdfc-bank-credit-card",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://www.hdfc.bank.in/credit-cards/swiggy-hdfc-bank-credit-card",
+      "matchedKeywords": [],
+      "length": 1204020
+    }
+  },
+  {
+    "cardId": "hdfc-tata-neu-infinity",
+    "name": "Tata Neu Infinity HDFC Bank Credit Card",
+    "issuer": "HDFC Bank",
+    "filePath": "data\\cards\\hdfc\\hdfc-tata-neu-infinity.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.hdfc.bank.in/credit-cards/tata-neu-infinity-hdfc-bank-credit-card",
+      "ok": true,
+      "status": 200,
+      "redirected": false,
+      "finalUrl": "https://www.hdfc.bank.in/credit-cards/tata-neu-infinity-hdfc-bank-credit-card",
+      "matchedKeywords": [],
+      "length": 1194507
+    }
+  },
+  {
+    "cardId": "hdfc-tata-neu-plus",
+    "name": "Tata Neu Plus HDFC Bank Credit Card",
+    "issuer": "HDFC Bank",
+    "filePath": "data\\cards\\hdfc\\hdfc-tata-neu-plus.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.hdfc.bank.in/credit-cards/tata-neu-plus-hdfc-bank-credit-card",
+      "ok": true,
+      "status": 200,
+      "redirected": false,
+      "finalUrl": "https://www.hdfc.bank.in/credit-cards/tata-neu-plus-hdfc-bank-credit-card",
+      "matchedKeywords": [],
+      "length": 1181139
+    }
+  },
+  {
+    "cardId": "hsbc-live-plus",
+    "name": "HSBC Live+ Credit Card",
+    "issuer": "HSBC Bank",
+    "filePath": "data\\cards\\hsbc\\hsbc-live-plus.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.hsbc.co.in/credit-cards/products/live-plus/",
+      "ok": true,
+      "status": 200,
+      "redirected": false,
+      "finalUrl": "https://www.hsbc.co.in/credit-cards/products/live-plus/",
+      "matchedKeywords": [],
+      "length": 245159
+    }
+  },
+  {
+    "cardId": "hsbc-premier",
+    "name": "HSBC Premier Credit Card",
+    "issuer": "HSBC Bank",
+    "filePath": "data\\cards\\hsbc\\hsbc-premier.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.hsbc.co.in/credit-cards/products/premier/",
+      "ok": true,
+      "status": 200,
+      "redirected": false,
+      "finalUrl": "https://www.hsbc.co.in/credit-cards/products/premier/",
+      "matchedKeywords": [],
+      "length": 225707
+    }
+  },
+  {
+    "cardId": "hsbc-rupay-cashback",
+    "name": "HSBC RuPay Cashback Credit Card",
+    "issuer": "HSBC Bank",
+    "filePath": "data\\cards\\hsbc\\hsbc-rupay-cashback.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.hsbc.co.in/credit-cards/products/rupay-cashback-credit-card/",
+      "ok": true,
+      "status": 200,
+      "redirected": false,
+      "finalUrl": "https://www.hsbc.co.in/credit-cards/products/rupay-cashback-credit-card/",
+      "matchedKeywords": [],
+      "length": 229654
+    }
+  },
+  {
+    "cardId": "hsbc-rupay-platinum",
+    "name": "HSBC RuPay Platinum Credit Card",
+    "issuer": "HSBC Bank",
+    "filePath": "data\\cards\\hsbc\\hsbc-rupay-platinum.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.hsbc.co.in/credit-cards/products/rupay-platinum-credit-card/",
+      "ok": true,
+      "status": 200,
+      "redirected": false,
+      "finalUrl": "https://www.hsbc.co.in/credit-cards/products/rupay-platinum-credit-card/",
+      "matchedKeywords": [],
+      "length": 231530
+    }
+  },
+  {
+    "cardId": "hsbc-taj",
+    "name": "HSBC Taj Credit Card",
+    "issuer": "HSBC Bank",
+    "filePath": "data\\cards\\hsbc\\hsbc-taj.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.hsbc.co.in/credit-cards/products/taj/",
+      "ok": true,
+      "status": 200,
+      "redirected": false,
+      "finalUrl": "https://www.hsbc.co.in/credit-cards/products/taj/",
+      "matchedKeywords": [],
+      "length": 230055
+    }
+  },
+  {
+    "cardId": "hsbc-travelone",
+    "name": "HSBC TravelOne Credit Card",
+    "issuer": "HSBC Bank",
+    "filePath": "data\\cards\\hsbc\\hsbc-travelone.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.hsbc.co.in/credit-cards/products/travelone/",
+      "ok": true,
+      "status": 200,
+      "redirected": false,
+      "finalUrl": "https://www.hsbc.co.in/credit-cards/products/travelone/",
+      "matchedKeywords": [],
+      "length": 232351
+    }
+  },
+  {
+    "cardId": "hsbc-visa-platinum",
+    "name": "HSBC Visa Platinum Credit Card",
+    "issuer": "HSBC Bank",
+    "filePath": "data\\cards\\hsbc\\hsbc-visa-platinum.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.hsbc.co.in/credit-cards/products/visa-platinum/",
+      "ok": true,
+      "status": 200,
+      "redirected": false,
+      "finalUrl": "https://www.hsbc.co.in/credit-cards/products/visa-platinum/",
+      "matchedKeywords": [],
+      "length": 235372
+    }
+  },
+  {
+    "cardId": "icici-adani-one-platinum",
+    "name": "Adani One ICICI Bank Platinum Credit Card",
+    "issuer": "ICICI Bank",
+    "filePath": "data\\cards\\icici\\icici-adani-one-platinum.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.icicibank.com/personal-banking/cards/credit-card/adani-icici-credit-card/platinum-card",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://www.icici.bank.in/personal-banking/cards/credit-card/adani-icici-credit-card/platinum-card",
+      "matchedKeywords": [],
+      "length": 431084
+    }
+  },
+  {
+    "cardId": "icici-adani-one-signature",
+    "name": "Adani One ICICI Bank Signature Credit Card",
+    "issuer": "ICICI Bank",
+    "filePath": "data\\cards\\icici\\icici-adani-one-signature.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.icicibank.com/personal-banking/cards/credit-card/adani-icici-credit-card/signature-credit-card",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://www.icici.bank.in/personal-banking/cards/credit-card/adani-icici-credit-card/signature-credit-card",
+      "matchedKeywords": [],
+      "length": 440530
+    }
+  },
+  {
+    "cardId": "icici-amazon-pay",
+    "name": "Amazon Pay ICICI Bank Credit Card",
+    "issuer": "ICICI Bank",
+    "filePath": "data\\cards\\icici\\icici-amazon-pay.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.icici.bank.in/personal-banking/cards/credit-card/amazon-pay-credit-card",
+      "ok": true,
+      "status": 200,
+      "redirected": false,
+      "finalUrl": "https://www.icici.bank.in/personal-banking/cards/credit-card/amazon-pay-credit-card",
+      "matchedKeywords": [
+        "withdrawn"
+      ],
+      "length": 424559
+    },
+    "applyUrlCheck": {
+      "url": "https://www.amazon.in/",
+      "ok": true,
+      "status": 202,
+      "redirected": false,
+      "finalUrl": "https://www.amazon.in/",
+      "matchedKeywords": [],
+      "length": 2008
+    }
+  },
+  {
+    "cardId": "icici-coral-rupay",
+    "name": "ICICI Bank Coral RuPay Credit Card",
+    "issuer": "ICICI Bank",
+    "filePath": "data\\cards\\icici\\icici-coral-rupay.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.icicibank.com/personal-banking/cards/credit-card/coral-rupay-card",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://www.icici.bank.in/personal-banking/cards/credit-card/rupay-credit-card",
+      "matchedKeywords": [],
+      "length": 487972
+    },
+    "applyUrlCheck": {
+      "url": "https://www.icicibank.com/personal-banking/cards/credit-card/rupay-credit-card",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://www.icici.bank.in/personal-banking/cards/credit-card/rupay-credit-card",
+      "matchedKeywords": [],
+      "length": 487972
+    }
+  },
+  {
+    "cardId": "icici-coral",
+    "name": "ICICI Bank Coral Credit Card",
+    "issuer": "ICICI Bank",
+    "filePath": "data\\cards\\icici\\icici-coral.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.icicibank.com/personal-banking/cards/credit-card/coral-credit-card",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://www.icici.bank.in/personal-banking/cards/credit-card/coral-credit-card",
+      "matchedKeywords": [],
+      "length": 433306
+    }
+  },
+  {
+    "cardId": "icici-emeralde-private-metal",
+    "name": "ICICI Bank Emeralde Private Metal Credit Card",
+    "issuer": "ICICI Bank",
+    "filePath": "data\\cards\\icici\\icici-emeralde-private-metal.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.icicibank.com/personal-banking/cards/credit-card/emeralde-private-metal-credit-card",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://www.icici.bank.in/personal-banking/cards/credit-card/emeralde-private-metal-credit-card",
+      "matchedKeywords": [],
+      "length": 458811
+    }
+  },
+  {
+    "cardId": "icici-emeralde",
+    "name": "ICICI Bank Emeralde Credit Card",
+    "issuer": "ICICI Bank",
+    "filePath": "data\\cards\\icici\\icici-emeralde.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.icicibank.com/personal-banking/cards/credit-card/emeralde-credit-card-new",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://www.icici.bank.in/personal-banking/cards/credit-card/emeralde-credit-card",
+      "matchedKeywords": [],
+      "length": 448212
+    }
+  },
+  {
+    "cardId": "icici-hpcl-coral",
+    "name": "ICICI Bank HPCL Coral Credit Card",
+    "issuer": "ICICI Bank",
+    "filePath": "data\\cards\\icici\\icici-hpcl-coral.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.icicibank.com/personal-banking/cards/credit-card/hpcl-coral-credit-card",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://www.icici.bank.in/personal-banking/cards/credit-card/hpcl-coral-credit-card",
+      "matchedKeywords": [],
+      "length": 429050
+    }
+  },
+  {
+    "cardId": "icici-hpcl-super-saver",
+    "name": "ICICI Bank HPCL Super Saver Credit Card",
+    "issuer": "ICICI Bank",
+    "filePath": "data\\cards\\icici\\icici-hpcl-super-saver.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.icicibank.com/personal-banking/cards/credit-card/hpcl-super-saver-credit-card",
+      "ok": false,
+      "status": 404,
+      "redirected": true,
+      "finalUrl": "https://www.icici.bank.in/personal-banking/cards/credit-card/hpcl-super-saver-credit-card",
+      "matchedKeywords": [],
+      "length": 335411
+    }
+  },
+  {
+    "cardId": "icici-makemytrip",
+    "name": "MakeMyTrip ICICI Bank Credit Card",
+    "issuer": "ICICI Bank",
+    "filePath": "data\\cards\\icici\\icici-makemytrip.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.icicibank.com/personal-banking/cards/credit-card/makemytrip/credit-card",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://www.icici.bank.in/personal-banking/cards/credit-card/makemytrip",
+      "matchedKeywords": [],
+      "length": 1099293
+    }
+  },
+  {
+    "cardId": "icici-platinum-chip",
+    "name": "ICICI Bank Platinum Chip Credit Card",
+    "issuer": "ICICI Bank",
+    "filePath": "data\\cards\\icici\\icici-platinum-chip.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.icicibank.com/personal-banking/cards/credit-card/platinum-chip-credit-card.html",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://www.icici.bank.in/personal-banking/cards/credit-card/platinum-chip-credit-card",
+      "matchedKeywords": [],
+      "length": 422231
+    }
+  },
+  {
+    "cardId": "icici-rubyx",
+    "name": "ICICI Bank Rubyx Credit Card",
+    "issuer": "ICICI Bank",
+    "filePath": "data\\cards\\icici\\icici-rubyx.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.icicibank.com/personal-banking/cards/credit-card/rubyx-card",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://www.icici.bank.in/personal-banking/cards/credit-card/rubyx-credit-card",
+      "matchedKeywords": [],
+      "length": 465021
+    }
+  },
+  {
+    "cardId": "icici-sapphiro-rupay",
+    "name": "ICICI Bank Sapphiro RuPay Credit Card",
+    "issuer": "ICICI Bank",
+    "filePath": "data\\cards\\icici\\icici-sapphiro-rupay.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.icicibank.com/personal-banking/cards/credit-card/rupay-credit-card",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://www.icici.bank.in/personal-banking/cards/credit-card/rupay-credit-card",
+      "matchedKeywords": [],
+      "length": 487972
+    }
+  },
+  {
+    "cardId": "icici-sapphiro",
+    "name": "ICICI Bank Sapphiro Credit Card",
+    "issuer": "ICICI Bank",
+    "filePath": "data\\cards\\icici\\icici-sapphiro.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.icicibank.com/personal-banking/cards/credit-card/sapphiro-card",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://www.icici.bank.in/personal-banking/cards/credit-card/sapphiro-card",
+      "matchedKeywords": [],
+      "length": 459257
+    }
+  },
+  {
+    "cardId": "icici-times-black",
+    "name": "Times Black ICICI Bank Credit Card",
+    "issuer": "ICICI Bank",
+    "filePath": "data\\cards\\icici\\icici-times-black.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.icicibank.com/personal-banking/cards/credit-card/times-black-icici-credit-card.html",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://www.icici.bank.in/personal-banking/cards/credit-card/times-black-icici-credit-card",
+      "matchedKeywords": [],
+      "length": 459011
+    }
+  },
+  {
+    "cardId": "idfc-ashva",
+    "name": "IDFC FIRST Ashva Credit Card",
+    "issuer": "IDFC FIRST Bank",
+    "filePath": "data\\cards\\idfc\\idfc-ashva.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.idfcfirstbank.com/credit-card",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://www.idfcfirst.bank.in/credit-card",
+      "matchedKeywords": [],
+      "length": 2155823
+    }
+  },
+  {
+    "cardId": "idfc-first-classic",
+    "name": "IDFC FIRST Classic Credit Card",
+    "issuer": "IDFC FIRST Bank",
+    "filePath": "data\\cards\\idfc\\idfc-first-classic.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.idfcfirstbank.com/credit-card",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://www.idfcfirst.bank.in/credit-card",
+      "matchedKeywords": [],
+      "length": 2155823
+    }
+  },
+  {
+    "cardId": "idfc-first-earn",
+    "name": "IDFC FIRST EA₹N Credit Card",
+    "issuer": "IDFC FIRST Bank",
+    "filePath": "data\\cards\\idfc\\idfc-first-earn.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.idfcfirstbank.com/credit-card",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://www.idfcfirst.bank.in/credit-card",
+      "matchedKeywords": [],
+      "length": 2155823
+    }
+  },
+  {
+    "cardId": "idfc-first-millennia",
+    "name": "IDFC FIRST Millennia Credit Card",
+    "issuer": "IDFC FIRST Bank",
+    "filePath": "data\\cards\\idfc\\idfc-first-millennia.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.idfcfirstbank.com/credit-card",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://www.idfcfirst.bank.in/credit-card",
+      "matchedKeywords": [],
+      "length": 2155823
+    }
+  },
+  {
+    "cardId": "idfc-first-power-plus",
+    "name": "IDFC FIRST Power+ Credit Card",
+    "issuer": "IDFC FIRST Bank",
+    "filePath": "data\\cards\\idfc\\idfc-first-power-plus.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.idfcfirstbank.com/credit-card",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://www.idfcfirst.bank.in/credit-card",
+      "matchedKeywords": [],
+      "length": 2155823
+    }
+  },
+  {
+    "cardId": "idfc-first-power",
+    "name": "IDFC FIRST Power Credit Card",
+    "issuer": "IDFC FIRST Bank",
+    "filePath": "data\\cards\\idfc\\idfc-first-power.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.idfcfirstbank.com/credit-card",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://www.idfcfirst.bank.in/credit-card",
+      "matchedKeywords": [],
+      "length": 2155823
+    }
+  },
+  {
+    "cardId": "idfc-first-select",
+    "name": "IDFC FIRST Select Credit Card",
+    "issuer": "IDFC FIRST Bank",
+    "filePath": "data\\cards\\idfc\\idfc-first-select.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.idfcfirstbank.com/credit-card",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://www.idfcfirst.bank.in/credit-card",
+      "matchedKeywords": [],
+      "length": 2155823
+    }
+  },
+  {
+    "cardId": "idfc-first-wealth",
+    "name": "IDFC FIRST Wealth Credit Card",
+    "issuer": "IDFC FIRST Bank",
+    "filePath": "data\\cards\\idfc\\idfc-first-wealth.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.idfcfirstbank.com/credit-card",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://www.idfcfirst.bank.in/credit-card",
+      "matchedKeywords": [],
+      "length": 2155823
+    }
+  },
+  {
+    "cardId": "idfc-indigo",
+    "name": "IndiGo IDFC FIRST Credit Card",
+    "issuer": "IDFC FIRST Bank",
+    "filePath": "data\\cards\\idfc\\idfc-indigo.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.idfcfirstbank.com/personal-banking/payments/cards/co-branded-card",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://www.idfcfirst.bank.in/personal-banking/payments/cards/co-branded-card",
+      "matchedKeywords": [],
+      "length": 1625847
+    },
+    "applyUrlCheck": {
+      "url": "https://www.idfcfirstbank.com/credit-card",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://www.idfcfirst.bank.in/credit-card",
+      "matchedKeywords": [],
+      "length": 2155823
+    }
+  },
+  {
+    "cardId": "idfc-mayura",
+    "name": "IDFC FIRST Mayura Credit Card",
+    "issuer": "IDFC FIRST Bank",
+    "filePath": "data\\cards\\idfc\\idfc-mayura.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.idfcfirstbank.com/credit-card",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://www.idfcfirst.bank.in/credit-card",
+      "matchedKeywords": [],
+      "length": 2155823
+    }
+  },
+  {
+    "cardId": "idfc-wow",
+    "name": "IDFC FIRST WOW! Credit Card",
+    "issuer": "IDFC FIRST Bank",
+    "filePath": "data\\cards\\idfc\\idfc-wow.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.idfcfirstbank.com/credit-card",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://www.idfcfirst.bank.in/credit-card",
+      "matchedKeywords": [],
+      "length": 2155823
+    }
+  },
+  {
+    "cardId": "indusind-aura-edge",
+    "name": "IndusInd Bank Platinum Aura Edge Credit Card",
+    "issuer": "IndusInd Bank",
+    "filePath": "data\\cards\\indusind-bank\\indusind-aura-edge.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.indusind.com/in/en/personal/cards/credit-card/platinum-aura-edge-visa-and-mastercard-credit-card-easy-credit.html",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://www.indusind.bank.in/in/en/personal/cards/credit-card/platinum-aura-edge-visa-and-mastercard-credit-card-easy-credit.html",
+      "matchedKeywords": [
+        "discontinued"
+      ],
+      "length": 762532
+    }
+  },
+  {
+    "cardId": "indusind-celesta",
+    "name": "IndusInd Bank Celesta Credit Card",
+    "issuer": "IndusInd Bank",
+    "filePath": "data\\cards\\indusind-bank\\indusind-celesta.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.indusind.com/in/en/personal/cards/credit-card/celesta-credit-card.html",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://www.indusind.bank.in/in/en/personal/cards/credit-card/celesta-credit-card.html",
+      "matchedKeywords": [],
+      "length": 681498
+    }
+  },
+  {
+    "cardId": "indusind-crest",
+    "name": "IndusInd Bank Crest Credit Card",
+    "issuer": "IndusInd Bank",
+    "filePath": "data\\cards\\indusind-bank\\indusind-crest.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.indusind.com/in/en/personal/cards/credit-card/crest-credit-card.html",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://www.indusind.bank.in/in/en/personal/cards/credit-card/crest-credit-card.html",
+      "matchedKeywords": [],
+      "length": 681425
+    }
+  },
+  {
+    "cardId": "indusind-eazydiner-platinum",
+    "name": "EazyDiner IndusInd Bank Platinum Credit Card",
+    "issuer": "IndusInd Bank",
+    "filePath": "data\\cards\\indusind-bank\\indusind-eazydiner-platinum.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.indusind.com/in/en/personal/cards/credit-card/eazydiner-platinum-credit-card.html",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://www.indusind.bank.in/in/en/personal/cards/credit-card/eazydiner-platinum-credit-card.html",
+      "matchedKeywords": [],
+      "length": 712170
+    }
+  },
+  {
+    "cardId": "indusind-eazydiner",
+    "name": "EazyDiner IndusInd Bank Credit Card",
+    "issuer": "IndusInd Bank",
+    "filePath": "data\\cards\\indusind-bank\\indusind-eazydiner.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.indusind.bank.in/in/en/personal/cards/credit-card/eazydiner-credit-card.html",
+      "ok": true,
+      "status": 200,
+      "redirected": false,
+      "finalUrl": "https://www.indusind.bank.in/in/en/personal/cards/credit-card/eazydiner-credit-card.html",
+      "matchedKeywords": [],
+      "length": 715046
+    }
+  },
+  {
+    "cardId": "indusind-indulge",
+    "name": "IndusInd Bank Indulge Credit Card",
+    "issuer": "IndusInd Bank",
+    "filePath": "data\\cards\\indusind-bank\\indusind-indulge.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.indusind.com/in/en/personal/cards/credit-card/indulge-credit-card.html",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://www.indusind.bank.in/in/en/personal/cards/credit-card/indulge-credit-card.html",
+      "matchedKeywords": [],
+      "length": 684782
+    }
+  },
+  {
+    "cardId": "indusind-legend",
+    "name": "IndusInd Bank Legend Credit Card",
+    "issuer": "IndusInd Bank",
+    "filePath": "data\\cards\\indusind-bank\\indusind-legend.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.indusind.com/in/en/personal/cards/credit-card/legend-credit-card.html",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://www.indusind.bank.in/in/en/personal/cards/credit-card/legend-credit-card.html",
+      "matchedKeywords": [
+        "discontinued"
+      ],
+      "length": 810325
+    }
+  },
+  {
+    "cardId": "indusind-nexxt",
+    "name": "IndusInd Bank Nexxt Credit Card",
+    "issuer": "IndusInd Bank",
+    "filePath": "data\\cards\\indusind-bank\\indusind-nexxt.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.indusind.com/in/en/personal/cards/credit-card/nexxt-credit-card.html",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://www.indusind.bank.in/in/en/personal/cards/credit-card/nexxt-credit-card.html",
+      "matchedKeywords": [
+        "discontinued"
+      ],
+      "length": 751028
+    }
+  },
+  {
+    "cardId": "indusind-pinnacle",
+    "name": "IndusInd Bank Pinnacle Credit Card",
+    "issuer": "IndusInd Bank",
+    "filePath": "data\\cards\\indusind-bank\\indusind-pinnacle.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.indusind.com/in/en/personal/cards/credit-card/pinnacle-world-credit-card.html",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://www.indusind.bank.in/in/en/personal/cards/credit-card/pinnacle-world-credit-card.html",
+      "matchedKeywords": [
+        "discontinued"
+      ],
+      "length": 767853
+    }
+  },
+  {
+    "cardId": "indusind-pioneer-heritage-metal",
+    "name": "PIONEER Heritage Metal Credit Card",
+    "issuer": "IndusInd Bank",
+    "filePath": "data\\cards\\indusind-bank\\indusind-pioneer-heritage-metal.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.indusind.bank.in/in/en/personal/cards/credit-card/pioneer-heritage-credit-card.html",
+      "ok": true,
+      "status": 200,
+      "redirected": false,
+      "finalUrl": "https://www.indusind.bank.in/in/en/personal/cards/credit-card/pioneer-heritage-credit-card.html",
+      "matchedKeywords": [
+        "discontinued"
+      ],
+      "length": 768102
+    }
+  },
+  {
+    "cardId": "indusind-pioneer-legacy",
+    "name": "PIONEER Legacy Credit Card",
+    "issuer": "IndusInd Bank",
+    "filePath": "data\\cards\\indusind-bank\\indusind-pioneer-legacy.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.indusind.bank.in/in/en/personal/cards/credit-card/pioneer-legacy-credit-card.html",
+      "ok": true,
+      "status": 200,
+      "redirected": false,
+      "finalUrl": "https://www.indusind.bank.in/in/en/personal/cards/credit-card/pioneer-legacy-credit-card.html",
+      "matchedKeywords": [
+        "discontinued"
+      ],
+      "length": 738187
+    }
+  },
+  {
+    "cardId": "indusind-platinum-rupay",
+    "name": "IndusInd Bank Platinum RuPay Credit Card",
+    "issuer": "IndusInd Bank",
+    "filePath": "data\\cards\\indusind-bank\\indusind-platinum-rupay.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.indusind.com/in/en/personal/cards/credit-card/platinum-rupay-credit-card.html",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://www.indusind.bank.in/in/en/personal/cards/credit-card/platinum-rupay-credit-card.html",
+      "matchedKeywords": [
+        "discontinued"
+      ],
+      "length": 743503
+    }
+  },
+  {
+    "cardId": "indusind-tiger",
+    "name": "IndusInd Bank Tiger Credit Card",
+    "issuer": "IndusInd Bank",
+    "filePath": "data\\cards\\indusind-bank\\indusind-tiger.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.indusind.bank.in/in/en/personal/cards/credit-card/tiger-credit-card.html",
+      "ok": true,
+      "status": 200,
+      "redirected": false,
+      "finalUrl": "https://www.indusind.bank.in/in/en/personal/cards/credit-card/tiger-credit-card.html",
+      "matchedKeywords": [
+        "discontinued"
+      ],
+      "length": 736131
+    }
+  },
+  {
+    "cardId": "kotak-811-dream-different",
+    "name": "811 Dream Different Credit Card",
+    "issuer": "Kotak Mahindra Bank",
+    "filePath": "data\\cards\\kotak-mahindra\\kotak-811-dream-different.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.kotak.com/en/personal-banking/cards/credit-cards/811-dream-different-credit-card/811-dream-different-credit-card-faqs.html",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://www.kotak.bank.in/en/personal-banking/cards/credit-cards/811-dream-different-credit-card/811-dream-different-credit-card-faqs.html",
+      "matchedKeywords": [
+        "discontinued",
+        "withdrawn"
+      ],
+      "length": 834566
+    },
+    "applyUrlCheck": {
+      "url": "https://www.kotak.com/en/personal-banking/cards/credit-cards/811-dream-different-credit-card/eligibility.html",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://www.kotak.bank.in/en/personal-banking/cards/credit-cards/811-dream-different-credit-card/eligibility.html",
+      "matchedKeywords": [
+        "discontinued"
+      ],
+      "length": 755710
+    }
+  },
+  {
+    "cardId": "kotak-811",
+    "name": "Kotak 811 Credit Card",
+    "issuer": "Kotak Mahindra Bank",
+    "filePath": "data\\cards\\kotak-mahindra\\kotak-811.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.kotak.com/en/personal-banking/cards/credit-cards/kotak-811-credit-card.html",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://www.kotak.bank.in/en/personal-banking/cards/credit-cards/kotak-811-credit-card.html",
+      "matchedKeywords": [
+        "discontinued"
+      ],
+      "length": 768308
+    }
+  },
+  {
+    "cardId": "kotak-cashback-plus",
+    "name": "Kotak Cashback+ Credit Card",
+    "issuer": "Kotak Mahindra Bank",
+    "filePath": "data\\cards\\kotak-mahindra\\kotak-cashback-plus.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.kotak.com/en/personal-banking/cards/credit-cards/kotak-cashback-plus-credit-card.html",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://www.kotak.bank.in/en/personal-banking/cards/credit-cards/kotak-cashback-plus-credit-card.html",
+      "matchedKeywords": [],
+      "length": 770043
+    }
+  },
+  {
+    "cardId": "kotak-indianoil",
+    "name": "IndianOil Kotak Credit Card",
+    "issuer": "Kotak Mahindra Bank",
+    "filePath": "data\\cards\\kotak-mahindra\\kotak-indianoil.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.kotak.com/en/personal-banking/cards/credit-cards/indian-oil-credit-card.html",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://www.kotak.bank.in/en/personal-banking/cards/credit-cards/indian-oil-credit-card.html",
+      "matchedKeywords": [
+        "discontinued"
+      ],
+      "length": 783388
+    }
+  },
+  {
+    "cardId": "kotak-infinite",
+    "name": "Kotak Infinite Credit Card",
+    "issuer": "Kotak Mahindra Bank",
+    "filePath": "data\\cards\\kotak-mahindra\\kotak-infinite.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.kotak.com/en/personal-banking/cards/credit-cards/wealth-management-infinite-credit-card.html",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://www.kotak.bank.in/en/personal-banking/cards/credit-cards/wealth-management-infinite-credit-card.html",
+      "matchedKeywords": [
+        "discontinued"
+      ],
+      "length": 792167
+    }
+  },
+  {
+    "cardId": "kotak-league-platinum",
+    "name": "League Platinum Credit Card",
+    "issuer": "Kotak Mahindra Bank",
+    "filePath": "data\\cards\\kotak-mahindra\\kotak-league-platinum.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.kotak.com/en/personal-banking/cards/credit-cards/league-platinum-card/league-platinum-card-faqs.html",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://www.kotak.bank.in/en/personal-banking/cards/credit-cards/league-platinum-card/league-platinum-card-faqs.html",
+      "matchedKeywords": [],
+      "length": 756423
+    },
+    "applyUrlCheck": {
+      "url": "https://www.kotak.com/en/personal-banking/cards/credit-cards.html",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://www.kotak.bank.in/en/personal-banking/cards/credit-cards.html",
+      "matchedKeywords": [
+        "discontinued"
+      ],
+      "length": 967925
+    }
+  },
+  {
+    "cardId": "kotak-pvr-gold",
+    "name": "PVR Kotak Gold Credit Card",
+    "issuer": "Kotak Mahindra Bank",
+    "filePath": "data\\cards\\kotak-mahindra\\kotak-pvr-gold.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.kotak.com/en/personal-banking/cards/credit-cards.html",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://www.kotak.bank.in/en/personal-banking/cards/credit-cards.html",
+      "matchedKeywords": [
+        "discontinued"
+      ],
+      "length": 967925
+    }
+  },
+  {
+    "cardId": "kotak-pvr-inox",
+    "name": "PVR INOX Kotak Credit Card",
+    "issuer": "Kotak Mahindra Bank",
+    "filePath": "data\\cards\\kotak-mahindra\\kotak-pvr-inox.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.kotak.com/en/personal-banking/cards/credit-cards/pvr-inox-kotak-credit-card.html",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://www.kotak.bank.in/en/personal-banking/cards/credit-cards/pvr-inox-kotak-credit-card.html",
+      "matchedKeywords": [
+        "discontinued"
+      ],
+      "length": 786400
+    }
+  },
+  {
+    "cardId": "kotak-pvr-platinum",
+    "name": "PVR Kotak Platinum Credit Card",
+    "issuer": "Kotak Mahindra Bank",
+    "filePath": "data\\cards\\kotak-mahindra\\kotak-pvr-platinum.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.kotak.com/en/personal-banking/cards/credit-cards.html",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://www.kotak.bank.in/en/personal-banking/cards/credit-cards.html",
+      "matchedKeywords": [
+        "discontinued"
+      ],
+      "length": 967925
+    }
+  },
+  {
+    "cardId": "kotak-solitaire",
+    "name": "Kotak Solitaire Credit Card",
+    "issuer": "Kotak Mahindra Bank",
+    "filePath": "data\\cards\\kotak-mahindra\\kotak-solitaire.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.kotak.com/en/personal-banking/cards/credit-cards/kotak-solitaire-credit-card.html",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://www.kotak.bank.in/en/personal-banking/cards/credit-cards/kotak-solitaire-credit-card.html",
+      "matchedKeywords": [],
+      "length": 796630
+    },
+    "applyUrlCheck": {
+      "url": "https://www.kotak.com/en/solitaire.html",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://www.kotak.bank.in/en/solitaire.html",
+      "matchedKeywords": [
+        "withdrawn"
+      ],
+      "length": 784388
+    }
+  },
+  {
+    "cardId": "kotak-upi-rupay",
+    "name": "Kotak UPI RuPay Credit Card",
+    "issuer": "Kotak Mahindra Bank",
+    "filePath": "data\\cards\\kotak-mahindra\\kotak-upi-rupay.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.kotak.com/en/personal-banking/cards/credit-cards/kotak-upi-rupay-credit-card.html",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://www.kotak.bank.in/en/personal-banking/cards/credit-cards/kotak-upi-rupay-credit-card.html",
+      "matchedKeywords": [
+        "discontinued"
+      ],
+      "length": 750819
+    }
+  },
+  {
+    "cardId": "kotak-white-reserve",
+    "name": "White Reserve Credit Card",
+    "issuer": "Kotak Mahindra Bank",
+    "filePath": "data\\cards\\kotak-mahindra\\kotak-white-reserve.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.kotak.com/en/personal-banking/cards/credit-cards/white-reserve-credit-card/value.html",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://www.kotak.bank.in/en/personal-banking/cards/credit-cards/white-reserve-credit-card/value.html",
+      "matchedKeywords": [],
+      "length": 754889
+    },
+    "applyUrlCheck": {
+      "url": "https://www.kotak.com/en/personal-banking/cards/credit-cards/white-reserve-credit-card.html",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://www.kotak.bank.in/en/personal-banking/cards/credit-cards/white-reserve-credit-card.html",
+      "matchedKeywords": [
+        "discontinued"
+      ],
+      "length": 759011
+    }
+  },
+  {
+    "cardId": "kotak-white",
+    "name": "White Credit Card",
+    "issuer": "Kotak Mahindra Bank",
+    "filePath": "data\\cards\\kotak-mahindra\\kotak-white.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.kotak.com/en/personal-banking/cards/credit-cards/white-credit-card.html",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://www.kotak.bank.in/en/personal-banking/cards/credit-cards/white-credit-card.html",
+      "matchedKeywords": [
+        "discontinued"
+      ],
+      "length": 814011
+    }
+  },
+  {
+    "cardId": "kotak-zen-signature",
+    "name": "Zen Signature Credit Card",
+    "issuer": "Kotak Mahindra Bank",
+    "filePath": "data\\cards\\kotak-mahindra\\kotak-zen-signature.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.kotak.com/en/personal-banking/cards/credit-cards/zen-signature-credit-card/eligibility-criteria.html",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://www.kotak.bank.in/en/personal-banking/cards/credit-cards/zen-signature-credit-card/eligibility-criteria.html",
+      "matchedKeywords": [
+        "discontinued"
+      ],
+      "length": 759590
+    },
+    "applyUrlCheck": {
+      "url": "https://www.kotak.com/en/personal-banking/cards/credit-cards.html",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://www.kotak.bank.in/en/personal-banking/cards/credit-cards.html",
+      "matchedKeywords": [
+        "discontinued"
+      ],
+      "length": 967925
+    }
+  },
+  {
+    "cardId": "onecard",
+    "name": "One Credit Card",
+    "issuer": "OneCard Partner Banks",
+    "filePath": "data\\cards\\onecard-partners\\onecard.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.getonecard.app/credit-card/",
+      "ok": true,
+      "status": 200,
+      "redirected": false,
+      "finalUrl": "https://www.getonecard.app/credit-card/",
+      "matchedKeywords": [],
+      "length": 40894
+    },
+    "applyUrlCheck": {
+      "url": "https://www.getonecard.app/apply/",
+      "ok": true,
+      "status": 200,
+      "redirected": false,
+      "finalUrl": "https://www.getonecard.app/apply/",
+      "matchedKeywords": [],
+      "length": 37308
+    }
+  },
+  {
+    "cardId": "rbl-cookies",
+    "name": "RBL Bank Cookies Credit Card",
+    "issuer": "RBL Bank",
+    "filePath": "data\\cards\\rbl-bank\\rbl-cookies.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.rblbank.com/personal-banking/cards/credit-cards/cookies-credit-card",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://www.rbl.bank.in/personal-banking/cards/credit-cards/cookies-credit-card",
+      "matchedKeywords": [],
+      "length": 395219
+    }
+  },
+  {
+    "cardId": "rbl-icon",
+    "name": "RBL Bank Icon Credit Card",
+    "issuer": "RBL Bank",
+    "filePath": "data\\cards\\rbl-bank\\rbl-icon.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.rblbank.com/personal-banking/cards/credit-cards/icon-credit-card",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://www.rbl.bank.in/personal-banking/cards/credit-cards/icon-credit-card",
+      "matchedKeywords": [],
+      "length": 396561
+    }
+  },
+  {
+    "cardId": "rbl-patanjali-swarn",
+    "name": "Patanjali RBL Bank Swarn Credit Card",
+    "issuer": "RBL Bank",
+    "filePath": "data\\cards\\rbl-bank\\rbl-patanjali-swarn.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.rblbank.com/personal-banking/cards/credit-cards/patanjali-rbl-bank-swarn-credit-card",
+      "ok": false,
+      "status": 404,
+      "redirected": true,
+      "finalUrl": "https://www.rbl.bank.in/personal-banking/cards/credit-cards/patanjali-rbl-bank-swarn-credit-card",
+      "matchedKeywords": [],
+      "length": 354989
+    }
+  },
+  {
+    "cardId": "rbl-patanjali-vishisht",
+    "name": "Patanjali RBL Bank Vishisht Credit Card",
+    "issuer": "RBL Bank",
+    "filePath": "data\\cards\\rbl-bank\\rbl-patanjali-vishisht.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.rblbank.com/personal-banking/cards/credit-cards/patanjali-rbl-bank-vishisht-credit-card",
+      "ok": false,
+      "status": 404,
+      "redirected": true,
+      "finalUrl": "https://www.rbl.bank.in/personal-banking/cards/credit-cards/patanjali-rbl-bank-vishisht-credit-card",
+      "matchedKeywords": [],
+      "length": 354995
+    }
+  },
+  {
+    "cardId": "rbl-platinum-delight",
+    "name": "RBL Bank Platinum Delight Credit Card",
+    "issuer": "RBL Bank",
+    "filePath": "data\\cards\\rbl-bank\\rbl-platinum-delight.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.rblbank.com/personal-banking/cards/credit-cards/platinum-delight-credit-card",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://www.rbl.bank.in/personal-banking/cards/credit-cards/platinum-delight-credit-card",
+      "matchedKeywords": [],
+      "length": 396279
+    }
+  },
+  {
+    "cardId": "rbl-platinum-maxima-plus",
+    "name": "RBL Bank Platinum Maxima Plus Credit Card",
+    "issuer": "RBL Bank",
+    "filePath": "data\\cards\\rbl-bank\\rbl-platinum-maxima-plus.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.rblbank.com/personal-banking/cards/credit-cards/platinum-maxima-plus-credit-card",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://www.rbl.bank.in/personal-banking/cards/credit-cards/platinum-maxima-plus-credit-card",
+      "matchedKeywords": [],
+      "length": 397863
+    }
+  },
+  {
+    "cardId": "rbl-play",
+    "name": "RBL Bank PLAY Credit Card",
+    "issuer": "RBL Bank",
+    "filePath": "data\\cards\\rbl-bank\\rbl-play.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.rblbank.com/personal-banking/cards/credit-cards/rbl-bank-play-credit-card",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://www.rbl.bank.in/personal-banking/cards/credit-cards/rbl-bank-play-credit-card",
+      "matchedKeywords": [],
+      "length": 400257
+    }
+  },
+  {
+    "cardId": "rbl-shoprite",
+    "name": "RBL Bank ShopRite Credit Card",
+    "issuer": "RBL Bank",
+    "filePath": "data\\cards\\rbl-bank\\rbl-shoprite.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.rblbank.com/personal-banking/cards/credit-cards/shoprite-credit-card",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://www.rbl.bank.in/personal-banking/cards/credit-cards/shoprite-credit-card",
+      "matchedKeywords": [],
+      "length": 416594
+    }
+  },
+  {
+    "cardId": "rbl-world-max",
+    "name": "RBL Bank World Max Credit Card",
+    "issuer": "RBL Bank",
+    "filePath": "data\\cards\\rbl-bank\\rbl-world-max.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.rblbank.com/personal-banking/cards/credit-cards/world-max-credit-card",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://www.rbl.bank.in/personal-banking/cards/credit-cards/world-max-credit-card",
+      "matchedKeywords": [],
+      "length": 398010
+    }
+  },
+  {
+    "cardId": "rbl-world-prime",
+    "name": "RBL Bank World Prime Credit Card",
+    "issuer": "RBL Bank",
+    "filePath": "data\\cards\\rbl-bank\\rbl-world-prime.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.rblbank.com/personal-banking/cards/credit-cards/world-prime-credit-card",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://www.rbl.bank.in/personal-banking/cards/credit-cards/world-prime-credit-card",
+      "matchedKeywords": [],
+      "length": 398725
+    }
+  },
+  {
+    "cardId": "rbl-world-safari",
+    "name": "RBL Bank World Safari Credit Card",
+    "issuer": "RBL Bank",
+    "filePath": "data\\cards\\rbl-bank\\rbl-world-safari.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.rblbank.com/personal-banking/cards/credit-cards/world-safari-credit-card",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://www.rbl.bank.in/personal-banking/cards/credit-cards/world-safari-credit-card",
+      "matchedKeywords": [],
+      "length": 398147
+    }
+  },
+  {
+    "cardId": "apollo-sbi-select",
+    "name": "Apollo SBI Card SELECT",
+    "issuer": "SBI Card",
+    "filePath": "data\\cards\\sbi\\apollo-sbi-select.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.sbicard.com/en/personal/credit-cards/apollo-sbi-card.html",
+      "ok": true,
+      "status": 200,
+      "redirected": false,
+      "finalUrl": "https://www.sbicard.com/en/personal/credit-cards/apollo-sbi-card.html",
+      "matchedKeywords": [],
+      "length": 124639
+    },
+    "applyUrlCheck": {
+      "url": "https://www.apollo247.com/apollo-sbi-credit-card-faqs",
+      "ok": true,
+      "status": 200,
+      "redirected": false,
+      "finalUrl": "https://www.apollo247.com/apollo-sbi-credit-card-faqs",
+      "matchedKeywords": [],
+      "length": 32540
+    }
+  },
+  {
+    "cardId": "aurum-sbi",
+    "name": "AURUM SBI Card",
+    "issuer": "SBI Card",
+    "filePath": "data\\cards\\sbi\\aurum-sbi.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.sbicard.com/en/most-important-terms-and-conditions.page",
+      "ok": true,
+      "status": 200,
+      "redirected": false,
+      "finalUrl": "https://www.sbicard.com/en/most-important-terms-and-conditions.page",
+      "matchedKeywords": [],
+      "length": 493212
+    },
+    "applyUrlCheck": {
+      "url": "https://www.aurumcreditcard.com/",
+      "ok": true,
+      "status": 200,
+      "redirected": false,
+      "finalUrl": "https://www.aurumcreditcard.com/",
+      "matchedKeywords": [],
+      "length": 51332
+    }
+  },
+  {
+    "cardId": "bpcl-sbi-octane",
+    "name": "BPCL SBI Card OCTANE",
+    "issuer": "SBI Card",
+    "filePath": "data\\cards\\sbi\\bpcl-sbi-octane.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.sbicard.com/en/personal/credit-cards/bpcl-sbi-card-octane.html",
+      "ok": true,
+      "status": 200,
+      "redirected": false,
+      "finalUrl": "https://www.sbicard.com/en/personal/credit-cards/bpcl-sbi-card-octane.html",
+      "matchedKeywords": [],
+      "length": 124708
+    }
+  },
+  {
+    "cardId": "bpcl-sbi",
+    "name": "BPCL SBI Card",
+    "issuer": "SBI Card",
+    "filePath": "data\\cards\\sbi\\bpcl-sbi.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.sbicard.com/en/personal/credit-cards/bpcl-sbi-card.html",
+      "ok": true,
+      "status": 200,
+      "redirected": false,
+      "finalUrl": "https://www.sbicard.com/en/personal/credit-cards/bpcl-sbi-card.html",
+      "matchedKeywords": [],
+      "length": 124640
+    }
+  },
+  {
+    "cardId": "doctors-sbi",
+    "name": "Doctor's SBI Card",
+    "issuer": "SBI Card",
+    "filePath": "data\\cards\\sbi\\doctors-sbi.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.sbicard.com/en/personal/credit-cards/lifestyle/doctors-sbi-card.page",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://www.sbicard.com/en/personal/credit-cards/doctors-sbi-card.html",
+      "matchedKeywords": [],
+      "length": 124645
+    }
+  },
+  {
+    "cardId": "flipkart-sbi",
+    "name": "Flipkart SBI Card",
+    "issuer": "SBI Card",
+    "filePath": "data\\cards\\sbi\\flipkart-sbi.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.sbicard.com/en/personal/credit-cards/flipkart-sbi-card.html",
+      "ok": true,
+      "status": 200,
+      "redirected": false,
+      "finalUrl": "https://www.sbicard.com/en/personal/credit-cards/flipkart-sbi-card.html",
+      "matchedKeywords": [],
+      "length": 124717
+    }
+  },
+  {
+    "cardId": "indigo-sbi-elite",
+    "name": "IndiGo SBI Card ELITE",
+    "issuer": "SBI Card",
+    "filePath": "data\\cards\\sbi\\indigo-sbi-elite.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.sbicard.com/en/personal/sbi-credit-card.page",
+      "ok": true,
+      "status": 200,
+      "redirected": false,
+      "finalUrl": "https://www.sbicard.com/en/personal/sbi-credit-card.page",
+      "matchedKeywords": [
+        "discontinued"
+      ],
+      "length": 928187
+    }
+  },
+  {
+    "cardId": "indigo-sbi",
+    "name": "IndiGo SBI Card",
+    "issuer": "SBI Card",
+    "filePath": "data\\cards\\sbi\\indigo-sbi.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.sbicard.com/en/personal/credit-cards/indigo-sbi-card.html",
+      "ok": true,
+      "status": 200,
+      "redirected": false,
+      "finalUrl": "https://www.sbicard.com/en/personal/credit-cards/indigo-sbi-card.html",
+      "matchedKeywords": [],
+      "length": 124618
+    }
+  },
+  {
+    "cardId": "irctc-rupay-sbi",
+    "name": "IRCTC SBI Card on RuPay",
+    "issuer": "SBI Card",
+    "filePath": "data\\cards\\sbi\\irctc-rupay-sbi.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.sbicard.com/en/personal/credit-cards/travel/irctc-rupay-sbi-card.page",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://www.sbicard.com/en/personal/credit-cards/irctc-sbi-platinum-card.html",
+      "matchedKeywords": [],
+      "length": 124721
+    }
+  },
+  {
+    "cardId": "irctc-sbi-platinum",
+    "name": "IRCTC SBI Platinum Card",
+    "issuer": "SBI Card",
+    "filePath": "data\\cards\\sbi\\irctc-sbi-platinum.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.sbicard.com/en/personal/credit-cards/travel/irctc-sbi-platinum-card.page",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://www.sbicard.com/en/personal/credit-cards/irctc-sbi-platinum-card.html",
+      "matchedKeywords": [],
+      "length": 124721
+    }
+  },
+  {
+    "cardId": "krisflyer-sbi-apex",
+    "name": "KrisFlyer SBI Card Apex",
+    "issuer": "SBI Card",
+    "filePath": "data\\cards\\sbi\\krisflyer-sbi-apex.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.sbicard.com/en/personal/credit-cards/travel/krisflyer-sbi-card-apex.page",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://www.sbicard.com/en/personal/credit-cards/krisflyer-sbi-card-apex.html",
+      "matchedKeywords": [],
+      "length": 124783
+    }
+  },
+  {
+    "cardId": "krisflyer-sbi",
+    "name": "KrisFlyer SBI Card",
+    "issuer": "SBI Card",
+    "filePath": "data\\cards\\sbi\\krisflyer-sbi.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.sbicard.com/en/personal/credit-cards/travel/krisflyer-sbi-card.page",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://www.sbicard.com/en/personal/credit-cards/krisflyer-sbi-card.html",
+      "matchedKeywords": [],
+      "length": 124726
+    }
+  },
+  {
+    "cardId": "landmark-rewards-sbi-prime",
+    "name": "Landmark Rewards SBI Card PRIME",
+    "issuer": "SBI Card",
+    "filePath": "data\\cards\\sbi\\landmark-rewards-sbi-prime.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.sbicard.com/en/personal/credit-cards/shopping/landmark-sbi-card-prime.page",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://www.sbicard.com/en/personal/credit-cards/landmark-sbi-card-prime.html",
+      "matchedKeywords": [],
+      "length": 124747
+    }
+  },
+  {
+    "cardId": "landmark-rewards-sbi-select",
+    "name": "Landmark Rewards SBI Card SELECT",
+    "issuer": "SBI Card",
+    "filePath": "data\\cards\\sbi\\landmark-rewards-sbi-select.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.sbicard.com/en/personal/credit-cards/landmark-sbi-card.html",
+      "ok": true,
+      "status": 200,
+      "redirected": false,
+      "finalUrl": "https://www.sbicard.com/en/personal/credit-cards/landmark-sbi-card.html",
+      "matchedKeywords": [],
+      "length": 124666
+    }
+  },
+  {
+    "cardId": "landmark-rewards-sbi",
+    "name": "Landmark Rewards SBI Card",
+    "issuer": "SBI Card",
+    "filePath": "data\\cards\\sbi\\landmark-rewards-sbi.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.sbicard.com/en/personal/credit-cards/landmark-sbi-card.html",
+      "ok": true,
+      "status": 200,
+      "redirected": false,
+      "finalUrl": "https://www.sbicard.com/en/personal/credit-cards/landmark-sbi-card.html",
+      "matchedKeywords": [],
+      "length": 124666
+    }
+  },
+  {
+    "cardId": "lifestyle-home-centre-sbi-prime",
+    "name": "Lifestyle Home Centre SBI Card PRIME",
+    "issuer": "SBI Card",
+    "filePath": "data\\cards\\sbi\\lifestyle-home-centre-sbi-prime.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.sbicard.com/en/personal/credit-cards/shopping/hc-sbi-card-prime.page",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://www.sbicard.com/en/personal/credit-cards/landmark-sbi-card-prime.html",
+      "matchedKeywords": [],
+      "length": 124747
+    }
+  },
+  {
+    "cardId": "lifestyle-home-centre-sbi-select",
+    "name": "Lifestyle Home Centre SBI Card SELECT",
+    "issuer": "SBI Card",
+    "filePath": "data\\cards\\sbi\\lifestyle-home-centre-sbi-select.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.sbicard.com/en/personal/credit-cards/shopping/lifestyle-hc-sbi-card-select.page",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://www.sbicard.com/en/personal/credit-cards/landmark-sbi-card-select.html",
+      "matchedKeywords": [],
+      "length": 124853
+    }
+  },
+  {
+    "cardId": "lifestyle-home-centre-sbi",
+    "name": "Lifestyle Home Centre SBI Card",
+    "issuer": "SBI Card",
+    "filePath": "data\\cards\\sbi\\lifestyle-home-centre-sbi.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.sbicard.com/en/personal/credit-cards/shopping/lifestyle-hc-sbi-card.page",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://www.sbicard.com/en/personal/credit-cards/landmark-sbi-card.html",
+      "matchedKeywords": [],
+      "length": 124666
+    }
+  },
+  {
+    "cardId": "max-sbi-prime",
+    "name": "Max SBI Card PRIME",
+    "issuer": "SBI Card",
+    "filePath": "data\\cards\\sbi\\max-sbi-prime.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.sbicard.com/en/personal/credit-cards/shopping/max-sbi-card-prime.page",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://www.sbicard.com/en/personal/credit-cards/landmark-sbi-card-prime.html",
+      "matchedKeywords": [],
+      "length": 124747
+    }
+  },
+  {
+    "cardId": "max-sbi-select",
+    "name": "Max SBI Card SELECT",
+    "issuer": "SBI Card",
+    "filePath": "data\\cards\\sbi\\max-sbi-select.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.sbicard.com/en/personal/credit-cards/shopping/max-sbi-card-select.page",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://www.sbicard.com/en/personal/credit-cards/landmark-sbi-card-select.html",
+      "matchedKeywords": [],
+      "length": 124853
+    }
+  },
+  {
+    "cardId": "max-sbi",
+    "name": "Max SBI Card",
+    "issuer": "SBI Card",
+    "filePath": "data\\cards\\sbi\\max-sbi.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.sbicard.com/en/personal/credit-cards/shopping/max-sbi-card.page",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://www.sbicard.com/en/personal/credit-cards/landmark-sbi-card.html",
+      "matchedKeywords": [],
+      "length": 124666
+    }
+  },
+  {
+    "cardId": "ola-money-sbi",
+    "name": "OLA Money SBI Card",
+    "issuer": "SBI Card",
+    "filePath": "data\\cards\\sbi\\ola-money-sbi.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.sbicard.com/en/personal/credit-cards/travel/ola-money-sbi-card.page",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://www.sbicard.com/en/personal/credit-cards/ola-money-sbi-card.html",
+      "matchedKeywords": [],
+      "length": 124632
+    }
+  },
+  {
+    "cardId": "phonepe-sbi-purple",
+    "name": "PhonePe SBI Card PURPLE",
+    "issuer": "SBI Card",
+    "filePath": "data\\cards\\sbi\\phonepe-sbi-purple.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.sbicard.com/en/personal/credit-cards/rewards/phonepe-sbi-card-purple.page",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://www.sbicard.com/en/personal/credit-cards/phonepe-sbi-card-purple.html",
+      "matchedKeywords": [],
+      "length": 124660
+    },
+    "applyUrlCheck": {
+      "url": "https://www.phonepe.com/credit-cards/phonepe-sbi-card-purple-credit-card/",
+      "ok": true,
+      "status": 200,
+      "redirected": false,
+      "finalUrl": "https://www.phonepe.com/credit-cards/phonepe-sbi-card-purple-credit-card/",
+      "matchedKeywords": [],
+      "length": 207626
+    }
+  },
+  {
+    "cardId": "phonepe-sbi-select-black",
+    "name": "PhonePe SBI Card SELECT BLACK",
+    "issuer": "SBI Card",
+    "filePath": "data\\cards\\sbi\\phonepe-sbi-select-black.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.sbicard.com/en/personal/credit-cards/rewards/phonepe-sbi-card-select-black.page",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://www.sbicard.com/en/personal/credit-cards/phonepe-sbi-card-select-black.html",
+      "matchedKeywords": [],
+      "length": 124841
+    },
+    "applyUrlCheck": {
+      "url": "https://www.phonepe.com/credit-cards/phonepe-sbi-card-select-black-credit-card-rupay/",
+      "ok": true,
+      "status": 200,
+      "redirected": false,
+      "finalUrl": "https://www.phonepe.com/credit-cards/phonepe-sbi-card-select-black-credit-card-rupay/",
+      "matchedKeywords": [],
+      "length": 217463
+    }
+  },
+  {
+    "cardId": "reliance-sbi-prime",
+    "name": "Reliance SBI Card PRIME",
+    "issuer": "SBI Card",
+    "filePath": "data\\cards\\sbi\\reliance-sbi-prime.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.sbicard.com/en/personal/credit-cards/shopping/reliance-sbi-card-prime.page",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://www.sbicard.com/en/personal/credit-cards/reliance-sbi-card-prime.html",
+      "matchedKeywords": [],
+      "length": 124592
+    }
+  },
+  {
+    "cardId": "reliance-sbi",
+    "name": "Reliance SBI Card",
+    "issuer": "SBI Card",
+    "filePath": "data\\cards\\sbi\\reliance-sbi.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.sbicard.com/en/personal/credit-cards/shopping/reliance-sbi-card.page",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://www.sbicard.com/en/personal/credit-cards/reliance-sbi-card.html",
+      "matchedKeywords": [],
+      "length": 124540
+    }
+  },
+  {
+    "cardId": "sbi-card-elite",
+    "name": "SBI Card ELITE",
+    "issuer": "SBI Card",
+    "filePath": "data\\cards\\sbi\\sbi-card-elite.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.sbicard.com/en/personal/credit-cards/sbi-card-elite.html",
+      "ok": true,
+      "status": 200,
+      "redirected": false,
+      "finalUrl": "https://www.sbicard.com/en/personal/credit-cards/sbi-card-elite.html",
+      "matchedKeywords": [],
+      "length": 124699
+    }
+  },
+  {
+    "cardId": "sbi-card-miles-elite",
+    "name": "SBI Card MILES ELITE",
+    "issuer": "SBI Card",
+    "filePath": "data\\cards\\sbi\\sbi-card-miles-elite.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.sbicard.com/en/personal/credit-cards/travel/sbi-card-miles-elite.page",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://www.sbicard.com/en/personal/credit-cards/sbi-card-miles-elite.html",
+      "matchedKeywords": [],
+      "length": 124717
+    }
+  },
+  {
+    "cardId": "sbi-card-miles-prime",
+    "name": "SBI Card MILES PRIME",
+    "issuer": "SBI Card",
+    "filePath": "data\\cards\\sbi\\sbi-card-miles-prime.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.sbicard.com/en/personal/credit-cards/travel/sbi-card-miles-prime.page",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://www.sbicard.com/en/personal/credit-cards/sbi-card-miles-prime.html",
+      "matchedKeywords": [],
+      "length": 124436
+    }
+  },
+  {
+    "cardId": "sbi-card-miles",
+    "name": "SBI Card MILES",
+    "issuer": "SBI Card",
+    "filePath": "data\\cards\\sbi\\sbi-card-miles.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.sbicard.com/en/personal/credit-cards/travel/sbi-card-miles.page",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://www.sbicard.com/en/personal/credit-cards/sbi-card-miles.html",
+      "matchedKeywords": [],
+      "length": 124273
+    }
+  },
+  {
+    "cardId": "sbi-card-prime",
+    "name": "SBI Card PRIME",
+    "issuer": "SBI Card",
+    "filePath": "data\\cards\\sbi\\sbi-card-prime.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.sbicard.com/en/personal/credit-cards/lifestyle/sbi-card-prime.page",
+      "ok": false,
+      "status": 404,
+      "redirected": false,
+      "finalUrl": "https://www.sbicard.com/en/personal/credit-cards/lifestyle/sbi-card-prime.page",
+      "matchedKeywords": [],
+      "length": 83992
+    },
+    "applyUrlCheck": {
+      "url": "https://www.sbicard.com/en/personal/credit-cards/sbi-card-prime.html",
+      "ok": true,
+      "status": 200,
+      "redirected": false,
+      "finalUrl": "https://www.sbicard.com/en/personal/credit-cards/sbi-card-prime.html",
+      "matchedKeywords": [],
+      "length": 124712
+    }
+  },
+  {
+    "cardId": "sbi-card-pulse",
+    "name": "SBI Card PULSE",
+    "issuer": "SBI Card",
+    "filePath": "data\\cards\\sbi\\sbi-card-pulse.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.sbicard.com/en/personal/credit-cards/sbi-card-pulse.html",
+      "ok": true,
+      "status": 200,
+      "redirected": false,
+      "finalUrl": "https://www.sbicard.com/en/personal/credit-cards/sbi-card-pulse.html",
+      "matchedKeywords": [],
+      "length": 124600
+    }
+  },
+  {
+    "cardId": "sbi-cashback",
+    "name": "SBI Cashback Credit Card",
+    "issuer": "SBI Card",
+    "filePath": "data\\cards\\sbi\\sbi-cashback.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.sbicard.com/en/personal/credit-cards/rewards/cashback-sbi-card.page",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://www.sbicard.com/en/personal/credit-cards/cashback-sbi-card.html",
+      "matchedKeywords": [],
+      "length": 124691
+    }
+  },
+  {
+    "cardId": "shaurya-sbi",
+    "name": "Shaurya SBI Card",
+    "issuer": "SBI Card",
+    "filePath": "data\\cards\\sbi\\shaurya-sbi.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.sbicard.com/en/personal/credit-cards/defense/shaurya-sbi-card.page",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://www.sbicard.com/en/personal/credit-cards/shaurya-sbi-card.html",
+      "matchedKeywords": [],
+      "length": 124673
+    }
+  },
+  {
+    "cardId": "shaurya-select-sbi",
+    "name": "Shaurya Select SBI Card",
+    "issuer": "SBI Card",
+    "filePath": "data\\cards\\sbi\\shaurya-select-sbi.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.sbicard.com/sbi-card-en/assets/docs/pdf/personal/credit-cards/rewards/sbi-select-card/shaurya-select-sbi-card.pdf",
+      "ok": true,
+      "status": 200,
+      "redirected": false,
+      "finalUrl": "https://www.sbicard.com/sbi-card-en/assets/docs/pdf/personal/credit-cards/rewards/sbi-select-card/shaurya-select-sbi-card.pdf",
+      "matchedKeywords": [],
+      "length": 6616664
+    },
+    "applyUrlCheck": {
+      "url": "https://www.sbicard.com/en/personal/credit-cards/defense/shaurya-sbi-card.page",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://www.sbicard.com/en/personal/credit-cards/shaurya-sbi-card.html",
+      "matchedKeywords": [],
+      "length": 124673
+    }
+  },
+  {
+    "cardId": "simplyclick-sbi",
+    "name": "SimplyCLICK SBI Card",
+    "issuer": "SBI Card",
+    "filePath": "data\\cards\\sbi\\simplyclick-sbi.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.sbicard.com/en/personal/credit-cards/simplyclick-sbi-card.html",
+      "ok": true,
+      "status": 200,
+      "redirected": false,
+      "finalUrl": "https://www.sbicard.com/en/personal/credit-cards/simplyclick-sbi-card.html",
+      "matchedKeywords": [],
+      "length": 124679
+    }
+  },
+  {
+    "cardId": "simplysave-sbi",
+    "name": "SimplySAVE SBI Card",
+    "issuer": "SBI Card",
+    "filePath": "data\\cards\\sbi\\simplysave-sbi.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.sbicard.com/en/personal/credit-cards/shopping/simplysave-sbi-card-sprint.page",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://www.sbicard.com/en/personal/credit-cards/simplysave-sbi-card.html",
+      "matchedKeywords": [],
+      "length": 124695
+    }
+  },
+  {
+    "cardId": "spar-sbi",
+    "name": "Spar SBI Card",
+    "issuer": "SBI Card",
+    "filePath": "data\\cards\\sbi\\spar-sbi.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.sbicard.com/en/personal/credit-cards/shopping/spar-sbi-card.page",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://www.sbicard.com/en/personal/credit-cards/landmark-sbi-card.html",
+      "matchedKeywords": [],
+      "length": 124666
+    }
+  },
+  {
+    "cardId": "tata-neu-infinity-sbi",
+    "name": "Tata Neu Infinity SBI Card",
+    "issuer": "SBI Card",
+    "filePath": "data\\cards\\sbi\\tata-neu-infinity-sbi.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.sbicard.com/en/personal/credit-cards/tata-neu-infinity-sbi-card.html",
+      "ok": true,
+      "status": 200,
+      "redirected": false,
+      "finalUrl": "https://www.sbicard.com/en/personal/credit-cards/tata-neu-infinity-sbi-card.html",
+      "matchedKeywords": [],
+      "length": 124791
+    }
+  },
+  {
+    "cardId": "tata-neu-plus-sbi",
+    "name": "Tata Neu Plus SBI Card",
+    "issuer": "SBI Card",
+    "filePath": "data\\cards\\sbi\\tata-neu-plus-sbi.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.sbicard.com/en/personal/credit-cards/tata-neu-plus-sbi-card.html",
+      "ok": true,
+      "status": 200,
+      "redirected": false,
+      "finalUrl": "https://www.sbicard.com/en/personal/credit-cards/tata-neu-plus-sbi-card.html",
+      "matchedKeywords": [],
+      "length": 124702
+    },
+    "applyUrlCheck": {
+      "url": "https://www.sbicard.com/en/personal/credit-cards/lifestyle/tata-neu-plus-sbi-card.page",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://www.sbicard.com/en/personal/credit-cards/tata-neu-plus-sbi-card.html",
+      "matchedKeywords": [],
+      "length": 124702
+    }
+  },
+  {
+    "cardId": "titan-sbi",
+    "name": "Titan SBI Card",
+    "issuer": "SBI Card",
+    "filePath": "data\\cards\\sbi\\titan-sbi.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.sbicard.com/en/personal/credit-cards/shopping/titan-sbi-card.page",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://www.sbicard.com/en/personal/credit-cards/titan-sbi-card.html",
+      "matchedKeywords": [],
+      "length": 124609
+    }
+  },
+  {
+    "cardId": "sc-beyond",
+    "name": "Standard Chartered Beyond Credit Card",
+    "issuer": "Standard Chartered",
+    "filePath": "data\\cards\\standard-chartered\\sc-beyond.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.sc.com/in/credit-cards/beyond-credit-card/",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://www.sc.bank.in/credit-cards/beyond-credit-card/",
+      "matchedKeywords": [],
+      "length": 372664
+    }
+  },
+  {
+    "cardId": "sc-digismart",
+    "name": "Standard Chartered DigiSmart Credit Card",
+    "issuer": "Standard Chartered",
+    "filePath": "data\\cards\\standard-chartered\\sc-digismart.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.sc.com/in/credit-cards/digismart-card/",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://www.sc.bank.in/credit-cards/digismart-card/",
+      "matchedKeywords": [],
+      "length": 379353
+    }
+  },
+  {
+    "cardId": "sc-easemytrip",
+    "name": "Standard Chartered EaseMyTrip Credit Card",
+    "issuer": "Standard Chartered",
+    "filePath": "data\\cards\\standard-chartered\\sc-easemytrip.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.sc.com/in/credit-cards/easemytrip-card-faqs/",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://www.sc.bank.in/credit-cards/easemytrip-card-faqs/",
+      "matchedKeywords": [],
+      "length": 324276
+    },
+    "applyUrlCheck": {
+      "url": "https://www.sc.com/in/credit-cards/",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://www.sc.bank.in/credit-cards/",
+      "matchedKeywords": [
+        "withdrawn"
+      ],
+      "length": 384664
+    }
+  },
+  {
+    "cardId": "sc-manhattan-platinum",
+    "name": "Standard Chartered Manhattan Platinum Credit Card",
+    "issuer": "Standard Chartered",
+    "filePath": "data\\cards\\standard-chartered\\sc-manhattan-platinum.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.sc.com/in/credit-cards/",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://www.sc.bank.in/credit-cards/",
+      "matchedKeywords": [
+        "withdrawn"
+      ],
+      "length": 384663
+    }
+  },
+  {
+    "cardId": "sc-platinum-rewards",
+    "name": "Standard Chartered Platinum Rewards Credit Card",
+    "issuer": "Standard Chartered",
+    "filePath": "data\\cards\\standard-chartered\\sc-platinum-rewards.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.sc.com/in/credit-cards/platinum-rewards/",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://www.sc.bank.in/credit-cards/platinum-rewards/",
+      "matchedKeywords": [],
+      "length": 369588
+    }
+  },
+  {
+    "cardId": "sc-priority-visa-infinite",
+    "name": "Standard Chartered Priority Visa Infinite Credit Card",
+    "issuer": "Standard Chartered",
+    "filePath": "data\\cards\\standard-chartered\\sc-priority-visa-infinite.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.sc.com/in/credit-cards/visa-infinite-card",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://www.sc.bank.in/credit-cards/priority-banking-visa-infinite/",
+      "matchedKeywords": [],
+      "length": 409989
+    }
+  },
+  {
+    "cardId": "sc-rewards",
+    "name": "Standard Chartered Rewards Credit Card",
+    "issuer": "Standard Chartered",
+    "filePath": "data\\cards\\standard-chartered\\sc-rewards.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.sc.com/in/credit-cards/rewards-credit-card/",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://www.sc.bank.in/credit-cards/rewards-credit-card/",
+      "matchedKeywords": [],
+      "length": 367181
+    }
+  },
+  {
+    "cardId": "sc-smart",
+    "name": "Standard Chartered Smart Credit Card",
+    "issuer": "Standard Chartered",
+    "filePath": "data\\cards\\standard-chartered\\sc-smart.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.sc.com/in/credit-cards/smart-credit-card/",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://www.sc.bank.in/credit-cards/smart-credit-card/",
+      "matchedKeywords": [],
+      "length": 348984
+    }
+  },
+  {
+    "cardId": "sc-super-value-titanium",
+    "name": "Standard Chartered Super Value Titanium Credit Card",
+    "issuer": "Standard Chartered",
+    "filePath": "data\\cards\\standard-chartered\\sc-super-value-titanium.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.sc.com/in/credit-cards/super-value-titanium/",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://www.sc.bank.in/credit-cards/super-value-titanium/",
+      "matchedKeywords": [
+        "discontinued"
+      ],
+      "length": 380723
+    }
+  },
+  {
+    "cardId": "sc-ultimate",
+    "name": "Standard Chartered Ultimate Credit Card",
+    "issuer": "Standard Chartered",
+    "filePath": "data\\cards\\standard-chartered\\sc-ultimate.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.sc.com/in/credit-cards/ultimate-card/",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://www.sc.bank.in/credit-cards/ultimate-card/",
+      "matchedKeywords": [],
+      "length": 388561
+    }
+  },
+  {
+    "cardId": "yes-ace",
+    "name": "YES BANK ACE Credit Card",
+    "issuer": "YES Bank",
+    "filePath": "data\\cards\\yes-bank\\yes-ace.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.yesbank.in/content/published/api/v1.1/assets/CONT088843DCD7EF4481B44CBD56B307F379/native/yesbank_credit_card_ace_value_chart_nov23.pdf",
+      "ok": false,
+      "status": 404,
+      "redirected": true,
+      "finalUrl": "https://www.yes.bank.in/content/published/api/v1.1/assets/CONT088843DCD7EF4481B44CBD56B307F379/native/yesbank_credit_card_ace_value_chart_nov23.pdf",
+      "matchedKeywords": [],
+      "length": 1164
+    },
+    "applyUrlCheck": {
+      "url": "https://www.yesbank.in/personal-banking/yes-individual/cards/credit-cards",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://www.yes.bank.in/personal-banking/yes-individual/cards/credit-cards",
+      "matchedKeywords": [],
+      "length": 300869
+    }
+  },
+  {
+    "cardId": "yes-anq-phi",
+    "name": "YES BANK Anq Phi Credit Card",
+    "issuer": "YES Bank",
+    "filePath": "data\\cards\\yes-bank\\yes-anq-phi.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.yesbank.in/content/published/api/v1.1/assets/CONTF836E5CA21A444F98D273334B61F0900/native/yb_yes_bank_anq_phi_credit_card_one_pager.pdf",
+      "ok": false,
+      "status": 404,
+      "redirected": true,
+      "finalUrl": "https://www.yes.bank.in/content/published/api/v1.1/assets/CONTF836E5CA21A444F98D273334B61F0900/native/yb_yes_bank_anq_phi_credit_card_one_pager.pdf",
+      "matchedKeywords": [],
+      "length": 1164
+    },
+    "applyUrlCheck": {
+      "url": "https://anq.finance/",
+      "ok": true,
+      "status": 200,
+      "redirected": false,
+      "finalUrl": "https://anq.finance/",
+      "matchedKeywords": [],
+      "length": 151342
+    }
+  },
+  {
+    "cardId": "yes-elite-plus",
+    "name": "YES BANK ELITE+ Credit Card",
+    "issuer": "YES Bank",
+    "filePath": "data\\cards\\yes-bank\\yes-elite-plus.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.yesbank.in/content/published/api/v1.1/assets/CONT8410175D038545F1BC2EEC7B35DFA756/native/yesbank_credit_card_elite_plus_value_chart.pdf",
+      "ok": false,
+      "status": 404,
+      "redirected": true,
+      "finalUrl": "https://www.yes.bank.in/content/published/api/v1.1/assets/CONT8410175D038545F1BC2EEC7B35DFA756/native/yesbank_credit_card_elite_plus_value_chart.pdf",
+      "matchedKeywords": [],
+      "length": 1164
+    },
+    "applyUrlCheck": {
+      "url": "https://www.yesbank.in/content/published/api/v1.1/assets/CONTFE9DC64AC2554126A0B393725E1425A9/native/yes_premia_brochure_pdf.pdf?channelToken=21f7ccfa2fc3401091938f541a6f8f2a&download=false",
+      "ok": false,
+      "status": 404,
+      "redirected": true,
+      "finalUrl": "https://www.yes.bank.in/content/published/api/v1.1/assets/CONTFE9DC64AC2554126A0B393725E1425A9/native/yes_premia_brochure_pdf.pdf?channelToken=21f7ccfa2fc3401091938f541a6f8f2a&download=false",
+      "matchedKeywords": [],
+      "length": 1164
+    }
+  },
+  {
+    "cardId": "yes-first-preferred",
+    "name": "YES First Preferred Credit Card",
+    "issuer": "YES Bank",
+    "filePath": "data\\cards\\yes-bank\\yes-first-preferred.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.yesbank.in/content/published/api/v1.1/assets/CONT245A99A043C042B0B77BE647A6C987DD/native/value_chart_for_yes_first_preferred_credit_card.pdf",
+      "ok": false,
+      "status": 404,
+      "redirected": true,
+      "finalUrl": "https://www.yes.bank.in/content/published/api/v1.1/assets/CONT245A99A043C042B0B77BE647A6C987DD/native/value_chart_for_yes_first_preferred_credit_card.pdf",
+      "matchedKeywords": [],
+      "length": 1164
+    },
+    "applyUrlCheck": {
+      "url": "https://applycc.yesbank.in/creditCardTemplates/yesFirstPreffered.html",
+      "ok": false,
+      "status": 503,
+      "redirected": true,
+      "finalUrl": "https://applycc.yes.bank.in/creditCardTemplates/yesFirstPreffered.html",
+      "matchedKeywords": [],
+      "length": 107
+    }
+  },
+  {
+    "cardId": "yes-kiwi",
+    "name": "YES Bank Kiwi Credit Card",
+    "issuer": "YES Bank",
+    "filePath": "data\\cards\\yes-bank\\yes-kiwi.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://gokiwi.in/cards/yesbank/",
+      "ok": true,
+      "status": 200,
+      "redirected": false,
+      "finalUrl": "https://gokiwi.in/cards/yesbank/",
+      "matchedKeywords": [],
+      "length": 21361
+    }
+  },
+  {
+    "cardId": "yes-klick-rupay",
+    "name": "YES BANK Klick RuPay Credit Card",
+    "issuer": "YES Bank",
+    "filePath": "data\\cards\\yes-bank\\yes-klick-rupay.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.yesbank.in/content/published/api/v1.1/assets/CONTEC25C9A4B18F4AA7BA64228D65B6F8F6/native/ybl_user_guide_klick_rupay_credit_card.pdf",
+      "ok": false,
+      "status": 404,
+      "redirected": true,
+      "finalUrl": "https://www.yes.bank.in/content/published/api/v1.1/assets/CONTEC25C9A4B18F4AA7BA64228D65B6F8F6/native/ybl_user_guide_klick_rupay_credit_card.pdf",
+      "matchedKeywords": [],
+      "length": 1164
+    },
+    "applyUrlCheck": {
+      "url": "https://www.yesbank.in/personal-banking/yes-individual/cards/credit-cards",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://www.yes.bank.in/personal-banking/yes-individual/cards/credit-cards",
+      "matchedKeywords": [],
+      "length": 300869
+    }
+  },
+  {
+    "cardId": "yes-marquee",
+    "name": "YES BANK MARQUEE Credit Card",
+    "issuer": "YES Bank",
+    "filePath": "data\\cards\\yes-bank\\yes-marquee.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.yesbank.in/content/published/api/v1.1/assets/CONT49316C1151134FA58F444758AF08712C/native/yesbank_marquee_credit_card.pdf",
+      "ok": false,
+      "status": 404,
+      "redirected": true,
+      "finalUrl": "https://www.yes.bank.in/content/published/api/v1.1/assets/CONT49316C1151134FA58F444758AF08712C/native/yesbank_marquee_credit_card.pdf",
+      "matchedKeywords": [],
+      "length": 1164
+    },
+    "applyUrlCheck": {
+      "url": "https://www.yesbank.in/personal-banking/yes-individual/cards/credit-cards",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://www.yes.bank.in/personal-banking/yes-individual/cards/credit-cards",
+      "matchedKeywords": [],
+      "length": 300869
+    }
+  },
+  {
+    "cardId": "yes-paisabazaar-paisasave-rupay",
+    "name": "YES BANK Paisabazaar PaisaSave RuPay Credit Card",
+    "issuer": "YES Bank",
+    "filePath": "data\\cards\\yes-bank\\yes-paisabazaar-paisasave-rupay.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.yesbank.in/content/published/api/v1.1/assets/CONT07A77C257C7A4BDD85DB97E51D2B5B8F/native/yesbank_key_fact_statement.pdf",
+      "ok": false,
+      "status": 404,
+      "redirected": true,
+      "finalUrl": "https://www.yes.bank.in/content/published/api/v1.1/assets/CONT07A77C257C7A4BDD85DB97E51D2B5B8F/native/yesbank_key_fact_statement.pdf",
+      "matchedKeywords": [],
+      "length": 1164
+    },
+    "applyUrlCheck": {
+      "url": "https://www.paisabazaar.com/yes-bank/paisabazaar-paisasave-credit-card/",
+      "ok": true,
+      "status": 200,
+      "redirected": false,
+      "finalUrl": "https://www.paisabazaar.com/yes-bank/paisabazaar-paisasave-credit-card/",
+      "matchedKeywords": [],
+      "length": 559814
+    }
+  },
+  {
+    "cardId": "yes-paisabazaar-paisasave",
+    "name": "YES BANK Paisabazaar PaisaSave Credit Card",
+    "issuer": "YES Bank",
+    "filePath": "data\\cards\\yes-bank\\yes-paisabazaar-paisasave.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.yesbank.in/content/published/api/v1.1/assets/CONTC46D4F0EE9B04E8296130DCBAB6FC48B/native/ybl_overview_of_features_and_Benefits_on_your_paisasave_card.pdf",
+      "ok": false,
+      "status": 404,
+      "redirected": true,
+      "finalUrl": "https://www.yes.bank.in/content/published/api/v1.1/assets/CONTC46D4F0EE9B04E8296130DCBAB6FC48B/native/ybl_overview_of_features_and_Benefits_on_your_paisasave_card.pdf",
+      "matchedKeywords": [],
+      "length": 1164
+    },
+    "applyUrlCheck": {
+      "url": "https://www.paisabazaar.com/yes-bank/paisabazaar-paisasave-credit-card/",
+      "ok": true,
+      "status": 200,
+      "redirected": false,
+      "finalUrl": "https://www.paisabazaar.com/yes-bank/paisabazaar-paisasave-credit-card/",
+      "matchedKeywords": [],
+      "length": 559814
+    }
+  },
+  {
+    "cardId": "yes-pop-club",
+    "name": "YES BANK POP-CLUB Credit Card",
+    "issuer": "YES Bank",
+    "filePath": "data\\cards\\yes-bank\\yes-pop-club.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://popclub.co/",
+      "ok": true,
+      "status": 200,
+      "redirected": false,
+      "finalUrl": "https://popclub.co/",
+      "matchedKeywords": [],
+      "length": 25586
+    }
+  },
+  {
+    "cardId": "yes-reserv",
+    "name": "YES BANK RESERV Credit Card",
+    "issuer": "YES Bank",
+    "filePath": "data\\cards\\yes-bank\\yes-reserv.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.yesbank.in/content/published/api/v1.1/assets/CONT4EAD59EF49CE4B8EADB3234B1D9AF541/native/yesbank_credit_card_reserv_value_chart_nov23.pdf",
+      "ok": false,
+      "status": 404,
+      "redirected": true,
+      "finalUrl": "https://www.yes.bank.in/content/published/api/v1.1/assets/CONT4EAD59EF49CE4B8EADB3234B1D9AF541/native/yesbank_credit_card_reserv_value_chart_nov23.pdf",
+      "matchedKeywords": [],
+      "length": 1164
+    },
+    "applyUrlCheck": {
+      "url": "https://www.yesbank.in/personal-banking/yes-individual/cards/credit-cards",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://www.yes.bank.in/personal-banking/yes-individual/cards/credit-cards",
+      "matchedKeywords": [],
+      "length": 300869
+    }
+  },
+  {
+    "cardId": "yes-select",
+    "name": "YES BANK SELECT Credit Card",
+    "issuer": "YES Bank",
+    "filePath": "data\\cards\\yes-bank\\yes-select.json",
+    "currentStatus": "active",
+    "sourceUrlCheck": {
+      "url": "https://www.yesbank.in/content/published/api/v1.1/assets/CONT1D928BE3CBD5424AAF1FAEC534E78032/native/yesbank_credit_card_select_value_chart_nov23.pdf",
+      "ok": false,
+      "status": 404,
+      "redirected": true,
+      "finalUrl": "https://www.yes.bank.in/content/published/api/v1.1/assets/CONT1D928BE3CBD5424AAF1FAEC534E78032/native/yesbank_credit_card_select_value_chart_nov23.pdf",
+      "matchedKeywords": [],
+      "length": 1164
+    },
+    "applyUrlCheck": {
+      "url": "https://www.yesbank.in/personal-banking/yes-individual/cards/credit-cards",
+      "ok": true,
+      "status": 200,
+      "redirected": true,
+      "finalUrl": "https://www.yes.bank.in/personal-banking/yes-individual/cards/credit-cards",
+      "matchedKeywords": [],
+      "length": 300869
+    }
+  }
+]

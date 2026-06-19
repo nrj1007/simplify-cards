@@ -1,0 +1,52 @@
+import { scoreCards } from "../lib/recommend";
+
+const targetIds = ["hdfc-infinia-metal", "axis-magnus-burgundy"];
+const query = "infinia vs burgundy magnus";
+
+const scores = scoreCards({ query });
+const targets = scores.filter(s => targetIds.includes(s.card.id));
+
+targets.forEach(item => {
+  console.log(`======================================`);
+  console.log(`CARD: ${item.card.name} (${item.card.id})`);
+  console.log(`Rank: ${scores.findIndex(s => s.card.id === item.card.id) + 1} / ${scores.length}`);
+  console.log(`Final Fit Score: ${item.fitScore}`);
+  console.log(`Annual Spend: ${item.annualSpend}`);
+  console.log(`--------------------------------------`);
+  console.log(`ECONOMIC COMPONENTS:`);
+  console.log(`  Estimated Annual Rewards:       Rs. ${item.estimatedAnnualRewards}`);
+  console.log(`  Estimated Milestone Value:      Rs. ${item.estimatedMilestoneValue}`);
+  console.log(`  Estimated Annual Fee:           Rs. ${item.estimatedAnnualFee}`);
+  console.log(`  Estimated Net Value:            Rs. ${item.estimatedNetValue}`);
+  console.log(`--------------------------------------`);
+  console.log(`RELEVANCE COMPONENTS:`);
+  console.log(`  Card Name Boost:                ${item.debugScoring.cardNameBoost}`);
+  console.log(`  Keyword Boost:                  ${item.debugScoring.keywordBoost}`);
+  console.log(`  Tag Boost:                      ${item.debugScoring.tagBoost}`);
+  console.log(`  Issuer Boost:                   ${item.debugScoring.issuerBoost}`);
+  console.log(`  Network Boost:                  ${item.debugScoring.networkBoost}`);
+  console.log(`  Total Relevance Score:          ${item.debugScoring.relevanceScore}`);
+  console.log(`  Relevance Weight:               ${item.debugScoring.relevanceWeight}`);
+  console.log(`  Relevance Contribution:         ${item.debugScoring.relevanceContribution}`);
+  console.log(`--------------------------------------`);
+  console.log(`SHARED BOOSTS:`);
+  console.log(`  Use Case Boost:                 ${item.debugScoring.useCaseBoost}`);
+  console.log(`  Segment Boost:                  ${item.debugScoring.segmentBoost}`);
+  console.log(`  Redemption Boost:               ${item.debugScoring.redemptionBoost}`);
+  console.log(`  Lounge Boost:                   ${item.debugScoring.loungeBoost}`);
+  console.log(`  Forex Boost:                    ${item.debugScoring.forexBoost}`);
+  console.log(`  Spend Category Boost:           ${item.debugScoring.spendCategoryBoost}`);
+  console.log(`  Milestone/Waiver Delta:         ${item.debugScoring.comparisonMilestoneAndWaiverDelta}`);
+  console.log(`  LTF Query Boost:                ${item.debugScoring.ltfQueryBoost}`);
+  console.log(`  Relationship Penalty:           ${item.debugScoring.relationshipPenalty}`);
+  console.log(`  Special Spend Boost:            ${item.debugScoring.specialSpendBoost}`);
+  console.log(`  Milestone Boost:                ${item.debugScoring.milestoneBoost}`);
+  console.log(`  Popularity Boost:               ${item.debugScoring.popularityBoost}`);
+  console.log(`  Total Shared Boosts:            ${item.debugScoring.sharedBoosts}`);
+  console.log(`--------------------------------------`);
+  console.log(`VALUE SCORE (Net Value + Shared Boosts): ${item.debugScoring.valueScore}`);
+  console.log(`--------------------------------------`);
+  console.log(`Reasons:`);
+  item.reasons.forEach(r => console.log(`  - ${r}`));
+  console.log(`======================================\n`);
+});

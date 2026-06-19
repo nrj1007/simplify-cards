@@ -188,7 +188,7 @@ describe("scoreCards", () => {
     expect(kiwi?.annualSpend).toBe(636000);
     expect(kiwi?.estimatedAnnualRewards).toBe(12720);
     expect(kiwi?.estimatedAnnualFee).toBe(999);
-    expect(kiwi?.estimatedNetValue).toBe(11721);
+    expect(kiwi?.estimatedNetValue).toBe(16221);
     expect(kiwi?.rewardBreakdown).toEqual([
       {
         spendCategory: "upi",
@@ -219,7 +219,7 @@ describe("scoreCards", () => {
     expect(kiwi).toBeTruthy();
     expect(kiwi?.estimatedAnnualRewards).toBe(12000);
     expect(kiwi?.estimatedAnnualFee).toBe(999);
-    expect(kiwi?.estimatedNetValue).toBe(11001);
+    expect(kiwi?.estimatedNetValue).toBe(15501);
     expect(kiwi?.rewardBreakdown).toEqual([
       {
         spendCategory: "online",

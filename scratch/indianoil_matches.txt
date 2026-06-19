@@ -1,0 +1,2110 @@
+[
+  {
+    "lineNum": 15,
+    "text": "Fuel Credit Card - Apply for Indianoil Credit Card Online | HDFC Bank"
+  },
+  {
+    "lineNum": 137,
+    "text": "\"name\": \"Fuel Credit Card - Indian Oil Credit Card\","
+  },
+  {
+    "lineNum": 141,
+    "text": "\"annualPercentageRate\": \"23.88% to 43.2%*\","
+  },
+  {
+    "lineNum": 142,
+    "text": "\"feesAndCommissionsSpecification\": \"https://www.hdfcbank.com/credit-cards/indianoil-hdfc-bank-credit-card\""
+  },
+  {
+    "lineNum": 159,
+    "text": "{\"@context\":\"http://schema.org\",\"@type\":\"WebPage\",\"name\":\"Fuel Credit Card - Apply for Indianoil Credit Card Online | HDFC Bank\",\"url\":\"https://www.hdfc.bank.in/credit-cards/indianoil-hdfc-bank-credit-card\",\"description\":\"IndianOil Petrol Credit Card is a Fuel Credit Card in India. Get up to 50 Litres of Free Fuel annually & earn 5% fuel points on spends with free XTRAREWARDS membership.\",\"publisher\":{\"@type\":\"Organization\",\"name\":\"HDFC Bank\",\"url\":\"https://www.hdfc.bank.in/\"}}"
+  },
+  {
+    "lineNum": 163,
+    "text": "{\"@context\":\"http://schema.org\",\"@type\":\"FinancialProduct\",\"name\":\"Fuel Credit Card - Apply for Indianoil Credit Card Online | HDFC Bank\",\"url\":\"https://www.hdfc.bank.in/credit-cards/indianoil-hdfc-bank-credit-card\",\"mainEntityOfPage\":{\"@type\":\"WebPage\",\"@id\":\"https://www.hdfc.bank.in/credit-cards/indianoil-hdfc-bank-credit-card\"},\"broker\":{\"@type\":\"Organization\",\"name\":\"HDFC Bank\",\"url\":\"https://www.hdfc.bank.in/credit-cards/indianoil-hdfc-bank-credit-card\",\"logo\":\"https://www.hdfc.bank.in/content/dam/hdfcbankpws/home-page/hdfc-bank-logo.svg\"},\"description\":\"IndianOil Petrol Credit Card is a Fuel Credit Card in India. Get up to 50 Litres of Free Fuel annually & earn 5% fuel points on spends with free XTRAREWARDS membership.\"}"
+  },
+  {
+    "lineNum": 252,
+    "text": "var nv = nv || function () { (window.nv.q = window.nv.q || []).push(arguments) }; nv.l = new Date; var notify_visitors = notify_visitors || function () { var t = { initialize: !1, ab_overlay: !1, async: !0, on_load: !1, auth: { bid_e: \"41AB636116009089E43B5F284A9B5FDD\", bid: \"9072\", t: \"420\" } }; return t.data = { bid_e: t.auth.bid_e, bid: t.auth.bid, t: t.auth.t, iFrame: window !== window.parent, trafficSource: document.referrer, link_referrer: document.referrer, pageUrl: document.location, path: location.pathname, domain: location.origin, gmOffset: 60 * (new Date).getTimezoneOffset() * -1, screenWidth: screen.width, screenHeight: screen.height, isPwa: window.matchMedia && window.matchMedia(\"(display-mode: standalone)\").matches ? 1 : 0 }, t.options = function (e) { if (t._option = { ab_overlay: !1, async: !0, on_load: !1, cookie_domain: null }, e && \"object\" == typeof e) for (var n in t._option) void 0 !== e[n] && (t[n] = e[n]); else console.log(\"Not a valid option\") }, t.tokens = function (e) { t.data.tokens = e && \"object\" == typeof e ? JSON.stringify(e) : \"\" }, t.ruleData = function (e) { t.data.ruleData = e && \"object\" == typeof e ? JSON.stringify(e) : \"\" }, t.cookies = function (e) { t.data.cookies = e && (Array.isArray(e) || \"all\" === e) ? e : [] }, t.getParams = function (e) { var url = window.location.href.toLowerCase(), e = e.replace(/[\\[\\]]/g, \"\\\\$&\").toLowerCase(); var t = new RegExp(\"[?&]\" + e + \"(=([^&#]*)|&|#|$)\").exec(url); return t && t[2] ? decodeURIComponent(t[2].replace(/\\+/g, \" \")) : \"\" }, t.init = function () { if (\"complete\" != document.readyState && t.on_load) { if (window.addEventListener) window.addEventListener(\"load\", t._init); else if (window.attachEvent) return window.attachEvent(\"onload\", t._init) } else t._init() }, t._init = function () { if (t.auth && !t.initialize && (t.data.storage = t.browserStorage(), t.data.cookieData = t.filterCookies(t.data.cookies), t.cookie_domain && (t.data.cookieDomain = t.cookie_domain), t.js_callback = \"nv_json1\", !t.data.iFrame && \"noapi\" !== t.getParams(\"nvcheck\"))) { var n = \"?\"; if (t.ab_overlay) { var o = document.createElement(\"style\"), i = \"body{opacity:0 !important;filter:alpha(opacity=0) !important;background:none !important;}\", a = document.getElementsByTagName(\"head\")[0]; o.setAttribute(\"id\", \"_nv_hm_hidden_element\"), o.setAttribute(\"type\", \"text/css\"), o.styleSheet ? o.styleSheet.cssText = i : o.appendChild(document.createTextNode(i)), a.appendChild(o), setTimeout(function () { var t = this.document.getElementById(\"_nv_hm_hidden_element\"); if (t) try { t.parentNode.removeChild(e) } catch (e) { t.remove() } }, 2e3) } for (var r in t.data) t.data.hasOwnProperty(r) && (n += encodeURIComponent(r) + \"=\" + encodeURIComponent(t.data[r]) + \"&\"); t.load(\"https://ext-api.notifyvisitors.com/ext/v1/settings\" + n), t.initialize = !0 } }, t.browserStorage = function () { var e = { session: t.storage(\"sessionStorage\"), local: t.storage(\"localStorage\") }; return JSON.stringify(e) }, t.storage = function (e) { var t = {}; return window[e] && window[e].length > 0 && Object.keys(window[e]).forEach(function (n) { -1 !== n.indexOf(\"_nv_\") && (t[n] = window[e][n]) }), t }, t.filterCookies = function (e) { e = e || []; var t = []; if (document && document.cookie) { var n = document.cookie.split(\";\"); \"all\" === e && (t = n), Array.isArray(e) && n && n.length > 0 && (t = n.filter(function (t) { var n = t.trim().split(\"=\")[0]; return -1 !== e.indexOf(n) || 0 === n.indexOf(\"_nv_\") })) } return t.join(\";\") }, t.load = function (e) { var n = document, o = n.createElement(\"script\"); o.type = \"text/javascript\", o.async = t.async, o.src = e, n.body ? n.body.appendChild(o) : n.head.appendChild(o) }, t }(); notify_visitors.options({ ab_overlay: false, on_load: false }); notify_visitors.init();"
+  },
+  {
+    "lineNum": 286,
+    "text": "cursor: pointer;"
+  },
+  {
+    "lineNum": 758,
+    "text": "Kids Advantage"
+  },
+  {
+    "lineNum": 809,
+    "text": "Rewarding account for our Home Loan customers"
+  },
+  {
+    "lineNum": 966,
+    "text": "Add/Modify Nominee"
+  },
+  {
+    "lineNum": 969,
+    "text": "Change Mobile Number"
+  },
+  {
+    "lineNum": 972,
+    "text": "Apply For Cheque book"
+  },
+  {
+    "lineNum": 978,
+    "text": "Update Email ID"
+  },
+  {
+    "lineNum": 981,
+    "text": "Account Transfer"
+  },
+  {
+    "lineNum": 987,
+    "text": "Aadhaar Seeding"
+  },
+  {
+    "lineNum": 990,
+    "text": "DigiPassBook"
+  },
+  {
+    "lineNum": 1403,
+    "text": "Address Change"
+  },
+  {
+    "lineNum": 1406,
+    "text": "Add/Modify Nominee"
+  },
+  {
+    "lineNum": 1409,
+    "text": "Change Mobile Number"
+  },
+  {
+    "lineNum": 1412,
+    "text": "Apply For Cheque book"
+  },
+  {
+    "lineNum": 1418,
+    "text": "Update Email ID"
+  },
+  {
+    "lineNum": 1421,
+    "text": "Account Transfer"
+  },
+  {
+    "lineNum": 1424,
+    "text": "Safe Deposit Locker"
+  },
+  {
+    "lineNum": 1427,
+    "text": "Aadhaar Seeding"
+  },
+  {
+    "lineNum": 1578,
+    "text": "Address Change"
+  },
+  {
+    "lineNum": 1581,
+    "text": "Add/Modify Nominee"
+  },
+  {
+    "lineNum": 1584,
+    "text": "Change Mobile Number"
+  },
+  {
+    "lineNum": 1587,
+    "text": "Apply For Cheque book"
+  },
+  {
+    "lineNum": 1593,
+    "text": "Update Email ID"
+  },
+  {
+    "lineNum": 1596,
+    "text": "Account Transfer"
+  },
+  {
+    "lineNum": 1599,
+    "text": "Safe Deposit Locker Services"
+  },
+  {
+    "lineNum": 1602,
+    "text": "Aadhaar Seeding"
+  },
+  {
+    "lineNum": 1666,
+    "text": "Address Change"
+  },
+  {
+    "lineNum": 1669,
+    "text": "Add/Modify Nominee"
+  },
+  {
+    "lineNum": 1672,
+    "text": "Change Mobile Number"
+  },
+  {
+    "lineNum": 1675,
+    "text": "Apply For Cheque book"
+  },
+  {
+    "lineNum": 1681,
+    "text": "Update Email ID"
+  },
+  {
+    "lineNum": 1684,
+    "text": "Account Transfer"
+  },
+  {
+    "lineNum": 1687,
+    "text": "Safe Deposit Locker Services"
+  },
+  {
+    "lineNum": 1690,
+    "text": "Aadhaar Seeding"
+  },
+  {
+    "lineNum": 1836,
+    "text": "Add/Modify Nominee"
+  },
+  {
+    "lineNum": 1839,
+    "text": "Break Fixed Deposit"
+  },
+  {
+    "lineNum": 1845,
+    "text": "Comprehensive Deposit Policy"
+  },
+  {
+    "lineNum": 1848,
+    "text": "Erstwhile HDFC Ltd Deposits"
+  },
+  {
+    "lineNum": 1886,
+    "text": "Recurring Deposits Eligibility"
+  },
+  {
+    "lineNum": 1909,
+    "text": "My Passion Fund"
+  },
+  {
+    "lineNum": 1946,
+    "text": "Deposit Locker Eligibility"
+  },
+  {
+    "lineNum": 1955,
+    "text": "Deposit Locker Fees &amp; Charges"
+  },
+  {
+    "lineNum": 2041,
+    "text": "Everyday Rewards 5"
+  },
+  {
+    "lineNum": 2057,
+    "text": "Fuel &amp; Travel 3"
+  },
+  {
+    "lineNum": 2096,
+    "text": "Rewarding Credit Card For Everyday Spends"
+  },
+  {
+    "lineNum": 2273,
+    "text": "Extraordinary Rewards. Ready for You."
+  },
+  {
+    "lineNum": 2288,
+    "text": "Extraordinary Rewards. Ready for You."
+  },
+  {
+    "lineNum": 2303,
+    "text": "Delightful Rewards. Ready For You"
+  },
+  {
+    "lineNum": 2318,
+    "text": "Rewards that keep up with your appetite, everywhere"
+  },
+  {
+    "lineNum": 2367,
+    "text": "Fuel Benefits. Ready For You."
+  },
+  {
+    "lineNum": 2404,
+    "text": "Block My Credit Card"
+  },
+  {
+    "lineNum": 2407,
+    "text": "Activate your Credit Card"
+  },
+  {
+    "lineNum": 2410,
+    "text": "Forgot Pin?"
+  },
+  {
+    "lineNum": 2413,
+    "text": "Track Your Application Status"
+  },
+  {
+    "lineNum": 2416,
+    "text": "Set Your Card Control"
+  },
+  {
+    "lineNum": 2419,
+    "text": "Claim Your Rewards Points"
+  },
+  {
+    "lineNum": 2422,
+    "text": "Enhance Your Credit Limit"
+  },
+  {
+    "lineNum": 2425,
+    "text": "Manage Your Credit Card"
+  },
+  {
+    "lineNum": 2642,
+    "text": "Forgot Credit Card Pin?"
+  },
+  {
+    "lineNum": 2645,
+    "text": "Track Credit Card"
+  },
+  {
+    "lineNum": 2648,
+    "text": "Credit Card Activation"
+  },
+  {
+    "lineNum": 2651,
+    "text": "Block Lost/Stolen Card"
+  },
+  {
+    "lineNum": 2730,
+    "text": "Womans Advantage Debit Card"
+  },
+  {
+    "lineNum": 2751,
+    "text": "Times points debit card"
+  },
+  {
+    "lineNum": 2797,
+    "text": "Block Your Debit Card Instantly"
+  },
+  {
+    "lineNum": 2800,
+    "text": "Forgot your Debit Card PIN?"
+  },
+  {
+    "lineNum": 2803,
+    "text": "Claim your Reward Points"
+  },
+  {
+    "lineNum": 2806,
+    "text": "Manage Your Debit Card"
+  },
+  {
+    "lineNum": 2887,
+    "text": "Forex Card Services"
+  },
+  {
+    "lineNum": 3097,
+    "text": "Reload Your Prepaid Card"
+  },
+  {
+    "lineNum": 3197,
+    "text": "Purchase Reward Card"
+  },
+  {
+    "lineNum": 3219,
+    "text": "Forgot Credit Card Pin?"
+  },
+  {
+    "lineNum": 3222,
+    "text": "Track Credit Card"
+  },
+  {
+    "lineNum": 3225,
+    "text": "Credit Card Activation"
+  },
+  {
+    "lineNum": 3346,
+    "text": "Marriage Loan"
+  },
+  {
+    "lineNum": 3380,
+    "text": "Track Loan Application"
+  },
+  {
+    "lineNum": 3383,
+    "text": "Resume Your Application"
+  },
+  {
+    "lineNum": 3386,
+    "text": "Manage Your Loan Account"
+  },
+  {
+    "lineNum": 3473,
+    "text": "Track Loan Application"
+  },
+  {
+    "lineNum": 3476,
+    "text": "Resume Your Application"
+  },
+  {
+    "lineNum": 3479,
+    "text": "Manage Your Loan Account"
+  },
+  {
+    "lineNum": 3482,
+    "text": "New Car Loan status"
+  },
+  {
+    "lineNum": 3485,
+    "text": "Customer literature on NPA and SMA"
+  },
+  {
+    "lineNum": 3488,
+    "text": "Retail Assets Service"
+  },
+  {
+    "lineNum": 3491,
+    "text": "Loan e NACH &amp; e Mandate"
+  },
+  {
+    "lineNum": 3590,
+    "text": "Home Loan Portal"
+  },
+  {
+    "lineNum": 3643,
+    "text": "Home Loan Portal"
+  },
+  {
+    "lineNum": 3742,
+    "text": "Track Loan Application"
+  },
+  {
+    "lineNum": 3745,
+    "text": "Resume Your Application"
+  },
+  {
+    "lineNum": 3748,
+    "text": "Manage Your Loan Account"
+  },
+  {
+    "lineNum": 3841,
+    "text": "Track Loan Application"
+  },
+  {
+    "lineNum": 3844,
+    "text": "Resume Your Application"
+  },
+  {
+    "lineNum": 3847,
+    "text": "Manage Your Loan Account"
+  },
+  {
+    "lineNum": 3850,
+    "text": "Loan Restructuring FAQs"
+  },
+  {
+    "lineNum": 3955,
+    "text": "Track Loan Application"
+  },
+  {
+    "lineNum": 3958,
+    "text": "Resume Your Application"
+  },
+  {
+    "lineNum": 3961,
+    "text": "Manage Your Loan Account"
+  },
+  {
+    "lineNum": 3964,
+    "text": "Loan Restructuring FAQs"
+  },
+  {
+    "lineNum": 4437,
+    "text": "Demat Digital Services"
+  },
+  {
+    "lineNum": 4440,
+    "text": "Explore Demat Features"
+  },
+  {
+    "lineNum": 4443,
+    "text": "Important Notices For Demat"
+  },
+  {
+    "lineNum": 4481,
+    "text": "Sec-54 EC Capital Gains Bonds"
+  },
+  {
+    "lineNum": 4788,
+    "text": "Home Loan Eligibility Calculator"
+  },
+  {
+    "lineNum": 4878,
+    "text": "Gold Loan Eligibility Calculator"
+  },
+  {
+    "lineNum": 4906,
+    "text": "Personal Loan Calculator"
+  },
+  {
+    "lineNum": 4909,
+    "text": "Fixed Deposit (FD) Calculator"
+  },
+  {
+    "lineNum": 4912,
+    "text": "Car Loan EMI - New Calculator"
+  },
+  {
+    "lineNum": 4915,
+    "text": "Home Loan EMI Calculator"
+  },
+  {
+    "lineNum": 5056,
+    "text": "Women&#39;s Advantage Calculator"
+  },
+  {
+    "lineNum": 5180,
+    "text": "Overdraft Calculator"
+  },
+  {
+    "lineNum": 5189,
+    "text": "Working Capital Calculator"
+  },
+  {
+    "lineNum": 5286,
+    "text": "Recurring Deposit Application Form"
+  },
+  {
+    "lineNum": 5532,
+    "text": "Fees &amp; Charges"
+  },
+  {
+    "lineNum": 5573,
+    "text": "Apply For FASTAG"
+  },
+  {
+    "lineNum": 5688,
+    "text": "Add Beneficiary"
+  },
+  {
+    "lineNum": 5691,
+    "text": "Report UPI Frauds"
+  },
+  {
+    "lineNum": 5694,
+    "text": "Generate MPIN"
+  },
+  {
+    "lineNum": 5697,
+    "text": "Stop repeating Transfers"
+  },
+  {
+    "lineNum": 5700,
+    "text": "Legal Entity Identifier Code"
+  },
+  {
+    "lineNum": 5703,
+    "text": "Register For Net Banking"
+  },
+  {
+    "lineNum": 5798,
+    "text": "Merchant SI"
+  },
+  {
+    "lineNum": 5847,
+    "text": "Pay A Biller"
+  },
+  {
+    "lineNum": 5853,
+    "text": "View Payment History"
+  },
+  {
+    "lineNum": 5856,
+    "text": "Retail FASTag Login"
+  },
+  {
+    "lineNum": 5859,
+    "text": "Corporate FASTag Login"
+  },
+  {
+    "lineNum": 5928,
+    "text": "Check Recharge Status"
+  },
+  {
+    "lineNum": 5931,
+    "text": "View Scheduled Recharges"
+  },
+  {
+    "lineNum": 5934,
+    "text": "View Recharge History"
+  },
+  {
+    "lineNum": 6011,
+    "text": "Education Fees"
+  },
+  {
+    "lineNum": 6033,
+    "text": "File Your Taxes Or Verify Your Returns"
+  },
+  {
+    "lineNum": 6036,
+    "text": "View And Download Tax Reciepts"
+  },
+  {
+    "lineNum": 6039,
+    "text": "Download TDS Certificate"
+  },
+  {
+    "lineNum": 6042,
+    "text": "Get New Cheque Book"
+  },
+  {
+    "lineNum": 6045,
+    "text": "Stop Payment Of Cheque"
+  },
+  {
+    "lineNum": 6209,
+    "text": "Travel &amp; Stays"
+  },
+  {
+    "lineNum": 6227,
+    "text": "Savings Calculator"
+  },
+  {
+    "lineNum": 6412,
+    "text": "Manage Your Accounts"
+  },
+  {
+    "lineNum": 6421,
+    "text": "Open Subsequent NRE/NRO account"
+  },
+  {
+    "lineNum": 6424,
+    "text": "Add Resident Indian as Joint holder"
+  },
+  {
+    "lineNum": 6427,
+    "text": "Change Mailing Address"
+  },
+  {
+    "lineNum": 6430,
+    "text": "Add/Modify Nominee"
+  },
+  {
+    "lineNum": 6433,
+    "text": "Change Contact Details"
+  },
+  {
+    "lineNum": 6436,
+    "text": "NRO to NRE Fund Transfer"
+  },
+  {
+    "lineNum": 6439,
+    "text": "Outward Remittance from your NRO Account"
+  },
+  {
+    "lineNum": 6489,
+    "text": "Manage Your Accounts"
+  },
+  {
+    "lineNum": 6498,
+    "text": "Open Subsequent NRE/NRO account"
+  },
+  {
+    "lineNum": 6501,
+    "text": "Add Resident Indian as Joint holder"
+  },
+  {
+    "lineNum": 6504,
+    "text": "Change Mailing Address"
+  },
+  {
+    "lineNum": 6507,
+    "text": "Add/Modify Nominee"
+  },
+  {
+    "lineNum": 6510,
+    "text": "Change Contact Details"
+  },
+  {
+    "lineNum": 6513,
+    "text": "NRO to NRE Fund Transfer"
+  },
+  {
+    "lineNum": 6516,
+    "text": "Outward Remittance from your NRO Account"
+  },
+  {
+    "lineNum": 6566,
+    "text": "Manage Your Accounts"
+  },
+  {
+    "lineNum": 6575,
+    "text": "Open Subsequent NRE/NRO account"
+  },
+  {
+    "lineNum": 6578,
+    "text": "Add Resident Indian as Joint holder"
+  },
+  {
+    "lineNum": 6581,
+    "text": "Change Mailing Address"
+  },
+  {
+    "lineNum": 6584,
+    "text": "Add/Modify Nominee"
+  },
+  {
+    "lineNum": 6587,
+    "text": "Change Contact Details"
+  },
+  {
+    "lineNum": 6590,
+    "text": "NRO to NRE Fund Transfer"
+  },
+  {
+    "lineNum": 6593,
+    "text": "Outward Remittance from your NRO Account"
+  },
+  {
+    "lineNum": 6657,
+    "text": "Manage Your Accounts"
+  },
+  {
+    "lineNum": 6666,
+    "text": "Change Mailing Address"
+  },
+  {
+    "lineNum": 6669,
+    "text": "Add/Modify Nominee"
+  },
+  {
+    "lineNum": 6672,
+    "text": "Consent For EKYC"
+  },
+  {
+    "lineNum": 6675,
+    "text": "Change Contact Details"
+  },
+  {
+    "lineNum": 6678,
+    "text": "Register For Email Statement"
+  },
+  {
+    "lineNum": 6854,
+    "text": "Manage Your Accounts"
+  },
+  {
+    "lineNum": 6863,
+    "text": "Interest Rate"
+  },
+  {
+    "lineNum": 6866,
+    "text": "Book NRE/NRO Fixed Deposit"
+  },
+  {
+    "lineNum": 6869,
+    "text": "Download Interest Certificate"
+  },
+  {
+    "lineNum": 6872,
+    "text": "Download TDS Certificate"
+  },
+  {
+    "lineNum": 6875,
+    "text": "Add/Modify Nominee"
+  },
+  {
+    "lineNum": 6878,
+    "text": "Avail Overdraft"
+  },
+  {
+    "lineNum": 6881,
+    "text": "Break Fixed Deposit"
+  },
+  {
+    "lineNum": 6969,
+    "text": "Manage Your Accounts"
+  },
+  {
+    "lineNum": 6978,
+    "text": "Interest Rate"
+  },
+  {
+    "lineNum": 6984,
+    "text": "Add/Modify Nominee"
+  },
+  {
+    "lineNum": 6987,
+    "text": "Download Interest Certificate"
+  },
+  {
+    "lineNum": 7032,
+    "text": "Manage Your Accounts"
+  },
+  {
+    "lineNum": 7041,
+    "text": "Add/Change Nominee"
+  },
+  {
+    "lineNum": 7282,
+    "text": "NRI Portfolio Investment Scheme Fees &amp; Charges"
+  },
+  {
+    "lineNum": 7381,
+    "text": "Manage Your Accounts"
+  },
+  {
+    "lineNum": 7390,
+    "text": "Insure Loan"
+  },
+  {
+    "lineNum": 7393,
+    "text": "Download Interest Certificate"
+  },
+  {
+    "lineNum": 7797,
+    "text": "Travel &amp; Stays"
+  },
+  {
+    "lineNum": 7815,
+    "text": "Savings Calculator"
+  },
+  {
+    "lineNum": 8130,
+    "text": "Travel &amp; Stays"
+  },
+  {
+    "lineNum": 8148,
+    "text": "Savings Calculator"
+  },
+  {
+    "lineNum": 8326,
+    "text": "Cash Management Services"
+  },
+  {
+    "lineNum": 8370,
+    "text": "Supply Chain Management"
+  },
+  {
+    "lineNum": 8480,
+    "text": "Fees and Charges"
+  },
+  {
+    "lineNum": 8494,
+    "text": "Penal Charges ECG"
+  },
+  {
+    "lineNum": 8731,
+    "text": "Cash Management Services"
+  },
+  {
+    "lineNum": 8790,
+    "text": "Capital &amp; Commodity Market Brokers"
+  },
+  {
+    "lineNum": 8804,
+    "text": "Capital Market Brokers"
+  },
+  {
+    "lineNum": 9181,
+    "text": "Travel &amp; Stays"
+  },
+  {
+    "lineNum": 9199,
+    "text": "Savings Calculator"
+  },
+  {
+    "lineNum": 9586,
+    "text": "Access Exclusive Value Added Agriculture Service"
+  },
+  {
+    "lineNum": 9726,
+    "text": "Travel &amp; Stays"
+  },
+  {
+    "lineNum": 9744,
+    "text": "Savings Calculator"
+  },
+  {
+    "lineNum": 9990,
+    "text": "Address Change"
+  },
+  {
+    "lineNum": 9993,
+    "text": "Add/Modify Nominee"
+  },
+  {
+    "lineNum": 9996,
+    "text": "Change Mobile Number"
+  },
+  {
+    "lineNum": 9999,
+    "text": "Apply For Cheque book"
+  },
+  {
+    "lineNum": 10005,
+    "text": "Update Email ID"
+  },
+  {
+    "lineNum": 10008,
+    "text": "Account Transfer"
+  },
+  {
+    "lineNum": 10011,
+    "text": "Safe Deposit Locker Services"
+  },
+  {
+    "lineNum": 10014,
+    "text": "Aadhaar Seeding"
+  },
+  {
+    "lineNum": 10278,
+    "text": "Cash Management Services"
+  },
+  {
+    "lineNum": 10348,
+    "text": "Working Capital Loan"
+  },
+  {
+    "lineNum": 10368,
+    "text": "Working Capital For Contractors"
+  },
+  {
+    "lineNum": 10377,
+    "text": "Turnover Less Than Equal To ₹ 7.5 Crores"
+  },
+  {
+    "lineNum": 10383,
+    "text": "Working Capital Loan For Transporters"
+  },
+  {
+    "lineNum": 10392,
+    "text": "Turnover Greater Than ₹ 7.5 Crores"
+  },
+  {
+    "lineNum": 10921,
+    "text": "Purchase Reward Card"
+  },
+  {
+    "lineNum": 11132,
+    "text": "Capital Account Transactions"
+  },
+  {
+    "lineNum": 11305,
+    "text": "Travel &amp; Stays"
+  },
+  {
+    "lineNum": 11323,
+    "text": "Savings Calculator"
+  },
+  {
+    "lineNum": 11610,
+    "text": "HDFC Limited"
+  },
+  {
+    "lineNum": 11646,
+    "text": "Merchant Standing Instructions"
+  },
+  {
+    "lineNum": 11658,
+    "text": "Prepaid/Forex Card"
+  },
+  {
+    "lineNum": 11725,
+    "text": "Senior Management Team"
+  },
+  {
+    "lineNum": 11869,
+    "text": "Exclusive deals with your card on electronics, travel and shopping!"
+  },
+  {
+    "lineNum": 11991,
+    "text": "HDFC Limited"
+  },
+  {
+    "lineNum": 12218,
+    "text": "Exclusive deals with your card on electronics, travel and shopping!"
+  },
+  {
+    "lineNum": 12352,
+    "text": "Add/Modify Nominee"
+  },
+  {
+    "lineNum": 12356,
+    "text": "Change Mobile Number"
+  },
+  {
+    "lineNum": 12360,
+    "text": "Apply For Cheque book"
+  },
+  {
+    "lineNum": 12368,
+    "text": "Update Email ID"
+  },
+  {
+    "lineNum": 12372,
+    "text": "Account Transfer"
+  },
+  {
+    "lineNum": 12380,
+    "text": "Aadhaar Seeding"
+  },
+  {
+    "lineNum": 12384,
+    "text": "DigiPassBook"
+  },
+  {
+    "lineNum": 12496,
+    "text": "Add/Modify Nominee"
+  },
+  {
+    "lineNum": 12500,
+    "text": "Break Fixed Deposit"
+  },
+  {
+    "lineNum": 12508,
+    "text": "Comprehensive Deposit Policy"
+  },
+  {
+    "lineNum": 12512,
+    "text": "Erstwhile HDFC Ltd Deposits"
+  },
+  {
+    "lineNum": 12633,
+    "text": "Block My Credit Card"
+  },
+  {
+    "lineNum": 12637,
+    "text": "Activate your Credit Card"
+  },
+  {
+    "lineNum": 12641,
+    "text": "Forgot Pin?"
+  },
+  {
+    "lineNum": 12645,
+    "text": "Track Your Application Status"
+  },
+  {
+    "lineNum": 12649,
+    "text": "Set Your Card Control"
+  },
+  {
+    "lineNum": 12653,
+    "text": "Claim Your Rewards Points"
+  },
+  {
+    "lineNum": 12657,
+    "text": "Enhance Your Credit Limit"
+  },
+  {
+    "lineNum": 12661,
+    "text": "Manage Your Credit Card"
+  },
+  {
+    "lineNum": 12791,
+    "text": "Track Loan Application"
+  },
+  {
+    "lineNum": 12795,
+    "text": "Resume Your Application"
+  },
+  {
+    "lineNum": 12799,
+    "text": "Manage Your Loan Account"
+  },
+  {
+    "lineNum": 13060,
+    "text": "Demat Digital Services"
+  },
+  {
+    "lineNum": 13064,
+    "text": "Explore Demat Features"
+  },
+  {
+    "lineNum": 13068,
+    "text": "Important Notices For Demat"
+  },
+  {
+    "lineNum": 13186,
+    "text": "Personal Loan Calculator"
+  },
+  {
+    "lineNum": 13190,
+    "text": "Fixed Deposit (FD) Calculator"
+  },
+  {
+    "lineNum": 13194,
+    "text": "Car Loan EMI - New Calculator"
+  },
+  {
+    "lineNum": 13198,
+    "text": "Home Loan EMI Calculator"
+  },
+  {
+    "lineNum": 14093,
+    "text": "Travel &amp; Stays"
+  },
+  {
+    "lineNum": 14261,
+    "text": "Savings Calculator"
+  },
+  {
+    "lineNum": 15329,
+    "text": "Manage Your Accounts"
+  },
+  {
+    "lineNum": 15335,
+    "text": "Open Subsequent NRE/NRO account"
+  },
+  {
+    "lineNum": 15339,
+    "text": "Add Resident Indian as Joint holder"
+  },
+  {
+    "lineNum": 15343,
+    "text": "Change Mailing Address"
+  },
+  {
+    "lineNum": 15347,
+    "text": "Add/Modify Nominee"
+  },
+  {
+    "lineNum": 15351,
+    "text": "Change Contact Details"
+  },
+  {
+    "lineNum": 15355,
+    "text": "NRO to NRE Fund Transfer"
+  },
+  {
+    "lineNum": 15359,
+    "text": "Outward Remittance from your NRO Account"
+  },
+  {
+    "lineNum": 15462,
+    "text": "Manage Your Accounts"
+  },
+  {
+    "lineNum": 15468,
+    "text": "Interest Rate"
+  },
+  {
+    "lineNum": 15472,
+    "text": "Book NRE/NRO Fixed Deposit"
+  },
+  {
+    "lineNum": 15476,
+    "text": "Download Interest Certificate"
+  },
+  {
+    "lineNum": 15480,
+    "text": "Download TDS Certificate"
+  },
+  {
+    "lineNum": 15484,
+    "text": "Add/Modify Nominee"
+  },
+  {
+    "lineNum": 15488,
+    "text": "Avail Overdraft"
+  },
+  {
+    "lineNum": 15492,
+    "text": "Break Fixed Deposit"
+  },
+  {
+    "lineNum": 15644,
+    "text": "NRI Portfolio Investment Scheme Fees &amp; Charges"
+  },
+  {
+    "lineNum": 15782,
+    "text": "Manage Your Accounts"
+  },
+  {
+    "lineNum": 15788,
+    "text": "Insure Loan"
+  },
+  {
+    "lineNum": 15792,
+    "text": "Download Interest Certificate"
+  },
+  {
+    "lineNum": 16529,
+    "text": "Travel &amp; Stays"
+  },
+  {
+    "lineNum": 16697,
+    "text": "Savings Calculator"
+  },
+  {
+    "lineNum": 17748,
+    "text": "Travel &amp; Stays"
+  },
+  {
+    "lineNum": 17916,
+    "text": "Savings Calculator"
+  },
+  {
+    "lineNum": 18968,
+    "text": "Fees and Charges"
+  },
+  {
+    "lineNum": 19176,
+    "text": "Capital &amp; Commodity Market Brokers"
+  },
+  {
+    "lineNum": 19666,
+    "text": "Travel &amp; Stays"
+  },
+  {
+    "lineNum": 19834,
+    "text": "Savings Calculator"
+  },
+  {
+    "lineNum": 21117,
+    "text": "Travel &amp; Stays"
+  },
+  {
+    "lineNum": 21285,
+    "text": "Savings Calculator"
+  },
+  {
+    "lineNum": 21589,
+    "text": "Address Change"
+  },
+  {
+    "lineNum": 21593,
+    "text": "Add/Modify Nominee"
+  },
+  {
+    "lineNum": 21597,
+    "text": "Change Mobile Number"
+  },
+  {
+    "lineNum": 21601,
+    "text": "Apply For Cheque book"
+  },
+  {
+    "lineNum": 21609,
+    "text": "Update Email ID"
+  },
+  {
+    "lineNum": 21613,
+    "text": "Account Transfer"
+  },
+  {
+    "lineNum": 21617,
+    "text": "Safe Deposit Locker Services"
+  },
+  {
+    "lineNum": 21621,
+    "text": "Aadhaar Seeding"
+  },
+  {
+    "lineNum": 21771,
+    "text": "Working Capital Loan"
+  },
+  {
+    "lineNum": 22335,
+    "text": "Travel &amp; Stays"
+  },
+  {
+    "lineNum": 22503,
+    "text": "Savings Calculator"
+  },
+  {
+    "lineNum": 24143,
+    "text": "&lt;li style=&#34;padding-bottom: 5.0px;&#34;&gt;&lt;p&gt;&lt;span class=&#34;icon-right-tick icon&#34; style=&#34;padding-right: 5.0px;color: rgb(0,75,142);&#34;&gt;&lt;/span&gt;Earn up to 50 Litres of Free fuel annually&lt;/p&gt;"
+  },
+  {
+    "lineNum": 24145,
+    "text": "&lt;li style=&#34;padding-bottom: 5.0px;&#34;&gt;&lt;p&gt;&lt;span class=&#34;icon-right-tick icon&#34; style=&#34;padding-right: 5.0px;color: rgb(0,75,142);&#34;&gt;&lt;/span&gt;Earn 5% of your spends as Fuel Points at IndianOil outlets*&lt;/p&gt;"
+  },
+  {
+    "lineNum": 24147,
+    "text": "&lt;li style=&#34;padding-bottom: 5.0px;&#34;&gt;&lt;span class=&#34;icon-right-tick icon&#34; style=&#34;padding-right: 5.0px;color: rgb(0,75,142);&#34;&gt;&lt;/span&gt;Earn 5% of your spends as Fuel Points on Groceries and Bill Payments*&lt;/li&gt;"
+  },
+  {
+    "lineNum": 24151,
+    "text": "Earn up to 50 Litres of Free fuel annually"
+  },
+  {
+    "lineNum": 24153,
+    "text": "Earn 5% of your spends as Fuel Points at IndianOil outlets*"
+  },
+  {
+    "lineNum": 24155,
+    "text": "Earn 5% of your spends as Fuel Points on Groceries and Bill Payments*"
+  },
+  {
+    "lineNum": 24291,
+    "text": "&lt;li&gt;&lt;a class=&#34;manualRedirect&#34; href=&#34;#b&#34; target=&#34;_self&#34; title=&#34;Eligibility Criteria&#34;&gt;Eligibility Criteria&lt;span class=&#34;viewarrow-icon icon-arrow-right-bold&#34;&gt;&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;"
+  },
+  {
+    "lineNum": 24294,
+    "text": "&lt;li&gt;&lt;a class=&#34;manualRedirect&#34; href=&#34;#e&#34; target=&#34;_self&#34; title=&#34;Card Management &amp;amp; Controls&#34;&gt;Card Management &amp;amp; Controls&lt;span class=&#34;viewarrow-icon icon-arrow-right-bold&#34;&gt;&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;"
+  },
+  {
+    "lineNum": 24304,
+    "text": "Eligibility Criteria"
+  },
+  {
+    "lineNum": 24307,
+    "text": "Card Management &amp; Controls"
+  },
+  {
+    "lineNum": 24366,
+    "text": "exclusive discounts and &lt;br&gt;"
+  },
+  {
+    "lineNum": 24370,
+    "text": "exclusive discounts and"
+  },
+  {
+    "lineNum": 24553,
+    "text": "&lt;li&gt;&lt;p&gt;&lt;span class=&#34;icon icon-cashback2&#34;&gt;&lt;/span&gt;&lt;span class=&#34;item-heading&#34;&gt;Earn 5% of your spends as Fuel Points at IndianOil outlets*&lt;/span&gt;&lt;/p&gt;"
+  },
+  {
+    "lineNum": 24558,
+    "text": "Earn 5% of your spends as Fuel Points at IndianOil outlets*"
+  },
+  {
+    "lineNum": 24612,
+    "text": "&lt;li&gt;&lt;p&gt;&lt;span class=&#34;icon icon-cashback2&#34;&gt;&lt;/span&gt;&lt;span class=&#34;item-heading&#34;&gt;Complimentary IndianOil XTRAREWARDSTM&amp;nbsp;Program (IXRP) membership&lt;/span&gt;&lt;/p&gt;"
+  },
+  {
+    "lineNum": 24617,
+    "text": "Complimentary IndianOil XTRAREWARDSTM Program (IXRP) membership"
+  },
+  {
+    "lineNum": 24669,
+    "text": "<div class=\"cmp-teaser__description\" data-label='&lt;p&gt;&lt;span class=&#34;smalltext&#34;&gt;Exclusive Benefits&lt;/span&gt;&lt;/p&gt;"
+  },
+  {
+    "lineNum": 24671,
+    "text": "&lt;li&gt;&lt;p&gt;&lt;span class=&#34;icon icon-cashback2&#34;&gt;&lt;/span&gt;&lt;span class=&#34;item-heading&#34;&gt;Earn Fuel Points on retail spends with the IndianOil HDFC Bank Credit Card*&lt;/span&gt;&lt;/p&gt;"
+  },
+  {
+    "lineNum": 24674,
+    "text": "'> Exclusive Benefits"
+  },
+  {
+    "lineNum": 24676,
+    "text": "Earn Fuel Points on retail spends with the IndianOil HDFC Bank Credit Card*"
+  },
+  {
+    "lineNum": 24998,
+    "text": "<div class=\"cmp-teaser__description\" data-label='&lt;h3&gt;&lt;span class=&#34;section-title&#34;&gt;Fuel-Point Benefits&lt;/span&gt;&lt;/h3&gt;"
+  },
+  {
+    "lineNum": 25000,
+    "text": "&lt;li&gt;&lt;span class=&#34;icon-right-tick &#34;&gt;&lt;/span&gt;Earn 5% Fuel Points on Groceries &amp;amp; Bill Payments (POS &amp;amp; online; max 100 points/month per category*).&lt;/li&gt;"
+  },
+  {
+    "lineNum": 25001,
+    "text": "&lt;li&gt;&lt;span class=&#34;item-heading&#34;&gt;&lt;span class=&#34;icon-right-tick &#34;&gt;&lt;/span&gt;Earn 1 Fuel Point for every ₹150 spent on other purchases, including UPI transactions. &lt;/span&gt;&lt;/li&gt;"
+  },
+  {
+    "lineNum": 25002,
+    "text": "&lt;li&gt;&lt;span class=&#34;icon-right-tick &#34;&gt;&lt;/span&gt;Applicable on card swipes, Max 250 Fuel Points per month in first 6 months, Max 150 Fuel Points post 6 months from card issuance*&lt;/li&gt;"
+  },
+  {
+    "lineNum": 25004,
+    "text": "'> Fuel-Point Benefits"
+  },
+  {
+    "lineNum": 25006,
+    "text": "Earn 5% Fuel Points on Groceries &amp; Bill Payments (POS &amp; online; max 100 points/month per category*)."
+  },
+  {
+    "lineNum": 25007,
+    "text": "Earn 1 Fuel Point for every ₹150 spent on other purchases, including UPI transactions."
+  },
+  {
+    "lineNum": 25008,
+    "text": "Applicable on card swipes, Max 250 Fuel Points per month in first 6 months, Max 150 Fuel Points post 6 months from card issuance*"
+  },
+  {
+    "lineNum": 25108,
+    "text": "&lt;li&gt;&lt;span class=&#34;icon-right-tick &#34;&gt;&lt;/span&gt;Earn Additional CashBack along with the card CashPoints on Utility Bills, Mobile Recharges and more.&lt;/li&gt;"
+  },
+  {
+    "lineNum": 25115,
+    "text": "Earn Additional CashBack along with the card CashPoints on Utility Bills, Mobile Recharges and more."
+  },
+  {
+    "lineNum": 25217,
+    "text": "&lt;li&gt;&lt;span class=&#34;icon-right-tick icon&#34;&gt;&lt;/span&gt;Spend ₹50,000 or above in the first year and get a waiver on the renewal membership fee&lt;/li&gt;"
+  },
+  {
+    "lineNum": 25218,
+    "text": "&lt;li&gt;&lt;span class=&#34;icon-right-tick icon&#34;&gt;&lt;/span&gt;1% Fuel Surcharge waiver at all Indian fuel stations (min ₹400/transaction, max ₹250/cycle)&lt;/li&gt;"
+  },
+  {
+    "lineNum": 25223,
+    "text": "Spend ₹50,000 or above in the first year and get a waiver on the renewal membership fee"
+  },
+  {
+    "lineNum": 25224,
+    "text": "1% Fuel Surcharge waiver at all Indian fuel stations (min ₹400/transaction, max ₹250/cycle)"
+  },
+  {
+    "lineNum": 25393,
+    "text": "<div id=\"text-88fa683b5b\" class=\"cmp-extended-text\" data-aos=\"fade-up\" data-aos-duration=\"700\" data-aos-delay=\"200\" data-delaystep=\"100\" data-durationstep=\"85\" data-onparent=\"false\" jsname=\"aosInit\" data-label=\"&lt;h2&gt;&lt;span class=&#34;card-subtitle&#34;&gt;Wondering if you’re eligible?&lt;/span&gt;&lt;/h2&gt;"
+  },
+  {
+    "lineNum": 25406,
+    "text": "Wondering if you’re eligible?"
+  },
+  {
+    "lineNum": 25483,
+    "text": "<div class=\"cmp-teaser__description\" data-label='&lt;p&gt;&lt;span class=&#34;quick-eligibility_heading&#34;&gt;&lt;b&gt;&lt;span class=&#34;icon icon-salaried&#34;&gt;&lt;/span&gt;Salaried&lt;/b&gt;&lt;/span&gt;&lt;/p&gt;"
+  },
+  {
+    "lineNum": 25486,
+    "text": "&lt;li&gt;&lt;span class=&#34;icon icon-age&#34;&gt;&lt;/span&gt;&lt;span data-rte-class=&#34;rte-temp&#34;&gt;&lt;span class=&#34;pd-beneftis_title&#34;&gt;Age:&lt;b&gt;&amp;nbsp;&lt;/b&gt;Minimum 21 years, Maximum 60 Years&lt;/span&gt;&lt;/span&gt;&lt;/li&gt;"
+  },
+  {
+    "lineNum": 25487,
+    "text": "&lt;li&gt;&lt;span class=&#34;icon-income icon&#34;&gt;&lt;/span&gt;&lt;span data-rte-class=&#34;rte-temp&#34;&gt;&lt;b&gt;&lt;/b&gt;&lt;span class=&#34;pd-beneftis_title&#34;&gt;Net Monthly Income:&lt;b&gt;&amp;nbsp;&lt;/b&gt;&amp;gt; ₹12,000&lt;/span&gt;&lt;/span&gt;&lt;/li&gt;"
+  },
+  {
+    "lineNum": 25489,
+    "text": "'> Salaried"
+  },
+  {
+    "lineNum": 25492,
+    "text": "Age: Minimum 21 years, Maximum 60 Years"
+  },
+  {
+    "lineNum": 25493,
+    "text": "Net Monthly Income: &gt; ₹12,000"
+  },
+  {
+    "lineNum": 25542,
+    "text": "<div class=\"cmp-teaser__description\" data-label='&lt;p&gt;&lt;span class=&#34;quick-eligibility_heading&#34;&gt;&lt;b&gt;&lt;span class=&#34;icon icon-self-employed&#34;&gt;&lt;/span&gt;Self-Employed&lt;/b&gt;&lt;/span&gt;&lt;/p&gt;"
+  },
+  {
+    "lineNum": 25545,
+    "text": "&lt;li&gt;&lt;span class=&#34;icon icon-age&#34;&gt;&lt;/span&gt;&lt;span class=&#34;pd-beneftis_title&#34;&gt;Age: Minimum 21 years, Maximum 65 years&lt;/span&gt;&lt;/li&gt;"
+  },
+  {
+    "lineNum": 25546,
+    "text": "&lt;li&gt;&lt;span class=&#34;icon icon-income&#34;&gt;&lt;/span&gt;&lt;span class=&#34;pd-beneftis_title&#34;&gt;Annual Income: ITR &amp;gt; ₹6 lakh per annum&lt;/span&gt;&lt;/li&gt;"
+  },
+  {
+    "lineNum": 25548,
+    "text": "'> Self-Employed"
+  },
+  {
+    "lineNum": 25551,
+    "text": "Age: Minimum 21 years, Maximum 65 years"
+  },
+  {
+    "lineNum": 25552,
+    "text": "Annual Income: ITR &gt; ₹6 lakh per annum"
+  },
+  {
+    "lineNum": 25688,
+    "text": "Save up to ₹10,000* annually just like 22 lakh+ HDFC Bank Credit Card Holders"
+  },
+  {
+    "lineNum": 25955,
+    "text": "&lt;li&gt;&lt;span class=&#34;item-text&#34;&gt;&lt;span class=&#34;icon icon-right-tick&#34;&gt;&lt;/span&gt;&lt;span id=&#34;docs-internal-guid-3f82ca24-7fff-2fb9-d230-eac96eb92b64&#34;&gt;&lt;span style=&#34;font-size: 11.0pt; font-family: Calibri , sans-serif; color: rgb(0,0,0); background-color: transparent; vertical-align: baseline;&#34;&gt;&lt;/span&gt;Utility bills (electricity, water, gas)&lt;/span&gt;&lt;/span&gt;&lt;/li&gt;"
+  },
+  {
+    "lineNum": 25963,
+    "text": "Utility bills (electricity, water, gas)"
+  },
+  {
+    "lineNum": 26014,
+    "text": "<div class=\"cmp-teaser__description\" data-label='&lt;p&gt;&lt;span class=&#34;card-icon icon-profile&#34;&gt;&lt;/span&gt;&lt;span class=&#34;card-title&#34;&gt;Income Proof&lt;/span&gt;&lt;/p&gt;"
+  },
+  {
+    "lineNum": 26018,
+    "text": "&lt;li&gt;&lt;span class=&#34;icon icon-right-tick&#34;&gt;&lt;/span&gt;&lt;span class=&#34;item-text&#34;&gt;Income Tax Returns (ITR)&lt;/span&gt;&lt;/li&gt;"
+  },
+  {
+    "lineNum": 26021,
+    "text": "'> Income Proof"
+  },
+  {
+    "lineNum": 26025,
+    "text": "Income Tax Returns (ITR)"
+  },
+  {
+    "lineNum": 26355,
+    "text": "Fees &amp; Charges"
+  },
+  {
+    "lineNum": 26379,
+    "text": "Card Reward and Redemption Program"
+  },
+  {
+    "lineNum": 26387,
+    "text": "Fuel Points Validity &amp; Redemption Limit"
+  },
+  {
+    "lineNum": 26446,
+    "text": "<div class=\"cmp-teaser__description\" data-label='&lt;p&gt;&lt;a href=&#34;https://mycards.hdfcbank.com/&#34; target=&#34;_blank&#34;&gt;MyCards&lt;/a&gt;, a mobile-based service platform for all Credit Card needs, facilitates convenient activation and management of IndianOil HDFC Bank Credit Card on the go. It ensures a seamless experience without the need for passwords or downloads.&lt;/p&gt;"
+  },
+  {
+    "lineNum": 26450,
+    "text": "&lt;li&gt;Manage card controls like online spends, contactless transactions&lt;/li&gt;"
+  },
+  {
+    "lineNum": 26452,
+    "text": "&lt;li&gt;Check Reward Points&lt;/li&gt;"
+  },
+  {
+    "lineNum": 26454,
+    "text": "&lt;li&gt;Apply for an Add-on Card, manage, set PIN and card controls for Add-on card&lt;/li&gt;"
+  },
+  {
+    "lineNum": 26462,
+    "text": "Simple, intuitive interface to monitor and manage all your business expenses. &lt;/li&gt;"
+  },
+  {
+    "lineNum": 26465,
+    "text": "&lt;li&gt;Reward Points&lt;br /&gt;"
+  },
+  {
+    "lineNum": 26466,
+    "text": "Effortlessly view and redeem reward points with just a click. &lt;/li&gt;"
+  },
+  {
+    "lineNum": 26468,
+    "text": "'> MyCards , a mobile-based service platform for all Credit Card needs, facilitates convenient activation and management of IndianOil HDFC Bank Credit Card on the go. It ensures a seamless experience without the need for passwords or downloads."
+  },
+  {
+    "lineNum": 26472,
+    "text": "Manage card controls like online spends, contactless transactions"
+  },
+  {
+    "lineNum": 26474,
+    "text": "Check Reward Points"
+  },
+  {
+    "lineNum": 26476,
+    "text": "Apply for an Add-on Card, manage, set PIN and card controls for Add-on card"
+  },
+  {
+    "lineNum": 26484,
+    "text": "Simple, intuitive interface to monitor and manage all your business expenses."
+  },
+  {
+    "lineNum": 26487,
+    "text": "Reward Points"
+  },
+  {
+    "lineNum": 26488,
+    "text": "Effortlessly view and redeem reward points with just a click."
+  },
+  {
+    "lineNum": 26563,
+    "text": "Fees &amp; Charges"
+  },
+  {
+    "lineNum": 26571,
+    "text": "&lt;li&gt;Joining/Renewal Membership Fee – ₹500/- plus Applicable Taxes&lt;/li&gt;"
+  },
+  {
+    "lineNum": 26572,
+    "text": "&lt;li&gt;&lt;a href=&#34;/credit-cards/indianoil-hdfc-bank-credit-card/fees-and-charges&#34; target=&#34;_blank&#34;&gt;Click here&lt;/a&gt; to view details of your IndianOil HDFC Bank Credit Card fees and charges&lt;/li&gt;"
+  },
+  {
+    "lineNum": 26576,
+    "text": "&lt;p&gt;1% Fee on transaction amount will be levied on rental transactions done on any applicable merchant for the month. Fee capped at ₹3,000 per transaction, effective 1st August 2024.&lt;/p&gt;"
+  },
+  {
+    "lineNum": 26577,
+    "text": "&lt;p&gt;​​​​​​​3.5% Mark-Up fee will be applicable on all International / Cross currency transaction&lt;/p&gt;"
+  },
+  {
+    "lineNum": 26579,
+    "text": "Joining/Renewal Membership Fee – ₹500/- plus Applicable Taxes"
+  },
+  {
+    "lineNum": 26580,
+    "text": "Click here to view details of your IndianOil HDFC Bank Credit Card fees and charges"
+  },
+  {
+    "lineNum": 26584,
+    "text": "1% Fee on transaction amount will be levied on rental transactions done on any applicable merchant for the month. Fee capped at ₹3,000 per transaction, effective 1st August 2024."
+  },
+  {
+    "lineNum": 26585,
+    "text": "​​​​​​​3.5% Mark-Up fee will be applicable on all International / Cross currency transaction"
+  },
+  {
+    "lineNum": 26668,
+    "text": "&lt;li&gt;&lt;b&gt;Revolving Credit:&lt;/b&gt; Available at a nominal interest rate. (Check Fees and Charges section for more details)&lt;/li&gt;"
+  },
+  {
+    "lineNum": 26674,
+    "text": "Revolving Credit: Available at a nominal interest rate. (Check Fees and Charges section for more details)"
+  },
+  {
+    "lineNum": 26839,
+    "text": "Card Reward and Redemption Program"
+  },
+  {
+    "lineNum": 26847,
+    "text": "&lt;li&gt;Fuel Point is an exclusive Rewards metric system created only for IndianOil HDFC Bank Credit Card holders. Fuel Points can also be earned on retail spends with the IndianOil HDFC Bank Credit Card.&lt;/li&gt;"
+  },
+  {
+    "lineNum": 26848,
+    "text": "&lt;li&gt;Accelerated 5% Fuel Points on spends at IndianOil outlets, Groceries and Bill payments. (Accelerated 5% Fuel Points benefit will be given only for fuel transactions on IndianOil Retail Outlets.) &lt;/li&gt;"
+  },
+  {
+    "lineNum": 26849,
+    "text": "&lt;li&gt;Redeem Fuel Points for Free Fuel using the complimentary IndianOil XTRAREWARDS&lt;sup&gt;TM&lt;/sup&gt; Program (IXRP) membership. Redemption at participating IndianOil Petrol Outlet by converting Fuel Points into XRP (Xtra Rewards Program where 1 Fuel Point = 3XP = 96 Paise). &lt;/li&gt;"
+  },
+  {
+    "lineNum": 26850,
+    "text": "&lt;li&gt;Redeem Fuel Points through NetBanking towards catalogue products (where 1 FP = upto 20 paise) &lt;/li&gt;"
+  },
+  {
+    "lineNum": 26851,
+    "text": "&lt;li&gt;Redeem Fuel Points as CashBack on your IndianOil HDFC Bank Credit Card. (CashBack Redemption against Statement balance where 1 FP = 20 Paise)&lt;/li&gt;"
+  },
+  {
+    "lineNum": 26856,
+    "text": "&lt;th&gt;IOCL Fuel Points in ₹&lt;/th&gt;"
+  },
+  {
+    "lineNum": 26862,
+    "text": "&lt;td&gt;1 Fuel Point = 3 ExtraRewards Point (XRP)&lt;br&gt;"
+  },
+  {
+    "lineNum": 26864,
+    "text": "1 Fuel Point = 0.96&lt;/td&gt;"
+  },
+  {
+    "lineNum": 26867,
+    "text": "&lt;li&gt;&lt;a href=&#34;https://v.hdfcbank.com/htdocs/common/HTML_IOCL/LP.html&#34; target=&#34;_blank&#34;&gt;Click here&lt;/a&gt; to know more on the process to redeem Fuel Points, cashback points.&lt;/li&gt;"
+  },
+  {
+    "lineNum": 26871,
+    "text": "Fuel Point is an exclusive Rewards metric system created only for IndianOil HDFC Bank Credit Card holders. Fuel Points can also be earned on retail spends with the IndianOil HDFC Bank Credit Card."
+  },
+  {
+    "lineNum": 26872,
+    "text": "Accelerated 5% Fuel Points on spends at IndianOil outlets, Groceries and Bill payments. (Accelerated 5% Fuel Points benefit will be given only for fuel transactions on IndianOil Retail Outlets.)"
+  },
+  {
+    "lineNum": 26873,
+    "text": "Redeem Fuel Points for Free Fuel using the complimentary IndianOil XTRAREWARDS TM Program (IXRP) membership. Redemption at participating IndianOil Petrol Outlet by converting Fuel Points into XRP (Xtra Rewards Program where 1 Fuel Point = 3XP = 96 Paise)."
+  },
+  {
+    "lineNum": 26874,
+    "text": "Redeem Fuel Points through NetBanking towards catalogue products (where 1 FP = upto 20 paise)"
+  },
+  {
+    "lineNum": 26875,
+    "text": "Redeem Fuel Points as CashBack on your IndianOil HDFC Bank Credit Card. (CashBack Redemption against Statement balance where 1 FP = 20 Paise)"
+  },
+  {
+    "lineNum": 26880,
+    "text": "IOCL Fuel Points in ₹"
+  },
+  {
+    "lineNum": 26886,
+    "text": "1 Fuel Point = 3 ExtraRewards Point (XRP)"
+  },
+  {
+    "lineNum": 26888,
+    "text": "1 Fuel Point = 0.96"
+  },
+  {
+    "lineNum": 26891,
+    "text": "Click here to know more on the process to redeem Fuel Points, cashback points."
+  },
+  {
+    "lineNum": 26967,
+    "text": "Fuel Points Validity &amp; Redemption Limit"
+  },
+  {
+    "lineNum": 26974,
+    "text": "<div class=\"cmp-teaser__description\" data-label='&lt;p&gt;Fuel Points are valid for a period of 2 years.&lt;/p&gt;"
+  },
+  {
+    "lineNum": 26976,
+    "text": "&lt;li&gt;Redemption of Reward Points to CashBack and Travel categories will be capped at 50,000 points per month per customer &lt;/li&gt;"
+  },
+  {
+    "lineNum": 26977,
+    "text": "&lt;li&gt;Accrual of Reward Points on Grocery Spends will be capped at 1000 points per month per customer&lt;/li&gt;"
+  },
+  {
+    "lineNum": 26978,
+    "text": "&lt;li&gt;There will be no Reward Points accrual on Spends made on Rental and Government category payments&lt;/li&gt;"
+  },
+  {
+    "lineNum": 26979,
+    "text": "&lt;li&gt;&lt;b&gt;Points plus Pay&lt;/b&gt; - A maximum of 70% can be paid using Reward Points and the other 30% to be made by payment modes (Cash/Cards/UPI etc.)&lt;/li&gt;"
+  },
+  {
+    "lineNum": 26981,
+    "text": "'> Fuel Points are valid for a period of 2 years."
+  },
+  {
+    "lineNum": 26983,
+    "text": "Redemption of Reward Points to CashBack and Travel categories will be capped at 50,000 points per month per customer"
+  },
+  {
+    "lineNum": 26984,
+    "text": "Accrual of Reward Points on Grocery Spends will be capped at 1000 points per month per customer"
+  },
+  {
+    "lineNum": 26985,
+    "text": "There will be no Reward Points accrual on Spends made on Rental and Government category payments"
+  },
+  {
+    "lineNum": 26986,
+    "text": "Points plus Pay - A maximum of 70% can be paid using Reward Points and the other 30% to be made by payment modes (Cash/Cards/UPI etc.)"
+  },
+  {
+    "lineNum": 27162,
+    "text": "&lt;th&gt;% Fuel Points&lt;/th&gt;"
+  },
+  {
+    "lineNum": 27163,
+    "text": "&lt;th&gt;Fuel Points due&lt;/th&gt;"
+  },
+  {
+    "lineNum": 27164,
+    "text": "&lt;th&gt;Monthly Max Capping*&lt;/th&gt;"
+  },
+  {
+    "lineNum": 27165,
+    "text": "&lt;th&gt;Fuel Points Earned&lt;/th&gt;"
+  },
+  {
+    "lineNum": 27174,
+    "text": "&lt;td&gt;Groceries&lt;/td&gt;"
+  },
+  {
+    "lineNum": 27181,
+    "text": "&lt;td&gt;Utilities&lt;/td&gt;"
+  },
+  {
+    "lineNum": 27201,
+    "text": "&lt;/tr&gt;&lt;tr&gt;&lt;td colspan=&#34;6&#34;&gt;&lt;b&gt;Annual Fuel Points Earned (E x 12):&lt;/b&gt;&lt;/td&gt;"
+  },
+  {
+    "lineNum": 27203,
+    "text": "&lt;/tr&gt;&lt;tr&gt;&lt;td colspan=&#34;6&#34;&gt;&lt;b&gt;Cash Value of Points on Redemption (1 FP = 3 XRP = Rs. 0.96):&amp;nbsp;&lt;/b&gt;&lt;/td&gt;"
+  },
+  {
+    "lineNum": 27205,
+    "text": "&lt;/tr&gt;&lt;tr&gt;&lt;td colspan=&#34;6&#34;&gt;&lt;b&gt;FREE FUEL LITRES @ Rs . 100 PER LITRE&lt;/b&gt;&lt;/td&gt;"
+  },
+  {
+    "lineNum": 27207,
+    "text": "&lt;/tr&gt;&lt;tr&gt;&lt;td colspan=&#34;7&#34;&gt;&lt;p&gt;Monthly Max cap for Fuel Points accrued on IndianOil Outlets for the first 6 months from Card issuance is: 250 FP&lt;/p&gt;"
+  },
+  {
+    "lineNum": 27208,
+    "text": "&lt;p&gt;Monthly Max cap for Fuel Points accrued on IndianOil Outlets post 6 months is: 150 FP&lt;/p&gt;"
+  },
+  {
+    "lineNum": 27209,
+    "text": "&lt;p&gt;*1 FP = Rs. 0.96 for fuel transactions at IOCL fuel pumps&lt;/p&gt;"
+  },
+  {
+    "lineNum": 27216,
+    "text": "% Fuel Points"
+  },
+  {
+    "lineNum": 27217,
+    "text": "Fuel Points due"
+  },
+  {
+    "lineNum": 27218,
+    "text": "Monthly Max Capping*"
+  },
+  {
+    "lineNum": 27219,
+    "text": "Fuel Points Earned"
+  },
+  {
+    "lineNum": 27255,
+    "text": "Annual Fuel Points Earned (E x 12):"
+  },
+  {
+    "lineNum": 27257,
+    "text": "Cash Value of Points on Redemption (1 FP = 3 XRP = Rs. 0.96):"
+  },
+  {
+    "lineNum": 27259,
+    "text": "FREE FUEL LITRES @ Rs . 100 PER LITRE"
+  },
+  {
+    "lineNum": 27261,
+    "text": "Monthly Max cap for Fuel Points accrued on IndianOil Outlets for the first 6 months from Card issuance is: 250 FP"
+  },
+  {
+    "lineNum": 27262,
+    "text": "Monthly Max cap for Fuel Points accrued on IndianOil Outlets post 6 months is: 150 FP"
+  },
+  {
+    "lineNum": 27263,
+    "text": "*1 FP = Rs. 0.96 for fuel transactions at IOCL fuel pumps"
+  },
+  {
+    "lineNum": 27548,
+    "text": "&lt;li&gt;&lt;span class=&#34;item-title&#34;&gt;&lt;a href=&#34;/credit-cards/rewards-credit-card&#34; target=&#34;_self&#34;&gt;Rewards Credit Card&lt;/a&gt;&lt;span class=&#34;viewarrow-icon icon-arrow-right-bold&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/li&gt;"
+  },
+  {
+    "lineNum": 27561,
+    "text": "Rewards Credit Card"
+  },
+  {
+    "lineNum": 27580,
+    "text": "&lt;li data-font-size=&#34;16&#34; data-line-height=&#34;19.2&#34; data-letter-spacing=&#34;normal&#34;&gt;&lt;span class=&#34;item-title&#34; data-font-size=&#34;16&#34; data-line-height=&#34;19.2&#34; data-letter-spacing=&#34;normal&#34;&gt;&lt;a href=&#34;/credit-cards/services/limit-enhancement&#34; target=&#34;_self&#34; data-font-size=&#34;14&#34; data-line-height=&#34;21&#34; data-letter-spacing=&#34;normal&#34;&gt;Credit Card Limit &lt;br&gt;"
+  },
+  {
+    "lineNum": 27593,
+    "text": "Credit Card Limit"
+  },
+  {
+    "lineNum": 27613,
+    "text": "&lt;li&gt;&lt;span class=&#34;item-title&#34;&gt;&lt;a href=&#34;/credit-cards/services/claim-rewards&#34; target=&#34;_self&#34;&gt;Redeem Reward Points&lt;/a&gt;&lt;span class=&#34;viewarrow-icon icon-arrow-right-bold&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/li&gt;"
+  },
+  {
+    "lineNum": 27625,
+    "text": "Redeem Reward Points"
+  },
+  {
+    "lineNum": 27646,
+    "text": "&lt;li&gt;&lt;span class=&#34;item-title&#34;&gt;&lt;a href=&#34;https://www.hdfc.bank.in/blogs/credit-cards/what-is-airport-lounge-access-credit-card&#34; target=&#34;_self&#34;&gt;Airport Lounge Access Credit Card&lt;/a&gt;&lt;span class=&#34;viewarrow-icon icon-arrow-right-bold&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/li&gt;"
+  },
+  {
+    "lineNum": 27659,
+    "text": "Airport Lounge Access Credit Card"
+  },
+  {
+    "lineNum": 27796,
+    "text": "What are Fuel Points?"
+  },
+  {
+    "lineNum": 27806,
+    "text": "Fuel Points are an exclusive Rewards metric system created only for IndianOil HDFC Bank Credit Cardholders. You earn Fuel Points on retail spends you make through your IndianOil HDFC Bank Credit Cards and accelerated Fuel Point accrual on key categories like your Fuel spends (Only* at IndianOil Retail outlets), Groceries and Utilities as mentioned in the Product Features and Benefits"
+  },
+  {
+    "lineNum": 27807,
+    "text": "*Accelerated 5% Fuel Points benefit will be given only for non-UPI transactions done at IndianOil Retail Outlets. Click here for fuel points on UPI transactions on IOCL card."
+  },
+  {
+    "lineNum": 27820,
+    "text": "What is a Fuel Credit Card?"
+  },
+  {
+    "lineNum": 27830,
+    "text": "IndianOil Credit Card is ideal for a frequent driver. This fuel credit card ensures significant savings on fuel purchases, offering practical benefits beyond your vehicle's needs. Apply online today to start maximising your savings on fuel and utility bills without any joining fee."
+  },
+  {
+    "lineNum": 27843,
+    "text": "What is IndianOil XTRAREWARDSTM PROGRAM that is mentioned in the Product Features?"
+  },
+  {
+    "lineNum": 27853,
+    "text": "IndianOil XTRAREWARDSTM PROGRAM is an exclusive Loyalty Rewards Program owned and run by Indian Oil Corporation Ltd. This Loyalty program rewards the customers enrolled with them by awarding XTRAREWARDTM Points (XRP) on every transaction at any IndianOil Retail Outlet and also allowing the Customer to redeem these accrued Points at participating IndianOil Retail Outlet for free fuel."
+  },
+  {
+    "lineNum": 27854,
+    "text": "For more details on this program, visit, https://www.xtrarewards.com"
+  },
+  {
+    "lineNum": 27855,
+    "text": "IndianOil HDFC Bank Credit Cardholders will get this Membership automatically and for free along with their credit cards. Your Membership will stay valid even after close of this Card or upgrade/migration to another HDFC Bank Credit Card. However, you will no longer be able to convert Fuel Points to XTRAREWARD Points for Fuel Redemption."
+  },
+  {
+    "lineNum": 27868,
+    "text": "What is the Eligibility for an Indian Oil Credit Card?"
+  },
+  {
+    "lineNum": 27881,
+    "text": "Age: Min 21 years to Max 60 Years,"
+  },
+  {
+    "lineNum": 27882,
+    "text": "Net Monthly Income&gt; ₹10,000"
+  },
+  {
+    "lineNum": 27887,
+    "text": "Age: Min 21 years and Max 65 Years"
+  },
+  {
+    "lineNum": 27888,
+    "text": "Annual Income: ITR &gt; ₹6 lakh per annum"
+  },
+  {
+    "lineNum": 27902,
+    "text": "How do I redeem FP for free fuel?"
+  },
+  {
+    "lineNum": 27913,
+    "text": "To redeem Fuel Points for Free Fuel,"
+  },
+  {
+    "lineNum": 27916,
+    "text": "Convert your accrued Fuel Points into XTRAREWARDTM Points (XRP)"
+  },
+  {
+    "lineNum": 27918,
+    "text": "Use XRP at participating IndianOil Outlets for free fuel"
+  },
+  {
+    "lineNum": 27935,
+    "text": "What are the documents required for a Fuel Credit Card application?"
+  },
+  {
+    "lineNum": 27959,
+    "text": "What is the Annual Fee of IndianOil Credit Card?"
+  },
+  {
+    "lineNum": 27969,
+    "text": "The HDFC Bank Indian Oil Credit Card has a Joining Fee of ₹500, along with an annual fee of ₹500. Find the annual fee and joining fees here. . Some cards may have no joining fees, with waivers based on specific criteria."
+  },
+  {
+    "lineNum": 27982,
+    "text": "I had logged into NetBanking to convert my Fuel Points into XTRAREWARDSTMPOINTS. My Fuel Points got deducted from my Card Account but I still haven’t received my XTRAREWARDSTM POINTS. What do I do?"
+  },
+  {
+    "lineNum": 27992,
+    "text": "Please ensure that your latest mobile number is updated on IndianOil XTRAREWARDSTM Membership, else your redemption will not get processed successfully."
+  },
+  {
+    "lineNum": 27998,
+    "text": "Please visit HDFC Bank Contact Us page for more details."
+  },
+  {
+    "lineNum": 27999,
+    "text": "With respect to Fuel Points, if your XTRAREWARDSTM POINTS are not credited to your XTRAREWARDSTM Program Account within 72 hours, then your Fuel Points will be credited back into your Credit Card account within 7-10 business days"
+  },
+  {
+    "lineNum": 28000,
+    "text": "XRP can be tracked on https://www.xtrarewards.com or from the POS Terminal at the participating IndianOil Retail Outlet. You can also SMS a query XRP &lt;IOCL XRP Card No&gt; to 9223177998. Alternatively, you can also check your XRP Balance from IndianOil ONE app"
+  },
+  {
+    "lineNum": 28014,
+    "text": "I already have an existing XTRAREWARDS Program Customer ID. Can I still apply for an IndianOil HDFC Bank Credit Card?"
+  },
+  {
+    "lineNum": 28024,
+    "text": "Yes. You can still apply for an IndianOil HDFC Bank Credit Card. In this case, instead of creating a new XR CID, your existing XR CID will be merged with this program and you can start converting Fuel Points into XRP and use XRP to redeem free fuel at participating IndianOil Fuel Outlets."
+  },
+  {
+    "lineNum": 28027,
+    "text": "Make sure that your Mobile Number registered with the Bank is the same as the mobile number registered with IndianOil XTRAREWARDSTM Program"
+  },
+  {
+    "lineNum": 28028,
+    "text": "In case the registered Mobile Number with the Bank is different from the one registered with IndianOil XTRAREWARDSTM Program, or for any questions or help, you can seek assistance through:"
+  },
+  {
+    "lineNum": 28033,
+    "text": "Please visit HDFC Bank Contact Us page for more details."
+  },
+  {
+    "lineNum": 28056,
+    "text": "Eligibility for Fuel Points on transaction is basis the Merchant Category Code (MCC) captured for the transaction. Only those MCCs recognized and considered by Partner Networks (Visa/RuPay) for the above mentioned categories will accrue 5% Fuel Points (FP). If your transaction didn’t accrue any FP, it is because it is not recognized as Fuel/Groceries/Utilities/Bill Payment as per standard Merchant Category Code"
+  },
+  {
+    "lineNum": 28070,
+    "text": "Should I register for XTRAREWARDSTM Program? If so, how to I enroll myself for it?"
+  },
+  {
+    "lineNum": 28081,
+    "text": "IndianOil HDFC Bank Credit Cardholders are automatically and mandatorily registered with IndianOil XTRAREWARDSTM Program during the time of Credit Card issuance."
+  },
+  {
+    "lineNum": 28082,
+    "text": "Once the Customer is automatically registered, you will receive an SMS on your registered mobile number from IndianOil, with the confirmation of your XTRAREWARDSTM Program account successfully been created along with an XTRAREWARDSTM Customer ID (XR CID)."
+  },
+  {
+    "lineNum": 28086,
+    "text": "Note: XR CID is created by Indian Oil for the purpose of redeeming points against free fuel. This is different from the Customer ID maintained with the Bank."
+  },
+  {
+    "lineNum": 28099,
+    "text": "Can I make partial payments using XTRAREWARD POINTSTM?"
+  },
+  {
+    "lineNum": 28109,
+    "text": "Yes, Post verifying that the IndianOil Retail outlet is a Participating Outlet, check with the Merchant on Payment option using XTRAREWARDTM POINT. Redemption process flow is mentioned in Q2. If you are unable to pay your fuel bill entirely through XTRAREWARDTM POINTS (XRP), Then you can partially pay through XRP and partially through your IndianOil HDFC Bank Credit Card."
+  },
+  {
+    "lineNum": 28123,
+    "text": "What If I wish to cancel my membership with IndianOil XTRAREWARDS Program?"
+  },
+  {
+    "lineNum": 28133,
+    "text": "Having Customer ID with XTRAREWARDS Program is necessary since without this membership, you cannot convert Fuel Points accrued on your credit card into XTRAREWARDTM POINTS and use them at IndianOil Fuel Outlets for free fuel redemption. Also, having this XR CID is critical to receive information or any status update on your XTRAREWARDSTM Program account with IndianOil."
+  },
+  {
+    "lineNum": 28147,
+    "text": "Can I get Fuel Point on all spends?"
+  },
+  {
+    "lineNum": 28157,
+    "text": "Fuel Points can be accrued on all kinds of Retail Spends that include both Online and Point of Sale (PoS) transactions. However, there are few kinds of transactions for which you will not get Fuel Points. They are:"
+  },
+  {
+    "lineNum": 28159,
+    "text": "Fuel transactions at other petrol pumps"
+  },
+  {
+    "lineNum": 28163,
+    "text": "Account Fees and Payment"
+  },
+  {
+    "lineNum": 28188,
+    "text": "Please Note that there is a monthly capping on Fuel Points accrued on the below mentioned spends."
+  },
+  {
+    "lineNum": 28191,
+    "text": "- Monthly Max cap for the first 6 months from card issuance: 250 FP"
+  },
+  {
+    "lineNum": 28192,
+    "text": "- Monthly Max cap post 6 months: 150 FP"
+  },
+  {
+    "lineNum": 28193,
+    "text": "Spends on Groceries – Monthly Max cap: 100 FP"
+  },
+  {
+    "lineNum": 28195,
+    "text": "Spends on Utilities and Bill Payments – Monthly Max cap: 100 FP"
+  },
+  {
+    "lineNum": 28211,
+    "text": "What are the benefits of a Fuel Credit Card?"
+  },
+  {
+    "lineNum": 28221,
+    "text": "Fuel Credit Cards, like the Indian Oil Credit Card, offer fuel surcharge waivers, reward points on fuel spends, and free fuel accumulation for savings on fuel and utility bills."
+  },
+  {
+    "lineNum": 28244,
+    "text": "Indian Oil Credit Card provides CashBack in the form of reward points, redeemable for free fuel or other options. Details are in the card's terms."
+  },
+  {
+    "lineNum": 28257,
+    "text": "How do I check my balance Fuel Points?"
+  },
+  {
+    "lineNum": 28267,
+    "text": "Fuel Points accrued on all eligible transactions posted within the calendar month will be added up and credited on the 1st of the next calendar month. Please note that maximum capping will be applied before crediting them."
+  },
+  {
+    "lineNum": 28268,
+    "text": "A. You can check the Fuel Points accrued for the previous calendar month’s transactions posted on the current month statement shared with you (Physical or E-statement)"
+  },
+  {
+    "lineNum": 28270,
+    "text": "NetBanking -&gt; Cards Tab -&gt; Click on “Enquiry” -&gt; Reward Points Redemption -&gt; Choose your IndianOil HDFC Bank Credit Card Number -&gt; View total Fuel Points accrued"
+  },
+  {
+    "lineNum": 28293,
+    "text": "Yes, you can use it for shopping, offering benefits not only on fuel but also rewards or cashback on other transactions."
+  },
+  {
+    "lineNum": 28308,
+    "text": "{\"@context\":\"https://schema.org\",\"@type\":\"FAQPage\",\"mainEntity\":[{\"@type\":\"Question\",\"name\":\"What are Fuel Points?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Fuel Points are an exclusive Rewards metric system created only for IndianOil HDFC Bank Credit Cardholders. You earn Fuel Points on retail spends you make through your IndianOil HDFC Bank Credit Cards and accelerated Fuel Point accrual on key categories like your Fuel spends (Only* at IndianOil Retail outlets), Groceries and Utilities as mentioned in the Product Features and Benefits\\n*Accelerated 5% Fuel Points benefit will be given only for non-UPI transactions done at IndianOil Retail Outlets.&nbsp;Click here&nbsp;for fuel points on UPI transactions on IOCL card.\\n\"}},{\"@type\":\"Question\",\"name\":\"What is a Fuel Credit Card?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"IndianOil Credit Card is ideal for a frequent driver. This fuel credit card ensures significant savings on fuel purchases, offering practical benefits beyond your vehicle's needs. Apply online today to start maximising your savings on fuel and utility bills without any joining fee.\\r\\n\"}},{\"@type\":\"Question\",\"name\":\"What is IndianOil XTRAREWARDSTM PROGRAM that is mentioned in the Product Features?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"IndianOil XTRAREWARDSTM&nbsp;PROGRAM is an exclusive Loyalty Rewards Program owned and run by Indian Oil Corporation Ltd. This Loyalty program rewards the customers enrolled with them by awarding XTRAREWARDTM&nbsp;Points (XRP) on every transaction at any IndianOil Retail Outlet and also allowing the Customer to redeem these accrued Points at participating IndianOil Retail Outlet for free fuel.\\nFor more details on this program, visit,&nbsp;https://www.xtrarewards.com\\nIndianOil HDFC Bank Credit Cardholders will get this Membership automatically and for free along with their credit cards. Your Membership will stay valid even after close of this Card or upgrade/migration to another HDFC Bank Credit Card. However, you will no longer be able to convert Fuel Points to XTRAREWARD Points for Fuel Redemption.\\n\"}},{\"@type\":\"Question\",\"name\":\"What is the Eligibility for an Indian Oil Credit Card?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"For Salaried Individuals:\\r\\n\\r\\nNationality: Indian national\\r\\nAge: Min 21 years to Max 60 Years,\\r\\nNet Monthly Income&gt; ₹10,000\\r\\n\\r\\nFor Self-Employed Individuals:\\r\\n\\r\\nNationality: Indian national\\r\\nAge: Min 21 years and Max 65 Years\\r\\nAnnual Income: ITR &gt; ₹6 lakh per annum\\r\\n\\r\\n\"}},{\"@type\":\"Question\",\"name\":\"How do I redeem FP for free fuel?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"&nbsp;\\nTo redeem Fuel Points for Free Fuel,\\n&nbsp;\\n\\nConvert your accrued Fuel Points into XTRAREWARDTM&nbsp;Points (XRP)\\n\\nUse XRP at participating IndianOil Outlets for free fuel\\n\\n\\nTo locate your nearest IndianOil Petrol Outlet,&nbsp;click here\\nClick here to know more\\n\"}},{\"@type\":\"Question\",\"name\":\"What are the documents required for a Fuel Credit Card application?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"To apply for an IndianOil Credit Card, documents such as Identity proof, Address proof, bank statements, etc. may be required. \\nClick here to read more FAQs\\n\"}},{\"@type\":\"Question\",\"name\":\"What is the Annual Fee of IndianOil Credit Card?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"The HDFC Bank Indian Oil Credit Card has a Joining Fee of ₹500, along with an annual fee of ₹500. Find the annual fee and joining fees here.. Some cards may have no joining fees, with waivers based on specific criteria. \\n\"}},{\"@type\":\"Question\",\"name\":\"I had logged into NetBanking to convert my Fuel Points into XTRAREWARDSTMPOINTS. My Fuel Points got deducted from my Card Account but I still haven’t received my XTRAREWARDSTM POINTS. What do I do?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Please ensure that your latest mobile number is updated on IndianOil XTRAREWARDSTM&nbsp;Membership, else your redemption will not get processed successfully.\\nIn case of any questions or help, you can seek assistance through:\\nCall us on&nbsp;1800 1600 / 1800 2600&nbsp;(accessible across India)&nbsp;Customer travelling overseas can reach us on 022-61606160\\nConnect with Eva&nbsp;for quick solutions to common queries\\nContact Nearest Branch\\n\\nPlease visit&nbsp;HDFC Bank Contact Us&nbsp;page for more details.\\nWith respect to Fuel Points, if your XTRAREWARDSTM&nbsp;POINTS are not credited to your XTRAREWARDSTM&nbsp;Program Account within 72 hours, then your Fuel Points will be credited back into your Credit Card account within 7-10 business days\\nXRP can be tracked on https://www.xtrarewards.com or from the POS Terminal at the participating IndianOil Retail Outlet. You can also SMS a query XRP &lt;IOCL XRP Card No&gt; to 9223177998. Alternatively, you can also check your XRP Balance from IndianOil ONE app\\n&nbsp;\\n\"}},{\"@type\":\"Question\",\"name\":\"I already have an existing XTRAREWARDS Program Customer ID. Can I still apply for an IndianOil HDFC Bank Credit Card?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Yes. You can still apply for an IndianOil HDFC Bank Credit Card. In this case, instead of creating a new XR CID, your existing XR CID will be merged with this program and you can start converting Fuel Points into XRP and use XRP to redeem free fuel at participating IndianOil Fuel Outlets.\\nNOTE:\\n\\nMake sure that your Mobile Number registered with the Bank is the same as the mobile number registered with IndianOil XTRAREWARDSTM&nbsp;Program\\nIn case the registered Mobile Number with the Bank is different from the one registered with IndianOil XTRAREWARDSTM&nbsp;Program, or for any questions or help, you can seek assistance through:\\n\\nCall us on&nbsp;1800 1600 / 1800 2600&nbsp;(accessible across India)&nbsp;Customer travelling overseas can reach us on 022-61606160\\nConnect with Eva&nbsp;for quick solutions to common queries\\nContact Nearest Branch\\nPlease visit&nbsp;HDFC Bank Contact Us&nbsp;page for more details.\\n\"}},{\"@type\":\"Question\",\"name\":\"I bought items from Amazon which along included vegetable oil as well. Why didn’t I get 5% FP on this transaction?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Eligibility for Fuel Points on transaction is basis the Merchant Category Code (MCC) captured for the transaction. Only those MCCs recognized and considered by Partner Networks (Visa/RuPay) for the above mentioned categories will accrue 5% Fuel Points (FP). If your transaction didn’t accrue any FP, it is because it is not recognized as Fuel/Groceries/Utilities/Bill Payment as per standard Merchant Category Code\\n\\n\"}},{\"@type\":\"Question\",\"name\":\"Should I register for XTRAREWARDSTM Program? If so, how to I enroll myself for it?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"\\nIndianOil HDFC Bank Credit Cardholders are automatically and mandatorily registered with IndianOil XTRAREWARDSTM&nbsp;Program during the time of Credit Card issuance.\\nOnce the Customer is automatically registered, you will receive an SMS on your registered mobile number from IndianOil, with the confirmation of your XTRAREWARDSTM&nbsp;Program account successfully been created along with an XTRAREWARDSTM&nbsp;Customer ID (XR CID).\\nIn case you haven’t received the confirmation SMS within 5 business days of receiving your Credit Card, please connect with the Bank for resolution.\\n\\nPost creation of your XR CID, you could also install “IndianOil ONE” App from Android Play Store or IOS App store (Not mandatory) to help keep track of your XRP Balance and Transactions\\nNote: XR CID is created by Indian Oil for the purpose of redeeming points against free fuel. This is different from the Customer ID maintained with the Bank.\\n\"}},{\"@type\":\"Question\",\"name\":\"Can I make partial payments using XTRAREWARD POINTSTM?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Yes, Post verifying that the IndianOil Retail outlet is a&nbsp;Participating Outlet,&nbsp;check with the Merchant on Payment option using XTRAREWARDTM&nbsp;POINT. Redemption process flow is mentioned in Q2. If you are unable to pay your fuel bill entirely through XTRAREWARDTM&nbsp;POINTS (XRP), Then you can partially pay through XRP and partially through your IndianOil HDFC Bank Credit Card.\\n\\n\"}},{\"@type\":\"Question\",\"name\":\"What If I wish to cancel my membership with IndianOil XTRAREWARDS Program?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Having Customer ID with XTRAREWARDS Program is necessary since&nbsp;without this membership, you cannot convert Fuel Points accrued on your credit card into XTRAREWARDTM&nbsp;POINTS and use them at IndianOil Fuel Outlets for free fuel redemption.&nbsp;Also, having this XR CID is critical to receive information or any status update on your XTRAREWARDSTM&nbsp;Program account with IndianOil.\\n\\n\"}},{\"@type\":\"Question\",\"name\":\"Can I get Fuel Point on all spends?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Fuel Points can be accrued on all kinds of Retail Spends that include both Online and Point of Sale (PoS) transactions. However, there are few kinds of transactions for which you will not get Fuel Points. They are:\\n\\nFuel transactions at other petrol pumps\\nAny kind of wallet-loading\\nOn Returned purchases, disputed or unauthorized/fraudulent transactions\\nEMI Transactions\\nAccount Fees and Payment\\nPurchase of jewellery/gold coins or its equivalents\\n\\n\"}},{\"@type\":\"Question\",\"name\":\"I have spent more than Rs. 5000 on Petrol/Diesel/CNG in a calendar month. However, why I received only 150 FP. Why?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Please Note that there is a monthly capping on Fuel Points accrued on the below mentioned spends.\\n\\nSpends at IndianOil Outlets –\\n-&nbsp;Monthly Max cap for the first 6 months from card issuance: 250 FP\\n-&nbsp;Monthly Max cap post 6 months:&nbsp;150 FP\\nSpends on Groceries – Monthly Max cap:&nbsp;100 FP\\n\\nSpends on Utilities and Bill Payments – Monthly Max cap:&nbsp;100 FP\\n\\n\\n&nbsp;\\n\"}},{\"@type\":\"Question\",\"name\":\"What are the benefits of a Fuel Credit Card?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Fuel Credit Cards, like the Indian Oil Credit Card, offer fuel surcharge waivers, reward points on fuel spends, and free fuel accumulation for savings on fuel and utility bills.\\r\\n\"}},{\"@type\":\"Question\",\"name\":\"What is the Cashback of the IndianOil Credit Card? What is the CashBack offered by the IndianOil Credit Card?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Indian Oil Credit Card provides CashBack in the form of reward points, redeemable for free fuel or other options. Details are in the card's terms.\\r\\n\"}},{\"@type\":\"Question\",\"name\":\"How do I check my balance Fuel Points?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Fuel Points accrued on all eligible transactions posted within the calendar month will be added up and credited on the 1st&nbsp;of the next calendar month. Please note that maximum capping will be applied before crediting them.\\nA.&nbsp;You can check the Fuel Points accrued for the previous calendar month’s transactions posted on the current month statement shared with you (Physical or E-statement)\\nB.&nbsp;You can also check by Logging into:\\nNetBanking -&gt; Cards Tab -&gt; Click on “Enquiry” -&gt; Reward Points Redemption -&gt; Choose your IndianOil HDFC Bank Credit Card Number -&gt; View total Fuel Points accrued\\n\"}},{\"@type\":\"Question\",\"name\":\"Can I Use the IndianOil Credit Card for Shopping?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Yes, you can use it for shopping, offering benefits not only on fuel but also rewards or cashback on other transactions.\\r\\n\"}}]}"
+  },
+  {
+    "lineNum": 28435,
+    "text": "&lt;li&gt;&lt;span class=&#34;icon-right-tick icon&#34;&gt;&lt;/span&gt;&lt;span class=&#34;link-span&#34;&gt;5% on IndianOil fuel&lt;/span&gt;&lt;/li&gt;"
+  },
+  {
+    "lineNum": 28436,
+    "text": "&lt;li&gt;&lt;span class=&#34;icon-right-tick icon&#34;&gt;&lt;/span&gt;&lt;span class=&#34;link-span&#34;&gt;5% on utility &amp;amp; grocery spends&lt;/span&gt;&lt;/li&gt;"
+  },
+  {
+    "lineNum": 28437,
+    "text": "&lt;li&gt;&lt;span class=&#34;icon-right-tick icon&#34;&gt;&lt;/span&gt;&lt;span class=&#34;link-span&#34;&gt;1% fuel surcharge off&lt;/span&gt;&lt;/li&gt;"
+  },
+  {
+    "lineNum": 28441,
+    "text": "5% on IndianOil fuel"
+  },
+  {
+    "lineNum": 28442,
+    "text": "5% on utility &amp; grocery spends"
+  },
+  {
+    "lineNum": 28443,
+    "text": "1% fuel surcharge off"
+  },
+  {
+    "lineNum": 28633,
+    "text": "Erstwhile HDFC Limited T&amp;C"
+  },
+  {
+    "lineNum": 28672,
+    "text": "List of third parties engaged by Bank"
+  },
+  {
+    "lineNum": 28684,
+    "text": "Important Messages"
+  },
+  {
+    "lineNum": 28696,
+    "text": "RBI Complaint Management System"
+  },
+  {
+    "lineNum": 28735,
+    "text": "Fees &amp; Charges"
+  },
+  {
+    "lineNum": 28881,
+    "text": "Use Of Unparliamentary Language By Customers"
+  },
+  {
+    "lineNum": 28889,
+    "text": "Digital Lending-Important Links"
+  },
+  {
+    "lineNum": 29060,
+    "text": "AMB Calculator"
+  },
+  {
+    "lineNum": 29208,
+    "text": "Credit Card Reward Points"
+  },
+  {
+    "lineNum": 29232,
+    "text": "Airport Lounge Access On Debit Cards"
+  },
+  {
+    "lineNum": 29421,
+    "text": "HDFC Capital"
+  },
+  {
+    "lineNum": 29484,
+    "text": "We use translation software to display our pages in your preferred language. If any questions arise related to the accuracy of the information in the translated webpage, then please refer to the English version of the webpage which is the original."
+  },
+  {
+    "lineNum": 29542,
+    "text": "Website Usage Terms"
+  },
+  {
+    "lineNum": 29720,
+    "text": "const pageProId = skipButton.getAttribute(\"data-skipmainText\");"
+  },
+  {
+    "lineNum": 29726,
+    "text": "const targetElement = document.getElementById(pageProId);"
+  },
+  {
+    "lineNum": 29730,
+    "text": "const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - offset;"
+  }
+]

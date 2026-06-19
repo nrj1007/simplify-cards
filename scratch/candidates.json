@@ -1,0 +1,597 @@
+[
+  {
+    "id": "amex-platinum-reserve",
+    "name": "American Express Platinum Reserve Credit Card",
+    "issuer": "American Express",
+    "currentStatus": "active",
+    "filePath": "data\\cards\\american-express\\amex-platinum-reserve.json",
+    "issues": [
+      "Source URL keyword match: discontinued, withdrawn"
+    ]
+  },
+  {
+    "id": "au-ixigo",
+    "name": "AU ixigo Credit Card",
+    "issuer": "AU Small Finance Bank",
+    "currentStatus": "active",
+    "filePath": "data\\cards\\au-small-finance\\au-ixigo.json",
+    "issues": [
+      "Source URL failed: status 403 (none)"
+    ]
+  },
+  {
+    "id": "axis-aura",
+    "name": "Axis Bank AURA Credit Card",
+    "issuer": "Axis Bank",
+    "currentStatus": "active",
+    "filePath": "data\\cards\\axis\\axis-aura.json",
+    "issues": [
+      "Source URL keyword match: no longer available"
+    ]
+  },
+  {
+    "id": "axis-indianoil-premium",
+    "name": "IndianOil Axis Bank Premium Credit Card",
+    "issuer": "Axis Bank",
+    "currentStatus": "active",
+    "filePath": "data\\cards\\axis\\axis-indianoil-premium.json",
+    "issues": [
+      "Source URL keyword match: withdrawn"
+    ]
+  },
+  {
+    "id": "axis-platinum",
+    "name": "Axis Bank Platinum Credit Card",
+    "issuer": "Axis Bank",
+    "currentStatus": "discontinued",
+    "filePath": "data\\cards\\axis\\axis-platinum.json",
+    "issues": [
+      "Source URL keyword match: discontinued"
+    ]
+  },
+  {
+    "id": "axis-reserve",
+    "name": "Axis Bank Reserve Credit Card",
+    "issuer": "Axis Bank",
+    "currentStatus": "active",
+    "filePath": "data\\cards\\axis\\axis-reserve.json",
+    "issues": [
+      "Source URL keyword match: discontinued"
+    ]
+  },
+  {
+    "id": "bobcard-eterna",
+    "name": "BOBCARD ETERNA",
+    "issuer": "Bank of Baroda",
+    "currentStatus": "active",
+    "filePath": "data\\cards\\bank-of-baroda\\bobcard-eterna.json",
+    "issues": [
+      "Source URL failed: status 404 (none)"
+    ]
+  },
+  {
+    "id": "bobcard-hpcl-energie",
+    "name": "HPCL ENERGIE BOBCARD",
+    "issuer": "Bank of Baroda",
+    "currentStatus": "active",
+    "filePath": "data\\cards\\bank-of-baroda\\bobcard-hpcl-energie.json",
+    "issues": [
+      "Source URL failed: status 404 (none)"
+    ]
+  },
+  {
+    "id": "bobcard-irctc",
+    "name": "IRCTC BOBCARD",
+    "issuer": "Bank of Baroda",
+    "currentStatus": "active",
+    "filePath": "data\\cards\\bank-of-baroda\\bobcard-irctc.json",
+    "issues": [
+      "Source URL failed: status 404 (none)"
+    ]
+  },
+  {
+    "id": "bobcard-snapdeal",
+    "name": "Snapdeal BOBCARD",
+    "issuer": "Bank of Baroda",
+    "currentStatus": "active",
+    "filePath": "data\\cards\\bank-of-baroda\\bobcard-snapdeal.json",
+    "issues": [
+      "Source URL failed: status 404 (none)"
+    ]
+  },
+  {
+    "id": "equitas-premio",
+    "name": "Equitas Premio Credit Card",
+    "issuer": "Equitas Small Finance Bank",
+    "currentStatus": "active",
+    "filePath": "data\\cards\\equitas-small-finance\\equitas-premio.json",
+    "issues": [
+      "Source URL failed: status 404 (none)"
+    ]
+  },
+  {
+    "id": "equitas-tiger",
+    "name": "Equitas Tiger Credit Card",
+    "issuer": "Equitas Small Finance Bank",
+    "currentStatus": "active",
+    "filePath": "data\\cards\\equitas-small-finance\\equitas-tiger.json",
+    "issues": [
+      "Source URL failed: status 404 (none)"
+    ]
+  },
+  {
+    "id": "equitas-ultima",
+    "name": "Equitas Ultima Credit Card",
+    "issuer": "Equitas Small Finance Bank",
+    "currentStatus": "active",
+    "filePath": "data\\cards\\equitas-small-finance\\equitas-ultima.json",
+    "issues": [
+      "Source URL failed: status 404 (none)"
+    ]
+  },
+  {
+    "id": "federal-celesta",
+    "name": "Federal Bank Celesta Credit Card",
+    "issuer": "Federal Bank",
+    "currentStatus": "active",
+    "filePath": "data\\cards\\federal-bank\\federal-celesta.json",
+    "issues": [
+      "Apply URL keyword match: withdrawn"
+    ]
+  },
+  {
+    "id": "federal-imperio",
+    "name": "Federal Bank Imperio Credit Card",
+    "issuer": "Federal Bank",
+    "currentStatus": "active",
+    "filePath": "data\\cards\\federal-bank\\federal-imperio.json",
+    "issues": [
+      "Apply URL keyword match: withdrawn"
+    ]
+  },
+  {
+    "id": "federal-signet",
+    "name": "Federal Bank Signet Credit Card",
+    "issuer": "Federal Bank",
+    "currentStatus": "active",
+    "filePath": "data\\cards\\federal-bank\\federal-signet.json",
+    "issues": [
+      "Apply URL keyword match: withdrawn"
+    ]
+  },
+  {
+    "id": "federal-wave",
+    "name": "Federal Bank Wave RuPay Credit Card",
+    "issuer": "Federal Bank",
+    "currentStatus": "active",
+    "filePath": "data\\cards\\federal-bank\\federal-wave.json",
+    "issues": [
+      "Source URL failed: status 404 (none)",
+      "Apply URL keyword match: withdrawn"
+    ]
+  },
+  {
+    "id": "hdfc-shoppers-stop-black",
+    "name": "Shoppers Stop BLACK HDFC Bank Credit Card",
+    "issuer": "HDFC Bank",
+    "currentStatus": "active",
+    "filePath": "data\\cards\\hdfc\\hdfc-shoppers-stop-black.json",
+    "issues": [
+      "Source URL failed: status unknown (The operation was aborted due to timeout)"
+    ]
+  },
+  {
+    "id": "hdfc-shoppers-stop",
+    "name": "Shoppers Stop HDFC Bank Credit Card",
+    "issuer": "HDFC Bank",
+    "currentStatus": "active",
+    "filePath": "data\\cards\\hdfc\\hdfc-shoppers-stop.json",
+    "issues": [
+      "Source URL failed: status unknown (The operation was aborted due to timeout)"
+    ]
+  },
+  {
+    "id": "icici-amazon-pay",
+    "name": "Amazon Pay ICICI Bank Credit Card",
+    "issuer": "ICICI Bank",
+    "currentStatus": "active",
+    "filePath": "data\\cards\\icici\\icici-amazon-pay.json",
+    "issues": [
+      "Source URL keyword match: withdrawn"
+    ]
+  },
+  {
+    "id": "icici-hpcl-super-saver",
+    "name": "ICICI Bank HPCL Super Saver Credit Card",
+    "issuer": "ICICI Bank",
+    "currentStatus": "active",
+    "filePath": "data\\cards\\icici\\icici-hpcl-super-saver.json",
+    "issues": [
+      "Source URL failed: status 404 (none)"
+    ]
+  },
+  {
+    "id": "indusind-aura-edge",
+    "name": "IndusInd Bank Platinum Aura Edge Credit Card",
+    "issuer": "IndusInd Bank",
+    "currentStatus": "active",
+    "filePath": "data\\cards\\indusind-bank\\indusind-aura-edge.json",
+    "issues": [
+      "Source URL keyword match: discontinued"
+    ]
+  },
+  {
+    "id": "indusind-legend",
+    "name": "IndusInd Bank Legend Credit Card",
+    "issuer": "IndusInd Bank",
+    "currentStatus": "active",
+    "filePath": "data\\cards\\indusind-bank\\indusind-legend.json",
+    "issues": [
+      "Source URL keyword match: discontinued"
+    ]
+  },
+  {
+    "id": "indusind-nexxt",
+    "name": "IndusInd Bank Nexxt Credit Card",
+    "issuer": "IndusInd Bank",
+    "currentStatus": "active",
+    "filePath": "data\\cards\\indusind-bank\\indusind-nexxt.json",
+    "issues": [
+      "Source URL keyword match: discontinued"
+    ]
+  },
+  {
+    "id": "indusind-pinnacle",
+    "name": "IndusInd Bank Pinnacle Credit Card",
+    "issuer": "IndusInd Bank",
+    "currentStatus": "active",
+    "filePath": "data\\cards\\indusind-bank\\indusind-pinnacle.json",
+    "issues": [
+      "Source URL keyword match: discontinued"
+    ]
+  },
+  {
+    "id": "indusind-pioneer-heritage-metal",
+    "name": "PIONEER Heritage Metal Credit Card",
+    "issuer": "IndusInd Bank",
+    "currentStatus": "active",
+    "filePath": "data\\cards\\indusind-bank\\indusind-pioneer-heritage-metal.json",
+    "issues": [
+      "Source URL keyword match: discontinued"
+    ]
+  },
+  {
+    "id": "indusind-pioneer-legacy",
+    "name": "PIONEER Legacy Credit Card",
+    "issuer": "IndusInd Bank",
+    "currentStatus": "active",
+    "filePath": "data\\cards\\indusind-bank\\indusind-pioneer-legacy.json",
+    "issues": [
+      "Source URL keyword match: discontinued"
+    ]
+  },
+  {
+    "id": "indusind-platinum-rupay",
+    "name": "IndusInd Bank Platinum RuPay Credit Card",
+    "issuer": "IndusInd Bank",
+    "currentStatus": "active",
+    "filePath": "data\\cards\\indusind-bank\\indusind-platinum-rupay.json",
+    "issues": [
+      "Source URL keyword match: discontinued"
+    ]
+  },
+  {
+    "id": "indusind-tiger",
+    "name": "IndusInd Bank Tiger Credit Card",
+    "issuer": "IndusInd Bank",
+    "currentStatus": "active",
+    "filePath": "data\\cards\\indusind-bank\\indusind-tiger.json",
+    "issues": [
+      "Source URL keyword match: discontinued"
+    ]
+  },
+  {
+    "id": "kotak-811-dream-different",
+    "name": "811 Dream Different Credit Card",
+    "issuer": "Kotak Mahindra Bank",
+    "currentStatus": "active",
+    "filePath": "data\\cards\\kotak-mahindra\\kotak-811-dream-different.json",
+    "issues": [
+      "Source URL keyword match: discontinued, withdrawn",
+      "Apply URL keyword match: discontinued"
+    ]
+  },
+  {
+    "id": "kotak-811",
+    "name": "Kotak 811 Credit Card",
+    "issuer": "Kotak Mahindra Bank",
+    "currentStatus": "active",
+    "filePath": "data\\cards\\kotak-mahindra\\kotak-811.json",
+    "issues": [
+      "Source URL keyword match: discontinued"
+    ]
+  },
+  {
+    "id": "kotak-indianoil",
+    "name": "IndianOil Kotak Credit Card",
+    "issuer": "Kotak Mahindra Bank",
+    "currentStatus": "active",
+    "filePath": "data\\cards\\kotak-mahindra\\kotak-indianoil.json",
+    "issues": [
+      "Source URL keyword match: discontinued"
+    ]
+  },
+  {
+    "id": "kotak-infinite",
+    "name": "Kotak Infinite Credit Card",
+    "issuer": "Kotak Mahindra Bank",
+    "currentStatus": "active",
+    "filePath": "data\\cards\\kotak-mahindra\\kotak-infinite.json",
+    "issues": [
+      "Source URL keyword match: discontinued"
+    ]
+  },
+  {
+    "id": "kotak-league-platinum",
+    "name": "League Platinum Credit Card",
+    "issuer": "Kotak Mahindra Bank",
+    "currentStatus": "active",
+    "filePath": "data\\cards\\kotak-mahindra\\kotak-league-platinum.json",
+    "issues": [
+      "Apply URL keyword match: discontinued"
+    ]
+  },
+  {
+    "id": "kotak-pvr-gold",
+    "name": "PVR Kotak Gold Credit Card",
+    "issuer": "Kotak Mahindra Bank",
+    "currentStatus": "active",
+    "filePath": "data\\cards\\kotak-mahindra\\kotak-pvr-gold.json",
+    "issues": [
+      "Source URL keyword match: discontinued"
+    ]
+  },
+  {
+    "id": "kotak-pvr-inox",
+    "name": "PVR INOX Kotak Credit Card",
+    "issuer": "Kotak Mahindra Bank",
+    "currentStatus": "active",
+    "filePath": "data\\cards\\kotak-mahindra\\kotak-pvr-inox.json",
+    "issues": [
+      "Source URL keyword match: discontinued"
+    ]
+  },
+  {
+    "id": "kotak-pvr-platinum",
+    "name": "PVR Kotak Platinum Credit Card",
+    "issuer": "Kotak Mahindra Bank",
+    "currentStatus": "active",
+    "filePath": "data\\cards\\kotak-mahindra\\kotak-pvr-platinum.json",
+    "issues": [
+      "Source URL keyword match: discontinued"
+    ]
+  },
+  {
+    "id": "kotak-solitaire",
+    "name": "Kotak Solitaire Credit Card",
+    "issuer": "Kotak Mahindra Bank",
+    "currentStatus": "active",
+    "filePath": "data\\cards\\kotak-mahindra\\kotak-solitaire.json",
+    "issues": [
+      "Apply URL keyword match: withdrawn"
+    ]
+  },
+  {
+    "id": "kotak-upi-rupay",
+    "name": "Kotak UPI RuPay Credit Card",
+    "issuer": "Kotak Mahindra Bank",
+    "currentStatus": "active",
+    "filePath": "data\\cards\\kotak-mahindra\\kotak-upi-rupay.json",
+    "issues": [
+      "Source URL keyword match: discontinued"
+    ]
+  },
+  {
+    "id": "kotak-white-reserve",
+    "name": "White Reserve Credit Card",
+    "issuer": "Kotak Mahindra Bank",
+    "currentStatus": "active",
+    "filePath": "data\\cards\\kotak-mahindra\\kotak-white-reserve.json",
+    "issues": [
+      "Apply URL keyword match: discontinued"
+    ]
+  },
+  {
+    "id": "kotak-white",
+    "name": "White Credit Card",
+    "issuer": "Kotak Mahindra Bank",
+    "currentStatus": "active",
+    "filePath": "data\\cards\\kotak-mahindra\\kotak-white.json",
+    "issues": [
+      "Source URL keyword match: discontinued"
+    ]
+  },
+  {
+    "id": "kotak-zen-signature",
+    "name": "Zen Signature Credit Card",
+    "issuer": "Kotak Mahindra Bank",
+    "currentStatus": "active",
+    "filePath": "data\\cards\\kotak-mahindra\\kotak-zen-signature.json",
+    "issues": [
+      "Source URL keyword match: discontinued",
+      "Apply URL keyword match: discontinued"
+    ]
+  },
+  {
+    "id": "rbl-patanjali-swarn",
+    "name": "Patanjali RBL Bank Swarn Credit Card",
+    "issuer": "RBL Bank",
+    "currentStatus": "active",
+    "filePath": "data\\cards\\rbl-bank\\rbl-patanjali-swarn.json",
+    "issues": [
+      "Source URL failed: status 404 (none)"
+    ]
+  },
+  {
+    "id": "rbl-patanjali-vishisht",
+    "name": "Patanjali RBL Bank Vishisht Credit Card",
+    "issuer": "RBL Bank",
+    "currentStatus": "active",
+    "filePath": "data\\cards\\rbl-bank\\rbl-patanjali-vishisht.json",
+    "issues": [
+      "Source URL failed: status 404 (none)"
+    ]
+  },
+  {
+    "id": "indigo-sbi-elite",
+    "name": "IndiGo SBI Card ELITE",
+    "issuer": "SBI Card",
+    "currentStatus": "active",
+    "filePath": "data\\cards\\sbi\\indigo-sbi-elite.json",
+    "issues": [
+      "Source URL keyword match: discontinued"
+    ]
+  },
+  {
+    "id": "sbi-card-prime",
+    "name": "SBI Card PRIME",
+    "issuer": "SBI Card",
+    "currentStatus": "active",
+    "filePath": "data\\cards\\sbi\\sbi-card-prime.json",
+    "issues": [
+      "Source URL failed: status 404 (none)"
+    ]
+  },
+  {
+    "id": "sc-easemytrip",
+    "name": "Standard Chartered EaseMyTrip Credit Card",
+    "issuer": "Standard Chartered",
+    "currentStatus": "active",
+    "filePath": "data\\cards\\standard-chartered\\sc-easemytrip.json",
+    "issues": [
+      "Apply URL keyword match: withdrawn"
+    ]
+  },
+  {
+    "id": "sc-manhattan-platinum",
+    "name": "Standard Chartered Manhattan Platinum Credit Card",
+    "issuer": "Standard Chartered",
+    "currentStatus": "active",
+    "filePath": "data\\cards\\standard-chartered\\sc-manhattan-platinum.json",
+    "issues": [
+      "Source URL keyword match: withdrawn"
+    ]
+  },
+  {
+    "id": "sc-super-value-titanium",
+    "name": "Standard Chartered Super Value Titanium Credit Card",
+    "issuer": "Standard Chartered",
+    "currentStatus": "active",
+    "filePath": "data\\cards\\standard-chartered\\sc-super-value-titanium.json",
+    "issues": [
+      "Source URL keyword match: discontinued"
+    ]
+  },
+  {
+    "id": "yes-ace",
+    "name": "YES BANK ACE Credit Card",
+    "issuer": "YES Bank",
+    "currentStatus": "active",
+    "filePath": "data\\cards\\yes-bank\\yes-ace.json",
+    "issues": [
+      "Source URL failed: status 404 (none)"
+    ]
+  },
+  {
+    "id": "yes-anq-phi",
+    "name": "YES BANK Anq Phi Credit Card",
+    "issuer": "YES Bank",
+    "currentStatus": "active",
+    "filePath": "data\\cards\\yes-bank\\yes-anq-phi.json",
+    "issues": [
+      "Source URL failed: status 404 (none)"
+    ]
+  },
+  {
+    "id": "yes-elite-plus",
+    "name": "YES BANK ELITE+ Credit Card",
+    "issuer": "YES Bank",
+    "currentStatus": "active",
+    "filePath": "data\\cards\\yes-bank\\yes-elite-plus.json",
+    "issues": [
+      "Source URL failed: status 404 (none)",
+      "Apply URL failed: status 404 (none)"
+    ]
+  },
+  {
+    "id": "yes-first-preferred",
+    "name": "YES First Preferred Credit Card",
+    "issuer": "YES Bank",
+    "currentStatus": "active",
+    "filePath": "data\\cards\\yes-bank\\yes-first-preferred.json",
+    "issues": [
+      "Source URL failed: status 404 (none)",
+      "Apply URL failed: status 503 (none)"
+    ]
+  },
+  {
+    "id": "yes-klick-rupay",
+    "name": "YES BANK Klick RuPay Credit Card",
+    "issuer": "YES Bank",
+    "currentStatus": "active",
+    "filePath": "data\\cards\\yes-bank\\yes-klick-rupay.json",
+    "issues": [
+      "Source URL failed: status 404 (none)"
+    ]
+  },
+  {
+    "id": "yes-marquee",
+    "name": "YES BANK MARQUEE Credit Card",
+    "issuer": "YES Bank",
+    "currentStatus": "active",
+    "filePath": "data\\cards\\yes-bank\\yes-marquee.json",
+    "issues": [
+      "Source URL failed: status 404 (none)"
+    ]
+  },
+  {
+    "id": "yes-paisabazaar-paisasave-rupay",
+    "name": "YES BANK Paisabazaar PaisaSave RuPay Credit Card",
+    "issuer": "YES Bank",
+    "currentStatus": "active",
+    "filePath": "data\\cards\\yes-bank\\yes-paisabazaar-paisasave-rupay.json",
+    "issues": [
+      "Source URL failed: status 404 (none)"
+    ]
+  },
+  {
+    "id": "yes-paisabazaar-paisasave",
+    "name": "YES BANK Paisabazaar PaisaSave Credit Card",
+    "issuer": "YES Bank",
+    "currentStatus": "active",
+    "filePath": "data\\cards\\yes-bank\\yes-paisabazaar-paisasave.json",
+    "issues": [
+      "Source URL failed: status 404 (none)"
+    ]
+  },
+  {
+    "id": "yes-reserv",
+    "name": "YES BANK RESERV Credit Card",
+    "issuer": "YES Bank",
+    "currentStatus": "active",
+    "filePath": "data\\cards\\yes-bank\\yes-reserv.json",
+    "issues": [
+      "Source URL failed: status 404 (none)"
+    ]
+  },
+  {
+    "id": "yes-select",
+    "name": "YES BANK SELECT Credit Card",
+    "issuer": "YES Bank",
+    "currentStatus": "active",
+    "filePath": "data\\cards\\yes-bank\\yes-select.json",
+    "issues": [
+      "Source URL failed: status 404 (none)"
+    ]
+  }
+]
