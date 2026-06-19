@@ -201,12 +201,25 @@ export default async function AskPage({ searchParams }: Props) {
   // Pick the template that fits the result: multiple (ranked + compare) vs a single exact card.
   const showRankedAnswer =
     Boolean(topCard) && !exactCardIntent && (topCardsQuery || result?.displayMode === "ranked-list" || matchCount > 1);
-  const rankedResultCards = showRankedAnswer ? result?.cards ?? [] : [];
+  const isExplicitCount = Boolean(
+    input?.query && input.query.toLowerCase().replace(/[^a-z0-9]+/g, " ").match(/\btop\s+(\d+)\b/)
+  );
+  const rankedResultCards = showRankedAnswer
+    ? isExplicitCount
+      ? result?.cards ?? []
+      : (result?.cards ?? []).slice(0, 3)
+    : [];
   const comparisonCards = showRankedAnswer ? rankedResultCards.slice(0, 3) : [];
   const showFeeWaiverRow = comparisonCards.some((item) => hasFeeWaiverSpend(item.card.feeWaiverSpend));
+
+  const rawCards = showRankedAnswer ? result?.cards ?? [] : [];
+  const selectedDecisionCards = rawCards.length >= 5
+    ? [rawCards[0], rawCards[3], rawCards[4]]
+    : rawCards.slice(0, 3);
+
   const mainAnswerCardIds = new Set(
     showRankedAnswer
-      ? rankedResultCards.map((item) => item.card.id)
+      ? [...rankedResultCards.map((item) => item.card.id), ...selectedDecisionCards.map((item) => item.card.id)]
       : topCard
         ? [topCard.card.id]
         : []
@@ -255,7 +268,7 @@ export default async function AskPage({ searchParams }: Props) {
     ? "Ranked by how well they match the query, not by commission."
     : topCard?.card.issuer ?? "";
   // The decision grid is a multi-recommendation device — only populate it for the ranked template.
-  const decisionCards = (isRanked ? result?.cards ?? [] : []).slice(0, 3).map((item, index) => ({
+  const decisionCards = (isRanked ? selectedDecisionCards : []).map((item, index) => ({
     id: item.card.id,
     tone: DECISION_TONES[index] ?? "skip",
     label: DECISION_LABELS[index] ?? "Also worth a look",

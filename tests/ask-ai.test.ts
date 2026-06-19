@@ -50,7 +50,7 @@ describe("ask ai fallback policy", () => {
 
     expect(answer.cards.length).toBeGreaterThan(0);
     expect(answer.needsDatabaseUpdate).toBeUndefined();
-    expect(answer.summary).toMatch(/Top 3 picks for this query/i);
+    expect(answer.summary).toMatch(/Top 5 picks for this query/i);
   });
 
   it("produces a more natural fallback summary for direct card-name queries", async () => {
@@ -153,7 +153,7 @@ describe("ask ai fallback policy", () => {
 
     expect(answer.cards[0]?.card.id).toBe("axis-atlas");
     expect(answer.cards.every((item) => item.card.issuer === "Axis Bank")).toBe(true);
-    expect(answer.summary).toMatch(/Top 3 picks for this query/i);
+    expect(answer.summary).toMatch(/Top 5 picks for this query/i);
   });
 
   it("respects fee-cap questions even when the cap only appears in the query text", async () => {
@@ -164,11 +164,11 @@ describe("ask ai fallback policy", () => {
     expect(answer.needsDatabaseUpdate).toBeUndefined();
   });
 
-  it("mentions three results for broad top-card questions", async () => {
+  it("mentions five results for broad top-card questions", async () => {
     const answer = await answerQuestion({ query: "top card under 5000" });
 
-    expect(answer.cards).toHaveLength(3);
-    expect(answer.summary).toBe("Top 3 picks for this query.");
+    expect(answer.cards).toHaveLength(5);
+    expect(answer.summary).toBe("Top 5 picks for this query.");
   });
 
   it("returns the requested number of cards for top-N broad ranking queries", { timeout: 45000 }, async () => {
@@ -217,13 +217,13 @@ describe("ask ai fallback policy", () => {
     expect(answer.summary).toMatch(/Magnus Credit Card for Burgundy/i);
   });
 
-  it("shows the actual top 3 ranked cards for broad top-card questions", { timeout: 45000 }, async () => {
+  it("shows the actual top 5 ranked cards for broad top-card questions", { timeout: 45000 }, async () => {
     const answer = await answerQuestion({ query: "top cards under 5000" });
-    const rawTopThreeIds = scoreCards({ query: "top cards under 5000" })
-      .slice(0, 3)
+    const rawTopFiveIds = scoreCards({ query: "top cards under 5000" })
+      .slice(0, 5)
       .map((item) => item.card.id);
 
-    expect(answer.cards.map((item) => item.card.id)).toEqual(rawTopThreeIds);
+    expect(answer.cards.map((item) => item.card.id)).toEqual(rawTopFiveIds);
   });
 
   it("handles grocery-spend recommendation questions", async () => {
@@ -282,7 +282,7 @@ describe("ask ai fallback policy", () => {
   it("uses super-premium scenario ladders for super-premium asks", { timeout: 60000 }, async () => {
     const answer = await answerQuestion({ query: "best super premium card" });
 
-    expect(answer.summary).toMatch(/Top 3 picks for this query/i);
+    expect(answer.summary).toMatch(/Top 5 picks for this query/i);
     expect(answer.highlights?.join(" ")).not.toMatch(/Apollo SBI Card SELECT/);
   });
 
@@ -360,12 +360,12 @@ describe("ask ai fallback policy", () => {
     ) as typeof fetch;
 
     const answer = await answerQuestion({ query: "best cashback card" });
-    const rawTopThreeIds = scoreCards({ query: "best cashback card" }).slice(0, 3).map((item) => item.card.id);
+    const rawTopFiveIds = scoreCards({ query: "best cashback card" }).slice(0, 5).map((item) => item.card.id);
 
     expect(global.fetch).toHaveBeenCalledTimes(1);
     expect(answer.summary).toMatch(/Kotak Cashback\+/i);
-    expect(answer.cards).toHaveLength(3);
-    expect(answer.cards.map((item) => item.card.id)).toEqual(rawTopThreeIds);
+    expect(answer.cards).toHaveLength(5);
+    expect(answer.cards.map((item) => item.card.id)).toEqual(rawTopFiveIds);
   });
 
   it("uses gpt-5-mini summary generation for non-ranking recommendation phrasing when an OpenAI API key is configured", async () => {

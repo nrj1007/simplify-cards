@@ -1971,7 +1971,12 @@ export function requestedTopCardCount(query?: string) {
   if (!normalizedQuery) return defaultTopCardCount;
 
   const match = normalizedQuery.match(/\btop\s+(\d+)\b/);
-  if (!match) return defaultTopCardCount;
+  if (!match) {
+    if (/\b(top|best|recommend|recommended|suggest)\b/.test(normalizedQuery) && /\bcards?\b/.test(normalizedQuery)) {
+      return 5;
+    }
+    return defaultTopCardCount;
+  }
 
   const parsed = Number(match[1]);
   if (Number.isNaN(parsed) || parsed < 1) return defaultTopCardCount;
