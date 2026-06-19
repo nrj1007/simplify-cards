@@ -102,7 +102,7 @@
   ],
   "joiningBenefitsValued": [
     {
-      "value": 15000,
+      "value": 12000,
       "kind": "points",
       "label": "Up to 15,000 Etihad Guest Miles welcome bonus"
     }
@@ -115,21 +115,21 @@
     {
       "threshold": 50000,
       "period": "monthly",
-      "value": 500,
+      "value": 400,
       "kind": "points",
       "label": "500 bonus miles on completing 4 transactions totaling Rs 50,000 in a month"
     },
     {
       "threshold": 300000,
       "period": "quarterly",
-      "value": 4000,
+      "value": 3200,
       "kind": "points",
       "label": "4,000 bonus miles on quarterly spends of Rs 3,00,000"
     },
     {
       "threshold": 1200000,
       "period": "annual",
-      "value": 24000,
+      "value": 19200,
       "kind": "points",
       "label": "24,000 bonus miles on annual spends of Rs 12 lakh"
     }

@@ -105,7 +105,10 @@ function auditValuedBenefit(
 
   if (pts !== null) {
     const expected = pts * ppv;
-    if (value > 0 && expected > 0 && Math.abs(value - expected) / expected > 0.15) {
+    // Only flag OVER-valuation (stored value above points x the card's point value). The "under"
+    // direction produced false positives: ppv is the best-case redemption value, and a benefit valued
+    // at the everyday rate is correctly below it (e.g. an Atlas EDGE milestone vs the Accor best case).
+    if (value > 0 && expected > 0 && value > expected * 1.15) {
       flags.push(
         `BENEFIT VALUE MISMATCH (${source}): "${label.slice(0, 55)}…" grants ${pts} pts/miles but is ` +
           `valued at Rs ${value}; at the card's Rs ${ppv.toFixed(2)}/point that implies Rs ${Math.round(expected)}.`

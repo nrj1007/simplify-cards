@@ -29,6 +29,7 @@ const scenarios: Record<string, RecommendationInput> = {
   "category-utilities": { query: "best utility card" },
   "category-utility-bills": { query: "best card for utility bills" },
   "category-bill-payments": { query: "best card for bill payments" },
+  "category-education-payments": { query: "best card for education payments" },
   "issuer-hdfc": { query: "best hdfc card" },
   "issuer-sbi": { query: "best sbi card" },
   "issuer-axis": { query: "best axis card" },

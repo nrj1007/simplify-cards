@@ -2729,7 +2729,7 @@ describe("reward calculator", () => {
         const rules = milestoneRulesForCard(card!);
         expect(rules).toHaveLength(1);
         expect(rules[0].threshold).toBe(600000);
-        expect(rules[0].value).toBe(15000);
+        expect(rules[0].value).toBe(3750);
         expect(rules[0].isVoucher).toBe(false);
       });
     });
@@ -3453,15 +3453,15 @@ describe("reward calculator", () => {
           expect(rules.length).toBe(3);
           
           expect(rules[0].threshold).toBe(300000);
-          expect(rules[0].value).toBe(3000);
+          expect(rules[0].value).toBe(2400);
           expect(rules[0].period).toBe("monthly");
 
           expect(rules[2].threshold).toBe(800000);
-          expect(rules[2].value).toBe(8000);
+          expect(rules[2].value).toBe(6400);
           expect(rules[2].period).toBe("quarterly");
 
           expect(rules[1].threshold).toBe(750000);
-          expect(rules[1].value).toBe(12000);
+          expect(rules[1].value).toBe(9600);
           expect(rules[1].period).toBe("annual");
         });
       });
@@ -3496,13 +3496,13 @@ describe("reward calculator", () => {
           const monthly = rules.find((r) => r.period === "monthly")!;
 
           expect(monthly.threshold).toBe(600000);
-          expect(monthly.value).toBe(6000);
+          expect(monthly.value).toBe(4800);
 
           expect(quarterly.threshold).toBe(1200000);
-          expect(quarterly.value).toBe(16000);
+          expect(quarterly.value).toBe(12800);
 
           expect(annual.threshold).toBe(1200000);
-          expect(annual.value).toBe(24000);
+          expect(annual.value).toBe(19200);
         });
       });
     });

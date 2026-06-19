@@ -16,7 +16,8 @@ export default defineConfig({
       "**/dist/**",
       "**/.tmp*/**",
       "**/.next/**",
-      "**/.git/**"
+      "**/.git/**",
+      "**/.codex/**"
     ]
   }
 });
