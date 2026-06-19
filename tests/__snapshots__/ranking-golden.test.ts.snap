@@ -355,10 +355,10 @@ exports[`ranking golden (representative queries) > produces stable top-N orderin
     "phonepe-sbi-purple",
     "csb-jupiter-edge-plus",
     "hdfc-tata-neu-infinity",
+    "tata-neu-infinity-sbi",
     "icici-coral-rupay",
     "yes-paisabazaar-paisasave-rupay",
     "hdfc-pixel-play",
-    "hdfc-pixel-go",
   ],
   "network-visa": [
     "hsbc-visa-platinum",
@@ -633,10 +633,10 @@ exports[`ranking golden (representative queries) > produces stable top-N orderin
     "phonepe-sbi-purple",
     "csb-jupiter-edge-plus",
     "hdfc-tata-neu-infinity",
+    "tata-neu-infinity-sbi",
     "icici-coral-rupay",
     "yes-paisabazaar-paisasave-rupay",
     "hdfc-pixel-play",
-    "hdfc-pixel-go",
   ],
 }
 `;
