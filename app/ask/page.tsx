@@ -2,6 +2,7 @@ import Link from "next/link";
 import LoungeInfo from "../ui/LoungeInfo";
 import AskFeedback from "../ui/AskFeedback";
 import AskQueryForm from "../ui/AskQueryForm";
+import AskResultsLoadingBoundary from "../ui/AskResultsLoadingBoundary";
 import AnalyticsMount from "../ui/AnalyticsMount";
 import CardTile from "../ui/CardTile";
 import { TrackedExternalLink, TrackedLink } from "../ui/TrackedLink";
@@ -286,7 +287,12 @@ export default async function AskPage({ searchParams }: Props) {
 
           <div className="query-examples">
             {ASK_EXAMPLES.map((example) => (
-              <Link key={example} className="query-chip" href={`/ask?query=${encodeURIComponent(example)}`}>
+              <Link
+                key={example}
+                className="query-chip"
+                data-route-loader="ask-results"
+                href={`/ask?query=${encodeURIComponent(example)}`}
+              >
                 {example}
               </Link>
             ))}
@@ -297,6 +303,7 @@ export default async function AskPage({ searchParams }: Props) {
       <section className="ask-content">
         <div className="container content-grid">
           <div className="main-stack">
+            <AskResultsLoadingBoundary>
             {result && input?.query ? (
               <AnalyticsMount
                 event={{
@@ -749,6 +756,7 @@ export default async function AskPage({ searchParams }: Props) {
                 </div>
               </section>
             )}
+            </AskResultsLoadingBoundary>
           </div>
 
           <aside className="side-stack ask-sticky">

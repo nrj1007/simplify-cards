@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import type { Route } from "next";
+import { useNavigationProgress } from "./NavigationProgress";
 
 type CardOption = { id: string; name: string; issuer: string };
 
@@ -13,6 +14,7 @@ type Props = {
 
 export default function CalculatorPicker({ cards, selectedCardId }: Props) {
   const router = useRouter();
+  const { startNavigation } = useNavigationProgress();
   const selectedCard = cards.find((card) => card.id === selectedCardId);
   const [issuer, setIssuer] = useState(selectedCard?.issuer ?? "");
   const [cardId, setCardId] = useState(selectedCardId ?? "");
@@ -53,6 +55,7 @@ export default function CalculatorPicker({ cards, selectedCardId }: Props) {
             const nextId = event.target.value;
             setCardId(nextId);
             if (nextId) {
+              startNavigation();
               router.push(`/calculator?card=${encodeURIComponent(nextId)}` as Route);
             }
           }}

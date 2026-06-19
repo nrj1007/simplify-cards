@@ -1,5 +1,13 @@
+"use client";
+
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import type { FormEvent } from "react";
+import { useState } from "react";
+import type { Route } from "next";
+import { useRouter } from "next/navigation";
+import { LoadingButton } from "@/components/LoadingButton";
+import { useNavigationProgress } from "./NavigationProgress";
 
 const EXAMPLE_QUERIES = [
   "Best lifetime free cashback card",
@@ -28,9 +36,32 @@ export default function AskBox({
   showHelperText = true,
   variant = "default"
 }: Props) {
+  const router = useRouter();
+  const { startNavigation } = useNavigationProgress();
+  const [isLoading, setIsLoading] = useState(false);
+
+  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    const formData = new FormData(event.currentTarget);
+    const query = String(formData.get("query") ?? "").trim();
+
+    if (!query || isLoading) {
+      event.preventDefault();
+      return;
+    }
+
+    setIsLoading(true);
+    startNavigation();
+    const nextParams = new URLSearchParams({ query });
+    if (defaultMaxAnnualFee !== undefined) {
+      nextParams.set("maxAnnualFee", String(defaultMaxAnnualFee));
+    }
+    router.push(`/ask?${nextParams.toString()}` as Route);
+  }
+
   if (variant === "hero") {
     return (
-      <form action="/ask" className="ask-card" method="GET">
+      <form action="/ask" className="ask-card" method="GET" onSubmit={handleSubmit}>
         <div className="ask-top">
           <span className="ask-title">Ask myCards</span>
           <span className="live-badge">
@@ -52,6 +83,7 @@ export default function AskBox({
         <textarea
           className="ask-input"
           defaultValue={defaultQuery}
+          disabled={isLoading}
           id="query"
           name="query"
           placeholder="Example: I spend Rs 25k on Amazon/Flipkart, Rs 8k on food delivery, and travel 3 times a year. Which cards should I consider?"
@@ -60,9 +92,9 @@ export default function AskBox({
         {defaultMaxAnnualFee !== undefined ? <input name="maxAnnualFee" type="hidden" value={defaultMaxAnnualFee} /> : null}
 
         <div className="ask-actions">
-          <button className="btn btn-primary" type="submit">
+          <LoadingButton className="btn btn-primary" loading={isLoading} loadingText="Finding cards..." type="submit">
             Get my shortlist <ArrowRight size={16} />
-          </button>
+          </LoadingButton>
           <Link className="btn btn-ghost" href="#use-cases">
             Browse by goal
           </Link>
@@ -74,7 +106,7 @@ export default function AskBox({
   }
 
   return (
-    <form action="/ask" className="panel ask-panel" method="GET">
+    <form action="/ask" className="panel ask-panel" method="GET" onSubmit={handleSubmit}>
       <div className="field">
         <label htmlFor="query">Ask about Indian credit cards</label>
         {showHelperText ? (
@@ -92,15 +124,16 @@ export default function AskBox({
         ) : null}
         <textarea
           defaultValue={defaultQuery}
+          disabled={isLoading}
           id="query"
           name="query"
           placeholder="e.g. Best cashback card under Rs 2000 annual fee"
         />
       </div>
       {defaultMaxAnnualFee !== undefined ? <input name="maxAnnualFee" type="hidden" value={defaultMaxAnnualFee} /> : null}
-      <button className="button" type="submit">
+      <LoadingButton className="button" loading={isLoading} loadingText="Finding cards..." type="submit">
         Ask <ArrowRight size={16} />
-      </button>
+      </LoadingButton>
       {showHelperText ? (
         <p className="muted" style={{ margin: 0 }}>
           Answers are grounded in verified card data, not generic web results.
