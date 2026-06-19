@@ -18,14 +18,14 @@
   "rewardType": "cashback and edge reward points",
   "rewards": [
     {
-      "category": "online",
+      "category": "partner merchants",
       "displayCategory": "Samsung purchases (eligible online & offline channels)",
       "rate": 10,
       "displayRate": "10% Cashback on Samsung purchases (up to Rs 2,500/month)",
       "capMonthly": 2500
     },
     {
-      "category": "dining, grocery, online",
+      "category": "partner merchants",
       "displayCategory": "Preferred partners (BigBasket, Myntra, Tata 1mg, Urban Company, Zomato)",
       "rate": 10,
       "displayRate": "10 EDGE REWARD Points / Rs 100 spent (2.0% return value)",
@@ -41,6 +41,10 @@
       "capMonthly": null
     }
   ],
+  "acceleratedShare": {
+    "online": 0.1,
+    "grocery": 0.1
+  },
   "loungeDomestic": 4,
   "loungeInternational": 0,
   "forexMarkup": 3.5,

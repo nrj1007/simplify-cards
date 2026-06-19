@@ -78,7 +78,7 @@
     {
       "threshold": 150000,
       "period": "annual",
-      "value": 1500,
+      "value": 375,
       "kind": "points",
       "label": "1,500 bonus POPcoins on annual spends of Rs 1.5 Lakh"
     }
