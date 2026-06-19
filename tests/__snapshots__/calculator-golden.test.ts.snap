@@ -214,6 +214,10 @@ exports[`reward calculator golden (all cards) > computes stable earn for every c
     "high": "online:2400 dining:2000 travel:2400 hotels:2000 airlines:2000 fuel:x grocery:2400 utilities:2400 upi:x amazon:2400 international:2000 base:2000 rent:x insurance:x education:x gold:x government:2000 |24000",
     "moderate": "online:2400 dining:250 travel:2400 hotels:250 airlines:250 fuel:x grocery:2400 utilities:2400 upi:x amazon:2400 international:250 base:250 rent:x insurance:x education:x gold:x government:250 |13500",
   },
+  "csb-jupiter-edge-plus": {
+    "high": "online:10000 dining:0 travel:0 hotels:0 airlines:5000 fuel:x grocery:0 utilities:x upi:2500 amazon:0 international:0 base:2500 rent:x insurance:0 education:x gold:0 government:x |20000",
+    "moderate": "online:10000 dining:0 travel:0 hotels:0 airlines:5000 fuel:x grocery:0 utilities:x upi:1250 amazon:0 international:0 base:1250 rent:x insurance:0 education:x gold:0 government:x |17500",
+  },
   "doctors-sbi": {
     "high": "online:2000 dining:2000 travel:7500 hotels:2000 airlines:2000 fuel:x grocery:2000 utilities:2000 upi:2000 amazon:2000 international:7500 base:2000 rent:x insurance:2000 education:2000 gold:2000 government:x |39000",
     "moderate": "online:250 dining:250 travel:1250 hotels:250 airlines:250 fuel:x grocery:250 utilities:250 upi:250 amazon:250 international:1250 base:250 rent:x insurance:250 education:250 gold:250 government:x |5500",

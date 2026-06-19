@@ -3541,6 +3541,66 @@ describe("reward calculator", () => {
         });
       });
     });
+
+    describe("CSB Bank", () => {
+      describe("Jupiter Edge+", () => {
+        it("calculates rewards correctly for online shopping, flights, base, and UPI", () => {
+          const card = getCardById("csb-jupiter-edge-plus");
+          expect(card).toBeTruthy();
+
+          // Online preferred brand spend: 10,000 spend at rate 50/100 = 5,000 Jewels
+          const resultOnline = calculateRewards(card!, { online: 10000 });
+          const onlineRow = resultOnline.rows.find((r) => r.category === "online")!;
+          expect(onlineRow.monthlyUnits).toBe(5000);
+
+          // Flight booking: 10,000 spend at rate 25/100 = 2,500 Jewels
+          const resultFlights = calculateRewards(card!, { airlines: 10000 });
+          const airlinesRow = resultFlights.rows.find((r) => r.category === "airlines")!;
+          expect(airlinesRow.monthlyUnits).toBe(2500);
+
+          // Base spend: 10,000 spend at rate 5/100 = 500 Jewels
+          const resultBase = calculateRewards(card!, { base: 10000 });
+          const baseRow = resultBase.rows.find((r) => r.category === "base")!;
+          expect(baseRow.monthlyUnits).toBe(500);
+
+          // UPI spend: 10,000 spend at rate 5/100 = 500 Jewels
+          const resultUpi = calculateRewards(card!, { upi: 10000 });
+          const upiRow = resultUpi.rows.find((r) => r.category === "upi")!;
+          expect(upiRow.monthlyUnits).toBe(500);
+        });
+
+        it("enforces monthly caps on each category independently", () => {
+          const card = getCardById("csb-jupiter-edge-plus");
+          expect(card).toBeTruthy();
+
+          // Online cap: 10,000 Jewels. Spend of 30,000 would earn 15,000 but capped at 10,000
+          const resultOnlineCapped = calculateRewards(card!, { online: 30000 });
+          expect(resultOnlineCapped.monthlyUnits).toBe(10000);
+
+          // Flights cap: 5,000 Jewels. Spend of 30,000 would earn 7,500 but capped at 5,000
+          const resultFlightsCapped = calculateRewards(card!, { airlines: 30000 });
+          expect(resultFlightsCapped.monthlyUnits).toBe(5000);
+
+          // Base cap: 5,000 Jewels. Spend of 120,000 would earn 6,000 but capped at 5,000
+          const resultBaseCapped = calculateRewards(card!, { base: 120000 });
+          expect(resultBaseCapped.monthlyUnits).toBe(5000);
+        });
+
+        it("enforces category exclusions", () => {
+          const card = getCardById("csb-jupiter-edge-plus");
+          expect(card).toBeTruthy();
+
+          const resultExclusions = calculateRewards(card!, {
+            fuel: 10000,
+            rent: 10000,
+            utilities: 10000,
+            education: 10000,
+            government: 10000
+          });
+          expect(resultExclusions.monthlyUnits).toBe(0);
+        });
+      });
+    });
   });
 });
 
