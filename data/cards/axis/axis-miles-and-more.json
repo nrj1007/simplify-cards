@@ -73,6 +73,7 @@
     "Complimentary Dining Delights program benefits at participating restaurants"
   ],
   "redemption": {
+    "airMilesValue": 0.7,
     "statementBalanceValue": null,
     "pointsExpiryYears": null
   },

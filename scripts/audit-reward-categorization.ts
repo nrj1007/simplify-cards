@@ -143,7 +143,10 @@ function auditCard(card: CreditCard, scored: ReturnType<typeof scoreCards>, rank
 
   // Missing point value (non-cashback card, no redemption value -> engine falls back). Report the
   // actual fallback the engine uses (Rs 1 generic, or a rewardType-specific rate like Bonvoy 0.6).
-  if (!/cashback/i.test(card.rewardType) && numericRedemptionValues(card).length === 0) {
+  // Skip cards that earn no points (max reward rate 0 — movie/offer-led cards whose value is in
+  // benefits, not a point currency), where the fallback never applies.
+  const earnsPoints = card.rewards.some((reward) => reward.rate > 0);
+  if (earnsPoints && !/cashback/i.test(card.rewardType) && numericRedemptionValues(card).length === 0) {
     const ppv = scoringPointValue(card);
     flags.push(
       `MISSING POINT VALUE: redemption has no numeric value field; engine falls back to Rs ${ppv.toFixed(2)}/point` +
@@ -227,7 +230,9 @@ function main() {
   let ranks = new Map<string, number>();
   scored.forEach((s, i) => ranks.set(s.card.id, i + 1));
 
-  if (args[0] === "top") {
+  if (args[0] === "all") {
+    targets = all;
+  } else if (args[0] === "top") {
     const n = Number(args[1] ?? 10);
     targets = scored.slice(0, n).map((s) => s.card as CreditCard);
   } else if (args[0] && all.some((c) => c.id === args[0])) {
