@@ -1,15 +1,24 @@
+import { loadingCopy } from "@/lib/loading-copy";
+
 export function CompareSkeleton() {
   return (
     <main className="loading-page">
       <div className="loading-container">
-        <section className="loading-hero compact">
-          <div className="loading-pill" />
-          <h1>Comparing fees, rewards and exclusions...</h1>
-          <p>Highlighting the trade-offs that matter.</p>
+        <section className="loading-panel">
+          <div className="loading-panel-title">
+            <span className="loading-spinner-badge" aria-hidden="true">
+              <span />
+            </span>
+            <div>
+              <h1>{loadingCopy.compare.title}</h1>
+              <p>{loadingCopy.compare.subtitle}</p>
+            </div>
+          </div>
         </section>
 
         <section className="compare-loading-grid">
           <div className="loading-panel compare-loading-card">
+            <div className="compare-loading-image" />
             <div className="skeleton-line heading" />
             <div className="skeleton-line short" />
             <div className="loading-mini-grid">
@@ -20,6 +29,7 @@ export function CompareSkeleton() {
             </div>
           </div>
           <div className="loading-panel compare-loading-card">
+            <div className="compare-loading-image" />
             <div className="skeleton-line heading" />
             <div className="skeleton-line short" />
             <div className="loading-mini-grid">

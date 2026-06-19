@@ -1,9 +1,20 @@
+import { loadingCopy } from "@/lib/loading-copy";
+
 export function CardDetailSkeleton() {
   return (
     <main className="loading-page">
       <div className="loading-container card-detail-loading-grid">
         <section className="loading-panel card-detail-loading-hero">
           <div>
+            <div className="loading-panel-title compact">
+              <span className="loading-spinner-badge" aria-hidden="true">
+                <span />
+              </span>
+              <div>
+                <h1>{loadingCopy.cardDetail.title}</h1>
+                <p>{loadingCopy.cardDetail.subtitle}</p>
+              </div>
+            </div>
             <div className="loading-pill" />
             <div className="loading-title wide" />
             <div className="loading-subtitle" />

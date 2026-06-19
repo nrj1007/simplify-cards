@@ -1,12 +1,20 @@
+import { loadingCopy } from "@/lib/loading-copy";
+
 export function RecommendSkeleton() {
   return (
     <main className="loading-page">
       <div className="loading-container loading-grid-with-sidebar">
         <section className="loading-stack">
-          <div className="loading-hero compact">
-            <div className="loading-pill" />
-            <h1>Building your shortlist...</h1>
-            <p>Ranking cards based on fit, fees and benefits.</p>
+          <div className="loading-panel">
+            <div className="loading-panel-title">
+              <span className="loading-spinner-badge" aria-hidden="true">
+                <span />
+              </span>
+              <div>
+                <h1>{loadingCopy.recommend.title}</h1>
+                <p>{loadingCopy.recommend.subtitle}</p>
+              </div>
+            </div>
           </div>
 
           <div className="recommend-loading-results">
@@ -22,6 +30,7 @@ export function RecommendSkeleton() {
                     <span />
                   </div>
                 </div>
+                <div className="recommend-loading-action" />
               </article>
             ))}
           </div>

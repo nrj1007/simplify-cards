@@ -7,6 +7,7 @@ import { useState } from "react";
 import type { Route } from "next";
 import { useRouter } from "next/navigation";
 import { LoadingButton } from "@/components/LoadingButton";
+import { loadingCopy } from "@/lib/loading-copy";
 import { useNavigationProgress } from "./NavigationProgress";
 
 const EXAMPLE_QUERIES = [
@@ -51,7 +52,7 @@ export default function AskBox({
     }
 
     setIsLoading(true);
-    startNavigation();
+    startNavigation("ask");
     const nextParams = new URLSearchParams({ query });
     if (defaultMaxAnnualFee !== undefined) {
       nextParams.set("maxAnnualFee", String(defaultMaxAnnualFee));
@@ -92,7 +93,7 @@ export default function AskBox({
         {defaultMaxAnnualFee !== undefined ? <input name="maxAnnualFee" type="hidden" value={defaultMaxAnnualFee} /> : null}
 
         <div className="ask-actions">
-          <LoadingButton className="btn btn-primary" loading={isLoading} loadingText="Finding cards..." type="submit">
+          <LoadingButton className="btn btn-primary" loading={isLoading} loadingText={loadingCopy.ask.title} type="submit">
             Get my shortlist <ArrowRight size={16} />
           </LoadingButton>
           <Link className="btn btn-ghost" href="#use-cases">
@@ -131,7 +132,7 @@ export default function AskBox({
         />
       </div>
       {defaultMaxAnnualFee !== undefined ? <input name="maxAnnualFee" type="hidden" value={defaultMaxAnnualFee} /> : null}
-      <LoadingButton className="button" loading={isLoading} loadingText="Finding cards..." type="submit">
+      <LoadingButton className="button" loading={isLoading} loadingText={loadingCopy.ask.title} type="submit">
         Ask <ArrowRight size={16} />
       </LoadingButton>
       {showHelperText ? (

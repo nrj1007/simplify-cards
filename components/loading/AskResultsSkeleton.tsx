@@ -1,28 +1,49 @@
+import { loadingCopy } from "@/lib/loading-copy";
+
 type AskResultsSkeletonProps = {
   variant?: "page" | "inline";
 };
 
 export function AskResultsSkeleton({ variant = "page" }: AskResultsSkeletonProps) {
+  const resultCards = [
+    ["wide", "", "short"],
+    ["", "wide", "tiny"],
+    ["wide", "", "short"]
+  ];
+
   const content = (
     <div className="loading-stack">
       <section className="loading-panel ask-results-loading-panel" aria-busy="true" aria-live="polite">
         <div className="answer-head">
-          <div>
-            <span className="ask-loading-kicker">Finding cards</span>
-            <h2>Finding the right cards...</h2>
-            <p>Checking rewards, fees, caps and exclusions.</p>
-          </div>
-          <div className="ask-loading-orbit" aria-hidden="true">
-            <span />
+          <div className="loading-panel-title">
+            <span className="loading-spinner-badge" aria-hidden="true">
+              <span />
+            </span>
+            <div>
+              <h2>{loadingCopy.ask.title}</h2>
+              <p>{loadingCopy.ask.subtitle}</p>
+            </div>
           </div>
         </div>
         <div className="panel-body ask-loading-body">
-          <div className="ask-loading-line wide" />
-          <div className="ask-loading-line" />
+          <div className="skeleton-lines">
+            <div className="ask-loading-line teal wide" />
+            <div className="ask-loading-line extra-wide" />
+            <div className="ask-loading-line short" />
+          </div>
           <div className="ask-loading-grid">
-            <div className="ask-loading-card" />
-            <div className="ask-loading-card" />
-            <div className="ask-loading-card" />
+            {resultCards.map((lines, index) => (
+              <article className="ask-loading-card" key={index}>
+                <div className="ask-loading-card-image" />
+                <div className={`ask-loading-line ${lines[0]}`} />
+                <div className={`ask-loading-line ${lines[1]}`} />
+                <div className={`ask-loading-line ${lines[2]}`} />
+                <div className="ask-loading-actions">
+                  <span />
+                  <span />
+                </div>
+              </article>
+            ))}
           </div>
         </div>
       </section>
@@ -42,6 +63,7 @@ export function AskResultsSkeleton({ variant = "page" }: AskResultsSkeletonProps
       <div className="loading-container loading-grid-with-sidebar">
         {content}
         <aside className="loading-side-panel">
+          <div className="loading-card-image" />
           <div className="skeleton-line short" />
           <div className="skeleton-block button" />
           <div className="skeleton-block button muted" />

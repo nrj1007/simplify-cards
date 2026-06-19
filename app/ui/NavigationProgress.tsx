@@ -3,9 +3,10 @@
 import { Suspense, createContext, useCallback, useContext, useEffect, useRef, useState, type ReactNode } from "react";
 import { usePathname, useSearchParams } from "next/navigation";
 import { CreditCard } from "lucide-react";
+import { loadingCopy, type LoadingCopyKey } from "@/lib/loading-copy";
 
 type NavigationProgressContextValue = {
-  startNavigation: () => void;
+  startNavigation: (copyKey?: LoadingCopyKey) => void;
   stopNavigation: () => void;
 };
 
@@ -23,8 +24,20 @@ function isSameDocumentHashNavigation(url: URL) {
   );
 }
 
+function loadingCopyKeyForUrl(url: URL): LoadingCopyKey {
+  if (url.pathname === "/ask") return "ask";
+  if (url.pathname === "/recommend") return "recommend";
+  if (url.pathname === "/compare") return "compare";
+  if (url.pathname === "/calculator") return "calculator";
+  if (url.pathname.startsWith("/cards/")) return "cardDetail";
+  if (url.pathname === "/finder" || url.pathname === "/cards") return "cards";
+
+  return "cards";
+}
+
 export function NavigationProgressProvider({ children }: { children: ReactNode }) {
   const [isLoading, setIsLoading] = useState(false);
+  const [copyKey, setCopyKey] = useState<LoadingCopyKey>("cards");
   const fallbackTimerRef = useRef<number | null>(null);
   const stopTimerRef = useRef<number | null>(null);
   const visibleSinceRef = useRef(0);
@@ -57,9 +70,10 @@ export function NavigationProgressProvider({ children }: { children: ReactNode }
     }, remaining);
   }, [clearFallback, clearStopTimer]);
 
-  const startNavigation = useCallback(() => {
+  const startNavigation = useCallback((nextCopyKey: LoadingCopyKey = "cards") => {
     clearFallback();
     clearStopTimer();
+    setCopyKey(nextCopyKey);
     visibleSinceRef.current = Date.now();
     setIsLoading(true);
     fallbackTimerRef.current = window.setTimeout(() => {
@@ -81,20 +95,25 @@ export function NavigationProgressProvider({ children }: { children: ReactNode }
       const anchor = target.closest("a[href]");
       if (!(anchor instanceof HTMLAnchorElement)) return;
       if (anchor.target === "_blank" || anchor.hasAttribute("download")) return;
-      if (anchor.dataset.routeLoader === "ask-results") {
-        window.dispatchEvent(new CustomEvent("mycards:ask-results-loading"));
-        return;
-      }
-      if (anchor.dataset.routeLoader === "none") return;
 
       const href = anchor.getAttribute("href");
       if (!href || href.startsWith("mailto:") || href.startsWith("tel:") || href.startsWith("javascript:")) return;
 
       const url = new URL(anchor.href, window.location.href);
+      if (anchor.dataset.routeLoader === "redirect") {
+        startNavigation("redirect");
+        return;
+      }
       if (url.origin !== window.location.origin) return;
+      if (url.pathname === window.location.pathname && url.search === window.location.search) return;
+      if (anchor.dataset.routeLoader === "ask-results") {
+        window.dispatchEvent(new CustomEvent("mycards:ask-results-loading"));
+        return;
+      }
+      if (anchor.dataset.routeLoader === "none") return;
       if (isSameDocumentHashNavigation(url)) return;
 
-      startNavigation();
+      startNavigation(loadingCopyKeyForUrl(url));
     };
 
     const handleFormSubmit = (event: SubmitEvent) => {
@@ -108,7 +127,7 @@ export function NavigationProgressProvider({ children }: { children: ReactNode }
       const url = new URL(action, window.location.href);
       if (url.origin !== window.location.origin) return;
 
-      startNavigation();
+      startNavigation(loadingCopyKeyForUrl(url));
     };
 
     window.addEventListener("pageshow", stopNavigation);
@@ -125,6 +144,8 @@ export function NavigationProgressProvider({ children }: { children: ReactNode }
       clearStopTimer();
     };
   }, [clearFallback, clearStopTimer, startNavigation, stopNavigation]);
+
+  const currentCopy = loadingCopy[copyKey];
 
   return (
     <NavigationProgressContext.Provider value={{ startNavigation, stopNavigation }}>
@@ -145,12 +166,15 @@ export function NavigationProgressProvider({ children }: { children: ReactNode }
             <CreditCard size={20} strokeWidth={2.4} />
           </span>
           <span className="route-loader-copy">
-            <span className="route-loader-title">Loading</span>
-            <span className="route-loader-dots" aria-hidden="true">
-              <i />
-              <i />
-              <i />
+            <span className="route-loader-title-row">
+              <span className="route-loader-title">{currentCopy.title}</span>
+              <span className="route-loader-dots" aria-hidden="true">
+                <i />
+                <i />
+                <i />
+              </span>
             </span>
+            <span className="route-loader-subtitle">{currentCopy.subtitle}</span>
           </span>
         </div>
       </div>

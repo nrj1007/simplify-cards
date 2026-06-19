@@ -6,6 +6,7 @@ import type { Route } from "next";
 import { useRouter } from "next/navigation";
 import { LoadingButton } from "@/components/LoadingButton";
 import { trackEvent } from "@/lib/analytics-client";
+import { loadingCopy } from "@/lib/loading-copy";
 import { triggerAskResultsLoading } from "./AskResultsLoadingBoundary";
 
 type Props = {
@@ -28,7 +29,8 @@ export default function AskQueryForm({
   multiline = false
 }: Props) {
   const router = useRouter();
-  const [isLoading, setIsLoading] = useState(false);
+  const [submittedQuery, setSubmittedQuery] = useState<string | null>(null);
+  const isLoading = submittedQuery !== null && submittedQuery !== defaultValue.trim();
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -40,19 +42,25 @@ export default function AskQueryForm({
       return;
     }
 
+    const nextParams = new URLSearchParams({ query });
+    if (typeof maxAnnualFee === "number") {
+      nextParams.set("maxAnnualFee", String(maxAnnualFee));
+    }
+
+    const nextHref = `/ask?${nextParams.toString()}`;
+    if (nextHref === `${window.location.pathname}${window.location.search}`) {
+      return;
+    }
+
     trackEvent({
       event_name: "ask_query_submitted",
       page: "ask",
       source: "ask",
       query
     });
-    setIsLoading(true);
+    setSubmittedQuery(query);
     triggerAskResultsLoading();
-    const nextParams = new URLSearchParams({ query });
-    if (typeof maxAnnualFee === "number") {
-      nextParams.set("maxAnnualFee", String(maxAnnualFee));
-    }
-    router.push(`/ask?${nextParams.toString()}` as Route);
+    router.push(nextHref as Route);
   }
 
   return (
@@ -75,7 +83,7 @@ export default function AskQueryForm({
         />
       )}
       {typeof maxAnnualFee === "number" ? <input name="maxAnnualFee" type="hidden" value={maxAnnualFee} /> : null}
-      <LoadingButton className="btn btn-primary" loading={isLoading} loadingText="Finding cards..." type="submit">
+      <LoadingButton className="btn btn-primary" loading={isLoading} loadingText={loadingCopy.ask.title} type="submit">
         {buttonLabel}
       </LoadingButton>
     </form>
