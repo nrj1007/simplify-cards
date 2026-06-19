@@ -2486,22 +2486,33 @@ describe("reward calculator", () => {
     });
 
     describe("YES Bank Kiwi Credit Card", () => {
-      it("earns UPI, online, and base rewards", () => {
+      it("earns 1.5% cashback on all spend categories via UPI routing", () => {
         const card = getCardById("yes-kiwi");
         expect(card).toBeTruthy();
 
-        // UPI rate: 1.5% cashback (rupees)
-        // Online rate: 0.5% cashback (rupees)
-        // Base rate: 1 point / Rs 100 (which is 1 unit per Rs 100)
+        // All categories route to the UPI row at 1.5% cashback.
+        // The card is a virtual RuPay card used exclusively via Kiwi app UPI scan & pay.
+        // UPI: 1.5% of 10000 = 150, Online: 1.5% of 10000 = 150, Base: 1.5% of 10000 = 150
         const result = calculateRewards(card!, {
           upi: 10000,
           online: 10000,
           base: 10000
         });
 
-        // UPI: 150 Rs, Online: 50 Rs, Base: 100 units
-        // Since rewardType is "cashback and reward points", the monthlyUnits is the sum of these values.
-        expect(result.monthlyUnits).toBe(300);
+        expect(result.monthlyUnits).toBe(450); // 150 + 150 + 150
+      });
+
+      it("routes dining and grocery through UPI row at 1.5%", () => {
+        const card = getCardById("yes-kiwi");
+        expect(card).toBeTruthy();
+
+        const result = calculateRewards(card!, {
+          dining: 5000,
+          grocery: 5000,
+        });
+
+        // dining: 1.5% of 5000 = 75, grocery: 1.5% of 5000 = 75
+        expect(result.monthlyUnits).toBe(150);
       });
     });
 

@@ -17,24 +17,10 @@
   "rewardType": "cashback and reward points",
   "rewards": [
     {
-      "category": "upi",
+      "category": "upi, online, base, travel, dining, grocery, amazon",
       "rate": 1.5,
-      "displayCategory": "UPI scan & pay spends through Kiwi app",
+      "displayCategory": "All spends via UPI (Kiwi app scan & pay)",
       "displayRate": "1.5% cashback",
-      "capMonthly": null
-    },
-    {
-      "category": "online",
-      "rate": 0.5,
-      "displayCategory": "Online spends through Kiwi app",
-      "displayRate": "0.5% cashback",
-      "capMonthly": null
-    },
-    {
-      "category": "base",
-      "rate": 1,
-      "displayCategory": "Other non-UPI spends",
-      "displayRate": "2 YES Rewardz Points / Rs 200 spent",
       "capMonthly": null
     }
   ],
@@ -85,7 +71,7 @@
   ],
   "additionalDetails": [
     "Co-branded credit card issued in partnership with Kiwi (GoKiwi)",
-    "UPI scan and pay transaction rewards are only credited when processed through the Kiwi app",
+    "All spends are processed via UPI scan & pay through the Kiwi app, earning 1.5% cashback across all non-excluded categories",
     "Optional 'Kiwi Neon' annual subscription (Rs 999/year) upgrades UPI Scan & Pay rewards to 2%, adds milestone cashback up to 5%, and provides 1 complimentary domestic lounge visit per quarter."
   ],
   "redemption": {
@@ -111,6 +97,6 @@
     "Card details manually reviewed and verified by user on 2026-06-14.",
     "Virtual RuPay credit card issued by YES Bank in partnership with Kiwi (GoKiwi).",
     "Rewards are earned as Kiwis where 4 Kiwis = Rs 1, redeemable directly to bank account via UPI.",
-    "Non-UPI spends earn 2 YES Rewardz points per Rs 200 spent."
+    "All spend categories (online, dining, grocery, travel, base, amazon) are scored at the UPI rate (1.5% cashback) since the card is used exclusively via UPI scan & pay through the Kiwi app — there is no non-UPI swipe mode."
   ]
 }

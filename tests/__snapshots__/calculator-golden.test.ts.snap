@@ -799,8 +799,8 @@ exports[`reward calculator golden (all cards) > computes stable earn for every c
     "moderate": "online:1000 dining:2000 travel:2000 hotels:1000 airlines:1000 fuel:x grocery:1000 utilities:500 upi:1000 amazon:1000 international:1000 base:1000 rent:x insurance:1000 education:1000 gold:1000 government:x |15500",
   },
   "yes-kiwi": {
-    "high": "online:1000 dining:2000 travel:2000 hotels:2000 airlines:2000 fuel:x grocery:2000 utilities:x upi:3000 amazon:2000 international:2000 base:2000 rent:x insurance:x education:x gold:x government:x |20000",
-    "moderate": "online:125 dining:250 travel:250 hotels:250 airlines:250 fuel:x grocery:250 utilities:x upi:375 amazon:250 international:250 base:250 rent:x insurance:x education:x gold:x government:x |2500",
+    "high": "online:3000 dining:3000 travel:3000 hotels:0 airlines:0 fuel:x grocery:3000 utilities:x upi:3000 amazon:3000 international:0 base:3000 rent:x insurance:x education:x gold:x government:x |21000",
+    "moderate": "online:375 dining:375 travel:375 hotels:0 airlines:0 fuel:x grocery:375 utilities:x upi:375 amazon:375 international:0 base:375 rent:x insurance:x education:x gold:x government:x |2625",
   },
   "yes-klick-rupay": {
     "high": "online:2000 dining:2000 travel:2000 hotels:2000 airlines:2000 fuel:x grocery:2000 utilities:x upi:4000 amazon:2000 international:2000 base:2000 rent:x insurance:x education:x gold:x government:x |22000",
