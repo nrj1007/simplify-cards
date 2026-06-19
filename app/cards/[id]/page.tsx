@@ -116,20 +116,24 @@ function redemptionRows(issuer: string, redemption?: Redemption) {
     catalogueLabel = "Shop & Smile catalogue";
   }
 
-  const derivedAirMilesValue =
-    typeof redemption.airMilesValue === "number"
-      ? redemption.airMilesValue
-      : Array.isArray(redemption.airlinePartners) && redemption.airlinePartners.length > 0
-        ? Math.max(
-            ...redemption.airlinePartners
-              .map((partner) => {
-                const [cardUnits, partnerUnits] = partner.ratio.split(":").map((value) => Number(value.trim()));
-                if (!Number.isFinite(cardUnits) || !Number.isFinite(partnerUnits) || cardUnits <= 0) return null;
-                return partnerUnits / cardUnits;
-              })
-              .filter((value): value is number => typeof value === "number" && Number.isFinite(value))
-          )
-        : undefined;
+  // "Airmile transfer" shows the best transfer RATIO (partner miles/points per card point), not the
+  // rupee value. Take the max across airline transfers (airlinePartners "2:1" = 0.5/point) AND
+  // hotel/point-program transfers (transferPartnerValuations, e.g. Marriott 1:1 = 1/point). Default
+  // 1:1 when a transfer exists but no explicit ratio is listed.
+  const hasAirmileTransfer =
+    (typeof redemption.airMilesValue === "number" && redemption.airMilesValue > 0) ||
+    (Array.isArray(redemption.airlinePartners) && redemption.airlinePartners.length > 0);
+  const airlineRatios = (redemption.airlinePartners ?? [])
+    .map((partner) => {
+      const [cardUnits, partnerUnits] = (partner.ratio ?? "").split(":").map((value) => Number(value.trim()));
+      return Number.isFinite(cardUnits) && Number.isFinite(partnerUnits) && cardUnits > 0 ? partnerUnits / cardUnits : null;
+    })
+    .filter((value): value is number => typeof value === "number" && value > 0);
+  const partnerRatios = (redemption.transferPartnerValuations ?? [])
+    .map((partner) => partner.transferRatio)
+    .filter((value): value is number => typeof value === "number" && value > 0);
+  const transferRatios = [...airlineRatios, ...partnerRatios];
+  const derivedAirMilesValue = hasAirmileTransfer ? (transferRatios.length ? Math.max(...transferRatios) : 1) : undefined;
 
   const rows: Array<[string | undefined, number | undefined]> = [
     [redemption.ecosystemLabel, redemption.ecosystemValue],
