@@ -23,7 +23,7 @@
       "rate": 5,
       "displayRate": "5 SCoins / Rs 100",
       "valuePerUnit": 0.2,
-      "capMonthly": 1000,
+      "capMonthly": null,
       "tierLowerBound": 0,
       "tierUpperBound": 20000
     },
@@ -43,7 +43,7 @@
       "rate": 5,
       "displayRate": "5 SCoins / Rs 100",
       "valuePerUnit": 0.2,
-      "capMonthly": 1000,
+      "capMonthly": null,
       "tierLowerBound": 0,
       "tierUpperBound": 20000
     },
@@ -140,25 +140,25 @@
   ],
   "additionalDetails": [
     "SalaryDay Bonus requires at least Rs 5,000 spend on non-SalaryDay Bonus days and is capped at Rs 15,000 eligible SalaryDay spend per billing cycle.",
-    "Base, accelerated, and super accelerated rewards are capped at 10% of the card credit limit per month; SalaryDay Bonus is over and above this cap.",
+    "The overall monthly rewards cap for base + accelerated + super accelerated rewards is 10% of the card's credit limit.",
+    "SalaryDay Bonus is over and above this cap.",
     "Paid physical card variant has 1% forex markup; virtual-only lifetime-free variant has 2% forex markup."
   ],
   "redemption": {
     "ecosystemLabel": "SalarySe SCoins",
     "ecosystemValue": 0.2,
-    "statementBalanceValue": 0.2,
     "pointsExpiryYears": 1.5
   },
   "eligibility": {
     "salaried": [
-      "Designed for salaried professionals using the SalarySe ecosystem",
-      "Subject to City Union Bank credit assessment and approved credit limit",
-      "Detailed offer and eligibility conditions are shown in the SalarySe app"
+      "Age: 21 to 60 years",
+      "Salary credit and employer/profile eligibility are assessed inside the SalarySe app",
+      "Subject to City Union Bank credit assessment and approved credit limit"
     ],
     "selfEmployed": [
-      "This card is positioned for salaried professionals",
-      "Subject to City Union Bank credit assessment and approved credit limit",
-      "Detailed offer and eligibility conditions are shown in the SalarySe app"
+      "This card is positioned for salaried professionals rather than self-employed applicants",
+      "Any non-salaried eligibility, if offered, is assessed inside the SalarySe app",
+      "Subject to City Union Bank credit assessment and approved credit limit"
     ]
   },
   "sourceUrl": "https://www.cityunionbank.bank.in/cub-salaryse-level-up-credit-card",
@@ -183,7 +183,9 @@
     "Paid card variant: joining fee Rs 500 plus GST, annual fee Rs 500 plus GST waived on spends of Rs 2 lakh, add-on card Rs 500 plus GST. Lifetime-free variant: joining fee nil and annual fee nil, add-on card Rs 500 plus GST.",
     "Foreign currency transaction fee: 1% for paid/physical card and 2% for lifetime-free/virtual card.",
     "Utility transaction fee: 1% when cumulative utility spends reach Rs 25,000 or more per statement cycle. Fuel transaction fee: 1% when cumulative fuel spends reach Rs 50,000 or more per statement cycle. Online skill-based gaming fee: 1% when cumulative spends reach Rs 10,000 or more per statement cycle.",
-    "Redemption: SCoins can be redeemed only in the SalarySe app for gift vouchers from 200+ brands and other available options including cash conversion and merchant offers; SalarySe may change redemption offers."
+    "Redemption: SCoins can be redeemed only in the SalarySe app for gift vouchers from 200+ brands and other available options including cash conversion and merchant offers; SalarySe may change redemption offers.",
+    "The public CUB page/PDFs do not publish a numeric minimum salary threshold; the app-only eligibility flow appears to assess salary credit and employer/profile eligibility.",
+    "Card details manually reviewed and verified by user on 2026-06-18."
   ],
-  "imageUrl": "/images/cub-salaryse-level-up.webp"
+  "imageUrl": "/images/cub-salaryse-level-up-landscape.webp"
 }
