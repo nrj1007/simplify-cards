@@ -42,8 +42,8 @@
     }
   ],
   "acceleratedShare": {
-    "online": 0.1,
-    "grocery": 0.1
+    "online": 0.25,
+    "grocery": 0.25
   },
   "loungeDomestic": 4,
   "loungeInternational": 0,
@@ -292,6 +292,7 @@
   ],
   "internalNotes": [
     "Samsung Axis Bank Signature Credit Card is listed as an eligible card in the Axis Travel EDGE programme under the 'Other cards' transfer bucket.",
+    "Reward rows for Samsung purchases (10% capped) and the 5 preferred partners (BigBasket, Myntra, Tata 1mg, Urban Company, Zomato; 2% EDGE) are narrow co-brand/partner sets, so they use category 'partner merchants' rather than broad dining/grocery/online (which over-ranked the card to #1 for online). acceleratedShare online/grocery 0.25 reflects that only a portion of broad online/grocery spend routes through these specific merchants.",
     "Card details manually reviewed and verified by user on 2026-06-12."
   ],
   "lastVerified": "2026-06-12",

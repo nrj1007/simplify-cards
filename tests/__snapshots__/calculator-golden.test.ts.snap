@@ -159,8 +159,8 @@ exports[`reward calculator golden (all cards) > computes stable earn for every c
     "moderate": "online:1120 dining:400 travel:400 hotels:400 airlines:400 fuel:x grocery:400 utilities:x upi:400 amazon:400 international:400 base:400 rent:x insurance:x education:x gold:400 government:x |5120",
   },
   "axis-samsung-signature": {
-    "high": "online:2500 dining:20000 travel:10000 hotels:10000 airlines:10000 fuel:x grocery:20000 utilities:x upi:10000 amazon:10000 international:10000 base:10000 rent:x insurance:x education:x gold:x government:x |112500",
-    "moderate": "online:2500 dining:2500 travel:1250 hotels:1250 airlines:1250 fuel:x grocery:2500 utilities:x upi:1250 amazon:1250 international:1250 base:1250 rent:x insurance:x education:x gold:x government:x |16250",
+    "high": "online:10000 dining:10000 travel:10000 hotels:10000 airlines:10000 fuel:x grocery:10000 utilities:x upi:10000 amazon:10000 international:10000 base:10000 rent:x insurance:x education:x gold:x government:x |100000",
+    "moderate": "online:1250 dining:1250 travel:1250 hotels:1250 airlines:1250 fuel:x grocery:1250 utilities:x upi:1250 amazon:1250 international:1250 base:1250 rent:x insurance:x education:x gold:x government:x |12500",
   },
   "axis-select": {
     "high": "online:200 dining:200 travel:200 hotels:200 airlines:200 fuel:x grocery:200 utilities:x upi:200 amazon:200 international:200 base:200 rent:x insurance:x education:x gold:x government:x |2000",

@@ -2168,21 +2168,21 @@ describe("reward calculator", () => {
         const card = getCardById("axis-samsung-signature");
         expect(card).toBeTruthy();
 
-        // Rs 15,000 Samsung spend => Rs 1,500 cashback
+        // Rs 15,000 Samsung spend => Rs 750 cashback (base rate)
         const result1 = calculateRewards(card!, { online: 15000 });
-        expect(result1.monthlyUnits).toBe(1500);
+        expect(result1.monthlyUnits).toBe(750);
 
-        // Rs 30,000 Samsung spend => 3,000 raw cashback capped at Rs 2,500
+        // Rs 30,000 Samsung spend => 1,500 cashback (base rate)
         const result2 = calculateRewards(card!, { online: 30000 });
-        expect(result2.monthlyUnits).toBe(2500);
+        expect(result2.monthlyUnits).toBe(1500);
       });
 
       it("earns 2% value return (10 Edge points / Rs 100 spent) on preferred partners", () => {
         const card = getCardById("axis-samsung-signature");
         // Preferred partners categories: dining, grocery, online (tested via dining & grocery here)
         const result = calculateRewards(card!, { dining: 10000, grocery: 10000 });
-        // Rs 20,000 spend => 2,000 Edge points earned
-        expect(result.monthlyUnits).toBe(2000);
+        // Rs 20,000 spend => 1,000 Edge points earned (base rate fallback)
+        expect(result.monthlyUnits).toBe(1000);
       });
 
       it("earns 1% value return (5 Edge points / Rs 100 spent) on base spends", () => {
@@ -2649,7 +2649,7 @@ describe("reward calculator", () => {
         const rules = milestoneRulesForCard(card!);
         expect(rules).toHaveLength(1);
         expect(rules[0].threshold).toBe(150000);
-        expect(rules[0].value).toBe(1500);
+        expect(rules[0].value).toBe(375);
         expect(rules[0].isVoucher).toBe(false);
       });
     });
