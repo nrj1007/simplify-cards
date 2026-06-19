@@ -17,11 +17,40 @@
   "rewardType": "cashback and reward points",
   "rewards": [
     {
-      "category": "upi, online, base, travel, dining, grocery, amazon",
+      "category": "upi",
       "rate": 1.5,
       "displayCategory": "All spends via UPI (Kiwi app scan & pay)",
       "displayRate": "1.5% cashback",
       "capMonthly": null
+    }
+  ],
+  "paidRewardOptions": [
+    {
+      "id": "kiwi-neon",
+      "label": "Kiwi Neon membership",
+      "annualCost": 999,
+      "rewards": [
+        {
+          "category": "upi",
+          "rate": 2,
+          "displayCategory": "All spends via UPI with Kiwi Neon up to Rs 1.5 lakh per month",
+          "displayRate": "2% cashback",
+          "capMonthly": null,
+          "tierLowerBound": 0,
+          "tierUpperBound": 150000,
+          "tierScope": "total-monthly-spend"
+        },
+        {
+          "category": "upi",
+          "rate": 5,
+          "displayCategory": "All spends via UPI with Kiwi Neon above Rs 1.5 lakh per month",
+          "displayRate": "5% cashback",
+          "capMonthly": null,
+          "tierLowerBound": 150000,
+          "tierUpperBound": null,
+          "tierScope": "total-monthly-spend"
+        }
+      ]
     }
   ],
   "popularityScore": 100,

@@ -1044,8 +1044,8 @@ describe("reward calculator", () => {
       upi: 10000        // 2 points / Rs 100 = 200 points
     });
 
-    expect(result.monthlyUnits).toBe(500); // 200 + 100 + 200 = 500
-    expect(result.annualUnits).toBe(6000);
+    expect(result.monthlyUnits).toBe(600); // base 200 + utilities routed to UPI 200 + UPI 200
+    expect(result.annualUnits).toBe(7200);
   });
 
   it("calculates rewards correctly for ICICI Bank Rubyx card", () => {
@@ -2521,14 +2521,13 @@ describe("reward calculator", () => {
         const card = getCardById("yes-klick-rupay");
         expect(card).toBeTruthy();
 
-        // UPI rate: 2 points / Rs 100
-        // Base rate: 1 point / Rs 100
+        // UPI rate: 2 points / Rs 100; base spend routes through UPI because it earns more than base.
         const result = calculateRewards(card!, {
           upi: 10000,
           base: 10000
         });
 
-        expect(result.monthlyUnits).toBe(300); // 200 + 100
+        expect(result.monthlyUnits).toBe(400); // 200 + 200
       });
     });
 
@@ -2629,17 +2628,15 @@ describe("reward calculator", () => {
         const card = getCardById("yes-pop-club");
         expect(card).toBeTruthy();
 
-        // Online: 10% (10 POPcoins / Rs 100)
-        // UPI via POP App: 7% (7 POPcoins / Rs 100)
-        // Base: 2% (2 POPcoins / Rs 100)
+        // Online stays native at 10%; base routes through UPI because 7% beats the 2% base row.
         const result = calculateRewards(card!, {
           online: 5000,
           upi: 5000,
           base: 5000
         });
 
-        // 500 + 350 + 100 = 950 POPcoins
-        expect(result.monthlyUnits).toBe(950);
+        // 500 + 350 + 350 = 1200 POPcoins
+        expect(result.monthlyUnits).toBe(1200);
       });
 
       it("verifies structured milestones", () => {
@@ -2921,19 +2918,15 @@ describe("reward calculator", () => {
         const card = getCardById("idfc-first-earn");
         expect(card).toBeTruthy();
 
-        // UPI (via IDFC app): 1.0% cashback, capped at Rs 500
-        // Online / base: 0.5% cashback, capped at Rs 500
+        // UPI (via IDFC app): 1.0% cashback, capped at Rs 500; online/base route to UPI because it earns more.
         const result = calculateRewards(card!, {
           upi: 20000,
           online: 20000,
           base: 20000
         });
 
-        // UPI: 20000 * 1% = 200
-        // Online: 20000 * 0.5% = 100
-        // Base: 20000 * 0.5% = 100
-        // Total: 200 + 100 + 100 = 400 cashback
-        expect(result.monthlyUnits).toBe(400);
+        // Total raw UPI-routed cashback is 600, capped at Rs 500/month.
+        expect(result.monthlyUnits).toBe(500);
       });
     });
 

@@ -32,6 +32,8 @@ describe("card data files", () => {
       "au-small-finance",
       "axis",
       "bank-of-baroda",
+      "city-union-bank",
+      "csb-bank",
       "equitas-small-finance",
       "federal-bank",
       "hdfc",

@@ -169,6 +169,14 @@ export type CreditCard = {
   // brands: online 0.25, grocery 0), or a larger one when it's broad.
   acceleratedShare?: Partial<Record<SpendCategory, number>>;
   rewards: Reward[];
+  // Optional paid add-ons that alter reward earning. The recommender scores the base card and each
+  // paid option, subtracts annualCost, and displays whichever path has the strongest net value.
+  paidRewardOptions?: Array<{
+    id: string;
+    label: string;
+    annualCost: number;
+    rewards: Reward[];
+  }>;
   popularityScore: number;
   loungeDomestic: number | "unlimited";
   loungeInternational: number | "unlimited";
