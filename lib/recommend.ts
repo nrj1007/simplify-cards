@@ -85,7 +85,7 @@ function acceleratedShareForCategory(card: CreditCard, category: SpendCategory) 
 }
 const broadComparisonUpsideWeight = 0.4;
 const defaultTopCardCount = 3;
-const joiningBenefitAmortizationYears = 3;
+const joiningBenefitAmortizationYears = 2;
 
 // Scoring stage weights: relevance (text/identity match) vs value (economic/preference fit)
 const relevanceWeightExactMatch = 1.0;
