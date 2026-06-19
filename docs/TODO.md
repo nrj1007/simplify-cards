@@ -53,6 +53,8 @@ These are listed or have official pages, but should not be added as active-new-a
 - [ ] Add card images to key user-facing surfaces such as finder, compare, Ask results, and details pages.
 - [ ] Find an AI to generate credit card images.
 - [ ] Add reward calculator test cases for each card as cards are audited or updated, so reward logic stays covered card-by-card instead of only through broad shared scenarios.
+- [ ] Verify the reward calculator golden test snapshot (`tests/calculator-golden.test.ts`) to ensure calculations match expected card earnings.
+- [ ] Verify the ranking golden test snapshot (`tests/ranking-golden.test.ts`) to ensure card ordering is correct for representative queries.
 - [ ] Integrate ads and restore hidden ad slots in homepage, finder, and card detail sidebar (commented out 2026-05-30, search for "restore when ads integrated").
 - [ ] Improve RPM through higher-intent content, ad placement strategy, and better page-level monetization.
 - [ ] Add affiliate link support per card, including tracking metadata and fallback apply URLs.
