@@ -1256,24 +1256,26 @@ describe("reward calculator", () => {
     expect(card).toBeTruthy();
 
     const result = calculateRewards(card!, {
-      dining: 6000,        // 5% rate, 6000 * 5% = 300
-      grocery: 6000,       // 5% rate, 6000 * 5% = 300 (dining + grocery raw = 600 => capped at 500 combined)
-      online: 20000,       // 3% rate, 20000 * 3% = 600 => capped at 500
+      dining: 6000,        // base 1% (the 5% packs are a "partner merchants" pick-2 set, not a broad category) => 60
+      grocery: 6000,       // base 1% (see above) => 60
+      online: 20000,       // 3% selected-platform rate, 20000 * 3% = 600 => capped at 500
       upi: 60000,          // 1% rate, 60000 * 1% = 600 => capped at 500
       base: 10000,         // 1% rate, 10000 * 1% = 100
       fuel: 5000,          // excluded => 0
       rent: 10000          // excluded => 0
     });
 
-    // Total expected monthly units = 500 (dining/grocery capped) + 500 (online capped) + 500 (upi capped) + 100 (base) = 1600 CashPoints
-    expect(result.monthlyUnits).toBe(1600);
-    expect(result.annualUnits).toBe(1600 * 12);
+    // The "Selected 5% merchant packs" row is modeled as narrow partner merchants (the holder picks
+    // only two of five packs), so typed dining/grocery spend earns the 1% base rate, not 5%.
+    // Total expected monthly units = 60 (dining) + 60 (grocery) + 500 (online capped) + 500 (upi capped) + 100 (base) = 1220 CashPoints
+    expect(result.monthlyUnits).toBe(1220);
+    expect(result.annualUnits).toBe(1220 * 12);
 
     const diningRow = result.rows.find(r => r.category === "dining");
-    expect(diningRow!.monthlyUnits).toBe(250); // Proportional split of 500 cap: 300 / 600 * 500 = 250
+    expect(diningRow!.monthlyUnits).toBe(60); // base 1% on 6000
 
     const groceryRow = result.rows.find(r => r.category === "grocery");
-    expect(groceryRow!.monthlyUnits).toBe(250); // Proportional split of 500 cap: 300 / 600 * 500 = 250
+    expect(groceryRow!.monthlyUnits).toBe(60); // base 1% on 6000
 
     const onlineRow = result.rows.find(r => r.category === "online");
     expect(onlineRow!.monthlyUnits).toBe(500);

@@ -307,8 +307,8 @@ exports[`reward calculator golden (all cards) > computes stable earn for every c
     "moderate": "online:250 dining:250 travel:250 hotels:250 airlines:250 fuel:x grocery:250 utilities:250 upi:250 amazon:250 international:250 base:250 rent:x insurance:250 education:250 gold:250 government:x |3500",
   },
   "hdfc-pixel-play": {
-    "high": "online:500 dining:167 travel:167 hotels:2000 airlines:2000 fuel:x grocery:167 utilities:2000 upi:500 amazon:2000 international:2000 base:2000 rent:x insurance:2000 education:2000 gold:2000 government:x |19500",
-    "moderate": "online:500 dining:167 travel:167 hotels:250 airlines:250 fuel:x grocery:167 utilities:250 upi:250 amazon:250 international:250 base:250 rent:x insurance:250 education:250 gold:250 government:x |3500",
+    "high": "online:500 dining:2000 travel:2000 hotels:2000 airlines:2000 fuel:x grocery:2000 utilities:2000 upi:500 amazon:2000 international:2000 base:2000 rent:x insurance:2000 education:2000 gold:2000 government:x |25000",
+    "moderate": "online:500 dining:250 travel:250 hotels:250 airlines:250 fuel:x grocery:250 utilities:250 upi:250 amazon:250 international:250 base:250 rent:x insurance:250 education:250 gold:250 government:x |3750",
   },
   "hdfc-regalia-gold": {
     "high": "online:3571 dining:3571 travel:3571 hotels:3571 airlines:3571 fuel:x grocery:3571 utilities:3571 upi:3571 amazon:3571 international:3571 base:3571 rent:x insurance:3571 education:3571 gold:3571 government:x |50000",
