@@ -7,7 +7,7 @@ import type { RecommendationInput } from "./types";
 import { unsupportedQuestionLogPath } from "./question-logs";
 import type { UnsupportedQuestionLogEntry } from "./question-logs";
 import { parseQueryIntent } from "./query-intent";
-import { callAiWithSchema } from "./ai-provider";
+import { callAiWithSchemaDetailed, type AiCallTrace } from "./ai-provider";
 import { getTotalLoungeAccess } from "./lounge";
 
 export type AskIntent =
@@ -26,6 +26,24 @@ export type AskResultMeta = {
   confidence: AskConfidence;
   confidenceLabel: string;
   needsFollowUp: boolean;
+  ai?: AskAiAnalyticsSummary;
+};
+
+export type AskAiAnalyticsSummary = {
+  aiUsed: boolean;
+  providersUsed: Array<"openai" | "gemini">;
+  fallbackUsed: boolean;
+  calls: Array<{
+    purpose: string;
+    schema_name: string;
+    primary_provider: "openai" | "gemini";
+    provider_used: "openai" | "gemini" | null;
+    fallback_provider: "openai" | "gemini";
+    fallback_used: boolean;
+    success: boolean;
+    primary_model: string;
+    fallback_model: string;
+  }>;
 };
 
 export type AskAiResult = ReturnType<typeof answerFromCards> & {
@@ -86,6 +104,32 @@ function buildAskMeta(intent: AskIntent, options?: { topFit?: number; needsFollo
     confidence,
     confidenceLabel: ASK_CONFIDENCE_LABELS[confidence],
     needsFollowUp: options?.needsFollowUp ?? ASK_INTENT_FOLLOWUP[intent]
+  };
+}
+
+function summarizeAiTraces(
+  traces: Array<{ purpose: string; trace: AiCallTrace }>
+): AskAiAnalyticsSummary {
+  const successfulCalls = traces.filter(({ trace }) => trace.success && trace.providerUsed);
+  const providersUsed = [...new Set(successfulCalls.map(({ trace }) => trace.providerUsed).filter(Boolean))] as Array<
+    "openai" | "gemini"
+  >;
+
+  return {
+    aiUsed: successfulCalls.length > 0,
+    providersUsed,
+    fallbackUsed: traces.some(({ trace }) => trace.fallbackUsed),
+    calls: traces.map(({ purpose, trace }) => ({
+      purpose,
+      schema_name: trace.schemaName,
+      primary_provider: trace.primaryProvider,
+      provider_used: trace.providerUsed,
+      fallback_provider: trace.fallbackProvider,
+      fallback_used: trace.fallbackUsed,
+      success: trace.success,
+      primary_model: trace.primaryModel,
+      fallback_model: trace.fallbackModel
+    }))
   };
 }
 
@@ -1249,8 +1293,12 @@ function buildGroundedAskPrompt(input: RecommendationInput, shortlistedCards: Ca
   );
 }
 
-async function generateGroundedSummary(input: RecommendationInput, shortlistedCards: CardScore[]) {
-  const result = await callAiWithSchema<{ summary: string }>({
+async function generateGroundedSummary(
+  input: RecommendationInput,
+  shortlistedCards: CardScore[],
+  aiTraces?: Array<{ purpose: string; trace: AiCallTrace }>
+) {
+  const response = await callAiWithSchemaDetailed<{ summary: string }>({
     systemPrompt:
       "You are a grounded Indian credit-card assistant. Use only the provided shortlisted card data. Do not invent facts, do not use live web search, and do not mention cards outside the provided shortlist. Answer like a helpful expert, not like a scoring engine. In one short paragraph: directly answer the user's query, explain why the top card fits, mention the most important features of that card, mention the fee/tradeoff if relevant, and optionally mention one nearby alternative. Rules: (1) Only cite estimated annual rewards or net value figures if they are present in the card data — never invent reward amounts. (2) Never make value-judgement claims like 'the fee is worth it' or 'value exceeds the cost' unless spend data was provided by the user. (3) When mentioning milestone benefits, always state the spend threshold required to unlock them.",
     userPrompt: buildGroundedAskPrompt(input, shortlistedCards),
@@ -1265,7 +1313,9 @@ async function generateGroundedSummary(input: RecommendationInput, shortlistedCa
     }
   });
 
-  return typeof result?.summary === "string" && result.summary.trim() ? result.summary.trim() : null;
+  aiTraces?.push({ purpose: "answer_summary", trace: response.trace });
+
+  return typeof response.result?.summary === "string" && response.result.summary.trim() ? response.result.summary.trim() : null;
 }
 
 function buildGroundedTopCardsPrompt(input: RecommendationInput, shortlistedCards: CardScore[]) {
@@ -1307,8 +1357,12 @@ function buildGroundedTopCardsPrompt(input: RecommendationInput, shortlistedCard
   );
 }
 
-async function generateTopCardsSummary(input: RecommendationInput, shortlistedCards: CardScore[]) {
-  const result = await callAiWithSchema<{ summary: string }>({
+async function generateTopCardsSummary(
+  input: RecommendationInput,
+  shortlistedCards: CardScore[],
+  aiTraces?: Array<{ purpose: string; trace: AiCallTrace }>
+) {
+  const response = await callAiWithSchemaDetailed<{ summary: string }>({
     systemPrompt:
       "You are a grounded Indian credit-card assistant. Use only the provided ranked card shortlist. Do not change the ranking, do not invent facts, and do not mention cards outside the provided list. Write one short paragraph for a broad top-cards query. Mention the top card first, mention one or two nearby alternatives if helpful, and if envelope spend data is present, briefly note that rankings reflect each card at its strongest spend level. Keep it clean and readable, not robotic.",
     userPrompt: buildGroundedTopCardsPrompt(input, shortlistedCards),
@@ -1323,16 +1377,21 @@ async function generateTopCardsSummary(input: RecommendationInput, shortlistedCa
     }
   });
 
-  return typeof result?.summary === "string" && result.summary.trim() ? result.summary.trim() : null;
+  aiTraces?.push({ purpose: "top_cards_summary", trace: response.trace });
+  return typeof response.result?.summary === "string" && response.result.summary.trim() ? response.result.summary.trim() : null;
 }
 
-async function tryAiDatabaseFallback(input: RecommendationInput, scoredCards: CardScore[]) {
+async function tryAiDatabaseFallback(
+  input: RecommendationInput,
+  scoredCards: CardScore[],
+  aiTraces?: Array<{ purpose: string; trace: AiCallTrace }>
+) {
   if (isTopBestCardsQuery(input.query)) return null;
 
   const fallbackCards = scoredCards.slice(0, 3);
   if (fallbackCards.length === 0) return null;
 
-  const generatedSummary = await generateGroundedSummary(input, fallbackCards);
+  const generatedSummary = await generateGroundedSummary(input, fallbackCards, aiTraces);
   if (!generatedSummary) return null;
 
   return {
@@ -1362,10 +1421,13 @@ function buildCardResolutionPrompt(query: string) {
   );
 }
 
-async function resolveMentionedCardIdWithAi(query?: string) {
+async function resolveMentionedCardIdWithAi(
+  query?: string,
+  aiTraces?: Array<{ purpose: string; trace: AiCallTrace }>
+) {
   if (!query?.trim()) return null;
 
-  const result = await callAiWithSchema<{ cardId: string | null }>({
+  const response = await callAiWithSchemaDetailed<{ cardId: string | null }>({
     systemPrompt:
       "You resolve fuzzy Indian credit-card name mentions to a single stored card id. Use only the provided card list. Return a card id only when the query is likely a specific card lookup; otherwise return null.",
     userPrompt: buildCardResolutionPrompt(query),
@@ -1380,18 +1442,21 @@ async function resolveMentionedCardIdWithAi(query?: string) {
     }
   });
 
+  aiTraces?.push({ purpose: "card_resolution", trace: response.trace });
+
   if (process.env.DEBUG_AI === "1") {
     console.warn("[ask-ai] card resolution result", {
       query,
-      resolvedCardId: result?.cardId ?? null
+      resolvedCardId: response.result?.cardId ?? null
     });
   }
 
-  if (!result?.cardId) return null;
-  return getCardById(result.cardId) ? result.cardId : null;
+  if (!response.result?.cardId) return null;
+  return getCardById(response.result.cardId) ? response.result.cardId : null;
 }
 
 export async function answerQuestion(input: RecommendationInput): Promise<AskAiResult> {
+  const aiTraces: Array<{ purpose: string; trace: AiCallTrace }> = [];
   const unsupportedReason = getUnsupportedQuestionReason(input);
 
   if (unsupportedReason) {
@@ -1403,7 +1468,7 @@ export async function answerQuestion(input: RecommendationInput): Promise<AskAiR
       cards: [],
       needsDatabaseUpdate: true,
       unsupportedReason,
-      meta: buildAskMeta("unsupported")
+      meta: buildAskMeta("unsupported", { needsFollowUp: true })
     };
   }
 
@@ -1417,7 +1482,7 @@ export async function answerQuestion(input: RecommendationInput): Promise<AskAiR
     (Boolean(shortlisted.mentionedCardId) && parsedCardQuestion.questionType !== "generic" && !isTopBestCardsQuery(input.query));
 
   if (shouldTryAiCardResolution(input, shortlisted.mentionedCardId)) {
-    const aiMentionedCardId = await resolveMentionedCardIdWithAi(input.query);
+    const aiMentionedCardId = await resolveMentionedCardIdWithAi(input.query, aiTraces);
     if (aiMentionedCardId) {
       shortlisted = buildShortlistFromMentionedCard(scoredCards, aiMentionedCardId);
     }
@@ -1458,7 +1523,7 @@ export async function answerQuestion(input: RecommendationInput): Promise<AskAiR
       highlights: [],
       needsDatabaseUpdate: true,
       unsupportedReason: reason,
-      meta: buildAskMeta("unsupported")
+      meta: buildAskMeta("unsupported", { needsFollowUp: true })
     };
   }
 
@@ -1489,11 +1554,14 @@ export async function answerQuestion(input: RecommendationInput): Promise<AskAiR
   }
 
   if (specificCardLookup && !namedCardQuestion && !topCardMatchesSpecificLookup(input, topCard)) {
-    const aiFallback = await tryAiDatabaseFallback(input, scoredCards);
+    const aiFallback = await tryAiDatabaseFallback(input, scoredCards, aiTraces);
     if (aiFallback) {
       return {
         ...aiFallback,
-        meta: buildAskMeta("best-fit", { topFit: aiFallback.cards[0]?.fitScore })
+        meta: {
+          ...buildAskMeta("best-fit", { topFit: aiFallback.cards[0]?.fitScore }),
+          ai: summarizeAiTraces(aiTraces)
+        }
       };
     }
 
@@ -1507,7 +1575,10 @@ export async function answerQuestion(input: RecommendationInput): Promise<AskAiR
       highlights: [],
       needsDatabaseUpdate: true,
       unsupportedReason: reason,
-      meta: buildAskMeta("unsupported")
+      meta: {
+        ...buildAskMeta("unsupported", { needsFollowUp: true }),
+        ai: summarizeAiTraces(aiTraces)
+      }
     };
   }
 
@@ -1532,20 +1603,26 @@ export async function answerQuestion(input: RecommendationInput): Promise<AskAiR
         highlights: [],
         needsDatabaseUpdate: true,
         unsupportedReason: reason,
-        meta: buildAskMeta("unsupported")
+        meta: {
+          ...buildAskMeta("unsupported", { needsFollowUp: true }),
+          ai: summarizeAiTraces(aiTraces)
+        }
       };
     }
   }
 
-  const generatedSummary = isTopBestCardsQuery(input.query) ? null : await generateGroundedSummary(input, answer.cards);
+  const generatedSummary = isTopBestCardsQuery(input.query) ? null : await generateGroundedSummary(input, answer.cards, aiTraces);
 
   if (topBestQuery) {
-    const topCardsSummary = await generateTopCardsSummary(input, answer.cards);
+    const topCardsSummary = await generateTopCardsSummary(input, answer.cards, aiTraces);
     return {
       ...answer,
       summary: topCardsSummary ?? buildFallbackSummary(input, answer.cards),
       highlights: buildTopCardsHighlights(input, answer.cards),
-      meta: buildAskMeta("top-cards", { topFit: topCard.fitScore })
+      meta: {
+        ...buildAskMeta("top-cards", { topFit: topCard.fitScore }),
+        ai: summarizeAiTraces(aiTraces)
+      }
     };
   }
 
@@ -1565,7 +1642,10 @@ export async function answerQuestion(input: RecommendationInput): Promise<AskAiR
         curatedAlternativeNames.length > 0 ? curatedAlternativeNames : fallbackAlternativeNames,
         genericScenarioHighlights
       ),
-      meta: buildAskMeta(specificCardLookup || namedCardQuestion ? "specific-card" : "best-fit", { topFit: topCard.fitScore })
+      meta: {
+        ...buildAskMeta(specificCardLookup || namedCardQuestion ? "specific-card" : "best-fit", { topFit: topCard.fitScore }),
+        ai: summarizeAiTraces(aiTraces)
+      }
     };
   }
 
@@ -1584,6 +1664,9 @@ export async function answerQuestion(input: RecommendationInput): Promise<AskAiR
       curatedAlternativeNames.length > 0 ? curatedAlternativeNames : fallbackAlternativeNames,
       genericScenarioHighlights
     ),
-    meta: buildAskMeta(specificCardLookup || namedCardQuestion ? "specific-card" : "best-fit", { topFit: topCard.fitScore })
+    meta: {
+      ...buildAskMeta(specificCardLookup || namedCardQuestion ? "specific-card" : "best-fit", { topFit: topCard.fitScore }),
+      ai: summarizeAiTraces(aiTraces)
+    }
   };
 }
