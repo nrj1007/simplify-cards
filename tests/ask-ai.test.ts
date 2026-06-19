@@ -394,6 +394,23 @@ describe("ask ai fallback policy", () => {
     expect(global.fetch).toHaveBeenCalledTimes(1);
     expect(answer.summary).toMatch(/SBI Cashback Credit Card/);
     expect(answer.cards.length).toBeGreaterThan(0);
+    expect(answer.meta?.ai).toMatchObject({
+      aiUsed: true,
+      providersUsed: ["openai"],
+      fallbackUsed: false
+    });
+    expect(answer.meta?.ai?.calls).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          purpose: "answer_summary",
+          schema_name: "grounded_card_answer",
+          primary_provider: "openai",
+          provider_used: "openai",
+          fallback_used: false,
+          success: true
+        })
+      ])
+    );
   });
 
   it("uses AI as a fallback for fuzzy specific-card resolution when deterministic matching is weak", async () => {
@@ -443,6 +460,21 @@ describe("ask ai fallback policy", () => {
 
     expect(global.fetch).toHaveBeenCalledTimes(2);
     expect(answer.cards[0]?.card.id).toBe("hsbc-travelone");
+    expect(answer.meta?.ai?.providersUsed).toEqual(["openai"]);
+    expect(answer.meta?.ai?.calls).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          purpose: "card_resolution",
+          provider_used: "openai",
+          success: true
+        }),
+        expect.objectContaining({
+          purpose: "answer_summary",
+          provider_used: "openai",
+          success: true
+        })
+      ])
+    );
   });
 
   it("tries an AI/database fallback before returning a hard no-answer for unresolved specific lookups", async () => {

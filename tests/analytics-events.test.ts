@@ -17,7 +17,25 @@ describe("analytics event payload builders", () => {
         intentLabel: "Mixed recommendation",
         confidence: "medium-high",
         confidenceLabel: "Medium-high",
-        needsFollowUp: true
+        needsFollowUp: true,
+        ai: {
+          aiUsed: true,
+          providersUsed: ["openai"],
+          fallbackUsed: false,
+          calls: [
+            {
+              purpose: "top_cards_summary",
+              schema_name: "grounded_top_cards_answer",
+              primary_provider: "openai",
+              provider_used: "openai",
+              fallback_provider: "gemini",
+              fallback_used: false,
+              success: true,
+              primary_model: "gpt-4o-mini",
+              fallback_model: "gemini-2.0-flash"
+            }
+          ]
+        }
       },
       needsDatabaseUpdate: false,
       displayMode: "ranked-list"
@@ -29,7 +47,23 @@ describe("analytics event payload builders", () => {
       result_count: 1,
       top_card_id: "sbi-cashback",
       needs_database_update: false,
-      display_mode: "ranked-list"
+      display_mode: "ranked-list",
+      ai_used: true,
+      ai_providers_used: ["openai"],
+      ai_fallback_used: false,
+      ai_calls: [
+        {
+          purpose: "top_cards_summary",
+          schema_name: "grounded_top_cards_answer",
+          primary_provider: "openai",
+          provider_used: "openai",
+          fallback_provider: "gemini",
+          fallback_used: false,
+          success: true,
+          primary_model: "gpt-4o-mini",
+          fallback_model: "gemini-2.0-flash"
+        }
+      ]
     });
   });
 

@@ -13,7 +13,11 @@ export function buildAskResultMetadata(result: AskAiResult) {
     result_count: result.cards.length,
     top_card_id: result.cards[0]?.card.id ?? null,
     needs_database_update: Boolean(result.needsDatabaseUpdate),
-    display_mode: result.displayMode ?? "default"
+    display_mode: result.displayMode ?? "default",
+    ai_used: result.meta?.ai?.aiUsed ?? false,
+    ai_providers_used: result.meta?.ai?.providersUsed ?? [],
+    ai_fallback_used: result.meta?.ai?.fallbackUsed ?? false,
+    ai_calls: result.meta?.ai?.calls ?? []
   };
 }
 
