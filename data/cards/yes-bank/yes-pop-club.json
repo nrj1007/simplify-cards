@@ -28,7 +28,7 @@
       "rate": 7.0,
       "displayCategory": "UPI scans via POP UPI App",
       "displayRate": "7 POPcoins / Rs 100 spent",
-      "capMonthly": null
+      "capMonthly": 6000
     },
     {
       "category": "base",
@@ -159,6 +159,7 @@
     "1 POPcoin = Rs 1 on POPclub app (direct purchase/brand discount).",
     "1 POPcoin = Rs 0.25 when redeemed for anchor brand vouchers (Blinkit, Zomato, Cult, Cleartrip, Rapido, Pharmeasy) on POP Reward Store.",
     "Standard RuPay UPI transactions earn 2 POPcoins per Rs 100.",
-    "UPI transactions via POP UPI App earn 7 POPcoins per Rs 100."
+    "UPI transactions via POP UPI App earn 7 POPcoins per Rs 100.",
+    "POP UPI earning is capped at 500 POPcoins per transaction and 6,000 POPcoins per month (modeled as upi row capMonthly 6000). Online (10 POPcoins/Rs 100) has no monthly cap per official terms."
   ]
 }
