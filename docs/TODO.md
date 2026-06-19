@@ -65,7 +65,7 @@ These are listed or have official pages, but should not be added as active-new-a
   - [ ] "usecase-fuel" (query: "best card for fuel")
   - [ ] "usecase-travel" (query: "best travel card")
   - [ ] "usecase-cashback" (query: "best cashback card")
-  - [ ] "usecase-upi" (query: "best upi card")
+  - [x] "usecase-upi" (query: "best upi card")
   - [ ] "merchant-amazon" (query: "best amazon card")
   - [ ] "merchant-flipkart" (query: "best flipkart card")
   - [ ] "merchant-swiggy" (query: "best swiggy card")
