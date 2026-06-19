@@ -55,8 +55,8 @@ exports[`ranking golden (representative queries) > produces stable top-N orderin
     "idfc-mayura",
     "idfc-ashva",
     "indusind-pinnacle",
+    "indusind-tiger",
     "indusind-pioneer-legacy",
-    "idfc-indigo",
   ],
   "category-rent-payment": [
     "hsbc-premier",
@@ -67,10 +67,10 @@ exports[`ranking golden (representative queries) > produces stable top-N orderin
     "sc-beyond",
     "idfc-mayura",
     "idfc-ashva",
+    "indusind-tiger",
     "indusind-pinnacle",
     "cub-salaryse-level-up",
     "indusind-pioneer-legacy",
-    "idfc-indigo",
   ],
   "category-utilities": [
     "hdfc-phonepe-ultimo",
@@ -300,9 +300,9 @@ exports[`ranking golden (representative queries) > produces stable top-N orderin
     "scapia-federal",
     "scapia-bobcard",
     "yes-paisabazaar-paisasave-rupay",
+    "indusind-tiger",
     "axis-fibe",
     "sc-priority-visa-infinite",
-    "federal-imperio",
   ],
   "merchant-amazon": [
     "icici-amazon-pay",

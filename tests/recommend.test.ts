@@ -776,22 +776,22 @@ describe("scoreCards", () => {
     expect(utils).toBeDefined();
     const targetCategory = "utilities, insurance, government, education, real estate, rent";
     expect(utils!.rewardCategory).toBe(targetCategory);
-    expect(utils!.monthlyReward).toBe(40); // 10000 * 0.004
+    expect(utils!.monthlyReward).toBe(100); // 10000 * 0.01
 
     const rent = breakdown.find((item) => item.spendCategory === "rent");
     expect(rent).toBeDefined();
     expect(rent!.rewardCategory).toBe(targetCategory);
-    expect(rent!.monthlyReward).toBe(80); // 20000 * 0.004
+    expect(rent!.monthlyReward).toBe(200); // 20000 * 0.01
 
     const insurance = breakdown.find((item) => item.spendCategory === "insurance");
     expect(insurance).toBeDefined();
     expect(insurance!.rewardCategory).toBe(targetCategory);
-    expect(insurance!.monthlyReward).toBe(120); // 30000 * 0.004
+    expect(insurance!.monthlyReward).toBe(300); // 30000 * 0.01
 
     const education = breakdown.find((item) => item.spendCategory === "education");
     expect(education).toBeDefined();
     expect(education!.rewardCategory).toBe(targetCategory);
-    expect(education!.monthlyReward).toBe(160); // 40000 * 0.004
+    expect(education!.monthlyReward).toBe(400); // 40000 * 0.01
   });
 });
 
