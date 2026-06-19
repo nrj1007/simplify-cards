@@ -71,7 +71,7 @@
     {
       "threshold": 600000,
       "period": "annual",
-      "value": 15000,
+      "value": 3750,
       "kind": "points",
       "label": "15,000 bonus Reward Points on annual spends of Rs 6 Lakh"
     }

@@ -123,3 +123,20 @@ export function getTotalLoungeAccess(card: CreditCard) {
   if (card.loungeDomestic === "unlimited" || card.loungeInternational === "unlimited") return "unlimited" as const;
   return card.loungeDomestic + card.loungeInternational;
 }
+
+// International (overseas) lounge access specifically. Uses the dedicated loungeInternational field,
+// falling back to a combined access count only when its label makes clear it covers international
+// lounges (e.g. a Priority Pass membership). Used to rank "best international lounge card" queries.
+export function getInternationalLoungeAccess(card: CreditCard): number | "unlimited" {
+  if (card.loungeInternational === "unlimited") return "unlimited";
+  if (typeof card.loungeInternational === "number" && card.loungeInternational > 0) return card.loungeInternational;
+  if (card.combinedLoungeAccess === "unlimited") return "unlimited";
+  if (
+    typeof card.combinedLoungeAccess === "number" &&
+    card.combinedLoungeAccess > 0 &&
+    /international|priority pass|overseas|outside india|worldwide|global/i.test(card.combinedLoungeAccessLabel ?? "")
+  ) {
+    return card.combinedLoungeAccess;
+  }
+  return 0;
+}

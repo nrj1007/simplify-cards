@@ -157,6 +157,19 @@ export type CreditCard = {
   // Reliance) have their reward value discounted in scoring (see brandLockedRewardValueMultiplier in
   // lib/recommend.ts). Omit (or "cash") for near-cash rewards: statement credit, points with a cash
   // path, and famous liquid brands (Flipkart, Amazon, Myntra, Swiggy/Zomato, Tata Neu).
+  // Combined monthly cap for a reward.capGroup, keyed by group id. When set, the group's pooled
+  // earnings are capped at this value AFTER each row's own capMonthly is applied — a two-level cap
+  // (e.g. HDFC SmartBuy: hotels/flights each capped at the Rs 2,000/day single-booking limit, then
+  // the whole group capped at Rs 4,000/month). If a group id is absent here, the group cap falls
+  // back to the largest capMonthly among its rows. See rewardBreakdownForCard in lib/recommend.ts.
+  capGroups?: Record<string, { capMonthly: number }>;
+  // Additive override for the category-focused rankings ("best dining/grocery/online/entertainment
+  // card"). A card normally qualifies for a category by ACCELERATING it in its reward rows (rate
+  // above base). List a category key here only when the card's category value is real but lives
+  // outside the reward rows — e.g. movie BOGO / free-ticket benefits for "entertainment", which
+  // aren't a reward row. Allowed values are the category focus keys (dining, grocery, online,
+  // entertainment). Does not replace the reward-row derivation; it only adds the card in.
+  categoryFocusTags?: string[];
   rewardLiquidity?: "cash" | "brand-locked";
   // Optional fine-grained override (0–1) for the fraction of nominal reward value realized in
   // scoring. When set it takes precedence over the rewardLiquidity default (brand-locked = 0.75).

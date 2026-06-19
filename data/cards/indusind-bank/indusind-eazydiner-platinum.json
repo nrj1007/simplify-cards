@@ -65,7 +65,7 @@
       "kind": "other",
       "label": "500 welcome bonus EazyPoints"
     }
-  ],
+  ],
   "renewalBenefitsValued": [
     {
       "value": 1095,
@@ -84,7 +84,7 @@
     {
       "threshold": 30000,
       "period": "quarterly",
-      "value": 800,
+      "value": 400,
       "kind": "points",
       "label": "2,000 bonus Reward Points upon spending Rs 30,000 every 90 days (dining spends excluded)"
     }

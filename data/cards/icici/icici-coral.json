@@ -19,6 +19,7 @@
     "rupay"
   ],
   "rewardType": "reward points",
+  "categoryFocusTags": ["entertainment"],
   "rewards": [
     {
       "category": "utilities, insurance",

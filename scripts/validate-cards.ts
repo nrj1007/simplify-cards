@@ -387,6 +387,48 @@ if (cardFiles.length === 0) {
       addIssue("rewardLiquidityFactor must be a number in (0, 1] when present", cardId, "rewardLiquidityFactor");
     }
 
+    if (card.capGroups !== undefined) {
+      const capGroups = card.capGroups as Record<string, unknown>;
+      if (typeof capGroups !== "object" || capGroups === null || Array.isArray(capGroups)) {
+        addIssue("capGroups must be an object mapping group id to { capMonthly }", cardId, "capGroups");
+      } else {
+        for (const [groupId, def] of Object.entries(capGroups)) {
+          const capMonthly = (def as { capMonthly?: unknown } | null)?.capMonthly;
+          if (typeof capMonthly !== "number" || capMonthly < 0) {
+            addIssue(`capGroups.${groupId}.capMonthly must be a number >= 0`, cardId, "capGroups");
+          }
+        }
+      }
+    }
+
+    if (card.categoryFocusTags !== undefined) {
+      // Keep in sync with categoryFocusConfigs keys in lib/recommend.ts.
+      const allowedCategoryFocusKeys = new Set([
+        "dining",
+        "grocery",
+        "online",
+        "entertainment",
+        "amazon",
+        "flipkart",
+        "swiggy",
+        "utilities",
+        "rent"
+      ]);
+      if (!Array.isArray(card.categoryFocusTags)) {
+        addIssue("categoryFocusTags must be an array of category keys when present", cardId, "categoryFocusTags");
+      } else {
+        for (const tag of card.categoryFocusTags) {
+          if (typeof tag !== "string" || !allowedCategoryFocusKeys.has(tag)) {
+            addIssue(
+              `categoryFocusTags entry "${String(tag)}" is not a valid category key (${[...allowedCategoryFocusKeys].join(", ")})`,
+              cardId,
+              "categoryFocusTags"
+            );
+          }
+        }
+      }
+    }
+
     const redemption = card.redemption as { pointValueTiers?: unknown } | undefined;
     const pointValueTiers = redemption?.pointValueTiers;
     if (pointValueTiers !== undefined) {

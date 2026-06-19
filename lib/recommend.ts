@@ -2,7 +2,7 @@ import { cards } from "./cards";
 import { SPEND_CATEGORY_EXCLUSION_CODE_MAP } from "./exclusion-constants";
 import { parseQueryIntent } from "./query-intent";
 import type { CardScore, CreditCard, Milestone, RecommendationInput, SpendCategory, SpendProfile, Reward } from "./types";
-import { getTotalLoungeAccess } from "./lounge";
+import { getTotalLoungeAccess, getInternationalLoungeAccess } from "./lounge";
 import { stripScoringAnnotations } from "./card-index";
 
 export const defaultSpendProfile: SpendProfile = {
@@ -101,6 +101,22 @@ const popularityRankingWeight = 50;
 // Rs 30L tier lets super-premium cards (e.g. Magnus Burgundy) that only pull ahead at very high
 // spend show that strength instead of being capped at the Rs 20L tier.
 const blendAnnualSpendLevels = [300000, 1000000, 2000000, 3000000]; // Rs 3L, 10L, 20L, 30L per year
+// Weights for the envelope blend, aligned index-for-index with blendAnnualSpendLevels. Leaning the
+// blend toward the higher-spend levels means cards whose value is gated behind heavy spend (bank
+// tier programs that lift point value with spend, high fee-waiver thresholds, programme caps that
+// only bind at low spend) are judged more on their heavy-spend strength than on trivial-spend yield.
+const blendAnnualSpendLevelWeights = [1, 1.25, 1.5, 2];
+
+// Representative monthly spend for each segment tier. A segment query implies a spend/income level,
+// so instead of the envelope blend we score segment queries at the tier's typical spend (the default
+// category mix scaled to this total). Higher tier -> higher spend.
+const segmentRepresentativeMonthlySpend: Record<string, number> = {
+  beginner: 25000,
+  ltf: 25000,
+  "mid-premium": 60000,
+  premium: 120000,
+  "super-premium": 250000
+};
 const exactCardNameMatchThreshold = 50000;
 
 function isBroadNoSpendQuery(input: RecommendationInput, intent: ReturnType<typeof parseQueryIntent>) {
@@ -459,10 +475,238 @@ function shouldRestrictToFuelCards(input: RecommendationInput, intent: ReturnTyp
   );
 }
 
+// Category-focused recommendation queries ("best dining/grocery/online/entertainment card") are
+// ranked so cards that actually accelerate that category lead — instead of collapsing to the generic
+// premium-card ranking. Each config drives: a query trigger, the reward rows that count, positioning
+// signals, and (when the category is a real SpendCategory) a focused spend profile so the value score
+// reflects the category too. Entertainment has no SpendCategory, so it gets filter+boost only.
+type CategoryFocusConfig = {
+  key: string;
+  spendCategory?: SpendCategory;
+  rewardPattern: RegExp;
+  queryPattern: RegExp;
+  positioning: string[];
+  // When true, a card also qualifies (and is treated as a specialist) on positioning alone — needed
+  // for brand/merchant focuses (Amazon, Flipkart, Swiggy) where the flagship co-brand cards carry the
+  // merchant in their name/bestFor rather than in a reward-row category.
+  matchPositioning?: boolean;
+  // When true, a card qualifies if it simply EARNS on the category (not excluded), rather than needing
+  // an accelerated row above base. Needed for rent/utilities, where most cards exclude the category and
+  // the best card is the one that rewards it at all (e.g. HSBC Premier rewards rent at its base rate).
+  matchByEarning?: boolean;
+};
+
+const categoryFocusConfigs: CategoryFocusConfig[] = [
+  {
+    key: "dining",
+    spendCategory: "dining",
+    rewardPattern: /\bdining\b|restaurant/i,
+    queryPattern: /\bdining\b|\brestaurant/i,
+    positioning: ["dining", "restaurant", "food", "eazydiner", "swiggy", "zomato"]
+  },
+  {
+    key: "grocery",
+    spendCategory: "grocery",
+    rewardPattern: /\bgrocer/i,
+    queryPattern: /\bgrocer/i,
+    positioning: ["grocery", "groceries", "supermarket", "bigbasket", "dmart", "blinkit", "instamart", "jiomart"]
+  },
+  {
+    key: "online",
+    spendCategory: "online",
+    rewardPattern: /\bonline\b/i,
+    queryPattern: /\bonline\b|e-commerce|ecommerce/i,
+    positioning: ["online", "online shopping", "e-commerce", "ecommerce", "shopping"]
+  },
+  {
+    key: "entertainment",
+    rewardPattern: /entertainment|movie/i,
+    queryPattern: /\bentertainment\b|\bmovies?\b/i,
+    positioning: ["entertainment", "movies", "movie", "bookmyshow", "pvr", "inox"]
+  },
+  {
+    key: "amazon",
+    spendCategory: "amazon",
+    rewardPattern: /amazon/i,
+    queryPattern: /\bamazon\b/i,
+    positioning: ["amazon", "amazon pay"],
+    matchPositioning: true
+  },
+  {
+    key: "flipkart",
+    rewardPattern: /flipkart/i,
+    queryPattern: /\bflipkart\b/i,
+    positioning: ["flipkart", "myntra"],
+    matchPositioning: true
+  },
+  {
+    key: "swiggy",
+    rewardPattern: /swiggy/i,
+    queryPattern: /\bswiggy\b/i,
+    positioning: ["swiggy", "food delivery"],
+    matchPositioning: true
+  },
+  {
+    key: "utilities",
+    spendCategory: "utilities",
+    rewardPattern: /utilit|\bbill/i,
+    queryPattern: /\butilit|\bbill/i,
+    positioning: ["utility", "utilities", "bill payment", "bills"],
+    matchByEarning: true
+  },
+  {
+    key: "rent",
+    spendCategory: "rent",
+    rewardPattern: /\brent\b/i,
+    queryPattern: /\brent\b/i,
+    positioning: ["rent", "rent payment"],
+    matchByEarning: true
+  }
+];
+
+// Valid keys for a card's categoryFocusTags override (kept in sync with categoryFocusConfigs).
+export const categoryFocusKeys = categoryFocusConfigs.map((config) => config.key);
+
+// Which category focus (if any) a query asks for. Mirrors the fuel trigger: needs a recommendation
+// query (or an explicit "<category> card" phrase), and is suppressed when the caller passed an
+// explicit/inferred spend profile (then we score on that instead).
+function detectCategoryFocus(
+  input: RecommendationInput,
+  intent: ReturnType<typeof parseQueryIntent>
+): CategoryFocusConfig | null {
+  if (input.spend) return null;
+  const hasInferredSpend = Boolean(
+    intent.inferredSpend && Object.values(intent.inferredSpend).some((amount) => amount && amount > 0)
+  );
+  const normalizedQuery = normalizeForMatch(input.query);
+  for (const config of categoryFocusConfigs) {
+    if (!config.queryPattern.test(normalizedQuery)) continue;
+    if (!(isCardRecommendationQuery(input.query) || containsNormalizedPhrase(normalizedQuery, `${config.key} card`))) continue;
+    // When the query already infers a spend profile, only earn-based focuses (rent/utilities) take it
+    // over — so every phrasing of "rent"/"utility bills" ranks consistently. Other focuses defer to the
+    // inferred spend (preserving e.g. "card for grocery spends" as a 100%-grocery profile).
+    if (hasInferredSpend && !config.matchByEarning) return null;
+    return config;
+  }
+  return null;
+}
+
+// The card's general/base earn rate. Many cards don't name the row "base" (e.g. ICICI Emeralde's
+// catch-all is "retail"), so match common base aliases and fall back to the lowest reward rate. Used
+// to decide whether a category row is genuinely ACCELERATED (above base) versus the same rate merely
+// carrying a category cap — a capped-at-base row (e.g. Emeralde grocery) is a restriction, not an
+// accelerator, and must not qualify a card as a category specialist.
+const baseRowAliasSet = new Set(["base", "offline", "retail", "others", "other", "all other spends"]);
+function cardBaseRate(card: CreditCard): number {
+  const baseRow = card.rewards.find((reward) =>
+    reward.category
+      .split(",")
+      .map((part) => part.trim().toLowerCase())
+      .some((part) => baseRowAliasSet.has(part))
+  );
+  if (baseRow) return baseRow.rate;
+  return card.rewards.length ? Math.min(...card.rewards.map((reward) => reward.rate)) : 0;
+}
+
+// Explicit additive override: the card is hand-tagged for this category (used when its category
+// value lives outside the reward rows, e.g. movie BOGO benefits for "entertainment").
+function cardHasCategoryFocusTag(card: CreditCard, config: CategoryFocusConfig) {
+  return (card.categoryFocusTags ?? []).includes(config.key);
+}
+
+// A card matches a category focus if it ACCELERATES that category (a matching reward row whose rate
+// exceeds the card's base rate) OR is explicitly tagged for it. A row at the base rate with a
+// category cap does not qualify on its own.
+function cardPositioningMatchesFocus(card: CreditCard, config: CategoryFocusConfig) {
+  const haystack = normalizeForMatch([card.name, ...card.bestFor, ...card.tags].join(" "));
+  return config.positioning.some((token) => containsNormalizedPhrase(haystack, token));
+}
+
+// Whether the card earns any reward on a spend category (i.e. the category is not excluded). Used by
+// matchByEarning focuses (rent/utilities) where rewarding the category at all is the relevant signal.
+function cardEarnsOnSpendCategory(card: CreditCard, category: SpendCategory) {
+  const breakdown = rewardBreakdownForCard(card, { [category]: 10000 } as SpendProfile, true);
+  return breakdown.some((row) => row.spendCategory === category && row.monthlyReward > 0);
+}
+
+function cardMatchesCategoryFocus(card: CreditCard, config: CategoryFocusConfig) {
+  if (cardHasCategoryFocusTag(card, config)) return true;
+  // Earn-based focuses (rent/utilities): qualify if the card rewards the category at all.
+  if (config.matchByEarning && config.spendCategory) return cardEarnsOnSpendCategory(card, config.spendCategory);
+  const baseRate = cardBaseRate(card);
+  if (card.rewards.some((reward) => config.rewardPattern.test(reward.category) && reward.rate > baseRate)) return true;
+  // Brand/merchant focuses also qualify on positioning (the flagship co-brand carries the merchant in
+  // its name/bestFor, not always in a reward-row category — e.g. HDFC Swiggy rewards under "dining").
+  return Boolean(config.matchPositioning && cardPositioningMatchesFocus(card, config));
+}
+
+// Specialist score for a category-focused ranking: rewards a genuinely accelerated category reward
+// row (above base) or an explicit category tag, plus category-forward positioning, so a
+// category-specific card outranks one with only incidental earning there. Returns 0 for cards with
+// no matching accelerator (they get the non-specialist penalty / are filtered out).
+function categorySpecialistScore(card: CreditCard, config: CategoryFocusConfig) {
+  const baseRate = cardBaseRate(card);
+  const hasAcceleratedRow = card.rewards.some(
+    (reward) => config.rewardPattern.test(reward.category) && reward.rate > baseRate
+  );
+  const hasPositioning = cardPositioningMatchesFocus(card, config);
+  const earnsOnCategory = Boolean(
+    config.matchByEarning && config.spendCategory && cardEarnsOnSpendCategory(card, config.spendCategory)
+  );
+  let score = 0;
+  // A genuine accelerator, an explicit tag, merchant positioning, or — for earn-based focuses —
+  // simply rewarding the category makes the card a specialist.
+  if (hasAcceleratedRow || cardHasCategoryFocusTag(card, config) || (config.matchPositioning && hasPositioning) || earnsOnCategory) {
+    score += 3;
+  }
+  if (hasPositioning) score += 2;
+  return score;
+}
+
 function focusedSpendProfile(category: SpendCategory) {
   const monthlyTotal = Object.values(defaultSpendProfile).reduce((total, amount = 0) => total + amount, 0);
   return Object.fromEntries(
     Object.keys(defaultSpendProfile).map((key) => [key, key === category ? monthlyTotal : 0])
+  ) as SpendProfile;
+}
+
+// Realistic monthly spend on a focused category, used when scoring a "best <category>/fuel card"
+// query. Putting 100% of the default total on one category (~Rs 53k) made caps misfire — dedicated
+// fuel cards hit their monthly caps while uncapped premium cards ran free. Since the category ranking
+// uses only the focused category's reward, the rest of the profile is the default mix and doesn't
+// affect order; only this amount (which drives caps) matters.
+const categoryFocusMonthlySpend: Partial<Record<SpendCategory, number>> = {
+  fuel: 6000,
+  dining: 8000,
+  grocery: 10000,
+  online: 15000,
+  amazon: 8000,
+  utilities: 5000,
+  rent: 50000
+};
+function categoryFocusSpendProfile(category: SpendCategory): SpendProfile {
+  return { ...defaultSpendProfile, [category]: categoryFocusMonthlySpend[category] ?? 8000 };
+}
+
+// Spend profile for a category-focused recommendation that does NOT assume the card is used for
+// nothing else: `share` of total monthly spend goes to the focused category, the rest keeps the
+// default mix (re-normalised across the other categories). Reflects a realistic "I'd put most of my
+// dining on this card and use other cards elsewhere" pattern instead of an unrealistic 100% focus.
+function weightedFocusSpendProfile(category: SpendCategory, share: number): SpendProfile {
+  const monthlyTotal = Object.values(defaultSpendProfile).reduce((total, amount = 0) => total + amount, 0);
+  const focusAmount = monthlyTotal * share;
+  const remaining = monthlyTotal - focusAmount;
+  const entries = Object.entries(defaultSpendProfile) as Array<[SpendCategory, number]>;
+  const othersSum = entries.reduce((sum, [key, amount]) => (key === category ? sum : sum + (amount ?? 0)), 0);
+  return Object.fromEntries(
+    entries.map(([key, amount]) => [
+      key,
+      key === category
+        ? Math.round(focusAmount)
+        : othersSum > 0
+          ? Math.round(remaining * ((amount ?? 0) / othersSum))
+          : 0
+    ])
   ) as SpendProfile;
 }
 
@@ -543,9 +787,30 @@ function cardMatchesSegment(card: CreditCard, segment: string) {
   const haystack = normalizeForMatch([card.name, ...card.tags, ...card.bestFor].join(" "));
 
   if (segment === "ltf") return card.annualFee === 0 || containsNormalizedPhrase(haystack, "lifetime free") || containsNormalizedPhrase(haystack, "ltf");
+  // Fee-based tiers (non-overlapping): mid-premium Rs 1,000–5,000, premium Rs 5,000–10,000,
+  // super-premium Rs 10,000+. Super-premium also covers invite-only cards regardless of listed fee.
   if (segment === "super-premium") return containsNormalizedPhrase(haystack, "super premium") || containsNormalizedPhrase(haystack, "invite") || card.annualFee >= 10000;
-  if (segment === "premium") return containsNormalizedPhrase(haystack, "premium") || card.annualFee >= 3000;
-  if (segment === "beginner") return containsNormalizedPhrase(haystack, "beginner") || containsNormalizedPhrase(haystack, "starter") || containsNormalizedPhrase(haystack, "secured") || card.annualFee <= 1000;
+  if (segment === "premium") return card.annualFee >= 5000 && card.annualFee < 10000;
+  if (segment === "mid-premium") {
+    // Invite-only/relationship cards are premium products, not mid-tier.
+    if (requiresRelationshipAccess(card)) return false;
+    return (
+      containsNormalizedPhrase(haystack, "mid premium") ||
+      containsNormalizedPhrase(haystack, "mid-tier") ||
+      (card.annualFee > 1000 && card.annualFee < 5000)
+    );
+  }
+  if (segment === "beginner") {
+    // Invite-only / relationship cards (e.g. an LTF Kotak Solitaire) are premium products, not
+    // beginner cards, even when their fee is 0.
+    if (requiresRelationshipAccess(card)) return false;
+    return (
+      containsNormalizedPhrase(haystack, "beginner") ||
+      containsNormalizedPhrase(haystack, "starter") ||
+      containsNormalizedPhrase(haystack, "secured") ||
+      card.annualFee <= 1000
+    );
+  }
 
   return false;
 }
@@ -703,7 +968,7 @@ function estimateFallbackPointUnitValue(card: CreditCard) {
   const rewardType = normalizeForMatch(card.rewardType);
   if (rewardType.includes("edge miles")) return 1;
   if (rewardType.includes("mile")) return 1;
-  if (rewardType.includes("marriott bonvoy")) return 0.5;
+  if (rewardType.includes("marriott bonvoy")) return 0.6;
   if (rewardType.includes("membership rewards")) return 0.6;
 
   return 0;
@@ -1412,11 +1677,31 @@ function rewardBreakdownForCard(card: CreditCard, spend: SpendProfile, includeSm
     const totalRawReward = itemRaw.reduce((sum, x) => sum + x.raw, 0);
 
     if (typeof key === "string") {
-      // Shared cap-group: hard combined cap across all rows in the group (post-cap fallback is not
-      // modelled here). All grouped rows carry the same capMonthly, so use the first.
-      const cap = items[0].reward.capMonthly;
-      const totalCapped = typeof cap === "number" && cap > 0 ? Math.min(totalRawReward, cap) : totalRawReward;
-      return itemRaw.map(({ item, raw }) => toRow(item, totalRawReward > 0 ? (totalCapped * raw) / totalRawReward : 0));
+      // Shared cap-group, two-level: each row is first capped at its own capMonthly (e.g. the
+      // single-booking daily cap on lumpy SmartBuy hotels/flights), then the whole group is capped at
+      // the combined cap (card.capGroups[group], else the largest row cap). Post-cap fallback is not
+      // modelled for groups. When all rows share one cap and there is no card.capGroups entry, this
+      // reduces to the previous pool-and-cap behaviour.
+      const rewardSubgroups = new Map<Reward, Array<{ item: ActiveAllocation; raw: number }>>();
+      for (const x of itemRaw) {
+        if (!rewardSubgroups.has(x.item.reward)) rewardSubgroups.set(x.item.reward, []);
+        rewardSubgroups.get(x.item.reward)!.push(x);
+      }
+      const perItem: Array<{ item: ActiveAllocation; capped: number }> = [];
+      let groupTotal = 0;
+      for (const [reward, xs] of rewardSubgroups) {
+        const rawSum = xs.reduce((sum, x) => sum + x.raw, 0);
+        const rowCap = reward.capMonthly;
+        const rowScale = typeof rowCap === "number" && rowCap > 0 && rawSum > rowCap ? rowCap / rawSum : 1;
+        for (const x of xs) {
+          const capped = x.raw * rowScale;
+          perItem.push({ item: x.item, capped });
+          groupTotal += capped;
+        }
+      }
+      const groupCap = card.capGroups?.[key]?.capMonthly ?? Math.max(0, ...items.map((i) => i.reward.capMonthly ?? 0));
+      const groupScale = groupCap > 0 && groupTotal > groupCap ? groupCap / groupTotal : 1;
+      return perItem.map(({ item, capped }) => toRow(item, capped * groupScale));
     }
 
     // Single reward: existing per-reward cap with post-cap fallback rate.
@@ -1613,22 +1898,44 @@ function loungeScore(card: CreditCard) {
   return totalLoungeAccess;
 }
 
-function loungePreferenceBoost(card: CreditCard, wantsLounge: boolean, intent: ReturnType<typeof parseQueryIntent>) {
+function internationalLoungeScore(card: CreditCard) {
+  const access = getInternationalLoungeAccess(card);
+  if (access === "unlimited") return 20;
+  return access;
+}
+
+function loungePreferenceBoost(
+  card: CreditCard,
+  wantsLounge: boolean,
+  wantsInternationalLounge: boolean,
+  intent: ReturnType<typeof parseQueryIntent>
+) {
   const score = loungeScore(card);
+
+  // International-lounge query: rank by overseas lounge access specifically (unlimited -> 20); a
+  // domestic-only card is not an international lounge card.
+  if (wantsInternationalLounge) {
+    const intlScore = internationalLoungeScore(card);
+    if (intlScore <= 0) return -15000;
+    return intlScore * 4000 + score * 300;
+  }
+
   if (score <= 0) {
     if (wantsLounge) return -12000;
     if (intent.useCases.includes("travel")) return -3000;
     return 0;
   }
 
+  // General lounge / travel paths keep their original international weighting (unlimited -> 8) so this
+  // change doesn't move the existing lounge ranking.
   const hasInternationalLounge = card.loungeInternational === "unlimited" || card.loungeInternational > 0;
-  const internationalLoungeScore =
+  const generalIntlScore =
     card.loungeInternational === "unlimited" ? 8 : typeof card.loungeInternational === "number" ? card.loungeInternational : 0;
   let boost = 0;
 
   if (wantsLounge) {
     boost += score * 1500;
-    boost += internationalLoungeScore * 2500;
+    boost += generalIntlScore * 2500;
     if (hasInternationalLounge) boost += 8000;
   }
 
@@ -1697,18 +2004,60 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
   const effectiveMaxAnnualFee = input.maxAnnualFee ?? intent.maxAnnualFee;
   const wantsLifetimeFree = input.wantsLifetimeFree ?? intent.wantsLifetimeFree;
   const wantsLounge = input.wantsLounge ?? intent.wantsLounge;
+  // International-lounge sub-intent: a lounge query that specifically asks for overseas access.
+  const wantsInternationalLounge =
+    wantsLounge && /\binternational\b|\boverseas\b|\babroad\b|outside india|\bglobal\b/i.test(normalizeForMatch(input.query));
   const restrictToFuelCards = shouldRestrictToFuelCards(input, intent);
-  const fuelFocusedSpend = restrictToFuelCards && !intent.inferredSpend && !input.spend ? focusedSpendProfile("fuel") : undefined;
+  // Explicit segment query ("best beginner/premium/super premium card"): restrict the pool to cards
+  // matching ALL named segments (so "super premium" = premium AND super-premium = high-fee cards, and
+  // "beginner" = entry cards), instead of the +3000 segment boost being swamped by premium value and
+  // every segment query returning the same premium ranking. Envelope scoring is kept.
+  const restrictToSegments =
+    intent.segments.length > 0 && isCardRecommendationQuery(input.query) ? intent.segments : null;
+  const categoryFocus = detectCategoryFocus(input, intent);
+  // A forex-focused query ("best forex card", "zero forex card") is scored like the category focuses:
+  // assume 50% of spend is international and compute net value (rewards earned abroad minus the card's
+  // forex markup cost — see estimatedForexCost below). This makes low-markup cards with decent
+  // international earning win, instead of the generic high-spend ranking.
+  const forexFocus = intent.tags.includes("forex") && !input.spend && !intent.inferredSpend;
+  const fuelFocusedSpend = restrictToFuelCards && !input.spend ? categoryFocusSpendProfile("fuel") : undefined;
+  const categoryFocusedSpend = categoryFocus?.spendCategory
+    ? categoryFocusSpendProfile(categoryFocus.spendCategory)
+    : undefined;
+  const forexFocusedSpend = forexFocus ? weightedFocusSpendProfile("international", 0.5) : undefined;
+  // Segment queries are scored at the tier's representative spend (not the envelope blend), unless a
+  // category/forex focus already sets the spend or the caller passed an explicit spend.
+  const segmentSpend =
+    restrictToSegments && !input.spend && !intent.inferredSpend && !categoryFocus && !forexFocus && !restrictToFuelCards
+      ? scaleSpendProfileToMonthly(
+          defaultSpendProfile,
+          Math.max(...restrictToSegments.map((segment) => segmentRepresentativeMonthlySpend[segment] ?? 50000))
+        )
+      : undefined;
   const restrictToIssuer = shouldRestrictToIssuer(intent, input.query);
   const includeSmartbuyLikeRewards = shouldIncludeSmartbuyLikeRewards(input.query);
   const broadMixedSpendQuery = isBroadMixedSpendQuery(input, intent);
   const broadNoSpendRankingQuery = isBroadNoSpendQuery(input, intent);
   const broadGenericRanking = isBroadGenericRankingQuery(input, intent);
-  const useEnvelopeScoring =
-    !restrictToFuelCards && shouldUseEnvelopeScoring(input, intent, effectiveMaxAnnualFee, wantsLifetimeFree, wantsLounge);
   const restrictToUpiCards = shouldRestrictToUpiCards(input, intent);
   const upiFocusedSpend = restrictToUpiCards && !intent.inferredSpend && !input.spend ? focusedSpendProfile("upi") : undefined;
-  const spend = { ...defaultSpendProfile, ...(fuelFocusedSpend ?? {}), ...(upiFocusedSpend ?? {}), ...(intent.inferredSpend ?? {}), ...(input.spend ?? {}) };
+  const useEnvelopeScoring =
+    !restrictToFuelCards &&
+    !categoryFocus &&
+    !forexFocus &&
+    !restrictToSegments &&
+    !restrictToUpiCards &&
+    shouldUseEnvelopeScoring(input, intent, effectiveMaxAnnualFee, wantsLifetimeFree, wantsLounge);
+  const spend = {
+    ...defaultSpendProfile,
+    ...(segmentSpend ?? {}),
+    ...(intent.inferredSpend ?? {}),
+    ...(forexFocusedSpend ?? {}),
+    ...(fuelFocusedSpend ?? {}),
+    ...(upiFocusedSpend ?? {}),
+    ...(categoryFocusedSpend ?? {}),
+    ...(input.spend ?? {})
+  };
   const networkFilters = explicitNetworkFilters(input, intent);
 
   const scoreCardForSpend = (
@@ -1723,6 +2072,8 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
     const estimatedMilestoneValue = milestoneValueForCard(card, annualSpend);
     const { joiningValue: rawJoiningValue, renewalValue: rawRenewalValue } = joiningAndRenewalBenefitValueForCard(card);
     const estimatedJoiningAndRenewalValue = Math.round(rawJoiningValue / joiningBenefitAmortizationYears) + rawRenewalValue;
+    // main's bestRewardEconomicsForCard picks the best reward option (base vs a paid membership like
+    // Kiwi Neon) and returns the breakdown, rewards, fee, and net value.
     const rewardEconomics = bestRewardEconomicsForCard(
       card,
       spendForScore,
@@ -1730,18 +2081,36 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
       estimatedMilestoneValue,
       estimatedJoiningAndRenewalValue
     );
-    const { rewardBreakdown, estimatedAnnualRewards, estimatedAnnualFee, estimatedNetValue, optionLabel, optionAnnualCost } = rewardEconomics;
-    const currentMilestoneAndWaiverValue = estimatedMilestoneValue + (card.annualFee - feeAfterWaiver(card, spendForScore));
+    const { rewardBreakdown, estimatedAnnualRewards, estimatedAnnualFee, optionLabel, optionAnnualCost } = rewardEconomics;
+    // Forex markup is a real cost on international spend; deduct it from net value. Only bites when the
+    // profile has international spend (forex-focused queries, or an explicit international spend), so it
+    // doesn't affect other rankings. A near-zero-forex card keeps almost all of its abroad rewards.
+    const forexMarkup = typeof card.forexMarkup === "number" ? card.forexMarkup : 3.5;
+    const estimatedForexCost = Math.round(((spendForScore.international ?? 0) * 12 * forexMarkup) / 100);
+    const estimatedNetValue = rewardEconomics.estimatedNetValue - estimatedForexCost;
+    const currentMilestoneAndWaiverValue = estimatedMilestoneValue + (card.annualFee - estimatedAnnualFee);
     const maxComparisonMilestoneAndWaiverValue = comparisonMilestoneAndWaiverValue(card);
-    const comparisonMilestoneAndWaiverDelta = broadNoSpendRankingQuery && !useEnvelopeScoring
-      ? Math.round(Math.max(maxComparisonMilestoneAndWaiverValue - currentMilestoneAndWaiverValue, 0) * broadComparisonUpsideWeight)
-      : 0;
+    // Only for the broad no-spend "best card" ranking — not for focused category/forex queries, where
+    // it would swamp the actual category economics with generic milestone/waiver upside.
+    const comparisonMilestoneAndWaiverDelta =
+      broadNoSpendRankingQuery && !useEnvelopeScoring && !forexFocus && !categoryFocus && !restrictToFuelCards
+        ? Math.round(Math.max(maxComparisonMilestoneAndWaiverValue - currentMilestoneAndWaiverValue, 0) * broadComparisonUpsideWeight)
+        : 0;
     const tagBoost = matchedTags.length * 500;
     const keywordBoost = computeQueryKeywordBoost(card, input.query);
     const useCaseBoost = intent.useCases.reduce((total, useCase) => {
       const strength = cardUseCaseStrength(card, useCase);
       return total + (strength > 0 ? strength * 7000 : -12000);
     }, 0);
+    // Category-focused ranking: lift cards with a category accelerator, penalise cards with none, so
+    // category-specific cards lead "best <category> card" (focused spend, where applicable, already
+    // favours them).
+    const categorySpecialistBoost = categoryFocus
+      ? (() => {
+          const strength = categorySpecialistScore(card, categoryFocus);
+          return strength > 0 ? strength * 7000 : -12000;
+        })()
+      : 0;
     const segmentBoost = intent.segments.reduce((total, segment) => total + (cardMatchesSegment(card, segment) ? 3000 : 0), 0);
     const redemptionBoost = intent.redemptionBuckets.reduce(
       (total, bucket) =>
@@ -1749,8 +2118,11 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
       0
     );
     const networkBoost = intent.networks.some((network) => card.network.includes(network)) ? 3000 : 0;
-    const loungeBoost = loungePreferenceBoost(card, wantsLounge, intent);
-    const forexBoost = forexPreferenceBoost(card, intent);
+    const loungeBoost = loungePreferenceBoost(card, wantsLounge, wantsInternationalLounge, intent);
+    // For a forex-focused query the markup is already costed into net value (estimatedForexCost), so
+    // the heuristic forex boost would double-count — suppress it. It still applies to travel queries,
+    // where international spend isn't focused and the boost is the only forex signal.
+    const forexBoost = forexFocus ? 0 : forexPreferenceBoost(card, intent);
     const spendCategoryBoost = categoryFitAdjustment(card, spendForScore, includeSmartbuyLikeRewards, {
       broadMixedSpendQuery
     });
@@ -1809,6 +2181,7 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
     // Non-economic preference and penalty signals shared by both scoring paths
     const sharedBoosts =
       useCaseBoost +
+      categorySpecialistBoost +
       segmentBoost +
       redemptionBoost +
       loungeBoost +
@@ -1821,8 +2194,19 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
       milestoneBoost +
       card.popularityScore * popularityRankingWeight;
 
-    // Value score: economic quality and preference fit signals
-    const valueScore = estimatedNetValue + sharedBoosts;
+    // Value score: economic quality and preference fit signals. For a category/fuel query the card is
+    // chosen to be used specifically for that category (often a secondary card), so rank by how much it
+    // earns ON that category — fee-independent and not diluted by the rest of the profile — so the
+    // category specialist (e.g. SBI Prime for utilities, an HPCL card for fuel) wins, not a high-fee
+    // all-rounder. The displayed estimatedNetValue is unchanged. Focuses without a spend category
+    // (Flipkart/Swiggy) keep the net-value ranking.
+    const focusedSpendCategory: SpendCategory | undefined =
+      categoryFocus?.spendCategory ?? (restrictToFuelCards ? "fuel" : undefined);
+    const valueScore = focusedSpendCategory
+      ? rewardBreakdown
+          .filter((item) => item.spendCategory === focusedSpendCategory)
+          .reduce((total, item) => total + item.annualReward, 0) + sharedBoosts
+      : estimatedNetValue + sharedBoosts;
 
     // Query-type-dependent blending
     const isExactCardLookup = cardNameBoost >= exactCardNameMatchThreshold;
@@ -1866,22 +2250,29 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
       effectiveMaxAnnualFee === undefined || hasExplicitAnnualFeeLanguage(input.query) ? true : card.joiningFee <= effectiveMaxAnnualFee
     )
     .filter((card) => (wantsLifetimeFree ? (card.annualFee === 0 && card.joiningFee === 0) : true))
-    .filter((card) => (wantsLounge ? loungeScore(card) > 0 : true))
+    .filter((card) =>
+      wantsInternationalLounge ? internationalLoungeScore(card) > 0 : wantsLounge ? loungeScore(card) > 0 : true
+    )
     .filter((card) => (restrictToIssuer ? normalizeIssuer(card.issuer) === normalizeIssuer(intent.issuers[0]) : true))
     .filter((card) => (restrictToUpiCards ? hasUpiCardSignal(card) : true))
     .filter((card) => (networkFilters.length ? networkFilters.some((network) => cardMatchesNetworkFilter(card, network)) : true))
     .filter((card) => (restrictToFuelCards ? hasFuelCardSignal(card) : true))
+    .filter((card) => (restrictToSegments ? restrictToSegments.every((segment) => cardMatchesSegment(card, segment)) : true))
+    .filter((card) => (categoryFocus ? cardMatchesCategoryFocus(card, categoryFocus) : true))
     .map((card) => {
       if (!useEnvelopeScoring) return scoreCardForSpend(card, spend);
 
-      // Score the card at each fixed light/mid/heavy spend level and blend (average) the per-level
-      // fit scores into the ranking key. The card is displayed at its strongest of these levels, but
-      // ranked on its all-round performance — so no single trivial-spend tier can inflate it.
+      // Score the card at each fixed light/mid/heavy spend level and blend the per-level fit scores
+      // into the ranking key. The card is displayed at its strongest of these levels, but ranked on
+      // its all-round performance — so no single trivial-spend tier can inflate it. The blend is a
+      // weighted average leaning toward higher-spend levels (see blendAnnualSpendLevelWeights).
       const perLevel = blendAnnualSpendLevels.map((annualSpend) => {
         const monthlySpend = Math.round(annualSpend / 12);
         return scoreCardForSpend(card, scaleSpendProfileToMonthly(defaultSpendProfile, monthlySpend), monthlySpend);
       });
-      const blendedFitScore = perLevel.reduce((total, score) => total + score.fitScore, 0) / perLevel.length;
+      const blendWeightSum = blendAnnualSpendLevelWeights.reduce((total, weight) => total + weight, 0);
+      const blendedFitScore =
+        perLevel.reduce((total, score, i) => total + score.fitScore * blendAnnualSpendLevelWeights[i], 0) / blendWeightSum;
       const representative = perLevel.reduce((best, score) => (score.fitScore > best.fitScore ? score : best));
       return representative.envelopeScoring
         ? { ...representative, envelopeScoring: { ...representative.envelopeScoring, normalizedFitScore: blendedFitScore } }

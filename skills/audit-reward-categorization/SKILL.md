@@ -23,8 +23,9 @@ an over-valued point currency silently inflates a card up the list (see `lib/CLA
    npx tsx scripts/audit-reward-categorization.ts hdfc       # every card in an issuer dir
    ```
 
-2. **Read each card's three blocks:**
+2. **Read each card's blocks:**
    - `REWARD ROWS` — the raw rows (category, rate, cap, `displayCategory`/`displayRate`).
+   - `VALUED BENEFITS` — milestones and joining/renewal valued benefits, with the card's point value.
    - `ROUTING` — what reward each spend category actually earns in the engine.
    - `FLAGS` — automatic warnings (see below).
 
@@ -49,10 +50,43 @@ an over-valued point currency silently inflates a card up the list (see `lib/CLA
     issuer's published cap before adding one.
 
 - **MISSING POINT VALUE** — a non-cashback card whose `redemption` has no numeric value field, so
-  `estimatePointUnitValue` falls back to **Rs 1/point** (usually a large over-valuation).
+  the engine falls back to a rewardType rate (generic **Rs 1/point**, or a hard-coded rate like
+  Marriott Bonvoy Rs 0.6). The flag reports the actual fallback used.
   - **Fix:** add the real per-point value to `redemption` (`statementBalanceValue`, `ecosystemValue`,
     `airMilesValue`, `travelPortalValue`, or a `transferPartnerValuations` entry). For brand-locked
     currencies also set `rewardLiquidity`/`rewardLiquidityFactor`.
+
+### Joining / milestone benefit flags
+
+These check that point/mile-denominated milestones and joining/renewal benefits are valued
+consistently and filed in the right bucket. A benefit's rupee `value` feeds `estimatedNetValue`
+alongside rewards, so a point earned via a milestone should be worth the same as one earned via
+spend.
+
+- **BENEFIT VALUE MISMATCH** — a milestone or joining/renewal benefit whose label grants *N*
+  points/miles, but whose stored `value` differs by >15% from *N × the card's own point value*.
+  Example: a "15,000 Bonvoy Points" free night valued at Rs 7,500 when Bonvoy points are Rs 0.6 (it
+  should be Rs 9,000); or Etihad "4,000 bonus miles" valued at Rs 4,000 (face) when the card values
+  miles at Rs 0.8 (should be Rs 3,200).
+  - **Fix:** set `value` to *N × point value*. Keep it consistent with the same currency's
+    `redemption` value / `rewardLiquidityFactor`.
+
+- **UNVALUED POINTS BENEFIT** — a points/miles benefit stored with `value: 0` whose figure isn't
+  positively valued elsewhere on the card (so it's genuinely uncounted, not a deliberate
+  duplicate-avoidance zero).
+  - **Fix:** value it, or confirm it is intentionally excluded (e.g. truly text-only).
+
+- **SOFT PERK VALUED** — an airline/hotel **tier / status / upgrade** benefit carrying a rupee
+  `value`. Policy is to leave these **text-only** (`value: 0`) since they're not reliably monetised.
+  - **Fix:** set `value: 0` unless there's a defensible rupee basis (see the
+    [milestones-no-value policy](file:///C:/Users/manpr/.claude/projects/C--Users-manpr-Documents-Codex-2026-05-08-i-want-to-build-an-ai/memory/milestones-no-value-cases.md)).
+
+- **MISFILED RECURRING JOINING** — a `joiningBenefitsValued` entry whose text reads as recurring
+  (annual fee levy, anniversary, "every year"). Joining benefits are **amortized over 3 years**
+  (`joiningBenefitAmortizationYears`), so a yearly perk filed there is credited at only ~1/3 of its
+  value. Example: the HDFC Marriott Free Night granted on every fee levy.
+  - **Fix:** move it to `renewalBenefitsValued` (counted in full each year) and zero the joining
+    entry so it isn't double-counted.
 
 ## Caveats / known blind spots
 

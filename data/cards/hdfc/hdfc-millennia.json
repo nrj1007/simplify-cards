@@ -92,13 +92,23 @@
   ],
   "joiningBenefitsValued": [
     {
-      "value": 1000,
+      "value": 0,
       "kind": "points",
-      "label": "1,000 CashPoints on payment of joining or renewal membership fee, equivalent to the fee amount"
+      "label": "1,000 CashPoints on payment of joining or renewal membership fee, equivalent to the fee amount (counted under renewal — granted every fee cycle)"
     }
   ],
   "joiningBenefits": [
     "1,000 CashPoints on payment of joining or renewal membership fee, equivalent to the fee amount"
+  ],
+  "renewalBenefitsValued": [
+    {
+      "value": 1000,
+      "kind": "points",
+      "label": "1,000 CashPoints on payment of the renewal membership fee, equivalent to the fee amount"
+    }
+  ],
+  "renewalBenefits": [
+    "1,000 CashPoints on payment of the renewal membership fee, equivalent to the fee amount"
   ],
   "additionalBenefits": [
     "5% cashback on Amazon, BookMyShow, Cult.fit, Flipkart, Myntra, Sony LIV, Swiggy, Tata CLiQ, Uber and Zomato",

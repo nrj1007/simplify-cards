@@ -16,27 +16,33 @@
     "luxury lifestyle"
   ],
   "rewardType": "reward points",
+  "capGroups": {
+    "smartbuy": { "capMonthly": 15000 }
+  },
   "rewards": [
     {
       "category": "smartbuy hotels",
       "rate": 33.33,
       "displayRate": "Up to 10X Reward Points",
       "capMonthly": 15000,
-      "capDaily": 15000
+      "capDaily": 15000,
+      "capGroup": "smartbuy"
     },
     {
       "category": "smartbuy flights",
       "rate": 16.67,
       "displayRate": "Up to 5X Reward Points",
       "capMonthly": 15000,
-      "capDaily": 15000
+      "capDaily": 15000,
+      "capGroup": "smartbuy"
     },
     {
       "category": "smartbuy gyftr",
       "rate": 16.67,
       "displayRate": "Up to 5X Reward Points",
       "capMonthly": 15000,
-      "capDaily": 15000
+      "capDaily": 15000,
+      "capGroup": "smartbuy"
     },
     {
       "category": "base",
@@ -126,7 +132,7 @@
       "kind": "other",
       "label": "Complimentary Club Marriott membership for the first year, offering up to 25% discount on dining & stays across Asia-Pacific"
     }
-  ],
+  ],
   "renewalBenefitsValued": [
     {
       "value": 12500,

@@ -13,6 +13,7 @@
     "entertainment"
   ],
   "rewardType": "movie benefits",
+  "categoryFocusTags": ["entertainment"],
   "rewards": [
     {
       "category": "base",

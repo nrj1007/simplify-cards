@@ -20,34 +20,41 @@
   "acceleratedShare": {
     "grocery": 0
   },
+  "capGroups": {
+    "smartbuy": { "capMonthly": 4000 }
+  },
   "rewards": [
     {
       "category": "smartbuy hotels",
       "rate": 25,
       "displayRate": "Up to 10X Reward Points (50 RP / Rs 200 spent via SmartBuy)",
-      "capMonthly": 4000,
-      "capDaily": 2000
+      "capMonthly": 2000,
+      "capDaily": 2000,
+      "capGroup": "smartbuy"
     },
     {
       "category": "smartbuy flights",
       "rate": 12.5,
       "displayRate": "Up to 5X Reward Points (25 RP / Rs 200 spent via SmartBuy)",
-      "capMonthly": 4000,
-      "capDaily": 2000
+      "capMonthly": 2000,
+      "capDaily": 2000,
+      "capGroup": "smartbuy"
     },
     {
       "category": "smartbuy gyftr",
       "rate": 12.5,
       "displayRate": "Up to 5X Reward Points (25 RP / Rs 200 spent on instant vouchers via SmartBuy)",
       "capMonthly": 4000,
-      "capDaily": 2000
+      "capDaily": 2000,
+      "capGroup": "smartbuy"
     },
     {
       "category": "smartbuy train",
       "rate": 7.5,
       "displayRate": "3X Reward Points (15 RP / Rs 200 spent via SmartBuy)",
       "capMonthly": 4000,
-      "capDaily": 2000
+      "capDaily": 2000,
+      "capGroup": "smartbuy"
     },
     {
       "category": "select lifestyle brands",
