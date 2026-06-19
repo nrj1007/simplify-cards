@@ -139,6 +139,6 @@
     "Base category includes offline, other online, and UPI spends, capped at 5,000 Jewels per billing cycle.",
     "Interest rate of 3.5% per month (42% per annum) applies."
   ],
-  "popularityScore": 70,
+  "popularityScore": 100,
   "imageUrl": "/images/csb-jupiter-edge-plus.webp"
 }
