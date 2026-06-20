@@ -1954,17 +1954,17 @@ function feeAfterWaiver(card: CreditCard, spend: SpendProfile) {
 
 function loungeScore(card: CreditCard) {
   if (card.combinedLoungeAccess !== undefined) {
-    return card.combinedLoungeAccess === "unlimited" ? 20 : Math.min(card.combinedLoungeAccess, 20);
+    return card.combinedLoungeAccess === "unlimited" ? 20 : Math.min(card.combinedLoungeAccess, 19);
   }
-  const dom = card.loungeDomestic === "unlimited" ? 20 : Math.min(card.loungeDomestic, 20);
-  const intl = card.loungeInternational === "unlimited" ? 20 : Math.min(card.loungeInternational, 20);
+  const dom = card.loungeDomestic === "unlimited" ? 20 : Math.min(card.loungeDomestic, 19);
+  const intl = card.loungeInternational === "unlimited" ? 20 : Math.min(card.loungeInternational, 19);
   return dom + intl;
 }
 
 function internationalLoungeScore(card: CreditCard) {
   const access = getInternationalLoungeAccess(card);
   if (access === "unlimited") return 20;
-  return Math.min(access, 20);
+  return Math.min(access, 19);
 }
 
 function loungePreferenceBoost(
@@ -1997,7 +1997,7 @@ function loungePreferenceBoost(
     card.loungeInternational === "unlimited"
       ? 8
       : typeof card.loungeInternational === "number"
-        ? Math.min(card.loungeInternational, 20)
+        ? Math.min(card.loungeInternational, 19)
         : 0;
   let boost = 0;
 
@@ -2008,7 +2008,7 @@ function loungePreferenceBoost(
   }
 
   const rawIntl = getInternationalLoungeAccess(card);
-  const intlAccess = rawIntl === "unlimited" ? 20 : Math.min(rawIntl, 20);
+  const intlAccess = rawIntl === "unlimited" ? 20 : Math.min(rawIntl, 19);
   const domAccess = Math.max(0, score - intlAccess);
 
   const hasDomSpendConditions = getMeaningfulLoungeConditions(card, "domestic").some((cond) => {
