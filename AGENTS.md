@@ -40,6 +40,10 @@ npm run validate:cards   # validates every data/cards/**/*.json against the sche
 ## Commit workflow
 - After **every change**, commit it and push it to **`main`** unless the user explicitly asks for a different branch or wants changes left uncommitted.
 
+## CI/CD workflow
+- **Vercel production deploys must run only after CI succeeds**.
+- The deploy workflow should trigger only for pushes to **`main`** after lint, tests, and build pass.
+
 ## Repo layout
 ```
 app/            Next.js App Router — pages, API routes, UI components   (see app/AGENTS.md)
