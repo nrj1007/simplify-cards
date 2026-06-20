@@ -24,7 +24,7 @@
       "capMonthly": 1500
     },
     {
-      "category": "online",
+      "category": "partner merchants",
       "displayCategory": "Select online merchants (Amazon, Flipkart, Myntra, Nykaa, Ola, Uber, etc.)",
       "rate": 5,
       "displayRate": "5% Cashback",
@@ -38,6 +38,9 @@
       "capMonthly": 500
     }
   ],
+  "acceleratedShare": {
+    "online": 0.7
+  },
   "loungeDomestic": 0,
   "loungeInternational": 0,
   "forexMarkup": 3.5,
@@ -97,7 +100,7 @@
     "Cashback is calculated and posted to your card account based on your billing cycle."
   ],
   "redemption": {
-    "statementBalanceValue": 1.0,
+    "statementBalanceValue": 1,
     "minimumPointsForStatementCredit": null,
     "cashbackRedemptionCapMonthly": null,
     "pointsExpiryYears": null

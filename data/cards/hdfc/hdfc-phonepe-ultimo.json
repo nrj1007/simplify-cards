@@ -25,7 +25,7 @@
       "capMonthly": 1000
     },
     {
-      "category": "online",
+      "category": "partner merchants",
       "displayCategory": "Select online brands (Amazon, Flipkart, Myntra, Ajio, Swiggy, Zomato, and Uber)",
       "rate": 5,
       "displayRate": "5 Reward Points / Rs 100 spent",
@@ -37,8 +37,18 @@
       "rate": 1,
       "displayRate": "1 Reward Point / Rs 100 spent",
       "capMonthly": 500
+    },
+    {
+      "category": "base",
+      "displayCategory": "Other spends (1% via UPI scan & pay)",
+      "rate": 1,
+      "displayRate": "1% as Reward Points on other spends",
+      "capMonthly": null
     }
   ],
+  "acceleratedShare": {
+    "online": 0.7
+  },
   "loungeDomestic": 8,
   "loungeInternational": 0,
   "lounge": {

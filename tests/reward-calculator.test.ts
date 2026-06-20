@@ -1370,22 +1370,22 @@ describe("reward calculator", () => {
     expect(card).toBeTruthy();
 
     const result = calculateRewards(card!, {
-      utilities: 20000,    // 10% rate, 20000 * 10% = 2000 => capped at 1000
-      online: 20000,       // 5% rate, 20000 * 5% = 1000 => capped at 500
+      utilities: 20000,    // 10% via PhonePe, 20000 * 10% = 2000 => capped at 1000
+      online: 20000,       // 5% row is select-merchant partner merchants, so typed online earns 1% base => 200
       upi: 60000,          // 1% rate, 60000 * 1% = 600 => capped at 500
       fuel: 5000,          // excluded => 0
       rent: 10000          // excluded => 0
     });
 
-    // Total expected monthly units = 1000 (utilities capped) + 500 (online capped) + 500 (upi capped) = 2000 reward points
-    expect(result.monthlyUnits).toBe(2000);
-    expect(result.annualUnits).toBe(2000 * 12);
+    // Total expected monthly units = 1000 (utilities capped) + 200 (online base 1%) + 500 (upi capped) = 1700 reward points
+    expect(result.monthlyUnits).toBe(1700);
+    expect(result.annualUnits).toBe(1700 * 12);
 
     const utilitiesRow = result.rows.find(r => r.category === "utilities");
     expect(utilitiesRow!.monthlyUnits).toBe(1000);
 
     const onlineRow = result.rows.find(r => r.category === "online");
-    expect(onlineRow!.monthlyUnits).toBe(500);
+    expect(onlineRow!.monthlyUnits).toBe(200);
 
     const upiRow = result.rows.find(r => r.category === "upi");
     expect(upiRow!.monthlyUnits).toBe(500);
@@ -1538,21 +1538,22 @@ describe("reward calculator", () => {
       expect(result2.monthlyUnits).toBe(1500);
     });
 
-    it("earns 5% cashback on online spends, capped at Rs 1,500/month", () => {
+    it("earns base 1% on typed online spends (5% row is select-merchant partner merchants)", () => {
       const card = getCardById("hdfc-swiggy");
       expect(card).toBeTruthy();
 
-      // Rs 10,000 online spend => 10,000 * 5% = Rs 500 cashback
+      // The 5% "online" row is now "partner merchants" (select merchants: Amazon/Flipkart/etc.),
+      // not all online, so typed online spend earns the 1% base rate: Rs 10,000 * 1% = Rs 100.
       const result1 = calculateRewards(card!, { online: 10000 });
-      expect(result1.monthlyUnits).toBe(500);
+      expect(result1.monthlyUnits).toBe(100);
 
       const onlineRow = result1.rows.find((r) => r.category === "online");
       expect(onlineRow).toBeTruthy();
-      expect(onlineRow!.monthlyUnits).toBe(500);
+      expect(onlineRow!.monthlyUnits).toBe(100);
 
-      // Rs 40,000 online spend => 2,000 raw cashback capped at Rs 1,500
+      // Rs 40,000 online * 1% base = Rs 400 (under the base row's Rs 500 cap)
       const result2 = calculateRewards(card!, { online: 40000 });
-      expect(result2.monthlyUnits).toBe(1500);
+      expect(result2.monthlyUnits).toBe(400);
     });
 
     it("earns 1% cashback on other spends, capped at Rs 500/month", () => {
@@ -1613,19 +1614,20 @@ describe("reward calculator", () => {
       expect(result2.monthlyUnits).toBe(1500);
     });
 
-    it("earns 5% cashback on online spends, capped at Rs 1,500/month", () => {
+    it("earns base 1% on typed online spends (5% row is select-merchant partner merchants)", () => {
       const card = getCardById("hdfc-swiggy-orange");
       expect(card).toBeTruthy();
 
+      // 5% "online" row is select-merchant partner merchants, so typed online earns the 1% base rate.
       const result1 = calculateRewards(card!, { online: 10000 });
-      expect(result1.monthlyUnits).toBe(500);
+      expect(result1.monthlyUnits).toBe(100);
 
       const onlineRow = result1.rows.find((r) => r.category === "online");
       expect(onlineRow).toBeTruthy();
-      expect(onlineRow!.monthlyUnits).toBe(500);
+      expect(onlineRow!.monthlyUnits).toBe(100);
 
       const result2 = calculateRewards(card!, { online: 40000 });
-      expect(result2.monthlyUnits).toBe(1500);
+      expect(result2.monthlyUnits).toBe(400);
     });
 
     it("earns 1% cashback on other spends, capped at Rs 500/month", () => {
@@ -1796,21 +1798,22 @@ describe("reward calculator", () => {
       expect(result2.monthlyUnits).toBe(1500);
     });
 
-    it("earns 5% cashback on online spends, capped at Rs 1,500/month", () => {
+    it("earns base 1% on typed online spends (5% row is select-merchant partner merchants)", () => {
       const card = getCardById("hdfc-swiggy-black");
       expect(card).toBeTruthy();
 
-      // Rs 10,000 online spend => 10,000 * 5% = Rs 500 cashback
+      // The 5% "online" row is now "partner merchants" (select merchants: Amazon/Flipkart/etc.),
+      // not all online, so typed online spend earns the 1% base rate: Rs 10,000 * 1% = Rs 100.
       const result1 = calculateRewards(card!, { online: 10000 });
-      expect(result1.monthlyUnits).toBe(500);
+      expect(result1.monthlyUnits).toBe(100);
 
       const onlineRow = result1.rows.find((r) => r.category === "online");
       expect(onlineRow).toBeTruthy();
-      expect(onlineRow!.monthlyUnits).toBe(500);
+      expect(onlineRow!.monthlyUnits).toBe(100);
 
-      // Rs 40,000 online spend => 2,000 raw cashback capped at Rs 1,500
+      // Rs 40,000 online * 1% base = Rs 400 (under the base row's Rs 500 cap)
       const result2 = calculateRewards(card!, { online: 40000 });
-      expect(result2.monthlyUnits).toBe(1500);
+      expect(result2.monthlyUnits).toBe(400);
     });
 
     it("earns 1% cashback on other spends, capped at Rs 500/month", () => {
