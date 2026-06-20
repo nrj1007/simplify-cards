@@ -1933,16 +1933,7 @@ function categoryFitAdjustment(
 }
 
 function genericLtfAdjustment(card: CreditCard, intent: ReturnType<typeof parseQueryIntent>) {
-  if (!(intent.segments.length === 1 && intent.segments[0] === "ltf")) return 0;
-  if (intent.useCases.length > 0 || intent.issuers.length > 0 || intent.redemptionBuckets.length > 0) return 0;
-
-  const haystack = normalizeForMatch([card.name, ...card.tags, ...card.bestFor, ...card.exclusions].join(" "));
-  let adjustment = 0;
-
-  if (containsNormalizedPhrase(haystack, "entry level") || containsNormalizedPhrase(haystack, "beginner") || containsNormalizedPhrase(haystack, "starter")) adjustment += 10000;
-  if (containsNormalizedPhrase(haystack, "luxury")) adjustment -= 18000;
-
-  return adjustment;
+  return 0;
 }
 
 function feeAfterWaiver(card: CreditCard, spend: SpendProfile) {
