@@ -102,6 +102,7 @@
     "Card details audited against the live official Equitas Tiga Credit Card page on 2026-06-15.",
     "Card details manually reviewed and verified by user on 2026-06-15.",
     "The live page explicitly shows 3X rewards on UPI, contactless, and Pay-by-3 merchant spends, a 1 RP per Rs 100 base earn rate, and 1 RP = Rs 0.15 on Xchange redemption.",
+    "Unlike Selfe and PowerMiles (which use redemption.pointValueTiers for the Equitas Privilege Program spend ladder), Tiga is kept at a flat 1 RP = Rs 0.15: no source publishes a per-tier redemption value ladder for Tiga, and cardinsider states Tiga has no privilege-program enhancement to redemption value. Revisit with pointValueTiers only if the official MITC confirms a Tiga-specific tier ladder.",
     "Pay-by-3 merchants include: TATA Cliq, Tony & Guy, SLAM, Netmeds, Skull Candy, 1% Club, Prashanti Sarees, Wedtree, Lectrix.",
     "The live page explicitly confirms a renewal fee waiver on Rs 1.2 lakh annual spends in the previous anniversary year and a limited-period first-year-free offer excluding GST.",
     "Finance charges: 3.75% per month (45% per annum) on revolving balances.",
