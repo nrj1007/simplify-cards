@@ -2035,9 +2035,9 @@ function forexPreferenceBoost(card: CreditCard, intent: ReturnType<typeof parseQ
 
   let weight = 0;
   if (betterThanBaseline > 0) {
-    weight = explicitForexQuery ? 30000 : travelIntent ? 1750 : 375;
+    weight = explicitForexQuery ? 30000 : travelIntent ? 1750 : 300;
   } else if (betterThanBaseline < 0) {
-    weight = explicitForexQuery ? 18000 : travelIntent ? 1000 : 250;
+    weight = explicitForexQuery ? 18000 : travelIntent ? 1000 : 200;
   }
 
   return Math.round(betterThanBaseline * weight);
