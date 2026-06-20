@@ -38,6 +38,9 @@ These are listed or have official pages, but should not be added as active-new-a
 
 ## Product Work After Axis
 
+- [ ] Verify recommender/scoring penalties (fit, missing, exclusion, etc.) and tune their relative weights.
+- [ ] Add views count metrics/display on the landing page.
+- [ ] Add a Contact Us page.
 - [ ] Create latest news page showing recent card updates, devaluations, new launches, and lounge/benefit changes.
 - [ ] Improve card detail UI for fees, caps, exclusions, and source trust.
 - [ ] Add filters for issuer, cashback, travel, lounge, fuel, UPI, low-fee, and secured cards.
