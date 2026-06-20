@@ -1968,7 +1968,8 @@ function loungePreferenceBoost(
   card: CreditCard,
   wantsLounge: boolean,
   wantsInternationalLounge: boolean,
-  intent: ReturnType<typeof parseQueryIntent>
+  intent: ReturnType<typeof parseQueryIntent>,
+  isCategoryFocused: boolean = false
 ) {
   const score = loungeScore(card);
 
@@ -1999,24 +2000,27 @@ function loungePreferenceBoost(
     if (hasInternationalLounge) boost += 8000;
   }
 
+  const rawIntl = getInternationalLoungeAccess(card);
+  const intlAccess = rawIntl === "unlimited" ? 20 : rawIntl;
+  const domAccess = Math.max(0, score - intlAccess);
+
+  const hasDomSpendConditions = getMeaningfulLoungeConditions(card, "domestic").some((cond) => {
+    const lower = cond.toLowerCase();
+    return lower.includes("spend") || lower.includes("unlock") || lower.includes("subject to") || lower.includes("previous calendar quarter") || lower.includes("spending");
+  });
+  const hasIntlSpendConditions = getMeaningfulLoungeConditions(card, "international").some((cond) => {
+    const lower = cond.toLowerCase();
+    return lower.includes("spend") || lower.includes("unlock") || lower.includes("subject to") || lower.includes("previous calendar quarter") || lower.includes("spending");
+  });
+
+  const domWeight = hasDomSpendConditions ? 180 : 360;
+  const intlWeight = hasIntlSpendConditions ? 360 : 720;
+
+  const travelLoungeValue = domAccess * domWeight + intlAccess * intlWeight;
+  boost += isCategoryFocused ? 0 : Math.round(travelLoungeValue * 0.5);
+
   if (intent.useCases.includes("travel")) {
-    const rawIntl = getInternationalLoungeAccess(card);
-    const intlAccess = rawIntl === "unlimited" ? 20 : rawIntl;
-    const domAccess = Math.max(0, score - intlAccess);
-
-    const hasDomSpendConditions = getMeaningfulLoungeConditions(card, "domestic").some((cond) => {
-      const lower = cond.toLowerCase();
-      return lower.includes("spend") || lower.includes("unlock") || lower.includes("subject to") || lower.includes("previous calendar quarter") || lower.includes("spending");
-    });
-    const hasIntlSpendConditions = getMeaningfulLoungeConditions(card, "international").some((cond) => {
-      const lower = cond.toLowerCase();
-      return lower.includes("spend") || lower.includes("unlock") || lower.includes("subject to") || lower.includes("previous calendar quarter") || lower.includes("spending");
-    });
-
-    const domWeight = hasDomSpendConditions ? 180 : 360;
-    const intlWeight = hasIntlSpendConditions ? 360 : 720;
-
-    boost += domAccess * domWeight + intlAccess * intlWeight;
+    boost += Math.round(travelLoungeValue * 0.5);
     if (hasInternationalLounge) boost += 1500;
   }
 
@@ -2260,7 +2264,7 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
       0
     );
     const networkBoost = intent.networks.some((network) => card.network.includes(network)) ? 3000 : 0;
-    const loungeBoost = loungePreferenceBoost(card, wantsLounge, wantsInternationalLounge, intent);
+    const loungeBoost = loungePreferenceBoost(card, wantsLounge, wantsInternationalLounge, intent, categoryFocus !== undefined || restrictToFuelCards);
     // For a forex-focused query the markup is already costed into net value (estimatedForexCost), so
     // the heuristic forex boost would double-count — suppress it. It still applies to travel queries,
     // where international spend isn't focused and the boost is the only forex signal.
