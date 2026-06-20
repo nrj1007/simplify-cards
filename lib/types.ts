@@ -268,6 +268,7 @@ export type CardScore = {
     monthlyReward: number;
     annualReward: number;
   }>;
+  debug?: Record<string, any>;
 };
 
 // Trimmed, display-only card result sent to the browser by /api/recommend.

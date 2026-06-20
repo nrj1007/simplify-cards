@@ -2373,7 +2373,29 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
       fitScore,
       matchedTags,
       reasons,
-      rewardBreakdown
+      rewardBreakdown,
+      debug: {
+        cardNameBoost,
+        keywordBoost,
+        tagBoost,
+        issuerBoost,
+        networkBoost,
+        useCaseBoost,
+        categorySpecialistBoost,
+        segmentBoost,
+        redemptionBoost,
+        loungeBoost,
+        forexBoost,
+        spendCategoryBoost,
+        comparisonMilestoneAndWaiverDelta,
+        ltfQueryBoost,
+        specialSpendBoost,
+        milestoneBoost,
+        relevanceScore,
+        sharedBoosts,
+        valueScore,
+        relevanceWeight
+      }
     };
   };
 
