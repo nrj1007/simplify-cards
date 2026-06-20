@@ -1862,29 +1862,6 @@ function bestRewardEconomicsForCard(
   );
 }
 
-function isPremiumTravelCard(card: CreditCard) {
-  const haystack = normalizeForMatch(
-    [
-      card.name,
-      ...card.tags,
-      ...card.bestFor,
-      ...card.rewards.map((reward) => reward.category)
-    ].join(" ")
-  );
-
-  const hasTravelSignals =
-    ["travel", "miles", "airline", "airlines", "hotel", "hotels", "lounge"].some((token) => containsNormalizedPhrase(haystack, token)) ||
-    card.rewards.some((reward) => ["travel", "hotels", "airlines", "smartbuy flights", "smartbuy hotels"].includes(reward.category));
-  const hasPremiumSignals =
-    card.annualFee >= 3000 ||
-    ["premium", "super premium", "metal", "signature", "world", "infinite", "mastercard"].some((token) => haystack.includes(token)) ||
-    card.loungeDomestic === "unlimited" ||
-    card.loungeInternational === "unlimited" ||
-    loungeScore(card) >= 8;
-
-  return hasTravelSignals && hasPremiumSignals;
-}
-
 function isBroadMixedSpendQuery(input: RecommendationInput, intent: ReturnType<typeof parseQueryIntent>) {
   if (input.spend || intent.inferredSpend) return false;
   if (intent.issuers.length > 0 || intent.useCases.length > 0 || intent.redemptionBuckets.length > 0 || intent.networks.length > 0) {
@@ -1905,31 +1882,20 @@ function isBroadMixedSpendQuery(input: RecommendationInput, intent: ReturnType<t
 function categoryFitAdjustment(
   card: CreditCard,
   spend: SpendProfile,
-  includeSmartbuyLikeRewards: boolean,
-  options?: { broadMixedSpendQuery?: boolean }
+  includeSmartbuyLikeRewards: boolean
 ) {
   const monthlyTotal = monthlySpendTotal(spend);
   if (!monthlyTotal) return 0;
   const activeCategories = (Object.entries(spend) as Array<[SpendCategory, number]>).filter(([, amount]) => (amount ?? 0) > 0);
   const isFocusedSpendProfile = activeCategories.length === 1;
-  const softenPremiumTravelPenalty = Boolean(options?.broadMixedSpendQuery) && !isFocusedSpendProfile && isPremiumTravelCard(card);
 
   return activeCategories.reduce((total, [category, amount]) => {
     if (!amount || amount <= 0) return total;
-    const isExcluded = isSpendCategoryExcluded(card, category);
     const allocations = rewardAllocationsForSpend(card, category, amount, includeSmartbuyLikeRewards, monthlyTotal);
     const specialRule = specialSpendRuleForCard(card, category);
 
-    if (isExcluded) {
-      const exclusionPenalty =
-        softenPremiumTravelPenalty && category !== "travel" && category !== "base"
-          ? (category === "fuel" ? 45000 : 25000)
-          : 90000;
-      return total - exclusionPenalty * (amount / monthlyTotal);
-    }
     if (allocations.length === 0) {
-      const missingPenalty = softenPremiumTravelPenalty ? (isFocusedSpendProfile ? 35000 : 5000) : isFocusedSpendProfile ? 35000 : 12000;
-      return total - missingPenalty * (amount / monthlyTotal);
+      return total;
     }
 
     return (
@@ -2282,9 +2248,7 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
     // the heuristic forex boost would double-count — suppress it. It still applies to travel queries,
     // where international spend isn't focused and the boost is the only forex signal.
     const forexBoost = forexFocus ? 0 : forexPreferenceBoost(card, intent);
-    const spendCategoryBoost = categoryFitAdjustment(card, spendForScore, includeSmartbuyLikeRewards, {
-      broadMixedSpendQuery
-    });
+    const spendCategoryBoost = categoryFitAdjustment(card, spendForScore, includeSmartbuyLikeRewards);
     const ltfQueryBoost = genericLtfAdjustment(card, intent);
     const specialSpendBoost = specialSpendFlexibilityBoost(card, input, intent);
     const milestoneBoost = milestoneSpecialistBoost(card, broadNoSpendRankingQuery);
