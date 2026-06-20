@@ -51,7 +51,8 @@
       "displayCategory": "insurance",
       "rate": 1.5,
       "displayRate": "1.5% back as NeuCoins",
-      "capMonthly": 2000
+      "capMonthly": null,
+      "capDaily": 2000
     },
     {
       "category": "utilities",
@@ -134,7 +135,7 @@
     {
       "category": "insurance",
       "treatment": "capped",
-      "notes": "Eligible insurance spends earn 1.5% NeuCoins, capped at 2,000 NeuCoins per calendar month."
+      "notes": "Eligible insurance spends earn 1.5% NeuCoins, capped at 2,000 NeuCoins per day (w.e.f 1 July 2025)."
     },
     {
       "category": "utilities",

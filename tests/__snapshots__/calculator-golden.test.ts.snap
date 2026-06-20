@@ -335,7 +335,7 @@ exports[`reward calculator golden (all cards) > computes stable earn for every c
     "moderate": "online:1250 dining:750 travel:71 hotels:71 airlines:71 fuel:x grocery:750 utilities:x upi:71 amazon:71 international:71 base:71 rent:x insurance:x education:x gold:x government:x |3250",
   },
   "hdfc-tata-neu-infinity": {
-    "high": "online:3000 dining:3000 travel:3000 hotels:3000 airlines:3000 fuel:x grocery:2000 utilities:2000 upi:500 amazon:3000 international:3000 base:3000 rent:x insurance:2000 education:3000 gold:3000 government:x |36500",
+    "high": "online:3000 dining:3000 travel:3000 hotels:3000 airlines:3000 fuel:x grocery:2000 utilities:2000 upi:500 amazon:3000 international:3000 base:3000 rent:x insurance:3000 education:3000 gold:3000 government:x |37500",
     "moderate": "online:375 dining:375 travel:375 hotels:375 airlines:375 fuel:x grocery:375 utilities:375 upi:375 amazon:375 international:375 base:375 rent:x insurance:375 education:375 gold:375 government:x |5250",
   },
   "hdfc-tata-neu-plus": {

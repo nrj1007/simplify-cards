@@ -1949,11 +1949,6 @@ function categoryFitAdjustment(
           return categoryTotal + (isFocusedSpendProfile ? 32000 : 14000) * weight;
         }
 
-        if (isBaseRewardCategory(rewardCategory) && category !== "base") {
-          const fallbackPenalty = softenPremiumTravelPenalty ? (isFocusedSpendProfile ? 28000 : 1500) : isFocusedSpendProfile ? 28000 : 10000;
-          return categoryTotal - fallbackPenalty * weight;
-        }
-
         return categoryTotal;
       }, 0)
     );

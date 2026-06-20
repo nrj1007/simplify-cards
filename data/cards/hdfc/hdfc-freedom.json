@@ -42,9 +42,9 @@
   ],
   "acceleratedShare": {
     "online": 0,
-    "dining": 0.25,
-    "grocery": 0.25,
-    "hotels": 0.25
+    "dining": 0.5,
+    "grocery": 0.5,
+    "hotels": 0.5
   },
   "loungeDomestic": 0,
   "loungeInternational": 0,
@@ -126,7 +126,7 @@
     ]
   },
   "internalNotes": [
-    "The 10X row covers only 5 named merchants (BigBasket=grocery, Swiggy=dining, Uber=travel, OYO=hotels, BookMyShow=entertainment), so it uses category 'partner merchants' rather than the broad dining/travel/grocery/hotels/online (which made it rank #2 for best dining card). acceleratedShare 0.25 on dining/grocery/hotels blends the partner rate against base for the share of those categories that flows through these apps; online is 0 (none of the 5 is general online shopping).",
+    "The 10X row covers only 5 named merchants (BigBasket=grocery, Swiggy=dining, Uber=travel, OYO=hotels, BookMyShow=entertainment), so it uses category 'partner merchants' rather than the broad dining/travel/grocery/hotels/online (which made it rank #2 for best dining card). acceleratedShare 0.5 on dining/grocery/hotels blends the partner rate against base for the share of those categories that flows through these apps; online is 0 (none of the 5 is general online shopping).",
     "Card details manually reviewed and verified by user on 2026-06-07",
     "Audited against official HDFC Bank Freedom Credit Card product page and terms on 2026-06-07.",
     "Earn rate is 1 CashPoint per Rs 150 spent on base categories, and 10 CashPoints per Rs 150 spent on select 10X partners.",
