@@ -2027,23 +2027,26 @@ function loungePreferenceBoost(
   return boost;
 }
 
-function forexPreferenceBoost(card: CreditCard, intent: ReturnType<typeof parseQueryIntent>) {
-  const hasForexIntent = intent.tags.includes("forex") || intent.useCases.includes("travel");
-  if (!hasForexIntent) return 0;
+function forexPreferenceBoost(
+  card: CreditCard,
+  intent: ReturnType<typeof parseQueryIntent>,
+  isCategoryFocused: boolean = false
+) {
+  if (isCategoryFocused) return 0;
 
   const markup = typeof card.forexMarkup === "number" ? card.forexMarkup : 3.5;
   const betterThanBaseline = 3.5 - markup;
   const explicitForexQuery = intent.tags.includes("forex");
+  const travelIntent = intent.useCases.includes("travel");
 
+  let weight = 0;
   if (betterThanBaseline > 0) {
-    return Math.round(betterThanBaseline * (explicitForexQuery ? 30000 : 3500));
+    weight = explicitForexQuery ? 30000 : travelIntent ? 3500 : 1500;
+  } else if (betterThanBaseline < 0) {
+    weight = explicitForexQuery ? 18000 : travelIntent ? 2000 : 1000;
   }
 
-  if (betterThanBaseline < 0) {
-    return Math.round(betterThanBaseline * (explicitForexQuery ? 18000 : 2000));
-  }
-
-  return 0;
+  return Math.round(betterThanBaseline * weight);
 }
 
 export function requestedTopCardCount(query?: string) {
@@ -2264,11 +2267,11 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
       0
     );
     const networkBoost = intent.networks.some((network) => card.network.includes(network)) ? 3000 : 0;
-    const loungeBoost = loungePreferenceBoost(card, wantsLounge, wantsInternationalLounge, intent, categoryFocus !== undefined || restrictToFuelCards);
+    const loungeBoost = loungePreferenceBoost(card, wantsLounge, wantsInternationalLounge, intent, categoryFocus !== null || restrictToFuelCards);
     // For a forex-focused query the markup is already costed into net value (estimatedForexCost), so
     // the heuristic forex boost would double-count — suppress it. It still applies to travel queries,
     // where international spend isn't focused and the boost is the only forex signal.
-    const forexBoost = forexFocus ? 0 : forexPreferenceBoost(card, intent);
+    const forexBoost = forexFocus ? 0 : forexPreferenceBoost(card, intent, categoryFocus !== null || restrictToFuelCards);
     const spendCategoryBoost = categoryFitAdjustment(card, spendForScore, includeSmartbuyLikeRewards);
     const specialSpendBoost = specialSpendFlexibilityBoost(card, input, intent);
     const milestoneBoost = milestoneSpecialistBoost(card, broadNoSpendRankingQuery);
