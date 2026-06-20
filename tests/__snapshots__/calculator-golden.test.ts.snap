@@ -699,8 +699,8 @@ exports[`reward calculator golden (all cards) > computes stable earn for every c
     "moderate": "online:250 dining:250 travel:500 hotels:250 airlines:250 fuel:x grocery:250 utilities:x upi:250 amazon:250 international:250 base:250 rent:x insurance:x education:x gold:250 government:250 |3250",
   },
   "sbi-card-prime": {
-    "high": "online:4000 dining:20000 travel:4000 hotels:4000 airlines:4000 fuel:x grocery:20000 utilities:40000 upi:4000 amazon:4000 international:4000 base:4000 rent:4000 insurance:4000 education:4000 gold:4000 government:x |128000",
-    "moderate": "online:500 dining:2500 travel:500 hotels:500 airlines:500 fuel:x grocery:2500 utilities:5000 upi:500 amazon:500 international:500 base:500 rent:500 insurance:500 education:500 gold:500 government:x |16000",
+    "high": "online:4000 dining:3750 travel:4000 hotels:4000 airlines:4000 fuel:x grocery:3750 utilities:3000 upi:4000 amazon:4000 international:4000 base:4000 rent:4000 insurance:4000 education:4000 gold:4000 government:x |58500",
+    "moderate": "online:500 dining:2500 travel:500 hotels:500 airlines:500 fuel:x grocery:2500 utilities:3000 upi:500 amazon:500 international:500 base:500 rent:500 insurance:500 education:500 gold:500 government:x |14000",
   },
   "sbi-card-pulse": {
     "high": "online:4000 dining:4000 travel:4000 hotels:4000 airlines:4000 fuel:x grocery:4000 utilities:4000 upi:4000 amazon:4000 international:4000 base:4000 rent:4000 insurance:4000 education:4000 gold:4000 government:4000 |64000",

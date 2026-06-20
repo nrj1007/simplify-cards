@@ -24,28 +24,31 @@
       "displayCategory": "utility standing instructions",
       "rate": 20,
       "displayRate": "20 Reward Points / Rs 100",
-      "capMonthly": null
+      "capMonthly": 3000
     },
     {
       "category": "grocery",
       "displayCategory": "grocery and departmental stores",
       "rate": 10,
       "displayRate": "10 Reward Points / Rs 100",
-      "capMonthly": null
+      "capMonthly": 7500,
+      "capGroup": "prime-10x"
     },
     {
       "category": "dining",
       "displayCategory": "dining",
       "rate": 10,
       "displayRate": "10 Reward Points / Rs 100",
-      "capMonthly": null
+      "capMonthly": 7500,
+      "capGroup": "prime-10x"
     },
     {
       "category": "entertainment",
       "displayCategory": "movies",
       "rate": 10,
       "displayRate": "10 Reward Points / Rs 100",
-      "capMonthly": null
+      "capMonthly": 7500,
+      "capGroup": "prime-10x"
     },
     {
       "category": "base",
@@ -55,6 +58,11 @@
       "capMonthly": null
     }
   ],
+  "capGroups": {
+    "prime-10x": {
+      "capMonthly": 7500
+    }
+  },
   "loungeDomestic": 8,
   "loungeInternational": 4,
   "forexMarkup": 3.5,
@@ -139,6 +147,7 @@
   "additionalDetails": [],
   "internalNotes": [
     "Card details manually reviewed and verified by user on 2026-06-02",
+    "10X (10 RP/Rs100) on dining, grocery/departmental, and movies shares a cumulative cap of 7,500 RP per month (modeled via capGroup prime-10x); beyond it the base 2 RP/Rs100 applies. Utility-bill standing instructions earn 20 RP/Rs100 capped separately at 3,000 RP/month.",
     "Audited against official SBI Card product page, PRIME card T&C booklet, customer notice dated 1 Aug 2025, and MITC page on 2026-06-02.",
     "Reward Points expire after 24 months.",
     "Effective 15 Jul 2025, complimentary air accident insurance coverage (previously Rs 50 Lakhs) is discontinued.",
