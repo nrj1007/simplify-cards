@@ -1932,9 +1932,7 @@ function categoryFitAdjustment(
   }, 0);
 }
 
-function genericLtfAdjustment(card: CreditCard, intent: ReturnType<typeof parseQueryIntent>) {
-  return 0;
-}
+
 
 function feeAfterWaiver(card: CreditCard, spend: SpendProfile) {
   const annualSpend = annualSpendTotal(spend);
@@ -2255,7 +2253,6 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
     // where international spend isn't focused and the boost is the only forex signal.
     const forexBoost = forexFocus ? 0 : forexPreferenceBoost(card, intent);
     const spendCategoryBoost = categoryFitAdjustment(card, spendForScore, includeSmartbuyLikeRewards);
-    const ltfQueryBoost = genericLtfAdjustment(card, intent);
     const specialSpendBoost = specialSpendFlexibilityBoost(card, input, intent);
     const milestoneBoost = milestoneSpecialistBoost(card, broadNoSpendRankingQuery);
     const envelopeLabel = envelopeMonthlySpend ? formatEnvelopeSpendLabel(envelopeMonthlySpend) : null;
@@ -2316,7 +2313,6 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
       forexBoost +
       spendCategoryBoost +
       comparisonMilestoneAndWaiverDelta +
-      ltfQueryBoost +
       specialSpendBoost +
       milestoneBoost +
       card.popularityScore * popularityRankingWeight;
@@ -2381,7 +2377,6 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
         forexBoost,
         spendCategoryBoost,
         comparisonMilestoneAndWaiverDelta,
-        ltfQueryBoost,
         specialSpendBoost,
         milestoneBoost,
         relevanceScore,
