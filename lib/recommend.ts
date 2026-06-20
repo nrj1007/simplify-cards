@@ -1891,10 +1891,23 @@ function categoryFitAdjustment(
 
   return activeCategories.reduce((total, [category, amount]) => {
     if (!amount || amount <= 0) return total;
+    const isExcluded = isSpendCategoryExcluded(card, category);
     const allocations = rewardAllocationsForSpend(card, category, amount, includeSmartbuyLikeRewards, monthlyTotal);
     const specialRule = specialSpendRuleForCard(card, category);
 
+    if (isExcluded) {
+      if (isFocusedSpendProfile) {
+        const exclusionPenalty = 90000;
+        return total - exclusionPenalty * (amount / monthlyTotal);
+      }
+      return total;
+    }
+
     if (allocations.length === 0) {
+      if (isFocusedSpendProfile) {
+        const missingPenalty = 35000;
+        return total - missingPenalty * (amount / monthlyTotal);
+      }
       return total;
     }
 
