@@ -246,6 +246,28 @@ export type RecommendationInput = {
   spend?: SpendProfile;
 };
 
+export interface ScoreDebug {
+  cardNameBoost: number;
+  keywordBoost: number;
+  tagBoost: number;
+  issuerBoost: number;
+  networkBoost: number;
+  useCaseBoost: number;
+  categorySpecialistBoost: number;
+  segmentBoost: number;
+  redemptionBoost: number;
+  loungeBoost: number;
+  forexBoost: number;
+  spendCategoryBoost: number;
+  comparisonMilestoneAndWaiverDelta: number;
+  specialSpendBoost: number;
+  milestoneBoost: number;
+  relevanceScore: number;
+  sharedBoosts: number;
+  valueScore: number;
+  relevanceWeight: number;
+}
+
 export type CardScore = {
   card: CreditCard;
   annualSpend: number;
@@ -268,7 +290,7 @@ export type CardScore = {
     monthlyReward: number;
     annualReward: number;
   }>;
-  debug?: Record<string, any>;
+  debug?: ScoreDebug;
 };
 
 // Trimmed, display-only card result sent to the browser by /api/recommend.
