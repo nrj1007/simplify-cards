@@ -1925,7 +1925,7 @@ function genericLtfAdjustment(card: CreditCard, intent: ReturnType<typeof parseQ
   let adjustment = 0;
 
   if (containsNormalizedPhrase(haystack, "entry level") || containsNormalizedPhrase(haystack, "beginner") || containsNormalizedPhrase(haystack, "starter")) adjustment += 10000;
-  if (containsNormalizedPhrase(haystack, "invite only") || containsNormalizedPhrase(haystack, "luxury")) adjustment -= 18000;
+  if (containsNormalizedPhrase(haystack, "luxury")) adjustment -= 18000;
 
   return adjustment;
 }
