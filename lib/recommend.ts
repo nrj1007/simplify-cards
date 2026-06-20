@@ -481,6 +481,18 @@ function shouldRestrictToFuelCards(input: RecommendationInput, intent: ReturnTyp
   );
 }
 
+function shouldRestrictToZeroForexCards(input: RecommendationInput, intent: ReturnType<typeof parseQueryIntent>) {
+  if (!intent.tags.includes("forex")) return false;
+
+  const normalizedQuery = normalizeForMatch(input.query);
+  return (
+    containsNormalizedPhrase(normalizedQuery, "zero forex") ||
+    containsNormalizedPhrase(normalizedQuery, "0 forex") ||
+    containsNormalizedPhrase(normalizedQuery, "0 percent forex") ||
+    containsNormalizedPhrase(normalizedQuery, "no forex markup")
+  );
+}
+
 // Category-focused recommendation queries ("best dining/grocery/online/entertainment card") are
 // ranked so cards that actually accelerate that category lead — instead of collapsing to the generic
 // premium-card ranking. Each config drives: a query trigger, the reward rows that count, positioning
@@ -2128,6 +2140,7 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
   const wantsInternationalLounge =
     wantsLounge && /\binternational\b|\boverseas\b|\babroad\b|outside india|\bglobal\b/i.test(normalizeForMatch(input.query));
   const restrictToFuelCards = shouldRestrictToFuelCards(input, intent);
+  const restrictToZeroForexCards = shouldRestrictToZeroForexCards(input, intent);
   // Explicit segment query ("best beginner/premium/super premium card"): restrict the pool to cards
   // matching ALL named segments (so "super premium" = premium AND super-premium = high-fee cards, and
   // "beginner" = entry cards), instead of the +3000 segment boost being swamped by premium value and
@@ -2399,6 +2412,7 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
     )
     .filter((card) => (restrictToIssuer ? normalizeIssuer(card.issuer) === normalizeIssuer(intent.issuers[0]) : true))
     .filter((card) => (restrictToUpiCards ? hasUpiCardSignal(card) : true))
+    .filter((card) => (restrictToZeroForexCards ? card.forexMarkup === 0 : true))
     .filter((card) => (networkFilters.length ? networkFilters.some((network) => cardMatchesNetworkFilter(card, network)) : true))
     .filter((card) => (restrictToFuelCards ? hasFuelCardSignal(card) : true))
     .filter((card) => (restrictToSegments ? restrictToSegments.every((segment) => cardMatchesSegment(card, segment)) : true))

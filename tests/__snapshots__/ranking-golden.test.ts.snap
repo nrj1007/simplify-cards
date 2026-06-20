@@ -156,6 +156,17 @@ exports[`ranking golden (representative queries) > produces stable top-N orderin
     "icici-times-black",
     "yes-marquee",
   ],
+  "forex-zero": [
+    "bobcard-etihad-guest-premium",
+    "kotak-solitaire",
+    "idfc-mayura",
+    "au-ixigo",
+    "rbl-world-safari",
+    "idfc-wow",
+    "indusind-pioneer-heritage-metal",
+    "scapia-federal",
+    "scapia-bobcard",
+  ],
   "intl-lounge-query": [
     "kotak-white-reserve",
     "hsbc-premier",

@@ -43,6 +43,7 @@ const scenarios: Record<string, RecommendationInput> = {
   "network-visa": { query: "best visa card" },
   "network-mastercard": { query: "best mastercard credit card" },
   "forex": { query: "best forex card" },
+  "forex-zero": { query: "best zero forex cards" },
   "lounge": { wantsLounge: true },
   "lounge-query": { query: "best lounge card" },
   "intl-lounge-query": { query: "best international lounge card" },
