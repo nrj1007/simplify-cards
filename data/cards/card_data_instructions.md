@@ -374,9 +374,46 @@ an accelerated reward row:
 *   Values are focus keys (`dining`, `grocery`, `online`, `entertainment`, `amazon`, `flipkart`,
     `swiggy`, `utilities`, `rent`). It is additive — it never removes a card the engine already
     matched, and it does not change the card's reward math, only its eligibility for that focus list.
+*   Values are focus keys (`dining`, `grocery`, `online`, `entertainment`, `amazon`, `flipkart`,
+    `swiggy`, `utilities`, `rent`). It is additive — it never removes a card the engine already
+    matched, and it does not change the card's reward math, only its eligibility for that focus list.
 *   Prefer fixing the underlying data (a real accelerated row, accurate `bestFor`) over tagging;
     reach for `categoryFocusTags` when the benefit genuinely isn't an earn-rate (vouchers, BOGO,
     free tickets) yet the card is a true specialist for that category.
+
+### I. Narrow merchant accelerators (`partner merchants` + `acceleratedShare`)
+
+When a high reward rate applies only to a **handful of named brands/merchants** (e.g. HDFC Freedom's
+10X on BigBasket/Swiggy/Uber/OYO/BookMyShow) or to a **pick-N-of-M** set the cardholder selects
+(e.g. HDFC Pixel Play's "choose 2 packs", Equitas Selfe's "2 chosen categories"), do **not** give
+that reward row a broad multi-category `category` like `"dining, travel, grocery, online"`. The
+engine reads `category` literally, so it would credit the card at the accelerated rate on the
+*entire* category — wrongly ranking it #1–4 for "best dining/grocery/online card" when it really
+only covers a few merchants. (The display brand list lives in `displayCategory`, which the engine
+does not parse.)
+
+Instead model it as a narrow accelerator:
+
+*   Set the row's `category` to **`"partner merchants"`** (the sentinel for a named-merchant set).
+    Keep any genuinely broad sub-category that *does* dominate alongside it — e.g. an Amazon co-brand
+    row that covers Amazon plus a few merchants can be `"amazon, partner merchants"` so Amazon keeps
+    full direct credit while the rest blends.
+*   Add a card-level **`acceleratedShare`** map giving, per category, the fraction of that category's
+    spend that realistically flows through the merchants (the rest earns the base rate). The engine
+    blends the `partner merchants` row against base at this share for **any** category you list
+    (dining, grocery, hotels, utilities, online, …). Default is `0.5`; use lower (≈`0.25`) for a
+    narrow set, and `0` for a category the merchants don't really cover (e.g. set `online: 0` when
+    none of the brands is a general online-shopping site — otherwise online would still blend at the
+    `0.5` default because `partner merchants` is treated as an online accelerator).
+    ```json
+    "acceleratedShare": { "online": 0, "dining": 0.25, "grocery": 0.25, "hotels": 0.25 }
+    ```
+*   Effect: the card drops out of the category-specialist lists it doesn't deserve, but still earns
+    honest partial credit on the slice of spend its brands cover. Note `travel` routes through a
+    separate path and is **not** blended by `acceleratedShare`, so omit it.
+*   The reward **calculator** (card page) does not read `acceleratedShare`; a `partner merchants` row
+    is not a typed category there, so typed dining/online/etc. spend shows the base rate and the
+    accelerated row is informational. Update any hardcoded calculator unit tests accordingly.
 
 
 ---
