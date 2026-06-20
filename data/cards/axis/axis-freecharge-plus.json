@@ -18,14 +18,14 @@
   "rewardType": "cashback",
   "rewards": [
     {
-      "category": "online",
+      "category": "partner merchants",
       "displayCategory": "Freecharge app spends",
       "rate": 5,
       "displayRate": "5% Cashback on bill payments and recharges via Freecharge app",
       "capMonthly": null
     },
     {
-      "category": "travel",
+      "category": "partner merchants",
       "displayCategory": "Local commute spends",
       "rate": 2,
       "displayRate": "2% Cashback on local commute spends (Ola, Uber, etc.)",
@@ -39,6 +39,9 @@
       "capMonthly": null
     }
   ],
+  "acceleratedShare": {
+    "online": 0
+  },
   "loungeDomestic": 0,
   "loungeInternational": 0,
   "forexMarkup": 3.5,
@@ -101,7 +104,8 @@
   "lastVerified": "2026-06-09",
   "verificationStatus": "official-direct",
   "internalNotes": [
-    "Card details manually reviewed and verified by user on 2026-06-09."
+    "Card details manually reviewed and verified by user on 2026-06-09.",
+    "The 5% row is Freecharge-app spends only (bill payments/recharges) and the 2% row is Ola/Uber only, so both use category 'partner merchants' rather than broad online/travel (which over-ranked the card). acceleratedShare online 0 keeps general online shopping at the 1% base rate (Freecharge is a payments app, not an online-shopping site). No monthly cashback cap is disclosed in official terms, so the rows stay uncapped."
   ],
   "popularityScore": 64,
   "imageUrl": "/images/axis-freecharge-plus.webp"

@@ -2245,22 +2245,24 @@ describe("reward calculator", () => {
     });
 
     describe("Axis Bank Freecharge Plus Credit Card", () => {
-      it("earns 5% cashback on Freecharge app spends", () => {
+      it("earns base 1% on typed online spends (5% is Freecharge-app-only partner merchants)", () => {
         const card = getCardById("axis-freecharge-plus");
         expect(card).toBeTruthy();
 
-        // Rs 5,000 Freecharge spends => Rs 250 cashback
+        // The 5% row is "partner merchants" (Freecharge app only), not a typed online category, so
+        // Rs 5,000 of generic online spend earns the 1% base rate => Rs 50.
         const result = calculateRewards(card!, { online: 5000 });
-        expect(result.monthlyUnits).toBe(250);
+        expect(result.monthlyUnits).toBe(50);
       });
 
-      it("earns 2% cashback on commute spends and 1% on base spends", () => {
+      it("earns base 1% on typed travel and base spends (2% is Ola/Uber-only partner merchants)", () => {
         const card = getCardById("axis-freecharge-plus");
         expect(card).toBeTruthy();
 
-        // Rs 5,000 travel (commute) + Rs 10,000 base spends => 5,000 * 2% + 10,000 * 1% = 100 + 100 = Rs 200 cashback
+        // The 2% commute row is "partner merchants" (Ola/Uber only), so typed travel earns the 1% base
+        // rate: Rs 5,000 travel * 1% + Rs 10,000 base * 1% = 50 + 100 = Rs 150.
         const result = calculateRewards(card!, { travel: 5000, base: 10000 });
-        expect(result.monthlyUnits).toBe(200);
+        expect(result.monthlyUnits).toBe(150);
       });
     });
   });
