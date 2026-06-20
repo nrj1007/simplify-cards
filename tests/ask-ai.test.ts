@@ -1,7 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
-import { answerQuestion, getUnsupportedQuestionReason } from "../lib/ask-ai";
+import { answerQuestion, confidenceFromGap, getUnsupportedQuestionReason } from "../lib/ask-ai";
 import { scoreCards } from "../lib/recommend";
 
 const logPath = path.join(process.cwd(), "data", "question-logs", "unsupported-questions.json");
@@ -511,5 +511,26 @@ describe("ask ai fallback policy", () => {
 
     expect(answer.needsDatabaseUpdate).toBe(true);
     expect(fs.existsSync(logPath)).toBe(true);
+  });
+});
+
+describe("confidenceFromGap (decisiveness of the top match)", () => {
+  it("rates a clear leader high and a near-tie low — independent of raw score scale", () => {
+    // Big relative gap → decisive winner.
+    expect(confidenceFromGap(60000, 40000)).toBe("high"); // 33% gap
+    // Shrinking gaps step down through the tiers.
+    expect(confidenceFromGap(60000, 54000)).toBe("medium-high"); // 10% gap
+    expect(confidenceFromGap(60000, 57000)).toBe("medium"); // 5% gap
+    expect(confidenceFromGap(60000, 59500)).toBe("exploratory"); // <1% gap → near-tie
+  });
+
+  it("treats a single candidate as decisive and a non-positive top score as low", () => {
+    expect(confidenceFromGap(50000, undefined)).toBe("high");
+    expect(confidenceFromGap(undefined, undefined)).toBe("low");
+    expect(confidenceFromGap(-100, -200)).toBe("low");
+  });
+
+  it("is scale-invariant — small raw scores with the same gap rate the same as large ones", () => {
+    expect(confidenceFromGap(60, 40)).toBe(confidenceFromGap(60000, 40000));
   });
 });

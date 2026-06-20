@@ -26,6 +26,8 @@ export type AskResultMeta = {
   confidence: AskConfidence;
   confidenceLabel: string;
   needsFollowUp: boolean;
+  /** True when the top recommendation barely edges out the runner-up (a near-tie race). */
+  closeCall?: boolean;
   ai?: AskAiAnalyticsSummary;
 };
 
@@ -80,15 +82,37 @@ const ASK_INTENT_FOLLOWUP: Record<AskIntent, boolean> = {
   unsupported: true
 };
 
-function confidenceFromScore(score?: number): AskConfidence {
-  if (score === undefined) return "low";
-  if (score >= 82) return "high";
-  if (score >= 65) return "medium-high";
-  if (score >= 45) return "medium";
+// Confidence for ranked recommendations is the DECISIVENESS of the win — how far the top card's
+// fitScore sits above the runner-up (a scale-invariant ratio), not the raw score magnitude. A clear
+// leader is "high"; a near-tie is "exploratory". (fitScore is raw and unbounded, so the old
+// absolute thresholds always read "high" — using the relative gap fixes that.)
+const closeCallGapThreshold = 0.03;
+
+export function confidenceFromGap(topFit?: number, runnerUpFit?: number): AskConfidence {
+  if (topFit === undefined || topFit <= 0) return "low";
+  if (runnerUpFit === undefined) return "high"; // only one candidate → decisive
+  const gap = (topFit - runnerUpFit) / topFit;
+  if (gap >= 0.15) return "high";
+  if (gap >= 0.07) return "medium-high";
+  if (gap >= closeCallGapThreshold) return "medium";
   return "exploratory";
 }
 
-function buildAskMeta(intent: AskIntent, options?: { topFit?: number; needsFollowUp?: boolean }): AskResultMeta {
+function relativeGap(topFit?: number, runnerUpFit?: number): number | undefined {
+  if (topFit === undefined || topFit <= 0 || runnerUpFit === undefined) return undefined;
+  return (topFit - runnerUpFit) / topFit;
+}
+
+function buildAskMeta(
+  intent: AskIntent,
+  options?: { topFit?: number; runnerUpFit?: number; needsFollowUp?: boolean }
+): AskResultMeta {
+  const usesGapConfidence = !(
+    intent === "unsupported" ||
+    intent === "specific-card" ||
+    intent === "card-detail" ||
+    intent === "card-family"
+  );
   const confidence: AskConfidence =
     intent === "unsupported"
       ? "low"
@@ -96,14 +120,18 @@ function buildAskMeta(intent: AskIntent, options?: { topFit?: number; needsFollo
         ? "high"
         : intent === "card-family"
           ? "medium-high"
-          : confidenceFromScore(options?.topFit);
+          : confidenceFromGap(options?.topFit, options?.runnerUpFit);
+
+  const gap = relativeGap(options?.topFit, options?.runnerUpFit);
+  const closeCall = usesGapConfidence && gap !== undefined && gap < closeCallGapThreshold;
 
   return {
     intent,
     intentLabel: ASK_INTENT_LABELS[intent],
     confidence,
     confidenceLabel: ASK_CONFIDENCE_LABELS[confidence],
-    needsFollowUp: options?.needsFollowUp ?? ASK_INTENT_FOLLOWUP[intent]
+    needsFollowUp: options?.needsFollowUp ?? ASK_INTENT_FOLLOWUP[intent],
+    closeCall
   };
 }
 
@@ -1559,7 +1587,10 @@ export async function answerQuestion(input: RecommendationInput): Promise<AskAiR
       return {
         ...aiFallback,
         meta: {
-          ...buildAskMeta("best-fit", { topFit: aiFallback.cards[0]?.fitScore }),
+          ...buildAskMeta("best-fit", {
+            topFit: aiFallback.cards[0]?.fitScore,
+            runnerUpFit: aiFallback.cards[1]?.fitScore
+          }),
           ai: summarizeAiTraces(aiTraces)
         }
       };
@@ -1620,7 +1651,10 @@ export async function answerQuestion(input: RecommendationInput): Promise<AskAiR
       summary: topCardsSummary ?? buildFallbackSummary(input, answer.cards),
       highlights: buildTopCardsHighlights(input, answer.cards),
       meta: {
-        ...buildAskMeta("top-cards", { topFit: topCard.fitScore }),
+        ...buildAskMeta("top-cards", {
+          topFit: topCard.fitScore,
+          runnerUpFit: answer.cards[1]?.fitScore
+        }),
         ai: summarizeAiTraces(aiTraces)
       }
     };
@@ -1643,7 +1677,10 @@ export async function answerQuestion(input: RecommendationInput): Promise<AskAiR
         genericScenarioHighlights
       ),
       meta: {
-        ...buildAskMeta(specificCardLookup || namedCardQuestion ? "specific-card" : "best-fit", { topFit: topCard.fitScore }),
+        ...buildAskMeta(specificCardLookup || namedCardQuestion ? "specific-card" : "best-fit", {
+          topFit: topCard.fitScore,
+          runnerUpFit: answer.cards[1]?.fitScore
+        }),
         ai: summarizeAiTraces(aiTraces)
       }
     };

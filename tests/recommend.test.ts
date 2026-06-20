@@ -432,6 +432,24 @@ describe("scoreCards", () => {
     expect(atlas?.reasons).toEqual(expect.arrayContaining([expect.stringMatching(/Milestone value adds about Rs/i)]));
   });
 
+  it("does not credit a milestone below its spend threshold (reachability gating)", () => {
+    // SBI Prime's milestones annualize to ~Rs 2L (quarterly) and Rs 5L (annual). A low spender
+    // reaches neither, so milestone value must be zero; a high spender reaches them.
+    // input.spend MERGES with the default profile, so zero the other categories to control the total.
+    const zeroed = {
+      online: 0, base: 0, travel: 0, hotels: 0, airlines: 0, dining: 0, grocery: 0, fuel: 0,
+      amazon: 0, upi: 0, utilities: 0, rent: 0, insurance: 0, education: 0, gold: 0, government: 0,
+      international: 0
+    };
+    const lowSpend = scoreCards({ spend: { ...zeroed, base: 8000 } }).find((s) => s.card.id === "sbi-card-prime");
+    const highSpend = scoreCards({ spend: { ...zeroed, base: 60000 } }).find((s) => s.card.id === "sbi-card-prime");
+
+    expect(lowSpend?.annualSpend).toBeLessThan(200000);
+    expect(lowSpend?.estimatedMilestoneValue).toBe(0);
+    expect(highSpend?.annualSpend).toBeGreaterThanOrEqual(500000);
+    expect(highSpend?.estimatedMilestoneValue).toBeGreaterThan(0);
+  });
+
   it("does not double-count voucher milestone wording", () => {
     const scores = scoreCards({
       query: "top card under 5000"
