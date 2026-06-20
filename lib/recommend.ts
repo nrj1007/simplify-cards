@@ -2229,7 +2229,7 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
     const keywordBoost = computeQueryKeywordBoost(card, input.query);
     const useCaseBoost = intent.useCases.reduce((total, useCase) => {
       const strength = cardUseCaseStrength(card, useCase);
-      return total + (strength > 0 ? strength * 7000 : -12000);
+      return total + (strength > 0 ? strength * 7000 : 0);
     }, 0);
     // Category-focused ranking: lift cards with a category accelerator, penalise cards with none, so
     // category-specific cards lead "best <category> card" (focused spend, where applicable, already
@@ -2237,7 +2237,7 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
     const categorySpecialistBoost = categoryFocus
       ? (() => {
           const strength = categorySpecialistScore(card, categoryFocus);
-          return strength > 0 ? strength * 7000 : -12000;
+          return strength > 0 ? strength * 7000 : 0;
         })()
       : 0;
     const segmentBoost = intent.segments.reduce((total, segment) => total + (cardMatchesSegment(card, segment) ? 3000 : 0), 0);
