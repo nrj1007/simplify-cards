@@ -18,7 +18,7 @@
   "rewardType": "reward points",
   "rewards": [
     {
-      "category": "dining, grocery, utility bills, lifestyle",
+      "category": "partner merchants",
       "rate": 10,
       "displayCategory": "2 chosen accelerated categories: apparel, dining, grocery, utility, or taxi",
       "displayRate": "10 Reward Points / Rs 100 spent (on 2 chosen categories)",
@@ -32,6 +32,12 @@
       "capMonthly": null
     }
   ],
+  "acceleratedShare": {
+    "online": 0,
+    "dining": 0.25,
+    "grocery": 0.25,
+    "utilities": 0.25
+  },
   "popularityScore": 52,
   "loungeDomestic": 4,
   "loungeInternational": 0,
@@ -108,6 +114,7 @@
   "lastVerified": "2026-06-15",
   "verificationStatus": "official-direct",
   "internalNotes": [
+    "The 10 RP accelerated row applies only to 2 self-chosen categories (from apparel, dining, grocery, utility, taxi), not all of them at once, so it uses category 'partner merchants' rather than broad dining/grocery/utility/lifestyle. acceleratedShare 0.25 on dining/grocery/utilities blends the accelerated rate against base for the portion of those categories the cardholder selects; online is 0 (general online is not a choosable accelerated category).",
     "Card details audited against the live official Equitas Selfe Credit Card page on 2026-06-15.",
     "Card details manually reviewed and verified by user on 2026-06-15.",
     "The live page explicitly shows 5X rewards on 2 self-chosen categories and a base earn rate of 2 RP per Rs 100, so the accelerated row is modeled as 10 RP per Rs 100 on the two selected categories.",

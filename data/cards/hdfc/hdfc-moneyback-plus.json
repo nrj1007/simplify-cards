@@ -18,7 +18,7 @@
   "rewardType": "CashPoints",
   "rewards": [
     {
-      "category": "amazon, dining, online",
+      "category": "amazon, partner merchants",
       "displayCategory": "Amazon, Flipkart, Swiggy (10X CashPoints)",
       "rate": 10,
       "displayRate": "20 CashPoints / Rs 200 spent",
@@ -46,6 +46,9 @@
       "capMonthly": null
     }
   ],
+  "acceleratedShare": {
+    "online": 0.25
+  },
   "specialSpendRules": [
     {
       "category": "grocery",
@@ -162,6 +165,7 @@
   "verificationStatus": "official-direct",
   "popularityScore": 79,
   "internalNotes": [
+    "The 10X row covers only Amazon, Flipkart, Swiggy, so it is categorized 'amazon, partner merchants' rather than the broad 'amazon, dining, online' (which made it rank #4 for best dining card). Amazon keeps full direct credit; online (Flipkart/Swiggy) blends at acceleratedShare 0.25 against base; Swiggy is no longer credited as broad dining.",
     "Card details manually reviewed and verified by user on 2026-06-07",
     "Official audit completed on 2026-06-07 using HDFC Bank MoneyBack+ product page and FAQs.",
     "HDFC Bank charges a revised 1.75% DCC markup fee (effective 15 May 2026) on all transactions processed in INR at international locations or with merchants registered overseas.",

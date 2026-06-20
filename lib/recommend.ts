@@ -1390,6 +1390,20 @@ function findSpecialRewardForSpend(card: CreditCard, category: SpendCategory) {
   );
 }
 
+// A "partner merchants" row is a narrow accelerator (a named co-brand/merchant set, not a whole
+// category) that applies to only a share of any category's spend. Used to blend such a row against
+// the base rate for categories beyond online/grocery — opt-in per card via `acceleratedShare`.
+function findPartnerMerchantsReward(card: CreditCard) {
+  return (
+    card.rewards.find((reward) =>
+      reward.category
+        .split(",")
+        .map((c) => c.trim().toLowerCase())
+        .includes("partner merchants")
+    ) ?? null
+  );
+}
+
 // Spend-tiered earning: when a category maps to multiple reward rows that each carry a structured
 // monthly-spend tier (`tierLowerBound`/`tierUpperBound`), bucket the (monthly) spend across the tiers
 // and return one allocation per tier — mirroring the calculator's allocateTieredRewardUnits so the two
@@ -1592,7 +1606,15 @@ function rewardAllocationsForSpend(
   if (tieredAllocations) return routeToUpiWhenBetter(card, category, effectiveAmount, tieredAllocations, totalMonthlySpend);
 
   const baseReward = findBaseRewardForSpend(card, category);
-  const specialReward = blendedSmartbuySpendCategories.includes(category) ? findSpecialRewardForSpend(card, category) : null;
+  // online/grocery blend with their smartbuy/portal special row by default. Any other category blends
+  // only when the card explicitly opts in via `acceleratedShare` for it, using its "partner merchants"
+  // row as the narrow accelerator (so co-brand cards get honest partial credit on dining/travel/etc.
+  // instead of either crediting the whole category or dropping to base).
+  const specialReward = blendedSmartbuySpendCategories.includes(category)
+    ? findSpecialRewardForSpend(card, category)
+    : card.acceleratedShare?.[category] !== undefined
+      ? findPartnerMerchantsReward(card)
+      : null;
 
   if (specialReward && baseReward && specialReward.category !== baseReward.category) {
     // Only a share of this category's spend earns the accelerated rate; the rest earns base. The
@@ -2005,7 +2027,8 @@ function loungePreferenceBoost(
   }
 
   if (intent.useCases.includes("travel")) {
-    const intlAccess = getInternationalLoungeAccess(card) === "unlimited" ? 20 : getInternationalLoungeAccess(card);
+    const rawIntl = getInternationalLoungeAccess(card);
+    const intlAccess = rawIntl === "unlimited" ? 20 : rawIntl;
     const domAccess = Math.max(0, score - intlAccess);
 
     const hasDomSpendConditions = getMeaningfulLoungeConditions(card, "domestic").some((cond) => {

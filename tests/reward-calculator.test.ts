@@ -1300,19 +1300,21 @@ describe("reward calculator", () => {
     expect(card).toBeTruthy();
 
     const result = calculateRewards(card!, {
-      online: 45000,       // 10X category: 45000 * 10/150 = 3000 points => capped at 2500
+      online: 45000,       // 1X base: the 10X row is "partner merchants" (5 named apps, not all online) => 45000 * 1/150 = 300
       upi: 90000,          // 1X category: 90000 * 1/150 = 600 points => capped at 500
       base: 15000,         // 1X category: 15000 * 1/150 = 100 points
       fuel: 5000,          // excluded => 0
       rent: 10000          // excluded => 0
     });
 
-    // Total expected monthly units = 2500 (online capped) + 500 (upi capped) + 100 (base) = 3100 CashPoints
-    expect(result.monthlyUnits).toBe(3100);
-    expect(result.annualUnits).toBe(3100 * 12);
+    // The 10X row is modeled as "partner merchants" (BigBasket/Swiggy/Uber/OYO/BookMyShow), not a
+    // typed category, so typed online spend earns the 1X base rate here.
+    // Total expected monthly units = 300 (online base) + 500 (upi capped) + 100 (base) = 900 CashPoints
+    expect(result.monthlyUnits).toBe(900);
+    expect(result.annualUnits).toBe(900 * 12);
 
     const onlineRow = result.rows.find(r => r.category === "online");
-    expect(onlineRow!.monthlyUnits).toBe(2500);
+    expect(onlineRow!.monthlyUnits).toBe(300);
 
     const upiRow = result.rows.find(r => r.category === "upi");
     expect(upiRow!.monthlyUnits).toBe(500);
