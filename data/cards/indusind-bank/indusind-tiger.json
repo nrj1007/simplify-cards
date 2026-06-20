@@ -31,7 +31,7 @@
       "displayRate": "1 point per Rs 100",
       "capMonthly": null,
       "tierLowerBound": 0,
-      "tierUpperBound": 100000
+      "tierUpperBound": 8333
     },
     {
       "category": "base",
@@ -39,8 +39,8 @@
       "rate": 2,
       "displayRate": "2 points per Rs 100",
       "capMonthly": null,
-      "tierLowerBound": 101000,
-      "tierUpperBound": 250000
+      "tierLowerBound": 8333,
+      "tierUpperBound": 20833
     },
     {
       "category": "base",
@@ -48,8 +48,8 @@
       "rate": 4,
       "displayRate": "4 points per Rs 100",
       "capMonthly": null,
-      "tierLowerBound": 251000,
-      "tierUpperBound": 500000
+      "tierLowerBound": 20833,
+      "tierUpperBound": 41667
     },
     {
       "category": "base",
@@ -57,7 +57,7 @@
       "rate": 6,
       "displayRate": "6 points per Rs 100",
       "capMonthly": null,
-      "tierLowerBound": 500000,
+      "tierLowerBound": 41667,
       "tierUpperBound": null
     }
   ],

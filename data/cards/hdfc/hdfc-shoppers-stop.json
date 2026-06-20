@@ -16,6 +16,7 @@
     "upi"
   ],
   "rewardType": "reward points",
+  "rewardLiquidity": "brand-locked",
   "rewards": [
     {
       "category": "shoppers stop",

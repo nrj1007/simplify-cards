@@ -531,8 +531,8 @@ exports[`reward calculator golden (all cards) > computes stable earn for every c
     "moderate": "online:175 dining:175 travel:175 hotels:175 airlines:175 fuel:x grocery:175 utilities:175 upi:175 amazon:175 international:88 base:175 rent:61 insurance:61 education:88 gold:88 government:61 |2196",
   },
   "indusind-tiger": {
-    "high": "online:2980 dining:2980 travel:2980 hotels:2980 airlines:2980 fuel:x grocery:2980 utilities:2000 upi:2980 amazon:2980 international:2980 base:2980 rent:2000 insurance:2000 education:2000 gold:2980 government:2000 |42780",
-    "moderate": "online:250 dining:250 travel:250 hotels:250 airlines:250 fuel:x grocery:250 utilities:250 upi:250 amazon:250 international:250 base:250 rent:250 insurance:250 education:250 gold:250 government:250 |4000",
+    "high": "online:10667 dining:10667 travel:10667 hotels:10667 airlines:10667 fuel:x grocery:10667 utilities:2000 upi:10667 amazon:10667 international:10667 base:10667 rent:2000 insurance:2000 education:2000 gold:10667 government:2000 |127333",
+    "moderate": "online:500 dining:500 travel:500 hotels:500 airlines:500 fuel:x grocery:500 utilities:250 upi:500 amazon:500 international:500 base:500 rent:250 insurance:250 education:250 gold:500 government:250 |6750",
   },
   "irctc-rupay-sbi": {
     "high": "online:1600 dining:1600 travel:20000 hotels:1600 airlines:1600 fuel:x grocery:1600 utilities:1600 upi:1600 amazon:1600 international:1600 base:1600 rent:1600 insurance:1600 education:1600 gold:1600 government:1600 |44000",

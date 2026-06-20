@@ -1921,7 +1921,9 @@ function categoryFitAdjustment(
           isDirectRewardMatch(category, rewardCategory, includeSmartbuyLikeRewards) ||
           ((specialRule?.treatment === "rewarded" || specialRule?.treatment === "capped") && isBaseRewardCategory(rewardCategory))
         ) {
-          return categoryTotal + (isFocusedSpendProfile ? 32000 : 14000) * weight;
+          if (isFocusedSpendProfile) {
+            return categoryTotal + 32000 * weight;
+          }
         }
 
         return categoryTotal;
