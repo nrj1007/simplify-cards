@@ -58,7 +58,7 @@ export default function Home() {
           <div>
             <div className="eyebrow">✦ Smart credit-card guidance for India</div>
             <h1>
-              Ask myCards. <span className="text-teal">Find the right card for your spending.</span>
+              Ask SimplifyCards. <span className="text-teal">Find the right card for your spending.</span>
             </h1>
             <p className="hero-copy">
               Tell us how you spend. We&apos;ll shortlist the right Indian credit cards and explain the fees, rewards, and
@@ -128,7 +128,7 @@ export default function Home() {
               <h2>From question to decision in three steps.</h2>
             </div>
             <p>
-              Start with your real use case. myCards checks card rules and benefits, then explains the recommendation so you know
+              Start with your real use case. SimplifyCards checks card rules and benefits, then explains the recommendation so you know
               why it fits.
             </p>
           </div>
@@ -151,7 +151,7 @@ export default function Home() {
               <div className="home-section-kicker">Use cases</div>
               <h2>Start with what you care about.</h2>
             </div>
-            <p>Pick a goal below or ask your own question. myCards will turn it into a card shortlist you can compare.</p>
+            <p>Pick a goal below or ask your own question. SimplifyCards will turn it into a card shortlist you can compare.</p>
           </div>
           <div className="usecase-grid">
             {USE_CASES.map((useCase) => (
@@ -196,7 +196,7 @@ export default function Home() {
               <h2>Built to avoid guesswork.</h2>
             </div>
             <p>
-              Credit-card benefits change often. myCards shows caveats clearly and flags uncertain items for review instead of
+              Credit-card benefits change often. SimplifyCards shows caveats clearly and flags uncertain items for review instead of
               pretending to know.
             </p>
           </div>

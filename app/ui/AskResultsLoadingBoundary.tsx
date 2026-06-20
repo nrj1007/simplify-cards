@@ -4,7 +4,7 @@ import { useEffect, useState, type ReactNode } from "react";
 import { usePathname, useSearchParams } from "next/navigation";
 import { AskResultsSkeleton } from "@/components/loading/AskResultsSkeleton";
 
-export const ASK_RESULTS_LOADING_EVENT = "mycards:ask-results-loading";
+export const ASK_RESULTS_LOADING_EVENT = "simplifycards:ask-results-loading";
 
 export function triggerAskResultsLoading() {
   window.dispatchEvent(new CustomEvent(ASK_RESULTS_LOADING_EVENT));

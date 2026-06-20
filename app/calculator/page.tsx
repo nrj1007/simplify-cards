@@ -7,7 +7,7 @@ import { cards, getCardById } from "@/lib/cards";
 import { milestoneRulesForCard } from "@/lib/recommend";
 
 export const metadata: Metadata = {
-  title: "Reward Calculator | myCards",
+  title: "Reward Calculator | SimplifyCards",
   description:
     "Estimate the rewards and rupee value you earn on any Indian credit card based on your monthly spend, including milestone benefits."
 };

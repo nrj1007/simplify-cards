@@ -6,7 +6,7 @@ import { NavigationProgressProvider } from "./ui/NavigationProgress";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "myCards",
+  title: "SimplifyCards",
   description: "Find the right Indian credit card. Ask, compare by use case, grounded in verified card data."
 };
 
@@ -18,11 +18,11 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
           <div className="app-shell">
             <header className="navbar">
               <div className="container nav-inner">
-                <Link className="brand" href="/" aria-label="myCards home">
+                <Link className="brand" href="/" aria-label="SimplifyCards home">
                   <span className="brand-icon" aria-hidden="true">
                     <CreditCard size={20} />
                   </span>
-                  <span>myCards</span>
+                  <span>SimplifyCards</span>
                 </Link>
                 <nav className="nav-links" aria-label="Primary navigation">
                   <Link href="/ask">Ask</Link>
@@ -32,7 +32,7 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
                   <Link href="/compare">Compare</Link>
                 </nav>
                 <Link className="nav-cta" href="/ask">
-                  Ask myCards
+                  Ask SimplifyCards
                 </Link>
               </div>
             </header>
@@ -40,11 +40,11 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
             <footer className="footer">
               <div className="container footer-grid">
                 <div>
-                  <Link className="brand" href="/" aria-label="myCards home">
+                  <Link className="brand" href="/" aria-label="SimplifyCards home">
                     <span className="brand-icon" aria-hidden="true">
                       <CreditCard size={20} />
                     </span>
-                    <span>myCards</span>
+                    <span>SimplifyCards</span>
                   </Link>
                 </div>
                 <div>

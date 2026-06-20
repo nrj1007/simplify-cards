@@ -262,7 +262,7 @@ export default async function AskPage({ searchParams }: Props) {
   const toFitPercent = (score: number) =>
     topFitRaw > 0 ? Math.max(1, Math.min(100, Math.round((score / topFitRaw) * 100))) : 100;
   const answerHeadTitle = isRanked
-    ? `myCards found ${matchCount} relevant card${matchCount === 1 ? "" : "s"}.`
+    ? `SimplifyCards found ${matchCount} relevant card${matchCount === 1 ? "" : "s"}.`
     : topCard?.card.name ?? "";
   const answerHeadSub = isRanked
     ? "Ranked by how well they match the query, not by commission."
@@ -281,7 +281,7 @@ export default async function AskPage({ searchParams }: Props) {
     <div className="ask-results">
       <section className="ask-hero">
         <div className="container ask-hero-inner">
-          <div className="crumb">✦ {input?.query ? "Ask result" : "Ask myCards"}</div>
+          <div className="crumb">✦ {input?.query ? "Ask result" : "Ask SimplifyCards"}</div>
           <h1>{input?.query ? <>Results for &ldquo;{input.query}&rdquo;.</> : <>Ask anything about Indian credit cards.</>}</h1>
           <p className="ask-hero-copy">
             {input?.query
@@ -360,7 +360,7 @@ export default async function AskPage({ searchParams }: Props) {
 
                   <div className="panel-body">
                     <p className="takeaway">
-                      <strong>myCards take:</strong> {result.summary}
+                      <strong>SimplifyCards take:</strong> {result.summary}
                     </p>
 
                     {visibleAnswerHighlights.length > 0 ? (
@@ -687,7 +687,7 @@ export default async function AskPage({ searchParams }: Props) {
                     <div className="clarify-box">
                       <article className="clarify-card">
                         <h3>What matters more?</h3>
-                        <p>Pick one so myCards can rank more accurately.</p>
+                        <p>Pick one so SimplifyCards can rank more accurately.</p>
                         <div className="clarify-options">
                           {MATTER_CHIPS.map((chip) => (
                             <Link
@@ -764,7 +764,7 @@ export default async function AskPage({ searchParams }: Props) {
                 <div className="panel-body">
                   <div className="empty-state">
                     <h3>Ask your first question.</h3>
-                    <p>Type a question above and myCards will return a grounded answer from verified card data.</p>
+                    <p>Type a question above and SimplifyCards will return a grounded answer from verified card data.</p>
                   </div>
                 </div>
               </section>

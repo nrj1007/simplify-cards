@@ -1,5 +1,5 @@
 :root {
-  /* Core palette (mapped onto the myCards mockup) */
+  /* Core palette (mapped onto the SimplifyCards mockup) */
   --bg: #f4f3ec;
   --panel: #ffffff;
   --text: #172033;
@@ -275,7 +275,7 @@ textarea {
 }
 
 /* =========================================================
-   Homepage (myCards landing) — namespaced to avoid collisions
+   Homepage (SimplifyCards landing) — namespaced to avoid collisions
    ========================================================= */
 
 .hero {
@@ -4474,7 +4474,7 @@ textarea {
   font-size: 14px;
 }
 
-/* myCards take */
+/* SimplifyCards take */
 .card-detail-page .take-lead {
   margin: 0;
   color: #384353;

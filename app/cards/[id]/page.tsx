@@ -446,7 +446,7 @@ export default async function CardPage({ params, searchParams }: Props) {
                 <div className="panel-body">
                   <div className="section-head">
                     <div>
-                      <h2 className="section-title">myCards take</h2>
+                      <h2 className="section-title">SimplifyCards take</h2>
                       <p className="section-sub">A quick decision view before the full facts.</p>
                     </div>
                   </div>

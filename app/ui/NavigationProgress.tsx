@@ -107,7 +107,7 @@ export function NavigationProgressProvider({ children }: { children: ReactNode }
       if (url.origin !== window.location.origin) return;
       if (url.pathname === window.location.pathname && url.search === window.location.search) return;
       if (anchor.dataset.routeLoader === "ask-results") {
-        window.dispatchEvent(new CustomEvent("mycards:ask-results-loading"));
+        window.dispatchEvent(new CustomEvent("simplifycards:ask-results-loading"));
         return;
       }
       if (anchor.dataset.routeLoader === "none") return;
