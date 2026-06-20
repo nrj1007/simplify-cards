@@ -259,8 +259,8 @@ exports[`reward calculator golden (all cards) > computes stable earn for every c
     "moderate": "online:250 dining:250 travel:1250 hotels:250 airlines:250 fuel:x grocery:250 utilities:x upi:250 amazon:250 international:250 base:250 rent:x insurance:x education:x gold:x government:x |3500",
   },
   "hdfc-diners-club-black-metal": {
-    "high": "online:6667 dining:13333 travel:6667 hotels:6667 airlines:6667 fuel:x grocery:6667 utilities:6667 upi:6667 amazon:6667 international:6667 base:6667 rent:x insurance:6667 education:6667 gold:6667 government:x |100000",
-    "moderate": "online:833 dining:1667 travel:833 hotels:833 airlines:833 fuel:x grocery:833 utilities:833 upi:833 amazon:833 international:833 base:833 rent:x insurance:833 education:833 gold:833 government:x |12500",
+    "high": "online:6667 dining:6667 travel:6667 hotels:6667 airlines:6667 fuel:x grocery:6667 utilities:6667 upi:6667 amazon:6667 international:6667 base:6667 rent:x insurance:6667 education:6667 gold:6667 government:x |93333",
+    "moderate": "online:833 dining:833 travel:833 hotels:833 airlines:833 fuel:x grocery:833 utilities:833 upi:833 amazon:833 international:833 base:833 rent:x insurance:833 education:833 gold:833 government:x |11667",
   },
   "hdfc-diners-club-privilege": {
     "high": "online:4000 dining:2500 travel:4000 hotels:4000 airlines:4000 fuel:x grocery:4000 utilities:4000 upi:4000 amazon:4000 international:4000 base:4000 rent:x insurance:4000 education:x gold:4000 government:x |50500",
@@ -287,8 +287,8 @@ exports[`reward calculator golden (all cards) > computes stable earn for every c
     "moderate": "online:333 dining:667 travel:667 hotels:1333 airlines:333 fuel:x grocery:333 utilities:333 upi:333 amazon:333 international:333 base:333 rent:x insurance:333 education:333 gold:333 government:x |6333",
   },
   "hdfc-millennia": {
-    "high": "online:1000 dining:77 travel:77 hotels:77 airlines:77 fuel:x grocery:77 utilities:77 upi:77 amazon:77 international:77 base:77 rent:x insurance:77 education:77 gold:77 government:x |2000",
-    "moderate": "online:1000 dining:77 travel:77 hotels:77 airlines:77 fuel:x grocery:77 utilities:77 upi:77 amazon:77 international:77 base:77 rent:x insurance:77 education:77 gold:77 government:x |2000",
+    "high": "online:71 dining:71 travel:71 hotels:71 airlines:71 fuel:x grocery:71 utilities:71 upi:71 amazon:71 international:71 base:71 rent:x insurance:71 education:71 gold:71 government:x |1000",
+    "moderate": "online:71 dining:71 travel:71 hotels:71 airlines:71 fuel:x grocery:71 utilities:71 upi:71 amazon:71 international:71 base:71 rent:x insurance:71 education:71 gold:71 government:x |1000",
   },
   "hdfc-moneyback-plus": {
     "high": "online:2000 dining:2000 travel:2000 hotels:2000 airlines:2000 fuel:x grocery:2000 utilities:2000 upi:2000 amazon:2500 international:2000 base:2000 rent:x insurance:x education:2000 gold:2000 government:x |26500",
@@ -663,8 +663,8 @@ exports[`reward calculator golden (all cards) > computes stable earn for every c
     "moderate": "online:250 dining:250 travel:250 hotels:250 airlines:250 fuel:x grocery:1000 utilities:250 upi:250 amazon:250 international:250 base:250 rent:250 insurance:250 education:250 gold:250 government:250 |4750",
   },
   "rbl-world-max": {
-    "high": "online:8000 dining:1000 travel:4000 hotels:4000 airlines:4000 fuel:x grocery:4000 utilities:x upi:4000 amazon:4000 international:4000 base:4000 rent:x insurance:x education:x gold:4000 government:x |45000",
-    "moderate": "online:1000 dining:1000 travel:500 hotels:500 airlines:500 fuel:x grocery:500 utilities:x upi:500 amazon:500 international:500 base:500 rent:x insurance:x education:x gold:500 government:x |6500",
+    "high": "online:8000 dining:4000 travel:4000 hotels:4000 airlines:4000 fuel:x grocery:4000 utilities:x upi:4000 amazon:4000 international:4000 base:4000 rent:x insurance:x education:x gold:4000 government:x |48000",
+    "moderate": "online:1000 dining:500 travel:500 hotels:500 airlines:500 fuel:x grocery:500 utilities:x upi:500 amazon:500 international:500 base:500 rent:x insurance:x education:x gold:500 government:x |6000",
   },
   "rbl-world-prime": {
     "high": "online:1000 dining:4000 travel:4000 hotels:4000 airlines:4000 fuel:x grocery:4000 utilities:x upi:4000 amazon:4000 international:4000 base:4000 rent:x insurance:x education:x gold:4000 government:x |41000",

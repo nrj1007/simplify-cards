@@ -45,7 +45,7 @@
       "capGroup": "smartbuy"
     },
     {
-      "category": "dining",
+      "category": "partner merchants",
       "displayCategory": "weekend dining",
       "rate": 6.666666666666667,
       "displayRate": "10 Reward Points / Rs 150 on weekend dining at standalone restaurants",
@@ -60,6 +60,9 @@
       "capMonthly": null
     }
   ],
+  "acceleratedShare": {
+    "dining": 0.8
+  },
   "loungeDomestic": "unlimited",
   "loungeInternational": "unlimited",
   "lounge": {

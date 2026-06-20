@@ -17,7 +17,7 @@
   "rewardType": "cashback",
   "rewards": [
     {
-      "category": "online",
+      "category": "partner merchants",
       "displayCategory": "select online merchants",
       "rate": 5,
       "displayRate": "5% CashBack",
@@ -38,6 +38,9 @@
       "capDaily": 1000
     }
   ],
+  "acceleratedShare": {
+    "online": 0.7
+  },
   "loungeDomestic": 4,
   "loungeInternational": 0,
   "lounge": {

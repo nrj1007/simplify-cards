@@ -17,7 +17,7 @@
   "rewardType": "reward points",
   "rewards": [
     {
-      "category": "dining",
+      "category": "partner merchants",
       "displayCategory": "Weekend dining spends",
       "rate": 20,
       "displayRate": "20 Reward Points / Rs 100 spent",
@@ -38,6 +38,9 @@
       "capMonthly": null
     }
   ],
+  "acceleratedShare": {
+    "dining": 0.8
+  },
   "popularityScore": 72,
   "loungeDomestic": 6,
   "loungeInternational": 0,
