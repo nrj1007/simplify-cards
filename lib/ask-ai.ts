@@ -1,7 +1,7 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 import { cards, getCardById } from "./cards";
-import { answerFromCards, defaultSpendProfile, requestedTopCardCount, scoreCards } from "./recommend";
+import { answerFromCards, defaultSpendProfile, getAirMilesValue, requestedTopCardCount, scoreCards } from "./recommend";
 import type { CardScore } from "./types";
 import type { RecommendationInput } from "./types";
 import { unsupportedQuestionLogPath } from "./question-logs";
@@ -1060,8 +1060,8 @@ function buildSpecificQuestionAnswer(input: RecommendationInput, topCard: CardSc
         typeof topCard.card.redemption.travelEdgeValue === "number"
           ? `Travel EDGE travel value: Rs ${topCard.card.redemption.travelEdgeValue} per point.`
           : "",
-        typeof topCard.card.redemption.airMilesValue === "number"
-          ? `Air miles value: ${topCard.card.redemption.airMilesValue} per point.`
+        typeof getAirMilesValue(topCard.card) === "number"
+          ? `Air miles value: ${getAirMilesValue(topCard.card)} per point.`
           : "",
         typeof topCard.card.redemption.statementBalanceValue === "number"
           ? `Statement credit value: Rs ${topCard.card.redemption.statementBalanceValue} per point.`

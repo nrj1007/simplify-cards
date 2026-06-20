@@ -26,7 +26,7 @@
  */
 import { readFileSync, readdirSync, statSync } from "fs";
 import { join } from "path";
-import { scoreCards } from "../lib/recommend";
+import { scoreCards, getAirMilesValue } from "../lib/recommend";
 import type { CreditCard } from "../lib/types";
 
 const BROAD_CATEGORIES = ["online", "base", "offline", "retail", "dining", "grocery", "upi", "amazon"];
@@ -56,6 +56,10 @@ function loadAllCards(): CreditCard[] {
 function numericRedemptionValues(card: CreditCard): number[] {
   const r: Record<string, unknown> = (card.redemption ?? {}) as Record<string, unknown>;
   const flat = Object.values(r).filter((v): v is number => typeof v === "number" && v > 0);
+  const airMiles = getAirMilesValue(card);
+  if (typeof airMiles === "number" && airMiles > 0) {
+    flat.push(airMiles);
+  }
   const transfer = (card.redemption?.transferPartnerValuations ?? []).map((t) => t.partnerPointValue * t.transferRatio);
   return [...flat, ...transfer].filter((v) => v > 0);
 }

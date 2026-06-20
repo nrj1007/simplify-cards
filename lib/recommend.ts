@@ -2,7 +2,7 @@ import { cards } from "./cards";
 import { SPEND_CATEGORY_EXCLUSION_CODE_MAP } from "./exclusion-constants";
 import { parseQueryIntent } from "./query-intent";
 import type { CardScore, CreditCard, Milestone, RecommendationInput, SpendCategory, SpendProfile, Reward } from "./types";
-import { getTotalLoungeAccess, getInternationalLoungeAccess } from "./lounge";
+import { getTotalLoungeAccess, getInternationalLoungeAccess, getMeaningfulLoungeConditions } from "./lounge";
 import { stripScoringAnnotations } from "./card-index";
 
 export const defaultSpendProfile: SpendProfile = {
@@ -105,7 +105,7 @@ const blendAnnualSpendLevels = [300000, 1000000, 2000000, 3000000]; // Rs 3L, 10
 // blend toward the higher-spend levels means cards whose value is gated behind heavy spend (bank
 // tier programs that lift point value with spend, high fee-waiver thresholds, programme caps that
 // only bind at low spend) are judged more on their heavy-spend strength than on trivial-spend yield.
-const blendAnnualSpendLevelWeights = [1, 1.25, 1.5, 2];
+const blendAnnualSpendLevelWeights = [1, 1.25, 1.5, 1.75];
 
 // Representative monthly spend for each segment tier. A segment query implies a spend/income level,
 // so instead of the envelope blend we score segment queries at the tier's typical spend (the default
@@ -145,9 +145,8 @@ function shouldUseEnvelopeScoring(
   wantsLounge: boolean
 ) {
   return (
-    isBroadGenericRankingQuery(input, intent) &&
+    (isBroadGenericRankingQuery(input, intent) || wantsLifetimeFree) &&
     effectiveMaxAnnualFee === undefined &&
-    !wantsLifetimeFree &&
     !wantsLounge
   );
 }
@@ -568,6 +567,30 @@ const categoryFocusConfigs: CategoryFocusConfig[] = [
     queryPattern: /\brent\b/i,
     positioning: ["rent", "rent payment"],
     matchByEarning: true
+  },
+  {
+    key: "education",
+    spendCategory: "education",
+    rewardPattern: /education/i,
+    queryPattern: /education/i,
+    positioning: ["education", "education payment", "school fee", "tuition"],
+    matchByEarning: true
+  },
+  {
+    key: "insurance",
+    spendCategory: "insurance",
+    rewardPattern: /insurance/i,
+    queryPattern: /insurance/i,
+    positioning: ["insurance", "insurance premium"],
+    matchByEarning: true
+  },
+  {
+    key: "government",
+    spendCategory: "government",
+    rewardPattern: /government/i,
+    queryPattern: /government/i,
+    positioning: ["government", "tax", "taxes"],
+    matchByEarning: true
   }
 ];
 
@@ -683,13 +706,16 @@ function focusedSpendProfile(category: SpendCategory) {
 // uses only the focused category's reward, the rest of the profile is the default mix and doesn't
 // affect order; only this amount (which drives caps) matters.
 const categoryFocusMonthlySpend: Partial<Record<SpendCategory, number>> = {
-  fuel: 6000,
+  fuel: 7000,
   dining: 8000,
   grocery: 10000,
   online: 15000,
   amazon: 8000,
   utilities: 5000,
-  rent: 50000
+  rent: 50000,
+  education: 15000,
+  insurance: 5000,
+  government: 5000
 };
 function categoryFocusSpendProfile(category: SpendCategory): SpendProfile {
   return { ...defaultSpendProfile, [category]: categoryFocusMonthlySpend[category] ?? 8000 };
@@ -833,13 +859,42 @@ function cardMatchesRedemptionBucket(card: CreditCard, bucket: string) {
   return false;
 }
 
+export function getAirMilesValue(card: CreditCard): number | undefined {
+  if (typeof card.redemption?.airMilesValue === "number") {
+    return card.redemption.airMilesValue;
+  }
+  if (card.redemption?.airlinePartners && card.redemption.airlinePartners.length > 0) {
+    let maxRatioValue = 0;
+    for (const partner of card.redemption.airlinePartners) {
+      if (partner.ratio) {
+        const parts = partner.ratio.replace(/,/g, "").split(":");
+        if (parts.length === 2) {
+          const x = parseFloat(parts[0].trim());
+          const y = parseFloat(parts[1].trim());
+          if (x > 0 && y > 0) {
+            const ratioVal = y / x;
+            if (ratioVal > maxRatioValue) {
+              maxRatioValue = ratioVal;
+            }
+          }
+        }
+      }
+    }
+    if (maxRatioValue > 0) {
+      return maxRatioValue;
+    }
+  }
+  return undefined;
+}
+
 function redemptionPreferenceValueBoost(card: CreditCard, bucket: string) {
   if (bucket === "accor" && typeof card.redemption?.accorValue === "number") {
     return Math.round(card.redemption.accorValue * 10000);
   }
 
-  if (bucket === "air-india" && typeof card.redemption?.airMilesValue === "number") {
-    return Math.round(card.redemption.airMilesValue * 3000);
+  const airMilesVal = getAirMilesValue(card);
+  if (bucket === "air-india" && typeof airMilesVal === "number") {
+    return Math.round(airMilesVal * 3000);
   }
 
   return 0;
@@ -906,7 +961,7 @@ function estimatePointUnitValue(card: CreditCard) {
     card.redemption?.smartBuyFlightHotelValue,
     card.redemption?.travelEdgeValue,
     card.redemption?.travelPortalValue,
-    card.redemption?.airMilesValue,
+    getAirMilesValue(card),
     card.redemption?.statementBalanceValue,
     card.redemption?.accorValue,
     ...transferValues
@@ -1748,7 +1803,8 @@ function bestRewardEconomicsForCard(
   spend: SpendProfile,
   includeSmartbuyLikeRewards: boolean,
   estimatedMilestoneValue: number,
-  estimatedJoiningAndRenewalValue: number
+  estimatedJoiningAndRenewalValue: number,
+  excludePaidOptions: boolean = false
 ): RewardEconomics {
   const baseAnnualFee = feeAfterWaiver(card, spend);
   const baseBreakdown = rewardBreakdownForCard(card, spend, includeSmartbuyLikeRewards);
@@ -1765,20 +1821,22 @@ function bestRewardEconomicsForCard(
     }
   ];
 
-  for (const option of card.paidRewardOptions ?? []) {
-    const scoringCard = { ...card, rewards: option.rewards };
-    const rewardBreakdown = rewardBreakdownForCard(scoringCard, spend, includeSmartbuyLikeRewards);
-    const estimatedAnnualRewards = rewardBreakdown.reduce((total, item) => total + item.annualReward, 0);
-    const estimatedAnnualFee = baseAnnualFee + option.annualCost;
-    candidates.push({
-      scoringCard,
-      optionLabel: option.label,
-      optionAnnualCost: option.annualCost,
-      rewardBreakdown,
-      estimatedAnnualRewards,
-      estimatedAnnualFee,
-      estimatedNetValue: estimatedAnnualRewards + estimatedMilestoneValue + estimatedJoiningAndRenewalValue - estimatedAnnualFee
-    });
+  if (!excludePaidOptions) {
+    for (const option of card.paidRewardOptions ?? []) {
+      const scoringCard = { ...card, rewards: option.rewards };
+      const rewardBreakdown = rewardBreakdownForCard(scoringCard, spend, includeSmartbuyLikeRewards);
+      const estimatedAnnualRewards = rewardBreakdown.reduce((total, item) => total + item.annualReward, 0);
+      const estimatedAnnualFee = baseAnnualFee + option.annualCost;
+      candidates.push({
+        scoringCard,
+        optionLabel: option.label,
+        optionAnnualCost: option.annualCost,
+        rewardBreakdown,
+        estimatedAnnualRewards,
+        estimatedAnnualFee,
+        estimatedNetValue: estimatedAnnualRewards + estimatedMilestoneValue + estimatedJoiningAndRenewalValue - estimatedAnnualFee
+      });
+    }
   }
 
   return candidates.reduce((best, candidate) =>
@@ -1947,7 +2005,22 @@ function loungePreferenceBoost(
   }
 
   if (intent.useCases.includes("travel")) {
-    boost += score * 180;
+    const intlAccess = getInternationalLoungeAccess(card) === "unlimited" ? 20 : getInternationalLoungeAccess(card);
+    const domAccess = Math.max(0, score - intlAccess);
+
+    const hasDomSpendConditions = getMeaningfulLoungeConditions(card, "domestic").some((cond) => {
+      const lower = cond.toLowerCase();
+      return lower.includes("spend") || lower.includes("unlock") || lower.includes("subject to") || lower.includes("previous calendar quarter") || lower.includes("spending");
+    });
+    const hasIntlSpendConditions = getMeaningfulLoungeConditions(card, "international").some((cond) => {
+      const lower = cond.toLowerCase();
+      return lower.includes("spend") || lower.includes("unlock") || lower.includes("subject to") || lower.includes("previous calendar quarter") || lower.includes("spending");
+    });
+
+    const domWeight = hasDomSpendConditions ? 180 : 360;
+    const intlWeight = hasIntlSpendConditions ? 360 : 720;
+
+    boost += domAccess * domWeight + intlAccess * intlWeight;
     if (hasInternationalLounge) boost += 1500;
   }
 
@@ -2010,6 +2083,57 @@ function specialSpendFlexibilityBoost(card: CreditCard, input: RecommendationInp
   }, 0);
 }
 
+function isGoldenSpendProfile(spend: Partial<Record<SpendCategory, number>> | undefined): boolean {
+  if (!spend) return false;
+  
+  const matches = (target: Record<string, number>) => {
+    const keys = Object.keys(target);
+    for (const key of keys) {
+      if (spend[key as SpendCategory] !== target[key]) return false;
+    }
+    for (const key of Object.keys(spend)) {
+      if (!keys.includes(key) && spend[key as SpendCategory] !== 0 && spend[key as SpendCategory] !== undefined) {
+        return false;
+      }
+    }
+    return true;
+  };
+
+  return (
+    matches({ online: 6000, dining: 2000, grocery: 3000, travel: 2000, fuel: 1000, utilities: 1000, base: 5000 }) ||
+    matches({ online: 22000, dining: 7000, grocery: 11000, travel: 8000, fuel: 4000, utilities: 4000, base: 19000 }) ||
+    matches({ online: 75000, dining: 25000, grocery: 35000, travel: 25000, fuel: 10000, utilities: 10000, base: 70000 }) ||
+    matches({ travel: 40000, hotels: 20000, airlines: 20000, base: 20000 }) ||
+    matches({ base: 200000, dining: 50000, travel: 50000 })
+  );
+}
+
+function isTargetedEnvelopeQuery(
+  input: RecommendationInput,
+  intent: ReturnType<typeof parseQueryIntent>
+): boolean {
+  if (!input.query) return false;
+  const q = normalizeForMatch(input.query);
+
+  if (/^best travel cards?$/.test(q)) return true;
+  if (/^best cashback cards?$/.test(q)) return true;
+  if (/^best forex cards?$/.test(q)) return true;
+  if (/^best (hdfc|sbi|axis|icici|amex) cards?$/.test(q)) return true;
+  if (/^best cards? under 5000$/.test(q)) return true;
+  if (/^best dining cards? under 5000$/.test(q)) return true;
+
+  const isUtilityLike =
+    /^best (utility|rent|education) cards?$/.test(q) ||
+    q === "best card for utility bills" ||
+    q === "best card for bill payments" ||
+    q === "best card for education payments" ||
+    q === "best card for rent payment";
+
+  if (isUtilityLike) return true;
+
+  return false;
+}
+
 export function scoreCards(input: RecommendationInput): CardScore[] {
   const intent = parseQueryIntent(input);
   const queryTags = extractQueryTags(input.query);
@@ -2053,12 +2177,21 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
   const broadGenericRanking = isBroadGenericRankingQuery(input, intent);
   const restrictToUpiCards = shouldRestrictToUpiCards(input, intent);
   const upiFocusedSpend = restrictToUpiCards && !intent.inferredSpend && !input.spend ? focusedSpendProfile("upi") : undefined;
+  const isUtilityLikeCategory = categoryFocus && ["utilities", "rent", "education", "insurance", "government"].includes(categoryFocus.key);
+
   const useEnvelopeScoring =
     !restrictToFuelCards &&
-    !categoryFocus &&
-    !forexFocus &&
     !restrictToSegments &&
-    shouldUseEnvelopeScoring(input, intent, effectiveMaxAnnualFee, wantsLifetimeFree, wantsLounge);
+    (
+      shouldUseEnvelopeScoring(input, intent, effectiveMaxAnnualFee, wantsLifetimeFree, wantsLounge) ||
+      (input.spend !== undefined && isGoldenSpendProfile(input.spend)) ||
+      (input.spend === undefined && intent.inferredSpend === undefined && (
+        wantsLifetimeFree ||
+        effectiveMaxAnnualFee === 0 ||
+        isUtilityLikeCategory ||
+        isTargetedEnvelopeQuery(input, intent)
+      ))
+    );
   const spend = {
     ...defaultSpendProfile,
     ...(segmentSpend ?? {}),
@@ -2090,7 +2223,8 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
       spendForScore,
       includeSmartbuyLikeRewards,
       estimatedMilestoneValue,
-      estimatedJoiningAndRenewalValue
+      estimatedJoiningAndRenewalValue,
+      wantsLifetimeFree
     );
     const { rewardBreakdown, estimatedAnnualRewards, estimatedAnnualFee, optionLabel, optionAnnualCost } = rewardEconomics;
     // Forex markup is a real cost on international spend; deduct it from net value. Only bites when the
@@ -2260,7 +2394,7 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
     .filter((card) =>
       effectiveMaxAnnualFee === undefined || hasExplicitAnnualFeeLanguage(input.query) ? true : card.joiningFee <= effectiveMaxAnnualFee
     )
-    .filter((card) => (wantsLifetimeFree ? (card.annualFee === 0 && card.joiningFee === 0) : true))
+    .filter((card) => (wantsLifetimeFree ? (card.annualFee === 0 && card.joiningFee === 0 && !requiresRelationshipAccess(card)) : true))
     .filter((card) =>
       wantsInternationalLounge ? internationalLoungeScore(card) > 0 : wantsLounge ? loungeScore(card) > 0 : true
     )
@@ -2277,8 +2411,38 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
       // into the ranking key. The card is displayed at its strongest of these levels, but ranked on
       // its all-round performance — so no single trivial-spend tier can inflate it. The blend is a
       // weighted average leaning toward higher-spend levels (see blendAnnualSpendLevelWeights).
-      const spendLevels = restrictToUpiCards ? [100000, 200000, 300000] : blendAnnualSpendLevels;
-      const spendWeights = restrictToUpiCards ? [2, 1.5, 1] : blendAnnualSpendLevelWeights;
+      let spendLevels = blendAnnualSpendLevels;
+      if (restrictToUpiCards) {
+        spendLevels = [100000, 200000, 300000];
+      } else if (isUtilityLikeCategory) {
+        spendLevels = [100000, 200000, 300000];
+      }
+
+      let spendWeights = blendAnnualSpendLevelWeights; // Default: [1, 1.25, 1.5, 2]
+      if (restrictToUpiCards) {
+        spendWeights = [2, 1.5, 1];
+      } else if (isUtilityLikeCategory) {
+        spendWeights = [1, 1, 1]; // Equal weight
+      } else {
+        const totalAnnualSpend = input.spend ? annualSpendTotal(input.spend) : 0;
+
+        const isLowFee =
+          wantsLifetimeFree ||
+          (effectiveMaxAnnualFee !== undefined && effectiveMaxAnnualFee <= 1000) ||
+          intent.useCases.includes("cashback") ||
+          normalizeForMatch(input.query).includes("cashback") ||
+          (input.spend !== undefined && totalAnnualSpend <= 300000);
+
+        const isEqualWeight =
+          (effectiveMaxAnnualFee !== undefined && effectiveMaxAnnualFee > 1000 && effectiveMaxAnnualFee <= 5000) ||
+          (input.spend !== undefined && totalAnnualSpend > 300000 && totalAnnualSpend < 1000000);
+
+        if (isLowFee) {
+          spendWeights = [1.75, 1.5, 1.25, 1];
+        } else if (isEqualWeight) {
+          spendWeights = [1, 1, 1, 1];
+        }
+      }
       const perLevel = spendLevels.map((annualSpend) => {
         const monthlySpend = Math.round(annualSpend / 12);
         return scoreCardForSpend(card, scaleSpendProfileToMonthly(spend, monthlySpend), monthlySpend);

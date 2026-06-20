@@ -54,7 +54,7 @@ function searchableTextForCard(card: CreditCard) {
     .toLowerCase();
 }
 
-function useCaseBucketsForCard(card: CreditCard, searchableText: string): UseCaseBucket[] {
+function getUseCaseBucketsForCard(card: CreditCard, searchableText: string): UseCaseBucket[] {
   const buckets = new Set<UseCaseBucket>();
 
   if (
@@ -181,7 +181,7 @@ for (const card of cards) {
   groupCardsBy(card.network, card, cardsByNetworkMap);
   groupCardsBy([...new Set(card.rewards.map((reward) => reward.category))], card, cardsByRewardCategoryMap);
   groupCardsBy([popularityBandForCard(card)], card, cardsByPopularityBandMap as Map<string, CreditCard[]>);
-  groupCardsBy(useCaseBucketsForCard(card, searchableText), card, cardsByUseCaseMap as Map<string, CreditCard[]>);
+  groupCardsBy(getUseCaseBucketsForCard(card, searchableText), card, cardsByUseCaseMap as Map<string, CreditCard[]>);
   groupCardsBy(redemptionBucketsForCard(searchableText), card, cardsByRedemptionBucketMap as Map<string, CreditCard[]>);
   groupCardsBy(cardSegmentsForCard(card, searchableText), card, cardsByCardSegmentMap as Map<string, CreditCard[]>);
 }
