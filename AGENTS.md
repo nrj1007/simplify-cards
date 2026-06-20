@@ -32,6 +32,14 @@ npm run validate:cards   # validates every data/cards/**/*.json against the sche
   `__webpack_modules__ is not a function` or `Restoring pack failed`, the webpack dev cache is
   corrupt: delete `.next/dev/cache` (or all of `.next`) and restart.
 
+## Agent worktree and port ownership
+- **Codex** works in the **Codex main worktree**, on the **`main` branch**, and uses **port `3000`**.
+- **Claude** works in the **Claude main worktree**, on the **`main` branch**, and uses **port `3001`**.
+- **Gemini** works in the **Gemini main worktree**, on the **`main` branch**, and uses **port `3002`**.
+
+## Commit workflow
+- After **every change**, commit it and push it to **`main`** unless the user explicitly asks for a different branch or wants changes left uncommitted.
+
 ## Repo layout
 ```
 app/            Next.js App Router — pages, API routes, UI components   (see app/AGENTS.md)
