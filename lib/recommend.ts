@@ -2027,13 +2027,7 @@ function loungePreferenceBoost(
   return boost;
 }
 
-function forexPreferenceBoost(
-  card: CreditCard,
-  intent: ReturnType<typeof parseQueryIntent>,
-  isCategoryFocused: boolean = false
-) {
-  if (isCategoryFocused) return 0;
-
+function forexPreferenceBoost(card: CreditCard, intent: ReturnType<typeof parseQueryIntent>) {
   const markup = typeof card.forexMarkup === "number" ? card.forexMarkup : 3.5;
   const betterThanBaseline = 3.5 - markup;
   const explicitForexQuery = intent.tags.includes("forex");
@@ -2041,9 +2035,9 @@ function forexPreferenceBoost(
 
   let weight = 0;
   if (betterThanBaseline > 0) {
-    weight = explicitForexQuery ? 30000 : travelIntent ? 3500 : 1500;
+    weight = explicitForexQuery ? 30000 : travelIntent ? 1750 : 375;
   } else if (betterThanBaseline < 0) {
-    weight = explicitForexQuery ? 18000 : travelIntent ? 2000 : 1000;
+    weight = explicitForexQuery ? 18000 : travelIntent ? 1000 : 250;
   }
 
   return Math.round(betterThanBaseline * weight);
@@ -2183,6 +2177,20 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
   const upiFocusedSpend = restrictToUpiCards && !intent.inferredSpend && !input.spend ? focusedSpendProfile("upi") : undefined;
   const isUtilityLikeCategory = categoryFocus && ["utilities", "rent", "education", "insurance", "government"].includes(categoryFocus.key);
 
+  const hasForexOrTravelIntent = intent.tags.includes("forex") || intent.useCases.includes("travel");
+  const isGeneralQuery =
+    !input.spend &&
+    !intent.inferredSpend &&
+    intent.issuers.length === 0 &&
+    intent.networks.length === 0 &&
+    intent.useCases.every((u) => u === "travel") &&
+    intent.segments.every((s) => s === "ltf") &&
+    intent.redemptionBuckets.length === 0 &&
+    categoryFocus === null &&
+    !restrictToFuelCards &&
+    !restrictToUpiCards;
+  const isForexBoostAllowed = hasForexOrTravelIntent || isGeneralQuery;
+
   const useEnvelopeScoring =
     !restrictToFuelCards &&
     !restrictToSegments &&
@@ -2271,7 +2279,7 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
     // For a forex-focused query the markup is already costed into net value (estimatedForexCost), so
     // the heuristic forex boost would double-count — suppress it. It still applies to travel queries,
     // where international spend isn't focused and the boost is the only forex signal.
-    const forexBoost = forexFocus ? 0 : forexPreferenceBoost(card, intent, categoryFocus !== null || restrictToFuelCards);
+    const forexBoost = forexFocus ? 0 : (isForexBoostAllowed ? forexPreferenceBoost(card, intent) : 0);
     const spendCategoryBoost = categoryFitAdjustment(card, spendForScore, includeSmartbuyLikeRewards);
     const specialSpendBoost = specialSpendFlexibilityBoost(card, input, intent);
     const milestoneBoost = milestoneSpecialistBoost(card, broadNoSpendRankingQuery);
