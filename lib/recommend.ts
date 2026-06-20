@@ -771,10 +771,6 @@ function requiresRelationshipAccess(card: CreditCard) {
   ].some((token) => haystack.includes(token));
 }
 
-function genericRelationshipPenalty(card: CreditCard, input: RecommendationInput, intent: ReturnType<typeof parseQueryIntent>) {
-  return 0;
-}
-
 function shouldHideCardFromGenericRanking(card: CreditCard, input: RecommendationInput, intent: ReturnType<typeof parseQueryIntent>) {
   const isAtlas = card.id === "axis-atlas";
   const isDiscontinued = card.status === "discontinued";
@@ -2290,7 +2286,6 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
       broadMixedSpendQuery
     });
     const ltfQueryBoost = genericLtfAdjustment(card, intent);
-    const relationshipPenalty = genericRelationshipPenalty(card, input, intent);
     const specialSpendBoost = specialSpendFlexibilityBoost(card, input, intent);
     const milestoneBoost = milestoneSpecialistBoost(card, broadNoSpendRankingQuery);
     const envelopeLabel = envelopeMonthlySpend ? formatEnvelopeSpendLabel(envelopeMonthlySpend) : null;
@@ -2352,7 +2347,6 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
       spendCategoryBoost +
       comparisonMilestoneAndWaiverDelta +
       ltfQueryBoost +
-      relationshipPenalty +
       specialSpendBoost +
       milestoneBoost +
       card.popularityScore * popularityRankingWeight;
