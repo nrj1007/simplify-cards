@@ -92,7 +92,13 @@
   ],
   "redemption": {
     "ecosystemLabel": "Equitas Xchange",
-    "ecosystemValue": 0.35,
+    "ecosystemValue": 1,
+    "pointValueTiers": [
+      { "minMonthlySpend": 0, "value": 0.35 },
+      { "minMonthlySpend": 40000, "value": 0.5 },
+      { "minMonthlySpend": 60000, "value": 0.75 },
+      { "minMonthlySpend": 100000, "value": 1 }
+    ],
     "airlinePartners": [],
     "hotelPartners": []
   },
@@ -119,7 +125,7 @@
     "Card details manually reviewed and verified by user on 2026-06-15.",
     "The live page explicitly shows 5X rewards on 2 self-chosen categories and a base earn rate of 2 RP per Rs 100, so the accelerated row is modeled as 10 RP per Rs 100 on the two selected categories.",
     "The live page explicitly confirms a renewal fee waiver on Rs 2.4 lakh annual spends in the previous anniversary year and a limited-period first-year-free offer excluding GST.",
-    "The live page explicitly shows 1 RP = Rs 0.35 on Xchange redemption.",
+    "Xchange redemption value is spend-tiered via the Equitas Privilege Program (common to all 3 Equitas cards): 1 RP = Rs 0.35 at Blue (base), rising to Rs 0.50 (Gold, Rs 40k/mo), Rs 0.75 (Platinum, Rs 60k/mo), and Rs 1.00 (Diamond, Rs 1L/mo) — a 3.5% to 10% valueback on the 5X categories. Modeled via redemption.pointValueTiers for ranking; ecosystemValue 1 shows the top-tier headline (PowerMiles convention). The flat Rs 0.35 captured in the 2026-06-15 audit is the Blue/base tier only. Silver (Rs 20k/mo) value is unconfirmed, modeled as staying at Blue until Gold.",
     "Metal card variant may carry additional charges; confirm with bank at time of issuance.",
     "Finance charges: 3.75% per month. Cash advance fee: 2.5% or Rs 250 whichever is higher."
   ]
