@@ -39,6 +39,7 @@ These are listed or have official pages, but should not be added as active-new-a
 ## Product Work After Axis
 
 - [ ] Verify recommender/scoring penalties (fit, missing, exclusion, etc.) and tune their relative weights.
+- [ ] Evaluate if we still need the milestone delta boost (`comparisonMilestoneAndWaiverDelta`) or if it can be retired as envelope scoring is expanded.
 - [ ] Add views count metrics/display on the landing page.
 - [ ] Add a Contact Us page.
 - [ ] Create latest news page showing recent card updates, devaluations, new launches, and lounge/benefit changes.
