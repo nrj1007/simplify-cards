@@ -86,6 +86,7 @@ function acceleratedShareForCategory(card: CreditCard, category: SpendCategory) 
 const broadComparisonUpsideWeight = 0.4;
 const defaultTopCardCount = 3;
 const joiningBenefitAmortizationYears = 2;
+const LOUNGE_QUERY_VALUE_WEIGHT = 10;
 
 // Scoring stage weights: relevance (text/identity match) vs value (economic/preference fit)
 const relevanceWeightExactMatch = 1.0;
@@ -2037,7 +2038,8 @@ function loungePreferenceBoost(
   const commonPoolUplift = card.loungeGuestSharedPool ? primaryLoungeValue * 0.25 : 0;
 
   const travelLoungeValue = primaryLoungeValue + commonPoolUplift + separateGuestValue;
-  boost += isCategoryFocused ? 0 : Math.round(travelLoungeValue * 0.5);
+  const loungeValueWeight = isCategoryFocused ? 0 : (wantsLounge ? LOUNGE_QUERY_VALUE_WEIGHT : 0.5);
+  boost += Math.round(travelLoungeValue * loungeValueWeight);
 
   if (intent.useCases.includes("travel")) {
     boost += Math.round(travelLoungeValue * 0.5);
