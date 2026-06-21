@@ -2023,7 +2023,15 @@ function loungePreferenceBoost(
   const domWeight = hasDomSpendConditions ? 180 : 360;
   const intlWeight = hasIntlSpendConditions ? 360 : 720;
 
-  const travelLoungeValue = domAccess * domWeight + intlAccess * intlWeight;
+  // Complimentary guest visits are real but secondary value (you bring a guest only sometimes), so
+  // they count at a discount against the same per-visit weights and flow through the same broad/
+  // travel/category-focus treatment as primary access.
+  const guestLoungeDiscount = 0.4;
+  const guestDom = card.loungeGuestDomestic ?? 0;
+  const guestIntl = card.loungeGuestInternational ?? 0;
+  const guestLoungeValue = (guestDom * domWeight + guestIntl * intlWeight) * guestLoungeDiscount;
+
+  const travelLoungeValue = domAccess * domWeight + intlAccess * intlWeight + guestLoungeValue;
   boost += isCategoryFocused ? 0 : Math.round(travelLoungeValue * 0.5);
 
   if (intent.useCases.includes("travel")) {

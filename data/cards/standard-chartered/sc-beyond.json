@@ -26,7 +26,7 @@
     },
     {
       "category": "utilities, insurance, government, education, grocery",
-      "rate": 2.0,
+      "rate": 2,
       "displayCategory": "Utility, insurance, grocery, school, property management and government spends",
       "displayRate": "3 reward points / Rs 150 spent",
       "capMonthly": null
@@ -35,6 +35,7 @@
   "popularityScore": 72,
   "loungeDomestic": "unlimited",
   "loungeInternational": "unlimited",
+  "loungeGuestDomestic": 4,
   "forexMarkup": 2,
   "tags": [
     "standard chartered",
@@ -69,7 +70,7 @@
     "25% off on EazyDiner premium dining offers"
   ],
   "redemption": {
-    "statementBalanceValue": 1.0,
+    "statementBalanceValue": 1,
     "pointsExpiryYears": 3
   },
   "eligibility": {

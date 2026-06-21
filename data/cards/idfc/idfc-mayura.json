@@ -33,7 +33,7 @@
     },
     {
       "category": "rent, education, government",
-      "rate": 2.0,
+      "rate": 2,
       "displayCategory": "Rent, education, wallet load, and government spends",
       "displayRate": "3 Reward Points per Rs 150 spent",
       "capMonthly": null
@@ -48,6 +48,7 @@
   ],
   "loungeDomestic": 16,
   "loungeInternational": 16,
+  "loungeGuestDomestic": 4,
   "lounge": {
     "domestic": [
       "4 complimentary domestic airport lounge visits per quarter (including 1 guest visit), subject to a minimum spend of Rs 20,000 in the previous calendar month."

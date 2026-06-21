@@ -59,6 +59,7 @@
   ],
   "loungeDomestic": "unlimited",
   "loungeInternational": "unlimited",
+  "loungeGuestInternational": 8,
   "lounge": {
     "domestic": [
       "Unlimited complimentary domestic airport lounge access for primary and add-on cardholders."
@@ -157,14 +158,14 @@
       {
         "partner": "Accor (ALL)",
         "partnerPointValue": 2,
-        "transferRatio": 1.0,
+        "transferRatio": 1,
         "basis": "fixed",
         "note": "1 reward point → 1 Accor ALL point · Rs 2/point"
       },
       {
         "partner": "Marriott Bonvoy",
         "partnerPointValue": 0.6,
-        "transferRatio": 1.0,
+        "transferRatio": 1,
         "basis": "dynamic",
         "note": "1 reward point → 1 Marriott point · avg Rs 0.6/point"
       }
@@ -294,7 +295,7 @@
       }
     ],
     "statementBalanceValue": null,
-    "airMilesValue": 1.0,
+    "airMilesValue": 1,
     "pointsExpiryYears": null
   },
   "eligibility": {

@@ -36,6 +36,8 @@
   "popularityScore": 75,
   "loungeDomestic": "unlimited",
   "loungeInternational": "unlimited",
+  "loungeGuestDomestic": 2,
+  "loungeGuestInternational": 2,
   "lounge": {
     "domestic": [
       "Unlimited domestic lounge access for primary and add-on cardholders.",
@@ -99,8 +101,8 @@
   ],
   "redemption": {
     "statementBalanceValue": 0.5,
-    "travelPortalValue": 1.0,
-    "airMilesValue": 1.0,
+    "travelPortalValue": 1,
+    "airMilesValue": 1,
     "minimumPointsForStatementCredit": 500,
     "voucherRedemptions": [
       {
@@ -113,7 +115,7 @@
         "partner": "Travel bookings",
         "programme": "Flight & hotel bookings via Kotak Unbox",
         "ratio": "1 Air Mile = Rs 1.0",
-        "valuePerPoint": 1.0
+        "valuePerPoint": 1
       }
     ],
     "airlinePartners": [
@@ -173,8 +175,8 @@
     "transferPartnerValuations": [
       {
         "partner": "Maharaja Club",
-        "partnerPointValue": 1.0,
-        "transferRatio": 1.0,
+        "partnerPointValue": 1,
+        "transferRatio": 1,
         "basis": "dynamic",
         "note": "1 Air Mile → 1 Maharaja Club point · Rs 1.0/point"
       },

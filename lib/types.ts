@@ -193,6 +193,10 @@ export type CreditCard = {
   popularityScore: number;
   loungeDomestic: number | "unlimited";
   loungeInternational: number | "unlimited";
+  // Complimentary guest lounge visits per year (the primary cardholder can bring guests free).
+  // Only set when the card genuinely offers complimentary guest visits — not when guests are charged.
+  loungeGuestDomestic?: number;
+  loungeGuestInternational?: number;
   combinedLoungeAccess?: number | "unlimited";
   combinedLoungeAccessLabel?: string;
   // Reviewed, structured lounge-condition bullets. When present for a bucket they replace the

@@ -48,6 +48,8 @@
   ],
   "loungeDomestic": "unlimited",
   "loungeInternational": "unlimited",
+  "loungeGuestDomestic": 4,
+  "loungeGuestInternational": 4,
   "lounge": {
     "domestic": [
       "Domestic lounge access requires minimum spends of Rs 50,000 in the previous 3 calendar months; the spend condition is waived for the month of issuance plus the next 3 calendar months."
