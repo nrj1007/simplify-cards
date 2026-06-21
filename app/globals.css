@@ -171,7 +171,7 @@ textarea {
 .footer-grid {
   display: grid;
   gap: 28px;
-  grid-template-columns: 0.7fr 1.3fr;
+  grid-template-columns: 0.65fr 1fr 1fr;
 }
 
 .footer strong {
@@ -184,6 +184,26 @@ textarea {
 
 .footer p:last-child {
   margin: 0;
+}
+
+.footer-guides {
+  display: grid;
+  gap: 10px;
+}
+
+.footer-guides div {
+  display: grid;
+  gap: 7px 14px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.footer-guides a {
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.footer-guides a:hover {
+  color: var(--teal-dark);
 }
 
 /* =========================================================
@@ -272,6 +292,201 @@ textarea {
 .page-shell .panel {
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-soft);
+}
+
+/* =========================================================
+   SEO landing pages
+   ========================================================= */
+
+.seo-landing-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 22px;
+}
+
+.seo-landing-grid {
+  align-items: start;
+  display: grid;
+  gap: 24px;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 360px);
+}
+
+.seo-section-head {
+  align-items: end;
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+
+.seo-section-head h2,
+.seo-side-panel h2,
+.seo-related-panel h2 {
+  color: var(--navy);
+  font-size: 24px;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  margin: 0;
+}
+
+.seo-section-head p,
+.seo-side-panel p,
+.seo-related-panel p,
+.seo-faq-grid p,
+.seo-disclosure p {
+  color: var(--muted);
+  line-height: 1.55;
+  margin: 0;
+}
+
+.seo-card-list,
+.seo-landing-side {
+  display: grid;
+  gap: 16px;
+}
+
+.seo-card-row {
+  align-items: start;
+  display: grid;
+  gap: 18px;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  padding: 18px;
+}
+
+.seo-rank {
+  align-items: center;
+  background: var(--teal-soft);
+  border: 1px solid var(--teal-line);
+  border-radius: 999px;
+  color: var(--teal-dark);
+  display: inline-flex;
+  font-weight: 900;
+  height: 42px;
+  justify-content: center;
+  min-width: 42px;
+}
+
+.seo-card-copy h3 {
+  color: var(--navy);
+  font-size: 21px;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  margin: 2px 0 14px;
+}
+
+.seo-card-facts {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin: 0;
+}
+
+.seo-card-facts div {
+  background: rgba(247, 242, 231, 0.68);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 11px;
+}
+
+.seo-card-facts dt {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  margin-bottom: 4px;
+  text-transform: uppercase;
+}
+
+.seo-card-facts dd {
+  color: var(--navy);
+  line-height: 1.45;
+  margin: 0;
+}
+
+.seo-card-link {
+  white-space: nowrap;
+}
+
+.seo-side-panel {
+  padding: 20px;
+}
+
+.seo-check-list {
+  color: var(--navy);
+  display: grid;
+  gap: 10px;
+  line-height: 1.5;
+  margin: 14px 0 0;
+  padding-left: 20px;
+}
+
+.seo-side-cta {
+  margin-top: 14px;
+  width: 100%;
+}
+
+.seo-faq-section,
+.seo-related-section,
+.seo-disclosure {
+  margin-top: 24px;
+}
+
+.seo-faq-section .panel,
+.seo-related-panel {
+  padding: 22px;
+}
+
+.seo-faq-grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.seo-faq-grid article {
+  border-top: 1px solid var(--line);
+  padding-top: 14px;
+}
+
+.seo-faq-grid h3 {
+  color: var(--navy);
+  font-size: 17px;
+  line-height: 1.3;
+  margin: 0 0 8px;
+}
+
+.seo-related-panel {
+  align-items: start;
+  display: grid;
+  gap: 18px;
+  grid-template-columns: 0.45fr 1fr;
+}
+
+.seo-related-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.seo-related-links a {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--navy);
+  font-size: 13px;
+  font-weight: 800;
+  padding: 8px 11px;
+  text-decoration: none;
+}
+
+.seo-related-links a:hover {
+  border-color: var(--teal-line);
+  color: var(--teal-dark);
+}
+
+.seo-disclosure {
+  color: var(--muted);
+  font-size: 13px;
 }
 
 /* =========================================================
@@ -1185,6 +1400,41 @@ textarea {
 }
 
 /* Homepage responsive */
+@media (max-width: 920px) {
+  .footer-grid,
+  .seo-landing-grid,
+  .seo-related-panel {
+    grid-template-columns: 1fr;
+  }
+
+  .seo-section-head {
+    align-items: start;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 640px) {
+  .footer-guides div,
+  .seo-card-facts,
+  .seo-faq-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .seo-card-row {
+    grid-template-columns: 1fr;
+  }
+
+  .seo-rank {
+    height: 36px;
+    min-width: 36px;
+    width: fit-content;
+  }
+
+  .seo-card-link {
+    justify-self: start;
+  }
+}
+
 @media (max-width: 920px) {
   .hero-grid,
   .workflow-grid,

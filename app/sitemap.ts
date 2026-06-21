@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { cards } from "@/lib/cards";
+import { SEO_LANDING_SLUGS } from "@/lib/seo-landing";
 import { buildCanonicalUrl } from "@/lib/seo";
 
 const STATIC_ROUTES = ["/", "/ask", "/recommend", "/finder", "/calculator", "/compare"];
@@ -15,6 +16,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: now,
       changeFrequency: route === "/" ? DAILY : WEEKLY,
       priority: route === "/" ? 1 : route === "/ask" || route === "/recommend" ? 0.9 : 0.8
+    })),
+    ...SEO_LANDING_SLUGS.map((slug) => ({
+      url: buildCanonicalUrl(`/${slug}`),
+      lastModified: now,
+      changeFrequency: WEEKLY,
+      priority: 0.8
     })),
     ...cards.map((card) => ({
       url: buildCanonicalUrl(`/cards/${card.id}`),
