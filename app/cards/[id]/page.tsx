@@ -79,6 +79,10 @@ function buildCardSeoTitle(name: string, issuer: string) {
   return `${displayName} Review: Fees, Rewards & Benefits`;
 }
 
+function buildCardSeoName(name: string, issuer: string) {
+  return issuerAlreadyRepresented(name, issuer) ? name : `${issuer} ${name}`;
+}
+
 export function generateStaticParams() {
   return cards.map((card) => ({ id: card.id }));
 }
@@ -104,9 +108,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const descParts = [card.issuer, fee, lounge].filter(Boolean).join(" · ");
   const description = `${card.name} by ${card.issuer}. ${descParts}. Verified rewards, fees, benefits, exclusions, and redemption details.`;
 
+  const seoName = buildCardSeoName(card.name, card.issuer);
+
   return buildPageMetadata({
     title: buildCardSeoTitle(card.name, card.issuer),
-    description: `Check ${card.name} fees, rewards, lounge access, forex charges, eligibility, exclusions and whether this credit card is worth it in India.`,
+    description: `Check ${seoName} fees, rewards, lounge access, forex charges, eligibility, exclusions and whether this credit card is worth it in India.`,
     path: `/cards/${card.id}`,
     type: "article",
     imageUrl: card.imageUrl

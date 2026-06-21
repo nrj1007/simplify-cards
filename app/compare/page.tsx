@@ -23,13 +23,11 @@ export async function generateMetadata({ searchParams }: Props): Promise<Metadat
   const params = await searchParams;
   const first = cards.find((card) => card.id === (params.a ?? "sbi-cashback")) ?? cards[0];
   const second = cards.find((card) => card.id === (params.b ?? "hdfc-millennia")) ?? cards[1];
-  const comparePath =
-    params.a || params.b ? `/compare?a=${encodeURIComponent(first.id)}&b=${encodeURIComponent(second.id)}` : "/compare";
 
   return buildPageMetadata({
     title: `Compare ${first.name} vs ${second.name}`,
     description: `Compare ${first.name} and ${second.name} across fees, rewards, lounge access, milestone benefits, redemption, and exclusions.`,
-    path: comparePath
+    path: "/compare"
   });
 }
 

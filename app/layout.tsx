@@ -13,9 +13,6 @@ export const metadata: Metadata = {
     template: `%s | ${SITE_NAME}`
   },
   description: SITE_DESCRIPTION,
-  alternates: {
-    canonical: SITE_URL
-  },
   robots: {
     index: true,
     follow: true
