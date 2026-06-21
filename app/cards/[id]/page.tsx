@@ -19,6 +19,7 @@ import {
   isEquitasPrivilegeCard
 } from "@/lib/equitas-privilege";
 import { milestoneRulesForCard, scoreCards } from "@/lib/recommend";
+import { comparisonsForCard, comparisonTitle } from "@/lib/seo-comparisons";
 import {
   alternativeIntent,
   deriveAvoidIf,
@@ -314,6 +315,7 @@ export default async function CardPage({ params, searchParams }: Props) {
   const avoidIf = deriveAvoidIf(card);
   const loungeMilestoneRules = deriveLoungeMilestoneRules(card);
   const alternatives = findAlternativeCards(card);
+  const comparisonGuides = comparisonsForCard(card.id);
   const firstAlternative = alternatives[0];
   const showEquitasPrivilegeProgram = isEquitasPrivilegeCard(card);
 
@@ -907,6 +909,33 @@ export default async function CardPage({ params, searchParams }: Props) {
                         </div>
                       </article>
                     ) : null}
+                  </div>
+                </div>
+              </section>
+            ) : null}
+
+            {comparisonGuides.length ? (
+              <section className="panel">
+                <div className="panel-body">
+                  <div className="section-head">
+                    <div>
+                      <h2 className="section-title">Popular comparison guides</h2>
+                      <p className="section-sub">Crawlable side-by-side guides that include this card.</p>
+                    </div>
+                  </div>
+                  <div className="alt-grid">
+                    {comparisonGuides.map((comparison) => (
+                      <article className="alt-card" key={comparison.slug}>
+                        <small>Comparison guide</small>
+                        <h3>{comparisonTitle(comparison)}</h3>
+                        <p>Compare fees, rewards, lounge access, forex markup, milestones, and exclusions.</p>
+                        <div className="alt-actions">
+                          <Link className="alt-btn primary" href={`/compare/${comparison.slug}` as Route}>
+                            Open guide
+                          </Link>
+                        </div>
+                      </article>
+                    ))}
                   </div>
                 </div>
               </section>

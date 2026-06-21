@@ -490,6 +490,65 @@ textarea {
 }
 
 /* =========================================================
+   SEO comparison pages
+   ========================================================= */
+
+.seo-comparison-grid {
+  align-items: start;
+  display: grid;
+  gap: 24px;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 360px);
+}
+
+.seo-comparison-main,
+.seo-comparison-side {
+  display: grid;
+  gap: 18px;
+}
+
+.seo-verdict-card,
+.seo-choice-card,
+.seo-comparison-table-panel,
+.seo-comparison-section {
+  padding: 20px;
+}
+
+.seo-verdict-card h2,
+.seo-choice-card h2,
+.seo-comparison-section h2 {
+  color: var(--navy);
+  font-size: 24px;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  margin: 0 0 10px;
+}
+
+.seo-verdict-card p,
+.seo-comparison-section p,
+.seo-choice-card li {
+  color: var(--muted);
+  line-height: 1.58;
+}
+
+.seo-choice-grid {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.seo-choice-card ul {
+  display: grid;
+  gap: 10px;
+  margin: 0 0 18px;
+  padding-left: 20px;
+}
+
+.seo-comparison-table th,
+.seo-comparison-table td {
+  min-width: 180px;
+}
+
+/* =========================================================
    Homepage (SimplifyCards landing) — namespaced to avoid collisions
    ========================================================= */
 
@@ -1403,6 +1462,7 @@ textarea {
 @media (max-width: 920px) {
   .footer-grid,
   .seo-landing-grid,
+  .seo-comparison-grid,
   .seo-related-panel {
     grid-template-columns: 1fr;
   }
@@ -1416,6 +1476,7 @@ textarea {
 @media (max-width: 640px) {
   .footer-guides div,
   .seo-card-facts,
+  .seo-choice-grid,
   .seo-faq-grid {
     grid-template-columns: 1fr;
   }

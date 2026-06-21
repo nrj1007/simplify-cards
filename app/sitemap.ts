@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { cards } from "@/lib/cards";
+import { SEO_COMPARISON_SLUGS } from "@/lib/seo-comparisons";
 import { SEO_LANDING_SLUGS } from "@/lib/seo-landing";
 import { buildCanonicalUrl } from "@/lib/seo";
 
@@ -22,6 +23,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: now,
       changeFrequency: WEEKLY,
       priority: 0.8
+    })),
+    ...SEO_COMPARISON_SLUGS.map((slug) => ({
+      url: buildCanonicalUrl(`/compare/${slug}`),
+      lastModified: now,
+      changeFrequency: WEEKLY,
+      priority: 0.75
     })),
     ...cards.map((card) => ({
       url: buildCanonicalUrl(`/cards/${card.id}`),

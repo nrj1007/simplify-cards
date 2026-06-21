@@ -3,6 +3,7 @@ import { join, relative, sep } from "node:path";
 import { describe, expect, it } from "vitest";
 import sitemap from "../app/sitemap";
 import { cards } from "../lib/cards";
+import { SEO_COMPARISON_SLUGS } from "../lib/seo-comparisons";
 import { buildCanonicalUrl } from "../lib/seo";
 
 const APP_DIR = join(process.cwd(), "app");
@@ -48,5 +49,13 @@ describe("sitemap", () => {
       .map((card) => card.id);
 
     expect(missingCardIds).toEqual([]);
+  });
+
+  it("includes every configured SEO comparison page", () => {
+    const missingComparisonRoutes = SEO_COMPARISON_SLUGS
+      .map((slug) => `/compare/${slug}`)
+      .filter((route) => !sitemapUrls.has(buildCanonicalUrl(route)));
+
+    expect(missingComparisonRoutes).toEqual([]);
   });
 });
