@@ -19,6 +19,7 @@ function absoluteUrl(path: string) {
 }
 
 export function buildCanonicalUrl(path: string) {
+  if (path === "/") return `${SITE_URL}/`;
   return absoluteUrl(path);
 }
 
