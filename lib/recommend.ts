@@ -2043,7 +2043,7 @@ export function requestedTopCardCount(query?: string) {
   const match = normalizedQuery.match(/\btop\s+(\d+)\b/);
   if (!match) {
     if (/\b(top|best|recommend|recommended|suggest)\b/.test(normalizedQuery) && /\bcards?\b/.test(normalizedQuery)) {
-      return 5;
+      return 7;
     }
     return defaultTopCardCount;
   }

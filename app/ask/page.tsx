@@ -216,14 +216,14 @@ export default async function AskPage({ searchParams }: Props) {
   const rankedResultCards = showRankedAnswer
     ? isExplicitCount
       ? result?.cards ?? []
-      : (result?.cards ?? []).slice(0, 3)
+      : (result?.cards ?? []).slice(0, 5)
     : [];
   const comparisonCards = showRankedAnswer ? rankedResultCards.slice(0, 3) : [];
   const showFeeWaiverRow = comparisonCards.some((item) => hasFeeWaiverSpend(item.card.feeWaiverSpend));
 
   const rawCards = showRankedAnswer ? result?.cards ?? [] : [];
-  const selectedDecisionCards = rawCards.length >= 5
-    ? [rawCards[0], rawCards[3], rawCards[4]]
+  const selectedDecisionCards = rawCards.length >= 7
+    ? [rawCards[0], rawCards[5], rawCards[6]]
     : rawCards.slice(0, 3);
 
   const mainAnswerCardIds = new Set(
