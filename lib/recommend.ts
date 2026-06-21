@@ -145,9 +145,8 @@ function shouldUseEnvelopeScoring(
   wantsLounge: boolean
 ) {
   return (
-    (isBroadGenericRankingQuery(input, intent) || wantsLifetimeFree) &&
-    effectiveMaxAnnualFee === undefined &&
-    !wantsLounge
+    (isBroadGenericRankingQuery(input, intent) || wantsLifetimeFree || wantsLounge) &&
+    effectiveMaxAnnualFee === undefined
   );
 }
 
@@ -2222,6 +2221,7 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
         wantsLifetimeFree ||
         effectiveMaxAnnualFee === 0 ||
         isUtilityLikeCategory ||
+        wantsLounge ||
         isTargetedEnvelopeQuery(input, intent)
       ))
     );

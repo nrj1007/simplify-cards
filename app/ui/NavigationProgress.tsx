@@ -36,6 +36,7 @@ function loadingCopyKeyForUrl(url: URL): LoadingCopyKey {
 }
 
 export function NavigationProgressProvider({ children }: { children: ReactNode }) {
+  const [isMounted, setIsMounted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [copyKey, setCopyKey] = useState<LoadingCopyKey>("cards");
   const fallbackTimerRef = useRef<number | null>(null);
@@ -82,6 +83,11 @@ export function NavigationProgressProvider({ children }: { children: ReactNode }
       fallbackTimerRef.current = null;
     }, 15000);
   }, [clearFallback, clearStopTimer]);
+
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setIsMounted(true);
+  }, []);
 
   useEffect(() => {
     const handleDocumentClick = (event: MouseEvent) => {
@@ -150,34 +156,38 @@ export function NavigationProgressProvider({ children }: { children: ReactNode }
   return (
     <NavigationProgressContext.Provider value={{ startNavigation, stopNavigation }}>
       {children}
-      <Suspense fallback={null}>
-        <NavigationProgressEvents />
-      </Suspense>
-      <div
-        aria-hidden={!isLoading}
-        aria-live="polite"
-        className={`route-loader${isLoading ? " route-loader-visible" : ""}`}
-        role="status"
-      >
-        <div className="route-loader-progress" />
-        <div className="route-loader-backdrop" />
-        <div className="route-loader-card">
-          <span className="route-loader-icon" aria-hidden="true">
-            <CreditCard size={20} strokeWidth={2.4} />
-          </span>
-          <span className="route-loader-copy">
-            <span className="route-loader-title-row">
-              <span className="route-loader-title">{currentCopy.title}</span>
-              <span className="route-loader-dots" aria-hidden="true">
-                <i />
-                <i />
-                <i />
+      {isMounted ? (
+        <>
+          <Suspense fallback={null}>
+            <NavigationProgressEvents />
+          </Suspense>
+          <div
+            aria-hidden={!isLoading}
+            aria-live="polite"
+            className={`route-loader${isLoading ? " route-loader-visible" : ""}`}
+            role="status"
+          >
+            <div className="route-loader-progress" />
+            <div className="route-loader-backdrop" />
+            <div className="route-loader-card">
+              <span className="route-loader-icon" aria-hidden="true">
+                <CreditCard size={20} strokeWidth={2.4} />
               </span>
-            </span>
-            <span className="route-loader-subtitle">{currentCopy.subtitle}</span>
-          </span>
-        </div>
-      </div>
+              <span className="route-loader-copy">
+                <span className="route-loader-title-row">
+                  <span className="route-loader-title">{currentCopy.title}</span>
+                  <span className="route-loader-dots" aria-hidden="true">
+                    <i />
+                    <i />
+                    <i />
+                  </span>
+                </span>
+                <span className="route-loader-subtitle">{currentCopy.subtitle}</span>
+              </span>
+            </div>
+          </div>
+        </>
+      ) : null}
     </NavigationProgressContext.Provider>
   );
 }
