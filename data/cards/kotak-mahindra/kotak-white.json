@@ -1,7 +1,7 @@
 {
   "id": "kotak-white",
   "issuer": "Kotak Mahindra Bank",
-  "name": "White Credit Card",
+  "name": "Kotak White Credit Card",
   "network": [
     "Visa"
   ],
@@ -121,19 +121,19 @@
   ],
   "redemption": {
     "statementBalanceValue": 0.7,
-    "travelPortalValue": 1.0,
+    "travelPortalValue": 1,
     "voucherRedemptions": [
       {
         "partner": "Brand e-Vouchers",
         "programme": "Premium brand e-vouchers via Kotak Rewards",
         "ratio": "1 White Pass = Rs 1.0",
-        "valuePerPoint": 1.0
+        "valuePerPoint": 1
       },
       {
         "partner": "Travel bookings",
         "programme": "Flight & hotel bookings via Kotak Rewards",
         "ratio": "1 White Pass = Rs 1.0",
-        "valuePerPoint": 1.0
+        "valuePerPoint": 1
       }
     ]
   },

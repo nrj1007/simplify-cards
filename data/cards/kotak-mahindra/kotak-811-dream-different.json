@@ -1,7 +1,7 @@
 {
   "id": "kotak-811-dream-different",
   "issuer": "Kotak Mahindra Bank",
-  "name": "811 Dream Different Credit Card",
+  "name": "Kotak 811 Dream Different Credit Card",
   "network": [
     "Visa"
   ],
@@ -97,20 +97,20 @@
   ],
   "redemption": {
     "statementBalanceValue": 0.07,
-    "travelPortalValue": 0.10,
+    "travelPortalValue": 0.1,
     "minimumPointsForStatementCredit": 2000,
     "voucherRedemptions": [
       {
         "partner": "Brand e-Vouchers",
         "programme": "Brand e-vouchers via Kotak Rewards",
         "ratio": "1 point = Rs 0.10",
-        "valuePerPoint": 0.10
+        "valuePerPoint": 0.1
       },
       {
         "partner": "Travel bookings",
         "programme": "Flight & hotel bookings via Kotak Rewards",
         "ratio": "1 point = Rs 0.10",
-        "valuePerPoint": 0.10
+        "valuePerPoint": 0.1
       }
     ]
   },
