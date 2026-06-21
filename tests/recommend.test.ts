@@ -470,19 +470,7 @@ describe("scoreCards", () => {
     expect(regaliaGold?.estimatedMilestoneValue).toBe(5500);
   });
 
-  it("uses the best milestone and fee-waiver upside for broad ranking comparisons", () => {
-    const scores = scoreCards({
-      query: "top card under 5000"
-    });
-
-    const travelOne = scores.find((score) => score.card.id === "hsbc-travelone");
-    expect(travelOne?.reasons).toEqual(
-      expect.arrayContaining([expect.stringMatching(/Higher milestone and fee-waiver upside can add about Rs 6,000/i)])
-    );
-    // The non-value boosts (dominated by the ~Rs 6,000 milestone/fee-waiver upside) add several
-    // thousand on top of net value. Threshold reflects the gentle popularity prior (popularityScore * 15).
-    expect((travelOne?.fitScore ?? 0) - (travelOne?.estimatedNetValue ?? 0)).toBeGreaterThan(5000);
-  });
+  // Milestone upside is now carried by envelope scoring + milestoneSpecialistBoost.
 
   it("avoids invite-only luxury cards for generic ltf asks", () => {
     const scores = scoreCards({

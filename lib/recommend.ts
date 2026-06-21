@@ -83,7 +83,6 @@ function acceleratedShareForCategory(card: CreditCard, category: SpendCategory) 
   const override = card.acceleratedShare?.[category];
   return typeof override === "number" && override >= 0 && override <= 1 ? override : defaultAcceleratedShare;
 }
-const broadComparisonUpsideWeight = 0.4;
 const defaultTopCardCount = 3;
 const joiningBenefitAmortizationYears = 2;
 const LOUNGE_QUERY_VALUE_WEIGHT = 10;
@@ -1221,20 +1220,6 @@ function milestoneThresholdsForCard(card: CreditCard) {
   return [...thresholds].sort((a, b) => a - b);
 }
 
-function comparisonMilestoneAndWaiverValue(card: CreditCard) {
-  const thresholds = milestoneThresholdsForCard(card);
-  if (thresholds.length === 0) return 0;
-
-  let maxValue = 0;
-  for (const annualSpend of thresholds) {
-    const milestoneValue = milestoneValueForCard(card, annualSpend);
-    const feeWaiverValue = card.feeWaiverSpend && annualSpend >= card.feeWaiverSpend ? card.annualFee : 0;
-    maxValue = Math.max(maxValue, milestoneValue + feeWaiverValue);
-  }
-
-  return maxValue;
-}
-
 function milestoneSpecialistBoost(card: CreditCard, broadNoSpendRankingQuery: boolean) {
   const rules = milestoneRulesForCard(card);
   if (!broadNoSpendRankingQuery || !rules.length) return 0;
@@ -2268,14 +2253,6 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
     const forexMarkup = typeof card.forexMarkup === "number" ? card.forexMarkup : 3.5;
     const estimatedForexCost = Math.round(((spendForScore.international ?? 0) * 12 * forexMarkup) / 100);
     const estimatedNetValue = rewardEconomics.estimatedNetValue - estimatedForexCost;
-    const currentMilestoneAndWaiverValue = estimatedMilestoneValue + (card.annualFee - estimatedAnnualFee);
-    const maxComparisonMilestoneAndWaiverValue = comparisonMilestoneAndWaiverValue(card);
-    // Only for the broad no-spend "best card" ranking — not for focused category/forex queries, where
-    // it would swamp the actual category economics with generic milestone/waiver upside.
-    const comparisonMilestoneAndWaiverDelta =
-      broadNoSpendRankingQuery && !useEnvelopeScoring && !forexFocus && !categoryFocus && !restrictToFuelCards
-        ? Math.round(Math.max(maxComparisonMilestoneAndWaiverValue - currentMilestoneAndWaiverValue, 0) * broadComparisonUpsideWeight)
-        : 0;
     const tagBoost = matchedTags.length * 500;
     const keywordBoost = computeQueryKeywordBoost(card, input.query);
     const useCaseBoost = intent.useCases.reduce((total, useCase) => {
@@ -2332,9 +2309,6 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
         ? [`Joining and renewal benefits add about Rs ${estimatedJoiningAndRenewalValue.toLocaleString("en-IN")} per year`]
         : []),
       ...(optionLabel ? [`Best net value uses ${optionLabel} after Rs ${optionAnnualCost.toLocaleString("en-IN")} yearly cost`] : []),
-      ...(comparisonMilestoneAndWaiverDelta > 0
-        ? [`Higher milestone and fee-waiver upside can add about Rs ${comparisonMilestoneAndWaiverDelta.toLocaleString("en-IN")} in broader comparisons`]
-        : []),
       ...(milestoneBoost > 0 ? ["Strong milestone-led value closer to Rs 7 lakh yearly spend"] : []),
       ...(specialSpendBoost > 0 ? ["Rewards on usually excluded categories improve broader card utility"] : []),
       card.annualFee === 0 ? "No annual fee" : `Effective annual fee is Rs ${estimatedAnnualFee}`,
@@ -2363,7 +2337,6 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
       loungeBoost +
       forexBoost +
       spendCategoryBoost +
-      comparisonMilestoneAndWaiverDelta +
       specialSpendBoost +
       milestoneBoost +
       card.popularityScore * popularityRankingWeight;
@@ -2427,7 +2400,6 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
         loungeBoost,
         forexBoost,
         spendCategoryBoost,
-        comparisonMilestoneAndWaiverDelta,
         specialSpendBoost,
         milestoneBoost,
         relevanceScore,

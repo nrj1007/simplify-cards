@@ -266,7 +266,6 @@ export interface ScoreDebug {
   loungeBoost: number;
   forexBoost: number;
   spendCategoryBoost: number;
-  comparisonMilestoneAndWaiverDelta: number;
   specialSpendBoost: number;
   milestoneBoost: number;
   relevanceScore: number;
