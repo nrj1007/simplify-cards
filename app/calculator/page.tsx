@@ -5,12 +5,14 @@ import RewardCalculator from "@/app/ui/RewardCalculator";
 import PageHero from "@/app/ui/PageHero";
 import { cards, getCardById } from "@/lib/cards";
 import { milestoneRulesForCard } from "@/lib/recommend";
+import { buildPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Reward Calculator | SimplifyCards",
+export const metadata: Metadata = buildPageMetadata({
+  title: "Reward Calculator",
   description:
-    "Estimate the rewards and rupee value you earn on any Indian credit card based on your monthly spend, including milestone benefits."
-};
+    "Estimate the rewards and rupee value you earn on any Indian credit card based on your monthly spend, including milestone benefits.",
+  path: "/calculator"
+});
 
 type Props = {
   searchParams: Promise<{ card?: string }>;

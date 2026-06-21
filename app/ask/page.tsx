@@ -1,4 +1,5 @@
 import Link from "next/link";
+import type { Metadata } from "next";
 import LoungeInfo from "../ui/LoungeInfo";
 import AskFeedback from "../ui/AskFeedback";
 import AskQueryForm from "../ui/AskQueryForm";
@@ -11,9 +12,17 @@ import { getCardById } from "@/lib/cards";
 import { buildAskResultMetadata } from "@/lib/analytics-events";
 import { getLoungeConditions, getTotalLoungeAccess } from "@/lib/lounge";
 import { stripScoringAnnotations } from "@/lib/card-index";
+import { buildPageMetadata } from "@/lib/seo";
 import { scoreCards } from "@/lib/recommend";
 import { getCardUsp } from "@/lib/card-usp";
 import type { CreditCard, RecommendationInput } from "@/lib/types";
+
+export const metadata: Metadata = buildPageMetadata({
+  title: "Ask SimplifyCards",
+  description:
+    "Ask about cashback, travel, lounges, UPI rewards, fees, exclusions, or specific cards and get grounded answers from verified Indian credit card data.",
+  path: "/ask"
+});
 
 const ASK_EXAMPLES = [
   "Best lifetime free cashback card",

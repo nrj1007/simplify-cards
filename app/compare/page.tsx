@@ -1,4 +1,5 @@
 import Link from "next/link";
+import type { Metadata } from "next";
 import { ExternalLink } from "lucide-react";
 import { cards } from "@/lib/cards";
 import AnalyticsMount from "@/app/ui/AnalyticsMount";
@@ -7,6 +8,7 @@ import LoungeInfo from "@/app/ui/LoungeInfo";
 import PageHero from "@/app/ui/PageHero";
 import { TrackedExternalLink, TrackedLink } from "@/app/ui/TrackedLink";
 import { stripScoringAnnotations } from "@/lib/card-index";
+import { buildPageMetadata } from "@/lib/seo";
 
 type Card = (typeof cards)[number];
 
@@ -16,6 +18,20 @@ type Props = {
     b?: string;
   }>;
 };
+
+export async function generateMetadata({ searchParams }: Props): Promise<Metadata> {
+  const params = await searchParams;
+  const first = cards.find((card) => card.id === (params.a ?? "sbi-cashback")) ?? cards[0];
+  const second = cards.find((card) => card.id === (params.b ?? "hdfc-millennia")) ?? cards[1];
+  const comparePath =
+    params.a || params.b ? `/compare?a=${encodeURIComponent(first.id)}&b=${encodeURIComponent(second.id)}` : "/compare";
+
+  return buildPageMetadata({
+    title: `Compare ${first.name} vs ${second.name}`,
+    description: `Compare ${first.name} and ${second.name} across fees, rewards, lounge access, milestone benefits, redemption, and exclusions.`,
+    path: comparePath
+  });
+}
 
 function formatCurrency(value: number | null | undefined) {
   if (value === null || value === undefined) return "Not listed";

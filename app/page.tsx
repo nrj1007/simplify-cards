@@ -1,9 +1,18 @@
 import Link from "next/link";
+import type { Metadata } from "next";
 import type { Route } from "next";
 import type { CardScore, CreditCard } from "@/lib/types";
+import { buildPageMetadata } from "@/lib/seo";
 import { scoreCards } from "@/lib/recommend";
 import CardTile from "./ui/CardTile";
 import AskBox from "./ui/AskBox";
+
+export const metadata: Metadata = buildPageMetadata({
+  title: "Find the Right Indian Credit Card",
+  description:
+    "Ask questions, compare cards, estimate rewards, and find the right Indian credit card with verified fees, benefits, lounges, exclusions, and redemption details.",
+  path: "/"
+});
 
 const WORKFLOW = [
   {

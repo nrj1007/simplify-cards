@@ -1,7 +1,16 @@
+import type { Metadata } from "next";
 import { cards, getIssuers, getTags } from "@/lib/cards";
+import { buildPageMetadata } from "@/lib/seo";
 import CardTile from "../ui/CardTile";
 import FinderFilterForm from "../ui/FinderFilterForm";
 import PageHero from "../ui/PageHero";
+
+export const metadata: Metadata = buildPageMetadata({
+  title: "Credit Card Finder",
+  description:
+    "Browse Indian credit cards by issuer, annual fee, and use case to shortlist cards before you compare rewards, lounges, and exclusions.",
+  path: "/finder"
+});
 
 type Props = {
   searchParams: Promise<{

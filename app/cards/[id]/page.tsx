@@ -1,5 +1,5 @@
 import Link from "next/link";
-import type { Route } from "next";
+import type { Metadata, Route } from "next";
 import { notFound } from "next/navigation";
 import { ExternalLink } from "lucide-react";
 import { cards, getCardById } from "@/lib/cards";
@@ -28,6 +28,7 @@ import {
   findAlternativeCards,
   formatRupeesCompact
 } from "@/lib/card-detail";
+import { buildPageMetadata } from "@/lib/seo";
 import type { CreditCard, Redemption } from "@/lib/types";
 
 type Props = {
@@ -43,10 +44,16 @@ export function generateStaticParams() {
   return cards.map((card) => ({ id: card.id }));
 }
 
-export async function generateMetadata({ params }: Props) {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { id } = await params;
   const card = getCardById(id);
-  if (!card) return { title: "Card Review | Card AI India" };
+  if (!card) {
+    return buildPageMetadata({
+      title: "Card not found",
+      description: "The requested credit card page could not be found on SimplifyCards.",
+      path: "/cards"
+    });
+  }
 
   const fee = card.annualFee === 0 ? "lifetime free" : `Rs ${card.annualFee.toLocaleString("en-IN")} annual fee`;
   const totalLoungeAccess = getTotalLoungeAccess(card);
@@ -56,17 +63,15 @@ export async function generateMetadata({ params }: Props) {
       ? `${totalLoungeAccess} lounge visits`
       : null;
   const descParts = [card.issuer, fee, lounge].filter(Boolean).join(" · ");
-  const description = `${card.name} — ${descParts}. Verified rewards, fees, and benefits.`;
+  const description = `${card.name} by ${card.issuer}. ${descParts}. Verified rewards, fees, benefits, exclusions, and redemption details.`;
 
-  return {
-    title: `${card.name} Review | Card AI India`,
+  return buildPageMetadata({
+    title: `${card.name} Review`,
     description,
-    openGraph: {
-      title: `${card.name} | Card AI India`,
-      description,
-      type: "article"
-    }
-  };
+    path: `/cards/${card.id}`,
+    type: "article",
+    imageUrl: card.imageUrl
+  });
 }
 
 function formatCurrency(value: number | null | undefined) {
