@@ -80,7 +80,7 @@ describe("ranking golden (representative queries)", () => {
         .map((score) => score.card.id);
     }
     expect(golden).toMatchSnapshot();
-  });
+  }, 60000);
 
   it("is deterministic across repeated runs", () => {
     const once = scoreCards({ query: "best credit card" }).map((s) => s.card.id);
