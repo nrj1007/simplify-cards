@@ -1,7 +1,8 @@
 # Plan: Weight lounge value higher for lounge queries (keep envelope scoring)
 
-> Status: **parked / not yet implemented.** Captured for reference alongside the milestone-delta
-> removal plan.
+> Status: **implemented.** `lib/recommend.ts` now weights `travelLoungeValue` by
+> `LOUNGE_QUERY_VALUE_WEIGHT` for lounge queries, and `tests/recommend.test.ts` includes a
+> regression check that guest-lounge cards outrank comparable unlimited no-guest cards.
 
 ## Context
 Commit `5828ffa` made lounge queries (`wantsLounge` = the query contains "lounge",

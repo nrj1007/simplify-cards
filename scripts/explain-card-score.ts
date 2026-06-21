@@ -134,7 +134,6 @@ async function main() {
   console.log(`    loungeBoost:                    ${debug.loungeBoost}`);
   console.log(`    forexBoost:                     ${debug.forexBoost}`);
   console.log(`    spendCategoryBoost:             ${debug.spendCategoryBoost}`);
-  console.log(`    milestoneWaiverUpsideDelta:     ${debug.comparisonMilestoneAndWaiverDelta}`);
   console.log(`    specialSpendBoost:              ${debug.specialSpendBoost}`);
   console.log(`    milestoneBoost:                 ${debug.milestoneBoost}`);
   console.log(`    popularityBoost (pop * 50):     ${card.popularityScore * 50}`);

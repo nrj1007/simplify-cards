@@ -329,6 +329,13 @@ describe("scoreCards", () => {
     expect(scores[0]?.card.id).toBe("hdfc-regalia-gold");
   });
 
+  it("lets guest lounge access outrank comparable unlimited no-guest cards for lounge queries", () => {
+    const ids = scoreCards({ query: "best lounge card" }).map((score) => score.card.id);
+
+    expect(ids.indexOf("axis-magnus-burgundy")).toBeLessThan(ids.indexOf("hdfc-diners-club-black-metal"));
+    expect(ids.indexOf("axis-magnus-burgundy")).toBeLessThan(ids.indexOf("hdfc-infinia-metal"));
+  });
+
   it("boosts lower forex markup cards for explicit forex queries", () => {
     const scores = scoreCards({
       query: "best hdfc forex card under 5000"
