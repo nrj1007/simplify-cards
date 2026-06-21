@@ -66,8 +66,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const description = `${card.name} by ${card.issuer}. ${descParts}. Verified rewards, fees, benefits, exclusions, and redemption details.`;
 
   return buildPageMetadata({
-    title: `${card.name} Review`,
-    description,
+    title: `${card.name} Review: Fees, Rewards & Benefits`,
+    description: `Check ${card.name} fees, rewards, lounge access, forex charges, eligibility, exclusions and whether this credit card is worth it in India.`,
     path: `/cards/${card.id}`,
     type: "article",
     imageUrl: card.imageUrl
