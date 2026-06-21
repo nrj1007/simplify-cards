@@ -2,17 +2,38 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import type { Route } from "next";
 import type { CardScore, CreditCard } from "@/lib/types";
-import { buildPageMetadata } from "@/lib/seo";
+import { SITE_NAME } from "@/lib/seo";
 import { scoreCards } from "@/lib/recommend";
 import CardTile from "./ui/CardTile";
 import AskBox from "./ui/AskBox";
 
-export const metadata: Metadata = buildPageMetadata({
+export const metadata: Metadata = {
   title: "Find the Right Indian Credit Card",
   description:
     "Ask questions, compare cards, estimate rewards, and find the right Indian credit card with verified fees, benefits, lounges, exclusions, and redemption details.",
-  path: "/"
-});
+  alternates: {
+    canonical: "./"
+  },
+  robots: {
+    index: true,
+    follow: true
+  },
+  openGraph: {
+    title: `Find the Right Indian Credit Card | ${SITE_NAME}`,
+    description:
+      "Ask questions, compare cards, estimate rewards, and find the right Indian credit card with verified fees, benefits, lounges, exclusions, and redemption details.",
+    url: "https://www.simplifycards.in/",
+    siteName: SITE_NAME,
+    locale: "en_IN",
+    type: "website"
+  },
+  twitter: {
+    card: "summary",
+    title: `Find the Right Indian Credit Card | ${SITE_NAME}`,
+    description:
+      "Ask questions, compare cards, estimate rewards, and find the right Indian credit card with verified fees, benefits, lounges, exclusions, and redemption details."
+  }
+};
 
 const WORKFLOW = [
   {
