@@ -47,6 +47,7 @@ const scenarios: Record<string, RecommendationInput> = {
   "lounge": { wantsLounge: true },
   "lounge-query": { query: "best lounge card" },
   "intl-lounge-query": { query: "best international lounge card" },
+  "guest-lounge-query": { query: "best cards for guest lounge access" },
   "lifetime-free": { wantsLifetimeFree: true },
   "max-fee-zero": { maxAnnualFee: 0 },
   "max-fee-5000-query": { query: "best card under 5000" },
