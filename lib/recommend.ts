@@ -1206,20 +1206,6 @@ export function joiningAndRenewalBenefitValueForCard(card: CreditCard) {
   return { joiningValue, renewalValue };
 }
 
-function milestoneThresholdsForCard(card: CreditCard) {
-  const thresholds = new Set<number>();
-
-  if (card.feeWaiverSpend && card.feeWaiverSpend > 0) {
-    thresholds.add(card.feeWaiverSpend);
-  }
-
-  for (const rule of milestoneRulesForCard(card)) {
-    if (rule.threshold > 0) thresholds.add(rule.threshold);
-  }
-
-  return [...thresholds].sort((a, b) => a - b);
-}
-
 function milestoneSpecialistBoost(card: CreditCard, broadNoSpendRankingQuery: boolean) {
   const rules = milestoneRulesForCard(card);
   if (!broadNoSpendRankingQuery || !rules.length) return 0;
