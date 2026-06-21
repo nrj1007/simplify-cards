@@ -2023,15 +2023,21 @@ function loungePreferenceBoost(
   const domWeight = hasDomSpendConditions ? 180 : 360;
   const intlWeight = hasIntlSpendConditions ? 360 : 720;
 
-  // Complimentary guest visits are real but secondary value (you bring a guest only sometimes), so
-  // they count at a discount against the same per-visit weights and flow through the same broad/
-  // travel/category-focus treatment as primary access.
-  const guestLoungeDiscount = 0.4;
+  const primaryLoungeValue = domAccess * domWeight + intlAccess * intlWeight;
+
+  // A guest lounge visit serves two people (cardholder + guest), so it is worth 2x a self visit.
+  const guestVisitWeight = 2;
+
+  // Separate complimentary guest allowance: extra visits beyond the cardholder's own access.
   const guestDom = card.loungeGuestDomestic ?? 0;
   const guestIntl = card.loungeGuestInternational ?? 0;
-  const guestLoungeValue = (guestDom * domWeight + guestIntl * intlWeight) * guestLoungeDiscount;
+  const separateGuestValue = (guestDom * domWeight + guestIntl * intlWeight) * guestVisitWeight;
 
-  const travelLoungeValue = domAccess * domWeight + intlAccess * intlWeight + guestLoungeValue;
+  // Common (shared) pool: the cardholder's own complimentary visits can be spent on a guest instead.
+  // Assume a 0.75 self / 0.25 guest split with guest visits worth 2x -> a 1.25x (i.e. +25%) uplift.
+  const commonPoolUplift = card.loungeGuestSharedPool ? primaryLoungeValue * 0.25 : 0;
+
+  const travelLoungeValue = primaryLoungeValue + commonPoolUplift + separateGuestValue;
   boost += isCategoryFocused ? 0 : Math.round(travelLoungeValue * 0.5);
 
   if (intent.useCases.includes("travel")) {

@@ -197,6 +197,9 @@ export type CreditCard = {
   // Only set when the card genuinely offers complimentary guest visits — not when guests are charged.
   loungeGuestDomestic?: number;
   loungeGuestInternational?: number;
+  // True when guest access is a COMMON (shared) pool — the cardholder's own complimentary visits can
+  // be spent on a guest instead (vs a separate guest allowance, or guests being charged a fee).
+  loungeGuestSharedPool?: boolean;
   combinedLoungeAccess?: number | "unlimited";
   combinedLoungeAccessLabel?: string;
   // Reviewed, structured lounge-condition bullets. When present for a bucket they replace the

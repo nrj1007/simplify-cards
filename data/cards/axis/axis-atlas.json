@@ -31,6 +31,7 @@
   ],
   "loungeDomestic": 8,
   "loungeInternational": 4,
+  "loungeGuestSharedPool": true,
   "lounge": {
     "domestic": [
       "Airport lounge access is tiered based on spending:",

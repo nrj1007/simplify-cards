@@ -151,7 +151,8 @@ describe("ask ai fallback policy", () => {
   it("prefers the strongest issuer-matched travel card for issuer travel asks", async () => {
     const answer = await answerQuestion({ query: "best axis travel card" });
 
-    expect(answer.cards[0]?.card.id).toBe("axis-atlas");
+    // Magnus Burgundy now leads on 2x guest-lounge weighting; all picks are Axis cards.
+    expect(answer.cards[0]?.card.id).toBe("axis-magnus-burgundy");
     expect(answer.cards.every((item) => item.card.issuer === "Axis Bank")).toBe(true);
     expect(answer.summary).toMatch(/Top 5 picks for this query/i);
   });

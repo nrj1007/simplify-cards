@@ -310,12 +310,14 @@ describe("scoreCards", () => {
     ).toBe(true);
   });
 
-  it("surfaces Atlas for Axis travel intent", () => {
+  it("surfaces the strongest Axis travel card for Axis travel intent", () => {
     const scores = scoreCards({
       query: "best axis travel card"
     });
 
-    expect(scores[0]?.card.id).toBe("axis-atlas");
+    // With 2x guest-lounge weighting, Magnus Burgundy (unlimited lounge + 4+4 complimentary guest
+    // visits) edges out Atlas at the top; both, plus the rest, are Axis cards.
+    expect(scores[0]?.card.id).toBe("axis-magnus-burgundy");
     expect(scores.every((score) => score.card.issuer === "Axis Bank")).toBe(true);
   });
 
