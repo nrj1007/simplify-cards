@@ -19,21 +19,21 @@
   "rewards": [
     {
       "category": "online",
-      "rate": 18.0,
+      "rate": 18,
       "displayCategory": "Online spends",
       "displayRate": "36 YES Rewardz Points / Rs 200 spent",
       "capMonthly": 100000
     },
     {
       "category": "base",
-      "rate": 9.0,
+      "rate": 9,
       "displayCategory": "Other retail spends",
       "displayRate": "18 YES Rewardz Points / Rs 200 spent",
       "capMonthly": 100000
     },
     {
       "category": "utilities",
-      "rate": 5.0,
+      "rate": 5,
       "displayCategory": "Select categories (utilities, insurance, education, telecom)",
       "displayRate": "10 YES Rewardz Points / Rs 200 spent",
       "capMonthly": 1250
@@ -42,6 +42,8 @@
   "popularityScore": 84,
   "loungeDomestic": 24,
   "loungeInternational": "unlimited",
+  "loungeGuestDomestic": 4,
+  "loungeGuestInternational": 4,
   "lounge": {
     "domestic": [
       "Domestic lounge access up to 6 visits per quarter for primary and add-on cardmembers",
@@ -51,7 +53,7 @@
       "Unlimited international lounge access for primary and add-on cardmembers"
     ]
   },
-  "forexMarkup": 1.0,
+  "forexMarkup": 1,
   "tags": [
     "yes bank",
     "premium",

@@ -14,6 +14,7 @@ export type QueryIntent = {
   wantsLounge: boolean;
   wantsLifetimeFree: boolean;
   needsLatestInfo: boolean;
+  wantsGuestLounge: boolean;
 };
 
 const temporalKeywords = [
@@ -321,6 +322,7 @@ export function parseQueryIntent(input: RecommendationInput): QueryIntent {
       (normalizedQuery.includes("lifetime free") ||
         normalizedQuery.includes("life time free") ||
         normalizedQuery.includes("ltf")),
-    needsLatestInfo: temporalKeywords.some((keyword) => normalizedQuery.includes(keyword))
+    needsLatestInfo: temporalKeywords.some((keyword) => normalizedQuery.includes(keyword)),
+    wantsGuestLounge: normalizedQuery.includes("guest") && normalizedQuery.includes("lounge")
   };
 }

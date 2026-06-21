@@ -53,6 +53,8 @@ These are listed or have official pages, but should not be added as active-new-a
 - [ ] Add redemption preference controls to the recommender/calculator and expose milestone and fee-waiver impact more explicitly in the UI.
 - [ ] Add an internal Ask feedback review page that groups the most-downvoted queries and common losing card combinations, so ranking fixes can be prioritized from real user feedback.
 - [ ] Send a Telegram alert for `No` / downvote feedback as a temporary ops workflow before we scale and move feedback review into a database-backed system.
+- [ ] Add Cuelinks affiliate integration, including per-card tracking support, redirect/link handling, and fallback behavior when a card does not have an affiliate link.
+- [ ] Improve SEO with stronger metadata, structured data, internal linking, indexable landing pages, and content tuned for card/use-case search intent.
 - [ ] Add a manual approval workflow for community/news signals before updating card data.
 - [ ] Add card images to key user-facing surfaces such as finder, compare, Ask results, and details pages.
 - [ ] Find an AI to generate credit card images.

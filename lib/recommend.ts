@@ -2446,6 +2446,13 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
     .filter((card) =>
       wantsInternationalLounge ? internationalLoungeScore(card) > 0 : wantsLounge ? loungeScore(card) > 0 : true
     )
+    .filter((card) =>
+      intent.wantsGuestLounge
+        ? (card.loungeGuestDomestic !== undefined && card.loungeGuestDomestic > 0) ||
+          (card.loungeGuestInternational !== undefined && card.loungeGuestInternational > 0) ||
+          card.loungeGuestSharedPool === true
+        : true
+    )
     .filter((card) => (restrictToIssuer ? normalizeIssuer(card.issuer) === normalizeIssuer(intent.issuers[0]) : true))
     .filter((card) => (restrictToUpiCards ? hasUpiCardSignal(card) : true))
     .filter((card) => (restrictToZeroForexCards ? card.forexMarkup === 0 : true))
