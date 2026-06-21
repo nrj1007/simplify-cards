@@ -40,47 +40,8 @@ type Props = {
   }>;
 };
 
-function normalizeSeoText(value: string) {
-  return value.toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
-}
-
-function issuerAlreadyRepresented(name: string, issuer: string) {
-  const normalizedName = normalizeSeoText(name);
-  const normalizedIssuer = normalizeSeoText(issuer);
-
-  if (normalizedName.includes(normalizedIssuer)) return true;
-
-  const issuerAliases: Record<string, string[]> = {
-    "american express": ["amex"],
-    "bank of baroda": ["bob", "bobcard"],
-    "sbi card": ["sbi"],
-    "hdfc bank": ["hdfc"],
-    "icici bank": ["icici"],
-    "axis bank": ["axis"],
-    "yes bank": ["yes"],
-    "idfc first bank": ["idfc"],
-    "indusind bank": ["indusind"],
-    "kotak mahindra": ["kotak"],
-    "au small finance": ["au"],
-    "equitas small finance": ["equitas"],
-    "federal bank": ["federal"],
-    "hsbc": ["hsbc"],
-    "rbl bank": ["rbl"],
-    "standard chartered": ["standard chartered", "sc"],
-    "city union bank": ["cub"]
-  };
-
-  const aliases = issuerAliases[normalizedIssuer] ?? [];
-  return aliases.some((alias) => normalizedName.includes(alias));
-}
-
-function buildCardSeoTitle(name: string, issuer: string) {
-  const displayName = issuerAlreadyRepresented(name, issuer) ? name : `${issuer} ${name}`;
-  return `${displayName} Review: Fees, Rewards & Benefits`;
-}
-
-function buildCardSeoName(name: string, issuer: string) {
-  return issuerAlreadyRepresented(name, issuer) ? name : `${issuer} ${name}`;
+function buildCardSeoTitle(name: string) {
+  return `${name} Review: Fees, Rewards & Benefits`;
 }
 
 export function generateStaticParams() {
@@ -108,11 +69,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const descParts = [card.issuer, fee, lounge].filter(Boolean).join(" · ");
   const description = `${card.name} by ${card.issuer}. ${descParts}. Verified rewards, fees, benefits, exclusions, and redemption details.`;
 
-  const seoName = buildCardSeoName(card.name, card.issuer);
-
   return buildPageMetadata({
-    title: buildCardSeoTitle(card.name, card.issuer),
-    description: `Check ${seoName} fees, rewards, lounge access, forex charges, eligibility, exclusions and whether this credit card is worth it in India.`,
+    title: buildCardSeoTitle(card.name),
+    description: `Check ${card.name} fees, rewards, lounge access, forex charges, eligibility, exclusions and whether this credit card is worth it in India.`,
     path: `/cards/${card.id}`,
     type: "article",
     imageUrl: card.imageUrl
