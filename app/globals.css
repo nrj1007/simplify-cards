@@ -490,6 +490,82 @@ textarea {
 }
 
 /* =========================================================
+   About / Contact
+   ========================================================= */
+
+.about-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 22px;
+}
+
+.about-grid {
+  align-items: start;
+  display: grid;
+  gap: 24px;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 340px);
+}
+
+.about-main,
+.about-side {
+  display: grid;
+  gap: 18px;
+}
+
+.about-card {
+  padding: 22px;
+}
+
+.about-card h2 {
+  color: var(--navy);
+  font-size: 24px;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  margin: 0 0 12px;
+}
+
+.about-card p,
+.about-list {
+  color: var(--muted);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.about-list {
+  display: grid;
+  gap: 10px;
+  padding-left: 20px;
+}
+
+.about-card p + .about-list {
+  margin-top: 16px;
+}
+
+.contact-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.about-pill-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.about-pill-list span {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--navy);
+  font-size: 13px;
+  font-weight: 800;
+  padding: 8px 11px;
+}
+
+/* =========================================================
    SEO comparison pages
    ========================================================= */
 
@@ -1463,6 +1539,7 @@ textarea {
   .footer-grid,
   .seo-landing-grid,
   .seo-comparison-grid,
+  .about-grid,
   .seo-related-panel {
     grid-template-columns: 1fr;
   }

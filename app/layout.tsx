@@ -96,6 +96,10 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
                   <p>Apply links may be affiliate links. We may earn a commission if you apply and are approved.</p>
                 </div>
                 <nav className="footer-guides" aria-label="Popular guides">
+                  <strong>Product</strong>
+                  <div>
+                    <Link href={"/about" as Route}>About / Contact</Link>
+                  </div>
                   <strong>Popular guides</strong>
                   <div>
                     {POPULAR_GUIDES.map((guide) => (
