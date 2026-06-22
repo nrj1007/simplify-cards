@@ -1296,10 +1296,10 @@ function computeFlexibilityValue(
   includeSmartbuyLikeRewards: boolean
 ): number {
   const categories: { category: SpendCategory; share: number }[] = [
-    { category: "rent", share: 0.10 },
-    { category: "insurance", share: 0.05 },
-    { category: "education", share: 0.05 },
-    { category: "gold", share: 0.05 }
+    { category: "rent", share: 0.05 },
+    { category: "insurance", share: 0.02 },
+    { category: "education", share: 0.02 },
+    { category: "gold", share: 0.02 }
   ];
 
   let monthlyFlexTotal = 0;
