@@ -86,8 +86,8 @@ tests/          Vitest unit tests (one per lib module)
   hides the section (no placeholder text). Preserve this when editing.
 - **Don't fabricate card info.** Surfaced values must trace to real fields or transparent
   derivations (e.g. `lib/card-detail.ts`). See `lib/AGENTS.md`.
-- Apply/affiliate links use `rel="nofollow sponsored"` and an affiliate disclosure is shown
-  near every Apply CTA.
+- Non-affiliate issuer links should be labelled "Check official site" and use `rel="nofollow"`.
+  Reserve "Apply" and `rel="sponsored"` only for explicitly marked affiliate links.
 
 ## Where to read next
 - **`lib/AGENTS.md`** — the scoring/Q&A/calculator engine and module map.

@@ -55,8 +55,9 @@ ui/               Shared components
   client components (`"use client"`) must receive data as props — never import `lib/card-index`
   (it touches the filesystem) into a client component.
 - **Grounded + defensive UI.** Show only real card fields or transparent derivations
-  (`lib/card-detail.ts`); render a section only when its data exists. Apply CTAs use
-  `rel="nofollow sponsored"` and show the affiliate disclosure.
+  (`lib/card-detail.ts`); render a section only when its data exists. Non-affiliate issuer links
+  should be labelled "Check official site" and use `rel="nofollow"`. Reserve "Apply" and
+  `rel="sponsored"` only for explicitly marked affiliate links.
 - **`searchParams` are awaited** (`const params = await searchParams`) — App Router async params.
 
 ## API routes (`app/api/*/route.ts`)

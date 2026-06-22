@@ -221,8 +221,8 @@ export default function SeoComparisonPage({ slug }: Props) {
 
         <section className="container seo-disclosure" aria-label="Disclosure">
           <p>
-            <strong>Affiliate disclosure:</strong> Apply links may be affiliate links. We may earn a commission if you apply and are
-            approved, but this comparison uses existing card data and does not change affiliate or apply link behavior.
+            <strong>Disclosure:</strong> Official-site links open issuer or partner pages. No affiliate links are currently used, and this
+            comparison uses existing card data.
           </p>
           <p>Last updated: {comparisonLastUpdated(cardA, cardB)}</p>
         </section>

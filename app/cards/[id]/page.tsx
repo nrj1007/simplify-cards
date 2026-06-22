@@ -1010,10 +1010,10 @@ export default async function CardPage({ params, searchParams }: Props) {
                     }}
                     className="button"
                     href={card.applyUrl}
-                    rel="nofollow sponsored"
+                    rel="nofollow"
                     target="_blank"
                   >
-                    Apply <ExternalLink size={15} />
+                    Check official site <ExternalLink size={15} />
                   </TrackedExternalLink>
                 </div>
                 <div id="page-feedback">
@@ -1087,15 +1087,14 @@ export default async function CardPage({ params, searchParams }: Props) {
                   }}
                   className="side-action"
                   href={card.applyUrl}
-                  rel="sponsored nofollow"
+                  rel="nofollow"
                   target="_blank"
                 >
-                  Apply ↗
+                  Check official site ↗
                 </TrackedExternalLink>
               </div>
               <p className="side-note">
-                Some apply links may be affiliate links. Always verify final fees, eligibility, and benefits with the issuer
-                before applying.
+                Official-site links open issuer or partner pages. Always verify final fees, eligibility, and benefits before applying.
               </p>
             </section>
 

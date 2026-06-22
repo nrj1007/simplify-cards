@@ -106,15 +106,15 @@ export default function AboutPage() {
                 <span>Reward caps</span>
                 <span>Exclusions</span>
                 <span>Redemption value</span>
-                <span>Apply-link terms</span>
+                <span>Official-site terms</span>
               </div>
             </section>
 
             <section className="panel about-card">
               <h2>Disclosure</h2>
               <p>
-                SimplifyCards is not financial advice. Apply links may be affiliate links, but rankings are based on card data and scoring
-                logic rather than commission.
+                SimplifyCards is not financial advice. Official-site links open issuer or partner pages, and no affiliate links are
+                currently used.
               </p>
             </section>
           </aside>

@@ -471,10 +471,10 @@ export default async function AskPage({ searchParams }: Props) {
                                   }}
                                   className="mini-btn"
                                   href={item.card.applyUrl}
-                                  rel="nofollow sponsored"
+                                  rel="nofollow"
                                   target="_blank"
                                 >
-                                  Apply
+                                  Check official site
                                 </TrackedExternalLink>
                               </div>
                             </article>
@@ -679,10 +679,10 @@ export default async function AskPage({ searchParams }: Props) {
                           }}
                           className="button"
                           href={topCard.card.applyUrl}
-                          rel="nofollow sponsored"
+                          rel="nofollow"
                           target="_blank"
                         >
-                          Apply
+                          Check official site
                         </TrackedExternalLink>
                       </div>
                     </div>
@@ -794,8 +794,8 @@ export default async function AskPage({ searchParams }: Props) {
                   </Link>
                 </div>
                 <p className="source-note">
-                  Grounded in verified card data. Apply links may be affiliate links — we may earn a commission at no extra cost
-                  to you.
+                  Grounded in verified card data. Official-site links open issuer or partner pages; no affiliate links are currently
+                  used.
                 </p>
               </section>
             ) : null}

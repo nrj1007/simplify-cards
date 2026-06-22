@@ -40,7 +40,7 @@ function faqFor(intent: string): Array<{ q: string; a: string }> {
     },
     {
       q: "Do affiliate links affect the ranking?",
-      a: "No. Rankings are generated from card data and scoring logic. Apply links may be affiliate links, but they do not change the order of cards."
+      a: "No. Rankings are generated from card data and scoring logic. Current official-site links are not affiliate links."
     },
     {
       q: "Why should I still read the card detail page?",

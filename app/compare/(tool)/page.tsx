@@ -187,10 +187,10 @@ function CompareOverviewCard({ card }: { card: Card }) {
           }}
           className="button"
           href={card.applyUrl}
-          rel="nofollow sponsored"
+          rel="nofollow"
           target="_blank"
         >
-          Apply <ExternalLink size={15} />
+          Check official site <ExternalLink size={15} />
         </TrackedExternalLink>
       </div>
     </article>

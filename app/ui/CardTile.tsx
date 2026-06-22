@@ -83,10 +83,10 @@ export default function CardTile({
           }}
           className="action-primary"
           href={resolvedCard.applyUrl}
-          rel="nofollow sponsored"
+          rel="nofollow"
           target="_blank"
         >
-          Apply <ExternalLink size={14} style={{ verticalAlign: "-2px" }} />
+          Check official site <ExternalLink size={14} style={{ verticalAlign: "-2px" }} />
         </TrackedExternalLink>
       </div>
     </article>

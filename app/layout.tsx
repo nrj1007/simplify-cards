@@ -91,7 +91,7 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
                     <strong>Not financial advice.</strong> Card details are manually verified and may not reflect the latest issuer
                     changes. Verify terms directly with the issuer before applying.
                   </p>
-                  <p className="footer-summary">Apply links may be affiliate links. We may earn a commission if you apply and are approved.</p>
+                  <p className="footer-summary">Official-site links open issuer or partner pages. No affiliate links are currently used.</p>
                 </div>
                 <nav className="footer-links" aria-label="Footer navigation">
                   <section className="footer-link-group" aria-labelledby="footer-product">

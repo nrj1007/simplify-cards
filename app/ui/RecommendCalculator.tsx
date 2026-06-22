@@ -357,10 +357,10 @@ export default function RecommendCalculator({ defaultSpend, initialResults }: Pr
                     }}
                     className="button"
                     href={result.applyUrl}
-                    rel="nofollow sponsored"
+                    rel="nofollow"
                     target="_blank"
                   >
-                    Apply <ExternalLink size={15} />
+                    Check official site <ExternalLink size={15} />
                   </TrackedExternalLink>
                 </div>
               </article>
