@@ -1957,6 +1957,20 @@ function internationalLoungeScore(card: CreditCard) {
   return Math.min(access, 19);
 }
 
+function hasIntlSpendConditions(card: CreditCard): boolean {
+  return getMeaningfulLoungeConditions(card, "international").some((cond) => {
+    const lower = cond.toLowerCase();
+    return lower.includes("spend") || lower.includes("unlock") || lower.includes("subject to") || lower.includes("previous calendar quarter") || lower.includes("spending");
+  });
+}
+
+function hasDomSpendConditions(card: CreditCard): boolean {
+  return getMeaningfulLoungeConditions(card, "domestic").some((cond) => {
+    const lower = cond.toLowerCase();
+    return lower.includes("spend") || lower.includes("unlock") || lower.includes("subject to") || lower.includes("previous calendar quarter") || lower.includes("spending");
+  });
+}
+
 function loungePreferenceBoost(
   card: CreditCard,
   wantsLounge: boolean,
@@ -1972,18 +1986,14 @@ function loungePreferenceBoost(
     const intlScore = internationalLoungeScore(card);
     if (intlScore <= 0) return -15000;
 
-    const hasIntlSpendConditions = getMeaningfulLoungeConditions(card, "international").some((cond) => {
-      const lower = cond.toLowerCase();
-      return lower.includes("spend") || lower.includes("unlock") || lower.includes("subject to") || lower.includes("previous calendar quarter") || lower.includes("spending");
-    });
-    const intlWeight = hasIntlSpendConditions ? 360 : 720;
+    const intlWeight = hasIntlSpendConditions(card) ? 360 : 720;
 
     const primaryIntlValue = intlScore * intlWeight;
     const separateIntlGuest = (card.loungeGuestInternational ?? 0) * intlWeight * GUEST_VISIT_WEIGHT;
     const poolUplift = card.loungeGuestSharedPool ? primaryIntlValue * 0.25 : 0;
 
     const travelIntlLoungeValue = primaryIntlValue + poolUplift + separateIntlGuest;
-    const loungeValueWeight = isCategoryFocused ? 0 : (wantsLounge ? LOUNGE_QUERY_VALUE_WEIGHT : 0.5);
+    const loungeValueWeight = isCategoryFocused ? 0 : LOUNGE_QUERY_VALUE_WEIGHT;
 
     return Math.round(travelIntlLoungeValue * loungeValueWeight) + score * 300;
   }
@@ -2017,17 +2027,8 @@ function loungePreferenceBoost(
     ? Math.max(0, score - intlAccess)
     : (card.loungeDomestic === "unlimited" ? 20 : Math.min(card.loungeDomestic ?? 0, 19));
 
-  const hasDomSpendConditions = getMeaningfulLoungeConditions(card, "domestic").some((cond) => {
-    const lower = cond.toLowerCase();
-    return lower.includes("spend") || lower.includes("unlock") || lower.includes("subject to") || lower.includes("previous calendar quarter") || lower.includes("spending");
-  });
-  const hasIntlSpendConditions = getMeaningfulLoungeConditions(card, "international").some((cond) => {
-    const lower = cond.toLowerCase();
-    return lower.includes("spend") || lower.includes("unlock") || lower.includes("subject to") || lower.includes("previous calendar quarter") || lower.includes("spending");
-  });
-
-  const domWeight = hasDomSpendConditions ? 180 : 360;
-  const intlWeight = hasIntlSpendConditions ? 360 : 720;
+  const domWeight = hasDomSpendConditions(card) ? 180 : 360;
+  const intlWeight = hasIntlSpendConditions(card) ? 360 : 720;
 
   const primaryLoungeValue = domAccess * domWeight + intlAccess * intlWeight;
 
