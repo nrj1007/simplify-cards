@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { answerFromCards, joiningAndRenewalBenefitValueForCard, scoreCards } from "../lib/recommend";
+import { answerFromCards, cardMatchesSegment, joiningAndRenewalBenefitValueForCard, scoreCards } from "../lib/recommend";
 import { getCardById } from "../lib/cards";
 import type { ValuedBenefit } from "../lib/types";
 
@@ -896,7 +896,7 @@ describe("scoreCards", () => {
     expect(
       scores.every((score) => {
         const card = score.card;
-        return (card.annualFee >= 1000) || (card.joiningFee >= 1000) || card.annualFee === 0;
+        return cardMatchesSegment(card, "premium") || cardMatchesSegment(card, "super-premium");
       })
     ).toBe(true);
   });

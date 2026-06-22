@@ -842,7 +842,7 @@ function cardUseCaseStrength(card: CreditCard, useCase: string) {
   return 0;
 }
 
-function cardMatchesSegment(card: CreditCard, segment: string) {
+export function cardMatchesSegment(card: CreditCard, segment: string) {
   const haystack = normalizeForMatch([card.name, ...card.tags, ...card.bestFor].join(" "));
 
   if (segment === "ltf") return card.annualFee === 0 || containsNormalizedPhrase(haystack, "lifetime free") || containsNormalizedPhrase(haystack, "ltf");
