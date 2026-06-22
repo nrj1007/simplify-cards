@@ -80,42 +80,43 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
             <main className="main">{children}</main>
             <footer className="footer">
               <div className="container footer-grid">
-                <div>
+                <div className="footer-brand-block">
                   <Link className="brand" href="/" aria-label="SimplifyCards home">
                     <span className="brand-icon" aria-hidden="true">
                       <CreditCard size={20} />
                     </span>
                     <span>SimplifyCards</span>
                   </Link>
-                </div>
-                <div>
-                  <p>
+                  <p className="footer-summary">
                     <strong>Not financial advice.</strong> Card details are manually verified and may not reflect the latest issuer
                     changes. Verify terms directly with the issuer before applying.
                   </p>
-                  <p>Apply links may be affiliate links. We may earn a commission if you apply and are approved.</p>
+                  <p className="footer-summary">Apply links may be affiliate links. We may earn a commission if you apply and are approved.</p>
                 </div>
-                <nav className="footer-guides" aria-label="Popular guides">
-                  <strong>Product</strong>
-                  <div>
+                <nav className="footer-links" aria-label="Footer navigation">
+                  <section className="footer-link-group" aria-labelledby="footer-product">
+                    <h2 id="footer-product">Product</h2>
                     <Link href={"/about" as Route}>About / Contact</Link>
-                  </div>
-                  <strong>Popular guides</strong>
-                  <div>
-                    {POPULAR_GUIDES.map((guide) => (
+                    <Link href="/ask">Ask</Link>
+                    <Link href="/recommend">Recommend</Link>
+                    <Link href="/compare">Compare</Link>
+                  </section>
+                  <section className="footer-link-group" aria-labelledby="footer-guides">
+                    <h2 id="footer-guides">Popular guides</h2>
+                    {POPULAR_GUIDES.slice(0, 6).map((guide) => (
                       <Link key={guide.href} href={guide.href}>
                         {guide.label}
                       </Link>
                     ))}
-                  </div>
-                  <strong>Popular comparisons</strong>
-                  <div>
-                    {POPULAR_COMPARISONS.map((comparison) => (
+                  </section>
+                  <section className="footer-link-group" aria-labelledby="footer-comparisons">
+                    <h2 id="footer-comparisons">Popular comparisons</h2>
+                    {POPULAR_COMPARISONS.slice(0, 4).map((comparison) => (
                       <Link key={comparison.href} href={comparison.href}>
                         {comparison.label}
                       </Link>
                     ))}
-                  </div>
+                  </section>
                 </nav>
               </div>
             </footer>
