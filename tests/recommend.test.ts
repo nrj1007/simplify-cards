@@ -336,6 +336,13 @@ describe("scoreCards", () => {
     expect(ids.indexOf("axis-magnus-burgundy")).toBeLessThan(ids.indexOf("hdfc-infinia-metal"));
   });
 
+  it("lets guest international lounge access outrank comparable unlimited no-guest cards for international lounge queries", () => {
+    const ids = scoreCards({ query: "best international lounge card" }).map((score) => score.card.id);
+
+    expect(ids.indexOf("axis-magnus-burgundy")).toBeLessThan(ids.indexOf("hdfc-infinia-metal"));
+    expect(ids.indexOf("hsbc-premier")).toBeLessThan(ids.indexOf("hdfc-infinia-metal"));
+  });
+
   it("boosts lower forex markup cards for explicit forex queries", () => {
     const scores = scoreCards({
       query: "best hdfc forex card under 5000"

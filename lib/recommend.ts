@@ -86,6 +86,7 @@ function acceleratedShareForCategory(card: CreditCard, category: SpendCategory) 
 const defaultTopCardCount = 3;
 const joiningBenefitAmortizationYears = 2;
 const LOUNGE_QUERY_VALUE_WEIGHT = 30;
+const GUEST_VISIT_WEIGHT = 2;
 
 // Scoring stage weights: relevance (text/identity match) vs value (economic/preference fit)
 const relevanceWeightExactMatch = 1.0;
@@ -1970,7 +1971,21 @@ function loungePreferenceBoost(
   if (wantsInternationalLounge) {
     const intlScore = internationalLoungeScore(card);
     if (intlScore <= 0) return -15000;
-    return intlScore * 4000 + score * 300;
+
+    const hasIntlSpendConditions = getMeaningfulLoungeConditions(card, "international").some((cond) => {
+      const lower = cond.toLowerCase();
+      return lower.includes("spend") || lower.includes("unlock") || lower.includes("subject to") || lower.includes("previous calendar quarter") || lower.includes("spending");
+    });
+    const intlWeight = hasIntlSpendConditions ? 360 : 720;
+
+    const primaryIntlValue = intlScore * intlWeight;
+    const separateIntlGuest = (card.loungeGuestInternational ?? 0) * intlWeight * GUEST_VISIT_WEIGHT;
+    const poolUplift = card.loungeGuestSharedPool ? primaryIntlValue * 0.25 : 0;
+
+    const travelIntlLoungeValue = primaryIntlValue + poolUplift + separateIntlGuest;
+    const loungeValueWeight = isCategoryFocused ? 0 : (wantsLounge ? LOUNGE_QUERY_VALUE_WEIGHT : 0.5);
+
+    return Math.round(travelIntlLoungeValue * loungeValueWeight) + score * 300;
   }
 
   if (score <= 0) {
@@ -1998,7 +2013,9 @@ function loungePreferenceBoost(
 
   const rawIntl = getInternationalLoungeAccess(card);
   const intlAccess = rawIntl === "unlimited" ? 20 : Math.min(rawIntl, 19);
-  const domAccess = Math.max(0, score - intlAccess);
+  const domAccess = card.combinedLoungeAccess !== undefined
+    ? Math.max(0, score - intlAccess)
+    : (card.loungeDomestic === "unlimited" ? 20 : Math.min(card.loungeDomestic ?? 0, 19));
 
   const hasDomSpendConditions = getMeaningfulLoungeConditions(card, "domestic").some((cond) => {
     const lower = cond.toLowerCase();
@@ -2015,7 +2032,7 @@ function loungePreferenceBoost(
   const primaryLoungeValue = domAccess * domWeight + intlAccess * intlWeight;
 
   // A guest lounge visit serves two people (cardholder + guest), so it is worth 2x a self visit.
-  const guestVisitWeight = 2;
+  const guestVisitWeight = GUEST_VISIT_WEIGHT;
 
   // Separate complimentary guest allowance: extra visits beyond the cardholder's own access.
   const guestDom = card.loungeGuestDomestic ?? 0;
@@ -2030,7 +2047,7 @@ function loungePreferenceBoost(
   const loungeValueWeight = isCategoryFocused ? 0 : (wantsLounge ? LOUNGE_QUERY_VALUE_WEIGHT : 0.5);
   boost += Math.round(travelLoungeValue * loungeValueWeight);
 
-  if (intent.useCases.includes("travel")) {
+  if (intent.useCases.includes("travel") && !wantsLounge) {
     boost += Math.round(travelLoungeValue * 0.5);
     if (hasInternationalLounge) boost += 1500;
   }
