@@ -1336,6 +1336,12 @@ function isSpendCategoryExcluded(card: CreditCard, category: SpendCategory) {
     return true;
   }
 
+  // Merchant/brand categories like Amazon are never excluded as general spend categories.
+  // Standard text-search for "amazon" yields false positives like "utility transactions outside Amazon platform".
+  if (category === "amazon") {
+    return false;
+  }
+
   const exclusionText = exclusionTextForCard(card);
   return card.exclusions.some((line) => {
     const normalizedLine = normalizeForMatch(line);
@@ -1659,6 +1665,19 @@ function rewardAllocationsForSpend(
   const matchingReward = baseReward ?? specialReward;
   const allocations = matchingReward ? [{ amount: effectiveAmount, reward: matchingReward }] : [];
   return routeToUpiWhenBetter(card, category, effectiveAmount, allocations, totalMonthlySpend);
+}
+
+function netCategoryReward(
+  card: CreditCard,
+  category: SpendCategory,
+  monthlyCategorySpend: number,
+  includeSmartbuyLikeRewards: boolean
+): number {
+  const surcharge = (monthlyCategorySpend * getSurchargePercent(card, category)) / 100;
+  if (isSpendCategoryExcluded(card, category)) return -surcharge; // 0 reward − surcharge
+  const allocations = rewardAllocationsForSpend(card, category, monthlyCategorySpend, includeSmartbuyLikeRewards, monthlyCategorySpend);
+  const gross = estimateMonthlyRewardForAllocations(card, allocations, monthlyCategorySpend);
+  return gross - surcharge;
 }
 
 function isDirectRewardMatch(category: SpendCategory, rewardCategory: string, includeSmartbuyLikeRewards: boolean) {
@@ -2446,6 +2465,11 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
     .filter((card) => (restrictToCashbackCards ? hasCashbackCardSignal(card) : true))
     .filter((card) => (restrictToSegments ? restrictToSegments.some((segment) => cardMatchesSegment(card, segment)) : true))
     .filter((card) => (categoryFocus ? cardMatchesCategoryFocus(card, categoryFocus) : true))
+    .filter((card) =>
+      focusedCategory
+        ? netCategoryReward(card, focusedCategory, categoryFocusMonthlySpend[focusedCategory] ?? 8000, includeSmartbuyLikeRewards) > 0
+        : true
+    )
     .map((card) => {
       if (!useEnvelopeScoring) return scoreCardForSpend(card, spend);
 
