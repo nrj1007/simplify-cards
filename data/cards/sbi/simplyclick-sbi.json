@@ -99,13 +99,6 @@
   "joiningBenefits": [
     "Amazon e-gift voucher worth Rs 500 on payment of joining fee"
   ],
-  "joiningBenefitsValued": [
-    {
-      "value": 250,
-      "kind": "voucher",
-      "label": "Amazon e-gift voucher worth Rs 500 on payment of joining fee"
-    }
-  ],
   "renewalBenefits": [],
   "additionalBenefits": [
     "1% fuel surcharge waiver on eligible fuel transactions from Rs 500 to Rs 3,000"
@@ -117,12 +110,25 @@
     "redemptionFee": 99
   },
   "additionalDetails": [],
+  "eligibility": {
+    "salaried": [
+      "Minimum age: 21 years",
+      "Maximum age: 60 years",
+      "Occupation: salaried with stable income"
+    ],
+    "selfEmployed": [
+      "Minimum age: 25 years",
+      "Maximum age: 60 years",
+      "Occupation: self-employed with stable income"
+    ]
+  },
   "internalNotes": [
     "Audited against official SimplyCLICK product page, SimplyCLICK terms booklet dated 1 Sep 2025, and SBI Card customer notices on 2026-06-08.",
     "The current official partner set foregrounded by SBI Card includes Apollo 24X7, BookMyShow, Cleartrip, Dominos, IGP, Myntra, Netmeds, and Yatra for 10X Reward Points.",
     "As per customer notice, 10X Reward Points on Swiggy were revised to 5X effective 1 Apr 2025; the card data therefore keeps the rewards row generic to exclusive partners and excludes Swiggy from the 10X note.",
     "Reward Points expire after 24 months.",
-    "Card details manually reviewed and verified by user on 2026-06-08"
+    "Card details manually reviewed and verified by user on 2026-06-08",
+    "The current SimplyCLICK terms explicitly exclude offline fuel, cash advances, balance transfers, Flexipay, rent payments, government-related transactions, and gaming spends from Reward Points accrual."
   ],
   "supportingSourceUrls": [
     "https://www.sbicard.com/en/personal/credit-cards/simplyclick-sbi-card.html",
@@ -131,8 +137,8 @@
   ],
   "sourceUrl": "https://www.sbicard.com/en/personal/credit-cards/simplyclick-sbi-card.html",
   "applyUrl": "https://www.sbicard.com/en/personal/credit-cards/simplyclick-sbi-card.html",
+  "imageUrl": "/images/simplyclick-sbi.png",
   "lastVerified": "2026-06-08",
   "verificationStatus": "official-direct",
-  "imageUrl": "/images/simplyclick-sbi.png",
   "popularityScore": 74
 }

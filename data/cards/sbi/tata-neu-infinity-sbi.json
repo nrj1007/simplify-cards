@@ -80,9 +80,12 @@
     "rental transactions",
     "government related transactions",
     "education payments",
-    "cash advances",
     "merchant EMI and Flexipay transactions",
+    "balance transfers",
+    "cash advances",
     "outstanding balance payments",
+    "fees and charges",
+    "disputed transactions",
     "transactions excluded under Tata Neu Infinity SBI Card terms"
   ],
   "exclusionCodes": [
@@ -91,9 +94,12 @@
     "rent",
     "government",
     "education",
-    "cash_advance",
     "emi",
-    "outstanding_balance_payment"
+    "balance_transfer",
+    "cash_advance",
+    "outstanding_balance_payment",
+    "fees_and_charges",
+    "disputed_transactions"
   ],
   "joiningBenefitsValued": [
     {
@@ -105,13 +111,6 @@
   "joiningBenefits": [
     "1,499 NeuCoins as welcome benefit within 15 days of joining fee realisation"
   ],
-  "joiningBenefitsValued": [
-    {
-      "value": 1499,
-      "kind": "points",
-      "label": "1,499 NeuCoins as welcome benefit within 15 days of joining fee realisation"
-    }
-  ],
   "renewalBenefits": [],
   "milestoneBenefits": [],
   "additionalBenefits": [
@@ -122,26 +121,27 @@
     "ecosystemLabel": "Tata Neu App/Website and partner Tata brands",
     "ecosystemValue": 1
   },
-  "eligibility": {
-    "salaried": [
-      "Age 21 to 60 years",
-      "Stable income as per SBI Card credit assessment",
-      "Good credit profile and address in a serviced location"
-    ],
-    "selfEmployed": [
-      "Age 25 to 60 years",
-      "Stable business income as per SBI Card credit assessment",
-      "Good credit profile and address in a serviced location"
-    ]
-  },
   "additionalDetails": [
     "1 NeuCoin equals Re 1 savings on Tata Neu App/Website and partner Tata brands"
   ],
+  "eligibility": {
+    "salaried": [
+      "Minimum age: 21 years",
+      "Maximum age: 60 years",
+      "Occupation: salaried with stable income"
+    ],
+    "selfEmployed": [
+      "Minimum age: 25 years",
+      "Maximum age: 60 years",
+      "Occupation: self-employed with stable income"
+    ]
+  },
   "internalNotes": [
     "Audited against official SBI Card product page, Tata Neu Infinity T&C booklet, and Priority Pass FAQ on 2026-06-08.",
     "The product page currently positions the accelerated extra 5% NeuCoins specifically around select Tata Neu app or website categories, so the rewards table keeps a separate display row instead of treating all Tata ecosystem spends as a flat 10% bucket.",
     "Priority Pass membership on the product page is described as complimentary, with post-complimentary lounge visits charged at the programme's prevailing rate.",
     "The current official materials describe welcome NeuCoins posting within 15 days of joining fee realisation.",
+    "The current Tata Neu Infinity booklet explicitly excludes wallet loads, rental transactions, government-related transactions, education payments, and EMI/Flexipay transactions from NeuCoins accrual.",
     "The card is audited from official SBI sources but is not yet marked as manually verified by user."
   ],
   "supportingSourceUrls": [
@@ -151,6 +151,7 @@
   ],
   "sourceUrl": "https://www.sbicard.com/en/personal/credit-cards/tata-neu-infinity-sbi-card.html",
   "applyUrl": "https://www.sbicard.com/en/personal/credit-cards/tata-neu-infinity-sbi-card.html",
+  "imageUrl": "/images/tata-neu-infinity-sbi.png",
   "lastVerified": "2026-06-08",
   "verificationStatus": "official-direct",
   "popularityScore": 78

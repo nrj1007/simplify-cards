@@ -101,6 +101,18 @@
     "statementBalanceValue": 0.25
   },
   "additionalDetails": [],
+  "eligibility": {
+    "salaried": [
+      "Minimum age: 21 years",
+      "Maximum age: 60 years",
+      "Occupation: salaried with stable income"
+    ],
+    "selfEmployed": [
+      "Minimum age: 25 years",
+      "Maximum age: 60 years",
+      "Occupation: self-employed with stable income"
+    ]
+  },
   "internalNotes": [
     "Audited against official SBI Card product page and BPCL SBI Card OCTANE T&C booklet on 2026-06-08.",
     "Reward Points expire after 24 months.",

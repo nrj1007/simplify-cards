@@ -134,6 +134,18 @@
     "redemptionFee": 99
   },
   "additionalDetails": [],
+  "eligibility": {
+    "salaried": [
+      "Minimum age: 21 years",
+      "Maximum age: 60 years",
+      "Occupation: salaried with stable income"
+    ],
+    "selfEmployed": [
+      "Minimum age: 25 years",
+      "Maximum age: 60 years",
+      "Occupation: self-employed with stable income"
+    ]
+  },
   "internalNotes": [
     "Audited against official SBI Card ELITE product page, ELITE terms booklet, customer notices page, rewards FAQ, and Priority Pass FAQ on 2026-06-08.",
     "The current ELITE booklet reflects annual spend milestone slabs at Rs 2 lakh, Rs 3 lakh, Rs 4 lakh, and Rs 5 lakh, together totalling 50,000 bonus Reward Points worth Rs 12,500.",
