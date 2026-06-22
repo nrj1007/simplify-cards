@@ -1,5 +1,6 @@
 import { cards } from "./cards";
 import { SPEND_CATEGORY_EXCLUSION_CODE_MAP } from "./exclusion-constants";
+import { rankingStrategies, DEFAULT_RANKING_STRATEGY } from "./ranking-strategies";
 import { parseQueryIntent } from "./query-intent";
 import type { CardScore, CreditCard, Milestone, RecommendationInput, SpendCategory, SpendProfile, Reward } from "./types";
 import { getTotalLoungeAccess, getInternationalLoungeAccess, getMeaningfulLoungeConditions } from "./lounge";
@@ -2158,6 +2159,7 @@ function isTargetedEnvelopeQuery(
 }
 
 export function scoreCards(input: RecommendationInput): CardScore[] {
+  const strategy = rankingStrategies[input.rankingStrategy ?? DEFAULT_RANKING_STRATEGY];
   const intent = parseQueryIntent(input);
   const queryTags = extractQueryTags(input.query);
   const effectiveMaxAnnualFee = input.maxAnnualFee ?? intent.maxAnnualFee;
@@ -2482,8 +2484,8 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
           const totalMonthlySpend = monthlySpendTotal(monthlySpendProfile);
           return scoreCardForSpend(card, monthlySpendProfile, totalMonthlySpend);
         });
-        const blendedFitScore = perLevel.reduce((sum, score) => sum + score.fitScore, 0) / 3;
-        const representative = perLevel.reduce((best, score) => (score.fitScore > best.fitScore ? score : best));
+        const blendedFitScore = perLevel.reduce((sum, score) => sum + strategy.perLevelScore(score), 0) / 3;
+        const representative = perLevel.reduce((best, score) => (strategy.perLevelScore(score) > strategy.perLevelScore(best) ? score : best));
         return representative.envelopeScoring
           ? { ...representative, envelopeScoring: { ...representative.envelopeScoring, normalizedFitScore: blendedFitScore } }
           : representative;
@@ -2493,14 +2495,14 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
       // into the ranking key. The card is displayed at its strongest of these levels, but ranked on
       // its all-round performance — so no single trivial-spend tier can inflate it. The blend is a
       // weighted average leaning toward higher-spend levels (see blendAnnualSpendLevelWeights).
-      let spendLevels = blendAnnualSpendLevels;
+      let spendLevels = strategy.spendLevels;
       if (restrictToUpiCards) {
         spendLevels = [100000, 200000, 300000];
       } else if (isUtilityLikeCategory) {
         spendLevels = [100000, 200000, 300000];
       }
 
-      let spendWeights = blendAnnualSpendLevelWeights; // Default: [1, 1.25, 1.5, 2]
+      let spendWeights = strategy.spendWeights;
       if (restrictToUpiCards) {
         spendWeights = [2, 1.5, 1];
       } else if (isUtilityLikeCategory) {
@@ -2531,8 +2533,8 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
       });
       const blendWeightSum = spendWeights.reduce((total, weight) => total + weight, 0);
       const blendedFitScore =
-        perLevel.reduce((total, score, i) => total + score.fitScore * spendWeights[i], 0) / blendWeightSum;
-      const representative = perLevel.reduce((best, score) => (score.fitScore > best.fitScore ? score : best));
+        perLevel.reduce((total, score, i) => total + strategy.perLevelScore(score) * spendWeights[i], 0) / blendWeightSum;
+      const representative = perLevel.reduce((best, score) => (strategy.perLevelScore(score) > strategy.perLevelScore(best) ? score : best));
       return representative.envelopeScoring
         ? { ...representative, envelopeScoring: { ...representative.envelopeScoring, normalizedFitScore: blendedFitScore } }
         : representative;
