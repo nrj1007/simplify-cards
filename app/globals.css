@@ -163,46 +163,59 @@ textarea {
   background: var(--cream-2);
   border-top: 1px solid var(--line);
   color: var(--muted);
-  font-size: 13px;
-  line-height: 1.6;
-  padding: 30px 0;
+  font-size: 14px;
+  line-height: 1.55;
+  padding: 28px 0 30px;
 }
 
 .footer-grid {
+  align-items: start;
   display: grid;
-  gap: 28px;
-  grid-template-columns: 0.65fr 1fr 1fr;
+  gap: 32px;
+  grid-template-columns: minmax(240px, 0.9fr) minmax(0, 1.7fr);
 }
 
 .footer strong {
   color: var(--navy);
 }
 
-.footer p {
-  margin: 0 0 4px;
+.footer-brand-block {
+  display: grid;
+  gap: 14px;
+  max-width: 420px;
 }
 
-.footer p:last-child {
+.footer-summary {
   margin: 0;
 }
 
-.footer-guides {
+.footer-links {
   display: grid;
-  gap: 10px;
+  gap: 28px;
+  grid-template-columns: minmax(130px, 0.7fr) minmax(180px, 1fr) minmax(220px, 1.15fr);
 }
 
-.footer-guides div {
+.footer-link-group {
   display: grid;
-  gap: 7px 14px;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 9px;
+  min-width: 0;
 }
 
-.footer-guides a {
+.footer-link-group h2 {
+  color: var(--navy);
+  font-size: 14px;
+  letter-spacing: 0;
+  line-height: 1.2;
+  margin: 0 0 3px;
+}
+
+.footer-link-group a {
   color: var(--muted);
+  line-height: 1.35;
   text-decoration: none;
 }
 
-.footer-guides a:hover {
+.footer-link-group a:hover {
   color: var(--teal-dark);
 }
 
@@ -1537,6 +1550,7 @@ textarea {
 /* Homepage responsive */
 @media (max-width: 920px) {
   .footer-grid,
+  .footer-links,
   .seo-landing-grid,
   .seo-comparison-grid,
   .about-grid,
@@ -1551,7 +1565,6 @@ textarea {
 }
 
 @media (max-width: 640px) {
-  .footer-guides div,
   .seo-card-facts,
   .seo-choice-grid,
   .seo-faq-grid {
