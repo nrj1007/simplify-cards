@@ -2484,8 +2484,11 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
           const totalMonthlySpend = monthlySpendTotal(monthlySpendProfile);
           return scoreCardForSpend(card, monthlySpendProfile, totalMonthlySpend);
         });
-        const blendedFitScore = perLevel.reduce((sum, score) => sum + strategy.perLevelScore(score), 0) / 3;
         const representative = perLevel.reduce((best, score) => (strategy.perLevelScore(score) > strategy.perLevelScore(best) ? score : best));
+        const blendedFitScore =
+          strategy.blendMode === "max"
+            ? strategy.perLevelScore(representative)
+            : perLevel.reduce((sum, score) => sum + strategy.perLevelScore(score), 0) / 3;
         return representative.envelopeScoring
           ? { ...representative, envelopeScoring: { ...representative.envelopeScoring, normalizedFitScore: blendedFitScore } }
           : representative;
@@ -2532,9 +2535,11 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
         return scoreCardForSpend(card, scaleSpendProfileToMonthly(spend, monthlySpend), monthlySpend);
       });
       const blendWeightSum = spendWeights.reduce((total, weight) => total + weight, 0);
-      const blendedFitScore =
-        perLevel.reduce((total, score, i) => total + strategy.perLevelScore(score) * spendWeights[i], 0) / blendWeightSum;
       const representative = perLevel.reduce((best, score) => (strategy.perLevelScore(score) > strategy.perLevelScore(best) ? score : best));
+      const blendedFitScore =
+        strategy.blendMode === "max"
+          ? strategy.perLevelScore(representative)
+          : perLevel.reduce((total, score, i) => total + strategy.perLevelScore(score) * spendWeights[i], 0) / blendWeightSum;
       return representative.envelopeScoring
         ? { ...representative, envelopeScoring: { ...representative.envelopeScoring, normalizedFitScore: blendedFitScore } }
         : representative;
