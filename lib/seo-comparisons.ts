@@ -9,13 +9,14 @@ export type SeoComparisonConfig = {
   slug: string;
   cardAId: string;
   cardBId: string;
+  canonicalSlug?: string;
 };
 
 export const SEO_COMPARISONS: SeoComparisonConfig[] = [
   { slug: "axis-atlas-vs-hdfc-regalia-gold", cardAId: "axis-atlas", cardBId: "hdfc-regalia-gold" },
   { slug: "sbi-cashback-vs-hdfc-millennia", cardAId: "sbi-cashback", cardBId: "hdfc-millennia" },
   { slug: "sbi-cashback-vs-hdfc-swiggy", cardAId: "sbi-cashback", cardBId: "hdfc-swiggy" },
-  { slug: "hsbc-travelone-vs-axis-atlas", cardAId: "hsbc-travelone", cardBId: "axis-atlas" },
+  { slug: "hsbc-travelone-vs-axis-atlas", cardAId: "hsbc-travelone", cardBId: "axis-atlas", canonicalSlug: "axis-atlas-vs-hsbc-travelone" },
   {
     slug: "hdfc-infinia-metal-vs-hdfc-diners-club-black-metal",
     cardAId: "hdfc-infinia-metal",
@@ -29,9 +30,12 @@ export const SEO_COMPARISONS: SeoComparisonConfig[] = [
 ];
 
 export const SEO_COMPARISON_SLUGS = SEO_COMPARISONS.map((comparison) => comparison.slug);
+export const INDEXABLE_SEO_COMPARISONS = SEO_COMPARISONS.filter((comparison) => !comparison.canonicalSlug);
+export const INDEXABLE_SEO_COMPARISON_SLUGS = INDEXABLE_SEO_COMPARISONS.map((comparison) => comparison.slug);
 
 export const SAFE_FALLBACK = "Check issuer terms before applying.";
 export const BOTH_MISSING_FALLBACK = "Not clearly available in our current data.";
+const EFFECTIVE_FEE_TIE_THRESHOLD = 100;
 
 export function getSeoComparison(slug: string) {
   return SEO_COMPARISONS.find((comparison) => comparison.slug === slug);
@@ -63,10 +67,11 @@ export function buildSeoComparisonMetadata(slug: string): Metadata {
   const nameB = comparisonDisplayName(cards.cardB);
   const title = `${nameA} vs ${nameB}: Fees, Rewards & Benefits Compared | SimplifyCards`;
   const description = `Compare ${nameA} and ${nameB} by fees, rewards, lounge access, forex charges, exclusions and best use case in India.`;
+  const canonicalSlug = canonicalComparisonSlug(config);
   const metadata = buildPageMetadata({
     title,
     description,
-    path: `/compare/${config.slug}`
+    path: `/compare/${canonicalSlug}`
   });
 
   return {
@@ -101,10 +106,36 @@ function loungeScore(card: CreditCard) {
   return total === "unlimited" ? 999 : total;
 }
 
+function isEffectivelySameFee(cardA: CreditCard, cardB: CreditCard) {
+  return Math.abs(cardA.annualFee - cardB.annualFee) <= EFFECTIVE_FEE_TIE_THRESHOLD;
+}
+
+function isSameForex(cardA: CreditCard, cardB: CreditCard) {
+  return cardA.forexMarkup === cardB.forexMarkup;
+}
+
+function isSameLounge(cardA: CreditCard, cardB: CreditCard) {
+  return loungeScore(cardA) === loungeScore(cardB);
+}
+
+function rewardCapLabel(card: CreditCard, reward: CreditCard["rewards"][number]) {
+  const capParts: string[] = [];
+  const isCashback = card.rewardType.toLowerCase().includes("cashback");
+  const capValue = (value: number) => (isCashback ? `Rs ${value.toLocaleString("en-IN")}` : `${value.toLocaleString("en-IN")} ${card.rewardType}`);
+  if (reward.capDaily) capParts.push(`capped at ${capValue(reward.capDaily)}/day`);
+  if (reward.capMonthly) capParts.push(`capped at ${capValue(reward.capMonthly)}/month`);
+  if (reward.capStatementQuarter) capParts.push(`capped at ${capValue(reward.capStatementQuarter)}/statement quarter`);
+  if (reward.postCapRate !== null && reward.postCapRate !== undefined) {
+    capParts.push(`then ${reward.postCapRate} ${card.rewardType} / Rs 100`);
+  }
+
+  return capParts.length ? ` (${capParts.join(", ")})` : "";
+}
+
 function topRewardLines(card: CreditCard, count = 4) {
   return card.rewards.slice(0, count).map((reward) => {
     const rate = reward.displayRate ?? `${reward.rate} ${card.rewardType} / Rs 100`;
-    return `${reward.displayCategory ?? reward.category}: ${rate}`;
+    return `${reward.displayCategory ?? reward.category}: ${rate}${rewardCapLabel(card, reward)}`;
   });
 }
 
@@ -113,9 +144,12 @@ export function rewardSummary(card: CreditCard) {
   return rewards.length ? rewards.join("; ") : SAFE_FALLBACK;
 }
 
-function redemptionSummary(card: CreditCard) {
+export function redemptionSummary(card: CreditCard) {
   const redemption = card.redemption;
-  if (!redemption) return BOTH_MISSING_FALLBACK;
+  if (!redemption) {
+    const autoCreditDetail = card.additionalDetails?.find((detail) => /auto|automatic|credit|statement/i.test(detail));
+    return autoCreditDetail ? clean(autoCreditDetail) : BOTH_MISSING_FALLBACK;
+  }
 
   const parts: string[] = [];
   if (typeof redemption.statementBalanceValue === "number") parts.push(`Statement balance: up to Rs ${redemption.statementBalanceValue} per point`);
@@ -127,6 +161,8 @@ function redemptionSummary(card: CreditCard) {
   }
   if (redemption.airlinePartners?.length) parts.push(`${redemption.airlinePartners.length} airline transfer partners listed`);
   if (redemption.hotelPartners?.length) parts.push(`${redemption.hotelPartners.length} hotel transfer partners listed`);
+  const autoCreditDetail = card.additionalDetails?.find((detail) => /auto|automatic|credit|statement/i.test(detail));
+  if (autoCreditDetail && card.rewardType.toLowerCase().includes("cashback")) parts.push(clean(autoCreditDetail));
 
   return parts.length ? parts.join("; ") : BOTH_MISSING_FALLBACK;
 }
@@ -167,9 +203,15 @@ export function keyBenefit(card: CreditCard) {
 
 export function chooseReasons(card: CreditCard, other: CreditCard) {
   const reasons: string[] = [];
-  if (card.annualFee < other.annualFee) reasons.push(`You prefer the lower listed annual fee (${formatCurrency(card.annualFee)}).`);
-  if (loungeScore(card) > loungeScore(other)) reasons.push(`You want more listed lounge access (${totalLoungeLabel(card)}).`);
-  if (card.forexMarkup < other.forexMarkup) reasons.push(`You value the lower listed forex markup (${card.forexMarkup}%).`);
+  if (!isEffectivelySameFee(card, other) && card.annualFee < other.annualFee) {
+    reasons.push(`You prefer the lower listed annual fee (${formatCurrency(card.annualFee)}).`);
+  }
+  if (!isSameLounge(card, other) && loungeScore(card) > loungeScore(other)) {
+    reasons.push(`You want more listed lounge access (${totalLoungeLabel(card)}).`);
+  }
+  if (!isSameForex(card, other) && card.forexMarkup < other.forexMarkup) {
+    reasons.push(`You value the lower listed forex markup (${card.forexMarkup}%).`);
+  }
   const useCase = firstBestFor(card);
   if (useCase) reasons.push(useCase.desc);
   if (reasons.length === 0 && card.bestFor.length) reasons.push(`Your priority matches ${card.bestFor.slice(0, 3).join(", ")}.`);
@@ -177,18 +219,106 @@ export function chooseReasons(card: CreditCard, other: CreditCard) {
   return reasons.slice(0, 4);
 }
 
+function sentenceToIfClause(reason: string) {
+  const cleaned = reason.replace(/\.$/, "");
+  return `${cleaned.charAt(0).toLowerCase()}${cleaned.slice(1)}`;
+}
+
 export function quickVerdict(cardA: CreditCard, cardB: CreditCard) {
   const reasonA = chooseReasons(cardA, cardB)[0];
   const reasonB = chooseReasons(cardB, cardA)[0];
-  return `${comparisonDisplayName(cardA)} is easier to justify if ${reasonA.charAt(0).toLowerCase()}${reasonA.slice(1)} ${comparisonDisplayName(cardB)} is easier to justify if ${reasonB.charAt(0).toLowerCase()}${reasonB.slice(1)}`;
+  return `${comparisonDisplayName(cardA)} is easier to justify if ${sentenceToIfClause(reasonA)}. ${comparisonDisplayName(cardB)} is easier to justify if ${sentenceToIfClause(reasonB)}.`;
 }
 
 export function finalRecommendation(cardA: CreditCard, cardB: CreditCard) {
-  const lowerFee = cardA.annualFee <= cardB.annualFee ? cardA : cardB;
-  const strongerLounge = loungeScore(cardA) >= loungeScore(cardB) ? cardA : cardB;
-  const lowerForex = cardA.forexMarkup <= cardB.forexMarkup ? cardA : cardB;
+  const parts: string[] = [];
+  const nameA = comparisonDisplayName(cardA);
+  const nameB = comparisonDisplayName(cardB);
+  const useCaseA = firstBestFor(cardA);
+  const useCaseB = firstBestFor(cardB);
 
-  return `Start with ${comparisonDisplayName(lowerFee)} if fee recovery is your first filter. Consider ${comparisonDisplayName(strongerLounge)} if listed lounge access matters more, and ${comparisonDisplayName(lowerForex)} if forex markup is a key part of your travel spends. Verify issuer terms before applying.`;
+  if (useCaseA) parts.push(`Start with ${nameA} if ${sentenceToIfClause(useCaseA.desc)}.`);
+  if (useCaseB) parts.push(`Choose ${nameB} if ${sentenceToIfClause(useCaseB.desc)}.`);
+
+  if (isEffectivelySameFee(cardA, cardB)) {
+    parts.push(`The listed annual fees are effectively tied (${formatCurrency(cardA.annualFee)} vs ${formatCurrency(cardB.annualFee)}), so fee alone should not decide this comparison.`);
+  } else {
+    const lowerFee = cardA.annualFee < cardB.annualFee ? cardA : cardB;
+    parts.push(`${comparisonDisplayName(lowerFee)} has the lower listed annual fee.`);
+  }
+
+  if (isSameLounge(cardA, cardB)) {
+    parts.push(loungeScore(cardA) === 0 ? "Neither card has a lounge-access advantage in the current data." : "Both cards show the same total lounge-access count in the current data.");
+  } else {
+    const strongerLounge = loungeScore(cardA) > loungeScore(cardB) ? cardA : cardB;
+    parts.push(`${comparisonDisplayName(strongerLounge)} has more listed lounge access.`);
+  }
+
+  if (isSameForex(cardA, cardB)) {
+    parts.push(`Both cards list the same ${cardA.forexMarkup}% forex markup.`);
+  } else {
+    const lowerForex = cardA.forexMarkup < cardB.forexMarkup ? cardA : cardB;
+    parts.push(`${comparisonDisplayName(lowerForex)} has the lower listed forex markup.`);
+  }
+
+  parts.push("Verify issuer terms before applying.");
+  return parts.join(" ");
+}
+
+export function loungeComparisonSummary(cardA: CreditCard, cardB: CreditCard) {
+  const scoreA = loungeScore(cardA);
+  const scoreB = loungeScore(cardB);
+  const nameA = comparisonDisplayName(cardA);
+  const nameB = comparisonDisplayName(cardB);
+  const tieredNotes = [cardA, cardB]
+    .map((card) => {
+      const notes = card.lounge?.combined ?? card.lounge?.domestic ?? card.lounge?.international;
+      return notes?.length ? `${comparisonDisplayName(card)}: ${notes.join(" ")}` : null;
+    })
+    .filter((note): note is string => Boolean(note));
+
+  const summary =
+    scoreA === 0 && scoreB === 0
+      ? `Both ${nameA} and ${nameB} do not offer complimentary lounge visits in the current card data.`
+      : scoreA === scoreB
+        ? `Both cards show the same total lounge-access count in the current data: ${totalLoungeLabel(cardA)}.`
+        : `${scoreA > scoreB ? nameA : nameB} shows more listed lounge access in the current card data.`;
+
+  return tieredNotes.length ? `${summary} ${tieredNotes.join(" ")}` : summary;
+}
+
+export function forexComparisonSummary(cardA: CreditCard, cardB: CreditCard) {
+  const nameA = comparisonDisplayName(cardA);
+  const nameB = comparisonDisplayName(cardB);
+
+  if (isSameForex(cardA, cardB)) {
+    return `Both ${nameA} and ${nameB} list a ${cardA.forexMarkup}% forex markup. Forex charges are tied in the current card data.`;
+  }
+
+  const lowerForex = cardA.forexMarkup < cardB.forexMarkup ? cardA : cardB;
+  return `${nameA} lists a ${cardA.forexMarkup}% forex markup. ${nameB} lists a ${cardB.forexMarkup}% forex markup. ${comparisonDisplayName(lowerForex)} has the lower listed forex markup.`;
+}
+
+export function rewardsComparisonSummary(card: CreditCard) {
+  const rewardText = keyBenefit(card);
+  const redemption = redemptionSummary(card);
+  const currencyNote = card.rewardType.toLowerCase().includes("cashback")
+    ? "Cashback value is easier to compare because it is near-cash in the current data."
+    : "Reward value depends on the redemption path and transfer or portal assumptions in the current data.";
+
+  return `${rewardText} ${currencyNote} Redemption: ${redemption}`;
+}
+
+export function canonicalComparisonSlug(config: SeoComparisonConfig) {
+  return config.canonicalSlug ?? config.slug;
+}
+
+export function isIndexableComparison(config: SeoComparisonConfig) {
+  return canonicalComparisonSlug(config) === config.slug;
+}
+
+export function canonicalSeoComparison(config: SeoComparisonConfig) {
+  return getSeoComparison(canonicalComparisonSlug(config)) ?? config;
 }
 
 export function comparisonRows(cardA: CreditCard, cardB: CreditCard) {
@@ -258,9 +388,9 @@ export function comparisonFaqs(cardA: CreditCard, cardB: CreditCard) {
 
 export function relatedComparisons(slug: string, limit = 5) {
   const current = getSeoComparison(slug);
-  if (!current) return SEO_COMPARISONS.filter((item) => item.slug !== slug).slice(0, limit);
+  if (!current) return INDEXABLE_SEO_COMPARISONS.filter((item) => item.slug !== slug).slice(0, limit);
 
-  const related = SEO_COMPARISONS.filter((item) => item.slug !== slug).sort((a, b) => {
+  const related = INDEXABLE_SEO_COMPARISONS.filter((item) => item.slug !== canonicalComparisonSlug(current)).sort((a, b) => {
     const scoreA = Number(a.cardAId === current.cardAId || a.cardBId === current.cardAId || a.cardAId === current.cardBId || a.cardBId === current.cardBId);
     const scoreB = Number(b.cardAId === current.cardAId || b.cardBId === current.cardAId || b.cardAId === current.cardBId || b.cardBId === current.cardBId);
     return scoreB - scoreA;
@@ -270,7 +400,7 @@ export function relatedComparisons(slug: string, limit = 5) {
 }
 
 export function comparisonsForCard(cardId: string, limit = 4) {
-  return SEO_COMPARISONS.filter((comparison) => comparison.cardAId === cardId || comparison.cardBId === cardId).slice(0, limit);
+  return INDEXABLE_SEO_COMPARISONS.filter((comparison) => comparison.cardAId === cardId || comparison.cardBId === cardId).slice(0, limit);
 }
 
 export function comparisonTitle(config: SeoComparisonConfig) {

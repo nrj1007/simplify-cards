@@ -9,12 +9,14 @@ import {
   comparisonLastUpdated,
   comparisonRows,
   comparisonTitle,
+  forexComparisonSummary,
   finalRecommendation,
   getSeoComparison,
   getSeoComparisonCards,
-  keyBenefit,
+  loungeComparisonSummary,
   quickVerdict,
-  relatedComparisons
+  relatedComparisons,
+  rewardsComparisonSummary
 } from "@/lib/seo-comparisons";
 
 type Props = {
@@ -140,24 +142,21 @@ export default function SeoComparisonPage({ slug }: Props) {
             <section className="panel seo-comparison-section">
               <h2>Rewards comparison</h2>
               <p>
-                {cardA.name}: {keyBenefit(cardA)}
+                {cardA.name}: {rewardsComparisonSummary(cardA)}
               </p>
               <p>
-                {cardB.name}: {keyBenefit(cardB)}
+                {cardB.name}: {rewardsComparisonSummary(cardB)}
               </p>
             </section>
 
             <section className="panel seo-comparison-section">
               <h2>Lounge access comparison</h2>
-              <p>Use the side-by-side table above for domestic and international lounge counts from the current card data.</p>
+              <p>{loungeComparisonSummary(cardA, cardB)}</p>
             </section>
 
             <section className="panel seo-comparison-section">
               <h2>Forex and international travel comparison</h2>
-              <p>
-                {nameA} lists a {cardA.forexMarkup}% forex markup. {nameB} lists a {cardB.forexMarkup}% forex markup. Check issuer
-                terms before using either card for large international spends.
-              </p>
+              <p>{forexComparisonSummary(cardA, cardB)} Check issuer terms before using either card for large international spends.</p>
             </section>
 
             <section className="panel seo-comparison-section">

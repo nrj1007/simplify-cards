@@ -2,7 +2,7 @@ import type { Metadata, Route } from "next";
 import type { ReactNode } from "react";
 import Link from "next/link";
 import { CreditCard } from "lucide-react";
-import { comparisonTitle, SEO_COMPARISONS } from "@/lib/seo-comparisons";
+import { comparisonTitle, INDEXABLE_SEO_COMPARISONS } from "@/lib/seo-comparisons";
 import { SITE_DESCRIPTION, SITE_NAME, SITE_URL } from "@/lib/seo";
 import { NavigationProgressProvider } from "./ui/NavigationProgress";
 import "./globals.css";
@@ -20,7 +20,7 @@ const POPULAR_GUIDES: Array<{ label: string; href: Route }> = [
   { label: "Beginner credit cards", href: "/best-credit-cards-for-beginners-india" as Route }
 ];
 
-const POPULAR_COMPARISONS: Array<{ label: string; href: Route }> = SEO_COMPARISONS.slice(0, 5).map((comparison) => ({
+const POPULAR_COMPARISONS: Array<{ label: string; href: Route }> = INDEXABLE_SEO_COMPARISONS.slice(0, 5).map((comparison) => ({
   label: comparisonTitle(comparison),
   href: `/compare/${comparison.slug}` as Route
 }));

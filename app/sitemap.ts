@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 import { cards } from "@/lib/cards";
-import { comparisonLastModifiedDate, getSeoComparison, getSeoComparisonCards, SEO_COMPARISON_SLUGS } from "@/lib/seo-comparisons";
+import { comparisonLastModifiedDate, getSeoComparisonCards, INDEXABLE_SEO_COMPARISONS } from "@/lib/seo-comparisons";
 import { SEO_LANDING_SLUGS } from "@/lib/seo-landing";
 import { buildCanonicalUrl } from "@/lib/seo";
 
@@ -24,12 +24,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: WEEKLY,
       priority: 0.8
     })),
-    ...SEO_COMPARISON_SLUGS.map((slug) => {
-      const comparison = getSeoComparison(slug);
-      const pair = comparison ? getSeoComparisonCards(comparison) : null;
+    ...INDEXABLE_SEO_COMPARISONS.map((comparison) => {
+      const pair = getSeoComparisonCards(comparison);
 
       return {
-        url: buildCanonicalUrl(`/compare/${slug}`),
+        url: buildCanonicalUrl(`/compare/${comparison.slug}`),
         lastModified: pair ? comparisonLastModifiedDate(pair.cardA, pair.cardB) : now,
         changeFrequency: WEEKLY,
         priority: 0.75
