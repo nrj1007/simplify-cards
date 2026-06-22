@@ -119,8 +119,6 @@ async function main() {
   console.log(`    cardNameBoost:                  ${debug.cardNameBoost}`);
   console.log(`    keywordBoost:                   ${debug.keywordBoost}`);
   console.log(`    tagBoost:                       ${debug.tagBoost}`);
-  console.log(`    issuerBoost:                    ${debug.issuerBoost}`);
-  console.log(`    networkBoost:                   ${debug.networkBoost}`);
   console.log(`-------------------------------------------------------------`);
   console.log(`(=) Total Relevance Score:          ${debug.relevanceScore}`);
   console.log(`(x) Relevance Weight Multiplier:    ${debug.relevanceWeight}`);
@@ -129,13 +127,11 @@ async function main() {
   console.log(`\n--- PREFERENCE / HEURISTIC BOOSTS (Shared Boosts) ---`);
   console.log(`    useCaseBoost:                   ${debug.useCaseBoost}`);
   console.log(`    categorySpecialistBoost:        ${debug.categorySpecialistBoost}`);
-  console.log(`    segmentBoost:                   ${debug.segmentBoost}`);
   console.log(`    redemptionBoost:                ${debug.redemptionBoost}`);
   console.log(`    loungeBoost:                    ${debug.loungeBoost}`);
   console.log(`    forexBoost:                     ${debug.forexBoost}`);
   console.log(`    spendCategoryBoost:             ${debug.spendCategoryBoost}`);
   console.log(`    specialSpendBoost:              ${debug.specialSpendBoost}`);
-  console.log(`    milestoneBoost:                 ${debug.milestoneBoost}`);
   console.log(`    popularityBoost (pop * 50):     ${card.popularityScore * 50}`);
   console.log(`-------------------------------------------------------------`);
   console.log(`(=) Total Shared Boosts:            ${debug.sharedBoosts}`);

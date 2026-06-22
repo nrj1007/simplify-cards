@@ -257,17 +257,13 @@ export interface ScoreDebug {
   cardNameBoost: number;
   keywordBoost: number;
   tagBoost: number;
-  issuerBoost: number;
-  networkBoost: number;
   useCaseBoost: number;
   categorySpecialistBoost: number;
-  segmentBoost: number;
   redemptionBoost: number;
   loungeBoost: number;
   forexBoost: number;
   spendCategoryBoost: number;
   specialSpendBoost: number;
-  milestoneBoost: number;
   relevanceScore: number;
   sharedBoosts: number;
   valueScore: number;

@@ -885,6 +885,14 @@ function cardMatchesRedemptionBucket(card: CreditCard, bucket: string) {
   return false;
 }
 
+function qualifiesAsTravelCard(card: CreditCard): boolean {
+  return (
+    (card.redemption?.airlinePartners?.length || card.redemption?.hotelPartners?.length ? true : false) ||
+    loungeScore(card) > 0 ||
+    card.forexMarkup === 0
+  );
+}
+
 export function getAirMilesValue(card: CreditCard): number | undefined {
   if (typeof card.redemption?.airMilesValue === "number") {
     return card.redemption.airMilesValue;
@@ -1241,38 +1249,7 @@ export function joiningAndRenewalBenefitValueForCard(card: CreditCard) {
   return { joiningValue, renewalValue };
 }
 
-function milestoneSpecialistBoost(card: CreditCard, broadNoSpendRankingQuery: boolean) {
-  const rules = milestoneRulesForCard(card);
-  if (!broadNoSpendRankingQuery || !rules.length) return 0;
-
-  const searchableText = normalizeForMatch([card.name, ...card.tags, ...card.bestFor].join(" "));
-  const milestoneIdentity =
-    containsNormalizedPhrase(searchableText, "milestones") ||
-    containsNormalizedPhrase(searchableText, "milestone") ||
-    containsNormalizedPhrase(searchableText, "platinum travel");
-
-  if (!milestoneIdentity) return 0;
-
-  let boost = 0;
-  let hasSevenLakhStyleMilestone = false;
-  let hasHighValueMilestone = false;
-  let hasTajMilestone = false;
-
-  for (const rule of rules) {
-    const normalized = normalizeForMatch(rule.label);
-
-    if (rule.threshold >= 650000 && rule.threshold <= 750000) {
-      hasSevenLakhStyleMilestone = true;
-      if (rule.value >= 15000) hasHighValueMilestone = true;
-      if (containsNormalizedPhrase(normalized, "taj")) hasTajMilestone = true;
-    }
-  }
-
-  if (hasSevenLakhStyleMilestone && hasHighValueMilestone) boost += 6000;
-  if (hasTajMilestone) boost += 2500;
-
-  return boost;
-}
+// milestoneSpecialistBoost removed (redundant with estimatedNetValue/estimatedMilestoneValue)
 
 function aliasesForSpendCategory(category: SpendCategory, includeSmartbuyLikeRewards: boolean) {
   if (category === "online") {
@@ -1981,6 +1958,14 @@ function internationalLoungeScore(card: CreditCard) {
   return Math.min(access, 19);
 }
 
+function hasGuestLoungeAccess(card: CreditCard): boolean {
+  return (
+    (card.loungeGuestDomestic !== undefined && card.loungeGuestDomestic > 0) ||
+    (card.loungeGuestInternational !== undefined && card.loungeGuestInternational > 0) ||
+    card.loungeGuestSharedPool === true
+  );
+}
+
 function hasIntlSpendConditions(card: CreditCard): boolean {
   return getMeaningfulLoungeConditions(card, "international").some((cond) => {
     const lower = cond.toLowerCase();
@@ -2008,7 +1993,6 @@ function loungePreferenceBoost(
   // domestic-only card is not an international lounge card.
   if (wantsInternationalLounge) {
     const intlScore = internationalLoungeScore(card);
-    if (intlScore <= 0) return -15000;
 
     const intlWeight = hasIntlSpendConditions(card) ? 360 : 720;
 
@@ -2023,7 +2007,6 @@ function loungePreferenceBoost(
   }
 
   if (score <= 0) {
-    if (wantsLounge) return -12000;
     if (intent.useCases.includes("travel")) return -3000;
     return 0;
   }
@@ -2202,6 +2185,8 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
   // every segment query returning the same premium ranking. Envelope scoring is kept.
   const restrictToSegments =
     intent.segments.length > 0 && isCardRecommendationQuery(input.query) ? intent.segments : null;
+  const restrictToTravelCards = isCardRecommendationQuery(input.query) && intent.useCases.includes("travel");
+  const restrictToRedemptionBuckets = isCardRecommendationQuery(input.query) && intent.redemptionBuckets.length > 0;
   const categoryFocus = detectCategoryFocus(input, intent);
   // A forex-focused query ("best forex card", "zero forex card") is scored like the category focuses:
   // assume 50% of spend is international and compute net value (rewards earned abroad minus the card's
@@ -2279,7 +2264,6 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
     const annualSpend = annualSpendTotal(spendForScore);
     const matchedTags = card.tags.filter((tag) => queryTags.has(tag));
     const cardNameBoost = computeCardNameBoost(card, input.query);
-    const issuerBoost = intent.issuers.includes(card.issuer) ? 20000 : 0;
     const estimatedMilestoneValue = milestoneValueForCard(card, annualSpend);
     const { joiningValue: rawJoiningValue, renewalValue: rawRenewalValue } = joiningAndRenewalBenefitValueForCard(card);
     const estimatedJoiningAndRenewalValue = Math.round(rawJoiningValue / joiningBenefitAmortizationYears) + rawRenewalValue;
@@ -2344,13 +2328,11 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
           return strength > 0 ? strength * 7000 : 0;
         })()
       : 0;
-    const segmentBoost = intent.segments.reduce((total, segment) => total + (cardMatchesSegment(card, segment) ? 3000 : 0), 0);
     const redemptionBoost = intent.redemptionBuckets.reduce(
       (total, bucket) =>
-        total + (cardMatchesRedemptionBucket(card, bucket) ? 3500 : 0) + redemptionPreferenceValueBoost(card, bucket),
+        total + redemptionPreferenceValueBoost(card, bucket),
       0
     );
-    const networkBoost = intent.networks.some((network) => card.network.includes(network)) ? 3000 : 0;
     const loungeBoost = loungePreferenceBoost(card, wantsLounge, wantsInternationalLounge, intent, categoryFocus !== null || restrictToFuelCards);
     // For a forex-focused query the markup is already costed into net value (estimatedForexCost), so
     // the heuristic forex boost would double-count — suppress it. It still applies to travel queries,
@@ -2358,7 +2340,6 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
     const forexBoost = forexFocus ? 0 : (isForexBoostAllowed ? forexPreferenceBoost(card, intent) : 0);
     const spendCategoryBoost = categoryFitAdjustment(card, spendForScore, includeSmartbuyLikeRewards);
     const specialSpendBoost = specialSpendFlexibilityBoost(card, input, intent);
-    const milestoneBoost = milestoneSpecialistBoost(card, broadNoSpendRankingQuery);
     const envelopeLabel = envelopeMonthlySpend ? formatEnvelopeSpendLabel(envelopeMonthlySpend) : null;
     const feeWaiverReason =
       card.feeWaiverSpend && annualSpend >= card.feeWaiverSpend
@@ -2377,7 +2358,7 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
         ? [`Needs high spend of ${formatEnvelopeSpendLabel(envelopeMonthlySpend)} to shine`]
         : []),
       ...(cardNameBoost > 0 ? ["Strong card-name match for the query"] : []),
-      ...(issuerBoost > 0 ? [`Matches ${card.issuer} issuer intent`] : []),
+      ...(intent.issuers.includes(card.issuer) ? [`Matches ${card.issuer} issuer intent`] : []),
       ...matchedTags.map((tag) => `Matches ${tag} intent`),
       ...strongestRewards,
       ...(estimatedMilestoneValue > 0 ? [`Milestone value adds about Rs ${estimatedMilestoneValue.toLocaleString("en-IN")}`] : []),
@@ -2385,7 +2366,6 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
         ? [`Joining and renewal benefits add about Rs ${estimatedJoiningAndRenewalValue.toLocaleString("en-IN")} per year`]
         : []),
       ...(optionLabel ? [`Best net value uses ${optionLabel} after Rs ${optionAnnualCost.toLocaleString("en-IN")} yearly cost`] : []),
-      ...(milestoneBoost > 0 ? ["Strong milestone-led value closer to Rs 7 lakh yearly spend"] : []),
       ...(specialSpendBoost > 0 ? ["Rewards on usually excluded categories improve broader card utility"] : []),
       card.annualFee === 0 ? "No annual fee" : `Effective annual fee is Rs ${estimatedAnnualFee}`,
       feeWaiverReason,
@@ -2400,21 +2380,17 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
     const relevanceScore =
       cardNameBoost +
       keywordBoost +
-      tagBoost +
-      issuerBoost +
-      networkBoost;
+      tagBoost;
 
     // Non-economic preference and penalty signals shared by both scoring paths
     const sharedBoosts =
       useCaseBoost +
       categorySpecialistBoost +
-      segmentBoost +
       redemptionBoost +
       loungeBoost +
       forexBoost +
       spendCategoryBoost +
       specialSpendBoost +
-      milestoneBoost +
       card.popularityScore * popularityRankingWeight;
 
     // Value score: economic quality and preference fit signals. For a category/fuel query the card is
@@ -2470,17 +2446,13 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
         cardNameBoost,
         keywordBoost,
         tagBoost,
-        issuerBoost,
-        networkBoost,
         useCaseBoost,
         categorySpecialistBoost,
-        segmentBoost,
         redemptionBoost,
         loungeBoost,
         forexBoost,
         spendCategoryBoost,
         specialSpendBoost,
-        milestoneBoost,
         relevanceScore,
         sharedBoosts,
         valueScore,
@@ -2497,22 +2469,30 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
     )
     .filter((card) => (wantsLifetimeFree ? (card.annualFee === 0 && card.joiningFee === 0 && !requiresRelationshipAccess(card)) : true))
     .filter((card) =>
-      wantsInternationalLounge ? internationalLoungeScore(card) > 0 : wantsLounge ? loungeScore(card) > 0 : true
+      wantsInternationalLounge
+        ? internationalLoungeScore(card) > 0
+        : wantsLounge
+          ? loungeScore(card) > 0 || hasGuestLoungeAccess(card)
+          : true
     )
     .filter((card) =>
       intent.wantsGuestLounge
-        ? (card.loungeGuestDomestic !== undefined && card.loungeGuestDomestic > 0) ||
-          (card.loungeGuestInternational !== undefined && card.loungeGuestInternational > 0) ||
-          card.loungeGuestSharedPool === true
+        ? hasGuestLoungeAccess(card)
         : true
     )
     .filter((card) => (restrictToIssuer ? normalizeIssuer(card.issuer) === normalizeIssuer(intent.issuers[0]) : true))
     .filter((card) => (restrictToUpiCards ? hasUpiCardSignal(card) : true))
     .filter((card) => (restrictToZeroForexCards ? card.forexMarkup === 0 : true))
+    .filter((card) => (restrictToTravelCards ? qualifiesAsTravelCard(card) : true))
+    .filter((card) =>
+      restrictToRedemptionBuckets
+        ? intent.redemptionBuckets.some((bucket) => cardMatchesRedemptionBucket(card, bucket))
+        : true
+    )
     .filter((card) => (networkFilters.length ? networkFilters.some((network) => cardMatchesNetworkFilter(card, network)) : true))
     .filter((card) => (restrictToFuelCards ? hasFuelCardSignal(card) : true))
     .filter((card) => (restrictToCashbackCards ? hasCashbackCardSignal(card) : true))
-    .filter((card) => (restrictToSegments ? restrictToSegments.every((segment) => cardMatchesSegment(card, segment)) : true))
+    .filter((card) => (restrictToSegments ? restrictToSegments.some((segment) => cardMatchesSegment(card, segment)) : true))
     .filter((card) => (categoryFocus ? cardMatchesCategoryFocus(card, categoryFocus) : true))
     .map((card) => {
       if (!useEnvelopeScoring) return scoreCardForSpend(card, spend);

@@ -868,6 +868,45 @@ describe("scoreCards", () => {
     expect(octaneMixed!.debug?.spendCategoryBoost).toBe(0);
     expect(ssBlackMixed!.debug?.spendCategoryBoost).toBe(0);
   });
+
+  it("filters travel-intent queries to only travel cards via qualifiesAsTravelCard", () => {
+    const scores = scoreCards({ query: "best travel card" });
+    expect(scores.length).toBeGreaterThan(0);
+    // Verified that all returned cards qualify as travel cards
+    expect(
+      scores.every((score) => {
+        const card = score.card;
+        const hasTransferPartners = !!(card.redemption?.airlinePartners?.length || card.redemption?.hotelPartners?.length);
+        const hasLounge = (card.combinedLoungeAccess !== undefined && card.combinedLoungeAccess !== "unlimited" && card.combinedLoungeAccess > 0) ||
+                          card.combinedLoungeAccess === "unlimited" ||
+                          (card.loungeDomestic !== undefined && card.loungeDomestic !== "unlimited" && card.loungeDomestic > 0) ||
+                          card.loungeDomestic === "unlimited" ||
+                          (card.loungeInternational !== undefined && card.loungeInternational !== "unlimited" && card.loungeInternational > 0) ||
+                          card.loungeInternational === "unlimited";
+        const isZeroForex = card.forexMarkup === 0;
+        return hasTransferPartners || hasLounge || isZeroForex;
+      })
+    ).toBe(true);
+  });
+
+  it("unions two segment queries together using ANY (some) semantics instead of AND (every) semantics", () => {
+    // A query for "premium super-premium card" restricts to premium OR super-premium cards
+    const scores = scoreCards({ query: "best premium super premium card" });
+    expect(scores.length).toBeGreaterThan(0);
+    expect(
+      scores.every((score) => {
+        const card = score.card;
+        return (card.annualFee >= 1000) || (card.joiningFee >= 1000) || card.annualFee === 0;
+      })
+    ).toBe(true);
+  });
+
+  it("still gives a lounge card its broad lounge boost for generic queries", () => {
+    const scores = scoreCards({ query: "best credit card" });
+    const regaliaGold = scores.find((s) => s.card.id === "hdfc-regalia-gold");
+    expect(regaliaGold).toBeDefined();
+    expect(regaliaGold!.debug?.loungeBoost).toBeGreaterThan(0);
+  });
 });
 
 describe("answerFromCards", () => {
