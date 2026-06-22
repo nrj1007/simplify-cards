@@ -343,11 +343,7 @@ export function comparisonRows(cardA: CreditCard, cardB: CreditCard) {
     ["Key exclusions", exclusionsSummary(cardA), exclusionsSummary(cardB)]
   ];
 
-  return rows.map(([label, valueA, valueB]) => ({
-    label,
-    valueA: valueA === BOTH_MISSING_FALLBACK && valueB === BOTH_MISSING_FALLBACK ? BOTH_MISSING_FALLBACK : valueA,
-    valueB: valueA === BOTH_MISSING_FALLBACK && valueB === BOTH_MISSING_FALLBACK ? BOTH_MISSING_FALLBACK : valueB
-  }));
+  return rows.map(([label, valueA, valueB]) => ({ label, valueA, valueB }));
 }
 
 export function comparisonFaqs(cardA: CreditCard, cardB: CreditCard) {

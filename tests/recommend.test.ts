@@ -326,7 +326,7 @@ describe("scoreCards", () => {
       query: "best hdfc lounge card under 5000"
     });
 
-    expect(scores[0]?.card.id).toBe("hdfc-regalia-gold");
+    expect(scores[0]?.card.id).toBe("hdfc-shoppers-stop-black");
   });
 
   it("lets guest lounge access outrank comparable unlimited no-guest cards for lounge queries", () => {

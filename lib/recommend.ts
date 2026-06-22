@@ -85,7 +85,7 @@ function acceleratedShareForCategory(card: CreditCard, category: SpendCategory) 
 }
 const defaultTopCardCount = 3;
 const joiningBenefitAmortizationYears = 2;
-const LOUNGE_QUERY_VALUE_WEIGHT = 10;
+const LOUNGE_QUERY_VALUE_WEIGHT = 30;
 
 // Scoring stage weights: relevance (text/identity match) vs value (economic/preference fit)
 const relevanceWeightExactMatch = 1.0;
@@ -478,6 +478,24 @@ function shouldRestrictToFuelCards(input: RecommendationInput, intent: ReturnTyp
     containsNormalizedPhrase(normalizedQuery, "fuel card") ||
     containsNormalizedPhrase(normalizedQuery, "petrol card")
   );
+}
+
+// A card counts as a cashback card when its reward currency is cashback (matches the convention in
+// card-detail.ts isCashbackCard). Cards that earn transferable points/miles are excluded even if
+// they happen to mention "cashback" somewhere in their benefits text.
+function hasCashbackCardSignal(card: CreditCard) {
+  return /cashback/i.test(card.rewardType);
+}
+
+// "Best cashback card" should rank actual cashback cards, not collapse to the generic premium-card
+// envelope ranking (where points/miles super-premium cards win on raw value). Mirrors the fuel/UPI
+// restriction: a cashback recommendation query restricts the pool to cashback cards.
+function shouldRestrictToCashbackCards(input: RecommendationInput, intent: ReturnType<typeof parseQueryIntent>) {
+  const normalizedQuery = normalizeForMatch(input.query);
+  const hasCashbackIntent = intent.useCases.includes("cashback") || normalizedQuery.includes("cashback");
+  if (!hasCashbackIntent) return false;
+
+  return isCardRecommendationQuery(input.query) || containsNormalizedPhrase(normalizedQuery, "cashback card");
 }
 
 function shouldRestrictToZeroForexCards(input: RecommendationInput, intent: ReturnType<typeof parseQueryIntent>) {
@@ -2134,6 +2152,7 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
   const wantsInternationalLounge =
     wantsLounge && /\binternational\b|\boverseas\b|\babroad\b|outside india|\bglobal\b/i.test(normalizeForMatch(input.query));
   const restrictToFuelCards = shouldRestrictToFuelCards(input, intent);
+  const restrictToCashbackCards = shouldRestrictToCashbackCards(input, intent);
   const restrictToZeroForexCards = shouldRestrictToZeroForexCards(input, intent);
   // Explicit segment query ("best beginner/premium/super premium card"): restrict the pool to cards
   // matching ALL named segments (so "super premium" = premium AND super-premium = high-fee cards, and
@@ -2418,6 +2437,7 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
     .filter((card) => (restrictToZeroForexCards ? card.forexMarkup === 0 : true))
     .filter((card) => (networkFilters.length ? networkFilters.some((network) => cardMatchesNetworkFilter(card, network)) : true))
     .filter((card) => (restrictToFuelCards ? hasFuelCardSignal(card) : true))
+    .filter((card) => (restrictToCashbackCards ? hasCashbackCardSignal(card) : true))
     .filter((card) => (restrictToSegments ? restrictToSegments.every((segment) => cardMatchesSegment(card, segment)) : true))
     .filter((card) => (categoryFocus ? cardMatchesCategoryFocus(card, categoryFocus) : true))
     .map((card) => {

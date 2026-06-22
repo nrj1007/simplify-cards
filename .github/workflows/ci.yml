@@ -30,3 +30,6 @@ jobs:
 
       - name: Run build
         run: npm run build -- --webpack
+
+      - name: Verify SEO comparison build output
+        run: npm run test:seo-comparison-build

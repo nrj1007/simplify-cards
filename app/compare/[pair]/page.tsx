@@ -6,6 +6,10 @@ type Props = {
   params: Promise<{ pair: string }>;
 };
 
+// Only the configured pairs are valid; any other slug returns a static 404 instead of
+// server-rendering the page just to call notFound().
+export const dynamicParams = false;
+
 export function generateStaticParams() {
   return SEO_COMPARISON_SLUGS.map((pair) => ({ pair }));
 }
