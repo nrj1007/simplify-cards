@@ -2372,7 +2372,7 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
     // where international spend isn't focused and the boost is the only forex signal.
     const forexBoost = forexFocus ? 0 : (isForexBoostAllowed ? forexPreferenceBoost(card, intent) : 0);
     const spendCategoryBoost = categoryFitAdjustment(card, spendForScore, includeSmartbuyLikeRewards);
-    const flexibilityValue = broadGenericRanking
+    const flexibilityValue = (broadGenericRanking && categoryFocus === null && !restrictToFuelCards)
       ? computeFlexibilityValue(card, monthlyTotalForScore, includeSmartbuyLikeRewards)
       : 0;
     const envelopeLabel = envelopeMonthlySpend ? formatEnvelopeSpendLabel(envelopeMonthlySpend) : null;

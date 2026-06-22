@@ -24,7 +24,7 @@
   },
   "rewards": [
     {
-      "category": "amazon,online,grocery",
+      "category": "partner merchants",
       "displayCategory": "Select brands on CheQ (Amazon, Flipkart, Zomato, BigBasket, Apple via Unicorn)",
       "rate": 12,
       "displayRate": "24 CheQ Points per ₹200 spent",
@@ -64,6 +64,7 @@
     }
   ],
   "acceleratedShare": {
+    "amazon": 1,
     "online": 0.2,
     "dining": 0,
     "grocery": 0
@@ -160,6 +161,7 @@
     "Audited against the official AU Small Finance Bank product page and the official CheQ co-branded product page on 2026-06-18.",
     "A single application issues 2 cards: 1 Visa variant and 1 RuPay variant.",
     "Accelerated reward points are capped at 12,000 CheQ points per month across accelerated categories; base rewards are not capped.",
+    "The 12% select-brand row is modeled as partner merchants rather than broad online/grocery; Amazon keeps full focused credit through acceleratedShare.amazon = 1, while broad online is blended at 0.2 and grocery/dining do not receive generic accelerated credit.",
     "Reward points are valid for 2 years from the date they are credited into the CheQ account.",
     "The 12% select-brand earn applies on Amazon, Flipkart, Zomato, BigBasket, and Apple products powered by Unicorn on the Visa variant, and through CheQ UPI using the CheQ AU RuPay Credit Card.",
     "CheQ points can be redeemed on flights and hotels at 2 points = ₹1, on gift cards at 2 points = ₹1, and on monthly bill payments at 4 points = ₹1.",
