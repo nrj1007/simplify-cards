@@ -282,6 +282,9 @@ export type CardScore = {
     bestSpendLabel: string;
     normalizedFitScore: number;
   };
+  // Liquidity-adjusted reward economics — the values used for RANKING and ordering (low-liquidity
+  // points such as brand-locked fuel currencies are discounted here). The display* mirrors below
+  // carry the full face value shown to users.
   estimatedAnnualRewards: number;
   estimatedMilestoneValue: number;
   estimatedAnnualFee: number;
@@ -289,14 +292,22 @@ export type CardScore = {
   fitScore: number;
   matchedTags: string[];
   reasons: string[];
-  rewardBreakdown: Array<{
-    spendCategory: SpendCategory;
-    monthlySpend: number;
-    rewardCategory: string;
-    monthlyReward: number;
-    annualReward: number;
-  }>;
+  rewardBreakdown: RewardBreakdownRow[];
+  // Face-value mirrors (full reward value, no liquidity haircut) for DISPLAY only. The liquidity
+  // haircut influences ranking/ordering via the estimated* fields above, but users see real
+  // redemption value here.
+  displayAnnualRewards: number;
+  displayNetValue: number;
+  displayBreakdown: RewardBreakdownRow[];
   debug?: ScoreDebug;
+};
+
+export type RewardBreakdownRow = {
+  spendCategory: SpendCategory;
+  monthlySpend: number;
+  rewardCategory: string;
+  monthlyReward: number;
+  annualReward: number;
 };
 
 // Trimmed, display-only card result sent to the browser by /api/recommend.

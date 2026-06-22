@@ -1298,9 +1298,9 @@ function buildGroundedAskPrompt(input: RecommendationInput, shortlistedCards: Ca
     if (hasUserSpend) {
       return {
         ...base,
-        estimatedAnnualRewards: item.estimatedAnnualRewards,
+        estimatedAnnualRewards: item.displayAnnualRewards,
         estimatedAnnualFee: item.estimatedAnnualFee,
-        estimatedNetValue: item.estimatedNetValue
+        estimatedNetValue: item.displayNetValue
       };
     }
     return base;
@@ -1361,10 +1361,10 @@ function buildGroundedTopCardsPrompt(input: RecommendationInput, shortlistedCard
     combinedLoungeAccess: item.card.combinedLoungeAccess ?? null,
     forexMarkup: item.card.forexMarkup,
     envelopeBestSpend: item.envelopeScoring?.bestSpendLabel ?? null,
-    estimatedAnnualRewards: item.estimatedAnnualRewards,
+    estimatedAnnualRewards: item.displayAnnualRewards,
     estimatedMilestoneValue: item.estimatedMilestoneValue,
     estimatedAnnualFee: item.estimatedAnnualFee,
-    estimatedNetValue: item.estimatedNetValue,
+    estimatedNetValue: item.displayNetValue,
     reasons: item.reasons.slice(0, 5),
     sourceUrl: item.card.sourceUrl
   }));

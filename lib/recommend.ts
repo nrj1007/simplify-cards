@@ -1003,24 +1003,40 @@ function estimatePointUnitValue(card: CreditCard) {
 // Tata Neu) keep full value. See the rewardLiquidity field in lib/types.ts.
 const brandLockedRewardValueMultiplier = 0.75;
 
+// Fuel spend at or above this share of the monthly profile counts as "fuel-heavy": the cardholder
+// will redeem fuel-locked points for fuel, so those points keep full value in ranking (like an
+// explicit fuel-card query). Note input.spend MERGES with the default profile, so an elevated fuel
+// figure is diluted by the other default categories — the default broad profile sits at ~5.7% fuel
+// and a fuel-emphasised profile (e.g. fuel 7k on top of defaults) lands near ~9%.
+const fuelHeavySpendShare = 0.08;
+
 // Fraction of nominal reward value realized in scoring. An explicit rewardLiquidityFactor wins;
 // otherwise brand-locked currencies take the default haircut and everything else is full value.
-function rewardLiquidityMultiplier(card: CreditCard) {
+function rewardLiquidityMultiplier(card: CreditCard, fuelFocus = false) {
+  // Under a fuel-focused query the cardholder redeems these points for fuel (their native ecosystem),
+  // so a fuel-locked currency (e.g. IndianOil Fuel Points) is realized at full value instead of the
+  // brand-locked haircut it takes in broad comparisons.
+  if (fuelFocus && /fuel/i.test(card.redemption?.ecosystemLabel ?? "")) {
+    return 1;
+  }
   if (typeof card.rewardLiquidityFactor === "number" && card.rewardLiquidityFactor > 0 && card.rewardLiquidityFactor <= 1) {
     return card.rewardLiquidityFactor;
   }
   return card.rewardLiquidity === "brand-locked" ? brandLockedRewardValueMultiplier : 1;
 }
 
-function rewardUnitValue(card: CreditCard) {
-  return baseRewardUnitValue(card) * rewardLiquidityMultiplier(card);
+function rewardUnitValue(card: CreditCard, fuelFocus = false) {
+  return baseRewardUnitValue(card) * rewardLiquidityMultiplier(card, fuelFocus);
 }
 
 // Point value used for scoring at a given monthly spend. Cards with a bank spend-tier program
 // (redemption.pointValueTiers, e.g. Equitas PowerMiles) are valued at the tier matching the spend
 // — a low-spender gets the floor value, a high-spender the top value — so the envelope blend
 // reflects "you need high spend to unlock the good redemption". Everything else uses the flat value.
-function effectivePointValue(card: CreditCard, monthlySpend: number): number {
+// `faceValue` returns the full reward unit value with no liquidity haircut (for display); the default
+// applies the liquidity multiplier (for ranking). `fuelFocus` lets a fuel-locked currency keep full
+// value under a fuel-focused query.
+function effectivePointValue(card: CreditCard, monthlySpend: number, fuelFocus = false, faceValue = false): number {
   const tiers = card.redemption?.pointValueTiers;
   if (tiers && tiers.length) {
     const tier = [...tiers]
@@ -1028,7 +1044,7 @@ function effectivePointValue(card: CreditCard, monthlySpend: number): number {
       .find((t) => monthlySpend >= t.minMonthlySpend);
     if (tier) return tier.value;
   }
-  return rewardUnitValue(card);
+  return faceValue ? baseRewardUnitValue(card) : rewardUnitValue(card, fuelFocus);
 }
 
 function baseRewardUnitValue(card: CreditCard) {
@@ -1677,9 +1693,15 @@ function findDirectRewardForSpend(card: CreditCard, category: SpendCategory, inc
   );
 }
 
-function rewardBreakdownForCard(card: CreditCard, spend: SpendProfile, includeSmartbuyLikeRewards: boolean) {
+function rewardBreakdownForCard(
+  card: CreditCard,
+  spend: SpendProfile,
+  includeSmartbuyLikeRewards: boolean,
+  fuelFocus = false,
+  faceValue = false
+) {
   const totalMonthlySpend = monthlySpendTotal(spend);
-  const cardUnitValue = effectivePointValue(card, totalMonthlySpend);
+  const cardUnitValue = effectivePointValue(card, totalMonthlySpend, fuelFocus, faceValue);
 
   type ActiveAllocation = {
     category: SpendCategory;
@@ -1824,10 +1846,12 @@ function bestRewardEconomicsForCard(
   includeSmartbuyLikeRewards: boolean,
   estimatedMilestoneValue: number,
   estimatedJoiningAndRenewalValue: number,
-  excludePaidOptions: boolean = false
+  excludePaidOptions: boolean = false,
+  fuelFocus = false,
+  faceValue = false
 ): RewardEconomics {
   const baseAnnualFee = feeAfterWaiver(card, spend);
-  const baseBreakdown = rewardBreakdownForCard(card, spend, includeSmartbuyLikeRewards);
+  const baseBreakdown = rewardBreakdownForCard(card, spend, includeSmartbuyLikeRewards, fuelFocus, faceValue);
   const baseRewards = baseBreakdown.reduce((total, item) => total + item.annualReward, 0);
   const candidates: RewardEconomics[] = [
     {
@@ -1844,7 +1868,7 @@ function bestRewardEconomicsForCard(
   if (!excludePaidOptions) {
     for (const option of card.paidRewardOptions ?? []) {
       const scoringCard = { ...card, rewards: option.rewards };
-      const rewardBreakdown = rewardBreakdownForCard(scoringCard, spend, includeSmartbuyLikeRewards);
+      const rewardBreakdown = rewardBreakdownForCard(scoringCard, spend, includeSmartbuyLikeRewards, fuelFocus, faceValue);
       const estimatedAnnualRewards = rewardBreakdown.reduce((total, item) => total + item.annualReward, 0);
       const estimatedAnnualFee = baseAnnualFee + option.annualCost;
       candidates.push({
@@ -2259,23 +2283,52 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
     const estimatedMilestoneValue = milestoneValueForCard(card, annualSpend);
     const { joiningValue: rawJoiningValue, renewalValue: rawRenewalValue } = joiningAndRenewalBenefitValueForCard(card);
     const estimatedJoiningAndRenewalValue = Math.round(rawJoiningValue / joiningBenefitAmortizationYears) + rawRenewalValue;
+    // "Fuel focus" — either a fuel-card query (restrictToFuelCards) or a fuel-heavy spend profile —
+    // means the cardholder will redeem fuel-locked points for fuel, so those points keep full value
+    // in ranking. Broad/incidental-fuel profiles (default ~6% fuel) stay below the threshold and take
+    // the liquidity haircut.
+    const monthlyTotalForScore = monthlySpendTotal(spendForScore);
+    const fuelSpendShare = monthlyTotalForScore > 0 ? (spendForScore.fuel ?? 0) / monthlyTotalForScore : 0;
+    const fuelFocus = restrictToFuelCards || fuelSpendShare >= fuelHeavySpendShare;
     // main's bestRewardEconomicsForCard picks the best reward option (base vs a paid membership like
     // Kiwi Neon) and returns the breakdown, rewards, fee, and net value.
+    // Ranking economics apply the liquidity haircut (low-liquidity points discounted); under a
+    // fuel-focused query a fuel-locked currency keeps full value. These drive fitScore and ordering.
     const rewardEconomics = bestRewardEconomicsForCard(
       card,
       spendForScore,
       includeSmartbuyLikeRewards,
       estimatedMilestoneValue,
       estimatedJoiningAndRenewalValue,
-      wantsLifetimeFree
+      wantsLifetimeFree,
+      fuelFocus
     );
     const { rewardBreakdown, estimatedAnnualRewards, estimatedAnnualFee, optionLabel, optionAnnualCost } = rewardEconomics;
+    // Display economics use full face reward value (no liquidity haircut) so users see real
+    // redemption value. Only recompute when the card actually takes a haircut in this context;
+    // otherwise the ranking economics already are face value.
+    const displayEconomics =
+      rewardLiquidityMultiplier(card, fuelFocus) < 1
+        ? bestRewardEconomicsForCard(
+            card,
+            spendForScore,
+            includeSmartbuyLikeRewards,
+            estimatedMilestoneValue,
+            estimatedJoiningAndRenewalValue,
+            wantsLifetimeFree,
+            fuelFocus,
+            true
+          )
+        : rewardEconomics;
     // Forex markup is a real cost on international spend; deduct it from net value. Only bites when the
     // profile has international spend (forex-focused queries, or an explicit international spend), so it
     // doesn't affect other rankings. A near-zero-forex card keeps almost all of its abroad rewards.
     const forexMarkup = typeof card.forexMarkup === "number" ? card.forexMarkup : 3.5;
     const estimatedForexCost = Math.round(((spendForScore.international ?? 0) * 12 * forexMarkup) / 100);
     const estimatedNetValue = rewardEconomics.estimatedNetValue - estimatedForexCost;
+    const displayAnnualRewards = displayEconomics.estimatedAnnualRewards;
+    const displayBreakdown = displayEconomics.rewardBreakdown;
+    const displayNetValue = displayEconomics.estimatedNetValue - estimatedForexCost;
     const tagBoost = matchedTags.length * 500;
     const keywordBoost = computeQueryKeywordBoost(card, input.query);
     const useCaseBoost = intent.useCases.reduce((total, useCase) => {
@@ -2410,6 +2463,9 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
       matchedTags,
       reasons,
       rewardBreakdown,
+      displayAnnualRewards,
+      displayNetValue,
+      displayBreakdown,
       debug: {
         cardNameBoost,
         keywordBoost,

@@ -75,10 +75,12 @@ export function toRecommendResult(score: CardScore): RecommendResult {
     applyUrl: card.applyUrl,
     tags: card.tags.slice(0, 4),
     usp: getCardUsp(card),
-    estimatedAnnualRewards: Math.round(score.estimatedAnnualRewards),
+    // Display the full face reward value (no liquidity haircut) — ranking/ordering uses the
+    // discounted estimated* fields, but users see real redemption value.
+    estimatedAnnualRewards: Math.round(score.displayAnnualRewards),
     estimatedMilestoneValue: Math.round(score.estimatedMilestoneValue),
     estimatedAnnualFee: Math.round(score.estimatedAnnualFee),
-    estimatedNetValue: Math.round(score.estimatedNetValue),
+    estimatedNetValue: Math.round(score.displayNetValue),
     annualFee: Math.round(card.annualFee),
     annualSpend: Math.round(score.annualSpend),
     feeWaiverSpend: card.feeWaiverSpend,
@@ -87,7 +89,7 @@ export function toRecommendResult(score: CardScore): RecommendResult {
     nextMilestoneThreshold: milestone.threshold === null ? null : Math.round(milestone.threshold),
     nextMilestoneGap: milestone.gap === null ? null : Math.round(milestone.gap),
     nextMilestoneLabel: milestone.label,
-    breakdown: score.rewardBreakdown
+    breakdown: score.displayBreakdown
       .filter((row) => row.monthlySpend > 0)
       .map((row) => ({
         spendCategory: row.spendCategory,
