@@ -88,3 +88,38 @@ describe("ranking golden (representative queries)", () => {
     expect(twice).toEqual(once);
   });
 });
+
+describe("ranking golden (max-yield)", () => {
+  it("produces stable top-N ordering per scenario under max-yield", () => {
+    const golden: Record<string, string[]> = {};
+    for (const [name, input] of Object.entries(scenarios)) {
+      golden[name] = scoreCards({ ...input, rankingStrategy: "max-yield" })
+        .slice(0, TOP_N)
+        .map((score) => score.card.id);
+    }
+    expect(golden).toMatchSnapshot();
+  }, 60000);
+
+  it("surfaces mid-tier all-rounders in top results for broad best-card query", () => {
+    // Under max-yield, fee-in-yield penalises super-premium cards at low spend, so
+    // cards with modest annual fees and decent broad rewards should appear in top-12.
+    const TOP = 12;
+    const results = scoreCards({ query: "best credit card", rankingStrategy: "max-yield" });
+    const topIds = results.slice(0, TOP).map((s) => s.card.id);
+
+    // Verify that at least one card with annual fee <= 1500 appears in the top 12
+    // (ensures mid-tier all-rounders are not swept by super-premiums).
+    const topCards = results.slice(0, TOP).map((s) => s.card);
+    const hasAffordableCard = topCards.some(
+      (c) => (c.annualFee ?? 0) <= 1500 || (c.joiningFee ?? 0) <= 1500
+    );
+    expect(hasAffordableCard).toBe(true);
+
+    // Verify max-yield result set differs from absolute-blend for the broad query
+    // (i.e. strategy is actually doing something different).
+    const blendTopIds = scoreCards({ query: "best credit card", rankingStrategy: "absolute-blend" })
+      .slice(0, TOP)
+      .map((s) => s.card.id);
+    expect(topIds).not.toEqual(blendTopIds);
+  });
+});
