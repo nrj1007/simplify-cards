@@ -792,7 +792,7 @@ describe("scoreCards", () => {
     const tiger = scores.find((score) => score.card.id === "indusind-tiger");
     expect(tiger).toBeDefined();
 
-    const breakdown = tiger!.rewardBreakdown;
+    const breakdown = tiger!.displayBreakdown;
 
     const utils = breakdown.find((item) => item.spendCategory === "utilities");
     expect(utils).toBeDefined();

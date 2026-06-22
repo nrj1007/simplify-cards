@@ -25,6 +25,7 @@ export type SpecialSpendRule = {
   capMonthlySpend?: number | null;
   capAnnualSpend?: number | null;
   notes?: string;
+  surchargePercent?: number;
 };
 
 // Structured, reviewed milestone. When present on a card it is the source of truth for that
@@ -263,7 +264,7 @@ export interface ScoreDebug {
   loungeBoost: number;
   forexBoost: number;
   spendCategoryBoost: number;
-  specialSpendBoost: number;
+  flexibilityValue: number;
   relevanceScore: number;
   sharedBoosts: number;
   valueScore: number;

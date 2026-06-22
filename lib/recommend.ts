@@ -1290,6 +1290,49 @@ function specialSpendRuleForCard(card: CreditCard, category: SpendCategory) {
   return card.specialSpendRules?.find((rule) => rule.category === category) ?? null;
 }
 
+function getSurchargePercent(card: CreditCard, category: SpendCategory): number {
+  const specialRule = specialSpendRuleForCard(card, category);
+  if (specialRule && specialRule.surchargePercent !== undefined) {
+    return specialRule.surchargePercent;
+  }
+  return category === "rent" ? 1.0 : 0.0;
+}
+
+function computeFlexibilityValue(
+  card: CreditCard,
+  totalMonthlySpend: number,
+  includeSmartbuyLikeRewards: boolean
+): number {
+  const categories: { category: SpendCategory; share: number }[] = [
+    { category: "rent", share: 0.10 },
+    { category: "insurance", share: 0.05 },
+    { category: "education", share: 0.05 },
+    { category: "gold", share: 0.05 }
+  ];
+
+  let monthlyFlexTotal = 0;
+  for (const { category, share } of categories) {
+    const allocatedAmount = totalMonthlySpend * share;
+    const isExcluded = isSpendCategoryExcluded(card, category);
+    let reward = 0;
+    if (!isExcluded) {
+      const allocations = rewardAllocationsForSpend(
+        card,
+        category,
+        allocatedAmount,
+        includeSmartbuyLikeRewards,
+        totalMonthlySpend
+      );
+      reward = estimateMonthlyRewardForAllocations(card, allocations, totalMonthlySpend);
+    }
+    const surchargePercent = getSurchargePercent(card, category);
+    const surcharge = (allocatedAmount * surchargePercent) / 100;
+    const flexValue = Math.max(reward - surcharge, 0);
+    monthlyFlexTotal += flexValue;
+  }
+  return monthlyFlexTotal * 12;
+}
+
 function isSpendCategoryExcluded(card: CreditCard, category: SpendCategory) {
   const specialRule = specialSpendRuleForCard(card, category);
   if (specialRule) {
@@ -1742,12 +1785,15 @@ function rewardBreakdownForCard(
     typeof reward.valuePerUnit === "number" && reward.valuePerUnit > 0 ? reward.valuePerUnit : cardUnitValue;
   const toRow = (item: ActiveAllocation, cappedUnits: number) => {
     const monthlyReward = cappedUnits * itemUnitValue(item.reward);
+    const surchargePercent = getSurchargePercent(card, item.category);
+    const surcharge = (item.allocatedAmount * surchargePercent) / 100;
+    const netMonthlyReward = faceValue ? monthlyReward : (monthlyReward - surcharge);
     return {
       spendCategory: item.category,
       monthlySpend: Math.round(item.allocatedAmount),
       rewardCategory: item.reward.category,
-      monthlyReward: Math.round(monthlyReward),
-      annualReward: Math.round(monthlyReward * 12)
+      monthlyReward: Math.round(netMonthlyReward),
+      annualReward: Math.round(netMonthlyReward * 12)
     };
   };
 
@@ -2098,23 +2144,7 @@ export function requestedTopCardCount(query?: string) {
 }
 
 
-function specialSpendFlexibilityBoost(card: CreditCard, input: RecommendationInput, intent: ReturnType<typeof parseQueryIntent>) {
-  if (!isBroadGenericRankingQuery(input, intent)) return 0;
 
-  return (card.specialSpendRules ?? []).reduce((total, rule) => {
-    if (!["rent", "insurance", "education", "gold"].includes(rule.category)) return total;
-    if (rule.treatment === "rewarded") return total + 2200;
-    if (rule.treatment === "capped") {
-      const highCapBonus =
-        (typeof rule.capMonthlySpend === "number" && rule.capMonthlySpend >= 50000) ||
-        (typeof rule.capAnnualSpend === "number" && rule.capAnnualSpend >= 500000)
-          ? 700
-          : 0;
-      return total + 1500 + highCapBonus;
-    }
-    return total;
-  }, 0);
-}
 
 function isGoldenSpendProfile(spend: Partial<Record<SpendCategory, number>> | undefined): boolean {
   if (!spend) return false;
@@ -2291,8 +2321,11 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
     // Display economics use full face reward value (no liquidity haircut) so users see real
     // redemption value. Only recompute when the card actually takes a haircut in this context;
     // otherwise the ranking economics already are face value.
+    const hasSurcharge = Object.entries(spendForScore).some(
+      ([cat, amt]) => amt > 0 && getSurchargePercent(card, cat as SpendCategory) > 0
+    );
     const displayEconomics =
-      rewardLiquidityMultiplier(card, fuelFocus) < 1
+      (rewardLiquidityMultiplier(card, fuelFocus) < 1 || hasSurcharge)
         ? bestRewardEconomicsForCard(
             card,
             spendForScore,
@@ -2339,7 +2372,9 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
     // where international spend isn't focused and the boost is the only forex signal.
     const forexBoost = forexFocus ? 0 : (isForexBoostAllowed ? forexPreferenceBoost(card, intent) : 0);
     const spendCategoryBoost = categoryFitAdjustment(card, spendForScore, includeSmartbuyLikeRewards);
-    const specialSpendBoost = specialSpendFlexibilityBoost(card, input, intent);
+    const flexibilityValue = broadGenericRanking
+      ? computeFlexibilityValue(card, monthlyTotalForScore, includeSmartbuyLikeRewards)
+      : 0;
     const envelopeLabel = envelopeMonthlySpend ? formatEnvelopeSpendLabel(envelopeMonthlySpend) : null;
     const feeWaiverReason =
       card.feeWaiverSpend && annualSpend >= card.feeWaiverSpend
@@ -2366,7 +2401,7 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
         ? [`Joining and renewal benefits add about Rs ${estimatedJoiningAndRenewalValue.toLocaleString("en-IN")} per year`]
         : []),
       ...(optionLabel ? [`Best net value uses ${optionLabel} after Rs ${optionAnnualCost.toLocaleString("en-IN")} yearly cost`] : []),
-      ...(specialSpendBoost > 0 ? ["Rewards on usually excluded categories improve broader card utility"] : []),
+      ...(flexibilityValue > 0 ? [`Rewards on usually excluded categories improve broader card utility (adds about Rs ${Math.round(flexibilityValue).toLocaleString("en-IN")} flexibility value)`] : []),
       card.annualFee === 0 ? "No annual fee" : `Effective annual fee is Rs ${estimatedAnnualFee}`,
       feeWaiverReason,
       loungeScore(card) > 0
@@ -2390,7 +2425,7 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
       loungeBoost +
       forexBoost +
       spendCategoryBoost +
-      specialSpendBoost +
+      flexibilityValue +
       card.popularityScore * popularityRankingWeight;
 
     // Value score: economic quality and preference fit signals. For a category/fuel query the card is
@@ -2452,7 +2487,7 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
         loungeBoost,
         forexBoost,
         spendCategoryBoost,
-        specialSpendBoost,
+        flexibilityValue,
         relevanceScore,
         sharedBoosts,
         valueScore,

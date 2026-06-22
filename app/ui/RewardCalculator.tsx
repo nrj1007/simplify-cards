@@ -444,6 +444,41 @@ export default function RewardCalculator({ card, milestones = [], isStandalone =
                 </div>
               ) : null}
 
+              {result.annualSurcharge > 0 ? (
+                <div className="calc-block">
+                  <h3>Surcharges & processing fees</h3>
+                  <div className="calc-redemptions">
+                    <div className="calc-redemption" style={{ background: "var(--danger-soft)", borderColor: "rgba(215, 168, 74, 0.3)" }}>
+                      <div className="calc-redemption-head">
+                        <span>Monthly surcharge</span>
+                      </div>
+                      <strong>{formatINR(result.monthlySurcharge)}</strong>
+                      <span className="muted">Added processing fee on specific spends</span>
+                    </div>
+                    <div className="calc-redemption" style={{ background: "var(--danger-soft)", borderColor: "rgba(215, 168, 74, 0.3)" }}>
+                      <div className="calc-redemption-head">
+                        <span>Annual surcharge</span>
+                      </div>
+                      <strong>{formatINR(result.annualSurcharge)}</strong>
+                      <span className="muted">Added processing fee on specific spends</span>
+                    </div>
+                  </div>
+                  {totalReturnsPlusVoucher > 0 ? (
+                    <div className="calc-net-total" style={{ marginTop: "12px", padding: "12px", borderRadius: "8px", background: "var(--danger-soft)", border: "1px solid var(--accent)" }}>
+                      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                        <span style={{ fontWeight: 500 }}>Net annual value (after surcharge)</span>
+                        <strong style={{ fontSize: "1.1rem", color: "var(--accent)" }}>
+                          {formatINR(totalReturnsPlusVoucher - result.annualSurcharge)}
+                        </strong>
+                      </div>
+                      <p className="muted calc-note" style={{ margin: "4px 0 0" }}>
+                        Calculated as {formatINR(totalReturnsPlusVoucher)} gross rewards minus {formatINR(result.annualSurcharge)} surcharge.
+                      </p>
+                    </div>
+                  ) : null}
+                </div>
+              ) : null}
+
               {!cashback && (redeemRows.length > 0 || airMilesPerPoint) ? (
                 <div className="calc-block">
                   <h3>What your points are worth</h3>

@@ -73,6 +73,7 @@
     {
       "category": "education",
       "treatment": "excluded",
+      "surchargePercent": 1.0,
       "notes": "Education payments do not earn Jewels and attract a 1% transaction fee."
     },
     {

@@ -508,6 +508,10 @@ if (cardFiles.length === 0) {
             addIssue(`specialSpendRules[${ruleIndex}] capAnnualSpend must be a non-negative number or null`, cardId, "specialSpendRules");
           }
 
+          if (rule.surchargePercent !== undefined && (typeof rule.surchargePercent !== "number" || rule.surchargePercent < 0)) {
+            addIssue(`specialSpendRules[${ruleIndex}] surchargePercent must be a non-negative number when present`, cardId, "specialSpendRules");
+          }
+
           if (rule.notes !== undefined && !isNonEmptyString(rule.notes)) {
             addIssue(`specialSpendRules[${ruleIndex}] notes must be a non-empty string when present`, cardId, "specialSpendRules");
           }

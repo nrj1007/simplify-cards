@@ -38,9 +38,9 @@ targets.forEach(item => {
   console.log(`  Spend Category Boost:           ${item.debugScoring.spendCategoryBoost}`);
   console.log(`  Milestone/Waiver Delta:         ${item.debugScoring.comparisonMilestoneAndWaiverDelta}`);
   console.log(`  LTF Query Boost:                ${item.debugScoring.ltfQueryBoost}`);
-  console.log(`  Relationship Penalty:           ${item.debugScoring.relationshipPenalty}`);
-  console.log(`  Special Spend Boost:            ${item.debugScoring.specialSpendBoost}`);
-  console.log(`  Milestone Boost:                ${item.debugScoring.milestoneBoost}`);
+  console.log(`  Relationship Penalty:           ${(item.debug as any).relationshipPenalty}`);
+  console.log(`  Flexibility Value:              ${item.debug.flexibilityValue}`);
+  console.log(`  Milestone Boost:                ${(item.debug as any).milestoneBoost}`);
   console.log(`  Popularity Boost:               ${item.debugScoring.popularityBoost}`);
   console.log(`  Total Shared Boosts:            ${item.debugScoring.sharedBoosts}`);
   console.log(`--------------------------------------`);

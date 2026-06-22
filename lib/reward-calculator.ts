@@ -320,11 +320,15 @@ export type RewardCalcRow = {
   annualUnits: number;
   excluded: boolean;
   earnsBaseRateOnly: boolean;
+  monthlySurcharge?: number;
+  annualSurcharge?: number;
 };
 
 export type RewardCalcResult = {
   monthlyUnits: number;
   annualUnits: number;
+  monthlySurcharge: number;
+  annualSurcharge: number;
   rows: RewardCalcRow[];
 };
 
@@ -479,9 +483,23 @@ export function calculateRewards(card: CreditCard, spend: SpendProfile): RewardC
 
   const monthlyUnits = rows.reduce((total, row) => total + row.monthlyUnits, 0);
 
+  let monthlySurcharge = 0;
+  for (const row of rows) {
+    const specialRule = specialSpendRuleForCard(card, row.category);
+    const surchargePercent = specialRule?.surchargePercent !== undefined
+      ? specialRule.surchargePercent
+      : (row.category === "rent" ? 1.0 : 0.0);
+    const mSurcharge = (row.monthlySpend * surchargePercent) / 100;
+    row.monthlySurcharge = mSurcharge;
+    row.annualSurcharge = mSurcharge * 12;
+    monthlySurcharge += mSurcharge;
+  }
+
   return {
     monthlyUnits,
     annualUnits: monthlyUnits * 12,
+    monthlySurcharge,
+    annualSurcharge: monthlySurcharge * 12,
     rows
   };
 }

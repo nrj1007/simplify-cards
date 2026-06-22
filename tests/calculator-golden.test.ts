@@ -20,7 +20,7 @@ function summarize(result: RewardCalcResult): string {
   const rows = result.rows
     .map((row) => `${row.category}:${row.excluded ? "x" : Math.round(row.monthlyUnits)}`)
     .join(" ");
-  return `${rows} |${Math.round(result.monthlyUnits)}`;
+  return `${rows} |${Math.round(result.monthlyUnits)} (surcharge:${Math.round(result.monthlySurcharge)})`;
 }
 
 describe("reward calculator golden (all cards)", () => {
