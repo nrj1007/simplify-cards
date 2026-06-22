@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import sitemap from "../app/sitemap";
 import {
+  comparisonLastModifiedDate,
   getSeoComparisonCards,
   SEO_COMPARISONS,
   SEO_COMPARISON_SLUGS
@@ -23,5 +24,18 @@ describe("SEO comparison pages", () => {
     const missing = SEO_COMPARISON_SLUGS.filter((slug) => !sitemapUrls.has(buildCanonicalUrl(`/compare/${slug}`)));
 
     expect(missing).toEqual([]);
+  });
+
+  it("uses the latest card verification date for comparison sitemap freshness", () => {
+    const entries = new Map(sitemap().map((entry) => [entry.url, entry]));
+
+    for (const comparison of SEO_COMPARISONS) {
+      const cards = getSeoComparisonCards(comparison);
+      expect(cards).toBeTruthy();
+      if (!cards) continue;
+
+      const entry = entries.get(buildCanonicalUrl(`/compare/${comparison.slug}`));
+      expect(entry?.lastModified).toEqual(comparisonLastModifiedDate(cards.cardA, cards.cardB));
+    }
   });
 });

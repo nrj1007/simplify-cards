@@ -284,10 +284,14 @@ export function comparisonUrl(slug: string) {
 }
 
 export function comparisonLastUpdated(cardA: CreditCard, cardB: CreditCard) {
+  return comparisonLastModifiedDate(cardA, cardB).toLocaleDateString("en-IN", { month: "long", year: "numeric" });
+}
+
+export function comparisonLastModifiedDate(cardA: CreditCard, cardB: CreditCard) {
   const dates = [cardA.lastVerified, cardB.lastVerified]
     .map((value) => (value ? new Date(value) : null))
     .filter((date): date is Date => date instanceof Date && !Number.isNaN(date.getTime()))
     .sort((a, b) => b.getTime() - a.getTime());
-  const latest = dates[0] ?? new Date();
-  return latest.toLocaleDateString("en-IN", { month: "long", year: "numeric" });
+
+  return dates[0] ?? new Date();
 }
