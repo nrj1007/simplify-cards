@@ -259,11 +259,9 @@ export interface ScoreDebug {
   keywordBoost: number;
   tagBoost: number;
   useCaseBoost: number;
-  categorySpecialistBoost: number;
   redemptionBoost: number;
   loungeBoost: number;
   forexBoost: number;
-  spendCategoryBoost: number;
   flexibilityValue: number;
   relevanceScore: number;
   sharedBoosts: number;

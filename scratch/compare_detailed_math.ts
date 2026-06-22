@@ -35,7 +35,6 @@ targets.forEach(item => {
   console.log(`  Redemption Boost:               ${item.debugScoring.redemptionBoost}`);
   console.log(`  Lounge Boost:                   ${item.debugScoring.loungeBoost}`);
   console.log(`  Forex Boost:                    ${item.debugScoring.forexBoost}`);
-  console.log(`  Spend Category Boost:           ${item.debugScoring.spendCategoryBoost}`);
   console.log(`  Milestone/Waiver Delta:         ${item.debugScoring.comparisonMilestoneAndWaiverDelta}`);
   console.log(`  LTF Query Boost:                ${item.debugScoring.ltfQueryBoost}`);
   console.log(`  Relationship Penalty:           ${(item.debug as any).relationshipPenalty}`);

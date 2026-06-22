@@ -700,28 +700,7 @@ function cardMatchesCategoryFocus(card: CreditCard, config: CategoryFocusConfig)
   return Boolean(config.matchPositioning && cardPositioningMatchesFocus(card, config));
 }
 
-// Specialist score for a category-focused ranking: rewards a genuinely accelerated category reward
-// row (above base) or an explicit category tag, plus category-forward positioning, so a
-// category-specific card outranks one with only incidental earning there. Returns 0 for cards with
-// no matching accelerator (they get the non-specialist penalty / are filtered out).
-function categorySpecialistScore(card: CreditCard, config: CategoryFocusConfig) {
-  const baseRate = cardBaseRate(card);
-  const hasAcceleratedRow = card.rewards.some(
-    (reward) => config.rewardPattern.test(reward.category) && reward.rate > baseRate
-  );
-  const hasPositioning = cardPositioningMatchesFocus(card, config);
-  const earnsOnCategory = Boolean(
-    config.matchByEarning && config.spendCategory && cardEarnsOnSpendCategory(card, config.spendCategory)
-  );
-  let score = 0;
-  // A genuine accelerator, an explicit tag, merchant positioning, or — for earn-based focuses —
-  // simply rewarding the category makes the card a specialist.
-  if (hasAcceleratedRow || cardHasCategoryFocusTag(card, config) || (config.matchPositioning && hasPositioning) || earnsOnCategory) {
-    score += 3;
-  }
-  if (hasPositioning) score += 2;
-  return score;
-}
+
 
 function focusedSpendProfile(category: SpendCategory) {
   const monthlyTotal = Object.values(defaultSpendProfile).reduce((total, amount = 0) => total + amount, 0);
@@ -747,8 +726,21 @@ const categoryFocusMonthlySpend: Partial<Record<SpendCategory, number>> = {
   insurance: 5000,
   government: 5000
 };
-function categoryFocusSpendProfile(category: SpendCategory): SpendProfile {
-  return { ...defaultSpendProfile, [category]: categoryFocusMonthlySpend[category] ?? 8000 };
+function categoryFocus75_25SpendProfile(category: SpendCategory, focusSpendAmount: number): SpendProfile {
+  const entries = Object.entries(defaultSpendProfile) as Array<[SpendCategory, number]>;
+  const othersSum = entries.reduce((sum, [key, amount]) => (key === category ? sum : sum + (amount ?? 0)), 0);
+  const remaining = focusSpendAmount / 3;
+
+  return Object.fromEntries(
+    entries.map(([key, amount]) => [
+      key,
+      key === category
+        ? Math.round(focusSpendAmount)
+        : othersSum > 0
+          ? Math.round(remaining * ((amount ?? 0) / othersSum))
+          : 0
+    ])
+  ) as SpendProfile;
 }
 
 // Spend profile for a category-focused recommendation that does NOT assume the card is used for
@@ -1928,58 +1920,7 @@ function isBroadMixedSpendQuery(input: RecommendationInput, intent: ReturnType<t
   return true;
 }
 
-function categoryFitAdjustment(
-  card: CreditCard,
-  spend: SpendProfile,
-  includeSmartbuyLikeRewards: boolean
-) {
-  const monthlyTotal = monthlySpendTotal(spend);
-  if (!monthlyTotal) return 0;
-  const activeCategories = (Object.entries(spend) as Array<[SpendCategory, number]>).filter(([, amount]) => (amount ?? 0) > 0);
-  const isFocusedSpendProfile = activeCategories.length === 1;
 
-  return activeCategories.reduce((total, [category, amount]) => {
-    if (!amount || amount <= 0) return total;
-    const isExcluded = isSpendCategoryExcluded(card, category);
-    const allocations = rewardAllocationsForSpend(card, category, amount, includeSmartbuyLikeRewards, monthlyTotal);
-    const specialRule = specialSpendRuleForCard(card, category);
-
-    if (isExcluded) {
-      if (isFocusedSpendProfile) {
-        const exclusionPenalty = 90000;
-        return total - exclusionPenalty * (amount / monthlyTotal);
-      }
-      return total;
-    }
-
-    if (allocations.length === 0) {
-      if (isFocusedSpendProfile) {
-        const missingPenalty = 35000;
-        return total - missingPenalty * (amount / monthlyTotal);
-      }
-      return total;
-    }
-
-    return (
-      total +
-      allocations.reduce((categoryTotal, allocation) => {
-        const weight = allocation.amount / monthlyTotal;
-        const rewardCategory = allocation.reward.category;
-
-        if (
-          isDirectRewardMatch(category, rewardCategory, includeSmartbuyLikeRewards) ||
-          ((specialRule?.treatment === "rewarded" || specialRule?.treatment === "capped") && isBaseRewardCategory(rewardCategory))
-        ) {
-          if (isFocusedSpendProfile) {
-            return categoryTotal + 32000 * weight;
-          }
-        }
-
-        return categoryTotal;
-      }, 0)
-    );
-  }, 0);
-}
 
 
 
@@ -2222,10 +2163,10 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
   // assume 50% of spend is international and compute net value (rewards earned abroad minus the card's
   // forex markup cost — see estimatedForexCost below). This makes low-markup cards with decent
   // international earning win, instead of the generic high-spend ranking.
+  const focusedCategory = (categoryFocus?.spendCategory ?? (restrictToFuelCards ? "fuel" : null)) as SpendCategory | null;
   const forexFocus = intent.tags.includes("forex") && !input.spend && !intent.inferredSpend;
-  const fuelFocusedSpend = restrictToFuelCards && !input.spend ? categoryFocusSpendProfile("fuel") : undefined;
-  const categoryFocusedSpend = categoryFocus?.spendCategory
-    ? categoryFocusSpendProfile(categoryFocus.spendCategory)
+  const categoryFocusedSpend = (focusedCategory && categoryFocusMonthlySpend[focusedCategory])
+    ? categoryFocus75_25SpendProfile(focusedCategory, categoryFocusMonthlySpend[focusedCategory]!)
     : undefined;
   const forexFocusedSpend = forexFocus ? weightedFocusSpendProfile("international", 0.5) : undefined;
   // Segment queries are scored at the tier's representative spend (not the envelope blend), unless a
@@ -2261,7 +2202,8 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
   const isForexBoostAllowed = hasForexOrTravelIntent || isGeneralQuery;
 
   const useEnvelopeScoring =
-    !restrictToFuelCards &&
+    (focusedCategory !== null && input.spend === undefined) ||
+    (!restrictToFuelCards &&
     !restrictToSegments &&
     (
       shouldUseEnvelopeScoring(input, intent, effectiveMaxAnnualFee, wantsLifetimeFree, wantsLounge) ||
@@ -2273,13 +2215,12 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
         wantsLounge ||
         isTargetedEnvelopeQuery(input, intent)
       ))
-    );
+    ));
   const spend = {
     ...defaultSpendProfile,
     ...(segmentSpend ?? {}),
     ...(intent.inferredSpend ?? {}),
     ...(forexFocusedSpend ?? {}),
-    ...(fuelFocusedSpend ?? {}),
     ...(upiFocusedSpend ?? {}),
     ...(categoryFocusedSpend ?? {}),
     ...(input.spend ?? {})
@@ -2352,15 +2293,7 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
       const strength = cardUseCaseStrength(card, useCase);
       return total + (strength > 0 ? strength * 7000 : 0);
     }, 0);
-    // Category-focused ranking: lift cards with a category accelerator, penalise cards with none, so
-    // category-specific cards lead "best <category> card" (focused spend, where applicable, already
-    // favours them).
-    const categorySpecialistBoost = categoryFocus
-      ? (() => {
-          const strength = categorySpecialistScore(card, categoryFocus);
-          return strength > 0 ? strength * 7000 : 0;
-        })()
-      : 0;
+
     const redemptionBoost = intent.redemptionBuckets.reduce(
       (total, bucket) =>
         total + redemptionPreferenceValueBoost(card, bucket),
@@ -2371,7 +2304,7 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
     // the heuristic forex boost would double-count — suppress it. It still applies to travel queries,
     // where international spend isn't focused and the boost is the only forex signal.
     const forexBoost = forexFocus ? 0 : (isForexBoostAllowed ? forexPreferenceBoost(card, intent) : 0);
-    const spendCategoryBoost = categoryFitAdjustment(card, spendForScore, includeSmartbuyLikeRewards);
+
     const flexibilityValue = (broadGenericRanking && categoryFocus === null && !restrictToFuelCards)
       ? computeFlexibilityValue(card, monthlyTotalForScore, includeSmartbuyLikeRewards)
       : 0;
@@ -2420,27 +2353,13 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
     // Non-economic preference and penalty signals shared by both scoring paths
     const sharedBoosts =
       useCaseBoost +
-      categorySpecialistBoost +
       redemptionBoost +
       loungeBoost +
       forexBoost +
-      spendCategoryBoost +
       flexibilityValue +
       card.popularityScore * popularityRankingWeight;
 
-    // Value score: economic quality and preference fit signals. For a category/fuel query the card is
-    // chosen to be used specifically for that category (often a secondary card), so rank by how much it
-    // earns ON that category — fee-independent and not diluted by the rest of the profile — so the
-    // category specialist (e.g. SBI Prime for utilities, an HPCL card for fuel) wins, not a high-fee
-    // all-rounder. The displayed estimatedNetValue is unchanged. Focuses without a spend category
-    // (Flipkart/Swiggy) keep the net-value ranking.
-    const focusedSpendCategory: SpendCategory | undefined =
-      categoryFocus?.spendCategory ?? (restrictToFuelCards ? "fuel" : undefined);
-    const valueScore = focusedSpendCategory
-      ? rewardBreakdown
-          .filter((item) => item.spendCategory === focusedSpendCategory)
-          .reduce((total, item) => total + item.annualReward, 0) + sharedBoosts
-      : estimatedNetValue + sharedBoosts;
+    const valueScore = estimatedNetValue + sharedBoosts;
 
     // Query-type-dependent blending
     const isExactCardLookup = cardNameBoost >= exactCardNameMatchThreshold;
@@ -2482,11 +2401,9 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
         keywordBoost,
         tagBoost,
         useCaseBoost,
-        categorySpecialistBoost,
         redemptionBoost,
         loungeBoost,
         forexBoost,
-        spendCategoryBoost,
         flexibilityValue,
         relevanceScore,
         sharedBoosts,
@@ -2531,6 +2448,22 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
     .filter((card) => (categoryFocus ? cardMatchesCategoryFocus(card, categoryFocus) : true))
     .map((card) => {
       if (!useEnvelopeScoring) return scoreCardForSpend(card, spend);
+
+      if (focusedCategory) {
+        const baseAmount = categoryFocusMonthlySpend[focusedCategory] ?? 8000;
+        const multipliers = [0.5, 1.0, 2.0];
+        const perLevel = multipliers.map((mult) => {
+          const focusSpendAmount = baseAmount * mult;
+          const monthlySpendProfile = categoryFocus75_25SpendProfile(focusedCategory, focusSpendAmount);
+          const totalMonthlySpend = monthlySpendTotal(monthlySpendProfile);
+          return scoreCardForSpend(card, monthlySpendProfile, totalMonthlySpend);
+        });
+        const blendedFitScore = perLevel.reduce((sum, score) => sum + score.fitScore, 0) / 3;
+        const representative = perLevel.reduce((best, score) => (score.fitScore > best.fitScore ? score : best));
+        return representative.envelopeScoring
+          ? { ...representative, envelopeScoring: { ...representative.envelopeScoring, normalizedFitScore: blendedFitScore } }
+          : representative;
+      }
 
       // Score the card at each fixed light/mid/heavy spend level and blend the per-level fit scores
       // into the ranking key. The card is displayed at its strongest of these levels, but ranked on

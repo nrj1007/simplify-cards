@@ -126,11 +126,9 @@ async function main() {
 
   console.log(`\n--- PREFERENCE / HEURISTIC BOOSTS (Shared Boosts) ---`);
   console.log(`    useCaseBoost:                   ${debug.useCaseBoost}`);
-  console.log(`    categorySpecialistBoost:        ${debug.categorySpecialistBoost}`);
   console.log(`    redemptionBoost:                ${debug.redemptionBoost}`);
   console.log(`    loungeBoost:                    ${debug.loungeBoost}`);
   console.log(`    forexBoost:                     ${debug.forexBoost}`);
-  console.log(`    spendCategoryBoost:             ${debug.spendCategoryBoost}`);
   console.log(`    flexibilityValue:               ${debug.flexibilityValue}`);
   console.log(`    popularityBoost (pop * 50):     ${card.popularityScore * 50}`);
   console.log(`-------------------------------------------------------------`);

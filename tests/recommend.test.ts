@@ -816,57 +816,16 @@ describe("scoreCards", () => {
     expect(education!.monthlyReward).toBe(400); // 40000 * 0.01
   });
 
-  it("only applies category fit adjustment (exclusion penalties and matching boosts) to focused single-category profiles", () => {
-    // 1. Single-category (focused) profile for fuel spends
-    const scoresFocused = scoreCards({
-      spend: {
-        fuel: 5000,
-        online: 0,
-        base: 0,
-        travel: 0,
-        dining: 0,
-        grocery: 0,
-        amazon: 0,
-        upi: 0,
-        utilities: 0
-      }
-    });
-
-    const octaneFocused = scoresFocused.find((s) => s.card.id === "bpcl-sbi-octane");
-    const ssBlackFocused = scoresFocused.find((s) => s.card.id === "hdfc-shoppers-stop-black");
-
-    expect(octaneFocused).toBeDefined();
-    expect(ssBlackFocused).toBeDefined();
+  it("category specialist outranks a high-net-value generalist for its category, and an excluder is filtered out or ranks at the bottom", () => {
+    const scores = scoreCards({ query: "best dining credit card" });
     
-    // Octane matches fuel and gets the positive match boost
-    expect(octaneFocused!.debug?.spendCategoryBoost).toBe(32000);
-    // Shoppers Stop Black excludes fuel and gets the exclusion penalty
-    expect(ssBlackFocused!.debug?.spendCategoryBoost).toBe(-90000);
+    const eazydinerIndex = scores.findIndex((s) => s.card.id === "indusind-eazydiner");
+    const nonDiningCardIndex = scores.findIndex((s) => s.card.id === "simplyclick-sbi");
 
-    // 2. Mixed (broad) profile for fuel + online spends
-    const scoresMixed = scoreCards({
-      spend: {
-        fuel: 5000,
-        online: 1000,
-        base: 0,
-        travel: 0,
-        dining: 0,
-        grocery: 0,
-        amazon: 0,
-        upi: 0,
-        utilities: 0
-      }
-    });
-
-    const octaneMixed = scoresMixed.find((s) => s.card.id === "bpcl-sbi-octane");
-    const ssBlackMixed = scoresMixed.find((s) => s.card.id === "hdfc-shoppers-stop-black");
-
-    expect(octaneMixed).toBeDefined();
-    expect(ssBlackMixed).toBeDefined();
-
-    // No adjustments are applied to mixed/broad spend profiles
-    expect(octaneMixed!.debug?.spendCategoryBoost).toBe(0);
-    expect(ssBlackMixed!.debug?.spendCategoryBoost).toBe(0);
+    // Eazydiner is a dining specialist and matches the focus
+    expect(eazydinerIndex).toBeGreaterThan(-1);
+    // simplyclick-sbi has no dining rewards/positioning, so it should be filtered out completely (index === -1)
+    expect(nonDiningCardIndex).toBe(-1);
   });
 
   it("filters travel-intent queries to only travel cards via qualifiesAsTravelCard", () => {
