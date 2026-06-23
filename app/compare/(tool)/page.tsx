@@ -9,6 +9,7 @@ import PageHero from "@/app/ui/PageHero";
 import { TrackedExternalLink, TrackedLink } from "@/app/ui/TrackedLink";
 import { stripScoringAnnotations } from "@/lib/card-index";
 import { buildPageMetadata } from "@/lib/seo";
+import { cardCtaHref, cardCtaLabel, cardCtaRel } from "@/lib/card-links";
 
 type Card = (typeof cards)[number];
 
@@ -186,11 +187,11 @@ function CompareOverviewCard({ card }: { card: Card }) {
             card_id: card.id
           }}
           className="button"
-          href={card.applyUrl}
-          rel="nofollow"
+          href={cardCtaHref(card)}
+          rel={cardCtaRel(card)}
           target="_blank"
         >
-          Check official site <ExternalLink size={15} />
+          {cardCtaLabel(card)} <ExternalLink size={15} />
         </TrackedExternalLink>
       </div>
     </article>

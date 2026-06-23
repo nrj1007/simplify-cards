@@ -113,8 +113,8 @@ export default function AboutPage() {
             <section className="panel about-card">
               <h2>Disclosure</h2>
               <p>
-                SimplifyCards is not financial advice. Official-site links open issuer or partner pages, and no affiliate links are
-                currently used.
+                SimplifyCards is not financial advice. Apply buttons may use affiliate links, while Check official site links open issuer
+                or partner pages.
               </p>
             </section>
           </aside>

@@ -239,6 +239,7 @@ export type CreditCard = {
   };
   sourceUrl: string;
   applyUrl: string;
+  affiliateUrl?: string;
   lastVerified: string;
   verificationStatus: "official-direct" | "official-indexed" | "official-catalogue" | "official-mixed" | "needs-review";
   imageUrl?: string;
@@ -314,6 +315,7 @@ export type RecommendResult = {
   name: string;
   issuer: string;
   applyUrl: string;
+  affiliateUrl?: string;
   tags: string[];
   usp: string;
   estimatedAnnualRewards: number;

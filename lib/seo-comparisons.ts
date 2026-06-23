@@ -373,7 +373,7 @@ export function comparisonFaqs(cardA: CreditCard, cardB: CreditCard) {
     },
     {
       q: "Do affiliate links affect this comparison?",
-      a: "No. The comparison uses existing card data. Current official-site links are not affiliate links, and they do not change the displayed fees, rewards, or limitations."
+      a: "No. The comparison uses existing card data. Affiliate links, when present, are shown as Apply buttons and do not change the displayed fees, rewards, or limitations."
     },
     {
       q: "What should I verify before applying?",

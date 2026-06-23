@@ -76,6 +76,7 @@ describe("card data files", () => {
       expect(card.popularityScore).toBeLessThanOrEqual(100);
       expect(new URL(card.sourceUrl).protocol).toBe("https:");
       expect(new URL(card.applyUrl).protocol).toBe("https:");
+      if (card.affiliateUrl) expect(new URL(card.affiliateUrl).protocol).toBe("https:");
     }
   });
 });

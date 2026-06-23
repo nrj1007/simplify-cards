@@ -650,6 +650,9 @@ if (cardFiles.length === 0) {
 
     if (!isValidUrl(card.sourceUrl)) addIssue("must be a valid https URL", cardId, "sourceUrl");
     if (!isValidUrl(card.applyUrl)) addIssue("must be a valid https URL", cardId, "applyUrl");
+    if (card.affiliateUrl !== undefined && !isValidUrl(card.affiliateUrl)) {
+      addIssue("must be a valid https URL when present", cardId, "affiliateUrl");
+    }
     validateDate(card.lastVerified, cardId, "lastVerified");
 
     validateRewards(card.rewards, cardId, card.rewardType, "rewards");

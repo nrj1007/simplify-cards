@@ -30,6 +30,7 @@ import {
   formatRupeesCompact
 } from "@/lib/card-detail";
 import { buildPageMetadata } from "@/lib/seo";
+import { cardCtaHref, cardCtaLabel, cardCtaRel } from "@/lib/card-links";
 import type { CreditCard, Redemption } from "@/lib/types";
 
 type Props = {
@@ -258,6 +259,7 @@ export default async function CardPage({ params, searchParams }: Props) {
   const savedFeedback = query.feedbackSaved === "up" || query.feedbackSaved === "down" ? query.feedbackSaved : null;
   const feedbackError = query.feedbackError === "1";
   const cardContent = getCardContent(card.id);
+  const ctaLabel = cardCtaLabel(card);
   const latestUpdate = cardContent?.updates[0];
 
   // Redemption / rewards table data (issuer-aware labels + voucher rows).
@@ -1009,11 +1011,11 @@ export default async function CardPage({ params, searchParams }: Props) {
                       card_id: card.id
                     }}
                     className="button"
-                    href={card.applyUrl}
-                    rel="nofollow"
+                    href={cardCtaHref(card)}
+                    rel={cardCtaRel(card)}
                     target="_blank"
                   >
-                    Check official site <ExternalLink size={15} />
+                    {ctaLabel} <ExternalLink size={15} />
                   </TrackedExternalLink>
                 </div>
                 <div id="page-feedback">
@@ -1086,15 +1088,16 @@ export default async function CardPage({ params, searchParams }: Props) {
                     card_id: card.id
                   }}
                   className="side-action"
-                  href={card.applyUrl}
-                  rel="nofollow"
+                  href={cardCtaHref(card)}
+                  rel={cardCtaRel(card)}
                   target="_blank"
                 >
-                  Check official site ↗
+                  {ctaLabel} <ExternalLink size={14} />
                 </TrackedExternalLink>
               </div>
               <p className="side-note">
-                Official-site links open issuer or partner pages. Always verify final fees, eligibility, and benefits before applying.
+                Apply buttons may use affiliate links. Check official site links open issuer or partner pages. Always verify final fees,
+                eligibility, and benefits before applying.
               </p>
             </section>
 

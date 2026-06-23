@@ -15,6 +15,7 @@ import { stripScoringAnnotations } from "@/lib/card-index";
 import { buildPageMetadata } from "@/lib/seo";
 import { scoreCards } from "@/lib/recommend";
 import { getCardUsp } from "@/lib/card-usp";
+import { cardCtaHref, cardCtaLabel, cardCtaRel } from "@/lib/card-links";
 import type { CreditCard, RecommendationInput } from "@/lib/types";
 
 export const metadata: Metadata = buildPageMetadata({
@@ -470,11 +471,11 @@ export default async function AskPage({ searchParams }: Props) {
                                     card_id: item.card.id
                                   }}
                                   className="mini-btn"
-                                  href={item.card.applyUrl}
-                                  rel="nofollow"
+                                  href={cardCtaHref(item.card)}
+                                  rel={cardCtaRel(item.card)}
                                   target="_blank"
                                 >
-                                  Check official site
+                                  {cardCtaLabel(item.card)}
                                 </TrackedExternalLink>
                               </div>
                             </article>
@@ -678,11 +679,11 @@ export default async function AskPage({ searchParams }: Props) {
                             card_id: topCard.card.id
                           }}
                           className="button"
-                          href={topCard.card.applyUrl}
-                          rel="nofollow"
+                          href={cardCtaHref(topCard.card)}
+                          rel={cardCtaRel(topCard.card)}
                           target="_blank"
                         >
-                          Check official site
+                          {cardCtaLabel(topCard.card)}
                         </TrackedExternalLink>
                       </div>
                     </div>
@@ -794,8 +795,8 @@ export default async function AskPage({ searchParams }: Props) {
                   </Link>
                 </div>
                 <p className="source-note">
-                  Grounded in verified card data. Official-site links open issuer or partner pages; no affiliate links are currently
-                  used.
+                  Grounded in verified card data. Apply buttons may use affiliate links; Check official site links open issuer or
+                  partner pages.
                 </p>
               </section>
             ) : null}

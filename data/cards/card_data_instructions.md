@@ -57,6 +57,10 @@ This is an array of strings in the JSON configuration that is **not** rendered i
 > [!TIP]
 > Use `internalNotes` to store low-level operational rules, specific dates, transfer timing notes, booking workflows, and details needed to answer granular user questions.
 
+### C. Card Links (`applyUrl`, `affiliateUrl`)
+
+Keep `applyUrl` as the canonical official issuer or partner product page. If a card has a monetized affiliate link, add it separately as `affiliateUrl` and leave `applyUrl` unchanged. The UI labels affiliate links as **Apply** with sponsored link attributes, while non-affiliate official links render as **Check official site**.
+
 **Example mapping from official terms to JSON:**
 ```json
 "internalNotes": [
@@ -65,7 +69,7 @@ This is an array of strings in the JSON configuration that is **not** rendered i
 ]
 ```
 
-### C. Source of Truth: What Goes Where
+### D. Source of Truth: What Goes Where
 
 Use the verified cards as the model. Each fact should have one primary home.
 

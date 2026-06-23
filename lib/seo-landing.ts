@@ -40,7 +40,7 @@ function faqFor(intent: string): Array<{ q: string; a: string }> {
     },
     {
       q: "Do affiliate links affect the ranking?",
-      a: "No. Rankings are generated from card data and scoring logic. Current official-site links are not affiliate links."
+      a: "No. Rankings are generated from card data and scoring logic. Affiliate links, when present, are shown as Apply buttons."
     },
     {
       q: "Why should I still read the card detail page?",

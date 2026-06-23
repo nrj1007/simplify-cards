@@ -2,6 +2,7 @@ import { ExternalLink } from "lucide-react";
 import { TrackedExternalLink, TrackedLink } from "./TrackedLink";
 import type { CardScore, CreditCard } from "@/lib/types";
 import { getTotalLoungeAccess } from "@/lib/lounge";
+import { cardCtaHref, cardCtaLabel, cardCtaRel } from "@/lib/card-links";
 
 type Props = {
   card?: CreditCard;
@@ -23,6 +24,7 @@ export default function CardTile({
   const totalLoungeAccess = getTotalLoungeAccess(resolvedCard);
   const loungeVisits = totalLoungeAccess === "unlimited" ? "Unlimited" : String(totalLoungeAccess);
   const rankLabel = resolvedCard.tags[0] ?? resolvedCard.rewardType;
+  const ctaLabel = cardCtaLabel(resolvedCard);
   const why =
     resolvedCard.bestFor.length > 0
       ? `Good for ${resolvedCard.bestFor.slice(0, 2).join(", ").toLowerCase()}.`
@@ -82,11 +84,11 @@ export default function CardTile({
             card_id: resolvedCard.id
           }}
           className="action-primary"
-          href={resolvedCard.applyUrl}
-          rel="nofollow"
+          href={cardCtaHref(resolvedCard)}
+          rel={cardCtaRel(resolvedCard)}
           target="_blank"
         >
-          Check official site <ExternalLink size={14} style={{ verticalAlign: "-2px" }} />
+          {ctaLabel} <ExternalLink size={14} style={{ verticalAlign: "-2px" }} />
         </TrackedExternalLink>
       </div>
     </article>

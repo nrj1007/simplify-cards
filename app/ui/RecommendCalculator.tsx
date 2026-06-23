@@ -6,6 +6,7 @@ import type { RecommendResult, SpendCategory, SpendProfile } from "@/lib/types";
 import { buildRecommendationMetadata } from "@/lib/analytics-events";
 import { trackEvent } from "@/lib/analytics-client";
 import { TrackedExternalLink, TrackedLink } from "./TrackedLink";
+import { cardCtaHref, cardCtaLabel, cardCtaRel } from "@/lib/card-links";
 
 type Props = {
   defaultSpend: SpendProfile;
@@ -356,11 +357,11 @@ export default function RecommendCalculator({ defaultSpend, initialResults }: Pr
                       card_id: result.id
                     }}
                     className="button"
-                    href={result.applyUrl}
-                    rel="nofollow"
+                    href={cardCtaHref(result)}
+                    rel={cardCtaRel(result)}
                     target="_blank"
                   >
-                    Check official site <ExternalLink size={15} />
+                    {cardCtaLabel(result)} <ExternalLink size={15} />
                   </TrackedExternalLink>
                 </div>
               </article>

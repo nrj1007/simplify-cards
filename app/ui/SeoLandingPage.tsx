@@ -155,8 +155,8 @@ export default function SeoLandingPage({ slug }: Props) {
 
         <section className="container seo-disclosure" aria-label="Disclosure">
           <p>
-            <strong>Disclosure:</strong> Official-site links open issuer or partner pages. No affiliate links are currently used, and
-            rankings are generated from card data and scoring logic.
+            <strong>Disclosure:</strong> Apply buttons may use affiliate links. Check official site links open issuer or partner pages,
+            and rankings are generated from card data and scoring logic.
           </p>
           <p>Last updated: {landingLastUpdated(listedCards)}</p>
         </section>

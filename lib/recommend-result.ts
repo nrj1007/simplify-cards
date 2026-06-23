@@ -73,6 +73,7 @@ export function toRecommendResult(score: CardScore): RecommendResult {
     name: card.name,
     issuer: card.issuer,
     applyUrl: card.applyUrl,
+    affiliateUrl: card.affiliateUrl,
     tags: card.tags.slice(0, 4),
     usp: getCardUsp(card),
     // Display the full face reward value (no liquidity haircut) — ranking/ordering uses the
