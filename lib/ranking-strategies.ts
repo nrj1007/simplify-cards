@@ -21,10 +21,6 @@ export type RankingStrategy = {
 /** 5 % net-value yield over annualSpend → full 10 000 score. */
 const REFERENCE_YIELD = 0.05;
 
-/** A solid mid-tier card's annual net value at its sweet-spot spend (e.g. SBI Cashback ₹15k @ ₹3L).
- *  Cards below this are penalised (tiny-cap gimmicks); above it saturates to 1 (no extra reward). */
-const VALUE_SATURATION_REF = 12000;
-
 // Boost references — each boost capped at MAX_BOOST_SCORE (5 % of 10 000).
 const LOUNGE_BOOST_REF    = 30000; // ~15 visits × ₹2k
 const FOREX_BOOST_REF     = 10000;
@@ -39,27 +35,23 @@ function clamp(value: number, min: number, max: number): number {
 }
 
 /**
- * MY2.2 metric: best-of-envelope yield with value-saturation guard.
+ * MY2.2 metric: pure best-of-envelope yield.
  *
- *   yieldScore   = clamp(netValue / spend / REFERENCE_YIELD, 0, 1) × 10 000
- *   saturation   = clamp(netValue / VALUE_SATURATION_REF, 0, 1)   ← magnitude guard
- *   perLevelScore = yieldScore × saturation  +  Σ boostScores
+ *   yieldScore    = (netValue / annualSpend) / REFERENCE_YIELD × 10 000  (no upper clamp)
+ *   perLevelScore = yieldScore  +  Σ boostScores
  *
- * The saturation factor ensures a tiny-cap card (great yield, small value) doesn't
- * outscore a solid all-rounder.  It clamps at 1 so large-value premiums get no bonus.
- * The envelope blend takes the MAX across levels → each card is judged at its sweet spot.
+ * No saturation guard — yield itself is the signal.  blendMode "max" takes the peak level
+ * across the envelope, so negative low-spend scores (high-fee card at ₹1L) are naturally
+ * ignored in favour of the level where the card actually earns.
  */
 function maxYieldPerLevelScore(score: CardScore): number {
   if (!score.annualSpend || score.annualSpend <= 0) return 0;
 
   const netValue = score.estimatedNetValue;
 
-  // Yield score (0 – 10 000)
+  // Pure yield score (unclamped above; blendMode "max" ignores negative levels naturally)
   const yieldRate  = netValue / score.annualSpend;
-  const yieldScore = clamp(yieldRate / REFERENCE_YIELD, 0, 1) * 10000;
-
-  // Value-saturation guard (0 – 1): pulls down high-yield tiny-cap cards
-  const saturation = clamp(netValue / VALUE_SATURATION_REF, 0, 1);
+  const yieldScore = (yieldRate / REFERENCE_YIELD) * 10000;
 
   // Additive boosts (each 0 – 500)
   const debug = score.debug;
@@ -75,7 +67,7 @@ function maxYieldPerLevelScore(score: CardScore): number {
     ? clamp(debug.flexibilityValue / FLEX_VALUE_REF, 0, 1) * MAX_BOOST_SCORE
     : 0;
 
-  return yieldScore * saturation + loungeBoostScore + forexBoostScore + popularityBoostScore + flexScore;
+  return yieldScore + loungeBoostScore + forexBoostScore + popularityBoostScore + flexScore;
 }
 
 // ---------------------------------------------------------------------------
