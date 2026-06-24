@@ -177,7 +177,8 @@ export const SEO_LANDINGS: SeoLandingConfig[] = [
       "Confirm whether UPI spends earn rewards, because many cards exclude or cap wallet, rent, fuel, or certain UPI merchant categories."
     ],
     faqs: faqFor("RuPay credit card"),
-    ranking: { query: "best rupay card" }
+    ranking: { query: "best rupay card" },
+    groupByRewardType: true
   },
   {
     slug: "best-premium-credit-cards-india",
@@ -193,7 +194,8 @@ export const SEO_LANDINGS: SeoLandingConfig[] = [
       "We use the premium-card segment intent in the recommendation engine and compare stored fees, rewards, lounges, milestones, redemption options, and exclusions.",
     thingsToCheck: COMMON_CHECKS,
     faqs: faqFor("premium credit card"),
-    ranking: { query: "best premium card" }
+    ranking: { query: "best premium card" },
+    groupByRewardType: true
   },
   {
     slug: "best-credit-cards-for-online-shopping",
@@ -212,7 +214,8 @@ export const SEO_LANDINGS: SeoLandingConfig[] = [
       "Check whether the online reward rate applies broadly or only on selected merchants or issuer portals."
     ],
     faqs: faqFor("online shopping credit card"),
-    ranking: { query: "best online shopping card" }
+    ranking: { query: "best online shopping card" },
+    groupByRewardType: true
   },
   {
     slug: "best-credit-cards-for-beginners-india",
@@ -231,7 +234,8 @@ export const SEO_LANDINGS: SeoLandingConfig[] = [
       "Check income, age, credit score, and issuer relationship eligibility before applying."
     ],
     faqs: faqFor("beginner credit card"),
-    ranking: { query: "best beginner card" }
+    ranking: { query: "best beginner card" },
+    groupByRewardType: true
   }
 ];
 

@@ -292,3 +292,19 @@ describe("SPLIT_SCOPE active routing", () => {
   });
 });
 
+describe("SEO landing page section splitting", () => {
+  it("splits rankings for Rupay, Premium, Online Shopping, and Beginner landing pages", async () => {
+    const { selectSectionsForLanding, getSeoLanding } = await import("../lib/seo-landing");
+    
+    const rupay = getSeoLanding("best-rupay-credit-cards-india")!;
+    const premium = getSeoLanding("best-premium-credit-cards-india")!;
+    const online = getSeoLanding("best-credit-cards-for-online-shopping")!;
+    const beginner = getSeoLanding("best-credit-cards-for-beginners-india")!;
+
+    expect(selectSectionsForLanding(rupay)).not.toBeNull();
+    expect(selectSectionsForLanding(premium)).not.toBeNull();
+    expect(selectSectionsForLanding(online)).not.toBeNull();
+    expect(selectSectionsForLanding(beginner)).not.toBeNull();
+  });
+});
+

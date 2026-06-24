@@ -30,6 +30,14 @@ However, if the database filters or constraints result in a highly skewed set of
      - If `SPLIT_SCOPE === "broad-only"`, trigger when `isBroadGenericRankingQuery` is true.
      - Otherwise, do not request the split.
 
+5. Routing in SEO landing pages (`lib/seo-landing.ts`):
+   - Configures `groupByRewardType: true` on ranking-based landing pages to allow split presentation if data allows:
+     - `best-credit-cards-india`
+     - `best-credit-cards-for-online-shopping`
+     - `best-credit-cards-for-beginners-india`
+     - `best-rupay-credit-cards-india`
+     - `best-premium-credit-cards-india`
+
 ## Implementation Steps
 1. **Planning**: Save this plan under `docs/result-split-data-driven-gate-plan.md`.
 2. **Code Edit**: Modify `applyResultStrategy` in [lib/recommend.ts](file:///C:/Users/manpr/Documents/Codex/2026-05-08/i-want-to-build-an-ai/lib/recommend.ts):

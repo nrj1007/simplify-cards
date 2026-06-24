@@ -1525,7 +1525,7 @@ export async function answerQuestion(input: RecommendationInput): Promise<AskAiR
       : [];
   let requestSplit = false;
   if (SPLIT_SCOPE === "any-query") {
-    requestSplit = isTopBestCardsQuery(input.query);
+    requestSplit = topBestQuery;
   } else if (SPLIT_SCOPE === "broad-only") {
     requestSplit = isBroadGenericRankingQuery(input, intent);
   }
