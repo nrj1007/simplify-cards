@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { resultStrategies, hasCashbackCardSignal, DEFAULT_RESULT_STRATEGY } from "../lib/result-strategies";
+import { resultStrategies, isPrimaryCashbackCard, DEFAULT_RESULT_STRATEGY } from "../lib/result-strategies";
 import type { CardScore } from "../lib/types";
 
 // ---------------------------------------------------------------------------
@@ -61,25 +61,25 @@ const MX  = makeScore("mixed-1",   "cashback and reward points"); // mixed → R
 
 // ---------------------------------------------------------------------------
 
-describe("hasCashbackCardSignal", () => {
+describe("isPrimaryCashbackCard", () => {
   it("returns true for pure cashback", () => {
-    expect(hasCashbackCardSignal(CB1)).toBe(true);
+    expect(isPrimaryCashbackCard(CB1)).toBe(true);
   });
 
   it("returns false for reward points", () => {
-    expect(hasCashbackCardSignal(RW1)).toBe(false);
+    expect(isPrimaryCashbackCard(RW1)).toBe(false);
   });
 
   it("returns false for miles", () => {
-    expect(hasCashbackCardSignal(RW3)).toBe(false);
+    expect(isPrimaryCashbackCard(RW3)).toBe(false);
   });
 
   it("returns false for mixed-currency (cashback and reward points → Rewards bucket)", () => {
-    expect(hasCashbackCardSignal(MX)).toBe(false);
+    expect(isPrimaryCashbackCard(MX)).toBe(false);
   });
 
   it("returns false for empty rewardType", () => {
-    expect(hasCashbackCardSignal(makeScore("x", ""))).toBe(false);
+    expect(isPrimaryCashbackCard(makeScore("x", ""))).toBe(false);
   });
 });
 

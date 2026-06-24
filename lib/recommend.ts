@@ -487,7 +487,10 @@ function shouldRestrictToFuelCards(input: RecommendationInput, intent: ReturnTyp
 // A card counts as a cashback card when its reward currency is cashback (matches the convention in
 // card-detail.ts isCashbackCard). Cards that earn transferable points/miles are excluded even if
 // they happen to mention "cashback" somewhere in their benefits text.
-function hasCashbackCardSignal(card: CreditCard) {
+// Mixed-currency cards ("cashback and reward points") are included — they do earn cashback,
+// even if it's secondary. Contrast with isPrimaryCashbackCard() in result-strategies.ts which
+// routes mixed-currency to the Rewards bucket for the section-split presentation.
+function cardEarnsCashback(card: CreditCard) {
   return /cashback/i.test(card.rewardType);
 }
 
@@ -2466,7 +2469,7 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
     )
     .filter((card) => (networkFilters.length ? networkFilters.some((network) => cardMatchesNetworkFilter(card, network)) : true))
     .filter((card) => (restrictToFuelCards ? hasFuelCardSignal(card) : true))
-    .filter((card) => (restrictToCashbackCards ? hasCashbackCardSignal(card) : true))
+    .filter((card) => (restrictToCashbackCards ? cardEarnsCashback(card) : true))
     .filter((card) => (restrictToSegments ? restrictToSegments.some((segment) => cardMatchesSegment(card, segment)) : true))
     .filter((card) => (categoryFocus ? cardMatchesCategoryFocus(card, categoryFocus) : true))
     .filter((card) =>

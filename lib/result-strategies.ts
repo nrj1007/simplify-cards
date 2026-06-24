@@ -25,13 +25,18 @@ export const DEFAULT_RESULT_STRATEGY: ResultStrategyName = "single-list";
 // ---------------------------------------------------------------------------
 
 /**
- * A card is treated as a "cashback card" when its rewardType contains "cashback"
- * (case-insensitive).  Mixed-currency cards ("cashback and reward points") go to
- * the Rewards bucket because cashback is secondary there.
+ * Returns true when cashback is the **primary** reward currency of this card.
+ *
+ * Mixed-currency cards (`rewardType: "cashback and reward points"`) return `false` —
+ * cashback is secondary there, so the split routes them to the Rewards bucket.
+ *
+ * Contrast with `cardEarnsCashback()` in `recommend.ts`, which returns `true` for
+ * mixed-currency cards (used for pool-restriction in "best cashback card" queries,
+ * where any cashback earning qualifies).
  */
-export function hasCashbackCardSignal(score: CardScore): boolean {
+export function isPrimaryCashbackCard(score: CardScore): boolean {
   const rt = score.card.rewardType?.toLowerCase() ?? "";
-  // "cashback and reward points" → Rewards bucket (mixed-currency decision)
+  // "cashback and reward points" → Rewards bucket (cashback is secondary)
   if (rt.includes("and") && rt.includes("cashback")) return false;
   return /cashback/.test(rt);
 }
@@ -54,7 +59,7 @@ const rewardTypeSplit: ResultStrategy = {
     const cashback: CardScore[] = [];
 
     for (const score of scored) {
-      if (hasCashbackCardSignal(score)) {
+      if (isPrimaryCashbackCard(score)) {
         cashback.push(score);
       } else {
         rewards.push(score);
