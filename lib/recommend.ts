@@ -2262,7 +2262,13 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
     const cardNameBoost = computeCardNameBoost(card, input.query);
     const estimatedMilestoneValue = milestoneValueForCard(card, annualSpend);
     const { joiningValue: rawJoiningValue, renewalValue: rawRenewalValue } = joiningAndRenewalBenefitValueForCard(card);
-    const estimatedJoiningAndRenewalValue = Math.round(rawJoiningValue / joiningBenefitAmortizationYears) + rawRenewalValue;
+    const rawJoiningFee = card.joiningFee ?? 0;
+    const baseAnnualFee = feeAfterWaiver(card, spendForScore);
+    const estimatedJoiningAndRenewalValue = Math.round(
+      (rawJoiningValue - rawJoiningFee) / joiningBenefitAmortizationYears +
+      (rawRenewalValue * (joiningBenefitAmortizationYears - 1)) / joiningBenefitAmortizationYears +
+      baseAnnualFee / joiningBenefitAmortizationYears
+    );
     // "Fuel focus" — either a fuel-card query (restrictToFuelCards) or a fuel-heavy spend profile —
     // means the cardholder will redeem fuel-locked points for fuel, so those points keep full value
     // in ranking. Broad/incidental-fuel profiles (default ~6% fuel) stay below the threshold and take
