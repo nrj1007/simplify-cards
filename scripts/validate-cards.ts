@@ -372,8 +372,8 @@ if (cardFiles.length === 0) {
       addIssue("must be one of the allowed verification statuses", cardId, "verificationStatus");
     }
 
-    if (card.status !== undefined && card.status !== "active" && card.status !== "discontinued") {
-      addIssue("status must be 'active' or 'discontinued' when present", cardId, "status");
+    if (card.status !== undefined && card.status !== "active" && card.status !== "discontinued" && card.status !== "closed-to-new") {
+      addIssue("status must be 'active', 'discontinued', or 'closed-to-new' when present", cardId, "status");
     }
 
     if (card.rewardLiquidity !== undefined && card.rewardLiquidity !== "cash" && card.rewardLiquidity !== "brand-locked") {

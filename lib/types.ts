@@ -244,7 +244,7 @@ export type CreditCard = {
   lastVerified: string;
   verificationStatus: "official-direct" | "official-indexed" | "official-catalogue" | "official-mixed" | "needs-review";
   imageUrl?: string;
-  status?: "active" | "discontinued";
+  status?: "active" | "discontinued" | "closed-to-new";
 };
 
 export type SpendProfile = Partial<Record<SpendCategory, number>>;

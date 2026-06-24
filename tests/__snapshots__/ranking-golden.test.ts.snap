@@ -170,6 +170,7 @@ exports[`ranking golden (max-yield) > produces stable top-N ordering per scenari
   "guest-lounge-query": [
     "hsbc-premier",
     "axis-magnus-burgundy",
+    "axis-atlas",
     "axis-magnus",
     "kotak-solitaire",
     "kotak-white-reserve",
@@ -189,8 +190,8 @@ exports[`ranking golden (max-yield) > produces stable top-N ordering per scenari
     "hdfc-marriott-bonvoy",
     "hsbc-travelone",
     "hdfc-regalia-gold",
+    "axis-atlas",
     "indigo-sbi-elite",
-    "axis-magnus",
   ],
   "issuer-amex": [
     "amex-gold",
@@ -296,7 +297,7 @@ exports[`ranking golden (max-yield) > produces stable top-N ordering per scenari
     "hdfc-marriott-bonvoy",
     "hsbc-travelone",
     "hdfc-regalia-gold",
-    "axis-airtel",
+    "axis-atlas",
   ],
   "max-fee-5000-query": [
     "kotak-infinite",
@@ -306,11 +307,11 @@ exports[`ranking golden (max-yield) > produces stable top-N ordering per scenari
     "hdfc-marriott-bonvoy",
     "hsbc-travelone",
     "hdfc-regalia-gold",
+    "axis-atlas",
     "axis-airtel",
     "indusind-eazydiner",
     "amex-platinum-travel",
     "indigo-sbi-elite",
-    "axis-indigo-premium",
   ],
   "max-fee-zero": [
     "kotak-infinite",
@@ -427,6 +428,7 @@ exports[`ranking golden (max-yield) > produces stable top-N ordering per scenari
   "segment-premium": [
     "bobcard-etihad-guest-premium",
     "axis-indigo-premium",
+    "axis-atlas",
     "amex-platinum-travel",
     "sc-ultimate",
     "equitas-powermiles",
@@ -673,11 +675,11 @@ exports[`ranking golden (representative queries) > produces stable top-N orderin
     "icici-emeralde-private-metal",
     "hsbc-travelone",
     "hdfc-regalia-gold",
+    "axis-atlas",
     "kotak-solitaire",
     "axis-magnus",
     "yes-marquee",
     "bobcard-etihad-guest-premium",
-    "icici-times-black",
   ],
   "category-bill-payments": [
     "icici-emeralde-private-metal",
@@ -815,9 +817,9 @@ exports[`ranking golden (representative queries) > produces stable top-N orderin
     "hsbc-travelone",
     "hdfc-regalia-gold",
     "bobcard-etihad-guest-premium",
+    "axis-atlas",
     "axis-magnus",
     "icici-times-black",
-    "yes-marquee",
   ],
   "forex-zero": [
     "bobcard-etihad-guest-premium",
@@ -840,6 +842,7 @@ exports[`ranking golden (representative queries) > produces stable top-N orderin
     "yes-marquee",
     "sc-beyond",
     "idfc-mayura",
+    "axis-atlas",
   ],
   "intl-lounge-query": [
     "hsbc-premier",
@@ -964,6 +967,7 @@ exports[`ranking golden (representative queries) > produces stable top-N orderin
   "max-fee-5000-query": [
     "hsbc-travelone",
     "hdfc-regalia-gold",
+    "axis-atlas",
     "kotak-solitaire",
     "bobcard-etihad-guest-premium",
     "sc-ultimate",
@@ -973,7 +977,6 @@ exports[`ranking golden (representative queries) > produces stable top-N orderin
     "equitas-selfe",
     "cheq-au",
     "titan-sbi",
-    "amex-membership-rewards",
   ],
   "max-fee-zero": [
     "kotak-solitaire",
@@ -1090,6 +1093,7 @@ exports[`ranking golden (representative queries) > produces stable top-N orderin
   "segment-premium": [
     "bobcard-etihad-guest-premium",
     "axis-indigo-premium",
+    "axis-atlas",
     "amex-platinum-travel",
     "sc-ultimate",
     "equitas-powermiles",

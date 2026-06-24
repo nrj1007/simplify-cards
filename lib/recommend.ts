@@ -800,10 +800,9 @@ function requiresRelationshipAccess(card: CreditCard) {
 }
 
 function shouldHideCardFromGenericRanking(card: CreditCard, input: RecommendationInput, intent: ReturnType<typeof parseQueryIntent>) {
-  const isAtlas = card.id === "axis-atlas";
   const isDiscontinued = card.status === "discontinued";
 
-  if (!isAtlas && !isDiscontinued) return false;
+  if (!isDiscontinued) return false;
 
   const cardNameBoost = computeCardNameBoost(card, input.query);
   const userExplicitlyAsked = cardNameBoost >= exactCardNameMatchThreshold;
