@@ -231,4 +231,49 @@ describe("applyResultStrategy gating (via scoreCards integration)", () => {
     // Top-5 from applyResultStrategy must match rankResults top-5 exactly
     expect(sectionIds.slice(0, 5)).toEqual(rankResultsIds);
   });
+
+  it("degrades to single-list if there are fewer than 2 cashback cards in the results", async () => {
+    const { applyResultStrategy } = await import("../lib/recommend");
+    
+    // Stub scores: 3 rewards, 1 cashback
+    const scored = [RW1, RW2, RW3, CB1]; 
+    const sections = applyResultStrategy(scored, {
+      query: "best credit card",
+      resultStrategy: "reward-type-split"
+    });
+    
+    expect(sections).toHaveLength(1);
+    expect(sections[0].title).toBe("");
+    expect(sections[0].cards).toHaveLength(4);
+  });
+
+  it("degrades to single-list if there are fewer than 2 rewards cards in the results", async () => {
+    const { applyResultStrategy } = await import("../lib/recommend");
+    
+    // Stub scores: 1 rewards, 3 cashback
+    const scored = [RW1, CB1, CB2, CB3]; 
+    const sections = applyResultStrategy(scored, {
+      query: "best credit card",
+      resultStrategy: "reward-type-split"
+    });
+    
+    expect(sections).toHaveLength(1);
+    expect(sections[0].title).toBe("");
+    expect(sections[0].cards).toHaveLength(4);
+  });
+
+  it("retains split if both sections have at least 2 cards", async () => {
+    const { applyResultStrategy } = await import("../lib/recommend");
+    
+    // Stub scores: 2 rewards, 2 cashback
+    const scored = [RW1, RW2, CB1, CB2]; 
+    const sections = applyResultStrategy(scored, {
+      query: "best credit card",
+      resultStrategy: "reward-type-split"
+    });
+    
+    expect(sections).toHaveLength(2);
+    expect(sections[0].title).toBe("Rewards cards");
+    expect(sections[1].title).toBe("Cashback cards");
+  });
 });

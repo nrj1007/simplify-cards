@@ -1,7 +1,7 @@
 import { cards } from "./cards";
 import { SPEND_CATEGORY_EXCLUSION_CODE_MAP } from "./exclusion-constants";
 import { rankingStrategies, DEFAULT_RANKING_STRATEGY } from "./ranking-strategies";
-import { resultStrategies, DEFAULT_RESULT_STRATEGY } from "./result-strategies";
+import { resultStrategies, DEFAULT_RESULT_STRATEGY, isPrimaryCashbackCard } from "./result-strategies";
 import type { ResultSection } from "./result-strategies";
 import { parseQueryIntent } from "./query-intent";
 import type { CardScore, CreditCard, Milestone, RecommendationInput, SpendCategory, SpendProfile, Reward } from "./types";
@@ -2615,14 +2615,37 @@ export function applyResultStrategy(
     !input.wantsLounge &&
     !input.wantsLifetimeFree;
 
-  // Split requires an explicit opt-in from the caller (UI toggle, ask wiring, API field).
-  const useSplit = input.resultStrategy === "reward-type-split" && splitAllowed;
-
   // Sort by net value (same comparator as rankResults) so every strategy sees
   // the canonical display order, not the internal fitScore ranking order.
   const byNetValue = scored
     .slice()
     .sort((a, b) => b.estimatedNetValue - a.estimatedNetValue);
+
+  // Data-driven gate: only apply the split if we have enough cards in BOTH sections
+  // to justify splitting (at least 2 cards per section).
+  const MIN_CARDS_PER_SPLIT_SECTION = 2;
+  let rewardsCount = 0;
+  let cashbackCount = 0;
+  for (const score of byNetValue) {
+    if (isPrimaryCashbackCard(score)) {
+      cashbackCount++;
+    } else {
+      rewardsCount++;
+    }
+    if (rewardsCount >= MIN_CARDS_PER_SPLIT_SECTION && cashbackCount >= MIN_CARDS_PER_SPLIT_SECTION) {
+      break;
+    }
+  }
+
+  const hasSufficientDataForSplit =
+    rewardsCount >= MIN_CARDS_PER_SPLIT_SECTION &&
+    cashbackCount >= MIN_CARDS_PER_SPLIT_SECTION;
+
+  // Split requires an explicit opt-in from the caller (UI toggle, ask wiring, API field).
+  const useSplit =
+    input.resultStrategy === "reward-type-split" &&
+    splitAllowed &&
+    hasSufficientDataForSplit;
 
   const strategy = resultStrategies[useSplit ? "reward-type-split" : "single-list"];
   return strategy.group(byNetValue, maxPerSection);
