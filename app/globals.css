@@ -1916,6 +1916,29 @@ textarea {
   gap: 16px;
 }
 
+/* Sectioned results (reward-type-split) */
+.recommend-sections {
+  display: grid;
+  gap: 32px;
+}
+
+.recommend-section {
+  display: grid;
+  gap: 16px;
+}
+
+.recommend-section-title {
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--brand-strong);
+  border-bottom: 2px solid var(--brand);
+  padding-bottom: 8px;
+  margin: 0;
+}
+
+
 .recommend-card-meta {
   align-items: center;
 }

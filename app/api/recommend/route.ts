@@ -1,15 +1,19 @@
 import { NextResponse } from "next/server";
-import { scoreCards } from "@/lib/recommend";
-import { SPEND_CATEGORIES, rankResults } from "@/lib/recommend-result";
+import { scoreCards, applyResultStrategy } from "@/lib/recommend";
+import { SPEND_CATEGORIES, rankResults, toRecommendResult } from "@/lib/recommend-result";
+import type { ResultStrategyName } from "@/lib/result-strategies";
 import type { SpendProfile } from "@/lib/types";
 
 const MAX_MONTHLY_SPEND = 10_000_000; // Rs 1 crore/month clamp to guard against abuse.
+
+const RESULT_STRATEGY_NAMES = new Set<ResultStrategyName>(["single-list", "reward-type-split"]);
 
 type RecommendRequestBody = {
   spend?: Record<string, unknown>;
   maxAnnualFee?: unknown;
   wantsLounge?: unknown;
   wantsLifetimeFree?: unknown;
+  resultStrategy?: unknown;
 };
 
 function sanitizeSpend(raw: Record<string, unknown> | undefined): SpendProfile {
@@ -40,12 +44,30 @@ export async function POST(request: Request) {
   const maxAnnualFee =
     !wantsLifetimeFree && Number.isFinite(rawMaxFee) && rawMaxFee >= 0 ? rawMaxFee : undefined;
 
-  const scored = scoreCards({
+  const resultStrategy =
+    typeof body.resultStrategy === "string" && RESULT_STRATEGY_NAMES.has(body.resultStrategy as ResultStrategyName)
+      ? (body.resultStrategy as ResultStrategyName)
+      : undefined;
+
+  const input = {
     spend: sanitizeSpend(body.spend),
     maxAnnualFee,
     wantsLounge: body.wantsLounge === true,
-    wantsLifetimeFree
-  });
+    wantsLifetimeFree,
+    resultStrategy
+  };
+
+  const scored = scoreCards(input);
+
+  // When a result strategy is requested, return grouped sections; otherwise keep the
+  // flat `results` shape for backwards compatibility.
+  if (resultStrategy === "reward-type-split") {
+    const sections = applyResultStrategy(scored, input).map((section) => ({
+      title: section.title,
+      results: section.cards.map(toRecommendResult)
+    }));
+    return NextResponse.json({ sections });
+  }
 
   return NextResponse.json({ results: rankResults(scored) });
 }

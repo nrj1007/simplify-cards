@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { buildPageMetadata } from "@/lib/seo";
-import { defaultSpendProfile, scoreCards } from "@/lib/recommend";
-import { rankResults } from "@/lib/recommend-result";
+import { defaultSpendProfile, scoreCards, applyResultStrategy } from "@/lib/recommend";
+import { toRecommendResult } from "@/lib/recommend-result";
 import RecommendCalculator from "../ui/RecommendCalculator";
 import PageHero from "../ui/PageHero";
 
@@ -13,7 +13,13 @@ export const metadata: Metadata = buildPageMetadata({
 });
 
 export default function RecommendPage() {
-  const initialResults = rankResults(scoreCards({ spend: defaultSpendProfile }));
+  const scored = scoreCards({ spend: defaultSpendProfile });
+  // Default view: single-list (spend-based, not a broad query — split doesn't apply here).
+  // Sections shape is used so the calculator component has a unified data contract.
+  const sections = applyResultStrategy(scored, { spend: defaultSpendProfile }).map((section) => ({
+    title: section.title,
+    results: section.cards.map(toRecommendResult)
+  }));
 
   return (
     <div className="page-shell">
@@ -24,7 +30,7 @@ export default function RecommendPage() {
       />
       <section className="page-content">
         <div className="container">
-          <RecommendCalculator defaultSpend={defaultSpendProfile} initialResults={initialResults} />
+          <RecommendCalculator defaultSpend={defaultSpendProfile} initialSections={sections} />
         </div>
       </section>
     </div>

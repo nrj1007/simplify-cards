@@ -8,10 +8,23 @@ import { trackEvent } from "@/lib/analytics-client";
 import { TrackedExternalLink, TrackedLink } from "./TrackedLink";
 import { cardCtaHref, cardCtaLabel, cardCtaRel } from "@/lib/card-links";
 
+// ---------------------------------------------------------------------------
+// Types
+// ---------------------------------------------------------------------------
+
+type ResultSection = {
+  title: string;
+  results: RecommendResult[];
+};
+
 type Props = {
   defaultSpend: SpendProfile;
-  initialResults: RecommendResult[];
+  initialSections: ResultSection[];
 };
+
+// ---------------------------------------------------------------------------
+// Constants
+// ---------------------------------------------------------------------------
 
 const CATEGORY_LABELS: Record<SpendCategory, string> = {
   online: "Online shopping",
@@ -39,6 +52,10 @@ const ALL_CATEGORIES: SpendCategory[] = [...CORE_CATEGORIES, ...MORE_CATEGORIES]
 
 const SLIDER_MAX = 100_000;
 const SLIDER_STEP = 500;
+
+// ---------------------------------------------------------------------------
+// Helpers
+// ---------------------------------------------------------------------------
 
 function formatINR(value: number) {
   return `Rs ${value.toLocaleString("en-IN")}`;
@@ -104,20 +121,134 @@ function buildInitialSpend(defaultSpend: SpendProfile): Record<SpendCategory, nu
   return spend;
 }
 
-export default function RecommendCalculator({ defaultSpend, initialResults }: Props) {
+// ---------------------------------------------------------------------------
+// Card component
+// ---------------------------------------------------------------------------
+
+function RecommendCard({ result, index, isTopOfSection }: { result: RecommendResult; index: number; isTopOfSection: boolean }) {
+  return (
+    <article
+      className={`panel card recommend-card${isTopOfSection && index === 0 ? " recommend-card-top" : ""}`}
+      key={result.id}
+    >
+      <div className="meta recommend-card-meta">
+        <span className="badge">#{index + 1}</span>
+        <span>{result.issuer}</span>
+      </div>
+      <h3>{result.name}</h3>
+      <div className="meta">
+        {result.tags.map((tag) => (
+          <span className="badge" key={`${result.id}-${tag}`}>
+            {tag}
+          </span>
+        ))}
+      </div>
+
+      {result.usp ? (
+        <p className="card-usp">{result.usp}</p>
+      ) : null}
+
+      <div className="stats recommend-stats">
+        <div className="stat">
+          <strong>{formatINR(result.estimatedAnnualRewards)}</strong>
+          <span>Rewards / year</span>
+        </div>
+        <div className="stat">
+          <strong>{formatINR(result.estimatedMilestoneValue)}</strong>
+          <span>Milestones / year</span>
+        </div>
+        <div className="stat">
+          <strong>{formatINR(result.estimatedAnnualFee)}</strong>
+          <span>Fee after waiver</span>
+        </div>
+        <div className="stat">
+          <strong>{formatINR(result.estimatedNetValue)}</strong>
+          <span>Net value / year</span>
+        </div>
+      </div>
+
+      <div className="recommend-explain">
+        <p><strong>Milestones:</strong> {calculatorMilestoneLine(result)}</p>
+        <p><strong>Fee waiver:</strong> {calculatorFeeWaiverLine(result)}</p>
+        <p><strong>Next unlock:</strong> {calculatorNextUnlockLine(result)}</p>
+      </div>
+
+      {result.breakdown.length > 0 ? (
+        <details className="recommend-breakdown" open={index === 0}>
+          <summary>Reward breakdown</summary>
+          <div className="table-wrap">
+            <table className="compare-table">
+              <thead>
+                <tr>
+                  <th>Category</th>
+                  <th>Your monthly spend</th>
+                  <th>Annual reward</th>
+                </tr>
+              </thead>
+              <tbody>
+                {result.breakdown.map((row, rowIndex) => (
+                  <tr key={`${result.id}-${row.spendCategory}-${rowIndex}`}>
+                    <td>{CATEGORY_LABELS[row.spendCategory]}</td>
+                    <td>{formatINR(row.monthlySpend)}</td>
+                    <td>{formatINR(row.annualReward)}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </details>
+      ) : null}
+
+      <div className="actions">
+        <TrackedLink
+          analyticsEvent={{
+            event_name: "details_clicked",
+            page: "recommend",
+            source: "recommend",
+            card_id: result.id
+          }}
+          className="button secondary"
+          href={`/cards/${result.id}`}
+        >
+          Details
+        </TrackedLink>
+        <TrackedExternalLink
+          analyticsEvent={{
+            event_name: "apply_clicked",
+            page: "recommend",
+            source: "recommend",
+            card_id: result.id
+          }}
+          className="button"
+          href={cardCtaHref(result)}
+          rel={cardCtaRel(result)}
+          target="_blank"
+        >
+          {cardCtaLabel(result)} <ExternalLink size={15} />
+        </TrackedExternalLink>
+      </div>
+    </article>
+  );
+}
+
+// ---------------------------------------------------------------------------
+// Main component
+// ---------------------------------------------------------------------------
+
+export default function RecommendCalculator({ defaultSpend, initialSections }: Props) {
   const [spend, setSpend] = useState<Record<SpendCategory, number>>(() => buildInitialSpend(defaultSpend));
   const [showMore, setShowMore] = useState(false);
   const [maxAnnualFee, setMaxAnnualFee] = useState<string>("");
   const [wantsLounge, setWantsLounge] = useState(false);
   const [wantsLifetimeFree, setWantsLifetimeFree] = useState(false);
-  const [results, setResults] = useState<RecommendResult[]>(initialResults);
+  const [sections, setSections] = useState<ResultSection[]>(initialSections);
   const [pending, setPending] = useState(false);
 
   const isFirstRun = useRef(true);
   const trackedSignatureRef = useRef<string | null>(null);
 
   useEffect(() => {
-    // Skip the first run: initialResults already match the default profile (server-rendered).
+    // Skip the first run: initialSections already match the default profile (server-rendered).
     if (isFirstRun.current) {
       isFirstRun.current = false;
       return;
@@ -133,8 +264,13 @@ export default function RecommendCalculator({ defaultSpend, initialResults }: Pr
         signal: controller.signal
       })
         .then((res) => res.json())
-        .then((data: { results?: RecommendResult[] }) => {
-          setResults(data.results ?? []);
+        .then((data: { results?: RecommendResult[]; sections?: ResultSection[] }) => {
+          if (data.sections) {
+            setSections(data.sections);
+          } else if (data.results) {
+            // Flat results (backwards compat) — wrap as a single untitled section
+            setSections([{ title: "", results: data.results }]);
+          }
           setPending(false);
         })
         .catch((error: unknown) => {
@@ -151,12 +287,16 @@ export default function RecommendCalculator({ defaultSpend, initialResults }: Pr
   const totalMonthly = ALL_CATEGORIES.reduce((sum, category) => sum + spend[category], 0);
   const visibleCategories = showMore ? ALL_CATEGORIES : CORE_CATEGORIES;
 
+  // Flat list of all results across sections for analytics
+  const allResults = sections.flatMap((s) => s.results);
+  const hasSections = sections.length > 1 || (sections.length === 1 && sections[0].title !== "");
+
   function setCategory(category: SpendCategory, value: number) {
     setSpend((prev) => ({ ...prev, [category]: value }));
   }
 
   useEffect(() => {
-    const topThreeCardIds = results.slice(0, 3).map((result) => result.id);
+    const topThreeCardIds = allResults.slice(0, 3).map((result) => result.id);
     const signature = JSON.stringify(topThreeCardIds);
     if (trackedSignatureRef.current === signature) return;
     trackedSignatureRef.current = signature;
@@ -166,9 +306,9 @@ export default function RecommendCalculator({ defaultSpend, initialResults }: Pr
       page: "recommend",
       source: "recommend",
       card_ids: topThreeCardIds,
-      metadata: buildRecommendationMetadata(spend, maxAnnualFee, wantsLounge, wantsLifetimeFree, results)
+      metadata: buildRecommendationMetadata(spend, maxAnnualFee, wantsLounge, wantsLifetimeFree, allResults)
     });
-  }, [results, spend, maxAnnualFee, wantsLounge, wantsLifetimeFree]);
+  }, [sections, spend, maxAnnualFee, wantsLounge, wantsLifetimeFree]); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <div className="recommend-layout">
@@ -255,116 +395,43 @@ export default function RecommendCalculator({ defaultSpend, initialResults }: Pr
               Move a slider to set your spend and see recommendations.
             </p>
           </div>
-        ) : results.length === 0 ? (
+        ) : allResults.length === 0 ? (
           <div className="panel card">
             <p className="muted" style={{ margin: 0 }}>
               No cards match these filters — try loosening them.
             </p>
           </div>
+        ) : hasSections ? (
+          // Sectioned view: two headed groups (e.g. Rewards + Cashback)
+          <div className="recommend-sections">
+            {sections.map((section) =>
+              section.results.length === 0 ? null : (
+                <div className="recommend-section" key={section.title}>
+                  <h3 className="recommend-section-title">{section.title}</h3>
+                  <div className="recommend-cards">
+                    {section.results.map((result, index) => (
+                      <RecommendCard
+                        key={result.id}
+                        result={result}
+                        index={index}
+                        isTopOfSection={index === 0}
+                      />
+                    ))}
+                  </div>
+                </div>
+              )
+            )}
+          </div>
         ) : (
+          // Flat single-list view (default)
           <div className="recommend-cards">
-            {results.map((result, index) => (
-              <article
-                className={`panel card recommend-card${index === 0 ? " recommend-card-top" : ""}`}
+            {(sections[0]?.results ?? []).map((result, index) => (
+              <RecommendCard
                 key={result.id}
-              >
-                <div className="meta recommend-card-meta">
-                  <span className="badge">#{index + 1}</span>
-                  <span>{result.issuer}</span>
-                </div>
-                <h3>{result.name}</h3>
-                <div className="meta">
-                  {result.tags.map((tag) => (
-                    <span className="badge" key={`${result.id}-${tag}`}>
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-
-                {result.usp ? (
-                  <p className="card-usp">{result.usp}</p>
-                ) : null}
-
-                <div className="stats recommend-stats">
-                  <div className="stat">
-                    <strong>{formatINR(result.estimatedAnnualRewards)}</strong>
-                    <span>Rewards / year</span>
-                  </div>
-                  <div className="stat">
-                    <strong>{formatINR(result.estimatedMilestoneValue)}</strong>
-                    <span>Milestones / year</span>
-                  </div>
-                  <div className="stat">
-                    <strong>{formatINR(result.estimatedAnnualFee)}</strong>
-                    <span>Fee after waiver</span>
-                  </div>
-                  <div className="stat">
-                    <strong>{formatINR(result.estimatedNetValue)}</strong>
-                    <span>Net value / year</span>
-                  </div>
-                </div>
-
-                <div className="recommend-explain">
-                  <p><strong>Milestones:</strong> {calculatorMilestoneLine(result)}</p>
-                  <p><strong>Fee waiver:</strong> {calculatorFeeWaiverLine(result)}</p>
-                  <p><strong>Next unlock:</strong> {calculatorNextUnlockLine(result)}</p>
-                </div>
-
-                {result.breakdown.length > 0 ? (
-                  <details className="recommend-breakdown" open={index === 0}>
-                    <summary>Reward breakdown</summary>
-                    <div className="table-wrap">
-                      <table className="compare-table">
-                        <thead>
-                          <tr>
-                            <th>Category</th>
-                            <th>Your monthly spend</th>
-                            <th>Annual reward</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          {result.breakdown.map((row, rowIndex) => (
-                            <tr key={`${result.id}-${row.spendCategory}-${rowIndex}`}>
-                              <td>{CATEGORY_LABELS[row.spendCategory]}</td>
-                              <td>{formatINR(row.monthlySpend)}</td>
-                              <td>{formatINR(row.annualReward)}</td>
-                            </tr>
-                          ))}
-                        </tbody>
-                      </table>
-                    </div>
-                  </details>
-                ) : null}
-
-                <div className="actions">
-                  <TrackedLink
-                    analyticsEvent={{
-                      event_name: "details_clicked",
-                      page: "recommend",
-                      source: "recommend",
-                      card_id: result.id
-                    }}
-                    className="button secondary"
-                    href={`/cards/${result.id}`}
-                  >
-                    Details
-                  </TrackedLink>
-                  <TrackedExternalLink
-                    analyticsEvent={{
-                      event_name: "apply_clicked",
-                      page: "recommend",
-                      source: "recommend",
-                      card_id: result.id
-                    }}
-                    className="button"
-                    href={cardCtaHref(result)}
-                    rel={cardCtaRel(result)}
-                    target="_blank"
-                  >
-                    {cardCtaLabel(result)} <ExternalLink size={15} />
-                  </TrackedExternalLink>
-                </div>
-              </article>
+                result={result}
+                index={index}
+                isTopOfSection={index === 0}
+              />
             ))}
           </div>
         )}

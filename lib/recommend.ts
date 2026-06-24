@@ -1,6 +1,8 @@
 import { cards } from "./cards";
 import { SPEND_CATEGORY_EXCLUSION_CODE_MAP } from "./exclusion-constants";
 import { rankingStrategies, DEFAULT_RANKING_STRATEGY } from "./ranking-strategies";
+import { resultStrategies, DEFAULT_RESULT_STRATEGY } from "./result-strategies";
+import type { ResultSection } from "./result-strategies";
 import { parseQueryIntent } from "./query-intent";
 import type { CardScore, CreditCard, Milestone, RecommendationInput, SpendCategory, SpendProfile, Reward } from "./types";
 import { getTotalLoungeAccess, getInternationalLoungeAccess, getMeaningfulLoungeConditions } from "./lounge";
@@ -2567,4 +2569,32 @@ export function answerFromCards(input: RecommendationInput) {
         : `${topCards[0].card.name} looks strongest with an estimated net yearly value of Rs ${topCards[0].estimatedNetValue.toLocaleString("en-IN")}.`,
     cards: topCards
   };
+}
+
+/**
+ * Apply the result strategy to a pre-scored list, gated on query type.
+ *
+ * The split is only activated for **broad generic queries** (no category/issuer/segment focus,
+ * no fee cap, no lounge/LTF filter) — contexts where the single ranked list would otherwise
+ * be swept by one reward type.  All other queries force `single-list` regardless of the
+ * requested strategy.
+ */
+export function applyResultStrategy(
+  scored: CardScore[],
+  input: RecommendationInput,
+  maxPerSection = 5
+): ResultSection[] {
+  const intent = parseQueryIntent(input);
+  const isBroad =
+    isBroadGenericRankingQuery(input, intent) &&
+    detectCategoryFocus(input, intent) === null &&
+    input.maxAnnualFee === undefined &&
+    !input.wantsLounge &&
+    !input.wantsLifetimeFree &&
+    !input.spend;
+
+  const strategyName =
+    isBroad ? (input.resultStrategy ?? DEFAULT_RESULT_STRATEGY) : "single-list";
+  const strategy = resultStrategies[strategyName];
+  return strategy.group(scored, maxPerSection);
 }

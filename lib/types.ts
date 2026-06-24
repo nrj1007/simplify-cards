@@ -1,5 +1,6 @@
 import type { ExclusionCode } from "./exclusion-constants";
 import type { RankingStrategyName } from "./ranking-strategies";
+import type { ResultStrategyName } from "./result-strategies";
 
 export type SpendCategory =
   | "online"
@@ -255,6 +256,7 @@ export type RecommendationInput = {
   wantsLifetimeFree?: boolean;
   spend?: SpendProfile;
   rankingStrategy?: RankingStrategyName;
+  resultStrategy?: ResultStrategyName;
 };
 
 export interface ScoreDebug {
