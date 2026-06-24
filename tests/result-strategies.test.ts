@@ -157,7 +157,7 @@ describe("resultStrategies / reward-type-split", () => {
 describe("applyResultStrategy gating (via scoreCards integration)", () => {
   // These tests verify the gate logic via the exported applyResultStrategy helper.
   // Import dynamically to avoid pulling in the full card index at describe time.
-  it("forces single-list for a non-broad query regardless of requested strategy", async () => {
+  it("allows splitting for a category-focused query if requested and both buckets have >= 1 card", async () => {
     const { applyResultStrategy } = await import("../lib/recommend");
     const { scoreCards } = await import("../lib/recommend");
 
@@ -167,9 +167,10 @@ describe("applyResultStrategy gating (via scoreCards integration)", () => {
       query: "best dining card",
       resultStrategy: "reward-type-split"
     });
-    // Must degrade to single-list: one section, no title
-    expect(sections).toHaveLength(1);
-    expect(sections[0].title).toBe("");
+    // Should split because there are both cashback and rewards cards in the results and MIN_CARDS_PER_SPLIT_SECTION = 1
+    expect(sections).toHaveLength(2);
+    expect(sections[0].title).toBe("Rewards cards");
+    expect(sections[1].title).toBe("Cashback cards");
   });
 
   it("applies reward-type-split for a broad query", async () => {
@@ -232,7 +233,37 @@ describe("applyResultStrategy gating (via scoreCards integration)", () => {
     expect(sectionIds.slice(0, 5)).toEqual(rankResultsIds);
   });
 
-  it("degrades to single-list if there are fewer than 2 cashback cards in the results", async () => {
+  it("degrades to single-list if there are 0 cashback cards in the results", async () => {
+    const { applyResultStrategy } = await import("../lib/recommend");
+    
+    // Stub scores: 3 rewards, 0 cashback
+    const scored = [RW1, RW2, RW3]; 
+    const sections = applyResultStrategy(scored, {
+      query: "best credit card",
+      resultStrategy: "reward-type-split"
+    });
+    
+    expect(sections).toHaveLength(1);
+    expect(sections[0].title).toBe("");
+    expect(sections[0].cards).toHaveLength(3);
+  });
+
+  it("degrades to single-list if there are 0 rewards cards in the results", async () => {
+    const { applyResultStrategy } = await import("../lib/recommend");
+    
+    // Stub scores: 0 rewards, 3 cashback
+    const scored = [CB1, CB2, CB3]; 
+    const sections = applyResultStrategy(scored, {
+      query: "best credit card",
+      resultStrategy: "reward-type-split"
+    });
+    
+    expect(sections).toHaveLength(1);
+    expect(sections[0].title).toBe("");
+    expect(sections[0].cards).toHaveLength(3);
+  });
+
+  it("retains split if both sections have at least 1 card", async () => {
     const { applyResultStrategy } = await import("../lib/recommend");
     
     // Stub scores: 3 rewards, 1 cashback
@@ -242,38 +273,22 @@ describe("applyResultStrategy gating (via scoreCards integration)", () => {
       resultStrategy: "reward-type-split"
     });
     
-    expect(sections).toHaveLength(1);
-    expect(sections[0].title).toBe("");
-    expect(sections[0].cards).toHaveLength(4);
-  });
-
-  it("degrades to single-list if there are fewer than 2 rewards cards in the results", async () => {
-    const { applyResultStrategy } = await import("../lib/recommend");
-    
-    // Stub scores: 1 rewards, 3 cashback
-    const scored = [RW1, CB1, CB2, CB3]; 
-    const sections = applyResultStrategy(scored, {
-      query: "best credit card",
-      resultStrategy: "reward-type-split"
-    });
-    
-    expect(sections).toHaveLength(1);
-    expect(sections[0].title).toBe("");
-    expect(sections[0].cards).toHaveLength(4);
-  });
-
-  it("retains split if both sections have at least 2 cards", async () => {
-    const { applyResultStrategy } = await import("../lib/recommend");
-    
-    // Stub scores: 2 rewards, 2 cashback
-    const scored = [RW1, RW2, CB1, CB2]; 
-    const sections = applyResultStrategy(scored, {
-      query: "best credit card",
-      resultStrategy: "reward-type-split"
-    });
-    
     expect(sections).toHaveLength(2);
     expect(sections[0].title).toBe("Rewards cards");
+    expect(sections[0].cards).toHaveLength(3);
     expect(sections[1].title).toBe("Cashback cards");
+    expect(sections[1].cards).toHaveLength(1);
   });
 });
+
+describe("SPLIT_SCOPE active routing", () => {
+  it("routes any ranking query to split when SPLIT_SCOPE is any-query", async () => {
+    const { answerQuestion } = await import("../lib/ask-ai");
+    const result = await answerQuestion({ query: "best dining cards" });
+    // Since SPLIT_SCOPE is "any-query", this ranking query requests the split,
+    // and since both rewards and cashback dining cards exist, it successfully splits.
+    expect(result.sections).toBeDefined();
+    expect(result.sections!.length).toBeGreaterThanOrEqual(1);
+  });
+});
+

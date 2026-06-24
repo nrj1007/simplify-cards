@@ -4,7 +4,7 @@ import { cards, getCardById } from "./cards";
 import { answerFromCards, defaultSpendProfile, getAirMilesValue, requestedTopCardCount, scoreCards, isBroadGenericRankingQuery } from "./recommend";
 import type { CardScore } from "./types";
 import type { RecommendationInput } from "./types";
-import { BROAD_CONTENT_RESULT_STRATEGY } from "./result-strategies";
+import { SPLIT_SCOPE } from "./result-strategies";
 import { unsupportedQuestionLogPath } from "./question-logs";
 import type { UnsupportedQuestionLogEntry } from "./question-logs";
 import { parseQueryIntent } from "./query-intent";
@@ -1523,9 +1523,14 @@ export async function answerQuestion(input: RecommendationInput): Promise<AskAiR
     topBestQuery && !input.spend && !intent.inferredSpend
       ? getBalancedScenarioWinnerCards(input, shortlisted.cards)
       : [];
-  const isBroad = isBroadGenericRankingQuery(input, intent);
-  const inputForAnswer = isBroad
-    ? { ...input, resultStrategy: BROAD_CONTENT_RESULT_STRATEGY }
+  let requestSplit = false;
+  if (SPLIT_SCOPE === "any-query") {
+    requestSplit = isTopBestCardsQuery(input.query);
+  } else if (SPLIT_SCOPE === "broad-only") {
+    requestSplit = isBroadGenericRankingQuery(input, intent);
+  }
+  const inputForAnswer = requestSplit
+    ? { ...input, resultStrategy: "reward-type-split" as const }
     : input;
   const baseAnswer = answerFromCards(inputForAnswer);
   const answer = {

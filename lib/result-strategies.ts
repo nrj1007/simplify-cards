@@ -20,9 +20,9 @@ export type ResultStrategy = {
 
 export const DEFAULT_RESULT_STRATEGY: ResultStrategyName = "single-list";
 
-// strategy used for broad "best credit cards" content (/ask, SEO).
-// Set to "single-list" to revert /ask + SEO to a flat list everywhere.
-export const BROAD_CONTENT_RESULT_STRATEGY: ResultStrategyName = "reward-type-split";
+export type SplitScope = "off" | "broad-only" | "any-query";
+export const SPLIT_SCOPE: SplitScope = "any-query";
+
 
 
 // ---------------------------------------------------------------------------

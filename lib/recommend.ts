@@ -2605,16 +2605,6 @@ export function applyResultStrategy(
   input: RecommendationInput,
   maxPerSection = 5
 ): ResultSection[] {
-  const intent = parseQueryIntent(input);
-
-  // Conditions that make a split nonsensical regardless of who requests it:
-  // category focus, lounge filter, LTF filter, or explicit fee cap.
-  const splitAllowed =
-    detectCategoryFocus(input, intent) === null &&
-    input.maxAnnualFee === undefined &&
-    !input.wantsLounge &&
-    !input.wantsLifetimeFree;
-
   // Sort by net value (same comparator as rankResults) so every strategy sees
   // the canonical display order, not the internal fitScore ranking order.
   const byNetValue = scored
@@ -2622,8 +2612,8 @@ export function applyResultStrategy(
     .sort((a, b) => b.estimatedNetValue - a.estimatedNetValue);
 
   // Data-driven gate: only apply the split if we have enough cards in BOTH sections
-  // to justify splitting (at least 2 cards per section).
-  const MIN_CARDS_PER_SPLIT_SECTION = 2;
+  // to justify splitting (at least 1 card per section).
+  const MIN_CARDS_PER_SPLIT_SECTION = 1;
   let rewardsCount = 0;
   let cashbackCount = 0;
   for (const score of byNetValue) {
@@ -2644,7 +2634,6 @@ export function applyResultStrategy(
   // Split requires an explicit opt-in from the caller (UI toggle, ask wiring, API field).
   const useSplit =
     input.resultStrategy === "reward-type-split" &&
-    splitAllowed &&
     hasSufficientDataForSplit;
 
   const strategy = resultStrategies[useSplit ? "reward-type-split" : "single-list"];

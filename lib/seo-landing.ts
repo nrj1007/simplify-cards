@@ -4,7 +4,7 @@ import { stripScoringAnnotations } from "./cards";
 import { scoreCards } from "./recommend";
 import { buildCanonicalUrl, buildPageMetadata, SITE_NAME } from "./seo";
 import type { CreditCard, RecommendationInput } from "./types";
-import { BROAD_CONTENT_RESULT_STRATEGY } from "./result-strategies";
+import { SPLIT_SCOPE } from "./result-strategies";
 import { applyResultStrategy } from "./recommend";
 
 export type SeoLandingConfig = {
@@ -270,7 +270,7 @@ export function selectCardsForLanding(config: SeoLandingConfig) {
 }
 
 export function selectSectionsForLanding(config: SeoLandingConfig) {
-  const isSplit = config.groupByRewardType && BROAD_CONTENT_RESULT_STRATEGY === "reward-type-split";
+  const isSplit = config.groupByRewardType && SPLIT_SCOPE !== "off";
   if (!isSplit) return null;
 
   const scored = scoreCards(config.ranking);
