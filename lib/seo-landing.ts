@@ -279,6 +279,11 @@ export function selectSectionsForLanding(config: SeoLandingConfig) {
 
   const scored = scoreCards(config.ranking);
   const resultSections = applyResultStrategy(scored, { ...config.ranking, resultStrategy: "reward-type-split" }, 5);
+  
+  // Null-on-degrade guard: if it degraded to single-list, return null so the page renders flat
+  const hasSplit = resultSections.length > 1 || (resultSections.length === 1 && resultSections[0].title !== "");
+  if (!hasSplit) return null;
+
   return resultSections;
 }
 

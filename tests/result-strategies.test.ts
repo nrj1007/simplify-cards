@@ -288,7 +288,9 @@ describe("SPLIT_SCOPE active routing", () => {
     // Since SPLIT_SCOPE is "any-query", this ranking query requests the split,
     // and since both rewards and cashback dining cards exist, it successfully splits.
     expect(result.sections).toBeDefined();
-    expect(result.sections!.length).toBeGreaterThanOrEqual(1);
+    expect(result.sections).toHaveLength(2);
+    expect(result.sections![0].title).toBe("Rewards cards");
+    expect(result.sections![1].title).toBe("Cashback cards");
   });
 });
 
@@ -301,10 +303,30 @@ describe("SEO landing page section splitting", () => {
     const online = getSeoLanding("best-credit-cards-for-online-shopping")!;
     const beginner = getSeoLanding("best-credit-cards-for-beginners-india")!;
 
-    expect(selectSectionsForLanding(rupay)).not.toBeNull();
-    expect(selectSectionsForLanding(premium)).not.toBeNull();
-    expect(selectSectionsForLanding(online)).not.toBeNull();
-    expect(selectSectionsForLanding(beginner)).not.toBeNull();
+    const rupaySections = selectSectionsForLanding(rupay);
+    expect(rupaySections).toHaveLength(2);
+    expect(rupaySections![0].title).toBe("Rewards cards");
+    expect(rupaySections![1].title).toBe("Cashback cards");
+    expect(rupaySections![0].cards.length).toBeGreaterThan(0);
+    expect(rupaySections![1].cards.length).toBeGreaterThan(0);
+
+    // Premium landing page has no cashback cards in top results, so it degrades to single-list and returns null
+    const premiumSections = selectSectionsForLanding(premium);
+    expect(premiumSections).toBeNull();
+
+    const onlineSections = selectSectionsForLanding(online);
+    expect(onlineSections).toHaveLength(2);
+    expect(onlineSections![0].title).toBe("Rewards cards");
+    expect(onlineSections![1].title).toBe("Cashback cards");
+    expect(onlineSections![0].cards.length).toBeGreaterThan(0);
+    expect(onlineSections![1].cards.length).toBeGreaterThan(0);
+
+    const beginnerSections = selectSectionsForLanding(beginner);
+    expect(beginnerSections).toHaveLength(2);
+    expect(beginnerSections![0].title).toBe("Rewards cards");
+    expect(beginnerSections![1].title).toBe("Cashback cards");
+    expect(beginnerSections![0].cards.length).toBeGreaterThan(0);
+    expect(beginnerSections![1].cards.length).toBeGreaterThan(0);
   });
 });
 
