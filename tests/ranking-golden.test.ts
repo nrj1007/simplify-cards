@@ -128,7 +128,10 @@ describe("result split golden (reward-type-split)", () => {
   it("snapshots the section membership and order for broad queries", () => {
     const splitScenarios: Record<string, RecommendationInput> = {
       "broad-best-card": { query: "best credit card", resultStrategy: "reward-type-split" },
-      "seo-broad-best-cards": { query: "best credit cards india", resultStrategy: "reward-type-split" }
+      "seo-broad-best-cards": { query: "best credit cards india", resultStrategy: "reward-type-split" },
+      // NEW - lock the data-driven gate on real cards:
+      "category-online-split": { query: "best online shopping card", resultStrategy: "reward-type-split" },
+      "premium-degrade-single": { query: "best premium card", resultStrategy: "reward-type-split" }
     };
 
     const golden: Record<string, Record<string, string[]>> = {};

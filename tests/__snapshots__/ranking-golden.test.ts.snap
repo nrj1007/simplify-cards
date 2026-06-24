@@ -1348,6 +1348,31 @@ exports[`result split golden (reward-type-split) > snapshots the section members
       "icici-emeralde-private-metal",
     ],
   },
+  "category-online-split": {
+    "Cashback cards": [
+      "axis-cashback",
+      "sbi-cashback",
+      "axis-fibe",
+      "bobcard-snapdeal",
+      "kotak-cashback-plus",
+    ],
+    "Rewards cards": [
+      "csb-jupiter-edge-plus",
+      "indusind-eazydiner",
+      "phonepe-sbi-select-black",
+      "au-ixigo",
+      "bobcard-eterna",
+    ],
+  },
+  "premium-degrade-single": {
+    "": [
+      "axis-atlas",
+      "bobcard-etihad-guest-premium",
+      "amex-platinum-travel",
+      "sc-ultimate",
+      "equitas-powermiles",
+    ],
+  },
   "seo-broad-best-cards": {
     "Cashback cards": [
       "axis-cashback",
