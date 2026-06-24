@@ -241,6 +241,7 @@ export default function RecommendCalculator({ defaultSpend, initialSections }: P
   const [maxAnnualFee, setMaxAnnualFee] = useState<string>("");
   const [wantsLounge, setWantsLounge] = useState(false);
   const [wantsLifetimeFree, setWantsLifetimeFree] = useState(false);
+  const [groupByType, setGroupByType] = useState(false);
   const [sections, setSections] = useState<ResultSection[]>(initialSections);
   const [pending, setPending] = useState(false);
 
@@ -260,7 +261,13 @@ export default function RecommendCalculator({ defaultSpend, initialSections }: P
       fetch("/api/recommend", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ spend, maxAnnualFee: maxAnnualFee || null, wantsLounge, wantsLifetimeFree }),
+        body: JSON.stringify({
+          spend,
+          maxAnnualFee: maxAnnualFee || null,
+          wantsLounge,
+          wantsLifetimeFree,
+          resultStrategy: groupByType ? "reward-type-split" : "single-list"
+        }),
         signal: controller.signal
       })
         .then((res) => res.json())
@@ -282,7 +289,7 @@ export default function RecommendCalculator({ defaultSpend, initialSections }: P
       clearTimeout(timer);
       controller.abort();
     };
-  }, [spend, maxAnnualFee, wantsLounge, wantsLifetimeFree]);
+  }, [spend, maxAnnualFee, wantsLounge, wantsLifetimeFree, groupByType]);
 
   const totalMonthly = ALL_CATEGORIES.reduce((sum, category) => sum + spend[category], 0);
   const visibleCategories = showMore ? ALL_CATEGORIES : CORE_CATEGORIES;
@@ -377,6 +384,16 @@ export default function RecommendCalculator({ defaultSpend, initialSections }: P
               <option value="5000">Rs 5,000</option>
             </select>
           </div>
+          <label className="recommend-check">
+            <input
+              checked={groupByType}
+              disabled={wantsLounge || wantsLifetimeFree}
+              id="recommend-group-by-type"
+              type="checkbox"
+              onChange={(event) => setGroupByType(event.target.checked)}
+            />
+            Group by reward type
+          </label>
         </div>
       </aside>
 

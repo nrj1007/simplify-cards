@@ -199,6 +199,22 @@ describe("applyResultStrategy gating (via scoreCards integration)", () => {
     expect(sections[0].title).toBe("");
   });
 
+  it("explicit reward-type-split fires even when spend is present (UI toggle path)", async () => {
+    const { applyResultStrategy, scoreCards } = await import("../lib/recommend");
+
+    // Simulate the /recommend slider scenario: spend is always present
+    const spend = { online: 20000, dining: 5000, grocery: 10000, base: 15000 };
+    const scored = scoreCards({ spend });
+    const sections = applyResultStrategy(scored, {
+      spend,
+      resultStrategy: "reward-type-split"
+    });
+    // Must produce two headed sections despite spend being present
+    expect(sections).toHaveLength(2);
+    expect(sections[0].title).toBe("Rewards cards");
+    expect(sections[1].title).toBe("Cashback cards");
+  });
+
   it("single-list order matches rankResults (net-value sort, not fitScore)", async () => {
     const { applyResultStrategy, scoreCards } = await import("../lib/recommend");
     const { rankResults } = await import("../lib/recommend-result");

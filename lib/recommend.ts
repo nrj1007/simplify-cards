@@ -2560,27 +2560,37 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
 }
 
 export function answerFromCards(input: RecommendationInput) {
-  const topCards = scoreCards(input).slice(0, requestedTopCardCount(input.query));
+  const scored = scoreCards(input);
+  const topCards = scored.slice(0, requestedTopCardCount(input.query));
+
+  // For broad "best credit card" queries (or explicit resultStrategy), also compute
+  // sections so callers that want Rewards / Cashback split can use them.
+  // sections is omitted entirely (not undefined) when single-list applies, so
+  // AskAiResult return sites that don't spread answerFromCards don't need to include it.
+  const resultSections = applyResultStrategy(scored, input);
+  const hasSplit = resultSections.length > 1 || (resultSections.length === 1 && resultSections[0].title !== "");
 
   return {
     summary:
       topCards.length === 0
         ? "No card matched the selected constraints. Try increasing the annual fee limit or removing lounge/lifetime-free filters."
         : `${topCards[0].card.name} looks strongest with an estimated net yearly value of Rs ${topCards[0].estimatedNetValue.toLocaleString("en-IN")}.`,
-    cards: topCards
+    cards: topCards,
+    ...(hasSplit ? { sections: resultSections } : {})
   };
 }
 
+
 /**
- * Apply the result strategy to a pre-scored list, gated on query type.
+ * Apply the result strategy to a pre-scored list.
  *
- * The split is only activated for **broad generic queries** (no category/issuer/segment focus,
- * no fee cap, no lounge/LTF filter) — contexts where the single ranked list would otherwise
- * be swept by one reward type.  All other queries force `single-list` regardless of the
- * requested strategy.
+ * `"reward-type-split"` is always opt-in — it activates only when
+ * `input.resultStrategy === "reward-type-split"` is explicitly set AND the query
+ * context makes a split sensible (no category/issuer focus, no lounge/LTF filter).
+ * Spend is permitted; the /recommend toggle can request the split alongside sliders.
  *
- * Sorts by estimatedNetValue before grouping (same comparator as rankResults) so the output
- * order matches the flat-list order and doesn't silently reorder when the user touches a slider.
+ * Sorts by estimatedNetValue before grouping (same comparator as rankResults) so the
+ * output order is stable and consistent with the flat-list order on the /recommend page.
  */
 export function applyResultStrategy(
   scored: CardScore[],
@@ -2588,13 +2598,17 @@ export function applyResultStrategy(
   maxPerSection = 5
 ): ResultSection[] {
   const intent = parseQueryIntent(input);
-  const isBroad =
-    isBroadGenericRankingQuery(input, intent) &&
+
+  // Conditions that make a split nonsensical regardless of who requests it:
+  // category focus, lounge filter, LTF filter, or explicit fee cap.
+  const splitAllowed =
     detectCategoryFocus(input, intent) === null &&
     input.maxAnnualFee === undefined &&
     !input.wantsLounge &&
-    !input.wantsLifetimeFree &&
-    !input.spend;
+    !input.wantsLifetimeFree;
+
+  // Split requires an explicit opt-in from the caller (UI toggle, ask wiring, API field).
+  const useSplit = input.resultStrategy === "reward-type-split" && splitAllowed;
 
   // Sort by net value (same comparator as rankResults) so every strategy sees
   // the canonical display order, not the internal fitScore ranking order.
@@ -2602,8 +2616,7 @@ export function applyResultStrategy(
     .slice()
     .sort((a, b) => b.estimatedNetValue - a.estimatedNetValue);
 
-  const strategyName =
-    isBroad ? (input.resultStrategy ?? DEFAULT_RESULT_STRATEGY) : "single-list";
-  const strategy = resultStrategies[strategyName];
+  const strategy = resultStrategies[useSplit ? "reward-type-split" : "single-list"];
   return strategy.group(byNetValue, maxPerSection);
 }
+
