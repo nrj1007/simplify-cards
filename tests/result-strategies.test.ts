@@ -198,4 +198,21 @@ describe("applyResultStrategy gating (via scoreCards integration)", () => {
     expect(sections).toHaveLength(1);
     expect(sections[0].title).toBe("");
   });
+
+  it("single-list order matches rankResults (net-value sort, not fitScore)", async () => {
+    const { applyResultStrategy, scoreCards } = await import("../lib/recommend");
+    const { rankResults } = await import("../lib/recommend-result");
+
+    // Use a spend profile so the result is deterministic and not a broad query
+    // (spend-based queries still need net-value order for the recommend page).
+    const spend = { online: 20000, dining: 5000, grocery: 10000, base: 15000 };
+    const scored = scoreCards({ spend });
+
+    const sections = applyResultStrategy(scored, { spend });
+    const sectionIds = sections[0].cards.map((s) => s.card.id);
+    const rankResultsIds = rankResults(scored).map((r) => r.id);
+
+    // Top-5 from applyResultStrategy must match rankResults top-5 exactly
+    expect(sectionIds.slice(0, 5)).toEqual(rankResultsIds);
+  });
 });

@@ -2578,6 +2578,9 @@ export function answerFromCards(input: RecommendationInput) {
  * no fee cap, no lounge/LTF filter) — contexts where the single ranked list would otherwise
  * be swept by one reward type.  All other queries force `single-list` regardless of the
  * requested strategy.
+ *
+ * Sorts by estimatedNetValue before grouping (same comparator as rankResults) so the output
+ * order matches the flat-list order and doesn't silently reorder when the user touches a slider.
  */
 export function applyResultStrategy(
   scored: CardScore[],
@@ -2593,8 +2596,14 @@ export function applyResultStrategy(
     !input.wantsLifetimeFree &&
     !input.spend;
 
+  // Sort by net value (same comparator as rankResults) so every strategy sees
+  // the canonical display order, not the internal fitScore ranking order.
+  const byNetValue = scored
+    .slice()
+    .sort((a, b) => b.estimatedNetValue - a.estimatedNetValue);
+
   const strategyName =
     isBroad ? (input.resultStrategy ?? DEFAULT_RESULT_STRATEGY) : "single-list";
   const strategy = resultStrategies[strategyName];
-  return strategy.group(scored, maxPerSection);
+  return strategy.group(byNetValue, maxPerSection);
 }
