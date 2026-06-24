@@ -221,6 +221,7 @@ export default async function AskPage({ searchParams }: Props) {
     : [];
   const comparisonCards = showRankedAnswer ? rankedResultCards.slice(0, 3) : [];
   const showFeeWaiverRow = comparisonCards.some((item) => hasFeeWaiverSpend(item.card.feeWaiverSpend));
+  const hasSplit = Boolean(result?.sections && result.sections.length > 1);
 
   const rawCards = showRankedAnswer ? result?.cards ?? [] : [];
   const selectedDecisionCards = rawCards.length >= 7
@@ -430,57 +431,122 @@ export default async function AskPage({ searchParams }: Props) {
                   <>
                     <section className="panel">
                       <div className="panel-body">
-                        <h2 className="section-title">Ranked matches</h2>
-                        <div className="result-list">
-                          {rankedResultCards.map((item, index) => (
-                            <article className={`result-card${index === 0 ? " best" : ""}`} key={item.card.id}>
-                              <div className="result-main">
-                                <div className="rank">{index + 1}</div>
-                                <div>
-                                  <h3>{item.card.name}</h3>
-                                  <p>{getCardUsp(item.card)}</p>
-                                  <div className="result-meta">
-                                    <span className="mini-tag">Fit {toFitPercent(item.fitScore)}/100</span>
-                                    {item.card.bestFor[0] ? <span className="mini-tag">{item.card.bestFor[0]}</span> : null}
-                                    <span className="mini-tag">
-                                      {item.card.annualFee === 0 ? "Lifetime free" : `${formatCurrency(item.card.annualFee)} fee`}
-                                    </span>
+                        {hasSplit && result?.sections ? (
+                          <div className="recommend-sections">
+                            {result.sections.map((section) => {
+                              if (section.cards.length === 0) return null;
+                              return (
+                                <div key={section.title} className="recommend-section">
+                                  <h3 className="recommend-section-title">{section.title}</h3>
+                                  <div className="result-list">
+                                    {section.cards.map((item, index) => (
+                                      <article className={`result-card${index === 0 ? " best" : ""}`} key={item.card.id}>
+                                        <div className="result-main">
+                                          <div className="rank">{index + 1}</div>
+                                          <div>
+                                            <h3>{item.card.name}</h3>
+                                            <p>{getCardUsp(item.card)}</p>
+                                            <div className="result-meta">
+                                              <span className="mini-tag">Fit {toFitPercent(item.fitScore)}/100</span>
+                                              {item.card.bestFor[0] ? <span className="mini-tag">{item.card.bestFor[0]}</span> : null}
+                                              <span className="mini-tag">
+                                                {item.card.annualFee === 0 ? "Lifetime free" : `${formatCurrency(item.card.annualFee)} fee`}
+                                              </span>
+                                            </div>
+                                          </div>
+                                        </div>
+                                        <div className="result-actions">
+                                          <TrackedLink
+                                            analyticsEvent={{
+                                              event_name: "details_clicked",
+                                              page: "ask",
+                                              source: "ask",
+                                              query: input?.query,
+                                              card_id: item.card.id
+                                            }}
+                                            className="mini-btn primary"
+                                            href={`/cards/${item.card.id}`}
+                                          >
+                                            View details
+                                          </TrackedLink>
+                                          <TrackedExternalLink
+                                            analyticsEvent={{
+                                              event_name: "apply_clicked",
+                                              page: "ask",
+                                              source: "ask",
+                                              query: input?.query,
+                                              card_id: item.card.id
+                                            }}
+                                            className="mini-btn"
+                                            href={cardCtaHref(item.card)}
+                                            rel={cardCtaRel(item.card)}
+                                            target="_blank"
+                                          >
+                                            {cardCtaLabel(item.card)}
+                                          </TrackedExternalLink>
+                                        </div>
+                                      </article>
+                                    ))}
                                   </div>
                                 </div>
-                              </div>
-                              <div className="result-actions">
-                                <TrackedLink
-                                  analyticsEvent={{
-                                    event_name: "details_clicked",
-                                    page: "ask",
-                                    source: "ask",
-                                    query: input?.query,
-                                    card_id: item.card.id
-                                  }}
-                                  className="mini-btn primary"
-                                  href={`/cards/${item.card.id}`}
-                                >
-                                  View details
-                                </TrackedLink>
-                                <TrackedExternalLink
-                                  analyticsEvent={{
-                                    event_name: "apply_clicked",
-                                    page: "ask",
-                                    source: "ask",
-                                    query: input?.query,
-                                    card_id: item.card.id
-                                  }}
-                                  className="mini-btn"
-                                  href={cardCtaHref(item.card)}
-                                  rel={cardCtaRel(item.card)}
-                                  target="_blank"
-                                >
-                                  {cardCtaLabel(item.card)}
-                                </TrackedExternalLink>
-                              </div>
-                            </article>
-                          ))}
-                        </div>
+                              );
+                            })}
+                          </div>
+                        ) : (
+                          <>
+                            <h2 className="section-title">Ranked matches</h2>
+                            <div className="result-list">
+                              {rankedResultCards.map((item, index) => (
+                                <article className={`result-card${index === 0 ? " best" : ""}`} key={item.card.id}>
+                                  <div className="result-main">
+                                    <div className="rank">{index + 1}</div>
+                                    <div>
+                                      <h3>{item.card.name}</h3>
+                                      <p>{getCardUsp(item.card)}</p>
+                                      <div className="result-meta">
+                                        <span className="mini-tag">Fit {toFitPercent(item.fitScore)}/100</span>
+                                        {item.card.bestFor[0] ? <span className="mini-tag">{item.card.bestFor[0]}</span> : null}
+                                        <span className="mini-tag">
+                                          {item.card.annualFee === 0 ? "Lifetime free" : `${formatCurrency(item.card.annualFee)} fee`}
+                                        </span>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div className="result-actions">
+                                    <TrackedLink
+                                      analyticsEvent={{
+                                        event_name: "details_clicked",
+                                        page: "ask",
+                                        source: "ask",
+                                        query: input?.query,
+                                        card_id: item.card.id
+                                      }}
+                                      className="mini-btn primary"
+                                      href={`/cards/${item.card.id}`}
+                                    >
+                                      View details
+                                    </TrackedLink>
+                                    <TrackedExternalLink
+                                      analyticsEvent={{
+                                        event_name: "apply_clicked",
+                                        page: "ask",
+                                        source: "ask",
+                                        query: input?.query,
+                                        card_id: item.card.id
+                                      }}
+                                      className="mini-btn"
+                                      href={cardCtaHref(item.card)}
+                                      rel={cardCtaRel(item.card)}
+                                      target="_blank"
+                                    >
+                                      {cardCtaLabel(item.card)}
+                                    </TrackedExternalLink>
+                                  </div>
+                                </article>
+                              ))}
+                            </div>
+                          </>
+                        )}
                       </div>
                     </section>
 

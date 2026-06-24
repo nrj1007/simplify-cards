@@ -4,6 +4,8 @@ import { stripScoringAnnotations } from "./cards";
 import { scoreCards } from "./recommend";
 import { buildCanonicalUrl, buildPageMetadata, SITE_NAME } from "./seo";
 import type { CreditCard, RecommendationInput } from "./types";
+import { BROAD_CONTENT_RESULT_STRATEGY } from "./result-strategies";
+import { applyResultStrategy } from "./recommend";
 
 export type SeoLandingConfig = {
   slug: string;
@@ -17,6 +19,7 @@ export type SeoLandingConfig = {
   thingsToCheck: string[];
   faqs: Array<{ q: string; a: string }>;
   ranking: RecommendationInput;
+  groupByRewardType?: boolean;
 };
 
 const DEFAULT_FALLBACK = "Check issuer terms before applying.";
@@ -68,7 +71,8 @@ export const SEO_LANDINGS: SeoLandingConfig[] = [
       "We rank cards with the same recommendation engine used across SimplifyCards, using a broad credit-card search intent and existing card fields for rewards, fees, lounges, redemption, caps, exclusions, and popularity.",
     thingsToCheck: COMMON_CHECKS,
     faqs: faqFor("credit card"),
-    ranking: { query: "best credit card" }
+    ranking: { query: "best credit card" },
+    groupByRewardType: true
   },
   {
     slug: "best-cashback-credit-cards-india",
@@ -263,6 +267,15 @@ export function buildSeoLandingMetadata(slug: string): Metadata {
 
 export function selectCardsForLanding(config: SeoLandingConfig) {
   return scoreCards(config.ranking).slice(0, 10);
+}
+
+export function selectSectionsForLanding(config: SeoLandingConfig) {
+  const isSplit = config.groupByRewardType && BROAD_CONTENT_RESULT_STRATEGY === "reward-type-split";
+  if (!isSplit) return null;
+
+  const scored = scoreCards(config.ranking);
+  const resultSections = applyResultStrategy(scored, { ...config.ranking, resultStrategy: "reward-type-split" }, 5);
+  return resultSections;
 }
 
 function clean(value: string | undefined | null) {

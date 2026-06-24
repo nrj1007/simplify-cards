@@ -134,7 +134,7 @@ function isBroadNoSpendQuery(input: RecommendationInput, intent: ReturnType<type
   );
 }
 
-function isBroadGenericRankingQuery(input: RecommendationInput, intent: ReturnType<typeof parseQueryIntent>) {
+export function isBroadGenericRankingQuery(input: RecommendationInput, intent: ReturnType<typeof parseQueryIntent>) {
   if (!isBroadNoSpendQuery(input, intent)) return false;
   const normalizedQuery = normalizeForMatch(input.query);
   return /\b(top|best|recommend|recommended|suggest)\b/.test(normalizedQuery) &&

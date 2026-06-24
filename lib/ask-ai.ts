@@ -1,9 +1,10 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 import { cards, getCardById } from "./cards";
-import { answerFromCards, defaultSpendProfile, getAirMilesValue, requestedTopCardCount, scoreCards } from "./recommend";
+import { answerFromCards, defaultSpendProfile, getAirMilesValue, requestedTopCardCount, scoreCards, isBroadGenericRankingQuery } from "./recommend";
 import type { CardScore } from "./types";
 import type { RecommendationInput } from "./types";
+import { BROAD_CONTENT_RESULT_STRATEGY } from "./result-strategies";
 import { unsupportedQuestionLogPath } from "./question-logs";
 import type { UnsupportedQuestionLogEntry } from "./question-logs";
 import { parseQueryIntent } from "./query-intent";
@@ -1517,11 +1518,16 @@ export async function answerQuestion(input: RecommendationInput): Promise<AskAiR
   }
 
   const topBestQuery = isTopBestCardsQuery(input.query);
+  const intent = parseQueryIntent(input);
   const scenarioWinnerCards =
-    topBestQuery && !input.spend && !parseQueryIntent(input).inferredSpend
+    topBestQuery && !input.spend && !intent.inferredSpend
       ? getBalancedScenarioWinnerCards(input, shortlisted.cards)
       : [];
-  const baseAnswer = answerFromCards(input);
+  const isBroad = isBroadGenericRankingQuery(input, intent);
+  const inputForAnswer = isBroad
+    ? { ...input, resultStrategy: BROAD_CONTENT_RESULT_STRATEGY }
+    : input;
+  const baseAnswer = answerFromCards(inputForAnswer);
   const answer = {
     ...baseAnswer,
     cards: topBestQuery

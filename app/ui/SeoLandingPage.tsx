@@ -7,7 +7,8 @@ import {
   getSeoLanding,
   landingLastUpdated,
   SEO_LANDINGS,
-  selectCardsForLanding
+  selectCardsForLanding,
+  selectSectionsForLanding
 } from "@/lib/seo-landing";
 
 type Props = {
@@ -28,6 +29,7 @@ export default function SeoLandingPage({ slug }: Props) {
   if (!config) return null;
 
   const scores = selectCardsForLanding(config);
+  const sections = selectSectionsForLanding(config);
   const listedCards = scores.map((score) => score.card);
   const summaries = listedCards.map(deriveCardSummary);
   const relatedGuides = SEO_LANDINGS.filter((landing) => landing.slug !== config.slug).slice(0, 6);
@@ -54,38 +56,86 @@ export default function SeoLandingPage({ slug }: Props) {
               <p>Ranked from existing SimplifyCards data. Open any card for full rewards, exclusions, redemption, and eligibility details.</p>
             </div>
 
-            <div className="seo-card-list">
-              {summaries.map((card, index) => (
-                <article className="panel seo-card-row" key={card.id}>
-                  <div className="seo-rank">#{index + 1}</div>
-                  <div className="seo-card-copy">
-                    <div className="issuer">{card.issuer}</div>
-                    <h3>{card.name}</h3>
-                    <dl className="seo-card-facts">
-                      <div>
-                        <dt>Annual fee</dt>
-                        <dd>{card.annualFee}</dd>
+            {sections ? (
+              <div className="recommend-sections">
+                {sections.map((section) => {
+                  if (section.cards.length === 0) return null;
+                  return (
+                    <div key={section.title} className="recommend-section">
+                      <h3 className="recommend-section-title">{section.title}</h3>
+                      <div className="seo-card-list">
+                        {section.cards.map((score, index) => {
+                          const card = deriveCardSummary(score.card);
+                          return (
+                            <article className="panel seo-card-row" key={card.id}>
+                              <div className="seo-rank">#{index + 1}</div>
+                              <div className="seo-card-copy">
+                                <div className="issuer">{card.issuer}</div>
+                                <h3>{card.name}</h3>
+                                <dl className="seo-card-facts">
+                                  <div>
+                                    <dt>Annual fee</dt>
+                                    <dd>{card.annualFee}</dd>
+                                  </div>
+                                  <div>
+                                    <dt>Best use case</dt>
+                                    <dd>{card.bestUseCase}</dd>
+                                  </div>
+                                  <div>
+                                    <dt>Key reward or benefit</dt>
+                                    <dd>{card.keyBenefit}</dd>
+                                  </div>
+                                  <div>
+                                    <dt>Major limitation</dt>
+                                    <dd>{card.limitation}</dd>
+                                  </div>
+                                </dl>
+                              </div>
+                              <Link className="action-secondary seo-card-link" href={card.href as Route}>
+                                Details
+                              </Link>
+                            </article>
+                          );
+                        })}
                       </div>
-                      <div>
-                        <dt>Best use case</dt>
-                        <dd>{card.bestUseCase}</dd>
-                      </div>
-                      <div>
-                        <dt>Key reward or benefit</dt>
-                        <dd>{card.keyBenefit}</dd>
-                      </div>
-                      <div>
-                        <dt>Major limitation</dt>
-                        <dd>{card.limitation}</dd>
-                      </div>
-                    </dl>
-                  </div>
-                  <Link className="action-secondary seo-card-link" href={card.href as Route}>
-                    Details
-                  </Link>
-                </article>
-              ))}
-            </div>
+                    </div>
+                  );
+                })}
+              </div>
+            ) : (
+              <div className="seo-card-list">
+                {summaries.map((card, index) => (
+                  <article className="panel seo-card-row" key={card.id}>
+                    <div className="seo-rank">#{index + 1}</div>
+                    <div className="seo-card-copy">
+                      <div className="issuer">{card.issuer}</div>
+                      <h3>{card.name}</h3>
+                      <dl className="seo-card-facts">
+                        <div>
+                          <dt>Annual fee</dt>
+                          <dd>{card.annualFee}</dd>
+                        </div>
+                        <div>
+                          <dt>Best use case</dt>
+                          <dd>{card.bestUseCase}</dd>
+                        </div>
+                        <div>
+                          <dt>Key reward or benefit</dt>
+                          <dd>{card.keyBenefit}</dd>
+                        </div>
+                        <div>
+                          <dt>Major limitation</dt>
+                          <dd>{card.limitation}</dd>
+                        </div>
+                      </dl>
+                    </div>
+                    <Link className="action-secondary seo-card-link" href={card.href as Route}>
+                      Details
+                    </Link>
+                  </article>
+                ))}
+              </div>
+            )}
           </section>
 
           <aside className="seo-landing-side" aria-label="Guide summary">

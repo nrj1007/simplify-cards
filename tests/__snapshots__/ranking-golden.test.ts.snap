@@ -1325,3 +1325,40 @@ exports[`ranking golden (representative queries) > produces stable top-N orderin
   ],
 }
 `;
+
+exports[`result split golden (reward-type-split) > snapshots the section membership and order for broad queries 1`] = `
+{
+  "broad-best-card": {
+    "Cashback cards": [
+      "axis-cashback",
+      "flipkart-sbi",
+      "axis-flipkart",
+      "yes-paisabazaar-paisasave",
+      "icici-amazon-pay",
+    ],
+    "Rewards cards": [
+      "hsbc-premier",
+      "axis-magnus-burgundy",
+      "hdfc-diners-club-black-metal",
+      "icici-emeralde-private-metal",
+      "hsbc-travelone",
+    ],
+  },
+  "seo-broad-best-cards": {
+    "Cashback cards": [
+      "axis-cashback",
+      "flipkart-sbi",
+      "axis-flipkart",
+      "yes-paisabazaar-paisasave",
+      "icici-amazon-pay",
+    ],
+    "Rewards cards": [
+      "hsbc-premier",
+      "axis-magnus-burgundy",
+      "hdfc-diners-club-black-metal",
+      "icici-emeralde-private-metal",
+      "hsbc-travelone",
+    ],
+  },
+}
+`;

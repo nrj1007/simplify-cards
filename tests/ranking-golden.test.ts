@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { scoreCards } from "../lib/recommend";
+import { scoreCards, applyResultStrategy } from "../lib/recommend";
 import type { RecommendationInput } from "../lib/types";
 
 // Golden snapshot of the *ordering* scoreCards produces for representative queries, so any change to
@@ -123,3 +123,25 @@ describe("ranking golden (max-yield)", () => {
     expect(topIds).not.toEqual(blendTopIds);
   });
 });
+
+describe("result split golden (reward-type-split)", () => {
+  it("snapshots the section membership and order for broad queries", () => {
+    const splitScenarios: Record<string, RecommendationInput> = {
+      "broad-best-card": { query: "best credit card", resultStrategy: "reward-type-split" },
+      "seo-broad-best-cards": { query: "best credit cards india", resultStrategy: "reward-type-split" }
+    };
+
+    const golden: Record<string, Record<string, string[]>> = {};
+
+    for (const [name, input] of Object.entries(splitScenarios)) {
+      const resultSections = applyResultStrategy(scoreCards(input), input, 5);
+      golden[name] = {};
+      for (const section of resultSections) {
+        golden[name][section.title] = section.cards.map((score) => score.card.id);
+      }
+    }
+
+    expect(golden).toMatchSnapshot();
+  });
+});
+
