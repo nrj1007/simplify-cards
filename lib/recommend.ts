@@ -2604,7 +2604,27 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
           cashbackPerLevel.reduce((total, score) => total + strategy.perLevelScore(score), 0) / cashbackPerLevel.length;
       }
 
-      return representative.envelopeScoring
+      // Dual-bucket cards (e.g. CheQ AU): also score the card with points valued at the reward
+      // redemption rate, so the split can feature it in the Rewards section at that higher value while
+      // its default (cashback-rate) score drives the Cashback section.
+      let rewardBucketScore: CardScore | undefined;
+      const rewardPointValue = card.rewardBucketPointValue;
+      if (typeof rewardPointValue === "number" && rewardPointValue > 0) {
+        const rewardValuedCard: CreditCard = {
+          ...card,
+          rewardBucketPointValue: undefined,
+          rewards: card.rewards.map((reward) => ({ ...reward, valuePerUnit: rewardPointValue }))
+        };
+        const rewardPerLevel = spendLevels.map((annualSpend) => {
+          const monthlySpend = Math.round(annualSpend / 12);
+          return scoreCardForSpend(rewardValuedCard, scaleSpendProfileToMonthly(spend, monthlySpend), monthlySpend);
+        });
+        rewardBucketScore = rewardPerLevel.reduce((best, score) =>
+          strategy.perLevelScore(score) > strategy.perLevelScore(best) ? score : best
+        );
+      }
+
+      const assembled = representative.envelopeScoring
         ? {
             ...representative,
             envelopeScoring: {
@@ -2614,6 +2634,7 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
             }
           }
         : representative;
+      return rewardBucketScore ? { ...assembled, rewardBucketScore } : assembled;
     })
     .sort((a, b) => {
       const primary = useEnvelopeScoring

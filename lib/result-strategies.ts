@@ -59,7 +59,14 @@ const singleList: ResultStrategy = {
 const rewardTypeSplit: ResultStrategy = {
   name: "reward-type-split",
   group(scored, maxPerSection, options) {
-    const rewards = scored.filter((c) => !isPrimaryCashbackCard(c));
+    // Dual-bucket cards (card.rewardBucketPointValue set, e.g. CheQ AU) feature in BOTH sections:
+    // their reward-rate score in Rewards and their default (cashback-rate) score in Cashback.
+    const isDual = (c: CardScore) => c.rewardBucketScore !== undefined;
+    const rewards = scored
+      .filter((c) => !isPrimaryCashbackCard(c) || isDual(c))
+      .map((c) => (isDual(c) ? c.rewardBucketScore! : c))
+      // dual cards carry their reward-rate value here, so re-sort by net value.
+      .sort((a, b) => b.estimatedNetValue - a.estimatedNetValue);
     const cashback = scored.filter((c) => isPrimaryCashbackCard(c));
 
     if (options?.isBlend) {

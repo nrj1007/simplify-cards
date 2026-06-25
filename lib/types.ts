@@ -155,6 +155,11 @@ export type CreditCard = {
   feeWaiverSpend: number | null;
   bestFor: string[];
   rewardType: string;
+  // Dual-bucket valuation: when set, this card's points are worth this much (Rs/point) when ranked in
+  // a REWARDS context, while its per-row `valuePerUnit` gives the (lower) cashback-context value. Such
+  // a card features in BOTH split sections — Rewards (valued at this rate) and Cashback (valued at its
+  // valuePerUnit) — instead of being routed to just one. (CheQ AU: 0.5 reward / 0.25 cashback.)
+  rewardBucketPointValue?: number;
   // Liquidity of the reward currency for ranking. "brand-locked" cards (rewards redeemable only
   // inside one narrow brand ecosystem — e.g. Adani, IRCTC, IndiGo BluChips, MakeMyTrip myCash,
   // Reliance) have their reward value discounted in scoring (see brandLockedRewardValueMultiplier in
@@ -290,6 +295,10 @@ export type CardScore = {
   estimatedMilestoneValue: number;
   estimatedAnnualFee: number;
   estimatedNetValue: number;
+  // For dual-bucket cards (card.rewardBucketPointValue set, e.g. CheQ AU): the full score re-valued at
+  // the reward redemption rate. The split presents this in the Rewards section while the default
+  // (cashback-rate) score drives the Cashback section. Undefined for normal cards.
+  rewardBucketScore?: CardScore;
   fitScore: number;
   matchedTags: string[];
   reasons: string[];

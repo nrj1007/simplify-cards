@@ -18,6 +18,7 @@
     "amazon"
   ],
   "rewardType": "cashback and CheQ points",
+  "rewardBucketPointValue": 0.5,
   "capGroups": {
     "accelerated": {
       "capMonthly": 12000
