@@ -16,6 +16,10 @@
     "utility bills"
   ],
   "rewardType": "cashback",
+  "acceleratedShare": {
+    "amazon": 1.0,
+    "grocery": 0.5
+  },
   "capGroups": {
     "online-cashback": {
       "capMonthly": 4000

@@ -17,6 +17,11 @@
     "lounge"
   ],
   "rewardType": "cashback and reward points",
+  "acceleratedShare": {
+    "travel": 1.0,
+    "amazon": 1.0,
+    "grocery": 0.5
+  },
   "rewards": [
     {
       "category": "phonepe",

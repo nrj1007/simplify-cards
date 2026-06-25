@@ -207,8 +207,8 @@ exports[`ranking golden (max-yield) > produces stable top-N ordering per scenari
     "axis-airtel",
     "axis-magnus",
     "axis-flipkart-super-elite",
-    "axis-horizon",
     "axis-cashback",
+    "axis-horizon",
     "axis-ace",
     "axis-fibe",
     "axis-flipkart",
@@ -310,8 +310,8 @@ exports[`ranking golden (max-yield) > produces stable top-N ordering per scenari
     "csb-jupiter-edge-plus",
     "amex-platinum-travel",
     "axis-airtel",
+    "phonepe-sbi-select-black",
     "kotak-solitaire",
-    "bobcard-etihad-guest-premium",
   ],
   "max-fee-zero": [
     "kotak-infinite",
@@ -392,10 +392,10 @@ exports[`ranking golden (max-yield) > produces stable top-N ordering per scenari
     "kotak-solitaire",
     "axis-atlas",
     "hdfc-shoppers-stop-black",
+    "phonepe-sbi-select-black",
     "yes-marquee",
     "axis-magnus-burgundy",
     "bobcard-etihad-guest-premium",
-    "indusind-eazydiner",
   ],
   "segment-beginner": [
     "csb-jupiter-edge-plus",
@@ -414,12 +414,12 @@ exports[`ranking golden (max-yield) > produces stable top-N ordering per scenari
   "segment-mid-premium": [
     "hdfc-regalia-gold",
     "hsbc-travelone",
+    "phonepe-sbi-select-black",
     "yes-marquee",
     "hdfc-shoppers-stop-black",
     "amex-membership-rewards",
     "bobcard-eterna",
     "hdfc-marriott-bonvoy",
-    "phonepe-sbi-select-black",
     "indusind-eazydiner",
     "amex-gold",
     "sbi-card-elite",
@@ -553,8 +553,8 @@ exports[`ranking golden (max-yield) > produces stable top-N ordering per scenari
   ],
   "usecase-cashback": [
     "axis-airtel",
-    "hdfc-swiggy",
     "phonepe-sbi-select-black",
+    "hdfc-swiggy",
     "yes-kiwi",
     "hdfc-swiggy-black",
     "hdfc-swiggy-orange",
@@ -623,8 +623,8 @@ exports[`ranking golden (max-yield) > produces stable top-N ordering per scenari
   "usecase-online": [
     "csb-jupiter-edge-plus",
     "indusind-eazydiner",
-    "sbi-cashback",
     "phonepe-sbi-select-black",
+    "sbi-cashback",
     "kotak-cashback-plus",
     "axis-cashback",
     "au-ixigo",
@@ -759,8 +759,8 @@ exports[`ranking golden (representative queries) > produces stable top-N orderin
     "sc-super-value-titanium",
     "hdfc-phonepe-ultimo",
     "sc-ultimate",
-    "icici-hpcl-super-saver",
     "phonepe-sbi-select-black",
+    "icici-hpcl-super-saver",
     "amex-gold",
     "bobcard-hpcl-energie",
     "idfc-first-power",
@@ -1057,10 +1057,10 @@ exports[`ranking golden (representative queries) > produces stable top-N orderin
     "kotak-solitaire",
     "axis-atlas",
     "hdfc-shoppers-stop-black",
+    "phonepe-sbi-select-black",
     "yes-marquee",
     "axis-magnus-burgundy",
     "bobcard-etihad-guest-premium",
-    "indusind-eazydiner",
   ],
   "segment-beginner": [
     "csb-jupiter-edge-plus",
@@ -1079,12 +1079,12 @@ exports[`ranking golden (representative queries) > produces stable top-N orderin
   "segment-mid-premium": [
     "hdfc-regalia-gold",
     "hsbc-travelone",
+    "phonepe-sbi-select-black",
     "yes-marquee",
     "hdfc-shoppers-stop-black",
     "amex-membership-rewards",
     "bobcard-eterna",
     "hdfc-marriott-bonvoy",
-    "phonepe-sbi-select-black",
     "indusind-eazydiner",
     "amex-gold",
     "sbi-card-elite",
@@ -1217,11 +1217,11 @@ exports[`ranking golden (representative queries) > produces stable top-N orderin
     "hsbc-visa-platinum",
   ],
   "usecase-cashback": [
+    "phonepe-sbi-select-black",
     "hdfc-swiggy",
     "hsbc-live-plus",
     "sbi-cashback",
     "hdfc-swiggy-black",
-    "phonepe-sbi-select-black",
     "hsbc-rupay-cashback",
     "hdfc-millennia",
     "hdfc-phonepe-ultimo",
@@ -1294,8 +1294,8 @@ exports[`ranking golden (representative queries) > produces stable top-N orderin
     "axis-cashback",
     "indusind-eazydiner",
     "kotak-cashback-plus",
-    "cheq-au",
     "phonepe-sbi-purple",
+    "cheq-au",
     "bobcard-snapdeal",
     "yes-pop-club",
   ],
@@ -1334,10 +1334,10 @@ exports[`result split golden (all query modes) > snapshots section membership fo
 {
   "broad-generic": {
     "Cashback cards": [
+      "phonepe-sbi-select-black",
       "yes-kiwi",
       "hsbc-live-plus",
       "sbi-cashback",
-      "phonepe-sbi-select-black",
       "hdfc-swiggy-black",
     ],
     "Rewards cards": [
@@ -1369,8 +1369,8 @@ exports[`result split golden (all query modes) > snapshots section membership fo
       "hdfc-millennia",
       "titan-sbi",
       "hdfc-swiggy-black",
+      "bobcard-snapdeal",
       "hdfc-pixel-play",
-      "hdfc-pixel-go",
     ],
     "Rewards cards": [
       "hsbc-premier",
@@ -1483,7 +1483,7 @@ exports[`result split golden (all query modes) > snapshots section membership fo
       "titan-sbi",
       "yes-kiwi",
       "hsbc-rupay-cashback",
-      "sbi-cashback",
+      "phonepe-sbi-select-black",
     ],
     "Rewards cards": [
       "hsbc-premier",
@@ -1585,8 +1585,8 @@ exports[`result split golden (all query modes) > snapshots section membership fo
   },
   "issuer-sbi": {
     "Cashback cards": [
-      "sbi-cashback",
       "phonepe-sbi-select-black",
+      "sbi-cashback",
       "titan-sbi",
       "flipkart-sbi",
       "phonepe-sbi-purple",
@@ -1647,10 +1647,10 @@ exports[`result split golden (all query modes) > snapshots section membership fo
   },
   "max-fee-5000-query": {
     "Cashback cards": [
+      "phonepe-sbi-select-black",
       "yes-kiwi",
       "hsbc-live-plus",
       "sbi-cashback",
-      "phonepe-sbi-select-black",
       "hdfc-swiggy-black",
     ],
     "Rewards cards": [
@@ -1869,7 +1869,7 @@ exports[`result split golden (all query modes) > snapshots section membership fo
       "hsbc-live-plus",
       "yes-kiwi",
       "hdfc-swiggy-black",
-      "sbi-cashback",
+      "phonepe-sbi-select-black",
     ],
     "Rewards cards": [
       "hsbc-premier",
@@ -1881,11 +1881,11 @@ exports[`result split golden (all query modes) > snapshots section membership fo
   },
   "spend-level-light": {
     "Cashback cards": [
+      "phonepe-sbi-select-black",
       "yes-kiwi",
       "hsbc-live-plus",
       "sbi-cashback",
       "hdfc-swiggy",
-      "hsbc-rupay-cashback",
     ],
     "Rewards cards": [
       "hsbc-premier",
@@ -1899,9 +1899,9 @@ exports[`result split golden (all query modes) > snapshots section membership fo
     "Cashback cards": [
       "hsbc-live-plus",
       "hdfc-swiggy",
+      "phonepe-sbi-select-black",
       "yes-kiwi",
       "hdfc-swiggy-black",
-      "sbi-cashback",
     ],
     "Rewards cards": [
       "hsbc-premier",
@@ -1914,10 +1914,10 @@ exports[`result split golden (all query modes) > snapshots section membership fo
   "spend-travel-heavy": {
     "Cashback cards": [
       "yes-kiwi",
+      "phonepe-sbi-select-black",
       "sbi-cashback",
       "yes-paisabazaar-paisasave",
       "axis-ace",
-      "axis-flipkart",
     ],
     "Rewards cards": [
       "hsbc-premier",
@@ -2051,10 +2051,10 @@ exports[`result split golden (reward-type-split) > snapshots the section members
 {
   "broad-best-card": {
     "Cashback cards": [
+      "phonepe-sbi-select-black",
       "yes-kiwi",
       "hsbc-live-plus",
       "sbi-cashback",
-      "phonepe-sbi-select-black",
       "hdfc-swiggy-black",
     ],
     "Rewards cards": [
@@ -2092,10 +2092,10 @@ exports[`result split golden (reward-type-split) > snapshots the section members
   },
   "seo-broad-best-cards": {
     "Cashback cards": [
+      "phonepe-sbi-select-black",
       "yes-kiwi",
       "hsbc-live-plus",
       "sbi-cashback",
-      "phonepe-sbi-select-black",
       "hdfc-swiggy-black",
     ],
     "Rewards cards": [

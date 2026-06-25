@@ -3,11 +3,11 @@
 exports[`SEO landing page rankings > produces stable top-10 card ordering for each landing page 1`] = `
 {
   "best-cashback-credit-cards-india": [
+    "phonepe-sbi-select-black",
     "hdfc-swiggy",
     "hsbc-live-plus",
     "sbi-cashback",
     "hdfc-swiggy-black",
-    "phonepe-sbi-select-black",
     "hsbc-rupay-cashback",
     "hdfc-millennia",
     "hdfc-phonepe-ultimo",
@@ -35,8 +35,8 @@ exports[`SEO landing page rankings > produces stable top-10 card ordering for ea
     "axis-cashback",
     "indusind-eazydiner",
     "kotak-cashback-plus",
-    "cheq-au",
     "phonepe-sbi-purple",
+    "cheq-au",
   ],
   "best-credit-cards-india": [
     "hsbc-premier",

@@ -16,6 +16,10 @@
     "cashback"
   ],
   "rewardType": "cashback",
+  "acceleratedShare": {
+    "travel": 1.0,
+    "amazon": 1.0
+  },
   "rewards": [
     {
       "category": "snapdeal",
