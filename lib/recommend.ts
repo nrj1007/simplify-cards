@@ -8,22 +8,27 @@ import type { CardScore, CreditCard, Milestone, RecommendationInput, SpendCatego
 import { getTotalLoungeAccess, getInternationalLoungeAccess, getMeaningfulLoungeConditions } from "./lounge";
 import { stripScoringAnnotations } from "./card-index";
 
+// Realistic broad-spender mix (proportions are what matter — the envelope rescales the total across
+// spend levels; total kept at the historical Rs 53,000/mo). Percentages: online 15%, base/offline
+// 12%, travel 12%, grocery 10%, dining 10%, amazon 8%, upi 8%, utilities 8%, insurance 6%, fuel 5%,
+// and a 6% "excluded/low-reward" bucket split as education 3% + gold 3% (near-universally excluded
+// -> ~0 earn, which dilutes effective yields to be realistic).
 export const defaultSpendProfile: SpendProfile = {
-  online: 15000,
-  base: 8000,
-  travel: 5000,
+  online: 7950,
+  base: 6360,
+  travel: 6360,
   hotels: 0,
   airlines: 0,
-  dining: 4000,
-  grocery: 5000,
-  fuel: 3000,
-  amazon: 5000,
-  upi: 5000,
-  utilities: 3000,
+  dining: 5300,
+  grocery: 5300,
+  fuel: 2650,
+  amazon: 4240,
+  upi: 4240,
+  utilities: 4240,
   rent: 0,
-  insurance: 0,
-  education: 0,
-  gold: 0,
+  insurance: 3180,
+  education: 1590,
+  gold: 1590,
   government: 0,
   international: 0
 };
