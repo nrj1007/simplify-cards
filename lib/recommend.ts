@@ -2550,8 +2550,25 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
         strategy.blendMode === "max"
           ? strategy.perLevelScore(representative)
           : perLevel.reduce((total, score, i) => total + strategy.perLevelScore(score) * spendWeights[i], 0) / blendWeightSum;
+
+      let splitOrderScore: number | undefined = undefined;
+      if (
+        input.resultStrategy === "reward-type-split" &&
+        strategy.blendMode === "weighted-average" &&
+        isPrimaryCashbackCard(representative)
+      ) {
+        splitOrderScore = perLevel.reduce((total, score) => total + strategy.perLevelScore(score), 0) / perLevel.length;
+      }
+
       return representative.envelopeScoring
-        ? { ...representative, envelopeScoring: { ...representative.envelopeScoring, normalizedFitScore: blendedFitScore } }
+        ? {
+            ...representative,
+            envelopeScoring: {
+              ...representative.envelopeScoring,
+              normalizedFitScore: blendedFitScore,
+              ...(splitOrderScore !== undefined ? { splitOrderScore } : {})
+            }
+          }
         : representative;
     })
     .sort((a, b) => {
@@ -2636,7 +2653,31 @@ export function applyResultStrategy(
     input.resultStrategy === "reward-type-split" &&
     hasSufficientDataForSplit;
 
-  const strategy = resultStrategies[useSplit ? "reward-type-split" : "single-list"];
+  if (useSplit) {
+    const isBlend = rankingStrategies[input.rankingStrategy ?? DEFAULT_RANKING_STRATEGY].blendMode === "weighted-average";
+    const rewards = byNetValue.filter((c) => !isPrimaryCashbackCard(c));
+    const cashback = byNetValue.filter((c) => isPrimaryCashbackCard(c));
+
+    if (isBlend) {
+      cashback.sort((a, b) => {
+        const scoreA = a.envelopeScoring?.splitOrderScore;
+        const scoreB = b.envelopeScoring?.splitOrderScore;
+        if (scoreA !== undefined && scoreB !== undefined) {
+          if (scoreB !== scoreA) {
+            return scoreB - scoreA;
+          }
+        }
+        return b.estimatedNetValue - a.estimatedNetValue;
+      });
+    }
+
+    return [
+      { title: "Rewards cards", cards: rewards.slice(0, maxPerSection) },
+      { title: "Cashback cards", cards: cashback.slice(0, maxPerSection) }
+    ];
+  }
+
+  const strategy = resultStrategies["single-list"];
   return strategy.group(byNetValue, maxPerSection);
 }
 
