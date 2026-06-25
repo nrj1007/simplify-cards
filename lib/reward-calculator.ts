@@ -274,24 +274,31 @@ function allocateTieredRewardUnits(card: CreditCard, monthlySpend: number, rewar
 }
 
 // Applies the monthly reward cap and any reduced post-cap rate, mirroring lib/recommend.ts.
-function cappedMonthlyUnits(card: CreditCard, monthlySpend: number, reward: Reward) {
+function cappedMonthlyUnits(card: CreditCard, monthlySpend: number, reward: Reward, totalBaseCashback?: number) {
   const earnRate = rewardEarnRatePerRs100(card, reward);
   const rawUnits = (monthlySpend * earnRate.basePerRs100) / 100;
-  if (!reward.capMonthly) return rawUnits;
+
+  let cap = reward.capMonthly;
+  if (totalBaseCashback !== undefined && reward.capMultiplierOfBaseEarn !== undefined && reward.capMultiplierOfBaseEarn !== null) {
+    const dynamicCap = totalBaseCashback * reward.capMultiplierOfBaseEarn;
+    cap = cap !== null ? Math.min(cap, dynamicCap) : dynamicCap;
+  }
+
+  if (cap === null || cap === undefined) return rawUnits;
 
   if (
     earnRate.postCapPerRs100 &&
     earnRate.postCapPerRs100 > 0 &&
-    rawUnits > reward.capMonthly &&
+    rawUnits > cap &&
     earnRate.postCapPerRs100 < earnRate.basePerRs100
   ) {
-    const spendAtCap = (reward.capMonthly * 100) / earnRate.basePerRs100;
+    const spendAtCap = (cap * 100) / earnRate.basePerRs100;
     const excessSpend = Math.max(monthlySpend - spendAtCap, 0);
     const postCapUnits = (excessSpend * earnRate.postCapPerRs100) / 100;
-    return reward.capMonthly + postCapUnits;
+    return cap + postCapUnits;
   }
 
-  return Math.min(rawUnits, reward.capMonthly);
+  return Math.min(rawUnits, cap);
 }
 
 function estimateMonthlyUnits(card: CreditCard, monthlySpend: number, rewards: Reward[]) {
@@ -383,6 +390,17 @@ export function calculateRewards(card: CreditCard, spend: SpendProfile): RewardC
     });
   }
 
+  // Sum up base cashback first for any rows matching base category.
+  let totalBaseCashback = 0;
+  for (const active of activeRows) {
+    if (isBaseRewardCategory(active.reward.category)) {
+      const earnRate = rewardEarnRatePerRs100(card, active.reward);
+      const rawUnits = (active.monthlySpend * earnRate.basePerRs100) / 100;
+      const capped = active.reward.capMonthly ? Math.min(rawUnits, active.reward.capMonthly) : rawUnits;
+      totalBaseCashback += capped;
+    }
+  }
+
   const groups = new Map<string | Reward, ActiveCategoryRow[]>();
   for (const active of activeRows) {
     const key = active.reward.capGroup ?? active.reward;
@@ -403,8 +421,12 @@ export function calculateRewards(card: CreditCard, spend: SpendProfile): RewardC
       });
 
       const totalRawUnits = itemRawUnits.reduce((sum, entry) => sum + entry.rawUnits, 0);
-      const cap = card.capGroups?.[key]?.capMonthly ?? items[0].reward.capMonthly;
-      const totalCappedUnits = typeof cap === "number" && cap > 0 ? Math.min(totalRawUnits, cap) : totalRawUnits;
+      let cap = card.capGroups?.[key]?.capMonthly ?? items[0].reward.capMonthly;
+      if (items[0].reward.capMultiplierOfBaseEarn !== undefined && items[0].reward.capMultiplierOfBaseEarn !== null) {
+        const dynamicCap = totalBaseCashback * items[0].reward.capMultiplierOfBaseEarn;
+        cap = cap !== null ? Math.min(cap, dynamicCap) : dynamicCap;
+      }
+      const totalCappedUnits = typeof cap === "number" ? Math.min(totalRawUnits, cap) : totalRawUnits;
 
       for (const { item, rawUnits, tieredAllocation } of itemRawUnits) {
         const monthlyUnits = totalRawUnits > 0 ? (totalCappedUnits * rawUnits) / totalRawUnits : 0;
@@ -425,7 +447,7 @@ export function calculateRewards(card: CreditCard, spend: SpendProfile): RewardC
       if (isTiered) {
         for (const item of items) {
           const tieredAllocation = allocateTieredRewardUnits(card, item.monthlySpend, item.rewards);
-          const monthlyUnits = tieredAllocation?.monthlyUnits ?? cappedMonthlyUnits(card, item.monthlySpend, reward);
+          const monthlyUnits = tieredAllocation?.monthlyUnits ?? cappedMonthlyUnits(card, item.monthlySpend, reward, totalBaseCashback);
           rows.push({
             category: item.category,
             monthlySpend: item.monthlySpend,
@@ -446,21 +468,27 @@ export function calculateRewards(card: CreditCard, spend: SpendProfile): RewardC
         const totalRawUnits = itemRawUnits.reduce((sum, entry) => sum + entry.rawUnits, 0);
 
         let totalCappedUnits = totalRawUnits;
-        if (reward.capMonthly) {
+        let cap = reward.capMonthly;
+        if (reward.capMultiplierOfBaseEarn !== undefined && reward.capMultiplierOfBaseEarn !== null) {
+          const dynamicCap = totalBaseCashback * reward.capMultiplierOfBaseEarn;
+          cap = cap !== null ? Math.min(cap, dynamicCap) : dynamicCap;
+        }
+
+        if (cap !== null && cap !== undefined) {
           const earnRate = rewardEarnRatePerRs100(card, reward);
           if (
             earnRate.postCapPerRs100 &&
             earnRate.postCapPerRs100 > 0 &&
-            totalRawUnits > reward.capMonthly &&
+            totalRawUnits > cap &&
             earnRate.postCapPerRs100 < earnRate.basePerRs100
           ) {
             const totalSpend = items.reduce((sum, item) => sum + item.monthlySpend, 0);
-            const spendAtCap = (reward.capMonthly * 100) / earnRate.basePerRs100;
+            const spendAtCap = (cap * 100) / earnRate.basePerRs100;
             const excessSpend = Math.max(totalSpend - spendAtCap, 0);
             const postCapUnits = (excessSpend * earnRate.postCapPerRs100) / 100;
-            totalCappedUnits = reward.capMonthly + postCapUnits;
+            totalCappedUnits = cap + postCapUnits;
           } else {
-            totalCappedUnits = Math.min(totalRawUnits, reward.capMonthly);
+            totalCappedUnits = Math.min(totalRawUnits, cap);
           }
         }
 

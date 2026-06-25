@@ -87,6 +87,10 @@ export type Reward = {
   // fall to this reward — e.g. Axis Magnus' base earns 6 EDGE/Rs 100 up to Rs 1.5L total/month and
   // 17.5 above, regardless of which categories make up that spend.
   tierScope?: "category" | "total-monthly-spend";
+  // Dynamic cap linked to the card's base earnings in the same cycle. Set to the multiplier (e.g. 2.0
+  // for twice the base cashback). When present, the row's final monthly cap is the minimum of its
+  // flat capMonthly and (multiplier * total base cashback earned by the card in the same month).
+  capMultiplierOfBaseEarn?: number | null;
 };
 
 export type Redemption = {

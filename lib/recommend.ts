@@ -1841,6 +1841,16 @@ function rewardBreakdownForCard(
     };
   };
 
+  // Sum up base cashback first for any rows matching base category.
+  let totalBaseCashback = 0;
+  for (const alloc of allocations) {
+    if (isBaseRewardCategory(alloc.reward.category)) {
+      const raw = (alloc.allocatedAmount * alloc.reward.rate) / 100;
+      const capped = alloc.reward.capMonthly ? Math.min(raw, alloc.reward.capMonthly) : raw;
+      totalBaseCashback += capped;
+    }
+  }
+
   return Array.from(buckets.entries()).flatMap(([key, items]) => {
     // Raw reward units per allocation use that allocation's own reward rate (rates can differ within
     // a cap-group, e.g. SmartBuy hotels 10X vs flights 5X).
@@ -1862,8 +1872,12 @@ function rewardBreakdownForCard(
       let groupTotal = 0;
       for (const [reward, xs] of rewardSubgroups) {
         const rawSum = xs.reduce((sum, x) => sum + x.raw, 0);
-        const rowCap = reward.capMonthly;
-        const rowScale = typeof rowCap === "number" && rowCap > 0 && rawSum > rowCap ? rowCap / rawSum : 1;
+        let rowCap = reward.capMonthly;
+        if (reward.capMultiplierOfBaseEarn !== undefined && reward.capMultiplierOfBaseEarn !== null) {
+          const dynamicCap = totalBaseCashback * reward.capMultiplierOfBaseEarn;
+          rowCap = rowCap !== null ? Math.min(rowCap, dynamicCap) : dynamicCap;
+        }
+        const rowScale = typeof rowCap === "number" ? (rowCap === 0 ? 0 : (rawSum > rowCap ? rowCap / rawSum : 1)) : 1;
         for (const x of xs) {
           const capped = x.raw * rowScale;
           perItem.push({ item: x.item, capped });
@@ -1871,22 +1885,28 @@ function rewardBreakdownForCard(
         }
       }
       const groupCap = card.capGroups?.[key]?.capMonthly ?? Math.max(0, ...items.map((i) => i.reward.capMonthly ?? 0));
-      const groupScale = groupCap > 0 && groupTotal > groupCap ? groupCap / groupTotal : 1;
+      const groupScale = groupCap !== null && groupCap !== undefined ? (groupCap === 0 ? 0 : (groupTotal > groupCap ? groupCap / groupTotal : 1)) : 1;
       return perItem.map(({ item, capped }) => toRow(item, capped * groupScale));
     }
 
     // Single reward: existing per-reward cap with post-cap fallback rate.
     const reward = key;
     let totalCappedReward = totalRawReward;
-    if (reward.capMonthly) {
-      if (reward.postCapRate && reward.postCapRate > 0 && totalRawReward > reward.capMonthly && reward.postCapRate < reward.rate) {
+    let cap = reward.capMonthly;
+    if (reward.capMultiplierOfBaseEarn !== undefined && reward.capMultiplierOfBaseEarn !== null) {
+      const dynamicCap = totalBaseCashback * reward.capMultiplierOfBaseEarn;
+      cap = cap !== null ? Math.min(cap, dynamicCap) : dynamicCap;
+    }
+
+    if (cap !== null && cap !== undefined) {
+      if (reward.postCapRate && reward.postCapRate > 0 && totalRawReward > cap && reward.postCapRate < reward.rate) {
         const totalSpend = items.reduce((sum, item) => sum + item.allocatedAmount, 0);
-        const spendAtCap = (reward.capMonthly * 100) / reward.rate;
+        const spendAtCap = (cap * 100) / reward.rate;
         const excessSpend = Math.max(totalSpend - spendAtCap, 0);
         const postCapRewardUnits = (excessSpend * reward.postCapRate) / 100;
-        totalCappedReward = reward.capMonthly + postCapRewardUnits;
+        totalCappedReward = cap + postCapRewardUnits;
       } else {
-        totalCappedReward = Math.min(totalRawReward, reward.capMonthly);
+        totalCappedReward = Math.min(totalRawReward, cap);
       }
     }
     return itemRaw.map(({ item, raw }) => toRow(item, totalRawReward > 0 ? (totalCappedReward * raw) / totalRawReward : 0));
