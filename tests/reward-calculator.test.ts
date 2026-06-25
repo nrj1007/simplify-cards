@@ -2365,14 +2365,16 @@ describe("reward calculator", () => {
         expect(resultC.rows.find((r) => r.category === "utilities")!.monthlyUnits).toBe(300);
       });
 
-      it("earns 10% cashback on dining (Swiggy/Zomato) capped at Rs 500, and 10% on groceries (Bigbasket) capped at Rs 500 (these are not subject to the base cashback cap multiplier)", () => {
+      it("earns 10% value-back on Zomato/Blinkit (swiggy zomato category) capped at Rs 200, and 10% on District Movies (dining category) capped at Rs 200 — effective April 2026", () => {
         const card = getCardById("axis-airtel");
         expect(card).toBeTruthy();
 
-        // Even with Rs 0 base spend, Swiggy/Zomato and Bigbasket still earn full 10% up to flat ₹500
-        const result = calculateRewards(card!, { dining: 6000, grocery: 6000 });
-        expect(result.rows.find((r) => r.category === "dining")!.monthlyUnits).toBe(500);
-        expect(result.rows.find((r) => r.category === "grocery")!.monthlyUnits).toBe(500);
+        // Zomato/Blinkit: 10% value-back capped at Rs 200. Spending Rs 3,000 would be Rs 300 uncapped, so cap applies.
+        const result = calculateRewards(card!, { dining: 3000, grocery: 3000 });
+        // dining maps to District Movies row (capMonthly: 200) — capped at Rs 200
+        expect(result.rows.find((r) => r.category === "dining")!.monthlyUnits).toBe(200);
+        // grocery has no accelerated row after April 2026 devaluation; falls to 1% base
+        expect(result.rows.find((r) => r.category === "base" || r.category === "grocery") ).toBeDefined();
       });
 
       it("earns 1% base cashback on general online shopping, falling back to base earn rate", () => {

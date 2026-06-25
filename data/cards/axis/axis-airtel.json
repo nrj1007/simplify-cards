@@ -11,8 +11,8 @@
   "bestFor": [
     "airtel",
     "utility bills",
-    "food delivery",
-    "bigbasket",
+    "zomato",
+    "blinkit",
     "cashback"
   ],
   "rewardType": "cashback",
@@ -36,16 +36,16 @@
     {
       "category": "swiggy zomato",
       "rate": 10,
-      "displayCategory": "Swiggy and Zomato",
-      "displayRate": "10% cashback",
-      "capMonthly": 500
+      "displayCategory": "Zomato and Blinkit (min ₹499/order, value into partner wallet)",
+      "displayRate": "10% value-back",
+      "capMonthly": 200
     },
     {
-      "category": "bigbasket",
+      "category": "dining",
       "rate": 10,
-      "displayCategory": "bigbasket and BBnow",
-      "displayRate": "10% cashback",
-      "capMonthly": 500
+      "displayCategory": "District Movies (value into District wallet)",
+      "displayRate": "10% value-back",
+      "capMonthly": 200
     },
     {
       "category": "base",
@@ -58,23 +58,15 @@
   "acceleratedShare": {
     "grocery": 0.5
   },
-  "loungeDomestic": 4,
+  "loungeDomestic": 0,
   "loungeInternational": 0,
-  "lounge": {
-    "domestic": [
-      "Domestic lounge access is available only if spends in the previous 3 months are at least Rs 50,000.",
-      "The card offers 4 complimentary domestic airport lounge visits per calendar year subject to the spend condition."
-    ]
-  },
   "forexMarkup": 3.5,
   "tags": [
     "airtel",
     "cashback",
     "utility bills",
-    "swiggy",
     "zomato",
-    "bigbasket",
-    "lounge",
+    "blinkit",
     "low fee"
   ],
   "exclusions": [
@@ -119,7 +111,9 @@
     "1% fuel surcharge waiver on fuel purchases from Rs 400 to Rs 4,000, capped at Rs 500 per statement cycle"
   ],
   "additionalDetails": [
-    "Cashback is directly credited to the credit card statement."
+    "Cashback is directly credited to the credit card statement.",
+    "Zomato, Blinkit, and District Movies value-back is credited to the respective partner wallet, not as statement credit.",
+    "Minimum order value of Rs 499 applies for Zomato and Blinkit value-back. Wallet loads and gift card purchases are excluded."
   ],
   "eligibility": {
     "salaried": [
@@ -131,7 +125,7 @@
   },
   "supportingSourceUrls": [
     "https://www.axisbank.com/retail/cards/credit-card/airtel-axis-bank-credit-card",
-    "https://www.axisbank.com/docs/default-source/default-document-library/credit-cards/terms-and-conditions-for-cashback-for-airtel-axis-bank-credit-card.pdf/1000"
+    "https://www.axisbank.com/docs/default-source/default-document-library/credit-cards/terms-and-conditions-for-cashback-for-airtel-axis-bank-credit-card.pdf"
   ],
   "imageUrl": "/images/axis-airtel.png",
   "sourceUrl": "https://www.axisbank.com/retail/cards/credit-card/airtel-axis-bank-credit-card",
@@ -142,18 +136,17 @@
     "Card details manually audited and verified by agent on 2026-06-25",
     "Card details manually reviewed and verified by user on 2026-06-02",
     "Cashback is credited directly to the credit card statement and not redeemed separately.",
-    "Domestic lounge access is available only if spends in the previous 3 months are at least Rs 50,000.",
-    "The card offers 4 complimentary domestic airport lounge visits per calendar year subject to the spend condition.",
+    "Effective 12 April 2026: Domestic lounge access (previously 4 visits/year with Rs 50,000/3-month spend gate) has been discontinued.",
+    "Effective 12 April 2026: Swiggy and BigBasket cashback removed. Zomato and Blinkit (plus District Movies) value-back introduced at 10%, capped at Rs 200 per partner per month, credited to partner wallet.",
+    "Effective 12 April 2026: Dynamic capping introduced for Airtel (25%) and utility (10%) cashback — capped at 2x and 1x base cashback respectively.",
     "25% cashback on Airtel is applicable only for recharge or bill payment of active Airtel connections via Airtel Thanks App; payments for new or inactive connections, hardware cost, installation charges, advance recharge or similar amounts are not eligible.",
-    "For bigbasket, accelerated cashback is eligible only on bigbasket and BBnow, and not on sub-brands such as the beauty store or fresho meats.",
-    "For Swiggy, accelerated cashback is eligible only on Food Delivery and Dineout, and not on Instamart or Genie.",
-    "For Zomato, accelerated cashback is eligible only on Delivery and Dining, and not on offerings such as Blinkit, District, Zomaland or Money.",
     "Accelerated cashback each month is capped at twice the base cashback earned in the same statement month.",
-    "Preferred merchant cashback is capped at Rs 500 per month billing cycle across Swiggy, Zomato and bigbasket combined.",
+    "Preferred merchant cashback (Zomato, Blinkit, District Movies) is capped at Rs 200 per partner per month, credited to respective partner wallets.",
     "1% cashback on other eligible spends has no cap.",
     "Cashback is earned basis merchant IDs / VPA IDs received from merchants, and disputes may take up to 90 days to reconcile.",
     "Cashback is credited in the next billing cycle 3 days prior to the statement generation date.",
-    "Cashback on individual transactions is rounded down to the nearest rupee."
+    "Cashback on individual transactions is rounded down to the nearest rupee.",
+    "Minimum order value of Rs 499 applies for Zomato and Blinkit value-back eligibility. Wallet loads and gift card purchases are excluded from the value-back offer."
   ],
   "popularityScore": 50
 }
