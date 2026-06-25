@@ -16,7 +16,7 @@
     "upi",
     "low fee"
   ],
-  "rewardType": "reward points",
+  "rewardType": "cashback and reward points",
   "rewards": [
     {
       "category": "phonepe",
@@ -136,7 +136,7 @@
     "Utilities and insurance spends outside PhonePe accrue only base Reward Points, with the official reward program T&C calling out a max 250 Reward Points per calendar month for those spends.",
     "All Scan & Pay transactions made using PhonePe SBI Card PURPLE accrue 1% value back.",
     "PhonePe SBI Card PURPLE is exempt from the 1 Apr 2026 statement credit redemption revision that moved most SBI cards to 4,000-point multiples and imposed a 60,000-point monthly cap.",
-    "Card details manually reviewed and verified by user on 2026-06-09."
+    "Card details manually reviewed and verified by user on 2026-06-25."
   ],
   "supportingSourceUrls": [
     "https://www.sbicard.com/en/personal/credit-cards/rewards/phonepe-sbi-card-purple.page",
@@ -148,7 +148,7 @@
   ],
   "sourceUrl": "https://www.sbicard.com/en/personal/credit-cards/rewards/phonepe-sbi-card-purple.page",
   "applyUrl": "https://www.phonepe.com/credit-cards/phonepe-sbi-card-purple-credit-card/",
-  "lastVerified": "2026-06-09",
+  "lastVerified": "2026-06-25",
   "verificationStatus": "official-direct",
   "popularityScore": 69
 }
