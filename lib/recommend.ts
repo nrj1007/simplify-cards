@@ -1591,6 +1591,19 @@ function rewardAllocationsForSpend(
   }
 
   if (category === "travel") {
+    if (card.acceleratedShare?.travel !== undefined) {
+      const travelSpecialReward = findPartnerMerchantsReward(card) ?? findDirectRewardForSpend(card, "online", false);
+      if (travelSpecialReward) {
+        const travelBaseReward = findBaseRewardForSpend(card, category);
+        const share = acceleratedShareForCategory(card, category);
+        const allocations = [
+          ...(share > 0 ? [{ amount: effectiveAmount * share, reward: travelSpecialReward }] : []),
+          ...(share < 1 && travelBaseReward ? [{ amount: effectiveAmount * (1 - share), reward: travelBaseReward }] : [])
+        ];
+        return routeToUpiWhenBetter(card, category, effectiveAmount, allocations, totalMonthlySpend);
+      }
+    }
+
     // Issuer-portal flights/hotels tiers (e.g. SmartBuy or "travel with points") apply only to
     // bookings made through the portal. Matching is limited to those — generic "airlines"/"hotels"
     // co-brand rows represent direct airline/hotel spend, not general travel.
@@ -1648,9 +1661,9 @@ function rewardAllocationsForSpend(
   // row as the narrow accelerator (so co-brand cards get honest partial credit on dining/travel/etc.
   // instead of either crediting the whole category or dropping to base).
   const specialReward = blendedSmartbuySpendCategories.includes(category)
-    ? findSpecialRewardForSpend(card, category)
+    ? (findSpecialRewardForSpend(card, category) ?? findDirectRewardForSpend(card, "online", false))
     : card.acceleratedShare?.[category] !== undefined
-      ? findPartnerMerchantsReward(card)
+      ? (findPartnerMerchantsReward(card) ?? findDirectRewardForSpend(card, "online", false))
       : null;
 
   if (specialReward && baseReward && specialReward.category !== baseReward.category) {
