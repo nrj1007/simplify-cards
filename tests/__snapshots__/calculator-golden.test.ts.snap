@@ -215,8 +215,8 @@ exports[`reward calculator golden (all cards) > computes stable earn for every c
     "moderate": "online:1250 dining:625 travel:3000 hotels:625 airlines:625 fuel:x grocery:625 utilities:3000 upi:x amazon:625 international:250 base:625 rent:x insurance:x education:x gold:x government:250 |11500 (surcharge:250)",
   },
   "csb-jupiter-edge-plus": {
-    "high": "online:10000 dining:714 travel:714 hotels:714 airlines:5000 fuel:x grocery:714 utilities:x upi:714 amazon:714 international:0 base:714 rent:x insurance:0 education:x gold:0 government:x |20000 (surcharge:4000)",
-    "moderate": "online:10000 dining:714 travel:714 hotels:714 airlines:5000 fuel:x grocery:714 utilities:x upi:714 amazon:714 international:0 base:714 rent:x insurance:0 education:x gold:0 government:x |20000 (surcharge:500)",
+    "high": "online:10000 dining:500 travel:500 hotels:500 airlines:5000 fuel:x grocery:500 utilities:x upi:500 amazon:500 international:500 base:500 rent:x insurance:500 education:x gold:500 government:x |20000 (surcharge:4000)",
+    "moderate": "online:10000 dining:500 travel:500 hotels:500 airlines:5000 fuel:x grocery:500 utilities:x upi:500 amazon:500 international:500 base:500 rent:x insurance:500 education:x gold:500 government:x |20000 (surcharge:500)",
   },
   "cub-salaryse-level-up": {
     "high": "online:19000 dining:19000 travel:19000 hotels:19000 airlines:19000 fuel:x grocery:19000 utilities:19000 upi:19000 amazon:19000 international:2000 base:19000 rent:2000 insurance:2000 education:2000 gold:x government:2000 |200000 (surcharge:2000)",
@@ -439,8 +439,8 @@ exports[`reward calculator golden (all cards) > computes stable earn for every c
     "moderate": "online:375 dining:1250 travel:1250 hotels:375 airlines:375 fuel:x grocery:375 utilities:125 upi:375 amazon:375 international:1250 base:375 rent:375 insurance:125 education:375 gold:375 government:375 |8125 (surcharge:250)",
   },
   "idfc-first-earn": {
-    "high": "online:100 dining:71 travel:71 hotels:71 airlines:71 fuel:100 grocery:71 utilities:100 upi:71 amazon:71 international:0 base:100 rent:0 insurance:100 education:0 gold:0 government:0 |1000 (surcharge:2000)",
-    "moderate": "online:50 dining:50 travel:50 hotels:50 airlines:50 fuel:125 grocery:50 utilities:50 upi:50 amazon:50 international:0 base:50 rent:0 insurance:125 education:0 gold:0 government:0 |750 (surcharge:250)",
+    "high": "online:31 dining:31 travel:31 hotels:31 airlines:31 fuel:31 grocery:31 utilities:31 upi:500 amazon:31 international:31 base:31 rent:31 insurance:31 education:31 gold:31 government:31 |1000 (surcharge:2000)",
+    "moderate": "online:50 dining:50 travel:50 hotels:50 airlines:50 fuel:71 grocery:50 utilities:50 upi:50 amazon:50 international:71 base:50 rent:71 insurance:71 education:71 gold:71 government:71 |1000 (surcharge:250)",
   },
   "idfc-first-millennia": {
     "high": "online:3000 dining:10000 travel:10000 hotels:3000 airlines:3000 fuel:x grocery:3000 utilities:1000 upi:3000 amazon:3000 international:10000 base:3000 rent:3000 insurance:1000 education:3000 gold:3000 government:3000 |65000 (surcharge:2000)",
@@ -471,8 +471,8 @@ exports[`reward calculator golden (all cards) > computes stable earn for every c
     "moderate": "online:1667 dining:1667 travel:1667 hotels:833 airlines:833 fuel:x grocery:833 utilities:167 upi:833 amazon:833 international:1667 base:833 rent:500 insurance:167 education:500 gold:833 government:500 |14333 (surcharge:250)",
   },
   "idfc-wow": {
-    "high": "online:4000 dining:0 travel:1000 hotels:0 airlines:0 fuel:x grocery:0 utilities:1000 upi:0 amazon:0 international:4000 base:4000 rent:0 insurance:1000 education:0 gold:0 government:1000 |16000 (surcharge:2000)",
-    "moderate": "online:500 dining:0 travel:125 hotels:0 airlines:0 fuel:x grocery:0 utilities:125 upi:0 amazon:0 international:500 base:500 rent:0 insurance:125 education:0 gold:0 government:125 |2000 (surcharge:250)",
+    "high": "online:4000 dining:4000 travel:1000 hotels:4000 airlines:4000 fuel:x grocery:4000 utilities:1000 upi:4000 amazon:4000 international:4000 base:4000 rent:4000 insurance:1000 education:4000 gold:4000 government:1000 |52000 (surcharge:2000)",
+    "moderate": "online:500 dining:500 travel:125 hotels:500 airlines:500 fuel:x grocery:500 utilities:125 upi:500 amazon:500 international:500 base:500 rent:500 insurance:125 education:500 gold:500 government:125 |6500 (surcharge:250)",
   },
   "indigo-sbi": {
     "high": "online:2000 dining:2000 travel:6000 hotels:4000 airlines:2000 fuel:x grocery:2000 utilities:2000 upi:2000 amazon:2000 international:2000 base:2000 rent:x insurance:2000 education:x gold:2000 government:2000 |34000 (surcharge:2000)",
@@ -551,12 +551,12 @@ exports[`reward calculator golden (all cards) > computes stable earn for every c
     "moderate": "online:500 dining:250 travel:250 hotels:250 airlines:250 fuel:x grocery:250 utilities:250 upi:250 amazon:250 international:250 base:250 rent:x insurance:x education:x gold:250 government:x |3250 (surcharge:250)",
   },
   "kotak-cashback-plus": {
-    "high": "online:1000 dining:1000 travel:1000 hotels:1000 airlines:1000 fuel:750 grocery:1000 utilities:x upi:1000 amazon:1000 international:0 base:1000 rent:x insurance:x education:x gold:0 government:x |9750 (surcharge:2000)",
-    "moderate": "online:750 dining:125 travel:125 hotels:125 airlines:125 fuel:750 grocery:750 utilities:x upi:125 amazon:125 international:0 base:125 rent:x insurance:x education:x gold:0 government:x |3125 (surcharge:250)",
+    "high": "online:1000 dining:1000 travel:1000 hotels:1000 airlines:1000 fuel:750 grocery:1000 utilities:x upi:1000 amazon:1000 international:1000 base:1000 rent:x insurance:x education:x gold:1000 government:x |11750 (surcharge:2000)",
+    "moderate": "online:750 dining:125 travel:125 hotels:125 airlines:125 fuel:750 grocery:750 utilities:x upi:125 amazon:125 international:125 base:125 rent:x insurance:x education:x gold:125 government:x |3375 (surcharge:250)",
   },
   "kotak-indianoil": {
-    "high": "online:4000 dining:4000 travel:4000 hotels:4000 airlines:4000 fuel:x grocery:4000 utilities:4000 upi:4000 amazon:4000 international:0 base:4000 rent:x insurance:x education:x gold:0 government:x |40000 (surcharge:2000)",
-    "moderate": "online:500 dining:400 travel:500 hotels:500 airlines:500 fuel:x grocery:400 utilities:500 upi:500 amazon:500 international:0 base:500 rent:x insurance:x education:x gold:0 government:x |4800 (surcharge:250)",
+    "high": "online:4000 dining:4000 travel:4000 hotels:4000 airlines:4000 fuel:x grocery:4000 utilities:4000 upi:4000 amazon:4000 international:4000 base:4000 rent:x insurance:x education:x gold:4000 government:x |48000 (surcharge:2000)",
+    "moderate": "online:500 dining:400 travel:500 hotels:500 airlines:500 fuel:x grocery:400 utilities:500 upi:500 amazon:500 international:500 base:500 rent:x insurance:x education:x gold:500 government:x |5800 (surcharge:250)",
   },
   "kotak-infinite": {
     "high": "online:800 dining:800 travel:800 hotels:800 airlines:800 fuel:x grocery:800 utilities:x upi:800 amazon:800 international:800 base:800 rent:x insurance:x education:x gold:800 government:x |8800 (surcharge:2000)",
@@ -583,8 +583,8 @@ exports[`reward calculator golden (all cards) > computes stable earn for every c
     "moderate": "online:750 dining:750 travel:2500 hotels:750 airlines:750 fuel:x grocery:750 utilities:x upi:750 amazon:750 international:x base:750 rent:x insurance:x education:x gold:750 government:x |9250 (surcharge:250)",
   },
   "kotak-upi-rupay": {
-    "high": "online:6000 dining:6000 travel:6000 hotels:6000 airlines:6000 fuel:x grocery:6000 utilities:6000 upi:6000 amazon:6000 international:0 base:6000 rent:x insurance:x education:x gold:0 government:x |60000 (surcharge:2000)",
-    "moderate": "online:750 dining:750 travel:750 hotels:750 airlines:750 fuel:x grocery:750 utilities:750 upi:750 amazon:750 international:0 base:750 rent:x insurance:x education:x gold:0 government:x |7500 (surcharge:250)",
+    "high": "online:6000 dining:6000 travel:6000 hotels:6000 airlines:6000 fuel:x grocery:6000 utilities:6000 upi:6000 amazon:6000 international:6000 base:6000 rent:x insurance:x education:x gold:6000 government:x |72000 (surcharge:2000)",
+    "moderate": "online:750 dining:750 travel:750 hotels:750 airlines:750 fuel:x grocery:750 utilities:750 upi:750 amazon:750 international:750 base:750 rent:x insurance:x education:x gold:750 government:x |9000 (surcharge:250)",
   },
   "kotak-white": {
     "high": "online:0 dining:0 travel:0 hotels:0 airlines:0 fuel:x grocery:0 utilities:0 upi:0 amazon:0 international:0 base:0 rent:x insurance:x education:x gold:0 government:x |0 (surcharge:2000)",
@@ -755,12 +755,12 @@ exports[`reward calculator golden (all cards) > computes stable earn for every c
     "moderate": "online:833 dining:833 travel:833 hotels:833 airlines:833 fuel:x grocery:500 utilities:500 upi:833 amazon:833 international:833 base:833 rent:500 insurance:500 education:500 gold:833 government:500 |11333 (surcharge:250)",
   },
   "scapia-bobcard": {
-    "high": "online:4000 dining:2000 travel:8000 hotels:2000 airlines:2000 fuel:x grocery:2000 utilities:x upi:2000 amazon:2000 international:0 base:4000 rent:x insurance:x education:x gold:0 government:x |28000 (surcharge:2000)",
-    "moderate": "online:500 dining:250 travel:1000 hotels:250 airlines:250 fuel:x grocery:250 utilities:x upi:250 amazon:250 international:0 base:500 rent:x insurance:x education:x gold:0 government:x |3500 (surcharge:250)",
+    "high": "online:4000 dining:4000 travel:8000 hotels:4000 airlines:4000 fuel:x grocery:4000 utilities:x upi:2000 amazon:4000 international:4000 base:4000 rent:x insurance:x education:x gold:4000 government:x |46000 (surcharge:2000)",
+    "moderate": "online:500 dining:500 travel:1000 hotels:500 airlines:500 fuel:x grocery:500 utilities:x upi:250 amazon:500 international:500 base:500 rent:x insurance:x education:x gold:500 government:x |5750 (surcharge:250)",
   },
   "scapia-federal": {
-    "high": "online:4000 dining:2000 travel:8000 hotels:2000 airlines:2000 fuel:x grocery:2000 utilities:x upi:2000 amazon:2000 international:0 base:4000 rent:x insurance:x education:x gold:0 government:x |28000 (surcharge:2000)",
-    "moderate": "online:500 dining:250 travel:1000 hotels:250 airlines:250 fuel:x grocery:250 utilities:x upi:250 amazon:250 international:0 base:500 rent:x insurance:x education:x gold:0 government:x |3500 (surcharge:250)",
+    "high": "online:4000 dining:4000 travel:8000 hotels:4000 airlines:4000 fuel:x grocery:4000 utilities:x upi:2000 amazon:4000 international:4000 base:4000 rent:x insurance:x education:x gold:4000 government:x |46000 (surcharge:2000)",
+    "moderate": "online:500 dining:500 travel:1000 hotels:500 airlines:500 fuel:x grocery:500 utilities:x upi:250 amazon:500 international:500 base:500 rent:x insurance:x education:x gold:500 government:x |5750 (surcharge:250)",
   },
   "shaurya-sbi": {
     "high": "online:2000 dining:10000 travel:2000 hotels:2000 airlines:2000 fuel:x grocery:10000 utilities:2000 upi:2000 amazon:2000 international:2000 base:2000 rent:x insurance:2000 education:2000 gold:2000 government:x |44000 (surcharge:2000)",

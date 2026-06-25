@@ -60,17 +60,10 @@
       "tierScope": "category"
     },
     {
-      "category": "base",
-      "displayCategory": "Offline retail spends",
+      "category": "base, travel",
+      "displayCategory": "Offline retail and travel spends",
       "rate": 0.75,
-      "displayRate": "0.75% cashback on offline spends",
-      "capMonthly": null
-    },
-    {
-      "category": "travel",
-      "displayCategory": "Travel spends (online and offline)",
-      "rate": 0.75,
-      "displayRate": "0.75% cashback on travel spends",
+      "displayRate": "0.75% cashback",
       "capMonthly": null
     },
     {

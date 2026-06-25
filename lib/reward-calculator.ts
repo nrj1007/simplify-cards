@@ -124,8 +124,8 @@ export function isCategoryExcluded(card: CreditCard, category: SpendCategory): b
 }
 
 function isBaseRewardCategory(category: string): boolean {
-  const lower = category.toLowerCase();
-  return lower === "base" || lower === "retail" || lower === "offline";
+  const parts = category.split(",").map((c) => c.trim().toLowerCase());
+  return parts.some((p) => p === "base" || p === "retail" || p === "offline");
 }
 
 // A spend category earns at a dedicated (non-base) rate on this card.

@@ -1385,8 +1385,8 @@ function cappedSpendAmountForCategory(card: CreditCard, category: SpendCategory,
 }
 
 function isBaseRewardCategory(category: string): boolean {
-  const lower = category.toLowerCase();
-  return lower === "base" || lower === "retail" || lower === "offline";
+  const parts = category.split(",").map((c) => c.trim().toLowerCase());
+  return parts.some((p) => p === "base" || p === "retail" || p === "offline");
 }
 
 function findBaseRewardForSpend(card: CreditCard, category: SpendCategory) {
