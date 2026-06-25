@@ -1592,7 +1592,10 @@ function rewardAllocationsForSpend(
 
   if (category === "travel") {
     if (card.acceleratedShare?.travel !== undefined) {
-      const travelSpecialReward = findPartnerMerchantsReward(card) ?? findDirectRewardForSpend(card, "online", false);
+      const travelSpecialReward =
+        findDirectRewardForSpend(card, "phonepe", false) ??
+        findPartnerMerchantsReward(card) ??
+        findDirectRewardForSpend(card, "online", false);
       if (travelSpecialReward) {
         const travelBaseReward = findBaseRewardForSpend(card, category);
         const share = acceleratedShareForCategory(card, category);
@@ -1727,14 +1730,14 @@ function findRewardForSpend(card: CreditCard, category: SpendCategory, includeSm
   );
 }
 
-function findDirectRewardForSpend(card: CreditCard, category: SpendCategory, includeSmartbuyLikeRewards: boolean) {
-  const aliases = aliasesForSpendCategory(category, includeSmartbuyLikeRewards);
+function findDirectRewardForSpend(card: CreditCard, category: string, includeSmartbuyLikeRewards: boolean) {
+  const aliases = aliasesForSpendCategory(category as SpendCategory, includeSmartbuyLikeRewards);
   const targetCategoryLower = category.toLowerCase();
   return (
     card.rewards.find((reward) => {
       const rewardCategories = reward.category.split(",").map((c) => c.trim().toLowerCase());
       return (
-        aliases.some((alias) => rewardCategories.includes(alias.toLowerCase())) ||
+        (aliases && aliases.some((alias) => rewardCategories.includes(alias.toLowerCase()))) ||
         rewardCategories.includes(targetCategoryLower)
       );
     }) ??

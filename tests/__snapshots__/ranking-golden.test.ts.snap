@@ -282,8 +282,8 @@ exports[`ranking golden (max-yield) > produces stable top-N ordering per scenari
     "hsbc-travelone",
     "hdfc-infinia-metal",
     "axis-atlas",
+    "phonepe-sbi-select-black",
     "axis-airtel",
-    "amex-platinum-travel",
   ],
   "lounge-query": [
     "hsbc-premier",
@@ -296,8 +296,8 @@ exports[`ranking golden (max-yield) > produces stable top-N ordering per scenari
     "hdfc-regalia-gold",
     "hdfc-infinia-metal",
     "axis-atlas",
+    "phonepe-sbi-select-black",
     "amex-platinum-travel",
-    "axis-airtel",
   ],
   "max-fee-5000-query": [
     "kotak-infinite",
@@ -307,10 +307,10 @@ exports[`ranking golden (max-yield) > produces stable top-N ordering per scenari
     "hsbc-travelone",
     "hdfc-regalia-gold",
     "axis-atlas",
+    "phonepe-sbi-select-black",
     "amex-platinum-travel",
     "axis-airtel",
     "csb-jupiter-edge-plus",
-    "phonepe-sbi-select-black",
     "kotak-solitaire",
   ],
   "max-fee-zero": [
@@ -391,8 +391,8 @@ exports[`ranking golden (max-yield) > produces stable top-N ordering per scenari
     "hdfc-regalia-gold",
     "kotak-solitaire",
     "axis-atlas",
-    "hdfc-shoppers-stop-black",
     "phonepe-sbi-select-black",
+    "hdfc-shoppers-stop-black",
     "yes-marquee",
     "axis-magnus-burgundy",
     "bobcard-etihad-guest-premium",
@@ -552,8 +552,8 @@ exports[`ranking golden (max-yield) > produces stable top-N ordering per scenari
     "axis-atlas",
   ],
   "usecase-cashback": [
-    "axis-airtel",
     "phonepe-sbi-select-black",
+    "axis-airtel",
     "hdfc-swiggy",
     "yes-kiwi",
     "hdfc-swiggy-black",
@@ -622,8 +622,8 @@ exports[`ranking golden (max-yield) > produces stable top-N ordering per scenari
   ],
   "usecase-online": [
     "csb-jupiter-edge-plus",
-    "indusind-eazydiner",
     "phonepe-sbi-select-black",
+    "indusind-eazydiner",
     "sbi-cashback",
     "kotak-cashback-plus",
     "axis-cashback",
@@ -683,9 +683,9 @@ exports[`ranking golden (representative queries) > produces stable top-N orderin
   ],
   "category-bill-payments": [
     "icici-emeralde-private-metal",
+    "phonepe-sbi-select-black",
     "hdfc-phonepe-ultimo",
     "sc-ultimate",
-    "phonepe-sbi-select-black",
     "amex-gold",
     "hdfc-indianoil",
     "hdfc-infinia-metal",
@@ -739,9 +739,9 @@ exports[`ranking golden (representative queries) > produces stable top-N orderin
   ],
   "category-utilities": [
     "icici-emeralde-private-metal",
+    "phonepe-sbi-select-black",
     "hdfc-phonepe-ultimo",
     "sc-ultimate",
-    "phonepe-sbi-select-black",
     "amex-gold",
     "hdfc-infinia-metal",
     "cheq-au",
@@ -757,9 +757,9 @@ exports[`ranking golden (representative queries) > produces stable top-N orderin
     "sbi-card-prime",
     "icici-emeralde-private-metal",
     "sc-super-value-titanium",
+    "phonepe-sbi-select-black",
     "hdfc-phonepe-ultimo",
     "sc-ultimate",
-    "phonepe-sbi-select-black",
     "icici-hpcl-super-saver",
     "amex-gold",
     "bobcard-hpcl-energie",
@@ -909,9 +909,9 @@ exports[`ranking golden (representative queries) > produces stable top-N orderin
     "icici-hpcl-super-saver",
   ],
   "issuer-sbi": [
+    "phonepe-sbi-select-black",
     "krisflyer-sbi-apex",
     "tata-neu-infinity-sbi",
-    "phonepe-sbi-select-black",
     "aurum-sbi",
     "titan-sbi",
     "indigo-sbi-elite",
@@ -972,11 +972,11 @@ exports[`ranking golden (representative queries) > produces stable top-N orderin
     "bobcard-etihad-guest-premium",
     "sc-ultimate",
     "amex-platinum-travel",
+    "phonepe-sbi-select-black",
     "equitas-powermiles",
     "equitas-selfe",
     "cheq-au",
     "hdfc-marriott-bonvoy",
-    "amex-gold",
   ],
   "max-fee-zero": [
     "kotak-solitaire",
@@ -1056,8 +1056,8 @@ exports[`ranking golden (representative queries) > produces stable top-N orderin
     "hdfc-regalia-gold",
     "kotak-solitaire",
     "axis-atlas",
-    "hdfc-shoppers-stop-black",
     "phonepe-sbi-select-black",
+    "hdfc-shoppers-stop-black",
     "yes-marquee",
     "axis-magnus-burgundy",
     "bobcard-etihad-guest-premium",
@@ -1480,10 +1480,10 @@ exports[`result split golden (all query modes) > snapshots section membership fo
   "forex": {
     "Cashback cards": [
       "hsbc-live-plus",
+      "phonepe-sbi-select-black",
       "titan-sbi",
       "yes-kiwi",
       "hsbc-rupay-cashback",
-      "phonepe-sbi-select-black",
     ],
     "Rewards cards": [
       "hsbc-premier",
@@ -1619,7 +1619,7 @@ exports[`result split golden (all query modes) > snapshots section membership fo
       "titan-sbi",
       "hsbc-rupay-cashback",
       "hdfc-phonepe-ultimo",
-      "rbl-patanjali-swarn",
+      "phonepe-sbi-select-black",
     ],
     "Rewards cards": [
       "hsbc-premier",
@@ -1635,7 +1635,7 @@ exports[`result split golden (all query modes) > snapshots section membership fo
       "titan-sbi",
       "hsbc-rupay-cashback",
       "hdfc-phonepe-ultimo",
-      "rbl-patanjali-swarn",
+      "phonepe-sbi-select-black",
     ],
     "Rewards cards": [
       "hsbc-premier",
@@ -1867,9 +1867,9 @@ exports[`result split golden (all query modes) > snapshots section membership fo
     "Cashback cards": [
       "hdfc-swiggy",
       "hsbc-live-plus",
+      "phonepe-sbi-select-black",
       "yes-kiwi",
       "hdfc-swiggy-black",
-      "phonepe-sbi-select-black",
     ],
     "Rewards cards": [
       "hsbc-premier",
@@ -1897,9 +1897,9 @@ exports[`result split golden (all query modes) > snapshots section membership fo
   },
   "spend-level-mid": {
     "Cashback cards": [
+      "phonepe-sbi-select-black",
       "hsbc-live-plus",
       "hdfc-swiggy",
-      "phonepe-sbi-select-black",
       "yes-kiwi",
       "hdfc-swiggy-black",
     ],
@@ -1913,8 +1913,8 @@ exports[`result split golden (all query modes) > snapshots section membership fo
   },
   "spend-travel-heavy": {
     "Cashback cards": [
-      "yes-kiwi",
       "phonepe-sbi-select-black",
+      "yes-kiwi",
       "sbi-cashback",
       "yes-paisabazaar-paisasave",
       "axis-ace",
@@ -2018,7 +2018,7 @@ exports[`result split golden (all query modes) > snapshots section membership fo
       "axis-ace",
       "axis-fibe",
       "apollo-sbi-select",
-      "hsbc-rupay-cashback",
+      "phonepe-sbi-select-black",
     ],
     "Rewards cards": [
       "hsbc-premier",
