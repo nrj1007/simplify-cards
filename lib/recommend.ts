@@ -2509,42 +2509,23 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
       // its all-round performance — so no single trivial-spend tier can inflate it. The blend is a
       // weighted average leaning toward higher-spend levels (see blendAnnualSpendLevelWeights).
       let spendLevels = strategy.spendLevels;
+      // Cashback cards in the split+blend quadrant are ordered within the Cashback section by a
+      // dedicated low/mid-spend evaluation (see splitOrderScore below). Their representative/display
+      // value and global ranking key stay on the default spend levels — this flag only gates that
+      // separate ordering signal, so it must not touch spendLevels/spendWeights here.
       const isSplitBlendCashback =
         input.resultStrategy === "reward-type-split" &&
         strategy.blendMode === "weighted-average" &&
         isPrimaryCashbackCard({ card } as CardScore);
 
-      if (isSplitBlendCashback) {
-        spendLevels = [100000, 200000, 300000, 500000];
-      } else if (restrictToUpiCards) {
+      if (restrictToUpiCards) {
         spendLevels = [100000, 200000, 300000];
       } else if (isUtilityLikeCategory) {
         spendLevels = [100000, 200000, 300000];
       }
 
       let spendWeights = strategy.spendWeights;
-      if (isSplitBlendCashback) {
-        const totalAnnualSpend = input.spend ? annualSpendTotal(input.spend) : 0;
-
-        const isLowFee =
-          wantsLifetimeFree ||
-          (effectiveMaxAnnualFee !== undefined && effectiveMaxAnnualFee <= 1000) ||
-          (effectiveMaxAnnualFee === undefined && (
-            intent.useCases.includes("cashback") ||
-            normalizeForMatch(input.query).includes("cashback") ||
-            (input.spend !== undefined && totalAnnualSpend <= 300000)
-          ));
-
-        const isEqualWeight =
-          (effectiveMaxAnnualFee !== undefined && effectiveMaxAnnualFee > 1000 && effectiveMaxAnnualFee <= 5000) ||
-          (input.spend !== undefined && totalAnnualSpend > 300000 && totalAnnualSpend < 1000000);
-
-        if (isLowFee) {
-          spendWeights = [1.75, 1.5, 1.25, 1];
-        } else if (isEqualWeight) {
-          spendWeights = [1, 1, 1, 1];
-        }
-      } else if (restrictToUpiCards) {
+      if (restrictToUpiCards) {
         spendWeights = [2, 1.5, 1];
       } else if (isUtilityLikeCategory) {
         spendWeights = [1, 1, 1]; // Equal weight
@@ -2554,11 +2535,9 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
         const isLowFee =
           wantsLifetimeFree ||
           (effectiveMaxAnnualFee !== undefined && effectiveMaxAnnualFee <= 1000) ||
-          (effectiveMaxAnnualFee === undefined && (
-            intent.useCases.includes("cashback") ||
-            normalizeForMatch(input.query).includes("cashback") ||
-            (input.spend !== undefined && totalAnnualSpend <= 300000)
-          ));
+          intent.useCases.includes("cashback") ||
+          normalizeForMatch(input.query).includes("cashback") ||
+          (input.spend !== undefined && totalAnnualSpend <= 300000);
 
         const isEqualWeight =
           (effectiveMaxAnnualFee !== undefined && effectiveMaxAnnualFee > 1000 && effectiveMaxAnnualFee <= 5000) ||
@@ -2581,13 +2560,18 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
           ? strategy.perLevelScore(representative)
           : perLevel.reduce((total, score, i) => total + strategy.perLevelScore(score) * spendWeights[i], 0) / blendWeightSum;
 
+      // Cashback section ordering signal (split+blend only): an equal-weighted blend of the card's
+      // net value at realistic low/mid spend [1L,2L,3L,5L]. Computed on a dedicated evaluation so the
+      // card's representative/display value and global ranking key remain on the default spend levels.
       let splitOrderScore: number | undefined = undefined;
-      if (
-        input.resultStrategy === "reward-type-split" &&
-        strategy.blendMode === "weighted-average" &&
-        isPrimaryCashbackCard(representative)
-      ) {
-        splitOrderScore = perLevel.reduce((total, score) => total + strategy.perLevelScore(score), 0) / perLevel.length;
+      if (isSplitBlendCashback) {
+        const cashbackOrderLevels = [100000, 200000, 300000, 500000];
+        const cashbackPerLevel = cashbackOrderLevels.map((annualSpend) => {
+          const monthlySpend = Math.round(annualSpend / 12);
+          return scoreCardForSpend(card, scaleSpendProfileToMonthly(spend, monthlySpend), monthlySpend);
+        });
+        splitOrderScore =
+          cashbackPerLevel.reduce((total, score) => total + strategy.perLevelScore(score), 0) / cashbackPerLevel.length;
       }
 
       return representative.envelopeScoring

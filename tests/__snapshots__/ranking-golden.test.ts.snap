@@ -1910,11 +1910,11 @@ exports[`result split golden (all query modes) > snapshots section membership fo
   },
   "usecase-cashback": {
     "": [
-      "hdfc-swiggy",
-      "hdfc-swiggy-orange",
-      "hdfc-swiggy-black",
-      "hsbc-live-plus",
-      "axis-airtel",
+      "titan-sbi",
+      "axis-cashback",
+      "yes-kiwi",
+      "flipkart-sbi",
+      "axis-flipkart",
     ],
   },
   "usecase-dining": {
