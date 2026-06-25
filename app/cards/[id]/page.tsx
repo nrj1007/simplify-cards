@@ -292,7 +292,11 @@ export default async function CardPage({ params, searchParams }: Props) {
   const showHotelGroup = hotelPartners.some((partner) => typeof partner.group === "string");
   const showVoucherTat = voucherPartners.some((partner) => typeof partner.tatDays === "number");
   const hasDailyCap = rewardRows.some(({ reward }) => typeof reward.capDaily === "number" && reward.capDaily > 0);
-  const hasMonthlyCap = rewardRows.some(({ reward }) => typeof reward.capMonthly === "number" && reward.capMonthly > 0);
+  const hasMonthlyCap = rewardRows.some(
+    ({ reward }) =>
+      (typeof reward.capMonthly === "number" && reward.capMonthly > 0) ||
+      typeof reward.capMultiplierOfBaseEarn === "number"
+  );
   const hasStatementQuarterCap = rewardRows.some(
     ({ reward }) => typeof reward.capStatementQuarter === "number" && reward.capStatementQuarter > 0
   );
@@ -649,7 +653,13 @@ export default async function CardPage({ params, searchParams }: Props) {
                           </td>
                           <td>{formatRewardRate(card, reward)}</td>
                           {hasDailyCap && <td className="cap-column">{formatRewardCap(reward.capDaily, card.rewardType)}</td>}
-                          {hasMonthlyCap && <td className="cap-column">{formatRewardCap(reward.capMonthly, card.rewardType)}</td>}
+                          {hasMonthlyCap && (
+                            <td className="cap-column">
+                              {typeof reward.capMultiplierOfBaseEarn === "number"
+                                ? `${reward.capMultiplierOfBaseEarn}\u00D7 base cashback`
+                                : formatRewardCap(reward.capMonthly, card.rewardType)}
+                            </td>
+                          )}
                           {hasStatementQuarterCap && (
                             <td className="cap-column">{formatStatementQuarterCap(reward.capStatementQuarter)}</td>
                           )}
