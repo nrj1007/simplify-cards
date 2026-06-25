@@ -10,13 +10,14 @@
   "annualFee": 1499,
   "feeWaiverSpend": 200000,
   "bestFor": [
+    "cashback",
     "fuel",
     "bpcl",
     "bharatgas",
     "grocery",
     "dining"
   ],
-  "rewardType": "reward points",
+  "rewardType": "cashback and reward points",
   "rewards": [
     {
       "category": "fuel",
@@ -56,6 +57,7 @@
   },
   "forexMarkup": 3.5,
   "tags": [
+    "cashback",
     "fuel",
     "bpcl",
     "bharatgas",
@@ -111,16 +113,16 @@
     "Reward Points expire after 24 months.",
     "The live product page positions the card as offering 7.25% value back on BPCL purchases, which is effectively the 25 Reward Points per Rs 100 earn plus surcharge waiver framing; the rewards table keeps the points structure as the canonical model.",
     "The current official card materials show Visa and RuPay acceptance references for the card booklet, so both networks are retained.",
-    "Card details manually reviewed and verified by user on 2026-06-08"
+    "Card details manually reviewed and verified by user on 2026-06-25."
   ],
   "supportingSourceUrls": [
     "https://www.sbicard.com/en/personal/credit-cards/bpcl-sbi-card-octane.html",
     "https://www.sbicard.com/sbi-card-en/assets/docs/pdf/ekit-tncs/BPCLOctanetnc.pdf"
   ],
   "sourceUrl": "https://www.sbicard.com/en/personal/credit-cards/bpcl-sbi-card-octane.html",
-  "applyUrl": "https://www.sbicard.com/en/personal/credit-cards/bpcl-sbi-card-octane.html",
+  "applyUrl": "https://www.sbicard.com/en/personal/credit-cards/bpcl-sbi-octane.html",
   "imageUrl": "/images/bpcl-sbi-octane.png",
-  "lastVerified": "2026-06-08",
+  "lastVerified": "2026-06-25",
   "verificationStatus": "official-direct",
   "popularityScore": 75
 }

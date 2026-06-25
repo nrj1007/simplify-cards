@@ -1053,12 +1053,12 @@ function effectivePointValue(card: CreditCard, monthlySpend: number, fuelFocus =
 }
 
 function baseRewardUnitValue(card: CreditCard) {
+  const explicitValue = estimatePointUnitValue(card);
+  if (explicitValue > 0) return explicitValue;
+
   const rewardType = normalizeForMatch(card.rewardType);
 
   if (rewardType.includes("cashback")) return 1;
-
-  const explicitValue = estimatePointUnitValue(card);
-  if (explicitValue > 0) return explicitValue;
 
   if (
     rewardType.includes("point") ||

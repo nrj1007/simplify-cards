@@ -11,13 +11,14 @@
   "annualFee": 499,
   "feeWaiverSpend": 50000,
   "bestFor": [
+    "cashback",
     "fuel",
     "bpcl",
     "grocery",
     "dining",
     "low fee"
   ],
-  "rewardType": "reward points",
+  "rewardType": "cashback and reward points",
   "rewards": [
     {
       "category": "fuel",
@@ -45,6 +46,7 @@
   "loungeInternational": 0,
   "forexMarkup": 3.5,
   "tags": [
+    "cashback",
     "fuel",
     "bpcl",
     "grocery",
@@ -105,14 +107,14 @@
   },
   "internalNotes": [
     "Audited against official SBI Card BPCL product page on 2026-06-13.",
-    "Card details manually reviewed and verified by user on 2026-06-13."
+    "Card details manually reviewed and verified by user on 2026-06-25."
   ],
   "supportingSourceUrls": [
     "https://www.sbicard.com/en/personal/credit-cards/bpcl-sbi-card.html"
   ],
   "sourceUrl": "https://www.sbicard.com/en/personal/credit-cards/bpcl-sbi-card.html",
   "applyUrl": "https://www.sbicard.com/en/personal/credit-cards/bpcl-sbi-card.html",
-  "lastVerified": "2026-06-13",
+  "lastVerified": "2026-06-25",
   "verificationStatus": "official-direct",
   "popularityScore": 64
 }

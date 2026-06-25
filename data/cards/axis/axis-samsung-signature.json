@@ -22,6 +22,7 @@
       "displayCategory": "Samsung purchases (eligible online & offline channels)",
       "rate": 10,
       "displayRate": "10% Cashback on Samsung purchases (up to Rs 2,500/month)",
+      "valuePerUnit": 1.0,
       "capMonthly": 2500
     },
     {
