@@ -100,6 +100,7 @@
   "additionalDetails": [
     "Jewels are worth ₹0.20 when redeemed for vouchers, digital gold, or flights/hotels via the Jupiter ecosystem",
     "Jewels are worth ₹0.14 when redeemed as statement credit or cash equivalents",
+    "Jewels can be transferred to Air India Maharaja Club at a 6:1 ratio (minimum 60 Jewels)",
     "A per-merchant capping of 3,000 Jewels and a per-transaction capping of 1,000 Jewels applies on Preferred Brands shopping",
     "A 1% transaction fee applies on education spends"
   ],
@@ -113,6 +114,14 @@
         "ratio": "1:1",
         "valuePerPoint": 0.20,
         "note": "₹0.20 per Jewel when redeemed for brand vouchers, digital gold, or flights via Jupiter"
+      }
+    ],
+    "airlinePartners": [
+      {
+        "airline": "Air India",
+        "programme": "Maharaja Club",
+        "ratio": "6:1",
+        "tatDays": 5
       }
     ]
   },
