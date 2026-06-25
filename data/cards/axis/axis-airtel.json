@@ -53,6 +53,9 @@
       "capMonthly": null
     }
   ],
+  "acceleratedShare": {
+    "grocery": 0.5
+  },
   "loungeDomestic": 4,
   "loungeInternational": 0,
   "lounge": {
