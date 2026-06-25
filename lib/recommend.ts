@@ -1659,12 +1659,19 @@ function rewardAllocationsForSpend(
   if (tieredAllocations) return routeToUpiWhenBetter(card, category, effectiveAmount, tieredAllocations, totalMonthlySpend);
 
   const baseReward = findBaseRewardForSpend(card, category);
-  // online/grocery blend with their smartbuy/portal special row by default. Any other category blends
-  // only when the card explicitly opts in via `acceleratedShare` for it, using its "partner merchants"
-  // row as the narrow accelerator (so co-brand cards get honest partial credit on dining/travel/etc.
-  // instead of either crediting the whole category or dropping to base).
+  // online/grocery blend with their dedicated smartbuy/portal special row by default; absent one we
+  // fall back to the card's general "online" row. For the "online" category that's a same-category
+  // fallback (always fine). For "grocery" it's a CROSS-category route — and a `category: "online"`
+  // row may actually be narrow (merchant/portal/app-locked, e.g. "Airtel Thanks app", "Amazon Pay
+  // merchants", dynamic top-2), so we only blend grocery into it when the card explicitly opts in via
+  // `acceleratedShare.grocery`. Any other category blends only when the card opts in, via its
+  // "partner merchants" row.
+  const blendedOnlineFallback =
+    category === "grocery" && card.acceleratedShare?.grocery === undefined
+      ? null
+      : findDirectRewardForSpend(card, "online", false);
   const specialReward = blendedSmartbuySpendCategories.includes(category)
-    ? (findSpecialRewardForSpend(card, category) ?? findDirectRewardForSpend(card, "online", false))
+    ? (findSpecialRewardForSpend(card, category) ?? blendedOnlineFallback)
     : card.acceleratedShare?.[category] !== undefined
       ? (findPartnerMerchantsReward(card) ?? findDirectRewardForSpend(card, "online", false))
       : null;
