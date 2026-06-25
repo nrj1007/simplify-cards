@@ -1,0 +1,334 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>myCards Landing Page Improvement Preview</title>
+  <style>
+    :root {
+      --ink: #17202f;
+      --muted: #5c667a;
+      --paper: #f8f3ea;
+      --panel: #fffdf8;
+      --teal: #0f766e;
+      --teal-dark: #0b4f4a;
+      --line: rgba(23, 32, 47, 0.12);
+      --shadow: 0 18px 50px rgba(30, 41, 59, 0.13);
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink);
+      background: var(--paper);
+      letter-spacing: 0;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    .container { width: min(1120px, calc(100% - 40px)); margin: 0 auto; }
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: 58px 0 42px;
+      background: linear-gradient(120deg, rgba(15, 118, 110, 0.12), rgba(211, 155, 42, 0.13)), linear-gradient(180deg, #fffaf0 0%, #f7efe2 100%);
+      border-bottom: 1px solid var(--line);
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: linear-gradient(rgba(23, 32, 47, 0.055) 1px, transparent 1px), linear-gradient(90deg, rgba(23, 32, 47, 0.055) 1px, transparent 1px);
+      background-size: 40px 40px;
+      mask-image: linear-gradient(180deg, #000 10%, transparent 100%);
+      pointer-events: none;
+    }
+    .hero-grid {
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(330px, 0.8fr);
+      gap: 34px;
+      align-items: center;
+    }
+    .eyebrow {
+      display: inline-flex;
+      margin: 0 0 16px;
+      color: var(--teal-dark);
+      font-size: 0.78rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0;
+    }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 {
+      max-width: 780px;
+      margin-bottom: 18px;
+      font-size: clamp(2.45rem, 6vw, 5.4rem);
+      line-height: 0.95;
+      letter-spacing: 0;
+    }
+    .hero-copy p {
+      max-width: 680px;
+      color: #3f4a5e;
+      font-size: 1.12rem;
+      line-height: 1.68;
+      margin-bottom: 22px;
+    }
+    .ask-box {
+      display: flex;
+      gap: 10px;
+      width: min(720px, 100%);
+      padding: 10px;
+      background: rgba(255, 253, 248, 0.88);
+      border: 1px solid rgba(15, 118, 110, 0.22);
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+    }
+    .ask-box input {
+      min-width: 0;
+      flex: 1;
+      border: 0;
+      outline: 0;
+      background: transparent;
+      color: var(--ink);
+      font: inherit;
+      padding: 14px;
+    }
+    .ask-box button {
+      border: 0;
+      border-radius: 8px;
+      padding: 13px 18px;
+      background: var(--teal);
+      color: white;
+      font-weight: 800;
+      font-size: 0.95rem;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+    .query-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+    .query-chips a {
+      display: inline-flex;
+      border: 1px solid rgba(15, 118, 110, 0.22);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.72);
+      padding: 9px 12px;
+      color: #31514d;
+      font-size: 0.9rem;
+      font-weight: 700;
+    }
+    .hero-panel, .action-grid a, .card-grid article, .latest-card {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fffdf8;
+      box-shadow: var(--shadow);
+    }
+    .hero-panel { padding: 24px; }
+    .hero-panel h2 { font-size: 1.3rem; margin-bottom: 14px; }
+    .hero-panel ul, .latest ul {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+      display: grid;
+      gap: 12px;
+    }
+    .hero-panel li, .latest li {
+      display: grid;
+      grid-template-columns: 24px 1fr;
+      gap: 10px;
+      color: #465164;
+      line-height: 1.5;
+    }
+    .hero-panel li::before, .latest li::before {
+      content: "✓";
+      display: grid;
+      place-items: center;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: rgba(15, 118, 110, 0.13);
+      color: var(--teal-dark);
+      font-size: 0.82rem;
+      font-weight: 900;
+    }
+    .quick-actions {
+      padding: 28px 0;
+      background: var(--panel);
+      border-bottom: 1px solid var(--line);
+    }
+    .action-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+    }
+    .action-grid a {
+      padding: 18px;
+      box-shadow: 0 8px 22px rgba(30, 41, 59, 0.07);
+    }
+    .action-grid strong {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 1rem;
+    }
+    .action-grid span, .card-grid p, .latest li {
+      color: var(--muted);
+      font-size: 0.94rem;
+      line-height: 1.48;
+    }
+    .trust-strip {
+      padding: 26px 0;
+      background: #14233a;
+      color: white;
+    }
+    .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+    .trust-grid div {
+      border-left: 1px solid rgba(255,255,255,0.18);
+      padding: 6px 18px;
+    }
+    .trust-grid strong {
+      display: block;
+      font-size: 1.4rem;
+      margin-bottom: 4px;
+    }
+    .trust-grid span { color: rgba(255,255,255,0.75); }
+    .section { padding: 54px 0; }
+    .section.alt {
+      background: #fff9ee;
+      border-block: 1px solid var(--line);
+    }
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 28px;
+      align-items: end;
+      margin-bottom: 24px;
+    }
+    .section-head h2 {
+      max-width: 620px;
+      font-size: clamp(1.75rem, 3vw, 2.7rem);
+      line-height: 1.05;
+      margin-bottom: 0;
+    }
+    .section-head p:last-child {
+      max-width: 440px;
+      color: var(--muted);
+      line-height: 1.55;
+      margin-bottom: 0;
+    }
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+    .card-grid article {
+      padding: 18px;
+      box-shadow: 0 8px 22px rgba(30, 41, 59, 0.07);
+    }
+    .card-grid h3 {
+      margin-bottom: 10px;
+      font-size: 1.08rem;
+    }
+    .card-grid a {
+      display: inline-flex;
+      margin-top: 8px;
+      color: var(--teal-dark);
+      font-weight: 800;
+    }
+    .latest-card {
+      padding: 22px;
+      box-shadow: 0 8px 22px rgba(30, 41, 59, 0.07);
+    }
+    @media (max-width: 900px) {
+      .hero-grid, .action-grid, .trust-grid, .card-grid { grid-template-columns: 1fr; }
+      .section-head { display: block; }
+      .section-head p:last-child { margin-top: 12px; }
+      .ask-box { display: grid; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Verified Indian credit-card guidance</p>
+          <h1>Find the right card before the bank headline misleads you.</h1>
+          <p>Ask about cashback, UPI, travel, lounge access, fuel, forex, fees, caps, exclusions, or reward calculators. myCards compares real card rules, not just advertised rates.</p>
+          <form class="ask-box">
+            <input value="Best UPI card for rewards?" aria-label="Ask a credit card question" />
+            <button type="button">Ask myCards</button>
+          </form>
+          <div class="query-chips">
+            <a href="#">Best cashback card</a>
+            <a href="#">Best UPI card</a>
+            <a href="#">Compare two cards</a>
+          </div>
+        </div>
+        <aside class="hero-panel">
+          <h2>What we check</h2>
+          <ul>
+            <li>Reward rates, caps, exclusions, and milestone rules</li>
+            <li>Redemption value, transfer partners, and lounge conditions</li>
+            <li>Annual fees, waivers, latest updates, and verification status</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <section class="quick-actions">
+      <div class="container action-grid">
+        <a href="#"><strong>Get recommendations</strong><span>Enter your spends and get a ranked shortlist.</span></a>
+        <a href="#"><strong>Compare cards</strong><span>Check fees, rewards, caveats, and winner by use case.</span></a>
+        <a href="#"><strong>Reward calculator</strong><span>Estimate real value after caps and redemption assumptions.</span></a>
+        <a href="#"><strong>Find cards</strong><span>Filter by issuer, fee, and card category.</span></a>
+      </div>
+    </section>
+
+    <section class="trust-strip">
+      <div class="container trust-grid">
+        <div><strong>209+</strong><span>cards in database</span></div>
+        <div><strong>Manual checks</strong><span>fees, caps, exclusions, rewards</span></div>
+        <div><strong>No guessing</strong><span>uncertain answers are flagged for review</span></div>
+      </div>
+    </section>
+
+    <section class="section alt">
+      <div class="container">
+        <div class="section-head">
+          <div><p class="eyebrow">Popular starting points</p><h2>Cards people commonly compare</h2></div>
+          <p>Use these as entry points. The right choice still depends on spend pattern, eligibility, and redemption style.</p>
+        </div>
+        <div class="card-grid">
+          <article><h3>SBI Cashback Credit Card</h3><p>Strong online cashback, but caps and excluded categories matter.</p><a href="#">View details →</a></article>
+          <article><h3>Airtel Axis Bank Credit Card</h3><p>Useful for Airtel and select spends, with eligibility-style cashback conditions.</p><a href="#">View details →</a></article>
+          <article><h3>HDFC Swiggy Credit Card</h3><p>Good food and online value if your spends fit the reward buckets.</p><a href="#">View details →</a></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <div><p class="eyebrow">Fresh checks</p><h2>Recently verified updates</h2></div>
+          <p>Give users confidence that the dataset is active and rules are being reviewed.</p>
+        </div>
+        <div class="latest-card latest">
+          <ul>
+            <li><strong>Axis / SBI / BOBCARD:</strong> reward caps and lounge conditions reviewed.</li>
+            <li><strong>Amex cards:</strong> reward calculator and milestone display tightened.</li>
+            <li><strong>UPI queries:</strong> ranking improved to avoid non-UPI cards.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

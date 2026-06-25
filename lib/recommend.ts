@@ -82,7 +82,9 @@ const specialOnlineSpendAliases = [
 const specialTravelSpendAliases = ["smartbuy flights", "smartbuy hotels", "smartbuy train"];
 // Categories whose accelerated (smartbuy/partner) earn is blended 50/50 with the base rate, since a
 // real cardholder routes only part of this spend through the accelerated merchant/portal set.
-const blendedSmartbuySpendCategories: SpendCategory[] = ["online", "grocery"];
+// "dining" is included because Swiggy/Zomato and similar platforms mean a significant share of
+// restaurant spend happens online — a card's online row is the natural accelerator for that share.
+const blendedSmartbuySpendCategories: SpendCategory[] = ["online", "grocery", "dining"];
 // Default fraction of a blended category's spend that earns the accelerated (vs base) rate. Cards can
 // override per category via `acceleratedShare` when their accelerator is narrower or broader.
 const defaultAcceleratedShare = 0.5;
@@ -700,6 +702,16 @@ function cardEarnsOnSpendCategory(card: CreditCard, category: SpendCategory) {
   return breakdown.some((row) => row.spendCategory === category && row.monthlyReward > 0);
 }
 
+// Category keys where a broad online accelerator is a valid proxy for category specialisation.
+// grocery (BigBasket/Blinkit) and entertainment (OTT/streaming) are predominantly online channels
+// so a card with a broad `online` reward row reasonably qualifies. Dining is intentionally
+// excluded: too many generic online-shopping cards (e.g. SBI SimplyClick) have a broad online
+// row but zero dining positioning — they already benefit from the 50 % dining-spend-blend in
+// the scoring engine without needing to appear in dining-filtered result sets.
+// Narrow co-brand rows (partner merchants, amazon, airtel) won't trigger this because they don't
+// match the `online` spend-category lookup.
+const onlineProxyFocusKeys = new Set(["grocery", "entertainment"]);
+
 function cardMatchesCategoryFocus(card: CreditCard, config: CategoryFocusConfig) {
   if (cardHasCategoryFocusTag(card, config)) return true;
   // Earn-based focuses (rent/utilities): qualify if the card rewards the category at all.
@@ -708,7 +720,15 @@ function cardMatchesCategoryFocus(card: CreditCard, config: CategoryFocusConfig)
   if (card.rewards.some((reward) => config.rewardPattern.test(reward.category) && reward.rate > baseRate)) return true;
   // Brand/merchant focuses also qualify on positioning (the flagship co-brand carries the merchant in
   // its name/bestFor, not always in a reward-row category — e.g. HDFC Swiggy rewards under "dining").
-  return Boolean(config.matchPositioning && cardPositioningMatchesFocus(card, config));
+  if (config.matchPositioning && cardPositioningMatchesFocus(card, config)) return true;
+  // For categories with significant online spend (dining, grocery, entertainment), a card with a
+  // broad online accelerator qualifies — the scoring engine will blend the appropriate share of
+  // that category's spend through the online row (50% for dining/grocery, full profile for entertainment).
+  if (onlineProxyFocusKeys.has(config.key)) {
+    const onlineReward = findDirectRewardForSpend(card, "online", false);
+    if (onlineReward && onlineReward.rate > baseRate) return true;
+  }
+  return false;
 }
 
 
