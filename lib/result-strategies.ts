@@ -76,8 +76,8 @@ const rewardTypeSplit: ResultStrategy = {
 
     if (options?.isBlend) {
       rewards.sort((a, b) => {
-        const scoreA = a.envelopeScoring?.normalizedFitScore;
-        const scoreB = b.envelopeScoring?.normalizedFitScore;
+        const scoreA = a.envelopeScoring?.splitOrderScore;
+        const scoreB = b.envelopeScoring?.splitOrderScore;
         if (scoreA !== undefined && scoreB !== undefined) {
           if (scoreB !== scoreA) {
             return scoreB - scoreA;

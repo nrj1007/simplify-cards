@@ -2567,9 +2567,32 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
           strategy.blendMode === "max"
             ? strategy.perLevelScore(representative)
             : perLevel.reduce((sum, score) => sum + strategy.perLevelScore(score), 0) / 3;
-        return representative.envelopeScoring
-          ? { ...representative, envelopeScoring: { ...representative.envelopeScoring, normalizedFitScore: blendedFitScore } }
+
+        let splitOrderScore: number | undefined = undefined;
+        const isSplitBlend = input.resultStrategy === "reward-type-split" && strategy.blendMode === "weighted-average";
+        if (isSplitBlend) {
+          const cashbackOrderLevels = [100000, 200000, 300000, 500000];
+          const cashbackPerLevel = cashbackOrderLevels.map((annualSpend) => {
+            const monthlySpend = Math.round(annualSpend / 12);
+            const focusSpendAmount = monthlySpend * 0.75;
+            const monthlySpendProfile = categoryFocus75_25SpendProfile(focusedCategory, focusSpendAmount);
+            return scoreCardForSpend(card, monthlySpendProfile, monthlySpend);
+          });
+          splitOrderScore =
+            cashbackPerLevel.reduce((total, score) => total + strategy.perLevelScore(score), 0) / cashbackPerLevel.length;
+        }
+
+        const assembled = representative.envelopeScoring
+          ? {
+              ...representative,
+              envelopeScoring: {
+                ...representative.envelopeScoring,
+                normalizedFitScore: blendedFitScore,
+                ...(splitOrderScore !== undefined ? { splitOrderScore } : {})
+              }
+            }
           : representative;
+        return assembled;
       }
 
       // Score the card at each fixed light/mid/heavy spend level and blend the per-level fit scores
@@ -2579,11 +2602,9 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
       let spendLevels = strategy.spendLevels;
       const isCashbackBlendCard =
         strategy.blendMode === "weighted-average" && isPrimaryCashbackCard({ card } as CardScore);
-      // Broad split+blend: cashback cards are ordered within the Cashback *section* by a dedicated
-      // low/mid-spend evaluation (see splitOrderScore below). Their representative/display value and
-      // global ranking key stay on the default spend levels — this flag only gates that separate
-      // ordering signal, so it must NOT touch spendLevels/spendWeights here.
-      const isSplitBlendCashback = input.resultStrategy === "reward-type-split" && isCashbackBlendCard;
+      // Broad split+blend: cashback and rewards cards are ordered within their respective *sections* by
+      // a dedicated low/mid-spend evaluation (splitOrderScore).
+      const isSplitBlend = input.resultStrategy === "reward-type-split" && strategy.blendMode === "weighted-average";
       // Cashback-specific queries ("best cashback card"): the whole result is cashback and renders as a
       // flat list ranked by the fit score, so here we DO evaluate cashback cards on the realistic
       // low/mid spend basis with equal weight — matching the split section — for both rank and display.
@@ -2639,7 +2660,7 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
       // net value at realistic low/mid spend [1L,2L,3L,5L]. Computed on a dedicated evaluation so the
       // card's representative/display value and global ranking key remain on the default spend levels.
       let splitOrderScore: number | undefined = undefined;
-      if (isSplitBlendCashback) {
+      if (isSplitBlend) {
         const cashbackOrderLevels = [100000, 200000, 300000, 500000];
         const cashbackPerLevel = cashbackOrderLevels.map((annualSpend) => {
           const monthlySpend = Math.round(annualSpend / 12);
