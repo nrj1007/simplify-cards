@@ -18,9 +18,9 @@
   "rewardType": "cashback",
   "rewards": [
     {
-      "category": "online",
-      "rate": 25,
+      "category": "partner merchants",
       "displayCategory": "Airtel recharges and bill payments via Airtel Thanks App",
+      "rate": 25,
       "displayRate": "25% cashback",
       "capMonthly": 250
     },
@@ -98,8 +98,7 @@
     "fees_and_charges",
     "government",
     "insurance",
-    "education",
-    "utilities"
+    "education"
   ],
   "joiningBenefitsValued": [
     {
@@ -132,9 +131,10 @@
   "imageUrl": "/images/axis-airtel.png",
   "sourceUrl": "https://www.axisbank.com/retail/cards/credit-card/airtel-axis-bank-credit-card",
   "applyUrl": "https://www.axisbank.com/retail/cards/credit-card/airtel-axis-bank-credit-card",
-  "lastVerified": "2026-06-02",
+  "lastVerified": "2026-06-25",
   "verificationStatus": "official-direct",
   "internalNotes": [
+    "Card details manually audited and verified by agent on 2026-06-25",
     "Card details manually reviewed and verified by user on 2026-06-02",
     "Cashback is credited directly to the credit card statement and not redeemed separately.",
     "Domestic lounge access is available only if spends in the previous 3 months are at least Rs 50,000.",

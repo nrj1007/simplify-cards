@@ -2340,6 +2340,40 @@ describe("reward calculator", () => {
       });
     });
 
+    describe("Airtel Axis Bank Credit Card", () => {
+      it("earns 10% cashback on utility spends, capped at Rs 250", () => {
+        const card = getCardById("axis-airtel");
+        expect(card).toBeTruthy();
+
+        // 10% cashback on utilities, up to Rs 250 (occurs at Rs 2,500 spend)
+        const result1 = calculateRewards(card!, { utilities: 2000 });
+        expect(result1.monthlyUnits).toBe(200);
+
+        const result2 = calculateRewards(card!, { utilities: 5000 });
+        expect(result2.monthlyUnits).toBe(250);
+      });
+
+      it("earns 10% cashback on dining (Swiggy/Zomato) capped at Rs 500, and 10% on groceries (Bigbasket) capped at Rs 500", () => {
+        const card = getCardById("axis-airtel");
+        expect(card).toBeTruthy();
+
+        const diningResult = calculateRewards(card!, { dining: 6000 });
+        expect(diningResult.monthlyUnits).toBe(500);
+
+        const groceryResult = calculateRewards(card!, { grocery: 6000 });
+        expect(groceryResult.monthlyUnits).toBe(500);
+      });
+
+      it("earns 1% base cashback on general online shopping, falling back to base earn rate", () => {
+        const card = getCardById("axis-airtel");
+        expect(card).toBeTruthy();
+
+        // 1% base rate on online shopping
+        const onlineResult = calculateRewards(card!, { online: 10000 });
+        expect(onlineResult.monthlyUnits).toBe(100);
+      });
+    });
+
     describe("Flipkart Axis Bank Super Elite Credit Card", () => {
       it("earns 2 SuperCoins per Rs 100 on general spend (the 12-SuperCoin rate is Flipkart-only, a brand-specific reward not tied to the generic online slider)", () => {
         const card = getCardById("axis-flipkart-super-elite");
