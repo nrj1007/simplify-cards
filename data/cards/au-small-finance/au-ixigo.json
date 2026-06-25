@@ -15,6 +15,7 @@
     "forex"
   ],
   "rewardType": "reward points",
+  "cashbackBucketPointValue": 0.25,
   "rewards": [
     {
       "category": "online",

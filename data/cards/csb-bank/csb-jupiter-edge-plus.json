@@ -13,13 +13,14 @@
     "upi",
     "online spends"
   ],
-  "rewardType": "jewels",
+  "rewardType": "cashback and Jewels",
   "rewards": [
     {
       "category": "online",
       "displayCategory": "Preferred Brands shopping",
       "rate": 50,
       "displayRate": "50 Jewels per ₹100 spent",
+      "valuePerUnit": 0.14,
       "capMonthly": 10000
     },
     {
@@ -27,6 +28,7 @@
       "displayCategory": "Jupiter Flights",
       "rate": 25,
       "displayRate": "25 Jewels per ₹100 spent",
+      "valuePerUnit": 0.14,
       "capMonthly": 5000
     },
     {
@@ -34,6 +36,7 @@
       "displayCategory": "Base retail & UPI spends",
       "rate": 5,
       "displayRate": "5 Jewels per ₹100 spent",
+      "valuePerUnit": 0.14,
       "capMonthly": 5000
     }
   ],

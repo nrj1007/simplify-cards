@@ -258,8 +258,8 @@ exports[`ranking golden (max-yield) > produces stable top-N ordering per scenari
     "aurum-sbi",
   ],
   "lifetime-free": [
-    "csb-jupiter-edge-plus",
     "yes-kiwi",
+    "csb-jupiter-edge-plus",
     "hsbc-visa-platinum",
     "au-ixigo",
     "axis-fibe",
@@ -311,13 +311,13 @@ exports[`ranking golden (max-yield) > produces stable top-N ordering per scenari
     "phonepe-sbi-select-black",
     "amex-platinum-travel",
     "kotak-solitaire",
-    "csb-jupiter-edge-plus",
+    "bobcard-etihad-guest-premium",
   ],
   "max-fee-zero": [
     "kotak-infinite",
-    "csb-jupiter-edge-plus",
     "kotak-solitaire",
     "yes-kiwi",
+    "csb-jupiter-edge-plus",
     "hsbc-visa-platinum",
     "au-ixigo",
     "axis-fibe",
@@ -398,12 +398,12 @@ exports[`ranking golden (max-yield) > produces stable top-N ordering per scenari
     "yes-marquee",
   ],
   "segment-beginner": [
-    "csb-jupiter-edge-plus",
     "yes-kiwi",
     "hsbc-live-plus",
     "sbi-cashback",
     "hdfc-swiggy-black",
     "hsbc-rupay-cashback",
+    "csb-jupiter-edge-plus",
     "axis-airtel",
     "amex-smartearn",
     "hdfc-diners-club-privilege",
@@ -560,10 +560,10 @@ exports[`ranking golden (max-yield) > produces stable top-N ordering per scenari
     "hdfc-swiggy-orange",
     "sbi-cashback",
     "hsbc-live-plus",
+    "csb-jupiter-edge-plus",
     "sc-beyond",
     "hdfc-phonepe-ultimo",
     "hsbc-rupay-cashback",
-    "titan-sbi",
   ],
   "usecase-dining": [
     "hdfc-swiggy-orange",
@@ -923,9 +923,9 @@ exports[`ranking golden (representative queries) > produces stable top-N orderin
     "tata-neu-plus-sbi",
   ],
   "lifetime-free": [
-    "csb-jupiter-edge-plus",
     "hsbc-visa-platinum",
     "yes-kiwi",
+    "csb-jupiter-edge-plus",
     "au-ixigo",
     "indusind-tiger",
     "axis-fibe",
@@ -981,9 +981,9 @@ exports[`ranking golden (representative queries) > produces stable top-N orderin
   "max-fee-zero": [
     "kotak-solitaire",
     "yes-kiwi",
-    "csb-jupiter-edge-plus",
     "hsbc-visa-platinum",
     "icici-amazon-pay",
+    "csb-jupiter-edge-plus",
     "au-ixigo",
     "indusind-tiger",
     "axis-fibe",
@@ -1063,12 +1063,12 @@ exports[`ranking golden (representative queries) > produces stable top-N orderin
     "yes-marquee",
   ],
   "segment-beginner": [
-    "csb-jupiter-edge-plus",
     "yes-kiwi",
     "hsbc-live-plus",
     "sbi-cashback",
     "hdfc-swiggy-black",
     "hsbc-rupay-cashback",
+    "csb-jupiter-edge-plus",
     "axis-airtel",
     "amex-smartearn",
     "hdfc-diners-club-privilege",
@@ -1222,13 +1222,13 @@ exports[`ranking golden (representative queries) > produces stable top-N orderin
     "hsbc-live-plus",
     "sbi-cashback",
     "hdfc-swiggy-black",
+    "csb-jupiter-edge-plus",
     "axis-airtel",
     "hsbc-rupay-cashback",
     "hdfc-millennia",
     "hdfc-phonepe-ultimo",
     "axis-ace",
     "titan-sbi",
-    "kotak-cashback-plus",
   ],
   "usecase-dining": [
     "hdfc-swiggy-black",
@@ -1286,9 +1286,9 @@ exports[`ranking golden (representative queries) > produces stable top-N orderin
     "axis-indigo-premium",
   ],
   "usecase-online": [
-    "csb-jupiter-edge-plus",
     "sbi-cashback",
     "phonepe-sbi-select-black",
+    "csb-jupiter-edge-plus",
     "hdfc-pixel-play",
     "bobcard-eterna",
     "axis-cashback",
@@ -1338,7 +1338,7 @@ exports[`result split golden (all query modes) > snapshots section membership fo
       "yes-kiwi",
       "hsbc-live-plus",
       "sbi-cashback",
-      "hdfc-swiggy-black",
+      "csb-jupiter-edge-plus",
     ],
     "Rewards cards": [
       "hsbc-premier",
@@ -1479,11 +1479,11 @@ exports[`result split golden (all query modes) > snapshots section membership fo
   },
   "forex": {
     "Cashback cards": [
+      "csb-jupiter-edge-plus",
       "hsbc-live-plus",
       "phonepe-sbi-select-black",
       "yes-kiwi",
       "hsbc-rupay-cashback",
-      "titan-sbi",
     ],
     "Rewards cards": [
       "hsbc-premier",
@@ -1519,6 +1519,7 @@ exports[`result split golden (all query modes) > snapshots section membership fo
       "sc-beyond",
       "titan-sbi",
       "hsbc-rupay-cashback",
+      "au-ixigo",
     ],
     "Rewards cards": [
       "hsbc-premier",
@@ -1602,15 +1603,17 @@ exports[`result split golden (all query modes) > snapshots section membership fo
   "lifetime-free": {
     "Cashback cards": [
       "yes-kiwi",
+      "csb-jupiter-edge-plus",
       "axis-fibe",
       "yes-paisabazaar-paisasave-rupay",
+      "au-ixigo",
     ],
     "Rewards cards": [
       "hsbc-visa-platinum",
-      "csb-jupiter-edge-plus",
       "indusind-tiger",
       "hsbc-rupay-platinum",
       "au-ixigo",
+      "axis-kwik",
     ],
   },
   "lounge": {
@@ -1651,7 +1654,7 @@ exports[`result split golden (all query modes) > snapshots section membership fo
       "yes-kiwi",
       "hsbc-live-plus",
       "sbi-cashback",
-      "hdfc-swiggy-black",
+      "csb-jupiter-edge-plus",
     ],
     "Rewards cards": [
       "hsbc-travelone",
@@ -1664,17 +1667,17 @@ exports[`result split golden (all query modes) > snapshots section membership fo
   "max-fee-zero": {
     "Cashback cards": [
       "yes-kiwi",
+      "csb-jupiter-edge-plus",
       "icici-amazon-pay",
       "axis-fibe",
       "yes-paisabazaar-paisasave-rupay",
-      "axis-google-pay-flex",
     ],
     "Rewards cards": [
       "kotak-solitaire",
       "hsbc-visa-platinum",
-      "csb-jupiter-edge-plus",
       "indusind-tiger",
       "hsbc-rupay-platinum",
+      "au-ixigo",
     ],
   },
   "merchant-amazon": {
@@ -1773,11 +1776,11 @@ exports[`result split golden (all query modes) > snapshots section membership fo
       "sbi-cashback",
     ],
     "Rewards cards": [
-      "csb-jupiter-edge-plus",
       "amex-smartearn",
       "hdfc-diners-club-privilege",
       "hdfc-shoppers-stop",
       "hsbc-visa-platinum",
+      "yes-pop-club",
     ],
   },
   "segment-mid-premium": {
@@ -1851,11 +1854,11 @@ exports[`result split golden (all query modes) > snapshots section membership fo
   },
   "spend-international": {
     "Cashback cards": [
+      "csb-jupiter-edge-plus",
       "titan-sbi",
       "sc-beyond",
       "hsbc-live-plus",
       "icici-amazon-pay",
-      "axis-ace",
     ],
     "Rewards cards": [
       "hsbc-premier",
@@ -2004,25 +2007,25 @@ exports[`result split golden (all query modes) > snapshots section membership fo
     "Cashback cards": [
       "phonepe-sbi-select-black",
       "sbi-cashback",
+      "csb-jupiter-edge-plus",
       "axis-cashback",
       "axis-fibe",
-      "hdfc-pixel-play",
     ],
     "Rewards cards": [
-      "csb-jupiter-edge-plus",
       "indusind-eazydiner",
       "au-ixigo",
       "bobcard-eterna",
       "rbl-world-max",
+      "yes-pop-club",
     ],
   },
   "usecase-travel": {
     "Cashback cards": [
       "sc-beyond",
       "axis-ace",
+      "csb-jupiter-edge-plus",
       "axis-fibe",
       "apollo-sbi-select",
-      "phonepe-sbi-select-black",
     ],
     "Rewards cards": [
       "hsbc-premier",
@@ -2059,7 +2062,7 @@ exports[`result split golden (reward-type-split) > snapshots the section members
       "yes-kiwi",
       "hsbc-live-plus",
       "sbi-cashback",
-      "hdfc-swiggy-black",
+      "csb-jupiter-edge-plus",
     ],
     "Rewards cards": [
       "hsbc-premier",
@@ -2073,16 +2076,16 @@ exports[`result split golden (reward-type-split) > snapshots the section members
     "Cashback cards": [
       "phonepe-sbi-select-black",
       "sbi-cashback",
+      "csb-jupiter-edge-plus",
       "axis-cashback",
       "axis-fibe",
-      "hdfc-pixel-play",
     ],
     "Rewards cards": [
-      "csb-jupiter-edge-plus",
       "indusind-eazydiner",
       "au-ixigo",
       "bobcard-eterna",
       "rbl-world-max",
+      "yes-pop-club",
     ],
   },
   "premium-degrade-single": {
@@ -2100,7 +2103,7 @@ exports[`result split golden (reward-type-split) > snapshots the section members
       "yes-kiwi",
       "hsbc-live-plus",
       "sbi-cashback",
-      "hdfc-swiggy-black",
+      "csb-jupiter-edge-plus",
     ],
     "Rewards cards": [
       "hsbc-premier",

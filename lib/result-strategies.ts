@@ -59,15 +59,20 @@ const singleList: ResultStrategy = {
 const rewardTypeSplit: ResultStrategy = {
   name: "reward-type-split",
   group(scored, maxPerSection, options) {
-    // Dual-bucket cards (card.rewardBucketPointValue set, e.g. CheQ AU) feature in BOTH sections:
-    // their reward-rate score in Rewards and their default (cashback-rate) score in Cashback.
-    const isDual = (c: CardScore) => c.rewardBucketScore !== undefined;
+    // Dual-bucket cards feature in BOTH sections, valued per section:
+    //  - cashback-primary dual (rewardBucketScore set, e.g. CheQ AU): default score in Cashback,
+    //    reward-rate score in Rewards.
+    //  - reward-primary dual (cashbackBucketScore set, e.g. au-ixigo): default score in Rewards,
+    //    cashback-rate score in Cashback.
     const rewards = scored
-      .filter((c) => !isPrimaryCashbackCard(c) || isDual(c))
-      .map((c) => (isDual(c) ? c.rewardBucketScore! : c))
-      // dual cards carry their reward-rate value here, so re-sort by net value.
+      .filter((c) => !isPrimaryCashbackCard(c) || c.rewardBucketScore !== undefined)
+      .map((c) => c.rewardBucketScore ?? c)
+      // dual cards carry a per-section value, so re-sort by net value.
       .sort((a, b) => b.estimatedNetValue - a.estimatedNetValue);
-    const cashback = scored.filter((c) => isPrimaryCashbackCard(c));
+    const cashback = scored
+      .filter((c) => isPrimaryCashbackCard(c) || c.cashbackBucketScore !== undefined)
+      .map((c) => c.cashbackBucketScore ?? c)
+      .sort((a, b) => b.estimatedNetValue - a.estimatedNetValue);
 
     if (options?.isBlend) {
       cashback.sort((a, b) => {

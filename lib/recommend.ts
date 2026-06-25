@@ -2604,25 +2604,34 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
           cashbackPerLevel.reduce((total, score) => total + strategy.perLevelScore(score), 0) / cashbackPerLevel.length;
       }
 
-      // Dual-bucket cards (e.g. CheQ AU): also score the card with points valued at the reward
-      // redemption rate, so the split can feature it in the Rewards section at that higher value while
-      // its default (cashback-rate) score drives the Cashback section.
-      let rewardBucketScore: CardScore | undefined;
-      const rewardPointValue = card.rewardBucketPointValue;
-      if (typeof rewardPointValue === "number" && rewardPointValue > 0) {
-        const rewardValuedCard: CreditCard = {
+      // Dual-bucket cards feature in BOTH split sections, valued per context. A card's DEFAULT score
+      // (above) is its primary-bucket value; here we re-score it at the OTHER bucket's point value so
+      // the split can present it there too. `rewardBucketPointValue` = a cashback-primary card also in
+      // Rewards (e.g. CheQ AU @0.5); `cashbackBucketPointValue` = a reward-primary card also in
+      // Cashback (e.g. au-ixigo @0.25).
+      const reValuedScore = (pointValue: number): CardScore => {
+        const reValuedCard: CreditCard = {
           ...card,
           rewardBucketPointValue: undefined,
-          rewards: card.rewards.map((reward) => ({ ...reward, valuePerUnit: rewardPointValue }))
+          cashbackBucketPointValue: undefined,
+          rewards: card.rewards.map((reward) => ({ ...reward, valuePerUnit: pointValue }))
         };
-        const rewardPerLevel = spendLevels.map((annualSpend) => {
+        const perLevelReValued = spendLevels.map((annualSpend) => {
           const monthlySpend = Math.round(annualSpend / 12);
-          return scoreCardForSpend(rewardValuedCard, scaleSpendProfileToMonthly(spend, monthlySpend), monthlySpend);
+          return scoreCardForSpend(reValuedCard, scaleSpendProfileToMonthly(spend, monthlySpend), monthlySpend);
         });
-        rewardBucketScore = rewardPerLevel.reduce((best, score) =>
+        return perLevelReValued.reduce((best, score) =>
           strategy.perLevelScore(score) > strategy.perLevelScore(best) ? score : best
         );
-      }
+      };
+      const rewardBucketScore =
+        typeof card.rewardBucketPointValue === "number" && card.rewardBucketPointValue > 0
+          ? reValuedScore(card.rewardBucketPointValue)
+          : undefined;
+      const cashbackBucketScore =
+        typeof card.cashbackBucketPointValue === "number" && card.cashbackBucketPointValue > 0
+          ? reValuedScore(card.cashbackBucketPointValue)
+          : undefined;
 
       const assembled = representative.envelopeScoring
         ? {
@@ -2634,7 +2643,11 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
             }
           }
         : representative;
-      return rewardBucketScore ? { ...assembled, rewardBucketScore } : assembled;
+      return {
+        ...assembled,
+        ...(rewardBucketScore ? { rewardBucketScore } : {}),
+        ...(cashbackBucketScore ? { cashbackBucketScore } : {})
+      };
     })
     .sort((a, b) => {
       const primary = useEnvelopeScoring

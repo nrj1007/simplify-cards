@@ -160,6 +160,10 @@ export type CreditCard = {
   // a card features in BOTH split sections — Rewards (valued at this rate) and Cashback (valued at its
   // valuePerUnit) — instead of being routed to just one. (CheQ AU: 0.5 reward / 0.25 cashback.)
   rewardBucketPointValue?: number;
+  // Symmetric counterpart for a REWARD-primary card (default score = reward rate): when set, the card
+  // ALSO features in the Cashback section, valued at this (cashback) rate, while its default score
+  // keeps the reward value. (au-ixigo: 0.5 reward default / 0.25 cashback here.)
+  cashbackBucketPointValue?: number;
   // Liquidity of the reward currency for ranking. "brand-locked" cards (rewards redeemable only
   // inside one narrow brand ecosystem — e.g. Adani, IRCTC, IndiGo BluChips, MakeMyTrip myCash,
   // Reliance) have their reward value discounted in scoring (see brandLockedRewardValueMultiplier in
@@ -299,6 +303,9 @@ export type CardScore = {
   // the reward redemption rate. The split presents this in the Rewards section while the default
   // (cashback-rate) score drives the Cashback section. Undefined for normal cards.
   rewardBucketScore?: CardScore;
+  // Symmetric: for a reward-primary dual card (card.cashbackBucketPointValue set, e.g. au-ixigo), the
+  // full score re-valued at the cashback rate, presented in the Cashback section.
+  cashbackBucketScore?: CardScore;
   fitScore: number;
   matchedTags: string[];
   reasons: string[];
