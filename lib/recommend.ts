@@ -2653,31 +2653,8 @@ export function applyResultStrategy(
     input.resultStrategy === "reward-type-split" &&
     hasSufficientDataForSplit;
 
-  if (useSplit) {
-    const isBlend = rankingStrategies[input.rankingStrategy ?? DEFAULT_RANKING_STRATEGY].blendMode === "weighted-average";
-    const rewards = byNetValue.filter((c) => !isPrimaryCashbackCard(c));
-    const cashback = byNetValue.filter((c) => isPrimaryCashbackCard(c));
-
-    if (isBlend) {
-      cashback.sort((a, b) => {
-        const scoreA = a.envelopeScoring?.splitOrderScore;
-        const scoreB = b.envelopeScoring?.splitOrderScore;
-        if (scoreA !== undefined && scoreB !== undefined) {
-          if (scoreB !== scoreA) {
-            return scoreB - scoreA;
-          }
-        }
-        return b.estimatedNetValue - a.estimatedNetValue;
-      });
-    }
-
-    return [
-      { title: "Rewards cards", cards: rewards.slice(0, maxPerSection) },
-      { title: "Cashback cards", cards: cashback.slice(0, maxPerSection) }
-    ];
-  }
-
-  const strategy = resultStrategies["single-list"];
-  return strategy.group(byNetValue, maxPerSection);
+  const strategy = resultStrategies[useSplit ? "reward-type-split" : "single-list"];
+  const isBlend = rankingStrategies[input.rankingStrategy ?? DEFAULT_RANKING_STRATEGY].blendMode === "weighted-average";
+  return strategy.group(byNetValue, maxPerSection, { isBlend });
 }
 

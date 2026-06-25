@@ -15,7 +15,11 @@ export type ResultSection = {
 export type ResultStrategy = {
   name: ResultStrategyName;
   /** Partition the already-ranked scored list into one or more titled sections. */
-  group(scored: CardScore[], maxPerSection: number): ResultSection[];
+  group(
+    scored: CardScore[],
+    maxPerSection: number,
+    options?: { isBlend?: boolean }
+  ): ResultSection[];
 };
 
 export const DEFAULT_RESULT_STRATEGY: ResultStrategyName = "single-list";
@@ -54,18 +58,21 @@ const singleList: ResultStrategy = {
 
 const rewardTypeSplit: ResultStrategy = {
   name: "reward-type-split",
-  group(scored, maxPerSection) {
-    const rewards: CardScore[] = [];
-    const cashback: CardScore[] = [];
+  group(scored, maxPerSection, options) {
+    const rewards = scored.filter((c) => !isPrimaryCashbackCard(c));
+    const cashback = scored.filter((c) => isPrimaryCashbackCard(c));
 
-    for (const score of scored) {
-      if (isPrimaryCashbackCard(score)) {
-        cashback.push(score);
-      } else {
-        rewards.push(score);
-      }
-      // Stop once both buckets are full
-      if (rewards.length >= maxPerSection && cashback.length >= maxPerSection) break;
+    if (options?.isBlend) {
+      cashback.sort((a, b) => {
+        const scoreA = a.envelopeScoring?.splitOrderScore;
+        const scoreB = b.envelopeScoring?.splitOrderScore;
+        if (scoreA !== undefined && scoreB !== undefined) {
+          if (scoreB !== scoreA) {
+            return scoreB - scoreA;
+          }
+        }
+        return b.estimatedNetValue - a.estimatedNetValue;
+      });
     }
 
     return [
