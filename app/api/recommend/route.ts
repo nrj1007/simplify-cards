@@ -2,11 +2,13 @@ import { NextResponse } from "next/server";
 import { scoreCards, applyResultStrategy } from "@/lib/recommend";
 import { SPEND_CATEGORIES, rankResults, toRecommendResult } from "@/lib/recommend-result";
 import type { ResultStrategyName } from "@/lib/result-strategies";
+import type { RankingStrategyName } from "@/lib/ranking-strategies";
 import type { SpendProfile } from "@/lib/types";
 
 const MAX_MONTHLY_SPEND = 10_000_000; // Rs 1 crore/month clamp to guard against abuse.
 
 const RESULT_STRATEGY_NAMES = new Set<ResultStrategyName>(["single-list", "reward-type-split"]);
+const RANKING_STRATEGY_NAMES = new Set<RankingStrategyName>(["absolute-blend", "max-yield"]);
 
 type RecommendRequestBody = {
   spend?: Record<string, unknown>;
@@ -14,6 +16,7 @@ type RecommendRequestBody = {
   wantsLounge?: unknown;
   wantsLifetimeFree?: unknown;
   resultStrategy?: unknown;
+  rankingStrategy?: unknown;
 };
 
 function sanitizeSpend(raw: Record<string, unknown> | undefined): SpendProfile {
@@ -49,12 +52,18 @@ export async function POST(request: Request) {
       ? (body.resultStrategy as ResultStrategyName)
       : undefined;
 
+  const rankingStrategy =
+    typeof body.rankingStrategy === "string" && RANKING_STRATEGY_NAMES.has(body.rankingStrategy as RankingStrategyName)
+      ? (body.rankingStrategy as RankingStrategyName)
+      : undefined;
+
   const input = {
     spend: sanitizeSpend(body.spend),
     maxAnnualFee,
     wantsLounge: body.wantsLounge === true,
     wantsLifetimeFree,
-    resultStrategy
+    resultStrategy,
+    rankingStrategy
   };
 
   const scored = scoreCards(input);
