@@ -3,16 +3,16 @@
 exports[`SEO landing page rankings > produces stable top-10 card ordering for each landing page 1`] = `
 {
   "best-cashback-credit-cards-india": [
-    "titan-sbi",
     "hdfc-swiggy",
-    "hdfc-swiggy-black",
     "hsbc-live-plus",
-    "hdfc-swiggy-orange",
-    "axis-flipkart",
-    "flipkart-sbi",
-    "axis-cashback",
-    "yes-paisabazaar-paisasave",
-    "axis-samsung-signature",
+    "hdfc-swiggy-black",
+    "axis-airtel",
+    "hsbc-rupay-cashback",
+    "titan-sbi",
+    "hdfc-millennia",
+    "axis-ace",
+    "kotak-cashback-plus",
+    "sbi-cashback",
   ],
   "best-credit-cards-for-beginners-india": [
     "csb-jupiter-edge-plus",

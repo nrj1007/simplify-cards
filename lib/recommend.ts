@@ -2509,23 +2509,30 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
       // its all-round performance — so no single trivial-spend tier can inflate it. The blend is a
       // weighted average leaning toward higher-spend levels (see blendAnnualSpendLevelWeights).
       let spendLevels = strategy.spendLevels;
-      // Cashback cards in the split+blend quadrant are ordered within the Cashback section by a
-      // dedicated low/mid-spend evaluation (see splitOrderScore below). Their representative/display
-      // value and global ranking key stay on the default spend levels — this flag only gates that
-      // separate ordering signal, so it must not touch spendLevels/spendWeights here.
-      const isSplitBlendCashback =
-        input.resultStrategy === "reward-type-split" &&
-        strategy.blendMode === "weighted-average" &&
-        isPrimaryCashbackCard({ card } as CardScore);
+      const isCashbackBlendCard =
+        strategy.blendMode === "weighted-average" && isPrimaryCashbackCard({ card } as CardScore);
+      // Broad split+blend: cashback cards are ordered within the Cashback *section* by a dedicated
+      // low/mid-spend evaluation (see splitOrderScore below). Their representative/display value and
+      // global ranking key stay on the default spend levels — this flag only gates that separate
+      // ordering signal, so it must NOT touch spendLevels/spendWeights here.
+      const isSplitBlendCashback = input.resultStrategy === "reward-type-split" && isCashbackBlendCard;
+      // Cashback-specific queries ("best cashback card"): the whole result is cashback and renders as a
+      // flat list ranked by the fit score, so here we DO evaluate cashback cards on the realistic
+      // low/mid spend basis with equal weight — matching the split section — for both rank and display.
+      const isCashbackQueryBlend = restrictToCashbackCards && isCashbackBlendCard;
 
-      if (restrictToUpiCards) {
+      if (isCashbackQueryBlend) {
+        spendLevels = [100000, 200000, 300000, 500000];
+      } else if (restrictToUpiCards) {
         spendLevels = [100000, 200000, 300000];
       } else if (isUtilityLikeCategory) {
         spendLevels = [100000, 200000, 300000];
       }
 
       let spendWeights = strategy.spendWeights;
-      if (restrictToUpiCards) {
+      if (isCashbackQueryBlend) {
+        spendWeights = [1, 1, 1, 1]; // Equal weight across [1L,2L,3L,5L]
+      } else if (restrictToUpiCards) {
         spendWeights = [2, 1.5, 1];
       } else if (isUtilityLikeCategory) {
         spendWeights = [1, 1, 1]; // Equal weight
