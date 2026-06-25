@@ -16,7 +16,7 @@
     "payzapp",
     "cashback"
   ],
-  "rewardType": "PIXEL CashPoints",
+  "rewardType": "cashback and PIXEL CashPoints",
   "rewards": [
     {
       "category": "smartbuy",
@@ -124,12 +124,13 @@
     "Convert purchases into EMIs instantly via PayZapp.",
     "EMI dashboard and reward tracking in PayZapp.",
     "Interest-free credit period up to 50 days.",
-    "Contactless payments with Tap & Pay and Swipe to Pay."
+    "Contactless payments with Tap & Pay and Swipe to Pay.",
+    "Classified as cashback and PIXEL CashPoints (1:1 statement balance value) on 2026-06-25."
   ],
   "imageUrl": "/images/hdfc-pixel-go.webp",
   "sourceUrl": "https://www.hdfc.bank.in/credit-cards/pixel-go-credit-card",
   "applyUrl": "https://www.hdfc.bank.in/credit-cards/pixel-go-credit-card",
-  "lastVerified": "2026-06-07",
+  "lastVerified": "2026-06-25",
   "verificationStatus": "official-direct",
   "popularityScore": 78
 }

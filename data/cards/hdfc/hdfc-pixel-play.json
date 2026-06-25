@@ -15,7 +15,7 @@
     "online shopping",
     "payzapp"
   ],
-  "rewardType": "PIXEL CashPoints",
+  "rewardType": "cashback and PIXEL CashPoints",
   "rewards": [
     {
       "category": "partner merchants",
@@ -125,13 +125,14 @@
     "Card details manually reviewed and verified by user on 2026-06-07",
     "Audited against official HDFC Bank PIXEL Play product page and terms on 2026-06-07.",
     "CashPoints redemption is through the PayZapp app, with 1 CashPoint = Rs 1, minimum redemption 1,000 points.",
-    "1.75% DCC markup fee applies on transactions processed in INR at international locations or with merchants registered overseas."
+    "1.75% DCC markup fee applies on transactions processed in INR at international locations or with merchants registered overseas.",
+    "Classified as cashback and PIXEL CashPoints (1:1 statement balance value) on 2026-06-25."
   ],
   "imageUrl": "/images/hdfc-pixel-play.webp",
   "sourceUrl": "https://www.hdfc.bank.in/credit-cards/pixel-play-credit-card",
   "applyUrl": "https://www.hdfc.bank.in/credit-cards/pixel-play-credit-card",
   "affiliateUrl": "https://bitli.in/S4NUh9n",
-  "lastVerified": "2026-06-07",
+  "lastVerified": "2026-06-25",
   "verificationStatus": "official-direct",
   "popularityScore": 79
 }

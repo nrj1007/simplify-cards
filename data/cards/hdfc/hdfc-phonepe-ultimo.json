@@ -15,7 +15,7 @@
     "online shopping",
     "lounge"
   ],
-  "rewardType": "reward points",
+  "rewardType": "cashback and reward points",
   "rewards": [
     {
       "category": "phonepe",
@@ -136,12 +136,13 @@
     "1.75% DCC markup fee applies on transactions processed in INR at international locations or with merchants registered overseas.",
     "Fully digital onboarding and application managed through the PhonePe app.",
     "Up to 50 days interest-free credit period.",
-    "Zero cost card liability when reported immediately."
+    "Zero cost card liability when reported immediately.",
+    "Classified as cashback and reward points (1:1 statement balance value) on 2026-06-25."
   ],
   "imageUrl": "/images/hdfc-phonepe-ultimo.webp",
   "sourceUrl": "https://www.hdfcbank.com/personal/pay/cards/credit-cards/phonepe-hdfc-bank-ultimo-credit-card",
   "applyUrl": "https://www.hdfcbank.com/personal/pay/cards/credit-cards/phonepe-hdfc-bank-ultimo-credit-card",
-  "lastVerified": "2026-06-07",
+  "lastVerified": "2026-06-25",
   "verificationStatus": "official-direct",
   "popularityScore": 74
 }

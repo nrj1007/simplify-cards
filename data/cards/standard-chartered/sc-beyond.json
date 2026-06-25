@@ -15,7 +15,7 @@
     "golf",
     "dining"
   ],
-  "rewardType": "360° Rewards points",
+  "rewardType": "cashback and 360° Rewards points",
   "rewards": [
     {
       "category": "base",
@@ -86,12 +86,13 @@
   "imageUrl": "/images/sc-beyond.webp",
   "sourceUrl": "https://www.sc.com/in/credit-cards/beyond-credit-card/",
   "applyUrl": "https://www.sc.com/in/credit-cards/beyond-credit-card/",
-  "lastVerified": "2026-06-14",
+  "lastVerified": "2026-06-25",
   "verificationStatus": "official-direct",
   "internalNotes": [
     "Card details manually reviewed and verified by user on 2026-06-14.",
     "Earns 5 reward points per Rs 150 spent on standard retail categories (3.33% return value). 1 point = Rs 1.",
     "Earns 3 reward points per Rs 150 spent on utility payments, supermarkets, insurance, property management, schools, and government payments (2% return value).",
-    "Unlimited domestic and international lounge access is provided for the cardholder, plus 4 complimentary guest visits per year."
+    "Unlimited domestic and international lounge access is provided for the cardholder, plus 4 complimentary guest visits per year.",
+    "Classified as cashback and 360° Rewards points (1:1 statement balance value) on 2026-06-25."
   ]
 }

@@ -16,7 +16,7 @@
     "diagnostics",
     "lounge"
   ],
-  "rewardType": "reward points",
+  "rewardType": "cashback and reward points",
   "acceleratedShare": {
     "online": 0.1,
     "grocery": 0
@@ -126,14 +126,15 @@
   },
   "internalNotes": [
     "Audited against official Apollo SBI Card SELECT page and terms on 2026-06-13.",
-    "Card details manually reviewed and verified by user on 2026-06-13."
+    "Card details manually reviewed and verified by user on 2026-06-13.",
+    "Classified as cashback and reward points (1:1 statement balance value) on 2026-06-25."
   ],
   "supportingSourceUrls": [
     "https://www.sbicard.com/en/personal/credit-cards/apollo-sbi-card.html"
   ],
   "sourceUrl": "https://www.sbicard.com/en/personal/credit-cards/apollo-sbi-card.html",
   "applyUrl": "https://www.apollo247.com/apollo-sbi-credit-card-faqs",
-  "lastVerified": "2026-06-13",
+  "lastVerified": "2026-06-25",
   "verificationStatus": "official-direct",
   "popularityScore": 49
 }

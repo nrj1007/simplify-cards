@@ -15,7 +15,7 @@
     "dining",
     "lifetime free"
   ],
-  "rewardType": "stars",
+  "rewardType": "cashback and stars",
   "rewards": [
     {
       "category": "upi",
@@ -119,11 +119,12 @@
     ]
   },
   "internalNotes": [
-    "Card details manually reviewed and verified by user on 2026-06-11."
+    "Card details manually reviewed and verified by user on 2026-06-11.",
+    "Classified as cashback and stars (1:1 statement balance value) on 2026-06-25."
   ],
   "sourceUrl": "https://www.axisbank.com/retail/cards/credit-card",
   "applyUrl": "https://www.axisbank.com/retail/cards/credit-card",
-  "lastVerified": "2026-06-11",
+  "lastVerified": "2026-06-25",
   "verificationStatus": "official-direct",
   "popularityScore": 65,
   "imageUrl": "/images/axis-google-pay-flex.png"
