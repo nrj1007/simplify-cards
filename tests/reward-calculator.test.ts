@@ -2341,34 +2341,28 @@ describe("reward calculator", () => {
     });
 
     describe("Airtel Axis Bank Credit Card", () => {
-      it("earns 10% cashback on utility spends, but is dynamically capped at twice the base cashback", () => {
+      it("earns 10% cashback on utility spends, but is dynamically capped at the base cashback (1x)", () => {
         const card = getCardById("axis-airtel");
         expect(card).toBeTruthy();
 
-        // Case A: Utility spend of Rs 2,000, but Rs 0 base spend.
-        // Base cashback = 0, so utility cashback is capped at 2 * 0 = 0.
+        // Case A: Utility spend of Rs 2,00, but Rs 0 base spend.
+        // Base cashback = 0, so utility cashback is capped at 1 * 0 = 0.
         const resultA = calculateRewards(card!, { utilities: 2000 });
         expect(resultA.rows.find((r) => r.category === "utilities")!.monthlyUnits).toBe(0);
 
         // Case B: Utility spend of Rs 2,000, and Rs 10,000 base (offline) spend.
         // Base cashback = 1% of 10,000 = Rs 100.
-        // Utility cashback cap = 2 * 100 = Rs 200.
-        // Utility spend of Rs 2,000 at 10% earns Rs 200.
+        // Utility cashback cap = 1 * 100 = Rs 100.
+        // Utility spend of Rs 2,000 at 10% is Rs 200, capped at Rs 100.
         const resultB = calculateRewards(card!, { utilities: 2000, base: 10000 });
         expect(resultB.rows.find((r) => r.category === "base")!.monthlyUnits).toBe(100);
-        expect(resultB.rows.find((r) => r.category === "utilities")!.monthlyUnits).toBe(200);
+        expect(resultB.rows.find((r) => r.category === "utilities")!.monthlyUnits).toBe(100);
 
-        // Case C: Utility spend of Rs 5,000, and Rs 10,000 base spend.
-        // Base cashback = Rs 100. Utility cap = Rs 200.
-        // Utility spend of Rs 5,000 at 10% is Rs 500, but capped at Rs 200.
-        const resultC = calculateRewards(card!, { utilities: 5000, base: 10000 });
-        expect(resultC.rows.find((r) => r.category === "utilities")!.monthlyUnits).toBe(200);
-
-        // Case D: Utility spend of Rs 5,000, and Rs 30,000 base spend.
-        // Base cashback = Rs 300. Utility cap = min(250, 2 * 300) = Rs 250 (flat cap limit).
-        // Utility spend of Rs 5,000 at 10% is Rs 500, capped at Rs 250.
-        const resultD = calculateRewards(card!, { utilities: 5000, base: 30000 });
-        expect(resultD.rows.find((r) => r.category === "utilities")!.monthlyUnits).toBe(250);
+        // Case C: Utility spend of Rs 5,000, and Rs 30,000 base spend.
+        // Base cashback = Rs 300. Utility cap = 1 * 300 = Rs 300.
+        // Utility spend of Rs 5,000 at 10% is Rs 500, capped at Rs 300.
+        const resultC = calculateRewards(card!, { utilities: 5000, base: 30000 });
+        expect(resultC.rows.find((r) => r.category === "utilities")!.monthlyUnits).toBe(300);
       });
 
       it("earns 10% cashback on dining (Swiggy/Zomato) capped at Rs 500, and 10% on groceries (Bigbasket) capped at Rs 500 (these are not subject to the base cashback cap multiplier)", () => {

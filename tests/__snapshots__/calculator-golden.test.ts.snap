@@ -43,8 +43,8 @@ exports[`reward calculator golden (all cards) > computes stable earn for every c
     "moderate": "online:375 dining:250 travel:250 hotels:375 airlines:375 fuel:x grocery:375 utilities:500 upi:375 amazon:375 international:375 base:375 rent:x insurance:x education:x gold:x government:x |4000 (surcharge:250)",
   },
   "axis-airtel": {
-    "high": "online:2000 dining:500 travel:2000 hotels:2000 airlines:2000 fuel:x grocery:500 utilities:250 upi:2000 amazon:2000 international:2000 base:2000 rent:x insurance:x education:x gold:x government:x |17250 (surcharge:2000)",
-    "moderate": "online:250 dining:500 travel:250 hotels:250 airlines:250 fuel:x grocery:500 utilities:250 upi:250 amazon:250 international:250 base:250 rent:x insurance:x education:x gold:x government:x |3250 (surcharge:250)",
+    "high": "online:2000 dining:500 travel:2000 hotels:2000 airlines:2000 fuel:x grocery:500 utilities:16000 upi:2000 amazon:2000 international:2000 base:2000 rent:x insurance:x education:x gold:x government:x |33000 (surcharge:2000)",
+    "moderate": "online:250 dining:500 travel:250 hotels:250 airlines:250 fuel:x grocery:500 utilities:2000 upi:250 amazon:250 international:250 base:250 rent:x insurance:x education:x gold:x government:x |5000 (surcharge:250)",
   },
   "axis-atlas": {
     "high": "online:4000 dining:4000 travel:10000 hotels:4000 airlines:4000 fuel:x grocery:4000 utilities:x upi:4000 amazon:4000 international:4000 base:4000 rent:x insurance:x education:4000 gold:x government:x |50000 (surcharge:2000)",

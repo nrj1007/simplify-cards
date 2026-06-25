@@ -22,7 +22,7 @@
       "displayCategory": "Airtel recharges and bill payments via Airtel Thanks App",
       "rate": 25,
       "displayRate": "25% cashback",
-      "capMonthly": 250,
+      "capMonthly": null,
       "capMultiplierOfBaseEarn": 2
     },
     {
@@ -30,8 +30,8 @@
       "rate": 10,
       "displayCategory": "Utility bill payments via Airtel Thanks App",
       "displayRate": "10% cashback",
-      "capMonthly": 250,
-      "capMultiplierOfBaseEarn": 2
+      "capMonthly": null,
+      "capMultiplierOfBaseEarn": 1
     },
     {
       "category": "swiggy zomato",
