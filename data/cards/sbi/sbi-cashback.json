@@ -17,6 +17,7 @@
   "acceleratedShare": {
     "travel": 1.0,
     "amazon": 1.0,
+    "dining": 0.5,
     "grocery": 0.5
   },
   "rewards": [

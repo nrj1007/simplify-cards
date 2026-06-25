@@ -568,6 +568,19 @@ describe("scoreCards", () => {
     expect(regaliaOnlineRewards).toEqual(expect.arrayContaining(["select lifestyle brands", "base"]));
   });
 
+  it("blends SBI Cashback dining between online and base when dining is partially online", () => {
+    const genericScores = scoreCards({
+      query: "top card under 5000"
+    });
+
+    const sbiCashback = genericScores.find((score) => score.card.id === "sbi-cashback");
+    const diningRewards = sbiCashback?.rewardBreakdown
+      .filter((item) => item.spendCategory === "dining")
+      .map((item) => item.rewardCategory);
+
+    expect(diningRewards).toEqual(expect.arrayContaining(["online", "base"]));
+  });
+
   it("does not over-penalize premium travel cards on broad mixed-spend queries", () => {
     const genericScores = scoreCards({
       query: "top card under 5000"
