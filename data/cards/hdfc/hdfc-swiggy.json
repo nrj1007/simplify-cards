@@ -2,6 +2,7 @@
   "id": "hdfc-swiggy",
   "issuer": "HDFC Bank",
   "name": "Swiggy HDFC Bank Credit Card",
+  "status": "closed-to-new",
   "network": [
     "Mastercard"
   ],
@@ -120,7 +121,7 @@
     ]
   },
   "internalNotes": [
-    "Card details manually reviewed and verified by user on 2026-06-07",
+    "Card details manually reviewed and verified by user on 2026-06-25",
     "Audited against official HDFC Bank Swiggy Credit Card product page and terms on 2026-06-07.",
     "Cashback is credited directly to the credit card statement, replacing the previous Swiggy Money redemption model (effective 21 June 2024).",
     "Mastercard World golf benefits include 4 complimentary green fee rounds and 12 golf lessons annually.",
@@ -129,7 +130,7 @@
   "imageUrl": "/images/hdfc-swiggy.webp",
   "sourceUrl": "https://www.hdfcbank.com/personal/pay/cards/credit-cards/swiggy-hdfc-bank-credit-card",
   "applyUrl": "https://www.hdfcbank.com/personal/pay/cards/credit-cards/swiggy-hdfc-bank-credit-card",
-  "lastVerified": "2026-06-07",
+  "lastVerified": "2026-06-25",
   "verificationStatus": "official-direct",
   "popularityScore": 88
 }
