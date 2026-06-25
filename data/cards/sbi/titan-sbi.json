@@ -18,7 +18,7 @@
   ],
   "rewardType": "cashback and reward points",
   "acceleratedShare": {
-    "online": 0.25,
+    "online": 0.1,
     "grocery": 0
   },
   "rewards": [

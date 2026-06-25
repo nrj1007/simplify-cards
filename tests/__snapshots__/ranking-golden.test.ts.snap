@@ -423,7 +423,7 @@ exports[`ranking golden (max-yield) > produces stable top-N ordering per scenari
     "amex-gold",
     "phonepe-sbi-select-black",
     "sbi-card-elite",
-    "titan-sbi",
+    "sbi-card-prime",
   ],
   "segment-premium": [
     "bobcard-etihad-guest-premium",
@@ -911,9 +911,9 @@ exports[`ranking golden (representative queries) > produces stable top-N orderin
   "issuer-sbi": [
     "krisflyer-sbi-apex",
     "tata-neu-infinity-sbi",
-    "titan-sbi",
     "phonepe-sbi-select-black",
     "aurum-sbi",
+    "titan-sbi",
     "indigo-sbi-elite",
     "flipkart-sbi",
     "sbi-card-miles-elite",
@@ -975,8 +975,8 @@ exports[`ranking golden (representative queries) > produces stable top-N orderin
     "equitas-powermiles",
     "equitas-selfe",
     "cheq-au",
-    "titan-sbi",
     "hdfc-marriott-bonvoy",
+    "amex-gold",
   ],
   "max-fee-zero": [
     "kotak-solitaire",
@@ -1088,7 +1088,7 @@ exports[`ranking golden (representative queries) > produces stable top-N orderin
     "amex-gold",
     "phonepe-sbi-select-black",
     "sbi-card-elite",
-    "titan-sbi",
+    "sbi-card-prime",
   ],
   "segment-premium": [
     "bobcard-etihad-guest-premium",
@@ -1222,9 +1222,9 @@ exports[`ranking golden (representative queries) > produces stable top-N orderin
     "hdfc-swiggy-black",
     "axis-airtel",
     "hsbc-rupay-cashback",
-    "titan-sbi",
     "hdfc-millennia",
     "axis-ace",
+    "titan-sbi",
     "kotak-cashback-plus",
     "sbi-cashback",
     "hdfc-swiggy-orange",
@@ -1338,7 +1338,7 @@ exports[`result split golden (all query modes) > snapshots section membership fo
       "yes-kiwi",
       "hsbc-live-plus",
       "hdfc-swiggy-black",
-      "titan-sbi",
+      "axis-airtel",
     ],
     "Rewards cards": [
       "hsbc-premier",
@@ -1638,7 +1638,7 @@ exports[`result split golden (all query modes) > snapshots section membership fo
       "yes-kiwi",
       "hsbc-live-plus",
       "hdfc-swiggy-black",
-      "titan-sbi",
+      "axis-airtel",
     ],
     "Rewards cards": [
       "hsbc-travelone",
@@ -1738,8 +1738,8 @@ exports[`result split golden (all query modes) > snapshots section membership fo
       "hsbc-live-plus",
       "kotak-cashback-plus",
       "hdfc-millennia",
-      "titan-sbi",
       "axis-ace",
+      "titan-sbi",
     ],
     "Rewards cards": [
       "icici-emeralde-private-metal",
@@ -1997,8 +1997,8 @@ exports[`result split golden (all query modes) > snapshots section membership fo
     "Cashback cards": [
       "axis-ace",
       "axis-fibe",
-      "titan-sbi",
       "hsbc-rupay-cashback",
+      "titan-sbi",
       "hsbc-live-plus",
     ],
     "Rewards cards": [
@@ -2036,7 +2036,7 @@ exports[`result split golden (reward-type-split) > snapshots the section members
       "yes-kiwi",
       "hsbc-live-plus",
       "hdfc-swiggy-black",
-      "titan-sbi",
+      "axis-airtel",
     ],
     "Rewards cards": [
       "hsbc-premier",
@@ -2077,7 +2077,7 @@ exports[`result split golden (reward-type-split) > snapshots the section members
       "yes-kiwi",
       "hsbc-live-plus",
       "hdfc-swiggy-black",
-      "titan-sbi",
+      "axis-airtel",
     ],
     "Rewards cards": [
       "hsbc-premier",
