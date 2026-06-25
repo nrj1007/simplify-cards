@@ -29,6 +29,7 @@
       "displayCategory": "Select brands on CheQ (Amazon, Flipkart, Zomato, BigBasket, Apple via Unicorn)",
       "rate": 12,
       "displayRate": "24 CheQ Points per ₹200 spent",
+      "valuePerUnit": 0.25,
       "capMonthly": 12000,
       "capGroup": "accelerated"
     },
@@ -37,6 +38,7 @@
       "displayCategory": "CheQ Travel bookings and utility bill payments on CheQ app",
       "rate": 12,
       "displayRate": "24 CheQ Points per ₹200 spent",
+      "valuePerUnit": 0.25,
       "capMonthly": 12000,
       "capGroup": "accelerated"
     },
@@ -45,6 +47,7 @@
       "displayCategory": "Other eligible shopping, dining, food delivery, and online grocery spends",
       "rate": 5,
       "displayRate": "10 CheQ Points per ₹200 spent",
+      "valuePerUnit": 0.25,
       "capMonthly": 12000,
       "capGroup": "accelerated"
     },
@@ -53,6 +56,7 @@
       "displayCategory": "CheQ UPI on linked RuPay card",
       "rate": 2.5,
       "displayRate": "5 CheQ Points per ₹200 spent",
+      "valuePerUnit": 0.25,
       "capMonthly": 12000,
       "capGroup": "accelerated"
     },
@@ -61,6 +65,7 @@
       "displayCategory": "Other eligible spends",
       "rate": 1,
       "displayRate": "2 CheQ Points per ₹200 spent",
+      "valuePerUnit": 0.25,
       "capMonthly": null
     }
   ],
