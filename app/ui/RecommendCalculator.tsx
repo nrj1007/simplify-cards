@@ -242,7 +242,6 @@ export default function RecommendCalculator({ defaultSpend, initialSections }: P
   const [wantsLounge, setWantsLounge] = useState(false);
   const [wantsLifetimeFree, setWantsLifetimeFree] = useState(false);
   const [groupByType, setGroupByType] = useState(false);
-  const [useMaxYield, setUseMaxYield] = useState(false);
   const [sections, setSections] = useState<ResultSection[]>(initialSections);
   const [pending, setPending] = useState(false);
 
@@ -267,8 +266,7 @@ export default function RecommendCalculator({ defaultSpend, initialSections }: P
           maxAnnualFee: maxAnnualFee || null,
           wantsLounge,
           wantsLifetimeFree,
-          resultStrategy: groupByType ? "reward-type-split" : "single-list",
-          rankingStrategy: useMaxYield ? "max-yield" : "absolute-blend"
+          resultStrategy: groupByType ? "reward-type-split" : "single-list"
         }),
         signal: controller.signal
       })
@@ -291,7 +289,7 @@ export default function RecommendCalculator({ defaultSpend, initialSections }: P
       clearTimeout(timer);
       controller.abort();
     };
-  }, [spend, maxAnnualFee, wantsLounge, wantsLifetimeFree, groupByType, useMaxYield]);
+  }, [spend, maxAnnualFee, wantsLounge, wantsLifetimeFree, groupByType]);
 
   const totalMonthly = ALL_CATEGORIES.reduce((sum, category) => sum + spend[category], 0);
   const visibleCategories = showMore ? ALL_CATEGORIES : CORE_CATEGORIES;
@@ -395,15 +393,6 @@ export default function RecommendCalculator({ defaultSpend, initialSections }: P
               onChange={(event) => setGroupByType(event.target.checked)}
             />
             Group by reward type
-          </label>
-          <label className="recommend-check">
-            <input
-              checked={useMaxYield}
-              id="recommend-use-max-yield"
-              type="checkbox"
-              onChange={(event) => setUseMaxYield(event.target.checked)}
-            />
-            Maximize peak yield (Max-Yield)
           </label>
         </div>
       </aside>
