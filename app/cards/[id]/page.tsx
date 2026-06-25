@@ -144,7 +144,7 @@ function redemptionRows(issuer: string, redemption?: Redemption) {
     .map((partner) => partner.transferRatio)
     .filter((value): value is number => typeof value === "number" && value > 0);
   const transferRatios = [...airlineRatios, ...partnerRatios];
-  const derivedAirMilesValue = hasAirmileTransfer ? (transferRatios.length ? Math.max(...transferRatios) : 1) : undefined;
+  const derivedAirMilesValue = hasAirmileTransfer ? (transferRatios.length ? Math.max(...transferRatios) : (redemption.airMilesValue ?? 1)) : undefined;
 
   const rows: Array<[string | undefined, number | undefined]> = [
     [redemption.ecosystemLabel, redemption.ecosystemValue],
