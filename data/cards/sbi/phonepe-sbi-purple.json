@@ -134,7 +134,9 @@
       "Good credit profile and address in a serviced location"
     ]
   },
-  "additionalDetails": [],
+  "additionalDetails": [
+    "Accelerated RPs on PhonePe spends (3 RP / 100) is applicable only on select categories - Recharges, Utilities, Bill Payments, Insurance and Travel."
+  ],
   "internalNotes": [
     "Audited against official PhonePe SBI Card PURPLE product page, reward program T&C, welcome benefit T&C, milestone T&C, reward redemption FAQ, and customer notices page on 2026-06-08.",
     "Accelerated Reward Points on PhonePe spends apply only to select categories such as recharges, utilities, bill payments, insurance, and travel.",
