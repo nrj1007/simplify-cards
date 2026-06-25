@@ -121,6 +121,8 @@
   "redemption": {
     "ecosystemLabel": "Gift EDGE / EDGE portal",
     "ecosystemValue": 0.2,
+    "statementBalanceValue": 0.2,
+    "airMilesValue": 0.8,
     "transferPartnerValuations": [
       {
         "partner": "Club ITC",
@@ -304,9 +306,10 @@
   "sourceUrl": "https://www.axis.bank.in/cards/credit-card/axis-bank-magnus-credit-card",
   "applyUrl": "https://www.axisbank.com/retail/cards/credit-card/axis-bank-magnus-card",
   "imageUrl": "/images/axis-magnus-burgundy.webp",
-  "lastVerified": "2026-06-06",
+  "lastVerified": "2026-06-25",
   "verificationStatus": "official-direct",
   "internalNotes": [
+    "Card details manually audited and verified by agent on 2026-06-25",
     "Card details manually reviewed and verified by user on 2026-06-06",
     "Official audit completed on 2026-06-03 using Axis Bank product page, 20 April 2024 revision PDF, 20 June 2025 revision PDF, Magnolia for Burgundy FAQ, and Axis miles-transfer page.",
     "Domestic lounge access requires minimum spends of Rs 50,000 in the previous 3 calendar months; the spend condition is waived for the month of issuance plus the next 3 calendar months.",
