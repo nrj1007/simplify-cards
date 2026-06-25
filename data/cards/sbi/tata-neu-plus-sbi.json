@@ -89,13 +89,6 @@
     "outstanding_balance_payment",
     "fees_and_charges"
   ],
-  "joiningBenefitsValued": [
-    {
-      "value": 499,
-      "kind": "points",
-      "label": "499 NeuCoins as welcome benefit within 15 days of joining fee realisation"
-    }
-  ],
   "joiningBenefits": [
     "499 NeuCoins as welcome benefit within 15 days of joining fee realisation"
   ],

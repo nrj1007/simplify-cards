@@ -98,13 +98,6 @@
   "milestoneBenefits": [
     "Yatra voucher worth Rs 3,000 on annual spends of Rs 3 lakh"
   ],
-  "joiningBenefitsValued": [
-    {
-      "value": 500,
-      "kind": "other",
-      "label": "PhonePe e-Gift Card worth Rs 500 after payment of annual fee, unless the card is issued under a first-year-free offer"
-    }
-  ],
   "joiningBenefits": [
     "PhonePe e-Gift Card worth Rs 500 after payment of annual fee, unless the card is issued under a first-year-free offer"
   ],

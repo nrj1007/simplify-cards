@@ -78,22 +78,8 @@
   "joiningBenefits": [
     "350 activation bonus Reward Points on a single transaction of Rs 500 or more within 60 days of card issuance"
   ],
-  "joiningBenefitsValued": [
-    {
-      "value": 350,
-      "kind": "points",
-      "label": "350 activation bonus Reward Points on a single transaction of Rs 500 or more within 60 days of card issuance"
-    }
-  ],
   "renewalBenefits": [
     "500 Reward Points on payment of renewal fee"
-  ],
-  "renewalBenefitsValued": [
-    {
-      "value": 500,
-      "kind": "points",
-      "label": "500 Reward Points on payment of renewal fee"
-    }
   ],
   "milestoneBenefits": [],
   "additionalBenefits": [
