@@ -18,6 +18,9 @@
     "dining"
   ],
   "rewardType": "cashback and reward points",
+  "acceleratedShare": {
+    "utilities": 0.05
+  },
   "rewards": [
     {
       "category": "fuel",
@@ -27,7 +30,7 @@
       "capMonthly": 2500
     },
     {
-      "category": "utilities",
+      "category": "partner merchants",
       "displayCategory": "Bharatgas online payments",
       "rate": 25,
       "displayRate": "25 Reward Points / Rs 100",

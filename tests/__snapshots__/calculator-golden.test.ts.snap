@@ -207,8 +207,8 @@ exports[`reward calculator golden (all cards) > computes stable earn for every c
     "moderate": "online:250 dining:1250 travel:250 hotels:250 airlines:250 fuel:1300 grocery:1250 utilities:250 upi:250 amazon:250 international:250 base:250 rent:250 insurance:250 education:250 gold:250 government:250 |7300 (surcharge:250)",
   },
   "bpcl-sbi-octane": {
-    "high": "online:2000 dining:2500 travel:2000 hotels:2000 airlines:2000 fuel:2500 grocery:2500 utilities:2500 upi:2000 amazon:2000 international:2000 base:2000 rent:2000 insurance:2000 education:2000 gold:2000 government:2000 |36000 (surcharge:2000)",
-    "moderate": "online:250 dining:2500 travel:250 hotels:250 airlines:250 fuel:2500 grocery:2500 utilities:2500 upi:250 amazon:250 international:250 base:250 rent:250 insurance:250 education:250 gold:250 government:250 |13250 (surcharge:250)",
+    "high": "online:2000 dining:2500 travel:2000 hotels:2000 airlines:2000 fuel:2500 grocery:2500 utilities:2000 upi:2000 amazon:2000 international:2000 base:2000 rent:2000 insurance:2000 education:2000 gold:2000 government:2000 |35500 (surcharge:2000)",
+    "moderate": "online:250 dining:2500 travel:250 hotels:250 airlines:250 fuel:2500 grocery:2500 utilities:250 upi:250 amazon:250 international:250 base:250 rent:250 insurance:250 education:250 gold:250 government:250 |11000 (surcharge:250)",
   },
   "cheq-au": {
     "high": "online:1290 dining:1290 travel:3097 hotels:645 airlines:645 fuel:x grocery:645 utilities:3097 upi:x amazon:645 international:2000 base:645 rent:x insurance:x education:x gold:x government:2000 |16000 (surcharge:2000)",
