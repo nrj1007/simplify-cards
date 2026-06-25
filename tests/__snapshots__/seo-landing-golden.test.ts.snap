@@ -3,6 +3,7 @@
 exports[`SEO landing page rankings > produces stable top-10 card ordering for each landing page 1`] = `
 {
   "best-cashback-credit-cards-india": [
+    "cheq-au",
     "phonepe-sbi-select-black",
     "hdfc-swiggy",
     "hsbc-live-plus",
@@ -12,9 +13,9 @@ exports[`SEO landing page rankings > produces stable top-10 card ordering for ea
     "hdfc-millennia",
     "hdfc-phonepe-ultimo",
     "axis-airtel",
-    "axis-ace",
   ],
   "best-credit-cards-for-beginners-india": [
+    "cheq-au",
     "csb-jupiter-edge-plus",
     "yes-kiwi",
     "hsbc-live-plus",
@@ -22,12 +23,12 @@ exports[`SEO landing page rankings > produces stable top-10 card ordering for ea
     "hdfc-swiggy-black",
     "hsbc-rupay-cashback",
     "amex-smartearn",
-    "cheq-au",
     "hdfc-diners-club-privilege",
     "hdfc-phonepe-ultimo",
   ],
   "best-credit-cards-for-online-shopping": [
     "csb-jupiter-edge-plus",
+    "cheq-au",
     "sbi-cashback",
     "phonepe-sbi-select-black",
     "hdfc-pixel-play",
@@ -36,7 +37,6 @@ exports[`SEO landing page rankings > produces stable top-10 card ordering for ea
     "indusind-eazydiner",
     "kotak-cashback-plus",
     "phonepe-sbi-purple",
-    "cheq-au",
   ],
   "best-credit-cards-india": [
     "hsbc-premier",
@@ -46,9 +46,9 @@ exports[`SEO landing page rankings > produces stable top-10 card ordering for ea
     "icici-emeralde-private-metal",
     "hsbc-travelone",
     "hdfc-regalia-gold",
+    "cheq-au",
     "axis-atlas",
     "kotak-solitaire",
-    "axis-magnus",
   ],
   "best-fuel-credit-cards-india": [
     "bpcl-sbi-octane",

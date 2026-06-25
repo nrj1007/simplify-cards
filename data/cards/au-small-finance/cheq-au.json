@@ -10,13 +10,14 @@
   "annualFee": 499,
   "feeWaiverSpend": 300000,
   "bestFor": [
+    "cashback",
     "cheq",
     "travel",
     "upi",
     "utility bills",
     "amazon"
   ],
-  "rewardType": "CheQ points",
+  "rewardType": "cashback and CheQ points",
   "capGroups": {
     "accelerated": {
       "capMonthly": 12000
@@ -73,6 +74,7 @@
   "loungeInternational": 0,
   "forexMarkup": 3.49,
   "tags": [
+    "cashback",
     "cheq",
     "visa",
     "rupay",
@@ -154,10 +156,10 @@
   "sourceUrl": "https://www.au.bank.in/personal-banking/credit-cards/cheq-au-credit-card",
   "applyUrl": "https://cheq.one/cheq-au-credit-card",
   "imageUrl": "/images/cheq-au-composed.webp",
-  "lastVerified": "2026-06-18",
+  "lastVerified": "2026-06-25",
   "verificationStatus": "official-mixed",
   "internalNotes": [
-    "Card details manually reviewed and verified by user on 2026-06-18.",
+    "Card details manually reviewed and verified by user on 2026-06-25.",
     "Audited against the official AU Small Finance Bank product page and the official CheQ co-branded product page on 2026-06-18.",
     "A single application issues 2 cards: 1 Visa variant and 1 RuPay variant.",
     "Accelerated reward points are capped at 12,000 CheQ points per month across accelerated categories; base rewards are not capped.",
