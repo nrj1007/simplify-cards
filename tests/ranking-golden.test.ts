@@ -148,3 +148,18 @@ describe("result split golden (reward-type-split)", () => {
   });
 });
 
+describe("result split golden (all query modes)", () => {
+  it("snapshots section membership for every representative query under reward-type-split", () => {
+    const golden: Record<string, Record<string, string[]>> = {};
+    for (const [name, input] of Object.entries(scenarios)) {
+      const splitInput = { ...input, resultStrategy: "reward-type-split" as const };
+      const resultSections = applyResultStrategy(scoreCards(splitInput), splitInput, 5);
+      golden[name] = {};
+      for (const section of resultSections) {
+        golden[name][section.title] = section.cards.map((s) => s.card.id);
+      }
+    }
+    expect(golden).toMatchSnapshot();
+  });
+});
+
