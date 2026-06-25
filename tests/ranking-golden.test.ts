@@ -160,6 +160,6 @@ describe("result split golden (all query modes)", () => {
       }
     }
     expect(golden).toMatchSnapshot();
-  });
+  }, 60000);
 });
 

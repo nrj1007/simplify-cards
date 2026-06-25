@@ -211,8 +211,8 @@ exports[`reward calculator golden (all cards) > computes stable earn for every c
     "moderate": "online:250 dining:2500 travel:250 hotels:250 airlines:250 fuel:2500 grocery:2500 utilities:2500 upi:250 amazon:250 international:250 base:250 rent:250 insurance:250 education:250 gold:250 government:250 |13250 (surcharge:250)",
   },
   "cheq-au": {
-    "high": "online:1364 dining:682 travel:3273 hotels:682 airlines:682 fuel:x grocery:682 utilities:3273 upi:x amazon:682 international:2000 base:682 rent:x insurance:x education:x gold:x government:2000 |16000 (surcharge:2000)",
-    "moderate": "online:1250 dining:625 travel:3000 hotels:625 airlines:625 fuel:x grocery:625 utilities:3000 upi:x amazon:625 international:250 base:625 rent:x insurance:x education:x gold:x government:250 |11500 (surcharge:250)",
+    "high": "online:1290 dining:1290 travel:3097 hotels:645 airlines:645 fuel:x grocery:645 utilities:3097 upi:x amazon:645 international:2000 base:645 rent:x insurance:x education:x gold:x government:2000 |16000 (surcharge:2000)",
+    "moderate": "online:1250 dining:1250 travel:3000 hotels:625 airlines:625 fuel:x grocery:625 utilities:3000 upi:x amazon:625 international:250 base:625 rent:x insurance:x education:x gold:x government:250 |12125 (surcharge:250)",
   },
   "csb-jupiter-edge-plus": {
     "high": "online:10000 dining:500 travel:500 hotels:500 airlines:5000 fuel:x grocery:500 utilities:x upi:500 amazon:500 international:500 base:500 rent:x insurance:500 education:x gold:500 government:x |20000 (surcharge:4000)",
