@@ -787,8 +787,8 @@ exports[`reward calculator golden (all cards) > computes stable earn for every c
     "moderate": "online:250 dining:250 travel:250 hotels:250 airlines:250 fuel:x grocery:250 utilities:250 upi:250 amazon:250 international:250 base:250 rent:x insurance:250 education:x gold:250 government:x |3250 (surcharge:250)",
   },
   "titan-sbi": {
-    "high": "online:12000 dining:12000 travel:12000 hotels:12000 airlines:12000 fuel:x grocery:12000 utilities:12000 upi:12000 amazon:12000 international:12000 base:12000 rent:x insurance:12000 education:12000 gold:12000 government:x |168000 (surcharge:2000)",
-    "moderate": "online:1500 dining:1500 travel:1500 hotels:1500 airlines:1500 fuel:x grocery:1500 utilities:1500 upi:1500 amazon:1500 international:1500 base:1500 rent:x insurance:1500 education:1500 gold:1500 government:x |21000 (surcharge:250)",
+    "high": "online:12000 dining:12000 travel:12000 hotels:12000 airlines:12000 fuel:x grocery:12000 utilities:12000 upi:12000 amazon:12000 international:12000 base:12000 rent:x insurance:12000 education:12000 gold:10000 government:x |166000 (surcharge:2000)",
+    "moderate": "online:1500 dining:1500 travel:1500 hotels:1500 airlines:1500 fuel:x grocery:1500 utilities:1500 upi:1500 amazon:1500 international:1500 base:1500 rent:x insurance:1500 education:1500 gold:1250 government:x |20750 (surcharge:250)",
   },
   "yes-ace": {
     "high": "online:5000 dining:4000 travel:4000 hotels:4000 airlines:4000 fuel:x grocery:4000 utilities:600 upi:4000 amazon:4000 international:4000 base:4000 rent:x insurance:4000 education:4000 gold:4000 government:x |53600 (surcharge:2000)",

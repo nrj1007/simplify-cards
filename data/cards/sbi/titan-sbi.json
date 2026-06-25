@@ -30,14 +30,14 @@
       "capMonthly": null
     },
     {
-      "category": "partner merchants",
+      "category": "gold, partner merchants",
       "displayCategory": "Mia, CaratLane, and Zoya",
       "rate": 5,
       "displayRate": "5% cashback",
       "capMonthly": null
     },
     {
-      "category": "partner merchants",
+      "category": "gold, partner merchants",
       "displayCategory": "Tanishq",
       "rate": 3,
       "displayRate": "3% value back as gift vouchers",
@@ -96,13 +96,6 @@
     "fees_and_charges",
     "disputed_transactions"
   ],
-  "joiningBenefitsValued": [
-    {
-      "value": 6000,
-      "kind": "points",
-      "label": "12,000 Reward Points worth Rs 3,000 on payment of annual fee"
-    }
-  ],
   "joiningBenefits": [
     "12,000 Reward Points worth Rs 3,000 on payment of annual fee"
   ],
@@ -160,7 +153,7 @@
     "Audited against official Titan SBI Card product page and Titan FAQ booklet on 2026-06-08.",
     "Annual fee reversal is tracked only through feeWaiverSpend at Rs 3 lakh and is intentionally not repeated as a milestone.",
     "The card's live SBI page frames Titan ecosystem value-back through a mix of cashback and gift-voucher benefits, so the rewards table uses separate display rows by Titan brand cluster.",
-    "Card details manually reviewed and verified by user on 2026-06-09."
+    "Card details manually reviewed and verified by user on 2026-06-25."
   ],
   "supportingSourceUrls": [
     "https://www.sbicard.com/en/personal/credit-cards/shopping/titan-sbi-card.page",
@@ -168,7 +161,7 @@
   ],
   "sourceUrl": "https://www.sbicard.com/en/personal/credit-cards/shopping/titan-sbi-card.page",
   "applyUrl": "https://www.sbicard.com/en/personal/credit-cards/shopping/titan-sbi-card.page",
-  "lastVerified": "2026-06-09",
+  "lastVerified": "2026-06-25",
   "verificationStatus": "official-direct",
   "popularityScore": 72
 }

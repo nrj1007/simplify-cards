@@ -975,8 +975,8 @@ exports[`ranking golden (representative queries) > produces stable top-N orderin
     "equitas-powermiles",
     "equitas-selfe",
     "cheq-au",
+    "titan-sbi",
     "hdfc-marriott-bonvoy",
-    "amex-gold",
   ],
   "max-fee-zero": [
     "kotak-solitaire",
@@ -1338,7 +1338,7 @@ exports[`result split golden (all query modes) > snapshots section membership fo
       "yes-kiwi",
       "hsbc-live-plus",
       "hdfc-swiggy-black",
-      "axis-airtel",
+      "titan-sbi",
     ],
     "Rewards cards": [
       "hsbc-premier",
@@ -1638,7 +1638,7 @@ exports[`result split golden (all query modes) > snapshots section membership fo
       "yes-kiwi",
       "hsbc-live-plus",
       "hdfc-swiggy-black",
-      "axis-airtel",
+      "titan-sbi",
     ],
     "Rewards cards": [
       "hsbc-travelone",
@@ -2036,7 +2036,7 @@ exports[`result split golden (reward-type-split) > snapshots the section members
       "yes-kiwi",
       "hsbc-live-plus",
       "hdfc-swiggy-black",
-      "axis-airtel",
+      "titan-sbi",
     ],
     "Rewards cards": [
       "hsbc-premier",
@@ -2077,7 +2077,7 @@ exports[`result split golden (reward-type-split) > snapshots the section members
       "yes-kiwi",
       "hsbc-live-plus",
       "hdfc-swiggy-black",
-      "axis-airtel",
+      "titan-sbi",
     ],
     "Rewards cards": [
       "hsbc-premier",
