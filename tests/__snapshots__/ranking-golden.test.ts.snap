@@ -1334,11 +1334,11 @@ exports[`result split golden (all query modes) > snapshots section membership fo
 {
   "broad-generic": {
     "Cashback cards": [
-      "titan-sbi",
-      "yes-kiwi",
       "hdfc-swiggy",
+      "yes-kiwi",
+      "hsbc-live-plus",
       "hdfc-swiggy-black",
-      "axis-cashback",
+      "axis-airtel",
     ],
     "Rewards cards": [
       "hsbc-premier",
@@ -1473,10 +1473,10 @@ exports[`result split golden (all query modes) > snapshots section membership fo
   },
   "forex": {
     "Cashback cards": [
-      "titan-sbi",
       "hsbc-live-plus",
-      "axis-ace",
-      "icici-amazon-pay",
+      "titan-sbi",
+      "yes-kiwi",
+      "hsbc-rupay-cashback",
       "hdfc-swiggy",
     ],
     "Rewards cards": [
@@ -1529,11 +1529,11 @@ exports[`result split golden (all query modes) > snapshots section membership fo
   },
   "issuer-axis": {
     "Cashback cards": [
-      "axis-cashback",
-      "axis-flipkart",
-      "axis-samsung-signature",
+      "axis-airtel",
       "axis-ace",
+      "axis-flipkart",
       "axis-fibe",
+      "axis-samsung-signature",
     ],
     "Rewards cards": [
       "axis-magnus-burgundy",
@@ -1547,8 +1547,8 @@ exports[`result split golden (all query modes) > snapshots section membership fo
     "Cashback cards": [
       "hdfc-swiggy",
       "hdfc-swiggy-black",
-      "hdfc-swiggy-orange",
       "hdfc-millennia",
+      "hdfc-swiggy-orange",
     ],
     "Rewards cards": [
       "hdfc-diners-club-black-metal",
@@ -1561,8 +1561,8 @@ exports[`result split golden (all query modes) > snapshots section membership fo
   "issuer-icici": {
     "Cashback cards": [
       "icici-amazon-pay",
-      "icici-hpcl-coral",
       "icici-hpcl-super-saver",
+      "icici-hpcl-coral",
     ],
     "Rewards cards": [
       "icici-emeralde-private-metal",
@@ -1575,8 +1575,8 @@ exports[`result split golden (all query modes) > snapshots section membership fo
   "issuer-sbi": {
     "Cashback cards": [
       "titan-sbi",
-      "flipkart-sbi",
       "sbi-cashback",
+      "flipkart-sbi",
     ],
     "Rewards cards": [
       "krisflyer-sbi-apex",
@@ -1604,9 +1604,9 @@ exports[`result split golden (all query modes) > snapshots section membership fo
     "Cashback cards": [
       "titan-sbi",
       "hsbc-rupay-cashback",
-      "hsbc-live-plus",
-      "axis-samsung-signature",
       "rbl-patanjali-swarn",
+      "hsbc-live-plus",
+      "axis-fibe",
     ],
     "Rewards cards": [
       "hsbc-premier",
@@ -1620,9 +1620,9 @@ exports[`result split golden (all query modes) > snapshots section membership fo
     "Cashback cards": [
       "titan-sbi",
       "hsbc-rupay-cashback",
-      "hsbc-live-plus",
-      "axis-samsung-signature",
       "rbl-patanjali-swarn",
+      "hsbc-live-plus",
+      "axis-fibe",
     ],
     "Rewards cards": [
       "hsbc-premier",
@@ -1634,11 +1634,11 @@ exports[`result split golden (all query modes) > snapshots section membership fo
   },
   "max-fee-5000-query": {
     "Cashback cards": [
-      "titan-sbi",
-      "yes-kiwi",
       "hdfc-swiggy",
+      "yes-kiwi",
+      "hsbc-live-plus",
       "hdfc-swiggy-black",
-      "axis-cashback",
+      "axis-airtel",
     ],
     "Rewards cards": [
       "hsbc-travelone",
@@ -1691,7 +1691,7 @@ exports[`result split golden (all query modes) > snapshots section membership fo
       "hdfc-swiggy-black",
       "hdfc-swiggy-orange",
       "hsbc-live-plus",
-      "axis-ace",
+      "axis-airtel",
     ],
     "Rewards cards": [
       "hdfc-diners-club-privilege",
@@ -1814,11 +1814,11 @@ exports[`result split golden (all query modes) > snapshots section membership fo
   },
   "spend-high-base": {
     "Cashback cards": [
-      "yes-paisabazaar-paisasave",
       "yes-kiwi",
-      "titan-sbi",
       "hsbc-live-plus",
-      "axis-flipkart",
+      "hdfc-swiggy",
+      "hsbc-rupay-cashback",
+      "axis-airtel",
     ],
     "Rewards cards": [
       "hsbc-premier",
@@ -1846,11 +1846,11 @@ exports[`result split golden (all query modes) > snapshots section membership fo
   },
   "spend-level-heavy": {
     "Cashback cards": [
-      "titan-sbi",
-      "yes-kiwi",
       "hdfc-swiggy",
+      "hsbc-live-plus",
+      "yes-kiwi",
       "hdfc-swiggy-black",
-      "axis-flipkart",
+      "axis-airtel",
     ],
     "Rewards cards": [
       "hsbc-premier",
@@ -1862,11 +1862,11 @@ exports[`result split golden (all query modes) > snapshots section membership fo
   },
   "spend-level-light": {
     "Cashback cards": [
-      "titan-sbi",
       "yes-kiwi",
-      "hdfc-swiggy",
       "hsbc-live-plus",
-      "hdfc-swiggy-black",
+      "hdfc-swiggy",
+      "axis-airtel",
+      "hsbc-rupay-cashback",
     ],
     "Rewards cards": [
       "hsbc-premier",
@@ -1878,11 +1878,11 @@ exports[`result split golden (all query modes) > snapshots section membership fo
   },
   "spend-level-mid": {
     "Cashback cards": [
-      "titan-sbi",
-      "yes-kiwi",
+      "hsbc-live-plus",
       "hdfc-swiggy",
+      "yes-kiwi",
+      "axis-airtel",
       "hdfc-swiggy-black",
-      "hdfc-swiggy-orange",
     ],
     "Rewards cards": [
       "hsbc-premier",
@@ -1894,11 +1894,11 @@ exports[`result split golden (all query modes) > snapshots section membership fo
   },
   "spend-travel-heavy": {
     "Cashback cards": [
+      "yes-kiwi",
+      "yes-paisabazaar-paisasave",
+      "axis-ace",
       "axis-flipkart",
       "flipkart-sbi",
-      "yes-paisabazaar-paisasave",
-      "yes-kiwi",
-      "titan-sbi",
     ],
     "Rewards cards": [
       "hsbc-premier",
@@ -1910,11 +1910,11 @@ exports[`result split golden (all query modes) > snapshots section membership fo
   },
   "usecase-cashback": {
     "": [
-      "titan-sbi",
-      "axis-cashback",
-      "yes-kiwi",
-      "flipkart-sbi",
-      "axis-flipkart",
+      "hdfc-swiggy",
+      "hdfc-swiggy-orange",
+      "hdfc-swiggy-black",
+      "hsbc-live-plus",
+      "axis-airtel",
     ],
   },
   "usecase-dining": {
@@ -1995,11 +1995,11 @@ exports[`result split golden (all query modes) > snapshots section membership fo
   },
   "usecase-travel": {
     "Cashback cards": [
-      "titan-sbi",
       "axis-ace",
       "axis-fibe",
+      "titan-sbi",
+      "hsbc-rupay-cashback",
       "hsbc-live-plus",
-      "axis-samsung-signature",
     ],
     "Rewards cards": [
       "hsbc-premier",
@@ -2032,11 +2032,11 @@ exports[`result split golden (reward-type-split) > snapshots the section members
 {
   "broad-best-card": {
     "Cashback cards": [
-      "titan-sbi",
-      "yes-kiwi",
       "hdfc-swiggy",
+      "yes-kiwi",
+      "hsbc-live-plus",
       "hdfc-swiggy-black",
-      "axis-cashback",
+      "axis-airtel",
     ],
     "Rewards cards": [
       "hsbc-premier",
@@ -2073,11 +2073,11 @@ exports[`result split golden (reward-type-split) > snapshots the section members
   },
   "seo-broad-best-cards": {
     "Cashback cards": [
-      "titan-sbi",
-      "yes-kiwi",
       "hdfc-swiggy",
+      "yes-kiwi",
+      "hsbc-live-plus",
       "hdfc-swiggy-black",
-      "axis-cashback",
+      "axis-airtel",
     ],
     "Rewards cards": [
       "hsbc-premier",

@@ -361,7 +361,7 @@ describe("ask ai fallback policy", () => {
     ) as typeof fetch;
 
     const answer = await answerQuestion({ query: "best cashback card" });
-    const rawTopSevenIds = scoreCards({ query: "best cashback card" }).slice(0, 7).map((item) => item.card.id);
+    const rawTopSevenIds = scoreCards({ query: "best cashback card", resultStrategy: "reward-type-split" }).slice(0, 7).map((item) => item.card.id);
 
     expect(global.fetch).toHaveBeenCalledTimes(1);
     expect(answer.summary).toMatch(/Kotak Cashback\+/i);

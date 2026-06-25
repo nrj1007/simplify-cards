@@ -2509,14 +2509,42 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
       // its all-round performance — so no single trivial-spend tier can inflate it. The blend is a
       // weighted average leaning toward higher-spend levels (see blendAnnualSpendLevelWeights).
       let spendLevels = strategy.spendLevels;
-      if (restrictToUpiCards) {
+      const isSplitBlendCashback =
+        input.resultStrategy === "reward-type-split" &&
+        strategy.blendMode === "weighted-average" &&
+        isPrimaryCashbackCard({ card } as CardScore);
+
+      if (isSplitBlendCashback) {
+        spendLevels = [100000, 200000, 300000, 500000];
+      } else if (restrictToUpiCards) {
         spendLevels = [100000, 200000, 300000];
       } else if (isUtilityLikeCategory) {
         spendLevels = [100000, 200000, 300000];
       }
 
       let spendWeights = strategy.spendWeights;
-      if (restrictToUpiCards) {
+      if (isSplitBlendCashback) {
+        const totalAnnualSpend = input.spend ? annualSpendTotal(input.spend) : 0;
+
+        const isLowFee =
+          wantsLifetimeFree ||
+          (effectiveMaxAnnualFee !== undefined && effectiveMaxAnnualFee <= 1000) ||
+          (effectiveMaxAnnualFee === undefined && (
+            intent.useCases.includes("cashback") ||
+            normalizeForMatch(input.query).includes("cashback") ||
+            (input.spend !== undefined && totalAnnualSpend <= 300000)
+          ));
+
+        const isEqualWeight =
+          (effectiveMaxAnnualFee !== undefined && effectiveMaxAnnualFee > 1000 && effectiveMaxAnnualFee <= 5000) ||
+          (input.spend !== undefined && totalAnnualSpend > 300000 && totalAnnualSpend < 1000000);
+
+        if (isLowFee) {
+          spendWeights = [1.75, 1.5, 1.25, 1];
+        } else if (isEqualWeight) {
+          spendWeights = [1, 1, 1, 1];
+        }
+      } else if (restrictToUpiCards) {
         spendWeights = [2, 1.5, 1];
       } else if (isUtilityLikeCategory) {
         spendWeights = [1, 1, 1]; // Equal weight
@@ -2526,9 +2554,11 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
         const isLowFee =
           wantsLifetimeFree ||
           (effectiveMaxAnnualFee !== undefined && effectiveMaxAnnualFee <= 1000) ||
-          intent.useCases.includes("cashback") ||
-          normalizeForMatch(input.query).includes("cashback") ||
-          (input.spend !== undefined && totalAnnualSpend <= 300000);
+          (effectiveMaxAnnualFee === undefined && (
+            intent.useCases.includes("cashback") ||
+            normalizeForMatch(input.query).includes("cashback") ||
+            (input.spend !== undefined && totalAnnualSpend <= 300000)
+          ));
 
         const isEqualWeight =
           (effectiveMaxAnnualFee !== undefined && effectiveMaxAnnualFee > 1000 && effectiveMaxAnnualFee <= 5000) ||
