@@ -95,7 +95,7 @@
   "sourceUrl": "https://www.sbicard.com/en/personal/credit-cards/rewards/cashback-sbi-card.page",
   "applyUrl": "https://www.sbicard.com/en/personal/credit-cards/rewards/cashback-sbi-card.page",
   "affiliateUrl": "https://bitli.in/1692qrG",
-  "lastVerified": "2026-06-02",
+  "lastVerified": "2026-06-25",
   "verificationStatus": "official-direct",
   "internalNotes": [
     "Card details manually reviewed and verified by user on 2026-06-02",
@@ -104,7 +104,8 @@
     "Cashback does not expire because it is adjusted automatically in the next statement after credit.",
     "Effective 1 April 2026, maximum cashback per statement cycle is Rs 4,000, with online cashback capped at Rs 2,000 and offline cashback capped at Rs 2,000.",
     "Effective 1 April 2026, cashback is not applicable on spends at digital gaming platforms or merchants, tolls, and government-related transactions, in addition to existing exclusions.",
-    "April 2026 notice lists MCCs 7993, 7994 and 5816 for digital gaming platforms or merchants; 4784 for tolls; and 9222, 9311 and 9402 for government-related transactions."
+    "April 2026 notice lists MCCs 7993, 7994 and 5816 for digital gaming platforms or merchants; 4784 for tolls; and 9222, 9311 and 9402 for government-related transactions.",
+    "Popularity score updated to 100 on 2026-06-25."
   ],
-  "popularityScore": 96
+  "popularityScore": 100
 }
