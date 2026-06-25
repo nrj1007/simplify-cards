@@ -74,8 +74,8 @@ describe("isPrimaryCashbackCard", () => {
     expect(isPrimaryCashbackCard(RW3)).toBe(false);
   });
 
-  it("returns false for mixed-currency (cashback and reward points → Rewards bucket)", () => {
-    expect(isPrimaryCashbackCard(MX)).toBe(false);
+  it("returns true for mixed-currency (cashback and reward points)", () => {
+    expect(isPrimaryCashbackCard(MX)).toBe(true);
   });
 
   it("returns false for empty rewardType", () => {
@@ -130,13 +130,13 @@ describe("resultStrategies / reward-type-split", () => {
     expect(sections[1].cards).toHaveLength(5);
   });
 
-  it("places mixed-currency cards (cashback and reward points) into Rewards bucket", () => {
+  it("places mixed-currency cards (cashback and reward points) into Cashback bucket", () => {
     const scored = [RW1, MX, CB1];
     const sections = strategy.group(scored, 5);
     const rewardIds = sections[0].cards.map((s) => s.card.id);
     const cashbackIds = sections[1].cards.map((s) => s.card.id);
-    expect(rewardIds).toContain("mixed-1");
-    expect(cashbackIds).not.toContain("mixed-1");
+    expect(cashbackIds).toContain("mixed-1");
+    expect(rewardIds).not.toContain("mixed-1");
   });
 
   it("returns empty Cashback section if no cashback cards exist", () => {

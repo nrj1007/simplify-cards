@@ -30,10 +30,7 @@ export const SPLIT_SCOPE: SplitScope = "any-query";
 // ---------------------------------------------------------------------------
 
 /**
- * Returns true when cashback is the **primary** reward currency of this card.
- *
- * Mixed-currency cards (`rewardType: "cashback and reward points"`) return `false` —
- * cashback is secondary there, so the split routes them to the Rewards bucket.
+ * Returns true when cashback is a reward currency of this card (including mixed-currency).
  *
  * Contrast with `cardEarnsCashback()` in `recommend.ts`, which returns `true` for
  * mixed-currency cards (used for pool-restriction in "best cashback card" queries,
@@ -41,8 +38,6 @@ export const SPLIT_SCOPE: SplitScope = "any-query";
  */
 export function isPrimaryCashbackCard(score: CardScore): boolean {
   const rt = score.card.rewardType?.toLowerCase() ?? "";
-  // "cashback and reward points" → Rewards bucket (cashback is secondary)
-  if (rt.includes("and") && rt.includes("cashback")) return false;
   return /cashback/.test(rt);
 }
 

@@ -1334,11 +1334,11 @@ exports[`result split golden (reward-type-split) > snapshots the section members
 {
   "broad-best-card": {
     "Cashback cards": [
+      "titan-sbi",
       "axis-cashback",
+      "yes-kiwi",
       "flipkart-sbi",
       "axis-flipkart",
-      "yes-paisabazaar-paisasave",
-      "icici-amazon-pay",
     ],
     "Rewards cards": [
       "hsbc-premier",
@@ -1375,11 +1375,11 @@ exports[`result split golden (reward-type-split) > snapshots the section members
   },
   "seo-broad-best-cards": {
     "Cashback cards": [
+      "titan-sbi",
       "axis-cashback",
+      "yes-kiwi",
       "flipkart-sbi",
       "axis-flipkart",
-      "yes-paisabazaar-paisasave",
-      "icici-amazon-pay",
     ],
     "Rewards cards": [
       "hsbc-premier",
