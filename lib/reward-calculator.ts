@@ -395,21 +395,23 @@ export function calculateRewards(card: CreditCard, spend: SpendProfile): RewardC
   for (const [key, items] of groups.entries()) {
     if (typeof key === "string") {
       const itemRawUnits = items.map((item) => {
-        const earnRate = rewardEarnRatePerRs100(card, item.reward);
-        const rawUnits = (item.monthlySpend * earnRate.basePerRs100) / 100;
-        return { item, rawUnits };
+        const tieredAllocation = allocateTieredRewardUnits(card, item.monthlySpend, item.rewards);
+        const rawUnits = tieredAllocation
+          ? tieredAllocation.monthlyUnits
+          : (item.monthlySpend * rewardEarnRatePerRs100(card, item.reward).basePerRs100) / 100;
+        return { item, rawUnits, tieredAllocation };
       });
 
       const totalRawUnits = itemRawUnits.reduce((sum, entry) => sum + entry.rawUnits, 0);
-      const cap = items[0].reward.capMonthly;
+      const cap = card.capGroups?.[key]?.capMonthly ?? items[0].reward.capMonthly;
       const totalCappedUnits = typeof cap === "number" && cap > 0 ? Math.min(totalRawUnits, cap) : totalRawUnits;
 
-      for (const { item, rawUnits } of itemRawUnits) {
+      for (const { item, rawUnits, tieredAllocation } of itemRawUnits) {
         const monthlyUnits = totalRawUnits > 0 ? (totalCappedUnits * rawUnits) / totalRawUnits : 0;
         rows.push({
           category: item.category,
           monthlySpend: item.monthlySpend,
-          matchedRewardCategory: item.reward.category,
+          matchedRewardCategory: tieredAllocation?.matchedRewardCategory ?? item.reward.category,
           monthlyUnits,
           annualUnits: monthlyUnits * 12,
           excluded: false,

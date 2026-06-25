@@ -16,13 +16,44 @@
     "utility bills"
   ],
   "rewardType": "cashback",
+  "capGroups": {
+    "online-cashback": {
+      "capMonthly": 4000
+    }
+  },
   "rewards": [
     {
       "category": "online",
-      "displayCategory": "Online spends (tiered up to 7%)",
+      "displayCategory": "Online spends up to Rs 5,000/mo",
+      "rate": 2,
+      "displayRate": "2% cashback on online spends up to Rs 5,000 a month",
+      "capMonthly": 4000,
+      "capGroup": "online-cashback",
+      "tierLowerBound": 0,
+      "tierUpperBound": 5000,
+      "tierScope": "category"
+    },
+    {
+      "category": "online",
+      "displayCategory": "Online spends Rs 5,000-40,000/mo",
+      "rate": 5,
+      "displayRate": "5% cashback on online spends from Rs 5,000 to Rs 40,000 a month",
+      "capMonthly": 4000,
+      "capGroup": "online-cashback",
+      "tierLowerBound": 5000,
+      "tierUpperBound": 40000,
+      "tierScope": "category"
+    },
+    {
+      "category": "online",
+      "displayCategory": "Online spends above Rs 40,000/mo",
       "rate": 7,
-      "displayRate": "7% cashback on online spends (2% under Rs 5k, 5% up to Rs 40k, 7% above Rs 40k)",
-      "capMonthly": 4000
+      "displayRate": "7% cashback on online spends above Rs 40,000 a month",
+      "capMonthly": 4000,
+      "capGroup": "online-cashback",
+      "tierLowerBound": 40000,
+      "tierUpperBound": null,
+      "tierScope": "category"
     },
     {
       "category": "base",

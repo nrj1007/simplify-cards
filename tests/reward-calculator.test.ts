@@ -2080,17 +2080,21 @@ describe("reward calculator", () => {
     });
 
     describe("Cashback Credit Card", () => {
-      it("earns 7% cashback on online spends capped at Rs 4,000/month", () => {
+      it("earns tiered cashback on online spends capped at Rs 4,000/month", () => {
         const card = getCardById("axis-cashback");
         expect(card).toBeTruthy();
 
-        // Rs 10,000 online spends => Rs 700 cashback
+        // Rs 10,000 online spends => Rs 350 cashback (5k at 2% + 5k at 5%)
         const result1 = calculateRewards(card!, { online: 10000 });
-        expect(result1.monthlyUnits).toBe(700);
+        expect(result1.monthlyUnits).toBe(350);
 
-        // Rs 60,000 online spends => Rs 4,000 cashback
+        // Rs 60,000 online spends => Rs 3,250 cashback (5k at 2% + 35k at 5% + 20k at 7%)
         const result2 = calculateRewards(card!, { online: 60000 });
-        expect(result2.monthlyUnits).toBe(4000);
+        expect(result2.monthlyUnits).toBe(3250);
+
+        // Rs 80,000 online spends => capped at Rs 4,000 cashback (5k at 2% + 35k at 5% + 40k at 7% = 4,650 -> capped at 4k)
+        const result3 = calculateRewards(card!, { online: 80000 });
+        expect(result3.monthlyUnits).toBe(4000);
       });
 
       it("earns 0.5% cashback on utility spends capped at Rs 100/month", () => {

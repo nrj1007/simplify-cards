@@ -52,7 +52,7 @@ exports[`reward calculator golden (all cards) > computes stable earn for every c
   },
   "axis-cashback": {
     "high": "online:4000 dining:1500 travel:1500 hotels:1500 airlines:1500 fuel:x grocery:1500 utilities:100 upi:1500 amazon:1500 international:1500 base:1500 rent:x insurance:x education:x gold:x government:1500 |19100 (surcharge:2000)",
-    "moderate": "online:1750 dining:188 travel:188 hotels:188 airlines:188 fuel:x grocery:188 utilities:100 upi:188 amazon:188 international:188 base:188 rent:x insurance:x education:x gold:x government:188 |3725 (surcharge:250)",
+    "moderate": "online:1100 dining:188 travel:188 hotels:188 airlines:188 fuel:x grocery:188 utilities:100 upi:188 amazon:188 international:188 base:188 rent:x insurance:x education:x gold:x government:188 |3075 (surcharge:250)",
   },
   "axis-fibe": {
     "high": "online:500 dining:500 travel:500 hotels:2000 airlines:2000 fuel:x grocery:2000 utilities:x upi:2000 amazon:2000 international:2000 base:2000 rent:x insurance:x education:x gold:x government:x |15500 (surcharge:2000)",

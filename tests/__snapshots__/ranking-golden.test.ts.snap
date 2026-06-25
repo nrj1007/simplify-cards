@@ -135,12 +135,12 @@ exports[`ranking golden (max-yield) > produces stable top-N ordering per scenari
     "axis-flipkart-super-elite",
     "axis-horizon",
     "axis-airtel",
-    "axis-cashback",
     "axis-ace",
     "axis-flipkart",
     "axis-indigo-premium",
     "axis-fibe",
     "axis-samsung-signature",
+    "axis-cashback",
   ],
   "forex": [
     "kotak-infinite",
@@ -559,10 +559,10 @@ exports[`ranking golden (max-yield) > produces stable top-N ordering per scenari
     "hdfc-swiggy-orange",
     "hsbc-live-plus",
     "titan-sbi",
-    "axis-cashback",
     "hsbc-rupay-cashback",
     "kotak-cashback-plus",
     "hdfc-millennia",
+    "axis-cashback",
     "sbi-cashback",
   ],
   "usecase-dining": [
@@ -622,11 +622,11 @@ exports[`ranking golden (max-yield) > produces stable top-N ordering per scenari
   ],
   "usecase-online": [
     "csb-jupiter-edge-plus",
-    "axis-cashback",
     "indusind-eazydiner",
     "phonepe-sbi-select-black",
     "kotak-cashback-plus",
     "sbi-cashback",
+    "axis-cashback",
     "au-ixigo",
     "hdfc-pixel-play",
     "bobcard-eterna",
@@ -800,12 +800,12 @@ exports[`ranking golden (representative queries) > produces stable top-N orderin
     "axis-flipkart-super-elite",
     "axis-horizon",
     "axis-airtel",
-    "axis-cashback",
     "axis-ace",
     "axis-flipkart",
     "axis-indigo-premium",
     "axis-fibe",
     "axis-samsung-signature",
+    "axis-cashback",
   ],
   "forex": [
     "hsbc-premier",
@@ -871,8 +871,8 @@ exports[`ranking golden (representative queries) > produces stable top-N orderin
     "axis-atlas",
     "axis-magnus",
     "axis-flipkart-super-elite",
-    "axis-cashback",
     "axis-horizon",
+    "axis-cashback",
     "axis-flipkart",
     "axis-samsung-signature",
     "axis-ace",
@@ -1218,13 +1218,13 @@ exports[`ranking golden (representative queries) > produces stable top-N orderin
   ],
   "usecase-cashback": [
     "titan-sbi",
-    "axis-cashback",
     "hdfc-swiggy",
     "hdfc-swiggy-black",
     "hsbc-live-plus",
     "hdfc-swiggy-orange",
     "axis-flipkart",
     "flipkart-sbi",
+    "axis-cashback",
     "yes-paisabazaar-paisasave",
     "axis-samsung-signature",
     "sbi-cashback",
@@ -1287,12 +1287,12 @@ exports[`ranking golden (representative queries) > produces stable top-N orderin
   ],
   "usecase-online": [
     "csb-jupiter-edge-plus",
-    "axis-cashback",
     "sbi-cashback",
     "phonepe-sbi-select-black",
     "hdfc-pixel-play",
     "bobcard-eterna",
     "indusind-eazydiner",
+    "axis-cashback",
     "kotak-cashback-plus",
     "cheq-au",
     "phonepe-sbi-purple",
@@ -1335,10 +1335,10 @@ exports[`result split golden (all query modes) > snapshots section membership fo
   "broad-generic": {
     "Cashback cards": [
       "titan-sbi",
-      "axis-cashback",
       "yes-kiwi",
       "hdfc-swiggy",
       "hdfc-swiggy-black",
+      "axis-cashback",
     ],
     "Rewards cards": [
       "hsbc-premier",
@@ -1458,10 +1458,10 @@ exports[`result split golden (all query modes) > snapshots section membership fo
   "exact-card-atlas": {
     "Cashback cards": [
       "axis-airtel",
-      "axis-cashback",
       "axis-ace",
       "axis-flipkart",
       "axis-fibe",
+      "axis-samsung-signature",
     ],
     "Rewards cards": [
       "axis-atlas",
@@ -1635,10 +1635,10 @@ exports[`result split golden (all query modes) > snapshots section membership fo
   "max-fee-5000-query": {
     "Cashback cards": [
       "titan-sbi",
-      "axis-cashback",
       "yes-kiwi",
       "hdfc-swiggy",
       "hdfc-swiggy-black",
+      "axis-cashback",
     ],
     "Rewards cards": [
       "hsbc-travelone",
@@ -1736,10 +1736,10 @@ exports[`result split golden (all query modes) > snapshots section membership fo
   "network-visa": {
     "Cashback cards": [
       "hsbc-live-plus",
-      "axis-cashback",
       "kotak-cashback-plus",
       "hdfc-millennia",
       "titan-sbi",
+      "axis-ace",
     ],
     "Rewards cards": [
       "icici-emeralde-private-metal",
@@ -1847,10 +1847,10 @@ exports[`result split golden (all query modes) > snapshots section membership fo
   "spend-level-heavy": {
     "Cashback cards": [
       "titan-sbi",
-      "axis-cashback",
       "yes-kiwi",
       "hdfc-swiggy",
       "hdfc-swiggy-black",
+      "axis-flipkart",
     ],
     "Rewards cards": [
       "hsbc-premier",
@@ -1865,8 +1865,8 @@ exports[`result split golden (all query modes) > snapshots section membership fo
       "titan-sbi",
       "yes-kiwi",
       "hdfc-swiggy",
-      "axis-cashback",
       "hsbc-live-plus",
+      "hdfc-swiggy-black",
     ],
     "Rewards cards": [
       "hsbc-premier",
@@ -1879,10 +1879,10 @@ exports[`result split golden (all query modes) > snapshots section membership fo
   "spend-level-mid": {
     "Cashback cards": [
       "titan-sbi",
-      "axis-cashback",
       "yes-kiwi",
       "hdfc-swiggy",
       "hdfc-swiggy-black",
+      "hdfc-swiggy-orange",
     ],
     "Rewards cards": [
       "hsbc-premier",
@@ -1979,8 +1979,8 @@ exports[`result split golden (all query modes) > snapshots section membership fo
   },
   "usecase-online": {
     "Cashback cards": [
-      "axis-cashback",
       "sbi-cashback",
+      "axis-cashback",
       "axis-fibe",
       "bobcard-snapdeal",
       "kotak-cashback-plus",
@@ -2033,10 +2033,10 @@ exports[`result split golden (reward-type-split) > snapshots the section members
   "broad-best-card": {
     "Cashback cards": [
       "titan-sbi",
-      "axis-cashback",
       "yes-kiwi",
       "hdfc-swiggy",
       "hdfc-swiggy-black",
+      "axis-cashback",
     ],
     "Rewards cards": [
       "hsbc-premier",
@@ -2048,8 +2048,8 @@ exports[`result split golden (reward-type-split) > snapshots the section members
   },
   "category-online-split": {
     "Cashback cards": [
-      "axis-cashback",
       "sbi-cashback",
+      "axis-cashback",
       "axis-fibe",
       "bobcard-snapdeal",
       "kotak-cashback-plus",
@@ -2074,10 +2074,10 @@ exports[`result split golden (reward-type-split) > snapshots the section members
   "seo-broad-best-cards": {
     "Cashback cards": [
       "titan-sbi",
-      "axis-cashback",
       "yes-kiwi",
       "hdfc-swiggy",
       "hdfc-swiggy-black",
+      "axis-cashback",
     ],
     "Rewards cards": [
       "hsbc-premier",
