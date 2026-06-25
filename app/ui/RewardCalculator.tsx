@@ -216,7 +216,7 @@ export default function RewardCalculator({ card, milestones = [], isStandalone =
       .map((partner) => partner.transferRatio)
       .filter((ratio): ratio is number => typeof ratio === "number" && ratio > 0);
     const allRatios = [...airlineRatios, ...partnerRatios];
-    return allRatios.length ? Math.max(...allRatios) : 1;
+    return allRatios.length ? Math.max(...allRatios) : (redemption?.airMilesValue ?? 1);
   }, [airMilesRupeePerPoint, redemption]);
 
   const partnerValuations = useMemo(() => {
