@@ -540,6 +540,7 @@ export default async function CardPage({ params, searchParams }: Props) {
                           <th>Tier</th>
                           <th>Required monthly spend</th>
                           <th>Equivalent quarterly spend</th>
+                          {card.redemption?.pointValueTiers ? <th>1 Point value</th> : null}
                         </tr>
                       </thead>
                       <tbody>
@@ -550,6 +551,17 @@ export default async function CardPage({ params, searchParams }: Props) {
                             </td>
                             <td>{tier.monthlySpend === 0 ? "Base tier" : formatCurrency(tier.monthlySpend)}</td>
                             <td>{tier.quarterlySpend === 0 ? "-" : formatCurrency(tier.quarterlySpend)}</td>
+                            {card.redemption?.pointValueTiers ? (
+                              <td>
+                                {(() => {
+                                  const tiers = card.redemption.pointValueTiers;
+                                  const matched = [...tiers]
+                                    .sort((a, b) => b.minMonthlySpend - a.minMonthlySpend)
+                                    .find((t) => tier.monthlySpend >= t.minMonthlySpend);
+                                  return matched ? `Rs ${matched.value.toFixed(2)}` : "-";
+                                })()}
+                              </td>
+                            ) : null}
                           </tr>
                         ))}
                       </tbody>
