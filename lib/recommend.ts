@@ -2646,7 +2646,7 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
           const cardEarnsCashback = /cashback/i.test(card.rewardType ?? "");
           const orderLevels = cardEarnsCashback
             ? [100000, 200000, 300000, 500000]
-            : [300000, 500000, 1000000, 2000000, 3000000];
+            : [300000, 1000000, 2000000, 3000000];
           const perLevel = orderLevels.map((annualSpend) => {
             const monthlySpend = Math.round(annualSpend / 12);
             const focusSpendAmount = monthlySpend * 0.75;
@@ -2655,7 +2655,7 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
           });
           const splitWeights = cardEarnsCashback
             ? [1.3, 1.2, 1.1, 1]
-            : [1.4, 1.3, 1.2, 1.1, 1];
+            : [1, 1.25, 1.5, 1.75];
           const splitWeightSum = splitWeights.reduce((sum, w) => sum + w, 0);
           splitOrderScore =
             perLevel.reduce((total, score, i) => total + strategy.perLevelScore(score) * splitWeights[i], 0) / splitWeightSum;
@@ -2744,14 +2744,14 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
         const cardEarnsCashback = /cashback/i.test(card.rewardType ?? "");
         const orderLevels = cardEarnsCashback
           ? [100000, 200000, 300000, 500000]
-          : [300000, 500000, 1000000, 2000000, 3000000];
+          : [300000, 1000000, 2000000, 3000000];
         const perLevel = orderLevels.map((annualSpend) => {
           const monthlySpend = Math.round(annualSpend / 12);
           return scoreCardForSpend(card, scaleSpendProfileToMonthly(spend, monthlySpend), monthlySpend);
         });
         const splitWeights = cardEarnsCashback
           ? [1.3, 1.2, 1.1, 1]
-          : [1.4, 1.3, 1.2, 1.1, 1];
+          : [1, 1.25, 1.5, 1.75];
         const splitWeightSum = splitWeights.reduce((sum, w) => sum + w, 0);
         splitOrderScore =
           perLevel.reduce((total, score, i) => total + strategy.perLevelScore(score) * splitWeights[i], 0) / splitWeightSum;
