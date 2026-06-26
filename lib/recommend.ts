@@ -2080,7 +2080,7 @@ function loungePreferenceBoost(
     const poolUplift = card.loungeGuestSharedPool ? primaryIntlValue * 0.25 : 0;
 
     const travelIntlLoungeValue = primaryIntlValue + poolUplift + separateIntlGuest;
-    const loungeValueWeight = isCategoryFocused ? 0 : LOUNGE_QUERY_VALUE_WEIGHT;
+    const loungeValueWeight = isCategoryFocused ? 0.2 : LOUNGE_QUERY_VALUE_WEIGHT;
 
     return Math.round(travelIntlLoungeValue * loungeValueWeight) + score * 300;
   }
@@ -2131,7 +2131,7 @@ function loungePreferenceBoost(
   const commonPoolUplift = card.loungeGuestSharedPool ? primaryLoungeValue * 0.25 : 0;
 
   const travelLoungeValue = primaryLoungeValue + commonPoolUplift + separateGuestValue;
-  const loungeValueWeight = isCategoryFocused ? 0 : (wantsLounge ? LOUNGE_QUERY_VALUE_WEIGHT : 0.5);
+  const loungeValueWeight = isCategoryFocused ? 0.2 : (wantsLounge ? LOUNGE_QUERY_VALUE_WEIGHT : 0.5);
   boost += Math.round(travelLoungeValue * loungeValueWeight);
 
   if (intent.useCases.includes("travel") && !wantsLounge) {
