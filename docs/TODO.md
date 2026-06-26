@@ -43,6 +43,8 @@ These are listed or have official pages, but should not be added as active-new-a
 - [ ] Add views count metrics/display on the landing page.
 - [ ] Add a Contact Us page.
 - [ ] Create latest news page showing recent card updates, devaluations, new launches, and lounge/benefit changes.
+- [ ] Add a newsletter feature so users can subscribe to card updates, devaluations, launches, and major benefit changes.
+- [ ] Expand the latest news page into a proper feature with archive, filters by issuer/topic, and internal links from navigation/footer.
 - [ ] Improve card detail UI for fees, caps, exclusions, and source trust.
 - [ ] Add filters for issuer, cashback, travel, lounge, fuel, UPI, low-fee, and secured cards.
 - [ ] Add a GPT-only Ask AI flow over the merged in-memory card data from `data/cards/`, with retrieval first and no live web search.
