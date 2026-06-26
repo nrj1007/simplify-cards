@@ -29,13 +29,13 @@ exports[`SEO landing page rankings > produces stable top-10 card ordering for ea
   "best-credit-cards-for-online-shopping": [
     "phonepe-sbi-select-black",
     "sbi-cashback",
-    "bobcard-eterna",
     "csb-jupiter-edge-plus",
+    "bobcard-eterna",
     "indusind-eazydiner",
     "hdfc-pixel-play",
     "yes-pop-club",
-    "simplyclick-sbi",
     "axis-cashback",
+    "simplyclick-sbi",
     "au-ixigo",
   ],
   "best-credit-cards-india": [
@@ -53,8 +53,8 @@ exports[`SEO landing page rankings > produces stable top-10 card ordering for ea
   "best-fuel-credit-cards-india": [
     "idfc-first-power-plus",
     "bpcl-sbi-octane",
-    "axis-indianoil",
     "axis-indianoil-easy",
+    "axis-indianoil",
     "hdfc-indianoil",
     "idfc-first-power",
     "axis-indianoil-premium",

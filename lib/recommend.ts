@@ -2526,6 +2526,14 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
       ? Math.max(0, Math.round(relativeOnlineScore * (estimatedNetValue * 0.1)))
       : 0;
 
+    const isFocusedQuery = categoryFocus !== null || fuelFocus;
+    const matchesFocus = categoryFocus
+      ? cardMatchesCategoryFocus(card, categoryFocus)
+      : (fuelFocus ? hasFuelCardSignal(card) : false);
+    const focusBoost = (isFocusedQuery && matchesFocus)
+      ? Math.max(0, Math.round(estimatedNetValue * 0.1))
+      : 0;
+
     const envelopeLabel = envelopeMonthlySpend ? formatEnvelopeSpendLabel(envelopeMonthlySpend) : null;
     const feeWaiverReason =
       card.feeWaiverSpend && annualSpend >= card.feeWaiverSpend
@@ -2577,6 +2585,7 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
       forexBoost +
       flexibilityValue +
       onlineBoost +
+      focusBoost +
       card.popularityScore * cardPopularityWeight;
 
     const valueScore = estimatedNetValue + sharedBoosts;
@@ -2626,6 +2635,7 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
         forexBoost,
         flexibilityValue,
         onlineBoost,
+        focusBoost,
         relevanceScore,
         sharedBoosts,
         valueScore,
