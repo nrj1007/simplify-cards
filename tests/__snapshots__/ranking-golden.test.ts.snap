@@ -1255,9 +1255,9 @@ exports[`ranking golden (representative queries) > produces stable top-N orderin
     "sbi-card-prime",
     "sbi-card-elite",
     "sbi-cashback",
+    "phonepe-sbi-purple",
     "au-ixigo",
     "hsbc-live-plus",
-    "phonepe-sbi-purple",
   ],
   "usecase-fuel": [
     "idfc-first-power-plus",
