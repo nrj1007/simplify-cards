@@ -2642,7 +2642,8 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
 
         let splitOrderScore: number | undefined = undefined;
         const isSplitBlend = input.resultStrategy === "reward-type-split" && strategy.blendMode === "weighted-average";
-        if (isSplitBlend) {
+        const cardEarnsCashback = /cashback/i.test(card.rewardType ?? "");
+        if (isSplitBlend && cardEarnsCashback) {
           const cashbackOrderLevels = [100000, 200000, 300000, 500000];
           const cashbackPerLevel = cashbackOrderLevels.map((annualSpend) => {
             const monthlySpend = Math.round(annualSpend / 12);
@@ -2734,7 +2735,8 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
       // net value at realistic low/mid spend [1L,2L,3L,5L]. Computed on a dedicated evaluation so the
       // card's representative/display value and global ranking key remain on the default spend levels.
       let splitOrderScore: number | undefined = undefined;
-      if (isSplitBlend) {
+      const cardEarnsCashback = /cashback/i.test(card.rewardType ?? "");
+      if (isSplitBlend && cardEarnsCashback) {
         const cashbackOrderLevels = [100000, 200000, 300000, 500000];
         const cashbackPerLevel = cashbackOrderLevels.map((annualSpend) => {
           const monthlySpend = Math.round(annualSpend / 12);
