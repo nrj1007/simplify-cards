@@ -16,6 +16,7 @@
     "upi"
   ],
   "rewardType": "cashback",
+  "broadOnlineReward": true,
   "rewards": [
     {
       "category": "dining,online,travel",

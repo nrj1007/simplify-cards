@@ -16,6 +16,7 @@
   ],
   "rewardType": "reward points",
   "cashbackBucketPointValue": 0.25,
+  "broadOnlineReward": true,
   "rewards": [
     {
       "category": "online",

@@ -15,6 +15,7 @@
     "movies"
   ],
   "rewardType": "reward points",
+  "broadOnlineReward": true,
   "rewards": [
     {
       "category": "online",

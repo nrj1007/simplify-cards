@@ -18,6 +18,7 @@
     "online": 0.25,
     "grocery": 0
   },
+  "broadOnlineReward": true,
   "rewards": [
     {
       "category": "partner merchants",

@@ -15,6 +15,7 @@
     "online spends"
   ],
   "rewardType": "cashback",
+  "broadOnlineReward": true,
   "rewards": [
     {
       "category": "online",

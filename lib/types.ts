@@ -197,6 +197,9 @@ export type CreditCard = {
   // accelerated merchant set is narrow (e.g. Titan's "partner merchants" only covers Titan-group
   // brands: online 0.25, grocery 0), or a larger one when it's broad.
   acceleratedShare?: Partial<Record<SpendCategory, number>>;
+  // True when the card's "online" reward tier applies broadly to ALL online spends (any merchant),
+  // not just specific platforms or partner lists. Verified via official T&Cs / issuer pages.
+  broadOnlineReward?: boolean;
   rewards: Reward[];
   // Optional paid add-ons that alter reward earning. The recommender scores the base card and each
   // paid option, subtracts annualCost, and displays whichever path has the strongest net value.
