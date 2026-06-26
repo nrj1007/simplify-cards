@@ -2070,7 +2070,9 @@ function loungePreferenceBoost(
 ) {
   const score = loungeScore(card);
 
-  if (isCategoryFocused && !wantsLounge && !wantsInternationalLounge) {
+  const hasTravelOrLoungeIntent = intent.useCases.includes("travel") || wantsLounge || wantsInternationalLounge;
+
+  if (!hasTravelOrLoungeIntent) {
     const maxLounge = Math.max(maxLoungeScore ?? 1, 1);
     const relativeScore = score / maxLounge;
     const maxLoungeBoost = (maxNetValue ?? 0) * 0.1;
@@ -2398,6 +2400,16 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
 
   const maxNetValue = Math.max(...candidateNetValues, 0);
   const maxLoungeScore = Math.max(...candidateCards.map((card) => loungeScore(card)), 1);
+  const cardHasBroadOnlineReward = (c: CreditCard) =>
+    c.rewards.some((r) =>
+      r.category.split(",").map((cat) => cat.trim().toLowerCase()).includes("online")
+    );
+  const maxOnlineScore = Math.max(
+    ...candidateCards
+      .filter(cardHasBroadOnlineReward)
+      .map((c) => netCategoryReward(c, "online", 10000, includeSmartbuyLikeRewards)),
+    1
+  );
 
   const scoreCardForSpend = (
     card: CreditCard,
@@ -2494,6 +2506,16 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
     const flexibilityValue = (broadGenericRanking && categoryFocus === null && !restrictToFuelCards)
       ? computeFlexibilityValue(card, monthlyTotalForScore, includeSmartbuyLikeRewards)
       : 0;
+
+    const hasBroadOnlineReward = card.rewards.some((r) =>
+      r.category.split(",").map((c) => c.trim().toLowerCase()).includes("online")
+    );
+    const onlineScore = netCategoryReward(card, "online", 10000, includeSmartbuyLikeRewards);
+    const relativeOnlineScore = Math.max(0, onlineScore) / maxOnlineScore;
+    const onlineBoost = hasBroadOnlineReward
+      ? Math.max(0, Math.round(relativeOnlineScore * (estimatedNetValue * 0.1)))
+      : 0;
+
     const envelopeLabel = envelopeMonthlySpend ? formatEnvelopeSpendLabel(envelopeMonthlySpend) : null;
     const feeWaiverReason =
       card.feeWaiverSpend && annualSpend >= card.feeWaiverSpend
@@ -2544,6 +2566,7 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
       loungeBoost +
       forexBoost +
       flexibilityValue +
+      onlineBoost +
       card.popularityScore * cardPopularityWeight;
 
     const valueScore = estimatedNetValue + sharedBoosts;
@@ -2592,6 +2615,7 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
         loungeBoost,
         forexBoost,
         flexibilityValue,
+        onlineBoost,
         relevanceScore,
         sharedBoosts,
         valueScore,
@@ -2629,8 +2653,10 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
             const monthlySpendProfile = categoryFocus75_25SpendProfile(focusedCategory, focusSpendAmount);
             return scoreCardForSpend(card, monthlySpendProfile, monthlySpend);
           });
+          const splitWeights = [1.3, 1.2, 1.1, 1];
+          const splitWeightSum = splitWeights.reduce((sum, w) => sum + w, 0);
           splitOrderScore =
-            cashbackPerLevel.reduce((total, score) => total + strategy.perLevelScore(score), 0) / cashbackPerLevel.length;
+            cashbackPerLevel.reduce((total, score, i) => total + strategy.perLevelScore(score) * splitWeights[i], 0) / splitWeightSum;
         }
 
         const assembled = representative.envelopeScoring
@@ -2671,7 +2697,7 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
 
       let spendWeights = strategy.spendWeights;
       if (isCashbackQueryBlend) {
-        spendWeights = [1.6, 1.4, 1.2, 1];
+        spendWeights = [1.3, 1.2, 1.1, 1];
       } else if (restrictToUpiCards) {
         spendWeights = [2, 1.5, 1];
       } else if (isUtilityLikeCategory) {
@@ -2717,8 +2743,10 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
           const monthlySpend = Math.round(annualSpend / 12);
           return scoreCardForSpend(card, scaleSpendProfileToMonthly(spend, monthlySpend), monthlySpend);
         });
+        const splitWeights = [1.3, 1.2, 1.1, 1];
+        const splitWeightSum = splitWeights.reduce((sum, w) => sum + w, 0);
         splitOrderScore =
-          cashbackPerLevel.reduce((total, score) => total + strategy.perLevelScore(score), 0) / cashbackPerLevel.length;
+          cashbackPerLevel.reduce((total, score, i) => total + strategy.perLevelScore(score) * splitWeights[i], 0) / splitWeightSum;
       }
 
       // Dual-bucket cards feature in BOTH split sections, valued per context. A card's DEFAULT score
