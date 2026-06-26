@@ -110,7 +110,7 @@ exports[`ranking golden (max-yield) > produces stable top-N ordering per scenari
     "bobcard-eterna",
     "sbi-card-prime",
     "axis-fibe",
-    "shaurya-select-sbi",
+    "rbl-platinum-maxima-plus",
   ],
   "combo-premium-travel": [
     "bobcard-etihad-guest-premium",
@@ -377,9 +377,9 @@ exports[`ranking golden (max-yield) > produces stable top-N ordering per scenari
     "indigo-sbi",
     "phonepe-sbi-select-black",
     "sbi-card-miles",
-    "shaurya-select-sbi",
     "reliance-sbi-prime",
     "hdfc-tata-neu-infinity",
+    "tata-neu-infinity-sbi",
   ],
   "network-visa": [
     "hsbc-visa-platinum",
@@ -575,7 +575,7 @@ exports[`ranking golden (max-yield) > produces stable top-N ordering per scenari
     "bobcard-eterna",
     "sbi-card-prime",
     "axis-fibe",
-    "shaurya-select-sbi",
+    "rbl-platinum-maxima-plus",
   ],
   "usecase-entertainment": [
     "phonepe-sbi-select-black",
@@ -657,9 +657,9 @@ exports[`ranking golden (max-yield) > produces stable top-N ordering per scenari
     "indigo-sbi",
     "phonepe-sbi-select-black",
     "sbi-card-miles",
-    "shaurya-select-sbi",
     "reliance-sbi-prime",
     "hdfc-tata-neu-infinity",
+    "tata-neu-infinity-sbi",
   ],
 }
 `;
@@ -773,8 +773,8 @@ exports[`ranking golden (representative queries) > produces stable top-N orderin
     "indusind-eazydiner",
     "hsbc-rupay-cashback",
     "rbl-platinum-maxima-plus",
-    "shaurya-select-sbi",
     "landmark-rewards-sbi-prime",
+    "bobcard-premier",
   ],
   "combo-premium-travel": [
     "bobcard-etihad-guest-premium",
@@ -1041,9 +1041,9 @@ exports[`ranking golden (representative queries) > produces stable top-N orderin
     "indigo-sbi",
     "phonepe-sbi-select-black",
     "sbi-card-miles",
-    "shaurya-select-sbi",
     "reliance-sbi-prime",
     "hdfc-tata-neu-infinity",
+    "tata-neu-infinity-sbi",
   ],
   "network-visa": [
     "hsbc-visa-platinum",
@@ -1239,7 +1239,7 @@ exports[`ranking golden (representative queries) > produces stable top-N orderin
     "indusind-eazydiner",
     "hsbc-rupay-cashback",
     "rbl-platinum-maxima-plus",
-    "shaurya-select-sbi",
+    "landmark-rewards-sbi-prime",
   ],
   "usecase-entertainment": [
     "phonepe-sbi-select-black",
@@ -1278,10 +1278,10 @@ exports[`ranking golden (representative queries) > produces stable top-N orderin
     "bpcl-sbi-octane",
     "hdfc-moneyback-plus",
     "kotak-cashback-plus",
-    "shaurya-select-sbi",
     "rbl-platinum-maxima-plus",
     "rbl-shoprite",
     "yes-pop-club",
+    "phonepe-sbi-select-black",
   ],
   "usecase-online": [
     "phonepe-sbi-select-black",
@@ -1321,9 +1321,9 @@ exports[`ranking golden (representative queries) > produces stable top-N orderin
     "indigo-sbi",
     "phonepe-sbi-select-black",
     "sbi-card-miles",
-    "shaurya-select-sbi",
     "reliance-sbi-prime",
     "hdfc-tata-neu-infinity",
+    "tata-neu-infinity-sbi",
   ],
 }
 `;
@@ -1439,9 +1439,9 @@ exports[`result split golden (all query modes) > snapshots section membership fo
     "Rewards cards": [
       "sbi-card-elite",
       "rbl-platinum-maxima-plus",
-      "shaurya-select-sbi",
       "hdfc-marriott-bonvoy",
       "landmark-rewards-sbi-select",
+      "equitas-selfe",
     ],
   },
   "combo-premium-travel": {
@@ -1938,8 +1938,8 @@ exports[`result split golden (all query modes) > snapshots section membership fo
       "sbi-card-elite",
       "rbl-platinum-maxima-plus",
       "hdfc-marriott-bonvoy",
-      "shaurya-select-sbi",
       "landmark-rewards-sbi-select",
+      "equitas-selfe",
     ],
   },
   "usecase-entertainment": {
@@ -1986,8 +1986,8 @@ exports[`result split golden (all query modes) > snapshots section membership fo
       "equitas-selfe",
       "sbi-card-elite",
       "rbl-platinum-maxima-plus",
-      "shaurya-select-sbi",
       "yes-marquee",
+      "axis-indigo-premium",
     ],
   },
   "usecase-online": {

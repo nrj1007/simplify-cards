@@ -858,16 +858,22 @@ function requiresRelationshipAccess(card: CreditCard) {
 }
 
 function shouldHideCardFromGenericRanking(card: CreditCard, input: RecommendationInput, intent: ReturnType<typeof parseQueryIntent>) {
-  const isDiscontinued = card.status === "discontinued";
-
-  if (!isDiscontinued) return false;
-
   const cardNameBoost = computeCardNameBoost(card, input.query);
   const userExplicitlyAsked = cardNameBoost >= exactCardNameMatchThreshold;
 
   if (userExplicitlyAsked) return false;
 
-  return true;
+  const isDiscontinued = card.status === "discontinued";
+  if (isDiscontinued) return true;
+
+  const isDefenceCard = (card.tags ?? []).includes("defence") || (card.bestFor ?? []).includes("defence");
+  if (isDefenceCard) {
+    const q = (input.query ?? "").toLowerCase();
+    const queryAsksForDefence = q.includes("defence") || q.includes("army") || q.includes("military") || q.includes("csd");
+    if (!queryAsksForDefence) return true;
+  }
+
+  return false;
 }
 
 function cardUseCaseStrength(card: CreditCard, useCase: string) {
