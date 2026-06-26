@@ -271,6 +271,37 @@ function normalizeForMatch(value = "") {
   return value.toLowerCase().replace(/[^a-z0-9]+/g, " ").replace(/\s+/g, " ").trim();
 }
 
+const bareSpendCategoryPhrases = new Set([
+  "travel",
+  "flights",
+  "hotels",
+  "grocery",
+  "groceries",
+  "utilities",
+  "utility",
+  "utility bills",
+  "bill payment",
+  "bill payments",
+  "bills",
+  "dining",
+  "restaurants",
+  "fuel",
+  "petrol",
+  "online shopping",
+  "online spends",
+  "amazon",
+  "upi",
+  "rent",
+  "rent payments",
+  "insurance",
+  "education payments",
+  "school fees",
+  "gold",
+  "government payments",
+  "international spends",
+  "forex"
+]);
+
 function formatRupees(value: number) {
   return `Rs ${value.toLocaleString("en-IN")}`;
 }
@@ -616,6 +647,12 @@ function getMeaningfulQueryTokens(query?: string) {
     .filter((token) => token.length > 1 && !genericLookupWords.has(token));
 }
 
+function isBareSpendCategoryQuery(query?: string) {
+  const normalized = normalizeForMatch(query);
+  if (!normalized) return false;
+  return bareSpendCategoryPhrases.has(normalized);
+}
+
 function getMeaningfulCardTokens(card: { name: string; issuer: string; id: string }) {
   const issuerTokens = new Set(normalizeForMatch(card.issuer).split(" ").filter(Boolean));
 
@@ -801,6 +838,7 @@ function isSpecificCardLookup(input: RecommendationInput) {
   const meaningfulTokens = getMeaningfulQueryTokens(input.query);
 
   if (isTopBestCardsQuery(input.query)) return false;
+  if (isBareSpendCategoryQuery(input.query)) return false;
   if (meaningfulTokens.length === 0 || meaningfulTokens.length > 3) return false;
   if (meaningfulTokens.every((token) => /^\d+$/.test(token))) return false;
   if (intent.useCases.length > 0 || intent.segments.length > 0 || intent.redemptionBuckets.length > 0 || intent.networks.length > 0) return false;
@@ -831,6 +869,7 @@ function shouldTryAiCardResolution(input: RecommendationInput, mentionedCardId?:
   const intent = parseQueryIntent(input);
 
   if (!normalizedQuery || meaningfulTokens.length === 0 || meaningfulTokens.length > 3) return false;
+  if (isBareSpendCategoryQuery(input.query)) return false;
   if (/\b(top|best|recommend|recommended|suggest|compare|vs)\b/.test(normalizedQuery)) return false;
   if (/\b(under|below|less than|upto|up to|above|over)\b/.test(normalizedQuery)) return false;
   if (input.maxAnnualFee !== undefined || intent.maxAnnualFee !== undefined) return false;

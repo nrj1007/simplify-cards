@@ -236,6 +236,15 @@ describe("ask ai fallback policy", () => {
     expect(answer.summary.length).toBeGreaterThan(20);
   });
 
+  it("treats bare bill-payments queries as utilities recommendations instead of missing card lookups", async () => {
+    const answer = await answerQuestion({ query: "bill payments" });
+
+    expect(answer.cards.length).toBeGreaterThan(0);
+    expect(answer.needsDatabaseUpdate).toBeUndefined();
+    expect(answer.summary).not.toMatch(/couldn't find an exact match|could not find an exact match/i);
+    expect(answer.cards[0]?.rewardBreakdown.some((item) => item.spendCategory === "utilities")).toBe(true);
+  });
+
   it("handles travel-spend recommendation questions", async () => {
     const answer = await answerQuestion({ query: "top card for travel spends" });
 

@@ -101,4 +101,13 @@ describe("query intent parser", () => {
       utilities: 13250
     });
   });
+
+  it("treats bare bill-payments phrasing as a utilities-focused spend query", () => {
+    const intent = parseQueryIntent({
+      query: "bill payments"
+    });
+
+    expect(intent.inferredSpend?.utilities).toBe(53000);
+    expect(Object.entries(intent.inferredSpend ?? {}).every(([category, amount]) => category === "utilities" || amount === 0)).toBe(true);
+  });
 });

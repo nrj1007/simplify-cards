@@ -211,7 +211,15 @@ function extractSpendMix(query: string) {
 
 function extractFocusedSpend(query: string) {
   const focusedCategory = spendCategoryAliases.find((entry) =>
-    entry.aliases.some((alias) => query.includes(`${alias} spend`) || query.includes(`${alias} spends`) || query.includes(`for ${alias}`))
+    entry.aliases.some((alias) => {
+      const normalizedAlias = normalizeQuery(alias);
+      return (
+        query === normalizedAlias ||
+        query.includes(`${alias} spend`) ||
+        query.includes(`${alias} spends`) ||
+        query.includes(`for ${alias}`)
+      );
+    })
   )?.category;
 
   if (!focusedCategory) return undefined;
