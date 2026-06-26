@@ -2542,7 +2542,11 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
       ? (
           cardHasCategoryFocusTag(card, categoryFocus) ||
           (categoryFocus.matchPositioning && cardPositioningMatchesFocus(card, categoryFocus)) ||
-          card.rewards.some((reward) => categoryFocus.rewardPattern.test(reward.category) && reward.rate > cardBaseRate(card))
+          card.rewards.some((reward) => categoryFocus.rewardPattern.test(reward.category) && reward.rate > cardBaseRate(card)) ||
+          (categoryFocus.spendCategory !== undefined && (() => {
+            const r = findDirectRewardForSpend(card, categoryFocus.spendCategory, includeSmartbuyLikeRewards);
+            return r !== null && r.rate > cardBaseRate(card);
+          })())
         )
       : (fuelFocus ? hasFuelCardSignal(card) : false);
     const focusBoost = (isFocusedQuery && matchesFocus)
