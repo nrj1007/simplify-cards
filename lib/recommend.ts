@@ -2530,7 +2530,6 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
     const flexibilityValue = (broadGenericRanking && categoryFocus === null && !restrictToFuelCards)
       ? computeFlexibilityValue(card, monthlyTotalForScore, includeSmartbuyLikeRewards)
       : 0;
-
     const hasBroadOnlineReward = cardHasBroadOnlineReward(card);
     const onlineScore = netCategoryReward(card, "online", 10000, includeSmartbuyLikeRewards);
     const relativeOnlineScore = Math.max(0, onlineScore) / maxOnlineScore;
@@ -2540,7 +2539,11 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
 
     const isFocusedQuery = categoryFocus !== null || fuelFocus;
     const matchesFocus = categoryFocus
-      ? cardMatchesCategoryFocus(card, categoryFocus)
+      ? (
+          cardHasCategoryFocusTag(card, categoryFocus) ||
+          (categoryFocus.matchPositioning && cardPositioningMatchesFocus(card, categoryFocus)) ||
+          card.rewards.some((reward) => categoryFocus.rewardPattern.test(reward.category) && reward.rate > cardBaseRate(card))
+        )
       : (fuelFocus ? hasFuelCardSignal(card) : false);
     const focusBoost = (isFocusedQuery && matchesFocus)
       ? Math.max(0, Math.round(estimatedNetValue * 0.1))
