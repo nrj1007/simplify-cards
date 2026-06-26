@@ -41,6 +41,7 @@
   "acceleratedShare": {
     "dining": 0.8
   },
+  "broadOnlineReward": true,
   "popularityScore": 72,
   "loungeDomestic": 6,
   "loungeInternational": 0,

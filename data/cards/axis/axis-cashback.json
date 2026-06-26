@@ -17,9 +17,10 @@
   ],
   "rewardType": "cashback",
   "acceleratedShare": {
-    "amazon": 1.0,
+    "amazon": 1,
     "grocery": 0.5
   },
+  "broadOnlineReward": true,
   "capGroups": {
     "online-cashback": {
       "capMonthly": 4000

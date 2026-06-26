@@ -17,6 +17,7 @@
     "premium"
   ],
   "rewardType": "YES Rewardz points",
+  "broadOnlineReward": true,
   "rewards": [
     {
       "category": "online",

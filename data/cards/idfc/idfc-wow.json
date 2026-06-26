@@ -15,10 +15,11 @@
     "travel"
   ],
   "rewardType": "reward points",
+  "broadOnlineReward": true,
   "rewards": [
     {
       "category": "online, base, international",
-      "rate": 2.0,
+      "rate": 2,
       "displayCategory": "Online, offline, and international spends",
       "displayRate": "4 Reward Points per INR 200 spent",
       "capMonthly": null

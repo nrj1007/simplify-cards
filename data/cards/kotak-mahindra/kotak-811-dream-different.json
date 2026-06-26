@@ -15,6 +15,7 @@
     "railway"
   ],
   "rewardType": "Kotak Reward Points",
+  "broadOnlineReward": true,
   "rewards": [
     {
       "category": "online",

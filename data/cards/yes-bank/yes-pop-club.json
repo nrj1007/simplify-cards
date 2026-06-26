@@ -15,24 +15,25 @@
     "co-branded"
   ],
   "rewardType": "POPcoins",
+  "broadOnlineReward": true,
   "rewards": [
     {
       "category": "online",
-      "rate": 10.0,
+      "rate": 10,
       "displayCategory": "Online spends",
       "displayRate": "10 POPcoins / Rs 100 spent",
       "capMonthly": null
     },
     {
       "category": "upi",
-      "rate": 7.0,
+      "rate": 7,
       "displayCategory": "UPI scans via POP UPI App",
       "displayRate": "7 POPcoins / Rs 100 spent",
       "capMonthly": 6000
     },
     {
       "category": "base",
-      "rate": 2.0,
+      "rate": 2,
       "displayCategory": "Other UPI and offline retail spends",
       "displayRate": "2 POPcoins / Rs 100 spent",
       "capMonthly": null

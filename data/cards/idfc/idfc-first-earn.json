@@ -16,10 +16,11 @@
     "virtual card"
   ],
   "rewardType": "cashback",
+  "broadOnlineReward": true,
   "rewards": [
     {
       "category": "upi",
-      "rate": 1.0,
+      "rate": 1,
       "displayCategory": "UPI spends via IDFC FIRST Bank Mobile App",
       "displayRate": "1% cashback",
       "capMonthly": 500
@@ -68,7 +69,7 @@
     "Personal accident cover of Rs 2,00,000 and lost card liability of Rs 25,000"
   ],
   "redemption": {
-    "statementBalanceValue": 1.0,
+    "statementBalanceValue": 1,
     "pointsExpiryYears": null,
     "redemptionFee": 0
   },

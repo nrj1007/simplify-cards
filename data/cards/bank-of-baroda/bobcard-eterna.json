@@ -16,6 +16,7 @@
     "premium"
   ],
   "rewardType": "reward points",
+  "broadOnlineReward": true,
   "rewards": [
     {
       "category": "travel, dining, online, international",

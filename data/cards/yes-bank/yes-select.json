@@ -16,24 +16,25 @@
     "golf"
   ],
   "rewardType": "YES Rewardz points",
+  "broadOnlineReward": true,
   "rewards": [
     {
       "category": "online",
-      "rate": 4.0,
+      "rate": 4,
       "displayCategory": "Online spends",
       "displayRate": "8 YES Rewardz Points / Rs 200 spent",
       "capMonthly": 1250
     },
     {
       "category": "base",
-      "rate": 2.0,
+      "rate": 2,
       "displayCategory": "Other retail spends",
       "displayRate": "4 YES Rewardz Points / Rs 200 spent",
       "capMonthly": null
     },
     {
       "category": "utilities",
-      "rate": 1.0,
+      "rate": 1,
       "displayCategory": "Select categories (utilities, insurance, education, telecom)",
       "displayRate": "2 YES Rewardz Points / Rs 200 spent",
       "capMonthly": 150

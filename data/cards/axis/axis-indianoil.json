@@ -17,6 +17,7 @@
     "upi"
   ],
   "rewardType": "edge reward points",
+  "broadOnlineReward": true,
   "rewards": [
     {
       "category": "fuel",

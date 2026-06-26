@@ -15,21 +15,22 @@
   ],
   "rewardType": "cashback",
   "acceleratedShare": {
-    "travel": 1.0,
-    "amazon": 1.0,
+    "travel": 1,
+    "amazon": 1,
     "grocery": 0.5
   },
+  "broadOnlineReward": true,
   "rewards": [
     {
       "category": "online",
-      "rate": 2.0,
+      "rate": 2,
       "displayCategory": "Online retail spends (excl. fuel)",
       "displayRate": "2% cashback",
       "capMonthly": 1000
     },
     {
       "category": "base",
-      "rate": 1.0,
+      "rate": 1,
       "displayCategory": "Other eligible retail spends (excl. fuel)",
       "displayRate": "1% cashback",
       "capMonthly": 500
@@ -64,7 +65,7 @@
     "Extended interest-free credit period for the first 90 days post-issuance"
   ],
   "redemption": {
-    "statementBalanceValue": 1.0,
+    "statementBalanceValue": 1,
     "redemptionFee": 0
   },
   "eligibility": {

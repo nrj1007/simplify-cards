@@ -380,6 +380,10 @@ if (cardFiles.length === 0) {
       addIssue("rewardLiquidity must be 'cash' or 'brand-locked' when present", cardId, "rewardLiquidity");
     }
 
+    if (card.broadOnlineReward !== undefined && typeof card.broadOnlineReward !== "boolean") {
+      addIssue("broadOnlineReward must be a boolean when present", cardId, "broadOnlineReward");
+    }
+
     if (
       card.rewardLiquidityFactor !== undefined &&
       (typeof card.rewardLiquidityFactor !== "number" || card.rewardLiquidityFactor <= 0 || card.rewardLiquidityFactor > 1)
