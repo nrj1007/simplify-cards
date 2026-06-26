@@ -108,19 +108,19 @@ describe("resultStrategies / single-list", () => {
 describe("resultStrategies / reward-type-split", () => {
   const strategy = resultStrategies["reward-type-split"];
 
-  it("returns two sections titled Rewards cards and Cashback cards", () => {
+  it("returns two sections titled Cashback cards and Rewards cards", () => {
     const scored = [RW1, CB1, RW2, CB2];
     const sections = strategy.group(scored, 5);
     expect(sections).toHaveLength(2);
-    expect(sections[0].title).toBe("Rewards cards");
-    expect(sections[1].title).toBe("Cashback cards");
+    expect(sections[0].title).toBe("Cashback cards");
+    expect(sections[1].title).toBe("Rewards cards");
   });
 
   it("preserves ranked order within each section", () => {
     const scored = [RW1, CB1, RW2, CB2, RW3, CB3];
     const sections = strategy.group(scored, 5);
-    expect(sections[0].cards.map((s) => s.card.id)).toEqual(["rewards-1", "rewards-2", "rewards-3"]);
-    expect(sections[1].cards.map((s) => s.card.id)).toEqual(["cashback-1", "cashback-2", "cashback-3"]);
+    expect(sections[0].cards.map((s) => s.card.id)).toEqual(["cashback-1", "cashback-2", "cashback-3"]);
+    expect(sections[1].cards.map((s) => s.card.id)).toEqual(["rewards-1", "rewards-2", "rewards-3"]);
   });
 
   it("caps each section at maxPerSection (5)", () => {
@@ -133,8 +133,8 @@ describe("resultStrategies / reward-type-split", () => {
   it("places mixed-currency cards (cashback and reward points) into Cashback bucket", () => {
     const scored = [RW1, MX, CB1];
     const sections = strategy.group(scored, 5);
-    const rewardIds = sections[0].cards.map((s) => s.card.id);
-    const cashbackIds = sections[1].cards.map((s) => s.card.id);
+    const cashbackIds = sections[0].cards.map((s) => s.card.id);
+    const rewardIds = sections[1].cards.map((s) => s.card.id);
     expect(cashbackIds).toContain("mixed-1");
     expect(rewardIds).not.toContain("mixed-1");
   });
@@ -142,15 +142,15 @@ describe("resultStrategies / reward-type-split", () => {
   it("returns empty Cashback section if no cashback cards exist", () => {
     const scored = [RW1, RW2, RW3];
     const sections = strategy.group(scored, 5);
-    expect(sections[0].cards).toHaveLength(3);
-    expect(sections[1].cards).toHaveLength(0);
+    expect(sections[0].cards).toHaveLength(0);
+    expect(sections[1].cards).toHaveLength(3);
   });
 
   it("returns empty Rewards section if all cards are cashback", () => {
     const scored = [CB1, CB2, CB3];
     const sections = strategy.group(scored, 5);
-    expect(sections[0].cards).toHaveLength(0);
-    expect(sections[1].cards).toHaveLength(3);
+    expect(sections[0].cards).toHaveLength(3);
+    expect(sections[1].cards).toHaveLength(0);
   });
 });
 
@@ -169,8 +169,8 @@ describe("applyResultStrategy gating (via scoreCards integration)", () => {
     });
     // Should split because there are both cashback and rewards cards in the results and MIN_CARDS_PER_SPLIT_SECTION = 1
     expect(sections).toHaveLength(2);
-    expect(sections[0].title).toBe("Rewards cards");
-    expect(sections[1].title).toBe("Cashback cards");
+    expect(sections[0].title).toBe("Cashback cards");
+    expect(sections[1].title).toBe("Rewards cards");
   });
 
   it("applies reward-type-split for a broad query", async () => {
@@ -183,8 +183,8 @@ describe("applyResultStrategy gating (via scoreCards integration)", () => {
       resultStrategy: "reward-type-split"
     });
     expect(sections).toHaveLength(2);
-    expect(sections[0].title).toBe("Rewards cards");
-    expect(sections[1].title).toBe("Cashback cards");
+    expect(sections[0].title).toBe("Cashback cards");
+    expect(sections[1].title).toBe("Rewards cards");
     // Each section must have cards
     expect(sections[0].cards.length).toBeGreaterThan(0);
     expect(sections[1].cards.length).toBeGreaterThan(0);
@@ -212,8 +212,8 @@ describe("applyResultStrategy gating (via scoreCards integration)", () => {
     });
     // Must produce two headed sections despite spend being present
     expect(sections).toHaveLength(2);
-    expect(sections[0].title).toBe("Rewards cards");
-    expect(sections[1].title).toBe("Cashback cards");
+    expect(sections[0].title).toBe("Cashback cards");
+    expect(sections[1].title).toBe("Rewards cards");
   });
 
   it("single-list order matches rankResults (net-value sort, not fitScore)", async () => {
@@ -274,10 +274,10 @@ describe("applyResultStrategy gating (via scoreCards integration)", () => {
     });
     
     expect(sections).toHaveLength(2);
-    expect(sections[0].title).toBe("Rewards cards");
-    expect(sections[0].cards).toHaveLength(3);
-    expect(sections[1].title).toBe("Cashback cards");
-    expect(sections[1].cards).toHaveLength(1);
+    expect(sections[0].title).toBe("Cashback cards");
+    expect(sections[0].cards).toHaveLength(1);
+    expect(sections[1].title).toBe("Rewards cards");
+    expect(sections[1].cards).toHaveLength(3);
   });
 });
 
@@ -289,8 +289,8 @@ describe("SPLIT_SCOPE active routing", () => {
     // and since both rewards and cashback dining cards exist, it successfully splits.
     expect(result.sections).toBeDefined();
     expect(result.sections).toHaveLength(2);
-    expect(result.sections![0].title).toBe("Rewards cards");
-    expect(result.sections![1].title).toBe("Cashback cards");
+    expect(result.sections![0].title).toBe("Cashback cards");
+    expect(result.sections![1].title).toBe("Rewards cards");
   });
 });
 
@@ -305,8 +305,8 @@ describe("SEO landing page section splitting", () => {
 
     const rupaySections = selectSectionsForLanding(rupay);
     expect(rupaySections).toHaveLength(2);
-    expect(rupaySections![0].title).toBe("Rewards cards");
-    expect(rupaySections![1].title).toBe("Cashback cards");
+    expect(rupaySections![0].title).toBe("Cashback cards");
+    expect(rupaySections![1].title).toBe("Rewards cards");
     expect(rupaySections![0].cards.length).toBeGreaterThan(0);
     expect(rupaySections![1].cards.length).toBeGreaterThan(0);
 
@@ -316,17 +316,16 @@ describe("SEO landing page section splitting", () => {
 
     const onlineSections = selectSectionsForLanding(online);
     expect(onlineSections).toHaveLength(2);
-    expect(onlineSections![0].title).toBe("Rewards cards");
-    expect(onlineSections![1].title).toBe("Cashback cards");
+    expect(onlineSections![0].title).toBe("Cashback cards");
+    expect(onlineSections![1].title).toBe("Rewards cards");
     expect(onlineSections![0].cards.length).toBeGreaterThan(0);
     expect(onlineSections![1].cards.length).toBeGreaterThan(0);
 
     const beginnerSections = selectSectionsForLanding(beginner);
     expect(beginnerSections).toHaveLength(2);
-    expect(beginnerSections![0].title).toBe("Rewards cards");
-    expect(beginnerSections![1].title).toBe("Cashback cards");
+    expect(beginnerSections![0].title).toBe("Cashback cards");
+    expect(beginnerSections![1].title).toBe("Rewards cards");
     expect(beginnerSections![0].cards.length).toBeGreaterThan(0);
     expect(beginnerSections![1].cards.length).toBeGreaterThan(0);
   });
 });
-
