@@ -2450,13 +2450,14 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
       tagBoost;
 
     // Non-economic preference and penalty signals shared by both scoring paths
+    const cardPopularityWeight = isPrimaryCashbackCard({ card } as CardScore) ? 15 : popularityRankingWeight;
     const sharedBoosts =
       useCaseBoost +
       redemptionBoost +
       loungeBoost +
       forexBoost +
       flexibilityValue +
-      card.popularityScore * popularityRankingWeight;
+      card.popularityScore * cardPopularityWeight;
 
     const valueScore = estimatedNetValue + sharedBoosts;
 
