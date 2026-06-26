@@ -2400,10 +2400,14 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
 
   const maxNetValue = Math.max(...candidateNetValues, 0);
   const maxLoungeScore = Math.max(...candidateCards.map((card) => loungeScore(card)), 1);
+  const cardHasBroadOnlineReward = (c: CreditCard) =>
+    c.rewards.some((r) =>
+      r.category.split(",").map((cat) => cat.trim().toLowerCase()).includes("online")
+    );
   const maxOnlineScore = Math.max(
-    ...candidateCards.map((c) =>
-      netCategoryReward(c, "online", 10000, includeSmartbuyLikeRewards)
-    ),
+    ...candidateCards
+      .filter(cardHasBroadOnlineReward)
+      .map((c) => netCategoryReward(c, "online", 10000, includeSmartbuyLikeRewards)),
     1
   );
 
@@ -2503,9 +2507,14 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
       ? computeFlexibilityValue(card, monthlyTotalForScore, includeSmartbuyLikeRewards)
       : 0;
 
+    const hasBroadOnlineReward = card.rewards.some((r) =>
+      r.category.split(",").map((c) => c.trim().toLowerCase()).includes("online")
+    );
     const onlineScore = netCategoryReward(card, "online", 10000, includeSmartbuyLikeRewards);
     const relativeOnlineScore = Math.max(0, onlineScore) / maxOnlineScore;
-    const onlineBoost = Math.max(0, Math.round(relativeOnlineScore * (estimatedNetValue * 0.1)));
+    const onlineBoost = hasBroadOnlineReward
+      ? Math.max(0, Math.round(relativeOnlineScore * (estimatedNetValue * 0.1)))
+      : 0;
 
     const envelopeLabel = envelopeMonthlySpend ? formatEnvelopeSpendLabel(envelopeMonthlySpend) : null;
     const feeWaiverReason =
