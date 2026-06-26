@@ -245,6 +245,15 @@ describe("ask ai fallback policy", () => {
     expect(answer.cards[0]?.rewardBreakdown.some((item) => item.spendCategory === "utilities")).toBe(true);
   });
 
+  it("treats bare rent queries as rent recommendations instead of specific-card lookups", async () => {
+    const answer = await answerQuestion({ query: "rent" });
+
+    expect(answer.cards.length).toBeGreaterThan(0);
+    expect(answer.needsDatabaseUpdate).toBeUndefined();
+    expect(answer.summary).not.toMatch(/If you specifically mean|looks like the right fit/i);
+    expect(answer.cards[0]?.rewardBreakdown.some((item) => item.spendCategory === "rent")).toBe(true);
+  });
+
   it("handles travel-spend recommendation questions", async () => {
     const answer = await answerQuestion({ query: "top card for travel spends" });
 

@@ -271,6 +271,18 @@ function normalizeForMatch(value = "") {
   return value.toLowerCase().replace(/[^a-z0-9]+/g, " ").replace(/\s+/g, " ").trim();
 }
 
+function escapeRegex(value: string) {
+  return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
+function containsNormalizedPhrase(haystack: string, phrase?: string) {
+  const normalizedPhrase = normalizeForMatch(phrase);
+  if (!normalizedPhrase) return false;
+
+  const pattern = new RegExp(`(^|\\s)${escapeRegex(normalizedPhrase).replace(/ /g, "\\s+")}(?=\\s|$)`);
+  return pattern.test(haystack);
+}
+
 const bareSpendCategoryPhrases = new Set([
   "travel",
   "flights",
@@ -600,11 +612,16 @@ function buildFallbackSummary(input: RecommendationInput, shortlistedCards: Card
   const lowerQuery = normalizeQuery(input.query);
   const compactQuery = normalizeCompact(input.query);
   const compactName = normalizeCompact(topCard.card.name);
+  const compactId = normalizeCompact(topCard.card.id.replace(/-/g, " "));
+  const normalizedName = normalizeForMatch(topCard.card.name);
+  const normalizedId = normalizeForMatch(topCard.card.id.replace(/-/g, " "));
+  const queryWords = lowerQuery.split(/\s+/).filter(Boolean);
+  const topCardNameTokens = new Set(`${normalizedName} ${normalizedId}`.split(" ").filter(Boolean));
   const exactNameAsked =
-    (compactQuery.length > 0 && compactName.includes(compactQuery)) ||
-    (lowerQuery.length > 0 &&
-      (normalizeQuery(topCard.card.name).includes(lowerQuery) ||
-        lowerQuery.split(/\s+/).every((token) => token.length > 2 && normalizeQuery(topCard.card.name).includes(token))));
+    containsNormalizedPhrase(normalizedName, input.query) ||
+    containsNormalizedPhrase(normalizedId, input.query) ||
+    (compactQuery.length > 0 && queryWords.length > 1 && (compactName.includes(compactQuery) || compactId.includes(compactQuery))) ||
+    (lowerQuery.length > 0 && queryWords.every((token) => token.length > 2 && topCardNameTokens.has(token)));
 
   const fitReasons = topCard.reasons
     .filter(
@@ -813,7 +830,7 @@ function buildShortlistFromMentionedCard(scoredCards: CardScore[], mentionedCard
 
 function shortlistCardsForQuestion(input: RecommendationInput) {
   const scoredCards = scoreCards(input);
-  const mentionedCardId = findMentionedCardId(input.query);
+  const mentionedCardId = isBareSpendCategoryQuery(input.query) ? null : findMentionedCardId(input.query);
 
   return buildShortlistFromMentionedCard(scoredCards, mentionedCardId);
 }

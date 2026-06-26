@@ -654,7 +654,17 @@ function detectCategoryFocus(
   const normalizedQuery = normalizeForMatch(input.query);
   for (const config of categoryFocusConfigs) {
     if (!config.queryPattern.test(normalizedQuery)) continue;
-    if (!(isCardRecommendationQuery(input.query) || containsNormalizedPhrase(normalizedQuery, `${config.key} card`))) continue;
+    const matchesBareCategoryAlias =
+      (config.spendCategory ? spendAliases[config.spendCategory] : [config.key]).some(
+        (alias) => normalizeForMatch(alias) === normalizedQuery
+      ) || normalizedQuery === config.key;
+    if (
+      !(
+        isCardRecommendationQuery(input.query) ||
+        containsNormalizedPhrase(normalizedQuery, `${config.key} card`) ||
+        matchesBareCategoryAlias
+      )
+    ) continue;
     // When the query already infers a spend profile, only earn-based focuses (rent/utilities) take it
     // over — so every phrasing of "rent"/"utility bills" ranks consistently. Other focuses defer to the
     // inferred spend (preserving e.g. "card for grocery spends" as a 100%-grocery profile).
