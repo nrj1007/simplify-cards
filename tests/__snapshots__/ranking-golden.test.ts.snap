@@ -1983,11 +1983,11 @@ exports[`result split golden (all query modes) > snapshots section membership fo
       "bpcl-sbi-octane",
     ],
     "Rewards cards": [
+      "equitas-selfe",
       "sbi-card-elite",
       "rbl-platinum-maxima-plus",
       "shaurya-select-sbi",
       "yes-marquee",
-      "axis-indigo-premium",
     ],
   },
   "usecase-online": {
