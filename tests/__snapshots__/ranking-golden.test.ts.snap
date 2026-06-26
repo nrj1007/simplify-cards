@@ -1355,8 +1355,8 @@ exports[`result split golden (all query modes) > snapshots section membership fo
       "phonepe-sbi-select-black",
       "hdfc-phonepe-ultimo",
       "phonepe-sbi-purple",
-      "cheq-au",
       "axis-ace",
+      "cheq-au",
     ],
     "Rewards cards": [
       "icici-emeralde-private-metal",
@@ -1376,8 +1376,8 @@ exports[`result split golden (all query modes) > snapshots section membership fo
     ],
     "Rewards cards": [
       "icici-emeralde-private-metal",
-      "hsbc-premier",
       "amex-membership-rewards",
+      "hsbc-premier",
       "hdfc-infinia-metal",
       "amex-gold",
     ],
@@ -1390,8 +1390,8 @@ exports[`result split golden (all query modes) > snapshots section membership fo
       "hsbc-premier",
       "amex-membership-rewards",
       "sc-ultimate",
-      "hsbc-travelone",
       "amex-gold",
+      "hsbc-travelone",
     ],
   },
   "category-rent-payment": {
@@ -1402,8 +1402,8 @@ exports[`result split golden (all query modes) > snapshots section membership fo
       "hsbc-premier",
       "amex-membership-rewards",
       "sc-ultimate",
-      "hsbc-travelone",
       "amex-gold",
+      "hsbc-travelone",
     ],
   },
   "category-utilities": {
@@ -1411,8 +1411,8 @@ exports[`result split golden (all query modes) > snapshots section membership fo
       "phonepe-sbi-select-black",
       "hdfc-phonepe-ultimo",
       "phonepe-sbi-purple",
-      "cheq-au",
       "axis-ace",
+      "cheq-au",
     ],
     "Rewards cards": [
       "icici-emeralde-private-metal",
@@ -1425,15 +1425,15 @@ exports[`result split golden (all query modes) > snapshots section membership fo
   "category-utility-bills": {
     "Cashback cards": [
       "phonepe-sbi-select-black",
-      "cheq-au",
       "axis-ace",
+      "cheq-au",
       "hdfc-phonepe-ultimo",
       "phonepe-sbi-purple",
     ],
     "Rewards cards": [
       "icici-emeralde-private-metal",
-      "hsbc-premier",
       "sbi-card-prime",
+      "hsbc-premier",
       "hdfc-infinia-metal",
       "amex-gold",
     ],
@@ -1441,17 +1441,17 @@ exports[`result split golden (all query modes) > snapshots section membership fo
   "combo-dining-under-5000": {
     "Cashback cards": [
       "hdfc-swiggy-orange",
-      "yes-paisabazaar-paisasave",
       "hdfc-swiggy-black",
+      "yes-paisabazaar-paisasave",
       "hsbc-live-plus",
-      "bpcl-sbi-octane",
+      "hsbc-rupay-cashback",
     ],
     "Rewards cards": [
       "bobcard-eterna",
       "indusind-eazydiner",
       "sbi-card-prime",
-      "rbl-platinum-maxima-plus",
       "yes-first-preferred",
+      "rbl-platinum-maxima-plus",
     ],
   },
   "combo-premium-travel": {
@@ -1483,8 +1483,8 @@ exports[`result split golden (all query modes) > snapshots section membership fo
     "Cashback cards": [
       "axis-airtel",
       "phonepe-sbi-select-black",
-      "titan-sbi",
       "hsbc-rupay-cashback",
+      "titan-sbi",
       "hsbc-live-plus",
     ],
     "Rewards cards": [
@@ -1580,8 +1580,8 @@ exports[`result split golden (all query modes) > snapshots section membership fo
     ],
     "Rewards cards": [
       "icici-emeralde-private-metal",
-      "icici-times-black",
       "icici-adani-one-signature",
+      "icici-times-black",
       "icici-adani-one-platinum",
       "icici-coral-rupay",
     ],
@@ -1595,8 +1595,8 @@ exports[`result split golden (all query modes) > snapshots section membership fo
       "bpcl-sbi-octane",
     ],
     "Rewards cards": [
-      "sbi-card-prime",
       "indigo-sbi-elite",
+      "sbi-card-prime",
       "tata-neu-infinity-sbi",
       "aurum-sbi",
       "reliance-sbi-prime",
@@ -1890,8 +1890,8 @@ exports[`result split golden (all query modes) > snapshots section membership fo
     "Cashback cards": [
       "phonepe-sbi-select-black",
       "yes-kiwi",
-      "hsbc-live-plus",
       "hsbc-rupay-cashback",
+      "hsbc-live-plus",
       "hdfc-swiggy",
     ],
     "Rewards cards": [
@@ -1907,8 +1907,8 @@ exports[`result split golden (all query modes) > snapshots section membership fo
       "phonepe-sbi-select-black",
       "hsbc-live-plus",
       "hdfc-swiggy",
-      "hdfc-swiggy-black",
-      "hdfc-swiggy-orange",
+      "hsbc-rupay-cashback",
+      "yes-kiwi",
     ],
     "Rewards cards": [
       "hsbc-premier",
@@ -1931,7 +1931,7 @@ exports[`result split golden (all query modes) > snapshots section membership fo
       "hdfc-infinia-metal",
       "icici-emeralde-private-metal",
       "hdfc-diners-club-black-metal",
-      "hsbc-travelone",
+      "kotak-solitaire",
     ],
   },
   "usecase-cashback": {
@@ -1955,8 +1955,8 @@ exports[`result split golden (all query modes) > snapshots section membership fo
       "bobcard-eterna",
       "indusind-eazydiner",
       "sbi-card-prime",
-      "rbl-platinum-maxima-plus",
       "hdfc-marriott-bonvoy",
+      "yes-first-preferred",
     ],
   },
   "usecase-entertainment": {
@@ -1985,8 +1985,8 @@ exports[`result split golden (all query modes) > snapshots section membership fo
     ],
     "Rewards cards": [
       "idfc-first-power-plus",
-      "axis-indianoil-premium",
       "axis-indianoil",
+      "axis-indianoil-premium",
       "axis-indianoil-easy",
       "hdfc-indianoil",
     ],
@@ -1996,13 +1996,13 @@ exports[`result split golden (all query modes) > snapshots section membership fo
       "hdfc-swiggy-orange",
       "hdfc-swiggy-black",
       "hsbc-live-plus",
-      "phonepe-sbi-select-black",
       "bpcl-sbi-octane",
+      "phonepe-sbi-select-black",
     ],
     "Rewards cards": [
-      "indusind-eazydiner",
-      "au-ixigo",
       "sbi-card-prime",
+      "au-ixigo",
+      "indusind-eazydiner",
       "rbl-platinum-maxima-plus",
       "shaurya-select-sbi",
     ],
@@ -2010,16 +2010,16 @@ exports[`result split golden (all query modes) > snapshots section membership fo
   "usecase-online": {
     "Cashback cards": [
       "phonepe-sbi-select-black",
-      "sbi-cashback",
       "csb-jupiter-edge-plus",
+      "sbi-cashback",
       "hdfc-pixel-play",
       "axis-cashback",
     ],
     "Rewards cards": [
       "bobcard-eterna",
-      "indusind-eazydiner",
-      "yes-pop-club",
       "simplyclick-sbi",
+      "yes-pop-club",
+      "indusind-eazydiner",
       "rbl-cookies",
     ],
   },
@@ -2032,8 +2032,8 @@ exports[`result split golden (all query modes) > snapshots section membership fo
       "apollo-sbi-select",
     ],
     "Rewards cards": [
-      "hsbc-premier",
       "hdfc-infinia-metal",
+      "hsbc-premier",
       "kotak-solitaire",
       "icici-emeralde-private-metal",
       "hdfc-diners-club-black-metal",
@@ -2079,16 +2079,16 @@ exports[`result split golden (reward-type-split) > snapshots the section members
   "category-online-split": {
     "Cashback cards": [
       "phonepe-sbi-select-black",
-      "sbi-cashback",
       "csb-jupiter-edge-plus",
+      "sbi-cashback",
       "hdfc-pixel-play",
       "axis-cashback",
     ],
     "Rewards cards": [
       "bobcard-eterna",
-      "indusind-eazydiner",
-      "yes-pop-club",
       "simplyclick-sbi",
+      "yes-pop-club",
+      "indusind-eazydiner",
       "rbl-cookies",
     ],
   },

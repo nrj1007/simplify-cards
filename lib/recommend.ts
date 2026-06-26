@@ -2629,8 +2629,10 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
             const monthlySpendProfile = categoryFocus75_25SpendProfile(focusedCategory, focusSpendAmount);
             return scoreCardForSpend(card, monthlySpendProfile, monthlySpend);
           });
+          const splitWeights = [1.6, 1.4, 1.2, 1];
+          const splitWeightSum = splitWeights.reduce((sum, w) => sum + w, 0);
           splitOrderScore =
-            cashbackPerLevel.reduce((total, score) => total + strategy.perLevelScore(score), 0) / cashbackPerLevel.length;
+            cashbackPerLevel.reduce((total, score, i) => total + strategy.perLevelScore(score) * splitWeights[i], 0) / splitWeightSum;
         }
 
         const assembled = representative.envelopeScoring
@@ -2717,8 +2719,10 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
           const monthlySpend = Math.round(annualSpend / 12);
           return scoreCardForSpend(card, scaleSpendProfileToMonthly(spend, monthlySpend), monthlySpend);
         });
+        const splitWeights = [1.6, 1.4, 1.2, 1];
+        const splitWeightSum = splitWeights.reduce((sum, w) => sum + w, 0);
         splitOrderScore =
-          cashbackPerLevel.reduce((total, score) => total + strategy.perLevelScore(score), 0) / cashbackPerLevel.length;
+          cashbackPerLevel.reduce((total, score, i) => total + strategy.perLevelScore(score) * splitWeights[i], 0) / splitWeightSum;
       }
 
       // Dual-bucket cards feature in BOTH split sections, valued per context. A card's DEFAULT score
