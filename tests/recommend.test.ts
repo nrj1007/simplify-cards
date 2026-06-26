@@ -841,6 +841,38 @@ describe("scoreCards", () => {
     expect(nonDiningCardIndex).toBe(-1);
   });
 
+  it("lets Equitas Selfe qualify for dining, grocery, and utilities category-focus rankings via explicit tags", () => {
+    const diningScores = scoreCards({ query: "best dining credit card" });
+    const groceryScores = scoreCards({ query: "top card for grocery spends" });
+    const utilityScores = scoreCards({ query: "best card for utility bills" });
+
+    expect(diningScores.findIndex((score) => score.card.id === "equitas-selfe")).toBeGreaterThan(-1);
+    expect(groceryScores.findIndex((score) => score.card.id === "equitas-selfe")).toBeGreaterThan(-1);
+    expect(utilityScores.findIndex((score) => score.card.id === "equitas-selfe")).toBeGreaterThan(-1);
+  });
+
+  it("keeps Equitas Selfe's generic reward math unchanged outside category-focus queries", () => {
+    const selfe = scoreCards({
+      spend: {
+        online: 10000,
+        dining: 10000,
+        grocery: 10000,
+        utilities: 10000,
+        base: 0,
+        travel: 0,
+        fuel: 0,
+        amazon: 0,
+        upi: 0
+      }
+    }).find((score) => score.card.id === "equitas-selfe");
+
+    expect(selfe).toBeTruthy();
+    expect(selfe?.rewardBreakdown.map((item) => item.rewardCategory)).toEqual(
+      expect.arrayContaining(["partner merchants", "base"])
+    );
+    expect(selfe?.estimatedAnnualRewards).toBeGreaterThan(0);
+  });
+
   it("filters travel-intent queries to only travel cards via qualifiesAsTravelCard", () => {
     const scores = scoreCards({ query: "best travel card" });
     expect(scores.length).toBeGreaterThan(0);
