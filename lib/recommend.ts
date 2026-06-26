@@ -2400,10 +2400,38 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
 
   const maxNetValue = Math.max(...candidateNetValues, 0);
   const maxLoungeScore = Math.max(...candidateCards.map((card) => loungeScore(card)), 1);
-  const cardHasBroadOnlineReward = (c: CreditCard) =>
-    c.rewards.some((r) =>
-      r.category.split(",").map((cat) => cat.trim().toLowerCase()).includes("online")
-    );
+  // Verified whitelist: cards whose "online" reward tier applies broadly to ALL online spends
+  // (any merchant), not just specific platforms or partner lists.
+  // Verified via official T&Cs / issuer pages June 2026. Update when a card's online policy changes.
+  const BROAD_ONLINE_REWARD_IDS = new Set([
+    "sbi-cashback",           // 5% all online (any merchant)
+    "sc-smart",               // 2% all online
+    "yes-marquee",            // ~4.5% all online
+    "idfc-wow",               // ~1% all online
+    "au-ixigo",               // all online (travel-locked but merchant-broad)
+    "axis-indianoil",         // 5 pts/₹100 all online
+    "yes-reserv",             // all online retail
+    "yes-pop-club",           // all online
+    "bobcard-eterna",         // 5X all online
+    "yes-elite-plus",         // all online
+    "rbl-world-prime",        // 2X all online
+    "simplyclick-sbi",        // 5X all online (+ 10X named partners)
+    "yes-select",             // all online
+    "axis-cashback",          // 2-7% all online
+    "kotak-811",              // all online
+    "rbl-world-max",          // 2X all online
+    "yes-ace",                // all online
+    "kotak-811-dream-different", // all online
+    "bobcard-select",         // all online
+    "phonepe-sbi-select-black", // 5% all online (non-PhonePe)
+    "axis-indianoil-easy",    // all online
+    "axis-fibe",              // 1% all online base
+    "idfc-first-earn",        // 0.5% all online
+    "indusind-pinnacle",      // all online
+    "sbm-paisabazaar-paisa-plus", // 1.5% all online
+    "yes-select",             // all online
+  ]);
+  const cardHasBroadOnlineReward = (c: CreditCard) => BROAD_ONLINE_REWARD_IDS.has(c.id);
   const maxOnlineScore = Math.max(
     ...candidateCards
       .filter(cardHasBroadOnlineReward)
@@ -2507,9 +2535,7 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
       ? computeFlexibilityValue(card, monthlyTotalForScore, includeSmartbuyLikeRewards)
       : 0;
 
-    const hasBroadOnlineReward = card.rewards.some((r) =>
-      r.category.split(",").map((c) => c.trim().toLowerCase()).includes("online")
-    );
+    const hasBroadOnlineReward = cardHasBroadOnlineReward(card);
     const onlineScore = netCategoryReward(card, "online", 10000, includeSmartbuyLikeRewards);
     const relativeOnlineScore = Math.max(0, onlineScore) / maxOnlineScore;
     const onlineBoost = hasBroadOnlineReward
