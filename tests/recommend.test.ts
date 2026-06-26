@@ -855,6 +855,41 @@ describe("scoreCards", () => {
     expect(bareDiningScores.findIndex((score) => score.card.id === "simplyclick-sbi")).toBe(-1);
   });
 
+  it("adds structured score reasons that reconcile to fitScore for broad queries", () => {
+    const scoredCard = scoreCards({ query: "best credit card" }).find((score) => score.estimatedAnnualFee > 0);
+
+    expect(scoredCard).toBeDefined();
+    const reasonSum = scoredCard!.scoreReasons.reduce((sum, reason) => sum + reason.value, 0);
+    expect(Math.abs(reasonSum - scoredCard!.fitScore)).toBeLessThan(1);
+    expect(scoredCard!.scoreReasons.some((reason) => reason.kind === "category")).toBe(true);
+    expect(scoredCard!.scoreReasons).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          kind: "penalty",
+          code: "penalty:fee",
+          value: -scoredCard!.estimatedAnnualFee
+        })
+      ])
+    );
+  });
+
+  it("marks focused category score reasons with a detail note", () => {
+    const focusedCard = scoreCards({ query: "best dining card" }).find((score) =>
+      score.scoreReasons.some((reason) => reason.code === "category:dining")
+    );
+
+    expect(focusedCard).toBeDefined();
+    expect(focusedCard!.scoreReasons).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          kind: "category",
+          code: "category:dining",
+          detail: expect.stringMatching(/focused category/i)
+        })
+      ])
+    );
+  });
+
   it("filters travel-intent queries to only travel cards via qualifiesAsTravelCard", () => {
     const scores = scoreCards({ query: "best travel card" });
     expect(scores.length).toBeGreaterThan(0);

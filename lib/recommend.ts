@@ -4,7 +4,7 @@ import { rankingStrategies, DEFAULT_RANKING_STRATEGY } from "./ranking-strategie
 import { resultStrategies, DEFAULT_RESULT_STRATEGY, isPrimaryCashbackCard } from "./result-strategies";
 import type { ResultSection } from "./result-strategies";
 import { parseQueryIntent } from "./query-intent";
-import type { CardScore, CreditCard, Milestone, RecommendationInput, SpendCategory, SpendProfile, Reward } from "./types";
+import type { CardScore, CreditCard, Milestone, RecommendationInput, ScoreReason, SpendCategory, SpendProfile, Reward } from "./types";
 import { getTotalLoungeAccess, getInternationalLoungeAccess, getMeaningfulLoungeConditions } from "./lounge";
 import { stripScoringAnnotations } from "./card-index";
 
@@ -188,6 +188,18 @@ function formatSpendInLakhs(amount: number): string {
   const lakhs = Math.round(amount / 10000) / 10;
   const formattedLakhs = Number.isInteger(lakhs) ? `${lakhs}` : lakhs.toFixed(1);
   return `${formattedLakhs}L`;
+}
+
+function titleCaseCategory(category: string) {
+  return category
+    .split(/[\s_-]+/)
+    .filter(Boolean)
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(" ");
+}
+
+function scoreReasonKind(value: number): ScoreReason["kind"] {
+  return value < 0 ? "penalty" : "boost";
 }
 
 function normalizeText(value = "") {
@@ -2597,6 +2609,47 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
       : relevanceWeightDefault;
     const fitScore = valueScore + relevanceWeight * relevanceScore;
 
+    const scoreReasons: ScoreReason[] = [];
+    for (const row of rewardBreakdown) {
+      if (row.annualReward === 0) continue;
+      scoreReasons.push({
+        kind: "category",
+        code: `category:${row.spendCategory}`,
+        label: `${titleCaseCategory(row.spendCategory)} rewards`,
+        value: row.annualReward,
+        ...(focusedCategory === row.spendCategory
+          ? { detail: "Focused category reward used for this category-focused ranking profile." }
+          : {})
+      });
+    }
+
+    const addScoreReason = (code: string, label: string, value: number, detail?: string) => {
+      if (value === 0) return;
+      scoreReasons.push({
+        kind: scoreReasonKind(value),
+        code,
+        label,
+        value,
+        ...(detail ? { detail } : {})
+      });
+    };
+
+    addScoreReason("value:milestone", "Milestone value", estimatedMilestoneValue);
+    addScoreReason("value:joining-renewal", "Joining and renewal value", estimatedJoiningAndRenewalValue);
+    addScoreReason("penalty:fee", "Annual fee", -estimatedAnnualFee);
+    addScoreReason("penalty:forex-cost", "Forex cost", -estimatedForexCost);
+    addScoreReason("boost:use-case", "Use-case preference", useCaseBoost);
+    addScoreReason("boost:redemption", "Redemption preference", redemptionBoost);
+    addScoreReason("boost:lounge", "Lounge preference", loungeBoost);
+    addScoreReason("boost:forex", "Forex preference", forexBoost);
+    addScoreReason("boost:flexibility", "Excluded-category flexibility", flexibilityValue);
+    addScoreReason("boost:online", "Broad online reward signal", onlineBoost);
+    addScoreReason("boost:focus", "Category focus match", focusBoost);
+    addScoreReason("boost:popularity", "Popularity prior", card.popularityScore * cardPopularityWeight);
+    addScoreReason("relevance:card-name", "Card-name relevance", relevanceWeight * cardNameBoost);
+    addScoreReason("relevance:keyword", "Keyword relevance", relevanceWeight * keywordBoost);
+    addScoreReason("relevance:tag", "Tag relevance", relevanceWeight * tagBoost);
+
     // Per-level fit score for envelope ranking; the aggregation step blends these across the fixed
     // light/mid/heavy spend levels (see blendAnnualSpendLevels) so absolute rupee value drives the
     // ranking without a single low-spend tier being able to dominate.
@@ -2621,6 +2674,7 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
       fitScore,
       matchedTags,
       reasons,
+      scoreReasons,
       rewardBreakdown,
       displayAnnualRewards,
       displayNetValue,

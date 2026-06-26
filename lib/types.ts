@@ -292,6 +292,16 @@ export interface ScoreDebug {
   relevanceWeight: number;
 }
 
+export type ScoreReasonKind = "category" | "boost" | "penalty";
+
+export type ScoreReason = {
+  kind: ScoreReasonKind;
+  code: string;
+  label: string;
+  value: number;
+  detail?: string;
+};
+
 export type CardScore = {
   card: CreditCard;
   annualSpend: number;
@@ -318,6 +328,7 @@ export type CardScore = {
   fitScore: number;
   matchedTags: string[];
   reasons: string[];
+  scoreReasons: ScoreReason[];
   rewardBreakdown: RewardBreakdownRow[];
   // Face-value mirrors (full reward value, no liquidity haircut) for DISPLAY only. The liquidity
   // haircut influences ranking/ordering via the estimated* fields above, but users see real
@@ -358,6 +369,7 @@ export type RecommendResult = {
   nextMilestoneThreshold: number | null;
   nextMilestoneGap: number | null;
   nextMilestoneLabel: string | null;
+  scoreReasons: ScoreReason[];
   breakdown: Array<{
     spendCategory: SpendCategory;
     monthlySpend: number;
