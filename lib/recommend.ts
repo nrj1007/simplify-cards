@@ -2070,7 +2070,9 @@ function loungePreferenceBoost(
 ) {
   const score = loungeScore(card);
 
-  if (isCategoryFocused && !wantsLounge && !wantsInternationalLounge) {
+  const hasTravelOrLoungeIntent = intent.useCases.includes("travel") || wantsLounge || wantsInternationalLounge;
+
+  if (!hasTravelOrLoungeIntent) {
     const maxLounge = Math.max(maxLoungeScore ?? 1, 1);
     const relativeScore = score / maxLounge;
     const maxLoungeBoost = (maxNetValue ?? 0) * 0.1;
@@ -2629,7 +2631,7 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
             const monthlySpendProfile = categoryFocus75_25SpendProfile(focusedCategory, focusSpendAmount);
             return scoreCardForSpend(card, monthlySpendProfile, monthlySpend);
           });
-          const splitWeights = [1.6, 1.4, 1.2, 1];
+          const splitWeights = [1.3, 1.2, 1.1, 1];
           const splitWeightSum = splitWeights.reduce((sum, w) => sum + w, 0);
           splitOrderScore =
             cashbackPerLevel.reduce((total, score, i) => total + strategy.perLevelScore(score) * splitWeights[i], 0) / splitWeightSum;
@@ -2673,7 +2675,7 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
 
       let spendWeights = strategy.spendWeights;
       if (isCashbackQueryBlend) {
-        spendWeights = [1.6, 1.4, 1.2, 1];
+        spendWeights = [1.3, 1.2, 1.1, 1];
       } else if (restrictToUpiCards) {
         spendWeights = [2, 1.5, 1];
       } else if (isUtilityLikeCategory) {
@@ -2719,7 +2721,7 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
           const monthlySpend = Math.round(annualSpend / 12);
           return scoreCardForSpend(card, scaleSpendProfileToMonthly(spend, monthlySpend), monthlySpend);
         });
-        const splitWeights = [1.6, 1.4, 1.2, 1];
+        const splitWeights = [1.3, 1.2, 1.1, 1];
         const splitWeightSum = splitWeights.reduce((sum, w) => sum + w, 0);
         splitOrderScore =
           cashbackPerLevel.reduce((total, score, i) => total + strategy.perLevelScore(score) * splitWeights[i], 0) / splitWeightSum;
