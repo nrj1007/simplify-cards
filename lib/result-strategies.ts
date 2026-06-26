@@ -98,8 +98,8 @@ const rewardTypeSplit: ResultStrategy = {
     }
 
     return [
-      { title: "Rewards cards", cards: rewards.slice(0, maxPerSection) },
-      { title: "Cashback cards", cards: cashback.slice(0, maxPerSection) }
+      { title: "Cashback cards", cards: cashback.slice(0, maxPerSection) },
+      { title: "Rewards cards", cards: rewards.slice(0, maxPerSection) }
     ];
   }
 };
