@@ -670,6 +670,29 @@ function isBareSpendCategoryQuery(query?: string) {
   return bareSpendCategoryPhrases.has(normalized);
 }
 
+function findExactCardNameOrIdMatch(query?: string) {
+  const normalizedQuery = normalizeForMatch(query);
+  const compactQuery = normalizeCompact(query);
+  if (!normalizedQuery) return null;
+
+  const directPhraseMatch = queryPhraseCardIdMap.find((entry) =>
+    entry.phrases.some((phrase) => normalizeForMatch(phrase) === normalizedQuery)
+  );
+  if (directPhraseMatch) return directPhraseMatch.cardId;
+
+  const exactMatch = cards.find((card) => {
+    const nameText = normalizeForMatch(card.name);
+    const idText = normalizeForMatch(card.id.replace(/-/g, " "));
+    return (
+      nameText === normalizedQuery ||
+      idText === normalizedQuery ||
+      (compactQuery.length > 0 && (normalizeCompact(card.name) === compactQuery || normalizeCompact(card.id.replace(/-/g, " ")) === compactQuery))
+    );
+  });
+
+  return exactMatch?.id ?? null;
+}
+
 function getMeaningfulCardTokens(card: { name: string; issuer: string; id: string }) {
   const issuerTokens = new Set(normalizeForMatch(card.issuer).split(" ").filter(Boolean));
 
@@ -830,7 +853,10 @@ function buildShortlistFromMentionedCard(scoredCards: CardScore[], mentionedCard
 
 function shortlistCardsForQuestion(input: RecommendationInput) {
   const scoredCards = scoreCards(input);
-  const mentionedCardId = isBareSpendCategoryQuery(input.query) ? null : findMentionedCardId(input.query);
+  const mentionedCardId =
+    isBareSpendCategoryQuery(input.query)
+      ? findExactCardNameOrIdMatch(input.query)
+      : findMentionedCardId(input.query);
 
   return buildShortlistFromMentionedCard(scoredCards, mentionedCardId);
 }
@@ -855,7 +881,7 @@ function isSpecificCardLookup(input: RecommendationInput) {
   const meaningfulTokens = getMeaningfulQueryTokens(input.query);
 
   if (isTopBestCardsQuery(input.query)) return false;
-  if (isBareSpendCategoryQuery(input.query)) return false;
+  if (isBareSpendCategoryQuery(input.query) && !findExactCardNameOrIdMatch(input.query)) return false;
   if (meaningfulTokens.length === 0 || meaningfulTokens.length > 3) return false;
   if (meaningfulTokens.every((token) => /^\d+$/.test(token))) return false;
   if (intent.useCases.length > 0 || intent.segments.length > 0 || intent.redemptionBuckets.length > 0 || intent.networks.length > 0) return false;
@@ -886,7 +912,7 @@ function shouldTryAiCardResolution(input: RecommendationInput, mentionedCardId?:
   const intent = parseQueryIntent(input);
 
   if (!normalizedQuery || meaningfulTokens.length === 0 || meaningfulTokens.length > 3) return false;
-  if (isBareSpendCategoryQuery(input.query)) return false;
+  if (isBareSpendCategoryQuery(input.query) && !findExactCardNameOrIdMatch(input.query)) return false;
   if (/\b(top|best|recommend|recommended|suggest|compare|vs)\b/.test(normalizedQuery)) return false;
   if (/\b(under|below|less than|upto|up to|above|over)\b/.test(normalizedQuery)) return false;
   if (input.maxAnnualFee !== undefined || intent.maxAnnualFee !== undefined) return false;

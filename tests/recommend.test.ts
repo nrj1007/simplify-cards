@@ -841,6 +841,20 @@ describe("scoreCards", () => {
     expect(nonDiningCardIndex).toBe(-1);
   });
 
+  it("treats bare category aliases as category-focused recommendation queries", () => {
+    const bareDiningScores = scoreCards({ query: "dining" });
+
+    expect(bareDiningScores.length).toBeGreaterThan(0);
+    expect(
+      bareDiningScores.slice(0, 5).every((score) =>
+        score.rewardBreakdown.some((item) => item.spendCategory === "dining") ||
+        score.card.bestFor.includes("dining") ||
+        score.card.tags.includes("dining")
+      )
+    ).toBe(true);
+    expect(bareDiningScores.findIndex((score) => score.card.id === "simplyclick-sbi")).toBe(-1);
+  });
+
   it("filters travel-intent queries to only travel cards via qualifiesAsTravelCard", () => {
     const scores = scoreCards({ query: "best travel card" });
     expect(scores.length).toBeGreaterThan(0);
