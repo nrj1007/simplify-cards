@@ -204,13 +204,15 @@ export default async function AskPage({ searchParams }: Props) {
   const feedbackError = params.feedbackError === "1";
   const topCardsQuery = isTopCardsQuery(input?.query);
   const topCard = result?.cards[0];
-  const matchCount = result?.cards.length ?? 0;
+  const flatMatchCount = result?.cards.length ?? 0;
+  const sectionMatchCount =
+    result?.sections?.reduce((total, section) => total + section.cards.length, 0) ?? 0;
   const intent = result?.meta?.intent;
   // An exact-card answer is about a single card — never use the multi-result template for it.
   const exactCardIntent = intent === "specific-card" || intent === "card-detail";
   // Pick the template that fits the result: multiple (ranked + compare) vs a single exact card.
   const showRankedAnswer =
-    Boolean(topCard) && !exactCardIntent && (topCardsQuery || result?.displayMode === "ranked-list" || matchCount > 1);
+    Boolean(topCard) && !exactCardIntent && (topCardsQuery || result?.displayMode === "ranked-list" || flatMatchCount > 1);
   const isExplicitCount = Boolean(
     input?.query && input.query.toLowerCase().replace(/[^a-z0-9]+/g, " ").match(/\btop\s+(\d+)\b/)
   );
@@ -222,6 +224,7 @@ export default async function AskPage({ searchParams }: Props) {
   const comparisonCards = showRankedAnswer ? rankedResultCards.slice(0, 3) : [];
   const showFeeWaiverRow = comparisonCards.some((item) => hasFeeWaiverSpend(item.card.feeWaiverSpend));
   const hasSplit = Boolean(result?.sections && result.sections.length > 1);
+  const displayedMatchCount = hasSplit ? sectionMatchCount : flatMatchCount;
 
   const rawCards = showRankedAnswer ? result?.cards ?? [] : [];
   const selectedDecisionCards = rawCards.length >= 7
@@ -273,7 +276,7 @@ export default async function AskPage({ searchParams }: Props) {
   const toFitPercent = (score: number) =>
     topFitRaw > 0 ? Math.max(1, Math.min(100, Math.round((score / topFitRaw) * 100))) : 100;
   const answerHeadTitle = isRanked
-    ? `SimplifyCards found ${matchCount} relevant card${matchCount === 1 ? "" : "s"}.`
+    ? `SimplifyCards found ${displayedMatchCount} relevant card${displayedMatchCount === 1 ? "" : "s"}.`
     : topCard?.card.name ?? "";
   const answerHeadSub = isRanked
     ? "Ranked by how well they match the query, not by commission."
@@ -354,7 +357,7 @@ export default async function AskPage({ searchParams }: Props) {
                         {topCard.card.bestFor[0] ? <span className="ask-badge gold">{topCard.card.bestFor[0]}</span> : null}
                         {isRanked ? (
                           <span className="ask-badge neutral">
-                            {matchCount} card{matchCount === 1 ? "" : "s"} reviewed
+                            {displayedMatchCount} card{displayedMatchCount === 1 ? "" : "s"} reviewed
                           </span>
                         ) : null}
                       </div>
@@ -362,7 +365,7 @@ export default async function AskPage({ searchParams }: Props) {
                     {isRanked ? (
                       <div className="fit-score">
                         <div>
-                          <b>{matchCount}</b>
+                          <b>{displayedMatchCount}</b>
                           <span>matches</span>
                         </div>
                       </div>
