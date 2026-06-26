@@ -217,7 +217,11 @@ function extractFocusedSpend(query: string) {
         query === normalizedAlias ||
         query.includes(`${alias} spend`) ||
         query.includes(`${alias} spends`) ||
-        query.includes(`for ${alias}`)
+        query.includes(`for ${alias}`) ||
+        query.includes(`${alias} card`) ||
+        query.includes(`${alias} cards`) ||
+        query.includes(`${alias} credit card`) ||
+        query.includes(`${alias} credit cards`)
       );
     })
   )?.category;

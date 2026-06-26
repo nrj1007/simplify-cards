@@ -4,7 +4,7 @@ import { rankingStrategies, DEFAULT_RANKING_STRATEGY } from "./ranking-strategie
 import { resultStrategies, DEFAULT_RESULT_STRATEGY, isPrimaryCashbackCard } from "./result-strategies";
 import type { ResultSection } from "./result-strategies";
 import { parseQueryIntent } from "./query-intent";
-import type { CardScore, CreditCard, Milestone, RecommendationInput, SpendCategory, SpendProfile, Reward } from "./types";
+import type { CardScore, CreditCard, Milestone, RecommendationInput, ScoreReason, SpendCategory, SpendProfile, Reward } from "./types";
 import { getTotalLoungeAccess, getInternationalLoungeAccess, getMeaningfulLoungeConditions } from "./lounge";
 import { stripScoringAnnotations } from "./card-index";
 
@@ -188,6 +188,18 @@ function formatSpendInLakhs(amount: number): string {
   const lakhs = Math.round(amount / 10000) / 10;
   const formattedLakhs = Number.isInteger(lakhs) ? `${lakhs}` : lakhs.toFixed(1);
   return `${formattedLakhs}L`;
+}
+
+function titleCaseCategory(category: string) {
+  return category
+    .split(/[\s_-]+/)
+    .filter(Boolean)
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(" ");
+}
+
+function scoreReasonKind(value: number): ScoreReason["kind"] {
+  return value < 0 ? "penalty" : "boost";
 }
 
 function normalizeText(value = "") {
@@ -654,10 +666,13 @@ function detectCategoryFocus(
   const normalizedQuery = normalizeForMatch(input.query);
   for (const config of categoryFocusConfigs) {
     if (!config.queryPattern.test(normalizedQuery)) continue;
+    const bareAliasCandidates = [
+      config.key,
+      ...(config.spendCategory ? spendAliases[config.spendCategory] : []),
+      ...config.positioning
+    ];
     const matchesBareCategoryAlias =
-      (config.spendCategory ? spendAliases[config.spendCategory] : [config.key]).some(
-        (alias) => normalizeForMatch(alias) === normalizedQuery
-      ) || normalizedQuery === config.key;
+      bareAliasCandidates.some((alias) => normalizeForMatch(alias) === normalizedQuery);
     if (
       !(
         isCardRecommendationQuery(input.query) ||
@@ -668,7 +683,15 @@ function detectCategoryFocus(
     // When the query already infers a spend profile, only earn-based focuses (rent/utilities) take it
     // over — so every phrasing of "rent"/"utility bills" ranks consistently. Other focuses defer to the
     // inferred spend (preserving e.g. "card for grocery spends" as a 100%-grocery profile).
-    if (hasInferredSpend && !config.matchByEarning) return null;
+    // However, if the query explicitly asks for a category card (e.g. "dining card", "dining credit card"),
+    // we keep the category filter active.
+    const isExplicitCardQuery = bareAliasCandidates.some((alias) =>
+      containsNormalizedPhrase(normalizedQuery, `${alias} card`) ||
+      containsNormalizedPhrase(normalizedQuery, `${alias} cards`) ||
+      containsNormalizedPhrase(normalizedQuery, `${alias} credit card`) ||
+      containsNormalizedPhrase(normalizedQuery, `${alias} credit cards`)
+    );
+    if (hasInferredSpend && !config.matchByEarning && !matchesBareCategoryAlias && !isExplicitCardQuery) return null;
     return config;
   }
   return null;
@@ -757,7 +780,7 @@ function focusedSpendProfile(category: SpendCategory) {
 // affect order; only this amount (which drives caps) matters.
 const categoryFocusMonthlySpend: Partial<Record<SpendCategory, number>> = {
   fuel: 7000,
-  dining: 8000,
+  dining: 5000,
   grocery: 10000,
   online: 15000,
   amazon: 8000,
@@ -835,16 +858,22 @@ function requiresRelationshipAccess(card: CreditCard) {
 }
 
 function shouldHideCardFromGenericRanking(card: CreditCard, input: RecommendationInput, intent: ReturnType<typeof parseQueryIntent>) {
-  const isDiscontinued = card.status === "discontinued";
-
-  if (!isDiscontinued) return false;
-
   const cardNameBoost = computeCardNameBoost(card, input.query);
   const userExplicitlyAsked = cardNameBoost >= exactCardNameMatchThreshold;
 
   if (userExplicitlyAsked) return false;
 
-  return isBroadGenericRankingQuery(input, intent);
+  const isDiscontinued = card.status === "discontinued";
+  if (isDiscontinued) return true;
+
+  const isDefenceCard = (card.tags ?? []).includes("defence") || (card.bestFor ?? []).includes("defence");
+  if (isDefenceCard) {
+    const q = (input.query ?? "").toLowerCase();
+    const queryAsksForDefence = q.includes("defence") || q.includes("army") || q.includes("military") || q.includes("csd");
+    if (!queryAsksForDefence) return true;
+  }
+
+  return false;
 }
 
 function cardUseCaseStrength(card: CreditCard, useCase: string) {
@@ -2515,12 +2544,27 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
     const flexibilityValue = (broadGenericRanking && categoryFocus === null && !restrictToFuelCards)
       ? computeFlexibilityValue(card, monthlyTotalForScore, includeSmartbuyLikeRewards)
       : 0;
-
     const hasBroadOnlineReward = cardHasBroadOnlineReward(card);
     const onlineScore = netCategoryReward(card, "online", 10000, includeSmartbuyLikeRewards);
     const relativeOnlineScore = Math.max(0, onlineScore) / maxOnlineScore;
     const onlineBoost = hasBroadOnlineReward
       ? Math.max(0, Math.round(relativeOnlineScore * (estimatedNetValue * 0.1)))
+      : 0;
+
+    const isFocusedQuery = categoryFocus !== null || fuelFocus;
+    const matchesFocus = categoryFocus
+      ? (
+          cardHasCategoryFocusTag(card, categoryFocus) ||
+          (categoryFocus.matchPositioning && cardPositioningMatchesFocus(card, categoryFocus)) ||
+          card.rewards.some((reward) => categoryFocus.rewardPattern.test(reward.category) && reward.rate > cardBaseRate(card)) ||
+          (categoryFocus.spendCategory !== undefined && (() => {
+            const r = findDirectRewardForSpend(card, categoryFocus.spendCategory, includeSmartbuyLikeRewards);
+            return r !== null && r.rate > cardBaseRate(card);
+          })())
+        )
+      : (fuelFocus ? hasFuelCardSignal(card) : false);
+    const focusBoost = (isFocusedQuery && matchesFocus)
+      ? Math.max(0, Math.round(estimatedNetValue * 0.1))
       : 0;
 
     const envelopeLabel = envelopeMonthlySpend ? formatEnvelopeSpendLabel(envelopeMonthlySpend) : null;
@@ -2574,6 +2618,7 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
       forexBoost +
       flexibilityValue +
       onlineBoost +
+      focusBoost +
       card.popularityScore * cardPopularityWeight;
 
     const valueScore = estimatedNetValue + sharedBoosts;
@@ -2584,6 +2629,47 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
       : broadGenericRanking ? relevanceWeightBroadGeneric
       : relevanceWeightDefault;
     const fitScore = valueScore + relevanceWeight * relevanceScore;
+
+    const scoreReasons: ScoreReason[] = [];
+    for (const row of rewardBreakdown) {
+      if (row.annualReward === 0) continue;
+      scoreReasons.push({
+        kind: "category",
+        code: `category:${row.spendCategory}`,
+        label: `${titleCaseCategory(row.spendCategory)} rewards`,
+        value: row.annualReward,
+        ...(focusedCategory === row.spendCategory
+          ? { detail: "Focused category reward used for this category-focused ranking profile." }
+          : {})
+      });
+    }
+
+    const addScoreReason = (code: string, label: string, value: number, detail?: string) => {
+      if (value === 0) return;
+      scoreReasons.push({
+        kind: scoreReasonKind(value),
+        code,
+        label,
+        value,
+        ...(detail ? { detail } : {})
+      });
+    };
+
+    addScoreReason("value:milestone", "Milestone value", estimatedMilestoneValue);
+    addScoreReason("value:joining-renewal", "Joining and renewal value", estimatedJoiningAndRenewalValue);
+    addScoreReason("penalty:fee", "Annual fee", -estimatedAnnualFee);
+    addScoreReason("penalty:forex-cost", "Forex cost", -estimatedForexCost);
+    addScoreReason("boost:use-case", "Use-case preference", useCaseBoost);
+    addScoreReason("boost:redemption", "Redemption preference", redemptionBoost);
+    addScoreReason("boost:lounge", "Lounge preference", loungeBoost);
+    addScoreReason("boost:forex", "Forex preference", forexBoost);
+    addScoreReason("boost:flexibility", "Excluded-category flexibility", flexibilityValue);
+    addScoreReason("boost:online", "Broad online reward signal", onlineBoost);
+    addScoreReason("boost:focus", "Category focus match", focusBoost);
+    addScoreReason("boost:popularity", "Popularity prior", card.popularityScore * cardPopularityWeight);
+    addScoreReason("relevance:card-name", "Card-name relevance", relevanceWeight * cardNameBoost);
+    addScoreReason("relevance:keyword", "Keyword relevance", relevanceWeight * keywordBoost);
+    addScoreReason("relevance:tag", "Tag relevance", relevanceWeight * tagBoost);
 
     // Per-level fit score for envelope ranking; the aggregation step blends these across the fixed
     // light/mid/heavy spend levels (see blendAnnualSpendLevels) so absolute rupee value drives the
@@ -2609,6 +2695,7 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
       fitScore,
       matchedTags,
       reasons,
+      scoreReasons,
       rewardBreakdown,
       displayAnnualRewards,
       displayNetValue,
@@ -2623,6 +2710,7 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
         forexBoost,
         flexibilityValue,
         onlineBoost,
+        focusBoost,
         relevanceScore,
         sharedBoosts,
         valueScore,

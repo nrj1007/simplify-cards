@@ -841,6 +841,55 @@ describe("scoreCards", () => {
     expect(nonDiningCardIndex).toBe(-1);
   });
 
+  it("treats bare category aliases as category-focused recommendation queries", () => {
+    const bareDiningScores = scoreCards({ query: "dining" });
+
+    expect(bareDiningScores.length).toBeGreaterThan(0);
+    expect(
+      bareDiningScores.slice(0, 5).every((score) =>
+        score.rewardBreakdown.some((item) => item.spendCategory === "dining") ||
+        score.card.bestFor.includes("dining") ||
+        score.card.tags.includes("dining")
+      )
+    ).toBe(true);
+    expect(bareDiningScores.findIndex((score) => score.card.id === "simplyclick-sbi")).toBe(-1);
+  });
+
+  it("adds structured score reasons that reconcile to fitScore for broad queries", () => {
+    const scoredCard = scoreCards({ query: "best credit card" }).find((score) => score.estimatedAnnualFee > 0);
+
+    expect(scoredCard).toBeDefined();
+    const reasonSum = scoredCard!.scoreReasons.reduce((sum, reason) => sum + reason.value, 0);
+    expect(Math.abs(reasonSum - scoredCard!.fitScore)).toBeLessThan(1);
+    expect(scoredCard!.scoreReasons.some((reason) => reason.kind === "category")).toBe(true);
+    expect(scoredCard!.scoreReasons).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          kind: "penalty",
+          code: "penalty:fee",
+          value: -scoredCard!.estimatedAnnualFee
+        })
+      ])
+    );
+  });
+
+  it("marks focused category score reasons with a detail note", () => {
+    const focusedCard = scoreCards({ query: "best dining card" }).find((score) =>
+      score.scoreReasons.some((reason) => reason.code === "category:dining")
+    );
+
+    expect(focusedCard).toBeDefined();
+    expect(focusedCard!.scoreReasons).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          kind: "category",
+          code: "category:dining",
+          detail: expect.stringMatching(/focused category/i)
+        })
+      ])
+    );
+  });
+
   it("lets Equitas Selfe qualify for dining, grocery, and utilities category-focus rankings via explicit tags", () => {
     const diningScores = scoreCards({ query: "best dining credit card" });
     const groceryScores = scoreCards({ query: "top card for grocery spends" });

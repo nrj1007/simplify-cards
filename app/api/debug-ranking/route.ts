@@ -27,7 +27,8 @@ export async function GET(request: Request) {
       estimatedNetValue: Math.round(item.estimatedNetValue * 100) / 100,
       adjustment: Math.round((item.fitScore - item.estimatedNetValue) * 100) / 100,
       envelopeScoring: item.envelopeScoring ?? null,
-      reasons: item.reasons
+      reasons: item.reasons,
+      scoreReasons: item.scoreReasons
     }))
   });
 }

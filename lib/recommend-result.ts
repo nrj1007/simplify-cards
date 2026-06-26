@@ -90,6 +90,7 @@ export function toRecommendResult(score: CardScore): RecommendResult {
     nextMilestoneThreshold: milestone.threshold === null ? null : Math.round(milestone.threshold),
     nextMilestoneGap: milestone.gap === null ? null : Math.round(milestone.gap),
     nextMilestoneLabel: milestone.label,
+    scoreReasons: score.scoreReasons,
     breakdown: score.displayBreakdown
       .filter((row) => row.monthlySpend > 0)
       .map((row) => ({

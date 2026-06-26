@@ -41,6 +41,7 @@ function makeScore(id: string, rewardType: string): CardScore {
     fitScore: 100,
     matchedTags: [],
     reasons: [],
+    scoreReasons: [],
     rewardBreakdown: []
   };
 }
