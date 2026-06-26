@@ -3098,6 +3098,128 @@ describe("reward calculator", () => {
       });
     });
 
+    describe("EazyDiner IndusInd Bank Credit Card", () => {
+      it("calculates rewards correctly for dining, online, travel, and base categories", () => {
+        const card = getCardById("indusind-eazydiner");
+        expect(card).toBeTruthy();
+
+        // dining spend: 10,000 spend at rate 2 = 200 units (capped at 5,000 monthly)
+        // online spend: 10,000 spend at rate 2 = 200 units
+        // travel spend: 10,000 spend at rate 2 = 200 units
+        // base spend: 10,000 spend at rate 0.8 = 80 units
+        const result = calculateRewards(card!, {
+          dining: 10000,
+          online: 10000,
+          travel: 10000,
+          base: 10000
+        });
+
+        expect(result.rows.find((r) => r.category === "dining")!.monthlyUnits).toBeCloseTo(200, 2);
+        expect(result.rows.find((r) => r.category === "online")!.monthlyUnits).toBeCloseTo(200, 2);
+        expect(result.rows.find((r) => r.category === "travel")!.monthlyUnits).toBeCloseTo(200, 2);
+        expect(result.rows.find((r) => r.category === "base")!.monthlyUnits).toBeCloseTo(80, 2);
+        expect(result.monthlyUnits).toBeCloseTo(680, 2);
+      });
+
+      it("enforces monthly cap on dining rewards", () => {
+        const card = getCardById("indusind-eazydiner");
+        expect(card).toBeTruthy();
+
+        // Dining cap is 5,000 units. Spend of 3,00,000 at rate 2 = 6,000 units, capped at 5,000
+        const result = calculateRewards(card!, {
+          dining: 300000
+        });
+        expect(result.rows.find((r) => r.category === "dining")!.monthlyUnits).toBeCloseTo(5000, 2);
+      });
+
+      it("enforces exclusions", () => {
+        const card = getCardById("indusind-eazydiner");
+        expect(card).toBeTruthy();
+
+        const result = calculateRewards(card!, {
+          fuel: 10000
+        });
+        expect(result.monthlyUnits).toBeCloseTo(0, 2);
+        expect(result.rows.find((r) => r.category === "fuel")!.excluded).toBe(true);
+      });
+
+      it("returns correct annualized milestone rule", () => {
+        const card = getCardById("indusind-eazydiner");
+        expect(card).toBeTruthy();
+
+        const rules = milestoneRulesForCard(card!);
+        expect(rules.length).toBe(1);
+        expect(rules[0].threshold).toBe(360000);
+        expect(rules[0].value).toBe(18000);
+        expect(rules[0].isVoucher).toBe(false);
+        expect(rules[0].period).toBe("monthly");
+      });
+    });
+
+    describe("EazyDiner IndusInd Bank Platinum Credit Card", () => {
+      it("calculates rewards correctly including reduced utilities/rent/insurance/government rate", () => {
+        const card = getCardById("indusind-eazydiner-platinum");
+        expect(card).toBeTruthy();
+
+        // dining spend: 10,000 spend at rate 0.4 = 40 units (capped at 1,500 monthly)
+        // base spend: 10,000 spend at rate 0.4 = 40 units
+        // utilities spend: 10,000 spend at rate 0.14 = 14 units (reduced category)
+        // rent spend: 10,000 spend at rate 0.14 = 14 units (reduced category)
+        // insurance spend: 10,000 spend at rate 0.14 = 14 units (reduced category)
+        // government spend: 10,000 spend at rate 0.14 = 14 units (reduced category)
+        const result = calculateRewards(card!, {
+          dining: 10000,
+          base: 10000,
+          utilities: 10000,
+          rent: 10000,
+          insurance: 10000,
+          government: 10000
+        });
+
+        expect(result.rows.find((r) => r.category === "dining")!.monthlyUnits).toBeCloseTo(40, 2);
+        expect(result.rows.find((r) => r.category === "base")!.monthlyUnits).toBeCloseTo(40, 2);
+        expect(result.rows.find((r) => r.category === "utilities")!.monthlyUnits).toBeCloseTo(14, 2);
+        expect(result.rows.find((r) => r.category === "rent")!.monthlyUnits).toBeCloseTo(14, 2);
+        expect(result.rows.find((r) => r.category === "insurance")!.monthlyUnits).toBeCloseTo(14, 2);
+        expect(result.rows.find((r) => r.category === "government")!.monthlyUnits).toBeCloseTo(14, 2);
+        expect(result.monthlyUnits).toBeCloseTo(136, 2);
+      });
+
+      it("enforces monthly cap on dining rewards", () => {
+        const card = getCardById("indusind-eazydiner-platinum");
+        expect(card).toBeTruthy();
+
+        // Dining cap is 1,500 units. Spend of 5,0,000 at rate 0.4 = 2,000 units, capped at 1,500
+        const result = calculateRewards(card!, {
+          dining: 500000
+        });
+        expect(result.rows.find((r) => r.category === "dining")!.monthlyUnits).toBeCloseTo(1500, 2);
+      });
+
+      it("enforces exclusions", () => {
+        const card = getCardById("indusind-eazydiner-platinum");
+        expect(card).toBeTruthy();
+
+        const result = calculateRewards(card!, {
+          fuel: 10000
+        });
+        expect(result.monthlyUnits).toBe(0);
+        expect(result.rows.find((r) => r.category === "fuel")!.excluded).toBe(true);
+      });
+
+      it("returns correct annualized milestone rule", () => {
+        const card = getCardById("indusind-eazydiner-platinum");
+        expect(card).toBeTruthy();
+
+        const rules = milestoneRulesForCard(card!);
+        expect(rules.length).toBe(1);
+        expect(rules[0].threshold).toBe(120000);
+        expect(rules[0].value).toBe(1600);
+        expect(rules[0].isVoucher).toBe(false);
+        expect(rules[0].period).toBe("quarterly");
+      });
+    });
+
     describe("Kotak Solitaire Credit Card", () => {
       it("earns rewards at correct rates (10 Air Miles per Rs 100 on travel via Kotak Unbox, 3 Air Miles per Rs 100 base)", () => {
         const card = getCardById("kotak-solitaire");

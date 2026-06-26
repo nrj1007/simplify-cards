@@ -110,6 +110,7 @@
     "Additional Rs 3,000 monthly dining discount cap unlocked upon spending Rs 30,000 or more in the previous calendar month on non-dining transactions"
   ],
   "additionalBenefits": [
+    "Two complimentary movie tickets every month on BookMyShow (each ticket worth up to Rs 200)",
     "Complimentary premium alcoholic beverage for each diner at over 200 select restaurants booked via EazyDiner app",
     "1% fuel surcharge waiver at all fuel stations in India"
   ],
@@ -130,7 +131,7 @@
     ]
   },
   "internalNotes": [
-    "Card details manually reviewed and verified by user on 2026-05-29",
+    "Card details manually reviewed and verified by user on 2026-06-27",
     "Extra 25% discount is auto-applied and only applicable when booking and paying through the EazyDiner App via PayEazy. Not applicable for physical card payments, other cards, UPI, or wallets.",
     "Extra 25% discount is not applicable if consecutive transactions are made at the same restaurant within 120 minutes or less.",
     "Premium alcoholic beverage brand and serving size are at the sole discretion of the restaurant.",
@@ -138,7 +139,7 @@
   ],
   "sourceUrl": "https://www.indusind.bank.in/in/en/personal/cards/credit-card/eazydiner-credit-card.html",
   "applyUrl": "https://www.indusind.bank.in/in/en/personal/cards/credit-card/eazydiner-credit-card.html",
-  "lastVerified": "2026-05-29",
+  "lastVerified": "2026-06-27",
   "verificationStatus": "official-direct",
   "imageUrl": "/images/indusind-eazydiner.webp"
 }
