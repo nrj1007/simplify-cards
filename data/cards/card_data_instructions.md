@@ -419,6 +419,16 @@ Instead model it as a narrow accelerator:
     is not a typed category there, so typed dining/online/etc. spend shows the base rate and the
     accelerated row is informational. Update any hardcoded calculator unit tests accordingly.
 
+### J. Broad online reward indicator (`broadOnlineReward`)
+
+By default, online categories are assessed using individual reward rows. Set this card-level optional property to `true` if the card's "online" reward tier applies broadly to **all online spends** (any merchant), rather than being limited to specific platforms, select online partners, or co-branded merchants (e.g. SBI Cashback, SC Smart, Yes Marquee, and PhonePe SBI cards qualify, whereas a card with 10X only on Amazon/Flipkart does not).
+
+```json
+"broadOnlineReward": true
+```
+
+*   **Rule**: Only set `"broadOnlineReward": true` if the card has a general online reward tier (cashback, points, or accelerated rate) that is broad and applies to any online merchant not explicitly excluded.
+*   **Verification**: Check official terms & conditions. If the online tier is restricted to select partners, do not set this flag.
 
 ---
 
