@@ -88,7 +88,7 @@ function scoringPointValue(card: CreditCard): number {
 // "up to 15,000 Marriott Bonvoy Points" -> 15000, "4,000 bonus miles" -> 4000. Returns null when
 // the label has no point/mile figure (e.g. a voucher in rupees, or a status/tier perk).
 function benefitPointsFigure(label: string): number | null {
-  const m = label.match(/([\d,]{3,})\s+(?:[a-z]+\s+){0,3}(points?|miles?|cashpoints?)\b/i);
+  const m = label.match(/([\d,]{3,})\s+(?:[a-z]+\s+){0,3}([a-z]*points?|miles?|cashpoints?)\b/i);
   if (!m) return null;
   const n = Number(m[1].replace(/,/g, ""));
   return Number.isFinite(n) && n > 0 ? n : null;
