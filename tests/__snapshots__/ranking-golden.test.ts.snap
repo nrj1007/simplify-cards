@@ -1346,8 +1346,8 @@ exports[`result split golden (all query modes) > snapshots section membership fo
       "hsbc-premier",
       "hdfc-diners-club-black-metal",
       "icici-emeralde-private-metal",
-      "axis-magnus-burgundy",
       "hdfc-infinia-metal",
+      "hsbc-travelone",
     ],
   },
   "category-bill-payments": {
@@ -1359,11 +1359,11 @@ exports[`result split golden (all query modes) > snapshots section membership fo
       "axis-ace",
     ],
     "Rewards cards": [
-      "icici-emeralde-private-metal",
-      "amex-gold",
-      "sc-ultimate",
-      "hdfc-infinia-metal",
       "hsbc-premier",
+      "hdfc-diners-club-black-metal",
+      "equitas-selfe",
+      "hdfc-infinia-metal",
+      "hdfc-regalia-gold",
     ],
   },
   "category-education-payments": {
@@ -1376,10 +1376,10 @@ exports[`result split golden (all query modes) > snapshots section membership fo
     ],
     "Rewards cards": [
       "hsbc-premier",
-      "icici-emeralde-private-metal",
-      "amex-membership-rewards",
+      "hdfc-diners-club-black-metal",
       "axis-atlas",
-      "indusind-eazydiner",
+      "axis-magnus-burgundy",
+      "hdfc-infinia-metal",
     ],
   },
   "category-rent": {
@@ -1415,11 +1415,11 @@ exports[`result split golden (all query modes) > snapshots section membership fo
       "axis-ace",
     ],
     "Rewards cards": [
-      "icici-emeralde-private-metal",
-      "amex-gold",
-      "sc-ultimate",
-      "hdfc-infinia-metal",
       "hsbc-premier",
+      "hdfc-diners-club-black-metal",
+      "equitas-selfe",
+      "hdfc-infinia-metal",
+      "hdfc-regalia-gold",
     ],
   },
   "category-utility-bills": {
@@ -1431,11 +1431,11 @@ exports[`result split golden (all query modes) > snapshots section membership fo
       "phonepe-sbi-purple",
     ],
     "Rewards cards": [
-      "icici-emeralde-private-metal",
-      "amex-gold",
-      "sc-ultimate",
-      "hdfc-infinia-metal",
       "hsbc-premier",
+      "hdfc-diners-club-black-metal",
+      "equitas-selfe",
+      "hdfc-infinia-metal",
+      "hdfc-regalia-gold",
     ],
   },
   "combo-dining-under-5000": {
@@ -1447,11 +1447,11 @@ exports[`result split golden (all query modes) > snapshots section membership fo
       "bpcl-sbi-octane",
     ],
     "Rewards cards": [
-      "bobcard-eterna",
-      "sbi-card-prime",
-      "shaurya-select-sbi",
+      "sbi-card-elite",
       "rbl-platinum-maxima-plus",
-      "yes-first-preferred",
+      "shaurya-select-sbi",
+      "hdfc-marriott-bonvoy",
+      "landmark-rewards-sbi-select",
     ],
   },
   "combo-premium-travel": {
@@ -1489,10 +1489,10 @@ exports[`result split golden (all query modes) > snapshots section membership fo
     ],
     "Rewards cards": [
       "hsbc-premier",
-      "axis-magnus-burgundy",
       "hdfc-diners-club-black-metal",
-      "equitas-powermiles",
       "icici-emeralde-private-metal",
+      "hdfc-infinia-metal",
+      "equitas-powermiles",
     ],
   },
   "forex-zero": {
@@ -1510,10 +1510,10 @@ exports[`result split golden (all query modes) > snapshots section membership fo
     ],
     "Rewards cards": [
       "hsbc-premier",
-      "axis-magnus-burgundy",
-      "axis-atlas",
-      "axis-magnus",
+      "kotak-white-reserve",
       "kotak-solitaire",
+      "axis-magnus-burgundy",
+      "axis-reserve",
     ],
   },
   "intl-lounge-query": {
@@ -1525,10 +1525,10 @@ exports[`result split golden (all query modes) > snapshots section membership fo
     ],
     "Rewards cards": [
       "hsbc-premier",
-      "hdfc-diners-club-black-metal",
-      "icici-emeralde-private-metal",
       "axis-magnus-burgundy",
-      "hdfc-infinia-metal",
+      "axis-magnus",
+      "yes-marquee",
+      "kotak-white-reserve",
     ],
   },
   "issuer-amex": {
@@ -1549,8 +1549,8 @@ exports[`result split golden (all query modes) > snapshots section membership fo
       "axis-samsung-signature",
     ],
     "Rewards cards": [
-      "axis-magnus-burgundy",
       "axis-atlas",
+      "axis-magnus-burgundy",
       "axis-magnus",
       "axis-flipkart-super-elite",
       "axis-horizon",
@@ -1597,9 +1597,9 @@ exports[`result split golden (all query modes) > snapshots section membership fo
     "Rewards cards": [
       "krisflyer-sbi-apex",
       "tata-neu-infinity-sbi",
-      "aurum-sbi",
-      "sbi-card-miles-elite",
       "indigo-sbi-elite",
+      "sbi-card-prime",
+      "aurum-sbi",
     ],
   },
   "lifetime-free": {
@@ -1612,9 +1612,9 @@ exports[`result split golden (all query modes) > snapshots section membership fo
     ],
     "Rewards cards": [
       "hsbc-visa-platinum",
+      "au-ixigo",
       "indusind-tiger",
       "hsbc-rupay-platinum",
-      "au-ixigo",
       "axis-kwik",
     ],
   },
@@ -1628,10 +1628,10 @@ exports[`result split golden (all query modes) > snapshots section membership fo
     ],
     "Rewards cards": [
       "hsbc-premier",
-      "hdfc-diners-club-black-metal",
-      "icici-emeralde-private-metal",
+      "kotak-white-reserve",
+      "kotak-solitaire",
       "axis-magnus-burgundy",
-      "hdfc-infinia-metal",
+      "axis-reserve",
     ],
   },
   "lounge-query": {
@@ -1644,10 +1644,10 @@ exports[`result split golden (all query modes) > snapshots section membership fo
     ],
     "Rewards cards": [
       "hsbc-premier",
-      "hdfc-diners-club-black-metal",
-      "icici-emeralde-private-metal",
+      "kotak-white-reserve",
+      "kotak-solitaire",
       "axis-magnus-burgundy",
-      "hdfc-infinia-metal",
+      "axis-reserve",
     ],
   },
   "max-fee-5000-query": {
@@ -1663,7 +1663,7 @@ exports[`result split golden (all query modes) > snapshots section membership fo
       "hdfc-regalia-gold",
       "axis-atlas",
       "kotak-solitaire",
-      "equitas-powermiles",
+      "sc-ultimate",
     ],
   },
   "max-fee-zero": {
@@ -1677,9 +1677,9 @@ exports[`result split golden (all query modes) > snapshots section membership fo
     "Rewards cards": [
       "kotak-solitaire",
       "hsbc-visa-platinum",
-      "indusind-tiger",
-      "hsbc-rupay-platinum",
       "au-ixigo",
+      "indusind-tiger",
+      "kotak-infinite",
     ],
   },
   "merchant-amazon": {
@@ -1716,8 +1716,8 @@ exports[`result split golden (all query modes) > snapshots section membership fo
     "Rewards cards": [
       "hdfc-diners-club-privilege",
       "axis-rewards",
-      "axis-my-zone",
       "axis-select",
+      "axis-my-zone",
       "sc-digismart",
     ],
   },
@@ -1848,10 +1848,10 @@ exports[`result split golden (all query modes) > snapshots section membership fo
     ],
     "Rewards cards": [
       "hsbc-premier",
-      "axis-magnus-burgundy",
-      "hdfc-diners-club-black-metal",
-      "hsbc-travelone",
       "icici-emeralde-private-metal",
+      "hdfc-diners-club-black-metal",
+      "hdfc-infinia-metal",
+      "axis-magnus-burgundy",
     ],
   },
   "spend-international": {
@@ -1880,10 +1880,10 @@ exports[`result split golden (all query modes) > snapshots section membership fo
     ],
     "Rewards cards": [
       "hsbc-premier",
-      "axis-magnus-burgundy",
       "hdfc-diners-club-black-metal",
-      "hsbc-travelone",
       "icici-emeralde-private-metal",
+      "hdfc-infinia-metal",
+      "axis-magnus-burgundy",
     ],
   },
   "spend-level-light": {
@@ -1897,9 +1897,9 @@ exports[`result split golden (all query modes) > snapshots section membership fo
     "Rewards cards": [
       "hsbc-premier",
       "hdfc-diners-club-black-metal",
-      "axis-magnus-burgundy",
       "icici-emeralde-private-metal",
       "hdfc-infinia-metal",
+      "hdfc-regalia-gold",
     ],
   },
   "spend-level-mid": {
@@ -1912,10 +1912,10 @@ exports[`result split golden (all query modes) > snapshots section membership fo
     ],
     "Rewards cards": [
       "hsbc-premier",
-      "axis-magnus-burgundy",
       "hdfc-diners-club-black-metal",
-      "hsbc-travelone",
       "icici-emeralde-private-metal",
+      "hdfc-infinia-metal",
+      "hsbc-travelone",
     ],
   },
   "spend-travel-heavy": {
@@ -1929,9 +1929,9 @@ exports[`result split golden (all query modes) > snapshots section membership fo
     "Rewards cards": [
       "hsbc-premier",
       "icici-emeralde-private-metal",
-      "hsbc-travelone",
-      "axis-magnus-burgundy",
       "hdfc-infinia-metal",
+      "hdfc-diners-club-black-metal",
+      "axis-magnus-burgundy",
     ],
   },
   "usecase-cashback": {
@@ -1952,11 +1952,11 @@ exports[`result split golden (all query modes) > snapshots section membership fo
       "axis-fibe",
     ],
     "Rewards cards": [
-      "bobcard-eterna",
-      "sbi-card-prime",
-      "shaurya-select-sbi",
+      "sbi-card-elite",
       "rbl-platinum-maxima-plus",
-      "yes-first-preferred",
+      "hdfc-marriott-bonvoy",
+      "shaurya-select-sbi",
+      "landmark-rewards-sbi-select",
     ],
   },
   "usecase-entertainment": {
@@ -1985,10 +1985,10 @@ exports[`result split golden (all query modes) > snapshots section membership fo
     ],
     "Rewards cards": [
       "idfc-first-power-plus",
-      "axis-indianoil-premium",
-      "axis-indianoil-easy",
-      "idfc-first-power",
+      "sc-platinum-rewards",
+      "idfc-indigo",
       "hdfc-indianoil",
+      "axis-indianoil-premium",
     ],
   },
   "usecase-grocery": {
@@ -2000,11 +2000,11 @@ exports[`result split golden (all query modes) > snapshots section membership fo
       "bpcl-sbi-octane",
     ],
     "Rewards cards": [
-      "au-ixigo",
-      "sbi-card-prime",
       "sbi-card-elite",
-      "shaurya-select-sbi",
       "rbl-platinum-maxima-plus",
+      "shaurya-select-sbi",
+      "yes-marquee",
+      "sbi-card-prime",
     ],
   },
   "usecase-online": {
@@ -2016,10 +2016,10 @@ exports[`result split golden (all query modes) > snapshots section membership fo
       "axis-cashback",
     ],
     "Rewards cards": [
-      "indusind-eazydiner",
-      "au-ixigo",
-      "bobcard-eterna",
       "yes-marquee",
+      "yes-pop-club",
+      "bobcard-eterna",
+      "au-ixigo",
       "yes-reserv",
     ],
   },
@@ -2034,9 +2034,9 @@ exports[`result split golden (all query modes) > snapshots section membership fo
     "Rewards cards": [
       "hsbc-premier",
       "hdfc-diners-club-black-metal",
+      "hdfc-infinia-metal",
       "icici-emeralde-private-metal",
       "axis-magnus-burgundy",
-      "hdfc-infinia-metal",
     ],
   },
   "usecase-upi": {
@@ -2072,8 +2072,8 @@ exports[`result split golden (reward-type-split) > snapshots the section members
       "hsbc-premier",
       "hdfc-diners-club-black-metal",
       "icici-emeralde-private-metal",
-      "axis-magnus-burgundy",
       "hdfc-infinia-metal",
+      "hsbc-travelone",
     ],
   },
   "category-online-split": {
@@ -2085,10 +2085,10 @@ exports[`result split golden (reward-type-split) > snapshots the section members
       "axis-cashback",
     ],
     "Rewards cards": [
-      "indusind-eazydiner",
-      "au-ixigo",
-      "bobcard-eterna",
       "yes-marquee",
+      "yes-pop-club",
+      "bobcard-eterna",
+      "au-ixigo",
       "yes-reserv",
     ],
   },
@@ -2113,8 +2113,8 @@ exports[`result split golden (reward-type-split) > snapshots the section members
       "hsbc-premier",
       "hdfc-diners-club-black-metal",
       "icici-emeralde-private-metal",
-      "axis-magnus-burgundy",
       "hdfc-infinia-metal",
+      "hsbc-travelone",
     ],
   },
 }
