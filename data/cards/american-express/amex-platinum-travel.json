@@ -166,18 +166,23 @@
   },
   "eligibility": {
     "salaried": [
-      "Eligibility is subject to American Express approval criteria"
+      "Employed with personal annual income of Rs 6 lakh and above",
+      "Good credit history with no payment defaults",
+      "Resident Indian with current residential address in India"
     ],
     "selfEmployed": [
-      "Eligibility is subject to American Express approval criteria"
+      "Self-employed with personal annual income of Rs 6 lakh and above",
+      "Company has been trading for more than 12 months",
+      "Good credit history with no payment defaults",
+      "Resident Indian with current residential address in India"
     ]
   },
   "sourceUrl": "https://www.americanexpress.com/in/credit-cards/platinum-travel-credit-card/",
   "applyUrl": "https://www.americanexpress.com/in/credit-cards/platinum-travel-credit-card/",
-  "lastVerified": "2026-06-06",
+  "lastVerified": "2026-06-26",
   "verificationStatus": "official-direct",
   "internalNotes": [
-    "Card details manually reviewed and verified by user on 2026-06-06",
+    "Card details manually reviewed and verified by user on 2026-06-26",
     "Domestic lounge access is capped at 2 visits per calendar quarter",
     "Priority Pass membership fee of US$99 is waived; lounge visit charges are payable at actual prevailing rates",
     "Points do not expire as long as the card account is active and in good standing",
