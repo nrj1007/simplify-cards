@@ -2642,19 +2642,23 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
 
         let splitOrderScore: number | undefined = undefined;
         const isSplitBlend = input.resultStrategy === "reward-type-split" && strategy.blendMode === "weighted-average";
-        const cardEarnsCashback = /cashback/i.test(card.rewardType ?? "");
-        if (isSplitBlend && cardEarnsCashback) {
-          const cashbackOrderLevels = [100000, 200000, 300000, 500000];
-          const cashbackPerLevel = cashbackOrderLevels.map((annualSpend) => {
+        if (isSplitBlend) {
+          const cardEarnsCashback = /cashback/i.test(card.rewardType ?? "");
+          const orderLevels = cardEarnsCashback
+            ? [100000, 200000, 300000, 500000]
+            : [300000, 500000, 1000000, 2000000, 3000000];
+          const perLevel = orderLevels.map((annualSpend) => {
             const monthlySpend = Math.round(annualSpend / 12);
             const focusSpendAmount = monthlySpend * 0.75;
             const monthlySpendProfile = categoryFocus75_25SpendProfile(focusedCategory, focusSpendAmount);
             return scoreCardForSpend(card, monthlySpendProfile, monthlySpend);
           });
-          const splitWeights = [1.3, 1.2, 1.1, 1];
+          const splitWeights = cardEarnsCashback
+            ? [1.3, 1.2, 1.1, 1]
+            : [1.4, 1.3, 1.2, 1.1, 1];
           const splitWeightSum = splitWeights.reduce((sum, w) => sum + w, 0);
           splitOrderScore =
-            cashbackPerLevel.reduce((total, score, i) => total + strategy.perLevelScore(score) * splitWeights[i], 0) / splitWeightSum;
+            perLevel.reduce((total, score, i) => total + strategy.perLevelScore(score) * splitWeights[i], 0) / splitWeightSum;
         }
 
         const assembled = representative.envelopeScoring
@@ -2731,21 +2735,26 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
           ? strategy.perLevelScore(representative)
           : perLevel.reduce((total, score, i) => total + strategy.perLevelScore(score) * spendWeights[i], 0) / blendWeightSum;
 
-      // Cashback section ordering signal (split+blend only): an equal-weighted blend of the card's
-      // net value at realistic low/mid spend [1L,2L,3L,5L]. Computed on a dedicated evaluation so the
-      // card's representative/display value and global ranking key remain on the default spend levels.
+      // Section ordering signal (split+blend only): an equal-weighted blend of the card's
+      // net value at realistic spend levels (low/mid for cashback, mid/high for rewards).
+      // Computed on a dedicated evaluation so the card's representative/display value
+      // and global ranking key remain on the default spend levels.
       let splitOrderScore: number | undefined = undefined;
-      const cardEarnsCashback = /cashback/i.test(card.rewardType ?? "");
-      if (isSplitBlend && cardEarnsCashback) {
-        const cashbackOrderLevels = [100000, 200000, 300000, 500000];
-        const cashbackPerLevel = cashbackOrderLevels.map((annualSpend) => {
+      if (isSplitBlend) {
+        const cardEarnsCashback = /cashback/i.test(card.rewardType ?? "");
+        const orderLevels = cardEarnsCashback
+          ? [100000, 200000, 300000, 500000]
+          : [300000, 500000, 1000000, 2000000, 3000000];
+        const perLevel = orderLevels.map((annualSpend) => {
           const monthlySpend = Math.round(annualSpend / 12);
           return scoreCardForSpend(card, scaleSpendProfileToMonthly(spend, monthlySpend), monthlySpend);
         });
-        const splitWeights = [1.3, 1.2, 1.1, 1];
+        const splitWeights = cardEarnsCashback
+          ? [1.3, 1.2, 1.1, 1]
+          : [1.4, 1.3, 1.2, 1.1, 1];
         const splitWeightSum = splitWeights.reduce((sum, w) => sum + w, 0);
         splitOrderScore =
-          cashbackPerLevel.reduce((total, score, i) => total + strategy.perLevelScore(score) * splitWeights[i], 0) / splitWeightSum;
+          perLevel.reduce((total, score, i) => total + strategy.perLevelScore(score) * splitWeights[i], 0) / splitWeightSum;
       }
 
       // Dual-bucket cards feature in BOTH split sections, valued per context. A card's DEFAULT score
