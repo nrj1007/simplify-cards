@@ -281,6 +281,7 @@ export interface ScoreDebug {
   loungeBoost: number;
   forexBoost: number;
   flexibilityValue: number;
+  onlineBoost: number;
   relevanceScore: number;
   sharedBoosts: number;
   valueScore: number;

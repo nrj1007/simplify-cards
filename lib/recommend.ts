@@ -2400,6 +2400,12 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
 
   const maxNetValue = Math.max(...candidateNetValues, 0);
   const maxLoungeScore = Math.max(...candidateCards.map((card) => loungeScore(card)), 1);
+  const maxOnlineScore = Math.max(
+    ...candidateCards.map((c) =>
+      netCategoryReward(c, "online", 10000, includeSmartbuyLikeRewards)
+    ),
+    1
+  );
 
   const scoreCardForSpend = (
     card: CreditCard,
@@ -2496,6 +2502,11 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
     const flexibilityValue = (broadGenericRanking && categoryFocus === null && !restrictToFuelCards)
       ? computeFlexibilityValue(card, monthlyTotalForScore, includeSmartbuyLikeRewards)
       : 0;
+
+    const onlineScore = netCategoryReward(card, "online", 10000, includeSmartbuyLikeRewards);
+    const relativeOnlineScore = Math.max(0, onlineScore) / maxOnlineScore;
+    const onlineBoost = Math.max(0, Math.round(relativeOnlineScore * (estimatedNetValue * 0.1)));
+
     const envelopeLabel = envelopeMonthlySpend ? formatEnvelopeSpendLabel(envelopeMonthlySpend) : null;
     const feeWaiverReason =
       card.feeWaiverSpend && annualSpend >= card.feeWaiverSpend
@@ -2546,6 +2557,7 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
       loungeBoost +
       forexBoost +
       flexibilityValue +
+      onlineBoost +
       card.popularityScore * cardPopularityWeight;
 
     const valueScore = estimatedNetValue + sharedBoosts;
@@ -2594,6 +2606,7 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
         loungeBoost,
         forexBoost,
         flexibilityValue,
+        onlineBoost,
         relevanceScore,
         sharedBoosts,
         valueScore,
