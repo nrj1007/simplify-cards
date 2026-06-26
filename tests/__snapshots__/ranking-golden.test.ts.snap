@@ -1376,9 +1376,9 @@ exports[`result split golden (all query modes) > snapshots section membership fo
     ],
     "Rewards cards": [
       "hsbc-premier",
+      "axis-magnus-burgundy",
       "hdfc-diners-club-black-metal",
       "axis-atlas",
-      "axis-magnus-burgundy",
       "hdfc-infinia-metal",
     ],
   },
@@ -1390,7 +1390,7 @@ exports[`result split golden (all query modes) > snapshots section membership fo
       "hsbc-premier",
       "hsbc-travelone",
       "amex-platinum-travel",
-      "amex-membership-rewards",
+      "axis-magnus-burgundy",
       "sc-ultimate",
     ],
   },
@@ -1402,7 +1402,7 @@ exports[`result split golden (all query modes) > snapshots section membership fo
       "hsbc-premier",
       "hsbc-travelone",
       "amex-platinum-travel",
-      "amex-membership-rewards",
+      "axis-magnus-burgundy",
       "sc-ultimate",
     ],
   },
@@ -1490,9 +1490,9 @@ exports[`result split golden (all query modes) > snapshots section membership fo
     "Rewards cards": [
       "hsbc-premier",
       "hdfc-diners-club-black-metal",
-      "icici-emeralde-private-metal",
-      "hdfc-infinia-metal",
+      "axis-magnus-burgundy",
       "equitas-powermiles",
+      "icici-emeralde-private-metal",
     ],
   },
   "forex-zero": {
@@ -1510,10 +1510,10 @@ exports[`result split golden (all query modes) > snapshots section membership fo
     ],
     "Rewards cards": [
       "hsbc-premier",
+      "axis-magnus-burgundy",
       "kotak-white-reserve",
       "kotak-solitaire",
-      "axis-magnus-burgundy",
-      "axis-reserve",
+      "axis-magnus",
     ],
   },
   "intl-lounge-query": {
@@ -1528,7 +1528,7 @@ exports[`result split golden (all query modes) > snapshots section membership fo
       "axis-magnus-burgundy",
       "axis-magnus",
       "yes-marquee",
-      "kotak-white-reserve",
+      "kotak-solitaire",
     ],
   },
   "issuer-amex": {
@@ -1549,8 +1549,8 @@ exports[`result split golden (all query modes) > snapshots section membership fo
       "axis-samsung-signature",
     ],
     "Rewards cards": [
-      "axis-atlas",
       "axis-magnus-burgundy",
+      "axis-atlas",
       "axis-magnus",
       "axis-flipkart-super-elite",
       "axis-horizon",
@@ -1598,8 +1598,8 @@ exports[`result split golden (all query modes) > snapshots section membership fo
       "krisflyer-sbi-apex",
       "tata-neu-infinity-sbi",
       "indigo-sbi-elite",
-      "sbi-card-prime",
       "aurum-sbi",
+      "sbi-card-miles-elite",
     ],
   },
   "lifetime-free": {
@@ -1628,9 +1628,9 @@ exports[`result split golden (all query modes) > snapshots section membership fo
     ],
     "Rewards cards": [
       "hsbc-premier",
+      "axis-magnus-burgundy",
       "kotak-white-reserve",
       "kotak-solitaire",
-      "axis-magnus-burgundy",
       "axis-reserve",
     ],
   },
@@ -1644,10 +1644,10 @@ exports[`result split golden (all query modes) > snapshots section membership fo
     ],
     "Rewards cards": [
       "hsbc-premier",
+      "axis-magnus-burgundy",
       "kotak-white-reserve",
       "kotak-solitaire",
-      "axis-magnus-burgundy",
-      "axis-reserve",
+      "axis-magnus",
     ],
   },
   "max-fee-5000-query": {
@@ -1663,7 +1663,7 @@ exports[`result split golden (all query modes) > snapshots section membership fo
       "hdfc-regalia-gold",
       "axis-atlas",
       "kotak-solitaire",
-      "sc-ultimate",
+      "bobcard-etihad-guest-premium",
     ],
   },
   "max-fee-zero": {
@@ -1679,7 +1679,7 @@ exports[`result split golden (all query modes) > snapshots section membership fo
       "hsbc-visa-platinum",
       "au-ixigo",
       "indusind-tiger",
-      "kotak-infinite",
+      "hsbc-rupay-platinum",
     ],
   },
   "merchant-amazon": {
@@ -1848,10 +1848,10 @@ exports[`result split golden (all query modes) > snapshots section membership fo
     ],
     "Rewards cards": [
       "hsbc-premier",
-      "icici-emeralde-private-metal",
       "hdfc-diners-club-black-metal",
-      "hdfc-infinia-metal",
+      "icici-emeralde-private-metal",
       "axis-magnus-burgundy",
+      "hdfc-infinia-metal",
     ],
   },
   "spend-international": {
@@ -1881,9 +1881,9 @@ exports[`result split golden (all query modes) > snapshots section membership fo
     "Rewards cards": [
       "hsbc-premier",
       "hdfc-diners-club-black-metal",
+      "axis-magnus-burgundy",
       "icici-emeralde-private-metal",
       "hdfc-infinia-metal",
-      "axis-magnus-burgundy",
     ],
   },
   "spend-level-light": {
@@ -1915,7 +1915,7 @@ exports[`result split golden (all query modes) > snapshots section membership fo
       "hdfc-diners-club-black-metal",
       "icici-emeralde-private-metal",
       "hdfc-infinia-metal",
-      "hsbc-travelone",
+      "axis-magnus-burgundy",
     ],
   },
   "spend-travel-heavy": {
@@ -1984,9 +1984,9 @@ exports[`result split golden (all query modes) > snapshots section membership fo
       "icici-hpcl-coral",
     ],
     "Rewards cards": [
-      "idfc-first-power-plus",
-      "sc-platinum-rewards",
       "idfc-indigo",
+      "sc-platinum-rewards",
+      "idfc-first-power-plus",
       "hdfc-indianoil",
       "axis-indianoil-premium",
     ],
@@ -2002,9 +2002,9 @@ exports[`result split golden (all query modes) > snapshots section membership fo
     "Rewards cards": [
       "sbi-card-elite",
       "rbl-platinum-maxima-plus",
-      "shaurya-select-sbi",
       "yes-marquee",
-      "sbi-card-prime",
+      "shaurya-select-sbi",
+      "axis-indigo-premium",
     ],
   },
   "usecase-online": {
@@ -2018,9 +2018,9 @@ exports[`result split golden (all query modes) > snapshots section membership fo
     "Rewards cards": [
       "yes-marquee",
       "yes-pop-club",
-      "bobcard-eterna",
       "au-ixigo",
       "yes-reserv",
+      "cub-salaryse-level-up",
     ],
   },
   "usecase-travel": {
@@ -2087,9 +2087,9 @@ exports[`result split golden (reward-type-split) > snapshots the section members
     "Rewards cards": [
       "yes-marquee",
       "yes-pop-club",
-      "bobcard-eterna",
       "au-ixigo",
       "yes-reserv",
+      "cub-salaryse-level-up",
     ],
   },
   "premium-degrade-single": {
