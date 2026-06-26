@@ -2423,13 +2423,13 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
     "yes-ace",                // all online
     "kotak-811-dream-different", // all online
     "bobcard-select",         // all online
-    "phonepe-sbi-select-black", // 5% all online (non-PhonePe)
+    "phonepe-sbi-select-black", // 5% all online (non-PhonePe app, confirmed T&C)
+    "phonepe-sbi-purple",     // 2% all online (non-PhonePe app, confirmed T&C)
     "axis-indianoil-easy",    // all online
     "axis-fibe",              // 1% all online base
     "idfc-first-earn",        // 0.5% all online
     "indusind-pinnacle",      // all online
     "sbm-paisabazaar-paisa-plus", // 1.5% all online
-    "yes-select",             // all online
   ]);
   const cardHasBroadOnlineReward = (c: CreditCard) => BROAD_ONLINE_REWARD_IDS.has(c.id);
   const maxOnlineScore = Math.max(
