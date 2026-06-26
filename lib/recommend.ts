@@ -780,7 +780,7 @@ function focusedSpendProfile(category: SpendCategory) {
 // affect order; only this amount (which drives caps) matters.
 const categoryFocusMonthlySpend: Partial<Record<SpendCategory, number>> = {
   fuel: 7000,
-  dining: 8000,
+  dining: 5000,
   grocery: 10000,
   online: 15000,
   amazon: 8000,
