@@ -363,8 +363,8 @@ exports[`reward calculator golden (all cards) > computes stable earn for every c
     "moderate": "online:375 dining:375 travel:375 hotels:1250 airlines:375 fuel:x grocery:375 utilities:x upi:375 amazon:375 international:375 base:375 rent:x insurance:x education:x gold:375 government:x |5000 (surcharge:250)",
   },
   "hsbc-travelone": {
-    "high": "online:4000 dining:4000 travel:8000 hotels:23000 airlines:21500 fuel:x grocery:4000 utilities:x upi:4000 amazon:4000 international:4000 base:4000 rent:4000 insurance:x education:x gold:x government:x |84500 (surcharge:2000)",
-    "moderate": "online:500 dining:500 travel:1000 hotels:6000 airlines:4000 fuel:x grocery:500 utilities:x upi:500 amazon:500 international:500 base:500 rent:500 insurance:x education:x gold:x government:x |15000 (surcharge:250)",
+    "high": "online:4000 dining:4000 travel:8000 hotels:23000 airlines:21500 fuel:x grocery:4000 utilities:x upi:4000 amazon:4000 international:4000 base:4000 rent:x insurance:x education:x gold:x government:x |80500 (surcharge:2000)",
+    "moderate": "online:500 dining:500 travel:1000 hotels:6000 airlines:4000 fuel:x grocery:500 utilities:x upi:500 amazon:500 international:500 base:500 rent:x insurance:x education:x gold:x government:x |14500 (surcharge:250)",
   },
   "hsbc-visa-platinum": {
     "high": "online:2667 dining:2667 travel:16000 hotels:2667 airlines:2667 fuel:x grocery:2667 utilities:x upi:2667 amazon:2667 international:2667 base:2667 rent:x insurance:x education:x gold:2667 government:x |42667 (surcharge:2000)",

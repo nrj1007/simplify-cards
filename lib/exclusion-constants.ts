@@ -30,7 +30,7 @@ import type { SpendCategory } from "./types";
 export const SPEND_CATEGORY_EXCLUSION_CODE_MAP: Partial<Record<SpendCategory, readonly ExclusionCode[]>> = {
   fuel: ["fuel"],
   utilities: ["utilities", "telecom"],
-  rent: ["rent"],
+  rent: ["rent", "real_estate", "property_management"],
   insurance: ["insurance"],
   education: ["education"],
   gold: ["gold", "jewellery"]

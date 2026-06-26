@@ -47,7 +47,6 @@ exports[`ranking golden (max-yield) > produces stable top-N ordering per scenari
   "category-rent": [
     "hsbc-premier",
     "amex-membership-rewards",
-    "hsbc-travelone",
     "amex-platinum-travel",
     "amex-gold",
     "sc-ultimate",
@@ -61,7 +60,6 @@ exports[`ranking golden (max-yield) > produces stable top-N ordering per scenari
   "category-rent-payment": [
     "hsbc-premier",
     "amex-membership-rewards",
-    "hsbc-travelone",
     "amex-platinum-travel",
     "amex-gold",
     "sc-ultimate",
@@ -154,7 +152,7 @@ exports[`ranking golden (max-yield) > produces stable top-N ordering per scenari
     "equitas-powermiles",
     "hdfc-infinia-metal",
     "au-ixigo",
-    "hsbc-travelone",
+    "hdfc-regalia-gold",
   ],
   "forex-zero": [
     "au-ixigo",
@@ -712,7 +710,6 @@ exports[`ranking golden (representative queries) > produces stable top-N orderin
   ],
   "category-rent": [
     "hsbc-premier",
-    "hsbc-travelone",
     "amex-platinum-travel",
     "amex-membership-rewards",
     "sc-ultimate",
@@ -726,7 +723,6 @@ exports[`ranking golden (representative queries) > produces stable top-N orderin
   ],
   "category-rent-payment": [
     "hsbc-premier",
-    "hsbc-travelone",
     "amex-platinum-travel",
     "amex-membership-rewards",
     "sc-ultimate",
@@ -1388,10 +1384,10 @@ exports[`result split golden (all query modes) > snapshots section membership fo
     ],
     "Rewards cards": [
       "hsbc-premier",
-      "hsbc-travelone",
       "amex-platinum-travel",
       "axis-magnus-burgundy",
       "sc-ultimate",
+      "amex-membership-rewards",
     ],
   },
   "category-rent-payment": {
@@ -1400,10 +1396,10 @@ exports[`result split golden (all query modes) > snapshots section membership fo
     ],
     "Rewards cards": [
       "hsbc-premier",
-      "hsbc-travelone",
       "amex-platinum-travel",
       "axis-magnus-burgundy",
       "sc-ultimate",
+      "amex-membership-rewards",
     ],
   },
   "category-utilities": {
