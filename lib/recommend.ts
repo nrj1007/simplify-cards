@@ -867,7 +867,7 @@ function shouldHideCardFromGenericRanking(card: CreditCard, input: Recommendatio
 
   if (userExplicitlyAsked) return false;
 
-  return isBroadGenericRankingQuery(input, intent);
+  return true;
 }
 
 function cardUseCaseStrength(card: CreditCard, useCase: string) {
