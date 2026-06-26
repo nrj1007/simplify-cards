@@ -2671,7 +2671,7 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
 
       let spendWeights = strategy.spendWeights;
       if (isCashbackQueryBlend) {
-        spendWeights = [1, 1, 1, 1]; // Equal weight across [1L,2L,3L,5L]
+        spendWeights = [1.3, 1.2, 1.1, 1];
       } else if (restrictToUpiCards) {
         spendWeights = [2, 1.5, 1];
       } else if (isUtilityLikeCategory) {
