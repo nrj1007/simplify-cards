@@ -39,7 +39,7 @@
   ],
   "acceleratedShare": {
     "online": 0,
-    "dining": 0.5,
+    "dining": 1,
     "grocery": 0.5,
     "utilities": 0.5
   },
