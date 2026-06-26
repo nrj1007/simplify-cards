@@ -40,8 +40,8 @@
   "acceleratedShare": {
     "online": 0,
     "dining": 1,
-    "grocery": 0.5,
-    "utilities": 0.5
+    "grocery": 1,
+    "utilities": 1
   },
   "popularityScore": 52,
   "loungeDomestic": 4,
