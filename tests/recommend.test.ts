@@ -772,7 +772,7 @@ describe("scoreCards", () => {
     // Burgundy should rank in the top results with a high-spend tier and a warning
     const burgundy = scores.find((s) => s.card.id === "axis-magnus-burgundy");
     expect(burgundy).toBeDefined();
-    expect(burgundy?.envelopeScoring?.bestMonthlySpend).toBeGreaterThanOrEqual(150000);
+    expect(burgundy?.envelopeScoring?.bestMonthlySpend).toBeGreaterThanOrEqual(50000);
     expect(burgundy?.reasons).toEqual(expect.arrayContaining([expect.stringMatching(/Needs high spend of .* to shine/i)]));
   });
 

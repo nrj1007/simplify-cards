@@ -111,12 +111,12 @@ const popularityRankingWeight = 50;
 // cards' yield blow up at trivial spend). A card must hold up across the range to rank high. The
 // Rs 30L tier lets super-premium cards (e.g. Magnus Burgundy) that only pull ahead at very high
 // spend show that strength instead of being capped at the Rs 20L tier.
-const blendAnnualSpendLevels = [300000, 1000000, 2000000, 3000000]; // Rs 3L, 10L, 20L, 30L per year
+const blendAnnualSpendLevels = [120000, 300000, 600000]; // Rs 10k, 25k, 50k per month (annually)
 // Weights for the envelope blend, aligned index-for-index with blendAnnualSpendLevels. Leaning the
 // blend toward the higher-spend levels means cards whose value is gated behind heavy spend (bank
 // tier programs that lift point value with spend, high fee-waiver thresholds, programme caps that
 // only bind at low spend) are judged more on their heavy-spend strength than on trivial-spend yield.
-const blendAnnualSpendLevelWeights = [1, 1.25, 1.5, 1.75];
+const blendAnnualSpendLevelWeights = [1, 1.25, 1.5];
 
 // Representative monthly spend for each segment tier. A segment query implies a spend/income level,
 // so instead of the envelope blend we score segment queries at the tier's typical spend (the default
@@ -910,13 +910,6 @@ function shouldHideCardFromGenericRanking(card: CreditCard, input: Recommendatio
     const q = (input.query ?? "").toLowerCase();
     const queryAsksForDefence = q.includes("defence") || q.includes("army") || q.includes("military") || q.includes("csd");
     if (!queryAsksForDefence) return true;
-  }
-
-  const isSecuredCard = (card.tags ?? []).includes("secured card") || (card.bestFor ?? []).includes("secured card");
-  if (isSecuredCard) {
-    const q = (input.query ?? "").toLowerCase();
-    const queryAsksForSecured = q.includes("secured") || q.includes("fd ") || q.includes("fd-") || q.includes("fixed deposit") || q.includes("bad credit") || q.includes("no income");
-    if (!queryAsksForSecured) return true;
   }
 
   return false;
@@ -2624,7 +2617,7 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
 
     const reasons = [
       ...(envelopeLabel ? [`Best at ${envelopeLabel}`] : []),
-      ...(envelopeMonthlySpend && envelopeMonthlySpend >= 150000
+      ...(envelopeMonthlySpend && envelopeMonthlySpend >= 50000
         ? [`Needs high spend of ${formatEnvelopeSpendLabel(envelopeMonthlySpend)} to shine`]
         : []),
       ...(cardNameBoost > 0 ? ["Strong card-name match for the query"] : []),
@@ -2787,7 +2780,7 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
           const cardEarnsCashback = /cashback/i.test(card.rewardType ?? "");
           const orderLevels = cardEarnsCashback
             ? [100000, 200000, 300000, 500000]
-            : [300000, 1000000, 2000000, 3000000];
+            : [120000, 300000, 600000];
           const perLevel = orderLevels.map((annualSpend) => {
             const monthlySpend = Math.round(annualSpend / 12);
             const focusSpendAmount = monthlySpend * 0.75;
@@ -2796,7 +2789,7 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
           });
           const splitWeights = cardEarnsCashback
             ? [1.3, 1.2, 1.1, 1]
-            : [1, 1.25, 1.5, 1.75];
+            : [1, 1.25, 1.5];
           const splitWeightSum = splitWeights.reduce((sum, w) => sum + w, 0);
           splitOrderScore =
             perLevel.reduce((total, score, i) => total + strategy.perLevelScore(score) * splitWeights[i], 0) / splitWeightSum;
@@ -2885,14 +2878,14 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
         const cardEarnsCashback = /cashback/i.test(card.rewardType ?? "");
         const orderLevels = cardEarnsCashback
           ? [100000, 200000, 300000, 500000]
-          : [300000, 1000000, 2000000, 3000000];
+          : [120000, 300000, 600000];
         const perLevel = orderLevels.map((annualSpend) => {
           const monthlySpend = Math.round(annualSpend / 12);
           return scoreCardForSpend(card, scaleSpendProfileToMonthly(spend, monthlySpend), monthlySpend);
         });
         const splitWeights = cardEarnsCashback
           ? [1.3, 1.2, 1.1, 1]
-          : [1, 1.25, 1.5, 1.75];
+          : [1, 1.25, 1.5];
         const splitWeightSum = splitWeights.reduce((sum, w) => sum + w, 0);
         splitOrderScore =
           perLevel.reduce((total, score, i) => total + strategy.perLevelScore(score) * splitWeights[i], 0) / splitWeightSum;

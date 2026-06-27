@@ -76,18 +76,15 @@ export const rankingStrategies: Record<RankingStrategyName, RankingStrategy> = {
   "absolute-blend": {
     name: "absolute-blend",
     blendMode: "weighted-average",
-    spendLevels: [300000, 1000000, 2000000, 3000000],
-    spendWeights: [1, 1.25, 1.5, 1.75],
+    spendLevels: [120000, 300000, 600000],
+    spendWeights: [1, 1.25, 1.5],
     perLevelScore: (score: CardScore) => score.fitScore
   },
   "max-yield": {
     name: "max-yield",
     blendMode: "max",
-    // Equal weights + a low ₹1L level so fee-in-yield penalises high-fee premiums at light spend.
-    // The blend takes the MAX across levels, so weights are only used for the weighted-average
-    // fallback path (unused for max-yield, but kept for interface completeness).
-    spendLevels: [100000, 300000, 1000000, 2000000, 3000000],
-    spendWeights: [1, 1, 1, 1, 1],
+    spendLevels: [120000, 300000, 600000],
+    spendWeights: [1, 1, 1],
     perLevelScore: maxYieldPerLevelScore
   }
 };
