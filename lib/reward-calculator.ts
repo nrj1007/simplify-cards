@@ -128,64 +128,96 @@ function isBaseRewardCategory(category: string): boolean {
   return parts.some((p) => p === "base" || p === "retail" || p === "offline");
 }
 
-// A spend category earns at a dedicated (non-base) rate on this card.
-function hasDirectReward(card: CreditCard, category: SpendCategory): boolean {
-  const aliases = SPEND_ALIASES[category];
-  const targetCategoryLower = category.toLowerCase();
-  return card.rewards.some((reward) => {
-    if (isBaseRewardCategory(reward.category)) return false;
-    const rewardCategories = reward.category.split(",").map((c) => c.trim().toLowerCase());
-    return (
-      aliases.some((alias) => rewardCategories.includes(alias.toLowerCase())) ||
-      rewardCategories.includes(targetCategoryLower)
+function titleCase(str: string): string {
+  if (!str) return "";
+  return str
+    .split(/\s+/)
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+    .join(" ");
+}
+
+export type CalculatorBucket = {
+  id: string;           // canonical id ("online","base"…) when canonical; else normalized merchant ("phonepe","flipkart")
+  label: string;        // card's own text ("PhonePe","Flipkart"); base → "Other spends"
+  displayRate?: string; // representative row's displayRate (top tier for tiered buckets)
+  isBase: boolean;
+  rewards: Reward[];    // one row, or N tier rows collapsed
+};
+
+export function calculatorBucketsForCard(card: CreditCard): CalculatorBucket[] {
+  const baseRewards = card.rewards.filter((r) => !r.hidden && isBaseRewardCategory(r.category));
+  const nonBaseRewards = card.rewards.filter((r) => !r.hidden && !isBaseRewardCategory(r.category));
+
+  const nonBaseGroups = new Map<string, Reward[]>();
+  const orderedKeys: string[] = [];
+
+  for (const r of nonBaseRewards) {
+    const key = normalizeForMatch(r.category);
+    if (!nonBaseGroups.has(key)) {
+      nonBaseGroups.set(key, []);
+      orderedKeys.push(key);
+    }
+    nonBaseGroups.get(key)!.push(r);
+  }
+
+  const buckets: CalculatorBucket[] = [];
+
+  for (const key of orderedKeys) {
+    const rewards = nonBaseGroups.get(key)!;
+    
+    // Find canonical id
+    const canonicalMatch = CALCULATOR_CATEGORIES.find(
+      (cat) => cat !== "base" && normalizeForMatch(cat) === key
     );
+    const id = canonicalMatch || key;
+
+    // Label
+    let label = "";
+    if (rewards.length > 1) {
+      label = titleCase(rewards[0].category);
+    } else {
+      label = rewards[0].displayCategory ?? titleCase(rewards[0].category);
+    }
+
+    // Sort rewards if tiered
+    const sortedRewards = [...rewards].sort(
+      (a, b) => (a.tierLowerBound ?? 0) - (b.tierLowerBound ?? 0)
+    );
+    const representativeReward = sortedRewards[sortedRewards.length - 1];
+    const displayRate = representativeReward?.displayRate;
+
+    buckets.push({
+      id,
+      label,
+      displayRate,
+      isBase: false,
+      rewards: sortedRewards
+    });
+  }
+
+  // Add trailing base bucket
+  const sortedBaseRewards = [...baseRewards].sort(
+    (a, b) => (a.tierLowerBound ?? 0) - (b.tierLowerBound ?? 0)
+  );
+  const repBaseReward = sortedBaseRewards[sortedBaseRewards.length - 1];
+
+  buckets.push({
+    id: "base",
+    label: "Other spends",
+    displayRate: repBaseReward?.displayRate,
+    isBase: true,
+    rewards: sortedBaseRewards
   });
+
+  return buckets;
 }
 
-// Excluded categories worth surfacing so users see what the card silently drops.
-const NOTABLE_EXCLUSION_CATEGORIES: SpendCategory[] = [
-  "fuel",
-  "insurance",
-  "rent",
-  "utilities",
-  "gold",
-  "education",
-  "government"
-];
+export const MORE_CATEGORIES: SpendCategory[] = ["rent", "insurance", "education", "gold", "government"];
 
-// The categories worth showing for a given card, split into:
-// - `primary`: dedicated-rate categories plus an "Other spends" catch-all, shown by default.
-// - `additional`: a few notable excluded categories, revealed only on request so users can
-//   confirm what the card drops without cluttering the default view.
-export function relevantCategoriesForCard(card: CreditCard): {
-  primary: SpendCategory[];
-  additional: SpendCategory[];
-} {
-  const rewarded = CALCULATOR_CATEGORIES.filter(
-    (category) => category !== "base" && hasDirectReward(card, category)
-  );
-  const additional = NOTABLE_EXCLUSION_CATEGORIES.filter(
-    (category) => !rewarded.includes(category) && isCategoryExcluded(card, category)
-  ).slice(0, 4);
-
-  return { primary: [...rewarded, "base"], additional };
-}
-
-function findRewardForCategory(card: CreditCard, category: SpendCategory): Reward | null {
-  const aliases = SPEND_ALIASES[category];
-  const targetCategoryLower = category.toLowerCase();
-
-  return (
-    card.rewards.find((reward) => {
-      const rewardCategories = reward.category.split(",").map((c) => c.trim().toLowerCase());
-      return (
-        aliases.some((alias) => rewardCategories.includes(alias.toLowerCase())) ||
-        rewardCategories.includes(targetCategoryLower)
-      );
-    }) ??
-    card.rewards.find((reward) => isBaseRewardCategory(reward.category)) ??
-    null
-  );
+export function moreCategoriesForCard(card: CreditCard): SpendCategory[] {
+  const buckets = calculatorBucketsForCard(card);
+  const bucketIds = new Set(buckets.map((b) => b.id));
+  return MORE_CATEGORIES.filter((cat) => !bucketIds.has(cat));
 }
 
 function findRewardsForCategory(card: CreditCard, category: SpendCategory): Reward[] {
@@ -225,10 +257,6 @@ function findDirectUpiRewards(card: CreditCard): Reward[] {
   return card.rewards.filter((reward) => rewardHasCategory(reward, "upi"));
 }
 
-// Both the base earn rate (`rate`) and the reduced post-cap rate (`postCapRate`) are read from the
-// structured fields, which the card validator keeps numerically consistent with `displayRate`. This
-// matches how lib/recommend.ts scores rewards, so the calculator and the recommender agree on a card's
-// post-cap earning. (For cashback cards a unit is a rupee, so `rate`/`postCapRate` are already the %.)
 function rewardEarnRatePerRs100(_card: CreditCard, reward: Reward) {
   return { basePerRs100: reward.rate, postCapPerRs100: reward.postCapRate ?? null };
 }
@@ -238,8 +266,6 @@ type RewardTier = {
   upperBound: number | null;
 };
 
-// Spend tiers come from the structured `tierLowerBound`/`tierUpperBound` fields on each reward row
-// (kept in sync with the human `displayCategory` text). A row is tiered when `tierLowerBound` is set.
 export function tierForReward(reward: Reward): RewardTier | null {
   if (reward.tierLowerBound === undefined) return null;
   return { lowerBound: reward.tierLowerBound, upperBound: reward.tierUpperBound ?? null };
@@ -273,7 +299,6 @@ function allocateTieredRewardUnits(card: CreditCard, monthlySpend: number, rewar
   };
 }
 
-// Applies the monthly reward cap and any reduced post-cap rate, mirroring lib/recommend.ts.
 function cappedMonthlyUnits(card: CreditCard, monthlySpend: number, reward: Reward, totalBaseCashback?: number) {
   const earnRate = rewardEarnRatePerRs100(card, reward);
   const rawUnits = (monthlySpend * earnRate.basePerRs100) / 100;
@@ -320,7 +345,8 @@ function chooseRewardsForCategory(card: CreditCard, category: SpendCategory, mon
 }
 
 export type RewardCalcRow = {
-  category: SpendCategory;
+  category: SpendCategory | string;
+  label?: string;
   monthlySpend: number;
   matchedRewardCategory: string | null;
   monthlyUnits: number;
@@ -339,56 +365,16 @@ export type RewardCalcResult = {
   rows: RewardCalcRow[];
 };
 
-export function calculateRewards(card: CreditCard, spend: SpendProfile): RewardCalcResult {
+export type ActiveRow = {
+  key: string;
+  label?: string;
+  monthlySpend: number;
+  rewards: Reward[];
+  reward: Reward;
+};
+
+export function assembleRewardRows(card: CreditCard, activeRows: ActiveRow[]): RewardCalcRow[] {
   const rows: RewardCalcRow[] = [];
-
-  type ActiveCategoryRow = {
-    category: SpendCategory;
-    monthlySpend: number;
-    rewards: Reward[];
-    reward: Reward;
-  };
-  const activeRows: ActiveCategoryRow[] = [];
-
-  for (const category of CALCULATOR_CATEGORIES) {
-    const monthlySpend = spend[category] ?? 0;
-    if (monthlySpend <= 0) continue;
-
-    if (isCategoryExcluded(card, category)) {
-      rows.push({
-        category,
-        monthlySpend,
-        matchedRewardCategory: null,
-        monthlyUnits: 0,
-        annualUnits: 0,
-        excluded: true,
-        earnsBaseRateOnly: false
-      });
-      continue;
-    }
-
-    const rewards = chooseRewardsForCategory(card, category, monthlySpend);
-    const reward = rewards[0] ?? null;
-    if (!reward) {
-      rows.push({
-        category,
-        monthlySpend,
-        matchedRewardCategory: null,
-        monthlyUnits: 0,
-        annualUnits: 0,
-        excluded: false,
-        earnsBaseRateOnly: false
-      });
-      continue;
-    }
-
-    activeRows.push({
-      category,
-      monthlySpend,
-      rewards,
-      reward
-    });
-  }
 
   // Sum up base cashback first for any rows matching base category.
   let totalBaseCashback = 0;
@@ -401,7 +387,7 @@ export function calculateRewards(card: CreditCard, spend: SpendProfile): RewardC
     }
   }
 
-  const groups = new Map<string | Reward, ActiveCategoryRow[]>();
+  const groups = new Map<string | Reward, ActiveRow[]>();
   for (const active of activeRows) {
     const key = active.reward.capGroup ?? active.reward;
     if (!groups.has(key)) {
@@ -431,13 +417,14 @@ export function calculateRewards(card: CreditCard, spend: SpendProfile): RewardC
       for (const { item, rawUnits, tieredAllocation } of itemRawUnits) {
         const monthlyUnits = totalRawUnits > 0 ? (totalCappedUnits * rawUnits) / totalRawUnits : 0;
         rows.push({
-          category: item.category,
+          category: item.key,
+          label: item.label,
           monthlySpend: item.monthlySpend,
           matchedRewardCategory: tieredAllocation?.matchedRewardCategory ?? item.reward.category,
           monthlyUnits,
           annualUnits: monthlyUnits * 12,
           excluded: false,
-          earnsBaseRateOnly: isBaseRewardCategory(item.reward.category) && item.category !== "base"
+          earnsBaseRateOnly: isBaseRewardCategory(item.reward.category) && item.key !== "base"
         });
       }
     } else {
@@ -449,13 +436,14 @@ export function calculateRewards(card: CreditCard, spend: SpendProfile): RewardC
           const tieredAllocation = allocateTieredRewardUnits(card, item.monthlySpend, item.rewards);
           const monthlyUnits = tieredAllocation?.monthlyUnits ?? cappedMonthlyUnits(card, item.monthlySpend, reward, totalBaseCashback);
           rows.push({
-            category: item.category,
+            category: item.key,
+            label: item.label,
             monthlySpend: item.monthlySpend,
             matchedRewardCategory: tieredAllocation?.matchedRewardCategory ?? reward.category,
             monthlyUnits,
             annualUnits: monthlyUnits * 12,
             excluded: false,
-            earnsBaseRateOnly: isBaseRewardCategory(reward.category) && item.category !== "base"
+            earnsBaseRateOnly: isBaseRewardCategory(reward.category) && item.key !== "base"
           });
         }
       } else {
@@ -495,30 +483,212 @@ export function calculateRewards(card: CreditCard, spend: SpendProfile): RewardC
         for (const { item, rawUnits } of itemRawUnits) {
           const monthlyUnits = totalRawUnits > 0 ? (totalCappedUnits * rawUnits) / totalRawUnits : 0;
           rows.push({
-            category: item.category,
+            category: item.key,
+            label: item.label,
             monthlySpend: item.monthlySpend,
             matchedRewardCategory: reward.category,
             monthlyUnits,
             annualUnits: monthlyUnits * 12,
             excluded: false,
-            earnsBaseRateOnly: isBaseRewardCategory(reward.category) && item.category !== "base"
+            earnsBaseRateOnly: isBaseRewardCategory(reward.category) && item.key !== "base"
           });
         }
       }
     }
   }
 
+  return rows;
+}
+
+export function calculateRewards(card: CreditCard, spend: SpendProfile): RewardCalcResult {
+  const rows: RewardCalcRow[] = [];
+  const activeRows: ActiveRow[] = [];
+
+  for (const category of CALCULATOR_CATEGORIES) {
+    const monthlySpend = spend[category] ?? 0;
+    if (monthlySpend <= 0) continue;
+
+    if (isCategoryExcluded(card, category)) {
+      rows.push({
+        category,
+        monthlySpend,
+        matchedRewardCategory: null,
+        monthlyUnits: 0,
+        annualUnits: 0,
+        excluded: true,
+        earnsBaseRateOnly: false
+      });
+      continue;
+    }
+
+    const rewards = chooseRewardsForCategory(card, category, monthlySpend);
+    const reward = rewards[0] ?? null;
+    if (!reward) {
+      rows.push({
+        category,
+        monthlySpend,
+        matchedRewardCategory: null,
+        monthlyUnits: 0,
+        annualUnits: 0,
+        excluded: false,
+        earnsBaseRateOnly: false
+      });
+      continue;
+    }
+
+    activeRows.push({
+      key: category,
+      monthlySpend,
+      rewards,
+      reward
+    });
+  }
+
+  const calculatedActiveRows = assembleRewardRows(card, activeRows);
+  rows.push(...calculatedActiveRows);
+
   const categoryOrder = new Map(CALCULATOR_CATEGORIES.map((cat, idx) => [cat, idx]));
-  rows.sort((a, b) => (categoryOrder.get(a.category) ?? 0) - (categoryOrder.get(b.category) ?? 0));
+  rows.sort((a, b) => (categoryOrder.get(a.category as SpendCategory) ?? 0) - (categoryOrder.get(b.category as SpendCategory) ?? 0));
 
   const monthlyUnits = rows.reduce((total, row) => total + row.monthlyUnits, 0);
 
   let monthlySurcharge = 0;
   for (const row of rows) {
-    const specialRule = specialSpendRuleForCard(card, row.category);
+    const specialRule = specialSpendRuleForCard(card, row.category as SpendCategory);
     const surchargePercent = specialRule?.surchargePercent !== undefined
       ? specialRule.surchargePercent
       : (row.category === "rent" ? 1.0 : 0.0);
+    const mSurcharge = (row.monthlySpend * surchargePercent) / 100;
+    row.monthlySurcharge = mSurcharge;
+    row.annualSurcharge = mSurcharge * 12;
+    monthlySurcharge += mSurcharge;
+  }
+
+  return {
+    monthlyUnits,
+    annualUnits: monthlyUnits * 12,
+    monthlySurcharge,
+    annualSurcharge: monthlySurcharge * 12,
+    rows
+  };
+}
+
+export function calculateRewardsByBucket(
+  card: CreditCard,
+  bucketSpend: Record<string, number>
+): RewardCalcResult {
+  const rows: RewardCalcRow[] = [];
+  const activeRows: ActiveRow[] = [];
+
+  const buckets = calculatorBucketsForCard(card);
+
+  // 1. Process buckets
+  for (const bucket of buckets) {
+    const spend = bucketSpend[bucket.id] ?? 0;
+    if (spend <= 0) continue;
+
+    const reward = bucket.rewards[0] ?? null;
+    if (!reward) {
+      rows.push({
+        category: bucket.id,
+        label: bucket.label,
+        monthlySpend: spend,
+        matchedRewardCategory: null,
+        monthlyUnits: 0,
+        annualUnits: 0,
+        excluded: false,
+        earnsBaseRateOnly: false
+      });
+      continue;
+    }
+
+    activeRows.push({
+      key: bucket.id,
+      label: bucket.label,
+      monthlySpend: spend,
+      rewards: bucket.rewards,
+      reward
+    });
+  }
+
+  // 2. Process MORE_CATEGORIES
+  for (const cat of MORE_CATEGORIES) {
+    const spend = bucketSpend[cat] ?? 0;
+    if (spend <= 0) continue;
+
+    // Check if this category is already handled by a bucket (avoids duplicating)
+    if (buckets.some((b) => b.id === cat)) {
+      continue;
+    }
+
+    if (isCategoryExcluded(card, cat)) {
+      rows.push({
+        category: cat,
+        label: CATEGORY_LABELS[cat],
+        monthlySpend: spend,
+        matchedRewardCategory: null,
+        monthlyUnits: 0,
+        annualUnits: 0,
+        excluded: true,
+        earnsBaseRateOnly: false
+      });
+      continue;
+    }
+
+    const rewards = findRewardsForCategory(card, cat);
+    const reward = rewards[0] ?? null;
+    if (!reward) {
+      rows.push({
+        category: cat,
+        label: CATEGORY_LABELS[cat],
+        monthlySpend: spend,
+        matchedRewardCategory: null,
+        monthlyUnits: 0,
+        annualUnits: 0,
+        excluded: false,
+        earnsBaseRateOnly: false
+      });
+      continue;
+    }
+
+    activeRows.push({
+      key: cat,
+      label: CATEGORY_LABELS[cat],
+      monthlySpend: spend,
+      rewards,
+      reward
+    });
+  }
+
+  // 3. Assemble active rows
+  const calculatedActive = assembleRewardRows(card, activeRows);
+  rows.push(...calculatedActive);
+
+  // 4. Sort rows
+  const rowOrder = new Map<string, number>();
+  let idx = 0;
+  for (const b of buckets) {
+    rowOrder.set(b.id, idx++);
+  }
+  for (const cat of MORE_CATEGORIES) {
+    if (!rowOrder.has(cat)) {
+      rowOrder.set(cat, idx++);
+    }
+  }
+
+  rows.sort((a, b) => (rowOrder.get(a.category) ?? 99) - (rowOrder.get(b.category) ?? 99));
+
+  // 5. Calculate monthly/annual units and surcharges
+  const monthlyUnits = rows.reduce((total, row) => total + row.monthlyUnits, 0);
+
+  let monthlySurcharge = 0;
+  for (const row of rows) {
+    const cat = row.category as SpendCategory;
+    const isSpendCategory = CALCULATOR_CATEGORIES.includes(cat);
+    const specialRule = isSpendCategory ? specialSpendRuleForCard(card, cat) : null;
+    const surchargePercent = specialRule?.surchargePercent !== undefined
+      ? specialRule.surchargePercent
+      : (cat === "rent" ? 1.0 : 0.0);
     const mSurcharge = (row.monthlySpend * surchargePercent) / 100;
     row.monthlySurcharge = mSurcharge;
     row.annualSurcharge = mSurcharge * 12;

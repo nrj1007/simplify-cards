@@ -10,10 +10,11 @@ import {
   isEquitasPrivilegeCard
 } from "@/lib/equitas-privilege";
 import {
-  CALCULATOR_CATEGORIES,
   CATEGORY_LABELS,
-  calculateRewards,
-  relevantCategoriesForCard
+  calculatorBucketsForCard,
+  moreCategoriesForCard,
+  calculateRewardsByBucket,
+  CalculatorBucket
 } from "@/lib/reward-calculator";
 
 type Props = {
@@ -111,46 +112,35 @@ function milestonePrimaryValue(rule: MilestoneRule) {
 type RupeeOption = { key: string; label: string; perPoint: number; value: number; note?: string };
 
 export default function RewardCalculator({ card, milestones = [], isStandalone = false }: Props) {
-  const { primary, additional } = useMemo(() => {
-    const { primary: p, additional: a } = relevantCategoriesForCard(card);
-    if (isStandalone && !p.includes("international")) {
-      const baseIndex = p.indexOf("base");
-      const newPrimary = [...p];
-      if (baseIndex !== -1) {
-        newPrimary.splice(baseIndex, 0, "international");
-      } else {
-        newPrimary.push("international");
-      }
-      return {
-        primary: newPrimary,
-        additional: a.filter((c) => c !== "international")
-      };
-    }
-    return { primary: p, additional: a };
-  }, [card, isStandalone]);
+  const buckets = useMemo(() => calculatorBucketsForCard(card), [card]);
+  const moreCats = useMemo(() => moreCategoriesForCard(card), [card]);
 
   const [showAdditional, setShowAdditional] = useState(false);
   const [showAllRedeem, setShowAllRedeem] = useState(false);
-  const [spend, setSpend] = useState<Record<SpendCategory, number>>(() => {
-    const { primary: p } = relevantCategoriesForCard(card);
-    const primarySet = new Set(p);
-    if (isStandalone) {
-      primarySet.add("international");
+  const [spend, setSpend] = useState<Record<string, number>>(() => {
+    const initial = {} as Record<string, number>;
+    const b = calculatorBucketsForCard(card);
+    const m = moreCategoriesForCard(card);
+    for (const bucket of b) {
+      if (bucket.id === "base") {
+        initial[bucket.id] = 8000;
+      } else if (bucket.id in DEFAULT_SPEND) {
+        initial[bucket.id] = DEFAULT_SPEND[bucket.id as SpendCategory] ?? 5000;
+      } else {
+        initial[bucket.id] = 5000;
+      }
     }
-    const initial = {} as Record<SpendCategory, number>;
-    // Seed only the primary categories; additional (excluded) categories start at 0 and are
-    // opt-in, so they don't inflate the default spend total.
-    for (const category of CALCULATOR_CATEGORIES) {
-      initial[category] = primarySet.has(category) ? DEFAULT_SPEND[category] ?? 2000 : 0;
+    for (const cat of m) {
+      initial[cat] = 0;
     }
     return initial;
   });
 
-  const visibleCategories = showAdditional ? [...primary, ...additional] : primary;
+  const result = useMemo(() => calculateRewardsByBucket(card, spend), [card, spend]);
 
-  const result = useMemo(() => calculateRewards(card, spend), [card, spend]);
-
-  const totalMonthlySpend = CALCULATOR_CATEGORIES.reduce((sum, category) => sum + spend[category], 0);
+  const totalMonthlySpend = useMemo(() => {
+    return Object.values(spend).reduce((sum, value) => sum + value, 0);
+  }, [spend]);
   const annualSpend = totalMonthlySpend * 12;
   const equitasPrivilegeTier = isEquitasPrivilegeCard(card)
     ? equitasPrivilegeTierForMonthlySpend(totalMonthlySpend)
@@ -195,7 +185,7 @@ export default function RewardCalculator({ card, milestones = [], isStandalone =
     }
 
     return options.sort((a, b) => b.value - a.value);
-  }, [annualUnits, cashback, redemption]);
+  }, [annualUnits, cashback, redemption, card.issuer]);
 
   // Rupee value of one point when transferred to air miles (airMilesValue is a Rs value, e.g. 0.6).
   const airMilesRupeePerPoint = !cashback && typeof redemption?.airMilesValue === "number" && redemption.airMilesValue > 0
@@ -313,7 +303,7 @@ export default function RewardCalculator({ card, milestones = [], isStandalone =
   const totalReturnsPlusVoucher = totalAnnualValue + earnedVoucherValue;
   const effectiveRate = annualSpend > 0 && totalReturnsPlusVoucher > 0 ? (totalReturnsPlusVoucher / annualSpend) * 100 : 0;
 
-  function setCategory(category: SpendCategory, value: number) {
+  function setCategory(category: string, value: number) {
     setSpend((prev) => ({ ...prev, [category]: value }));
   }
 
@@ -336,35 +326,68 @@ export default function RewardCalculator({ card, milestones = [], isStandalone =
           </div>
 
           <div className="calc-sliders">
-            {visibleCategories.map((category) => {
-              const excluded = result.rows.find((row) => row.category === category)?.excluded ?? false;
+            {buckets.map((bucket) => {
+              const excluded = result.rows.find((row) => row.category === bucket.id)?.excluded ?? false;
+              const value = spend[bucket.id] ?? 0;
               return (
-                <div className="slider-row" key={category}>
+                <div className="slider-row" key={bucket.id}>
                   <div className="slider-head">
-                    <label htmlFor={`calc-${category}`}>
-                      {CATEGORY_LABELS[category]}
-                      {excluded && spend[category] > 0 ? (
+                    <label htmlFor={`calc-${bucket.id}`}>
+                      {bucket.label}
+                      {bucket.displayRate ? (
+                        <span className="calc-tag">{bucket.displayRate}</span>
+                      ) : null}
+                      {excluded && value > 0 ? (
                         <span className="calc-tag calc-tag-excluded">not rewarded</span>
                       ) : null}
                     </label>
-                    <span className="slider-value">{formatINR(spend[category])}</span>
+                    <span className="slider-value">{formatINR(value)}</span>
                   </div>
                   <input
                     className="slider"
-                    id={`calc-${category}`}
+                    id={`calc-${bucket.id}`}
                     max={SLIDER_MAX}
                     min={0}
                     step={SLIDER_STEP}
                     type="range"
-                    value={spend[category]}
-                    onChange={(event) => setCategory(category, Number(event.target.value))}
+                    value={value}
+                    onChange={(event) => setCategory(bucket.id, Number(event.target.value))}
                   />
                 </div>
               );
             })}
+
+            {showAdditional &&
+              moreCats.map((cat) => {
+                const excluded = result.rows.find((row) => row.category === cat)?.excluded ?? false;
+                const value = spend[cat] ?? 0;
+                return (
+                  <div className="slider-row" key={cat}>
+                    <div className="slider-head">
+                      <label htmlFor={`calc-${cat}`}>
+                        {CATEGORY_LABELS[cat]}
+                        {excluded && value > 0 ? (
+                          <span className="calc-tag calc-tag-excluded">not rewarded</span>
+                        ) : null}
+                      </label>
+                      <span className="slider-value">{formatINR(value)}</span>
+                    </div>
+                    <input
+                      className="slider"
+                      id={`calc-${cat}`}
+                      max={SLIDER_MAX}
+                      min={0}
+                      step={SLIDER_STEP}
+                      type="range"
+                      value={value}
+                      onChange={(event) => setCategory(cat, Number(event.target.value))}
+                    />
+                  </div>
+                );
+              })}
           </div>
 
-          {additional.length > 0 ? (
+          {moreCats.length > 0 ? (
             <button className="calc-more" type="button" onClick={() => setShowAdditional((value) => !value)}>
               <ChevronDown className={showAdditional ? "is-open" : ""} size={16} />
               {showAdditional ? "Fewer categories" : "More categories"}
@@ -543,7 +566,7 @@ export default function RewardCalculator({ card, milestones = [], isStandalone =
                         {earnRows.map((row) => (
                           <tr key={row.category}>
                             <td>
-                              {CATEGORY_LABELS[row.category]}
+                              {row.label ?? CATEGORY_LABELS[row.category as SpendCategory] ?? row.category}
                               {row.excluded ? (
                                 <span className="calc-tag calc-tag-excluded">excluded</span>
                               ) : row.earnsBaseRateOnly ? (
