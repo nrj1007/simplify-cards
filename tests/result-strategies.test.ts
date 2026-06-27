@@ -234,7 +234,7 @@ describe("applyResultStrategy gating (via scoreCards integration)", () => {
     expect(sectionIds.slice(0, 5)).toEqual(rankResultsIds);
   });
 
-  it("degrades to single-list if there are 0 cashback cards in the results", async () => {
+  it("retains split when there are 0 cashback cards and lets rewards fill the slack", async () => {
     const { applyResultStrategy } = await import("../lib/recommend");
     
     // Stub scores: 3 rewards, 0 cashback
@@ -244,12 +244,14 @@ describe("applyResultStrategy gating (via scoreCards integration)", () => {
       resultStrategy: "reward-type-split"
     });
     
-    expect(sections).toHaveLength(1);
-    expect(sections[0].title).toBe("");
-    expect(sections[0].cards).toHaveLength(3);
+    expect(sections).toHaveLength(2);
+    expect(sections[0].title).toBe("Cashback cards");
+    expect(sections[0].cards).toHaveLength(0);
+    expect(sections[1].title).toBe("Rewards cards");
+    expect(sections[1].cards).toHaveLength(3);
   });
 
-  it("degrades to single-list if there are 0 rewards cards in the results", async () => {
+  it("retains split when there are 0 rewards cards and lets cashback fill the slack", async () => {
     const { applyResultStrategy } = await import("../lib/recommend");
     
     // Stub scores: 0 rewards, 3 cashback
@@ -259,9 +261,11 @@ describe("applyResultStrategy gating (via scoreCards integration)", () => {
       resultStrategy: "reward-type-split"
     });
     
-    expect(sections).toHaveLength(1);
-    expect(sections[0].title).toBe("");
+    expect(sections).toHaveLength(2);
+    expect(sections[0].title).toBe("Cashback cards");
     expect(sections[0].cards).toHaveLength(3);
+    expect(sections[1].title).toBe("Rewards cards");
+    expect(sections[1].cards).toHaveLength(0);
   });
 
   it("retains split if both sections have at least 1 card", async () => {
@@ -279,6 +283,28 @@ describe("applyResultStrategy gating (via scoreCards integration)", () => {
     expect(sections[0].cards).toHaveLength(1);
     expect(sections[1].title).toBe("Rewards cards");
     expect(sections[1].cards).toHaveLength(3);
+  });
+
+  it("fills rewards up to 10 total slots when cashback has no cards", async () => {
+    const { applyResultStrategy } = await import("../lib/recommend");
+
+    const scored = [RW1, RW2, RW3, RW4, RW5, RW6, makeScore("rewards-7", "reward points")];
+    const sections = applyResultStrategy(scored, {
+      query: "best cards for dining",
+      resultStrategy: "reward-type-split"
+    });
+
+    expect(sections).toHaveLength(2);
+    expect(sections[0].cards).toHaveLength(0);
+    expect(sections[1].cards.map((score) => score.card.id)).toEqual([
+      "rewards-1",
+      "rewards-2",
+      "rewards-3",
+      "rewards-4",
+      "rewards-5",
+      "rewards-6",
+      "rewards-7"
+    ]);
   });
 });
 
@@ -311,9 +337,14 @@ describe("SEO landing page section splitting", () => {
     expect(rupaySections![0].cards.length).toBeGreaterThan(0);
     expect(rupaySections![1].cards.length).toBeGreaterThan(0);
 
-    // Premium landing page has no cashback cards in top results, so it degrades to single-list and returns null
+    // Premium landing page has no cashback cards in top results, so it now keeps the split and
+    // the UI can hide the empty section while showing more reward cards.
     const premiumSections = selectSectionsForLanding(premium);
-    expect(premiumSections).toBeNull();
+    expect(premiumSections).toHaveLength(2);
+    expect(premiumSections![0].title).toBe("Cashback cards");
+    expect(premiumSections![0].cards).toHaveLength(0);
+    expect(premiumSections![1].title).toBe("Rewards cards");
+    expect(premiumSections![1].cards.length).toBeGreaterThan(0);
 
     const onlineSections = selectSectionsForLanding(online);
     expect(onlineSections).toHaveLength(2);

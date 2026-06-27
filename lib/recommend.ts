@@ -2969,33 +2969,12 @@ export function applyResultStrategy(
     .slice()
     .sort((a, b) => b.estimatedNetValue - a.estimatedNetValue);
 
-  // Data-driven gate: only apply the split if we have enough cards in BOTH sections
-  // to justify splitting (at least 1 card per section).
-  const MIN_CARDS_PER_SPLIT_SECTION = 1;
-  let rewardsCount = 0;
-  let cashbackCount = 0;
-  for (const score of byNetValue) {
-    if (isPrimaryCashbackCard(score)) {
-      cashbackCount++;
-    } else {
-      rewardsCount++;
-    }
-    if (rewardsCount >= MIN_CARDS_PER_SPLIT_SECTION && cashbackCount >= MIN_CARDS_PER_SPLIT_SECTION) {
-      break;
-    }
-  }
-
-  const hasSufficientDataForSplit =
-    rewardsCount >= MIN_CARDS_PER_SPLIT_SECTION &&
-    cashbackCount >= MIN_CARDS_PER_SPLIT_SECTION;
-
   // Split requires an explicit opt-in from the caller (UI toggle, ask wiring, API field).
-  const useSplit =
-    input.resultStrategy === "reward-type-split" &&
-    hasSufficientDataForSplit;
+  // When one bucket is empty, the allocator in result-strategies.ts lends all available slots
+  // to the non-empty bucket; the empty section is then naturally hidden by the UI.
+  const useSplit = input.resultStrategy === "reward-type-split";
 
   const strategy = resultStrategies[useSplit ? "reward-type-split" : "single-list"];
   const isBlend = rankingStrategies[input.rankingStrategy ?? DEFAULT_RANKING_STRATEGY].blendMode === "weighted-average";
   return strategy.group(byNetValue, maxPerSection, { isBlend });
 }
-
