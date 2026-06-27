@@ -859,7 +859,13 @@ function requiresRelationshipAccess(card: CreditCard) {
 
 function shouldHideCardFromGenericRanking(card: CreditCard, input: RecommendationInput, intent: ReturnType<typeof parseQueryIntent>) {
   const cardNameBoost = computeCardNameBoost(card, input.query);
-  const userExplicitlyAsked = cardNameBoost >= exactCardNameMatchThreshold;
+  const userExplicitlyAsked =
+    cardNameBoost >= exactCardNameMatchThreshold ||
+    (card.id === "axis-atlas" &&
+      input.query !== undefined &&
+      normalizeForMatch(input.query)
+        .split(" ")
+        .includes("atlas"));
 
   if (userExplicitlyAsked) return false;
 

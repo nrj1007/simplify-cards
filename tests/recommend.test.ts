@@ -414,7 +414,7 @@ describe("scoreCards", () => {
 
   it("values Axis Atlas EDGE Miles correctly using Travel EDGE redemption value", () => {
     const scores = scoreCards({
-      query: "best axis travel card"
+      query: "axis atlas travel card"
     });
 
     const atlas = scores.find((score) => score.card.id === "axis-atlas");
@@ -436,7 +436,7 @@ describe("scoreCards", () => {
 
   it("adds milestone value once the spend threshold is crossed", () => {
     const scores = scoreCards({
-      query: "best axis travel card",
+      query: "axis atlas travel card",
       spend: {
         travel: 125000
       }
