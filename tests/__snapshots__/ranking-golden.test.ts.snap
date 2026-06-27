@@ -1509,6 +1509,8 @@ exports[`result split golden (all query modes) > snapshots section membership fo
       "axis-magnus",
       "yes-marquee",
       "kotak-solitaire",
+      "kotak-white-reserve",
+      "hdfc-diners-club-black-metal",
     ],
   },
   "issuer-amex": {
@@ -1564,6 +1566,8 @@ exports[`result split golden (all query modes) > snapshots section membership fo
       "icici-adani-one-signature",
       "icici-adani-one-platinum",
       "icici-makemytrip",
+      "icici-coral-rupay",
+      "icici-sapphiro",
     ],
   },
   "issuer-sbi": {

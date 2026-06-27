@@ -97,9 +97,17 @@ const rewardTypeSplit: ResultStrategy = {
       });
     }
 
+    // Fill-up: total target = maxPerSection * 2 (i.e. 10 when maxPerSection = 5).
+    // If one bucket has fewer cards than maxPerSection, lend the unused slots to the other.
+    const totalTarget = maxPerSection * 2;
+    const cashbackAlloc = Math.min(cashback.length, maxPerSection);
+    const rewardsAlloc = Math.min(rewards.length, totalTarget - cashbackAlloc);
+    // Re-check: rewards may also be short, so give leftover back to cashback.
+    const finalCashbackAlloc = Math.min(cashback.length, totalTarget - rewardsAlloc);
+
     return [
-      { title: "Cashback cards", cards: cashback.slice(0, maxPerSection) },
-      { title: "Rewards cards", cards: rewards.slice(0, maxPerSection) }
+      { title: "Cashback cards", cards: cashback.slice(0, finalCashbackAlloc) },
+      { title: "Rewards cards", cards: rewards.slice(0, rewardsAlloc) }
     ];
   }
 };
