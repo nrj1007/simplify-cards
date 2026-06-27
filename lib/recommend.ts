@@ -3004,5 +3004,18 @@ export function applyResultStrategy(
 
   const strategy = resultStrategies[useSplit ? "reward-type-split" : "single-list"];
   const isBlend = rankingStrategies[input.rankingStrategy ?? DEFAULT_RANKING_STRATEGY].blendMode === "weighted-average";
-  return strategy.group(byNetValue, maxPerSection, { isBlend });
+  const sections = strategy.group(byNetValue, maxPerSection, { isBlend });
+
+  // Forex result splits read as a strict reward-type partition to users, so keep each card in
+  // only its primary bucket there. This prevents dual-bucket cards like AU ixigo from appearing
+  // in both Cashback and Rewards for the same forex query.
+  const normalizedQuery = normalizeForMatch(input.query ?? "");
+  if (!/\bforex\b/.test(normalizedQuery)) return sections;
+
+  return sections.map((section) => ({
+    ...section,
+    cards: section.cards.filter((score) =>
+      section.title === "Cashback cards" ? isPrimaryCashbackCard(score) : !isPrimaryCashbackCard(score)
+    )
+  }));
 }

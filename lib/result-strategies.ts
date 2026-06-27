@@ -67,7 +67,6 @@ const rewardTypeSplit: ResultStrategy = {
     const rewards = scored
       .filter((c) => !isPrimaryCashbackCard(c) || c.rewardBucketScore !== undefined)
       .map((c) => c.rewardBucketScore ?? c)
-      // dual cards carry a per-section value, so re-sort by net value.
       .sort((a, b) => b.estimatedNetValue - a.estimatedNetValue);
     const cashback = scored
       .filter((c) => isPrimaryCashbackCard(c) || c.cashbackBucketScore !== undefined)
