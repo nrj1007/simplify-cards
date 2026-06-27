@@ -563,6 +563,12 @@ function shouldRestrictToZeroForexCards(input: RecommendationInput, intent: Retu
   );
 }
 
+const maxForexMarkupForForexQueries = 3;
+
+function shouldRestrictToLowForexCards(input: RecommendationInput, intent: ReturnType<typeof parseQueryIntent>) {
+  return intent.tags.includes("forex") && isCardRecommendationQuery(input.query);
+}
+
 // Category-focused recommendation queries ("best dining/grocery/online/entertainment card") are
 // ranked so cards that actually accelerate that category lead — instead of collapsing to the generic
 // premium-card ranking. Each config drives: a query trigger, the reward rows that count, positioning
@@ -2328,6 +2334,7 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
   const restrictToFuelCards = shouldRestrictToFuelCards(input, intent);
   const restrictToCashbackCards = shouldRestrictToCashbackCards(input, intent);
   const restrictToZeroForexCards = shouldRestrictToZeroForexCards(input, intent);
+  const restrictToLowForexCards = shouldRestrictToLowForexCards(input, intent);
   // Explicit segment query ("best beginner/premium/super premium card"): restrict the pool to cards
   // matching ALL named segments (so "super premium" = premium AND super-premium = high-fee cards, and
   // "beginner" = entry cards), instead of the +3000 segment boost being swamped by premium value and
@@ -2430,6 +2437,7 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
     )
     .filter((card) => (restrictToIssuer ? normalizeIssuer(card.issuer) === normalizeIssuer(intent.issuers[0]) : true))
     .filter((card) => (restrictToUpiCards ? hasUpiCardSignal(card) : true))
+    .filter((card) => (restrictToLowForexCards ? card.forexMarkup <= maxForexMarkupForForexQueries : true))
     .filter((card) => (restrictToZeroForexCards ? card.forexMarkup === 0 : true))
     .filter((card) => (restrictToTravelCards ? qualifiesAsTravelCard(card) : true))
     .filter((card) =>
@@ -3004,5 +3012,18 @@ export function applyResultStrategy(
 
   const strategy = resultStrategies[useSplit ? "reward-type-split" : "single-list"];
   const isBlend = rankingStrategies[input.rankingStrategy ?? DEFAULT_RANKING_STRATEGY].blendMode === "weighted-average";
-  return strategy.group(byNetValue, maxPerSection, { isBlend });
+  const sections = strategy.group(byNetValue, maxPerSection, { isBlend });
+
+  // Forex result splits read as a strict reward-type partition to users, so keep each card in
+  // only its primary bucket there. This prevents dual-bucket cards like AU ixigo from appearing
+  // in both Cashback and Rewards for the same forex query.
+  const normalizedQuery = normalizeForMatch(input.query ?? "");
+  if (!/\bforex\b/.test(normalizedQuery)) return sections;
+
+  return sections.map((section) => ({
+    ...section,
+    cards: section.cards.filter((score) =>
+      section.title === "Cashback cards" ? isPrimaryCashbackCard(score) : !isPrimaryCashbackCard(score)
+    )
+  }));
 }
