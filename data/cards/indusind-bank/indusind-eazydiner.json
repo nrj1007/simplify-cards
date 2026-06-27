@@ -17,26 +17,26 @@
   "rewards": [
     {
       "category": "dining",
-      "rate": 2,
-      "displayRate": "Extra 25% off up to Rs 1,000 + 3X EazyPoints",
-      "capMonthly": 5000
+      "rate": 137,
+      "displayRate": "Extra 25% off up to Rs 1,000 + 3X EazyPoints (137 EazyPoints / Rs 100 spent)",
+      "capMonthly": 10000
     },
     {
       "category": "online",
-      "rate": 2,
-      "displayRate": "10 reward points per Rs 100",
+      "rate": 10,
+      "displayRate": "10 EazyPoints / Rs 100 spent",
       "capMonthly": null
     },
     {
       "category": "travel",
-      "rate": 2,
-      "displayRate": "10 reward points per Rs 100",
+      "rate": 10,
+      "displayRate": "10 EazyPoints / Rs 100 spent",
       "capMonthly": null
     },
     {
       "category": "base",
-      "rate": 0.8,
-      "displayRate": "4 reward points per Rs 100",
+      "rate": 4,
+      "displayRate": "4 EazyPoints / Rs 100 spent",
       "capMonthly": null
     }
   ],

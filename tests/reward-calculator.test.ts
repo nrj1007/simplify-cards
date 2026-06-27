@@ -3103,10 +3103,10 @@ describe("reward calculator", () => {
         const card = getCardById("indusind-eazydiner");
         expect(card).toBeTruthy();
 
-        // dining spend: 10,000 spend at rate 2 = 200 units (capped at 5,000 monthly)
-        // online spend: 10,000 spend at rate 2 = 200 units
-        // travel spend: 10,000 spend at rate 2 = 200 units
-        // base spend: 10,000 spend at rate 0.8 = 80 units
+        // dining spend: 10,000 spend at rate 137 = 13,700 units (capped at 10,000 monthly)
+        // online spend: 10,000 spend at rate 10 = 1,000 units
+        // travel spend: 10,000 spend at rate 10 = 1,000 units
+        // base spend: 10,000 spend at rate 4 = 400 units
         const result = calculateRewards(card!, {
           dining: 10000,
           online: 10000,
@@ -3114,22 +3114,22 @@ describe("reward calculator", () => {
           base: 10000
         });
 
-        expect(result.rows.find((r) => r.category === "dining")!.monthlyUnits).toBeCloseTo(200, 2);
-        expect(result.rows.find((r) => r.category === "online")!.monthlyUnits).toBeCloseTo(200, 2);
-        expect(result.rows.find((r) => r.category === "travel")!.monthlyUnits).toBeCloseTo(200, 2);
-        expect(result.rows.find((r) => r.category === "base")!.monthlyUnits).toBeCloseTo(80, 2);
-        expect(result.monthlyUnits).toBeCloseTo(680, 2);
+        expect(result.rows.find((r) => r.category === "dining")!.monthlyUnits).toBeCloseTo(10000, 2);
+        expect(result.rows.find((r) => r.category === "online")!.monthlyUnits).toBeCloseTo(1000, 2);
+        expect(result.rows.find((r) => r.category === "travel")!.monthlyUnits).toBeCloseTo(1000, 2);
+        expect(result.rows.find((r) => r.category === "base")!.monthlyUnits).toBeCloseTo(400, 2);
+        expect(result.monthlyUnits).toBeCloseTo(12400, 2);
       });
 
       it("enforces monthly cap on dining rewards", () => {
         const card = getCardById("indusind-eazydiner");
         expect(card).toBeTruthy();
 
-        // Dining cap is 5,000 units. Spend of 3,00,000 at rate 2 = 6,000 units, capped at 5,000
+        // Dining cap is 10,000 units. Spend of 3,00,000 at rate 137 = 4,11,000 units, capped at 10,000
         const result = calculateRewards(card!, {
           dining: 300000
         });
-        expect(result.rows.find((r) => r.category === "dining")!.monthlyUnits).toBeCloseTo(5000, 2);
+        expect(result.rows.find((r) => r.category === "dining")!.monthlyUnits).toBeCloseTo(10000, 2);
       });
 
       it("enforces exclusions", () => {
@@ -3161,12 +3161,12 @@ describe("reward calculator", () => {
         const card = getCardById("indusind-eazydiner-platinum");
         expect(card).toBeTruthy();
 
-        // dining spend: 10,000 spend at rate 0.4 = 40 units (capped at 1,500 monthly)
-        // base spend: 10,000 spend at rate 0.4 = 40 units
-        // utilities spend: 10,000 spend at rate 0.14 = 14 units (reduced category)
-        // rent spend: 10,000 spend at rate 0.14 = 14 units (reduced category)
-        // insurance spend: 10,000 spend at rate 0.14 = 14 units (reduced category)
-        // government spend: 10,000 spend at rate 0.14 = 14 units (reduced category)
+        // dining spend: 10,000 spend at rate 104 = 10,400 units (capped at 4,000 monthly)
+        // base spend: 10,000 spend at rate 2 = 200 units
+        // utilities spend: 10,000 spend at rate 0.7 = 70 units (reduced category)
+        // rent spend: 10,000 spend at rate 0.7 = 70 units (reduced category)
+        // insurance spend: 10,000 spend at rate 0.7 = 70 units (reduced category)
+        // government spend: 10,000 spend at rate 0.7 = 70 units (reduced category)
         const result = calculateRewards(card!, {
           dining: 10000,
           base: 10000,
@@ -3176,24 +3176,24 @@ describe("reward calculator", () => {
           government: 10000
         });
 
-        expect(result.rows.find((r) => r.category === "dining")!.monthlyUnits).toBeCloseTo(40, 2);
-        expect(result.rows.find((r) => r.category === "base")!.monthlyUnits).toBeCloseTo(40, 2);
-        expect(result.rows.find((r) => r.category === "utilities")!.monthlyUnits).toBeCloseTo(14, 2);
-        expect(result.rows.find((r) => r.category === "rent")!.monthlyUnits).toBeCloseTo(14, 2);
-        expect(result.rows.find((r) => r.category === "insurance")!.monthlyUnits).toBeCloseTo(14, 2);
-        expect(result.rows.find((r) => r.category === "government")!.monthlyUnits).toBeCloseTo(14, 2);
-        expect(result.monthlyUnits).toBeCloseTo(136, 2);
+        expect(result.rows.find((r) => r.category === "dining")!.monthlyUnits).toBeCloseTo(4000, 2);
+        expect(result.rows.find((r) => r.category === "base")!.monthlyUnits).toBeCloseTo(200, 2);
+        expect(result.rows.find((r) => r.category === "utilities")!.monthlyUnits).toBeCloseTo(70, 2);
+        expect(result.rows.find((r) => r.category === "rent")!.monthlyUnits).toBeCloseTo(70, 2);
+        expect(result.rows.find((r) => r.category === "insurance")!.monthlyUnits).toBeCloseTo(70, 2);
+        expect(result.rows.find((r) => r.category === "government")!.monthlyUnits).toBeCloseTo(70, 2);
+        expect(result.monthlyUnits).toBeCloseTo(4480, 2);
       });
 
       it("enforces monthly cap on dining rewards", () => {
         const card = getCardById("indusind-eazydiner-platinum");
         expect(card).toBeTruthy();
 
-        // Dining cap is 1,500 units. Spend of 5,0,000 at rate 0.4 = 2,000 units, capped at 1,500
+        // Dining cap is 4,000 units. Spend of 5,0,000 at rate 104 = 5,20,000 units, capped at 4,000
         const result = calculateRewards(card!, {
           dining: 500000
         });
-        expect(result.rows.find((r) => r.category === "dining")!.monthlyUnits).toBeCloseTo(1500, 2);
+        expect(result.rows.find((r) => r.category === "dining")!.monthlyUnits).toBeCloseTo(4000, 2);
       });
 
       it("enforces exclusions", () => {

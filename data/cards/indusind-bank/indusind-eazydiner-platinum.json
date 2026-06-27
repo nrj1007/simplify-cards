@@ -17,21 +17,21 @@
   "rewards": [
     {
       "category": "dining",
-      "rate": 0.4,
-      "displayRate": "Extra 20% off up to Rs 500 + 2X EazyPoints",
-      "capMonthly": 1500
+      "rate": 104,
+      "displayRate": "Extra 20% off up to Rs 500 + 2X EazyPoints (104 EazyPoints / Rs 100 spent)",
+      "capMonthly": 4000
     },
     {
       "category": "utilities, insurance, government, rent",
       "displayCategory": "Utility, insurance, government, and rent spends",
-      "rate": 0.14,
-      "displayRate": "0.7 reward points per Rs 100",
+      "rate": 0.7,
+      "displayRate": "0.7 EazyPoints / Rs 100 spent",
       "capMonthly": null
     },
     {
       "category": "base",
-      "rate": 0.4,
-      "displayRate": "2 reward points per Rs 100",
+      "rate": 2,
+      "displayRate": "2 EazyPoints / Rs 100 spent",
       "capMonthly": null
     }
   ],
