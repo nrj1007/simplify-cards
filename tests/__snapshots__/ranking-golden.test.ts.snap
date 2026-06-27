@@ -1465,8 +1465,6 @@ exports[`result split golden (all query modes) > snapshots section membership fo
     "Cashback cards": [
       "csb-jupiter-edge-plus",
       "icici-amazon-pay",
-      "yes-paisabazaar-paisasave",
-      "hsbc-live-plus",
     ],
     "Rewards cards": [
       "bobcard-etihad-guest-premium",
@@ -1474,6 +1472,8 @@ exports[`result split golden (all query modes) > snapshots section membership fo
       "idfc-wow",
       "scapia-federal",
       "scapia-bobcard",
+      "idfc-mayura",
+      "kotak-solitaire",
     ],
   },
   "forex-zero": {

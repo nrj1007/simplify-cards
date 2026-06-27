@@ -349,6 +349,16 @@ describe("scoreCards", () => {
     });
 
     expect(scores[0]?.card.id).toBe("hdfc-regalia-gold");
+    expect(scores.every((score) => score.card.forexMarkup <= 3)).toBe(true);
+  });
+
+  it("filters cards above 3% forex markup from forex recommendation queries", () => {
+    const scores = scoreCards({
+      query: "best forex card"
+    });
+
+    expect(scores.length).toBeGreaterThan(0);
+    expect(scores.every((score) => score.card.forexMarkup <= 3)).toBe(true);
   });
 
   it("applies parsed fee caps from natural-language queries", () => {
