@@ -1373,21 +1373,33 @@ exports[`result split golden (all query modes) > snapshots section membership fo
     ],
   },
   "category-rent": {
-    "": [
+    "Cashback cards": [],
+    "Rewards cards": [
       "hsbc-premier",
       "amex-platinum-travel",
-      "amex-membership-rewards",
-      "sc-ultimate",
       "axis-magnus-burgundy",
+      "sc-ultimate",
+      "amex-membership-rewards",
+      "amex-gold",
+      "axis-magnus",
+      "sc-beyond",
+      "amex-platinum-reserve",
+      "amex-smartearn",
     ],
   },
   "category-rent-payment": {
-    "": [
+    "Cashback cards": [],
+    "Rewards cards": [
       "hsbc-premier",
       "amex-platinum-travel",
-      "amex-membership-rewards",
-      "sc-ultimate",
       "axis-magnus-burgundy",
+      "sc-ultimate",
+      "amex-membership-rewards",
+      "amex-gold",
+      "axis-magnus",
+      "sc-beyond",
+      "amex-platinum-reserve",
+      "amex-smartearn",
     ],
   },
   "category-utilities": {
@@ -1439,12 +1451,18 @@ exports[`result split golden (all query modes) > snapshots section membership fo
     ],
   },
   "combo-premium-travel": {
-    "": [
+    "Cashback cards": [],
+    "Rewards cards": [
       "bobcard-etihad-guest-premium",
       "icici-adani-one-signature",
       "krisflyer-sbi-apex",
       "sc-ultimate",
       "amex-platinum-travel",
+      "axis-indigo-premium",
+      "equitas-powermiles",
+      "rbl-icon",
+      "idfc-mayura",
+      "aurum-sbi",
     ],
   },
   "exact-card-atlas": {
@@ -1480,21 +1498,31 @@ exports[`result split golden (all query modes) > snapshots section membership fo
     ],
   },
   "forex-zero": {
-    "": [
+    "Cashback cards": [],
+    "Rewards cards": [
       "bobcard-etihad-guest-premium",
       "au-ixigo",
       "idfc-mayura",
       "rbl-world-safari",
       "idfc-wow",
+      "scapia-federal",
+      "scapia-bobcard",
+      "kotak-solitaire",
+      "indusind-pioneer-heritage-metal",
     ],
   },
   "guest-lounge-query": {
-    "": [
+    "Cashback cards": [],
+    "Rewards cards": [
       "hsbc-premier",
       "axis-magnus-burgundy",
-      "axis-magnus",
+      "kotak-white-reserve",
       "kotak-solitaire",
+      "axis-magnus",
+      "axis-reserve",
       "yes-marquee",
+      "sc-beyond",
+      "idfc-mayura",
     ],
   },
   "intl-lounge-query": {
@@ -1514,12 +1542,14 @@ exports[`result split golden (all query modes) > snapshots section membership fo
     ],
   },
   "issuer-amex": {
-    "": [
+    "Cashback cards": [],
+    "Rewards cards": [
       "amex-platinum-travel",
-      "amex-gold",
       "amex-membership-rewards",
+      "amex-gold",
       "amex-platinum-reserve",
       "amex-smartearn",
+      "amex-platinum",
     ],
   },
   "issuer-axis": {
@@ -1786,21 +1816,33 @@ exports[`result split golden (all query modes) > snapshots section membership fo
     ],
   },
   "segment-premium": {
-    "": [
+    "Cashback cards": [],
+    "Rewards cards": [
       "bobcard-etihad-guest-premium",
       "amex-platinum-travel",
       "equitas-powermiles",
       "krisflyer-sbi-apex",
       "sc-ultimate",
+      "aurum-sbi",
+      "axis-indigo-premium",
+      "icici-adani-one-signature",
+      "rbl-icon",
+      "idfc-mayura",
     ],
   },
   "segment-super-premium": {
-    "": [
+    "Cashback cards": [],
+    "Rewards cards": [
       "hsbc-premier",
       "hdfc-diners-club-black-metal",
       "icici-emeralde-private-metal",
       "axis-magnus-burgundy",
       "hdfc-infinia-metal",
+      "axis-magnus",
+      "kotak-solitaire",
+      "icici-times-black",
+      "kotak-white-reserve",
+      "sc-beyond",
     ],
   },
   "spend-fuel-heavy": {
@@ -1916,12 +1958,19 @@ exports[`result split golden (all query modes) > snapshots section membership fo
     ],
   },
   "usecase-cashback": {
-    "": [
+    "Cashback cards": [
       "phonepe-sbi-select-black",
       "hsbc-live-plus",
-      "hdfc-swiggy-orange",
-      "hdfc-swiggy-black",
+      "hsbc-rupay-cashback",
+      "sbi-cashback",
+      "hdfc-phonepe-ultimo",
       "axis-airtel",
+      "hdfc-swiggy-black",
+      "hdfc-swiggy-orange",
+      "axis-ace",
+    ],
+    "Rewards cards": [
+      "cheq-au",
     ],
   },
   "usecase-dining": {
@@ -2074,12 +2123,18 @@ exports[`result split golden (reward-type-split) > snapshots the section members
     ],
   },
   "premium-degrade-single": {
-    "": [
+    "Cashback cards": [],
+    "Rewards cards": [
       "bobcard-etihad-guest-premium",
       "amex-platinum-travel",
       "equitas-powermiles",
       "krisflyer-sbi-apex",
       "sc-ultimate",
+      "aurum-sbi",
+      "axis-indigo-premium",
+      "icici-adani-one-signature",
+      "rbl-icon",
+      "idfc-mayura",
     ],
   },
   "seo-broad-best-cards": {
