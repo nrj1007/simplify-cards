@@ -495,12 +495,12 @@ exports[`reward calculator golden (all cards) > computes stable earn for every c
     "moderate": "online:263 dining:263 travel:263 hotels:263 airlines:263 fuel:x grocery:263 utilities:123 upi:263 amazon:263 international:263 base:263 rent:123 insurance:123 education:123 gold:263 government:123 |3500 (surcharge:250)",
   },
   "indusind-eazydiner": {
-    "high": "online:4000 dining:4000 travel:4000 hotels:1600 airlines:1600 fuel:x grocery:1600 utilities:1600 upi:1600 amazon:1600 international:1600 base:1600 rent:1600 insurance:1600 education:1600 gold:1600 government:1600 |32800 (surcharge:2000)",
-    "moderate": "online:500 dining:500 travel:500 hotels:200 airlines:200 fuel:x grocery:200 utilities:200 upi:200 amazon:200 international:200 base:200 rent:200 insurance:200 education:200 gold:200 government:200 |4100 (surcharge:250)",
+    "high": "online:20000 dining:10000 travel:20000 hotels:8000 airlines:8000 fuel:x grocery:8000 utilities:8000 upi:8000 amazon:8000 international:8000 base:8000 rent:8000 insurance:8000 education:8000 gold:8000 government:8000 |154000 (surcharge:2000)",
+    "moderate": "online:2500 dining:8000 travel:2500 hotels:1000 airlines:1000 fuel:x grocery:1000 utilities:1000 upi:1000 amazon:1000 international:1000 base:1000 rent:1000 insurance:1000 education:1000 gold:1000 government:1000 |26000 (surcharge:250)",
   },
   "indusind-eazydiner-platinum": {
-    "high": "online:800 dining:800 travel:800 hotels:800 airlines:800 fuel:x grocery:800 utilities:280 upi:800 amazon:800 international:800 base:800 rent:280 insurance:280 education:800 gold:800 government:280 |10720 (surcharge:2000)",
-    "moderate": "online:100 dining:100 travel:100 hotels:100 airlines:100 fuel:x grocery:100 utilities:35 upi:100 amazon:100 international:100 base:100 rent:35 insurance:35 education:100 gold:100 government:35 |1340 (surcharge:250)",
+    "high": "online:4000 dining:4000 travel:4000 hotels:4000 airlines:4000 fuel:x grocery:4000 utilities:1400 upi:4000 amazon:4000 international:4000 base:4000 rent:1400 insurance:1400 education:4000 gold:4000 government:1400 |53600 (surcharge:2000)",
+    "moderate": "online:500 dining:3500 travel:500 hotels:500 airlines:500 fuel:x grocery:500 utilities:175 upi:500 amazon:500 international:500 base:500 rent:175 insurance:175 education:500 gold:500 government:175 |9700 (surcharge:250)",
   },
   "indusind-indulge": {
     "high": "online:2100 dining:2100 travel:2100 hotels:2100 airlines:2100 fuel:x grocery:2100 utilities:980 upi:2100 amazon:2100 international:2100 base:2100 rent:980 insurance:980 education:980 gold:2100 government:980 |28000 (surcharge:2000)",

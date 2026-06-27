@@ -17,9 +17,8 @@
   "rewards": [
     {
       "category": "dining",
-      "displayCategory": "Dining spends up to Rs 4,000/mo (EazyDiner)",
       "rate": 137,
-      "displayRate": "Extra 25% off up to Rs 1,000 + 3X EazyPoints (137 EazyPoints / Rs 100 spent)",
+      "displayRate": "Extra 25% off up to Rs 1,000 + 3X EazyPoints",
       "capMonthly": null,
       "tierLowerBound": 0,
       "tierUpperBound": 4000,
@@ -27,9 +26,8 @@
     },
     {
       "category": "dining",
-      "displayCategory": "Dining spends above Rs 4,000/mo (EazyDiner)",
       "rate": 12,
-      "displayRate": "3X EazyPoints (12 EazyPoints / Rs 100 spent)",
+      "displayRate": "3X EazyPoints",
       "capMonthly": 4520,
       "tierLowerBound": 4000,
       "tierUpperBound": null,
@@ -38,19 +36,19 @@
     {
       "category": "online",
       "rate": 10,
-      "displayRate": "10 EazyPoints / Rs 100 spent",
+      "displayRate": "10 reward points per Rs 100",
       "capMonthly": null
     },
     {
       "category": "travel",
       "rate": 10,
-      "displayRate": "10 EazyPoints / Rs 100 spent",
+      "displayRate": "10 reward points per Rs 100",
       "capMonthly": null
     },
     {
       "category": "base",
       "rate": 4,
-      "displayRate": "4 EazyPoints / Rs 100 spent",
+      "displayRate": "4 reward points per Rs 100",
       "capMonthly": null
     }
   ],
