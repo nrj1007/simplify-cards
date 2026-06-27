@@ -210,6 +210,12 @@ function normalizeForMatch(value = "") {
   return value.toLowerCase().replace(/[^a-z0-9]+/g, " ").replace(/\s+/g, " ").trim();
 }
 
+function normalizeUtilityLikeQuery(value = "") {
+  return normalizeForMatch(value)
+    .replace(/\butility bills?\b/g, "utilities")
+    .replace(/\bbill payments?\b/g, "utilities");
+}
+
 function normalizeCompact(value = "") {
   return normalizeForMatch(value).replace(/\s+/g, "");
 }
@@ -271,7 +277,7 @@ const genericQueryWords = new Set([
 ]);
 
 function getMeaningfulQueryTokens(query?: string) {
-  return normalizeForMatch(query)
+  return normalizeUtilityLikeQuery(query)
     .split(" ")
     .filter((token) => token.length > 1 && !genericQueryWords.has(token));
 }
@@ -351,7 +357,7 @@ function computeCardNameBoost(card: CreditCard, query?: string) {
 }
 
 function extractQueryTags(query?: string) {
-  const text = normalizeText(query);
+  const text = normalizeUtilityLikeQuery(query);
   const tags = new Set<string>();
 
   for (const tag of [

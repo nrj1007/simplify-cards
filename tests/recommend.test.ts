@@ -928,6 +928,21 @@ describe("scoreCards", () => {
     expect(utilityScores.findIndex((score) => score.card.id === "equitas-selfe")).toBeGreaterThan(-1);
   });
 
+  it("keeps utility-focused phrasings aligned for ranking order", () => {
+    const scenarios = [
+      { query: "best utility card" },
+      { query: "best card for utility bills" }
+    ] as const;
+
+    const absoluteBlend = scenarios.map((input) => scoreCards(input).slice(0, 12).map((score) => score.card.id));
+    const maxYield = scenarios.map((input) =>
+      scoreCards({ ...input, rankingStrategy: "max-yield" }).slice(0, 12).map((score) => score.card.id)
+    );
+
+    expect(absoluteBlend[1]).toEqual(absoluteBlend[0]);
+    expect(maxYield[1]).toEqual(maxYield[0]);
+  });
+
   it("keeps Equitas Selfe's generic reward math unchanged outside category-focus queries", () => {
     const selfe = scoreCards({
       spend: {
