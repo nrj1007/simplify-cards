@@ -3103,7 +3103,7 @@ describe("reward calculator", () => {
         const card = getCardById("indusind-eazydiner");
         expect(card).toBeTruthy();
 
-        // dining spend: 10,000 spend at rate 137 = 13,700 units (capped at 10,000 monthly)
+        // dining spend: 10,000 spend -> Tier 1 (4,000 at rate 137 = 5,480) + Tier 2 (6,000 at rate 12 = 720) = 6,200 units
         // online spend: 10,000 spend at rate 10 = 1,000 units
         // travel spend: 10,000 spend at rate 10 = 1,000 units
         // base spend: 10,000 spend at rate 4 = 400 units
@@ -3114,18 +3114,18 @@ describe("reward calculator", () => {
           base: 10000
         });
 
-        expect(result.rows.find((r) => r.category === "dining")!.monthlyUnits).toBeCloseTo(10000, 2);
+        expect(result.rows.find((r) => r.category === "dining")!.monthlyUnits).toBeCloseTo(6200, 2);
         expect(result.rows.find((r) => r.category === "online")!.monthlyUnits).toBeCloseTo(1000, 2);
         expect(result.rows.find((r) => r.category === "travel")!.monthlyUnits).toBeCloseTo(1000, 2);
         expect(result.rows.find((r) => r.category === "base")!.monthlyUnits).toBeCloseTo(400, 2);
-        expect(result.monthlyUnits).toBeCloseTo(12400, 2);
+        expect(result.monthlyUnits).toBeCloseTo(8600, 2);
       });
 
       it("enforces monthly cap on dining rewards", () => {
         const card = getCardById("indusind-eazydiner");
         expect(card).toBeTruthy();
 
-        // Dining cap is 10,000 units. Spend of 3,00,000 at rate 137 = 4,11,000 units, capped at 10,000
+        // Dining cap: Tier 1 (4,000 at 1.37 = 5,480) + Tier 2 (2,96,000 at 0.12 = 35,520 capped at 4,520) = 10,000
         const result = calculateRewards(card!, {
           dining: 300000
         });
@@ -3161,7 +3161,7 @@ describe("reward calculator", () => {
         const card = getCardById("indusind-eazydiner-platinum");
         expect(card).toBeTruthy();
 
-        // dining spend: 10,000 spend at rate 104 = 10,400 units (capped at 4,000 monthly)
+        // dining spend: 10,000 spend -> Tier 1 (2,500 at rate 104 = 2,600) + Tier 2 (7,500 at rate 4 = 300) = 2,900 units
         // base spend: 10,000 spend at rate 2 = 200 units
         // utilities spend: 10,000 spend at rate 0.7 = 70 units (reduced category)
         // rent spend: 10,000 spend at rate 0.7 = 70 units (reduced category)
@@ -3176,20 +3176,20 @@ describe("reward calculator", () => {
           government: 10000
         });
 
-        expect(result.rows.find((r) => r.category === "dining")!.monthlyUnits).toBeCloseTo(4000, 2);
+        expect(result.rows.find((r) => r.category === "dining")!.monthlyUnits).toBeCloseTo(2900, 2);
         expect(result.rows.find((r) => r.category === "base")!.monthlyUnits).toBeCloseTo(200, 2);
         expect(result.rows.find((r) => r.category === "utilities")!.monthlyUnits).toBeCloseTo(70, 2);
         expect(result.rows.find((r) => r.category === "rent")!.monthlyUnits).toBeCloseTo(70, 2);
         expect(result.rows.find((r) => r.category === "insurance")!.monthlyUnits).toBeCloseTo(70, 2);
         expect(result.rows.find((r) => r.category === "government")!.monthlyUnits).toBeCloseTo(70, 2);
-        expect(result.monthlyUnits).toBeCloseTo(4480, 2);
+        expect(result.monthlyUnits).toBeCloseTo(3380, 2);
       });
 
       it("enforces monthly cap on dining rewards", () => {
         const card = getCardById("indusind-eazydiner-platinum");
         expect(card).toBeTruthy();
 
-        // Dining cap is 4,000 units. Spend of 5,0,000 at rate 104 = 5,20,000 units, capped at 4,000
+        // Dining cap: Tier 1 (2,500 at 1.04 = 2,600) + Tier 2 (4,97,500 at 0.04 = 19,900 capped at 1,400) = 4,000
         const result = calculateRewards(card!, {
           dining: 500000
         });
