@@ -684,14 +684,18 @@ function detectCategoryFocus(
     // over — so every phrasing of "rent"/"utility bills" ranks consistently. Other focuses defer to the
     // inferred spend (preserving e.g. "card for grocery spends" as a 100%-grocery profile).
     // However, if the query explicitly asks for a category card (e.g. "dining card", "dining credit card"),
-    // we keep the category filter active.
+    // or is a generic card recommendation query (e.g. "best card for dining"), we keep the category filter active.
     const isExplicitCardQuery = bareAliasCandidates.some((alias) =>
       containsNormalizedPhrase(normalizedQuery, `${alias} card`) ||
       containsNormalizedPhrase(normalizedQuery, `${alias} cards`) ||
       containsNormalizedPhrase(normalizedQuery, `${alias} credit card`) ||
       containsNormalizedPhrase(normalizedQuery, `${alias} credit cards`)
     );
-    if (hasInferredSpend && !config.matchByEarning && !matchesBareCategoryAlias && !isExplicitCardQuery) return null;
+    const isRecommendation =
+      isCardRecommendationQuery(input.query) &&
+      !normalizedQuery.includes("spend") &&
+      !normalizedQuery.includes("spent");
+    if (hasInferredSpend && !config.matchByEarning && !matchesBareCategoryAlias && !isExplicitCardQuery && !isRecommendation) return null;
     return config;
   }
   return null;
