@@ -31,7 +31,8 @@
       "capMonthly": 1400,
       "tierLowerBound": 2500,
       "tierUpperBound": null,
-      "tierScope": "category"
+      "tierScope": "category",
+      "hidden": true
     },
     {
       "category": "utilities, insurance, government, rent",

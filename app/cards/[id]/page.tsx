@@ -274,9 +274,9 @@ export default async function CardPage({ params, searchParams }: Props) {
     tatDays: v.tatDays
   }));
   const rewardRows = [
-    ...card.rewards.map((reward) => ({ reward, optionLabel: null as string | null, optionAnnualCost: 0 })),
+    ...card.rewards.filter((reward) => !reward.hidden).map((reward) => ({ reward, optionLabel: null as string | null, optionAnnualCost: 0 })),
     ...(card.paidRewardOptions ?? []).flatMap((option) =>
-      option.rewards.map((reward) => ({
+      option.rewards.filter((reward) => !reward.hidden).map((reward) => ({
         reward,
         optionLabel: option.label,
         optionAnnualCost: option.annualCost

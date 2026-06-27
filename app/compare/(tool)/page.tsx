@@ -63,6 +63,7 @@ function rewardRateLabel(card: Card, reward: Card["rewards"][number]) {
 
 function rewardSummary(card: Card) {
   return card.rewards
+    .filter((reward) => !reward.hidden)
     .slice(0, 3)
     .map((reward) => `${reward.displayCategory ?? reward.category}: ${rewardRateLabel(card, reward)}`)
     .join("; ");

@@ -90,7 +90,7 @@ export type Reward = {
   // Dynamic cap linked to the card's base earnings in the same cycle. Set to the multiplier (e.g. 2.0
   // for twice the base cashback). When present, the row's final monthly cap is the minimum of its
   // flat capMonthly and (multiplier * total base cashback earned by the card in the same month).
-  capMultiplierOfBaseEarn?: number | null;
+  capMultiplierOfBaseEarn?: number | null; hidden?: boolean;
 };
 
 export type Redemption = {

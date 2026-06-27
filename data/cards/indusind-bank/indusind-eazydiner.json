@@ -31,7 +31,8 @@
       "capMonthly": 4520,
       "tierLowerBound": 4000,
       "tierUpperBound": null,
-      "tierScope": "category"
+      "tierScope": "category",
+      "hidden": true
     },
     {
       "category": "online",

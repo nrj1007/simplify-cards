@@ -697,7 +697,7 @@ export default async function AskPage({ searchParams }: Props) {
                                 </tr>
                               </thead>
                               <tbody>
-                                {topCard.card.rewards.map((reward) => (
+                                 {topCard.card.rewards.filter((reward) => !reward.hidden).map((reward) => (
                                   <tr key={`${topCard.card.id}-${reward.category}-${reward.displayCategory ?? ""}`}>
                                     <td>{reward.displayCategory ?? reward.category}</td>
                                     <td>{formatRewardRate(reward, topCard.card.rewardType)}</td>
