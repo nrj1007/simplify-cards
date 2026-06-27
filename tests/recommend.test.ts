@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { answerFromCards, cardMatchesSegment, joiningAndRenewalBenefitValueForCard, scoreCards } from "../lib/recommend";
+import { answerFromCards, cardMatchesSegment, joiningAndRenewalBenefitValueForCard, scoreCards, qualifiesAsTravelCard } from "../lib/recommend";
 import { getCardById } from "../lib/cards";
 import type { ValuedBenefit } from "../lib/types";
 
@@ -970,18 +970,7 @@ describe("scoreCards", () => {
     expect(scores.length).toBeGreaterThan(0);
     // Verified that all returned cards qualify as travel cards
     expect(
-      scores.every((score) => {
-        const card = score.card;
-        const hasTransferPartners = !!(card.redemption?.airlinePartners?.length || card.redemption?.hotelPartners?.length);
-        const hasLounge = (card.combinedLoungeAccess !== undefined && card.combinedLoungeAccess !== "unlimited" && card.combinedLoungeAccess > 0) ||
-                          card.combinedLoungeAccess === "unlimited" ||
-                          (card.loungeDomestic !== undefined && card.loungeDomestic !== "unlimited" && card.loungeDomestic > 0) ||
-                          card.loungeDomestic === "unlimited" ||
-                          (card.loungeInternational !== undefined && card.loungeInternational !== "unlimited" && card.loungeInternational > 0) ||
-                          card.loungeInternational === "unlimited";
-        const isZeroForex = card.forexMarkup === 0;
-        return hasTransferPartners || hasLounge || isZeroForex;
-      })
+      scores.every((score) => qualifiesAsTravelCard(score.card))
     ).toBe(true);
   });
 

@@ -976,12 +976,13 @@ function cardMatchesRedemptionBucket(card: CreditCard, bucket: string) {
   return false;
 }
 
-function qualifiesAsTravelCard(card: CreditCard): boolean {
-  return (
-    (card.redemption?.airlinePartners?.length || card.redemption?.hotelPartners?.length ? true : false) ||
-    loungeScore(card) > 0 ||
-    card.forexMarkup === 0
+export function qualifiesAsTravelCard(card: CreditCard): boolean {
+  const isTravelBrand = card.tags.includes("travel") || card.bestFor.includes("travel") || card.bestFor.includes("travel edge");
+  const hasTravelRewardCategory = card.rewards.some((reward) =>
+    reward.category.split(",").map((c) => c.trim().toLowerCase()).includes("travel")
   );
+  const hasTransferPartners = (card.redemption?.airlinePartners?.length || card.redemption?.hotelPartners?.length) ? true : false;
+  return isTravelBrand || hasTravelRewardCategory || hasTransferPartners || card.forexMarkup === 0;
 }
 
 export function getAirMilesValue(card: CreditCard): number | undefined {

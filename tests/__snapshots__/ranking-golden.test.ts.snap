@@ -116,9 +116,9 @@ exports[`ranking golden (max-yield) > produces stable top-N ordering per scenari
     "indigo-sbi-elite",
     "bobcard-etihad-guest",
     "sbi-card-miles-elite",
+    "indusind-eazydiner",
     "krisflyer-sbi",
     "rbl-world-safari",
-    "sbi-card-miles-prime",
   ],
   "exact-card-atlas": [
     "axis-atlas",
@@ -769,9 +769,9 @@ exports[`ranking golden (representative queries) > produces stable top-N orderin
     "indigo-sbi-elite",
     "bobcard-etihad-guest",
     "sbi-card-miles-elite",
+    "indusind-eazydiner",
     "krisflyer-sbi",
     "rbl-world-safari",
-    "sbi-card-miles-prime",
   ],
   "exact-card-atlas": [
     "axis-atlas",
@@ -1431,19 +1431,18 @@ exports[`result split golden (all query modes) > snapshots section membership fo
     ],
   },
   "combo-premium-travel": {
-    "Cashback cards": [
-      "titan-sbi",
-    ],
+    "Cashback cards": [],
     "Rewards cards": [
       "hsbc-travelone",
       "hdfc-regalia-gold",
       "bobcard-etihad-guest-premium",
+      "indusind-eazydiner",
       "icici-adani-one-signature",
       "axis-horizon",
       "indigo-sbi-elite",
       "amex-membership-rewards",
       "sc-ultimate",
-      "hdfc-shoppers-stop-black",
+      "hdfc-marriott-bonvoy",
     ],
   },
   "exact-card-atlas": {
@@ -2037,11 +2036,11 @@ exports[`result split golden (all query modes) > snapshots section membership fo
   },
   "usecase-travel": {
     "Cashback cards": [
-      "phonepe-sbi-select-black",
+      "yes-paisabazaar-paisasave",
+      "cheq-au",
       "axis-fibe",
       "apollo-sbi-select",
-      "titan-sbi",
-      "hsbc-live-plus",
+      "axis-samsung-signature",
     ],
     "Rewards cards": [
       "hsbc-premier",
