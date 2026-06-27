@@ -77,7 +77,7 @@ export const rankingStrategies: Record<RankingStrategyName, RankingStrategy> = {
     name: "absolute-blend",
     blendMode: "weighted-average",
     spendLevels: [120000, 300000, 600000],
-    spendWeights: [1, 1.25, 1.5],
+    spendWeights: [1.5, 1.25, 1],
     perLevelScore: (score: CardScore) => score.fitScore
   },
   "max-yield": {

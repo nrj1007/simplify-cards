@@ -116,7 +116,7 @@ const blendAnnualSpendLevels = [120000, 300000, 600000]; // Rs 10k, 25k, 50k per
 // blend toward the higher-spend levels means cards whose value is gated behind heavy spend (bank
 // tier programs that lift point value with spend, high fee-waiver thresholds, programme caps that
 // only bind at low spend) are judged more on their heavy-spend strength than on trivial-spend yield.
-const blendAnnualSpendLevelWeights = [1, 1.25, 1.5];
+const blendAnnualSpendLevelWeights = [1.5, 1.25, 1];
 
 // Representative monthly spend for each segment tier. A segment query implies a spend/income level,
 // so instead of the envelope blend we score segment queries at the tier's typical spend (the default
@@ -2393,7 +2393,10 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
         isUtilityLikeCategory ||
         wantsLounge ||
         isTargetedEnvelopeQuery(input, intent)
-      ))
+      )) ||
+      // When the caller requests a split view with an inferred spend (e.g. "best forex cards"),
+      // enable envelope scoring so isSplitBlend fires and splitOrderScore is computed per-section.
+      (input.resultStrategy === "reward-type-split" && intent.inferredSpend !== undefined && input.spend === undefined)
     ));
   const spend = {
     ...defaultSpendProfile,
@@ -2789,7 +2792,7 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
           });
           const splitWeights = cardEarnsCashback
             ? [1.3, 1.2, 1.1, 1]
-            : [1, 1.25, 1.5];
+            : [1.5, 1.25, 1];
           const splitWeightSum = splitWeights.reduce((sum, w) => sum + w, 0);
           splitOrderScore =
             perLevel.reduce((total, score, i) => total + strategy.perLevelScore(score) * splitWeights[i], 0) / splitWeightSum;
@@ -2885,7 +2888,7 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
         });
         const splitWeights = cardEarnsCashback
           ? [1.3, 1.2, 1.1, 1]
-          : [1, 1.25, 1.5];
+          : [1.5, 1.25, 1];
         const splitWeightSum = splitWeights.reduce((sum, w) => sum + w, 0);
         splitOrderScore =
           perLevel.reduce((total, score, i) => total + strategy.perLevelScore(score) * splitWeights[i], 0) / splitWeightSum;
