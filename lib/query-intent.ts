@@ -264,17 +264,14 @@ export function parseQueryIntent(input: RecommendationInput): QueryIntent {
     normalizedQuery.includes("ultra premium") ||
     normalizedQuery.includes("invite only")
   ) {
-    // Fee tiers are disjoint (premium is Rs 5k–10k, super-premium is Rs 10k+), so add only super-premium.
     segments.add("super-premium");
   } else if (
+    normalizedQuery.includes("premium") ||
     normalizedQuery.includes("mid premium") ||
     normalizedQuery.includes("mid-premium") ||
     normalizedQuery.includes("mid tier") ||
     normalizedQuery.includes("mid-tier")
   ) {
-    // Mid-premium is its own band; do not also add "premium" (which would force the high-fee cut-off).
-    segments.add("mid-premium");
-  } else if (normalizedQuery.includes("premium")) {
     segments.add("premium");
   }
   if (

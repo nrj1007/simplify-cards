@@ -124,7 +124,6 @@ const blendAnnualSpendLevelWeights = [1, 1.25, 1.5, 1.75];
 const segmentRepresentativeMonthlySpend: Record<string, number> = {
   beginner: 25000,
   ltf: 25000,
-  "mid-premium": 60000,
   premium: 120000,
   "super-premium": 250000
 };
@@ -947,19 +946,10 @@ export function cardMatchesSegment(card: CreditCard, segment: string) {
   const haystack = normalizeForMatch([card.name, ...card.tags, ...card.bestFor].join(" "));
 
   if (segment === "ltf") return card.annualFee === 0 || containsNormalizedPhrase(haystack, "lifetime free") || containsNormalizedPhrase(haystack, "ltf");
-  // Fee-based tiers (non-overlapping): mid-premium Rs 1,000–5,000, premium Rs 5,000–10,000,
-  // super-premium Rs 10,000+. Super-premium also covers invite-only cards regardless of listed fee.
-  if (segment === "super-premium") return containsNormalizedPhrase(haystack, "super premium") || containsNormalizedPhrase(haystack, "invite") || card.annualFee >= 10000;
-  if (segment === "premium") return card.annualFee >= 5000 && card.annualFee < 10000;
-  if (segment === "mid-premium") {
-    // Invite-only/relationship cards are premium products, not mid-tier.
-    if (requiresRelationshipAccess(card)) return false;
-    return (
-      containsNormalizedPhrase(haystack, "mid premium") ||
-      containsNormalizedPhrase(haystack, "mid-tier") ||
-      (card.annualFee > 1000 && card.annualFee < 5000)
-    );
-  }
+  // Fee-based tiers (non-overlapping): beginner Rs 0–1,500, premium Rs 1,501–8,000,
+  // super-premium Rs 8,001+. Super-premium also covers invite-only cards regardless of listed fee.
+  if (segment === "super-premium") return containsNormalizedPhrase(haystack, "super premium") || containsNormalizedPhrase(haystack, "invite") || card.annualFee >= 8001;
+  if (segment === "premium") return card.annualFee >= 1501 && card.annualFee <= 8000;
   if (segment === "beginner") {
     // Invite-only / relationship cards (e.g. an LTF Kotak Solitaire) are premium products, not
     // beginner cards, even when their fee is 0.
@@ -968,7 +958,7 @@ export function cardMatchesSegment(card: CreditCard, segment: string) {
       containsNormalizedPhrase(haystack, "beginner") ||
       containsNormalizedPhrase(haystack, "starter") ||
       containsNormalizedPhrase(haystack, "secured") ||
-      card.annualFee <= 1000
+      card.annualFee <= 1500
     );
   }
 

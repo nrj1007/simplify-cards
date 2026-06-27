@@ -5,7 +5,7 @@ import type { CreditCard } from "./types";
 export type PopularityBand = "90-plus" | "80-89" | "70-79" | "below-70";
 export type UseCaseBucket = "cashback" | "travel";
 export type RedemptionBucket = "accor" | "air-india";
-export type CardSegment = "super-premium" | "premium" | "mid-premium" | "beginner" | "ltf";
+export type CardSegment = "super-premium" | "premium" | "beginner" | "ltf";
 
 function sortCards(left: CreditCard, right: CreditCard) {
   return right.popularityScore - left.popularityScore || left.name.localeCompare(right.name);
@@ -107,20 +107,20 @@ function cardSegmentsForCard(card: CreditCard, searchableText: string): CardSegm
     segments.add("beginner");
   }
 
-  // Fee tiers (non-overlapping): mid-premium Rs 1,000–5,000, premium Rs 5,000–10,000, super-premium
-  // Rs 10,000+ (or explicit ultra/super-premium positioning).
+  // Fee tiers (non-overlapping): beginner Rs 0–1,500, premium Rs 1,501–8,000, super-premium
+  // Rs 8,001+ (or explicit ultra/super-premium positioning).
   if (
     card.tags.includes("ultra premium") ||
     card.bestFor.includes("luxury") ||
     searchableText.includes("ultra premium") ||
     searchableText.includes("super premium") ||
-    card.annualFee >= 10000
+    card.annualFee >= 8001
   ) {
     segments.add("super-premium");
-  } else if (card.annualFee >= 5000 && card.annualFee < 10000) {
+  } else if (card.annualFee >= 1501 && card.annualFee <= 8000) {
     segments.add("premium");
-  } else if (card.annualFee > 1000 && card.annualFee < 5000) {
-    segments.add("mid-premium");
+  } else {
+    segments.add("beginner");
   }
 
   return [...segments];
