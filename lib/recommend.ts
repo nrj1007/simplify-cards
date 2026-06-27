@@ -416,6 +416,28 @@ function isCardRecommendationQuery(query?: string) {
   return asksForRecommendation && mentionsCard;
 }
 
+function shouldRestrictToMinimumRentReturn(input: RecommendationInput, intent: ReturnType<typeof parseQueryIntent>) {
+  if (!isCardRecommendationQuery(input.query)) return false;
+  if (!intent.tags.includes("rent")) return false;
+
+  const spend = input.spend ?? intent.inferredSpend;
+  if (!spend) return true;
+
+  const activeCategories = (Object.entries(spend) as Array<[SpendCategory, number]>)
+    .filter(([, amount]) => (amount ?? 0) > 0)
+    .map(([category]) => category);
+
+  return activeCategories.length === 1 && activeCategories[0] === "rent";
+}
+
+function clearsMinimumRentReturn(score: CardScore) {
+  const annualRentSpend = (score.rewardBreakdown.find((item) => item.spendCategory === "rent")?.monthlySpend ?? 0) * 12;
+  if (annualRentSpend <= 0) return false;
+
+  const annualRentValue = score.estimatedAnnualRewards + score.estimatedMilestoneValue;
+  return annualRentValue >= annualRentSpend * 0.02;
+}
+
 function hasUpiCardSignal(card: CreditCard) {
   const rewardCategories = card.rewards.flatMap((reward) =>
     reward.category.split(",").map((category) => normalizeForMatch(category))
@@ -2339,6 +2361,7 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
   const broadNoSpendRankingQuery = isBroadNoSpendQuery(input, intent);
   const broadGenericRanking = isBroadGenericRankingQuery(input, intent);
   const restrictToUpiCards = shouldRestrictToUpiCards(input, intent);
+  const restrictToMinimumRentReturn = shouldRestrictToMinimumRentReturn(input, intent);
   const upiFocusedSpend = restrictToUpiCards && !intent.inferredSpend && !input.spend ? focusedSpendProfile("upi") : undefined;
   const isUtilityLikeCategory = categoryFocus && ["utilities", "rent", "education", "insurance", "government"].includes(categoryFocus.key);
 
@@ -2912,6 +2935,7 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
         ...(cashbackBucketScore ? { cashbackBucketScore } : {})
       };
     })
+    .filter((score) => (restrictToMinimumRentReturn ? clearsMinimumRentReturn(score) : true))
     .sort((a, b) => {
       const primary = useEnvelopeScoring
         ? (b.envelopeScoring?.normalizedFitScore ?? 0) - (a.envelopeScoring?.normalizedFitScore ?? 0)

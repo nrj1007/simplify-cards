@@ -675,6 +675,35 @@ describe("scoreCards", () => {
     expect(magnusBurgundy?.rewardBreakdown.some((item) => item.spendCategory === "rent")).toBe(true);
   });
 
+  it("filters rent recommendation results to cards clearing a 2% rent return including milestones", () => {
+    const scores = scoreCards({
+      query: "best card for rent spends",
+      spend: {
+        online: 0,
+        base: 0,
+        travel: 0,
+        dining: 0,
+        grocery: 0,
+        fuel: 0,
+        amazon: 0,
+        upi: 0,
+        utilities: 0,
+        rent: 53000,
+        insurance: 0,
+        education: 0,
+        gold: 0
+      }
+    });
+
+    expect(scores.length).toBeGreaterThan(0);
+    expect(
+      scores.every((score) => {
+        const annualRentSpend = (score.rewardBreakdown.find((item) => item.spendCategory === "rent")?.monthlySpend ?? 0) * 12;
+        return annualRentSpend > 0 && score.estimatedAnnualRewards + score.estimatedMilestoneValue >= annualRentSpend * 0.02;
+      })
+    ).toBe(true);
+  });
+
   it("lets Atlas use base rewards for education spend when education is rewarded", () => {
     const scores = scoreCards({
       query: "axis atlas",
