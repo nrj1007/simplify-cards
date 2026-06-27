@@ -1463,7 +1463,6 @@ exports[`result split golden (all query modes) > snapshots section membership fo
   },
   "forex": {
     "Cashback cards": [
-      "au-ixigo",
       "csb-jupiter-edge-plus",
       "icici-amazon-pay",
       "yes-paisabazaar-paisasave",
@@ -1478,9 +1477,7 @@ exports[`result split golden (all query modes) > snapshots section membership fo
     ],
   },
   "forex-zero": {
-    "Cashback cards": [
-      "au-ixigo",
-    ],
+    "Cashback cards": [],
     "Rewards cards": [
       "bobcard-etihad-guest-premium",
       "au-ixigo",
