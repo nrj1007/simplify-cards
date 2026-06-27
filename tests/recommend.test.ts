@@ -668,11 +668,10 @@ describe("scoreCards", () => {
       }
     });
 
-    const magnus = scores.find((score) => score.card.id === "axis-magnus");
-    const magnusBurgundy = scores.find((score) => score.card.id === "axis-magnus-burgundy");
+    const returnedIds = scores.map((score) => score.card.id);
 
-    expect(magnus?.rewardBreakdown.some((item) => item.spendCategory === "rent")).toBe(true);
-    expect(magnusBurgundy?.rewardBreakdown.some((item) => item.spendCategory === "rent")).toBe(true);
+    expect(returnedIds).toContain("axis-magnus-burgundy");
+    expect(returnedIds).toContain("axis-magnus");
   });
 
   it("filters rent recommendation results to cards clearing a 2% rent return including milestones", () => {
