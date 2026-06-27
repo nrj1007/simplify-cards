@@ -927,7 +927,11 @@ function cardUseCaseStrength(card: CreditCard, useCase: string) {
 
   if (useCase === "travel") {
     let score = 0;
-    if (card.rewards.some((reward) => ["travel", "airlines", "hotel", "hotels", "smartbuy flights", "smartbuy hotels"].includes(reward.category))) {
+    if (card.rewards.some((reward) =>
+      reward.category.split(",").map((c) => c.trim().toLowerCase()).some((c) =>
+        ["travel", "airlines", "hotel", "hotels", "smartbuy flights", "smartbuy hotels"].includes(c)
+      )
+    )) {
       score += 3;
     }
     if (["travel", "miles", "airline", "hotel", "hotels", "flights"].some((token) => containsNormalizedPhrase(haystack, token))) {
