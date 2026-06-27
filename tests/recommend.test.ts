@@ -677,7 +677,7 @@ describe("scoreCards", () => {
 
   it("lets Atlas use base rewards for education spend when education is rewarded", () => {
     const scores = scoreCards({
-      query: "best axis card for education payments",
+      query: "axis atlas",
       spend: {
         online: 0,
         base: 0,

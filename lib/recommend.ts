@@ -863,6 +863,8 @@ function shouldHideCardFromGenericRanking(card: CreditCard, input: Recommendatio
 
   if (userExplicitlyAsked) return false;
 
+  if (card.id === "axis-atlas") return true;
+
   const isDiscontinued = card.status === "discontinued";
   if (isDiscontinued) return true;
 
@@ -1734,10 +1736,10 @@ function rewardAllocationsForSpend(
     category === "grocery" && card.acceleratedShare?.grocery === undefined
       ? null
       : findDirectRewardForSpend(card, "online", false);
-  const specialReward = blendedSmartbuySpendCategories.includes(category)
-    ? (findSpecialRewardForSpend(card, category) ?? blendedOnlineFallback)
-    : card.acceleratedShare?.[category] !== undefined
-      ? (findPartnerMerchantsReward(card) ?? findDirectRewardForSpend(card, "online", false))
+  const specialReward = card.acceleratedShare?.[category] !== undefined
+    ? (findPartnerMerchantsReward(card) ?? findDirectRewardForSpend(card, "online", false))
+    : blendedSmartbuySpendCategories.includes(category)
+      ? (findSpecialRewardForSpend(card, category) ?? blendedOnlineFallback)
       : null;
 
   if (specialReward && baseReward && specialReward.category !== baseReward.category) {

@@ -46,9 +46,9 @@ exports[`SEO landing page rankings > produces stable top-10 card ordering for ea
     "hsbc-travelone",
     "axis-magnus-burgundy",
     "hdfc-regalia-gold",
-    "axis-atlas",
-    "kotak-solitaire",
     "equitas-selfe",
+    "kotak-solitaire",
+    "axis-magnus",
   ],
   "best-fuel-credit-cards-india": [
     "idfc-first-power-plus",
@@ -89,7 +89,6 @@ exports[`SEO landing page rankings > produces stable top-10 card ordering for ea
   "best-premium-credit-cards-india": [
     "bobcard-etihad-guest-premium",
     "axis-indigo-premium",
-    "axis-atlas",
     "amex-platinum-travel",
     "sc-ultimate",
     "equitas-powermiles",
@@ -97,6 +96,7 @@ exports[`SEO landing page rankings > produces stable top-10 card ordering for ea
     "aurum-sbi",
     "icici-adani-one-signature",
     "rbl-icon",
+    "idfc-mayura",
   ],
   "best-rupay-credit-cards-india": [
     "au-ixigo",
@@ -119,8 +119,8 @@ exports[`SEO landing page rankings > produces stable top-10 card ordering for ea
     "hdfc-diners-club-black-metal",
     "kotak-solitaire",
     "axis-magnus",
-    "axis-atlas",
     "hdfc-regalia-gold",
+    "bobcard-etihad-guest-premium",
   ],
 }
 `;
