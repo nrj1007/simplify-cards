@@ -912,6 +912,13 @@ function shouldHideCardFromGenericRanking(card: CreditCard, input: Recommendatio
     if (!queryAsksForDefence) return true;
   }
 
+  const isSecuredCard = (card.tags ?? []).includes("secured card") || (card.bestFor ?? []).includes("secured card");
+  if (isSecuredCard) {
+    const q = (input.query ?? "").toLowerCase();
+    const queryAsksForSecured = q.includes("secured") || q.includes("fd ") || q.includes("fd-") || q.includes("fixed deposit") || q.includes("bad credit") || q.includes("no income");
+    if (!queryAsksForSecured) return true;
+  }
+
   return false;
 }
 

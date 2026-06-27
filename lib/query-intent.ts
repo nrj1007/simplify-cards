@@ -229,7 +229,7 @@ function extractFocusedSpend(query: string) {
   if (!focusedCategory) return undefined;
 
   const spend = emptySpendProfile();
-  spend[focusedCategory] = defaultMonthlySpendTotal;
+  spend[focusedCategory] = focusedCategory === "international" ? 15000 : defaultMonthlySpendTotal;
   return spend satisfies SpendProfile;
 }
 
