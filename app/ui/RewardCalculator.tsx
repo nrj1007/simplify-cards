@@ -20,7 +20,6 @@ import {
 type Props = {
   card: CreditCard;
   milestones?: MilestoneRule[];
-  isStandalone?: boolean;
 };
 
 const DEFAULT_SPEND: Partial<Record<SpendCategory, number>> = {
@@ -111,7 +110,7 @@ function milestonePrimaryValue(rule: MilestoneRule) {
 
 type RupeeOption = { key: string; label: string; perPoint: number; value: number; note?: string };
 
-export default function RewardCalculator({ card, milestones = [], isStandalone = false }: Props) {
+export default function RewardCalculator({ card, milestones = [] }: Props) {
   const buckets = useMemo(() => calculatorBucketsForCard(card), [card]);
   const moreCats = useMemo(() => moreCategoriesForCard(card), [card]);
 

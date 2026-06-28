@@ -47,6 +47,16 @@ describe("calculator buckets", () => {
     expect(phonepeBucket!.id).toBe("phonepe");
   });
 
+  it("omits the base bucket when the card has no base reward row (e.g. hdfc-phonepe-uno)", () => {
+    const card = getCardById("hdfc-phonepe-uno");
+    expect(card).toBeTruthy();
+    const buckets = calculatorBucketsForCard(card!);
+    
+    // Should not contain "base" bucket
+    const hasBase = buckets.some((b) => b.id === "base");
+    expect(hasBase).toBe(false);
+  });
+
   it("collapses tiered same-category rows and excludes hidden rows", () => {
     // E.g. axis-cashback has 3 online rows, which collapse to one "Online"
     const card = getCardById("axis-cashback");
@@ -64,7 +74,7 @@ describe("calculator buckets", () => {
     expect(hasHidden).toBe(false);
   });
 
-  it("moreCategoriesForCard returns the fixed 5 minus any already present as a bucket ID", () => {
+  it("moreCategoriesForCard returns the fixed 5 minus any already present as a bucket ID or covered by reward category", () => {
     const card = getCardById("axis-cashback");
     expect(card).toBeTruthy();
     const buckets = calculatorBucketsForCard(card!);
@@ -77,11 +87,14 @@ describe("calculator buckets", () => {
     // None of these 5 are in the bucket IDs for axis-cashback, so it should return all 5.
     expect(moreCats).toEqual(["rent", "insurance", "education", "gold", "government"]);
 
-    const hasAnyInBuckets = ["rent", "insurance", "education", "gold", "government"].some(cat => bucketIds.has(cat));
-    expect(moreCats.length).toBe(5 - (hasAnyInBuckets ? 1 : 0)); // simple check
+    // Test that au-ixigo (which has a dedicated insurance row) does not return insurance in moreCategoriesForCard
+    const auIxigo = getCardById("au-ixigo");
+    expect(auIxigo).toBeTruthy();
+    const auIxigoMoreCats = moreCategoriesForCard(auIxigo!);
+    expect(auIxigoMoreCats).not.toContain("insurance");
   });
 
-  it("calculates rewards by bucket correctly and compares parity", () => {
+  it("calculates rewards by bucket correctly and compares row-level parity", () => {
     const card = getCardById("axis-cashback");
     expect(card).toBeTruthy();
 
@@ -119,5 +132,29 @@ describe("calculator buckets", () => {
     // Sum of monthly units should match because the calculations are mathematically equivalent
     expect(resultBucket.monthlyUnits).toBeCloseTo(resultCanonical.monthlyUnits, 2);
     expect(resultBucket.annualUnits).toBeCloseTo(resultCanonical.annualUnits, 2);
+
+    // Row-level assertions for non-base rows
+    const nonBaseBucketRows = resultBucket.rows.filter(r => r.category !== "base");
+    for (const bucketRow of nonBaseBucketRows) {
+      const canonicalRow = resultCanonical.rows.find((r) => r.category === bucketRow.category);
+      expect(canonicalRow).toBeTruthy();
+      expect(bucketRow.monthlySpend).toBe(canonicalRow!.monthlySpend);
+      expect(bucketRow.monthlyUnits).toBeCloseTo(canonicalRow!.monthlyUnits, 2);
+      expect(bucketRow.excluded).toBe(canonicalRow!.excluded);
+      expect(bucketRow.earnsBaseRateOnly).toBe(canonicalRow!.earnsBaseRateOnly);
+    }
+
+    // Row-level assertions for base row (combines base + dining + travel)
+    const baseBucketRow = resultBucket.rows.find(r => r.category === "base");
+    expect(baseBucketRow).toBeTruthy();
+    
+    const canonicalBaseRows = resultCanonical.rows.filter(r => 
+      r.category === "base" || r.category === "dining" || r.category === "travel"
+    );
+    const sumCanonicalSpend = canonicalBaseRows.reduce((sum, r) => sum + r.monthlySpend, 0);
+    const sumCanonicalUnits = canonicalBaseRows.reduce((sum, r) => sum + r.monthlyUnits, 0);
+
+    expect(baseBucketRow!.monthlySpend).toBe(sumCanonicalSpend);
+    expect(baseBucketRow!.monthlyUnits).toBeCloseTo(sumCanonicalUnits, 2);
   });
 });

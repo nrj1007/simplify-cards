@@ -196,18 +196,20 @@ export function calculatorBucketsForCard(card: CreditCard): CalculatorBucket[] {
   }
 
   // Add trailing base bucket
-  const sortedBaseRewards = [...baseRewards].sort(
-    (a, b) => (a.tierLowerBound ?? 0) - (b.tierLowerBound ?? 0)
-  );
-  const repBaseReward = sortedBaseRewards[sortedBaseRewards.length - 1];
+  if (baseRewards.length > 0) {
+    const sortedBaseRewards = [...baseRewards].sort(
+      (a, b) => (a.tierLowerBound ?? 0) - (b.tierLowerBound ?? 0)
+    );
+    const repBaseReward = sortedBaseRewards[sortedBaseRewards.length - 1];
 
-  buckets.push({
-    id: "base",
-    label: "Other spends",
-    displayRate: repBaseReward?.displayRate,
-    isBase: true,
-    rewards: sortedBaseRewards
-  });
+    buckets.push({
+      id: "base",
+      label: "Other spends",
+      displayRate: repBaseReward?.displayRate,
+      isBase: true,
+      rewards: sortedBaseRewards
+    });
+  }
 
   return buckets;
 }
@@ -216,8 +218,20 @@ export const MORE_CATEGORIES: SpendCategory[] = ["rent", "insurance", "education
 
 export function moreCategoriesForCard(card: CreditCard): SpendCategory[] {
   const buckets = calculatorBucketsForCard(card);
-  const bucketIds = new Set(buckets.map((b) => b.id));
-  return MORE_CATEGORIES.filter((cat) => !bucketIds.has(cat));
+  return MORE_CATEGORIES.filter((cat) => {
+    const isCoveredByBuckets = buckets.some((b) =>
+      b.rewards.some((r) => {
+        const rewardCategories = r.category.split(",").map((c) => c.trim().toLowerCase());
+        const aliases = SPEND_ALIASES[cat] || [];
+        const targetCategoryLower = cat.toLowerCase();
+        return (
+          aliases.some((alias) => rewardCategories.includes(alias.toLowerCase())) ||
+          rewardCategories.includes(targetCategoryLower)
+        );
+      })
+    );
+    return !isCoveredByBuckets;
+  });
 }
 
 function findRewardsForCategory(card: CreditCard, category: SpendCategory): Reward[] {
