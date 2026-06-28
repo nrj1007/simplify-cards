@@ -2249,7 +2249,10 @@ function forexPreferenceBoost(card: CreditCard, intent: ReturnType<typeof parseQ
   return Math.round(betterThanBaseline * weight);
 }
 
-export function requestedTopCardCount(query?: string) {
+export function requestedTopCardCount(query?: string, resultStrategy?: string) {
+  if (resultStrategy === "reward-type-split") {
+    return 10;
+  }
   const normalizedQuery = normalizeForMatch(query);
   if (!normalizedQuery) return defaultTopCardCount;
 
@@ -2963,7 +2966,7 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
 
 export function answerFromCards(input: RecommendationInput) {
   const scored = scoreCards(input);
-  const topCards = scored.slice(0, requestedTopCardCount(input.query));
+  const topCards = scored.slice(0, requestedTopCardCount(input.query, input.resultStrategy));
 
   // For broad "best credit card" queries (or explicit resultStrategy), also compute
   // sections so callers that want Rewards / Cashback split can use them.

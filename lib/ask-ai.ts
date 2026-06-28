@@ -602,8 +602,9 @@ function buildFallbackSummary(input: RecommendationInput, shortlistedCards: Card
     return "I could not find a good match for that question.";
   }
 
-  if (isTopBestCardsQuery(input.query) && shortlistedCards.length > 1) {
-    const requestedCount = requestedTopCardCount(input.query);
+  const isRanking = isTopBestCardsQuery(input.query) || input.resultStrategy === "reward-type-split";
+  if (isRanking && shortlistedCards.length > 1) {
+    const requestedCount = requestedTopCardCount(input.query, input.resultStrategy);
     const topThreeText = shortlistedCards.length >= requestedCount ? `Top ${requestedCount} picks` : "Top picks";
 
     return `${topThreeText} for this query.`;
@@ -1588,9 +1589,6 @@ export async function answerQuestion(input: RecommendationInput): Promise<AskAiR
   const specificCardLookup = isSpecificCardLookup(input);
   const cardFamilyLookup = specificCardLookup ? buildCardFamilyLookupResult(input, scoredCards) : null;
   const parsedCardQuestion = parseSpecificCardQuestion(input.query);
-  const namedCardQuestionInitial =
-    isNamedCardQuestion(input, shortlisted.mentionedCardId) ||
-    (Boolean(shortlisted.mentionedCardId) && parsedCardQuestion.questionType !== "generic" && !isTopBestCardsQuery(input.query));
 
   if (shouldTryAiCardResolution(input, shortlisted.mentionedCardId)) {
     const aiMentionedCardId = await resolveMentionedCardIdWithAi(input.query, aiTraces);
@@ -1599,15 +1597,21 @@ export async function answerQuestion(input: RecommendationInput): Promise<AskAiR
     }
   }
 
+  const namedCardQuestion =
+    isNamedCardQuestion(input, shortlisted.mentionedCardId) ||
+    (Boolean(shortlisted.mentionedCardId) && parsedCardQuestion.questionType !== "generic" && !isTopBestCardsQuery(input.query));
+
   const topBestQuery = isTopBestCardsQuery(input.query);
   const intent = parseQueryIntent(input);
+  const isMultipleResultsQuery = !shortlisted.mentionedCardId && !specificCardLookup && !namedCardQuestion && !cardFamilyLookup;
+  const isRankingQuery = topBestQuery || isMultipleResultsQuery;
   const scenarioWinnerCards =
-    topBestQuery && !input.spend && !intent.inferredSpend
+    isRankingQuery && !input.spend && !intent.inferredSpend
       ? getBalancedScenarioWinnerCards(input, shortlisted.cards)
       : [];
   let requestSplit = false;
   if (SPLIT_SCOPE === "any-query") {
-    requestSplit = topBestQuery;
+    requestSplit = isRankingQuery;
   } else if (SPLIT_SCOPE === "broad-only") {
     requestSplit = isBroadGenericRankingQuery(input, intent);
   }
@@ -1617,19 +1621,16 @@ export async function answerQuestion(input: RecommendationInput): Promise<AskAiR
   const baseAnswer = answerFromCards(inputForAnswer);
   const answer = {
     ...baseAnswer,
-    cards: topBestQuery
+    cards: isRankingQuery
       ? baseAnswer.cards
       : buildDisplayCards(
           scoredCards,
           shortlisted.mentionedCardId ?? shortlisted.cards[0]?.card.id ?? null,
           scenarioWinnerCards,
-          { includeFallback: !(specificCardLookup || namedCardQuestionInitial) }
+          { includeFallback: !(specificCardLookup || namedCardQuestion) }
         )
   };
   const topCard = answer.cards[0];
-  const namedCardQuestion =
-    isNamedCardQuestion(input, shortlisted.mentionedCardId) ||
-    (Boolean(shortlisted.mentionedCardId) && parsedCardQuestion.questionType !== "generic" && !isTopBestCardsQuery(input.query));
   const rewardsPolicySubject = extractRewardsPolicySubject(input.query);
   const genericScenarioHighlights = buildScenarioHighlights(input, answer.cards, {
     skip: specificCardLookup || namedCardQuestion
@@ -1735,13 +1736,13 @@ export async function answerQuestion(input: RecommendationInput): Promise<AskAiR
     }
   }
 
-  const generatedSummary = isTopBestCardsQuery(input.query) ? null : await generateGroundedSummary(input, answer.cards, aiTraces);
+  const generatedSummary = isRankingQuery ? null : await generateGroundedSummary(input, answer.cards, aiTraces);
 
-  if (topBestQuery) {
+  if (isRankingQuery) {
     const topCardsSummary = await generateTopCardsSummary(input, answer.cards, aiTraces);
     return {
       ...answer,
-      summary: topCardsSummary ?? buildFallbackSummary(input, answer.cards),
+      summary: topCardsSummary ?? buildFallbackSummary(inputForAnswer, answer.cards),
       highlights: buildTopCardsHighlights(input, answer.cards),
       meta: {
         ...buildAskMeta("top-cards", {
@@ -1788,7 +1789,7 @@ export async function answerQuestion(input: RecommendationInput): Promise<AskAiR
 
   return {
     ...answer,
-    summary: buildFallbackSummary(input, answer.cards),
+    summary: buildFallbackSummary(inputForAnswer, answer.cards),
     highlights: buildBestFitHighlights(
       topCard,
       curatedAlternativeNames.length > 0 ? curatedAlternativeNames : fallbackAlternativeNames,

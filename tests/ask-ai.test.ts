@@ -50,7 +50,7 @@ describe("ask ai fallback policy", () => {
 
     expect(answer.cards.length).toBeGreaterThan(0);
     expect(answer.needsDatabaseUpdate).toBeUndefined();
-    expect(answer.summary).toMatch(/Top 7 picks for this query/i);
+    expect(answer.summary).toMatch(/Top 10 picks for this query/i);
   });
 
   it("produces a more natural fallback summary for direct card-name queries", async () => {
@@ -154,7 +154,7 @@ describe("ask ai fallback policy", () => {
     // Magnus Burgundy now leads on 2x guest-lounge weighting; all picks are Axis cards.
     expect(answer.cards[0]?.card.id).toBe("axis-magnus-burgundy");
     expect(answer.cards.every((item) => item.card.issuer === "Axis Bank")).toBe(true);
-    expect(answer.summary).toMatch(/Top 7 picks for this query/i);
+    expect(answer.summary).toMatch(/Top 10 picks for this query/i);
   });
 
   it("respects fee-cap questions even when the cap only appears in the query text", async () => {
@@ -165,11 +165,11 @@ describe("ask ai fallback policy", () => {
     expect(answer.needsDatabaseUpdate).toBeUndefined();
   });
 
-  it("mentions seven results for broad top-card questions", async () => {
+  it("mentions ten results for broad top-card questions", async () => {
     const answer = await answerQuestion({ query: "top card under 5000" });
 
-    expect(answer.cards).toHaveLength(7);
-    expect(answer.summary).toBe("Top 7 picks for this query.");
+    expect(answer.cards).toHaveLength(10);
+    expect(answer.summary).toBe("Top 10 picks for this query.");
   });
 
   it("returns the requested number of cards for top-N broad ranking queries", { timeout: 45000 }, async () => {
@@ -218,13 +218,13 @@ describe("ask ai fallback policy", () => {
     expect(answer.summary).toMatch(/Magnus Credit Card for Burgundy/i);
   });
 
-  it("shows the actual top 7 ranked cards for broad top-card questions", { timeout: 45000 }, async () => {
+  it("shows the actual top 10 ranked cards for broad top-card questions", { timeout: 45000 }, async () => {
     const answer = await answerQuestion({ query: "top cards under 5000" });
-    const rawTopSevenIds = scoreCards({ query: "top cards under 5000" })
-      .slice(0, 7)
+    const rawTopTenIds = scoreCards({ query: "top cards under 5000" })
+      .slice(0, 10)
       .map((item) => item.card.id);
 
-    expect(answer.cards.map((item) => item.card.id)).toEqual(rawTopSevenIds);
+    expect(answer.cards.map((item) => item.card.id)).toEqual(rawTopTenIds);
   });
 
   it("handles grocery-spend recommendation questions", async () => {
@@ -310,7 +310,7 @@ describe("ask ai fallback policy", () => {
   it("uses super-premium scenario ladders for super-premium asks", { timeout: 60000 }, async () => {
     const answer = await answerQuestion({ query: "best super premium card" });
 
-    expect(answer.summary).toMatch(/Top 7 picks for this query/i);
+    expect(answer.summary).toMatch(/Top 10 picks for this query/i);
     expect(answer.highlights?.join(" ")).not.toMatch(/Apollo SBI Card SELECT/);
   });
 
@@ -388,12 +388,12 @@ describe("ask ai fallback policy", () => {
     ) as typeof fetch;
 
     const answer = await answerQuestion({ query: "best cashback card" });
-    const rawTopSevenIds = scoreCards({ query: "best cashback card", resultStrategy: "reward-type-split" }).slice(0, 7).map((item) => item.card.id);
+    const rawTopTenIds = scoreCards({ query: "best cashback card", resultStrategy: "reward-type-split" }).slice(0, 10).map((item) => item.card.id);
 
     expect(global.fetch).toHaveBeenCalledTimes(1);
     expect(answer.summary).toMatch(/Kotak Cashback\+/i);
-    expect(answer.cards).toHaveLength(7);
-    expect(answer.cards.map((item) => item.card.id)).toEqual(rawTopSevenIds);
+    expect(answer.cards).toHaveLength(10);
+    expect(answer.cards.map((item) => item.card.id)).toEqual(rawTopTenIds);
   });
 
   it("uses gpt-5-mini summary generation for non-ranking recommendation phrasing when an OpenAI API key is configured", async () => {
@@ -430,10 +430,11 @@ describe("ask ai fallback policy", () => {
     expect(answer.meta?.ai?.calls).toEqual(
       expect.arrayContaining([
         expect.objectContaining({
-          purpose: "answer_summary",
-          schema_name: "grounded_card_answer",
+          purpose: "top_cards_summary",
+          schema_name: "grounded_top_cards_answer",
           primary_provider: "openai",
           provider_used: "openai",
+          fallback_provider: "gemini",
           fallback_used: false,
           success: true
         })
