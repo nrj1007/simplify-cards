@@ -332,13 +332,17 @@ export default function RewardCalculator({ card, milestones = [] }: Props) {
                 <div className="slider-row" key={bucket.id}>
                   <div className="slider-head">
                     <label htmlFor={`calc-${bucket.id}`}>
-                      {bucket.label}
-                      {bucket.displayRate ? (
-                        <span className="calc-tag">{bucket.displayRate}</span>
-                      ) : null}
-                      {excluded && value > 0 ? (
-                        <span className="calc-tag calc-tag-excluded">not rewarded</span>
-                      ) : null}
+                      <span className="slider-label-text">{bucket.label}</span>
+                      {(bucket.displayRate || (excluded && value > 0)) && (
+                        <span className="slider-tags">
+                          {bucket.displayRate && (
+                            <span className="calc-tag">{bucket.displayRate}</span>
+                          )}
+                          {excluded && value > 0 && (
+                            <span className="calc-tag calc-tag-excluded">not rewarded</span>
+                          )}
+                        </span>
+                      )}
                     </label>
                     <span className="slider-value">{formatINR(value)}</span>
                   </div>
@@ -364,10 +368,12 @@ export default function RewardCalculator({ card, milestones = [] }: Props) {
                   <div className="slider-row" key={cat}>
                     <div className="slider-head">
                       <label htmlFor={`calc-${cat}`}>
-                        {CATEGORY_LABELS[cat]}
-                        {excluded && value > 0 ? (
-                          <span className="calc-tag calc-tag-excluded">not rewarded</span>
-                        ) : null}
+                        <span className="slider-label-text">{CATEGORY_LABELS[cat]}</span>
+                        {excluded && value > 0 && (
+                          <span className="slider-tags">
+                            <span className="calc-tag calc-tag-excluded">not rewarded</span>
+                          </span>
+                        )}
                       </label>
                       <span className="slider-value">{formatINR(value)}</span>
                     </div>

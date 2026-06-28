@@ -3450,6 +3450,7 @@ textarea {
   border-radius: var(--radius-md);
   display: grid;
   gap: 12px;
+  min-width: 0;
   padding: 12px;
 }
 
@@ -3479,14 +3480,33 @@ textarea {
 .calc-sliders {
   display: grid;
   gap: 9px;
+  min-width: 0;
 }
 
 .calc-sliders .slider-row {
   gap: 3px;
+  min-width: 0;
 }
 
 .calc-sliders .slider-head label {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
   font-size: 12px;
+  gap: 3px;
+}
+
+.slider-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-top: 2px;
+}
+
+.calc-sliders .calc-tag {
+  margin-left: 0;
+  white-space: normal;
+  word-break: break-word;
 }
 
 .calc-sliders .slider-value {
