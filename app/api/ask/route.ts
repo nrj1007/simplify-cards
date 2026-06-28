@@ -1,8 +1,52 @@
 import { NextResponse } from "next/server";
 import { answerQuestion } from "@/lib/ask-ai";
+import { answerFromCards } from "@/lib/recommend";
 import type { RecommendationInput } from "@/lib/types";
 
 export async function POST(request: Request) {
-  const input = (await request.json()) as RecommendationInput;
-  return NextResponse.json(await answerQuestion(input));
+  let input: RecommendationInput = { query: "" };
+  try {
+    const clonedRequest = request.clone();
+    input = (await clonedRequest.json()) as RecommendationInput;
+  } catch (parseError) {
+    console.error("Failed to parse POST body in /api/ask:", parseError);
+  }
+
+  try {
+    const result = await answerQuestion(input);
+    return NextResponse.json(result);
+  } catch (error) {
+    console.error("Error in /api/ask route handler:", error);
+
+    try {
+      const baseAnswer = answerFromCards(input);
+      return NextResponse.json({
+        ...baseAnswer,
+        summary: "I encountered an error processing your query, but here are the closest matches from our verified database.",
+        highlights: ["Database fallback (AI offline)"],
+        meta: {
+          intent: "unsupported",
+          intentLabel: "Database fallback",
+          confidence: "low",
+          confidenceLabel: "Low",
+          needsFollowUp: true,
+        }
+      });
+    } catch (fallbackError) {
+      console.error("Double failure in /api/ask route handler fallback:", fallbackError);
+      return NextResponse.json({
+        cards: [],
+        summary: "I encountered an issue. Please try again later.",
+        highlights: [],
+        meta: {
+          intent: "unsupported",
+          intentLabel: "No confident match",
+          confidence: "low",
+          confidenceLabel: "Low",
+          needsFollowUp: true,
+        }
+      });
+    }
+  }
 }
+
