@@ -96,10 +96,16 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
                 <nav className="footer-links" aria-label="Footer navigation">
                   <section className="footer-link-group" aria-labelledby="footer-product">
                     <h2 id="footer-product">Product</h2>
-                    <Link href={"/about" as Route}>About / Contact</Link>
                     <Link href="/ask">Ask</Link>
                     <Link href="/recommend">Recommend</Link>
                     <Link href="/compare">Compare</Link>
+                  </section>
+                  <section className="footer-link-group" aria-labelledby="footer-company">
+                    <h2 id="footer-company">Company</h2>
+                    <Link href={"/about" as Route}>About</Link>
+                    <Link href={"/contact" as Route}>Contact us</Link>
+                    <Link href={"/privacy" as Route}>Privacy Policy</Link>
+                    <Link href={"/terms" as Route}>Terms & Conditions</Link>
                   </section>
                   <section className="footer-link-group" aria-labelledby="footer-guides">
                     <h2 id="footer-guides">Popular guides</h2>

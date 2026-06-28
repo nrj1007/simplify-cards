@@ -4,7 +4,7 @@ import { comparisonLastModifiedDate, getSeoComparisonCards, INDEXABLE_SEO_COMPAR
 import { SEO_LANDING_SLUGS } from "@/lib/seo-landing";
 import { buildCanonicalUrl } from "@/lib/seo";
 
-const STATIC_ROUTES = ["/", "/ask", "/recommend", "/finder", "/calculator", "/compare", "/about"];
+const STATIC_ROUTES = ["/", "/ask", "/recommend", "/finder", "/calculator", "/compare", "/about", "/contact", "/privacy", "/terms"];
 const DAILY = "daily" as const;
 const WEEKLY = "weekly" as const;
 

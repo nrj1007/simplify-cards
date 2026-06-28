@@ -1,10 +1,10 @@
-import type { Metadata, Route } from "next";
+import type { Metadata } from "next";
 import Link from "next/link";
 import PageHero from "@/app/ui/PageHero";
 import { buildPageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "About / Contact",
+  title: "About",
   description:
     "Learn how SimplifyCards helps compare Indian credit cards using verified card data, transparent trade-offs, and feedback-driven corrections.",
   path: "/about"
@@ -16,17 +16,11 @@ const PRINCIPLES = [
   "User feedback and manual audits are used to catch stale issuer terms and improve card coverage."
 ];
 
-const CONTACT_REASONS = [
-  "Report outdated fees, rewards, caps, exclusions, lounge rules, or eligibility details.",
-  "Suggest a missing Indian credit card, issuer page, or official terms document.",
-  "Share feedback on rankings, calculator assumptions, Ask results, or comparison pages."
-];
-
 export default function AboutPage() {
   return (
     <div className="page-shell about-page">
       <PageHero
-        eyebrow="About / Contact"
+        eyebrow="About"
         title="Credit-card guidance built around verified details."
         lead="SimplifyCards helps people in India compare credit cards by actual fees, rewards, caps, exclusions, redemption rules, and fit for their spending."
       >
@@ -61,31 +55,9 @@ export default function AboutPage() {
                   <li key={principle}>{principle}</li>
                 ))}
               </ul>
-            </article>
-
-            <article className="panel about-card">
-              <div className="page-eyebrow">Contact</div>
-              <h2>Send corrections and suggestions through the product.</h2>
-              <p>
-                If you spot a stale card detail or a ranking that looks wrong, the fastest path is to open the relevant card, Ask result,
-                calculator, or comparison and share feedback from there. That keeps the report tied to the exact card or query.
+              <p style={{ marginTop: "16px" }}>
+                Questions or corrections? Visit our <Link href="/contact" className="text-link">Contact page</Link>.
               </p>
-              <ul className="about-list">
-                {CONTACT_REASONS.map((reason) => (
-                  <li key={reason}>{reason}</li>
-                ))}
-              </ul>
-              <div className="contact-actions">
-                <Link
-                  className="btn btn-primary"
-                  href={"/ask?query=I%20want%20to%20report%20a%20credit%20card%20data%20correction" as Route}
-                >
-                  Report a correction
-                </Link>
-                <Link className="btn btn-ghost" href="/finder">
-                  Find a card to review
-                </Link>
-              </div>
             </article>
           </section>
 
