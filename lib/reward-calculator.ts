@@ -216,22 +216,23 @@ export function calculatorBucketsForCard(card: CreditCard): CalculatorBucket[] {
 
 export const MORE_CATEGORIES: SpendCategory[] = ["rent", "insurance", "education", "gold", "government"];
 
+function isCategoryCoveredByBuckets(cat: SpendCategory, buckets: CalculatorBucket[]): boolean {
+  return buckets.some((b) =>
+    b.rewards.some((r) => {
+      const rewardCategories = r.category.split(",").map((c) => c.trim().toLowerCase());
+      const aliases = SPEND_ALIASES[cat] || [];
+      const targetCategoryLower = cat.toLowerCase();
+      return (
+        aliases.some((alias) => rewardCategories.includes(alias.toLowerCase())) ||
+        rewardCategories.includes(targetCategoryLower)
+      );
+    })
+  );
+}
+
 export function moreCategoriesForCard(card: CreditCard): SpendCategory[] {
   const buckets = calculatorBucketsForCard(card);
-  return MORE_CATEGORIES.filter((cat) => {
-    const isCoveredByBuckets = buckets.some((b) =>
-      b.rewards.some((r) => {
-        const rewardCategories = r.category.split(",").map((c) => c.trim().toLowerCase());
-        const aliases = SPEND_ALIASES[cat] || [];
-        const targetCategoryLower = cat.toLowerCase();
-        return (
-          aliases.some((alias) => rewardCategories.includes(alias.toLowerCase())) ||
-          rewardCategories.includes(targetCategoryLower)
-        );
-      })
-    );
-    return !isCoveredByBuckets;
-  });
+  return MORE_CATEGORIES.filter((cat) => !isCategoryCoveredByBuckets(cat, buckets));
 }
 
 function findRewardsForCategory(card: CreditCard, category: SpendCategory): Reward[] {
@@ -631,7 +632,7 @@ export function calculateRewardsByBucket(
     if (spend <= 0) continue;
 
     // Check if this category is already handled by a bucket (avoids duplicating)
-    if (buckets.some((b) => b.id === cat)) {
+    if (isCategoryCoveredByBuckets(cat, buckets)) {
       continue;
     }
 

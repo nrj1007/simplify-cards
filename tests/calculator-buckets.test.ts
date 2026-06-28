@@ -157,4 +157,23 @@ describe("calculator buckets", () => {
     expect(baseBucketRow!.monthlySpend).toBe(sumCanonicalSpend);
     expect(baseBucketRow!.monthlyUnits).toBeCloseTo(sumCanonicalUnits, 2);
   });
+
+  it("calculateRewardsByBucket skips MORE_CATEGORIES when covered by a bucket to avoid double-processing", () => {
+    const card = getCardById("au-ixigo");
+    expect(card).toBeTruthy();
+
+    const buckets = calculatorBucketsForCard(card!);
+    const insuranceBucket = buckets.find((b) => b.id === "insurance");
+    expect(insuranceBucket).toBeTruthy();
+
+    const bucketSpend = {
+      insurance: 5000
+    };
+
+    const result = calculateRewardsByBucket(card!, bucketSpend);
+
+    const insuranceRows = result.rows.filter((r) => r.category === "insurance");
+    expect(insuranceRows.length).toBe(1);
+    expect(insuranceRows[0].monthlySpend).toBe(5000);
+  });
 });
