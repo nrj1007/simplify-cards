@@ -103,6 +103,8 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
                   <section className="footer-link-group" aria-labelledby="footer-company">
                     <h2 id="footer-company">Company</h2>
                     <Link href={"/about" as Route}>About</Link>
+                    <Link href={"/methodology" as Route}>How we rate cards</Link>
+                    <Link href={"/disclosure" as Route}>Advertising Disclosure</Link>
                     <Link href={"/contact" as Route}>Contact us</Link>
                     <Link href={"/privacy" as Route}>Privacy Policy</Link>
                     <Link href={"/terms" as Route}>Terms & Conditions</Link>

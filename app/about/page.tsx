@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Route } from "next";
 import Link from "next/link";
 import PageHero from "@/app/ui/PageHero";
 import { buildPageMetadata } from "@/lib/seo";
@@ -56,7 +56,7 @@ export default function AboutPage() {
                 ))}
               </ul>
               <p style={{ marginTop: "16px" }}>
-                Questions or corrections? Visit our <Link href="/contact" className="text-link">Contact page</Link>.
+                Learn more about our scoring algorithm on our <Link href={"/methodology" as Route} className="text-link">Methodology page</Link>, or visit our <Link href={"/contact" as Route} className="text-link">Contact page</Link> if you spot an error.
               </p>
             </article>
           </section>
