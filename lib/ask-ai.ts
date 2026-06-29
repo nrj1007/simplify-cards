@@ -596,7 +596,7 @@ function isTopBestCardsQuery(query?: string) {
   return /\b(top|best|recommend|recommended|suggest)\b/.test(normalized) && /\bcards?\b/.test(normalized);
 }
 
-function buildFallbackSummary(input: RecommendationInput, shortlistedCards: CardScore[]) {
+export function buildFallbackSummary(input: RecommendationInput, shortlistedCards: CardScore[]) {
   const topCard = shortlistedCards[0];
   if (!topCard) {
     return "I could not find a good match for that question.";

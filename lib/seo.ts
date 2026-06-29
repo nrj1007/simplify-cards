@@ -24,7 +24,8 @@ export function buildCanonicalUrl(path: string) {
 }
 
 export function buildOpenGraphImages(imageUrl?: string) {
-  return imageUrl ? [{ url: absoluteUrl(imageUrl) }] : undefined;
+  const finalImageUrl = imageUrl || "/opengraph-image";
+  return [{ url: absoluteUrl(finalImageUrl) }];
 }
 
 export function buildPageMetadata({
@@ -57,10 +58,10 @@ export function buildPageMetadata({
       images
     },
     twitter: {
-      card: images?.length ? "summary_large_image" : "summary",
+      card: "summary_large_image",
       title,
       description,
-      images: images?.map((image) => image.url)
+      images: images.map((image) => image.url)
     }
   };
 }

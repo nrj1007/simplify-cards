@@ -3,7 +3,7 @@ Reviewed: 2026-05-30. Issues ordered by impact.
 
 ## Critical
 
-- [ ] **#1 — Ask 500s in production.** AI env vars not set in Vercel. Also: route should never hard-500; wrap the AI call so a failed connection still renders a deterministic answer or a graceful fallback instead of a raw error screen.
+- [x] **#1 — Ask 500s in production.** AI env vars not set in Vercel. Also: route should never hard-500; wrap the AI call so a failed connection still renders a deterministic answer or a graceful fallback instead of a raw error screen.
 
 - [x] **#2 — Default example query returns "no matching cards".** Replaced with empty textarea + placeholder + 4 example query chips linking to /ask?query=… The prefilled Ask query ("Best card for online shopping and lounge access under Rs 5000 fee") logs as an Unsupported Question. First impression is "the product is broken." Fix: either change default to a query the engine answers well, fix matching so this obvious query returns real results, or activate the intended fallback path.
 
