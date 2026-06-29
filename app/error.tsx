@@ -23,8 +23,8 @@ export default function ErrorBoundary({
         title="Something went wrong."
         lead="An unexpected error occurred while rendering this page. We have logged the details and will look into it."
       >
-        <div className="about-hero-actions" style={{ display: "flex", gap: "12px", marginTop: "24px" }}>
-          <button className="btn btn-primary" onClick={() => reset()} style={{ cursor: "pointer" }}>
+        <div className="about-hero-actions">
+          <button className="btn btn-primary btn-pointer" onClick={() => reset()}>
             Try again
           </button>
           <Link className="btn btn-ghost" href="/">
@@ -34,10 +34,10 @@ export default function ErrorBoundary({
       </PageHero>
 
       <div className="page-content">
-        <div className="container" style={{ maxWidth: "600px", margin: "0 auto" }}>
-          <div className="panel" style={{ textAlign: "center", padding: "40px 20px" }}>
+        <div className="container message-page-container">
+          <div className="panel message-page-panel">
             <h2>Need assistance?</h2>
-            <p style={{ margin: "16px 0 24px" }}>
+            <p className="message-page-text">
               If you keep seeing this message, please let us know about the issue by reporting it through our contact page.
             </p>
             <div>

@@ -5284,3 +5284,31 @@ textarea {
     grid-template-columns: 1fr;
   }
 }
+
+/* =========================================================
+   Message / Error / NotFound Pages
+   ========================================================= */
+
+.message-page-container {
+  max-width: 600px;
+}
+
+.message-page-panel {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.message-page-text {
+  margin: 16px 0 24px;
+}
+
+.message-page-links {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+
+.btn-pointer {
+  cursor: pointer;
+}
+
