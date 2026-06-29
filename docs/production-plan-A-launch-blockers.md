@@ -89,3 +89,8 @@ Use Next 16 file-based metadata (zero config wiring):
    in a social debugger (or curl the `/opengraph-image` route).
 7. `npm run build` then `npm run lint` — must pass.
 8. Commit and push to `main` per the repo workflow.
+
+## Historical Note on Ask API Fallback
+> [!NOTE]
+> The Ask API fallback implementation (wrapping `/api/ask` with try-catch and returning a local database fallback on AI failures) is entangled within the same commits for Plan A. While it was originally conceived as the first iteration of Plan A (and subsequently reverted), its implementation was preserved alongside the new Plan A release assets for safety and robustness.
+
