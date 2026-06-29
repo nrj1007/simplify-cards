@@ -1,4 +1,4 @@
-import type { Metadata, Route } from "next";
+import type { Metadata } from "next";
 import Link from "next/link";
 import PageHero from "@/app/ui/PageHero";
 import { buildPageMetadata } from "@/lib/seo";
@@ -57,14 +57,11 @@ export default function ContactPage() {
                 ))}
               </ul>
               <div className="contact-actions">
-                <Link
-                  className="btn btn-primary"
-                  href={"/ask?query=I%20want%20to%20report%20a%20credit%20card%20data%20correction" as Route}
-                >
+                <Link className="btn btn-primary" href="/finder">
                   Report a correction
                 </Link>
-                <Link className="btn btn-ghost" href="/finder">
-                  Find a card to review
+                <Link className="btn btn-ghost" href="/ask">
+                  Open Ask
                 </Link>
               </div>
             </article>
