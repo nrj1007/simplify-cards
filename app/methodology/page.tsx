@@ -78,7 +78,7 @@ export default function MethodologyPage() {
               <ul className="about-list">
                 <li>
                   <strong>Net Annual Value (NAV):</strong> We calculate the actual monetary value you would receive in a year in rupees:
-                  <div style={{ margin: "8px 0", fontStyle: "italic", color: "var(--navy)" }}>
+                  <div className="methodology-formula">
                     Net Value = (Annual Reward Points Value + Milestone Benefits) - (Annual Fees)
                   </div>
                   This calculation includes joining benefits, factors in renewal fee waivers (if your spend exceeds the waiver threshold), and applies correct redemption rates for cash, statement credit, or travel points.
@@ -95,11 +95,11 @@ export default function MethodologyPage() {
               <p>
                 Our recommendation engine (<code>scoreCards</code>) does not use a one-size-fits-all formula. It analyzes the intent behind your query and routes it to specialized ranking modes:
               </p>
-              <div style={{ display: "grid", gap: "20px", marginTop: "16px" }}>
+              <div className="methodology-modes">
                 {RANKING_MODES.map((mode) => (
-                  <div key={mode.title} style={{ borderLeft: "3px solid var(--brand-strong)", paddingLeft: "12px" }}>
-                    <h3 style={{ margin: "0 0 4px", fontSize: "16px", color: "var(--navy)", fontWeight: 700 }}>{mode.title}</h3>
-                    <p style={{ margin: 0, fontSize: "14px", lineHeight: "1.5" }}>{mode.description}</p>
+                  <div key={mode.title} className="methodology-mode">
+                    <h3>{mode.title}</h3>
+                    <p>{mode.description}</p>
                   </div>
                 ))}
               </div>
@@ -112,7 +112,7 @@ export default function MethodologyPage() {
               <p>
                 We believe in full transparency. Alongside headline benefits, SimplifyCards explicitly surfaces the details that matter most:
               </p>
-              <div className="about-pill-list" style={{ marginTop: "12px" }}>
+              <div className="about-pill-list methodology-pills">
                 <span>Annual & Joining Fees</span>
                 <span>Renewal Fee Waivers</span>
                 <span>Exclusion Categories</span>
@@ -130,8 +130,8 @@ export default function MethodologyPage() {
               <p>
                 If you spot a stale term, an incorrect rate, or a missing card, please let us know so we can fix it.
               </p>
-              <div style={{ marginTop: "16px" }}>
-                <Link href={"/contact" as Route} className="text-link" style={{ marginRight: "16px" }}>
+              <div className="methodology-footer-links">
+                <Link href={"/contact" as Route} className="text-link">
                   Report Correction
                 </Link>
                 <Link href={"/about" as Route} className="text-link">

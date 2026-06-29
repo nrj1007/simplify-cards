@@ -5312,3 +5312,47 @@ textarea {
   cursor: pointer;
 }
 
+/* =========================================================
+   Methodology page
+   ========================================================= */
+
+.methodology-formula {
+  margin: 8px 0;
+  font-style: italic;
+  color: var(--navy);
+}
+
+.methodology-modes {
+  display: grid;
+  gap: 20px;
+  margin-top: 16px;
+}
+
+.methodology-mode {
+  border-left: 3px solid var(--brand-strong);
+  padding-left: 12px;
+}
+
+.methodology-mode h3 {
+  margin: 0 0 4px;
+  font-size: 16px;
+  color: var(--navy);
+  font-weight: 700;
+}
+
+.methodology-mode p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.methodology-pills {
+  margin-top: 12px;
+}
+
+.methodology-footer-links {
+  display: flex;
+  gap: 16px;
+  margin-top: 16px;
+}
+

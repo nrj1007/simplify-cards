@@ -26,7 +26,7 @@ export default function DisclosurePage() {
 
               <h3>1. Affiliate Partnerships and Links</h3>
               <p>
-                SimplifyCards is an independent, user-supported comparison platform. To keep our tools and grounded Q&A completely free to use, we partner with credit card issuers and affiliate networks. Some of the links on this website are affiliate links (typically indicated by buttons like &ldquo;Apply&rdquo; or partner referrals).
+                SimplifyCards is an independent, user-supported comparison platform. To keep our tools and grounded Q&A completely free to use, we may partner with credit card issuers and affiliate networks. Where we do, some of the links on this website may be affiliate links (typically indicated by buttons like &ldquo;Apply&rdquo; or partner referrals).
               </p>
               <p>
                 If you click on an affiliate link and are subsequently approved for a credit card, we may receive a commission or referral fee from the card issuer. This compensation comes at no additional cost to you.
