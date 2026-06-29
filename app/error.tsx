@@ -1,5 +1,6 @@
 "use client";
 
+import type { Route } from "next";
 import { useEffect } from "react";
 import Link from "next/link";
 import PageHero from "@/app/ui/PageHero";
@@ -41,7 +42,7 @@ export default function ErrorBoundary({
               If you keep seeing this message, please let us know about the issue by reporting it through our contact page.
             </p>
             <div>
-              <Link href="/contact" className="text-link">Contact Support</Link>
+              <Link href={"/contact" as Route} className="text-link">Contact Support</Link>
             </div>
           </div>
         </div>
