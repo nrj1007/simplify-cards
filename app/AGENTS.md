@@ -9,8 +9,12 @@ components.
 layout.tsx        Root chrome: .app-shell > sticky .navbar (.nav-links) + <main> + .footer
 globals.css       The entire design system + every component style (no CSS framework)
 page.tsx          Landing
-ask/  recommend/  compare/  calculator/  finder/  cards/[id]/  review/   Page routes
-api/              Route handlers: ask, cards, recommend, feedback, debug-ranking
+ask/  recommend/  compare/(tool)/  compare/[pair]/  calculator/  finder/  cards/[id]/
+best-*/           SEO landing pages (10 slugs, driven by lib/seo-landing.ts)
+feedback/         User feedback form
+methodology/  disclosure/  about/  contact/  privacy/  terms/   Editorial/legal pages
+review/           Internal review tooling (questions, community, inbox)
+api/              Route handlers: ask, cards, recommend, feedback, analytics, debug-ranking
 ui/               Shared components
 ```
 
@@ -20,6 +24,10 @@ ui/               Shared components
   `<PageHero …/>` → `<section className="page-content"><div className="container">…`.
 - **`AskBox.tsx`** — the ask input; `variant="default" | "hero"` (the hero variant is the landing
   search with prompt chips).
+- **`AskQueryForm.tsx`** *(client)* — controlled form wrapping `AskBox` for the `/ask` page;
+  manages query state and submission.
+- **`AskResultsLoadingBoundary.tsx`** *(client)* — Suspense-style loading shell for ask results
+  while the API call is in flight.
 - **`RewardCalculator.tsx`** *(client)* — the real per-card reward/value calculator (category
   sliders → points, rupee value across redemption options, milestones). Reused on the card detail
   page and `/calculator`. Don't reimplement reward math in pages — pass `card` + `milestones`
@@ -34,6 +42,18 @@ ui/               Shared components
 - **`CardTile.tsx`**, **`LoungeInfo.tsx`**, **`AskFeedback.tsx`** *(client)*,
   **`VerificationBadge.tsx`** — card grid tile, lounge-conditions popover, 👍/👎 feedback, and the
   data-verification badge.
+- **`CardImageFallback.tsx`** — renders a placeholder when a card image is missing.
+- **`FinderFilterForm.tsx`** *(client)* — the filter controls for `/finder` (issuer, use-case, max
+  fee dropdowns); drives URL search params.
+- **`NavigationProgress.tsx`** *(client)* — thin top progress bar shown during route transitions.
+- **`TrackedLink.tsx`** *(client)* — `<a>` wrapper that fires an analytics event before navigating;
+  use for apply / details links instead of bare `<a>`.
+- **`AnalyticsMount.tsx`** *(client)* — renders once in the root layout; bootstraps the client-side
+  analytics session and fires `page_view` on route changes via `lib/analytics-client.ts`.
+- **`SeoLandingPage.tsx`** — shared render component for all `/best-*` SEO landing pages; driven
+  by a `SeoLandingConfig` from `lib/seo-landing.ts`.
+- **`SeoComparisonPage.tsx`** — shared render component for `/compare/[pair]` SEO pages; driven
+  by a `SeoComparisonConfig` from `lib/seo-comparisons.ts`.
 
 ## Design system (in `globals.css`)
 - **Palette / tokens** at `:root`: cream/teal/navy (`--cream`, `--teal`, `--navy`, `--gold`,
@@ -62,5 +82,6 @@ ui/               Shared components
 
 ## API routes (`app/api/*/route.ts`)
 `ask` (POST → `answerQuestion`), `cards` (GET list), `recommend` (POST → scored results),
-`feedback` (POST, logged to `data/`), `debug-ranking` (dev introspection). They return the
-trimmed DTOs from `lib/`, keeping the full curated dataset server-side.
+`feedback` (POST, logged to `data/`), `analytics` (POST, logged via `lib/analytics-logs.ts`),
+`debug-ranking` (dev introspection). They return trimmed DTOs from `lib/`, keeping the full
+curated dataset server-side.

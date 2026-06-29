@@ -1,56 +1,37 @@
-# Card AI India
+# SimplifyCards — Card AI India
 
-Lean Next.js MVP for an Indian credit-card discovery and Q&A product.
+A Next.js app for Indian credit-card discovery, comparison, and grounded Q&A at
+[simplifycards.in](https://www.simplifycards.in).
 
-## What is included
-
-- In-memory credit card data from issuer files under `data/cards/`
-- Deterministic recommendation logic in `lib/recommend.ts`
-- Home page with ask interface
-- Card finder page
-- Card comparison page
-- Static card detail pages
-- API routes:
-  - `POST /api/ask`
-  - `GET /api/cards`
-- Ad placeholders and affiliate link fields
+- 209 manually-verified cards across all major Indian issuers
+- Spend-based recommendation engine with rupee-value scoring
+- Per-card reward calculator with category caps and milestones
+- Grounded Q&A: answers come from the verified card dataset, never hallucinated
+- SEO landing pages, card comparisons, and card detail pages
 
 ## Run locally
 
 ```bash
 npm install
-npm run dev
+npm run dev     # http://localhost:3001  (Claude worktree port)
+npm run build
+npm test        # vitest
+npm run lint
+npm run validate:cards
 ```
 
-Then open:
+> **Turbopack issues on Windows/ARM:** use `next dev --webpack`. If `.next` cache is corrupt,
+> delete `.next/dev/cache` (or all of `.next`) and restart.
 
-```text
-http://localhost:3000
+## Project structure
+
+```
+app/        Next.js App Router — pages, API routes, UI components   (see app/AGENTS.md)
+lib/        Server-side engine: data, scoring, Q&A, SEO, analytics  (see lib/AGENTS.md)
+data/       Card JSON files + generated logs (one JSON per card)
+scripts/    Maintenance / ingestion scripts
+tests/      Vitest unit tests (one per lib module)
+skills/     Agent skills (verify-card-details, community-signals, …)
 ```
 
-This workspace also includes a portable Node.js install under `tools/node`. If global `npm` is not available on Windows, use:
-
-```powershell
-.\tools\node\npm.cmd install
-.\scripts\dev.ps1
-```
-
-## MVP design
-
-The AI should not be the source of truth. The intended flow is:
-
-```text
-data/cards/*.json
-  -> deterministic filtering/scoring
-  -> top matching cards
-  -> AI explanation layer
-  -> user answer with caveats and apply links
-```
-
-## Next steps
-
-1. Replace the sample cards with verified Indian credit-card data.
-2. Add real affiliate URLs in `applyUrl`.
-3. Add OpenAI integration inside `app/api/ask/route.ts`.
-4. Add analytics for apply clicks and page views.
-5. Add a manual card update workflow before adding scrapers.
+See **`AGENTS.md`** for the full route map, data model, and conventions.

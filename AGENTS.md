@@ -1,8 +1,9 @@
 # Card AI India — project guide
 
-A Next.js app for **Indian credit-card discovery, comparison, and grounded Q&A**. It holds
-~209 manually-verified cards and helps a user find, compare, and decide on a card based on
-their spending — then explains the fees, rewards, caps, and trade-offs.
+**SimplifyCards** (`simplifycards.in`) — a Next.js app for **Indian credit-card discovery,
+comparison, and grounded Q&A**. It holds 209 manually-verified cards and helps a user find,
+compare, and decide on a card based on their spending — then explains the fees, rewards, caps,
+and trade-offs.
 
 ## Core principle (read this first)
 **The AI is never the source of truth.** Every answer, ranking, and recommendation is grounded
@@ -56,12 +57,23 @@ tests/          Vitest unit tests (one per lib module)
 | `/` | Landing — value prop, hero AskBox, how-it-works, use-cases, popular cards, trust |
 | `/ask` | Grounded Q&A — exact card, ranked matches, comparisons, honest "no result" |
 | `/recommend` | Spend-based recommender — sliders → ranked cards by net value after fees |
-| `/compare` | Two-card side-by-side (`?a=<id>&b=<id>`) |
+| `/compare/(tool)` | Interactive two-card side-by-side tool (`?a=<id>&b=<id>`) |
+| `/compare/[pair]` | Static SEO comparison pages for pre-defined card pairs |
 | `/calculator` | Standalone reward calculator with bank→card pickers (`?card=<id>`) |
 | `/finder` | Filter cards by issuer / use-case / max fee |
 | `/cards/[id]` | Card detail page (statically generated for every card) |
+| `/best-*-india`, `/best-*` | SEO landing pages (10 pre-defined slugs, e.g. `/best-credit-cards-india`) |
+| `/feedback` | User feedback submission page |
+| `/methodology` | How scoring and recommendations work (editorial page) |
+| `/disclosure` | Affiliate/editorial disclosure |
+| `/about`, `/contact`, `/privacy`, `/terms` | Legal / informational footer pages |
 | `/review/*` | Internal review tooling (questions, community, inbox) |
-| `POST /api/ask`, `GET /api/cards`, `POST /api/recommend`, `POST /api/feedback`, `/api/debug-ranking` | JSON endpoints backing the pages |
+| `POST /api/ask` | Q&A endpoint (`answerQuestion`) |
+| `GET /api/cards` | Card list endpoint |
+| `POST /api/recommend` | Scored recommendation endpoint |
+| `POST /api/feedback` | User feedback log |
+| `POST /api/analytics` | Client-side analytics event ingestion |
+| `GET /api/debug-ranking` | Dev introspection for ranking |
 
 ## Data model
 - **One JSON file per card** under `data/cards/<issuer>/<card-id>.json` (a single object, not

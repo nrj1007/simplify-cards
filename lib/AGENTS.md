@@ -19,7 +19,18 @@ calls the AI provider. The AI is used only to phrase/resolve, never as the sourc
   every card JSON must satisfy.
 - **`card-content.ts`** — editorial tips/updates from `data/card-content.json` (not part of the
   card schema).
+- **`card-links.ts`** — resolves the correct apply/affiliate URL for a card (`applyUrl` vs
+  `affiliateUrl`); centralises the affiliate vs non-affiliate link decision.
+- **`card-usp.ts`** — `getCardUsp(card)`: one-line marketing USP for a card. Returns a curated
+  string for popular cards, otherwise synthesises a short line from the card's fields. Shared by
+  `/ask` results and the `/recommend` DTO.
 - **`exclusion-constants.ts`** — exclusion code ↔ spend-category mapping.
+- **`equitas-privilege.ts`** — Equitas Privilege tier definitions (Blue / Silver / Gold / Platinum
+  / Diamond) for the Equitas Privilege card's tier-based reward model.
+- **`reward-rate-parse.ts`** — `parseDisplayRate()`: parses human `displayRate` strings
+  (e.g. `"72 Reward Points / Rs 200 spent"`) back to a numeric earn rate (units per ₹100).
+  Used only by maintenance scripts and the card validator — the runtime engines use `reward.rate`
+  directly.
 
 ## Recommendation / scoring engine
 - **`recommend.ts`** — the scoring core. `scoreCards(input)` returns all cards scored & sorted;
@@ -47,6 +58,12 @@ calls the AI provider. The AI is used only to phrase/resolve, never as the sourc
     - **UPI** (`shouldRestrictToUpiCards`) — restricts to UPI/RuPay cards; per-card reward economics
       pick the best option (base vs a paid membership, e.g. Kiwi Neon `paidRewardOptions`) via
       `bestRewardEconomicsForCard`.
+- **`ranking-strategies.ts`** — `RankingStrategy` type and the two named strategies:
+  `"absolute-blend"` (weighted average over spend levels) and `"max-yield"` (best single spend
+  level per card). `scoreCards` selects between these based on the query intent.
+- **`result-strategies.ts`** — `ResultStrategy` type: controls how the already-ranked card list
+  is **presented**. `"single-list"` returns one flat list; `"reward-type-split"` partitions into
+  titled sections (e.g. points vs cashback). Orthogonal to ranking strategy.
 - **`recommend-result.ts`** — maps a full `CardScore` to the trimmed `RecommendResult` DTO sent
   to the browser (keeps the curated dataset server-side). Computes next-milestone / fee-waiver
   gaps.
@@ -72,6 +89,33 @@ calls the AI provider. The AI is used only to phrase/resolve, never as the sourc
   `deriveExclusionsAndCaps`, `findAlternativeCards`/`alternativeIntent`. All rule-based over
   existing fields; each returns empty/null when there's no signal so the page can hide the
   section. No AI, no new schema.
+
+## SEO / metadata
+- **`seo.ts`** — shared constants (`SITE_NAME = "SimplifyCards"`, `SITE_URL`) and helpers:
+  `buildCanonicalUrl`, `buildOpenGraphImages`, `buildPageMetadata`. Import this instead of
+  hardcoding site strings.
+- **`seo-landing.ts`** — `SeoLandingConfig` type and `SEO_LANDINGS` array (10 pre-defined slugs,
+  e.g. `best-credit-cards-india`). `selectCardsForLanding`, `selectSectionsForLanding`,
+  `buildSeoLandingMetadata`, and `buildLandingJsonLd` power the `/best-*` pages.
+- **`seo-comparisons.ts`** — `SeoComparisonConfig` type and `SEO_COMPARISONS` array for
+  `/compare/[pair]` static pages. `getSeoComparison`, `getSeoComparisonCards`,
+  `comparisonDisplayName`, and `buildComparisonJsonLd` power those pages.
+
+## Analytics
+- **`analytics.ts`** — shared types and constants: `AnalyticsEventName`, `AnalyticsEventPayload`,
+  `StoredAnalyticsEvent`. The event registry lives here (e.g. `ask_query_submitted`,
+  `apply_clicked`). Import from here for type safety — never hardcode event name strings.
+- **`analytics-client.ts`** *(client)* — session management (UUID in `sessionStorage`) and
+  `trackEvent(payload)` (POSTs to `/api/analytics`). Import this only in client components.
+- **`analytics-events.ts`** — server-side helpers that build typed `AnalyticsEventPayload`
+  objects for common events (e.g. `buildAskResultEvent`, `buildApplyClickEvent`). Pages call
+  these to assemble payloads; `analytics-client.ts` sends them.
+- **`analytics-logs.ts`** — server-side log persistence: appends `StoredAnalyticsEvent` records
+  to a JSONL file under `data/`. Called only from `POST /api/analytics`.
+
+## Utility
+- **`loading-copy.ts`** — copy strings for per-page loading states (titles and subtitles shown
+  while API calls are in flight). Centralised so UX copy can be updated in one place.
 
 ## Logs & ingestion
 - **`question-logs.ts`**, **`feedback-logs.ts`** — append-only logs (unsupported questions, page
