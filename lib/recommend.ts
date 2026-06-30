@@ -1,4 +1,23 @@
 import { cards } from "./cards";
+import {
+  CASHBACK_BLEND_SPEND_LEVELS,
+  CASHBACK_BLEND_WEIGHTS,
+  CASHBACK_POPULARITY_WEIGHT,
+  CATEGORY_FOCUS_MULTIPLIERS,
+  CATEGORY_FOCUS_SPEND_SHARE,
+  EQUAL_BLEND_WEIGHTS,
+  LOW_FEE_BLEND_WEIGHTS,
+  POPULARITY_RANKING_WEIGHT,
+  RELEVANCE_WEIGHT_BROAD_GENERIC,
+  RELEVANCE_WEIGHT_DEFAULT,
+  RELEVANCE_WEIGHT_EXACT_MATCH,
+  SPLIT_ORDER_REWARD_SPEND_LEVELS,
+  SPLIT_ORDER_REWARD_WEIGHTS,
+  UPI_BLEND_SPEND_LEVELS,
+  UPI_BLEND_WEIGHTS,
+  UTILITY_BLEND_SPEND_LEVELS,
+  UTILITY_BLEND_WEIGHTS
+} from "./ranking-config";
 import { rankingStrategies, DEFAULT_RANKING_STRATEGY } from "./ranking-strategies";
 import { resultStrategies, DEFAULT_RESULT_STRATEGY, isPrimaryCashbackCard } from "./result-strategies";
 import type { ResultSection } from "./result-strategies";
@@ -112,24 +131,8 @@ export const defaultSpendProfile: SpendProfile = {
 const defaultTopCardCount = 3;
 const joiningBenefitAmortizationYears = 2;
 
-// Scoring stage weights: relevance (text/identity match) vs value (economic/preference fit)
-const relevanceWeightExactMatch = 1.0;
-const relevanceWeightBroadGeneric = 0.3;
-const relevanceWeightDefault = 0.5;
-
-// Popularity prior added to every card's score (popularityScore is ~50–100, so ~2,500–5,000).
-const popularityRankingWeight = 50;
-
-// Broad "best card" ranking blends each card's score across fixed light/mid/heavy/very-heavy
-// annual-spend levels (instead of cherry-picking its single most-flattering tier, which let low-fee
-// cards' yield blow up at trivial spend). A card must hold up across the range to rank high. The
-// Rs 30L tier lets super-premium cards (e.g. Magnus Burgundy) that only pull ahead at very high
-// spend show that strength instead of being capped at the Rs 20L tier.
-const blendAnnualSpendLevels = [300000, 1000000, 2000000, 3000000]; // Rs 25k, 83k, 167k, 250k per month (annually)
-// Weights for the envelope blend, aligned index-for-index with blendAnnualSpendLevels. Equal
-// weight across all levels: a reward card must hold up across the whole light→very-heavy range to
-// rank high, with no single spend level (trivial or heavy) dominating the blended score.
-const blendAnnualSpendLevelWeights = [1, 1, 1, 1];
+// Ranking/blend tuning knobs (relevance weights, popularity priors, spend levels and blend
+// weights) live in ./ranking-config — imported above and the single source of truth.
 
 // Representative monthly spend for each segment tier. A segment query implies a spend/income level,
 // so instead of the envelope blend we score segment queries at the tier's typical spend (the default
@@ -581,7 +584,7 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
       tagBoost;
 
     // Non-economic preference and penalty signals shared by both scoring paths
-    const cardPopularityWeight = isPrimaryCashbackCard({ card } as CardScore) ? 15 : popularityRankingWeight;
+    const cardPopularityWeight = isPrimaryCashbackCard({ card } as CardScore) ? CASHBACK_POPULARITY_WEIGHT : POPULARITY_RANKING_WEIGHT;
     const sharedBoosts =
       useCaseBoost +
       redemptionBoost +
@@ -596,9 +599,9 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
 
     // Query-type-dependent blending
     const isExactCardLookup = cardNameBoost >= exactCardNameMatchThreshold;
-    const relevanceWeight = isExactCardLookup ? relevanceWeightExactMatch
-      : broadGenericRanking ? relevanceWeightBroadGeneric
-      : relevanceWeightDefault;
+    const relevanceWeight = isExactCardLookup ? RELEVANCE_WEIGHT_EXACT_MATCH
+      : broadGenericRanking ? RELEVANCE_WEIGHT_BROAD_GENERIC
+      : RELEVANCE_WEIGHT_DEFAULT;
     const fitScore = valueScore + relevanceWeight * relevanceScore;
 
     const scoreReasons: ScoreReason[] = [];
@@ -643,7 +646,7 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
     addScoreReason("relevance:tag", "Tag relevance", relevanceWeight * tagBoost);
 
     // Per-level fit score for envelope ranking; the aggregation step blends these across the fixed
-    // light/mid/heavy spend levels (see blendAnnualSpendLevels) so absolute rupee value drives the
+    // light/mid/heavy spend levels (see REWARD_BLEND_SPEND_LEVELS in ranking-config) so absolute rupee value drives the
     // ranking without a single low-spend tier being able to dominate.
     const normalizedFitScore = envelopeMonthlySpend ? fitScore : undefined;
 
@@ -696,32 +699,31 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
 
       if (focusedCategory) {
         const baseAmount = categoryFocusMonthlySpend[focusedCategory] ?? 8000;
-        const multipliers = [0.5, 1.0, 2.0];
-        const perLevel = multipliers.map((mult) => {
+        const perLevel = CATEGORY_FOCUS_MULTIPLIERS.map((mult) => {
           const focusSpendAmount = baseAmount * mult;
           const monthlySpendProfile = categoryFocus75_25SpendProfile(focusedCategory, focusSpendAmount, defaultSpendProfile);
           const totalMonthlySpend = monthlySpendTotal(monthlySpendProfile);
           return scoreCardForSpend(card, monthlySpendProfile, totalMonthlySpend);
         });
         const representative = perLevel.reduce((best, score) => (strategy.perLevelScore(score) > strategy.perLevelScore(best) ? score : best));
-        const blendedFitScore = perLevel.reduce((sum, score) => sum + strategy.perLevelScore(score), 0) / 3;
+        const blendedFitScore = perLevel.reduce((sum, score) => sum + strategy.perLevelScore(score), 0) / CATEGORY_FOCUS_MULTIPLIERS.length;
 
         let splitOrderScore: number | undefined = undefined;
         const isSplitBlend = input.resultStrategy === "reward-type-split";
         if (isSplitBlend) {
           const cardEarnsCashback = /cashback/i.test(card.rewardType ?? "");
           const orderLevels = cardEarnsCashback
-            ? [100000, 200000, 300000, 500000]
-            : [120000, 300000, 600000];
+            ? CASHBACK_BLEND_SPEND_LEVELS
+            : SPLIT_ORDER_REWARD_SPEND_LEVELS;
           const perLevel = orderLevels.map((annualSpend) => {
             const monthlySpend = Math.round(annualSpend / 12);
-            const focusSpendAmount = monthlySpend * 0.75;
+            const focusSpendAmount = monthlySpend * CATEGORY_FOCUS_SPEND_SHARE;
             const monthlySpendProfile = categoryFocus75_25SpendProfile(focusedCategory, focusSpendAmount, defaultSpendProfile);
             return scoreCardForSpend(card, monthlySpendProfile, monthlySpend);
           });
           const splitWeights = cardEarnsCashback
-            ? [1.3, 1.2, 1.1, 1]
-            : [1.5, 1.25, 1];
+            ? CASHBACK_BLEND_WEIGHTS
+            : SPLIT_ORDER_REWARD_WEIGHTS;
           const splitWeightSum = splitWeights.reduce((sum, w) => sum + w, 0);
           splitOrderScore =
             perLevel.reduce((total, score, i) => total + strategy.perLevelScore(score) * splitWeights[i], 0) / splitWeightSum;
@@ -743,7 +745,7 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
       // Score the card at each fixed light/mid/heavy spend level and blend the per-level fit scores
       // into the ranking key. The card is displayed at its strongest of these levels, but ranked on
       // its all-round performance — so no single trivial-spend tier can inflate it. The blend is a
-      // weighted average leaning toward higher-spend levels (see blendAnnualSpendLevelWeights).
+      // weighted average (see REWARD_BLEND_WEIGHTS in ranking-config).
       let spendLevels = strategy.spendLevels;
       const isCashbackBlendCard = isPrimaryCashbackCard({ card } as CardScore);
       // Broad split+blend: cashback and rewards cards are ordered within their respective *sections* by
@@ -754,20 +756,20 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
       // cashback card on a realistic low/mid spend basis — not just in "best cashback card" queries —
       // so the high reward-card spend levels apply to reward cards only.
       if (isCashbackBlendCard) {
-        spendLevels = [100000, 200000, 300000, 500000];
+        spendLevels = CASHBACK_BLEND_SPEND_LEVELS;
       } else if (restrictToUpiCards) {
-        spendLevels = [100000, 200000, 300000];
+        spendLevels = UPI_BLEND_SPEND_LEVELS;
       } else if (isUtilityLikeCategory) {
-        spendLevels = [100000, 200000, 300000];
+        spendLevels = UTILITY_BLEND_SPEND_LEVELS;
       }
 
       let spendWeights = strategy.spendWeights;
       if (isCashbackBlendCard) {
-        spendWeights = [1.3, 1.2, 1.1, 1];
+        spendWeights = CASHBACK_BLEND_WEIGHTS;
       } else if (restrictToUpiCards) {
-        spendWeights = [2, 1.5, 1];
+        spendWeights = UPI_BLEND_WEIGHTS;
       } else if (isUtilityLikeCategory) {
-        spendWeights = [1, 1, 1]; // Equal weight
+        spendWeights = UTILITY_BLEND_WEIGHTS;
       } else {
         const totalAnnualSpend = input.spend ? annualSpendTotal(input.spend) : 0;
 
@@ -783,9 +785,9 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
           (input.spend !== undefined && totalAnnualSpend > 300000 && totalAnnualSpend < 1000000);
 
         if (isLowFee) {
-          spendWeights = [1.75, 1.5, 1.25, 1];
+          spendWeights = LOW_FEE_BLEND_WEIGHTS;
         } else if (isEqualWeight) {
-          spendWeights = [1, 1, 1, 1];
+          spendWeights = EQUAL_BLEND_WEIGHTS;
         }
       }
       const perLevel = spendLevels.map((annualSpend) => {
@@ -805,15 +807,15 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
       if (isSplitBlend) {
         const cardEarnsCashback = /cashback/i.test(card.rewardType ?? "");
         const orderLevels = cardEarnsCashback
-          ? [100000, 200000, 300000, 500000]
-          : [120000, 300000, 600000];
+          ? CASHBACK_BLEND_SPEND_LEVELS
+          : SPLIT_ORDER_REWARD_SPEND_LEVELS;
         const perLevel = orderLevels.map((annualSpend) => {
           const monthlySpend = Math.round(annualSpend / 12);
           return scoreCardForSpend(card, scaleSpendProfileToMonthly(spend, monthlySpend), monthlySpend);
         });
         const splitWeights = cardEarnsCashback
-          ? [1.3, 1.2, 1.1, 1]
-          : [1.5, 1.25, 1];
+          ? CASHBACK_BLEND_WEIGHTS
+          : SPLIT_ORDER_REWARD_WEIGHTS;
         const splitWeightSum = splitWeights.reduce((sum, w) => sum + w, 0);
         splitOrderScore =
           perLevel.reduce((total, score, i) => total + strategy.perLevelScore(score) * splitWeights[i], 0) / splitWeightSum;

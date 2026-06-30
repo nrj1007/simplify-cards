@@ -186,6 +186,7 @@
   <h2>5. Appendix — file &amp; function map</h2>
   <table>
     <tr><th style="width:260px">File</th><th>Role in ranking</th></tr>
+    <tr><td class="k">lib/ranking-config.ts</td><td><strong>Single source of truth</strong> for all blend tuning knobs: spend levels &amp; weights (reward / cashback / UPI / utility / low-fee / split-order), relevance &amp; popularity priors, category-focus envelope</td></tr>
     <tr><td class="k">lib/recommend.ts</td><td><code>scoreCards()</code> :252 · envelope blend &amp; <code>splitOrderScore</code> :697–877 · <code>applyResultStrategy()</code> :925 · <code>isSplitBlend</code> :717,:759</td></tr>
     <tr><td class="k">lib/ranking-strategies.ts</td><td>single <code>absolute-blend</code> strategy (weighted-average); reward-card spend levels <code>[3L,10L,20L,30L]</code> w equal <code>[1,1,1,1]</code></td></tr>
     <tr><td class="k">lib/result-strategies.ts</td><td><code>single-list</code> vs <code>reward-type-split</code>; section sort by <code>splitOrderScore</code>; dual-bucket routing; fill-up allocator; <code>SPLIT_SCOPE</code></td></tr>

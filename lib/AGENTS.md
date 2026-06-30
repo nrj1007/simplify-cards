@@ -59,10 +59,15 @@ calls the AI provider. The AI is used only to phrase/resolve, never as the sourc
     - **UPI** (`shouldRestrictToUpiCards`) — restricts to UPI/RuPay cards; per-card reward economics
       pick the best option (base vs a paid membership, e.g. Kiwi Neon `paidRewardOptions`) via
       `bestRewardEconomicsForCard`.
+- **`ranking-config.ts`** — **single source of truth for every ranking/blend tuning knob**: the
+  spend levels each card is scored at, the per-level blend weights (reward / cashback / UPI /
+  utility / low-fee / split-order), the relevance and popularity priors, and the category-focus
+  envelope. `recommend.ts` and `ranking-strategies.ts` import from here — change a number in this
+  file and nowhere else.
 - **`ranking-strategies.ts`** — `RankingStrategy` type and the single `"absolute-blend"` strategy
-  (weighted average of each card's `fitScore` across the broad spend levels). Cashback cards are
-  re-based onto realistic low/mid spend levels in `recommend.ts` so the high reward-card levels
-  apply to reward cards only.
+  (weighted average of each card's `fitScore` across the reward-card spend levels from
+  `ranking-config`). Cashback cards are re-based onto realistic low/mid spend levels in
+  `recommend.ts` so the high reward-card levels apply to reward cards only.
 - **`result-strategies.ts`** — `ResultStrategy` type: controls how the already-ranked card list
   is **presented**. `"single-list"` returns one flat list; `"reward-type-split"` partitions into
   titled sections (e.g. points vs cashback). Orthogonal to ranking strategy.

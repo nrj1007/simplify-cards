@@ -1,4 +1,5 @@
 import type { CardScore } from "./types";
+import { REWARD_BLEND_SPEND_LEVELS, REWARD_BLEND_WEIGHTS } from "./ranking-config";
 
 export type RankingStrategyName = "absolute-blend";
 
@@ -14,8 +15,8 @@ export type RankingStrategy = {
 export const rankingStrategies: Record<RankingStrategyName, RankingStrategy> = {
   "absolute-blend": {
     name: "absolute-blend",
-    spendLevels: [300000, 1000000, 2000000, 3000000],
-    spendWeights: [1, 1, 1, 1],
+    spendLevels: REWARD_BLEND_SPEND_LEVELS,
+    spendWeights: REWARD_BLEND_WEIGHTS,
     perLevelScore: (score: CardScore) => score.fitScore
   }
 };
