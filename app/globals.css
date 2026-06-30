@@ -3094,6 +3094,52 @@ textarea {
   font-size: 14px;
 }
 
+.analytics-review .review-item {
+  display: grid;
+  gap: 14px;
+}
+
+.analytics-review-table-shell {
+  overflow-x: auto;
+}
+
+.analytics-review-table th:last-child,
+.analytics-review-table td:last-child {
+  text-align: right;
+  white-space: nowrap;
+}
+
+.analytics-source-list {
+  display: grid;
+  gap: 12px;
+}
+
+.analytics-source-row,
+.analytics-query-row {
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  display: grid;
+  gap: 8px;
+  padding: 12px;
+}
+
+.analytics-source-row > div:first-child {
+  align-items: baseline;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: space-between;
+}
+
+.analytics-source-row > div:first-child span {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.analytics-query-list {
+  gap: 10px;
+}
+
 .compare-table {
   background: var(--panel);
   border: 1px solid var(--line);

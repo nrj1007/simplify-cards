@@ -3,7 +3,7 @@ import os from "node:os";
 import path from "node:path";
 import { afterEach, beforeEach, describe, expect, it } from "vitest";
 import { POST } from "../app/api/analytics/route";
-import { appendAnalyticsEvent } from "../lib/analytics-logs";
+import { appendAnalyticsEvent, readAnalyticsLog } from "../lib/analytics-logs";
 import { validateAnalyticsEventPayload } from "../lib/analytics";
 
 let tempDir = "";
@@ -96,6 +96,42 @@ describe("analytics validation and logging", () => {
       event_name: "compare_viewed",
       card_ids: ["a", "b"]
     });
+  });
+
+  it("reads recent analytics log entries and skips malformed jsonl lines", async () => {
+    await appendAnalyticsEvent({
+      event_name: "ask_query_submitted",
+      received_at: "2026-06-07T12:00:00.000Z",
+      session_id: "session-1",
+      page: "ask",
+      source: "ask",
+      query: "best cashback card",
+      device_type: "desktop",
+      referrer: ""
+    });
+    fs.appendFileSync(logPath, "not-json\n", "utf8");
+    await appendAnalyticsEvent({
+      event_name: "apply_clicked",
+      received_at: "2026-06-07T12:05:00.000Z",
+      session_id: "session-1",
+      page: "ask",
+      source: "ask",
+      card_id: "hdfc-millennia",
+      device_type: "desktop",
+      referrer: ""
+    });
+
+    const events = await readAnalyticsLog(2);
+
+    expect(events).toHaveLength(1);
+    expect(events[0]).toMatchObject({
+      event_name: "apply_clicked",
+      card_id: "hdfc-millennia"
+    });
+  });
+
+  it("returns an empty analytics log when the file is missing", async () => {
+    await expect(readAnalyticsLog()).resolves.toEqual([]);
   });
 
   it("accepts valid POST requests on /api/analytics", async () => {

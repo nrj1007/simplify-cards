@@ -13,6 +13,28 @@ export async function appendAnalyticsEvent(event: StoredAnalyticsEvent) {
   return event;
 }
 
+export async function readAnalyticsLog(limit = 5000): Promise<StoredAnalyticsEvent[]> {
+  const logPath = getAnalyticsEventsLogPath();
+
+  try {
+    const raw = await fs.readFile(logPath, "utf-8");
+    const lines = raw.trim().split("\n").filter(Boolean);
+
+    return lines
+      .slice(-limit)
+      .map((line) => {
+        try {
+          return JSON.parse(line) as StoredAnalyticsEvent;
+        } catch {
+          return null;
+        }
+      })
+      .filter((event): event is StoredAnalyticsEvent => event !== null);
+  } catch {
+    return [];
+  }
+}
+
 export async function logAnalyticsEvent(payload: AnalyticsEventPayload) {
   const event = buildStoredAnalyticsEvent(payload);
   await appendAnalyticsEvent(event);
