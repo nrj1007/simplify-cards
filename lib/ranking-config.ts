@@ -19,7 +19,7 @@ export const REWARD_BLEND_SPEND_LEVELS = [300000, 1000000, 2000000, 3000000]; //
 // Lean gently toward higher-spend levels: a reward card must hold up across the
 // whole light→very-heavy range to rank high, but its heavy-spend strength counts
 // for a bit more (so cards that only pull ahead at high spend aren't averaged out).
-export const REWARD_BLEND_WEIGHTS = [1, 1.1, 1.2, 1.3];
+export const REWARD_BLEND_WEIGHTS = [1, 1.2, 1.4, 1.6];
 
 // --- Cashback cards: re-based onto realistic low/mid spend -----------------
 // Cashback cards earn on monthly caps, so the broad reward-card blend would
