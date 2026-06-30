@@ -99,6 +99,7 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
                     <Link href="/ask">Ask</Link>
                     <Link href="/recommend">Recommend</Link>
                     <Link href="/compare">Compare</Link>
+                    <Link href={"/latest" as Route}>Latest updates</Link>
                   </section>
                   <section className="footer-link-group" aria-labelledby="footer-company">
                     <h2 id="footer-company">Company</h2>
