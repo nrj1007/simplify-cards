@@ -245,11 +245,26 @@ export function getSeoLanding(slug: string) {
   return SEO_LANDINGS.find((landing) => landing.slug === slug);
 }
 
+// Landing rankings don't depend on the card being looked up, so compute the
+// per-landing card-id sets once and reuse them across every card-detail page.
+// (Card data is static after module load, so this cache is safe.)
+let landingCardIdSetCache: Map<string, Set<string>> | null = null;
+
+function landingCardIdSets(): Map<string, Set<string>> {
+  if (!landingCardIdSetCache) {
+    landingCardIdSetCache = new Map(
+      SEO_LANDINGS.map((landing) => [
+        landing.slug,
+        new Set(selectCardsForLanding(landing).map((score) => score.card.id))
+      ])
+    );
+  }
+  return landingCardIdSetCache;
+}
+
 export function landingsForCard(cardId: string, limit = 4): SeoLandingConfig[] {
-  return SEO_LANDINGS.filter((landing) => {
-    const topCards = selectCardsForLanding(landing);
-    return topCards.some((score) => score.card.id === cardId);
-  }).slice(0, limit);
+  const sets = landingCardIdSets();
+  return SEO_LANDINGS.filter((landing) => sets.get(landing.slug)?.has(cardId)).slice(0, limit);
 }
 
 export function buildSeoLandingMetadata(slug: string): Metadata {
