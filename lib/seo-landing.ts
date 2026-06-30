@@ -245,6 +245,13 @@ export function getSeoLanding(slug: string) {
   return SEO_LANDINGS.find((landing) => landing.slug === slug);
 }
 
+export function landingsForCard(cardId: string, limit = 4): SeoLandingConfig[] {
+  return SEO_LANDINGS.filter((landing) => {
+    const topCards = selectCardsForLanding(landing);
+    return topCards.some((score) => score.card.id === cardId);
+  }).slice(0, limit);
+}
+
 export function buildSeoLandingMetadata(slug: string): Metadata {
   const landing = getSeoLanding(slug);
   if (!landing) {

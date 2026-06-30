@@ -20,6 +20,7 @@ import {
 } from "@/lib/equitas-privilege";
 import { milestoneRulesForCard, scoreCards } from "@/lib/recommend";
 import { comparisonsForCard, comparisonTitle } from "@/lib/seo-comparisons";
+import { landingsForCard } from "@/lib/seo-landing";
 import {
   alternativeIntent,
   buildCardJsonLd,
@@ -324,6 +325,7 @@ export default async function CardPage({ params, searchParams }: Props) {
   const loungeMilestoneRules = deriveLoungeMilestoneRules(card);
   const alternatives = findAlternativeCards(card);
   const comparisonGuides = comparisonsForCard(card.id);
+  const landingGuides = landingsForCard(card.id);
   const firstAlternative = alternatives[0];
   const showEquitasPrivilegeProgram = isEquitasPrivilegeCard(card);
   const equitasPrivilegeProgramSection = showEquitasPrivilegeProgram ? (
@@ -943,6 +945,33 @@ export default async function CardPage({ params, searchParams }: Props) {
                         </div>
                       </article>
                     ) : null}
+                  </div>
+                </div>
+              </section>
+            ) : null}
+
+            {landingGuides.length ? (
+              <section className="panel">
+                <div className="panel-body">
+                  <div className="section-head">
+                    <div>
+                      <h2 className="section-title">Featured in our guides</h2>
+                      <p className="section-sub">Category shortlists where this card appears in the top picks.</p>
+                    </div>
+                  </div>
+                  <div className="alt-grid">
+                    {landingGuides.map((landing) => (
+                      <article className="alt-card" key={landing.slug}>
+                        <small>{landing.eyebrow}</small>
+                        <h3>{landing.h1}</h3>
+                        <p>{landing.intro}</p>
+                        <div className="alt-actions">
+                          <Link className="alt-btn primary" href={`/${landing.slug}` as Route}>
+                            Open guide
+                          </Link>
+                        </div>
+                      </article>
+                    ))}
                   </div>
                 </div>
               </section>
