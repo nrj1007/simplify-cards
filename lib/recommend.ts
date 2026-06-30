@@ -126,11 +126,10 @@ const popularityRankingWeight = 50;
 // Rs 30L tier lets super-premium cards (e.g. Magnus Burgundy) that only pull ahead at very high
 // spend show that strength instead of being capped at the Rs 20L tier.
 const blendAnnualSpendLevels = [300000, 1000000, 2000000, 3000000]; // Rs 25k, 83k, 167k, 250k per month (annually)
-// Weights for the envelope blend, aligned index-for-index with blendAnnualSpendLevels. Leaning the
-// blend toward the higher-spend levels means cards whose value is gated behind heavy spend (bank
-// tier programs that lift point value with spend, high fee-waiver thresholds, programme caps that
-// only bind at low spend) are judged more on their heavy-spend strength than on trivial-spend yield.
-const blendAnnualSpendLevelWeights = [1, 1.25, 1.5, 1.75];
+// Weights for the envelope blend, aligned index-for-index with blendAnnualSpendLevels. Equal
+// weight across all levels: a reward card must hold up across the whole light→very-heavy range to
+// rank high, with no single spend level (trivial or heavy) dominating the blended score.
+const blendAnnualSpendLevelWeights = [1, 1, 1, 1];
 
 // Representative monthly spend for each segment tier. A segment query implies a spend/income level,
 // so instead of the envelope blend we score segment queries at the tier's typical spend (the default

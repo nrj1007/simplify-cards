@@ -15,7 +15,7 @@ export const rankingStrategies: Record<RankingStrategyName, RankingStrategy> = {
   "absolute-blend": {
     name: "absolute-blend",
     spendLevels: [300000, 1000000, 2000000, 3000000],
-    spendWeights: [1, 1.25, 1.5, 1.75],
+    spendWeights: [1, 1, 1, 1],
     perLevelScore: (score: CardScore) => score.fitScore
   }
 };
