@@ -22,6 +22,7 @@ import { milestoneRulesForCard, scoreCards } from "@/lib/recommend";
 import { comparisonsForCard, comparisonTitle } from "@/lib/seo-comparisons";
 import {
   alternativeIntent,
+  buildCardJsonLd,
   deriveAvoidIf,
   deriveBestFor,
   deriveLoungeMilestoneRules,
@@ -261,6 +262,7 @@ export default async function CardPage({ params, searchParams }: Props) {
   const cardContent = getCardContent(card.id);
   const ctaLabel = cardCtaLabel(card);
   const latestUpdate = cardContent?.updates[0];
+  const jsonLd = buildCardJsonLd(card);
 
   // Redemption / rewards table data (issuer-aware labels + voucher rows).
   const redemptions = redemptionRows(card.issuer, card.redemption);
@@ -467,6 +469,13 @@ export default async function CardPage({ params, searchParams }: Props) {
           metadata: buildCardDetailMetadata(card)
         }}
       />
+      {jsonLd.map((schema, index) => (
+        <script
+          key={index}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+        />
+      ))}
       <section className="page-hero">
         <div className="container page-hero-inner card-hero-grid">
           <div className="card-hero-copy">

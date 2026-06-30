@@ -1,6 +1,7 @@
 import { cards, getCardById } from "./cards";
 import { stripScoringAnnotations } from "./card-index";
 import { getMeaningfulLoungeConditions, getTotalLoungeAccess } from "./lounge";
+import { buildCanonicalUrl } from "./seo";
 import type { CreditCard } from "./types";
 
 // ---------------------------------------------------------------------------
@@ -396,4 +397,43 @@ export function alternativeIntent(alt: CreditCard): string {
   if (hasLounge(alt)) return "For lounge access";
   if (alt.annualFee === 0 && alt.joiningFee === 0) return "For a no-fee option";
   return "Similar option";
+}
+
+export function buildCardJsonLd(card: CreditCard) {
+  const url = buildCanonicalUrl(`/cards/${card.id}`);
+
+  const breadcrumb = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: buildCanonicalUrl("/") },
+      { "@type": "ListItem", position: 2, name: "Cards", item: buildCanonicalUrl("/finder") },
+      { "@type": "ListItem", position: 3, name: card.name, item: url }
+    ]
+  };
+
+  const product = {
+    "@context": "https://schema.org",
+    "@type": "FinancialProduct",
+    "@id": url,
+    name: card.name,
+    url,
+    description: `${card.name} credit card by ${card.issuer}. Annual fee: ₹${card.annualFee}. Reward type: ${card.rewardType}.`,
+    provider: {
+      "@type": "BankOrCreditUnion",
+      name: card.issuer
+    },
+    ...(card.annualFee != null
+      ? {
+          annualPercentageRate: {
+            "@type": "QuantitativeValue",
+            value: card.annualFee,
+            unitText: "INR"
+          }
+        }
+      : {}),
+    ...(card.lastVerified ? { dateModified: card.lastVerified } : {})
+  };
+
+  return [breadcrumb, product];
 }

@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { getCardById } from "../lib/cards";
-import { deriveLoungeMilestoneRules } from "../lib/card-detail";
+import { buildCardJsonLd, deriveLoungeMilestoneRules } from "../lib/card-detail";
 import type { Milestone } from "../lib/types";
 
 describe("card-detail milestone rules", () => {
@@ -25,5 +25,42 @@ describe("card-detail milestone rules", () => {
     const rules = deriveLoungeMilestoneRules(card);
     const milestoneTexts = rules.filter((rule) => rule.label === "Milestone").map((rule) => rule.text);
     expect(milestoneTexts).toContain("Free-text fallback milestone");
+  });
+
+  it("builds BreadcrumbList and FinancialProduct JSON-LD from card fields", () => {
+    const [breadcrumb, product] = buildCardJsonLd(base);
+
+    expect(breadcrumb).toMatchObject({
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Home", item: "https://www.simplifycards.in/" },
+        { "@type": "ListItem", position: 2, name: "Cards", item: "https://www.simplifycards.in/finder" },
+        {
+          "@type": "ListItem",
+          position: 3,
+          name: base.name,
+          item: `https://www.simplifycards.in/cards/${base.id}`
+        }
+      ]
+    });
+    expect(product).toMatchObject({
+      "@context": "https://schema.org",
+      "@type": "FinancialProduct",
+      "@id": `https://www.simplifycards.in/cards/${base.id}`,
+      name: base.name,
+      url: `https://www.simplifycards.in/cards/${base.id}`,
+      description: `${base.name} credit card by ${base.issuer}. Annual fee: ₹${base.annualFee}. Reward type: ${base.rewardType}.`,
+      provider: {
+        "@type": "BankOrCreditUnion",
+        name: base.issuer
+      },
+      annualPercentageRate: {
+        "@type": "QuantitativeValue",
+        value: base.annualFee,
+        unitText: "INR"
+      },
+      dateModified: base.lastVerified
+    });
   });
 });
