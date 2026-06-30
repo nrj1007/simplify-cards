@@ -311,7 +311,6 @@ export type CardScore = {
     bestMonthlySpend: number;
     bestSpendLabel: string;
     normalizedFitScore: number;
-    splitOrderScore?: number;
   };
   // Liquidity-adjusted reward economics — the values used for RANKING and ordering (low-liquidity
   // points such as brand-locked fuel currencies are discounted here). The display* mirrors below

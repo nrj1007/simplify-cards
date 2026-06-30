@@ -4,15 +4,12 @@ import {
   CASHBACK_BLEND_WEIGHTS,
   CASHBACK_POPULARITY_WEIGHT,
   CATEGORY_FOCUS_MULTIPLIERS,
-  CATEGORY_FOCUS_SPEND_SHARE,
   EQUAL_BLEND_WEIGHTS,
   LOW_FEE_BLEND_WEIGHTS,
   POPULARITY_RANKING_WEIGHT,
   RELEVANCE_WEIGHT_BROAD_GENERIC,
   RELEVANCE_WEIGHT_DEFAULT,
   RELEVANCE_WEIGHT_EXACT_MATCH,
-  SPLIT_ORDER_REWARD_SPEND_LEVELS,
-  SPLIT_ORDER_REWARD_WEIGHTS,
   UPI_BLEND_SPEND_LEVELS,
   UPI_BLEND_WEIGHTS,
   UTILITY_BLEND_SPEND_LEVELS,
@@ -329,7 +326,7 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
         isTargetedEnvelopeQuery(input, intent)
       )) ||
       // When the caller requests a split view with an inferred spend (e.g. "best forex cards"),
-      // enable envelope scoring so isSplitBlend fires and splitOrderScore is computed per-section.
+      // keep envelope scoring available for the same broad blended ranking used by the flat list.
       (input.resultStrategy === "reward-type-split" && intent.inferredSpend !== undefined && input.spend === undefined)
     ));
   const spend = {
@@ -708,34 +705,12 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
         const representative = perLevel.reduce((best, score) => (strategy.perLevelScore(score) > strategy.perLevelScore(best) ? score : best));
         const blendedFitScore = perLevel.reduce((sum, score) => sum + strategy.perLevelScore(score), 0) / CATEGORY_FOCUS_MULTIPLIERS.length;
 
-        let splitOrderScore: number | undefined = undefined;
-        const isSplitBlend = input.resultStrategy === "reward-type-split";
-        if (isSplitBlend) {
-          const cardEarnsCashback = /cashback/i.test(card.rewardType ?? "");
-          const orderLevels = cardEarnsCashback
-            ? CASHBACK_BLEND_SPEND_LEVELS
-            : SPLIT_ORDER_REWARD_SPEND_LEVELS;
-          const perLevel = orderLevels.map((annualSpend) => {
-            const monthlySpend = Math.round(annualSpend / 12);
-            const focusSpendAmount = monthlySpend * CATEGORY_FOCUS_SPEND_SHARE;
-            const monthlySpendProfile = categoryFocus75_25SpendProfile(focusedCategory, focusSpendAmount, defaultSpendProfile);
-            return scoreCardForSpend(card, monthlySpendProfile, monthlySpend);
-          });
-          const splitWeights = cardEarnsCashback
-            ? CASHBACK_BLEND_WEIGHTS
-            : SPLIT_ORDER_REWARD_WEIGHTS;
-          const splitWeightSum = splitWeights.reduce((sum, w) => sum + w, 0);
-          splitOrderScore =
-            perLevel.reduce((total, score, i) => total + strategy.perLevelScore(score) * splitWeights[i], 0) / splitWeightSum;
-        }
-
         const assembled = representative.envelopeScoring
           ? {
               ...representative,
               envelopeScoring: {
                 ...representative.envelopeScoring,
-                normalizedFitScore: blendedFitScore,
-                ...(splitOrderScore !== undefined ? { splitOrderScore } : {})
+                normalizedFitScore: blendedFitScore
               }
             }
           : representative;
@@ -748,9 +723,6 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
       // weighted average (see REWARD_BLEND_WEIGHTS in ranking-config).
       let spendLevels = strategy.spendLevels;
       const isCashbackBlendCard = isPrimaryCashbackCard({ card } as CardScore);
-      // Broad split+blend: cashback and rewards cards are ordered within their respective *sections* by
-      // a dedicated low/mid-spend evaluation (splitOrderScore).
-      const isSplitBlend = input.resultStrategy === "reward-type-split";
       // Cashback cards earn on monthly caps, so the broad reward-card blend (3L/10L/20L/30L) would
       // judge them deep past their caps and systematically under-rank them. Evaluate EVERY primary
       // cashback card on a realistic low/mid spend basis — not just in "best cashback card" queries —
@@ -799,28 +771,6 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
       const blendedFitScore =
         perLevel.reduce((total, score, i) => total + strategy.perLevelScore(score) * spendWeights[i], 0) / blendWeightSum;
 
-      // Section ordering signal (split+blend only): an equal-weighted blend of the card's
-      // net value at realistic spend levels (low/mid for cashback, mid/high for rewards).
-      // Computed on a dedicated evaluation so the card's representative/display value
-      // and global ranking key remain on the default spend levels.
-      let splitOrderScore: number | undefined = undefined;
-      if (isSplitBlend) {
-        const cardEarnsCashback = /cashback/i.test(card.rewardType ?? "");
-        const orderLevels = cardEarnsCashback
-          ? CASHBACK_BLEND_SPEND_LEVELS
-          : SPLIT_ORDER_REWARD_SPEND_LEVELS;
-        const perLevel = orderLevels.map((annualSpend) => {
-          const monthlySpend = Math.round(annualSpend / 12);
-          return scoreCardForSpend(card, scaleSpendProfileToMonthly(spend, monthlySpend), monthlySpend);
-        });
-        const splitWeights = cardEarnsCashback
-          ? CASHBACK_BLEND_WEIGHTS
-          : SPLIT_ORDER_REWARD_WEIGHTS;
-        const splitWeightSum = splitWeights.reduce((sum, w) => sum + w, 0);
-        splitOrderScore =
-          perLevel.reduce((total, score, i) => total + strategy.perLevelScore(score) * splitWeights[i], 0) / splitWeightSum;
-      }
-
       // Dual-bucket cards feature in BOTH split sections, valued per context. A card's DEFAULT score
       // (above) is its primary-bucket value; here we re-score it at the OTHER bucket's point value so
       // the split can present it there too. `rewardBucketPointValue` = a cashback-primary card also in
@@ -855,8 +805,7 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
             ...representative,
             envelopeScoring: {
               ...representative.envelopeScoring,
-              normalizedFitScore: blendedFitScore,
-              ...(splitOrderScore !== undefined ? { splitOrderScore } : {})
+              normalizedFitScore: blendedFitScore
             }
           }
         : representative;
@@ -930,9 +879,8 @@ export function applyResultStrategy(
   const useSplit = input.resultStrategy === "reward-type-split";
 
   const strategy = resultStrategies[useSplit ? "reward-type-split" : "single-list"];
-  // The single ranking strategy (absolute-blend) is always a weighted-average blend, so split
-  // sections always order by splitOrderScore.
-  const sections = strategy.group(byNetValue, maxPerSection, { isBlend: true });
+  // Split is display-only: partition the same net-value display order used by the flat list.
+  const sections = strategy.group(byNetValue, maxPerSection);
 
   // Forex result splits read as a strict reward-type partition to users, so keep each card in
   // only its primary bucket there. This prevents dual-bucket cards like AU ixigo from appearing

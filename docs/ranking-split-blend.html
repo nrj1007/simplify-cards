@@ -96,16 +96,16 @@
   </div>
   <div class="branch">
     <div class="node"><b>single-list (non-split)</b><br/><span>one flat section, top 5 by <code>estimatedNetValue</code>. No <code>splitOrderScore</code>.</span></div>
-    <div class="node split"><b>reward-type-split (split blend)</b><br/><span>Cashback + Rewards sections, each ordered by <code>splitOrderScore</code> → fallback <code>estimatedNetValue</code>. Dual-bucket cards appear in both.</span></div>
+    <div class="node split"><b>reward-type-split (split blend)</b><br/><span>Cashback + Rewards sections preserve the same <code>estimatedNetValue</code> display order as the flat list. Dual-bucket cards appear in both.</span></div>
   </div>
-  <p class="legend">Both modes compute the same <code>normalizedFitScore</code>. The split mode <em>additionally</em> computes a per-card <code>splitOrderScore</code> on reward-type-specific spend levels and stores it in <code>envelopeScoring.splitOrderScore</code> (<span class="ref">recommend.ts:716–734, 815–831</span>).</p>
+  <p class="legend">Both modes compute the same <code>normalizedFitScore</code>. Split is now display-only: <code>applyResultStrategy()</code> first establishes the canonical <code>estimatedNetValue</code> display order, then partitions that order into Cashback and Rewards sections.</p>
 
   <h2>2. Side-by-side</h2>
   <table>
     <tr><th style="width:200px">&nbsp;</th><th>Non-split blend (default)</th><th>Split blend (opt-in, active when toggled)</th></tr>
     <tr><td class="k">Gating</td><td><code>resultStrategy:"single-list"</code></td><td><code>resultStrategy:"reward-type-split"</code> → <code>isSplitBlend</code></td></tr>
     <tr><td class="k">Global ranking key</td><td><code>normalizedFitScore</code> = weighted avg; <strong>reward cards</strong> over <code>[3L,10L,20L,30L]</code> w <code>[1,1.2,1.4,1.6]</code>, <strong>cashback cards</strong> re-based to <code>[100k,200k,300k,500k]</code> w <code>[1.3,1.2,1.1,1]</code></td><td>Same <code>normalizedFitScore</code> (unchanged)</td></tr>
-    <tr><td class="k">Section order key</td><td>n/a — flat list sorted by <code>estimatedNetValue</code></td><td><code>splitOrderScore</code>: cashback cards on <code>[100k,200k,300k,500k]</code> w <code>[1.3,1.2,1.1,1]</code>; rewards on <code>[120k,300k,600k]</code> w <code>[1.5,1.25,1]</code></td></tr>
+    <tr><td class="k">Section order key</td><td>Flat list sorted by <code>estimatedNetValue</code></td><td>Same <code>estimatedNetValue</code> display order, partitioned by reward type</td></tr>
     <tr><td class="k">Presentation</td><td>One untitled section, 5 cards</td><td>"Cashback cards" + "Rewards cards", fill-up allocator lends unused slots between buckets (<span class="ref">result-strategies.ts:99–110</span>)</td></tr>
     <tr><td class="k">Dual-bucket cards</td><td>Primary bucket score only</td><td>Appear in <em>both</em> sections, re-valued at the other bucket's point value (<code>rewardBucketScore</code>/<code>cashbackBucketScore</code>, <span class="ref">recommend.ts:838–860</span>)</td></tr>
     <tr><td class="k">Cashback fairness</td><td>Cashback cards re-based to realistic low/mid spend levels in the <em>global</em> blend (reward-only high levels) → fair in the flat list too</td><td>Same global re-basing, plus realistic-spend ordering <em>within</em> the Cashback section</td></tr>
@@ -115,27 +115,25 @@
   <div class="panel">
     <p>Cashback cards usually carry <strong>monthly caps</strong>. Scored at the non-split blend's high spend levels (<code>300k</code>, <code>600k</code> annual), they blow past their caps, so their <em>marginal</em> net value collapses and they rank below points/miles cards that keep earning.</p>
     <p>The engine now re-bases <strong>every primary cashback card</strong> onto <code>[100k,200k,300k,500k]</code> w <code>[1.3,1.2,1.1,1]</code> in the global blend (<code>isCashbackBlendCard</code> in <code>recommend.ts</code>) — spend levels where caps haven't yet dominated — so the high <code>[3L,10L,20L,30L]</code> reward-card levels apply to <strong>reward cards only</strong>. A strong sub-₹3L cashback card is now judged fairly in the flat single-list <em>and</em> the split Cashback section. Rewards cards keep their high-spend evaluation, where they shine.</p>
-    <p style="margin-bottom:0"><strong>Remaining nuance:</strong> the split section <em>additionally</em> orders cashback cards by <code>splitOrderScore</code>; the displayed <code>estimatedNetValue</code> is still the card's representative-level value, so the shown figure can differ slightly from the rank-driving score.</p>
+    <p style="margin-bottom:0"><strong>Remaining nuance:</strong> cashback fairness now lives in the global blend for primary cashback cards. The split view no longer applies a second per-section ranking key, so toggling split changes presentation but not the underlying display order.</p>
   </div>
 
   <h2>4. Gaps in split blend vs non-split blend</h2>
   <p class="sub">Verified against current code. Severity reflects user-visible impact, not effort.</p>
 
   <div class="gap">
-    <header><div class="num">1</div><h3><code>splitOrderScore</code> is envelope-only</h3><span class="chip pill-amber sev">Latent</span></header>
+    <header><div class="num">1</div><h3><code>splitOrderScore</code> is envelope-only</h3><span class="chip pill-green sev">Obsolete ✓</span></header>
     <div class="body">
-      <div class="row"><span class="label">Where</span> <span class="ref">recommend.ts:699</span> — <code>if (!useEnvelopeScoring) return scoreCardForSpend(card, spend);</code></div>
-      <div class="row"><span class="label">Gap</span> The single-spend path returns early and never sets <code>splitOrderScore</code>. A split query that takes that path would have its sections silently fall back to <code>estimatedNetValue</code> ordering — i.e. the split's whole reason for existing (cashback fairness) is skipped. <code>useEnvelopeScoring</code> is force-enabled for split views (~<span class="ref">recommend.ts:334</span>), so this is currently latent, but it relies on a flag staying in sync with the split branch.</div>
-      <div class="fix"><span class="label">Fix</span> Either compute <code>splitOrderScore</code> on the non-envelope branch too, or add an invariant/assert that <code>isSplitBlend ⇒ useEnvelopeScoring</code> so the coupling can't silently break.</div>
+      <div class="row"><span class="label">Was</span> The single-spend path returned early and never set <code>splitOrderScore</code>, so split sections could silently fall back to <code>estimatedNetValue</code> ordering.</div>
+      <div class="fix"><span class="label">Done</span> Removed <code>splitOrderScore</code>. Split sections now intentionally preserve the same <code>estimatedNetValue</code> display order as the flat list, so there is no envelope-only ordering signal to keep in sync.</div>
     </div>
   </div>
 
   <div class="gap">
-    <header><div class="num">2</div><h3>Three different sort keys float across the two modes</h3><span class="chip pill-amber sev">Confusing</span></header>
+    <header><div class="num">2</div><h3>Three different sort keys float across the two modes</h3><span class="chip pill-green sev">Fixed ✓</span></header>
     <div class="body">
-      <div class="row"><span class="label">Where</span> candidate sort <span class="ref">recommend.ts:879–889</span> (<code>normalizedFitScore</code>); pre-sort <span class="ref">recommend.ts:932</span> (<code>estimatedNetValue</code>); section sort <span class="ref">result-strategies.ts:76–97</span> (<code>splitOrderScore</code>).</div>
-      <div class="row"><span class="label">Gap</span> Toggling split changes <em>both</em> the partition and the sort basis. A card ranked high on net value can drop in the split section (and vice-versa), so the same query reorders in ways that look arbitrary to a user flipping the toggle.</div>
-      <div class="fix"><span class="label">Fix</span> Decide and document one of: (a) split is <em>display-only</em> by design (then make the flat list and split agree on a single key), or (b) feed the reward-type-aware levels into the global key too so both views are consistent.</div>
+      <div class="row"><span class="label">Was</span> Candidate ranking used <code>normalizedFitScore</code>, result presentation pre-sorted by <code>estimatedNetValue</code>, and split sections then re-sorted by <code>splitOrderScore</code>.</div>
+      <div class="fix"><span class="label">Done</span> Chose display-only split. <code>applyResultStrategy()</code> establishes one <code>estimatedNetValue</code> display order, and <code>reward-type-split</code> only partitions that order into sections.</div>
     </div>
   </div>
 
@@ -148,20 +146,18 @@
   </div>
 
   <div class="gap">
-    <header><div class="num">4</div><h3>Dual-bucket re-valued scores carry no <code>splitOrderScore</code></h3><span class="chip pill-amber sev">Inconsistent order</span></header>
+    <header><div class="num">4</div><h3>Dual-bucket re-valued scores carry no <code>splitOrderScore</code></h3><span class="chip pill-green sev">Obsolete ✓</span></header>
     <div class="body">
-      <div class="row"><span class="label">Where</span> <code>reValuedScore()</code> <span class="ref">recommend.ts:838–852</span> builds <code>rewardBucketScore</code>/<code>cashbackBucketScore</code> but never sets <code>splitOrderScore</code> on them. Sort guard at <span class="ref">result-strategies.ts:80–84</span> only compares when <em>both</em> are defined.</div>
-      <div class="row"><span class="label">Gap</span> A dual-bucket card shown in its <em>secondary</em> section is sorted by the net-value fallback while native cards there sort by <code>splitOrderScore</code> — a mixed ordering basis inside one section, so the dual card can land in an inconsistent slot.</div>
-      <div class="fix"><span class="label">Fix</span> Compute and attach a <code>splitOrderScore</code> on the re-valued scores (using the same reward-type-aware levels for the destination bucket) so every card in a section sorts on the same key.</div>
+      <div class="row"><span class="label">Was</span> A dual-bucket card shown in its secondary section could sort by net-value fallback while native cards used <code>splitOrderScore</code>.</div>
+      <div class="fix"><span class="label">Done</span> Removed the per-section <code>splitOrderScore</code> sort, so dual-bucket cards and native cards share the same section ordering basis.</div>
     </div>
   </div>
 
   <div class="gap">
-    <header><div class="num">5</div><h3>Pre-sort by net value is overridden when blended</h3><span class="chip pill-green sev">Minor</span></header>
+    <header><div class="num">5</div><h3>Pre-sort by net value is overridden when blended</h3><span class="chip pill-green sev">Fixed ✓</span></header>
     <div class="body">
-      <div class="row"><span class="label">Where</span> <code>applyResultStrategy</code> sorts <code>byNetValue</code> (<span class="ref">recommend.ts:932</span>), then <code>group()</code> re-sorts by <code>splitOrderScore</code> when <code>isBlend</code> (<span class="ref">result-strategies.ts:76</span>).</div>
-      <div class="row"><span class="label">Gap</span> The pre-sort is discarded for ordering in split mode (it only survives as the tie-break fallback). Harmless but easy to misread as "the order is net value" when it isn't.</div>
-      <div class="fix"><span class="label">Fix</span> Document the two-stage sort, or skip the pre-sort when <code>isBlend</code> and rely on the section sort.</div>
+      <div class="row"><span class="label">Was</span> <code>applyResultStrategy</code> sorted <code>byNetValue</code>, then <code>group()</code> re-sorted by <code>splitOrderScore</code> when <code>isBlend</code>.</div>
+      <div class="fix"><span class="label">Done</span> Removed the second sort. The pre-sort is now the actual display order for both flat and split presentation.</div>
     </div>
   </div>
 
@@ -186,10 +182,10 @@
   <h2>5. Appendix — file &amp; function map</h2>
   <table>
     <tr><th style="width:260px">File</th><th>Role in ranking</th></tr>
-    <tr><td class="k">lib/ranking-config.ts</td><td><strong>Single source of truth</strong> for all blend tuning knobs: spend levels &amp; weights (reward / cashback / UPI / utility / low-fee / split-order), relevance &amp; popularity priors, category-focus envelope</td></tr>
-    <tr><td class="k">lib/recommend.ts</td><td><code>scoreCards()</code> :252 · envelope blend &amp; <code>splitOrderScore</code> :697–877 · <code>applyResultStrategy()</code> :925 · <code>isSplitBlend</code> :717,:759</td></tr>
+    <tr><td class="k">lib/ranking-config.ts</td><td><strong>Single source of truth</strong> for all blend tuning knobs: spend levels &amp; weights (reward / cashback / UPI / utility / low-fee), relevance &amp; popularity priors, category-focus envelope</td></tr>
+    <tr><td class="k">lib/recommend.ts</td><td><code>scoreCards()</code> :252 · envelope blend :697–877 · <code>applyResultStrategy()</code> :925 · split display ordering</td></tr>
     <tr><td class="k">lib/ranking-strategies.ts</td><td>single <code>absolute-blend</code> strategy (weighted-average); reward-card spend levels <code>[3L,10L,20L,30L]</code> w <code>[1,1.2,1.4,1.6]</code> (from <code>ranking-config.ts</code>)</td></tr>
-    <tr><td class="k">lib/result-strategies.ts</td><td><code>single-list</code> vs <code>reward-type-split</code>; section sort by <code>splitOrderScore</code>; dual-bucket routing; fill-up allocator; <code>SPLIT_SCOPE</code></td></tr>
+    <tr><td class="k">lib/result-strategies.ts</td><td><code>single-list</code> vs <code>reward-type-split</code>; display-order-preserving section partition; dual-bucket routing; fill-up allocator; <code>SPLIT_SCOPE</code></td></tr>
     <tr><td class="k">lib/recommend-utils.ts</td><td>50/50 SmartBuy spend split (<code>acceleratedShareForCategory</code>, <code>blendedSmartbuySpendCategories</code>)</td></tr>
     <tr><td class="k">lib/recommend-category-focus.ts</td><td><code>categoryFocus75_25SpendProfile</code> used by the focused split path</td></tr>
     <tr><td class="k">app/api/recommend/route.ts</td><td>Validates <code>resultStrategy</code>, calls <code>scoreCards</code> + <code>applyResultStrategy</code> / <code>rankResults</code></td></tr>

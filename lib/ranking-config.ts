@@ -25,8 +25,7 @@ export const REWARD_BLEND_WEIGHTS = [1, 1.2, 1.4, 1.6];
 // Cashback cards earn on monthly caps, so the broad reward-card blend would
 // judge them deep past their caps and systematically under-rank them. Every
 // primary cashback card is evaluated on these realistic low/mid spend levels so
-// the high reward-card levels apply to reward cards only. Reused for the split
-// view's cashback-section ordering (splitOrderScore).
+// the high reward-card levels apply to reward cards only.
 export const CASHBACK_BLEND_SPEND_LEVELS = [100000, 200000, 300000, 500000];
 export const CASHBACK_BLEND_WEIGHTS = [1.3, 1.2, 1.1, 1];
 
@@ -44,13 +43,6 @@ export const UTILITY_BLEND_WEIGHTS = [1, 1, 1];
 // with REWARD_BLEND_SPEND_LEVELS (4 levels).
 export const LOW_FEE_BLEND_WEIGHTS = [1.75, 1.5, 1.25, 1];
 export const EQUAL_BLEND_WEIGHTS = [1, 1, 1, 1];
-
-// --- Split-section ordering (splitOrderScore) ------------------------------
-// In the reward-type-split view, each section orders its cards by a dedicated
-// evaluation at realistic spend levels: cashback cards reuse CASHBACK_BLEND_*,
-// rewards cards use these mid/high levels.
-export const SPLIT_ORDER_REWARD_SPEND_LEVELS = [120000, 300000, 600000];
-export const SPLIT_ORDER_REWARD_WEIGHTS = [1.5, 1.25, 1];
 
 // --- Category-focus envelope ("best dining/grocery/... card") --------------
 // The focused category is scored at 0.5×/1×/2× a representative per-category
