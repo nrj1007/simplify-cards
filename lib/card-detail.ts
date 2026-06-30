@@ -423,15 +423,11 @@ export function buildCardJsonLd(card: CreditCard) {
       "@type": "BankOrCreditUnion",
       name: card.issuer
     },
-    ...(card.annualFee != null
-      ? {
-          annualPercentageRate: {
-            "@type": "QuantitativeValue",
-            value: card.annualFee,
-            unitText: "INR"
-          }
-        }
-      : {}),
+    offers: {
+      "@type": "Offer",
+      price: card.annualFee,
+      priceCurrency: "INR"
+    },
     ...(card.lastVerified ? { dateModified: card.lastVerified } : {})
   };
 

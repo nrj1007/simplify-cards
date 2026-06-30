@@ -55,12 +55,29 @@ describe("card-detail milestone rules", () => {
         "@type": "BankOrCreditUnion",
         name: base.issuer
       },
-      annualPercentageRate: {
-        "@type": "QuantitativeValue",
-        value: base.annualFee,
-        unitText: "INR"
+      offers: {
+        "@type": "Offer",
+        price: base.annualFee,
+        priceCurrency: "INR"
       },
       dateModified: base.lastVerified
     });
+    expect(product).not.toHaveProperty("annualPercentageRate");
+  });
+
+  it("keeps lifetime-free annual fees as a zero-price offer", () => {
+    const lifetimeFreeCard = getCardById("icici-amazon-pay")!;
+    const [, product] = buildCardJsonLd(lifetimeFreeCard);
+
+    expect(product).toMatchObject({
+      "@type": "FinancialProduct",
+      name: lifetimeFreeCard.name,
+      offers: {
+        "@type": "Offer",
+        price: 0,
+        priceCurrency: "INR"
+      }
+    });
+    expect(product).not.toHaveProperty("annualPercentageRate");
   });
 });
