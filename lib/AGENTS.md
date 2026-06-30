@@ -40,9 +40,9 @@ calls the AI provider. The AI is used only to phrase/resolve, never as the sourc
   `defaultSpendProfile`, `requestedTopCardCount`, and `milestoneRulesForCard()` (per-card
   milestone value/threshold rules used by the calculator).
   - **`scoreCards` routes a query to one of several ranking modes** instead of always using the
-    broad envelope blend (`blendAnnualSpendLevels` `[120000, 300000, 600000]` — Rs 10k/25k/50k
-    per month — with `blendAnnualSpendLevelWeights` `[1.5, 1.25, 1]`, used only for broad
-    no-spend queries):
+    broad envelope blend (`blendAnnualSpendLevels` `[300000, 1000000, 2000000, 3000000]` —
+    3L/10L/20L/30L, ~Rs 25k/83k/167k/250k per month — with `blendAnnualSpendLevelWeights`
+    `[1, 1.25, 1.5, 1.75]`, used only for broad no-spend queries):
     - **Category focus** (`categoryFocusConfigs` / `detectCategoryFocus`) — "best dining/grocery/
       online/amazon/flipkart/swiggy/utilities/rent/entertainment card". Scored at a realistic
       per-category spend (`categoryFocusMonthlySpend`) and ranked by the reward earned **on that
@@ -59,9 +59,10 @@ calls the AI provider. The AI is used only to phrase/resolve, never as the sourc
     - **UPI** (`shouldRestrictToUpiCards`) — restricts to UPI/RuPay cards; per-card reward economics
       pick the best option (base vs a paid membership, e.g. Kiwi Neon `paidRewardOptions`) via
       `bestRewardEconomicsForCard`.
-- **`ranking-strategies.ts`** — `RankingStrategy` type and the two named strategies:
-  `"absolute-blend"` (weighted average over spend levels) and `"max-yield"` (best single spend
-  level per card). `scoreCards` selects between these based on the query intent.
+- **`ranking-strategies.ts`** — `RankingStrategy` type and the single `"absolute-blend"` strategy
+  (weighted average of each card's `fitScore` across the broad spend levels). Cashback cards are
+  re-based onto realistic low/mid spend levels in `recommend.ts` so the high reward-card levels
+  apply to reward cards only.
 - **`result-strategies.ts`** — `ResultStrategy` type: controls how the already-ranked card list
   is **presented**. `"single-list"` returns one flat list; `"reward-type-split"` partitions into
   titled sections (e.g. points vs cashback). Orthogonal to ranking strategy.

@@ -125,12 +125,12 @@ const popularityRankingWeight = 50;
 // cards' yield blow up at trivial spend). A card must hold up across the range to rank high. The
 // Rs 30L tier lets super-premium cards (e.g. Magnus Burgundy) that only pull ahead at very high
 // spend show that strength instead of being capped at the Rs 20L tier.
-const blendAnnualSpendLevels = [120000, 300000, 600000]; // Rs 10k, 25k, 50k per month (annually)
+const blendAnnualSpendLevels = [300000, 1000000, 2000000, 3000000]; // Rs 25k, 83k, 167k, 250k per month (annually)
 // Weights for the envelope blend, aligned index-for-index with blendAnnualSpendLevels. Leaning the
 // blend toward the higher-spend levels means cards whose value is gated behind heavy spend (bank
 // tier programs that lift point value with spend, high fee-waiver thresholds, programme caps that
 // only bind at low spend) are judged more on their heavy-spend strength than on trivial-spend yield.
-const blendAnnualSpendLevelWeights = [1.5, 1.25, 1];
+const blendAnnualSpendLevelWeights = [1, 1.25, 1.5, 1.75];
 
 // Representative monthly spend for each segment tier. A segment query implies a spend/income level,
 // so instead of the envelope blend we score segment queries at the tier's typical spend (the default
@@ -705,13 +705,10 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
           return scoreCardForSpend(card, monthlySpendProfile, totalMonthlySpend);
         });
         const representative = perLevel.reduce((best, score) => (strategy.perLevelScore(score) > strategy.perLevelScore(best) ? score : best));
-        const blendedFitScore =
-          strategy.blendMode === "max"
-            ? strategy.perLevelScore(representative)
-            : perLevel.reduce((sum, score) => sum + strategy.perLevelScore(score), 0) / 3;
+        const blendedFitScore = perLevel.reduce((sum, score) => sum + strategy.perLevelScore(score), 0) / 3;
 
         let splitOrderScore: number | undefined = undefined;
-        const isSplitBlend = input.resultStrategy === "reward-type-split" && strategy.blendMode === "weighted-average";
+        const isSplitBlend = input.resultStrategy === "reward-type-split";
         if (isSplitBlend) {
           const cardEarnsCashback = /cashback/i.test(card.rewardType ?? "");
           const orderLevels = cardEarnsCashback
@@ -749,17 +746,15 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
       // its all-round performance — so no single trivial-spend tier can inflate it. The blend is a
       // weighted average leaning toward higher-spend levels (see blendAnnualSpendLevelWeights).
       let spendLevels = strategy.spendLevels;
-      const isCashbackBlendCard =
-        strategy.blendMode === "weighted-average" && isPrimaryCashbackCard({ card } as CardScore);
+      const isCashbackBlendCard = isPrimaryCashbackCard({ card } as CardScore);
       // Broad split+blend: cashback and rewards cards are ordered within their respective *sections* by
       // a dedicated low/mid-spend evaluation (splitOrderScore).
-      const isSplitBlend = input.resultStrategy === "reward-type-split" && strategy.blendMode === "weighted-average";
-      // Cashback-specific queries ("best cashback card"): the whole result is cashback and renders as a
-      // flat list ranked by the fit score, so here we DO evaluate cashback cards on the realistic
-      // low/mid spend basis with equal weight — matching the split section — for both rank and display.
-      const isCashbackQueryBlend = restrictToCashbackCards && isCashbackBlendCard;
-
-      if (isCashbackQueryBlend) {
+      const isSplitBlend = input.resultStrategy === "reward-type-split";
+      // Cashback cards earn on monthly caps, so the broad reward-card blend (3L/10L/20L/30L) would
+      // judge them deep past their caps and systematically under-rank them. Evaluate EVERY primary
+      // cashback card on a realistic low/mid spend basis — not just in "best cashback card" queries —
+      // so the high reward-card spend levels apply to reward cards only.
+      if (isCashbackBlendCard) {
         spendLevels = [100000, 200000, 300000, 500000];
       } else if (restrictToUpiCards) {
         spendLevels = [100000, 200000, 300000];
@@ -768,7 +763,7 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
       }
 
       let spendWeights = strategy.spendWeights;
-      if (isCashbackQueryBlend) {
+      if (isCashbackBlendCard) {
         spendWeights = [1.3, 1.2, 1.1, 1];
       } else if (restrictToUpiCards) {
         spendWeights = [2, 1.5, 1];
@@ -801,9 +796,7 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
       const blendWeightSum = spendWeights.reduce((total, weight) => total + weight, 0);
       const representative = perLevel.reduce((best, score) => (strategy.perLevelScore(score) > strategy.perLevelScore(best) ? score : best));
       const blendedFitScore =
-        strategy.blendMode === "max"
-          ? strategy.perLevelScore(representative)
-          : perLevel.reduce((total, score, i) => total + strategy.perLevelScore(score) * spendWeights[i], 0) / blendWeightSum;
+        perLevel.reduce((total, score, i) => total + strategy.perLevelScore(score) * spendWeights[i], 0) / blendWeightSum;
 
       // Section ordering signal (split+blend only): an equal-weighted blend of the card's
       // net value at realistic spend levels (low/mid for cashback, mid/high for rewards).
@@ -936,8 +929,9 @@ export function applyResultStrategy(
   const useSplit = input.resultStrategy === "reward-type-split";
 
   const strategy = resultStrategies[useSplit ? "reward-type-split" : "single-list"];
-  const isBlend = rankingStrategies[input.rankingStrategy ?? DEFAULT_RANKING_STRATEGY].blendMode === "weighted-average";
-  const sections = strategy.group(byNetValue, maxPerSection, { isBlend });
+  // The single ranking strategy (absolute-blend) is always a weighted-average blend, so split
+  // sections always order by splitOrderScore.
+  const sections = strategy.group(byNetValue, maxPerSection, { isBlend: true });
 
   // Forex result splits read as a strict reward-type partition to users, so keep each card in
   // only its primary bucket there. This prevents dual-bucket cards like AU ixigo from appearing

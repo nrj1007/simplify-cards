@@ -72,12 +72,12 @@
 
   <div class="panel tldr">
     <h3 style="margin-top:0">TL;DR — "blend" means two different things</h3>
-    <p>The word <em>blend</em> is overloaded. There are <strong>two orthogonal axes</strong>:</p>
+    <p>The word <em>blend</em> covers two separate things:</p>
     <ul class="tight">
-      <li><strong>Ranking axis — <code>blendMode</code></strong> (<span class="ref">ranking-strategies.ts</span>): <code>"weighted-average"</code> (= <em>absolute-blend</em>, the default) vs <code>"max"</code> (<em>max-yield</em>). Collapses a card's per-spend-level scores into the global ranking key <code>normalizedFitScore</code>.</li>
-      <li><strong>Presentation axis — <code>resultStrategy</code></strong> (<span class="ref">result-strategies.ts</span>): <code>"single-list"</code> (default) vs <code>"reward-type-split"</code> (Cashback / Rewards sections).</li>
+      <li><strong>The ranking blend</strong> (<span class="ref">ranking-strategies.ts</span>): a single strategy, <code>absolute-blend</code> — a weighted average of each card's <code>fitScore</code> across the broad spend levels, producing the global ranking key <code>normalizedFitScore</code>. <em>(The old alternative <code>max-yield</code> strategy and the <code>blendMode</code> switch have been removed — there is now only one ranking blend.)</em></li>
+      <li><strong>The presentation axis — <code>resultStrategy</code></strong> (<span class="ref">result-strategies.ts</span>): <code>"single-list"</code> (default) vs <code>"reward-type-split"</code> (Cashback / Rewards sections).</li>
     </ul>
-    <p><strong>Split blend</strong> = <code>resultStrategy === "reward-type-split"</code> <em>AND</em> <code>blendMode === "weighted-average"</code>. Defined as <code>isSplitBlend</code> in <span class="ref">recommend.ts:717</span> and <span class="ref">:759</span>. <strong>Non-split blend</strong> = same weighted-average ranking, shown as one flat list.</p>
+    <p><strong>Split blend</strong> = <code>resultStrategy === "reward-type-split"</code> (with the always-on weighted-average ranking). Defined as <code>isSplitBlend</code> in <code>recommend.ts</code>. <strong>Non-split blend</strong> = same ranking, shown as one flat list.</p>
     <p style="margin-bottom:0">The app's <strong>active default is non-split</strong> (single-list). Split is opt-in via the <em>"group by type"</em> toggle on <code>/recommend</code> (<span class="ref">RecommendCalculator.tsx</span>) which sends <code>resultStrategy:"reward-type-split"</code> to <code>POST /api/recommend</code>.</p>
   </div>
 
@@ -103,19 +103,19 @@
   <h2>2. Side-by-side</h2>
   <table>
     <tr><th style="width:200px">&nbsp;</th><th>Non-split blend (default)</th><th>Split blend (opt-in, active when toggled)</th></tr>
-    <tr><td class="k">Gating</td><td><code>resultStrategy:"single-list"</code></td><td><code>resultStrategy:"reward-type-split"</code> + weighted-average → <code>isSplitBlend</code></td></tr>
-    <tr><td class="k">Global ranking key</td><td><code>normalizedFitScore</code> = weighted avg over <code>[120k,300k,600k]</code> w <code>[1.5,1.25,1]</code></td><td>Same <code>normalizedFitScore</code> (unchanged)</td></tr>
+    <tr><td class="k">Gating</td><td><code>resultStrategy:"single-list"</code></td><td><code>resultStrategy:"reward-type-split"</code> → <code>isSplitBlend</code></td></tr>
+    <tr><td class="k">Global ranking key</td><td><code>normalizedFitScore</code> = weighted avg; <strong>reward cards</strong> over <code>[3L,10L,20L,30L]</code> w <code>[1,1.25,1.5,1.75]</code>, <strong>cashback cards</strong> re-based to <code>[100k,200k,300k,500k]</code> w <code>[1.3,1.2,1.1,1]</code></td><td>Same <code>normalizedFitScore</code> (unchanged)</td></tr>
     <tr><td class="k">Section order key</td><td>n/a — flat list sorted by <code>estimatedNetValue</code></td><td><code>splitOrderScore</code>: cashback cards on <code>[100k,200k,300k,500k]</code> w <code>[1.3,1.2,1.1,1]</code>; rewards on <code>[120k,300k,600k]</code> w <code>[1.5,1.25,1]</code></td></tr>
     <tr><td class="k">Presentation</td><td>One untitled section, 5 cards</td><td>"Cashback cards" + "Rewards cards", fill-up allocator lends unused slots between buckets (<span class="ref">result-strategies.ts:99–110</span>)</td></tr>
     <tr><td class="k">Dual-bucket cards</td><td>Primary bucket score only</td><td>Appear in <em>both</em> sections, re-valued at the other bucket's point value (<code>rewardBucketScore</code>/<code>cashbackBucketScore</code>, <span class="ref">recommend.ts:838–860</span>)</td></tr>
-    <tr><td class="k">Cashback fairness</td><td>Cashback cards ranked on standard high spend levels → systematically under-weighted</td><td>Cashback cards ordered on realistic low/mid spend <em>within their section</em></td></tr>
+    <tr><td class="k">Cashback fairness</td><td>Cashback cards re-based to realistic low/mid spend levels in the <em>global</em> blend (reward-only high levels) → fair in the flat list too</td><td>Same global re-basing, plus realistic-spend ordering <em>within</em> the Cashback section</td></tr>
   </table>
 
   <h2>3. Why the cashback-fairness mechanism exists</h2>
   <div class="panel">
     <p>Cashback cards usually carry <strong>monthly caps</strong>. Scored at the non-split blend's high spend levels (<code>300k</code>, <code>600k</code> annual), they blow past their caps, so their <em>marginal</em> net value collapses and they rank below points/miles cards that keep earning.</p>
-    <p>Split blend fixes this by ordering cashback cards on <code>[100k,200k,300k,500k]</code> — spend levels where caps haven't yet dominated — so a strong sub-₹3L cashback card surfaces at the top of the Cashback section instead of being buried. The rewards cards keep their high-spend evaluation, where they shine.</p>
-    <p style="margin-bottom:0"><strong>The catch (see Gap 3):</strong> this fairer evaluation only drives the <em>display order inside the section</em>. The global <code>normalizedFitScore</code> — which still governs the flat single-list and the candidate sort — does <em>not</em> get it (except for dedicated "best cashback card" queries via <code>restrictToCashbackCards</code>).</p>
+    <p>The engine now re-bases <strong>every primary cashback card</strong> onto <code>[100k,200k,300k,500k]</code> w <code>[1.3,1.2,1.1,1]</code> in the global blend (<code>isCashbackBlendCard</code> in <code>recommend.ts</code>) — spend levels where caps haven't yet dominated — so the high <code>[3L,10L,20L,30L]</code> reward-card levels apply to <strong>reward cards only</strong>. A strong sub-₹3L cashback card is now judged fairly in the flat single-list <em>and</em> the split Cashback section. Rewards cards keep their high-spend evaluation, where they shine.</p>
+    <p style="margin-bottom:0"><strong>Remaining nuance:</strong> the split section <em>additionally</em> orders cashback cards by <code>splitOrderScore</code>; the displayed <code>estimatedNetValue</code> is still the card's representative-level value, so the shown figure can differ slightly from the rank-driving score.</p>
   </div>
 
   <h2>4. Gaps in split blend vs non-split blend</h2>
@@ -140,11 +140,10 @@
   </div>
 
   <div class="gap">
-    <header><div class="num">3</div><h3>Cashback fairness never reaches the global rank / flat list</h3><span class="chip pill-red sev">High impact</span></header>
+    <header><div class="num">3</div><h3>Cashback fairness never reaches the global rank / flat list</h3><span class="chip pill-green sev">Fixed ✓</span></header>
     <div class="body">
-      <div class="row"><span class="label">Where</span> <code>splitOrderScore</code> levels applied only in split (<span class="ref">recommend.ts:719–734, 817–831</span>); global key uses cashback levels only when <code>restrictToCashbackCards</code> (<span class="ref">recommend.ts:763–766</span>).</div>
-      <div class="row"><span class="label">Gap</span> In a mixed <strong>non-split</strong> flat list, cashback cards are still ranked on <code>[120k,300k,600k]</code> and under-weighted — the exact problem split was built to solve still exists in the default view. Symmetrically, in split the fix only changes <em>order</em>; the <code>estimatedNetValue</code> number shown on each card is still the default-level value, so the displayed figure can disagree with the rank.</div>
-      <div class="fix"><span class="label">Fix</span> Apply reward-type-aware spend levels to the global <code>normalizedFitScore</code> for mixed queries (not just dedicated cashback queries), so cashback cards are fairly ranked regardless of the toggle.</div>
+      <div class="row"><span class="label">Was</span> The realistic cashback spend levels were applied only inside the split section (and to the global key only for dedicated <code>restrictToCashbackCards</code> queries). In a mixed non-split flat list, cashback cards were ranked on the broad <code>[3L,10L,20L,30L]</code> levels and under-weighted by their caps.</div>
+      <div class="fix"><span class="label">Done</span> The trigger was widened from <code>isCashbackQueryBlend</code> (cashback-restricted only) to <code>isCashbackBlendCard</code> (every primary cashback card). Now cashback cards are re-based to <code>[100k,200k,300k,500k]</code> w <code>[1.3,1.2,1.1,1]</code> in the global blend, so the high <code>[3L,10L,20L,30L]</code> levels apply to reward cards only — fair ranking in <em>both</em> the flat list and the split view. <span class="ref">recommend.ts:752,761,770</span></div>
     </div>
   </div>
 
@@ -178,9 +177,9 @@
   <div class="gap">
     <header><div class="num">7</div><h3>Stale doc: spend levels in lib/AGENTS.md</h3><span class="chip pill-green sev">Fixed ✓</span></header>
     <div class="body">
-      <div class="row"><span class="label">Where</span> <span class="ref">lib/AGENTS.md</span> described the broad blend as "3L/10L/20L/30L".</div>
-      <div class="row"><span class="label">Gap</span> The code (<span class="ref">ranking-strategies.ts</span> &amp; <span class="ref">recommend.ts</span>) uses <code>[120000, 300000, 600000]</code> with weights <code>[1.5, 1.25, 1]</code> — three levels, not four, and different magnitudes. Anyone reasoning from the doc would mis-model the blend.</div>
-      <div class="fix"><span class="label">Done</span> <code>lib/AGENTS.md</code> updated to the actual levels (<code>[120000, 300000, 600000]</code> = Rs 10k/25k/50k per month) and weights (<code>[1.5, 1.25, 1]</code>).</div>
+      <div class="row"><span class="label">Where</span> <span class="ref">lib/AGENTS.md</span> + the comment block at <span class="ref">recommend.ts:123–127</span> describe a four-tier light/mid/heavy/very-heavy blend up to Rs 30L.</div>
+      <div class="row"><span class="label">Gap</span> The code had regressed to <code>[120000, 300000, 600000]</code> (three levels, capped at 600k) with weights <code>[1.5, 1.25, 1]</code> — out of sync with its own documented 3L/10L/20L/30L design, so super-premium cards that only pull ahead at very high spend were capped out.</div>
+      <div class="fix"><span class="label">Done</span> Restored the blend to its documented design: <code>spendLevels [300000, 1000000, 2000000, 3000000]</code> (3L/10L/20L/30L ≈ Rs 25k/83k/167k/250k per month) with high-spend-leaning weights <code>[1, 1.25, 1.5, 1.75]</code>, in <code>ranking-strategies.ts</code> (both strategies), the mirror consts in <code>recommend.ts</code>, and <code>lib/AGENTS.md</code>.</div>
     </div>
   </div>
 
@@ -188,7 +187,7 @@
   <table>
     <tr><th style="width:260px">File</th><th>Role in ranking</th></tr>
     <tr><td class="k">lib/recommend.ts</td><td><code>scoreCards()</code> :252 · envelope blend &amp; <code>splitOrderScore</code> :697–877 · <code>applyResultStrategy()</code> :925 · <code>isSplitBlend</code> :717,:759</td></tr>
-    <tr><td class="k">lib/ranking-strategies.ts</td><td><code>absolute-blend</code> (weighted-average, default) vs <code>max-yield</code>; spend levels <code>[120k,300k,600k]</code> w <code>[1.5,1.25,1]</code></td></tr>
+    <tr><td class="k">lib/ranking-strategies.ts</td><td>single <code>absolute-blend</code> strategy (weighted-average); reward-card spend levels <code>[3L,10L,20L,30L]</code> w <code>[1,1.25,1.5,1.75]</code></td></tr>
     <tr><td class="k">lib/result-strategies.ts</td><td><code>single-list</code> vs <code>reward-type-split</code>; section sort by <code>splitOrderScore</code>; dual-bucket routing; fill-up allocator; <code>SPLIT_SCOPE</code></td></tr>
     <tr><td class="k">lib/recommend-utils.ts</td><td>50/50 SmartBuy spend split (<code>acceleratedShareForCategory</code>, <code>blendedSmartbuySpendCategories</code>)</td></tr>
     <tr><td class="k">lib/recommend-category-focus.ts</td><td><code>categoryFocus75_25SpendProfile</code> used by the focused split path</td></tr>
