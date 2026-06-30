@@ -16,10 +16,10 @@
 // lets super-premium cards (e.g. Magnus Burgundy) that only pull ahead at very
 // high spend show that strength instead of being capped at the Rs 20L tier.
 export const REWARD_BLEND_SPEND_LEVELS = [300000, 1000000, 2000000, 3000000]; // 3L/10L/20L/30L (~Rs 25k/83k/167k/250k per month)
-// Equal weight across all levels: a reward card must hold up across the whole
-// light→very-heavy range to rank high, with no single spend level (trivial or
-// heavy) dominating the blended score.
-export const REWARD_BLEND_WEIGHTS = [1, 1, 1, 1];
+// Lean gently toward higher-spend levels: a reward card must hold up across the
+// whole light→very-heavy range to rank high, but its heavy-spend strength counts
+// for a bit more (so cards that only pull ahead at high spend aren't averaged out).
+export const REWARD_BLEND_WEIGHTS = [1, 1.1, 1.2, 1.3];
 
 // --- Cashback cards: re-based onto realistic low/mid spend -----------------
 // Cashback cards earn on monthly caps, so the broad reward-card blend would
