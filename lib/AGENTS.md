@@ -40,7 +40,8 @@ calls the AI provider. The AI is used only to phrase/resolve, never as the sourc
   `defaultSpendProfile`, `requestedTopCardCount`, and `milestoneRulesForCard()` (per-card
   milestone value/threshold rules used by the calculator).
   - **`scoreCards` routes a query to one of several ranking modes** instead of always using the
-    broad envelope blend (`blendAnnualSpendLevelWeights` over 3L/10L/20L/30L, used only for broad
+    broad envelope blend (`blendAnnualSpendLevels` `[120000, 300000, 600000]` — Rs 10k/25k/50k
+    per month — with `blendAnnualSpendLevelWeights` `[1.5, 1.25, 1]`, used only for broad
     no-spend queries):
     - **Category focus** (`categoryFocusConfigs` / `detectCategoryFocus`) — "best dining/grocery/
       online/amazon/flipkart/swiggy/utilities/rent/entertainment card". Scored at a realistic
