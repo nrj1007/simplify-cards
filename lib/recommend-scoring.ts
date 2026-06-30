@@ -14,7 +14,7 @@ import {
   spendAliases
 } from "./recommend-utils";
 
-const exactCardNameMatchThreshold = 50000;
+export const exactCardNameMatchThreshold = 50000;
 const LOUNGE_QUERY_VALUE_WEIGHT = 30;
 const GUEST_VISIT_WEIGHT = 2;
 

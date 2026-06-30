@@ -45,6 +45,7 @@ import {
   computeCardNameBoost,
   computeFlexibilityValue,
   computeQueryKeywordBoost,
+  exactCardNameMatchThreshold,
   extractQueryTags,
   feeAfterWaiver,
   findDirectRewardForSpend,
@@ -110,8 +111,6 @@ export const defaultSpendProfile: SpendProfile = {
 
 const defaultTopCardCount = 3;
 const joiningBenefitAmortizationYears = 2;
-const LOUNGE_QUERY_VALUE_WEIGHT = 30;
-const GUEST_VISIT_WEIGHT = 2;
 
 // Scoring stage weights: relevance (text/identity match) vs value (economic/preference fit)
 const relevanceWeightExactMatch = 1.0;
@@ -142,8 +141,6 @@ const segmentRepresentativeMonthlySpend: Record<string, number> = {
   premium: 120000,
   "super-premium": 250000
 };
-const exactCardNameMatchThreshold = 50000;
-
 function isBroadNoSpendQuery(input: RecommendationInput, intent: ReturnType<typeof parseQueryIntent>) {
   return (
     !input.spend &&
