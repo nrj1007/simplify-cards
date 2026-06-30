@@ -46,20 +46,29 @@ type Props = {
   searchParams: Promise<{
     query?: string;
     maxAnnualFee?: string;
+    prevQuery?: string;
+    ctxCards?: string;
     feedbackSaved?: string;
     feedbackError?: string;
   }>;
 };
 
-function parseInput(params: { query?: string; maxAnnualFee?: string }): RecommendationInput | null {
+function parseInput(params: { query?: string; maxAnnualFee?: string; prevQuery?: string; ctxCards?: string }): RecommendationInput | null {
   const query = params.query?.trim();
   if (!query) return null;
 
   const parsedMaxFee = params.maxAnnualFee ? Number(params.maxAnnualFee) : undefined;
+  const contextCardIds = params.ctxCards
+    ?.split(",")
+    .map((cardId) => cardId.trim())
+    .filter(Boolean)
+    .slice(0, 5);
 
   return {
     query,
-    maxAnnualFee: parsedMaxFee !== undefined && !Number.isNaN(parsedMaxFee) ? parsedMaxFee : undefined
+    maxAnnualFee: parsedMaxFee !== undefined && !Number.isNaN(parsedMaxFee) ? parsedMaxFee : undefined,
+    previousQuery: params.prevQuery?.trim() || undefined,
+    contextCardIds: contextCardIds && contextCardIds.length > 0 ? contextCardIds : undefined
   };
 }
 
@@ -290,6 +299,7 @@ export default async function AskPage({ searchParams }: Props) {
     copy: decisionCopy(item)
   }));
   const queryStem = input?.query ? input.query : "best card";
+  const followUpContextCardIds = result?.cards.slice(0, 5).map((item) => item.card.id).join(",") ?? "";
 
   return (
     <div className="ask-results">
@@ -875,6 +885,14 @@ export default async function AskPage({ searchParams }: Props) {
               <AskQueryForm
                 ariaLabel="Ask a follow-up credit card question"
                 buttonLabel="Ask follow-up →"
+                contextParams={
+                  input?.query && followUpContextCardIds
+                    ? {
+                        prevQuery: input.query,
+                        ctxCards: followUpContextCardIds
+                      }
+                    : undefined
+                }
                 multiline
                 placeholder="Example: I spend Rs 60k/month and travel twice a year. Which one should I choose?"
               />

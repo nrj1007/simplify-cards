@@ -852,12 +852,47 @@ function buildShortlistFromMentionedCard(scoredCards: CardScore[], mentionedCard
   };
 }
 
-function shortlistCardsForQuestion(input: RecommendationInput) {
-  const scoredCards = scoreCards(input);
-  const mentionedCardId =
+function boostContextCards(scoredCards: CardScore[], input: RecommendationInput, sourceCards: CardScore[] = scoredCards) {
+  if (!input.contextCardIds?.length) return scoredCards;
+
+  const contextSet = new Set(input.contextCardIds);
+  const contextCards = sourceCards.filter((item) => contextSet.has(item.card.id));
+  if (contextCards.length === 0) return scoredCards;
+
+  return [
+    ...contextCards,
+    ...scoredCards.filter((item) => !contextSet.has(item.card.id))
+  ].slice(0, scoredCards.length);
+}
+
+function buildContextSourceCards(input: RecommendationInput, scoredCards: CardScore[]) {
+  if (!input.contextCardIds?.length) return scoredCards;
+
+  const contextQuery = input.previousQuery ?? input.query ?? "best overall";
+  const previousQueryScores = scoreCards({
+    ...input,
+    query: contextQuery,
+    previousQuery: undefined,
+    contextCardIds: undefined
+  });
+  const seenIds = new Set<string>();
+
+  return [...scoredCards, ...previousQueryScores].filter((item) => {
+    if (seenIds.has(item.card.id)) return false;
+    seenIds.add(item.card.id);
+    return true;
+  });
+}
+
+function shortlistCardsForQuestion(input: RecommendationInput, scoredCards = boostContextCards(scoreCards(input), input)) {
+  let mentionedCardId =
     isBareSpendCategoryQuery(input.query)
       ? findExactCardNameOrIdMatch(input.query)
       : findMentionedCardId(input.query);
+
+  if (input.contextCardIds?.length && mentionedCardId && !findExactCardNameOrIdMatch(input.query)) {
+    mentionedCardId = null;
+  }
 
   return buildShortlistFromMentionedCard(scoredCards, mentionedCardId);
 }
@@ -1393,6 +1428,8 @@ function buildGroundedAskPrompt(input: RecommendationInput, shortlistedCards: Ca
   return JSON.stringify(
     {
       userQuestion: input.query ?? "",
+      previousQuestion: input.previousQuery ?? null,
+      isFollowUpQuestion: Boolean(input.previousQuery),
       constraints: {
         maxAnnualFee: input.maxAnnualFee ?? null,
         wantsLounge: input.wantsLounge ?? false,
@@ -1456,6 +1493,8 @@ function buildGroundedTopCardsPrompt(input: RecommendationInput, shortlistedCard
   return JSON.stringify(
     {
       userQuestion: input.query ?? "",
+      previousQuestion: input.previousQuery ?? null,
+      isFollowUpQuestion: Boolean(input.previousQuery),
       requestedCount: requestedTopCardCount(input.query),
       constraints: {
         maxAnnualFee: input.maxAnnualFee ?? null,
@@ -1584,9 +1623,13 @@ export async function answerQuestion(input: RecommendationInput): Promise<AskAiR
     };
   }
 
-  let shortlisted = shortlistCardsForQuestion(input);
-  const scoredCards = scoreCards(input);
-  const specificCardLookup = isSpecificCardLookup(input);
+  const rawScoredCards = scoreCards(input);
+  const contextSourceCards = buildContextSourceCards(input, rawScoredCards);
+  const scoredCards = boostContextCards(rawScoredCards, input, contextSourceCards);
+  let shortlisted = shortlistCardsForQuestion(input, scoredCards);
+  const hasFollowUpContext = Boolean(input.previousQuery || input.contextCardIds?.length);
+  const exactMentionedCardId = findExactCardNameOrIdMatch(input.query);
+  const specificCardLookup = (!hasFollowUpContext || Boolean(exactMentionedCardId)) && isSpecificCardLookup(input);
   const cardFamilyLookup = specificCardLookup ? buildCardFamilyLookupResult(input, scoredCards) : null;
   const parsedCardQuestion = parseSpecificCardQuestion(input.query);
 
@@ -1622,7 +1665,7 @@ export async function answerQuestion(input: RecommendationInput): Promise<AskAiR
   const answer = {
     ...baseAnswer,
     cards: isRankingQuery
-      ? baseAnswer.cards
+      ? boostContextCards(baseAnswer.cards, input, scoredCards)
       : buildDisplayCards(
           scoredCards,
           shortlisted.mentionedCardId ?? shortlisted.cards[0]?.card.id ?? null,

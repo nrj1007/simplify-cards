@@ -396,6 +396,52 @@ describe("ask ai fallback policy", () => {
     expect(answer.cards.map((item) => item.card.id)).toEqual(rawTopTenIds);
   });
 
+  it("keeps previous result cards visible for follow-up ranking questions", async () => {
+    const answer = await answerQuestion({
+      query: "which has lounge access too?",
+      previousQuery: "best card for online cashback",
+      contextCardIds: ["sbi-cashback"]
+    });
+
+    expect(answer.cards.length).toBeGreaterThan(0);
+    expect(answer.cards[0]?.card.id).toBe("sbi-cashback");
+    expect(answer.meta?.needsFollowUp).toBe(true);
+  });
+
+  it("passes previous query context into the grounded AI summary prompt", async () => {
+    process.env.OPENAI_API_KEY = "test-key";
+    global.fetch = vi.fn(async () =>
+      ({
+        ok: true,
+        json: async () => ({
+          output: [
+            {
+              content: [
+                {
+                  text: JSON.stringify({
+                    summary: "For this follow-up, SBI Cashback Credit Card remains useful from the shortlist."
+                  })
+                }
+              ]
+            }
+          ]
+        })
+      }) as unknown as Response
+    ) as typeof fetch;
+
+    await answerQuestion({
+      query: "which has lounge access too?",
+      previousQuery: "best card for online cashback",
+      contextCardIds: ["sbi-cashback"]
+    });
+
+    const requestBody = JSON.parse(String((global.fetch as ReturnType<typeof vi.fn>).mock.calls[0]?.[1]?.body));
+    const userPrompt = requestBody.input[1].content[0].text;
+
+    expect(userPrompt).toContain('"previousQuestion": "best card for online cashback"');
+    expect(userPrompt).toContain('"isFollowUpQuestion": true');
+  });
+
   it("uses gpt-5-mini summary generation for non-ranking recommendation phrasing when an OpenAI API key is configured", async () => {
     process.env.OPENAI_API_KEY = "test-key";
     global.fetch = vi.fn(async () =>

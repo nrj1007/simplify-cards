@@ -273,6 +273,8 @@ export type RecommendationInput = {
   spend?: SpendProfile;
   rankingStrategy?: RankingStrategyName;
   resultStrategy?: ResultStrategyName;
+  previousQuery?: string;
+  contextCardIds?: string[];
 };
 
 export interface ScoreDebug {

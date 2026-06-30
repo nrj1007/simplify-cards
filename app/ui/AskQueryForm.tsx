@@ -17,6 +17,7 @@ type Props = {
   buttonLabel: string;
   className?: string;
   multiline?: boolean;
+  contextParams?: Record<string, string>;
 };
 
 export default function AskQueryForm({
@@ -26,7 +27,8 @@ export default function AskQueryForm({
   ariaLabel,
   buttonLabel,
   className,
-  multiline = false
+  multiline = false,
+  contextParams
 }: Props) {
   const router = useRouter();
   const [submittedQuery, setSubmittedQuery] = useState<string | null>(null);
@@ -45,6 +47,11 @@ export default function AskQueryForm({
     const nextParams = new URLSearchParams({ query });
     if (typeof maxAnnualFee === "number") {
       nextParams.set("maxAnnualFee", String(maxAnnualFee));
+    }
+    if (contextParams) {
+      for (const [key, value] of Object.entries(contextParams)) {
+        if (value) nextParams.set(key, value);
+      }
     }
 
     const nextHref = `/ask?${nextParams.toString()}`;
