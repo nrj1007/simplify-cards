@@ -73,17 +73,17 @@ Update the `Props.searchParams` type to include `prevQuery?: string` and `ctxCar
 
 **b) Build the follow-up URL with context:**
 
-After the ask result is resolved (i.e. `result.cards` is available), derive the context to pass
-to the follow-up box:
+After the ask result is resolved (i.e. `result.cards` is available), derive the top card IDs to
+pass to the follow-up box. Pass the raw `input.query` string for `prevQuery` — `URLSearchParams`
+in `handleSubmit` handles the encoding, so do **not** pre-encode it here:
 
 ```ts
 const topCardIds = result.cards.slice(0, 5).map((c) => c.card.id).join(",");
-const currentQuery = encodeURIComponent(input.query ?? "");
 ```
 
 **c) Pass context to `AskQueryForm` in the follow-up sidebar:**
 
-Replace the bare `<AskQueryForm … />` with a version that includes hidden params:
+Replace the bare `<AskQueryForm … />` with one that passes `contextParams`:
 
 ```tsx
 <AskQueryForm
@@ -100,9 +100,14 @@ Replace the bare `<AskQueryForm … />` with a version that includes hidden para
 
 ### 3. `app/ui/AskQueryForm.tsx` — accept and forward contextParams
 
-Add an optional `contextParams?: Record<string, string>` prop. When present, render hidden
-`<input type="hidden">` fields inside the form so the Next.js form action includes them in the
-URL:
+**Important:** `AskQueryForm` is **not** a native GET form — it is a client component that calls
+`event.preventDefault()` in `handleSubmit` and navigates via `router.push()`, building the target
+URL by hand from `URLSearchParams` (it only ever reads `query` and `maxAnnualFee` from the form).
+So hidden `<input>` fields are **not** auto-appended to the URL. To carry context, the prop must
+be merged into the `URLSearchParams` inside `handleSubmit`.
+
+Add an optional `contextParams?: Record<string, string>` prop and wire it into the existing
+`nextParams` construction:
 
 ```tsx
 type Props = {
@@ -110,15 +115,28 @@ type Props = {
   contextParams?: Record<string, string>;
 };
 
-// Inside the <form> element:
-{contextParams &&
-  Object.entries(contextParams).map(([k, v]) => (
-    <input key={k} type="hidden" name={k} value={v} />
-  ))}
+export default function AskQueryForm({
+  // existing destructured props…
+  contextParams
+}: Props) {
+  // …existing handleSubmit body…
+  const nextParams = new URLSearchParams({ query });
+  if (typeof maxAnnualFee === "number") {
+    nextParams.set("maxAnnualFee", String(maxAnnualFee));
+  }
+  // NEW — append follow-up context params
+  if (contextParams) {
+    for (const [k, v] of Object.entries(contextParams)) {
+      if (v) nextParams.set(k, v);
+    }
+  }
+  const nextHref = `/ask?${nextParams.toString()}`;
+  // …rest unchanged (dedupe check, trackEvent, router.push)…
+}
 ```
 
-The form's action should already be a GET to `/ask` — the hidden fields will be appended as
-query params automatically.
+No hidden inputs are needed. The `contextParams` keys must match what `parseInput` reads in
+step 2a (`prevQuery`, `ctxCards`).
 
 ### 4. `lib/ask-ai.ts` — use context in `answerQuestion`
 

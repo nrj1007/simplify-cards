@@ -22,7 +22,9 @@ server render (acceptable at current traffic scale).
 
 ### 1. `lib/analytics-logs.ts` — add `readAnalyticsLog()`
 
-Currently the file only has `logAnalyticsEvent()` (write path). Add a read helper:
+Currently the file has only write/path helpers — `getAnalyticsEventsLogPath()`,
+`appendAnalyticsEvent()`, and `logAnalyticsEvent()` (the public write entry, called by the
+api/feedback routes). Add a read helper:
 
 ```ts
 export async function readAnalyticsLog(limit = 5000): Promise<StoredAnalyticsEvent[]> {
@@ -46,29 +48,37 @@ export async function readAnalyticsLog(limit = 5000): Promise<StoredAnalyticsEve
 
 ### 2. `app/review/analytics/page.tsx` (new)
 
-Server component. Reads the log, groups by event type, and renders four panels:
+Server component. Reads the log, groups by event type, and renders four panels.
+
+**Field shape (important):** `StoredAnalyticsEvent` (`lib/analytics.ts`) is **flat** — fields
+are top-level on the event, not nested under a `payload` key. The fields are `event_name`,
+`received_at` (ISO timestamp — this is the only timestamp, there is no `stored_at`),
+`session_id`, `page`, `source`, `query?`, `card_id?`, `card_ids?`, `device_type`, `referrer`,
+`metadata?`. Reference them as `event.query`, `event.card_id`, `event.received_at`, etc.
 
 **Panel A — Top ask queries (last 30 days)**
-Group `ask_query_submitted` events by `payload.query`, count occurrences, sort descending,
+Group `ask_query_submitted` events by `event.query`, count occurrences, sort descending,
 show top 25. Helps identify popular queries and scoring gaps.
 
 **Panel B — Apply clicks by card**
-Group `apply_clicked` events by `payload.card_id`, count occurrences, join card name from the
+Group `apply_clicked` events by `event.card_id`, count occurrences, join card name from the
 in-memory card index (`getCardById`), sort descending, show top 20. Shows which cards are
 converting.
 
 **Panel C — Apply source breakdown**
-For the top-10 clicked cards, show the breakdown by `payload.source` (ask / finder / recommend /
+For the top-10 clicked cards, show the breakdown by `event.source` (ask / finder / recommend /
 details / compare). Helps understand which page drives most affiliate traffic.
 
 **Panel D — Zero-result / unsupported queries**
-Pull events where `payload.metadata?.intent === "unsupported"` or where `ask_result_rendered`
-has `payload.metadata?.cardCount === 0`. Show the raw query strings, newest first, limit 50.
+Pull `ask_result_rendered` events where `event.card_ids` is empty (`(event.card_ids?.length ?? 0)
+=== 0`) — that event carries the result card list in `card_ids` (see `app/ask/page.tsx`), so an
+empty array is the zero-result signal. Also include events where `event.metadata?.intent ===
+"unsupported"` if that key is present. Show the raw `event.query` strings, newest first, limit 50.
 Cross-reference with the existing `/review/questions` unsupported log.
 
 **Panel E — Daily usage (simple)**
-Group all events by calendar date (`stored_at.slice(0, 10)`), count total events per day, show
-a text table for the last 14 days. Enough to see if traffic is growing.
+Group all events by calendar date (`event.received_at.slice(0, 10)`), count total events per day,
+show a text table for the last 14 days. Enough to see if traffic is growing.
 
 Structure (reuse the review layout):
 
@@ -102,7 +112,7 @@ automatically noindexed.
 ## Aggregation notes
 
 - Date-filter to last 30 days for panels A–C; last 14 days for panel E. Filter by
-  `new Date(event.stored_at) > thirtyDaysAgo`.
+  `new Date(event.received_at) > thirtyDaysAgo`.
 - Do the grouping in the server component, not in `analytics-logs.ts` — the log module stays
   a thin I/O layer; aggregation is view-specific logic.
 - If the log file is empty or missing, show an "No data yet" state in each panel gracefully.
