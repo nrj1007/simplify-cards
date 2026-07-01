@@ -45,6 +45,16 @@ export function isPrimaryCashbackCard(score: CardScore): boolean {
   return /cashback/.test(rt);
 }
 
+export function resultDisplayOrderScore(score: CardScore): number {
+  return score.envelopeScoring?.splitOrderScore ?? score.estimatedNetValue;
+}
+
+export function compareResultDisplayOrder(a: CardScore, b: CardScore): number {
+  const displayOrder = resultDisplayOrderScore(b) - resultDisplayOrderScore(a);
+  if (displayOrder !== 0) return displayOrder;
+  return b.estimatedNetValue - a.estimatedNetValue;
+}
+
 // ---------------------------------------------------------------------------
 // Strategy implementations
 // ---------------------------------------------------------------------------
@@ -67,33 +77,15 @@ const rewardTypeSplit: ResultStrategy = {
     const rewards = scored
       .filter((c) => !isPrimaryCashbackCard(c) || c.rewardBucketScore !== undefined)
       .map((c) => c.rewardBucketScore ?? c)
-      .sort((a, b) => b.estimatedNetValue - a.estimatedNetValue);
+      .sort(compareResultDisplayOrder);
     const cashback = scored
       .filter((c) => isPrimaryCashbackCard(c) || c.cashbackBucketScore !== undefined)
       .map((c) => c.cashbackBucketScore ?? c)
-      .sort((a, b) => b.estimatedNetValue - a.estimatedNetValue);
+      .sort(compareResultDisplayOrder);
 
     if (options?.isBlend) {
-      rewards.sort((a, b) => {
-        const scoreA = a.envelopeScoring?.splitOrderScore;
-        const scoreB = b.envelopeScoring?.splitOrderScore;
-        if (scoreA !== undefined && scoreB !== undefined) {
-          if (scoreB !== scoreA) {
-            return scoreB - scoreA;
-          }
-        }
-        return b.estimatedNetValue - a.estimatedNetValue;
-      });
-      cashback.sort((a, b) => {
-        const scoreA = a.envelopeScoring?.splitOrderScore;
-        const scoreB = b.envelopeScoring?.splitOrderScore;
-        if (scoreA !== undefined && scoreB !== undefined) {
-          if (scoreB !== scoreA) {
-            return scoreB - scoreA;
-          }
-        }
-        return b.estimatedNetValue - a.estimatedNetValue;
-      });
+      rewards.sort(compareResultDisplayOrder);
+      cashback.sort(compareResultDisplayOrder);
     }
 
     // Fill-up: total target = maxPerSection * 2 (i.e. 10 when maxPerSection = 5).

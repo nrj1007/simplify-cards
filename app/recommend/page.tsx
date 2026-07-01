@@ -13,10 +13,11 @@ export const metadata: Metadata = buildPageMetadata({
 });
 
 export default function RecommendPage() {
-  const scored = scoreCards({ spend: defaultSpendProfile });
+  const input = { spend: defaultSpendProfile, resultStrategy: "single-list" as const };
+  const scored = scoreCards(input);
   // Default view: single-list (spend-based, not a broad query — split doesn't apply here).
   // Sections shape is used so the calculator component has a unified data contract.
-  const sections = applyResultStrategy(scored, { spend: defaultSpendProfile }).map((section) => ({
+  const sections = applyResultStrategy(scored, input).map((section) => ({
     title: section.title,
     results: section.cards.map(toRecommendResult)
   }));

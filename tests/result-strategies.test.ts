@@ -21,9 +21,12 @@ function makeScore(id: string, rewardType: string): CardScore {
       tags: [],
       rewards: [],
       useCases: [],
+      bestFor: [],
       exclusions: [],
       milestoneBenefits: [],
       lounge: { domestic: 0, international: 0 },
+      loungeDomestic: 0,
+      loungeInternational: 0,
       forexMarkup: 3.5,
       sourceUrl: "",
       applyUrl: "",
@@ -163,11 +166,12 @@ describe("applyResultStrategy gating (via scoreCards integration)", () => {
     const { scoreCards } = await import("../lib/recommend");
 
     // Category-focused query — not a broad generic ranking
-    const scored = scoreCards({ query: "best dining card" });
-    const sections = applyResultStrategy(scored, {
+    const input = {
       query: "best dining card",
-      resultStrategy: "reward-type-split"
-    });
+      resultStrategy: "reward-type-split" as const
+    };
+    const scored = scoreCards(input);
+    const sections = applyResultStrategy(scored, input);
     // Should split because there are both cashback and rewards cards in the results and MIN_CARDS_PER_SPLIT_SECTION = 1
     expect(sections).toHaveLength(2);
     expect(sections[0].title).toBe("Cashback cards");
@@ -178,11 +182,12 @@ describe("applyResultStrategy gating (via scoreCards integration)", () => {
     const { applyResultStrategy } = await import("../lib/recommend");
     const { scoreCards } = await import("../lib/recommend");
 
-    const scored = scoreCards({ query: "best credit card" });
-    const sections = applyResultStrategy(scored, {
+    const input = {
       query: "best credit card",
-      resultStrategy: "reward-type-split"
-    });
+      resultStrategy: "reward-type-split" as const
+    };
+    const scored = scoreCards(input);
+    const sections = applyResultStrategy(scored, input);
     expect(sections).toHaveLength(2);
     expect(sections[0].title).toBe("Cashback cards");
     expect(sections[1].title).toBe("Rewards cards");
@@ -206,11 +211,12 @@ describe("applyResultStrategy gating (via scoreCards integration)", () => {
 
     // Simulate the /recommend slider scenario: spend is always present
     const spend = { online: 20000, dining: 5000, grocery: 10000, base: 15000 };
-    const scored = scoreCards({ spend });
-    const sections = applyResultStrategy(scored, {
+    const input = {
       spend,
-      resultStrategy: "reward-type-split"
-    });
+      resultStrategy: "reward-type-split" as const
+    };
+    const scored = scoreCards(input);
+    const sections = applyResultStrategy(scored, input);
     // Must produce two headed sections despite spend being present
     expect(sections).toHaveLength(2);
     expect(sections[0].title).toBe("Cashback cards");
@@ -236,21 +242,72 @@ describe("applyResultStrategy gating (via scoreCards integration)", () => {
     expect(rewardIds).toContain("au-ixigo");
   });
 
-  it("single-list order matches rankResults (net-value sort, not fitScore)", async () => {
+  it("single-list order matches rankResults (display-order sort, not fitScore)", async () => {
     const { applyResultStrategy, scoreCards } = await import("../lib/recommend");
     const { rankResults } = await import("../lib/recommend-result");
 
-    // Use a spend profile so the result is deterministic and not a broad query
-    // (spend-based queries still need net-value order for the recommend page).
+    // Use a spend profile so the result is deterministic and not a broad query.
     const spend = { online: 20000, dining: 5000, grocery: 10000, base: 15000 };
-    const scored = scoreCards({ spend });
+    const input = { spend, resultStrategy: "single-list" as const };
+    const scored = scoreCards(input);
 
-    const sections = applyResultStrategy(scored, { spend });
+    const sections = applyResultStrategy(scored, input);
     const sectionIds = sections[0].cards.map((s) => s.card.id);
     const rankResultsIds = rankResults(scored).map((r) => r.id);
 
     // Top-5 from applyResultStrategy must match rankResults top-5 exactly
     expect(sectionIds.slice(0, 5)).toEqual(rankResultsIds);
+  });
+
+  it("computes splitOrderScore for explicit-spend single-list results", async () => {
+    const { scoreCards } = await import("../lib/recommend");
+
+    const spend = { online: 20000, dining: 5000, grocery: 10000, base: 15000 };
+    const scored = scoreCards({ spend, resultStrategy: "single-list" });
+
+    expect(scored.length).toBeGreaterThan(0);
+    expect(scored.every((score) => typeof score.envelopeScoring?.splitOrderScore === "number")).toBe(true);
+  });
+
+  it("rankResults prefers splitOrderScore over raw net value when present", async () => {
+    const { rankResults } = await import("../lib/recommend-result");
+    const highNetLowSplit = {
+      ...CB1,
+      estimatedNetValue: 50000,
+      displayNetValue: 50000,
+      envelopeScoring: {
+        bestMonthlySpend: 25000,
+        bestSpendLabel: "Rs 25k/month",
+        normalizedFitScore: 100,
+        splitOrderScore: 10
+      }
+    };
+    const lowNetHighSplit = {
+      ...CB2,
+      estimatedNetValue: 1000,
+      displayNetValue: 1000,
+      envelopeScoring: {
+        bestMonthlySpend: 25000,
+        bestSpendLabel: "Rs 25k/month",
+        normalizedFitScore: 100,
+        splitOrderScore: 1000
+      }
+    };
+
+    expect(rankResults([highNetLowSplit, lowNetHighSplit]).map((result) => result.id).slice(0, 2)).toEqual([
+      "cashback-2",
+      "cashback-1"
+    ]);
+  });
+
+  it("adds splitOrderScore to dual-bucket secondary scores", async () => {
+    const { scoreCards } = await import("../lib/recommend");
+
+    const scored = scoreCards({ query: "best credit card", resultStrategy: "reward-type-split" });
+    const dualScores = scored.flatMap((score) => [score.rewardBucketScore, score.cashbackBucketScore].filter(Boolean));
+
+    expect(dualScores.length).toBeGreaterThan(0);
+    expect(dualScores.every((score) => typeof score?.envelopeScoring?.splitOrderScore === "number")).toBe(true);
   });
 
   it("retains split when there are 0 cashback cards and lets rewards fill the slack", async () => {

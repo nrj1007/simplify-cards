@@ -1,5 +1,6 @@
 import { stripScoringAnnotations } from "./card-index";
 import { getCardUsp } from "./card-usp";
+import { compareResultDisplayOrder } from "./result-strategies";
 import type { CardScore, RecommendResult, SpendCategory } from "./types";
 
 // Canonical order of the spend categories the recommender accepts.
@@ -101,11 +102,11 @@ export function toRecommendResult(score: CardScore): RecommendResult {
   };
 }
 
-// Rank scored cards by net value to the user and return the top 5 as trimmed DTOs.
+// Rank scored cards by the canonical recommendation display order and return the top 5.
 export function rankResults(scored: CardScore[]): RecommendResult[] {
   return scored
     .slice()
-    .sort((a, b) => b.estimatedNetValue - a.estimatedNetValue)
+    .sort(compareResultDisplayOrder)
     .slice(0, 5)
     .map(toRecommendResult);
 }
