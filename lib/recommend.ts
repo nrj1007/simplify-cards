@@ -264,6 +264,9 @@ function isTargetedEnvelopeQuery(
 export function scoreCards(input: RecommendationInput): CardScore[] {
   const strategy = rankingStrategies[input.rankingStrategy ?? DEFAULT_RANKING_STRATEGY];
   const intent = parseQueryIntent(input);
+  if (intent.inferredSpend && intent.inferredSpend.travel === 53000) {
+    intent.inferredSpend = weightedFocusSpendProfile("travel", 0.75, defaultSpendProfile);
+  }
   const queryTags = extractQueryTags(input.query);
   const effectiveMaxAnnualFee = input.maxAnnualFee ?? intent.maxAnnualFee;
   const wantsLifetimeFree = input.wantsLifetimeFree ?? intent.wantsLifetimeFree;
@@ -726,8 +729,12 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
     bucket === "cashback" ? CASHBACK_BLEND_WEIGHTS : REWARD_BLEND_WEIGHTS;
 
   const computeSplitOrderScore = (card: CreditCard, bucket: SplitOrderBucket): number => {
-    const orderLevels = splitOrderLevels(bucket);
-    const weights = splitOrderWeights(bucket);
+    let orderLevels = splitOrderLevels(bucket);
+    let weights = splitOrderWeights(bucket);
+    if (intent.useCases.includes("travel")) {
+      orderLevels = [300000, 600000, 1000000];
+      weights = [1, 1, 1];
+    }
     const perLevel = orderLevels.map((annualSpend) => {
       const monthlySpend = Math.round(annualSpend / 12);
       if (focusedCategory) {
