@@ -5,7 +5,7 @@ description: Explain the fit score, annual rewards, milestones, fees, and prefer
 
 # Explain Card Score
 
-Use this skill to view the detailed fit score calculation, spend profile modeling, reward breakdown, relevance boosts, and preference boosts of any single credit card.
+Use this skill to view the detailed fit score calculation, spend profile modeling, reward breakdown, envelope ordering metadata, structured score reasons, relevance boosts, and preference boosts of any single credit card.
 
 ## Usage Instructions
 
@@ -48,4 +48,11 @@ Total Spend: Rs 1,440,000 / year (Rs 120,000 / month)
 Category        | Monthly Spend | Rate     | Reward Type     | Monthly Earn | Annual Value
 -------------------------------------------------------------------------------------
 ...
+
+--- STRUCTURED SCORE REASONS ---
+Kind       | Code                       |        Value | Label                          | Detail
+----------------------------------------------------------------------------------------------------
+category   | category:travel            |       +1,221 | Travel rewards                 |
+boost      | value:milestone            |       +9,000 | Milestone value                |
+penalty    | penalty:fee                |       -3,000 | Annual fee                     |
 ```

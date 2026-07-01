@@ -1,6 +1,15 @@
 import { scoreCards } from "../lib/recommend";
 import { getCardById } from "../lib/cards";
 
+function formatNumber(value: number) {
+  return value.toLocaleString("en-IN", { maximumFractionDigits: 2 });
+}
+
+function formatSignedValue(value: number) {
+  const sign = value > 0 ? "+" : "";
+  return `${sign}${formatNumber(value)}`;
+}
+
 function printUsage() {
   console.log("Usage: npx tsx scripts/explain-card-score.ts <card-id> [query] [--ltf] [--lounge]");
   console.log("Example: npx tsx scripts/explain-card-score.ts csb-jupiter-edge-plus \"best upi card\"");
@@ -115,6 +124,16 @@ async function main() {
   console.log(`(-) Modeled Annual Fee (net):       Rs ${cardScore.estimatedAnnualFee.toLocaleString("en-IN")}`);
   console.log(`(=) Estimated Net Yearly Value:     Rs ${cardScore.estimatedNetValue.toLocaleString("en-IN")}`);
 
+  if (cardScore.envelopeScoring) {
+    console.log(`\n--- ENVELOPE / DISPLAY ORDER DEBUG ---`);
+    console.log(`    Best envelope spend:            ${cardScore.envelopeScoring.bestSpendLabel}`);
+    console.log(`    Best monthly spend:             Rs ${formatNumber(cardScore.envelopeScoring.bestMonthlySpend)}`);
+    console.log(`    Normalized fit score:           ${formatNumber(cardScore.envelopeScoring.normalizedFitScore)}`);
+    if (typeof cardScore.envelopeScoring.splitOrderScore === "number") {
+      console.log(`    Split order score:              ${formatNumber(cardScore.envelopeScoring.splitOrderScore)}`);
+    }
+  }
+
   console.log(`\n--- RELEVANCE BOOSTS (Relevance Score) ---`);
   console.log(`    cardNameBoost:                  ${debug.cardNameBoost}`);
   console.log(`    keywordBoost:                   ${debug.keywordBoost}`);
@@ -140,6 +159,30 @@ async function main() {
   console.log(`=============================================================`);
   console.log(`(★) FINAL FIT SCORE:                  ${cardScore.fitScore}`);
   console.log(`=============================================================`);
+
+  if (cardScore.scoreReasons.length > 0) {
+    const scoreReasonSum = cardScore.scoreReasons.reduce((sum, reason) => sum + reason.value, 0);
+    console.log(`\n--- STRUCTURED SCORE REASONS ---`);
+    console.log(
+      String("Kind").padEnd(10) + " | " +
+      String("Code").padEnd(26) + " | " +
+      String("Value").padStart(12) + " | " +
+      String("Label").padEnd(30) + " | " +
+      "Detail"
+    );
+    console.log("-".repeat(100));
+    cardScore.scoreReasons.forEach((reason) => {
+      console.log(
+        reason.kind.padEnd(10) + " | " +
+        reason.code.padEnd(26) + " | " +
+        formatSignedValue(reason.value).padStart(12) + " | " +
+        reason.label.padEnd(30) + " | " +
+        (reason.detail ?? "")
+      );
+    });
+    console.log("-".repeat(100));
+    console.log(`Score reason sum: ${formatSignedValue(scoreReasonSum)}`);
+  }
 
   if (cardScore.reasons.length > 0) {
     console.log(`\nCurated Reasons:`);
