@@ -839,7 +839,7 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
       const isCashbackBlendCard = isPrimaryCashbackCard({ card } as CardScore);
       // Broad recommendation display order: cashback cards are judged on realistic low/mid
       // levels, while rewards cards use the back-loaded broad reward blend.
-      // Cashback cards earn on monthly caps, so the broad reward-card blend (3L/6L/10L/20L) would
+      // Cashback cards earn on monthly caps, so the broad reward-card blend (3L/6L/10L/20L/30L) would
       // judge them deep past their caps and systematically under-rank them. Evaluate EVERY primary
       // cashback card on a realistic low/mid spend basis — not just in "best cashback card" queries —
       // so the high reward-card spend levels apply to reward cards only.
@@ -888,7 +888,7 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
         perLevel.reduce((total, score, i) => total + strategy.perLevelScore(score) * spendWeights[i], 0) / blendWeightSum;
 
       // Recommendation display ordering signal: cashback uses realistic low/mid spend levels;
-      // rewards use the same 3L/6L/10L/20L calibrated blend as the broad reward ranking.
+      // rewards use the same 3L/6L/10L/20L/30L calibrated blend as the broad reward ranking.
       // Computed on a dedicated evaluation so the card's representative/display value
       // and global ranking key remain on the default spend levels.
       const splitOrderScore = shouldComputeSplitOrderScore

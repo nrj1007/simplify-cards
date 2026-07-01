@@ -10,12 +10,12 @@
 
 // --- Broad reward-card envelope blend (the default ranking) ----------------
 // Broad "best card" ranking blends each card's score across fixed
-// light/mid/heavy annual-spend levels (instead of cherry-picking its
+// light/mid/heavy/premium annual-spend levels (instead of cherry-picking its
 // single most-flattering tier, which let low-fee cards' yield blow up at trivial
-// spend). The blend centers around a realistic default spender (~Rs 6.4L/year)
-// while retaining a smaller premium tail for cards that need higher spend.
-export const REWARD_BLEND_SPEND_LEVELS = [300000, 600000, 1000000, 2000000]; // 3L/6L/10L/20L (~Rs 25k/50k/83k/167k per month)
-export const REWARD_BLEND_WEIGHTS = [1, 1.6, 1.2, 0.8];
+// spend). The blend centers around mid/high everyday spend while retaining a
+// smaller premium tail for cards that need higher spend.
+export const REWARD_BLEND_SPEND_LEVELS = [300000, 600000, 1000000, 2000000, 3000000]; // 3L/6L/10L/20L/30L (~Rs 25k/50k/83k/167k/250k per month)
+export const REWARD_BLEND_WEIGHTS = [1, 1.5, 2, 1, 0.75];
 
 // --- Cashback cards: re-based onto realistic low/mid spend -----------------
 // Cashback cards earn on monthly caps, so the broad reward-card blend would
@@ -37,9 +37,9 @@ export const UTILITY_BLEND_WEIGHTS = [1, 1, 1];
 // --- Spend-context weight overrides (queries with explicit spend / fee cap) -
 // Low-fee / low-spend context leans the blend toward lower spend levels;
 // mid-range context flattens it to equal weight. Both align index-for-index
-// with REWARD_BLEND_SPEND_LEVELS (4 levels).
-export const LOW_FEE_BLEND_WEIGHTS = [1.75, 1.5, 1.25, 1];
-export const EQUAL_BLEND_WEIGHTS = [1, 1, 1, 1];
+// with REWARD_BLEND_SPEND_LEVELS (5 levels).
+export const LOW_FEE_BLEND_WEIGHTS = [1.75, 1.5, 1.25, 1, 0.75];
+export const EQUAL_BLEND_WEIGHTS = [1, 1, 1, 1, 1];
 
 // --- Category-focus envelope ("best dining/grocery/... card") --------------
 // The focused category is scored at 0.5×/1×/2× a representative per-category
