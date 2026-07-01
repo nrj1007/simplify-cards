@@ -3143,16 +3143,12 @@ describe("reward calculator", () => {
         expect(result.rows.find((r) => r.category === "fuel")!.excluded).toBe(true);
       });
 
-      it("returns correct annualized milestone rule", () => {
+      it("does not score the conditional dining-cap unlock as a generic milestone", () => {
         const card = getCardById("indusind-eazydiner");
         expect(card).toBeTruthy();
 
         const rules = milestoneRulesForCard(card!);
-        expect(rules.length).toBe(1);
-        expect(rules[0].threshold).toBe(360000);
-        expect(rules[0].value).toBe(18000);
-        expect(rules[0].isVoucher).toBe(false);
-        expect(rules[0].period).toBe("monthly");
+        expect(rules).toHaveLength(0);
       });
     });
 

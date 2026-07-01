@@ -114,7 +114,7 @@
     {
       "threshold": 30000,
       "period": "monthly",
-      "value": 1500,
+      "value": 0,
       "kind": "other",
       "label": "Additional Rs 3,000 monthly dining discount cap unlocked upon spending Rs 30,000 or more in the previous calendar month on non-dining transactions"
     }
