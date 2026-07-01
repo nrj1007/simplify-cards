@@ -1020,6 +1020,12 @@ export function findDirectRewardForSpend(card: CreditCard, category: string, inc
   );
 }
 
+function getCardBaseRate(card: CreditCard): number {
+  const baseRow = card.rewards.find((reward) => isBaseRewardCategory(reward.category));
+  if (baseRow) return baseRow.rate;
+  return card.rewards.length ? Math.min(...card.rewards.map((reward) => reward.rate)) : 0;
+}
+
 export function rewardBreakdownForCard(
   card: CreditCard,
   spend: SpendProfile,
@@ -1148,8 +1154,25 @@ export function rewardBreakdownForCard(
         }
       }
       const groupCap = card.capGroups?.[key]?.capMonthly ?? Math.max(0, ...items.map((i) => i.reward.capMonthly ?? 0));
-      const groupScale = groupCap !== null && groupCap !== undefined ? (groupCap === 0 ? 0 : (groupTotal > groupCap ? groupCap / groupTotal : 1)) : 1;
-      return perItem.map(({ item, capped }) => toRow(item, capped * groupScale));
+      let groupScale = 1;
+      let postCapRewardUnits = 0;
+      if (groupCap !== null && groupCap !== undefined && groupTotal > groupCap) {
+        groupScale = groupCap / groupTotal;
+        const baseRate = getCardBaseRate(card);
+        if (baseRate > 0) {
+          const totalGroupSpend = items.reduce((sum, item) => sum + item.allocatedAmount, 0);
+          const spendAtGroupCap = (groupCap * totalGroupSpend) / groupTotal;
+          const excessSpend = Math.max(totalGroupSpend - spendAtGroupCap, 0);
+          postCapRewardUnits = (excessSpend * baseRate) / 100;
+        }
+      }
+      return perItem.map(({ item, capped }) => {
+        const itemCapped = capped * groupScale;
+        const totalGroupSpend = items.reduce((sum, i) => sum + i.allocatedAmount, 0);
+        const itemSpendShare = totalGroupSpend > 0 ? item.allocatedAmount / totalGroupSpend : 0;
+        const itemPostCap = postCapRewardUnits * itemSpendShare;
+        return toRow(item, itemCapped + itemPostCap);
+      });
     }
 
     // Single reward: existing per-reward cap with post-cap fallback rate.

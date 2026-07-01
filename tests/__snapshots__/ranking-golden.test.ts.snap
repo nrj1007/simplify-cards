@@ -778,9 +778,9 @@ exports[`result split golden (all query modes) > snapshots section membership fo
     "Rewards cards": [
       "hsbc-travelone",
       "bobcard-etihad-guest-premium",
+      "hdfc-regalia-gold",
       "icici-adani-one-signature",
       "axis-horizon",
-      "hdfc-regalia-gold",
       "indigo-sbi-elite",
       "bobcard-etihad-guest",
       "sbi-card-miles-elite",
@@ -1142,8 +1142,8 @@ exports[`result split golden (all query modes) > snapshots section membership fo
       "titan-sbi",
     ],
     "Rewards cards": [
-      "hsbc-travelone",
       "hdfc-regalia-gold",
+      "hsbc-travelone",
       "sc-ultimate",
       "yes-marquee",
       "bobcard-etihad-guest-premium",
@@ -1450,8 +1450,8 @@ exports[`result split golden (reward-type-split) > snapshots the section members
       "titan-sbi",
     ],
     "Rewards cards": [
-      "hsbc-travelone",
       "hdfc-regalia-gold",
+      "hsbc-travelone",
       "sc-ultimate",
       "yes-marquee",
       "bobcard-etihad-guest-premium",
