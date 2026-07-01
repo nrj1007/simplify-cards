@@ -132,12 +132,13 @@ export function computeQueryKeywordBoost(card: CreditCard, query?: string) {
   return matchedTokenCount * 5000;
 }
 
-export function computeCardNameBoost(card: CreditCard, query?: string) {
+export function computeCardNameBoost(card: CreditCard, query?: string, ignoredQueryTokens: Iterable<string> = []) {
   const normalizedQuery = normalizeForMatch(query);
   const compactQuery = normalizeCompact(query);
   if (!normalizedQuery) return 0;
 
-  const meaningfulTokens = getMeaningfulQueryTokens(query);
+  const ignoredTokens = new Set([...ignoredQueryTokens].map((token) => normalizeForMatch(token)).filter(Boolean));
+  const meaningfulTokens = getMeaningfulQueryTokens(query).filter((token) => !ignoredTokens.has(token));
   if (meaningfulTokens.length === 0) return 0;
 
   const normalizedName = normalizeForMatch(card.name);

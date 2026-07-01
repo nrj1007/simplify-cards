@@ -1025,6 +1025,18 @@ describe("scoreCards", () => {
     expect(premiumScores.slice(0, 12).every((score) => cardMatchesSegment(score.card, "premium"))).toBe(true);
   });
 
+  it("does not treat segment words as card-name relevance in segment queries", () => {
+    const scores = scoreCards({ query: "best premium card" });
+    const axisIndigoPremium = scores.find((score) => score.card.id === "axis-indigo-premium");
+    const marriottBonvoy = scores.find((score) => score.card.id === "hdfc-marriott-bonvoy");
+
+    expect(axisIndigoPremium?.debug?.cardNameBoost).toBe(0);
+    expect(axisIndigoPremium?.scoreReasons.some((reason) => reason.code === "relevance:card-name")).toBe(false);
+    expect(marriottBonvoy).toBeDefined();
+    expect(axisIndigoPremium).toBeDefined();
+    expect(scores.indexOf(marriottBonvoy!)).toBeLessThan(scores.indexOf(axisIndigoPremium!));
+  });
+
   it("scales the popularity prior down at low spend and restores it at Rs 10L annual spend", () => {
     const cardId = "sbi-cashback";
     const spendWithOnlyBase = (base: number) => ({

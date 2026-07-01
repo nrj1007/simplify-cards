@@ -149,6 +149,13 @@ const segmentRepresentativeMonthlySpend: Record<string, number> = {
   premium: 120000,
   "super-premium": 250000
 };
+
+const segmentCardNameBoostIgnoredTokens: Record<string, string[]> = {
+  beginner: ["beginner", "entry"],
+  ltf: ["ltf", "lifetime", "free"],
+  premium: ["premium", "mid"],
+  "super-premium": ["super", "ultra", "premium"]
+};
 function isBroadNoSpendQuery(input: RecommendationInput, intent: ReturnType<typeof parseQueryIntent>) {
   return (
     !input.spend &&
@@ -291,6 +298,9 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
     restrictToSegments && !input.spend && !intent.inferredSpend && !categoryFocus && !forexFocus && !restrictToFuelCards
       ? Math.max(...restrictToSegments.map((segment) => segmentRepresentativeMonthlySpend[segment] ?? 50000))
       : undefined;
+  const ignoredCardNameBoostTokens = restrictToSegments
+    ? restrictToSegments.flatMap((segment) => segmentCardNameBoostIgnoredTokens[segment] ?? [])
+    : [];
   const segmentSpend = segmentRepresentativeSpend
     ? scaleSpendProfileToMonthly(defaultSpendProfile, segmentRepresentativeSpend)
     : undefined;
@@ -434,7 +444,7 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
   ): CardScore => {
     const annualSpend = annualSpendTotal(spendForScore);
     const matchedTags = card.tags.filter((tag) => queryTags.has(tag));
-    const cardNameBoost = computeCardNameBoost(card, input.query);
+    const cardNameBoost = computeCardNameBoost(card, input.query, ignoredCardNameBoostTokens);
     const estimatedMilestoneValue = milestoneValueForCard(card, annualSpend);
     const { joiningValue: rawJoiningValue, renewalValue: rawRenewalValue } = joiningAndRenewalBenefitValueForCard(card);
     const rawJoiningFee = card.joiningFee ?? 0;
