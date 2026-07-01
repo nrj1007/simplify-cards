@@ -7,9 +7,13 @@ export function getAnalyticsEventsLogPath() {
 }
 
 export async function appendAnalyticsEvent(event: StoredAnalyticsEvent) {
-  const logPath = getAnalyticsEventsLogPath();
-  await fs.mkdir(path.dirname(logPath), { recursive: true });
-  await fs.appendFile(logPath, `${JSON.stringify(event)}\n`, "utf8");
+  try {
+    const logPath = getAnalyticsEventsLogPath();
+    await fs.mkdir(path.dirname(logPath), { recursive: true });
+    await fs.appendFile(logPath, `${JSON.stringify(event)}\n`, "utf8");
+  } catch (error) {
+    console.error("Failed to write to analytics event log:", error);
+  }
   return event;
 }
 

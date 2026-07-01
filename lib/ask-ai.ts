@@ -1375,20 +1375,24 @@ export async function logUnsupportedQuestion(input: RecommendationInput, reason:
     input
   };
 
-  const logDir = path.dirname(unsupportedQuestionLogPath);
-  await fs.mkdir(logDir, { recursive: true });
-
-  let existingEntries: UnsupportedQuestionLogEntry[] = [];
-
   try {
-    const existingContent = await fs.readFile(unsupportedQuestionLogPath, "utf8");
-    existingEntries = JSON.parse(existingContent) as UnsupportedQuestionLogEntry[];
-  } catch (error) {
-    if ((error as NodeJS.ErrnoException).code !== "ENOENT") throw error;
-  }
+    const logDir = path.dirname(unsupportedQuestionLogPath);
+    await fs.mkdir(logDir, { recursive: true });
 
-  existingEntries.push(entry);
-  await fs.writeFile(unsupportedQuestionLogPath, JSON.stringify(existingEntries, null, 2));
+    let existingEntries: UnsupportedQuestionLogEntry[] = [];
+
+    try {
+      const existingContent = await fs.readFile(unsupportedQuestionLogPath, "utf8");
+      existingEntries = JSON.parse(existingContent) as UnsupportedQuestionLogEntry[];
+    } catch (error) {
+      if ((error as NodeJS.ErrnoException).code !== "ENOENT") throw error;
+    }
+
+    existingEntries.push(entry);
+    await fs.writeFile(unsupportedQuestionLogPath, JSON.stringify(existingEntries, null, 2));
+  } catch (error) {
+    console.error("Failed to write to unsupported question log:", error);
+  }
 
   return entry;
 }

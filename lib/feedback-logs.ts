@@ -18,20 +18,24 @@ export type AskFeedbackEntry = {
 export const askFeedbackLogPath = path.join(process.cwd(), "data", "question-logs", "ask-feedback.json");
 
 export async function logAskFeedback(entry: AskFeedbackEntry) {
-  const logDir = path.dirname(askFeedbackLogPath);
-  await fs.mkdir(logDir, { recursive: true });
-
-  let existingEntries: AskFeedbackEntry[] = [];
-
   try {
-    const existingContent = await fs.readFile(askFeedbackLogPath, "utf8");
-    existingEntries = JSON.parse(existingContent) as AskFeedbackEntry[];
-  } catch (error) {
-    if ((error as NodeJS.ErrnoException).code !== "ENOENT") throw error;
-  }
+    const logDir = path.dirname(askFeedbackLogPath);
+    await fs.mkdir(logDir, { recursive: true });
 
-  existingEntries.push(entry);
-  await fs.writeFile(askFeedbackLogPath, JSON.stringify(existingEntries, null, 2));
+    let existingEntries: AskFeedbackEntry[] = [];
+
+    try {
+      const existingContent = await fs.readFile(askFeedbackLogPath, "utf8");
+      existingEntries = JSON.parse(existingContent) as AskFeedbackEntry[];
+    } catch (error) {
+      if ((error as NodeJS.ErrnoException).code !== "ENOENT") throw error;
+    }
+
+    existingEntries.push(entry);
+    await fs.writeFile(askFeedbackLogPath, JSON.stringify(existingEntries, null, 2));
+  } catch (error) {
+    console.error("Failed to write to ask feedback log:", error);
+  }
 
   return entry;
 }
