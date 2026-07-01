@@ -8,6 +8,14 @@
   "joiningFee": 9999,
   "annualFee": 9999,
   "feeWaiverSpend": null,
+  "acceleratedShare": {
+    "travel": 0.25,
+    "online": 0,
+    "grocery": 0,
+    "dining": 0,
+    "hotels": 0,
+    "airlines": 0
+  },
   "bestFor": [
     "singapore airlines",
     "international travel",
@@ -18,14 +26,14 @@
   "rewardType": "KrisFlyer Miles",
   "rewards": [
     {
-      "category": "travel",
+      "category": "partner merchants",
       "displayCategory": "Singapore Airlines Group Spends",
       "rate": 5,
       "displayRate": "10 KrisFlyer Miles per Rs 200",
       "capMonthly": null
     },
     {
-      "category": "travel",
+      "category": "international",
       "displayCategory": "International Spends",
       "rate": 4,
       "displayRate": "8 KrisFlyer Miles per Rs 200",

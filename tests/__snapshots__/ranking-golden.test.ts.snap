@@ -437,8 +437,8 @@ exports[`ranking golden (representative queries) > produces stable top-N orderin
     "icici-times-black",
     "kotak-white-reserve",
     "sc-beyond",
-    "krisflyer-sbi-apex",
     "aurum-sbi",
+    "krisflyer-sbi-apex",
   ],
   "spend-fuel-heavy": [
     "hsbc-premier",
