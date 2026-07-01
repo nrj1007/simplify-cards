@@ -90,6 +90,7 @@ import {
   titleCaseCategory
 } from "./recommend-scoring";
 import { normalizeForMatch } from "./recommend-utils";
+import { cardRewardTypeIncludesCashback } from "./reward-type";
 
 export { categoryFocusKeys } from "./recommend-category-focus";
 export type { MilestoneRule } from "./recommend-milestones";
@@ -698,7 +699,7 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
     input.resultStrategy === "single-list" || input.resultStrategy === "reward-type-split";
 
   const primarySplitOrderBucket = (card: CreditCard): SplitOrderBucket =>
-    /cashback/i.test(card.rewardType ?? "") ? "cashback" : "rewards";
+    cardRewardTypeIncludesCashback(card) ? "cashback" : "rewards";
 
   const splitOrderLevels = (bucket: SplitOrderBucket) =>
     bucket === "cashback" ? CASHBACK_BLEND_SPEND_LEVELS : REWARD_BLEND_SPEND_LEVELS;
@@ -721,6 +722,16 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
     const weightSum = weights.reduce((sum, weight) => sum + weight, 0);
     return perLevel.reduce((total, score, i) => total + strategy.perLevelScore(score) * weights[i], 0) / weightSum;
   };
+
+  const withDisplayEconomics = (rankScore: CardScore, displayScore: CardScore): CardScore => ({
+    ...rankScore,
+    annualSpend: displayScore.annualSpend,
+    estimatedMilestoneValue: displayScore.estimatedMilestoneValue,
+    estimatedAnnualFee: displayScore.estimatedAnnualFee,
+    displayAnnualRewards: displayScore.displayAnnualRewards,
+    displayNetValue: displayScore.displayNetValue,
+    displayBreakdown: displayScore.displayBreakdown
+  });
 
   const withSplitOrderScore = (
     score: CardScore,
@@ -763,17 +774,19 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
         const splitOrderScore = shouldComputeSplitOrderScore
           ? computeSplitOrderScore(card, primarySplitOrderBucket(card))
           : undefined;
+        const displaySpendProfile = categoryFocus75_25SpendProfile(focusedCategory, baseAmount, defaultSpendProfile);
+        const displayScore = scoreCardForSpend(card, displaySpendProfile, monthlySpendTotal(displaySpendProfile));
 
         const assembled = representative.envelopeScoring
           ? {
-              ...representative,
+              ...withDisplayEconomics(representative, displayScore),
               envelopeScoring: {
                 ...representative.envelopeScoring,
                 normalizedFitScore: blendedFitScore,
                 ...(splitOrderScore !== undefined ? { splitOrderScore } : {})
               }
             }
-          : representative;
+          : withDisplayEconomics(representative, displayScore);
         return assembled;
       }
 
@@ -840,6 +853,7 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
       const splitOrderScore = shouldComputeSplitOrderScore
         ? computeSplitOrderScore(card, primarySplitOrderBucket(card))
         : undefined;
+      const displayScore = scoreCardForSpend(card, spend);
 
       // Dual-bucket cards feature in BOTH split sections, valued per context. A card's DEFAULT score
       // (above) is its primary-bucket value; here we re-score it at the OTHER bucket's point value so
@@ -860,11 +874,12 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
         const representative = perLevelReValued.reduce((best, score) =>
           strategy.perLevelScore(score) > strategy.perLevelScore(best) ? score : best
         );
+        const displayScore = scoreCardForSpend(reValuedCard, spend);
         const splitOrderScore = shouldComputeSplitOrderScore
           ? computeSplitOrderScore(reValuedCard, bucket)
           : undefined;
         return {
-          ...withSplitOrderScore(representative, splitOrderScore),
+          ...withSplitOrderScore(withDisplayEconomics(representative, displayScore), splitOrderScore),
           displayValueContext: bucket
         };
       };
@@ -879,14 +894,14 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
 
       const assembled = representative.envelopeScoring
         ? {
-            ...representative,
+            ...withDisplayEconomics(representative, displayScore),
             envelopeScoring: {
               ...representative.envelopeScoring,
               normalizedFitScore: blendedFitScore,
               ...(splitOrderScore !== undefined ? { splitOrderScore } : {})
             }
           }
-        : representative;
+        : withDisplayEconomics(representative, displayScore);
       return {
         ...assembled,
         ...(rewardBucketScore ? { rewardBucketScore } : {}),
@@ -922,7 +937,7 @@ export function answerFromCards(input: RecommendationInput) {
     summary:
       topCards.length === 0
         ? "No card matched the selected constraints. Try increasing the annual fee limit or removing lounge/lifetime-free filters."
-        : `${topCards[0].card.name} looks strongest with an estimated net yearly value of Rs ${topCards[0].estimatedNetValue.toLocaleString("en-IN")}.`,
+        : `${topCards[0].card.name} looks strongest with an estimated net yearly value of Rs ${Math.round(topCards[0].displayNetValue).toLocaleString("en-IN")}.`,
     cards: topCards,
     ...(hasSplit ? { sections: resultSections } : {})
   };

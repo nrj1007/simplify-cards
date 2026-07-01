@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { answerFromCards, cardMatchesSegment, joiningAndRenewalBenefitValueForCard, scoreCards, qualifiesAsTravelCard } from "../lib/recommend";
+import { answerFromCards, cardMatchesSegment, defaultSpendProfile, joiningAndRenewalBenefitValueForCard, scoreCards, qualifiesAsTravelCard } from "../lib/recommend";
 import { getCardById } from "../lib/cards";
 import type { ValuedBenefit } from "../lib/types";
 
@@ -784,6 +784,19 @@ describe("scoreCards", () => {
     expect(burgundy).toBeDefined();
     expect(burgundy?.envelopeScoring?.bestMonthlySpend).toBeGreaterThanOrEqual(50000);
     expect(burgundy?.reasons).toEqual(expect.arrayContaining([expect.stringMatching(/Needs high spend of .* to shine/i)]));
+  });
+
+  it("keeps broad envelope ranking tier metadata but displays default-spend economics", () => {
+    const scores = scoreCards({
+      query: "top 10 credit cards"
+    });
+    const defaultAnnualSpend = Object.values(defaultSpendProfile).reduce((sum, monthly) => sum + monthly, 0) * 12;
+    const highTierScore = scores.find((score) => (score.envelopeScoring?.bestMonthlySpend ?? 0) > 100000);
+
+    expect(highTierScore).toBeDefined();
+    expect(highTierScore?.annualSpend).toBe(defaultAnnualSpend);
+    expect(highTierScore?.envelopeScoring?.bestMonthlySpend).toBeGreaterThan(100000);
+    expect(highTierScore?.displayNetValue).not.toBe(highTierScore?.estimatedNetValue);
   });
 
   it("stores normalizedFitScore inside envelopeScoring and not at top level", () => {

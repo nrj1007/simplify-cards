@@ -1,6 +1,7 @@
 import type { CardScore, CreditCard, RecommendationInput, SpendCategory } from "./types";
 import { parseQueryIntent } from "./query-intent";
 import { containsNormalizedPhrase, normalizeForMatch } from "./recommend-utils";
+import { cardRewardTypeIncludesCashback } from "./reward-type";
 
 export function normalizeIssuer(issuer: string) {
   return normalizeForMatch(issuer).replace(/\s+(bank|card|cards|partner banks)$/i, "").trim();
@@ -148,11 +149,9 @@ export function shouldRestrictToFuelCards(input: RecommendationInput, intent: Re
 // A card counts as a cashback card when its reward currency is cashback (matches the convention in
 // card-detail.ts isCashbackCard). Cards that earn transferable points/miles are excluded even if
 // they happen to mention "cashback" somewhere in their benefits text.
-// Mixed-currency cards ("cashback and reward points") are included — they do earn cashback,
-// even if it's secondary. Contrast with isPrimaryCashbackCard() in result-strategies.ts which
-// routes mixed-currency to the Rewards bucket for the section-split presentation.
+// Mixed-currency cards ("cashback and reward points") are included — they do earn cashback.
 export function cardEarnsCashback(card: CreditCard) {
-  return /cashback/i.test(card.rewardType);
+  return cardRewardTypeIncludesCashback(card);
 }
 
 // "Best cashback card" should rank actual cashback cards, not collapse to the generic premium-card

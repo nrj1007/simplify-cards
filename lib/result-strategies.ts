@@ -1,4 +1,5 @@
 import type { CardScore } from "./types";
+import { cardRewardTypeIncludesCashback } from "./reward-type";
 
 // ---------------------------------------------------------------------------
 // Result (presentation) strategy — orthogonal to ranking strategy.
@@ -35,14 +36,9 @@ export const SPLIT_SCOPE: SplitScope = "any-query";
 
 /**
  * Returns true when cashback is a reward currency of this card (including mixed-currency).
- *
- * Contrast with `cardEarnsCashback()` in `recommend.ts`, which returns `true` for
- * mixed-currency cards (used for pool-restriction in "best cashback card" queries,
- * where any cashback earning qualifies).
  */
 export function isPrimaryCashbackCard(score: CardScore): boolean {
-  const rt = score.card.rewardType?.toLowerCase() ?? "";
-  return /cashback/.test(rt);
+  return cardRewardTypeIncludesCashback(score.card);
 }
 
 export function resultDisplayOrderScore(score: CardScore): number {

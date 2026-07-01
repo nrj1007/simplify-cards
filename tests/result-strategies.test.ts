@@ -85,6 +85,13 @@ describe("isPrimaryCashbackCard", () => {
   it("returns false for empty rewardType", () => {
     expect(isPrimaryCashbackCard(makeScore("x", ""))).toBe(false);
   });
+
+  it("matches the cashback filter predicate for mixed-currency cards", async () => {
+    const { cardEarnsCashback } = await import("../lib/recommend-filters");
+
+    expect(cardEarnsCashback(MX.card)).toBe(true);
+    expect(cardEarnsCashback(MX.card)).toBe(isPrimaryCashbackCard(MX));
+  });
 });
 
 describe("resultStrategies / single-list", () => {
