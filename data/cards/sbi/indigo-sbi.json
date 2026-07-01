@@ -83,7 +83,7 @@
   ],
   "joiningBenefitsValued": [
     {
-      "value": 2500,
+      "value": 1000,
       "kind": "points",
       "label": "2,500 IndiGo BluChips welcome voucher"
     }
@@ -93,7 +93,7 @@
   ],
   "renewalBenefitsValued": [
     {
-      "value": 2500,
+      "value": 1000,
       "kind": "points",
       "label": "2,500 IndiGo BluChips renewal voucher"
     }
@@ -105,21 +105,21 @@
     {
       "threshold": 200000,
       "period": "annual",
-      "value": 2500,
+      "value": 1000,
       "kind": "points",
       "label": "2,500 IndiGo BluChips on annual spends of Rs 2 lakh"
     },
     {
       "threshold": 400000,
       "period": "annual",
-      "value": 2500,
+      "value": 1000,
       "kind": "points",
       "label": "2,500 IndiGo BluChips on annual spends of Rs 4 lakh"
     },
     {
       "threshold": 600000,
       "period": "annual",
-      "value": 2500,
+      "value": 1000,
       "kind": "points",
       "label": "2,500 IndiGo BluChips on annual spends of Rs 6 lakh"
     }
@@ -133,6 +133,8 @@
     "1% fuel surcharge waiver up to Rs 200 per month on eligible fuel spends from Rs 500 to Rs 4,000"
   ],
   "redemption": {
+    "ecosystemLabel": "IndiGo flight bookings",
+    "ecosystemValue": 0.4,
     "pointsExpiryYears": 2
   },
   "eligibility": {

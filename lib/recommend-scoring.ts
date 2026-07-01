@@ -859,6 +859,20 @@ function rewardAllocationsForSpend(
   }
 
   if (category === "travel") {
+    const isIndigoCard = card.tags.includes("indigo") || card.id.includes("indigo");
+    if (isIndigoCard) {
+      const flightsReward = card.rewards.find((reward) => reward.category.split(",").map(c => c.trim().toLowerCase()).includes("travel"));
+      const hotelsReward = card.rewards.find((reward) => reward.category.split(",").map(c => c.trim().toLowerCase()).includes("hotels"));
+      const baseReward = card.rewards.find((reward) => isBaseRewardCategory(reward.category));
+
+      const allocations = [
+        ...(flightsReward ? [{ amount: effectiveAmount * 0.25, reward: flightsReward }] : []),
+        ...(hotelsReward ? [{ amount: effectiveAmount * 0.50, reward: hotelsReward }] : []),
+        ...(baseReward ? [{ amount: effectiveAmount * 0.25, reward: baseReward }] : [])
+      ];
+      return routeToUpiWhenBetter(card, category, effectiveAmount, allocations, totalMonthlySpend);
+    }
+
     if (card.acceleratedShare?.travel !== undefined) {
       const travelSpecialReward =
         findDirectRewardForSpend(card, "phonepe", false) ??

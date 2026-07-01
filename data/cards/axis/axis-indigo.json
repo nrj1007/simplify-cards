@@ -87,14 +87,14 @@
     {
       "threshold": 150000,
       "period": "annual",
-      "value": 1200,
+      "value": 480,
       "kind": "points",
       "label": "1,200 IndiGo BluChips voucher on annual spends of Rs 1.5 lakh"
     },
     {
       "threshold": 300000,
       "period": "annual",
-      "value": 1200,
+      "value": 480,
       "kind": "points",
       "label": "1,200 IndiGo BluChips voucher on annual spends of Rs 3 lakh"
     }
@@ -104,7 +104,7 @@
   ],
   "joiningBenefitsValued": [
     {
-      "value": 1200,
+      "value": 480,
       "kind": "points",
       "label": "1,200 IndiGo BluChips welcome voucher"
     }
@@ -114,7 +114,7 @@
   ],
   "renewalBenefitsValued": [
     {
-      "value": 1200,
+      "value": 480,
       "kind": "points",
       "label": "1,200 IndiGo BluChips renewal voucher"
     }
@@ -124,6 +124,8 @@
     "Wednesday Delight offers as per Axis Bank programme terms"
   ],
   "redemption": {
+    "ecosystemLabel": "IndiGo flight bookings",
+    "ecosystemValue": 0.4,
     "pointsExpiryYears": 2
   },
   "eligibility": {
