@@ -54,14 +54,18 @@ function loadAllCards(): CreditCard[] {
 }
 
 function numericRedemptionValues(card: CreditCard): number[] {
-  const r: Record<string, unknown> = (card.redemption ?? {}) as Record<string, unknown>;
-  const flat = Object.values(r).filter((v): v is number => typeof v === "number" && v > 0);
-  const airMiles = getAirMilesValue(card);
-  if (typeof airMiles === "number" && airMiles > 0) {
-    flat.push(airMiles);
-  }
-  const transfer = (card.redemption?.transferPartnerValuations ?? []).map((t) => t.partnerPointValue * t.transferRatio);
-  return [...flat, ...transfer].filter((v) => v > 0);
+  const r = card.redemption ?? {};
+  const values = [
+    r.ecosystemValue,
+    r.smartBuyFlightHotelValue,
+    r.travelEdgeValue,
+    r.travelPortalValue,
+    getAirMilesValue(card),
+    r.statementBalanceValue,
+    r.accorValue
+  ].filter((v): v is number => typeof v === "number" && v > 0);
+  const transfer = (r.transferPartnerValuations ?? []).map((t) => t.partnerPointValue * t.transferRatio);
+  return [...values, ...transfer].filter((v) => v > 0);
 }
 
 // Rupee value of one reward unit as scoring uses it (mirrors lib/recommend.ts: max redemption value
