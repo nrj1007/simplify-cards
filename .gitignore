@@ -11,5 +11,6 @@ data/analytics/events.jsonl
 *.log
 *.tsbuildinfo
 .tmp-debug
+.DS_Store
 
 .vercel
