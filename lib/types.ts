@@ -327,6 +327,9 @@ export type CardScore = {
   // Symmetric: for a reward-primary dual card (card.cashbackBucketPointValue set, e.g. au-ixigo), the
   // full score re-valued at the cashback rate, presented in the Cashback section.
   cashbackBucketScore?: CardScore;
+  // Presentational context for secondary dual-bucket scores so users can tell why the same card has
+  // a different value in Rewards vs Cashback sections.
+  displayValueContext?: "rewards" | "cashback";
   fitScore: number;
   matchedTags: string[];
   reasons: string[];
@@ -363,6 +366,7 @@ export type RecommendResult = {
   estimatedMilestoneValue: number;
   estimatedAnnualFee: number;
   estimatedNetValue: number;
+  netValueContextLabel?: string;
   annualFee: number;
   annualSpend: number;
   feeWaiverSpend: number | null;

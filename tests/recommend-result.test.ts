@@ -9,6 +9,7 @@ describe("toRecommendResult", () => {
 
     const result = toRecommendResult(score!);
 
+    expect(result.netValueContextLabel).toBeUndefined();
     expect(result.estimatedMilestoneValue).toBeGreaterThan(0);
     expect(result.feeWaiverHit).toBe(true);
     expect(result.nextMilestoneGap).toBeGreaterThan(0);
@@ -42,5 +43,17 @@ describe("toRecommendResult", () => {
     expect(result.nextFeeWaiverGap).toBe(164000);
     expect(result.nextMilestoneGap).toBe(564000);
     expect(result.nextMilestoneThreshold).toBe(1200000);
+  });
+
+  it("labels re-valued dual-bucket net values by section context", () => {
+    const scores = scoreCards({ query: "best credit card", resultStrategy: "reward-type-split" });
+    const rewardBucketScore = scores.find((score) => score.rewardBucketScore)?.rewardBucketScore;
+    const cashbackBucketScore = scores.find((score) => score.cashbackBucketScore)?.cashbackBucketScore;
+
+    expect(rewardBucketScore).toBeDefined();
+    expect(toRecommendResult(rewardBucketScore!).netValueContextLabel).toBe("as rewards");
+
+    expect(cashbackBucketScore).toBeDefined();
+    expect(toRecommendResult(cashbackBucketScore!).netValueContextLabel).toBe("as cashback");
   });
 });

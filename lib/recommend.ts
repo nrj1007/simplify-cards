@@ -863,7 +863,10 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
         const splitOrderScore = shouldComputeSplitOrderScore
           ? computeSplitOrderScore(reValuedCard, bucket)
           : undefined;
-        return withSplitOrderScore(representative, splitOrderScore);
+        return {
+          ...withSplitOrderScore(representative, splitOrderScore),
+          displayValueContext: bucket
+        };
       };
       const rewardBucketScore =
         typeof card.rewardBucketPointValue === "number" && card.rewardBucketPointValue > 0

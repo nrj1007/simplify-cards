@@ -59,9 +59,16 @@ function nextMilestone(cardScore: CardScore) {
   };
 }
 
+function netValueContextLabel(score: CardScore) {
+  if (score.displayValueContext === "rewards") return "as rewards";
+  if (score.displayValueContext === "cashback") return "as cashback";
+  return undefined;
+}
+
 // Map a full CardScore down to the trimmed, display-only DTO that crosses the wire.
 export function toRecommendResult(score: CardScore): RecommendResult {
   const { card } = score;
+  const contextLabel = netValueContextLabel(score);
   const feeWaiverHit = Boolean(card.feeWaiverSpend && score.estimatedAnnualFee === 0 && card.annualFee > 0);
   const nextFeeWaiverGap =
     card.feeWaiverSpend && score.annualSpend < card.feeWaiverSpend
@@ -83,6 +90,7 @@ export function toRecommendResult(score: CardScore): RecommendResult {
     estimatedMilestoneValue: Math.round(score.estimatedMilestoneValue),
     estimatedAnnualFee: Math.round(score.estimatedAnnualFee),
     estimatedNetValue: Math.round(score.displayNetValue),
+    ...(contextLabel ? { netValueContextLabel: contextLabel } : {}),
     annualFee: Math.round(card.annualFee),
     annualSpend: Math.round(score.annualSpend),
     feeWaiverSpend: card.feeWaiverSpend,

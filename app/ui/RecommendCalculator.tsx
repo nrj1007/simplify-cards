@@ -163,7 +163,7 @@ function RecommendCard({ result, index, isTopOfSection }: { result: RecommendRes
         </div>
         <div className="stat">
           <strong>{formatINR(result.estimatedNetValue)}</strong>
-          <span>Net value / year</span>
+          <span>{result.netValueContextLabel ? `Net value / year · ${result.netValueContextLabel}` : "Net value / year"}</span>
         </div>
       </div>
 
