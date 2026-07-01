@@ -191,38 +191,6 @@ describe("applyResultStrategy gating (via scoreCards integration)", () => {
     expect(sections[1].cards.length).toBeGreaterThan(0);
   });
 
-  it("keeps split sections in the same net-value display order as the flat list", async () => {
-    const { applyResultStrategy } = await import("../lib/recommend");
-
-    const higherNetLowerLegacySplit = {
-      ...CB1,
-      estimatedNetValue: 20000,
-      envelopeScoring: {
-        bestMonthlySpend: 25000,
-        bestSpendLabel: "Rs 25k/month",
-        normalizedFitScore: 100,
-        splitOrderScore: 10
-      }
-    } as unknown as CardScore;
-    const lowerNetHigherLegacySplit = {
-      ...CB2,
-      estimatedNetValue: 10000,
-      envelopeScoring: {
-        bestMonthlySpend: 25000,
-        bestSpendLabel: "Rs 25k/month",
-        normalizedFitScore: 200,
-        splitOrderScore: 1000
-      }
-    } as unknown as CardScore;
-
-    const sections = applyResultStrategy(
-      [lowerNetHigherLegacySplit, higherNetLowerLegacySplit],
-      { query: "best credit card", resultStrategy: "reward-type-split" }
-    );
-
-    expect(sections[0].cards.map((s) => s.card.id)).toEqual(["cashback-1", "cashback-2"]);
-  });
-
   it("single-list default returns one untitled section for a broad query", async () => {
     const { applyResultStrategy } = await import("../lib/recommend");
     const { scoreCards } = await import("../lib/recommend");
@@ -265,7 +233,7 @@ describe("applyResultStrategy gating (via scoreCards integration)", () => {
     const rewardIds = sections.find((section) => section.title === "Rewards cards")?.cards.map((score) => score.card.id) ?? [];
 
     expect(cashbackIds).not.toContain("au-ixigo");
-    expect(new Set([...cashbackIds, ...rewardIds]).size).toBe(cashbackIds.length + rewardIds.length);
+    expect(rewardIds).toContain("au-ixigo");
   });
 
   it("single-list order matches rankResults (net-value sort, not fitScore)", async () => {

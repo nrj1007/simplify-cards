@@ -17,7 +17,8 @@ export type ResultStrategy = {
   /** Partition the already-ranked scored list into one or more titled sections. */
   group(
     scored: CardScore[],
-    maxPerSection: number
+    maxPerSection: number,
+    options?: { isBlend?: boolean }
   ): ResultSection[];
 };
 
@@ -57,7 +58,7 @@ const singleList: ResultStrategy = {
 
 const rewardTypeSplit: ResultStrategy = {
   name: "reward-type-split",
-  group(scored, maxPerSection) {
+  group(scored, maxPerSection, options) {
     // Dual-bucket cards feature in BOTH sections, valued per section:
     //  - cashback-primary dual (rewardBucketScore set, e.g. CheQ AU): default score in Cashback,
     //    reward-rate score in Rewards.
@@ -65,10 +66,35 @@ const rewardTypeSplit: ResultStrategy = {
     //    cashback-rate score in Cashback.
     const rewards = scored
       .filter((c) => !isPrimaryCashbackCard(c) || c.rewardBucketScore !== undefined)
-      .map((c) => c.rewardBucketScore ?? c);
+      .map((c) => c.rewardBucketScore ?? c)
+      .sort((a, b) => b.estimatedNetValue - a.estimatedNetValue);
     const cashback = scored
       .filter((c) => isPrimaryCashbackCard(c) || c.cashbackBucketScore !== undefined)
-      .map((c) => c.cashbackBucketScore ?? c);
+      .map((c) => c.cashbackBucketScore ?? c)
+      .sort((a, b) => b.estimatedNetValue - a.estimatedNetValue);
+
+    if (options?.isBlend) {
+      rewards.sort((a, b) => {
+        const scoreA = a.envelopeScoring?.splitOrderScore;
+        const scoreB = b.envelopeScoring?.splitOrderScore;
+        if (scoreA !== undefined && scoreB !== undefined) {
+          if (scoreB !== scoreA) {
+            return scoreB - scoreA;
+          }
+        }
+        return b.estimatedNetValue - a.estimatedNetValue;
+      });
+      cashback.sort((a, b) => {
+        const scoreA = a.envelopeScoring?.splitOrderScore;
+        const scoreB = b.envelopeScoring?.splitOrderScore;
+        if (scoreA !== undefined && scoreB !== undefined) {
+          if (scoreB !== scoreA) {
+            return scoreB - scoreA;
+          }
+        }
+        return b.estimatedNetValue - a.estimatedNetValue;
+      });
+    }
 
     // Fill-up: total target = maxPerSection * 2 (i.e. 10 when maxPerSection = 5).
     // If one bucket has fewer cards than maxPerSection, lend the unused slots to the other.
