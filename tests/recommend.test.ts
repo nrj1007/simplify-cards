@@ -2,6 +2,7 @@ import { describe, expect, it } from "vitest";
 import { answerFromCards, cardMatchesSegment, defaultSpendProfile, joiningAndRenewalBenefitValueForCard, scoreCards, qualifiesAsTravelCard } from "../lib/recommend";
 import { getCardById } from "../lib/cards";
 import type { ValuedBenefit } from "../lib/types";
+import { CATEGORY_FOCUS_BLEND_WEIGHTS, CATEGORY_FOCUS_MULTIPLIERS } from "../lib/ranking-config";
 
 describe("joining/renewal benefit value", () => {
   const base = getCardById("hdfc-regalia-gold")!;
@@ -941,6 +942,15 @@ describe("scoreCards", () => {
     );
   });
 
+  it("uses weighted category-focus blending instead of only the representative tier", () => {
+    const envelopeScore = scoreCards({ query: "best dining card" }).find((score) => score.card.id === "indusind-eazydiner");
+
+    expect(envelopeScore?.envelopeScoring?.normalizedFitScore).toBeDefined();
+    expect(CATEGORY_FOCUS_MULTIPLIERS).toHaveLength(CATEGORY_FOCUS_BLEND_WEIGHTS.length);
+    expect(new Set(CATEGORY_FOCUS_BLEND_WEIGHTS).size).toBeGreaterThan(1);
+    expect(envelopeScore!.envelopeScoring!.normalizedFitScore).not.toBe(envelopeScore!.fitScore);
+  });
+
   it("lets Equitas Selfe qualify for dining, grocery, and utilities category-focus rankings via explicit tags", () => {
     const diningScores = scoreCards({ query: "best dining credit card" });
     const groceryScores = scoreCards({ query: "top card for grocery spends" });
@@ -1003,6 +1013,47 @@ describe("scoreCards", () => {
         return cardMatchesSegment(card, "premium") || cardMatchesSegment(card, "super-premium");
       })
     ).toBe(true);
+  });
+
+  it("uses a local envelope blend for segment queries", () => {
+    const premiumScores = scoreCards({ query: "best premium card" });
+    const topScore = premiumScores[0];
+
+    expect(topScore?.envelopeScoring).toBeDefined();
+    expect(topScore?.annualSpend).toBe(120000 * 12);
+    expect(topScore?.envelopeScoring?.bestMonthlySpend).not.toBe(120000);
+    expect(premiumScores.slice(0, 12).every((score) => cardMatchesSegment(score.card, "premium"))).toBe(true);
+  });
+
+  it("scales the popularity prior down at low spend and restores it at Rs 10L annual spend", () => {
+    const cardId = "sbi-cashback";
+    const spendWithOnlyBase = (base: number) => ({
+      online: 0,
+      base,
+      travel: 0,
+      hotels: 0,
+      airlines: 0,
+      dining: 0,
+      grocery: 0,
+      fuel: 0,
+      amazon: 0,
+      upi: 0,
+      utilities: 0,
+      rent: 0,
+      insurance: 0,
+      education: 0,
+      gold: 0,
+      government: 0,
+      international: 0
+    });
+    const lowSpendScore = scoreCards({ spend: spendWithOnlyBase(10000) }).find((score) => score.card.id === cardId);
+    const highSpendScore = scoreCards({ spend: spendWithOnlyBase(Math.ceil(1000000 / 12)) }).find((score) => score.card.id === cardId);
+    const lowPopularity = lowSpendScore?.scoreReasons.find((reason) => reason.code === "boost:popularity")?.value;
+    const highPopularity = highSpendScore?.scoreReasons.find((reason) => reason.code === "boost:popularity")?.value;
+
+    expect(lowPopularity).toBeDefined();
+    expect(highPopularity).toBeDefined();
+    expect(highPopularity! / lowPopularity!).toBeCloseTo(4, 1);
   });
 
   it("still gives a lounge card its broad lounge boost for generic queries", () => {

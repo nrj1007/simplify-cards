@@ -10,16 +10,12 @@
 
 // --- Broad reward-card envelope blend (the default ranking) ----------------
 // Broad "best card" ranking blends each card's score across fixed
-// light/mid/heavy/very-heavy annual-spend levels (instead of cherry-picking its
+// light/mid/heavy annual-spend levels (instead of cherry-picking its
 // single most-flattering tier, which let low-fee cards' yield blow up at trivial
-// spend). A card must hold up across the range to rank high. The Rs 30L tier
-// lets super-premium cards (e.g. Magnus Burgundy) that only pull ahead at very
-// high spend show that strength instead of being capped at the Rs 20L tier.
-export const REWARD_BLEND_SPEND_LEVELS = [300000, 1000000, 2000000, 3000000]; // 3L/10L/20L/30L (~Rs 25k/83k/167k/250k per month)
-// Lean gently toward higher-spend levels: a reward card must hold up across the
-// whole light→very-heavy range to rank high, but its heavy-spend strength counts
-// for a bit more (so cards that only pull ahead at high spend aren't averaged out).
-export const REWARD_BLEND_WEIGHTS = [1, 1.2, 1.4, 1.6];
+// spend). The blend centers around a realistic default spender (~Rs 6.4L/year)
+// while retaining a smaller premium tail for cards that need higher spend.
+export const REWARD_BLEND_SPEND_LEVELS = [300000, 600000, 1000000, 2000000]; // 3L/6L/10L/20L (~Rs 25k/50k/83k/167k per month)
+export const REWARD_BLEND_WEIGHTS = [1, 1.6, 1.2, 0.8];
 
 // --- Cashback cards: re-based onto realistic low/mid spend -----------------
 // Cashback cards earn on monthly caps, so the broad reward-card blend would
@@ -50,7 +46,14 @@ export const EQUAL_BLEND_WEIGHTS = [1, 1, 1, 1];
 // spend, with `CATEGORY_FOCUS_SPEND_SHARE` of each level placed on the focused
 // category (the rest spread across the default mix).
 export const CATEGORY_FOCUS_MULTIPLIERS = [0.5, 1.0, 2.0];
+export const CATEGORY_FOCUS_BLEND_WEIGHTS = [1, 1.5, 1];
 export const CATEGORY_FOCUS_SPEND_SHARE = 0.75;
+
+// --- Segment-query local blend ("beginner/premium/super premium cards") ----
+// Segment queries restrict the pool by segment, then blend around that segment's
+// representative spend instead of using a single point estimate.
+export const SEGMENT_BLEND_MULTIPLIERS = [0.75, 1, 1.5];
+export const SEGMENT_BLEND_WEIGHTS = [1, 1.5, 1];
 
 // --- Relevance weights -----------------------------------------------------
 // How much query relevance (text/identity match) adds on top of the economic
@@ -65,3 +68,5 @@ export const RELEVANCE_WEIGHT_DEFAULT = 0.5;
 // Cashback cards get a smaller prior so popularity doesn't crowd out yield.
 export const POPULARITY_RANKING_WEIGHT = 50;
 export const CASHBACK_POPULARITY_WEIGHT = 15;
+export const POPULARITY_FULL_WEIGHT_ANNUAL_SPEND = 1000000;
+export const POPULARITY_MIN_SCALE = 0.25;

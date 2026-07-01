@@ -104,8 +104,8 @@
   <table>
     <tr><th style="width:200px">&nbsp;</th><th>Non-split blend (default)</th><th>Split blend (opt-in, active when toggled)</th></tr>
     <tr><td class="k">Gating</td><td><code>resultStrategy:"single-list"</code></td><td><code>resultStrategy:"reward-type-split"</code></td></tr>
-    <tr><td class="k">Global ranking key</td><td><code>normalizedFitScore</code> = weighted avg; <strong>reward cards</strong> over <code>[3L,10L,20L,30L]</code> w <code>[1,1.2,1.4,1.6]</code>, <strong>cashback cards</strong> re-based to <code>[100k,200k,300k,500k]</code> w <code>[1.3,1.2,1.1,1]</code></td><td>Same <code>normalizedFitScore</code> (unchanged)</td></tr>
-    <tr><td class="k">Display order key</td><td><code>splitOrderScore</code> when present → fallback <code>estimatedNetValue</code></td><td>Same key; Cashback section uses <code>[100k,200k,300k,500k]</code> w <code>[1.3,1.2,1.1,1]</code>; Rewards section uses <code>[3L,10L,20L,30L]</code> w <code>[1,1.2,1.4,1.6]</code></td></tr>
+    <tr><td class="k">Global ranking key</td><td><code>normalizedFitScore</code> = weighted avg; <strong>reward cards</strong> over <code>[3L,6L,10L,20L]</code> w <code>[1,1.6,1.2,0.8]</code>, <strong>cashback cards</strong> re-based to <code>[100k,200k,300k,500k]</code> w <code>[1.3,1.2,1.1,1]</code></td><td>Same <code>normalizedFitScore</code> (unchanged)</td></tr>
+    <tr><td class="k">Display order key</td><td><code>splitOrderScore</code> when present → fallback <code>estimatedNetValue</code></td><td>Same key; Cashback section uses <code>[100k,200k,300k,500k]</code> w <code>[1.3,1.2,1.1,1]</code>; Rewards section uses <code>[3L,6L,10L,20L]</code> w <code>[1,1.6,1.2,0.8]</code></td></tr>
     <tr><td class="k">Presentation</td><td>One untitled section, 5 cards</td><td>"Cashback cards" + "Rewards cards", fill-up allocator lends unused slots between buckets (<span class="ref">result-strategies.ts:99–110</span>)</td></tr>
     <tr><td class="k">Dual-bucket cards</td><td>Primary bucket score only</td><td>Appear in <em>both</em> sections, re-valued at the other bucket's point value (<code>rewardBucketScore</code>/<code>cashbackBucketScore</code>, <span class="ref">recommend.ts:838–860</span>)</td></tr>
     <tr><td class="k">Cashback fairness</td><td>Cashback cards re-based to realistic low/mid spend levels in the <em>global</em> blend (reward-only high levels) → fair in the flat list too</td><td>Same global re-basing, plus realistic-spend ordering <em>within</em> the Cashback section</td></tr>
@@ -113,8 +113,8 @@
 
   <h2>3. Why the cashback-fairness mechanism exists</h2>
   <div class="panel">
-    <p>Cashback cards usually carry <strong>monthly caps</strong>. Scored at the non-split blend's higher spend levels (<code>10L</code>, <code>20L</code>, <code>30L</code> annual), they blow past their caps, so their <em>marginal</em> net value collapses and they rank below points/miles cards that keep earning.</p>
-    <p>The engine now re-bases <strong>every primary cashback card</strong> onto <code>[100k,200k,300k,500k]</code> w <code>[1.3,1.2,1.1,1]</code> in the global blend (<code>isCashbackBlendCard</code> in <code>recommend.ts</code>) — spend levels where caps haven't yet dominated — so the high <code>[3L,10L,20L,30L]</code> reward-card levels apply to <strong>reward cards only</strong>. A strong sub-₹3L cashback card is now judged fairly in the flat single-list <em>and</em> the split Cashback section. Rewards cards keep their high-spend evaluation, where they shine.</p>
+    <p>Cashback cards usually carry <strong>monthly caps</strong>. Scored at the non-split blend's higher spend levels (<code>10L</code>, <code>20L</code> annual), they blow past their caps, so their <em>marginal</em> net value collapses and they rank below points/miles cards that keep earning.</p>
+    <p>The engine now re-bases <strong>every primary cashback card</strong> onto <code>[100k,200k,300k,500k]</code> w <code>[1.3,1.2,1.1,1]</code> in the global blend (<code>isCashbackBlendCard</code> in <code>recommend.ts</code>) — spend levels where caps haven't yet dominated — so the broader <code>[3L,6L,10L,20L]</code> reward-card levels apply to <strong>reward cards only</strong>. A strong sub-₹3L cashback card is now judged fairly in the flat single-list <em>and</em> the split Cashback section. Rewards cards keep some high-spend evaluation without letting Rs 20L+ spend dominate the default list.</p>
     <p style="margin-bottom:0"><strong>Current nuance:</strong> display order is driven by <code>splitOrderScore</code> when available. Envelope-ranked cards keep their rank-driving representative tier internally, while user-facing estimated value is now shown at the realistic display spend profile.</p>
   </div>
 
@@ -142,8 +142,8 @@
   <div class="gap">
     <header><div class="num">3</div><h3>Cashback fairness never reaches the global rank / flat list</h3><span class="chip pill-green sev">Fixed ✓</span></header>
     <div class="body">
-      <div class="row"><span class="label">Was</span> The realistic cashback spend levels were applied only inside the split section (and to the global key only for dedicated <code>restrictToCashbackCards</code> queries). In a mixed non-split flat list, cashback cards were ranked on the broad <code>[3L,10L,20L,30L]</code> levels and under-weighted by their caps.</div>
-      <div class="fix"><span class="label">Done</span> The trigger was widened from <code>isCashbackQueryBlend</code> (cashback-restricted only) to <code>isCashbackBlendCard</code> (every primary cashback card). Now cashback cards are re-based to <code>[100k,200k,300k,500k]</code> w <code>[1.3,1.2,1.1,1]</code> in the global blend, so the high <code>[3L,10L,20L,30L]</code> levels apply to reward cards only — fair ranking in <em>both</em> the flat list and the split view. <span class="ref">recommend.ts:752,761,770</span></div>
+      <div class="row"><span class="label">Was</span> The realistic cashback spend levels were applied only inside the split section (and to the global key only for dedicated <code>restrictToCashbackCards</code> queries). In a mixed non-split flat list, cashback cards were ranked on broad reward-card levels and under-weighted by their caps.</div>
+      <div class="fix"><span class="label">Done</span> The trigger was widened from <code>isCashbackQueryBlend</code> (cashback-restricted only) to <code>isCashbackBlendCard</code> (every primary cashback card). Now cashback cards are re-based to <code>[100k,200k,300k,500k]</code> w <code>[1.3,1.2,1.1,1]</code> in the global blend, so the broader reward-card levels apply to reward cards only — fair ranking in <em>both</em> the flat list and the split view.</div>
     </div>
   </div>
 
@@ -177,27 +177,27 @@
   <div class="gap">
     <header><div class="num">7</div><h3>Stale doc: spend levels in lib/AGENTS.md</h3><span class="chip pill-green sev">Fixed ✓</span></header>
     <div class="body">
-      <div class="row"><span class="label">Where</span> <span class="ref">lib/AGENTS.md</span> + the comment block at <span class="ref">recommend.ts:123–127</span> describe a four-tier light/mid/heavy/very-heavy blend up to Rs 30L.</div>
+      <div class="row"><span class="label">Where</span> <span class="ref">lib/AGENTS.md</span> + the comment block in <code>ranking-config.ts</code> describe the broad reward-card blend.</div>
       <div class="row"><span class="label">Gap</span> The code had regressed to <code>[120000, 300000, 600000]</code> (three levels, capped at 600k) with weights <code>[1.5, 1.25, 1]</code> — out of sync with its own documented 3L/10L/20L/30L design, so super-premium cards that only pull ahead at very high spend were capped out.</div>
-      <div class="fix"><span class="label">Done</span> Restored the blend to its documented design: <code>spendLevels [300000, 1000000, 2000000, 3000000]</code> (3L/10L/20L/30L ≈ Rs 25k/83k/167k/250k per month) with weights <code>[1, 1.2, 1.4, 1.6]</code> (a gentle lean toward higher spend), now centralised in <code>lib/ranking-config.ts</code>.</div>
+      <div class="fix"><span class="label">Done</span> The blend is now centralised in <code>lib/ranking-config.ts</code> and calibrated to <code>[300000,600000,1000000,2000000]</code> (3L/6L/10L/20L) with weights <code>[1,1.6,1.2,0.8]</code>.</div>
     </div>
   </div>
 
   <div class="gap">
-    <header><div class="num">8</div><h3>Blend weights skip category-focus and segment queries</h3><span class="chip pill-amber sev">Pending</span></header>
+    <header><div class="num">8</div><h3>Blend weights skip category-focus and segment queries</h3><span class="chip pill-green sev">Fixed ✓</span></header>
     <div class="body">
       <div class="row"><span class="label">Where</span> Category-focus scoring averages <code>CATEGORY_FOCUS_MULTIPLIERS</code> equally; segment queries still use a single representative spend path.</div>
       <div class="row"><span class="label">Gap</span> Tuned broad weights affect generic "best cards" queries, but not "best dining/grocery/online card" or "premium/beginner cards" queries.</div>
-      <div class="fix"><span class="label">Pending</span> Add explicit weighted blends for category-focus and segment queries. This is ranking-affecting, so it was intentionally deferred from the non-ranking pass.</div>
+      <div class="fix"><span class="label">Done</span> Category-focus scoring now uses <code>CATEGORY_FOCUS_BLEND_WEIGHTS [1,1.5,1]</code>. Segment queries now use a local envelope around representative segment spend with <code>SEGMENT_BLEND_MULTIPLIERS [0.75,1,1.5]</code> and <code>SEGMENT_BLEND_WEIGHTS [1,1.5,1]</code>.</div>
     </div>
   </div>
 
   <div class="gap">
-    <header><div class="num">9</div><h3>Broad ranking is calibrated toward high annual spend</h3><span class="chip pill-amber sev">Pending</span></header>
+    <header><div class="num">9</div><h3>Broad ranking is calibrated toward high annual spend</h3><span class="chip pill-green sev">Fixed ✓</span></header>
     <div class="body">
-      <div class="row"><span class="label">Where</span> Reward cards use <code>[3L,10L,20L,30L]</code> with back-loaded <code>[1,1.2,1.4,1.6]</code> weights.</div>
-      <div class="row"><span class="label">Gap</span> The default spend profile is about Rs 6.4L/year, while the heaviest ranking weights sit at Rs 20L and Rs 30L/year.</div>
-      <div class="fix"><span class="label">Pending</span> Recalibrate broad reward weights/levels only after choosing the intended audience for generic "best cards" rankings. This will change rankings.</div>
+      <div class="row"><span class="label">Was</span> Reward cards used <code>[3L,10L,20L,30L]</code> with back-loaded <code>[1,1.2,1.4,1.6]</code> weights.</div>
+      <div class="row"><span class="label">Gap</span> The default spend profile is about Rs 6.4L/year, while the heaviest ranking weights sat at Rs 20L and Rs 30L/year.</div>
+      <div class="fix"><span class="label">Done</span> Broad reward-card ranking now uses <code>[3L,6L,10L,20L]</code> with <code>[1,1.6,1.2,0.8]</code>, centering the generic list near realistic/default spend while retaining a smaller premium tail.</div>
     </div>
   </div>
 
@@ -227,11 +227,11 @@
   </div>
 
   <div class="gap">
-    <header><div class="num">13</div><h3>Popularity prior is flat across spend levels</h3><span class="chip pill-amber sev">Pending</span></header>
+    <header><div class="num">13</div><h3>Popularity prior is flat across spend levels</h3><span class="chip pill-green sev">Fixed ✓</span></header>
     <div class="body">
-      <div class="row"><span class="label">Where</span> Popularity is added as a flat rupee-like boost at every spend level.</div>
-      <div class="row"><span class="label">Gap</span> At low spend levels, the boost can dominate card economics; at high spend levels it becomes small noise.</div>
-      <div class="fix"><span class="label">Pending</span> Scale popularity by annual spend or normalize it separately. This will change rankings, especially low-spend rankings.</div>
+      <div class="row"><span class="label">Was</span> Popularity was added as a flat rupee-like boost at every spend level.</div>
+      <div class="row"><span class="label">Gap</span> At low spend levels, the boost could dominate card economics; at high spend levels it became small noise.</div>
+      <div class="fix"><span class="label">Done</span> Popularity now scales by annual spend with a 25% floor and full weight at Rs 10L/year, reducing low-spend distortion without removing the prior.</div>
     </div>
   </div>
 
@@ -240,7 +240,7 @@
     <tr><th style="width:260px">File</th><th>Role in ranking</th></tr>
     <tr><td class="k">lib/ranking-config.ts</td><td><strong>Single source of truth</strong> for all blend tuning knobs: spend levels &amp; weights (reward / cashback / UPI / utility / low-fee / split-order), relevance &amp; popularity priors, category-focus envelope</td></tr>
     <tr><td class="k">lib/recommend.ts</td><td><code>scoreCards()</code> :252 · envelope blend &amp; <code>splitOrderScore</code> :697–877 · <code>applyResultStrategy()</code> :925</td></tr>
-    <tr><td class="k">lib/ranking-strategies.ts</td><td>single <code>absolute-blend</code> strategy (weighted-average); reward-card spend levels <code>[3L,10L,20L,30L]</code> w <code>[1,1.2,1.4,1.6]</code> (from <code>ranking-config.ts</code>)</td></tr>
+    <tr><td class="k">lib/ranking-strategies.ts</td><td>single <code>absolute-blend</code> strategy (weighted-average); reward-card spend levels <code>[3L,6L,10L,20L]</code> w <code>[1,1.6,1.2,0.8]</code> (from <code>ranking-config.ts</code>)</td></tr>
     <tr><td class="k">lib/result-strategies.ts</td><td><code>single-list</code> vs <code>reward-type-split</code>; display comparator <code>splitOrderScore → estimatedNetValue</code>; dual-bucket routing; fill-up allocator; <code>SPLIT_SCOPE</code></td></tr>
     <tr><td class="k">lib/reward-type.ts</td><td>Shared cashback reward-type predicate used by filters, result routing, and split-order bucket selection</td></tr>
     <tr><td class="k">lib/recommend-utils.ts</td><td>50/50 SmartBuy spend split (<code>acceleratedShareForCategory</code>, <code>blendedSmartbuySpendCategories</code>)</td></tr>

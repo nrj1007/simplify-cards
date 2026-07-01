@@ -3,16 +3,21 @@ import {
   CASHBACK_BLEND_SPEND_LEVELS,
   CASHBACK_BLEND_WEIGHTS,
   CASHBACK_POPULARITY_WEIGHT,
+  CATEGORY_FOCUS_BLEND_WEIGHTS,
   CATEGORY_FOCUS_MULTIPLIERS,
   CATEGORY_FOCUS_SPEND_SHARE,
   EQUAL_BLEND_WEIGHTS,
   LOW_FEE_BLEND_WEIGHTS,
+  POPULARITY_FULL_WEIGHT_ANNUAL_SPEND,
+  POPULARITY_MIN_SCALE,
   POPULARITY_RANKING_WEIGHT,
   RELEVANCE_WEIGHT_BROAD_GENERIC,
   RELEVANCE_WEIGHT_DEFAULT,
   RELEVANCE_WEIGHT_EXACT_MATCH,
   REWARD_BLEND_SPEND_LEVELS,
   REWARD_BLEND_WEIGHTS,
+  SEGMENT_BLEND_MULTIPLIERS,
+  SEGMENT_BLEND_WEIGHTS,
   UPI_BLEND_SPEND_LEVELS,
   UPI_BLEND_WEIGHTS,
   UTILITY_BLEND_SPEND_LEVELS,
@@ -282,15 +287,13 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
     ? categoryFocus75_25SpendProfile(focusedCategory, categoryFocusMonthlySpend[focusedCategory]!, defaultSpendProfile)
     : undefined;
   const forexFocusedSpend = forexFocus ? weightedFocusSpendProfile("international", 0.5, defaultSpendProfile) : undefined;
-  // Segment queries are scored at the tier's representative spend (not the envelope blend), unless a
-  // category/forex focus already sets the spend or the caller passed an explicit spend.
-  const segmentSpend =
+  const segmentRepresentativeSpend =
     restrictToSegments && !input.spend && !intent.inferredSpend && !categoryFocus && !forexFocus && !restrictToFuelCards
-      ? scaleSpendProfileToMonthly(
-          defaultSpendProfile,
-          Math.max(...restrictToSegments.map((segment) => segmentRepresentativeMonthlySpend[segment] ?? 50000))
-        )
+      ? Math.max(...restrictToSegments.map((segment) => segmentRepresentativeMonthlySpend[segment] ?? 50000))
       : undefined;
+  const segmentSpend = segmentRepresentativeSpend
+    ? scaleSpendProfileToMonthly(defaultSpendProfile, segmentRepresentativeSpend)
+    : undefined;
   const restrictToIssuer = shouldRestrictToIssuer(intent, input.query);
   const includeSmartbuyLikeRewards = shouldIncludeSmartbuyLikeRewards(input.query);
   const broadMixedSpendQuery = isBroadMixedSpendQuery(input, intent);
@@ -317,8 +320,8 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
 
   const useEnvelopeScoring =
     (focusedCategory !== null && input.spend === undefined) ||
+    (segmentRepresentativeSpend !== undefined) ||
     (!restrictToFuelCards &&
-    !restrictToSegments &&
     (
       shouldUseEnvelopeScoring(input, intent, effectiveMaxAnnualFee, wantsLifetimeFree, wantsLounge) ||
       (input.spend !== undefined && isGoldenSpendProfile(input.spend)) ||
@@ -586,6 +589,11 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
 
     // Non-economic preference and penalty signals shared by both scoring paths
     const cardPopularityWeight = isPrimaryCashbackCard({ card } as CardScore) ? CASHBACK_POPULARITY_WEIGHT : POPULARITY_RANKING_WEIGHT;
+    const popularityScale = Math.min(
+      1,
+      Math.max(POPULARITY_MIN_SCALE, annualSpend / POPULARITY_FULL_WEIGHT_ANNUAL_SPEND)
+    );
+    const popularityBoost = card.popularityScore * cardPopularityWeight * popularityScale;
     const sharedBoosts =
       useCaseBoost +
       redemptionBoost +
@@ -594,7 +602,7 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
       flexibilityValue +
       onlineBoost +
       focusBoost +
-      card.popularityScore * cardPopularityWeight;
+      popularityBoost;
 
     const valueScore = estimatedNetValue + sharedBoosts;
 
@@ -641,7 +649,7 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
     addScoreReason("boost:flexibility", "Excluded-category flexibility", flexibilityValue);
     addScoreReason("boost:online", "Broad online reward signal", onlineBoost);
     addScoreReason("boost:focus", "Category focus match", focusBoost);
-    addScoreReason("boost:popularity", "Popularity prior", card.popularityScore * cardPopularityWeight);
+    addScoreReason("boost:popularity", "Popularity prior", popularityBoost);
     addScoreReason("relevance:card-name", "Card-name relevance", relevanceWeight * cardNameBoost);
     addScoreReason("relevance:keyword", "Keyword relevance", relevanceWeight * keywordBoost);
     addScoreReason("relevance:tag", "Tag relevance", relevanceWeight * tagBoost);
@@ -723,6 +731,11 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
     return perLevel.reduce((total, score, i) => total + strategy.perLevelScore(score) * weights[i], 0) / weightSum;
   };
 
+  const weightedPerLevelScore = (scores: CardScore[], weights: number[]): number => {
+    const weightSum = weights.reduce((sum, weight) => sum + weight, 0);
+    return scores.reduce((total, score, i) => total + strategy.perLevelScore(score) * weights[i], 0) / weightSum;
+  };
+
   const withDisplayEconomics = (rankScore: CardScore, displayScore: CardScore): CardScore => ({
     ...rankScore,
     annualSpend: displayScore.annualSpend,
@@ -769,13 +782,41 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
           return scoreCardForSpend(card, monthlySpendProfile, totalMonthlySpend);
         });
         const representative = perLevel.reduce((best, score) => (strategy.perLevelScore(score) > strategy.perLevelScore(best) ? score : best));
-        const blendedFitScore = perLevel.reduce((sum, score) => sum + strategy.perLevelScore(score), 0) / CATEGORY_FOCUS_MULTIPLIERS.length;
+        const blendedFitScore = weightedPerLevelScore(perLevel, CATEGORY_FOCUS_BLEND_WEIGHTS);
 
         const splitOrderScore = shouldComputeSplitOrderScore
           ? computeSplitOrderScore(card, primarySplitOrderBucket(card))
           : undefined;
         const displaySpendProfile = categoryFocus75_25SpendProfile(focusedCategory, baseAmount, defaultSpendProfile);
         const displayScore = scoreCardForSpend(card, displaySpendProfile, monthlySpendTotal(displaySpendProfile));
+
+        const assembled = representative.envelopeScoring
+          ? {
+              ...withDisplayEconomics(representative, displayScore),
+              envelopeScoring: {
+                ...representative.envelopeScoring,
+                normalizedFitScore: blendedFitScore,
+                ...(splitOrderScore !== undefined ? { splitOrderScore } : {})
+              }
+            }
+          : withDisplayEconomics(representative, displayScore);
+        return assembled;
+      }
+
+      if (segmentRepresentativeSpend !== undefined) {
+        const segmentSpendLevels = SEGMENT_BLEND_MULTIPLIERS.map((multiplier) =>
+          Math.round(segmentRepresentativeSpend * multiplier * 12)
+        );
+        const perLevel = segmentSpendLevels.map((annualSpend) => {
+          const monthlySpend = Math.round(annualSpend / 12);
+          return scoreCardForSpend(card, scaleSpendProfileToMonthly(defaultSpendProfile, monthlySpend), monthlySpend);
+        });
+        const representative = perLevel.reduce((best, score) => (strategy.perLevelScore(score) > strategy.perLevelScore(best) ? score : best));
+        const blendedFitScore = weightedPerLevelScore(perLevel, SEGMENT_BLEND_WEIGHTS);
+        const splitOrderScore = shouldComputeSplitOrderScore
+          ? computeSplitOrderScore(card, primarySplitOrderBucket(card))
+          : undefined;
+        const displayScore = scoreCardForSpend(card, spend);
 
         const assembled = representative.envelopeScoring
           ? {
@@ -798,7 +839,7 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
       const isCashbackBlendCard = isPrimaryCashbackCard({ card } as CardScore);
       // Broad recommendation display order: cashback cards are judged on realistic low/mid
       // levels, while rewards cards use the back-loaded broad reward blend.
-      // Cashback cards earn on monthly caps, so the broad reward-card blend (3L/10L/20L/30L) would
+      // Cashback cards earn on monthly caps, so the broad reward-card blend (3L/6L/10L/20L) would
       // judge them deep past their caps and systematically under-rank them. Evaluate EVERY primary
       // cashback card on a realistic low/mid spend basis — not just in "best cashback card" queries —
       // so the high reward-card spend levels apply to reward cards only.
@@ -847,7 +888,7 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
         perLevel.reduce((total, score, i) => total + strategy.perLevelScore(score) * spendWeights[i], 0) / blendWeightSum;
 
       // Recommendation display ordering signal: cashback uses realistic low/mid spend levels;
-      // rewards use the same 3L/10L/20L/30L back-loaded blend as the broad reward ranking.
+      // rewards use the same 3L/6L/10L/20L calibrated blend as the broad reward ranking.
       // Computed on a dedicated evaluation so the card's representative/display value
       // and global ranking key remain on the default spend levels.
       const splitOrderScore = shouldComputeSplitOrderScore
