@@ -19,15 +19,15 @@
     {
       "category": "travel",
       "displayCategory": "Singapore Airlines Group Spends",
-      "rate": 3,
-      "displayRate": "6 KrisFlyer Miles per Rs 200",
+      "rate": 2.5,
+      "displayRate": "5 KrisFlyer Miles per Rs 200",
       "capMonthly": null
     },
     {
       "category": "travel",
       "displayCategory": "International Spends",
-      "rate": 2,
-      "displayRate": "4 KrisFlyer Miles per Rs 200",
+      "rate": 2.5,
+      "displayRate": "5 KrisFlyer Miles per Rs 200",
       "capMonthly": null
     },
     {
@@ -69,10 +69,32 @@
     "emi",
     "cash_advance"
   ],
+  "milestones": [
+    {
+      "threshold": 300000,
+      "period": "annual",
+      "value": 2400,
+      "kind": "points",
+      "label": "3,000 bonus KrisFlyer Miles on reaching Rs 3 Lakh in annual spends"
+    },
+    {
+      "threshold": 250000,
+      "period": "annual",
+      "value": 0,
+      "kind": "other",
+      "label": "KrisFlyer Elite Silver tier upgrade on reaching annual spends of Rs 2.5 Lakh on Singapore Airlines Group booking channels"
+    }
+  ],
   "milestoneBenefits": [
-    "4,000 bonus KrisFlyer Miles on reaching Rs 3 Lakh in annual spends",
-    "4,000 bonus KrisFlyer Miles on reaching Rs 6 Lakh in annual spends",
+    "3,000 bonus KrisFlyer Miles on reaching Rs 3 Lakh in annual spends",
     "KrisFlyer Elite Silver tier upgrade on reaching annual spends of Rs 2.5 Lakh on Singapore Airlines Group booking channels"
+  ],
+  "joiningBenefitsValued": [
+    {
+      "value": 2400,
+      "kind": "points",
+      "label": "3,000 KrisFlyer Miles as welcome benefit after joining fee payment and first transaction within 60 days"
+    }
   ],
   "additionalBenefits": [
     "3,000 KrisFlyer Miles as welcome benefit after joining fee payment and first transaction within 60 days",
@@ -83,6 +105,7 @@
     "Complimentary Priority Pass membership included for primary cardholder."
   ],
   "redemption": {
+    "airMilesValue": 0.8,
     "statementBalanceValue": null,
     "pointsExpiryYears": 2
   },
