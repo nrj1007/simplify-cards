@@ -18,9 +18,15 @@
   "rewardType": "etihad guest miles",
   "rewardLiquidity": "brand-locked",
   "rewardLiquidityFactor": 0.8,
+  "acceleratedShare": {
+    "travel": 0.25,
+    "online": 0,
+    "grocery": 0,
+    "dining": 0
+  },
   "rewards": [
     {
-      "category": "airlines",
+      "category": "airlines, partner merchants",
       "displayCategory": "Etihad Airways spends",
       "rate": 6,
       "displayRate": "6 Etihad Guest Miles / Rs 100 spent",
