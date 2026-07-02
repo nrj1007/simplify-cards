@@ -323,16 +323,16 @@ exports[`reward calculator golden (all cards) > computes stable earn for every c
     "moderate": "online:200 dining:200 travel:200 hotels:200 airlines:200 fuel:x grocery:200 utilities:x upi:200 amazon:200 international:200 base:200 rent:x insurance:x education:x gold:x government:x |2000 (surcharge:250)",
   },
   "hdfc-swiggy": {
-    "high": "online:63 dining:750 travel:63 hotels:63 airlines:63 fuel:x grocery:750 utilities:x upi:63 amazon:63 international:63 base:63 rent:x insurance:x education:x gold:x government:x |2000 (surcharge:2000)",
-    "moderate": "online:63 dining:750 travel:63 hotels:63 airlines:63 fuel:x grocery:750 utilities:x upi:63 amazon:63 international:63 base:63 rent:x insurance:x education:x gold:x government:x |2000 (surcharge:250)",
+    "high": "online:56 dining:1500 travel:56 hotels:56 airlines:56 fuel:x grocery:56 utilities:x upi:56 amazon:56 international:56 base:56 rent:x insurance:x education:x gold:x government:x |2000 (surcharge:2000)",
+    "moderate": "online:56 dining:1500 travel:56 hotels:56 airlines:56 fuel:x grocery:56 utilities:x upi:56 amazon:56 international:56 base:56 rent:x insurance:x education:x gold:x government:x |2000 (surcharge:250)",
   },
   "hdfc-swiggy-black": {
-    "high": "online:45 dining:750 travel:45 hotels:45 airlines:45 fuel:x grocery:750 utilities:45 upi:45 amazon:45 international:45 base:45 rent:x insurance:45 education:45 gold:x government:x |2000 (surcharge:2000)",
-    "moderate": "online:45 dining:750 travel:45 hotels:45 airlines:45 fuel:x grocery:750 utilities:45 upi:45 amazon:45 international:45 base:45 rent:x insurance:45 education:45 gold:x government:x |2000 (surcharge:250)",
+    "high": "online:42 dining:1500 travel:42 hotels:42 airlines:42 fuel:x grocery:42 utilities:42 upi:42 amazon:42 international:42 base:42 rent:x insurance:42 education:42 gold:x government:x |2000 (surcharge:2000)",
+    "moderate": "online:42 dining:1500 travel:42 hotels:42 airlines:42 fuel:x grocery:42 utilities:42 upi:42 amazon:42 international:42 base:42 rent:x insurance:42 education:42 gold:x government:x |2000 (surcharge:250)",
   },
   "hdfc-swiggy-orange": {
-    "high": "online:63 dining:750 travel:63 hotels:63 airlines:63 fuel:x grocery:750 utilities:x upi:63 amazon:63 international:63 base:63 rent:x insurance:x education:x gold:x government:x |2000 (surcharge:2000)",
-    "moderate": "online:63 dining:750 travel:63 hotels:63 airlines:63 fuel:x grocery:750 utilities:x upi:63 amazon:63 international:63 base:63 rent:x insurance:x education:x gold:x government:x |2000 (surcharge:250)",
+    "high": "online:56 dining:1500 travel:56 hotels:56 airlines:56 fuel:x grocery:56 utilities:x upi:56 amazon:56 international:56 base:56 rent:x insurance:x education:x gold:x government:x |2000 (surcharge:2000)",
+    "moderate": "online:56 dining:1500 travel:56 hotels:56 airlines:56 fuel:x grocery:56 utilities:x upi:56 amazon:56 international:56 base:56 rent:x insurance:x education:x gold:x government:x |2000 (surcharge:250)",
   },
   "hdfc-tata-neu-infinity": {
     "high": "online:3000 dining:3000 travel:3000 hotels:3000 airlines:3000 fuel:x grocery:2000 utilities:2000 upi:500 amazon:3000 international:3000 base:3000 rent:x insurance:3000 education:3000 gold:3000 government:x |37500 (surcharge:2000)",

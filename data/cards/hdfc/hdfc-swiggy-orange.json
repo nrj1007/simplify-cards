@@ -17,7 +17,7 @@
   "rewardType": "cashback",
   "rewards": [
     {
-      "category": "dining, grocery",
+      "category": "swiggy zomato",
       "displayCategory": "Swiggy App transactions (Food delivery, Instamart, Dineout, Genie)",
       "rate": 10,
       "displayRate": "10% Cashback",
