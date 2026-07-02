@@ -246,6 +246,9 @@ export function requiresRelationshipAccess(card: CreditCard) {
 }
 
 export function shouldHideCardFromGenericRanking(card: CreditCard, input: RecommendationInput, intent: ReturnType<typeof parseQueryIntent>) {
+  const isDiscontinued = card.status === "discontinued";
+  if (isDiscontinued) return true;
+
   const cardNameBoost = computeCardNameBoost(card, input.query);
   const userExplicitlyAsked =
     cardNameBoost >= exactCardNameMatchThreshold ||
@@ -258,9 +261,6 @@ export function shouldHideCardFromGenericRanking(card: CreditCard, input: Recomm
   if (userExplicitlyAsked) return false;
 
   if (card.id === "axis-atlas") return true;
-
-  const isDiscontinued = card.status === "discontinued";
-  if (isDiscontinued) return true;
 
   const isDefenceCard = (card.tags ?? []).includes("defence") || (card.bestFor ?? []).includes("defence");
   if (isDefenceCard) {

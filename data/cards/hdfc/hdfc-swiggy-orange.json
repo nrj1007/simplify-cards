@@ -2,6 +2,7 @@
   "id": "hdfc-swiggy-orange",
   "issuer": "HDFC Bank",
   "name": "Swiggy Orange HDFC Bank Credit Card",
+  "status": "discontinued",
   "network": [
     "Mastercard"
   ],
