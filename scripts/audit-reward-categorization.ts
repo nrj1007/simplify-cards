@@ -189,13 +189,15 @@ function auditCard(card: CreditCard, scored: ReturnType<typeof scoreCards>, rank
     if (isBroad && !isBaseRow && NARROW_SIGNALS.test(text)) {
       flags.push(`OVER-BROAD: row "${r.category}" (rate ${r.rate}) is actually narrow — «${(r.displayCategory ?? "").slice(0, 60)}». All "${cats.join("/")}" spend earns it; consider a narrow category + acceleratedShare.`);
     }
+    const unitValue = r.valuePerUnit ?? scoringPointValue(card);
+    const rupeeRate = r.rate * unitValue;
     if (
       !isBaseRow &&
-      r.rate >= 5 &&
+      rupeeRate >= 5 &&
       (r.capMonthly === null || r.capMonthly === undefined) &&
       (r.capMultiplierOfBaseEarn === null || r.capMultiplierOfBaseEarn === undefined)
     ) {
-      flags.push(`UNCAPPED HIGH RATE: row "${r.category}" rate ${r.rate} has no capMonthly — scales unbounded at high spend.`);
+      flags.push(`UNCAPPED HIGH RATE: row "${r.category}" rate ${r.rate} (rupeeRate ${rupeeRate}) has no capMonthly — scales unbounded at high spend.`);
     }
   }
 
