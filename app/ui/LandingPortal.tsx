@@ -4,7 +4,6 @@ import Link from "next/link";
 import { useEffect, useMemo, useRef, useState } from "react";
 import type { Route } from "next";
 import {
-  Check,
   ChevronLeft,
   ChevronRight,
   Cpu,
@@ -151,32 +150,7 @@ function LogoMark() {
 }
 
 function PhoneFrame({ variant }: { variant: "recommend" | "calculator" | "cards" | "compare" }) {
-  const content = {
-    recommend: {
-      time: "2:41",
-      title: "Top picks",
-      rows: ["SBI Cashback", "HDFC Millennia", "Amazon Pay ICICI"],
-      accent: "#581c87"
-    },
-    calculator: {
-      time: "2:42",
-      title: "Monthly spend",
-      rows: ["Online Rs 15k", "Dining Rs 8k", "Fuel Rs 3k"],
-      accent: "#b8975a"
-    },
-    cards: {
-      time: "2:43",
-      title: "Infinia Metal",
-      rows: ["Unlimited global lounge", "SmartBuy rewards", "Premium travel"],
-      accent: "#b8975a"
-    },
-    compare: {
-      time: "2:45",
-      title: "Compare",
-      rows: ["Rewards", "Fees", "Lounge"],
-      accent: "#1d4ed8"
-    }
-  }[variant];
+  const time = variant === "calculator" ? "2:37" : variant === "cards" ? "2:43" : variant === "compare" ? "2:45" : "2:41";
 
   return (
     <div className="sc-phone-frame" aria-hidden="true">
@@ -185,22 +159,70 @@ function PhoneFrame({ variant }: { variant: "recommend" | "calculator" | "cards"
         <b />
       </div>
       <div className="sc-phone-status">
-        <span>{content.time}</span>
-        <span>LTE</span>
+        <span>{time}</span>
+        <span className="sc-phone-network">LTE</span>
       </div>
       <div className="sc-phone-screen">
-        <div className="sc-phone-card" style={{ ["--phone-accent" as string]: content.accent }}>
-          <span>{content.title}</span>
-          <strong>**** **** **** 8820</strong>
-        </div>
-        <div className="sc-phone-list">
-          {content.rows.map((row) => (
-            <p key={row}>
-              <Check size={12} />
-              {row}
-            </p>
-          ))}
-        </div>
+        {variant === "recommend" ? (
+          <>
+            <div className="sc-mini-recommend-search">
+              <span>recommends loading...</span>
+              <b>view ✨</b>
+            </div>
+            <div className="sc-mini-recommend-card">
+              <span>Top Live Recommender:</span>
+              <div>
+                <b>1. Infinia Metal</b>
+                <strong>99% Match</strong>
+              </div>
+            </div>
+            <span className="sc-phone-cta sc-phone-cta-purple">recommend →</span>
+          </>
+        ) : null}
+        {variant === "calculator" ? (
+          <>
+            <div className="sc-mini-calculator">
+              <span>Adjust Spends:</span>
+              <div>
+                <p>
+                  <b>Online shopping</b>
+                  <strong>Rs 15k</strong>
+                </p>
+                <i><em /></i>
+              </div>
+            </div>
+            <span className="sc-phone-cta sc-phone-cta-teal">calculator →</span>
+          </>
+        ) : null}
+        {variant === "cards" ? (
+          <>
+            <div className="sc-mini-card-art">
+              <p>
+                <span>Infinia Metal</span>
+                <i />
+              </p>
+              <strong>**** **** **** 8820</strong>
+            </div>
+            <div className="sc-mini-perks">
+              <span>Key Perks:</span>
+              <p>• Unlimited global airport lounge access</p>
+            </div>
+            <span className="sc-phone-cta sc-phone-cta-gold">cards →</span>
+          </>
+        ) : null}
+        {variant === "compare" ? (
+          <>
+            <div className="sc-mini-compare">
+              <span>Comparison Yields:</span>
+              <div>
+                <p><b>Metric</b><b>Infinia</b><b>SBI CB</b></p>
+                <p><span>Rewards</span><strong>Rs 42.5k</strong><strong>Rs 12k</strong></p>
+                <p><span>Lounge</span><b>Compl.</b><em>None</em></p>
+              </div>
+            </div>
+            <span className="sc-phone-cta sc-phone-cta-blue">compare →</span>
+          </>
+        ) : null}
       </div>
     </div>
   );
@@ -252,19 +274,19 @@ function FeatureGrid() {
   const features: Array<{ title: string; copy: string; href: Route; variant: "recommend" | "calculator" | "cards" | "compare" }> = [
     {
       title: "recommend",
-      copy: "Tell us your spends and get cards ranked by estimated annual value after fees",
+      copy: "Tell us your monthly spends and get a ranked shortlist of cards",
       href: "/recommend",
       variant: "recommend"
     },
     {
       title: "calculator",
-      copy: "Estimate rewards, milestones, and fee recovery before you choose a card",
+      copy: "Move spend sliders to estimate annual rewards, fees, and net value",
       href: "/calculator" as Route,
       variant: "calculator"
     },
     {
       title: "cards",
-      copy: "Browse verified card details, fees, caps, exclusions, and lounge rules",
+      copy: "Browse verified card details, perks, limits, and exclusions",
       href: "/finder",
       variant: "cards"
     },
