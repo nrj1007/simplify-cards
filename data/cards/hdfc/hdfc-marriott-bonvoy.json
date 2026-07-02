@@ -18,9 +18,15 @@
   "rewardType": "Marriott Bonvoy Points",
   "rewardLiquidity": "brand-locked",
   "rewardLiquidityFactor": 1.0,
+  "acceleratedShare": {
+    "travel": 0.25,
+    "online": 0,
+    "grocery": 0,
+    "dining": 0
+  },
   "rewards": [
     {
-      "category": "marriott",
+      "category": "marriott, partner merchants",
       "rate": 5.333333333333333,
       "displayRate": "8 Marriott Bonvoy Points / Rs 150",
       "capMonthly": 3200,
