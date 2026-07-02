@@ -230,11 +230,16 @@ function PhoneFrame({ variant }: { variant: "recommend" | "calculator" | "cards"
 
 function HeroAskBox() {
   const [query, setQuery] = useState("");
+  const inputRef = useRef<HTMLInputElement | null>(null);
 
   function submit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const trimmed = query.trim();
-    if (!trimmed) return;
+    if (!trimmed) {
+      inputRef.current?.reportValidity();
+      inputRef.current?.focus();
+      return;
+    }
     window.location.href = `/ask?query=${encodeURIComponent(trimmed)}`;
   }
 
@@ -243,10 +248,14 @@ function HeroAskBox() {
       <form onSubmit={submit} className="sc-ask-form">
         <Search className="sc-ask-search" size={22} />
         <input
+          ref={inputRef}
           value={query}
           onChange={(event) => setQuery(event.target.value)}
           placeholder="Which card is best for movie tickets?"
           aria-label="Ask SimplifyCards"
+          required
+          pattern=".*\S.*"
+          title="Enter a question to ask SimplifyCards."
         />
         <button type="submit">
           <span className="sc-pulse" />
