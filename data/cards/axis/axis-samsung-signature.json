@@ -29,8 +29,8 @@
       "category": "partner merchants",
       "displayCategory": "Preferred partners (BigBasket, Myntra, Tata 1mg, Urban Company, Zomato)",
       "rate": 10,
-      "displayRate": "10% Cashback",
-      "valuePerUnit": 1.0,
+      "displayRate": "10 EDGE REWARD Points / Rs 100 spent (2.0% return value)",
+      "valuePerUnit": 0.2,
       "capMonthly": null
     },
     {
