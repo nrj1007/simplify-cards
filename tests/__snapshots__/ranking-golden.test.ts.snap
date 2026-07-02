@@ -421,9 +421,9 @@ exports[`ranking golden (representative queries) > produces stable top-N orderin
     "sc-ultimate",
     "equitas-powermiles",
     "hdfc-marriott-bonvoy",
+    "bobcard-eterna",
     "indusind-eazydiner",
     "amex-membership-rewards",
-    "bobcard-eterna",
     "amex-gold",
   ],
   "segment-super-premium": [

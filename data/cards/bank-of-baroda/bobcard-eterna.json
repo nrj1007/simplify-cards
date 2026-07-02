@@ -23,7 +23,8 @@
       "rate": 15,
       "displayCategory": "Travel, dining, online, and international spends",
       "displayRate": "15 reward points per Rs 100",
-      "capMonthly": 5000
+      "capMonthly": 5000,
+      "postCapRate": 3
     },
     {
       "category": "retail",
