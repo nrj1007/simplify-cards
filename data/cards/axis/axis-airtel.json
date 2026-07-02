@@ -18,6 +18,14 @@
   "rewardType": "cashback",
   "rewards": [
     {
+      "category": "swiggy zomato",
+      "rate": 10,
+      "displayCategory": "Zomato and Blinkit (min ₹499/order, value into partner wallet)",
+      "displayRate": "10% value-back",
+      "capMonthly": 200,
+      "postCapRate": 1
+    },
+    {
       "category": "partner merchants",
       "displayCategory": "Airtel recharges and bill payments via Airtel Thanks App",
       "rate": 25,
@@ -34,18 +42,12 @@
       "capMultiplierOfBaseEarn": 1
     },
     {
-      "category": "swiggy zomato",
-      "rate": 10,
-      "displayCategory": "Zomato and Blinkit (min ₹499/order, value into partner wallet)",
-      "displayRate": "10% value-back",
-      "capMonthly": 200
-    },
-    {
-      "category": "dining",
+      "category": "entertainment",
       "rate": 10,
       "displayCategory": "District Movies (value into District wallet)",
       "displayRate": "10% value-back",
-      "capMonthly": 200
+      "capMonthly": 200,
+      "postCapRate": 1
     },
     {
       "category": "base",
@@ -56,7 +58,8 @@
     }
   ],
   "acceleratedShare": {
-    "grocery": 0.5
+    "utilities": 0.25,
+    "online": 0
   },
   "loungeDomestic": 0,
   "loungeInternational": 0,

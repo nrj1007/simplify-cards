@@ -543,7 +543,8 @@ function aliasesForSpendCategory(category: SpendCategory, includeSmartbuyLikeRew
 function specialAliasesForSpendCategory(category: SpendCategory) {
   if (category === "online") return specialOnlineSpendAliases;
   if (category === "travel") return ["smartbuy", ...specialTravelSpendAliases];
-  if (category === "grocery") return ["smartbuy", ...specialOnlineSpendAliases];
+  if (category === "grocery") return ["smartbuy", "swiggy zomato", ...specialOnlineSpendAliases];
+  if (category === "dining") return ["swiggy zomato"];
   return [];
 }
 

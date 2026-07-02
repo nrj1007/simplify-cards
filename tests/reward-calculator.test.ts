@@ -2369,12 +2369,11 @@ describe("reward calculator", () => {
         const card = getCardById("axis-airtel");
         expect(card).toBeTruthy();
 
-        // Zomato/Blinkit: 10% value-back capped at Rs 200. Spending Rs 3,000 would be Rs 300 uncapped, so cap applies.
+        // dining maps to Swiggy Zomato row (capped at 200, then 1% fallback) — 200 + (3000 - 2000) * 1% = 210
+        // grocery has no matching special row in simple calculator; falls to base 1% (1% of 3000 = 30)
         const result = calculateRewards(card!, { dining: 3000, grocery: 3000 });
-        // dining maps to District Movies row (capMonthly: 200) — capped at Rs 200
-        expect(result.rows.find((r) => r.category === "dining")!.monthlyUnits).toBe(200);
-        // grocery has no accelerated row after April 2026 devaluation; falls to 1% base
-        expect(result.rows.find((r) => r.category === "base" || r.category === "grocery") ).toBeDefined();
+        expect(result.rows.find((r) => r.category === "dining")!.monthlyUnits).toBe(210);
+        expect(result.rows.find((r) => r.category === "grocery" || r.category === "base")!.monthlyUnits).toBe(30);
       });
 
       it("earns 1% base cashback on general online shopping, falling back to base earn rate", () => {
