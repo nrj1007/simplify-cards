@@ -175,12 +175,12 @@ exports[`reward calculator golden (all cards) > computes stable earn for every c
     "moderate": "online:1250 dining:1250 travel:1250 hotels:750 airlines:750 fuel:x grocery:750 utilities:750 upi:750 amazon:750 international:1250 base:750 rent:750 insurance:750 education:750 gold:750 government:750 |14000 (surcharge:250)",
   },
   "bobcard-etihad-guest": {
-    "high": "online:2000 dining:2000 travel:6000 hotels:2000 airlines:2000 fuel:x grocery:2000 utilities:x upi:2000 amazon:2000 international:2000 base:2000 rent:x insurance:x education:x gold:x government:x |24000 (surcharge:2000)",
-    "moderate": "online:250 dining:250 travel:750 hotels:250 airlines:250 fuel:x grocery:250 utilities:x upi:250 amazon:250 international:250 base:250 rent:x insurance:x education:x gold:x government:x |3000 (surcharge:250)",
+    "high": "online:2000 dining:2000 travel:2000 hotels:2000 airlines:6000 fuel:x grocery:2000 utilities:x upi:2000 amazon:2000 international:2000 base:2000 rent:x insurance:x education:x gold:x government:x |24000 (surcharge:2000)",
+    "moderate": "online:250 dining:250 travel:250 hotels:250 airlines:750 fuel:x grocery:250 utilities:x upi:250 amazon:250 international:250 base:250 rent:x insurance:x education:x gold:x government:x |3000 (surcharge:250)",
   },
   "bobcard-etihad-guest-premium": {
-    "high": "online:4000 dining:4000 travel:12000 hotels:4000 airlines:4000 fuel:x grocery:4000 utilities:x upi:4000 amazon:4000 international:4000 base:4000 rent:x insurance:x education:x gold:x government:x |48000 (surcharge:2000)",
-    "moderate": "online:500 dining:500 travel:1500 hotels:500 airlines:500 fuel:x grocery:500 utilities:x upi:500 amazon:500 international:500 base:500 rent:x insurance:x education:x gold:x government:x |6000 (surcharge:250)",
+    "high": "online:4000 dining:4000 travel:4000 hotels:4000 airlines:12000 fuel:x grocery:4000 utilities:x upi:4000 amazon:4000 international:4000 base:4000 rent:x insurance:x education:x gold:x government:x |48000 (surcharge:2000)",
+    "moderate": "online:500 dining:500 travel:500 hotels:500 airlines:1500 fuel:x grocery:500 utilities:x upi:500 amazon:500 international:500 base:500 rent:x insurance:x education:x gold:x government:x |6000 (surcharge:250)",
   },
   "bobcard-hpcl-energie": {
     "high": "online:13333 dining:2667 travel:2667 hotels:2667 airlines:2667 fuel:x grocery:13333 utilities:13333 upi:2667 amazon:2667 international:2667 base:2667 rent:2667 insurance:2667 education:2667 gold:2667 government:x |72000 (surcharge:2000)",

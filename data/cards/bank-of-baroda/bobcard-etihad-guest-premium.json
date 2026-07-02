@@ -20,7 +20,7 @@
   "rewardLiquidityFactor": 0.8,
   "rewards": [
     {
-      "category": "travel",
+      "category": "airlines",
       "displayCategory": "Etihad Airways spends",
       "rate": 6,
       "displayRate": "6 Etihad Guest Miles / Rs 100 spent",

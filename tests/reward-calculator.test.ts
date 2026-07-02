@@ -3604,10 +3604,10 @@ describe("reward calculator", () => {
           expect(card).toBeTruthy();
 
           const result = calculateRewards(card!, {
-            travel: 10000,
+            airlines: 10000,
             base: 10000
           });
-          expect(result.rows.find((r) => r.category === "travel")!.monthlyUnits).toBe(300);
+          expect(result.rows.find((r) => r.category === "airlines")!.monthlyUnits).toBe(300);
           expect(result.rows.find((r) => r.category === "base")!.monthlyUnits).toBe(100);
           expect(result.monthlyUnits).toBe(400);
 
@@ -3643,10 +3643,10 @@ describe("reward calculator", () => {
           expect(card).toBeTruthy();
 
           const result = calculateRewards(card!, {
-            travel: 10000,
+            airlines: 10000,
             base: 10000
           });
-          expect(result.rows.find((r) => r.category === "travel")!.monthlyUnits).toBe(600);
+          expect(result.rows.find((r) => r.category === "airlines")!.monthlyUnits).toBe(600);
           expect(result.rows.find((r) => r.category === "base")!.monthlyUnits).toBe(200);
           expect(result.monthlyUnits).toBe(800);
 
