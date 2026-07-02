@@ -18,26 +18,32 @@
   ],
   "rewardType": "scapia coins",
   "rewardLiquidity": "brand-locked",
+  "acceleratedShare": {
+    "travel": 0.25,
+    "online": 0,
+    "grocery": 0,
+    "dining": 0
+  },
   "rewards": [
     {
-      "category": "travel",
-      "rate": 4,
+      "category": "partner merchants",
+      "rate": 20,
       "displayCategory": "Travel bookings on Scapia app",
-      "displayRate": "20% Scapia Coins",
+      "displayRate": "20 Scapia Coins / Rs 100",
       "capMonthly": null
     },
     {
       "category": "online, retail",
-      "rate": 2,
+      "rate": 10,
       "displayCategory": "Visa online and offline spends",
-      "displayRate": "10% Scapia Coins",
+      "displayRate": "10 Scapia Coins / Rs 100",
       "capMonthly": null
     },
     {
       "category": "upi",
-      "rate": 1,
+      "rate": 5,
       "displayCategory": "UPI spends of Rs 500 or more on RuPay",
-      "displayRate": "5% Scapia Coins",
+      "displayRate": "5 Scapia Coins / Rs 100",
       "capMonthly": null
     }
   ],
