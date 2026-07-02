@@ -51,7 +51,8 @@ function formatFee(value: number) {
 function firstRewardRate(card: CreditCard) {
   const reward = [...card.rewards].sort((left, right) => right.rate - left.rate)[0];
   if (!reward) return card.rewardType;
-  return reward.displayRate ?? `${Number.isInteger(reward.rate) ? reward.rate : reward.rate.toFixed(1)}%`;
+  const rate = Number.isInteger(reward.rate) ? reward.rate.toString() : reward.rate.toFixed(1);
+  return `up to ${rate}%`;
 }
 
 function loungeLabel(card: CreditCard) {

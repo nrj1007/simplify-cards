@@ -373,7 +373,6 @@ function PopularPicks({ cards }: { cards: LandingCard[] }) {
               <div className="sc-pick-tags">
                 <span>{card.annualFee} fee</span>
                 <span>{card.rewardRate}</span>
-                <span>{card.lounge}</span>
               </div>
               <a
                 className="sc-pick-cta"
