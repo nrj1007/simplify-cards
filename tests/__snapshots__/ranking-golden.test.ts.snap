@@ -128,7 +128,7 @@ exports[`ranking golden (representative queries) > produces stable top-N orderin
     "axis-rewards",
     "axis-flipkart",
     "axis-privilege",
-    "axis-samsung-signature",
+    "axis-cashback",
   ],
   "forex": [
     "bobcard-etihad-guest-premium",
@@ -793,8 +793,8 @@ exports[`result split golden (all query modes) > snapshots section membership fo
       "axis-airtel",
       "axis-ace",
       "axis-fibe",
-      "axis-samsung-signature",
       "axis-flipkart",
+      "axis-samsung-signature",
     ],
     "Rewards cards": [
       "axis-atlas",
@@ -879,8 +879,8 @@ exports[`result split golden (all query modes) > snapshots section membership fo
       "axis-airtel",
       "axis-ace",
       "axis-fibe",
-      "axis-samsung-signature",
       "axis-flipkart",
+      "axis-samsung-signature",
     ],
     "Rewards cards": [
       "axis-atlas",
