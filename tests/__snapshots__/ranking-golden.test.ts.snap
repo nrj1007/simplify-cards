@@ -380,9 +380,9 @@ exports[`ranking golden (representative queries) > produces stable top-N orderin
     "reliance-sbi-prime",
     "sbi-card-miles",
     "hdfc-tata-neu-infinity",
-    "hdfc-shoppers-stop",
     "tata-neu-infinity-sbi",
-    "phonepe-sbi-purple",
+    "hdfc-shoppers-stop",
+    "scapia-federal",
   ],
   "network-visa": [
     "hsbc-visa-platinum",
@@ -660,9 +660,9 @@ exports[`ranking golden (representative queries) > produces stable top-N orderin
     "reliance-sbi-prime",
     "sbi-card-miles",
     "hdfc-tata-neu-infinity",
-    "hdfc-shoppers-stop",
     "tata-neu-infinity-sbi",
-    "phonepe-sbi-purple",
+    "hdfc-shoppers-stop",
+    "scapia-federal",
   ],
 }
 `;
@@ -1100,17 +1100,17 @@ exports[`result split golden (all query modes) > snapshots section membership fo
   "network-rupay": {
     "Cashback cards": [
       "yes-kiwi",
+      "hsbc-rupay-cashback",
       "phonepe-sbi-purple",
       "phonepe-sbi-select-black",
-      "hsbc-rupay-cashback",
       "axis-fibe",
     ],
     "Rewards cards": [
       "au-ixigo",
-      "equitas-selfe",
       "yes-reserv",
+      "equitas-selfe",
       "sbi-card-miles-prime",
-      "kotak-white-reserve",
+      "sbi-card-miles-elite",
     ],
   },
   "network-visa": {
@@ -1419,17 +1419,17 @@ exports[`result split golden (all query modes) > snapshots section membership fo
   "usecase-upi": {
     "Cashback cards": [
       "yes-kiwi",
+      "hsbc-rupay-cashback",
       "phonepe-sbi-purple",
       "phonepe-sbi-select-black",
-      "hsbc-rupay-cashback",
       "axis-fibe",
     ],
     "Rewards cards": [
       "au-ixigo",
-      "equitas-selfe",
       "yes-reserv",
+      "equitas-selfe",
       "sbi-card-miles-prime",
-      "kotak-white-reserve",
+      "sbi-card-miles-elite",
     ],
   },
 }

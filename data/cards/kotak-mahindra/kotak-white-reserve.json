@@ -3,8 +3,7 @@
   "issuer": "Kotak Mahindra Bank",
   "name": "Kotak White Reserve Credit Card",
   "network": [
-    "Visa",
-    "RuPay"
+    "Visa"
   ],
   "joiningFee": 12500,
   "annualFee": 12500,
