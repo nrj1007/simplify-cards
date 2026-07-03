@@ -1,4 +1,5 @@
 import { describe, expect, it } from "vitest";
+import { cards } from "../lib/cards";
 import { scoreCards } from "../lib/recommend";
 import { toRecommendResult } from "../lib/recommend-result";
 
@@ -46,14 +47,25 @@ describe("toRecommendResult", () => {
   });
 
   it("labels re-valued dual-bucket net values by section context", () => {
-    const scores = scoreCards({ query: "best credit card", resultStrategy: "reward-type-split" });
-    const rewardBucketScore = scores.find((score) => score.rewardBucketScore)?.rewardBucketScore;
-    const cashbackBucketScore = scores.find((score) => score.cashbackBucketScore)?.cashbackBucketScore;
+    const testCard = cards.find((c) => c.id === "hdfc-regalia-gold");
+    if (testCard) {
+      (testCard as any).cashbackBucketPointValue = 0.25;
+    }
 
-    expect(rewardBucketScore).toBeDefined();
-    expect(toRecommendResult(rewardBucketScore!).netValueContextLabel).toBe("as rewards");
+    try {
+      const scores = scoreCards({ query: "best credit card", resultStrategy: "reward-type-split" });
+      const rewardBucketScore = scores.find((score) => score.rewardBucketScore)?.rewardBucketScore;
+      const cashbackBucketScore = scores.find((score) => score.cashbackBucketScore)?.cashbackBucketScore;
 
-    expect(cashbackBucketScore).toBeDefined();
-    expect(toRecommendResult(cashbackBucketScore!).netValueContextLabel).toBe("as cashback");
+      expect(rewardBucketScore).toBeDefined();
+      expect(toRecommendResult(rewardBucketScore!).netValueContextLabel).toBe("as rewards");
+
+      expect(cashbackBucketScore).toBeDefined();
+      expect(toRecommendResult(cashbackBucketScore!).netValueContextLabel).toBe("as cashback");
+    } finally {
+      if (testCard) {
+        delete (testCard as any).cashbackBucketPointValue;
+      }
+    }
   });
 });

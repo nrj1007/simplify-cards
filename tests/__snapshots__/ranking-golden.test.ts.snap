@@ -657,10 +657,10 @@ exports[`result split golden (all query modes) > snapshots section membership fo
   "broad-generic": {
     "Cashback cards": [
       "phonepe-sbi-select-black",
-      "au-ixigo",
       "hsbc-live-plus",
       "yes-kiwi",
       "hsbc-rupay-cashback",
+      "sbi-cashback",
     ],
     "Rewards cards": [
       "hsbc-premier",
@@ -816,6 +816,7 @@ exports[`result split golden (all query modes) > snapshots section membership fo
       "idfc-mayura",
       "au-ixigo",
       "idfc-wow",
+      "rbl-world-safari",
     ],
   },
   "forex-zero": {
@@ -850,7 +851,6 @@ exports[`result split golden (all query modes) > snapshots section membership fo
     "Cashback cards": [
       "titan-sbi",
       "hsbc-rupay-cashback",
-      "au-ixigo",
     ],
     "Rewards cards": [
       "hsbc-premier",
@@ -860,6 +860,7 @@ exports[`result split golden (all query modes) > snapshots section membership fo
       "kotak-white-reserve",
       "kotak-solitaire",
       "axis-reserve",
+      "hdfc-diners-club-black-metal",
     ],
   },
   "issuer-amex": {
@@ -939,7 +940,6 @@ exports[`result split golden (all query modes) > snapshots section membership fo
   },
   "lifetime-free": {
     "Cashback cards": [
-      "au-ixigo",
       "yes-kiwi",
       "csb-jupiter-edge-plus",
       "axis-fibe",
@@ -951,15 +951,16 @@ exports[`result split golden (all query modes) > snapshots section membership fo
       "scapia-federal",
       "scapia-bobcard",
       "indusind-tiger",
+      "indusind-eazydiner-platinum",
     ],
   },
   "lounge": {
     "Cashback cards": [
       "titan-sbi",
       "hsbc-rupay-cashback",
-      "au-ixigo",
       "hdfc-phonepe-ultimo",
       "phonepe-sbi-select-black",
+      "hsbc-live-plus",
     ],
     "Rewards cards": [
       "hsbc-premier",
@@ -973,9 +974,9 @@ exports[`result split golden (all query modes) > snapshots section membership fo
     "Cashback cards": [
       "titan-sbi",
       "hsbc-rupay-cashback",
-      "au-ixigo",
       "phonepe-sbi-select-black",
       "hdfc-phonepe-ultimo",
+      "hsbc-live-plus",
     ],
     "Rewards cards": [
       "hsbc-premier",
@@ -988,10 +989,10 @@ exports[`result split golden (all query modes) > snapshots section membership fo
   "max-fee-5000-query": {
     "Cashback cards": [
       "phonepe-sbi-select-black",
-      "au-ixigo",
       "hsbc-live-plus",
       "yes-kiwi",
       "sbi-cashback",
+      "hdfc-swiggy-orange",
     ],
     "Rewards cards": [
       "hsbc-travelone",
@@ -1003,11 +1004,11 @@ exports[`result split golden (all query modes) > snapshots section membership fo
   },
   "max-fee-zero": {
     "Cashback cards": [
-      "au-ixigo",
       "yes-kiwi",
       "csb-jupiter-edge-plus",
       "axis-fibe",
       "icici-amazon-pay",
+      "yes-paisabazaar-paisasave-rupay",
     ],
     "Rewards cards": [
       "kotak-solitaire",
@@ -1185,10 +1186,10 @@ exports[`result split golden (all query modes) > snapshots section membership fo
   "spend-high-base": {
     "Cashback cards": [
       "titan-sbi",
-      "au-ixigo",
       "hsbc-rupay-cashback",
       "hdfc-phonepe-ultimo",
       "phonepe-sbi-select-black",
+      "hsbc-live-plus",
     ],
     "Rewards cards": [
       "hsbc-premier",
@@ -1200,11 +1201,11 @@ exports[`result split golden (all query modes) > snapshots section membership fo
   },
   "spend-international": {
     "Cashback cards": [
-      "au-ixigo",
       "csb-jupiter-edge-plus",
       "axis-ace",
       "sbm-paisabazaar-paisa-plus",
       "icici-amazon-pay",
+      "hsbc-live-plus",
     ],
     "Rewards cards": [
       "equitas-powermiles",
@@ -1216,11 +1217,11 @@ exports[`result split golden (all query modes) > snapshots section membership fo
   },
   "spend-level-heavy": {
     "Cashback cards": [
-      "au-ixigo",
       "hsbc-rupay-cashback",
       "phonepe-sbi-select-black",
       "titan-sbi",
       "hdfc-phonepe-ultimo",
+      "hsbc-live-plus",
     ],
     "Rewards cards": [
       "hsbc-premier",
@@ -1233,10 +1234,10 @@ exports[`result split golden (all query modes) > snapshots section membership fo
   "spend-level-light": {
     "Cashback cards": [
       "phonepe-sbi-select-black",
-      "au-ixigo",
       "yes-kiwi",
       "hsbc-live-plus",
       "sbi-cashback",
+      "hdfc-swiggy-orange",
     ],
     "Rewards cards": [
       "hsbc-premier",
@@ -1265,10 +1266,10 @@ exports[`result split golden (all query modes) > snapshots section membership fo
   "spend-travel-heavy": {
     "Cashback cards": [
       "phonepe-sbi-select-black",
-      "au-ixigo",
       "titan-sbi",
       "hsbc-rupay-cashback",
       "hdfc-phonepe-ultimo",
+      "axis-ace",
     ],
     "Rewards cards": [
       "hsbc-premier",
@@ -1314,9 +1315,9 @@ exports[`result split golden (all query modes) > snapshots section membership fo
     "Cashback cards": [
       "phonepe-sbi-select-black",
       "hsbc-live-plus",
-      "au-ixigo",
       "axis-airtel",
       "sbi-cashback",
+      "hsbc-rupay-cashback",
     ],
     "Rewards cards": [
       "hdfc-diners-club-privilege",
@@ -1393,10 +1394,10 @@ exports[`result split golden (all query modes) > snapshots section membership fo
   "usecase-upi": {
     "Cashback cards": [
       "yes-kiwi",
-      "au-ixigo",
       "phonepe-sbi-purple",
       "phonepe-sbi-select-black",
       "hsbc-rupay-cashback",
+      "axis-fibe",
     ],
     "Rewards cards": [
       "au-ixigo",
@@ -1414,10 +1415,10 @@ exports[`result split golden (reward-type-split) > snapshots the section members
   "broad-best-card": {
     "Cashback cards": [
       "phonepe-sbi-select-black",
-      "au-ixigo",
       "hsbc-live-plus",
       "yes-kiwi",
       "hsbc-rupay-cashback",
+      "sbi-cashback",
     ],
     "Rewards cards": [
       "hsbc-premier",
@@ -1462,10 +1463,10 @@ exports[`result split golden (reward-type-split) > snapshots the section members
   "seo-broad-best-cards": {
     "Cashback cards": [
       "phonepe-sbi-select-black",
-      "au-ixigo",
       "hsbc-live-plus",
       "yes-kiwi",
       "hsbc-rupay-cashback",
+      "sbi-cashback",
     ],
     "Rewards cards": [
       "hsbc-premier",
