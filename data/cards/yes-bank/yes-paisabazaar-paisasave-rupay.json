@@ -38,12 +38,14 @@
     "rewardz"
   ],
   "exclusions": [
+    "Fuel spends",
     "Rental payments",
     "Wallet loading transactions",
     "Cash withdrawal / cash advance transactions",
     "UPI scan & pay transactions up to Rs 2,000"
   ],
   "exclusionCodes": [
+    "fuel",
     "rent",
     "wallet_load",
     "cash_advance"

@@ -823,8 +823,8 @@ exports[`reward calculator golden (all cards) > computes stable earn for every c
     "moderate": "online:250 dining:1500 travel:1500 hotels:250 airlines:250 fuel:x grocery:250 utilities:x upi:250 amazon:250 international:250 base:250 rent:x insurance:x education:x gold:x government:x |5000 (surcharge:250)",
   },
   "yes-paisabazaar-paisasave-rupay": {
-    "high": "online:2000 dining:2000 travel:2000 hotels:2000 airlines:2000 fuel:0 grocery:2000 utilities:2000 upi:2000 amazon:2000 international:0 base:2000 rent:x insurance:0 education:0 gold:0 government:0 |20000 (surcharge:2000)",
-    "moderate": "online:250 dining:250 travel:250 hotels:250 airlines:250 fuel:0 grocery:250 utilities:250 upi:250 amazon:250 international:0 base:250 rent:x insurance:0 education:0 gold:0 government:0 |2500 (surcharge:250)",
+    "high": "online:2000 dining:2000 travel:2000 hotels:2000 airlines:2000 fuel:x grocery:2000 utilities:2000 upi:2000 amazon:2000 international:0 base:2000 rent:x insurance:0 education:0 gold:0 government:0 |20000 (surcharge:2000)",
+    "moderate": "online:250 dining:250 travel:250 hotels:250 airlines:250 fuel:x grocery:250 utilities:250 upi:250 amazon:250 international:0 base:250 rent:x insurance:0 education:0 gold:0 government:0 |2500 (surcharge:250)",
   },
   "yes-pop-club": {
     "high": "online:20000 dining:750 travel:750 hotels:750 airlines:750 fuel:x grocery:750 utilities:x upi:750 amazon:750 international:4000 base:750 rent:x insurance:x education:4000 gold:4000 government:x |38000 (surcharge:2000)",
