@@ -16,7 +16,6 @@ exports[`SEO landing page rankings > produces stable top-10 card ordering for ea
   ],
   "best-credit-cards-for-beginners-india": [
     "phonepe-sbi-select-black",
-    "au-ixigo",
     "indusind-eazydiner-platinum",
     "hsbc-live-plus",
     "hdfc-diners-club-privilege",
@@ -25,6 +24,7 @@ exports[`SEO landing page rankings > produces stable top-10 card ordering for ea
     "hdfc-swiggy-orange",
     "amex-smartearn",
     "axis-airtel",
+    "hdfc-swiggy-black",
   ],
   "best-credit-cards-for-online-shopping": [
     "phonepe-sbi-select-black",
@@ -87,14 +87,14 @@ exports[`SEO landing page rankings > produces stable top-10 card ordering for ea
     "hdfc-infinia-metal",
   ],
   "best-premium-credit-cards-india": [
-    "hsbc-travelone",
     "hdfc-regalia-gold",
+    "hsbc-travelone",
     "yes-marquee",
-    "bobcard-etihad-guest-premium",
     "amex-platinum-travel",
     "sc-ultimate",
     "equitas-powermiles",
     "hdfc-marriott-bonvoy",
+    "bobcard-etihad-guest-premium",
     "indusind-eazydiner",
     "bobcard-eterna",
   ],
@@ -120,7 +120,7 @@ exports[`SEO landing page rankings > produces stable top-10 card ordering for ea
     "kotak-solitaire",
     "axis-magnus",
     "hdfc-regalia-gold",
-    "bobcard-etihad-guest-premium",
+    "icici-adani-one-signature",
   ],
 }
 `;

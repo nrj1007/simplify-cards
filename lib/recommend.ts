@@ -81,6 +81,7 @@ import {
   hasGuestLoungeAccess,
   internationalLoungeScore,
   isBroadMixedSpendQuery,
+  isSpendCategoryExcluded,
   loungePreferenceBoost,
   loungeScore,
   monthlySpendTotal,
@@ -185,6 +186,17 @@ function shouldUseEnvelopeScoring(
     (isBroadGenericRankingQuery(input, intent) || wantsLifetimeFree || wantsLounge) &&
     effectiveMaxAnnualFee === undefined
   );
+}
+
+function eligibleAnnualSpendTotal(card: CreditCard, spendProfile: SpendProfile): number {
+  let eligibleMonthlyTotal = 0;
+  for (const category of Object.keys(spendProfile) as SpendCategory[]) {
+    const amount = spendProfile[category] ?? 0;
+    if (amount > 0 && !isSpendCategoryExcluded(card, category)) {
+      eligibleMonthlyTotal += amount;
+    }
+  }
+  return eligibleMonthlyTotal * 12;
 }
 export function requestedTopCardCount(query?: string, resultStrategy?: string) {
   if (resultStrategy === "reward-type-split") {
@@ -441,8 +453,8 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
     );
 
   const candidateNetValues = candidateCards.map((card) => {
-    const annualSpend = annualSpendTotal(spend);
-    const estimatedMilestoneValue = milestoneValueForCard(card, annualSpend);
+    const eligibleAnnualSpend = eligibleAnnualSpendTotal(card, spend);
+    const estimatedMilestoneValue = milestoneValueForCard(card, eligibleAnnualSpend);
     const { joiningValue: rawJoiningValue, renewalValue: rawRenewalValue } = joiningAndRenewalBenefitValueForCard(card);
     const rawJoiningFee = card.joiningFee ?? 0;
     const baseAnnualFee = feeAfterWaiver(card, spend);
@@ -486,9 +498,10 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
     envelopeMonthlySpend?: number
   ): CardScore => {
     const annualSpend = annualSpendTotal(spendForScore);
+    const eligibleAnnualSpend = eligibleAnnualSpendTotal(card, spendForScore);
     const matchedTags = card.tags.filter((tag) => queryTags.has(tag));
     const cardNameBoost = computeCardNameBoost(card, input.query, ignoredCardNameBoostTokens);
-    const estimatedMilestoneValue = milestoneValueForCard(card, annualSpend);
+    const estimatedMilestoneValue = milestoneValueForCard(card, eligibleAnnualSpend);
     const { joiningValue: rawJoiningValue, renewalValue: rawRenewalValue } = joiningAndRenewalBenefitValueForCard(card);
     const rawJoiningFee = card.joiningFee ?? 0;
     const baseAnnualFee = feeAfterWaiver(card, spendForScore);

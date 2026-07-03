@@ -260,6 +260,15 @@ export function shouldHideCardFromGenericRanking(card: CreditCard, input: Recomm
 
   if (userExplicitlyAsked) return false;
 
+  const monthlyTotal = input.spend ? monthlySpendTotal(input.spend) : 0;
+  const fuelSpendShare = monthlyTotal > 0 ? (input.spend?.fuel ?? 0) / monthlyTotal : 0;
+  const isFuelQuery = intent.useCases.includes("fuel") || (input.query ?? "").toLowerCase().includes("fuel");
+  const isFuelFocused = isFuelQuery || fuelSpendShare >= fuelHeavySpendShare;
+
+  if (isFuelFocused && isSpendCategoryExcluded(card, "fuel")) {
+    return true;
+  }
+
   if (card.id === "axis-atlas") return true;
 
   const isDefenceCard = (card.tags ?? []).includes("defence") || (card.bestFor ?? []).includes("defence");
@@ -599,7 +608,7 @@ export function computeFlexibilityValue(
   return monthlyFlexTotal * 12;
 }
 
-function isSpendCategoryExcluded(card: CreditCard, category: SpendCategory) {
+export function isSpendCategoryExcluded(card: CreditCard, category: SpendCategory) {
   const specialRule = specialSpendRuleForCard(card, category);
   if (specialRule) {
     return specialRule.treatment === "excluded";
