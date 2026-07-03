@@ -103,7 +103,7 @@ describe("SEO comparison pages", () => {
     if (!cashbackPair || !travelPair) return;
 
     expect(loungeComparisonSummary(cashbackPair.cardA, cashbackPair.cardB)).toContain("do not offer complimentary lounge visits");
-    expect(loungeComparisonSummary(travelPair.cardA, travelPair.cardB)).toContain("Atlas: Airport lounge access is tiered");
+    expect(loungeComparisonSummary(travelPair.cardA, travelPair.cardB)).toContain("Atlas Credit Card: Airport lounge access is tiered");
   });
 
   it("keeps the compare loading skeleton scoped to the interactive tool route group", () => {

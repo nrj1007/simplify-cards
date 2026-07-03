@@ -1,7 +1,7 @@
 {
   "id": "apollo-sbi-select",
   "issuer": "SBI Card",
-  "name": "Apollo SELECT",
+  "name": "Apollo SELECT Credit Card",
   "imageUrl": "/images/apollo-sbi-select.webp",
   "network": [
     "Visa"

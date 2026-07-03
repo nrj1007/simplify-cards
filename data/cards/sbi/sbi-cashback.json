@@ -1,7 +1,7 @@
 {
   "id": "sbi-cashback",
   "issuer": "SBI Card",
-  "name": "Cashback",
+  "name": "Cashback Credit Card",
   "network": [
     "Visa",
     "Mastercard"

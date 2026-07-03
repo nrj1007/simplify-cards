@@ -1,7 +1,7 @@
 {
   "id": "rbl-patanjali-swarn",
   "issuer": "RBL Bank",
-  "name": "Patanjali Swarn",
+  "name": "Patanjali Swarn Credit Card",
   "network": [
     "Visa",
     "RuPay"

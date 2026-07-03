@@ -1,7 +1,7 @@
 {
   "id": "reliance-sbi-prime",
   "issuer": "SBI Card",
-  "name": "Reliance PRIME",
+  "name": "Reliance PRIME Credit Card",
   "imageUrl": "/images/reliance-sbi-prime.webp",
   "network": [
     "Mastercard",

@@ -1,7 +1,7 @@
 {
   "id": "yes-first-preferred",
   "issuer": "YES Bank",
-  "name": "First Preferred",
+  "name": "First Preferred Credit Card",
   "network": [
     "Visa",
     "Mastercard"

@@ -1,7 +1,7 @@
 {
   "id": "idfc-indigo",
   "issuer": "IDFC FIRST Bank",
-  "name": "IndiGo",
+  "name": "IndiGo Credit Card",
   "network": [
     "Mastercard",
     "RuPay"

@@ -1,7 +1,7 @@
 {
   "id": "hdfc-irctc",
   "issuer": "HDFC Bank",
-  "name": "IRCTC",
+  "name": "IRCTC Credit Card",
   "network": [
     "RuPay"
   ],

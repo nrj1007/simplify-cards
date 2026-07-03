@@ -1,7 +1,7 @@
 {
   "id": "bpcl-sbi",
   "issuer": "SBI Card",
-  "name": "BPCL",
+  "name": "BPCL Credit Card",
   "imageUrl": "/images/bpcl-sbi.png",
   "network": [
     "Visa",

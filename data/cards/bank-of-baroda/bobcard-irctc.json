@@ -1,7 +1,7 @@
 {
   "id": "bobcard-irctc",
   "issuer": "Bank of Baroda",
-  "name": "IRCTC",
+  "name": "IRCTC Credit Card",
   "network": [
     "RuPay"
   ],

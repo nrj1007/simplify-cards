@@ -1,7 +1,7 @@
 {
   "id": "amex-membership-rewards",
   "issuer": "American Express",
-  "name": "Membership Rewards",
+  "name": "Membership Rewards Credit Card",
   "imageUrl": "/images/amex-membership-rewards.png",
   "network": [
     "American Express"

@@ -1,7 +1,7 @@
 {
   "id": "aurum-sbi",
   "issuer": "SBI Card",
-  "name": "AURUM",
+  "name": "AURUM Credit Card",
   "imageUrl": "/images/aurum-sbi.webp",
   "network": [
     "Mastercard",

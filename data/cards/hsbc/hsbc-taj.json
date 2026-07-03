@@ -1,7 +1,7 @@
 {
   "id": "hsbc-taj",
   "issuer": "HSBC Bank",
-  "name": "Taj",
+  "name": "Taj Credit Card",
   "network": [
     "Visa"
   ],

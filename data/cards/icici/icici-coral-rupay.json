@@ -1,7 +1,7 @@
 {
   "id": "icici-coral-rupay",
   "issuer": "ICICI Bank",
-  "name": "Coral RuPay",
+  "name": "Coral RuPay Credit Card",
   "network": [
     "RuPay"
   ],

@@ -1,7 +1,7 @@
 {
   "id": "axis-freecharge",
   "issuer": "Axis Bank",
-  "name": "Freecharge",
+  "name": "Freecharge Credit Card",
   "network": [
     "Visa"
   ],

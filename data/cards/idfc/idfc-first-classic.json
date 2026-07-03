@@ -1,7 +1,7 @@
 {
   "id": "idfc-first-classic",
   "issuer": "IDFC FIRST Bank",
-  "name": "Classic",
+  "name": "Classic Credit Card",
   "network": [
     "Visa",
     "Mastercard"

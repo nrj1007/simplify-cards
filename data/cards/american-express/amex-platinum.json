@@ -1,7 +1,7 @@
 {
   "id": "amex-platinum",
   "issuer": "American Express",
-  "name": "Platinum",
+  "name": "Platinum Credit Card",
   "imageUrl": "/images/amex-platinum.png",
   "network": [
     "American Express"

@@ -1,7 +1,7 @@
 {
   "id": "hsbc-rupay-platinum",
   "issuer": "HSBC Bank",
-  "name": "RuPay Platinum",
+  "name": "RuPay Platinum Credit Card",
   "network": [
     "RuPay"
   ],

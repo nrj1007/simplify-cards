@@ -49,7 +49,7 @@ export function getSeoComparisonCards(config: SeoComparisonConfig) {
 }
 
 export function comparisonDisplayName(card: CreditCard) {
-  return card.name.replace(/\s+Credit Card$/i, "").trim();
+  return card.name;
 }
 
 export function buildSeoComparisonMetadata(slug: string): Metadata {

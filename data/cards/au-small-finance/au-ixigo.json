@@ -1,7 +1,7 @@
 {
   "id": "au-ixigo",
   "issuer": "AU Small Finance Bank",
-  "name": "ixigo",
+  "name": "ixigo Credit Card",
   "network": [
     "Visa",
     "RuPay"

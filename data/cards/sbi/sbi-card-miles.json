@@ -1,7 +1,7 @@
 {
   "id": "sbi-card-miles",
   "issuer": "SBI Card",
-  "name": "MILES",
+  "name": "MILES Credit Card",
   "imageUrl": "/images/sbi-card-miles.webp",
   "network": [
     "Mastercard",

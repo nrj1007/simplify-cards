@@ -1,7 +1,7 @@
 {
   "id": "onecard",
   "issuer": "OneCard Partner Banks",
-  "name": "One",
+  "name": "One Credit Card",
   "network": [
     "Visa",
     "Mastercard",

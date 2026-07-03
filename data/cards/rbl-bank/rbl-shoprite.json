@@ -1,7 +1,7 @@
 {
   "id": "rbl-shoprite",
   "issuer": "RBL Bank",
-  "name": "ShopRite",
+  "name": "ShopRite Credit Card",
   "network": [
     "Visa",
     "Mastercard"

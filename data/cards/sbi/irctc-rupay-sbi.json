@@ -1,7 +1,7 @@
 {
   "id": "irctc-rupay-sbi",
   "issuer": "SBI Card",
-  "name": "IRCTC on RuPay",
+  "name": "IRCTC on RuPay Credit Card",
   "imageUrl": "/images/irctc-rupay-sbi.png",
   "network": [
     "RuPay"

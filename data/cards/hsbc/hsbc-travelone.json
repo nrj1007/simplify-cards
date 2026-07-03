@@ -1,7 +1,7 @@
 {
   "id": "hsbc-travelone",
   "issuer": "HSBC Bank",
-  "name": "TravelOne",
+  "name": "TravelOne Credit Card",
   "network": [
     "Mastercard"
   ],

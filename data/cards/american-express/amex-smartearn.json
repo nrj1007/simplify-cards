@@ -1,7 +1,7 @@
 {
   "id": "amex-smartearn",
   "issuer": "American Express",
-  "name": "SmartEarn",
+  "name": "SmartEarn Credit Card",
   "imageUrl": "/images/amex-smartearn.png",
   "network": [
     "American Express"

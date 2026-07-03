@@ -1,7 +1,7 @@
 {
   "id": "axis-neo",
   "issuer": "Axis Bank",
-  "name": "Neo",
+  "name": "Neo Credit Card",
   "network": [
     "RuPay",
     "Visa"

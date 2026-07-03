@@ -1,7 +1,7 @@
 {
   "id": "shaurya-select-sbi",
   "issuer": "SBI Card",
-  "name": "Shaurya Select",
+  "name": "Shaurya Select Credit Card",
   "imageUrl": "/images/shaurya-select-sbi.png",
   "network": [
     "RuPay",

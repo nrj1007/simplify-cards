@@ -1,7 +1,7 @@
 {
   "id": "icici-sapphiro-rupay",
   "issuer": "ICICI Bank",
-  "name": "Sapphiro RuPay",
+  "name": "Sapphiro RuPay Credit Card",
   "network": [
     "RuPay"
   ],

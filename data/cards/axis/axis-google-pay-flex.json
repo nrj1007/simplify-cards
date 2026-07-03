@@ -1,7 +1,7 @@
 {
   "id": "axis-google-pay-flex",
   "issuer": "Axis Bank",
-  "name": "Google Pay Flex",
+  "name": "Google Pay Flex Credit Card",
   "network": [
     "RuPay"
   ],

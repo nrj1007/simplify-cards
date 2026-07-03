@@ -1,7 +1,7 @@
 {
   "id": "flipkart-sbi",
   "issuer": "SBI Card",
-  "name": "Flipkart",
+  "name": "Flipkart Credit Card",
   "imageUrl": "/images/flipkart-sbi.png",
   "network": [
     "Visa",

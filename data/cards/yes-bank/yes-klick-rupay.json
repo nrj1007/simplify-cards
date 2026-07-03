@@ -1,7 +1,7 @@
 {
   "id": "yes-klick-rupay",
   "issuer": "YES Bank",
-  "name": "Klick RuPay",
+  "name": "Klick RuPay Credit Card",
   "network": [
     "RuPay"
   ],

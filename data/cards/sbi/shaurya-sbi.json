@@ -1,7 +1,7 @@
 {
   "id": "shaurya-sbi",
   "issuer": "SBI Card",
-  "name": "Shaurya",
+  "name": "Shaurya Credit Card",
   "imageUrl": "/images/shaurya-sbi.png",
   "network": [
     "Visa",

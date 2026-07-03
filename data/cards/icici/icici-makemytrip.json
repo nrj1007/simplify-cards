@@ -1,7 +1,7 @@
 {
   "id": "icici-makemytrip",
   "issuer": "ICICI Bank",
-  "name": "MakeMyTrip",
+  "name": "MakeMyTrip Credit Card",
   "network": [
     "Mastercard",
     "RuPay"
