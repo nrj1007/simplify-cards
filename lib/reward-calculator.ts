@@ -323,6 +323,9 @@ function cappedMonthlyUnits(card: CreditCard, monthlySpend: number, reward: Rewa
     const dynamicCap = totalBaseCashback * reward.capMultiplierOfBaseEarn;
     cap = cap !== null ? Math.min(cap, dynamicCap) : dynamicCap;
   }
+  if (reward.capDaily !== undefined && reward.capDaily !== null) {
+    cap = cap !== null ? Math.min(cap, reward.capDaily) : reward.capDaily;
+  }
 
   if (cap === null || cap === undefined) return rawUnits;
 
@@ -397,7 +400,11 @@ export function assembleRewardRows(card: CreditCard, activeRows: ActiveRow[]): R
     if (isBaseRewardCategory(active.reward.category)) {
       const earnRate = rewardEarnRatePerRs100(card, active.reward);
       const rawUnits = (active.monthlySpend * earnRate.basePerRs100) / 100;
-      const capped = active.reward.capMonthly ? Math.min(rawUnits, active.reward.capMonthly) : rawUnits;
+      let rowCap = active.reward.capMonthly;
+      if (active.reward.capDaily !== undefined && active.reward.capDaily !== null) {
+        rowCap = rowCap !== null ? Math.min(rowCap, active.reward.capDaily) : active.reward.capDaily;
+      }
+      const capped = rowCap ? Math.min(rawUnits, rowCap) : rawUnits;
       totalBaseCashback += capped;
     }
   }
@@ -415,9 +422,16 @@ export function assembleRewardRows(card: CreditCard, activeRows: ActiveRow[]): R
     if (typeof key === "string") {
       const itemRawUnits = items.map((item) => {
         const tieredAllocation = allocateTieredRewardUnits(card, item.monthlySpend, item.rewards);
-        const rawUnits = tieredAllocation
+        let rawUnits = tieredAllocation
           ? tieredAllocation.monthlyUnits
           : (item.monthlySpend * rewardEarnRatePerRs100(card, item.reward).basePerRs100) / 100;
+        let rowCap = item.reward.capMonthly;
+        if (item.reward.capDaily !== undefined && item.reward.capDaily !== null) {
+          rowCap = rowCap !== null ? Math.min(rowCap, item.reward.capDaily) : item.reward.capDaily;
+        }
+        if (rowCap !== null && rowCap !== undefined && rawUnits > rowCap) {
+          rawUnits = rowCap;
+        }
         return { item, rawUnits, tieredAllocation };
       });
 
@@ -475,6 +489,9 @@ export function assembleRewardRows(card: CreditCard, activeRows: ActiveRow[]): R
         if (reward.capMultiplierOfBaseEarn !== undefined && reward.capMultiplierOfBaseEarn !== null) {
           const dynamicCap = totalBaseCashback * reward.capMultiplierOfBaseEarn;
           cap = cap !== null ? Math.min(cap, dynamicCap) : dynamicCap;
+        }
+        if (reward.capDaily !== undefined && reward.capDaily !== null) {
+          cap = cap !== null ? Math.min(cap, reward.capDaily) : reward.capDaily;
         }
 
         if (cap !== null && cap !== undefined) {

@@ -797,21 +797,38 @@ function estimateMonthlyRewardForAllocations(card: CreditCard, allocations: Rewa
 
   let total = 0;
   for (const [key, items] of buckets.entries()) {
-    const itemRaw = items.map((item) => ({ item, raw: (item.amount * item.reward.rate) / 100 }));
+    const itemRaw = items.map((item) => {
+      let raw = (item.amount * item.reward.rate) / 100;
+      let rowCap = item.reward.capMonthly;
+      if (item.reward.capDaily !== undefined && item.reward.capDaily !== null) {
+        rowCap = rowCap !== null ? Math.min(rowCap, item.reward.capDaily) : item.reward.capDaily;
+      }
+      if (rowCap !== null && rowCap !== undefined && raw > rowCap) {
+        raw = rowCap;
+      }
+      return { item, raw };
+    });
     const totalRawReward = itemRaw.reduce((sum, x) => sum + x.raw, 0);
     let totalCappedReward = totalRawReward;
 
     if (typeof key === "string") {
-      const cap = items[0].reward.capMonthly;
+      const cap = card.capGroups?.[key]?.capMonthly ?? items[0].reward.capMonthly;
       totalCappedReward = typeof cap === "number" && cap > 0 ? Math.min(totalRawReward, cap) : totalRawReward;
-    } else if (key.capMonthly) {
-      if (key.postCapRate && key.postCapRate > 0 && totalRawReward > key.capMonthly && key.postCapRate < key.rate) {
-        const totalSpend = items.reduce((sum, item) => sum + item.amount, 0);
-        const spendAtCap = (key.capMonthly * 100) / key.rate;
-        const excessSpend = Math.max(totalSpend - spendAtCap, 0);
-        totalCappedReward = key.capMonthly + (excessSpend * key.postCapRate) / 100;
-      } else {
-        totalCappedReward = Math.min(totalRawReward, key.capMonthly);
+    } else {
+      const reward = key;
+      let cap = reward.capMonthly;
+      if (reward.capDaily !== undefined && reward.capDaily !== null) {
+        cap = cap !== null ? Math.min(cap, reward.capDaily) : reward.capDaily;
+      }
+      if (cap !== null && cap !== undefined) {
+        if (reward.postCapRate && reward.postCapRate > 0 && totalRawReward > cap && reward.postCapRate < reward.rate) {
+          const totalSpend = items.reduce((sum, item) => sum + item.amount, 0);
+          const spendAtCap = (cap * 100) / reward.rate;
+          const excessSpend = Math.max(totalSpend - spendAtCap, 0);
+          totalCappedReward = cap + (excessSpend * reward.postCapRate) / 100;
+        } else {
+          totalCappedReward = Math.min(totalRawReward, cap);
+        }
       }
     }
 
@@ -1130,7 +1147,11 @@ export function rewardBreakdownForCard(
   for (const alloc of allocations) {
     if (isBaseRewardCategory(alloc.reward.category)) {
       const raw = (alloc.allocatedAmount * alloc.reward.rate) / 100;
-      const capped = alloc.reward.capMonthly ? Math.min(raw, alloc.reward.capMonthly) : raw;
+      let rowCap = alloc.reward.capMonthly;
+      if (alloc.reward.capDaily !== undefined && alloc.reward.capDaily !== null) {
+        rowCap = rowCap !== null ? Math.min(rowCap, alloc.reward.capDaily) : alloc.reward.capDaily;
+      }
+      const capped = rowCap ? Math.min(raw, rowCap) : raw;
       totalBaseCashback += capped;
     }
   }
@@ -1160,6 +1181,9 @@ export function rewardBreakdownForCard(
         if (reward.capMultiplierOfBaseEarn !== undefined && reward.capMultiplierOfBaseEarn !== null) {
           const dynamicCap = totalBaseCashback * reward.capMultiplierOfBaseEarn;
           rowCap = rowCap !== null ? Math.min(rowCap, dynamicCap) : dynamicCap;
+        }
+        if (reward.capDaily !== undefined && reward.capDaily !== null) {
+          rowCap = rowCap !== null ? Math.min(rowCap, reward.capDaily) : reward.capDaily;
         }
         const rowScale = typeof rowCap === "number" ? (rowCap === 0 ? 0 : (rawSum > rowCap ? rowCap / rawSum : 1)) : 1;
         for (const x of xs) {
@@ -1197,6 +1221,9 @@ export function rewardBreakdownForCard(
     if (reward.capMultiplierOfBaseEarn !== undefined && reward.capMultiplierOfBaseEarn !== null) {
       const dynamicCap = totalBaseCashback * reward.capMultiplierOfBaseEarn;
       cap = cap !== null ? Math.min(cap, dynamicCap) : dynamicCap;
+    }
+    if (reward.capDaily !== undefined && reward.capDaily !== null) {
+      cap = cap !== null ? Math.min(cap, reward.capDaily) : reward.capDaily;
     }
 
     if (cap !== null && cap !== undefined) {

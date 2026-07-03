@@ -4,8 +4,8 @@ exports[`ranking golden (representative queries) > produces stable top-N orderin
 {
   "broad-generic": [
     "hsbc-premier",
-    "hdfc-diners-club-black-metal",
     "icici-emeralde-private-metal",
+    "hdfc-diners-club-black-metal",
     "hdfc-infinia-metal",
     "hsbc-travelone",
     "hdfc-regalia-gold",
@@ -427,8 +427,8 @@ exports[`ranking golden (representative queries) > produces stable top-N orderin
   ],
   "segment-super-premium": [
     "hsbc-premier",
-    "hdfc-diners-club-black-metal",
     "axis-magnus-burgundy",
+    "hdfc-diners-club-black-metal",
     "icici-emeralde-private-metal",
     "hdfc-infinia-metal",
     "axis-magnus",
@@ -483,8 +483,8 @@ exports[`ranking golden (representative queries) > produces stable top-N orderin
   ],
   "spend-level-heavy": [
     "hsbc-premier",
-    "hdfc-diners-club-black-metal",
     "icici-emeralde-private-metal",
+    "hdfc-diners-club-black-metal",
     "hdfc-infinia-metal",
     "axis-magnus-burgundy",
     "hdfc-regalia-gold",
@@ -497,8 +497,8 @@ exports[`ranking golden (representative queries) > produces stable top-N orderin
   ],
   "spend-level-light": [
     "hsbc-premier",
-    "hdfc-diners-club-black-metal",
     "icici-emeralde-private-metal",
+    "hdfc-diners-club-black-metal",
     "hdfc-infinia-metal",
     "hdfc-regalia-gold",
     "hsbc-travelone",
@@ -511,8 +511,8 @@ exports[`ranking golden (representative queries) > produces stable top-N orderin
   ],
   "spend-level-mid": [
     "hsbc-premier",
-    "hdfc-diners-club-black-metal",
     "icici-emeralde-private-metal",
+    "hdfc-diners-club-black-metal",
     "hdfc-infinia-metal",
     "hdfc-regalia-gold",
     "hsbc-travelone",
@@ -531,8 +531,8 @@ exports[`ranking golden (representative queries) > produces stable top-N orderin
     "axis-magnus-burgundy",
     "hsbc-travelone",
     "kotak-solitaire",
-    "hdfc-regalia-gold",
     "axis-magnus",
+    "hdfc-regalia-gold",
     "icici-times-black",
     "sc-ultimate",
     "yes-marquee",
@@ -664,8 +664,8 @@ exports[`result split golden (all query modes) > snapshots section membership fo
     ],
     "Rewards cards": [
       "hsbc-premier",
-      "hdfc-diners-club-black-metal",
       "icici-emeralde-private-metal",
+      "hdfc-diners-club-black-metal",
       "hdfc-infinia-metal",
       "hsbc-travelone",
     ],
@@ -1141,8 +1141,8 @@ exports[`result split golden (all query modes) > snapshots section membership fo
       "titan-sbi",
     ],
     "Rewards cards": [
-      "hdfc-regalia-gold",
       "hsbc-travelone",
+      "hdfc-regalia-gold",
       "sc-ultimate",
       "yes-marquee",
       "amex-platinum-travel",
@@ -1156,8 +1156,8 @@ exports[`result split golden (all query modes) > snapshots section membership fo
     "Cashback cards": [],
     "Rewards cards": [
       "hsbc-premier",
-      "hdfc-diners-club-black-metal",
       "icici-emeralde-private-metal",
+      "hdfc-diners-club-black-metal",
       "hdfc-infinia-metal",
       "axis-magnus-burgundy",
       "kotak-solitaire",
@@ -1177,8 +1177,8 @@ exports[`result split golden (all query modes) > snapshots section membership fo
     ],
     "Rewards cards": [
       "hsbc-premier",
-      "hdfc-diners-club-black-metal",
       "icici-emeralde-private-metal",
+      "hdfc-diners-club-black-metal",
       "hdfc-infinia-metal",
       "hsbc-travelone",
     ],
@@ -1225,8 +1225,8 @@ exports[`result split golden (all query modes) > snapshots section membership fo
     ],
     "Rewards cards": [
       "hsbc-premier",
-      "hdfc-diners-club-black-metal",
       "icici-emeralde-private-metal",
+      "hdfc-diners-club-black-metal",
       "hdfc-infinia-metal",
       "axis-magnus-burgundy",
     ],
@@ -1241,8 +1241,8 @@ exports[`result split golden (all query modes) > snapshots section membership fo
     ],
     "Rewards cards": [
       "hsbc-premier",
-      "hdfc-diners-club-black-metal",
       "icici-emeralde-private-metal",
+      "hdfc-diners-club-black-metal",
       "hdfc-infinia-metal",
       "hdfc-regalia-gold",
     ],
@@ -1257,8 +1257,8 @@ exports[`result split golden (all query modes) > snapshots section membership fo
     ],
     "Rewards cards": [
       "hsbc-premier",
-      "hdfc-diners-club-black-metal",
       "icici-emeralde-private-metal",
+      "hdfc-diners-club-black-metal",
       "hdfc-infinia-metal",
       "hdfc-regalia-gold",
     ],
@@ -1422,8 +1422,8 @@ exports[`result split golden (reward-type-split) > snapshots the section members
     ],
     "Rewards cards": [
       "hsbc-premier",
-      "hdfc-diners-club-black-metal",
       "icici-emeralde-private-metal",
+      "hdfc-diners-club-black-metal",
       "hdfc-infinia-metal",
       "hsbc-travelone",
     ],
@@ -1449,8 +1449,8 @@ exports[`result split golden (reward-type-split) > snapshots the section members
       "titan-sbi",
     ],
     "Rewards cards": [
-      "hdfc-regalia-gold",
       "hsbc-travelone",
+      "hdfc-regalia-gold",
       "sc-ultimate",
       "yes-marquee",
       "amex-platinum-travel",
@@ -1470,8 +1470,8 @@ exports[`result split golden (reward-type-split) > snapshots the section members
     ],
     "Rewards cards": [
       "hsbc-premier",
-      "hdfc-diners-club-black-metal",
       "icici-emeralde-private-metal",
+      "hdfc-diners-club-black-metal",
       "hdfc-infinia-metal",
       "hsbc-travelone",
     ],
