@@ -669,6 +669,7 @@ function findBaseRewardForSpend(card: CreditCard, category: SpendCategory) {
         rewardCategories.includes(targetCategoryLower)
       );
     }) ??
+    (category === "amazon" ? findDirectRewardForSpend(card, "online", false) : null) ??
     card.rewards.find((reward) => isBaseRewardCategory(reward.category))
   );
 }

@@ -202,14 +202,14 @@ export function cardEarnsOnSpendCategory(card: CreditCard, category: SpendCatego
 }
 
 // Category keys where a broad online accelerator is a valid proxy for category specialisation.
-// grocery (BigBasket/Blinkit) and entertainment (OTT/streaming) are predominantly online channels
+// grocery (BigBasket/Blinkit), entertainment (OTT/streaming), and amazon are predominantly online channels
 // so a card with a broad `online` reward row reasonably qualifies. Dining is intentionally
 // excluded: too many generic online-shopping cards (e.g. SBI SimplyClick) have a broad online
 // row but zero dining positioning — they already benefit from the 50 % dining-spend-blend in
 // the scoring engine without needing to appear in dining-filtered result sets.
-// Narrow co-brand rows (partner merchants, amazon, airtel) won't trigger this because they don't
+// Narrow co-brand rows (partner merchants, airtel) won't trigger this because they don't
 // match the `online` spend-category lookup.
-export const onlineProxyFocusKeys = new Set(["grocery", "entertainment"]);
+export const onlineProxyFocusKeys = new Set(["grocery", "entertainment", "amazon"]);
 
 export function cardMatchesCategoryFocus(card: CreditCard, config: CategoryFocusConfig) {
   if (cardHasCategoryFocusTag(card, config)) return true;

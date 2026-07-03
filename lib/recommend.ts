@@ -562,15 +562,7 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
 
     const isFocusedQuery = categoryFocus !== null || fuelFocus;
     const matchesFocus = categoryFocus
-      ? (
-          cardHasCategoryFocusTag(card, categoryFocus) ||
-          (categoryFocus.matchPositioning && cardPositioningMatchesFocus(card, categoryFocus)) ||
-          card.rewards.some((reward) => categoryFocus.rewardPattern.test(reward.category) && reward.rate > cardBaseRate(card)) ||
-          (categoryFocus.spendCategory !== undefined && (() => {
-            const r = findDirectRewardForSpend(card, categoryFocus.spendCategory, includeSmartbuyLikeRewards);
-            return r !== null && r.rate > cardBaseRate(card);
-          })())
-        )
+      ? cardMatchesCategoryFocus(card, categoryFocus)
       : (fuelFocus ? hasFuelCardSignal(card) : false);
     const focusBoost = (isFocusedQuery && matchesFocus)
       ? Math.max(0, Math.round(estimatedNetValue * 0.1))
