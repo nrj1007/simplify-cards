@@ -1403,9 +1403,9 @@ exports[`result split golden (all query modes) > snapshots section membership fo
     "Cashback cards": [
       "yes-paisabazaar-paisasave",
       "axis-fibe",
-      "apollo-sbi-select",
       "axis-ace",
       "cheq-au",
+      "axis-cashback",
     ],
     "Rewards cards": [
       "hsbc-premier",

@@ -16,7 +16,8 @@
     "diagnostics",
     "lounge"
   ],
-  "rewardType": "cashback and reward points",
+  "rewardType": "reward points",
+  "rewardLiquidity": "brand-locked",
   "acceleratedShare": {
     "online": 0.1,
     "grocery": 0
