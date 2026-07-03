@@ -4,8 +4,7 @@
   "name": "IDFC FIRST Classic Credit Card",
   "network": [
     "Visa",
-    "Mastercard",
-    "RuPay"
+    "Mastercard"
   ],
   "joiningFee": 0,
   "annualFee": 0,
