@@ -78,14 +78,51 @@ function defaultContentType(signalType: string): "update" | "tip" {
   return signalType === "discussion" || signalType === "merchant-reward-behavior" ? "tip" : "update";
 }
 
+function getIssuerShorthands(issuer: string): string[] {
+  const normalized = issuer.toLowerCase();
+  const shorthands = [normalized];
+  
+  if (normalized.includes("hdfc")) shorthands.push("hdfc");
+  if (normalized.includes("sbi")) shorthands.push("sbi");
+  if (normalized.includes("axis")) shorthands.push("axis");
+  if (normalized.includes("icici")) shorthands.push("icici");
+  if (normalized.includes("idfc")) shorthands.push("idfc", "idfc first");
+  if (normalized.includes("kotak")) shorthands.push("kotak");
+  if (normalized.includes("yes")) shorthands.push("yes");
+  if (normalized.includes("bob")) shorthands.push("bob", "bobcard");
+  if (normalized.includes("hsbc")) shorthands.push("hsbc");
+  if (normalized.includes("standard chartered")) shorthands.push("standard chartered", "sc", "scb");
+  if (normalized.includes("american express") || normalized.includes("amex")) shorthands.push("amex", "american express");
+  if (normalized.includes("rbl")) shorthands.push("rbl");
+  if (normalized.includes("federal")) shorthands.push("federal");
+  if (normalized.includes("indusind")) shorthands.push("indusind");
+  if (normalized.includes("equitas")) shorthands.push("equitas");
+  if (normalized.includes("sbm")) shorthands.push("sbm");
+  if (normalized.includes("csb")) shorthands.push("csb");
+  if (normalized.includes("onecard")) shorthands.push("onecard", "one card");
+  
+  const firstWord = normalized.split(" ")[0];
+  if (firstWord && firstWord.length >= 3 && !shorthands.includes(firstWord)) {
+    shorthands.push(firstWord);
+  }
+  
+  return [...new Set(shorthands)];
+}
+
 function cardAliases(card: CreditCard) {
   const fullName = normalize(card.name);
   const noCreditCard = normalize(card.name.replace(/\bcredit card\b/gi, ""));
   const noIssuer = normalize(
     card.name.replace(new RegExp(card.issuer.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), "gi"), "").replace(/\bcredit card\b/gi, "")
   );
+  
+  const combined: string[] = [];
+  for (const shorthand of getIssuerShorthands(card.issuer)) {
+    combined.push(normalize(shorthand + " " + card.name));
+    combined.push(normalize(shorthand + " " + noCreditCard));
+  }
 
-  return [fullName, noCreditCard, noIssuer, normalize(card.id.replace(/-/g, " "))]
+  return [fullName, noCreditCard, noIssuer, normalize(card.id.replace(/-/g, " ")), ...combined]
     .filter((alias) => alias.length >= 4)
     .filter((alias, index, all) => all.indexOf(alias) === index);
 }

@@ -177,6 +177,37 @@ function loadCardCatalog() {
   }
 }
 
+function getIssuerShorthands(issuer) {
+  const normalized = issuer.toLowerCase();
+  const shorthands = [normalized];
+  
+  if (normalized.includes("hdfc")) shorthands.push("hdfc");
+  if (normalized.includes("sbi")) shorthands.push("sbi");
+  if (normalized.includes("axis")) shorthands.push("axis");
+  if (normalized.includes("icici")) shorthands.push("icici");
+  if (normalized.includes("idfc")) shorthands.push("idfc", "idfc first");
+  if (normalized.includes("kotak")) shorthands.push("kotak");
+  if (normalized.includes("yes")) shorthands.push("yes");
+  if (normalized.includes("bob")) shorthands.push("bob", "bobcard");
+  if (normalized.includes("hsbc")) shorthands.push("hsbc");
+  if (normalized.includes("standard chartered")) shorthands.push("standard chartered", "sc", "scb");
+  if (normalized.includes("american express") || normalized.includes("amex")) shorthands.push("amex", "american express");
+  if (normalized.includes("rbl")) shorthands.push("rbl");
+  if (normalized.includes("federal")) shorthands.push("federal");
+  if (normalized.includes("indusind")) shorthands.push("indusind");
+  if (normalized.includes("equitas")) shorthands.push("equitas");
+  if (normalized.includes("sbm")) shorthands.push("sbm");
+  if (normalized.includes("csb")) shorthands.push("csb");
+  if (normalized.includes("onecard")) shorthands.push("onecard", "one card");
+  
+  const firstWord = normalized.split(" ")[0];
+  if (firstWord && firstWord.length >= 3 && !shorthands.includes(firstWord)) {
+    shorthands.push(firstWord);
+  }
+  
+  return [...new Set(shorthands)];
+}
+
 function cardAliases(card) {
   const name = normalize(card.name);
   const withoutCreditCard = normalize(card.name.replace(/\bcredit\s+card\b/gi, ""));
@@ -187,7 +218,13 @@ function cardAliases(card) {
   );
   const idWords = normalize(String(card.id).replace(/-/g, " "));
 
-  return unique([name, withoutCreditCard, withoutIssuer, idWords])
+  const combined = [];
+  for (const shorthand of getIssuerShorthands(card.issuer)) {
+    combined.push(normalize(shorthand + " " + card.name));
+    combined.push(normalize(shorthand + " " + withoutCreditCard));
+  }
+
+  return unique([name, withoutCreditCard, withoutIssuer, idWords, ...combined])
     .filter((alias) => alias.length >= 4)
     .filter((alias) => {
       const tokens = alias.split(" ");

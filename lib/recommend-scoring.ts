@@ -262,7 +262,7 @@ export function shouldHideCardFromGenericRanking(card: CreditCard, input: Recomm
 
   const monthlyTotal = input.spend ? monthlySpendTotal(input.spend) : 0;
   const fuelSpendShare = monthlyTotal > 0 ? (input.spend?.fuel ?? 0) / monthlyTotal : 0;
-  const isFuelQuery = intent.useCases.includes("fuel") || (input.query ?? "").toLowerCase().includes("fuel");
+  const isFuelQuery = intent.tags.includes("fuel") || (input.query ?? "").toLowerCase().includes("fuel");
   const isFuelFocused = isFuelQuery || fuelSpendShare >= fuelHeavySpendShare;
 
   if (isFuelFocused && isSpendCategoryExcluded(card, "fuel")) {
