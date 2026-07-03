@@ -362,6 +362,24 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
 
   const candidateCards = cards
     .filter((card) => !shouldHideCardFromGenericRanking(card, input, intent))
+    .filter((card) => {
+      if (effectiveMaxAnnualFee !== undefined && requiresRelationshipAccess(card)) {
+        const q = (input.query ?? "").toLowerCase();
+        const queryAsksForRelation = [
+          "relationship",
+          "invite",
+          "pioneer",
+          "burgundy",
+          "solitaire",
+          "priority",
+          "private",
+          "wealth",
+          "approval"
+        ].some((token) => q.includes(token));
+        return queryAsksForRelation;
+      }
+      return true;
+    })
     .filter((card) => (effectiveMaxAnnualFee === undefined ? true : card.annualFee <= effectiveMaxAnnualFee))
     .filter((card) =>
       effectiveMaxAnnualFee === undefined || hasExplicitAnnualFeeLanguage(input.query) ? true : card.joiningFee <= effectiveMaxAnnualFee
