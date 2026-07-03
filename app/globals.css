@@ -173,7 +173,10 @@ textarea {
 }
 
 .app-shell:has(.sc-landing) > .navbar,
-.app-shell:has(.sc-landing) > .footer {
+.app-shell:has(.sc-landing) > .footer,
+.app-shell:has(.sc-landing) > .site-header,
+.app-shell:has(.sc-landing) > .site-footer,
+.app-shell:has(.sc-landing) > .site-header-spacer {
   display: none;
 }
 
@@ -5853,6 +5856,26 @@ textarea {
     radial-gradient(circle at 88% 8%, rgba(184, 151, 90, 0.16) 0%, transparent 34%),
     repeating-linear-gradient(115deg, rgba(255, 255, 255, 0.28) 0, rgba(255, 255, 255, 0.10) 1px, transparent 2px, transparent 86px),
     linear-gradient(180deg, #fbfaf6 0%, #f0ece4 42%, #ded9cf 100%);
+}
+
+.site-header,
+.site-footer,
+.site-header-spacer {
+  --sc-ink: #1e112c;
+  --sc-purple: #581c87;
+  --sc-purple-dark: #431468;
+  --sc-gold: #b8975a;
+  --sc-muted: #5b5466;
+  --sc-line: #e3dfd3;
+}
+
+.app-shell:has(.site-footer) {
+  overflow: visible;
+}
+
+.site-footer {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
 }
 
 .sc-landing button,
