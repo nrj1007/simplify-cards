@@ -9,14 +9,14 @@ const SITE_URL = "https://www.simplifycards.in";
 const pages = [
   {
     slug: "sbi-cashback-vs-hdfc-swiggy",
-    title: "SBI Cashback vs Swiggy HDFC Bank: Fees, Rewards &amp; Benefits Compared | SimplifyCards",
-    h1: "<h1>SBI Cashback vs Swiggy HDFC Bank</h1>",
+    title: "Cashback Credit Card vs Swiggy Credit Card: Fees, Rewards &amp; Benefits Compared | SimplifyCards",
+    h1: "<h1>Cashback Credit Card vs Swiggy Credit Card</h1>",
     canonical: `${SITE_URL}/compare/sbi-cashback-vs-hdfc-swiggy`
   },
   {
     slug: "hsbc-travelone-vs-axis-atlas",
-    title: "HSBC TravelOne vs Axis Bank Atlas: Fees, Rewards &amp; Benefits Compared | SimplifyCards",
-    h1: "<h1>HSBC TravelOne vs Axis Bank Atlas</h1>",
+    title: "TravelOne Credit Card vs Atlas Credit Card: Fees, Rewards &amp; Benefits Compared | SimplifyCards",
+    h1: "<h1>TravelOne Credit Card vs Atlas Credit Card</h1>",
     canonical: `${SITE_URL}/compare/axis-atlas-vs-hsbc-travelone`
   }
 ];
