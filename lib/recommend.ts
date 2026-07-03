@@ -301,9 +301,11 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
     restrictToSegments && !input.spend && !intent.inferredSpend && !categoryFocus && !forexFocus && !restrictToFuelCards
       ? Math.max(...restrictToSegments.map((segment) => segmentRepresentativeMonthlySpend[segment] ?? 50000))
       : undefined;
-  const ignoredCardNameBoostTokens = restrictToSegments
-    ? restrictToSegments.flatMap((segment) => segmentCardNameBoostIgnoredTokens[segment] ?? [])
-    : [];
+  const ignoredCardNameBoostTokens = [
+    ...(restrictToSegments ? restrictToSegments.flatMap((segment) => segmentCardNameBoostIgnoredTokens[segment] ?? []) : []),
+    ...(intent.networks.length > 0 ? ["visa", "mastercard", "rupay", "jcb", "diners", "amex", "american", "express"] : []),
+    ...(intent.issuers.length > 0 ? intent.issuers.flatMap((issuer) => issuer.toLowerCase().split(/\s+/)) : [])
+  ];
   const segmentSpend = segmentRepresentativeSpend
     ? scaleSpendProfileToMonthly(defaultSpendProfile, segmentRepresentativeSpend)
     : undefined;

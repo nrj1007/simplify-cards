@@ -385,8 +385,6 @@ exports[`ranking golden (representative queries) > produces stable top-N orderin
     "scapia-federal",
   ],
   "network-visa": [
-    "hsbc-visa-platinum",
-    "sc-priority-visa-infinite",
     "icici-emeralde-private-metal",
     "hdfc-infinia-metal",
     "hdfc-regalia-gold",
@@ -397,6 +395,8 @@ exports[`ranking golden (representative queries) > produces stable top-N orderin
     "bobcard-eterna",
     "bobcard-etihad-guest-premium",
     "au-ixigo",
+    "hsbc-live-plus",
+    "sbi-cashback",
   ],
   "segment-beginner": [
     "phonepe-sbi-select-black",
@@ -1122,11 +1122,11 @@ exports[`result split golden (all query modes) > snapshots section membership fo
       "kotak-cashback-plus",
     ],
     "Rewards cards": [
-      "hsbc-visa-platinum",
       "icici-emeralde-private-metal",
       "hdfc-infinia-metal",
-      "sc-priority-visa-infinite",
       "hdfc-regalia-gold",
+      "axis-magnus-burgundy",
+      "kotak-solitaire",
     ],
   },
   "segment-beginner": {
