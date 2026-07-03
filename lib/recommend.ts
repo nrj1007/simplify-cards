@@ -904,7 +904,6 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
           (input.spend !== undefined && totalAnnualSpend <= 300000);
 
         const isEqualWeight =
-          (effectiveMaxAnnualFee !== undefined && effectiveMaxAnnualFee > 1000 && effectiveMaxAnnualFee <= 5000) ||
           (input.spend !== undefined && totalAnnualSpend > 300000 && totalAnnualSpend < 1000000);
 
         if (isLowFee) {
