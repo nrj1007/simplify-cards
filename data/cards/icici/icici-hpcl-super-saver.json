@@ -23,6 +23,7 @@
       "displayCategory": "Fuel spends at HPCL outlets",
       "rate": 4,
       "displayRate": "4% cashback",
+      "valuePerUnit": 1.0,
       "capMonthly": 200
     },
     {
