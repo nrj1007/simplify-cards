@@ -1,7 +1,7 @@
 {
   "id": "bobcard-hpcl-energie",
   "issuer": "Bank of Baroda",
-  "name": "HPCL ENERGIE BOBCARD",
+  "name": "HPCL ENERGIE",
   "network": [
     "RuPay"
   ],

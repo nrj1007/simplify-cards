@@ -1,7 +1,7 @@
 {
   "id": "indusind-crest",
   "issuer": "IndusInd Bank",
-  "name": "IndusInd Bank Crest Credit Card",
+  "name": "Crest",
   "network": [
     "Mastercard",
     "Visa"

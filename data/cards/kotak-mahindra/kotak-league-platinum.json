@@ -1,7 +1,7 @@
 {
   "id": "kotak-league-platinum",
   "issuer": "Kotak Mahindra Bank",
-  "name": "Kotak League Platinum Credit Card",
+  "name": "League Platinum",
   "network": [
     "Visa"
   ],
@@ -103,19 +103,19 @@
   ],
   "redemption": {
     "statementBalanceValue": 0.07,
-    "travelPortalValue": 0.10,
+    "travelPortalValue": 0.1,
     "voucherRedemptions": [
       {
         "partner": "Brand e-Vouchers",
         "programme": "Shopping & gift vouchers via Kotak Rewards",
         "ratio": "1 point = Rs 0.10",
-        "valuePerPoint": 0.10
+        "valuePerPoint": 0.1
       },
       {
         "partner": "Travel bookings",
         "programme": "Flight & hotel bookings via Kotak Rewards",
         "ratio": "1 point = Rs 0.10",
-        "valuePerPoint": 0.10
+        "valuePerPoint": 0.1
       }
     ]
   },

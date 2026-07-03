@@ -1,7 +1,7 @@
 {
   "id": "axis-samsung-signature",
   "issuer": "Axis Bank",
-  "name": "Samsung Axis Bank Signature Credit Card",
+  "name": "Samsung Signature",
   "network": [
     "Visa"
   ],
@@ -22,7 +22,7 @@
       "displayCategory": "Samsung purchases (eligible online & offline channels)",
       "rate": 10,
       "displayRate": "10% Cashback on Samsung purchases (up to Rs 2,500/month)",
-      "valuePerUnit": 1.0,
+      "valuePerUnit": 1,
       "capMonthly": 2500
     },
     {

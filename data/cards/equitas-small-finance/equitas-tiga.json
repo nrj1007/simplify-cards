@@ -1,7 +1,7 @@
 {
   "id": "equitas-tiga",
   "issuer": "Equitas Small Finance Bank",
-  "name": "Equitas Tiga Credit Card",
+  "name": "Tiga",
   "network": [
     "Visa",
     "RuPay"

@@ -1,7 +1,7 @@
 {
   "id": "bobcard-select",
   "issuer": "Bank of Baroda",
-  "name": "BOBCARD SELECT",
+  "name": "SELECT",
   "network": [
     "Visa"
   ],

@@ -1,7 +1,7 @@
 {
   "id": "yes-ace",
   "issuer": "YES Bank",
-  "name": "YES BANK ACE Credit Card",
+  "name": "ACE",
   "network": [
     "Visa",
     "RuPay"

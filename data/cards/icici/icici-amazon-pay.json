@@ -1,7 +1,7 @@
 {
   "id": "icici-amazon-pay",
   "issuer": "ICICI Bank",
-  "name": "Amazon Pay ICICI Bank Credit Card",
+  "name": "Amazon Pay",
   "network": [
     "Visa"
   ],

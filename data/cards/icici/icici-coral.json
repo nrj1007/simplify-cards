@@ -1,7 +1,7 @@
 {
   "id": "icici-coral",
   "issuer": "ICICI Bank",
-  "name": "ICICI Bank Coral Credit Card",
+  "name": "Coral",
   "network": [
     "Visa",
     "Mastercard",
@@ -19,7 +19,9 @@
     "rupay"
   ],
   "rewardType": "reward points",
-  "categoryFocusTags": ["entertainment"],
+  "categoryFocusTags": [
+    "entertainment"
+  ],
   "rewards": [
     {
       "category": "utilities, insurance",

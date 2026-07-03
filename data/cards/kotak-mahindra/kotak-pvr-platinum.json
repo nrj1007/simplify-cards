@@ -1,7 +1,7 @@
 {
   "id": "kotak-pvr-platinum",
   "issuer": "Kotak Mahindra Bank",
-  "name": "PVR Kotak Platinum Credit Card",
+  "name": "PVR Platinum",
   "network": [
     "Visa"
   ],
@@ -13,7 +13,9 @@
     "entertainment"
   ],
   "rewardType": "movie benefits",
-  "categoryFocusTags": ["entertainment"],
+  "categoryFocusTags": [
+    "entertainment"
+  ],
   "rewards": [
     {
       "category": "base",

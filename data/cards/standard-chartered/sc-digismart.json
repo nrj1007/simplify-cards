@@ -1,7 +1,7 @@
 {
   "id": "sc-digismart",
   "issuer": "Standard Chartered",
-  "name": "Standard Chartered DigiSmart Credit Card",
+  "name": "DigiSmart",
   "network": [
     "Visa"
   ],
@@ -18,7 +18,7 @@
   "rewards": [
     {
       "category": "online",
-      "rate": 0.0,
+      "rate": 0,
       "displayCategory": "Partner discount offers",
       "displayRate": "Offer-led savings via promo code DIGISMART",
       "capMonthly": null

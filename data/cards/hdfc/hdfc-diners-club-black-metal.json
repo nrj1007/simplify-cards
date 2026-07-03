@@ -1,7 +1,7 @@
 {
   "id": "hdfc-diners-club-black-metal",
   "issuer": "HDFC Bank",
-  "name": "HDFC Bank Diners Club Black Metal Edition Credit Card",
+  "name": "Diners Club Black Metal Edition",
   "network": [
     "Diners Club"
   ],
@@ -17,7 +17,9 @@
   ],
   "rewardType": "reward points",
   "capGroups": {
-    "smartbuy": { "capMonthly": 10000 }
+    "smartbuy": {
+      "capMonthly": 10000
+    }
   },
   "rewards": [
     {

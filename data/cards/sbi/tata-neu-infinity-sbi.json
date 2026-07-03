@@ -1,7 +1,7 @@
 {
   "id": "tata-neu-infinity-sbi",
   "issuer": "SBI Card",
-  "name": "Tata Neu Infinity SBI Card",
+  "name": "Tata Neu Infinity",
   "imageUrl": "/images/tata-neu-infinity-sbi.png",
   "network": [
     "Visa",

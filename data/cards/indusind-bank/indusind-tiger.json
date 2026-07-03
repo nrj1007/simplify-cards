@@ -1,7 +1,7 @@
 {
   "id": "indusind-tiger",
   "issuer": "IndusInd Bank",
-  "name": "IndusInd Bank Tiger Credit Card",
+  "name": "Tiger",
   "network": [
     "Visa"
   ],
@@ -99,7 +99,7 @@
   ],
   "redemption": {
     "statementBalanceValue": 0.4,
-    "airMilesValue": 1.0,
+    "airMilesValue": 1,
     "pointsExpiryYears": null,
     "airlinePartners": [
       {

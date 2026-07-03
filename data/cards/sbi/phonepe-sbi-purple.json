@@ -1,7 +1,7 @@
 {
   "id": "phonepe-sbi-purple",
   "issuer": "SBI Card",
-  "name": "PhonePe SBI Card PURPLE",
+  "name": "PhonePe PURPLE",
   "imageUrl": "/images/phonepe-sbi-purple.png",
   "network": [
     "Visa",

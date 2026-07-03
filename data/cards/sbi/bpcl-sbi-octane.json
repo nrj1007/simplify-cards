@@ -1,7 +1,7 @@
 {
   "id": "bpcl-sbi-octane",
   "issuer": "SBI Card",
-  "name": "BPCL SBI Card OCTANE",
+  "name": "BPCL OCTANE",
   "network": [
     "Visa",
     "RuPay"

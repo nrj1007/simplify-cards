@@ -1,7 +1,7 @@
 {
   "id": "doctors-sbi",
   "issuer": "SBI Card",
-  "name": "Doctor's SBI Card",
+  "name": "Doctor's",
   "imageUrl": "/images/doctors-sbi.webp",
   "network": [
     "Visa"

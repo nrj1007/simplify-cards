@@ -1,7 +1,7 @@
 {
   "id": "indigo-sbi",
   "issuer": "SBI Card",
-  "name": "IndiGo SBI Card",
+  "name": "IndiGo",
   "imageUrl": "/images/indigo-sbi.webp",
   "network": [
     "Mastercard",

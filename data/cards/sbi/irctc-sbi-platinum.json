@@ -1,7 +1,7 @@
 {
   "id": "irctc-sbi-platinum",
   "issuer": "SBI Card",
-  "name": "IRCTC SBI Platinum Card",
+  "name": "IRCTC Platinum",
   "imageUrl": "/images/irctc-sbi-platinum.png",
   "network": [
     "Visa"

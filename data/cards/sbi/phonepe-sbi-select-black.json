@@ -1,7 +1,7 @@
 {
   "id": "phonepe-sbi-select-black",
   "issuer": "SBI Card",
-  "name": "PhonePe SBI Card SELECT BLACK",
+  "name": "PhonePe SELECT BLACK",
   "imageUrl": "/images/phonepe-sbi-select-black.png",
   "network": [
     "Visa",

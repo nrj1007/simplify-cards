@@ -1,7 +1,7 @@
 {
   "id": "hsbc-premier",
   "issuer": "HSBC Bank",
-  "name": "HSBC Premier Credit Card",
+  "name": "Premier",
   "network": [
     "Mastercard"
   ],

@@ -1,7 +1,7 @@
 {
   "id": "scapia-federal",
   "issuer": "Federal Bank",
-  "name": "Scapia Federal Credit Card",
+  "name": "Scapia",
   "network": [
     "Visa",
     "RuPay"

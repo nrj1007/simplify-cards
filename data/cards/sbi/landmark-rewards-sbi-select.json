@@ -1,7 +1,7 @@
 {
   "id": "landmark-rewards-sbi-select",
   "issuer": "SBI Card",
-  "name": "Landmark Rewards SBI Card SELECT",
+  "name": "Landmark Rewards SELECT",
   "imageUrl": "/images/landmark-rewards-sbi-select.webp",
   "network": [
     "Visa"

@@ -1,7 +1,7 @@
 {
   "id": "cheq-au",
   "issuer": "AU Small Finance Bank",
-  "name": "CheQ AU Credit Card",
+  "name": "CheQ",
   "network": [
     "Visa",
     "RuPay"

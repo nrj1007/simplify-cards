@@ -1,7 +1,7 @@
 {
   "id": "scapia-bobcard",
   "issuer": "Bank of Baroda",
-  "name": "BOBCARD Scapia Credit Card",
+  "name": "Scapia",
   "network": [
     "Visa",
     "RuPay"

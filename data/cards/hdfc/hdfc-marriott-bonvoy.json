@@ -1,7 +1,7 @@
 {
   "id": "hdfc-marriott-bonvoy",
   "issuer": "HDFC Bank",
-  "name": "Marriott Bonvoy HDFC Bank Credit Card",
+  "name": "Marriott Bonvoy",
   "network": [
     "Diners Club"
   ],
@@ -17,7 +17,7 @@
   ],
   "rewardType": "Marriott Bonvoy Points",
   "rewardLiquidity": "brand-locked",
-  "rewardLiquidityFactor": 1.0,
+  "rewardLiquidityFactor": 1,
   "acceleratedShare": {
     "travel": 0.25,
     "online": 0,

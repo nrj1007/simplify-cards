@@ -1,7 +1,7 @@
 {
   "id": "hsbc-taj",
   "issuer": "HSBC Bank",
-  "name": "HSBC Taj Credit Card",
+  "name": "Taj",
   "network": [
     "Visa"
   ],
@@ -21,7 +21,7 @@
     {
       "category": "hotels",
       "displayCategory": "Taj, SeleQtions, Gateway, Vivanta, and amã Stays & Trails spends",
-      "rate": 5.0,
+      "rate": 5,
       "displayRate": "5 Reward Points / Rs 100 spent",
       "capMonthly": null
     },

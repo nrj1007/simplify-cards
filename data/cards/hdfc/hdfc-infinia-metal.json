@@ -1,7 +1,7 @@
 {
   "id": "hdfc-infinia-metal",
   "issuer": "HDFC Bank",
-  "name": "HDFC Bank Infinia Metal Edition Credit Card",
+  "name": "Infinia Metal Edition",
   "network": [
     "Visa"
   ],
@@ -17,7 +17,9 @@
   ],
   "rewardType": "reward points",
   "capGroups": {
-    "smartbuy": { "capMonthly": 15000 }
+    "smartbuy": {
+      "capMonthly": 15000
+    }
   },
   "rewards": [
     {

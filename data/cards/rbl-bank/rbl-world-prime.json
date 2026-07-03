@@ -1,7 +1,7 @@
 {
   "id": "rbl-world-prime",
   "issuer": "RBL Bank",
-  "name": "RBL Bank World Prime Credit Card",
+  "name": "World Prime",
   "network": [
     "Visa",
     "Mastercard"

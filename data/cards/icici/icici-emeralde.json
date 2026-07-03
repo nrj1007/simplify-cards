@@ -1,7 +1,7 @@
 {
   "id": "icici-emeralde",
   "issuer": "ICICI Bank",
-  "name": "ICICI Bank Emeralde Credit Card",
+  "name": "Emeralde",
   "network": [
     "Mastercard",
     "American Express"
@@ -71,7 +71,7 @@
       "Unlimited complimentary domestic and international lounge access for the primary cardholder; no spends criteria applies."
     ]
   },
-  "forexMarkup": 2.0,
+  "forexMarkup": 2,
   "tags": [
     "icici",
     "premium",

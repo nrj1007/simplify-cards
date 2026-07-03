@@ -1,7 +1,7 @@
 {
   "id": "hsbc-live-plus",
   "issuer": "HSBC Bank",
-  "name": "HSBC Live+ Credit Card",
+  "name": "Live+",
   "network": [
     "Visa"
   ],
@@ -102,7 +102,7 @@
     "Qualified annual spend of Rs 2 Lakhs waives the renewal fee of Rs 999"
   ],
   "redemption": {
-    "statementBalanceValue": 1.0,
+    "statementBalanceValue": 1,
     "pointsExpiryYears": null
   },
   "eligibility": {

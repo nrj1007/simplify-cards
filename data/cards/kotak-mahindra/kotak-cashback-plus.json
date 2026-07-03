@@ -1,7 +1,7 @@
 {
   "id": "kotak-cashback-plus",
   "issuer": "Kotak Mahindra Bank",
-  "name": "Kotak Cashback+ Credit Card",
+  "name": "Cashback+",
   "network": [
     "Visa",
     "RuPay"

@@ -1,7 +1,7 @@
 {
   "id": "bobcard-etihad-guest",
   "issuer": "Bank of Baroda",
-  "name": "BOBCARD Etihad Guest Credit Card",
+  "name": "Etihad Guest",
   "network": [
     "Visa"
   ],
@@ -147,7 +147,7 @@
   ],
   "redemption": {
     "ecosystemLabel": "Etihad Guest Miles",
-    "ecosystemValue": 1.0,
+    "ecosystemValue": 1,
     "pointsExpiryYears": null
   },
   "eligibility": {

@@ -1,7 +1,7 @@
 {
   "id": "apollo-sbi-select",
   "issuer": "SBI Card",
-  "name": "Apollo SBI Card SELECT",
+  "name": "Apollo SELECT",
   "imageUrl": "/images/apollo-sbi-select.webp",
   "network": [
     "Visa"
@@ -26,14 +26,14 @@
     {
       "category": "partner merchants",
       "displayCategory": "Apollo 24/7 and Apollo Pharmacy spends",
-      "rate": 10.0,
+      "rate": 10,
       "displayRate": "10 Reward Points / Rs 100 spent",
       "capMonthly": null
     },
     {
       "category": "dining, travel",
       "displayCategory": "Dining, travel, movies & entertainment spends",
-      "rate": 2.0,
+      "rate": 2,
       "displayRate": "2 Reward Points / Rs 100 spent",
       "capMonthly": 5000
     },
@@ -111,7 +111,7 @@
     "1% fuel surcharge waiver on eligible fuel transactions between Rs 500 and Rs 4,000, capped at Rs 250 per month"
   ],
   "redemption": {
-    "statementBalanceValue": 1.0,
+    "statementBalanceValue": 1,
     "pointsExpiryYears": 2,
     "redemptionFee": 99
   },

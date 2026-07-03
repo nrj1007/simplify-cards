@@ -1,7 +1,7 @@
 {
   "id": "yes-paisabazaar-paisasave",
   "issuer": "YES Bank",
-  "name": "YES BANK Paisabazaar PaisaSave Credit Card",
+  "name": "Paisabazaar PaisaSave",
   "network": [
     "Mastercard"
   ],
@@ -18,21 +18,21 @@
   "rewards": [
     {
       "category": "travel",
-      "rate": 6.0,
+      "rate": 6,
       "displayCategory": "Travel spends",
       "displayRate": "12 Reward Points per INR 200 spent on Travel transactions",
       "capMonthly": 3000
     },
     {
       "category": "dining",
-      "rate": 6.0,
+      "rate": 6,
       "displayCategory": "Dining spends",
       "displayRate": "12 Reward Points per INR 200 spent on Dining transactions",
       "capMonthly": 3000
     },
     {
       "category": "base",
-      "rate": 1.0,
+      "rate": 1,
       "displayCategory": "Other retail spends",
       "displayRate": "2 Reward Points per INR 200 spent on other retail transactions",
       "capMonthly": null
@@ -87,7 +87,7 @@
     "Renewal fee waiver is applicable on spending Rs 1,20,000 in a card anniversary year."
   ],
   "redemption": {
-    "statementBalanceValue": 1.0,
+    "statementBalanceValue": 1,
     "pointsExpiryYears": 3
   },
   "eligibility": {

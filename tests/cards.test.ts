@@ -83,7 +83,7 @@ describe("card data files", () => {
 
 describe("card lookup helpers", () => {
   it("finds cards by ID", () => {
-    expect(getCardById("sbi-cashback")?.name).toBe("SBI Cashback Credit Card");
+    expect(getCardById("sbi-cashback")?.name).toBe("Cashback");
     expect(getCardById("missing-card")).toBeUndefined();
   });
 

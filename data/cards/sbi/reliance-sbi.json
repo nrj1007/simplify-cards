@@ -1,7 +1,7 @@
 {
   "id": "reliance-sbi",
   "issuer": "SBI Card",
-  "name": "Reliance SBI Card",
+  "name": "Reliance",
   "imageUrl": "/images/reliance-sbi.webp",
   "network": [
     "Mastercard",

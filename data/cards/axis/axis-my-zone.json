@@ -1,7 +1,7 @@
 {
   "id": "axis-my-zone",
   "issuer": "Axis Bank",
-  "name": "Axis Bank My Zone Credit Card",
+  "name": "My Zone",
   "network": [
     "Mastercard"
   ],
@@ -16,7 +16,9 @@
     "lounge"
   ],
   "rewardType": "edge reward points",
-  "categoryFocusTags": ["entertainment"],
+  "categoryFocusTags": [
+    "entertainment"
+  ],
   "rewards": [
     {
       "category": "base",

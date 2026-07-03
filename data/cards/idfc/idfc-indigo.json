@@ -1,7 +1,7 @@
 {
   "id": "idfc-indigo",
   "issuer": "IDFC FIRST Bank",
-  "name": "IndiGo IDFC FIRST Credit Card",
+  "name": "IndiGo",
   "network": [
     "Mastercard",
     "RuPay"
@@ -22,14 +22,14 @@
   "rewards": [
     {
       "category": "airlines",
-      "rate": 6.0,
+      "rate": 6,
       "displayCategory": "IndiGo flight bookings",
       "displayRate": "6 IndiGo BluChips per INR 100 spent",
       "capMonthly": null
     },
     {
       "category": "base",
-      "rate": 3.0,
+      "rate": 3,
       "displayCategory": "Other eligible retail spends",
       "displayRate": "3 IndiGo BluChips per INR 100 spent",
       "capMonthly": null

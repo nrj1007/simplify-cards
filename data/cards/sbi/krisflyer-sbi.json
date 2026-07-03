@@ -1,7 +1,7 @@
 {
   "id": "krisflyer-sbi",
   "issuer": "SBI Card",
-  "name": "KrisFlyer SBI Card",
+  "name": "KrisFlyer",
   "network": [
     "American Express"
   ],

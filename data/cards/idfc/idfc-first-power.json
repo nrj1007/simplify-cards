@@ -1,7 +1,7 @@
 {
   "id": "idfc-first-power",
   "issuer": "IDFC FIRST Bank",
-  "name": "IDFC FIRST Power Credit Card",
+  "name": "Power",
   "network": [
     "RuPay"
   ],
@@ -19,14 +19,14 @@
   "rewards": [
     {
       "category": "fuel",
-      "rate": 14.0,
+      "rate": 14,
       "displayCategory": "HPCL Fuel spends",
       "displayRate": "21 Reward Points per INR 150 spent",
       "capMonthly": 700
     },
     {
       "category": "grocery, utilities",
-      "rate": 10.0,
+      "rate": 10,
       "displayCategory": "Grocery and utility spends",
       "displayRate": "15 Reward Points per INR 150 spent",
       "capMonthly": 400

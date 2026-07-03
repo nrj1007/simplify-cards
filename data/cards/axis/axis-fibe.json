@@ -1,7 +1,7 @@
 {
   "id": "axis-fibe",
   "issuer": "Axis Bank",
-  "name": "Fibe Axis Bank Credit Card",
+  "name": "Fibe",
   "network": [
     "RuPay"
   ],

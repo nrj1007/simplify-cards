@@ -1,7 +1,7 @@
 {
   "id": "tata-neu-plus-sbi",
   "issuer": "SBI Card",
-  "name": "Tata Neu Plus SBI Card",
+  "name": "Tata Neu Plus",
   "imageUrl": "/images/tata-neu-plus-sbi.png",
   "network": [
     "Visa",

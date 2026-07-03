@@ -1,7 +1,7 @@
 {
   "id": "hsbc-visa-platinum",
   "issuer": "HSBC Bank",
-  "name": "HSBC Visa Platinum Credit Card",
+  "name": "Visa Platinum",
   "network": [
     "Visa"
   ],

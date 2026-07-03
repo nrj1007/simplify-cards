@@ -1,7 +1,7 @@
 {
   "id": "bobcard-easy",
   "issuer": "Bank of Baroda",
-  "name": "BOBCARD EASY",
+  "name": "EASY",
   "network": [
     "Visa"
   ],
@@ -60,7 +60,7 @@
     "Personal accidental death cover"
   ],
   "redemption": {
-    "statementBalanceValue": 0.20,
+    "statementBalanceValue": 0.2,
     "pointsExpiryYears": null
   },
   "eligibility": {

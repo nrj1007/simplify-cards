@@ -1,7 +1,7 @@
 {
   "id": "axis-kwik",
   "issuer": "Axis Bank",
-  "name": "Kwik Axis Bank Credit Card",
+  "name": "Kwik",
   "network": [
     "RuPay"
   ],

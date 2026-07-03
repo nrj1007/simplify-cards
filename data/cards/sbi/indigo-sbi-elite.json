@@ -1,7 +1,7 @@
 {
   "id": "indigo-sbi-elite",
   "issuer": "SBI Card",
-  "name": "IndiGo SBI Card ELITE",
+  "name": "IndiGo ELITE",
   "imageUrl": "/images/indigo-sbi-elite.webp",
   "network": [
     "Mastercard",

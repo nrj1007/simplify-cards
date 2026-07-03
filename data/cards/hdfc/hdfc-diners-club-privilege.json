@@ -1,7 +1,7 @@
 {
   "id": "hdfc-diners-club-privilege",
   "issuer": "HDFC Bank",
-  "name": "HDFC Bank Diners Club Privilege Credit Card",
+  "name": "Diners Club Privilege",
   "network": [
     "Diners Club"
   ],
@@ -16,9 +16,13 @@
     "lifestyle"
   ],
   "rewardType": "reward points",
-  "categoryFocusTags": ["entertainment"],
+  "categoryFocusTags": [
+    "entertainment"
+  ],
   "capGroups": {
-    "smartbuy": { "capMonthly": 4000 }
+    "smartbuy": {
+      "capMonthly": 4000
+    }
   },
   "rewards": [
     {

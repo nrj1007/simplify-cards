@@ -1,7 +1,7 @@
 {
   "id": "idfc-ashva",
   "issuer": "IDFC FIRST Bank",
-  "name": "IDFC FIRST Ashva Credit Card",
+  "name": "Ashva",
   "network": [
     "Visa"
   ],
@@ -33,7 +33,7 @@
     },
     {
       "category": "rent, education, government",
-      "rate": 2.0,
+      "rate": 2,
       "displayCategory": "Rent, education, wallet load, and government spends",
       "displayRate": "3 Reward Points per Rs 150 spent",
       "capMonthly": null

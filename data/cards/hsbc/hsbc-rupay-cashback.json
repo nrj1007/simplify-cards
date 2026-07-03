@@ -1,7 +1,7 @@
 {
   "id": "hsbc-rupay-cashback",
   "issuer": "HSBC Bank",
-  "name": "HSBC RuPay Cashback Credit Card",
+  "name": "RuPay Cashback",
   "network": [
     "RuPay"
   ],

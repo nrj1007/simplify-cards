@@ -1,7 +1,7 @@
 {
   "id": "yes-paisabazaar-paisasave-rupay",
   "issuer": "YES Bank",
-  "name": "YES BANK Paisabazaar PaisaSave RuPay Credit Card",
+  "name": "Paisabazaar PaisaSave RuPay",
   "network": [
     "RuPay"
   ],
@@ -18,7 +18,7 @@
   "rewards": [
     {
       "category": "upi",
-      "rate": 1.0,
+      "rate": 1,
       "displayCategory": "UPI scan & pay spends",
       "displayRate": "2 Reward Points per INR 200 spent on UPI transactions above Rs 2,000",
       "capMonthly": null
@@ -58,7 +58,7 @@
     "Lifetime free card with nil joining and annual fee"
   ],
   "redemption": {
-    "statementBalanceValue": 1.0,
+    "statementBalanceValue": 1,
     "pointsExpiryYears": 3
   },
   "eligibility": {

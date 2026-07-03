@@ -1,7 +1,7 @@
 {
   "id": "hdfc-pixel-go",
   "issuer": "HDFC Bank",
-  "name": "HDFC Bank PIXEL Go Credit Card",
+  "name": "PIXEL Go",
   "network": [
     "Visa",
     "RuPay"

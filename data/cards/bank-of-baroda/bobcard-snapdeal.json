@@ -1,7 +1,7 @@
 {
   "id": "bobcard-snapdeal",
   "issuer": "Bank of Baroda",
-  "name": "Snapdeal BOBCARD",
+  "name": "Snapdeal",
   "network": [
     "RuPay"
   ],
@@ -17,8 +17,8 @@
   ],
   "rewardType": "cashback",
   "acceleratedShare": {
-    "travel": 1.0,
-    "amazon": 1.0
+    "travel": 1,
+    "amazon": 1
   },
   "rewards": [
     {

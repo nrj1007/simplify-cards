@@ -1,7 +1,7 @@
 {
   "id": "sbi-card-prime",
   "issuer": "SBI Card",
-  "name": "SBI Card PRIME",
+  "name": "PRIME",
   "network": [
     "Visa",
     "Mastercard",

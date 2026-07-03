@@ -1,7 +1,7 @@
 {
   "id": "idfc-first-millennia",
   "issuer": "IDFC FIRST Bank",
-  "name": "IDFC FIRST Millennia Credit Card",
+  "name": "Millennia",
   "network": [
     "Visa",
     "Mastercard"
@@ -27,7 +27,7 @@
     },
     {
       "category": "dining, travel, international",
-      "rate": 5.0,
+      "rate": 5,
       "displayCategory": "Dining, Travel, International, Birthday, and incremental spends above Rs 20,000",
       "displayRate": "10 Reward Points per INR 200 spent",
       "capMonthly": null

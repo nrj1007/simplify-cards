@@ -2,7 +2,7 @@
   "id": "federal-wave",
   "issuer": "Federal Bank",
   "imageUrl": "/images/federal-wave.webp",
-  "name": "Federal Bank Wave RuPay Credit Card",
+  "name": "Wave RuPay",
   "network": [
     "RuPay"
   ],

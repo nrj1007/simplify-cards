@@ -1,7 +1,7 @@
 {
   "id": "kotak-upi-rupay",
   "issuer": "Kotak Mahindra Bank",
-  "name": "Kotak UPI RuPay Credit Card",
+  "name": "UPI RuPay",
   "network": [
     "RuPay"
   ],

@@ -1,7 +1,7 @@
 {
   "id": "sc-ultimate",
   "issuer": "Standard Chartered",
-  "name": "Standard Chartered Ultimate Credit Card",
+  "name": "Ultimate",
   "network": [
     "Mastercard"
   ],
@@ -43,7 +43,7 @@
       "1 complimentary international lounge visit per month via Priority Pass, subject to a minimum spend of Rs 20,000 in the previous calendar month."
     ]
   },
-  "forexMarkup": 2.0,
+  "forexMarkup": 2,
   "tags": [
     "standard chartered",
     "ultimate",
@@ -74,7 +74,7 @@
   ],
   "redemption": {
     "ecosystemLabel": "360° Rewards Portal vouchers (1 point = Rs 1, no statement cashback)",
-    "ecosystemValue": 1.0,
+    "ecosystemValue": 1,
     "redemptionFee": 99
   },
   "eligibility": {

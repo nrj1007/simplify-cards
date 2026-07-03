@@ -1,7 +1,7 @@
 {
   "id": "hdfc-shoppers-stop",
   "issuer": "HDFC Bank",
-  "name": "Shoppers Stop HDFC Bank Credit Card",
+  "name": "Shoppers Stop",
   "network": [
     "Visa",
     "RuPay"

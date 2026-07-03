@@ -2,7 +2,7 @@
   "id": "federal-signet",
   "issuer": "Federal Bank",
   "imageUrl": "/images/federal-signet.webp",
-  "name": "Federal Bank Signet Credit Card",
+  "name": "Signet",
   "network": [
     "Mastercard"
   ],

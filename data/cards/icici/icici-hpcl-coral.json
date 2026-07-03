@@ -1,7 +1,7 @@
 {
   "id": "icici-hpcl-coral",
   "issuer": "ICICI Bank",
-  "name": "ICICI Bank HPCL Coral Credit Card",
+  "name": "HPCL Coral",
   "network": [
     "Visa"
   ],
@@ -21,7 +21,7 @@
       "displayCategory": "Fuel spends at HPCL outlets",
       "rate": 2.5,
       "displayRate": "2.5% cashback",
-      "valuePerUnit": 1.0,
+      "valuePerUnit": 1,
       "capMonthly": null
     },
     {

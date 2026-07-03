@@ -1,7 +1,7 @@
 {
   "id": "rbl-patanjali-vishisht",
   "issuer": "RBL Bank",
-  "name": "Patanjali RBL Bank Vishisht Credit Card",
+  "name": "Patanjali Vishisht",
   "network": [
     "Visa",
     "RuPay"

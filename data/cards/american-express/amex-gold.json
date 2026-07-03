@@ -1,7 +1,7 @@
 {
   "id": "amex-gold",
   "issuer": "American Express",
-  "name": "American Express Gold Card",
+  "name": "Gold",
   "imageUrl": "/images/amex-gold.png",
   "network": [
     "American Express"

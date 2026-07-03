@@ -1,7 +1,7 @@
 {
   "id": "simplysave-sbi",
   "issuer": "SBI Card",
-  "name": "SimplySAVE SBI Card",
+  "name": "SimplySAVE",
   "imageUrl": "/images/simplysave-sbi.webp",
   "network": [
     "Visa",

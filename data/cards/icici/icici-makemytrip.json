@@ -1,7 +1,7 @@
 {
   "id": "icici-makemytrip",
   "issuer": "ICICI Bank",
-  "name": "MakeMyTrip ICICI Bank Credit Card",
+  "name": "MakeMyTrip",
   "network": [
     "Mastercard",
     "RuPay"
@@ -22,21 +22,21 @@
     {
       "category": "hotels",
       "displayCategory": "MakeMyTrip Hotel bookings",
-      "rate": 6.0,
+      "rate": 6,
       "displayRate": "6 myCash / Rs 100 spent",
       "capMonthly": null
     },
     {
       "category": "airlines",
       "displayCategory": "MakeMyTrip flight bookings",
-      "rate": 3.0,
+      "rate": 3,
       "displayRate": "3 myCash / Rs 100 spent",
       "capMonthly": null
     },
     {
       "category": "base",
       "displayCategory": "Other retail spends",
-      "rate": 1.0,
+      "rate": 1,
       "displayRate": "1 myCash / Rs 100 spent",
       "capMonthly": null
     }
@@ -92,7 +92,7 @@
       "kind": "other",
       "label": "Complimentary 1-year MMTBLACK Gold membership"
     }
-  ],
+  ],
   "renewalBenefitsValued": [
     {
       "value": 500,

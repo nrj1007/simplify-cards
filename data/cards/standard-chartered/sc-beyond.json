@@ -1,7 +1,7 @@
 {
   "id": "sc-beyond",
   "issuer": "Standard Chartered",
-  "name": "Standard Chartered Beyond Credit Card",
+  "name": "Beyond",
   "network": [
     "Visa"
   ],
@@ -72,7 +72,7 @@
   ],
   "redemption": {
     "ecosystemLabel": "360° Rewards Portal vouchers (1 point = Rs 1, no statement cashback)",
-    "ecosystemValue": 1.0,
+    "ecosystemValue": 1,
     "redemptionFee": 99,
     "pointsExpiryYears": 3
   },

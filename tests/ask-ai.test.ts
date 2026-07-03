@@ -56,13 +56,13 @@ describe("ask ai fallback policy", () => {
   it("produces a more natural fallback summary for direct card-name queries", async () => {
     const answer = await answerQuestion({ query: "Axis Atlas", maxAnnualFee: 5000 });
 
-    expect(answer.summary).toMatch(/If you specifically mean Axis Bank Atlas Credit Card/i);
+    expect(answer.summary).toMatch(/If you specifically mean Atlas/i);
     // The take is kept skimmable: one headline feature + closest alternative, not a dump of every
     // card spec (lounge counts etc. are shown on the card tile/comparison table instead).
     expect(answer.highlights).toEqual(
       expect.arrayContaining([
         expect.stringMatching(/travel, hotels, and flights/i),
-        expect.stringMatching(/Closest alternative: HSBC TravelOne Credit Card/i)
+        expect.stringMatching(/Closest alternative: TravelOne/i)
       ])
     );
     expect(answer.highlights?.length).toBeLessThanOrEqual(4);
@@ -81,35 +81,35 @@ describe("ask ai fallback policy", () => {
     const answer = await answerQuestion({ query: "millenia" });
 
     expect(answer.cards[0]?.card.id).toBe("hdfc-millennia");
-    expect(answer.summary).toMatch(/HDFC Millennia Credit Card/i);
+    expect(answer.summary).toMatch(/Millennia/i);
   });
 
   it("treats spaced brand queries like 'travel one' as HSBC TravelOne instead of One Credit Card", async () => {
     const answer = await answerQuestion({ query: "travel one" });
 
     expect(answer.cards[0]?.card.id).toBe("hsbc-travelone");
-    expect(answer.summary).toMatch(/HSBC TravelOne Credit Card/i);
+    expect(answer.summary).toMatch(/TravelOne/i);
   });
 
   it("resolves shorthand issuer plus brand queries like 'icici mmt' to MakeMyTrip ICICI", async () => {
     const answer = await answerQuestion({ query: "icici mmt" });
 
     expect(answer.cards[0]?.card.id).toBe("icici-makemytrip");
-    expect(answer.summary).toMatch(/MakeMyTrip ICICI Bank Credit Card/i);
+    expect(answer.summary).toMatch(/MakeMyTrip/i);
   });
 
   it("resolves shorthand issuer plus brand queries like 'amex mrcc' to Membership Rewards Credit Card", async () => {
     const answer = await answerQuestion({ query: "amex mrcc" });
 
     expect(answer.cards[0]?.card.id).toBe("amex-membership-rewards");
-    expect(answer.summary).toMatch(/Membership Rewards Credit Card/i);
+    expect(answer.summary).toMatch(/Membership Rewards/i);
   });
 
   it("resolves 'platinum reserve' to the Amex Platinum Reserve card", async () => {
     const answer = await answerQuestion({ query: "platinum reserve" });
 
     expect(answer.cards[0]?.card.id).toBe("amex-platinum-reserve");
-    expect(answer.summary).toMatch(/Platinum Reserve Credit Card/i);
+    expect(answer.summary).toMatch(/Platinum Reserve/i);
   });
 
   it("answers rewards-policy questions when current card rules support an inference", async () => {

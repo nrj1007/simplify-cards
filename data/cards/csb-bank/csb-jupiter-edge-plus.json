@@ -1,7 +1,7 @@
 {
   "id": "csb-jupiter-edge-plus",
   "issuer": "CSB Bank",
-  "name": "CSB Bank Jupiter Edge+ Credit Card",
+  "name": "Jupiter Edge+",
   "network": [
     "RuPay"
   ],
@@ -76,7 +76,7 @@
     {
       "category": "education",
       "treatment": "excluded",
-      "surchargePercent": 1.0,
+      "surchargePercent": 1,
       "notes": "Education payments do not earn Jewels and attract a 1% transaction fee."
     },
     {
@@ -109,13 +109,13 @@
   ],
   "redemption": {
     "statementBalanceValue": 0.14,
-    "travelPortalValue": 0.20,
+    "travelPortalValue": 0.2,
     "voucherRedemptions": [
       {
         "partner": "Jupiter Vouchers / Digital Gold / Jupiter Flights",
         "programme": "Jewels",
         "ratio": "1:1",
-        "valuePerPoint": 0.20,
+        "valuePerPoint": 0.2,
         "note": "₹0.20 per Jewel when redeemed for brand vouchers, digital gold, or flights via Jupiter"
       }
     ],

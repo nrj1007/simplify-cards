@@ -1,7 +1,7 @@
 {
   "id": "hdfc-indianoil",
   "issuer": "HDFC Bank",
-  "name": "IndianOil HDFC Bank Credit Card",
+  "name": "IndianOil",
   "network": [
     "Visa",
     "RuPay"

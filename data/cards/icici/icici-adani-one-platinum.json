@@ -1,7 +1,7 @@
 {
   "id": "icici-adani-one-platinum",
   "issuer": "ICICI Bank",
-  "name": "Adani One ICICI Bank Platinum Credit Card",
+  "name": "Adani One Platinum",
   "network": [
     "Visa"
   ],
@@ -119,7 +119,7 @@
   ],
   "redemption": {
     "ecosystemLabel": "Adani One app (flights, hotels, trains, duty-free)",
-    "ecosystemValue": 1.0,
+    "ecosystemValue": 1,
     "pointsExpiryYears": null,
     "airlinePartners": [],
     "hotelPartners": []

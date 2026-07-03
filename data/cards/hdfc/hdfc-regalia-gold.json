@@ -1,7 +1,7 @@
 {
   "id": "hdfc-regalia-gold",
   "issuer": "HDFC Bank",
-  "name": "HDFC Bank Regalia Gold Credit Card",
+  "name": "Regalia Gold",
   "network": [
     "Visa",
     "Mastercard"
@@ -21,7 +21,9 @@
     "grocery": 0
   },
   "capGroups": {
-    "smartbuy": { "capMonthly": 4000 }
+    "smartbuy": {
+      "capMonthly": 4000
+    }
   },
   "rewards": [
     {

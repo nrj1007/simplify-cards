@@ -1,7 +1,7 @@
 {
   "id": "icici-hpcl-super-saver",
   "issuer": "ICICI Bank",
-  "name": "ICICI Bank HPCL Super Saver Credit Card",
+  "name": "HPCL Super Saver",
   "network": [
     "Visa",
     "RuPay"
@@ -23,7 +23,7 @@
       "displayCategory": "Fuel spends at HPCL outlets",
       "rate": 4,
       "displayRate": "4% cashback",
-      "valuePerUnit": 1.0,
+      "valuePerUnit": 1,
       "capMonthly": 200
     },
     {

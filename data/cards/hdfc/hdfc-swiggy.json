@@ -1,7 +1,7 @@
 {
   "id": "hdfc-swiggy",
   "issuer": "HDFC Bank",
-  "name": "Swiggy HDFC Bank Credit Card",
+  "name": "Swiggy",
   "status": "discontinued",
   "network": [
     "Mastercard"

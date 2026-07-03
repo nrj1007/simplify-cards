@@ -1,7 +1,7 @@
 {
   "id": "equitas-powermiles",
   "issuer": "Equitas Small Finance Bank",
-  "name": "Equitas PowerMiles Credit Card",
+  "name": "PowerMiles",
   "network": [
     "Visa"
   ],
@@ -42,7 +42,7 @@
       "1 complimentary international airport lounge visit per calendar quarter (4 per year) at 1000+ lounges worldwide."
     ]
   },
-  "forexMarkup": 2.0,
+  "forexMarkup": 2,
   "tags": [
     "equitas",
     "powermiles",
@@ -89,13 +89,22 @@
     "The live public page says points can be converted to leading airline miles, but it does not publish the current partner list or transfer ratios."
   ],
   "redemption": {
-    "travelPortalValue": 0.50,
+    "travelPortalValue": 0.5,
     "ecosystemLabel": "Xchange Brands",
-    "ecosystemValue": 1.0,
+    "ecosystemValue": 1,
     "pointValueTiers": [
-      { "minMonthlySpend": 0, "value": 0.5 },
-      { "minMonthlySpend": 60000, "value": 0.75 },
-      { "minMonthlySpend": 100000, "value": 1.0 }
+      {
+        "minMonthlySpend": 0,
+        "value": 0.5
+      },
+      {
+        "minMonthlySpend": 60000,
+        "value": 0.75
+      },
+      {
+        "minMonthlySpend": 100000,
+        "value": 1
+      }
     ],
     "airlinePartners": [],
     "hotelPartners": []

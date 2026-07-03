@@ -1,7 +1,7 @@
 {
   "id": "equitas-selfe",
   "issuer": "Equitas Small Finance Bank",
-  "name": "Equitas Selfe Credit Card",
+  "name": "Selfe",
   "network": [
     "Visa",
     "RuPay"
@@ -99,10 +99,22 @@
     "ecosystemLabel": "Equitas Xchange",
     "ecosystemValue": 1,
     "pointValueTiers": [
-      { "minMonthlySpend": 0, "value": 0.35 },
-      { "minMonthlySpend": 40000, "value": 0.5 },
-      { "minMonthlySpend": 60000, "value": 0.75 },
-      { "minMonthlySpend": 100000, "value": 1 }
+      {
+        "minMonthlySpend": 0,
+        "value": 0.35
+      },
+      {
+        "minMonthlySpend": 40000,
+        "value": 0.5
+      },
+      {
+        "minMonthlySpend": 60000,
+        "value": 0.75
+      },
+      {
+        "minMonthlySpend": 100000,
+        "value": 1
+      }
     ],
     "airlinePartners": [],
     "hotelPartners": []

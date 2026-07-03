@@ -1,7 +1,7 @@
 {
   "id": "kotak-pvr-gold",
   "issuer": "Kotak Mahindra Bank",
-  "name": "PVR Kotak Gold Credit Card",
+  "name": "PVR Gold",
   "network": [
     "Visa"
   ],
@@ -13,7 +13,9 @@
     "entertainment"
   ],
   "rewardType": "movie benefits",
-  "categoryFocusTags": ["entertainment"],
+  "categoryFocusTags": [
+    "entertainment"
+  ],
   "rewards": [
     {
       "category": "base",

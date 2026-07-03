@@ -1,7 +1,7 @@
 {
   "id": "indusind-platinum-rupay",
   "issuer": "IndusInd Bank",
-  "name": "IndusInd Bank Platinum RuPay Credit Card",
+  "name": "Platinum RuPay",
   "network": [
     "RuPay"
   ],
