@@ -351,8 +351,28 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
       // keep envelope scoring available for the same blended ranking used by the flat list.
       (input.resultStrategy === "reward-type-split" && intent.inferredSpend !== undefined && input.spend === undefined)
     ));
+  const zeroProfile: SpendProfile = {
+    online: 0,
+    base: 0,
+    travel: 0,
+    hotels: 0,
+    airlines: 0,
+    fuel: 0,
+    dining: 0,
+    grocery: 0,
+    amazon: 0,
+    upi: 0,
+    utilities: 0,
+    rent: 0,
+    insurance: 0,
+    education: 0,
+    gold: 0,
+    government: 0,
+    international: 0
+  };
+  const baseProfile = input.spend !== undefined ? zeroProfile : defaultSpendProfile;
   const spend = {
-    ...defaultSpendProfile,
+    ...baseProfile,
     ...(segmentSpend ?? {}),
     ...(intent.inferredSpend ?? {}),
     ...(forexFocusedSpend ?? {}),
