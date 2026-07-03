@@ -21,6 +21,7 @@
   --teal-soft: #e5f0ee;
   --teal-line: #bdd7d3;
   --gold: #d7a84a;
+  --gold-soft: #f7ecd1;
   --green: #248b64;
   --line-2: #ecece6;
   --shadow: 0 26px 70px rgba(7, 17, 39, 0.14);
@@ -1776,8 +1777,8 @@ textarea {
 .panel {
   background: var(--panel);
   border: 1px solid var(--line);
-  border-radius: 8px;
-  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.06);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
 }
 
 .ask-panel {
@@ -1852,8 +1853,9 @@ textarea {
 }
 
 .recommend-total > div {
-  background: var(--soft);
-  border-radius: 8px;
+  background: var(--teal-soft);
+  border: 1px solid var(--teal-line);
+  border-radius: var(--radius-md);
   flex: 1;
   padding: 10px 12px;
 }
@@ -1904,9 +1906,9 @@ textarea {
 
 .recommend-more {
   align-items: center;
-  background: transparent;
+  background: #fff;
   border: 1px solid var(--line);
-  border-radius: 7px;
+  border-radius: 14px;
   color: var(--brand-strong);
   cursor: pointer;
   display: inline-flex;
@@ -2053,7 +2055,7 @@ textarea {
 .field textarea {
   background: #fff;
   border: 1px solid var(--line);
-  border-radius: 7px;
+  border-radius: 14px;
   color: var(--text);
   min-height: 42px;
   padding: 10px 12px;
@@ -2075,7 +2077,7 @@ textarea {
 .button,
 .chip {
   align-items: center;
-  border-radius: 7px;
+  border-radius: 14px;
   cursor: pointer;
   display: inline-flex;
   gap: 8px;
@@ -2085,8 +2087,9 @@ textarea {
 }
 
 .button {
-  background: var(--brand);
-  border: 1px solid var(--brand);
+  background: var(--teal);
+  border: 1px solid var(--teal);
+  box-shadow: 0 12px 24px rgba(52, 125, 120, 0.16);
   color: #fff;
   font-weight: 800;
 }
@@ -2094,6 +2097,7 @@ textarea {
 .button.secondary {
   background: #fff;
   border-color: var(--line);
+  box-shadow: none;
   color: var(--text);
 }
 
@@ -2528,6 +2532,7 @@ textarea {
 }
 
 .card h3 {
+  color: var(--navy);
   font-size: 18px;
   margin: 0;
 }
@@ -2541,13 +2546,13 @@ textarea {
 }
 
 .badge {
-  background: #f1f5f4;
-  border: 1px solid var(--line);
+  background: var(--teal-soft);
+  border: 1px solid var(--teal-line);
   border-radius: 999px;
-  color: #334155;
+  color: var(--teal-dark);
   display: inline-flex;
   font-size: 12px;
-  font-weight: 700;
+  font-weight: 800;
   padding: 5px 9px;
 }
 
@@ -2589,7 +2594,7 @@ textarea {
 }
 
 .trust-panel {
-  border-radius: 8px;
+  border-radius: var(--radius-md);
   display: grid;
   gap: 6px;
   padding: 12px;
@@ -2635,13 +2640,14 @@ textarea {
 }
 
 .stat {
-  background: #fafafa;
+  background: var(--cream-2);
   border: 1px solid var(--line);
-  border-radius: 7px;
+  border-radius: var(--radius-md);
   padding: 10px;
 }
 
 .stat strong {
+  color: var(--navy);
   display: block;
   font-size: 18px;
 }
@@ -2664,8 +2670,8 @@ textarea {
 
 .info-popover-trigger {
   align-items: center;
-  background: #eef4f3;
-  border: 1px solid var(--line);
+  background: var(--teal-soft);
+  border: 1px solid var(--teal-line);
   border-radius: 999px;
   color: var(--brand-strong);
   cursor: pointer;
@@ -2687,8 +2693,8 @@ textarea {
 .info-popover-panel {
   background: #fff;
   border: 1px solid var(--line);
-  border-radius: 8px;
-  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.12);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-soft);
   color: var(--text);
   display: grid;
   gap: 8px;
@@ -2715,10 +2721,10 @@ textarea {
 
 .ad-slot {
   align-items: center;
-  background: #f3efe7;
-  border: 1px dashed #c6a96d;
-  border-radius: 8px;
-  color: #76520d;
+  background: var(--gold-soft);
+  border: 1px dashed rgba(180, 83, 9, 0.34);
+  border-radius: var(--radius-md);
+  color: var(--accent);
   display: flex;
   font-size: 13px;
   font-weight: 700;
@@ -2845,8 +2851,8 @@ textarea {
 .feedback-modal {
   background: #fff;
   border: 1px solid var(--line);
-  border-radius: 8px;
-  box-shadow: 0 18px 60px rgba(15, 23, 42, 0.18);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
   max-width: 520px;
   padding: 18px;
   width: min(100%, 520px);
@@ -2894,7 +2900,7 @@ textarea {
 .feedback-modal-textarea {
   background: #fff;
   border: 1px solid var(--line);
-  border-radius: 8px;
+  border-radius: 14px;
   color: var(--text);
   font: inherit;
   min-height: 110px;
@@ -2929,7 +2935,7 @@ textarea {
 .answer-ranked-item {
   align-items: center;
   border: 1px solid var(--line);
-  border-radius: 8px;
+  border-radius: var(--radius-md);
   display: flex;
   gap: 16px;
   justify-content: space-between;
@@ -3075,6 +3081,11 @@ textarea {
   padding: 16px;
 }
 
+.review-page .review-summary,
+.review-page .notice {
+  margin-bottom: 18px;
+}
+
 .review-list {
   display: grid;
   gap: 14px;
@@ -3162,7 +3173,10 @@ textarea {
 .compare-table {
   background: var(--panel);
   border: 1px solid var(--line);
-  border-collapse: collapse;
+  border-collapse: separate;
+  border-radius: var(--radius-md);
+  border-spacing: 0;
+  overflow: hidden;
   width: 100%;
 }
 
@@ -3179,7 +3193,8 @@ textarea {
 }
 
 .compare-table th {
-  background: #f1f5f4;
+  background: var(--teal-soft);
+  color: var(--teal-dark);
 }
 
 .compare-table .cap-column {
@@ -3198,10 +3213,10 @@ textarea {
 }
 
 .notice {
-  background: var(--danger-soft);
-  border: 1px solid #f0cd91;
-  border-radius: 8px;
-  color: #6b4300;
+  background: var(--gold-soft);
+  border: 1px solid rgba(180, 83, 9, 0.22);
+  border-radius: var(--radius-md);
+  color: #76520d;
   font-size: 13px;
   line-height: 1.5;
   padding: 12px;
@@ -3286,9 +3301,9 @@ textarea {
 }
 
 .info-row {
-  background: #fafafa;
+  background: var(--cream-2);
   border: 1px solid var(--line);
-  border-radius: 7px;
+  border-radius: var(--radius-md);
   display: grid;
   gap: 4px;
   padding: 10px;
@@ -3309,9 +3324,9 @@ textarea {
 }
 
 .content-item {
-  background: #fafafa;
+  background: var(--cream-2);
   border: 1px solid var(--line);
-  border-radius: 7px;
+  border-radius: var(--radius-md);
   display: grid;
   gap: 10px;
   padding: 12px;

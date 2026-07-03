@@ -1,6 +1,7 @@
 import { readAnalyticsLog } from "@/lib/analytics-logs";
 import { getCardById } from "@/lib/cards";
 import type { AnalyticsEventName, AnalyticsSource, StoredAnalyticsEvent } from "@/lib/analytics";
+import PageHero from "@/app/ui/PageHero";
 
 export const dynamic = "force-dynamic";
 
@@ -173,32 +174,35 @@ export default async function AnalyticsReviewPage() {
   const dailyUsageRows = getDailyUsageRows(last14DayEvents, now);
 
   return (
-    <section className="section analytics-review">
-      <div className="page-title">
-        <h1>Analytics</h1>
-        <p>Review recent product usage from the local analytics JSONL log.</p>
-      </div>
+    <div className="page-shell review-page analytics-review">
+      <PageHero
+        eyebrow="Internal review"
+        title="Analytics"
+        lead="Review recent product usage from the local analytics JSONL log."
+      />
 
-      <div className="panel review-summary" style={{ margin: "18px 0" }}>
-        <div className="stat">
-          <strong>{events.length.toLocaleString("en-IN")}</strong>
-          <span>Events loaded</span>
-        </div>
-        <div className="stat">
-          <strong>{last30DayEvents.length.toLocaleString("en-IN")}</strong>
-          <span>Events in last 30 days</span>
-        </div>
-        <div className="stat">
-          <strong>{topAskQueries.length.toLocaleString("en-IN")}</strong>
-          <span>Tracked ask queries</span>
-        </div>
-        <div className="stat">
-          <strong>{applyRows.length.toLocaleString("en-IN")}</strong>
-          <span>Cards with apply clicks</span>
-        </div>
-      </div>
+      <section className="page-content">
+        <div className="container">
+          <div className="panel review-summary">
+            <div className="stat">
+              <strong>{events.length.toLocaleString("en-IN")}</strong>
+              <span>Events loaded</span>
+            </div>
+            <div className="stat">
+              <strong>{last30DayEvents.length.toLocaleString("en-IN")}</strong>
+              <span>Events in last 30 days</span>
+            </div>
+            <div className="stat">
+              <strong>{topAskQueries.length.toLocaleString("en-IN")}</strong>
+              <span>Tracked ask queries</span>
+            </div>
+            <div className="stat">
+              <strong>{applyRows.length.toLocaleString("en-IN")}</strong>
+              <span>Cards with apply clicks</span>
+            </div>
+          </div>
 
-      <div className="review-list">
+          <div className="review-list">
         <article className="panel review-item">
           <div className="review-item-head">
             <strong>Top ask queries</strong>
@@ -317,7 +321,9 @@ export default async function AnalyticsReviewPage() {
             </div>
           )}
         </article>
-      </div>
-    </section>
+          </div>
+        </div>
+      </section>
+    </div>
   );
 }
