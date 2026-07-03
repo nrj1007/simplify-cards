@@ -74,7 +74,7 @@
   ],
   "joiningBenefitsValued": [
     {
-      "value": 3550,
+      "value": 0,
       "kind": "other",
       "label": "12-month EazyDiner Prime membership"
     },
@@ -84,14 +84,14 @@
       "label": "2,000 welcome EazyPoints"
     },
     {
-      "value": 3750,
+      "value": 1875,
       "kind": "voucher",
       "label": "The Postcard Hotel voucher worth Rs 7,500"
     }
   ],
   "renewalBenefitsValued": [
     {
-      "value": 3550,
+      "value": 0,
       "kind": "other",
       "label": "12-month EazyDiner Prime membership renewal"
     },

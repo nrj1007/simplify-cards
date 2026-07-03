@@ -69,7 +69,7 @@
   ],
   "joiningBenefitsValued": [
     {
-      "value": 1095,
+      "value": 0,
       "kind": "other",
       "label": "Complimentary 3-month EazyDiner Prime membership"
     },
@@ -81,7 +81,7 @@
   ],
   "renewalBenefitsValued": [
     {
-      "value": 1095,
+      "value": 0,
       "kind": "other",
       "label": "3-month EazyDiner Prime membership renewal upon spending Rs 30,000 in 90 days"
     }
