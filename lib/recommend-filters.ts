@@ -180,7 +180,10 @@ export function shouldRestrictToZeroForexCards(input: RecommendationInput, inten
 export const maxForexMarkupForForexQueries = 3;
 
 export function shouldRestrictToLowForexCards(input: RecommendationInput, intent: ReturnType<typeof parseQueryIntent>) {
-  return intent.tags.includes("forex") && isCardRecommendationQuery(input.query);
+  const isForexOrIntl =
+    intent.tags.includes("forex") ||
+    /\binternational\b|\bforeign\b|\babroad\b|\boverseas\b/i.test(input.query ?? "");
+  return isForexOrIntl && isCardRecommendationQuery(input.query);
 }
 
 // Category-focused recommendation queries ("best dining/grocery/online/entertainment card") are

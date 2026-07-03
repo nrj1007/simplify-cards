@@ -486,15 +486,15 @@ exports[`ranking golden (representative queries) > produces stable top-N orderin
     "icici-emeralde-private-metal",
     "kotak-infinite",
     "sc-ultimate",
-    "amex-membership-rewards",
     "bobcard-etihad-guest-premium",
     "hsbc-premier",
     "bobcard-eterna",
     "hdfc-infinia-metal",
     "scapia-federal",
     "scapia-bobcard",
-    "amex-gold",
-    "bobcard-premier",
+    "equitas-powermiles",
+    "tata-neu-infinity-sbi",
+    "idfc-wow",
   ],
   "spend-level-heavy": [
     "hsbc-premier",
@@ -863,10 +863,7 @@ exports[`result split golden (all query modes) > snapshots section membership fo
     ],
   },
   "intl-lounge-query": {
-    "Cashback cards": [
-      "titan-sbi",
-      "hsbc-rupay-cashback",
-    ],
+    "Cashback cards": [],
     "Rewards cards": [
       "hsbc-premier",
       "axis-magnus-burgundy",
@@ -876,6 +873,8 @@ exports[`result split golden (all query modes) > snapshots section membership fo
       "kotak-white-reserve",
       "axis-reserve",
       "hdfc-diners-club-black-metal",
+      "hdfc-infinia-metal",
+      "icici-times-black",
     ],
   },
   "issuer-amex": {
@@ -1227,10 +1226,7 @@ exports[`result split golden (all query modes) > snapshots section membership fo
   "spend-international": {
     "Cashback cards": [
       "csb-jupiter-edge-plus",
-      "axis-ace",
-      "sbm-paisabazaar-paisa-plus",
       "icici-amazon-pay",
-      "hsbc-live-plus",
     ],
     "Rewards cards": [
       "equitas-powermiles",
@@ -1238,6 +1234,9 @@ exports[`result split golden (all query modes) > snapshots section membership fo
       "bobcard-etihad-guest-premium",
       "axis-magnus-burgundy",
       "hdfc-diners-club-black-metal",
+      "icici-emeralde-private-metal",
+      "hdfc-infinia-metal",
+      "scapia-federal",
     ],
   },
   "spend-level-heavy": {
