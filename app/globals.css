@@ -6982,6 +6982,42 @@ textarea {
   background: var(--sc-purple-dark);
 }
 
+.sc-subscribe-success-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 12px;
+}
+
+.sc-subscribe-success {
+  color: var(--green);
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.sc-subscribe-reset-btn {
+  font-size: 13px !important;
+  padding: 8px 12px !important;
+  background: transparent !important;
+  border: 1px solid var(--sc-line) !important;
+  color: var(--sc-muted) !important;
+  width: max-content;
+}
+
+.sc-subscribe-reset-btn:hover {
+  background: var(--sc-line) !important;
+  color: var(--sc-ink) !important;
+}
+
+.sc-subscribe-error {
+  color: #b91c1c;
+  font-size: 13px;
+  font-weight: 700;
+  margin: 8px 0 0;
+}
+
 .sc-reviews {
   margin-bottom: 64px;
 }

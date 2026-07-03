@@ -394,11 +394,55 @@ function LatestUpdates({ updates }: { updates: LandingUpdate[] }) {
   const [activeIndex, setActiveIndex] = useState(0);
   const active = updates[activeIndex];
 
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [errorMessage, setErrorMessage] = useState("");
+
   useEffect(() => {
     if (updates.length <= 1) return;
     const timer = window.setInterval(() => setActiveIndex((index) => (index + 1) % updates.length), 4500);
     return () => window.clearInterval(timer);
   }, [updates.length]);
+
+  const handleSubscribe = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!name.trim()) {
+      setStatus("error");
+      setErrorMessage("Please enter your name");
+      return;
+    }
+    if (!email.trim()) {
+      setStatus("error");
+      setErrorMessage("Please enter your email ID");
+      return;
+    }
+
+    setStatus("loading");
+    setErrorMessage("");
+
+    try {
+      const res = await fetch("/api/subscribe", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ name, email }),
+      });
+
+      const data = await res.json();
+      if (!res.ok) {
+        throw new Error(data.error || "Subscription failed");
+      }
+
+      setStatus("success");
+      setName("");
+      setEmail("");
+    } catch (err: any) {
+      setStatus("error");
+      setErrorMessage(err.message || "Failed to subscribe. Please try again.");
+    }
+  };
 
   if (!active) {
     return (
@@ -448,12 +492,52 @@ function LatestUpdates({ updates }: { updates: LandingUpdate[] }) {
         </article>
         <aside className="sc-subscribe-card">
           <h3>Subscribe to latest updates</h3>
-          <p>We promise only useful updates and no spam</p>
-          <form onSubmit={(event) => event.preventDefault()}>
-            <input type="text" placeholder="Name" aria-label="Name" />
-            <input type="email" placeholder="Email ID" aria-label="Email ID" />
-            <button type="submit">Subscribe</button>
-          </form>
+          {status === "success" ? (
+            <div className="sc-subscribe-success-container">
+              <p className="sc-subscribe-success">
+                ✓ Thank you for subscribing!
+              </p>
+              <button
+                type="button"
+                onClick={() => setStatus("idle")}
+                className="sc-subscribe-reset-btn"
+              >
+                Subscribe another email
+              </button>
+            </div>
+          ) : (
+            <>
+              <p>We promise only useful updates and no spam</p>
+              <form onSubmit={handleSubscribe}>
+                <input
+                  type="text"
+                  placeholder="Name"
+                  aria-label="Name"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  disabled={status === "loading"}
+                  required
+                />
+                <input
+                  type="email"
+                  placeholder="Email ID"
+                  aria-label="Email ID"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  disabled={status === "loading"}
+                  required
+                />
+                <button type="submit" disabled={status === "loading"}>
+                  {status === "loading" ? "Subscribing..." : "Subscribe"}
+                </button>
+              </form>
+              {status === "error" && (
+                <p className="sc-subscribe-error">
+                  {errorMessage}
+                </p>
+              )}
+            </>
+          )}
         </aside>
       </div>
     </section>
