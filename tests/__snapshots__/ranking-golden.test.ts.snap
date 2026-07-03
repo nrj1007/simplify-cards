@@ -808,7 +808,7 @@ exports[`result split golden (all query modes) > snapshots section membership fo
       "axis-ace",
       "axis-fibe",
       "axis-flipkart",
-      "axis-samsung-signature",
+      "axis-cashback",
     ],
     "Rewards cards": [
       "axis-atlas",
@@ -1084,33 +1084,33 @@ exports[`result split golden (all query modes) > snapshots section membership fo
   "network-mastercard": {
     "Cashback cards": [
       "sbi-cashback",
+      "hdfc-swiggy-black",
       "hdfc-swiggy-orange",
       "axis-airtel",
-      "hdfc-swiggy-black",
       "hdfc-millennia",
     ],
     "Rewards cards": [
       "hsbc-premier",
-      "hsbc-travelone",
       "hdfc-regalia-gold",
+      "hsbc-travelone",
       "sc-ultimate",
-      "yes-reserv",
+      "sbi-card-elite",
     ],
   },
   "network-rupay": {
     "Cashback cards": [
       "yes-kiwi",
-      "hsbc-rupay-cashback",
-      "phonepe-sbi-purple",
       "phonepe-sbi-select-black",
+      "phonepe-sbi-purple",
+      "hsbc-rupay-cashback",
       "axis-fibe",
     ],
     "Rewards cards": [
       "au-ixigo",
+      "yes-pop-club",
       "yes-reserv",
-      "equitas-selfe",
-      "sbi-card-miles-prime",
-      "sbi-card-miles-elite",
+      "hsbc-rupay-platinum",
+      "reliance-sbi-prime",
     ],
   },
   "network-visa": {
@@ -1118,15 +1118,15 @@ exports[`result split golden (all query modes) > snapshots section membership fo
       "phonepe-sbi-select-black",
       "hsbc-live-plus",
       "sbi-cashback",
-      "axis-ace",
       "kotak-cashback-plus",
+      "axis-ace",
     ],
     "Rewards cards": [
       "icici-emeralde-private-metal",
       "hdfc-infinia-metal",
       "hdfc-regalia-gold",
-      "axis-magnus-burgundy",
       "kotak-solitaire",
+      "indusind-eazydiner",
     ],
   },
   "segment-beginner": {
@@ -1195,17 +1195,17 @@ exports[`result split golden (all query modes) > snapshots section membership fo
   "spend-fuel-heavy": {
     "Cashback cards": [
       "bpcl-sbi-octane",
+      "icici-hpcl-super-saver",
+      "bpcl-sbi",
       "kotak-cashback-plus",
       "icici-hpcl-coral",
-      "bpcl-sbi",
-      "icici-hpcl-super-saver",
     ],
     "Rewards cards": [
-      "amex-platinum-reserve",
       "idfc-first-power-plus",
-      "kotak-pvr-inox",
+      "axis-indianoil-easy",
+      "axis-indianoil",
+      "idfc-first-power",
       "hdfc-indianoil",
-      "sc-priority-visa-infinite",
     ],
   },
   "spend-high-base": {

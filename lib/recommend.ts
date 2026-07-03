@@ -774,6 +774,9 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
     bucket === "cashback" ? CASHBACK_BLEND_WEIGHTS : REWARD_BLEND_WEIGHTS;
 
   const computeSplitOrderScore = (card: CreditCard, bucket: SplitOrderBucket): number => {
+    if (!useEnvelopeScoring) {
+      return strategy.perLevelScore(scoreCardForSpend(card, spend));
+    }
     let orderLevels = splitOrderLevels(bucket);
     let weights = splitOrderWeights(bucket);
     if (intent.useCases.includes("travel")) {
