@@ -55,7 +55,7 @@ const scenarios: Record<string, RecommendationInput> = {
   "combo-premium-travel": { query: "best premium travel card" },
   "combo-dining-under-5000": { query: "best dining card under 5000" },
   "spend-international": { query: "best card for international spends" },
-  "spend-fuel-heavy": { spend: { fuel: 7000, base: 30000 } },
+  "spend-fuel-heavy": { spend: { fuel: 7000, base: 10000 } },
   "spend-travel-heavy": { spend: { travel: 40000, hotels: 20000, airlines: 20000, base: 20000 } },
   "spend-high-base": { spend: { base: 200000, dining: 50000, travel: 50000 } },
   // Spend levels: the same balanced mix at light / mid / heavy monthly totals (~20k / 75k / 250k),
