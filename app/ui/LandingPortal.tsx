@@ -657,7 +657,7 @@ export default function LandingPortal({ popularCards, updates }: LandingPortalPr
       </header>
       <PopularPicks cards={popularCards} />
       <LatestUpdates updates={updates} />
-      <ReviewsPanel />
+      {/* <ReviewsPanel /> */}
       <button type="button" className="sc-floating-ask" onClick={scrollToAsk} aria-label="Ask SimplifyCards">
         <span className="sc-pulse" />
         <Sparkles className="sc-sparkle" size={16} />
