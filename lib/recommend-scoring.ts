@@ -801,6 +801,8 @@ function estimateMonthlyRewardForAllocations(card: CreditCard, allocations: Rewa
       let raw = (item.amount * item.reward.rate) / 100;
       let rowCap = item.reward.capMonthly;
       if (item.reward.capDaily !== undefined && item.reward.capDaily !== null) {
+        // Since lumpy spends (like flights/hotels) are typically done in a single transaction/day,
+        // the daily cap acts effectively as a cap on the row's total monthly earn.
         rowCap = rowCap !== null ? Math.min(rowCap, item.reward.capDaily) : item.reward.capDaily;
       }
       if (rowCap !== null && rowCap !== undefined && raw > rowCap) {
@@ -1183,6 +1185,8 @@ export function rewardBreakdownForCard(
           rowCap = rowCap !== null ? Math.min(rowCap, dynamicCap) : dynamicCap;
         }
         if (reward.capDaily !== undefined && reward.capDaily !== null) {
+          // Since lumpy spends (like flights/hotels) are typically done in a single transaction/day,
+          // the daily cap acts effectively as a cap on the row's total monthly earn.
           rowCap = rowCap !== null ? Math.min(rowCap, reward.capDaily) : reward.capDaily;
         }
         const rowScale = typeof rowCap === "number" ? (rowCap === 0 ? 0 : (rawSum > rowCap ? rowCap / rawSum : 1)) : 1;
@@ -1223,6 +1227,8 @@ export function rewardBreakdownForCard(
       cap = cap !== null ? Math.min(cap, dynamicCap) : dynamicCap;
     }
     if (reward.capDaily !== undefined && reward.capDaily !== null) {
+      // Since lumpy spends (like flights/hotels) are typically done in a single transaction/day,
+      // the daily cap acts effectively as a cap on the row's total monthly earn.
       cap = cap !== null ? Math.min(cap, reward.capDaily) : reward.capDaily;
     }
 

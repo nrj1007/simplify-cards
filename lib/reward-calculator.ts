@@ -324,6 +324,8 @@ function cappedMonthlyUnits(card: CreditCard, monthlySpend: number, reward: Rewa
     cap = cap !== null ? Math.min(cap, dynamicCap) : dynamicCap;
   }
   if (reward.capDaily !== undefined && reward.capDaily !== null) {
+    // Since lumpy spends (like flights/hotels) are typically done in a single transaction/day,
+    // the daily cap acts effectively as a cap on the row's total monthly earn.
     cap = cap !== null ? Math.min(cap, reward.capDaily) : reward.capDaily;
   }
 
@@ -402,6 +404,8 @@ export function assembleRewardRows(card: CreditCard, activeRows: ActiveRow[]): R
       const rawUnits = (active.monthlySpend * earnRate.basePerRs100) / 100;
       let rowCap = active.reward.capMonthly;
       if (active.reward.capDaily !== undefined && active.reward.capDaily !== null) {
+        // Since lumpy spends (like flights/hotels) are typically done in a single transaction/day,
+        // the daily cap acts effectively as a cap on the row's total monthly earn.
         rowCap = rowCap !== null ? Math.min(rowCap, active.reward.capDaily) : active.reward.capDaily;
       }
       const capped = rowCap ? Math.min(rawUnits, rowCap) : rawUnits;
@@ -427,6 +431,8 @@ export function assembleRewardRows(card: CreditCard, activeRows: ActiveRow[]): R
           : (item.monthlySpend * rewardEarnRatePerRs100(card, item.reward).basePerRs100) / 100;
         let rowCap = item.reward.capMonthly;
         if (item.reward.capDaily !== undefined && item.reward.capDaily !== null) {
+          // Since lumpy spends (like flights/hotels) are typically done in a single transaction/day,
+          // the daily cap acts effectively as a cap on the row's total monthly earn.
           rowCap = rowCap !== null ? Math.min(rowCap, item.reward.capDaily) : item.reward.capDaily;
         }
         if (rowCap !== null && rowCap !== undefined && rawUnits > rowCap) {
@@ -491,6 +497,8 @@ export function assembleRewardRows(card: CreditCard, activeRows: ActiveRow[]): R
           cap = cap !== null ? Math.min(cap, dynamicCap) : dynamicCap;
         }
         if (reward.capDaily !== undefined && reward.capDaily !== null) {
+          // Since lumpy spends (like flights/hotels) are typically done in a single transaction/day,
+          // the daily cap acts effectively as a cap on the row's total monthly earn.
           cap = cap !== null ? Math.min(cap, reward.capDaily) : reward.capDaily;
         }
 
