@@ -1,11 +1,12 @@
 import { describe, expect, it, vi, beforeEach } from "vitest";
 import { POST } from "../app/api/ask/route";
-import { answerQuestion, buildFallbackSummary } from "../lib/ask-ai";
+import { answerQuestion, buildFallbackSummary, getAskResultCacheStatus } from "../lib/ask-ai";
 import { answerFromCards } from "../lib/recommend";
 
 vi.mock("../lib/ask-ai", () => ({
   answerQuestion: vi.fn(),
-  buildFallbackSummary: vi.fn()
+  buildFallbackSummary: vi.fn(),
+  getAskResultCacheStatus: vi.fn()
 }));
 
 vi.mock("../lib/recommend", async () => {
@@ -19,6 +20,7 @@ vi.mock("../lib/recommend", async () => {
 describe("/api/ask Route Handler", () => {
   beforeEach(() => {
     vi.clearAllMocks();
+    vi.mocked(getAskResultCacheStatus).mockReturnValue(undefined);
   });
 
   it("successfully returns the AI answer when answerQuestion resolves", async () => {
@@ -26,6 +28,7 @@ describe("/api/ask Route Handler", () => {
     const mockResult = { summary: "Mocked AI Summary", cards: [] };
 
     vi.mocked(answerQuestion).mockResolvedValue(mockResult as any);
+    vi.mocked(getAskResultCacheStatus).mockReturnValue("HIT");
 
     const request = new Request("http://localhost/api/ask", {
       method: "POST",
@@ -34,6 +37,7 @@ describe("/api/ask Route Handler", () => {
 
     const response = await POST(request);
     expect(response.status).toBe(200);
+    expect(response.headers.get("X-Ask-Cache")).toBe("HIT");
 
     const data = await response.json();
     expect(data).toEqual(mockResult);

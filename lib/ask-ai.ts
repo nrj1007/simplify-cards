@@ -10,6 +10,7 @@ import type { UnsupportedQuestionLogEntry } from "./question-logs";
 import { parseQueryIntent } from "./query-intent";
 import { callAiWithSchemaDetailed, type AiCallTrace } from "./ai-provider";
 import { getTotalLoungeAccess } from "./lounge";
+import { askCacheKey, getAskCache, setAskCache, type AskCacheStatus } from "./ask-cache";
 
 export type AskIntent =
   | "specific-card"
@@ -55,6 +56,12 @@ export type AskAiResult = ReturnType<typeof answerFromCards> & {
   unsupportedReason?: string;
   displayMode?: "default" | "ranked-list";
   meta?: AskResultMeta;
+};
+
+const askCacheStatusSymbol = Symbol("ask-cache-status");
+
+type AskAiResultWithCacheStatus = AskAiResult & {
+  [askCacheStatusSymbol]?: AskCacheStatus;
 };
 
 const ASK_INTENT_LABELS: Record<AskIntent, string> = {
@@ -1610,6 +1617,98 @@ async function resolveMentionedCardIdWithAi(
   return getCardById(response.result.cardId) ? response.result.cardId : null;
 }
 
+function sortedValues(values: readonly string[] | undefined) {
+  return [...new Set(values ?? [])].sort();
+}
+
+function normalizedSpend(spend: RecommendationInput["spend"]) {
+  if (!spend) return null;
+
+  return Object.fromEntries(
+    Object.entries(spend)
+      .filter(([, value]) => typeof value === "number" && Number.isFinite(value))
+      .sort(([left], [right]) => left.localeCompare(right))
+  );
+}
+
+function aiProviderMode() {
+  return {
+    openai: Boolean(process.env.OPENAI_API_KEY),
+    gemini: Boolean(process.env.GEMINI_API_KEY)
+  };
+}
+
+function buildResolvedAskCacheKey(input: RecommendationInput, context: {
+  answerKind: AskIntent;
+  intent: ReturnType<typeof parseQueryIntent>;
+  mentionedCardId: string | null;
+  questionType: ReturnType<typeof parseSpecificCardQuestion>["questionType"];
+  rewardsPolicySubject: string | null;
+  requestSplit: boolean;
+}) {
+  return askCacheKey({
+    version: "ask-v1",
+    aiProviderMode: aiProviderMode(),
+    answerKind: context.answerKind,
+    mentionedCardId: context.mentionedCardId,
+    questionType: context.questionType,
+    rewardsPolicySubject: context.rewardsPolicySubject,
+    requestedTopCardCount: requestedTopCardCount(input.query, input.resultStrategy),
+    requestSplit: context.requestSplit,
+    intent: {
+      useCases: sortedValues(context.intent.useCases),
+      segments: sortedValues(context.intent.segments),
+      redemptionBuckets: sortedValues(context.intent.redemptionBuckets),
+      issuers: sortedValues(context.intent.issuers),
+      networks: sortedValues(context.intent.networks),
+      tags: sortedValues(context.intent.tags),
+      maxAnnualFee: context.intent.maxAnnualFee ?? null,
+      inferredSpend: normalizedSpend(context.intent.inferredSpend),
+      wantsLounge: context.intent.wantsLounge,
+      wantsLifetimeFree: context.intent.wantsLifetimeFree,
+      wantsGuestLounge: context.intent.wantsGuestLounge,
+      needsLatestInfo: context.intent.needsLatestInfo
+    },
+    inputControls: {
+      maxAnnualFee: input.maxAnnualFee ?? null,
+      wantsLounge: input.wantsLounge ?? null,
+      wantsLifetimeFree: input.wantsLifetimeFree ?? null,
+      spend: normalizedSpend(input.spend),
+      rankingStrategy: input.rankingStrategy ?? null,
+      resultStrategy: input.resultStrategy ?? null
+    }
+  });
+}
+
+function isCacheableAskAnswer(input: RecommendationInput, result: AskAiResult) {
+  if (input.previousQuery || input.contextCardIds?.length) return false;
+  if (result.needsDatabaseUpdate || result.meta?.intent === "unsupported") return false;
+  if (!result.cards.length) return false;
+  return true;
+}
+
+function setAskCacheStatus(result: AskAiResult, status: AskCacheStatus): AskAiResult {
+  Object.defineProperty(result, askCacheStatusSymbol, {
+    value: status,
+    enumerable: false,
+    configurable: true
+  });
+  return result;
+}
+
+function finalizeAskAnswer(input: RecommendationInput, cacheKey: string | null, result: AskAiResult): AskAiResult {
+  if (!cacheKey || !isCacheableAskAnswer(input, result)) {
+    return setAskCacheStatus(result, "SKIP");
+  }
+
+  setAskCache(cacheKey, result);
+  return setAskCacheStatus(result, "MISS");
+}
+
+export function getAskResultCacheStatus(result: AskAiResult): AskCacheStatus | undefined {
+  return (result as AskAiResultWithCacheStatus)[askCacheStatusSymbol];
+}
+
 export async function answerQuestion(input: RecommendationInput): Promise<AskAiResult> {
   const aiTraces: Array<{ purpose: string; trace: AiCallTrace }> = [];
   const unsupportedReason = getUnsupportedQuestionReason(input);
@@ -1682,6 +1781,22 @@ export async function answerQuestion(input: RecommendationInput): Promise<AskAiR
   const genericScenarioHighlights = buildScenarioHighlights(input, answer.cards, {
     skip: specificCardLookup || namedCardQuestion
   });
+  const resolvedCacheKey = (answerKind: AskIntent) =>
+    buildResolvedAskCacheKey(input, {
+      answerKind,
+      intent,
+      mentionedCardId: shortlisted.mentionedCardId,
+      questionType: parsedCardQuestion.questionType,
+      rewardsPolicySubject,
+      requestSplit
+    });
+
+  const readResolvedCache = (answerKind: AskIntent) => {
+    if (hasFollowUpContext) return null;
+    const key = resolvedCacheKey(answerKind);
+    const cached = getAskCache(key);
+    return cached ? setAskCacheStatus(cached, "HIT") : null;
+  };
 
   if (!topCard) {
     const reason = "No matching cards found in the current database for this question and filters";
@@ -1697,14 +1812,18 @@ export async function answerQuestion(input: RecommendationInput): Promise<AskAiR
   }
 
   if (cardFamilyLookup) {
-    return {
+    const cacheKey = resolvedCacheKey("card-family");
+    const cached = getAskCache(cacheKey);
+    if (cached) return setAskCacheStatus(cached, "HIT");
+
+    return finalizeAskAnswer(input, cacheKey, {
       ...answer,
       summary: cardFamilyLookup.summary,
       cards: cardFamilyLookup.cards,
       highlights: cardFamilyLookup.highlights,
       displayMode: cardFamilyLookup.displayMode,
       meta: buildAskMeta("card-family", { topFit: cardFamilyLookup.cards[0]?.fitScore })
-    };
+    });
   }
 
   if (namedCardQuestion && shortlisted.mentionedCardId && topCard.card.id !== shortlisted.mentionedCardId) {
@@ -1757,12 +1876,16 @@ export async function answerQuestion(input: RecommendationInput): Promise<AskAiR
   if (specificCardLookup || namedCardQuestion) {
     const specificAnswer = buildSpecificQuestionAnswer(input, topCard);
     if (specificAnswer) {
-      return {
+      const cacheKey = resolvedCacheKey("card-detail");
+      const cached = getAskCache(cacheKey);
+      if (cached) return setAskCacheStatus(cached, "HIT");
+
+      return finalizeAskAnswer(input, cacheKey, {
         ...answer,
         summary: specificAnswer.summary,
         highlights: specificAnswer.highlights,
         meta: buildAskMeta("card-detail", { topFit: topCard.fitScore })
-      };
+      });
     }
 
     if (rewardsPolicySubject && !cardMentionsPolicySubject(topCard, rewardsPolicySubject)) {
@@ -1783,11 +1906,12 @@ export async function answerQuestion(input: RecommendationInput): Promise<AskAiR
     }
   }
 
-  const generatedSummary = isRankingQuery ? null : await generateGroundedSummary(input, answer.cards, aiTraces);
-
   if (isRankingQuery) {
+    const cached = readResolvedCache("top-cards");
+    if (cached) return cached;
+
     const topCardsSummary = await generateTopCardsSummary(input, answer.cards, aiTraces);
-    return {
+    return finalizeAskAnswer(input, resolvedCacheKey("top-cards"), {
       ...answer,
       summary: topCardsSummary ?? buildFallbackSummary(inputForAnswer, answer.cards),
       highlights: buildTopCardsHighlights(input, answer.cards),
@@ -1798,8 +1922,14 @@ export async function answerQuestion(input: RecommendationInput): Promise<AskAiR
         }),
         ai: summarizeAiTraces(aiTraces)
       }
-    };
+    });
   }
+
+  const finalAnswerKind: AskIntent = specificCardLookup || namedCardQuestion ? "specific-card" : "best-fit";
+  const cached = readResolvedCache(finalAnswerKind);
+  if (cached) return cached;
+
+  const generatedSummary = await generateGroundedSummary(input, answer.cards, aiTraces);
 
   if (generatedSummary) {
     const curatedAlternativeNames = getAlternativeNames(topCard, answer.cards);
@@ -1809,7 +1939,7 @@ export async function answerQuestion(input: RecommendationInput): Promise<AskAiR
       .map((item) => item.card.name)
       .filter((name) => name !== topCard.card.name);
 
-    return {
+    return finalizeAskAnswer(input, resolvedCacheKey(finalAnswerKind), {
       ...answer,
       summary: generatedSummary,
       highlights: buildBestFitHighlights(
@@ -1824,7 +1954,7 @@ export async function answerQuestion(input: RecommendationInput): Promise<AskAiR
         }),
         ai: summarizeAiTraces(aiTraces)
       }
-    };
+    });
   }
 
   const curatedAlternativeNames = getAlternativeNames(topCard, answer.cards);
@@ -1834,7 +1964,7 @@ export async function answerQuestion(input: RecommendationInput): Promise<AskAiR
     .map((item) => item.card.name)
     .filter((name) => name !== topCard.card.name);
 
-  return {
+  return finalizeAskAnswer(input, resolvedCacheKey(finalAnswerKind), {
     ...answer,
     summary: buildFallbackSummary(inputForAnswer, answer.cards),
     highlights: buildBestFitHighlights(
@@ -1846,5 +1976,5 @@ export async function answerQuestion(input: RecommendationInput): Promise<AskAiR
       ...buildAskMeta(specificCardLookup || namedCardQuestion ? "specific-card" : "best-fit", { topFit: topCard.fitScore }),
       ai: summarizeAiTraces(aiTraces)
     }
-  };
+  });
 }

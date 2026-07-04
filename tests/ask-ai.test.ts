@@ -2,6 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { answerQuestion, confidenceFromGap, getUnsupportedQuestionReason } from "../lib/ask-ai";
+import { clearAskCache } from "../lib/ask-cache";
 import { scoreCards } from "../lib/recommend";
 
 const logPath = path.join(process.cwd(), "data", "question-logs", "unsupported-questions.json");
@@ -15,11 +16,13 @@ function cleanupLogFile() {
 describe("ask ai fallback policy", () => {
   beforeEach(() => {
     cleanupLogFile();
+    clearAskCache();
     delete process.env.OPENAI_API_KEY;
     vi.restoreAllMocks();
   });
 
   afterEach(() => {
+    clearAskCache();
     cleanupLogFile();
     if (originalApiKey) process.env.OPENAI_API_KEY = originalApiKey;
     else delete process.env.OPENAI_API_KEY;

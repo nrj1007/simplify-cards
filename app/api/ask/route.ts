@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { answerQuestion, buildFallbackSummary } from "@/lib/ask-ai";
+import { answerQuestion, buildFallbackSummary, getAskResultCacheStatus } from "@/lib/ask-ai";
 import { answerFromCards } from "@/lib/recommend";
 import type { RecommendationInput } from "@/lib/types";
 
@@ -16,7 +16,11 @@ export async function POST(request: Request) {
 
   try {
     const result = await answerQuestion(input);
-    return NextResponse.json(result);
+    return NextResponse.json(result, {
+      headers: {
+        "X-Ask-Cache": getAskResultCacheStatus(result) ?? "SKIP"
+      }
+    });
   } catch (error) {
     console.error("Error in /api/ask route handler:", error);
 
