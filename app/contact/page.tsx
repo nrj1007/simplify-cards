@@ -6,7 +6,7 @@ import { buildPageMetadata } from "@/lib/seo";
 export const metadata: Metadata = buildPageMetadata({
   title: "Contact",
   description:
-    "Get in touch with Simplify Cards. Report credit card details corrections, suggest missing cards, or reach out via email.",
+    "Get in touch with SimplifyCards. Report credit card details corrections, suggest missing cards, or reach out via email.",
   path: "/contact"
 });
 
@@ -22,7 +22,7 @@ export default function ContactPage() {
       <PageHero
         eyebrow="Contact"
         title="We'd love to hear from you."
-        lead="Help us keep Simplify Cards accurate and complete. You can reach us via email or send feedback directly through our tools."
+        lead="Help us keep SimplifyCards accurate and complete. You can reach us via email or send feedback directly through our tools."
       />
 
       <div className="page-content">
@@ -67,7 +67,7 @@ export default function ContactPage() {
             </article>
           </section>
 
-          <aside className="about-side" aria-label="Simplify Cards summary">
+          <aside className="about-side" aria-label="SimplifyCards summary">
             <section className="panel about-card">
               <h2>Built for India</h2>
               <p>
@@ -91,7 +91,7 @@ export default function ContactPage() {
             <section className="panel about-card">
               <h2>Disclosure</h2>
               <p>
-                Simplify Cards is not financial advice. Apply buttons may use affiliate links, while Check official site links open issuer
+                SimplifyCards is not financial advice. Apply buttons may use affiliate links, while Check official site links open issuer
                 or partner pages.
               </p>
             </section>

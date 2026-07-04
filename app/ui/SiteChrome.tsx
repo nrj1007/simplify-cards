@@ -27,9 +27,9 @@ const COMPARISON_LINKS: Array<{ label: string; href: Route }> = [
 
 const POLICY_COPY = {
   about: {
-    title: "About Simplify Cards",
+    title: "About SimplifyCards",
     body: [
-      "Simplify Cards is an AI-powered credit-card research platform built to help Indian users choose cards with more clarity and less guesswork.",
+      "SimplifyCards is an AI-powered credit-card research platform built to help Indian users choose cards with more clarity and less guesswork.",
       "Our proprietary algorithm compares 200+ credit cards across rewards, fees, caps, exclusions, and practical fit so users can shortlist better options faster.",
       "The platform is designed for information, education, and comparison; final application decisions should always be based on issuer terms."
     ]
@@ -41,7 +41,7 @@ const POLICY_COPY = {
   disclosure: {
     title: "Disclosure",
     body: [
-      "Some outbound application links may be affiliate links. This may earn Simplify Cards a commission at no additional cost to you.",
+      "Some outbound application links may be affiliate links. This may earn SimplifyCards a commission at no additional cost to you.",
       "Affiliate relationships do not determine the data stored for a card or the reward math shown in recommendations."
     ]
   },
@@ -55,7 +55,7 @@ const POLICY_COPY = {
   terms: {
     title: "Terms & Conditions",
     body: [
-      "Simplify Cards provides informational tools only and does not provide financial advice.",
+      "SimplifyCards provides informational tools only and does not provide financial advice.",
       "Card terms, fees, eligibility, offers, and rewards can change. Always verify details directly with the issuer before applying."
     ]
   }
@@ -104,10 +104,10 @@ export function SiteHeader() {
   return (
     <nav className="sc-topnav site-header">
       <div className="sc-topnav-inner">
-        <Link href="/" className="sc-brand" aria-label="Simplify Cards home">
+        <Link href="/" className="sc-brand" aria-label="SimplifyCards home">
           <LogoMark />
           <span>
-            <b>Simplify</b> Cards
+            <b>Simplify</b>Cards
           </span>
         </Link>
         <div className="sc-navlinks">
@@ -225,7 +225,7 @@ export function SiteFooter() {
           </div>
         </div>
         <div className="sc-footer-bottom">
-          <span>© 2026 Simplify Cards. All rights reserved.</span>
+          <span>© 2026 SimplifyCards. All rights reserved.</span>
           <div>
             <button type="button" onClick={() => setPolicy("privacy")}>Privacy Policy</button>
             <button type="button" onClick={() => setPolicy("disclosure")}>Disclosure</button>

@@ -6,7 +6,7 @@ import { buildPageMetadata } from "@/lib/seo";
 export const metadata: Metadata = buildPageMetadata({
   title: "How We Rate Cards",
   description:
-    "Learn how Simplify Cards ranks and scores Indian credit cards. We use verified card data, realistic spend models, and transparent benefit calculations.",
+    "Learn how SimplifyCards ranks and scores Indian credit cards. We use verified card data, realistic spend models, and transparent benefit calculations.",
   path: "/methodology"
 });
 
@@ -62,7 +62,7 @@ export default function MethodologyPage() {
               <div className="page-eyebrow">Data First, AI Second</div>
               <h2>Verified Data is the Source of Truth</h2>
               <p>
-                Unlike generic blogs or AI chatbots that search the web in real-time and hallucinate details, Simplify Cards processes decisions through a manually-curated dataset of over 200 Indian credit cards (stored locally under <code>data/cards/</code>).
+                Unlike generic blogs or AI chatbots that search the web in real-time and hallucinate details, SimplifyCards processes decisions through a manually-curated dataset of over 200 Indian credit cards (stored locally under <code>data/cards/</code>).
               </p>
               <p>
                 Every card fee, reward multiplier, monthly cap, category exclusion, lounge spend requirement, and milestone tier in our database is verified by hand. Our AI is only used to format and phrase answers—never to invent card facts, terms, or rates.
@@ -110,7 +110,7 @@ export default function MethodologyPage() {
             <section className="panel about-card">
               <h2>What We Surface</h2>
               <p>
-                We believe in full transparency. Alongside headline benefits, Simplify Cards explicitly surfaces the details that matter most:
+                We believe in full transparency. Alongside headline benefits, SimplifyCards explicitly surfaces the details that matter most:
               </p>
               <div className="about-pill-list methodology-pills">
                 <span>Annual & Joining Fees</span>
@@ -135,7 +135,7 @@ export default function MethodologyPage() {
                   Report Correction
                 </Link>
                 <Link href={"/about" as Route} className="text-link">
-                  About Simplify Cards
+                  About SimplifyCards
                 </Link>
               </div>
             </section>

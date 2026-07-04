@@ -64,7 +64,7 @@ export default function AskBox({
     return (
       <form action="/ask" className="ask-card" method="GET" onSubmit={handleSubmit}>
         <div className="ask-top">
-          <span className="ask-title">Ask Simplify Cards</span>
+          <span className="ask-title">Ask SimplifyCards</span>
           <span className="live-badge">
             <span className="live-dot" aria-hidden="true" /> Data-backed
           </span>

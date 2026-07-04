@@ -69,9 +69,9 @@ const COMPARISON_LINKS: Array<{ label: string; href: Route }> = [
 
 const POLICY_COPY = {
   about: {
-    title: "About Simplify Cards",
+    title: "About SimplifyCards",
     body: [
-      "Simplify Cards is an AI-powered credit-card research platform built to help Indian users choose cards with more clarity and less guesswork.",
+      "SimplifyCards is an AI-powered credit-card research platform built to help Indian users choose cards with more clarity and less guesswork.",
       "Our proprietary algorithm compares 200+ credit cards across rewards, fees, caps, exclusions, and practical fit so users can shortlist better options faster.",
       "The platform is designed for information, education, and comparison; final application decisions should always be based on issuer terms."
     ]
@@ -83,7 +83,7 @@ const POLICY_COPY = {
   disclosure: {
     title: "Disclosure",
     body: [
-      "Simplify Cards is an informational credit-card research platform and does not provide financial, investment, legal, or tax advice.",
+      "SimplifyCards is an informational credit-card research platform and does not provide financial, investment, legal, or tax advice.",
       "Some links, offers, or products may involve affiliate or partner relationships. Such relationships do not change the need to verify final terms on the issuer website.",
       "Credit-card rewards, fees, eligibility criteria, caps, exclusions, and offers can change without notice."
     ]
@@ -92,7 +92,7 @@ const POLICY_COPY = {
     title: "Privacy Policy",
     body: [
       "The default language of this Privacy Policy is English.",
-      "Simplify Cards may collect details you voluntarily submit, such as your name, email ID, review, city, and newsletter subscription preferences.",
+      "SimplifyCards may collect details you voluntarily submit, such as your name, email ID, review, city, and newsletter subscription preferences.",
       "We use a proprietary algorithm to compare credit-card information and improve recommendations. We do not sell your personal information.",
       "You can ask us to update or remove your submitted details by emailing contact@simplifycards.in."
     ]
@@ -100,7 +100,7 @@ const POLICY_COPY = {
   terms: {
     title: "Terms & Conditions",
     body: [
-      "By using Simplify Cards, you agree to use the platform only for lawful, informational, and personal research purposes.",
+      "By using SimplifyCards, you agree to use the platform only for lawful, informational, and personal research purposes.",
       "Content, comparisons, calculations, and recommendations are estimates based on available rules and assumptions; actual value may vary.",
       "Issuer terms, eligibility checks, approvals, fees, and final benefits are controlled by the respective banks or card issuers."
     ]
@@ -252,10 +252,10 @@ function HeroAskBox() {
           value={query}
           onChange={(event) => setQuery(event.target.value)}
           placeholder="Which card is best for movie tickets?"
-          aria-label="Ask Simplify Cards"
+          aria-label="Ask SimplifyCards"
           required
           pattern=".*\S.*"
-          title="Enter a question to ask Simplify Cards."
+          title="Enter a question to ask SimplifyCards."
         />
         <button type="submit">
           <span className="sc-pulse" />
@@ -587,7 +587,7 @@ function Header() {
   return (
     <nav className="sc-topnav">
       <div className="sc-topnav-inner">
-        <Link href="/" className="sc-brand" aria-label="Simplify Cards home">
+        <Link href="/" className="sc-brand" aria-label="SimplifyCards home">
           <LogoMark />
           <span>
             <b>Simplify</b>Cards
@@ -669,7 +669,7 @@ function Footer({ onOpenPolicy }: { onOpenPolicy: (policy: PolicyKey) => void })
         </div>
       </div>
       <div className="sc-footer-bottom">
-        <span>© 2026 Simplify Cards. All rights reserved.</span>
+        <span>© 2026 SimplifyCards. All rights reserved.</span>
         <div>
           <button type="button" onClick={() => onOpenPolicy("privacy")}>Privacy Policy</button>
           <button type="button" onClick={() => onOpenPolicy("disclosure")}>Disclosure</button>
@@ -742,7 +742,7 @@ export default function LandingPortal({ popularCards, updates }: LandingPortalPr
       <PopularPicks cards={popularCards} />
       <LatestUpdates updates={updates} />
       {/* <ReviewsPanel /> */}
-      <button type="button" className="sc-floating-ask" onClick={scrollToAsk} aria-label="Ask Simplify Cards">
+      <button type="button" className="sc-floating-ask" onClick={scrollToAsk} aria-label="Ask SimplifyCards">
         <span className="sc-pulse" />
         <Sparkles className="sc-sparkle" size={16} />
         <span>ask</span>

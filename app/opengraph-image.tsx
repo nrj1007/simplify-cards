@@ -53,7 +53,7 @@ export default function OgImage() {
             marginBottom: "16px",
           }}
         >
-          Simplify Cards
+          SimplifyCards
         </div>
 
         <div

@@ -3,7 +3,7 @@ import PageHero from "@/app/ui/PageHero";
 
 export const metadata = {
   title: "Page Not Found - Simplify Cards",
-  description: "The page you are looking for does not exist on Simplify Cards.",
+  description: "The page you are looking for does not exist on SimplifyCards.",
 };
 
 export default function NotFound() {
@@ -32,7 +32,7 @@ export default function NotFound() {
           <div className="panel message-page-panel">
             <h2>Looking for something else?</h2>
             <p className="message-page-text">
-              Simplify Cards helps you compare credit cards using verified data. You can find cards suited for your spend profile using our interactive recommendation engine or ask general credit card questions.
+              SimplifyCards helps you compare credit cards using verified data. You can find cards suited for your spend profile using our interactive recommendation engine or ask general credit card questions.
             </p>
             <div className="message-page-links">
               <Link href="/recommend" className="text-link">Spend Recommender</Link>

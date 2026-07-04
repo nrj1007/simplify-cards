@@ -35,7 +35,7 @@ function faqFor(intent: string): Array<{ q: string; a: string }> {
   return [
     {
       q: `How are these ${intent} cards ranked?`,
-      a: "Simplify Cards ranks cards using the existing recommendation engine, which weighs fees, rewards, caps, lounge rules, forex markup, milestones, redemption value, exclusions, and card popularity from the verified card dataset."
+      a: "SimplifyCards ranks cards using the existing recommendation engine, which weighs fees, rewards, caps, lounge rules, forex markup, milestones, redemption value, exclusions, and card popularity from the verified card dataset."
     },
     {
       q: "Are these card details manually verified?",
@@ -51,7 +51,7 @@ function faqFor(intent: string): Array<{ q: string; a: string }> {
     },
     {
       q: "Can I ask for a recommendation based on my own spending?",
-      a: "Yes. Use the Ask Simplify Cards button on this page to continue into the AI ask flow with this search intent."
+      a: "Yes. Use the Ask SimplifyCards button on this page to continue into the AI ask flow with this search intent."
     }
   ];
 }
@@ -68,7 +68,7 @@ export const SEO_LANDINGS: SeoLandingConfig[] = [
       "A broad shortlist for people comparing Indian credit cards across fees, rewards, lounge access, travel value, cashback, exclusions, and everyday usefulness.",
     ctaQuery: "best credit cards india",
     howWePicked:
-      "We rank cards with the same recommendation engine used across Simplify Cards, using a broad credit-card search intent and existing card fields for rewards, fees, lounges, redemption, caps, exclusions, and popularity.",
+      "We rank cards with the same recommendation engine used across SimplifyCards, using a broad credit-card search intent and existing card fields for rewards, fees, lounges, redemption, caps, exclusions, and popularity.",
     thingsToCheck: COMMON_CHECKS,
     faqs: faqFor("credit card"),
     ranking: { query: "best credit card" },

@@ -118,7 +118,7 @@ function notableExclusions(card: CreditCard) {
 }
 
 // ---------------------------------------------------------------------------
-// Simplify Cards take
+// SimplifyCards take
 // ---------------------------------------------------------------------------
 export type CardTake = {
   goodFitIf: string;
