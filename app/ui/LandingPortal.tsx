@@ -581,7 +581,8 @@ function Header() {
     { label: "recommend", href: "/recommend" },
     { label: "calculator", href: "/calculator" as Route },
     { label: "cards", href: "/finder" },
-    { label: "compare", href: "/compare" }
+    { label: "compare", href: "/compare" },
+    { label: "latest updates", href: "/latest" as Route }
   ];
 
   return (
