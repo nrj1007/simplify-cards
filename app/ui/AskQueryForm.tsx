@@ -96,10 +96,8 @@ export default function AskQueryForm({
       )}
       {typeof maxAnnualFee === "number" ? <input name="maxAnnualFee" type="hidden" value={maxAnnualFee} /> : null}
       <LoadingButton className="btn btn-primary" loading={isLoading} loadingText={loadingCopy.ask.title} type="submit">
-        <span className="sc-pulse-ring" aria-hidden="true" />
-        <span className="sc-ask-sparkle" aria-hidden="true">
-          <Sparkle size={16} />
-        </span>
+        <span className="sc-pulse" aria-hidden="true" />
+        <Sparkle className="sc-sparkle" size={16} />
         <span className="loading-button-label">{buttonLabel}</span>
       </LoadingButton>
     </form>

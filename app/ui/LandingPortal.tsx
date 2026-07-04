@@ -250,6 +250,24 @@ function HeroAskBox() {
   const [query, setQuery] = useState("");
   const inputRef = useRef<HTMLInputElement | null>(null);
 
+  useEffect(() => {
+    function checkHashAndFocus() {
+      if (
+        window.location.hash === "#ask-widget-container" ||
+        window.location.hash === "#hero-ask-input" ||
+        window.location.hash === "#ask"
+      ) {
+        setTimeout(() => {
+          inputRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
+          inputRef.current?.focus();
+        }, 50);
+      }
+    }
+    checkHashAndFocus();
+    window.addEventListener("hashchange", checkHashAndFocus);
+    return () => window.removeEventListener("hashchange", checkHashAndFocus);
+  }, []);
+
   function submit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const trimmed = query.trim();
@@ -267,6 +285,7 @@ function HeroAskBox() {
       <form onSubmit={submit} className="sc-ask-form">
         <Search className="sc-ask-search" size={22} />
         <input
+          id="hero-ask-input"
           ref={inputRef}
           value={query}
           onChange={(event) => setQuery(event.target.value)}
