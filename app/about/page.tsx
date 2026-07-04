@@ -6,7 +6,7 @@ import { buildPageMetadata } from "@/lib/seo";
 export const metadata: Metadata = buildPageMetadata({
   title: "About",
   description:
-    "Learn how SimplifyCards helps compare Indian credit cards using verified card data, transparent trade-offs, and feedback-driven corrections.",
+    "Learn how Simplify Cards helps compare Indian credit cards using verified card data, transparent trade-offs, and feedback-driven corrections.",
   path: "/about"
 });
 
@@ -22,11 +22,11 @@ export default function AboutPage() {
       <PageHero
         eyebrow="About"
         title="Credit-card guidance built around verified details."
-        lead="SimplifyCards helps people in India compare credit cards by actual fees, rewards, caps, exclusions, redemption rules, and fit for their spending."
+        lead="Simplify Cards helps people in India compare credit cards by actual fees, rewards, caps, exclusions, redemption rules, and fit for their spending."
       >
         <div className="about-hero-actions">
           <Link className="btn btn-primary" href="/ask">
-            Ask SimplifyCards
+            Ask Simplify Cards
           </Link>
           <Link className="btn btn-ghost" href="/finder">
             Browse cards
@@ -42,7 +42,7 @@ export default function AboutPage() {
               <h2>Make card decisions less opaque.</h2>
               <p>
                 Credit-card marketing often highlights the best-case reward rate while hiding caps, exclusions, redemption value, and
-                renewal conditions. SimplifyCards is designed to show those trade-offs together so you can shortlist cards with more
+                renewal conditions. Simplify Cards is designed to show those trade-offs together so you can shortlist cards with more
                 context before applying.
               </p>
             </article>
@@ -61,7 +61,7 @@ export default function AboutPage() {
             </article>
           </section>
 
-          <aside className="about-side" aria-label="SimplifyCards summary">
+          <aside className="about-side" aria-label="Simplify Cards summary">
             <section className="panel about-card">
               <h2>Built for India</h2>
               <p>
@@ -85,7 +85,7 @@ export default function AboutPage() {
             <section className="panel about-card">
               <h2>Disclosure</h2>
               <p>
-                SimplifyCards is not financial advice. Apply buttons may use affiliate links, while Check official site links open issuer
+                Simplify Cards is not financial advice. Apply buttons may use affiliate links, while Check official site links open issuer
                 or partner pages.
               </p>
             </section>

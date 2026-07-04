@@ -5,7 +5,7 @@ import { buildPageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildPageMetadata({
   title: "Privacy Policy",
-  description: "Learn how SimplifyCards handles data. Simple, clear, and privacy-first.",
+  description: "Learn how Simplify Cards handles data. Simple, clear, and privacy-first.",
   path: "/privacy"
 });
 
@@ -15,7 +15,7 @@ export default function PrivacyPage() {
       <PageHero
         eyebrow="Legal"
         title="Privacy Policy"
-        lead="We are committed to operating SimplifyCards as a transparent, privacy-first platform."
+        lead="We are committed to operating Simplify Cards as a transparent, privacy-first platform."
       />
 
       <div className="page-content">
@@ -26,16 +26,16 @@ export default function PrivacyPage() {
 
               <h3>1. Introduction</h3>
               <p>
-                Welcome to SimplifyCards (&ldquo;we&rdquo;, &ldquo;our&rdquo;, &ldquo;us&rdquo;). We are committed to protecting your privacy. This Privacy Policy explains how we collect, use, and safeguard your information when you visit our website at <Link href="/" className="text-link">simplifycards.in</Link>.
+                Welcome to Simplify Cards (&ldquo;we&rdquo;, &ldquo;our&rdquo;, &ldquo;us&rdquo;). We are committed to protecting your privacy. This Privacy Policy explains how we collect, use, and safeguard your information when you visit our website at <Link href="/" className="text-link">simplifycards.in</Link>.
               </p>
 
               <h3>2. Information We Collect</h3>
               <p>
-                SimplifyCards is designed to be privacy-first. We do not require user accounts, logins, or registration, and we do not collect any personal financial data, bank account details, or credit card numbers. We only collect the following minimal data:
+                Simplify Cards is designed to be privacy-first. We do not require user accounts, logins, or registration, and we do not collect any personal financial data, bank account details, or credit card numbers. We only collect the following minimal data:
               </p>
               <ul className="about-list">
                 <li>
-                  <strong>Anonymous Question Logs:</strong> When you use our grounded Q&A tool (Ask SimplifyCards), we log the queries submitted to analyze and improve the relevance of search results and rankings. These logs do not contain personal identifiers.
+                  <strong>Anonymous Question Logs:</strong> When you use our grounded Q&A tool (Ask Simplify Cards), we log the queries submitted to analyze and improve the relevance of search results and rankings. These logs do not contain personal identifiers.
                 </li>
                 <li>
                   <strong>Feedback Logs:</strong> If you report a correction or submit feedback, we log the details you voluntarily provide (e.g., correction notes) alongside the query or card ID you referenced.
@@ -63,7 +63,7 @@ export default function PrivacyPage() {
 
               <h3>5. Affiliate Links and Third-Party Sites</h3>
               <p>
-                SimplifyCards contains links to third-party website portals and credit card issuers. Some application buttons may use affiliate/sponsored links. We are not responsible for the privacy practices or the content of external websites. We encourage you to read the privacy policy of any third-party website you visit.
+                Simplify Cards contains links to third-party website portals and credit card issuers. Some application buttons may use affiliate/sponsored links. We are not responsible for the privacy practices or the content of external websites. We encourage you to read the privacy policy of any third-party website you visit.
               </p>
 
               <h3>6. Data Sharing and Disclosure</h3>
@@ -78,7 +78,7 @@ export default function PrivacyPage() {
 
               <h3>8. Children&apos;s Information</h3>
               <p>
-                SimplifyCards does not knowingly collect any personal identifiable information from children under the age of 18. If you think that your child provided this kind of information on our website, we strongly encourage you to contact us immediately, and we will do our best to promptly remove such records.
+                Simplify Cards does not knowingly collect any personal identifiable information from children under the age of 18. If you think that your child provided this kind of information on our website, we strongly encourage you to contact us immediately, and we will do our best to promptly remove such records.
               </p>
 
               <h3>9. Governing Law</h3>

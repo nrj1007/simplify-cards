@@ -35,7 +35,7 @@ function faqFor(intent: string): Array<{ q: string; a: string }> {
   return [
     {
       q: `How are these ${intent} cards ranked?`,
-      a: "SimplifyCards ranks cards using the existing recommendation engine, which weighs fees, rewards, caps, lounge rules, forex markup, milestones, redemption value, exclusions, and card popularity from the verified card dataset."
+      a: "Simplify Cards ranks cards using the existing recommendation engine, which weighs fees, rewards, caps, lounge rules, forex markup, milestones, redemption value, exclusions, and card popularity from the verified card dataset."
     },
     {
       q: "Are these card details manually verified?",
@@ -51,7 +51,7 @@ function faqFor(intent: string): Array<{ q: string; a: string }> {
     },
     {
       q: "Can I ask for a recommendation based on my own spending?",
-      a: "Yes. Use the Ask SimplifyCards button on this page to continue into the AI ask flow with this search intent."
+      a: "Yes. Use the Ask Simplify Cards button on this page to continue into the AI ask flow with this search intent."
     }
   ];
 }
@@ -59,7 +59,7 @@ function faqFor(intent: string): Array<{ q: string; a: string }> {
 export const SEO_LANDINGS: SeoLandingConfig[] = [
   {
     slug: "best-credit-cards-india",
-    title: "Best Credit Cards in India 2026: Compare Fees, Rewards & Benefits | SimplifyCards",
+    title: "Best Credit Cards in India 2026: Compare Fees, Rewards & Benefits | Simplify Cards",
     description:
       "Compare the best credit cards in India by fees, rewards, lounge access, cashback, travel benefits and exclusions. Find which card fits your spending.",
     h1: "Best Credit Cards in India 2026",
@@ -68,7 +68,7 @@ export const SEO_LANDINGS: SeoLandingConfig[] = [
       "A broad shortlist for people comparing Indian credit cards across fees, rewards, lounge access, travel value, cashback, exclusions, and everyday usefulness.",
     ctaQuery: "best credit cards india",
     howWePicked:
-      "We rank cards with the same recommendation engine used across SimplifyCards, using a broad credit-card search intent and existing card fields for rewards, fees, lounges, redemption, caps, exclusions, and popularity.",
+      "We rank cards with the same recommendation engine used across Simplify Cards, using a broad credit-card search intent and existing card fields for rewards, fees, lounges, redemption, caps, exclusions, and popularity.",
     thingsToCheck: COMMON_CHECKS,
     faqs: faqFor("credit card"),
     ranking: { query: "best credit card" },
@@ -76,7 +76,7 @@ export const SEO_LANDINGS: SeoLandingConfig[] = [
   },
   {
     slug: "best-cashback-credit-cards-india",
-    title: "Best Cashback Credit Cards in India 2026 | SimplifyCards",
+    title: "Best Cashback Credit Cards in India 2026 | Simplify Cards",
     description:
       "Compare top cashback credit cards in India for online shopping, food delivery, groceries, utilities and everyday spending.",
     h1: "Best Cashback Credit Cards in India",
@@ -92,7 +92,7 @@ export const SEO_LANDINGS: SeoLandingConfig[] = [
   },
   {
     slug: "best-travel-credit-cards-india",
-    title: "Best Travel Credit Cards in India 2026 | SimplifyCards",
+    title: "Best Travel Credit Cards in India 2026 | Simplify Cards",
     description:
       "Compare travel credit cards in India for flights, hotels, miles, forex markup, lounge access, transfer partners and redemption value.",
     h1: "Best Travel Credit Cards in India",
@@ -108,7 +108,7 @@ export const SEO_LANDINGS: SeoLandingConfig[] = [
   },
   {
     slug: "best-lounge-access-credit-cards-india",
-    title: "Best Lounge Access Credit Cards in India 2026 | SimplifyCards",
+    title: "Best Lounge Access Credit Cards in India 2026 | Simplify Cards",
     description:
       "Compare credit cards in India with airport lounge access, including domestic and international visits, guest access, fees and key conditions.",
     h1: "Best Lounge Access Credit Cards in India",
@@ -127,7 +127,7 @@ export const SEO_LANDINGS: SeoLandingConfig[] = [
   },
   {
     slug: "best-lifetime-free-credit-cards-india",
-    title: "Best Lifetime Free Credit Cards in India 2026 | SimplifyCards",
+    title: "Best Lifetime Free Credit Cards in India 2026 | Simplify Cards",
     description:
       "Compare lifetime free credit cards in India with no annual fee, useful rewards, lounge access, cashback and important exclusions.",
     h1: "Best Lifetime Free Credit Cards in India",
@@ -143,7 +143,7 @@ export const SEO_LANDINGS: SeoLandingConfig[] = [
   },
   {
     slug: "best-fuel-credit-cards-india",
-    title: "Best Fuel Credit Cards in India 2026 | SimplifyCards",
+    title: "Best Fuel Credit Cards in India 2026 | Simplify Cards",
     description:
       "Compare fuel credit cards in India for petrol and diesel spends, surcharge waivers, rewards, caps, fees and exclusions.",
     h1: "Best Fuel Credit Cards in India",
@@ -162,7 +162,7 @@ export const SEO_LANDINGS: SeoLandingConfig[] = [
   },
   {
     slug: "best-rupay-credit-cards-india",
-    title: "Best RuPay Credit Cards in India 2026 | SimplifyCards",
+    title: "Best RuPay Credit Cards in India 2026 | Simplify Cards",
     description:
       "Compare RuPay credit cards in India for UPI payments, rewards, cashback, fees, caps and important merchant exclusions.",
     h1: "Best RuPay Credit Cards in India",
@@ -182,7 +182,7 @@ export const SEO_LANDINGS: SeoLandingConfig[] = [
   },
   {
     slug: "best-premium-credit-cards-india",
-    title: "Best Premium Credit Cards in India 2026 | SimplifyCards",
+    title: "Best Premium Credit Cards in India 2026 | Simplify Cards",
     description:
       "Compare premium credit cards in India by fees, lounge access, travel rewards, milestone benefits, forex markup and redemption options.",
     h1: "Best Premium Credit Cards in India",
@@ -199,7 +199,7 @@ export const SEO_LANDINGS: SeoLandingConfig[] = [
   },
   {
     slug: "best-credit-cards-for-online-shopping",
-    title: "Best Credit Cards for Online Shopping in India 2026 | SimplifyCards",
+    title: "Best Credit Cards for Online Shopping in India 2026 | Simplify Cards",
     description:
       "Compare credit cards for online shopping in India across cashback, accelerated rewards, merchant offers, caps, fees and exclusions.",
     h1: "Best Credit Cards for Online Shopping",
@@ -219,7 +219,7 @@ export const SEO_LANDINGS: SeoLandingConfig[] = [
   },
   {
     slug: "best-credit-cards-for-beginners-india",
-    title: "Best Credit Cards for Beginners in India 2026 | SimplifyCards",
+    title: "Best Credit Cards for Beginners in India 2026 | Simplify Cards",
     description:
       "Compare beginner-friendly credit cards in India with low fees, simple rewards, useful benefits, eligibility notes and key exclusions.",
     h1: "Best Credit Cards for Beginners in India",

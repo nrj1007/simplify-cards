@@ -65,7 +65,7 @@ export function buildSeoComparisonMetadata(slug: string): Metadata {
 
   const nameA = comparisonDisplayName(cards.cardA);
   const nameB = comparisonDisplayName(cards.cardB);
-  const title = `${nameA} vs ${nameB}: Fees, Rewards & Benefits Compared | SimplifyCards`;
+  const title = `${nameA} vs ${nameB}: Fees, Rewards & Benefits Compared | Simplify Cards`;
   const description = `Compare ${nameA} and ${nameB} by fees, rewards, lounge access, forex charges, exclusions and best use case in India.`;
   const canonicalSlug = canonicalComparisonSlug(config);
   const metadata = buildPageMetadata({

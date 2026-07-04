@@ -3,8 +3,8 @@ import { SITE_DESCRIPTION } from "@/lib/seo";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "SimplifyCards",
-    short_name: "SimplifyCards",
+    name: "Simplify Cards",
+    short_name: "Simplify Cards",
     description: SITE_DESCRIPTION,
     start_url: "/",
     display: "standalone",

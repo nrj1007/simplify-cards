@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-export const SITE_NAME = "SimplifyCards";
+export const SITE_NAME = "Simplify Cards";
 export const SITE_URL = "https://www.simplifycards.in";
 export const SITE_DESCRIPTION =
   "Find the right Indian credit card. Ask, compare by use case, and review verified rewards, fees, lounges, exclusions, and redemption options.";

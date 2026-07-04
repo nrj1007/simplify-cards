@@ -58,7 +58,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!card) {
     return buildPageMetadata({
       title: "Card not found",
-      description: "The requested credit card page could not be found on SimplifyCards.",
+      description: "The requested credit card page could not be found on Simplify Cards.",
       path: "/cards"
     });
   }
@@ -544,7 +544,7 @@ export default async function CardPage({ params, searchParams }: Props) {
                 <div className="panel-body">
                   <div className="section-head">
                     <div>
-                      <h2 className="section-title">SimplifyCards take</h2>
+                      <h2 className="section-title">Simplify Cards take</h2>
                       <p className="section-sub">A quick decision view before the full facts.</p>
                     </div>
                   </div>

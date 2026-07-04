@@ -40,7 +40,7 @@ export default function SeoLandingPage({ slug }: Props) {
       <PageHero eyebrow={config.eyebrow} title={config.h1} lead={config.intro}>
         <div className="seo-landing-hero-actions">
           <Link className="btn btn-primary" href={askHref(config.ctaQuery)}>
-            Ask SimplifyCards about this
+            Ask Simplify Cards about this
           </Link>
         </div>
       </PageHero>
@@ -53,7 +53,7 @@ export default function SeoLandingPage({ slug }: Props) {
                 <div className="page-eyebrow">Ranked shortlist</div>
                 <h2 id="ranked-cards">Top cards for this search</h2>
               </div>
-              <p>Ranked from existing SimplifyCards data. Open any card for full rewards, exclusions, redemption, and eligibility details.</p>
+              <p>Ranked from existing Simplify Cards data. Open any card for full rewards, exclusions, redemption, and eligibility details.</p>
             </div>
 
             {sections ? (
@@ -156,7 +156,7 @@ export default function SeoLandingPage({ slug }: Props) {
             <section className="panel seo-side-panel">
               <h2>Continue your search</h2>
               <Link className="btn btn-primary seo-side-cta" href={askHref(config.ctaQuery)}>
-                Ask SimplifyCards about this
+                Ask Simplify Cards about this
               </Link>
               <p className="micro-note">Use the AI ask flow for your own spend pattern, fee limit, or card shortlist.</p>
             </section>
