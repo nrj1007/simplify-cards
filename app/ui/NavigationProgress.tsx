@@ -136,14 +136,20 @@ export function NavigationProgressProvider({ children }: { children: ReactNode }
       startNavigation(loadingCopyKeyForUrl(url));
     };
 
+    const handleAskResultsLoading = () => {
+      startNavigation("ask");
+    };
+
     window.addEventListener("pageshow", stopNavigation);
     window.addEventListener("popstate", stopNavigation);
+    window.addEventListener("simplifycards:ask-results-loading", handleAskResultsLoading);
     document.addEventListener("click", handleDocumentClick, true);
     document.addEventListener("submit", handleFormSubmit, true);
 
     return () => {
       window.removeEventListener("pageshow", stopNavigation);
       window.removeEventListener("popstate", stopNavigation);
+      window.removeEventListener("simplifycards:ask-results-loading", handleAskResultsLoading);
       document.removeEventListener("click", handleDocumentClick, true);
       document.removeEventListener("submit", handleFormSubmit, true);
       clearFallback();
