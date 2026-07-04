@@ -29,7 +29,7 @@ function entryDateLabel(publishedAt: string) {
 }
 
 export default function LatestPage() {
-  const updates = getAllUpdates(100);
+  const updates = getAllUpdates(25);
 
   const byMonth = new Map<string, CardUpdateWithMeta[]>();
   for (const update of updates) {

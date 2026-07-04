@@ -91,7 +91,7 @@ export default function Home() {
     .sort((a, b) => b.popularityScore - a.popularityScore || a.name.localeCompare(b.name))
     .slice(0, 10)
     .map(toLandingCard);
-  const updates = getAllUpdates(6).map(toLandingUpdate);
+  const updates = getAllUpdates(5).map(toLandingUpdate);
 
   return <LandingPortal popularCards={popularCards} updates={updates} />;
 }
