@@ -1,12 +1,13 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Search } from "lucide-react";
 import type { FormEvent } from "react";
 import { useState } from "react";
 import type { Route } from "next";
 import { useRouter } from "next/navigation";
 import { LoadingButton } from "@/components/LoadingButton";
+import { Sparkle } from "@/components/icons/Sparkle";
 import { loadingCopy } from "@/lib/loading-copy";
 import { useNavigationProgress } from "./NavigationProgress";
 
@@ -64,7 +65,10 @@ export default function AskBox({
     return (
       <form action="/ask" className="ask-card" method="GET" onSubmit={handleSubmit}>
         <div className="ask-top">
-          <span className="ask-title">Ask SimplifyCards</span>
+          <span className="ask-title">
+            <Search size={16} style={{ display: "inline", marginRight: 6, verticalAlign: "middle" }} />
+            Ask SimplifyCards
+          </span>
           <span className="live-badge">
             <span className="live-dot" aria-hidden="true" /> Data-backed
           </span>
@@ -94,7 +98,7 @@ export default function AskBox({
 
         <div className="ask-actions">
           <LoadingButton className="btn btn-primary" loading={isLoading} loadingText={loadingCopy.ask.title} type="submit">
-            Get my shortlist <ArrowRight size={16} />
+            <Sparkle size={16} /> Get my shortlist <ArrowRight size={16} />
           </LoadingButton>
           <Link className="btn btn-ghost" href="#use-cases">
             Browse by goal
@@ -109,7 +113,10 @@ export default function AskBox({
   return (
     <form action="/ask" className="panel ask-panel" method="GET" onSubmit={handleSubmit}>
       <div className="field">
-        <label htmlFor="query">Ask about Indian credit cards</label>
+        <label htmlFor="query">
+          <Search size={15} style={{ display: "inline", marginRight: 6, verticalAlign: "middle" }} />
+          Ask about Indian credit cards
+        </label>
         {showHelperText ? (
           <div className="ask-examples">
             {EXAMPLE_QUERIES.map((q) => (
@@ -133,7 +140,7 @@ export default function AskBox({
       </div>
       {defaultMaxAnnualFee !== undefined ? <input name="maxAnnualFee" type="hidden" value={defaultMaxAnnualFee} /> : null}
       <LoadingButton className="button" loading={isLoading} loadingText={loadingCopy.ask.title} type="submit">
-        Ask <ArrowRight size={16} />
+        <Sparkle size={16} /> Ask <ArrowRight size={16} />
       </LoadingButton>
       {showHelperText ? (
         <p className="muted" style={{ margin: 0 }}>

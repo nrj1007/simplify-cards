@@ -2,9 +2,11 @@
 
 import type { FormEvent } from "react";
 import { useState } from "react";
+import { Search } from "lucide-react";
 import type { Route } from "next";
 import { useRouter } from "next/navigation";
 import { LoadingButton } from "@/components/LoadingButton";
+import { Sparkle } from "@/components/icons/Sparkle";
 import { trackEvent } from "@/lib/analytics-client";
 import { loadingCopy } from "@/lib/loading-copy";
 import { triggerAskResultsLoading } from "./AskResultsLoadingBoundary";
@@ -72,6 +74,9 @@ export default function AskQueryForm({
 
   return (
     <form className={className} data-route-loader="ask-results" onSubmit={handleSubmit}>
+      <span className="sc-search-icon" aria-hidden="true">
+        <Search size={18} />
+      </span>
       {multiline ? (
         <textarea
           aria-label={ariaLabel}
@@ -91,7 +96,11 @@ export default function AskQueryForm({
       )}
       {typeof maxAnnualFee === "number" ? <input name="maxAnnualFee" type="hidden" value={maxAnnualFee} /> : null}
       <LoadingButton className="btn btn-primary" loading={isLoading} loadingText={loadingCopy.ask.title} type="submit">
-        {buttonLabel}
+        <span className="sc-pulse-ring" aria-hidden="true" />
+        <span className="sc-ask-sparkle" aria-hidden="true">
+          <Sparkle size={16} />
+        </span>
+        <span className="loading-button-label">{buttonLabel}</span>
       </LoadingButton>
     </form>
   );
