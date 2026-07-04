@@ -684,11 +684,6 @@ function Footer({ onOpenPolicy }: { onOpenPolicy: (policy: PolicyKey) => void })
       </div>
       <div className="sc-footer-bottom">
         <span>© 2026 SimplifyCards. All rights reserved.</span>
-        <div>
-          <button type="button" onClick={() => onOpenPolicy("privacy")}>Privacy Policy</button>
-          <button type="button" onClick={() => onOpenPolicy("disclosure")}>Disclosure</button>
-          <button type="button" onClick={() => onOpenPolicy("terms")}>Terms & Conditions</button>
-        </div>
       </div>
     </footer>
   );
