@@ -36,15 +36,6 @@ export const metadata: Metadata = {
   }
 };
 
-const POPULAR_CARD_IDS = [
-  "hdfc-infinia-metal",
-  "sbi-cashback",
-  "amex-platinum-travel",
-  "hdfc-millennia",
-  "icici-amazon-pay",
-  "axis-magnus"
-];
-
 function formatFee(value: number) {
   return value === 0 ? "Rs 0" : `Rs ${new Intl.NumberFormat("en-IN").format(value)}`;
 }
@@ -95,11 +86,11 @@ function toLandingUpdate(update: CardUpdateWithMeta): LandingUpdate {
 }
 
 export default function Home() {
-  const selectedCards = POPULAR_CARD_IDS.map((id) => cards.find((card) => card.id === id)).filter(
-    (card): card is CreditCard => Boolean(card)
-  );
-  const fallbackCards = cards.filter((card) => !POPULAR_CARD_IDS.includes(card.id)).slice(0, 6 - selectedCards.length);
-  const popularCards = [...selectedCards, ...fallbackCards].map(toLandingCard);
+  const popularCards = cards
+    .filter((card) => Boolean(card.affiliateUrl))
+    .sort((a, b) => b.popularityScore - a.popularityScore || a.name.localeCompare(b.name))
+    .slice(0, 10)
+    .map(toLandingCard);
   const updates = getAllUpdates(6).map(toLandingUpdate);
 
   return <LandingPortal popularCards={popularCards} updates={updates} />;
