@@ -266,7 +266,6 @@ function HeroAskBox() {
   return (
     <div id="ask-widget-container" className="sc-ask-wrap">
       <form onSubmit={submit} className="sc-ask-form">
-        <Search className="sc-ask-search" size={22} />
         <input
           ref={inputRef}
           value={query}
@@ -279,7 +278,7 @@ function HeroAskBox() {
         />
         <button type="submit">
           <span className="sc-pulse" />
-          <Sparkle className="sc-sparkle" size={16} />
+          <Sparkle className="sc-sparkle" size={20} />
           <span>ask</span>
         </button>
       </form>

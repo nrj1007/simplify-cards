@@ -65,10 +65,7 @@ export default function AskBox({
     return (
       <form action="/ask" className="ask-card" method="GET" onSubmit={handleSubmit}>
         <div className="ask-top">
-          <span className="ask-title">
-            <Search size={16} style={{ display: "inline", marginRight: 6, verticalAlign: "middle" }} />
-            Ask SimplifyCards
-          </span>
+          <span className="ask-title">Ask SimplifyCards</span>
           <span className="live-badge">
             <span className="live-dot" aria-hidden="true" /> Data-backed
           </span>
@@ -116,10 +113,7 @@ export default function AskBox({
   return (
     <form action="/ask" className="panel ask-panel" method="GET" onSubmit={handleSubmit}>
       <div className="field">
-        <label htmlFor="query">
-          <Search size={15} style={{ display: "inline", marginRight: 6, verticalAlign: "middle" }} />
-          Ask about Indian credit cards
-        </label>
+        <label htmlFor="query">Ask about Indian credit cards</label>
         {showHelperText ? (
           <div className="ask-examples">
             {EXAMPLE_QUERIES.map((q) => (
