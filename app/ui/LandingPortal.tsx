@@ -616,7 +616,6 @@ function ReviewsPanel() {
 function Header() {
   const [open, setOpen] = useState(false);
   const links: Array<{ label: string; href: Route }> = [
-    { label: "ask", href: "/ask" },
     { label: "recommend", href: "/recommend" },
     { label: "calculator", href: "/calculator" as Route },
     { label: "cards", href: "/finder" },
