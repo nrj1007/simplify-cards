@@ -5,6 +5,7 @@ import { useState } from "react";
 import type { Route } from "next";
 import { useRouter } from "next/navigation";
 import { LoadingButton } from "@/components/LoadingButton";
+import { Sparkle } from "@/components/icons/Sparkle";
 import { trackEvent } from "@/lib/analytics-client";
 import { loadingCopy } from "@/lib/loading-copy";
 import { triggerAskResultsLoading } from "./AskResultsLoadingBoundary";
@@ -91,7 +92,11 @@ export default function AskQueryForm({
       )}
       {typeof maxAnnualFee === "number" ? <input name="maxAnnualFee" type="hidden" value={maxAnnualFee} /> : null}
       <LoadingButton className="btn btn-primary" loading={isLoading} loadingText={loadingCopy.ask.title} type="submit">
-        {buttonLabel}
+        <span className="sc-pulse-ring" aria-hidden="true" />
+        <span className="sc-ask-sparkle" aria-hidden="true">
+          <Sparkle size={16} />
+        </span>
+        <span className="loading-button-label">{buttonLabel}</span>
       </LoadingButton>
     </form>
   );
