@@ -1,6 +1,6 @@
 export const loadingCopy = {
   ask: {
-    title: "Preparing your answer...",
+    title: "Sit back while we find your best card",
     subtitle: "Matching your question with relevant cards and trade-offs."
   },
   recommend: {
