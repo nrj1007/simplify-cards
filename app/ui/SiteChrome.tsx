@@ -2,6 +2,7 @@
 
 import type { Route } from "next";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { Instagram, Linkedin, Youtube } from "lucide-react";
 
@@ -92,12 +93,12 @@ function LogoMark() {
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
   const links: Array<{ label: string; href: Route }> = [
     { label: "recommend", href: "/recommend" },
     { label: "calculator", href: "/calculator" as Route },
     { label: "cards", href: "/finder" },
-    { label: "compare", href: "/compare" },
-    { label: "latest updates", href: "/latest" as Route }
+    { label: "compare", href: "/compare" }
   ];
 
   return (
@@ -111,7 +112,7 @@ export function SiteHeader() {
         </Link>
         <div className="sc-navlinks">
           {links.map((link) => (
-            <Link href={link.href} key={link.href}>
+            <Link href={link.href} key={link.href} className={isActiveHeaderLink(pathname, link.href) ? "is-active" : undefined}>
               {link.label}
             </Link>
           ))}
@@ -125,7 +126,12 @@ export function SiteHeader() {
           {open ? (
             <div className="sc-mobile-popover">
               {links.map((link) => (
-                <Link href={link.href} key={link.href} onClick={() => setOpen(false)}>
+                <Link
+                  href={link.href}
+                  key={link.href}
+                  className={isActiveHeaderLink(pathname, link.href) ? "is-active" : undefined}
+                  onClick={() => setOpen(false)}
+                >
                   {link.label}
                 </Link>
               ))}
@@ -135,6 +141,14 @@ export function SiteHeader() {
       </div>
     </nav>
   );
+}
+
+function isActiveHeaderLink(pathname: string, href: Route) {
+  if (href === "/finder") {
+    return pathname === "/finder" || pathname.startsWith("/cards");
+  }
+
+  return pathname === href || pathname.startsWith(`${href}/`);
 }
 
 function PolicyModal({ policy, onClose }: { policy: PolicyKey; onClose: () => void }) {

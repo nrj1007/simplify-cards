@@ -5884,6 +5884,7 @@ textarea {
   background: rgba(253, 251, 247, 0.9);
   box-shadow: 0 1px 2px rgba(30, 17, 44, 0.05);
   backdrop-filter: blur(14px);
+  padding: 12px 0;
 }
 
 .sc-topnav-inner,
@@ -5901,8 +5902,7 @@ textarea {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 20px;
-  min-height: 68px;
+  gap: 12px;
 }
 
 .sc-brand {
@@ -5912,20 +5912,27 @@ textarea {
   border: 0;
   background: transparent;
   color: var(--sc-ink);
-  font-size: 20px;
-  font-weight: 500;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 900;
   letter-spacing: -0.03em;
+  text-align: left;
+  transition: opacity 0.2s ease;
+}
+
+.sc-brand:hover {
+  opacity: 0.85;
 }
 
 .sc-brand b {
   color: var(--sc-purple);
-  font-weight: 750;
 }
 
 .sc-logo-mark {
   display: block;
-  width: 44px;
-  height: 36px;
+  flex: 0 0 auto;
+  width: 40px;
+  height: 32px;
 }
 
 .sc-navlinks {
@@ -5933,20 +5940,34 @@ textarea {
   align-items: center;
   justify-content: flex-end;
   gap: 28px;
+  overflow-x: auto;
+  scrollbar-width: none;
 }
 
-.sc-navlinks a,
-.sc-mobile-popover a {
+.sc-navlinks::-webkit-scrollbar {
+  display: none;
+}
+
+.sc-navlinks a {
   color: var(--sc-muted);
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 600;
+  line-height: 1.25;
+  padding: 0;
+  border-bottom: 1px solid transparent;
+  flex-shrink: 0;
   text-transform: lowercase;
-  transition: color 0.2s ease;
+  transition: color 0.2s ease, border-color 0.2s ease;
 }
 
-.sc-navlinks a:hover,
-.sc-mobile-popover a:hover {
+.sc-navlinks a:hover {
   color: var(--sc-purple);
+}
+
+.sc-navlinks a.is-active {
+  color: var(--sc-purple);
+  border-bottom-color: var(--sc-purple);
+  font-weight: 900;
 }
 
 .sc-mobile-menu {
@@ -5996,10 +6017,21 @@ textarea {
   display: block;
   padding: 12px 14px;
   border-radius: 12px;
+  color: var(--sc-muted);
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: lowercase;
+  transition: color 0.2s ease, background 0.2s ease;
 }
 
 .sc-mobile-popover a:hover {
   background: #f3eee3;
+  color: var(--sc-purple);
+}
+
+.sc-mobile-popover a.is-active {
+  background: #faf5ff;
+  color: var(--sc-purple);
 }
 
 .sc-nav-spacer {
@@ -7293,6 +7325,15 @@ textarea {
     padding-left: 32px;
   }
 
+  .sc-brand {
+    font-size: 20px;
+  }
+
+  .sc-logo-mark {
+    width: 44px;
+    height: 34px;
+  }
+
   .sc-hero {
     padding-top: 80px;
     padding-bottom: 80px;
@@ -7344,7 +7385,7 @@ textarea {
   }
 }
 
-@media (max-width: 720px) {
+@media (max-width: 639px) {
   .sc-navlinks {
     display: none;
   }
@@ -7434,15 +7475,6 @@ textarea {
 }
 
 @media (max-width: 460px) {
-  .sc-brand {
-    font-size: 18px;
-  }
-
-  .sc-logo-mark {
-    width: 40px;
-    height: 32px;
-  }
-
   .sc-hero-badge {
     gap: 10px;
     font-size: 10px;
