@@ -71,7 +71,7 @@ function toLandingCard(card: CreditCard): LandingCard {
     bestFor: card.bestFor.slice(0, 3),
     rewardType: card.rewardType,
     rewardRate: firstRewardRate(card),
-    highlight: card.additionalBenefits?.[0] ?? card.bestFor.join(", "),
+    highlight: card.bestFor.slice(0, 3).join(", "),
     lounge: loungeLabel(card),
     sourceUrl: card.sourceUrl,
     applyUrl: card.affiliateUrl ?? card.applyUrl ?? card.sourceUrl,
