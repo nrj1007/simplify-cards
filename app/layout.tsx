@@ -4,6 +4,7 @@ import { SITE_DESCRIPTION, SITE_NAME, SITE_URL } from "@/lib/seo";
 import { NavigationProgressProvider } from "./ui/NavigationProgress";
 import { SiteFooter, SiteHeader } from "./ui/SiteChrome";
 import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -45,6 +46,7 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
           </div>
         </NavigationProgressProvider>
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
