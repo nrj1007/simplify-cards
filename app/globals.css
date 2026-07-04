@@ -6813,8 +6813,8 @@ textarea {
   margin: 0 0 12px;
   color: var(--sc-muted);
   font-size: 14px;
-  font-weight: 700;
-  line-height: 1.45;
+  font-weight: 600;
+  line-height: 1.625;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
 }
@@ -7484,6 +7484,10 @@ textarea {
   .sc-footer-bottom {
     flex-direction: column;
     text-align: center;
+  }
+
+  .sc-pick-card p {
+    font-size: 12px;
   }
 }
 
