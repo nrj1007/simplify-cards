@@ -6111,7 +6111,7 @@ textarea {
   color: var(--sc-muted);
   font-size: 18px;
   font-weight: 500;
-  line-height: 1.625;
+  line-height: 28px;
 }
 
 .sc-hero > p b {
@@ -7359,7 +7359,6 @@ textarea {
   }
 
   .sc-hero h1 {
-    font-size: 4rem;
     line-height: 1;
   }
 
@@ -7455,7 +7454,7 @@ textarea {
   }
 
   .sc-feature-copy h3 {
-    font-size: 14px;
+    font-size: 15px;
   }
 
   .sc-feature-copy p {
