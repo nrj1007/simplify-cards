@@ -5812,15 +5812,14 @@ textarea {
 }
 
 @keyframes scSparkle {
-  0%, 100% {
-    opacity: 0.2;
+  0%,
+  100% {
+    opacity: 0.25;
     transform: scale(0.85) rotate(-5deg);
-    filter: drop-shadow(0 0 2px rgba(243, 232, 255, 0.2));
   }
   50% {
     opacity: 1;
     transform: scale(1.15) rotate(15deg);
-    filter: drop-shadow(0 0 12px rgba(216, 180, 254, 0.8));
   }
 }
 
@@ -7598,6 +7597,7 @@ textarea {
     transform: scale(0.85) rotate(-5deg);
     filter: drop-shadow(0 0 2px rgba(243, 232, 255, 0.2));
   }
+
   50% {
     opacity: 1;
     transform: scale(1.15) rotate(15deg);
@@ -8128,15 +8128,15 @@ body,
 
 
 
-/* Hard match landing-page hero headline: use exact clamp sizing as landing page hero */
+/* Hard match landing-page hero headline: use px, not rem, so Ask-page root styles cannot enlarge it */
 .ask-hero h1,
 .ask-hero h1 .sc-hero-prefix,
 .ask-hero h1 .sc-hero-query {
   font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
-  font-size: clamp(32px, 8.4vw, 42.4px) !important;
-  line-height: 1.08 !important;
+  font-size: 64px !important;
+  line-height: 64px !important;
   font-weight: 800 !important;
-  letter-spacing: 0 !important;
+  letter-spacing: -1.6px !important;
   color: #1e112c !important;
   text-align: center !important;
   transform: none !important;
@@ -8151,6 +8151,15 @@ body,
 }
 .ask-hero h1 .sc-hero-query {
   color: #581c87 !important;
+}
+@media (max-width: 639px) {
+  .ask-hero h1,
+  .ask-hero h1 .sc-hero-prefix,
+  .ask-hero h1 .sc-hero-query {
+    font-size: clamp(32px, 8.4vw, 42.4px) !important;
+    line-height: 1.08 !important;
+    letter-spacing: -1.05px !important;
+  }
 }
 
 

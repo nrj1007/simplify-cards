@@ -1,13 +1,12 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowRight, Search } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import type { FormEvent } from "react";
 import { useState } from "react";
 import type { Route } from "next";
 import { useRouter } from "next/navigation";
 import { LoadingButton } from "@/components/LoadingButton";
-import { Sparkle } from "@/components/icons/Sparkle";
 import { loadingCopy } from "@/lib/loading-copy";
 import { useNavigationProgress } from "./NavigationProgress";
 
@@ -95,10 +94,7 @@ export default function AskBox({
 
         <div className="ask-actions">
           <LoadingButton className="btn btn-primary" loading={isLoading} loadingText={loadingCopy.ask.title} type="submit">
-            <span className="sc-pulse" aria-hidden="true" />
-            <Sparkle className="sc-sparkle" size={20} />
-            <span>Get my shortlist</span>
-            <ArrowRight size={16} />
+            Get my shortlist <ArrowRight size={16} />
           </LoadingButton>
           <Link className="btn btn-ghost" href="#use-cases">
             Browse by goal
@@ -137,10 +133,7 @@ export default function AskBox({
       </div>
       {defaultMaxAnnualFee !== undefined ? <input name="maxAnnualFee" type="hidden" value={defaultMaxAnnualFee} /> : null}
       <LoadingButton className="button" loading={isLoading} loadingText={loadingCopy.ask.title} type="submit">
-        <span className="sc-pulse" aria-hidden="true" />
-        <Sparkle className="sc-sparkle" size={20} />
-        <span>Ask</span>
-        <ArrowRight size={16} />
+        Ask <ArrowRight size={16} />
       </LoadingButton>
       {showHelperText ? (
         <p className="muted" style={{ margin: 0 }}>

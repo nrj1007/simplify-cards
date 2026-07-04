@@ -1,0 +1,1681 @@
+{
+  "generatedAt": "2026-07-04T17:36:50.614Z",
+  "totalCardsInDb": 209,
+  "cardsAudited": 209,
+  "cardsChanged": 0,
+  "updateBaseline": false,
+  "results": [
+    {
+      "cardId": "amex-gold",
+      "cardName": "Gold Credit Card",
+      "issuer": "American Express",
+      "url": "https://www.americanexpress.com/in/charge-cards/gold-card/",
+      "status": "baseline-created",
+      "hash": "a0538441e00604998468e138c24d7877dc103adacb9b060f1aede4423e0ed59e"
+    },
+    {
+      "cardId": "amex-membership-rewards",
+      "cardName": "Membership Rewards Credit Card",
+      "issuer": "American Express",
+      "url": "https://www.americanexpress.com/in/credit-cards/membership-rewards-card/",
+      "status": "baseline-created",
+      "hash": "495e684623edccbd80347e776552d1e412d17e307856a9d672b0a9edc6fd7bb9"
+    },
+    {
+      "cardId": "amex-platinum-reserve",
+      "cardName": "Platinum Reserve Credit Card",
+      "issuer": "American Express",
+      "url": "https://www.americanexpress.com/in/credit-cards/platinum-reserve-credit-card/",
+      "status": "baseline-created",
+      "hash": "3129a1e432cd6e23a0913b763e65ff762a8bf994ba84f9563aa4a7aeb073c4e2"
+    },
+    {
+      "cardId": "amex-platinum-travel",
+      "cardName": "Platinum Travel Credit Card",
+      "issuer": "American Express",
+      "url": "https://www.americanexpress.com/in/credit-cards/platinum-travel-credit-card/",
+      "status": "baseline-created",
+      "hash": "5ce1fe42a322c22d22344fd3da8de0fe63b6e60f00b10d289995cbda9e25379b"
+    },
+    {
+      "cardId": "amex-platinum",
+      "cardName": "Platinum Credit Card",
+      "issuer": "American Express",
+      "url": "https://www.americanexpress.com/in/charge-cards/platinum-card/",
+      "status": "baseline-created",
+      "hash": "ffa8122e98acefa78542f4f9db21f43818e2300a990fd2f1ca83d82d190ab293"
+    },
+    {
+      "cardId": "amex-smartearn",
+      "cardName": "SmartEarn Credit Card",
+      "issuer": "American Express",
+      "url": "https://www.americanexpress.com/in/credit-cards/smart-earn-credit-card/",
+      "status": "baseline-created",
+      "hash": "baec128609567dcccb1ac2e4838732aea1ea9cb1feefc479694dfa45cd6283f7"
+    },
+    {
+      "cardId": "au-ixigo",
+      "cardName": "ixigo Credit Card",
+      "issuer": "AU Small Finance Bank",
+      "url": "https://www.aubank.in/personal-banking/credit-cards/ixigo-au-credit-card",
+      "status": "baseline-created",
+      "hash": "3213482627386a44f48a4d8f3a19325541231bcb2ea351f4c4ec87aefc129589"
+    },
+    {
+      "cardId": "cheq-au",
+      "cardName": "CheQ Credit Card",
+      "issuer": "AU Small Finance Bank",
+      "url": "https://www.au.bank.in/personal-banking/credit-cards/cheq-au-credit-card",
+      "status": "baseline-created",
+      "hash": "d50b0d5ceeb2b6635eacd6774075da1e17da0412286d3c1ca5f3fe1876d59aa1"
+    },
+    {
+      "cardId": "axis-ace",
+      "cardName": "ACE Credit Card",
+      "issuer": "Axis Bank",
+      "url": "https://www.axisbank.com/retail/cards/credit-card/axis-bank-ace-credit-card/fees-and-charges",
+      "status": "baseline-created",
+      "hash": "cf8a75d9ebab766df7c1a15f8e4767479c3e0904b5d04e9f451fcf114db5a0a8"
+    },
+    {
+      "cardId": "axis-airtel",
+      "cardName": "Airtel Credit Card",
+      "issuer": "Axis Bank",
+      "url": "https://www.axisbank.com/retail/cards/credit-card/airtel-axis-bank-credit-card",
+      "status": "baseline-created",
+      "hash": "2ac61f2524449bbccb2a521c7c998d4071ee2cfad7ac7e6a06390e4ee6e558d8"
+    },
+    {
+      "cardId": "axis-atlas",
+      "cardName": "Atlas Credit Card",
+      "issuer": "Axis Bank",
+      "url": "https://www.axisbank.com/retail/cards/credit-card/axis-bank-atlas-credit-card",
+      "status": "baseline-created",
+      "hash": "63b380a163f22532b7fb3527eacaf7708cbefa2c95ee0e6dbf7abef47ee88feb"
+    },
+    {
+      "cardId": "axis-cashback",
+      "cardName": "Cashback Credit Card",
+      "issuer": "Axis Bank",
+      "url": "https://www.axisbank.com/retail/cards/credit-card/cashback-credit-card",
+      "status": "baseline-created",
+      "hash": "7a8c8e417a582aa4f233e4bc6dceedf1c51ab539b71292f451e42ef3a629d8ec"
+    },
+    {
+      "cardId": "axis-fibe",
+      "cardName": "Fibe Credit Card",
+      "issuer": "Axis Bank",
+      "url": "https://www.axis.bank.in/cards/credit-card/fibe-axis-bank-credit-card",
+      "status": "baseline-created",
+      "hash": "126c8a467e50323282a24a7c321f8cc00759b7cc63295a3e7e225ebd6f7a4607"
+    },
+    {
+      "cardId": "axis-flipkart-super-elite",
+      "cardName": "Flipkart Super Elite Credit Card",
+      "issuer": "Axis Bank",
+      "url": "https://www.axis.bank.in/cards/credit-card/flipkart-axis-bank-super-elite-credit-card",
+      "status": "baseline-created",
+      "hash": "07fe312c497c4a40defe5a0505839149301693bbe975289bc0806fd38f54ddfd"
+    },
+    {
+      "cardId": "axis-flipkart",
+      "cardName": "FLIPKART Credit Card",
+      "issuer": "Axis Bank",
+      "url": "https://www.axis.bank.in/cards/credit-card/flipkart-axisbank-credit-card",
+      "status": "baseline-created",
+      "hash": "02a69b66e308e86c8e7b4e062875f714f8f879828f7b7ea8911c588261c8341d"
+    },
+    {
+      "cardId": "axis-freecharge-plus",
+      "cardName": "Freecharge Plus Credit Card",
+      "issuer": "Axis Bank",
+      "url": "https://www.axisbank.com/retail/cards/credit-card/axis-bank-freecharge-plus-credit-card/features-benefits",
+      "status": "baseline-created",
+      "hash": "f13bf1afe82173ce1aa13df6dc215a21b5d5143b4cd4aee0c58d4286dfb6d4cc"
+    },
+    {
+      "cardId": "axis-freecharge",
+      "cardName": "Freecharge Credit Card",
+      "issuer": "Axis Bank",
+      "url": "https://www.axisbank.com/retail/cards/credit-card/axis-bank-freecharge-credit-card",
+      "status": "baseline-created",
+      "hash": "d93fa21574827cb7909674092331c21251f8b141c649849b126764f557f8f879"
+    },
+    {
+      "cardId": "axis-google-pay-flex",
+      "cardName": "Google Pay Flex Credit Card",
+      "issuer": "Axis Bank",
+      "url": "https://www.axisbank.com/retail/cards/credit-card",
+      "status": "baseline-created",
+      "hash": "34ef8af22a76b0d587192bfb14fdc05be47b419f9614aef4a351a64df0c042df"
+    },
+    {
+      "cardId": "axis-horizon",
+      "cardName": "HORIZON Credit Card",
+      "issuer": "Axis Bank",
+      "url": "https://www.axisbank.com/retail/cards/credit-card/axis-horizon-credit-card",
+      "status": "baseline-created",
+      "hash": "9ffe08477203a4eaae8df3de8c7959ca9572a7c74c166a37ff0ecc61dc7fc185"
+    },
+    {
+      "cardId": "axis-ikea-family",
+      "cardName": "IKEA Family Credit Card",
+      "issuer": "Axis Bank",
+      "url": "https://www.axisbank.com/retail/cards/credit-card/ikea-family-credit-card",
+      "status": "baseline-created",
+      "hash": "301d90607f2f4f3e86b8a38bf4a6b5d54c67abccee1e5ea3c53e84066645fce0"
+    },
+    {
+      "cardId": "axis-indianoil-easy",
+      "cardName": "IndianOil Easy Credit Card",
+      "issuer": "Axis Bank",
+      "url": "https://www.axisbank.com/retail/cards/credit-card/indianoil-axis-bank-credit-card",
+      "status": "baseline-created",
+      "hash": "b926d750cbd7ca6bb09a3c331c4cab79a7c142314c9276f4172f9fdfb1ca0f6f"
+    },
+    {
+      "cardId": "axis-indianoil-premium",
+      "cardName": "IndianOil Premium Credit Card",
+      "issuer": "Axis Bank",
+      "url": "https://www.axisbank.com/retail/cards/credit-card/indianoil-premium-credit-card",
+      "status": "baseline-created",
+      "hash": "80be4418caa8dd768ceb25f6ac8332b160cfa5e22d9b747c67b90e704540c400"
+    },
+    {
+      "cardId": "axis-indianoil",
+      "cardName": "INDIANOIL Credit Card",
+      "issuer": "Axis Bank",
+      "url": "https://www.axisbank.com/retail/cards/credit-card/indianoil-axis-bank-credit-card",
+      "status": "baseline-created",
+      "hash": "068c501632ba402f0150dabe3a98de5721b9e33fb00945832fbba3e644168ba3"
+    },
+    {
+      "cardId": "axis-indigo-premium",
+      "cardName": "IndiGo Premium Credit Card",
+      "issuer": "Axis Bank",
+      "url": "https://www.axisbank.com/retail/cards/credit-card/indigo-axis-bank-premium-credit-card",
+      "status": "baseline-created",
+      "hash": "78d58efc6252d4610c072cc2fbf29192e4e1861cc62a722a5626611e81e52d02"
+    },
+    {
+      "cardId": "axis-indigo",
+      "cardName": "Indigo Credit Card",
+      "issuer": "Axis Bank",
+      "url": "https://www.axisbank.com/retail/cards/credit-card/indigo-axis-bank-credit-card",
+      "status": "baseline-created",
+      "hash": "b3c86fca231ec84c5c724ff7fed3c63da9c3339e5323ed187c0e5b095fd85557"
+    },
+    {
+      "cardId": "axis-kwik",
+      "cardName": "Kwik Credit Card",
+      "issuer": "Axis Bank",
+      "url": "https://www.axisbank.com/retail/cards/credit-card/axis-bank-kwik-credit-card",
+      "status": "baseline-created",
+      "hash": "d692a2c2cd3a279492916ec78a8215e3aecb8ed395a1dc672b075400c3ffff1d"
+    },
+    {
+      "cardId": "axis-lic-platinum",
+      "cardName": "LIC Platinum Credit Card",
+      "issuer": "Axis Bank",
+      "url": "https://www.axisbank.com/retail/cards/credit-card/lic-axis-bank-platinum-credit-card",
+      "status": "baseline-created",
+      "hash": "c7d9bec8e4bb1b29dd9c6dbb5ae3af6f65e25f75de75b1d5077e5db82b8b5dc6"
+    },
+    {
+      "cardId": "axis-lic-signature",
+      "cardName": "LIC Signature Credit Card",
+      "issuer": "Axis Bank",
+      "url": "https://www.axisbank.com/retail/cards/credit-card/lic-axis-bank-signature-credit-card",
+      "status": "baseline-created",
+      "hash": "0af6d336007eb4cbd9456738357ac54e46c1cca3eb0a5a44a85f53acc1332d39"
+    },
+    {
+      "cardId": "axis-magnus-burgundy",
+      "cardName": "Magnus for Burgundy Credit Card",
+      "issuer": "Axis Bank",
+      "url": "https://www.axis.bank.in/cards/credit-card/axis-bank-magnus-credit-card",
+      "status": "baseline-created",
+      "hash": "80b5342ecfe3b151e374220f23d28ada0fb53b3929ba073b997377a45ff95936"
+    },
+    {
+      "cardId": "axis-magnus",
+      "cardName": "MAGNUS Credit Card",
+      "issuer": "Axis Bank",
+      "url": "https://www.axisbank.com/retail/cards/credit-card/axis-bank-magnus-card/more-benefits",
+      "status": "baseline-created",
+      "hash": "056d5d5607ab56831962b6de614ff4e3fec12ca0fd227d12cc18c301bc77641a"
+    },
+    {
+      "cardId": "axis-miles-and-more",
+      "cardName": "Miles and More Credit Card",
+      "issuer": "Axis Bank",
+      "url": "https://www.axisbank.com/retail/cards/credit-card/miles-more-credit-card",
+      "status": "baseline-created",
+      "hash": "d16ba540b46da44f79f0791c0efda50b30405d8c2191d3be1daa9ef026fa92d0"
+    },
+    {
+      "cardId": "axis-my-zone",
+      "cardName": "My Zone Credit Card",
+      "issuer": "Axis Bank",
+      "url": "https://www.axisbank.com/retail/cards/credit-card/my-zone-credit-card",
+      "status": "baseline-created",
+      "hash": "ae1d9f801205d3f51e67501f818e85204aadc005990c2d53e3af34634094cac7"
+    },
+    {
+      "cardId": "axis-neo",
+      "cardName": "Neo Credit Card",
+      "issuer": "Axis Bank",
+      "url": "https://www.axisbank.com/retail/cards/credit-card/neo-credit-card",
+      "status": "baseline-created",
+      "hash": "50cf6cc262767c47fb3d5d21a415b3f36ffe2d476001a3a31bc1b64bce750111"
+    },
+    {
+      "cardId": "axis-platinum",
+      "cardName": "Platinum Credit Card",
+      "issuer": "Axis Bank",
+      "url": "https://www.axisbank.com/retail/cards/credit-card/platinum-credit-card",
+      "status": "baseline-created",
+      "hash": "f9599b7f1ab9f08d93de7b03bfd3846b48458660ed3e7d846a5c482fce06063b"
+    },
+    {
+      "cardId": "axis-privilege-easy",
+      "cardName": "Privilege Easy Credit Card",
+      "issuer": "Axis Bank",
+      "url": "https://www.axisbank.com/retail/cards/credit-card/privilege-easy-credit-card",
+      "status": "baseline-created",
+      "hash": "6ca7e2f384fadaecacfa9783446b06a37ebec93d5667b867a36c2e041bfe916c"
+    },
+    {
+      "cardId": "axis-privilege",
+      "cardName": "PRIVILEGE Credit Card",
+      "issuer": "Axis Bank",
+      "url": "https://www.axisbank.com/retail/cards/credit-card/privilege-credit-card-with-unlimited-benefits",
+      "status": "baseline-created",
+      "hash": "18091de99c11ea78e514e7ac0e3c859c40c16eb3d2f1a377fafa4458b2160c34"
+    },
+    {
+      "cardId": "axis-reserve",
+      "cardName": "Reserve Credit Card",
+      "issuer": "Axis Bank",
+      "url": "https://www.axisbank.com/retail/cards/credit-card/reserve-credit-card",
+      "status": "baseline-created",
+      "hash": "81fcf3086a8fbfa602e853ed92f5f82c60e95e13542ab4d4b0524851a55c2924"
+    },
+    {
+      "cardId": "axis-rewards",
+      "cardName": "REWARDS Credit Card",
+      "issuer": "Axis Bank",
+      "url": "https://www.axisbank.com/retail/cards/credit-card/rewards-credit-card",
+      "status": "baseline-created",
+      "hash": "415ebd914da602639b29a0e67589f978e5aeb7e52a5e601a26e6ce78f6714a57"
+    },
+    {
+      "cardId": "axis-samsung-signature",
+      "cardName": "Samsung Signature Credit Card",
+      "issuer": "Axis Bank",
+      "url": "https://www.axisbank.com/retail/cards/credit-card/samsung-axis-bank-signature-credit-card",
+      "status": "baseline-created",
+      "hash": "d017f830625ea31308fe45730688d1841de7a7bda160ce46c0b52390582fd3a7"
+    },
+    {
+      "cardId": "axis-select",
+      "cardName": "Select Credit Card",
+      "issuer": "Axis Bank",
+      "url": "https://www.axisbank.com/retail/cards/credit-card/axis-bank-select-credit-card",
+      "status": "baseline-created",
+      "hash": "bb17c98a3b5532dee8ef78fd0654713ca0ef0ef0db026bd697cd5021b58284bc"
+    },
+    {
+      "cardId": "bobcard-easy",
+      "cardName": "EASY Credit Card",
+      "issuer": "Bank of Baroda",
+      "url": "https://bankofbaroda.bank.in/personal-banking/digital-products/cards/credit-cards/easy",
+      "status": "baseline-created",
+      "hash": "766b0cd7c6516b50209d203099a4c9384de52a79d15426721d6b60c5c3159c41"
+    },
+    {
+      "cardId": "bobcard-eterna",
+      "cardName": "ETERNA Credit Card",
+      "issuer": "Bank of Baroda",
+      "url": "https://bankofbaroda.bank.in/personal-banking/digital-products/cards/credit-cards/eterna",
+      "status": "baseline-created",
+      "hash": "6de57a9d459a4f7eead0cc023e95d63ceb0cd5761c786ed4137700f7280cd220"
+    },
+    {
+      "cardId": "bobcard-etihad-guest-premium",
+      "cardName": "Etihad Guest Premium Credit Card",
+      "issuer": "Bank of Baroda",
+      "url": "https://www.bobcard.co.in/etihad-guest-premium-bobcard",
+      "status": "baseline-created",
+      "hash": "611cfcf98371239237009f1f7a958fdbb3a4dd53b3cfbe4ea8889f7bb98577dc"
+    },
+    {
+      "cardId": "bobcard-etihad-guest",
+      "cardName": "Etihad Guest Credit Card",
+      "issuer": "Bank of Baroda",
+      "url": "https://www.bobcard.co.in/etihad-guest-bobcard",
+      "status": "baseline-created",
+      "hash": "e7fdec379aa25db96b6888dc98fff43e5df2f723acee45e20b2383b154fe0198"
+    },
+    {
+      "cardId": "bobcard-hpcl-energie",
+      "cardName": "HPCL ENERGIE Credit Card",
+      "issuer": "Bank of Baroda",
+      "url": "https://bankofbaroda.bank.in/hi-in/personal-banking/digital-products/cards/credit-cards/hpcl-bob-energie-credit-card",
+      "status": "baseline-created",
+      "hash": "d6c71419b8039858397e16e06da12733350b71df620ae85f2bdb5df228b1a639"
+    },
+    {
+      "cardId": "bobcard-irctc",
+      "cardName": "IRCTC Credit Card",
+      "issuer": "Bank of Baroda",
+      "url": "https://bankofbaroda.bank.in/personal-banking/digital-products/cards/credit-cards/irctc-bob-credit-card",
+      "status": "baseline-created",
+      "hash": "35aaa34051de25930e25aa72f352fc974563df2278e172929070e14e8e691d66"
+    },
+    {
+      "cardId": "bobcard-premier",
+      "cardName": "PREMIER Credit Card",
+      "issuer": "Bank of Baroda",
+      "url": "https://bankofbaroda.bank.in/personal-banking/digital-products/cards/credit-cards/premier",
+      "status": "baseline-created",
+      "hash": "7212b7ba464be62cd947dfa0f3bca28e42bdf2a4ac55205abf463cf5b8757211"
+    },
+    {
+      "cardId": "bobcard-select",
+      "cardName": "SELECT Credit Card",
+      "issuer": "Bank of Baroda",
+      "url": "https://bankofbaroda.bank.in/personal-banking/digital-products/cards/credit-cards/select",
+      "status": "baseline-created",
+      "hash": "d13e11a32e1594cbd2336200adc99183046cd93fc127268af3d4acfc43c075aa"
+    },
+    {
+      "cardId": "bobcard-snapdeal",
+      "cardName": "Snapdeal Credit Card",
+      "issuer": "Bank of Baroda",
+      "url": "https://bankofbaroda.bank.in/personal-banking/digital-products/cards/credit-cards/snapdeal-bob-credit-card",
+      "status": "baseline-created",
+      "hash": "a4ac7f2cb429c242229ef00b5f407f933e84d38c2d71ff0b3721d3014834c712"
+    },
+    {
+      "cardId": "scapia-bobcard",
+      "cardName": "Scapia Credit Card",
+      "issuer": "Bank of Baroda",
+      "url": "https://www.bobcard.co.in/credit-card-types/bobcard-scapia-credit-card",
+      "status": "baseline-created",
+      "hash": "62772f05a53f9f5e676d146860bfc5683fdf5e62fab7bac74ed7d034090d886a"
+    },
+    {
+      "cardId": "cub-salaryse-level-up",
+      "cardName": "CUB SalarySe Level UP Credit Card",
+      "issuer": "City Union Bank",
+      "url": "https://www.cityunionbank.bank.in/cub-salaryse-level-up-credit-card",
+      "status": "baseline-created",
+      "hash": "32029b65df41838057d994bdf4e3606f9f7ceb2a6488f8637008f111474b506d"
+    },
+    {
+      "cardId": "csb-jupiter-edge-plus",
+      "cardName": "Jupiter Edge+ Credit Card",
+      "issuer": "CSB Bank",
+      "url": "https://jupiter.money/credit-card/",
+      "status": "baseline-created",
+      "hash": "40e5eda6d79ee1cb07b0956ad1fdcc92c28f83f71f4267a3b1845477b2a33555"
+    },
+    {
+      "cardId": "equitas-powermiles",
+      "cardName": "PowerMiles Credit Card",
+      "issuer": "Equitas Small Finance Bank",
+      "url": "https://equitas.bank.in/personal-banking/pay/credit-cards/powermiles-credit-card/",
+      "status": "baseline-created",
+      "hash": "d9d2095dac73344aaf6971c0aae298e49e83844d054c7a9256a7ae03245a6792"
+    },
+    {
+      "cardId": "equitas-selfe",
+      "cardName": "Selfe Credit Card",
+      "issuer": "Equitas Small Finance Bank",
+      "url": "https://equitas.bank.in/personal-banking/pay/credit-cards/selfe-credit-card/",
+      "status": "baseline-created",
+      "hash": "24318f72b7ecc698293c29857f60e4d2dede33c1a7b2254221125a46839c4c01"
+    },
+    {
+      "cardId": "equitas-tiga",
+      "cardName": "Tiga Credit Card",
+      "issuer": "Equitas Small Finance Bank",
+      "url": "https://equitas.bank.in/personal-banking/pay/credit-cards/tiga-credit-card/",
+      "status": "baseline-created",
+      "hash": "d0a029523c3538c1a64849dea94cd92313b41776a568516ca35734e81d21cdb0"
+    },
+    {
+      "cardId": "federal-celesta",
+      "cardName": "Celesta Credit Card",
+      "issuer": "Federal Bank",
+      "url": "https://www.federalbank.co.in/celesta-credit-card",
+      "status": "baseline-created",
+      "hash": "af212fd6f83a9d3b1cddd73b9e92ca8f629839b3ffa700cb0e34260026663e75"
+    },
+    {
+      "cardId": "federal-imperio",
+      "cardName": "Imperio Credit Card",
+      "issuer": "Federal Bank",
+      "url": "https://www.federalbank.co.in/imperio-credit-card",
+      "status": "baseline-created",
+      "hash": "dbd2c696eb1f7fdc0f69353a60805fcfc3504cc53884b4746f4fb1c6f0606d53"
+    },
+    {
+      "cardId": "federal-signet",
+      "cardName": "Signet Credit Card",
+      "issuer": "Federal Bank",
+      "url": "https://www.federalbank.co.in/signet-credit-card",
+      "status": "baseline-created",
+      "hash": "0e569b9831619c85937b23518cbb27f38e2be7ae915c042876848db527d204dc"
+    },
+    {
+      "cardId": "federal-wave",
+      "cardName": "Wave RuPay Credit Card",
+      "issuer": "Federal Bank",
+      "url": "https://www.federalbank.co.in/credit-cards",
+      "status": "baseline-created",
+      "hash": "40b90365851778d50ac0c8189a82a5bd910ab37793d47bae13ac617765dc9d21"
+    },
+    {
+      "cardId": "scapia-federal",
+      "cardName": "Scapia Credit Card",
+      "issuer": "Federal Bank",
+      "url": "https://www.federalbank.co.in/scapia",
+      "status": "baseline-created",
+      "hash": "ddc826ac3080d8fb44043e54920907d5ae33744f5617ec4c8277cf7b1bfe0717"
+    },
+    {
+      "cardId": "hdfc-diners-club-black-metal",
+      "cardName": "Diners Club Black Metal Edition Credit Card",
+      "issuer": "HDFC Bank",
+      "url": "https://www.hdfc.bank.in/credit-cards/diners-club-black-metal-edition-credit-card",
+      "status": "baseline-created",
+      "hash": "c8e691d033210f85e5ec24857aaf51a2d4a5891ba1089794216d9613866f3275"
+    },
+    {
+      "cardId": "hdfc-diners-club-privilege",
+      "cardName": "Diners Club Privilege Credit Card",
+      "issuer": "HDFC Bank",
+      "url": "https://www.hdfc.bank.in/credit-cards/diners-privilege-credit-card",
+      "status": "baseline-created",
+      "hash": "7a5a44202de8d8f57f6da078948451731192d40c463907555b2cef8056e3ea4d"
+    },
+    {
+      "cardId": "hdfc-freedom",
+      "cardName": "Freedom Credit Card",
+      "issuer": "HDFC Bank",
+      "url": "https://www.hdfc.bank.in/credit-cards/freedom-credit-card",
+      "status": "baseline-created",
+      "hash": "d85b79c99b3e7f0874da921bde499471ed8432823003e1593344333bcfc0d478"
+    },
+    {
+      "cardId": "hdfc-indianoil",
+      "cardName": "IndianOil Credit Card",
+      "issuer": "HDFC Bank",
+      "url": "https://www.hdfc.bank.in/credit-cards/indianoil-hdfc-bank-credit-card",
+      "status": "baseline-created",
+      "hash": "ed91ce909175243cecbfe5b1382a3115881c8634ddbcd65ad41fced903096cb6"
+    },
+    {
+      "cardId": "hdfc-infinia-metal",
+      "cardName": "Infinia Metal Edition Credit Card",
+      "issuer": "HDFC Bank",
+      "url": "https://www.hdfc.bank.in/credit-cards/infinia-credit-card",
+      "status": "baseline-created",
+      "hash": "d18cff258778ba7f598400d7c3d40b60695d4afd2983c8bae2ff94a79531cdb9"
+    },
+    {
+      "cardId": "hdfc-irctc",
+      "cardName": "IRCTC Credit Card",
+      "issuer": "HDFC Bank",
+      "url": "https://www.hdfcbank.com/personal/pay/cards/credit-cards/irctc-credit-card",
+      "status": "baseline-created",
+      "hash": "007cfe9480600b3319c9bbc7d351c89253d1309198c898ea9f34860675ba4f8b"
+    },
+    {
+      "cardId": "hdfc-marriott-bonvoy",
+      "cardName": "Marriott Bonvoy Credit Card",
+      "issuer": "HDFC Bank",
+      "url": "https://www.hdfc.bank.in/credit-cards/marriott-bonvoy-credit-card",
+      "status": "baseline-created",
+      "hash": "beec4759a8593d12c8b1f9f93c99c0618015e484bc0e2a478d63ba5f06261afc"
+    },
+    {
+      "cardId": "hdfc-millennia",
+      "cardName": "Millennia Credit Card",
+      "issuer": "HDFC Bank",
+      "url": "https://www.hdfc.bank.in/credit-cards/millennia-credit-card",
+      "status": "baseline-created",
+      "hash": "a6fb62ec77ffe705f000dbb58fb7394e0c46c80499adf3e5d311e812e8dcfa61"
+    },
+    {
+      "cardId": "hdfc-moneyback-plus",
+      "cardName": "MoneyBack+ Credit Card",
+      "issuer": "HDFC Bank",
+      "url": "https://www.hdfc.bank.in/credit-cards/moneyback-plus-credit-card",
+      "status": "baseline-created",
+      "hash": "7b76213471058d2c3b6596b188bab2a6f8ca57a867bf723fbfe14e691d7cab98"
+    },
+    {
+      "cardId": "hdfc-phonepe-ultimo",
+      "cardName": "PhonePe Ultimo Credit Card",
+      "issuer": "HDFC Bank",
+      "url": "https://www.hdfcbank.com/personal/pay/cards/credit-cards/phonepe-hdfc-bank-ultimo-credit-card",
+      "status": "baseline-created",
+      "hash": "f157a58a28c04acab43b4703ca53089949b01d914f0d7d699fee93ef833a7dac"
+    },
+    {
+      "cardId": "hdfc-phonepe-uno",
+      "cardName": "PhonePe Uno Credit Card",
+      "issuer": "HDFC Bank",
+      "url": "https://www.hdfcbank.com/personal/pay/cards/credit-cards/phonepe-hdfc-bank-uno-credit-card",
+      "status": "baseline-created",
+      "hash": "677aa75dc58b6c41738e4d3f955deb995a8bd2ce643bcdd3f50e1abf056ed4a5"
+    },
+    {
+      "cardId": "hdfc-pixel-go",
+      "cardName": "PIXEL Go Credit Card",
+      "issuer": "HDFC Bank",
+      "url": "https://www.hdfc.bank.in/credit-cards/pixel-go-credit-card",
+      "status": "baseline-created",
+      "hash": "af1b5ed111572cec9088b2e9d07b6f3637ecb0e4e09dfb033be5ec0b94abc1f2"
+    },
+    {
+      "cardId": "hdfc-pixel-play",
+      "cardName": "PIXEL Play Credit Card",
+      "issuer": "HDFC Bank",
+      "url": "https://www.hdfc.bank.in/credit-cards/pixel-play-credit-card",
+      "status": "baseline-created",
+      "hash": "6476046d940ab4005e1c50f8916a1c19acac8b48bd7f68151124bd660a50ec1d"
+    },
+    {
+      "cardId": "hdfc-regalia-gold",
+      "cardName": "Regalia Gold Credit Card",
+      "issuer": "HDFC Bank",
+      "url": "https://www.hdfc.bank.in/credit-cards/regalia-gold-credit-card",
+      "status": "baseline-created",
+      "hash": "fe74da191f0fd88011c0464a712672ef8a9e393a11ac36f2da8e2c6c4e274e1d"
+    },
+    {
+      "cardId": "hdfc-shoppers-stop-black",
+      "cardName": "Shoppers Stop BLACK Credit Card",
+      "issuer": "HDFC Bank",
+      "url": "https://www.hdfcbank.com/personal/pay/cards/credit-cards/shoppers-stop-black-credit-card",
+      "status": "baseline-created",
+      "hash": "a95a624a97300f9ab43cb6e97143b8dd7ff16454fb3d8b7f61e1387e86868032"
+    },
+    {
+      "cardId": "hdfc-shoppers-stop",
+      "cardName": "Shoppers Stop Credit Card",
+      "issuer": "HDFC Bank",
+      "url": "https://www.hdfcbank.com/personal/pay/cards/credit-cards/shoppers-stop-credit-card",
+      "status": "baseline-created",
+      "hash": "face104941fa4ae6d6d51bdbefb04c3ece7f210172d01ebe303cd192c9dd984b"
+    },
+    {
+      "cardId": "hdfc-swiggy-black",
+      "cardName": "Swiggy BLCK Credit Card",
+      "issuer": "HDFC Bank",
+      "url": "https://www.hdfcbank.com/personal/pay/cards/credit-cards/swiggy-hdfc-bank-credit-card",
+      "status": "baseline-created",
+      "hash": "e44bd08713db752ccc0389e7ae543888974c6d4a64044f6aff451017715b5217"
+    },
+    {
+      "cardId": "hdfc-swiggy-orange",
+      "cardName": "Swiggy Orange Credit Card",
+      "issuer": "HDFC Bank",
+      "url": "https://www.hdfcbank.com/personal/pay/cards/credit-cards/swiggy-hdfc-bank-credit-card",
+      "status": "baseline-created",
+      "hash": "2580e3f6ede2d62a24b5ac2a91c983b1b8844ce4f2480c227e036740d7a84829"
+    },
+    {
+      "cardId": "hdfc-swiggy",
+      "cardName": "Swiggy Credit Card",
+      "issuer": "HDFC Bank",
+      "url": "https://www.hdfcbank.com/personal/pay/cards/credit-cards/swiggy-hdfc-bank-credit-card",
+      "status": "baseline-created",
+      "hash": "8b2c2a23706802ec3af36d849a741634019ce861745c775bb179cbdbc1a6f334"
+    },
+    {
+      "cardId": "hdfc-tata-neu-infinity",
+      "cardName": "Tata Neu Infinity Credit Card",
+      "issuer": "HDFC Bank",
+      "url": "https://www.hdfc.bank.in/credit-cards/tata-neu-infinity-hdfc-bank-credit-card",
+      "status": "baseline-created",
+      "hash": "ed441a0c496e4f5227375bd8d66f9a4fdcfe44454205bcd5c16cea2b3082da47"
+    },
+    {
+      "cardId": "hdfc-tata-neu-plus",
+      "cardName": "Tata Neu Plus Credit Card",
+      "issuer": "HDFC Bank",
+      "url": "https://www.hdfc.bank.in/credit-cards/tata-neu-plus-hdfc-bank-credit-card",
+      "status": "baseline-created",
+      "hash": "2347504df083153e189a7586c80029490b64d29fd2beb0800122236a9b1a334f"
+    },
+    {
+      "cardId": "hsbc-live-plus",
+      "cardName": "Live+ Credit Card",
+      "issuer": "HSBC Bank",
+      "url": "https://www.hsbc.co.in/credit-cards/products/live-plus/",
+      "status": "baseline-created",
+      "hash": "7a5d19b1ba3ccaa92f1df20aa5fbb459c2d207347fd43fee6a67a4f6c4c45e91"
+    },
+    {
+      "cardId": "hsbc-premier",
+      "cardName": "Premier Credit Card",
+      "issuer": "HSBC Bank",
+      "url": "https://www.hsbc.co.in/credit-cards/products/premier/",
+      "status": "baseline-created",
+      "hash": "2313c192bd9a7351625495f6ac74ce281d512fd14ab98794a84342ff86f2af27"
+    },
+    {
+      "cardId": "hsbc-rupay-cashback",
+      "cardName": "RuPay Cashback Credit Card",
+      "issuer": "HSBC Bank",
+      "url": "https://www.hsbc.co.in/credit-cards/products/rupay-cashback-credit-card/",
+      "status": "baseline-created",
+      "hash": "1dde4dafef2b422f15b54ffcdeb3b297d8eb0aef0d6260658168452dd23df6cb"
+    },
+    {
+      "cardId": "hsbc-rupay-platinum",
+      "cardName": "RuPay Platinum Credit Card",
+      "issuer": "HSBC Bank",
+      "url": "https://www.hsbc.co.in/credit-cards/products/rupay-platinum-credit-card/",
+      "status": "baseline-created",
+      "hash": "1c91c87be86e37fbf8bc5cbcb274ef5029f77e57129937daa2fadf99a92f14d1"
+    },
+    {
+      "cardId": "hsbc-taj",
+      "cardName": "Taj Credit Card",
+      "issuer": "HSBC Bank",
+      "url": "https://www.hsbc.co.in/credit-cards/products/taj/",
+      "status": "baseline-created",
+      "hash": "14f15583b5a49807965984e8a18f96758f8e0a63a2bf87c4ff220fa7046d3eb6"
+    },
+    {
+      "cardId": "hsbc-travelone",
+      "cardName": "TravelOne Credit Card",
+      "issuer": "HSBC Bank",
+      "url": "https://www.hsbc.co.in/credit-cards/products/travelone/",
+      "status": "baseline-created",
+      "hash": "8f58b2cac4cbe40f58c73665a369f5ea9f9f306057a5e6babc2c324273bca68d"
+    },
+    {
+      "cardId": "hsbc-visa-platinum",
+      "cardName": "Visa Platinum Credit Card",
+      "issuer": "HSBC Bank",
+      "url": "https://www.hsbc.co.in/credit-cards/products/visa-platinum/",
+      "status": "baseline-created",
+      "hash": "18241957b555a26a296d32a14fee0ba94d55e96546ad9d7e548654c96b522850"
+    },
+    {
+      "cardId": "icici-adani-one-platinum",
+      "cardName": "Adani One Platinum Credit Card",
+      "issuer": "ICICI Bank",
+      "url": "https://www.icicibank.com/personal-banking/cards/credit-card/adani-icici-credit-card/platinum-card",
+      "status": "baseline-created",
+      "hash": "4ec9cbdab4aec6478805e3c773721e44a6f52a5f81623206d53a661918600813"
+    },
+    {
+      "cardId": "icici-adani-one-signature",
+      "cardName": "Adani One Signature Credit Card",
+      "issuer": "ICICI Bank",
+      "url": "https://www.icicibank.com/personal-banking/cards/credit-card/adani-icici-credit-card/signature-credit-card",
+      "status": "baseline-created",
+      "hash": "3e7ab0ec4e59939a4335cec4b35ffd70c1330bed16b4a19613a31f24d8666c09"
+    },
+    {
+      "cardId": "icici-amazon-pay",
+      "cardName": "Amazon Pay Credit Card",
+      "issuer": "ICICI Bank",
+      "url": "https://www.icici.bank.in/personal-banking/cards/credit-card/amazon-pay-credit-card",
+      "status": "baseline-created",
+      "hash": "a394f81242bbbc3e89fe80917a7a46751873aea9a5bd531a0fbc023729666360"
+    },
+    {
+      "cardId": "icici-coral-rupay",
+      "cardName": "Coral RuPay Credit Card",
+      "issuer": "ICICI Bank",
+      "url": "https://www.icicibank.com/personal-banking/cards/credit-card/coral-rupay-card",
+      "status": "baseline-created",
+      "hash": "99997c7e288aeb0b266352239076a688ff4b13b472b5ee3aa47394fc41b63366"
+    },
+    {
+      "cardId": "icici-coral",
+      "cardName": "Coral Credit Card",
+      "issuer": "ICICI Bank",
+      "url": "https://www.icicibank.com/personal-banking/cards/credit-card/coral-credit-card",
+      "status": "baseline-created",
+      "hash": "5c4afe385dc584863ca90ac3a82989d21cd2a038a91fabab0d742529e96cf1a5"
+    },
+    {
+      "cardId": "icici-emeralde-private-metal",
+      "cardName": "Emeralde Private Metal Credit Card",
+      "issuer": "ICICI Bank",
+      "url": "https://www.icicibank.com/personal-banking/cards/credit-card/emeralde-private-metal-credit-card",
+      "status": "baseline-created",
+      "hash": "9478fe4746de1dd8820af5bb8d6e8f216aa399788ba2e9914f9f8f5131904942"
+    },
+    {
+      "cardId": "icici-emeralde",
+      "cardName": "Emeralde Credit Card",
+      "issuer": "ICICI Bank",
+      "url": "https://www.icicibank.com/personal-banking/cards/credit-card/emeralde-credit-card-new",
+      "status": "baseline-created",
+      "hash": "b6747c1f4cd07df65490fac73438383026916b0ad933987d958f18f3c8602738"
+    },
+    {
+      "cardId": "icici-hpcl-coral",
+      "cardName": "HPCL Coral Credit Card",
+      "issuer": "ICICI Bank",
+      "url": "https://www.icicibank.com/personal-banking/cards/credit-card/hpcl-coral-credit-card",
+      "status": "baseline-created",
+      "hash": "0f36996820d8c9eac0cb0918aef7c1d34968e4b2d45006b095c0f66c05616fa3"
+    },
+    {
+      "cardId": "icici-hpcl-super-saver",
+      "cardName": "HPCL Super Saver Credit Card",
+      "issuer": "ICICI Bank",
+      "url": "https://www.icicibank.com/personal-banking/cards/credit-card/hpcl-super-saver-credit-card",
+      "status": "baseline-created",
+      "hash": "57952855778781371e89f8d843fc69cd3ff45ef3b16d141ccc2be938b20c7fcf"
+    },
+    {
+      "cardId": "icici-makemytrip",
+      "cardName": "MakeMyTrip Credit Card",
+      "issuer": "ICICI Bank",
+      "url": "https://www.icicibank.com/personal-banking/cards/credit-card/makemytrip/credit-card",
+      "status": "baseline-created",
+      "hash": "6e1103430d72ad0e213f624068eca3fb2bb64fd3e6d12f3b3376c0c54e6c9882"
+    },
+    {
+      "cardId": "icici-platinum-chip",
+      "cardName": "Platinum Chip Credit Card",
+      "issuer": "ICICI Bank",
+      "url": "https://www.icicibank.com/personal-banking/cards/credit-card/platinum-chip-credit-card.html",
+      "status": "baseline-created",
+      "hash": "9eabde378e549a83c80db5a0a096318d8a22c1ddaba9e7d77f6aa9db0fdc529f"
+    },
+    {
+      "cardId": "icici-rubyx",
+      "cardName": "Rubyx Credit Card",
+      "issuer": "ICICI Bank",
+      "url": "https://www.icicibank.com/personal-banking/cards/credit-card/rubyx-card",
+      "status": "baseline-created",
+      "hash": "cbca75d090aba436060ae0a06c959482529b17fe273adfdaffafd065d87ac69f"
+    },
+    {
+      "cardId": "icici-sapphiro-rupay",
+      "cardName": "Sapphiro RuPay Credit Card",
+      "issuer": "ICICI Bank",
+      "url": "https://www.icicibank.com/personal-banking/cards/credit-card/rupay-credit-card",
+      "status": "baseline-created",
+      "hash": "147bf2702cb8752113c66cd5594b9f4be93f02a6ae8315f2e049195605c6c51e"
+    },
+    {
+      "cardId": "icici-sapphiro",
+      "cardName": "Sapphiro Credit Card",
+      "issuer": "ICICI Bank",
+      "url": "https://www.icicibank.com/personal-banking/cards/credit-card/sapphiro-card",
+      "status": "baseline-created",
+      "hash": "cdc2c1f7754ad93fd8f4b9cd24fe9a8eee3f5ba7bfab6dfcf8ba2aa791c508be"
+    },
+    {
+      "cardId": "icici-times-black",
+      "cardName": "Times Black Credit Card",
+      "issuer": "ICICI Bank",
+      "url": "https://www.icicibank.com/personal-banking/cards/credit-card/times-black-icici-credit-card.html",
+      "status": "baseline-created",
+      "hash": "5d4b27030859c30c1e4c658507f185cfb1d325400f64e064b2afe6efbce866b6"
+    },
+    {
+      "cardId": "idfc-ashva",
+      "cardName": "Ashva Credit Card",
+      "issuer": "IDFC FIRST Bank",
+      "url": "https://www.idfcfirstbank.com/credit-card/ashva",
+      "status": "baseline-created",
+      "hash": "47a7bdd2607dafce513fc50cdd44d2f4960ff5f7a13a4957779326f628b076dc"
+    },
+    {
+      "cardId": "idfc-first-classic",
+      "cardName": "Classic Credit Card",
+      "issuer": "IDFC FIRST Bank",
+      "url": "https://www.idfcfirstbank.com/credit-card",
+      "status": "baseline-created",
+      "hash": "879b58cefb927d57c1459a6db7e6c023fccce62e628a5c5dcf628acbcec0fb18"
+    },
+    {
+      "cardId": "idfc-first-earn",
+      "cardName": "EA₹N Credit Card",
+      "issuer": "IDFC FIRST Bank",
+      "url": "https://www.idfcfirstbank.com/credit-card/secured/first-earn",
+      "status": "baseline-created",
+      "hash": "b74f98d62c0e1464310eef242178f7f8c4398b20cd5fe017c3a379e6d56b8769"
+    },
+    {
+      "cardId": "idfc-first-millennia",
+      "cardName": "Millennia Credit Card",
+      "issuer": "IDFC FIRST Bank",
+      "url": "https://www.idfcfirstbank.com/credit-card",
+      "status": "baseline-created",
+      "hash": "47706de12ff71b605f8e0d30884d4baaf04c8a03928b81e94027580dd28a5264"
+    },
+    {
+      "cardId": "idfc-first-power-plus",
+      "cardName": "Power+ Credit Card",
+      "issuer": "IDFC FIRST Bank",
+      "url": "https://www.idfcfirstbank.com/credit-card",
+      "status": "baseline-created",
+      "hash": "fb5d348466918282652e1790a9b7470393262df719afaddc6e26f919adc8f2f0"
+    },
+    {
+      "cardId": "idfc-first-power",
+      "cardName": "Power Credit Card",
+      "issuer": "IDFC FIRST Bank",
+      "url": "https://www.idfcfirstbank.com/credit-card/co-branded/hpcl-power",
+      "status": "baseline-created",
+      "hash": "97852b3ab1a0d23e2b379a8ae78f42368462177832c92a630ff8b7ccae16d0a8"
+    },
+    {
+      "cardId": "idfc-first-select",
+      "cardName": "Select Credit Card",
+      "issuer": "IDFC FIRST Bank",
+      "url": "https://www.idfcfirstbank.com/credit-card",
+      "status": "baseline-created",
+      "hash": "9f42ff9a391c106b2f69d6fc130d532f5a487b8ed66ec23093d0464665c9af04"
+    },
+    {
+      "cardId": "idfc-first-wealth",
+      "cardName": "Wealth Credit Card",
+      "issuer": "IDFC FIRST Bank",
+      "url": "https://www.idfcfirstbank.com/credit-card",
+      "status": "baseline-created",
+      "hash": "9bab03732210cbfb9dd875aa3f308cb106c9b9b7ba4bae50b34bc56be4768ee8"
+    },
+    {
+      "cardId": "idfc-indigo",
+      "cardName": "IndiGo Credit Card",
+      "issuer": "IDFC FIRST Bank",
+      "url": "https://www.idfcfirstbank.com/personal-banking/payments/cards/co-branded-card/indigo-credit-card",
+      "status": "baseline-created",
+      "hash": "ab9afc78ea27fded5631d77259968a1d4ae2482cb272645a48ba1644e3f3ac97"
+    },
+    {
+      "cardId": "idfc-mayura",
+      "cardName": "Mayura Credit Card",
+      "issuer": "IDFC FIRST Bank",
+      "url": "https://www.idfcfirstbank.com/credit-card/mayura",
+      "status": "baseline-created",
+      "hash": "24f00c5020be7833c45c8a3acb53ef2234ff9e01fae79e5fb7571c210aa87636"
+    },
+    {
+      "cardId": "idfc-wow",
+      "cardName": "WOW! Credit Card",
+      "issuer": "IDFC FIRST Bank",
+      "url": "https://www.idfcfirstbank.com/credit-card",
+      "status": "baseline-created",
+      "hash": "28f017f3298358c92f8943a9e625e20bde228e3124b9a140fc1d24bf74cece93"
+    },
+    {
+      "cardId": "indusind-aura-edge",
+      "cardName": "Platinum Aura Edge Credit Card",
+      "issuer": "IndusInd Bank",
+      "url": "https://www.indusind.com/in/en/personal/cards/credit-card/platinum-aura-edge-visa-and-mastercard-credit-card-easy-credit.html",
+      "status": "baseline-created",
+      "hash": "fda4b9ce3582c1c50dcee2287e7f07e8e516a0c398af16f424d81cdc8a412cd5"
+    },
+    {
+      "cardId": "indusind-celesta",
+      "cardName": "Celesta Credit Card",
+      "issuer": "IndusInd Bank",
+      "url": "https://www.indusind.com/in/en/personal/cards/credit-card/celesta-credit-card.html",
+      "status": "baseline-created",
+      "hash": "f4d02a7f09a6f30eb5f4fa5bec29877ff44b28bcb8b54888be304e415f57542e"
+    },
+    {
+      "cardId": "indusind-crest",
+      "cardName": "Crest Credit Card",
+      "issuer": "IndusInd Bank",
+      "url": "https://www.indusind.com/in/en/personal/cards/credit-card/crest-credit-card.html",
+      "status": "baseline-created",
+      "hash": "4647fcd0d82f78c61b1b0f52505e3f6b4481a8a94ae45f2cea4561afbea5ac30"
+    },
+    {
+      "cardId": "indusind-eazydiner-platinum",
+      "cardName": "EazyDiner Platinum Credit Card",
+      "issuer": "IndusInd Bank",
+      "url": "https://www.indusind.com/in/en/personal/cards/credit-card/eazydiner-platinum-credit-card.html",
+      "status": "baseline-created",
+      "hash": "31f9e28756847be0c0cb34d59c7f7efda1c09cf1c896e090ccdedf97f5eb91af"
+    },
+    {
+      "cardId": "indusind-eazydiner",
+      "cardName": "EazyDiner Credit Card",
+      "issuer": "IndusInd Bank",
+      "url": "https://www.indusind.bank.in/in/en/personal/cards/credit-card/eazydiner-credit-card.html",
+      "status": "baseline-created",
+      "hash": "a3794e4e6e4aaa0942eb0ae72b9748aa314d3c6fbb0dc9036539760c1334d889"
+    },
+    {
+      "cardId": "indusind-indulge",
+      "cardName": "Indulge Credit Card",
+      "issuer": "IndusInd Bank",
+      "url": "https://www.indusind.com/in/en/personal/cards/credit-card/indulge-credit-card.html",
+      "status": "baseline-created",
+      "hash": "dbda284fa86cae935dd6dfce3112759753f42c7f82f8dfaf4906787ed0e59893"
+    },
+    {
+      "cardId": "indusind-legend",
+      "cardName": "Legend Credit Card",
+      "issuer": "IndusInd Bank",
+      "url": "https://www.indusind.com/in/en/personal/cards/credit-card/legend-credit-card.html",
+      "status": "baseline-created",
+      "hash": "9ef9133ede79d9b903a26c7ef016d29e48251672a9c7ddb426995892fcfb0ed7"
+    },
+    {
+      "cardId": "indusind-nexxt",
+      "cardName": "Nexxt Credit Card",
+      "issuer": "IndusInd Bank",
+      "url": "https://www.indusind.com/in/en/personal/cards/credit-card/nexxt-credit-card.html",
+      "status": "baseline-created",
+      "hash": "961eb9cddbb5001f1d92d54417b9fe67ec38a2827268e3f52a609cdc0f4a8d1f"
+    },
+    {
+      "cardId": "indusind-pinnacle",
+      "cardName": "Pinnacle Credit Card",
+      "issuer": "IndusInd Bank",
+      "url": "https://www.indusind.com/in/en/personal/cards/credit-card/pinnacle-world-credit-card.html",
+      "status": "baseline-created",
+      "hash": "5626a224aa647615c847acdc80bccb351350f44fa0ba7fd9e9f164bb17cb1489"
+    },
+    {
+      "cardId": "indusind-pioneer-heritage-metal",
+      "cardName": "PIONEER Heritage Metal Credit Card",
+      "issuer": "IndusInd Bank",
+      "url": "https://www.indusind.bank.in/in/en/personal/cards/credit-card/pioneer-heritage-credit-card.html",
+      "status": "baseline-created",
+      "hash": "7068374601d03bf681cb60851e9dd7888d6ef0f6607e0481619bf10be5c0f433"
+    },
+    {
+      "cardId": "indusind-pioneer-legacy",
+      "cardName": "PIONEER Legacy Credit Card",
+      "issuer": "IndusInd Bank",
+      "url": "https://www.indusind.bank.in/in/en/personal/cards/credit-card/pioneer-legacy-credit-card.html",
+      "status": "baseline-created",
+      "hash": "f2497ce51914737f9d52babe87ae14106eb1b69f8e85199505de7eece7d1ffb2"
+    },
+    {
+      "cardId": "indusind-platinum-rupay",
+      "cardName": "Platinum RuPay Credit Card",
+      "issuer": "IndusInd Bank",
+      "url": "https://www.indusind.com/in/en/personal/cards/credit-card/platinum-rupay-credit-card.html",
+      "status": "baseline-created",
+      "hash": "40560f5c4e895e420c34b87fcb73baf16388fcaf4bba612737cab13054bfa198"
+    },
+    {
+      "cardId": "indusind-tiger",
+      "cardName": "Tiger Credit Card",
+      "issuer": "IndusInd Bank",
+      "url": "https://www.indusind.bank.in/in/en/personal/cards/credit-card/tiger-credit-card.html",
+      "status": "baseline-created",
+      "hash": "b6f269beb750036e2f9773a2564132805ef7cefb131a77ff2657f317341e5031"
+    },
+    {
+      "cardId": "kotak-811-dream-different",
+      "cardName": "811 Dream Different Credit Card",
+      "issuer": "Kotak Mahindra Bank",
+      "url": "https://www.kotak.com/en/personal-banking/cards/credit-cards/811-dream-different-credit-card.html",
+      "status": "baseline-created",
+      "hash": "03ff624f4a87555758d10cbd5b405e13e99bf404dc4f46827472dabf7ff67cf3"
+    },
+    {
+      "cardId": "kotak-811",
+      "cardName": "811 Credit Card",
+      "issuer": "Kotak Mahindra Bank",
+      "url": "https://www.kotak.com/en/personal-banking/cards/credit-cards/kotak-811-credit-card.html",
+      "status": "baseline-created",
+      "hash": "4fccd15fba13fea139eb0d665986c5111bddd159ef430d5c6ac074e8f6987af0"
+    },
+    {
+      "cardId": "kotak-cashback-plus",
+      "cardName": "Cashback+ Credit Card",
+      "issuer": "Kotak Mahindra Bank",
+      "url": "https://www.kotak.com/en/personal-banking/cards/credit-cards/kotak-cashback-plus-credit-card.html",
+      "status": "baseline-created",
+      "hash": "d300edea88bc5cca682f078ebe95fca71601a3c3ceb212a9963812fc1bc427e5"
+    },
+    {
+      "cardId": "kotak-indianoil",
+      "cardName": "IndianOil Credit Card",
+      "issuer": "Kotak Mahindra Bank",
+      "url": "https://www.kotak.com/en/personal-banking/cards/credit-cards/indian-oil-credit-card.html",
+      "status": "baseline-created",
+      "hash": "1a7ce8c342c3a6daa36d353e26806ff93748f2d98bbb18ba0bcac3b14badcffe"
+    },
+    {
+      "cardId": "kotak-infinite",
+      "cardName": "Infinite Credit Card",
+      "issuer": "Kotak Mahindra Bank",
+      "url": "https://www.kotak.com/en/personal-banking/cards/credit-cards/wealth-management-infinite-credit-card.html",
+      "status": "baseline-created",
+      "hash": "1f63ef74e832aee9711cef1fd4b10a214c1e531c18a7839fee5f5889fe690143"
+    },
+    {
+      "cardId": "kotak-league-platinum",
+      "cardName": "League Platinum Credit Card",
+      "issuer": "Kotak Mahindra Bank",
+      "url": "https://www.kotak.com/en/personal-banking/cards/credit-cards/league-platinum-card.html",
+      "status": "baseline-created",
+      "hash": "9a75578174868d48180c79d825fd3b4ef0a4b5042212f63b100290b9b41e78f7"
+    },
+    {
+      "cardId": "kotak-pvr-gold",
+      "cardName": "PVR Gold Credit Card",
+      "issuer": "Kotak Mahindra Bank",
+      "url": "https://www.kotak.com/en/personal-banking/cards/credit-cards.html",
+      "status": "baseline-created",
+      "hash": "9360442d144df542bd96b28fd350e108e58116466ebaa74b4f908ae5bc21772a"
+    },
+    {
+      "cardId": "kotak-pvr-inox",
+      "cardName": "PVR INOX Credit Card",
+      "issuer": "Kotak Mahindra Bank",
+      "url": "https://www.kotak.com/en/personal-banking/cards/credit-cards/pvr-inox-kotak-credit-card.html",
+      "status": "baseline-created",
+      "hash": "5b24ea175dd9ad5d15ee613f45e4f93c9f8147308feac66baab8abe8a2e3bcee"
+    },
+    {
+      "cardId": "kotak-pvr-platinum",
+      "cardName": "PVR Platinum Credit Card",
+      "issuer": "Kotak Mahindra Bank",
+      "url": "https://www.kotak.com/en/personal-banking/cards/credit-cards.html",
+      "status": "baseline-created",
+      "hash": "5e296fd2a82c4d768be8cb9ba5d3a1c67290dca08eff3714838a4c7180a9f305"
+    },
+    {
+      "cardId": "kotak-solitaire",
+      "cardName": "Solitaire Credit Card",
+      "issuer": "Kotak Mahindra Bank",
+      "url": "https://www.kotak.com/en/personal-banking/cards/credit-cards/kotak-solitaire-credit-card.html",
+      "status": "baseline-created",
+      "hash": "ee9d465a4379aff864d6547196b240e0b3d8a9095e3d1ff86a158c831d3f1474"
+    },
+    {
+      "cardId": "kotak-upi-rupay",
+      "cardName": "UPI RuPay Credit Card",
+      "issuer": "Kotak Mahindra Bank",
+      "url": "https://www.kotak.com/en/personal-banking/cards/credit-cards/kotak-upi-rupay-credit-card.html",
+      "status": "baseline-created",
+      "hash": "65ddc8178073d6255ab3f2af3831e0cae9860767b11783ec1b74935ad879d1c0"
+    },
+    {
+      "cardId": "kotak-white-reserve",
+      "cardName": "White Reserve Credit Card",
+      "issuer": "Kotak Mahindra Bank",
+      "url": "https://www.kotak.com/en/personal-banking/cards/credit-cards/white-reserve-credit-card/value.html",
+      "status": "baseline-created",
+      "hash": "f2e21cf529080655ae90ea766e086acac1bc09c7997be32733f5bf087f553d35"
+    },
+    {
+      "cardId": "kotak-white",
+      "cardName": "White Credit Card",
+      "issuer": "Kotak Mahindra Bank",
+      "url": "https://www.kotak.com/en/personal-banking/cards/credit-cards/white-credit-card.html",
+      "status": "baseline-created",
+      "hash": "a62248ca919140d476be57098ee159f682d2014b8b2c743ed6154595354ed39d"
+    },
+    {
+      "cardId": "kotak-zen-signature",
+      "cardName": "Zen Signature Credit Card",
+      "issuer": "Kotak Mahindra Bank",
+      "url": "https://www.kotak.com/en/personal-banking/cards/credit-cards/zen-signature-credit-card.html",
+      "status": "baseline-created",
+      "hash": "c3de4e02806d13ffbc78ce6a8cbed04390f4f0ec54855e2501b0d7361e0e549c"
+    },
+    {
+      "cardId": "onecard",
+      "cardName": "One Credit Card",
+      "issuer": "OneCard Partner Banks",
+      "url": "https://www.getonecard.app/credit-card/",
+      "status": "baseline-created",
+      "hash": "248e929a7a1c70e3ba54f0955dfb3b09a5230bfd2f16179765182af8387ce8c8"
+    },
+    {
+      "cardId": "rbl-cookies",
+      "cardName": "Cookies Credit Card",
+      "issuer": "RBL Bank",
+      "url": "https://www.rblbank.com/personal-banking/cards/credit-cards/cookies-credit-card",
+      "status": "baseline-created",
+      "hash": "d1111835e1b243785c239c324bd8a4664e762c2438187dbcfbee1587263de862"
+    },
+    {
+      "cardId": "rbl-icon",
+      "cardName": "Icon Credit Card",
+      "issuer": "RBL Bank",
+      "url": "https://www.rblbank.com/personal-banking/cards/credit-cards/icon-credit-card",
+      "status": "baseline-created",
+      "hash": "0efd9876df0576b5f464daa5327cc808da10df79b511465cdefcf6292750cd3c"
+    },
+    {
+      "cardId": "rbl-patanjali-swarn",
+      "cardName": "Patanjali Swarn Credit Card",
+      "issuer": "RBL Bank",
+      "url": "https://www.rblbank.com/personal-banking/cards/credit-cards/patanjali-rbl-bank-swarn-credit-card",
+      "status": "baseline-created",
+      "hash": "a83563a9649daf0f56842717abaa923304f28ef110f4324fb98e386fbd217170"
+    },
+    {
+      "cardId": "rbl-patanjali-vishisht",
+      "cardName": "Patanjali Vishisht Credit Card",
+      "issuer": "RBL Bank",
+      "url": "https://www.rblbank.com/personal-banking/cards/credit-cards/patanjali-rbl-bank-vishisht-credit-card",
+      "status": "baseline-created",
+      "hash": "89df1bf6db28798875c6533a8885ec6cbbdd1d25de166c1e139131d5a1b05f13"
+    },
+    {
+      "cardId": "rbl-platinum-delight",
+      "cardName": "Platinum Delight Credit Card",
+      "issuer": "RBL Bank",
+      "url": "https://www.rblbank.com/personal-banking/cards/credit-cards/platinum-delight-credit-card",
+      "status": "baseline-created",
+      "hash": "84b2fa39818bad822f39fe1f7fb5932b6bcb340288142df7e949d2a17d74bd7e"
+    },
+    {
+      "cardId": "rbl-platinum-maxima-plus",
+      "cardName": "Platinum Maxima Plus Credit Card",
+      "issuer": "RBL Bank",
+      "url": "https://www.rblbank.com/personal-banking/cards/credit-cards/platinum-maxima-plus-credit-card",
+      "status": "baseline-created",
+      "hash": "926bba5925c0bc0d76f2bfa6e37ababd852010708a37e69cafd92861692b85c6"
+    },
+    {
+      "cardId": "rbl-play",
+      "cardName": "PLAY Credit Card",
+      "issuer": "RBL Bank",
+      "url": "https://www.rblbank.com/personal-banking/cards/credit-cards/rbl-bank-play-credit-card",
+      "status": "baseline-created",
+      "hash": "5292866d37246cb6587b36653b3e365a4dd49f0d1dfaa24bdad81ab891d1616d"
+    },
+    {
+      "cardId": "rbl-shoprite",
+      "cardName": "ShopRite Credit Card",
+      "issuer": "RBL Bank",
+      "url": "https://www.rblbank.com/personal-banking/cards/credit-cards/shoprite-credit-card",
+      "status": "baseline-created",
+      "hash": "acd483cdc7e56d9a26f001a386bd573942313b5e1784482b5c47e3aedde37a16"
+    },
+    {
+      "cardId": "rbl-world-max",
+      "cardName": "World Max Credit Card",
+      "issuer": "RBL Bank",
+      "url": "https://www.rblbank.com/personal-banking/cards/credit-cards/world-max-credit-card",
+      "status": "baseline-created",
+      "hash": "812243060a09d428c92bf08e14e13a2240f00e01885c854e532777587a9eef71"
+    },
+    {
+      "cardId": "rbl-world-prime",
+      "cardName": "World Prime Credit Card",
+      "issuer": "RBL Bank",
+      "url": "https://www.rblbank.com/personal-banking/cards/credit-cards/world-prime-credit-card",
+      "status": "baseline-created",
+      "hash": "c86b70d83410c0a93c7306fe668556682381e53c565dbb38dba31ce5da54d536"
+    },
+    {
+      "cardId": "rbl-world-safari",
+      "cardName": "World Safari Credit Card",
+      "issuer": "RBL Bank",
+      "url": "https://www.rblbank.com/personal-banking/cards/credit-cards/world-safari-credit-card",
+      "status": "baseline-created",
+      "hash": "6a0ac2beffb472c36b17e7647608d5cdc002347723c0bd3ed1b7208d23246db8"
+    },
+    {
+      "cardId": "apollo-sbi-select",
+      "cardName": "Apollo SELECT Credit Card",
+      "issuer": "SBI Card",
+      "url": "https://www.sbicard.com/en/personal/credit-cards/apollo-sbi-card.html",
+      "status": "baseline-created",
+      "hash": "9a0eaf2ce7549d3560f30bd88abfce97e7ec79cdd72cbc67d7db88152466351d"
+    },
+    {
+      "cardId": "aurum-sbi",
+      "cardName": "AURUM Credit Card",
+      "issuer": "SBI Card",
+      "url": "https://www.aurumcreditcard.com/",
+      "status": "baseline-created",
+      "hash": "9428965ebcc6491417f5d874620f9b8708b2a9b6b23e4e26553358b4c3ff7a10"
+    },
+    {
+      "cardId": "bpcl-sbi-octane",
+      "cardName": "BPCL OCTANE Credit Card",
+      "issuer": "SBI Card",
+      "url": "https://www.sbicard.com/en/personal/credit-cards/bpcl-sbi-card-octane.html",
+      "status": "baseline-created",
+      "hash": "7e4faeb1bd44bd7addd2184cff12cbf6bba3da88cf1fc18dec1ceefaebc108d5"
+    },
+    {
+      "cardId": "bpcl-sbi",
+      "cardName": "BPCL Credit Card",
+      "issuer": "SBI Card",
+      "url": "https://www.sbicard.com/en/personal/credit-cards/bpcl-sbi-card.html",
+      "status": "baseline-created",
+      "hash": "2db2a7fee1837c240e4016450f6948a9e38055c20e671111cae3a98e0c7f3095"
+    },
+    {
+      "cardId": "doctors-sbi",
+      "cardName": "Doctor's Credit Card",
+      "issuer": "SBI Card",
+      "url": "https://www.sbicard.com/en/personal/credit-cards/lifestyle/doctors-sbi-card.page",
+      "status": "baseline-created",
+      "hash": "ac5de23ac04e6b7ab4000cb858c0dcd41ed11b5462eff80ded2dea3437f845f9"
+    },
+    {
+      "cardId": "flipkart-sbi",
+      "cardName": "Flipkart Credit Card",
+      "issuer": "SBI Card",
+      "url": "https://www.sbicard.com/en/personal/credit-cards/flipkart-sbi-card.html",
+      "status": "baseline-created",
+      "hash": "b953d7f82e4a0d416b1836b972dcb7799e94ddcd423b788d3beab6198c2390dc"
+    },
+    {
+      "cardId": "indigo-sbi-elite",
+      "cardName": "IndiGo ELITE Credit Card",
+      "issuer": "SBI Card",
+      "url": "https://www.sbicard.com/en/personal/credit-cards/travel/indigo-sbi-card-elite.page",
+      "status": "baseline-created",
+      "hash": "988b72f865940a2f50d50a1154af63252ddcf7cb058232fb4a814cbe86001283"
+    },
+    {
+      "cardId": "indigo-sbi",
+      "cardName": "IndiGo Credit Card",
+      "issuer": "SBI Card",
+      "url": "https://www.sbicard.com/en/personal/credit-cards/indigo-sbi-card.html",
+      "status": "baseline-created",
+      "hash": "230134be2db2bfff7e9465e95a87b0b5d3565e4a776b7f085c1a0bbdedef487b"
+    },
+    {
+      "cardId": "irctc-rupay-sbi",
+      "cardName": "IRCTC on RuPay Credit Card",
+      "issuer": "SBI Card",
+      "url": "https://www.sbicard.com/en/personal/credit-cards/travel/irctc-rupay-sbi-card.page",
+      "status": "baseline-created",
+      "hash": "0844a3088fee03812eec38d8a7f73a10d45e76eea651a50cfc31bac6a682ef77"
+    },
+    {
+      "cardId": "irctc-sbi-platinum",
+      "cardName": "IRCTC Platinum Credit Card",
+      "issuer": "SBI Card",
+      "url": "https://www.sbicard.com/en/personal/credit-cards/travel/irctc-sbi-platinum-card.page",
+      "status": "baseline-created",
+      "hash": "270052f096b131cd5d1cd2158ae7c86784dc65ba4ec25fa520911b07ec17b253"
+    },
+    {
+      "cardId": "krisflyer-sbi-apex",
+      "cardName": "KrisFlyer Apex Credit Card",
+      "issuer": "SBI Card",
+      "url": "https://www.sbicard.com/en/personal/credit-cards/travel/krisflyer-sbi-card-apex.page",
+      "status": "baseline-created",
+      "hash": "13ddcd8193ae43e0fbeeb44dfe2b3d215bf93f1314de5b1fb9687154eaeafad7"
+    },
+    {
+      "cardId": "krisflyer-sbi",
+      "cardName": "KrisFlyer Credit Card",
+      "issuer": "SBI Card",
+      "url": "https://www.sbicard.com/en/personal/credit-cards/travel/krisflyer-sbi-card.page",
+      "status": "baseline-created",
+      "hash": "72976a23d7300442b8c63951631aef25c03de30c47d069e256ff45c3999708a8"
+    },
+    {
+      "cardId": "landmark-rewards-sbi-prime",
+      "cardName": "Landmark Rewards PRIME Credit Card",
+      "issuer": "SBI Card",
+      "url": "https://www.sbicard.com/en/personal/credit-cards/shopping/landmark-sbi-card-prime.page",
+      "status": "baseline-created",
+      "hash": "1450827a011496b74367808c6788201b40157599c574ee92484d1ce0e971645e"
+    },
+    {
+      "cardId": "landmark-rewards-sbi-select",
+      "cardName": "Landmark Rewards SELECT Credit Card",
+      "issuer": "SBI Card",
+      "url": "https://www.sbicard.com/en/personal/credit-cards/landmark-sbi-card.html",
+      "status": "baseline-created",
+      "hash": "5183df907983ede5a3c1de1754ef1cf421e34408a12d19f0ff6dadb151a7dd77"
+    },
+    {
+      "cardId": "landmark-rewards-sbi",
+      "cardName": "Landmark Rewards Credit Card",
+      "issuer": "SBI Card",
+      "url": "https://www.sbicard.com/en/personal/credit-cards/landmark-sbi-card.html",
+      "status": "baseline-created",
+      "hash": "ea27162f06e32a44f06c900c1db81583068768911024e0885099086c824306cb"
+    },
+    {
+      "cardId": "phonepe-sbi-purple",
+      "cardName": "PhonePe PURPLE Credit Card",
+      "issuer": "SBI Card",
+      "url": "https://www.sbicard.com/en/personal/credit-cards/rewards/phonepe-sbi-card-purple.page",
+      "status": "baseline-created",
+      "hash": "78c329003fefc7861f9ff6e22225932f1f725e7caf6a24be7492cc436cd191cb"
+    },
+    {
+      "cardId": "phonepe-sbi-select-black",
+      "cardName": "PhonePe SELECT BLACK Credit Card",
+      "issuer": "SBI Card",
+      "url": "https://www.sbicard.com/en/personal/credit-cards/rewards/phonepe-sbi-card-select-black.page",
+      "status": "baseline-created",
+      "hash": "8ecab93e9fc3eac6d9d63950345823efa2195295b42de814e2f754c3182632c0"
+    },
+    {
+      "cardId": "reliance-sbi-prime",
+      "cardName": "Reliance PRIME Credit Card",
+      "issuer": "SBI Card",
+      "url": "https://www.sbicard.com/en/personal/credit-cards/shopping/reliance-sbi-card-prime.page",
+      "status": "baseline-created",
+      "hash": "c6937e1ecc369681db2f895c4c4a3397d47dbf93283d3e7b22601dc8625883c6"
+    },
+    {
+      "cardId": "reliance-sbi",
+      "cardName": "Reliance Credit Card",
+      "issuer": "SBI Card",
+      "url": "https://www.sbicard.com/en/personal/credit-cards/shopping/reliance-sbi-card.page",
+      "status": "baseline-created",
+      "hash": "6bdef4fb861ce5ca72c8e518cc88194543cd6300c5d08ef94be589e324d90c1c"
+    },
+    {
+      "cardId": "sbi-card-elite",
+      "cardName": "ELITE Credit Card",
+      "issuer": "SBI Card",
+      "url": "https://www.sbicard.com/en/personal/credit-cards/sbi-card-elite.html",
+      "status": "baseline-created",
+      "hash": "711e32141229061296d13a7894f8f279acd0286613a1100f2ae3e09fe3366c96"
+    },
+    {
+      "cardId": "sbi-card-miles-elite",
+      "cardName": "MILES ELITE Credit Card",
+      "issuer": "SBI Card",
+      "url": "https://www.sbicard.com/en/personal/credit-cards/travel/sbi-card-miles-elite.page",
+      "status": "baseline-created",
+      "hash": "e1f46bc89821472098e18d43411744a4b285e26a9332d5725a1ed3381761ee6e"
+    },
+    {
+      "cardId": "sbi-card-miles-prime",
+      "cardName": "MILES PRIME Credit Card",
+      "issuer": "SBI Card",
+      "url": "https://www.sbicard.com/en/personal/credit-cards/travel/sbi-card-miles-prime.page",
+      "status": "baseline-created",
+      "hash": "8499ec14aa76b8be2f6aabcdebb402a033ffd7052c3f988f23f54a2cd3245539"
+    },
+    {
+      "cardId": "sbi-card-miles",
+      "cardName": "MILES Credit Card",
+      "issuer": "SBI Card",
+      "url": "https://www.sbicard.com/en/personal/credit-cards/travel/sbi-card-miles.page",
+      "status": "baseline-created",
+      "hash": "58392abbe31528f5b99669dfb7bcfa19799c94bbf4d4beee2a763e0e05fcb919"
+    },
+    {
+      "cardId": "sbi-card-prime",
+      "cardName": "PRIME Credit Card",
+      "issuer": "SBI Card",
+      "url": "https://www.sbicard.com/en/personal/credit-cards/lifestyle/sbi-card-prime.page",
+      "status": "baseline-created",
+      "hash": "6000a24aa4c861279da8e5aa944613c5876eb05786ec1d5d67fc6624b9beadde"
+    },
+    {
+      "cardId": "sbi-card-pulse",
+      "cardName": "PULSE Credit Card",
+      "issuer": "SBI Card",
+      "url": "https://www.sbicard.com/en/personal/credit-cards/sbi-card-pulse.html",
+      "status": "baseline-created",
+      "hash": "d2cce7f1675867c69b10e8f7f29de0556a6890df9124f47509071942b9de10c5"
+    },
+    {
+      "cardId": "sbi-cashback",
+      "cardName": "Cashback Credit Card",
+      "issuer": "SBI Card",
+      "url": "https://www.sbicard.com/en/personal/credit-cards/rewards/cashback-sbi-card.page",
+      "status": "baseline-created",
+      "hash": "055f73feb572c8a05b2ee744288e1631dd8b73d52e110ad71cb7d3c81cd62d49"
+    },
+    {
+      "cardId": "shaurya-sbi",
+      "cardName": "Shaurya Credit Card",
+      "issuer": "SBI Card",
+      "url": "https://www.sbicard.com/en/personal/credit-cards/defense/shaurya-sbi-card.page",
+      "status": "baseline-created",
+      "hash": "b219c750260d5b4886a27d173e53f1246ffe5f468d73d5d9822e15a4e87dd7a5"
+    },
+    {
+      "cardId": "shaurya-select-sbi",
+      "cardName": "Shaurya Select Credit Card",
+      "issuer": "SBI Card",
+      "url": "https://www.sbicard.com/en/personal/credit-cards/defense/shaurya-sbi-card.page",
+      "status": "baseline-created",
+      "hash": "be43d65ed44f0e0a2d381943d2b14bf6d30fede61b616eb17de72c474973e23a"
+    },
+    {
+      "cardId": "simplyclick-sbi",
+      "cardName": "SimplyCLICK Credit Card",
+      "issuer": "SBI Card",
+      "url": "https://www.sbicard.com/en/personal/credit-cards/simplyclick-sbi-card.html",
+      "status": "baseline-created",
+      "hash": "369dc58b1a4d9bb7b1b4c4886d0267f4d8ebe6065fcc36af3faf56a7d3334672"
+    },
+    {
+      "cardId": "simplysave-sbi",
+      "cardName": "SimplySAVE Credit Card",
+      "issuer": "SBI Card",
+      "url": "https://www.sbicard.com/en/personal/credit-cards/shopping/simplysave-sbi-card-sprint.page",
+      "status": "baseline-created",
+      "hash": "fe259cfe4b6fb04fd57e3377313abd0841aa9d142ce92dc44b9b1adf6ac31bac"
+    },
+    {
+      "cardId": "tata-neu-infinity-sbi",
+      "cardName": "Tata Neu Infinity Credit Card",
+      "issuer": "SBI Card",
+      "url": "https://www.sbicard.com/en/personal/credit-cards/tata-neu-infinity-sbi-card.html",
+      "status": "baseline-created",
+      "hash": "ca98f6f2ba16326ee985686cc93fc73fdbf48e1753968778eafff1ef7e63e2f3"
+    },
+    {
+      "cardId": "tata-neu-plus-sbi",
+      "cardName": "Tata Neu Plus Credit Card",
+      "issuer": "SBI Card",
+      "url": "https://www.sbicard.com/en/personal/credit-cards/tata-neu-plus-sbi-card.html",
+      "status": "baseline-created",
+      "hash": "e263f5bc4c2fcfa5b565838fde09292125446e6ae0d4e8807d51db82cc8a9e15"
+    },
+    {
+      "cardId": "titan-sbi",
+      "cardName": "Titan Credit Card",
+      "issuer": "SBI Card",
+      "url": "https://www.sbicard.com/en/personal/credit-cards/shopping/titan-sbi-card.page",
+      "status": "baseline-created",
+      "hash": "52cd024228d948de5f395ae8dd4c1afd260ad930376346c0e7f37d74c3429b2c"
+    },
+    {
+      "cardId": "sbm-paisabazaar-paisa-plus",
+      "cardName": "Paisabazaar Paisa+ Credit Card",
+      "issuer": "SBM Bank",
+      "url": "https://www.paisabazaar.com/sbm-bank/paisabazaar-paisa-plus-credit-card/",
+      "status": "baseline-created",
+      "hash": "cafe4c4226986c6828a502582acbce4f14cc7f69c0d55d21857d1573f72f1acf"
+    },
+    {
+      "cardId": "sc-beyond",
+      "cardName": "Beyond Credit Card",
+      "issuer": "Standard Chartered",
+      "url": "https://www.sc.com/in/credit-cards/beyond-credit-card/",
+      "status": "baseline-created",
+      "hash": "0151662ad158b52d65cbe5bec1edb275734988086c68c2bd7e2be1438efbd8fd"
+    },
+    {
+      "cardId": "sc-digismart",
+      "cardName": "DigiSmart Credit Card",
+      "issuer": "Standard Chartered",
+      "url": "https://www.sc.com/in/credit-cards/digismart-card/",
+      "status": "baseline-created",
+      "hash": "c34670f0be23b9b739fb668467b5ac9ded4de7d1dfc580a62c8a499577fbffb9"
+    },
+    {
+      "cardId": "sc-easemytrip",
+      "cardName": "EaseMyTrip Credit Card",
+      "issuer": "Standard Chartered",
+      "url": "https://www.sc.com/in/credit-cards/easemytrip-credit-card/",
+      "status": "baseline-created",
+      "hash": "41ec661e3a4c8d07fb0a874257f688744a1d42d5c8767574d5ae8c7f084db428"
+    },
+    {
+      "cardId": "sc-manhattan-platinum",
+      "cardName": "Manhattan Platinum Credit Card",
+      "issuer": "Standard Chartered",
+      "url": "https://www.sc.com/in/credit-cards/manhattan-platinum-card/",
+      "status": "baseline-created",
+      "hash": "01f4fbfec52228981cc0a6dc7d7f94987b8ac826ac28cd0e0a32e05748cde13d"
+    },
+    {
+      "cardId": "sc-platinum-rewards",
+      "cardName": "Platinum Rewards Credit Card",
+      "issuer": "Standard Chartered",
+      "url": "https://www.sc.com/in/credit-cards/platinum-rewards/",
+      "status": "baseline-created",
+      "hash": "04ab530ae31876623dfaf404dbe26486dcc4cf188bce2a00fda3b9b9ab04b8ae"
+    },
+    {
+      "cardId": "sc-priority-visa-infinite",
+      "cardName": "Priority Visa Infinite Credit Card",
+      "issuer": "Standard Chartered",
+      "url": "https://www.sc.com/in/credit-cards/visa-infinite-card",
+      "status": "baseline-created",
+      "hash": "fb91adff4994b2b3eb11bac9c9d94a1fb0c05f7e4ad52601778189e8999e00a4"
+    },
+    {
+      "cardId": "sc-rewards",
+      "cardName": "Rewards Credit Card",
+      "issuer": "Standard Chartered",
+      "url": "https://www.sc.com/in/credit-cards/rewards-credit-card/",
+      "status": "baseline-created",
+      "hash": "5dc37d04eff1e7adf9dc664e6d0e5a1b0db3776f43349a75e9ddf526135552d1"
+    },
+    {
+      "cardId": "sc-smart",
+      "cardName": "Smart Credit Card",
+      "issuer": "Standard Chartered",
+      "url": "https://www.sc.com/in/credit-cards/smart-credit-card/",
+      "status": "baseline-created",
+      "hash": "f43d1db7f96246f70c5ff19b7e9802b6ee7ac2d4d3a03405c53941297556171b"
+    },
+    {
+      "cardId": "sc-super-value-titanium",
+      "cardName": "Super Value Titanium Credit Card",
+      "issuer": "Standard Chartered",
+      "url": "https://www.sc.com/in/credit-cards/super-value-titanium/",
+      "status": "baseline-created",
+      "hash": "1e16d83e195db858ff1798d8f4299e5e2fc5934c0ec6cdb57e83942ce543de55"
+    },
+    {
+      "cardId": "sc-ultimate",
+      "cardName": "Ultimate Credit Card",
+      "issuer": "Standard Chartered",
+      "url": "https://www.sc.com/in/credit-cards/ultimate-card/",
+      "status": "baseline-created",
+      "hash": "d399676c25ee13e86e980e9baf123cd2d4ad5f24ca9a60a2b714393649be0acd"
+    },
+    {
+      "cardId": "yes-ace",
+      "cardName": "ACE Credit Card",
+      "issuer": "YES Bank",
+      "url": "https://www.yesbank.in/content/published/api/v1.1/assets/CONT088843DCD7EF4481B44CBD56B307F379/native/yesbank_credit_card_ace_value_chart_nov23.pdf",
+      "status": "baseline-created",
+      "hash": "612d36bfa9f7a58cc74df473e67e88375cff263ecf135b33ae481ef58e39b542"
+    },
+    {
+      "cardId": "yes-anq-phi",
+      "cardName": "Anq Phi Credit Card",
+      "issuer": "YES Bank",
+      "url": "https://www.yesbank.in/content/published/api/v1.1/assets/CONTF836E5CA21A444F98D273334B61F0900/native/yb_yes_bank_anq_phi_credit_card_one_pager.pdf",
+      "status": "baseline-created",
+      "hash": "fb236aabdf3c88a5782526e7bf2709ba96847246d3290f9e304688d64f12153b"
+    },
+    {
+      "cardId": "yes-elite-plus",
+      "cardName": "ELITE+ Credit Card",
+      "issuer": "YES Bank",
+      "url": "https://www.yesbank.in/content/published/api/v1.1/assets/CONT8410175D038545F1BC2EEC7B35DFA756/native/yesbank_credit_card_elite_plus_value_chart.pdf",
+      "status": "baseline-created",
+      "hash": "562515f2074ab634934df6a253b9f949bb5340a4b89721f3a7622865c11f9bdf"
+    },
+    {
+      "cardId": "yes-first-preferred",
+      "cardName": "First Preferred Credit Card",
+      "issuer": "YES Bank",
+      "url": "https://www.yesbank.in/content/published/api/v1.1/assets/CONT245A99A043C042B0B77BE647A6C987DD/native/value_chart_for_yes_first_preferred_credit_card.pdf",
+      "status": "baseline-created",
+      "hash": "4459aed722df2ad93e3503143898ba75833883f953839be297e2c20945ab06f4"
+    },
+    {
+      "cardId": "yes-kiwi",
+      "cardName": "Kiwi Credit Card",
+      "issuer": "YES Bank",
+      "url": "https://gokiwi.in/cards/yesbank/",
+      "status": "baseline-created",
+      "hash": "bb093862c744fd9a6531c56aee6d499f24c3c3c849892842627240cf8877abfc"
+    },
+    {
+      "cardId": "yes-klick-rupay",
+      "cardName": "Klick RuPay Credit Card",
+      "issuer": "YES Bank",
+      "url": "https://www.yesbank.in/content/published/api/v1.1/assets/CONTEC25C9A4B18F4AA7BA64228D65B6F8F6/native/ybl_user_guide_klick_rupay_credit_card.pdf",
+      "status": "baseline-created",
+      "hash": "366860177cec4fbc91774f64c652f2e1b311a9a0efeb238503e477d796473bfc"
+    },
+    {
+      "cardId": "yes-marquee",
+      "cardName": "MARQUEE Credit Card",
+      "issuer": "YES Bank",
+      "url": "https://www.yesbank.in/content/published/api/v1.1/assets/CONT49316C1151134FA58F444758AF08712C/native/yesbank_marquee_credit_card.pdf",
+      "status": "baseline-created",
+      "hash": "dbc9b70bd702bd249305822711d9d83200dce930f8674f88ab00625061b170eb"
+    },
+    {
+      "cardId": "yes-paisabazaar-paisasave-rupay",
+      "cardName": "Paisabazaar PaisaSave RuPay Credit Card",
+      "issuer": "YES Bank",
+      "url": "https://www.yesbank.in/content/published/api/v1.1/assets/CONT07A77C257C7A4BDD85DB97E51D2B5B8F/native/yesbank_key_fact_statement.pdf",
+      "status": "baseline-created",
+      "hash": "fd14406a879c5a043f501bdae5e7c3ceef8a081da1fc3770825c424a973d1267"
+    },
+    {
+      "cardId": "yes-paisabazaar-paisasave",
+      "cardName": "Paisabazaar PaisaSave Credit Card",
+      "issuer": "YES Bank",
+      "url": "https://www.yesbank.in/content/published/api/v1.1/assets/CONTC46D4F0EE9B04E8296130DCBAB6FC48B/native/ybl_overview_of_features_and_Benefits_on_your_paisasave_card.pdf",
+      "status": "baseline-created",
+      "hash": "bcc648a53053eb1f09b14e883ca1502739ff73c730ebafcbc39bb5deb0f80d93"
+    },
+    {
+      "cardId": "yes-pop-club",
+      "cardName": "POP CLUB Credit Card",
+      "issuer": "YES Bank",
+      "url": "https://www.yesbank.in/personal-banking/yes-individual/cards/credit-cards/yes-bank-pop-club-credit-card",
+      "status": "baseline-created",
+      "hash": "fddc213697b2b4821a239a471ded62acc8606cb8ecd2ed9bf43e9252e04b796c"
+    },
+    {
+      "cardId": "yes-reserv",
+      "cardName": "RESERV Credit Card",
+      "issuer": "YES Bank",
+      "url": "https://www.yesbank.in/content/published/api/v1.1/assets/CONT4EAD59EF49CE4B8EADB3234B1D9AF541/native/yesbank_credit_card_reserv_value_chart_nov23.pdf",
+      "status": "baseline-created",
+      "hash": "c245bae32fa0623946fb8aea3db52af1ce2b051cea59f7f1e5bf3376a751d4c2"
+    },
+    {
+      "cardId": "yes-select",
+      "cardName": "SELECT Credit Card",
+      "issuer": "YES Bank",
+      "url": "https://www.yesbank.in/content/published/api/v1.1/assets/CONT1D928BE3CBD5424AAF1FAEC534E78032/native/yesbank_credit_card_select_value_chart_nov23.pdf",
+      "status": "baseline-created",
+      "hash": "75eba91ab1bc53214701577e8146b24b173abac653c89d6fabdd8e148390cb61"
+    }
+  ]
+}

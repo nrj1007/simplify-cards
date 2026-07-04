@@ -5,7 +5,6 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { Instagram, Linkedin, Youtube } from "lucide-react";
-import Sparkle from "@/components/icons/Sparkle";
 
 const GUIDE_LINKS: Array<{ label: string; href: Route }> = [
   { label: "Best credit cards", href: "/best-credit-cards-india" as Route },
@@ -92,31 +91,27 @@ function LogoMark() {
   );
 }
 
-export function FloatingAskButton() {
-  const pathname = usePathname();
-
-  function handleClick(e: React.MouseEvent) {
-    if (pathname === "/") {
-      e.preventDefault();
-      const el = document.getElementById("hero-ask-input") || document.getElementById("ask-widget-container");
-      if (el) {
-        el.scrollIntoView({ behavior: "smooth", block: "center" });
-        const input = el instanceof HTMLInputElement ? el : el.querySelector("input");
-        input?.focus();
-        window.history.replaceState(null, "", "/#ask-widget-container");
-      }
-    }
-  }
-
+function Sparkle({ className, size = 16 }: { className?: string; size?: number }) {
   return (
-    <Link
-      href={"/#ask-widget-container" as Route}
-      onClick={handleClick}
-      className="sc-floating-ask"
-      aria-label="Ask SimplifyCards"
+    <svg
+      className={className}
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
     >
+      <path d="M12 2C12 2 13.5 8.5 15 10C16.5 11.5 22 12 22 12C22 12 16.5 12.5 15 14C13.5 15.5 12 22 12 22C12 22 10.5 15.5 9 10C7.5 12.5 2 12 2 12C2 12 7.5 11.5 9 10C10.5 8.5 12 2 12 2Z" />
+    </svg>
+  );
+}
+
+export function FloatingAskButton() {
+  return (
+    <Link href="/ask" className="sc-floating-ask" aria-label="Ask SimplifyCards">
       <span className="sc-pulse" />
-      <Sparkle className="sc-sparkle" size={20} />
+      <Sparkle className="sc-sparkle" size={16} />
       <span>ask</span>
     </Link>
   );

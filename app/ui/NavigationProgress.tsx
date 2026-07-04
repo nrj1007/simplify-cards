@@ -3,7 +3,6 @@
 import { Suspense, createContext, useCallback, useContext, useEffect, useRef, useState, type ReactNode } from "react";
 import { usePathname, useSearchParams } from "next/navigation";
 import { CreditCard } from "lucide-react";
-import Sparkle from "@/components/icons/Sparkle";
 import { loadingCopy, type LoadingCopyKey } from "@/lib/loading-copy";
 
 type NavigationProgressContextValue = {
@@ -177,7 +176,9 @@ export function NavigationProgressProvider({ children }: { children: ReactNode }
             >
               <div className="ask-loader-pop">
                 <div className="sparkle-wrap" aria-hidden="true">
-                  <Sparkle className="sparkle-main" size={24} />
+                  <svg className="sparkle-main" viewBox="0 0 24 24" fill="none">
+                    <path d="M12 2C12 2 13.5 8.5 15 10C16.5 11.5 22 12 22 12C22 12 16.5 12.5 15 14C13.5 15.5 12 22 12 22C12 22 10.5 15.5 9 14C7.5 12.5 2 12 2 12C2 12 7.5 11.5 9 10C10.5 8.5 12 2 12 2Z" fill="currentColor"/>
+                  </svg>
                 </div>
                 <p className="ask-loader-text">Sit back while we find your best card</p>
               </div>

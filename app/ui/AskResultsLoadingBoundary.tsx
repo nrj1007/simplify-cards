@@ -31,10 +31,5 @@ export default function AskResultsLoadingBoundary({ children }: { children: Reac
 
   const isLoading = loadingRouteKey === routeKey;
 
-  return (
-    <>
-      {children}
-      {isLoading ? <AskResultsSkeleton variant="inline" /> : null}
-    </>
-  );
+  return isLoading ? <AskResultsSkeleton variant="inline" /> : <>{children}</>;
 }
