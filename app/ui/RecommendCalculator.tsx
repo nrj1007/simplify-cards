@@ -113,6 +113,21 @@ function calculatorNextUnlockLine(result: RecommendResult) {
   return candidates.sort((a, b) => a.gap - b.gap)[0].text;
 }
 
+function calculatorAdjustmentLines(result: RecommendResult) {
+  const lines = [];
+  if (result.estimatedJoiningAndRenewalValue > 0) {
+    lines.push(
+      <p key="joining-renewal"><strong>Joining/renewal value:</strong> Adds {formatINR(result.estimatedJoiningAndRenewalValue)} per year.</p>
+    );
+  }
+  if (result.estimatedForexCost > 0) {
+    lines.push(
+      <p key="forex-cost"><strong>Forex cost:</strong> Deducts {formatINR(result.estimatedForexCost)} per year.</p>
+    );
+  }
+  return lines;
+}
+
 function buildInitialSpend(defaultSpend: SpendProfile): Record<SpendCategory, number> {
   const spend = {} as Record<SpendCategory, number>;
   for (const category of ALL_CATEGORIES) {
@@ -157,6 +172,18 @@ function RecommendCard({ result, index, isTopOfSection }: { result: RecommendRes
           <strong>{formatINR(result.estimatedMilestoneValue)}</strong>
           <span>Milestones / year</span>
         </div>
+        {result.estimatedJoiningAndRenewalValue > 0 ? (
+          <div className="stat">
+            <strong>{formatINR(result.estimatedJoiningAndRenewalValue)}</strong>
+            <span>Joining/renewal value</span>
+          </div>
+        ) : null}
+        {result.estimatedForexCost > 0 ? (
+          <div className="stat">
+            <strong>-{formatINR(result.estimatedForexCost)}</strong>
+            <span>Forex cost / year</span>
+          </div>
+        ) : null}
         <div className="stat">
           <strong>{formatINR(result.estimatedAnnualFee)}</strong>
           <span>Fee after waiver</span>
@@ -170,6 +197,7 @@ function RecommendCard({ result, index, isTopOfSection }: { result: RecommendRes
       <div className="recommend-explain">
         <p><strong>Milestones:</strong> {calculatorMilestoneLine(result)}</p>
         <p><strong>Fee waiver:</strong> {calculatorFeeWaiverLine(result)}</p>
+        {calculatorAdjustmentLines(result)}
         <p><strong>Next unlock:</strong> {calculatorNextUnlockLine(result)}</p>
       </div>
 

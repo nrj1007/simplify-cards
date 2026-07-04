@@ -557,6 +557,7 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
     const estimatedForexCost = Math.round(((spendForScore.international ?? 0) * 12 * forexMarkup) / 100);
     const estimatedNetValue = rewardEconomics.estimatedNetValue - estimatedForexCost;
     const displayAnnualRewards = displayEconomics.estimatedAnnualRewards;
+    const displayAnnualFee = displayEconomics.estimatedAnnualFee;
     const displayBreakdown = displayEconomics.rewardBreakdown;
     const displayNetValue = displayEconomics.estimatedNetValue - estimatedForexCost;
     const tagBoost = matchedTags.length * 500;
@@ -732,6 +733,8 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
       estimatedAnnualRewards,
       estimatedMilestoneValue,
       estimatedAnnualFee,
+      estimatedJoiningAndRenewalValue,
+      estimatedForexCost,
       estimatedNetValue,
       fitScore,
       matchedTags,
@@ -739,6 +742,7 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
       scoreReasons,
       rewardBreakdown,
       displayAnnualRewards,
+      displayAnnualFee,
       displayNetValue,
       displayBreakdown,
       debug: {
@@ -806,7 +810,10 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
     annualSpend: displayScore.annualSpend,
     estimatedMilestoneValue: displayScore.estimatedMilestoneValue,
     estimatedAnnualFee: displayScore.estimatedAnnualFee,
+    estimatedJoiningAndRenewalValue: displayScore.estimatedJoiningAndRenewalValue,
+    estimatedForexCost: displayScore.estimatedForexCost,
     displayAnnualRewards: displayScore.displayAnnualRewards,
+    displayAnnualFee: displayScore.displayAnnualFee,
     displayNetValue: displayScore.displayNetValue,
     displayBreakdown: displayScore.displayBreakdown
   });

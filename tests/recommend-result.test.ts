@@ -46,6 +46,50 @@ describe("toRecommendResult", () => {
     expect(result.nextMilestoneThreshold).toBe(1200000);
   });
 
+  it("keeps displayed net value equal to the visible recommendation math", () => {
+    const score = scoreCards({
+      query: "Times Black",
+      spend: {
+        international: 50000,
+        travel: 20000,
+        base: 10000
+      }
+    }).find((item) => item.card.id === "icici-times-black");
+    expect(score).toBeDefined();
+
+    const result = toRecommendResult(score!);
+
+    expect(result.estimatedAnnualFee).toBe(20000);
+    expect(result.estimatedJoiningAndRenewalValue).toBeGreaterThan(0);
+    expect(result.estimatedForexCost).toBeGreaterThan(0);
+    expect(result.estimatedNetValue).toBe(
+      result.estimatedAnnualRewards +
+      result.estimatedMilestoneValue +
+      result.estimatedJoiningAndRenewalValue -
+      result.estimatedAnnualFee -
+      result.estimatedForexCost
+    );
+  });
+
+  it("aggregates duplicate reward breakdown rows by spend category for display", () => {
+    const score = scoreCards({ query: "top card under 5000" }).find((item) => item.card.id === "hsbc-travelone");
+    expect(score).toBeDefined();
+
+    const rawTravelRows = score!.displayBreakdown.filter((row) => row.spendCategory === "travel");
+    expect(rawTravelRows.length).toBeGreaterThan(1);
+
+    const result = toRecommendResult(score!);
+    const travelRows = result.breakdown.filter((row) => row.spendCategory === "travel");
+
+    expect(travelRows).toHaveLength(1);
+    expect(travelRows[0]?.monthlySpend).toBe(
+      Math.round(rawTravelRows.reduce((total, row) => total + row.monthlySpend, 0))
+    );
+    expect(travelRows[0]?.annualReward).toBe(
+      Math.round(rawTravelRows.reduce((total, row) => total + row.annualReward, 0))
+    );
+  });
+
   it("labels re-valued dual-bucket net values by section context", () => {
     const testCard = cards.find((c) => c.id === "hdfc-regalia-gold");
     if (testCard) {

@@ -65,11 +65,36 @@ function netValueContextLabel(score: CardScore) {
   return undefined;
 }
 
+function aggregateBreakdown(score: CardScore): RecommendResult["breakdown"] {
+  const byCategory = new Map<SpendCategory, { spendCategory: SpendCategory; monthlySpend: number; annualReward: number }>();
+
+  for (const row of score.displayBreakdown) {
+    if (row.monthlySpend <= 0) continue;
+    const existing = byCategory.get(row.spendCategory);
+    if (existing) {
+      existing.monthlySpend += row.monthlySpend;
+      existing.annualReward += row.annualReward;
+    } else {
+      byCategory.set(row.spendCategory, {
+        spendCategory: row.spendCategory,
+        monthlySpend: row.monthlySpend,
+        annualReward: row.annualReward
+      });
+    }
+  }
+
+  return Array.from(byCategory.values()).map((row) => ({
+    spendCategory: row.spendCategory,
+    monthlySpend: Math.round(row.monthlySpend),
+    annualReward: Math.round(row.annualReward)
+  }));
+}
+
 // Map a full CardScore down to the trimmed, display-only DTO that crosses the wire.
 export function toRecommendResult(score: CardScore): RecommendResult {
   const { card } = score;
   const contextLabel = netValueContextLabel(score);
-  const feeWaiverHit = Boolean(card.feeWaiverSpend && score.estimatedAnnualFee === 0 && card.annualFee > 0);
+  const feeWaiverHit = Boolean(card.feeWaiverSpend && score.displayAnnualFee === 0 && card.annualFee > 0);
   const nextFeeWaiverGap =
     card.feeWaiverSpend && score.annualSpend < card.feeWaiverSpend
       ? Math.max(card.feeWaiverSpend - score.annualSpend, 0)
@@ -88,7 +113,9 @@ export function toRecommendResult(score: CardScore): RecommendResult {
     // discounted estimated* fields, but users see real redemption value.
     estimatedAnnualRewards: Math.round(score.displayAnnualRewards),
     estimatedMilestoneValue: Math.round(score.estimatedMilestoneValue),
-    estimatedAnnualFee: Math.round(score.estimatedAnnualFee),
+    estimatedAnnualFee: Math.round(score.displayAnnualFee),
+    estimatedJoiningAndRenewalValue: Math.round(score.estimatedJoiningAndRenewalValue),
+    estimatedForexCost: Math.round(score.estimatedForexCost),
     estimatedNetValue: Math.round(score.displayNetValue),
     ...(contextLabel ? { netValueContextLabel: contextLabel } : {}),
     annualFee: Math.round(card.annualFee),
@@ -100,13 +127,7 @@ export function toRecommendResult(score: CardScore): RecommendResult {
     nextMilestoneGap: milestone.gap === null ? null : Math.round(milestone.gap),
     nextMilestoneLabel: milestone.label,
     scoreReasons: score.scoreReasons,
-    breakdown: score.displayBreakdown
-      .filter((row) => row.monthlySpend > 0)
-      .map((row) => ({
-        spendCategory: row.spendCategory,
-        monthlySpend: row.monthlySpend,
-        annualReward: Math.round(row.annualReward)
-      }))
+    breakdown: aggregateBreakdown(score)
   };
 }
 

@@ -319,6 +319,8 @@ export type CardScore = {
   estimatedAnnualRewards: number;
   estimatedMilestoneValue: number;
   estimatedAnnualFee: number;
+  estimatedJoiningAndRenewalValue: number;
+  estimatedForexCost: number;
   estimatedNetValue: number;
   // For dual-bucket cards (card.rewardBucketPointValue set, e.g. CheQ AU): the full score re-valued at
   // the reward redemption rate. The split presents this in the Rewards section while the default
@@ -339,6 +341,7 @@ export type CardScore = {
   // haircut influences ranking/ordering via the estimated* fields above, but users see real
   // redemption value here.
   displayAnnualRewards: number;
+  displayAnnualFee: number;
   displayNetValue: number;
   displayBreakdown: RewardBreakdownRow[];
   debug?: ScoreDebug;
@@ -365,6 +368,8 @@ export type RecommendResult = {
   estimatedAnnualRewards: number;
   estimatedMilestoneValue: number;
   estimatedAnnualFee: number;
+  estimatedJoiningAndRenewalValue: number;
+  estimatedForexCost: number;
   estimatedNetValue: number;
   netValueContextLabel?: string;
   annualFee: number;
