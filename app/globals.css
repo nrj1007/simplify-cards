@@ -10410,7 +10410,6 @@ button { cursor: pointer !important; }
 .sc-brand b { color: #581c87 !important; font-weight: 900 !important; }
 .sc-logo-mark { width: 54px !important; height: 44px !important; max-width: 54px !important; max-height: 44px !important; display: block !important; flex: 0 0 auto !important; }
 .sc-mobile-menu { display: none !important; }
-.sc-nav-spacer { display: none !important; height: 0 !important; }
 .main { width: 100% !important; display: block !important; }
 .ask-results { width: 100% !important; }
 .ask-hero { width: 100% !important; max-width: none !important; margin: 0 !important; padding: 3.4rem 0 2.15rem !important; text-align: center !important; }
