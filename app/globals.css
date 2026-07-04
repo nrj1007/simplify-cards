@@ -5969,7 +5969,6 @@ textarea {
   flex-shrink: 0;
   text-transform: lowercase;
   transition: all 150ms cubic-bezier(0.4, 0, 0.2, 1);
-  font-variant: small-caps;
 }
 
 .sc-navlinks a:hover {
@@ -7683,14 +7682,9 @@ body {
 .ask-search {
   max-width: 42rem;
 }
-.sc-navlinks a {
-  font-weight: 400 !important;
-}
 .crumb,
 .ask-hero-copy,
 .query-examples,
-.sc-navlinks a[href$="/latest"],
-.sc-navlinks a[href*="/latest"],
 .ask-search .loading-button,
 .ask-again .loading-button {
   position: relative;
@@ -9922,18 +9916,6 @@ body,
 }
 
 /* Nav small caps: keep the labels small-caps, not full uppercase */
-.sc-topnav .sc-navlinks a[href*="/recommend"],
-.sc-topnav .sc-navlinks a[href*="/calculator"],
-.sc-topnav .sc-navlinks a[href*="/finder"],
-.sc-topnav .sc-navlinks a[href*="/compare"] {
-  text-transform: lowercase !important;
-  font-variant: small-caps !important;
-  font-variant-caps: all-small-caps !important;
-  font-feature-settings: "smcp" 1, "c2sc" 1 !important;
-  letter-spacing: 0.075em !important;
-  font-size: 0.84rem !important;
-  font-weight: 700 !important;
-}
 
 /* Equalize the top left recommendation box and the top right precision box */
 @media (min-width: 1101px) {
@@ -10427,9 +10409,6 @@ button { cursor: pointer !important; }
 .sc-brand { display: inline-flex !important; align-items: center !important; gap: 0.5rem !important; color: #1e112c !important; font-size: 1rem !important; line-height: 1 !important; font-weight: 800 !important; letter-spacing: -0.035em !important; white-space: nowrap !important; }
 .sc-brand b { color: #581c87 !important; font-weight: 900 !important; }
 .sc-logo-mark { width: 54px !important; height: 44px !important; max-width: 54px !important; max-height: 44px !important; display: block !important; flex: 0 0 auto !important; }
-.sc-navlinks { display: flex !important; align-items: center !important; justify-content: flex-end !important; gap: 1.25rem !important; margin-left: auto !important; }
-.sc-navlinks a { color: #5b5466 !important; font-size: 0.9rem !important; line-height: 1 !important; font-weight: 500 !important; text-transform: capitalize !important; }
-.sc-navlinks a:hover { color: #581c87 !important; }
 .sc-mobile-menu { display: none !important; }
 .sc-nav-spacer { display: none !important; height: 0 !important; }
 .main { width: 100% !important; display: block !important; }
@@ -10522,7 +10501,6 @@ button { cursor: pointer !important; }
   .sc-landing-picks { grid-template-columns: 1fr !important; }
 }
 @media (max-width: 680px) {
-  .sc-navlinks { display: none !important; }
   .sc-mobile-menu { display: block !important; }
   .ask-hero { padding-top: 2.5rem !important; }
   .ask-hero h1 { font-size: 2.4rem !important; }
@@ -10687,17 +10665,6 @@ button { cursor: pointer !important; }
 }
 
 /* Small-caps nav labels */
-.sc-navlinks a[href*="/recommend"],
-.sc-navlinks a[href*="/calculator"],
-.sc-navlinks a[href*="/finder"],
-.sc-navlinks a[href*="/compare"] {
-  text-transform: uppercase !important;
-  font-variant-caps: all-small-caps !important;
-  letter-spacing: 0.095em !important;
-  font-size: 0.78rem !important;
-  line-height: 1 !important;
-  font-weight: 750 !important;
-}
 
 /* Requested top-card polish: card type in top-right corner, lighter bank name */
 #answer .sc-card-visual {
