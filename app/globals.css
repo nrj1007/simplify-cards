@@ -5814,12 +5814,12 @@ textarea {
 @keyframes scSparkle {
   0%,
   100% {
-    opacity: 0.6;
-    transform: scale(0.92);
+    opacity: 0.25;
+    transform: scale(0.85) rotate(-5deg);
   }
   50% {
     opacity: 1;
-    transform: scale(1.08);
+    transform: scale(1.15) rotate(15deg);
   }
 }
 
@@ -7635,14 +7635,14 @@ textarea {
 /* Ask page referral-only edits */
 @keyframes scAppearDisappear {
   0%, 100% {
-    opacity: 0.6;
-    transform: scale(0.92);
-    filter: drop-shadow(0 0 2px rgba(243, 232, 255, 0.3));
+    opacity: 0.2;
+    transform: scale(0.85) rotate(-5deg);
+    filter: drop-shadow(0 0 2px rgba(243, 232, 255, 0.2));
   }
   50% {
     opacity: 1;
-    transform: scale(1.08);
-    filter: drop-shadow(0 0 6px rgba(216, 180, 254, 0.6));
+    transform: scale(1.15) rotate(15deg);
+    filter: drop-shadow(0 0 12px rgba(216, 180, 254, 0.8));
   }
 }
 @keyframes scPulseRing {

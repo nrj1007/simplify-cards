@@ -116,7 +116,7 @@ export function FloatingAskButton() {
       aria-label="Ask SimplifyCards"
     >
       <span className="sc-pulse" />
-      <Sparkle className="sc-sparkle" size={16} />
+      <Sparkle className="sc-sparkle" size={20} />
       <span>ask</span>
     </Link>
   );

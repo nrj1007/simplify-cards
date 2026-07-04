@@ -99,7 +99,7 @@ export default function AskBox({
         <div className="ask-actions">
           <LoadingButton className="btn btn-primary" loading={isLoading} loadingText={loadingCopy.ask.title} type="submit">
             <span className="sc-pulse" aria-hidden="true" />
-            <Sparkle className="sc-sparkle" size={16} />
+            <Sparkle className="sc-sparkle" size={20} />
             <span>Get my shortlist</span>
             <ArrowRight size={16} />
           </LoadingButton>
@@ -144,7 +144,7 @@ export default function AskBox({
       {defaultMaxAnnualFee !== undefined ? <input name="maxAnnualFee" type="hidden" value={defaultMaxAnnualFee} /> : null}
       <LoadingButton className="button" loading={isLoading} loadingText={loadingCopy.ask.title} type="submit">
         <span className="sc-pulse" aria-hidden="true" />
-        <Sparkle className="sc-sparkle" size={16} />
+        <Sparkle className="sc-sparkle" size={20} />
         <span>Ask</span>
         <ArrowRight size={16} />
       </LoadingButton>
