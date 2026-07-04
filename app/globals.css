@@ -4263,7 +4263,7 @@ textarea {
   pointer-events: none;
   position: fixed;
   transition: opacity 160ms ease;
-  z-index: 120;
+  z-index: 1100;
 }
 
 .route-loader-visible {
