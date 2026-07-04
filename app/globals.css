@@ -5913,12 +5913,13 @@ textarea {
   background: transparent;
   color: var(--sc-ink);
   font-size: 20px;
-  font-weight: 900;
+  font-weight: 500;
   letter-spacing: -0.03em;
 }
 
 .sc-brand b {
   color: var(--sc-purple);
+  font-weight: 750;
 }
 
 .sc-logo-mark {
@@ -5938,7 +5939,7 @@ textarea {
 .sc-mobile-popover a {
   color: var(--sc-muted);
   font-size: 14px;
-  font-weight: 700;
+  font-weight: 500;
   text-transform: lowercase;
   transition: color 0.2s ease;
 }
