@@ -41,3 +41,38 @@ export function getCardUsp(card: CreditCard): string {
   const summary = [ltfText, bestForText, featuresText].filter(Boolean).join(", ").replace(/,\s*,/g, ",").trim();
   return summary ? summary + "." : "High-value rewards credit card.";
 }
+
+// Compact USP for a card: curated short line for popular cards, otherwise a very short line.
+// Used for display constraints (e.g., homepage/popular picks section).
+export function getCardShortUsp(card: CreditCard): string {
+  // Curated short USPs for popular cards
+  const curatedShort: Record<string, string> = {
+    "hdfc-infinia-metal": "Super-premium card with 5X rewards on SmartBuy, unlimited lounge access, and golf privileges.",
+    "sbi-cashback": "Flat 5% cashback on all online spends and 1% offline cashback.",
+    "axis-atlas": "Premier travel card with lucrative miles transfer (up to 1:2) and tiered milestones.",
+    "indusind-tiger": "Lifetime-free travel card with 1.5% forex, lounge access, and quarterly golf.",
+    "indusind-legend": "Lifetime-free premium card with weekday/weekend rewards and 1.8% forex.",
+    "amex-platinum-travel": "High-value milestone card offering Taj vouchers and up to 40,000 bonus points.",
+    "hsbc-travelone": "Versatile travel card with low 1.75% forex and instant points transfer.",
+    "yes-bank-marquee": "Super-premium card with 2.2% online rewards, unlimited lounge, and 1.75% forex.",
+    "amazon-pay-icici": "Lifetime-free card with unlimited 5% cashback on Amazon for Prime members.",
+    "axis-fk": "Unlimited 4% cashback on Flipkart and 1.5% flat cashback on other spends."
+  };
+
+  if (curatedShort[card.id]) {
+    return curatedShort[card.id];
+  }
+
+  // Dynamic fallback: compact description
+  const parts: string[] = [];
+  if (card.joiningFee === 0 && card.annualFee === 0) {
+    parts.push("Lifetime free");
+  }
+  if (card.bestFor.length > 0) {
+    parts.push(`best for ${card.bestFor.slice(0, 2).join(" & ")}`);
+  } else {
+    parts.push(`${card.rewardType} card`);
+  }
+
+  return parts.join(", ") + ".";
+}

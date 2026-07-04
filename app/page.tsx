@@ -4,7 +4,7 @@ import { getAllUpdates } from "@/lib/card-content";
 import type { CardUpdateWithMeta } from "@/lib/card-content";
 import type { CreditCard } from "@/lib/types";
 import { SITE_NAME } from "@/lib/seo";
-import { getCardUsp } from "@/lib/card-usp";
+import { getCardShortUsp } from "@/lib/card-usp";
 import LandingPortal from "./ui/LandingPortal";
 import type { LandingCard, LandingUpdate } from "./ui/LandingPortal";
 
@@ -72,7 +72,7 @@ function toLandingCard(card: CreditCard): LandingCard {
     bestFor: card.bestFor.slice(0, 3),
     rewardType: card.rewardType,
     rewardRate: firstRewardRate(card),
-    highlight: getCardUsp(card),
+    highlight: getCardShortUsp(card),
     lounge: loungeLabel(card),
     sourceUrl: card.sourceUrl,
     applyUrl: card.affiliateUrl ?? card.applyUrl ?? card.sourceUrl,
