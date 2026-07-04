@@ -12,7 +12,6 @@ import {
   Scale,
   Search,
   ShieldCheck,
-  Sparkles,
   Youtube
 } from "lucide-react";
 
@@ -228,6 +227,21 @@ function PhoneFrame({ variant }: { variant: "recommend" | "calculator" | "cards"
   );
 }
 
+function Sparkle({ className, size = 20 }: { className?: string; size?: number }) {
+  return (
+    <svg
+      className={className}
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path d="M12 2C12 2 13.5 8.5 15 10C16.5 11.5 22 12 22 12C22 12 16.5 12.5 15 14C13.5 15.5 12 22 12 22C12 22 10.5 15.5 9 14C7.5 12.5 2 12 2 12C2 12 7.5 11.5 9 10C10.5 8.5 12 2 12 2Z" />
+    </svg>
+  );
+}
+
 function HeroAskBox() {
   const [query, setQuery] = useState("");
   const inputRef = useRef<HTMLInputElement | null>(null);
@@ -259,7 +273,7 @@ function HeroAskBox() {
         />
         <button type="submit">
           <span className="sc-pulse" />
-          <Sparkles className="sc-sparkle" size={20} />
+          <Sparkle className="sc-sparkle" size={20} />
           <span>ask</span>
         </button>
       </form>
@@ -744,7 +758,7 @@ export default function LandingPortal({ popularCards, updates }: LandingPortalPr
       {/* <ReviewsPanel /> */}
       <button type="button" className="sc-floating-ask" onClick={scrollToAsk} aria-label="Ask SimplifyCards">
         <span className="sc-pulse" />
-        <Sparkles className="sc-sparkle" size={16} />
+        <Sparkle className="sc-sparkle" size={16} />
         <span>ask</span>
       </button>
       <Footer onOpenPolicy={setPolicy} />
