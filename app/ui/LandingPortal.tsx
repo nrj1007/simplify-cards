@@ -5,6 +5,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import type { Route } from "next";
 import { useRouter } from "next/navigation";
 import { useNavigationProgress } from "./NavigationProgress";
+import Sparkle from "@/components/icons/Sparkle";
 import {
   ChevronLeft,
   ChevronRight,
@@ -229,21 +230,6 @@ function PhoneFrame({ variant }: { variant: "recommend" | "calculator" | "cards"
   );
 }
 
-function Sparkle({ className, size = 20 }: { className?: string; size?: number }) {
-  return (
-    <svg
-      className={className}
-      width={size}
-      height={size}
-      viewBox="0 0 24 24"
-      fill="currentColor"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path d="M12 2C12 2 13.5 8.5 15 10C16.5 11.5 22 12 22 12C22 12 16.5 12.5 15 14C13.5 15.5 12 22 12 22C12 22 10.5 15.5 9 14C7.5 12.5 2 12 2 12C2 12 7.5 11.5 9 10C10.5 8.5 12 2 12 2Z" />
-    </svg>
-  );
-}
-
 function HeroAskBox() {
   const router = useRouter();
   const { startNavigation } = useNavigationProgress();
@@ -253,16 +239,13 @@ function HeroAskBox() {
   useEffect(() => {
     function checkHashAndFocus() {
       if (
-        window.location.hash === "#ask-widget-container" ||
-        window.location.hash === "#hero-ask-input" ||
-        window.location.hash === "#ask"
+        typeof window !== "undefined" &&
+        (window.location.hash === "#ask-widget-container" || window.location.hash === "#ask")
       ) {
-        setTimeout(() => {
-          inputRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
-          inputRef.current?.focus();
-        }, 50);
+        inputRef.current?.focus();
       }
     }
+
     checkHashAndFocus();
     window.addEventListener("hashchange", checkHashAndFocus);
     return () => window.removeEventListener("hashchange", checkHashAndFocus);
@@ -285,7 +268,6 @@ function HeroAskBox() {
       <form onSubmit={submit} className="sc-ask-form">
         <Search className="sc-ask-search" size={22} />
         <input
-          id="hero-ask-input"
           ref={inputRef}
           value={query}
           onChange={(event) => setQuery(event.target.value)}
@@ -297,7 +279,7 @@ function HeroAskBox() {
         />
         <button type="submit">
           <span className="sc-pulse" />
-          <Sparkle className="sc-sparkle" size={20} />
+          <Sparkle className="sc-sparkle" size={16} />
           <span>ask</span>
         </button>
       </form>
