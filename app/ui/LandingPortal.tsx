@@ -3,6 +3,8 @@
 import Link from "next/link";
 import { useEffect, useMemo, useRef, useState } from "react";
 import type { Route } from "next";
+import { useRouter } from "next/navigation";
+import { useNavigationProgress } from "./NavigationProgress";
 import {
   ChevronLeft,
   ChevronRight,
@@ -243,6 +245,8 @@ function Sparkle({ className, size = 20 }: { className?: string; size?: number }
 }
 
 function HeroAskBox() {
+  const router = useRouter();
+  const { startNavigation } = useNavigationProgress();
   const [query, setQuery] = useState("");
   const inputRef = useRef<HTMLInputElement | null>(null);
 
@@ -254,7 +258,8 @@ function HeroAskBox() {
       inputRef.current?.focus();
       return;
     }
-    window.location.href = `/ask?query=${encodeURIComponent(trimmed)}`;
+    startNavigation("ask");
+    router.push(`/ask?query=${encodeURIComponent(trimmed)}` as Route);
   }
 
   return (
