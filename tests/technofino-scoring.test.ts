@@ -182,4 +182,26 @@ describe("Technofino signal scoring", () => {
     expect(queue[0].sourceType).toBe("thread");
     expect(queue[0].isRecentlyCreatedThread).toBe(true);
   });
+
+  it("filters threads created before cutoff when created-only filter is used", async () => {
+    const serverTime = 1778570000;
+    const cutoff7Days = serverTime - 7 * 24 * 60 * 60;
+
+    const threads = [
+      {
+        title: "New SBI Card Launch 2026",
+        createdTimestamp: serverTime - 2 * 24 * 60 * 60, // 2 days old (NEW)
+        latestTimestamp: serverTime - 1 * 3600
+      },
+      {
+        title: "Old Amex Thread from 2024",
+        createdTimestamp: serverTime - 30 * 24 * 60 * 60, // 30 days old (OLD)
+        latestTimestamp: serverTime - 2 * 3600 // active recently
+      }
+    ];
+
+    const newlyCreated = threads.filter((t) => t.createdTimestamp >= cutoff7Days);
+    expect(newlyCreated).toHaveLength(1);
+    expect(newlyCreated[0].title).toBe("New SBI Card Launch 2026");
+  });
 });

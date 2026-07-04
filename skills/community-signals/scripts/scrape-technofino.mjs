@@ -151,9 +151,24 @@ function extractRecentComments(html, finalUrl, threadTitle, cutoffTimestamp) {
 
 async function main() {
   const feed = getArg("feed", DEFAULT_FEED);
-  const pages = toInt(getArg("pages", "3"), 3);
-  const hours = toInt(getArg("hours", "24"), 24);
-  const maxThreads = toInt(getArg("threads", "12"), 12);
+  const daysArg = getArg("days", null);
+  const hoursArg = getArg("hours", null);
+
+  let hours = 24;
+  if (daysArg !== null) {
+    hours = toInt(daysArg, 7) * 24;
+  } else if (hoursArg !== null) {
+    hours = toInt(hoursArg, 24);
+  }
+
+  const defaultPages = daysArg !== null || hours > 48 ? Math.max(10, Math.ceil((hours / 24) * 3)) : 3;
+  const pages = toInt(getArg("pages", String(defaultPages)), defaultPages);
+  const maxThreads = toInt(getArg("threads", "15"), 15);
+  const createdOnly =
+    process.argv.includes("--created-only") ||
+    process.argv.includes("--new-threads-only") ||
+    process.argv.includes("--new-posts-only");
+
   const defaultOut = path.join("data", "community-signals", "pending", `${new Date().toISOString().slice(0, 10)}-technofino.json`);
   const out = getArg("out", defaultOut);
 
@@ -168,7 +183,7 @@ async function main() {
 
   const cutoffTimestamp = serverTime - hours * 60 * 60;
   const recentThreads = dedupeByUrl(feedThreads)
-    .filter((thread) => thread.latestTimestamp >= cutoffTimestamp)
+    .filter((thread) => (createdOnly ? thread.createdTimestamp >= cutoffTimestamp : thread.latestTimestamp >= cutoffTimestamp))
     .map((thread) => ({
       ...thread,
       isRecentlyCreatedThread: thread.createdTimestamp >= cutoffTimestamp,
@@ -208,6 +223,8 @@ async function main() {
     feed,
     pagesScanned: pages,
     windowHours: hours,
+    windowDays: Number((hours / 24).toFixed(1)),
+    createdOnly,
     cutoffTimestamp,
     requiresManualApproval: true,
     mayUpdateCardDbAutomatically: false,
@@ -220,6 +237,8 @@ async function main() {
   await writeFile(out, `${JSON.stringify(output, null, 2)}\n`, "utf8");
 
   console.log(`Wrote ${out}`);
+  console.log(`Time window: ${hours} hours (${(hours / 24).toFixed(1)} days)${createdOnly ? " [created-only filter active]" : ""}`);
+  console.log(`Pages scanned: ${pages}`);
   console.log(`Credit-card signal threads: ${output.threads.length}`);
   console.log(`Recent comments: ${output.comments.length}`);
   console.log(`Review signals: ${output.reviewQueue.length}`);

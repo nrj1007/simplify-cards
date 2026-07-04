@@ -29,17 +29,19 @@ Community posts can identify what to verify next. Official issuer pages, PDFs, o
 Use the bundled Node script:
 
 ```powershell
-.\tools\node\node.exe .\skills\community-signals\scripts\scrape-technofino.mjs --feed "https://technofino.in/community/whats-new/posts/5982841/" --pages 5 --hours 24
+node .\skills\community-signals\scripts\scrape-technofino.mjs --days 7 --created-only
 ```
 
 Optional arguments:
 
 ```text
 --feed <url>          Technofino new-posts feed URL
---pages <number>     Feed pages to scan, default 3
---hours <number>     Recent activity window, default 24
---threads <number>   Max thread pages to open for comments, default 12
---out <path>         Output JSON path. Default is data/community-signals/pending/<date>-technofino.json
+--days <number>       Time window in days (e.g. 7 for last 7 days; converts to hours)
+--hours <number>      Time window in hours (default 24)
+--pages <number>      Feed pages to scan (auto-scales with window, e.g. 10 pages for 7 days)
+--threads <number>    Max thread pages to open for comments (default 15)
+--created-only        Scrape only threads created within the time window (excludes old bumped threads)
+--out <path>          Output JSON path. Default is data/community-signals/pending/<date>-technofino.json
 ```
 
 The script writes JSON with:
