@@ -6809,10 +6809,10 @@ textarea {
 .sc-pick-card p {
   display: -webkit-box;
   overflow: hidden;
-  min-height: 42px;
+  min-height: 39px;
   margin: 0 0 12px;
   color: var(--sc-muted);
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 600;
   line-height: 1.625;
   -webkit-box-orient: vertical;
