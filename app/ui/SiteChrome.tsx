@@ -226,6 +226,11 @@ export function SiteFooter() {
         </div>
         <div className="sc-footer-bottom">
           <span>© 2026 SimplifyCards. All rights reserved.</span>
+          <div>
+            <button type="button" onClick={() => setPolicy("privacy")}>Privacy Policy</button>
+            <button type="button" onClick={() => setPolicy("disclosure")}>Disclosure</button>
+            <button type="button" onClick={() => setPolicy("terms")}>Terms & Conditions</button>
+          </div>
         </div>
       </footer>
       {policy ? <PolicyModal policy={policy} onClose={() => setPolicy(null)} /> : null}
