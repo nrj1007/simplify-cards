@@ -121,7 +121,6 @@ export function SiteHeader() {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
   const links: Array<{ label: string; href: Route }> = [
-    { label: "ask", href: "/ask" },
     { label: "recommend", href: "/recommend" },
     { label: "calculator", href: "/calculator" as Route },
     { label: "cards", href: "/finder" },
