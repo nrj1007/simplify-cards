@@ -6178,6 +6178,7 @@ textarea {
   color: #fff;
   font-weight: 900;
   cursor: pointer;
+  text-decoration: none;
   transition: background 0.2s ease, transform 0.2s ease;
 }
 
@@ -6191,6 +6192,8 @@ textarea {
 .sc-ask-form button:hover,
 .sc-floating-ask:hover {
   background: var(--sc-purple-dark);
+  color: #fff;
+  text-decoration: none;
 }
 
 .sc-pulse {

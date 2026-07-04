@@ -597,6 +597,7 @@ function ReviewsPanel() {
 function Header() {
   const [open, setOpen] = useState(false);
   const links: Array<{ label: string; href: Route }> = [
+    { label: "ask", href: "/ask" },
     { label: "recommend", href: "/recommend" },
     { label: "calculator", href: "/calculator" as Route },
     { label: "cards", href: "/finder" },
@@ -726,10 +727,6 @@ export default function LandingPortal({ popularCards, updates }: LandingPortalPr
     return () => window.clearInterval(timer);
   }, [headlinePhrases.length]);
 
-  function scrollToAsk() {
-    document.getElementById("ask-widget-container")?.scrollIntoView({ behavior: "smooth", block: "center" });
-  }
-
   return (
     <div className="sc-landing">
       <Header />
@@ -756,11 +753,6 @@ export default function LandingPortal({ popularCards, updates }: LandingPortalPr
       <PopularPicks cards={popularCards} />
       <LatestUpdates updates={updates} />
       {/* <ReviewsPanel /> */}
-      <button type="button" className="sc-floating-ask" onClick={scrollToAsk} aria-label="Ask SimplifyCards">
-        <span className="sc-pulse" />
-        <Sparkle className="sc-sparkle" size={16} />
-        <span>ask</span>
-      </button>
       <Footer onOpenPolicy={setPolicy} />
       {policy ? <PolicyModal policy={policy} onClose={() => setPolicy(null)} /> : null}
     </div>
