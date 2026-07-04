@@ -3,7 +3,7 @@ import type { AskAiResult } from "./ask-ai";
 
 export type AskCacheStatus = "HIT" | "MISS" | "SKIP";
 
-const MAX_ENTRIES = 500;
+const MAX_ENTRIES = 200;
 const TTL_MS = 12 * 60 * 60 * 1000;
 
 type CacheEntry = {
