@@ -7489,6 +7489,11 @@ textarea {
   .sc-pick-card p {
     font-size: 12px;
   }
+
+  .sc-pick-visual h3 {
+    font-size: 20px;
+    line-height: 26px;
+  }
 }
 
 @media (max-width: 460px) {
