@@ -12213,6 +12213,16 @@ button { cursor: pointer !important; }
   background-color: #581c87 !important;
   color: #fff !important;
 }
+.ask-results .ask-hero .ask-search .loading-button .loading-button-label::before {
+  content: "" !important;
+  display: inline-block !important;
+  width: 14px !important;
+  height: 14px !important;
+  margin-right: 7px !important;
+  vertical-align: -2px !important;
+  background: currentColor !important;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='black' viewBox='0 0 24 24'%3E%3Cpath d='M12 2C12 2 13.5 8.5 15 10C16.5 11.5 22 12 22 12C22 12 16.5 12.5 15 14C13.5 15.5 12 22 12 22C12 22 10.5 15.5 9 14C7.5 12.5 2 12 2 12C2 12 7.5 11.5 9 10C10.5 8.5 12 2 12 2Z'/%3E%3C/svg%3E") center / contain no-repeat !important;
+}
 .ask-results .ask-hero .ask-search .loading-button:hover {
   background: #431468 !important;
 }
