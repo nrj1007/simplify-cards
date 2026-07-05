@@ -277,224 +277,226 @@ export default function AskResultsClient({
 
         {/* Results Section */}
         <section className="panel sc-results-panel">
-          <div aria-label="Result view options" className="sc-result-view-toggle">
-            <div className="sc-result-heading-left">
-              <h3>
-                All <span className="sc-purple-number">{displayedMatchCount}</span> matching cards
-              </h3>
+          <div className="panel-body">
+            <div aria-label="Result view options" className="sc-result-view-toggle">
+              <div className="sc-result-heading-left">
+                <h3>
+                  All <span className="sc-purple-number">{displayedMatchCount}</span> matching cards
+                </h3>
+              </div>
             </div>
-          </div>
 
-          <div className="sc-results-combined-view">
-            {/* Cashback Cards Category */}
-            {cashbackCards.length > 0 && (
-              <section className="sc-results-category sc-results-category-cashback">
-                <div className="sc-results-category-head">
-                  <h3>Cashback Cards</h3>
-                  <span className="sc-results-category-count">
-                    {cashbackCards.length} card{cashbackCards.length === 1 ? "" : "s"}
-                  </span>
-                </div>
-                <div className="result-list">
-                  {cashbackCards.map((item) => {
-                    const card = item.card;
-                    const flatIndex = getFlatIndex(card.id);
-                    const rank = getDisplayRank(card.id);
-                    const isSelected = selectedCardIds.includes(card.id);
-                    const pickLabel =
-                      flatIndex === 0
-                        ? "Top pick"
-                        : flatIndex === 1
-                          ? "Strong alternative"
-                          : flatIndex === 2
-                            ? "Also worth a look"
-                            : null;
+            <div className="sc-results-combined-view">
+              {/* Cashback Cards Category */}
+              {cashbackCards.length > 0 && (
+                <section className="sc-results-category sc-results-category-cashback">
+                  <div className="sc-results-category-head">
+                    <h3>Cashback Cards</h3>
+                    <span className="sc-results-category-count">
+                      {cashbackCards.length} card{cashbackCards.length === 1 ? "" : "s"}
+                    </span>
+                  </div>
+                  <div className="result-list">
+                    {cashbackCards.map((item) => {
+                      const card = item.card;
+                      const flatIndex = getFlatIndex(card.id);
+                      const rank = getDisplayRank(card.id);
+                      const isSelected = selectedCardIds.includes(card.id);
+                      const pickLabel =
+                        flatIndex === 0
+                          ? "Top pick"
+                          : flatIndex === 1
+                            ? "Strong alternative"
+                            : flatIndex === 2
+                              ? "Also worth a look"
+                              : null;
 
-                    return (
-                      <article
-                        key={card.id}
-                        className={`result-card sc-clickable-result-card${resultPickClass(flatIndex)}`}
-                        data-details-url={`/cards/${card.id}`}
-                        onClick={(e) => handleCardClick(card.id, e)}
-                        role="link"
-                        tabIndex={0}
-                        onKeyDown={(e) => {
-                          if (e.key === "Enter" || e.key === " ") {
-                            e.preventDefault();
-                            router.push(`/cards/${card.id}`);
-                          }
-                        }}
-                      >
-                        <div className="result-main">
-                          <div>
-                            <div className="sc-result-kicker">
-                              <div className="rank">{rank}</div>
-                              <span className="sc-result-bank">{card.issuer}</span>
-                            </div>
-                            <h3 className="sc-result-title-row">
-                              <span className="sc-result-card-name">{card.name}</span>
-                              {pickLabel && (
-                                <span className="sc-result-pick-label sc-result-pick-inline">
-                                  {pickLabel}
+                      return (
+                        <article
+                          key={card.id}
+                          className={`result-card sc-clickable-result-card${resultPickClass(flatIndex)}`}
+                          data-details-url={`/cards/${card.id}`}
+                          onClick={(e) => handleCardClick(card.id, e)}
+                          role="link"
+                          tabIndex={0}
+                          onKeyDown={(e) => {
+                            if (e.key === "Enter" || e.key === " ") {
+                              e.preventDefault();
+                              router.push(`/cards/${card.id}`);
+                            }
+                          }}
+                        >
+                          <div className="result-main">
+                            <div>
+                              <div className="sc-result-kicker">
+                                <div className="rank">{rank}</div>
+                                <span className="sc-result-bank">{card.issuer}</span>
+                              </div>
+                              <h3 className="sc-result-title-row">
+                                <span className="sc-result-card-name">{card.name}</span>
+                                {pickLabel && (
+                                  <span className="sc-result-pick-label sc-result-pick-inline">
+                                    {pickLabel}
+                                  </span>
+                                )}
+                              </h3>
+                              <p>{getCardUsp(card)}</p>
+                              <div className="result-meta">
+                                <span className="mini-tag">Fit {toFitPercent(item.fitScore)}/100</span>
+                                {card.bestFor[0] ? <span className="mini-tag">{card.bestFor[0]}</span> : null}
+                                <span className="mini-tag">
+                                  {card.annualFee === 0 ? "Lifetime free" : `Rs ${card.annualFee.toLocaleString("en-IN")} fee`}
                                 </span>
-                              )}
-                            </h3>
-                            <p>{getCardUsp(card)}</p>
-                            <div className="result-meta">
-                              <span className="mini-tag">Fit {toFitPercent(item.fitScore)}/100</span>
-                              {card.bestFor[0] ? <span className="mini-tag">{card.bestFor[0]}</span> : null}
-                              <span className="mini-tag">
-                                {card.annualFee === 0 ? "Lifetime free" : `Rs ${card.annualFee.toLocaleString("en-IN")} fee`}
-                              </span>
+                              </div>
+                              <Link
+                                className="sc-more-details"
+                                href={`/cards/${card.id}`}
+                                onClick={(e) => e.stopPropagation()}
+                              >
+                                Click for more details →
+                              </Link>
                             </div>
-                            <Link
-                              className="sc-more-details"
-                              href={`/cards/${card.id}`}
+                          </div>
+                          <div className="result-actions">
+                            <button
+                              className={`mini-btn sc-compare-btn${isSelected ? " is-selected" : ""}${!isSelected && selectedCardIds.length >= 3 ? " is-maxed" : ""}`}
+                              type="button"
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                toggleCompare(card.id);
+                              }}
+                            >
+                              {isSelected ? "Added to compare" : "Add to compare"}
+                            </button>
+                            <TrackedExternalLink
+                              analyticsEvent={{
+                                event_name: "apply_clicked",
+                                page: "ask",
+                                source: "ask",
+                                query,
+                                card_id: card.id
+                              }}
+                              className="mini-btn primary sc-apply-btn"
+                              href={cardCtaHref(card)}
+                              rel={cardCtaRel(card)}
+                              target="_blank"
                               onClick={(e) => e.stopPropagation()}
                             >
-                              Click for more details →
-                            </Link>
+                              {cardCtaLabel(card)}
+                            </TrackedExternalLink>
                           </div>
-                        </div>
-                        <div className="result-actions">
-                          <button
-                            className={`mini-btn sc-compare-btn${isSelected ? " is-selected" : ""}${!isSelected && selectedCardIds.length >= 3 ? " is-maxed" : ""}`}
-                            type="button"
-                            onClick={(e) => {
-                              e.stopPropagation();
-                              toggleCompare(card.id);
-                            }}
-                          >
-                            {isSelected ? "Added to compare" : "Add to compare"}
-                          </button>
-                          <TrackedExternalLink
-                            analyticsEvent={{
-                              event_name: "apply_clicked",
-                              page: "ask",
-                              source: "ask",
-                              query,
-                              card_id: card.id
-                            }}
-                            className="mini-btn primary sc-apply-btn"
-                            href={cardCtaHref(card)}
-                            rel={cardCtaRel(card)}
-                            target="_blank"
-                            onClick={(e) => e.stopPropagation()}
-                          >
-                            {cardCtaLabel(card)}
-                          </TrackedExternalLink>
-                        </div>
-                      </article>
-                    );
-                  })}
-                </div>
-              </section>
-            )}
+                        </article>
+                      );
+                    })}
+                  </div>
+                </section>
+              )}
 
-            {/* Reward Cards Category */}
-            {rewardCards.length > 0 && (
-              <section className="sc-results-category sc-results-category-reward">
-                <div className="sc-results-category-head">
-                  <h3>Reward Cards</h3>
-                  <span className="sc-results-category-count">
-                    {rewardCards.length} card{rewardCards.length === 1 ? "" : "s"}
-                  </span>
-                </div>
-                <div className="result-list">
-                  {rewardCards.map((item) => {
-                    const card = item.card;
-                    const flatIndex = getFlatIndex(card.id);
-                    const rank = getDisplayRank(card.id);
-                    const isSelected = selectedCardIds.includes(card.id);
-                    const pickLabel =
-                      flatIndex === 0
-                        ? "Top pick"
-                        : flatIndex === 1
-                          ? "Strong alternative"
-                          : flatIndex === 2
-                            ? "Also worth a look"
-                            : null;
+              {/* Reward Cards Category */}
+              {rewardCards.length > 0 && (
+                <section className="sc-results-category sc-results-category-reward">
+                  <div className="sc-results-category-head">
+                    <h3>Reward Cards</h3>
+                    <span className="sc-results-category-count">
+                      {rewardCards.length} card{rewardCards.length === 1 ? "" : "s"}
+                    </span>
+                  </div>
+                  <div className="result-list">
+                    {rewardCards.map((item) => {
+                      const card = item.card;
+                      const flatIndex = getFlatIndex(card.id);
+                      const rank = getDisplayRank(card.id);
+                      const isSelected = selectedCardIds.includes(card.id);
+                      const pickLabel =
+                        flatIndex === 0
+                          ? "Top pick"
+                          : flatIndex === 1
+                            ? "Strong alternative"
+                            : flatIndex === 2
+                              ? "Also worth a look"
+                              : null;
 
-                    return (
-                      <article
-                        key={card.id}
-                        className={`result-card sc-clickable-result-card${resultPickClass(flatIndex)}`}
-                        data-details-url={`/cards/${card.id}`}
-                        onClick={(e) => handleCardClick(card.id, e)}
-                        role="link"
-                        tabIndex={0}
-                        onKeyDown={(e) => {
-                          if (e.key === "Enter" || e.key === " ") {
-                            e.preventDefault();
-                            router.push(`/cards/${card.id}`);
-                          }
-                        }}
-                      >
-                        <div className="result-main">
-                          <div>
-                            <div className="sc-result-kicker">
-                              <div className="rank">{rank}</div>
-                              <span className="sc-result-bank">{card.issuer}</span>
-                            </div>
-                            <h3 className="sc-result-title-row">
-                              <span className="sc-result-card-name">{card.name}</span>
-                              {pickLabel && (
-                                <span className="sc-result-pick-label sc-result-pick-inline">
-                                  {pickLabel}
+                      return (
+                        <article
+                          key={card.id}
+                          className={`result-card sc-clickable-result-card${resultPickClass(flatIndex)}`}
+                          data-details-url={`/cards/${card.id}`}
+                          onClick={(e) => handleCardClick(card.id, e)}
+                          role="link"
+                          tabIndex={0}
+                          onKeyDown={(e) => {
+                            if (e.key === "Enter" || e.key === " ") {
+                              e.preventDefault();
+                              router.push(`/cards/${card.id}`);
+                            }
+                          }}
+                        >
+                          <div className="result-main">
+                            <div>
+                              <div className="sc-result-kicker">
+                                <div className="rank">{rank}</div>
+                                <span className="sc-result-bank">{card.issuer}</span>
+                              </div>
+                              <h3 className="sc-result-title-row">
+                                <span className="sc-result-card-name">{card.name}</span>
+                                {pickLabel && (
+                                  <span className="sc-result-pick-label sc-result-pick-inline">
+                                    {pickLabel}
+                                  </span>
+                                )}
+                              </h3>
+                              <p>{getCardUsp(card)}</p>
+                              <div className="result-meta">
+                                <span className="mini-tag">Fit {toFitPercent(item.fitScore)}/100</span>
+                                {card.bestFor[0] ? <span className="mini-tag">{card.bestFor[0]}</span> : null}
+                                <span className="mini-tag">
+                                  {card.annualFee === 0 ? "Lifetime free" : `Rs ${card.annualFee.toLocaleString("en-IN")} fee`}
                                 </span>
-                              )}
-                            </h3>
-                            <p>{getCardUsp(card)}</p>
-                            <div className="result-meta">
-                              <span className="mini-tag">Fit {toFitPercent(item.fitScore)}/100</span>
-                              {card.bestFor[0] ? <span className="mini-tag">{card.bestFor[0]}</span> : null}
-                              <span className="mini-tag">
-                                {card.annualFee === 0 ? "Lifetime free" : `Rs ${card.annualFee.toLocaleString("en-IN")} fee`}
-                              </span>
+                              </div>
+                              <Link
+                                className="sc-more-details"
+                                href={`/cards/${card.id}`}
+                                onClick={(e) => e.stopPropagation()}
+                              >
+                                Click for more details →
+                              </Link>
                             </div>
-                            <Link
-                              className="sc-more-details"
-                              href={`/cards/${card.id}`}
+                          </div>
+                          <div className="result-actions">
+                            <button
+                              className={`mini-btn sc-compare-btn${isSelected ? " is-selected" : ""}${!isSelected && selectedCardIds.length >= 3 ? " is-maxed" : ""}`}
+                              type="button"
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                toggleCompare(card.id);
+                              }}
+                            >
+                              {isSelected ? "Added to compare" : "Add to compare"}
+                            </button>
+                            <TrackedExternalLink
+                              analyticsEvent={{
+                                event_name: "apply_clicked",
+                                page: "ask",
+                                source: "ask",
+                                query,
+                                card_id: card.id
+                              }}
+                              className="mini-btn primary sc-apply-btn"
+                              href={cardCtaHref(card)}
+                              rel={cardCtaRel(card)}
+                              target="_blank"
                               onClick={(e) => e.stopPropagation()}
                             >
-                              Click for more details →
-                            </Link>
+                              {cardCtaLabel(card)}
+                            </TrackedExternalLink>
                           </div>
-                        </div>
-                        <div className="result-actions">
-                          <button
-                            className={`mini-btn sc-compare-btn${isSelected ? " is-selected" : ""}${!isSelected && selectedCardIds.length >= 3 ? " is-maxed" : ""}`}
-                            type="button"
-                            onClick={(e) => {
-                              e.stopPropagation();
-                              toggleCompare(card.id);
-                            }}
-                          >
-                            {isSelected ? "Added to compare" : "Add to compare"}
-                          </button>
-                          <TrackedExternalLink
-                            analyticsEvent={{
-                              event_name: "apply_clicked",
-                              page: "ask",
-                              source: "ask",
-                              query,
-                              card_id: card.id
-                            }}
-                            className="mini-btn primary sc-apply-btn"
-                            href={cardCtaHref(card)}
-                            rel={cardCtaRel(card)}
-                            target="_blank"
-                            onClick={(e) => e.stopPropagation()}
-                          >
-                            {cardCtaLabel(card)}
-                          </TrackedExternalLink>
-                        </div>
-                      </article>
-                    );
-                  })}
-                </div>
-              </section>
-            )}
+                        </article>
+                      );
+                    })}
+                  </div>
+                </section>
+              )}
+            </div>
           </div>
         </section>
 
