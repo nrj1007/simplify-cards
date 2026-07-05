@@ -130,6 +130,13 @@ export default function AskResultsClient({
     .map((id) => cards.find((c) => c.card.id === id))
     .filter((c): c is ScoredCardItem => Boolean(c));
 
+  const resultPickClass = (index: number) => {
+    if (index === 0) return " sc-result-top-pick best";
+    if (index === 1) return " sc-result-strong-alt";
+    if (index === 2) return " sc-result-also-look";
+    return "";
+  };
+
   const handleCardClick = (cardId: string, event: React.MouseEvent) => {
     // Prevent navigation if clicking interactive elements inside card
     const target = event.target as HTMLElement;
@@ -277,7 +284,7 @@ export default function AskResultsClient({
                     return (
                       <article
                         key={card.id}
-                        className="result-card sc-clickable-result-card"
+                        className={`result-card sc-clickable-result-card${resultPickClass(overallIndex)}`}
                         data-details-url={`/cards/${card.id}`}
                         onClick={(e) => handleCardClick(card.id, e)}
                         role="link"
@@ -322,7 +329,7 @@ export default function AskResultsClient({
                         </div>
                         <div className="result-actions">
                           <button
-                            className={`mini-btn sc-compare-btn${isSelected ? " is-selected" : ""}`}
+                            className={`mini-btn sc-compare-btn${isSelected ? " is-selected" : ""}${!isSelected && selectedCardIds.length >= 3 ? " is-maxed" : ""}`}
                             type="button"
                             onClick={(e) => {
                               e.stopPropagation();
@@ -382,7 +389,7 @@ export default function AskResultsClient({
                     return (
                       <article
                         key={card.id}
-                        className="result-card sc-clickable-result-card"
+                        className={`result-card sc-clickable-result-card${resultPickClass(overallIndex)}`}
                         data-details-url={`/cards/${card.id}`}
                         onClick={(e) => handleCardClick(card.id, e)}
                         role="link"
@@ -427,7 +434,7 @@ export default function AskResultsClient({
                         </div>
                         <div className="result-actions">
                           <button
-                            className={`mini-btn sc-compare-btn${isSelected ? " is-selected" : ""}`}
+                            className={`mini-btn sc-compare-btn${isSelected ? " is-selected" : ""}${!isSelected && selectedCardIds.length >= 3 ? " is-maxed" : ""}`}
                             type="button"
                             onClick={(e) => {
                               e.stopPropagation();
@@ -468,7 +475,6 @@ export default function AskResultsClient({
             <div className="sc-compare-modern-head sc-compare-polished-head">
               <div>
                 <h2 className="section-title">Compare selected cards</h2>
-                <p className="sc-compare-intro">Pick up to 3 cards above</p>
               </div>
               <span className="sc-compare-limit-chip">
                 <span id="sc-compare-section-count">{selectedCards.length}</span>/3 selected
@@ -701,10 +707,10 @@ export default function AskResultsClient({
           </span>
         </div>
         <div className="sc-floating-compare-copy">
-          <strong id="sc-floating-compare-title">
+          <strong className="sc-floating-compare-title" id="sc-floating-compare-title">
             {selectedCards.length === 1 ? "1 card in compare" : `${selectedCards.length} cards in compare`}
           </strong>
-          <small id="sc-floating-compare-subtitle">
+          <small className="sc-floating-compare-subtitle" id="sc-floating-compare-subtitle">
             {selectedCards.length} of 3 added
           </small>
         </div>
