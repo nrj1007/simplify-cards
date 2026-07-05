@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import { Cpu, Scale, ShieldCheck } from "lucide-react";
 import AskQueryForm from "../ui/AskQueryForm";
 import AskResultsLoadingBoundary from "../ui/AskResultsLoadingBoundary";
 import AnalyticsMount from "../ui/AnalyticsMount";
@@ -76,10 +77,30 @@ export default async function AskPage({ searchParams }: Props) {
     <div className="ask-results">
       <section className="ask-hero">
         <div className="container ask-hero-inner">
+          <div className="sc-hero-badge ask-hero-badge">
+            <span>
+              <Cpu size={15} />
+              AI-Powered
+            </span>
+            <b>•</b>
+            <span>
+              <ShieldCheck size={15} />
+              Expert Verified
+            </span>
+            <b>•</b>
+            <span>
+              <Scale size={15} />
+              Bias-Free
+            </span>
+          </div>
           <h1>
             <span className="sc-hero-prefix">Here&rsquo;s what we found </span>
             <span className="sc-hero-query">for you</span>
           </h1>
+          <p className="ask-hero-lead">
+            Our proprietary algorithm compares <b>200+ credit cards</b> across <span>rewards, fees, caps, and exclusions</span> to
+            find your best fit
+          </p>
 
           <AskQueryForm
             ariaLabel="Ask another credit card question"
