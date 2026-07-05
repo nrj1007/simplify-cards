@@ -10416,7 +10416,7 @@ button { cursor: pointer !important; }
 .ask-hero > .container,
 .ask-hero-inner { width: 100% !important; max-width: 1400px !important; margin: 0 auto !important; padding-left: 1rem !important; padding-right: 1rem !important; display: flex !important; flex-direction: column !important; align-items: center !important; }
 @media (min-width: 640px) { .ask-hero > .container, .ask-hero-inner { padding-left: 2rem !important; padding-right: 2rem !important; } }
-.ask-hero h1 { margin: 0 auto 1.2rem !important; max-width: 980px !important; color: #1e112c !important; font-size: clamp(2.4rem, 5vw, 4rem) !important; line-height: 1 !important; font-weight: 900 !important; letter-spacing: -0.065em !important; text-align: center !important; }
+.ask-hero h1 { margin: 0 auto 1.2rem !important; max-width: 980px !important; color: #1e112c !important; font-size: clamp(2rem, 8.4vw, 2.65rem) !important; line-height: 1.08 !important; font-weight: 800 !important; letter-spacing: 0 !important; text-align: center !important; }
 .ask-hero h1 .sc-hero-query { color: #581c87 !important; }
 .ask-search { width: min(100%, 42rem) !important; margin: 0 auto !important; min-height: 4.15rem !important; display: flex !important; align-items: center !important; gap: 0.75rem !important; background: #fffdf8 !important; border: 2px solid #581c87 !important; border-radius: 1.15rem !important; padding: 0.42rem 0.45rem 0.42rem 1rem !important; box-shadow: 0 18px 42px rgba(30, 17, 44, 0.08) !important; }
 .sc-search-icon { width: 1.35rem !important; height: 1.35rem !important; color: #581c87 !important; display: inline-flex !important; flex: 0 0 auto !important; }
@@ -10505,7 +10505,7 @@ button { cursor: pointer !important; }
 @media (max-width: 680px) {
   .sc-mobile-menu { display: block !important; }
   .ask-hero { padding-top: 2.5rem !important; }
-  .ask-hero h1 { font-size: 2.4rem !important; }
+  .ask-hero h1 { font-size: clamp(2rem, 8.4vw, 2.65rem) !important; }
   .ask-search { min-height: 3.65rem !important; gap: .5rem !important; }
   .ask-search .loading-button { padding: .8rem .9rem !important; }
   .content-grid { gap: 1rem !important; }
