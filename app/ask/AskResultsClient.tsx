@@ -130,8 +130,10 @@ export default function AskResultsClient({
 
   const getFlatIndex = (cardId: string) => cards.findIndex((c) => c.card.id === cardId);
   const getDisplayRank = (cardId: string) => {
-    const sectionIndex = rankedResultCards.findIndex((c) => c.card.id === cardId);
-    if (sectionIndex >= 0) return sectionIndex + 1;
+    const cashbackIndex = cashbackCards.findIndex((c) => c.card.id === cardId);
+    if (cashbackIndex >= 0) return cashbackIndex + 1;
+    const rewardIndex = rewardCards.findIndex((c) => c.card.id === cardId);
+    if (rewardIndex >= 0) return rewardIndex + 1;
     const flatIndex = getFlatIndex(cardId);
     return flatIndex >= 0 ? flatIndex + 1 : 0;
   };
