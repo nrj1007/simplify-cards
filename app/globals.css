@@ -12117,6 +12117,8 @@ button { cursor: pointer !important; }
 }
 .ask-results .ask-hero h1 span,
 .ask-results .ask-hero h1 strong {
+  font-size: inherit !important;
+  line-height: inherit !important;
   white-space: nowrap !important;
 }
 .ask-results .ask-hero h1 .sc-hero-query {
