@@ -12213,6 +12213,12 @@ button { cursor: pointer !important; }
   background-color: #581c87 !important;
   color: #fff !important;
 }
+.ask-results .ask-hero .ask-search .loading-button .loading-button-label {
+  font-size: inherit !important;
+  font-weight: inherit !important;
+  line-height: inherit !important;
+  letter-spacing: inherit !important;
+}
 .ask-results .ask-hero .ask-search .loading-button.btn.btn-primary::before {
   content: "" !important;
   position: absolute !important;
