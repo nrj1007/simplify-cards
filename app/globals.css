@@ -12213,6 +12213,15 @@ button { cursor: pointer !important; }
   background-color: #581c87 !important;
   color: #fff !important;
 }
+.ask-results .ask-hero .ask-search .loading-button.btn.btn-primary::before {
+  content: "" !important;
+  position: absolute !important;
+  inset: 0 !important;
+  border-radius: inherit !important;
+  background: rgba(192, 132, 252, 0.15) !important;
+  animation: scPulseRing 3s ease-in-out infinite !important;
+  pointer-events: none !important;
+}
 .ask-results .ask-hero .ask-search .loading-button .loading-button-label::before {
   content: "" !important;
   display: inline-block !important;
@@ -12221,6 +12230,8 @@ button { cursor: pointer !important; }
   margin-right: 7px !important;
   vertical-align: -4px !important;
   background: currentColor !important;
+  color: #f3e8ff !important;
+  animation: scSparkle 3.2s ease-in-out infinite !important;
   mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='black' viewBox='0 0 24 24'%3E%3Cpath d='M12 2C12 2 13.5 8.5 15 10C16.5 11.5 22 12 22 12C22 12 16.5 12.5 15 14C13.5 15.5 12 22 12 22C12 22 10.5 15.5 9 14C7.5 12.5 2 12 2 12C2 12 7.5 11.5 9 10C10.5 8.5 12 2 12 2Z'/%3E%3C/svg%3E") center / contain no-repeat !important;
 }
 .ask-results .ask-hero .ask-search .loading-button:hover {
