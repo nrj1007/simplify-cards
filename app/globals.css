@@ -12280,18 +12280,34 @@ button { cursor: pointer !important; }
   justify-content: center !important;
   flex-wrap: wrap !important;
   gap: 8px !important;
-  margin: 0 auto !important;
+  max-width: 600px !important;
+  margin: 12px auto 0 !important;
+}
+.ask-results .ask-hero .query-examples-label {
+  margin-right: 4px !important;
+  color: #8a8070 !important;
+  font-size: 12px !important;
+  font-weight: 900 !important;
+  letter-spacing: 0.06em !important;
+  line-height: 16px !important;
+  text-transform: uppercase !important;
 }
 .ask-results .ask-hero .query-chip {
-  border: 1px solid #eadcc2 !important;
-  border-radius: 999px !important;
-  background: rgba(255, 253, 248, 0.88) !important;
+  border: 1px solid #d8d3c5 !important;
+  border-radius: 9px !important;
+  background: #edeae1 !important;
   color: var(--muted) !important;
-  padding: 7px 12px !important;
-  font-size: 11px !important;
-  font-weight: 800 !important;
+  padding: 7px 13px !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
   line-height: 16px !important;
-  box-shadow: 0 8px 20px rgba(30, 17, 44, 0.04) !important;
+  box-shadow: none !important;
+  transition: all 0.2s ease !important;
+}
+.ask-results .ask-hero .query-chip:hover {
+  border-color: var(--brand) !important;
+  background: var(--brand) !important;
+  color: #fff !important;
 }
 @media (min-width: 640px) {
   .ask-results .ask-hero {

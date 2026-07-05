@@ -91,6 +91,7 @@ export default async function AskPage({ searchParams }: Props) {
           />
 
           <div className="query-examples">
+            <span className="query-examples-label">try asking:</span>
             {ASK_EXAMPLES.map((example) => (
               <Link
                 key={example}
