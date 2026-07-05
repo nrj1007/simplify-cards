@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import type { CreditCard, RecommendationInput } from "@/lib/types";
 import { cardCtaHref, cardCtaLabel, cardCtaRel } from "@/lib/card-links";
-import { getCardShortUsp, getCardUsp } from "@/lib/card-usp";
+import { getCardUsp } from "@/lib/card-usp";
 import { cardRewardTypeIncludesCashback } from "@/lib/reward-type";
 import { TrackedExternalLink, TrackedLink } from "../ui/TrackedLink";
 import AskFeedback from "../ui/AskFeedback";
@@ -178,7 +178,10 @@ export default function AskResultsClient({
                   const cardTypeLabel = cardRewardTypeIncludesCashback(card) ? "Cashback Card" : "Reward Card";
                   const feeDisplay = card.annualFee === 0 ? "Rs 0 fee" : `Rs ${card.annualFee.toLocaleString("en-IN")} fee`;
                   const benefitDisplay = getTopCardBenefit(card);
-                  const descCopy = getCardShortUsp(card);
+                  const reason = item.reasons.find(
+                    (entry) => !/^Strong card-name match/i.test(entry) && !/^Matches /i.test(entry)
+                  );
+                  const descCopy = reason ?? getCardUsp(card);
 
                   return (
                     <article
@@ -307,7 +310,7 @@ export default function AskResultsClient({
                                 </span>
                               )}
                             </h3>
-                            <p>{getCardShortUsp(card)}</p>
+                            <p>{getCardUsp(card)}</p>
                             <div className="result-meta">
                               <span className="mini-tag">Fit {toFitPercent(item.fitScore)}/100</span>
                               {card.bestFor[0] ? <span className="mini-tag">{card.bestFor[0]}</span> : null}
@@ -412,7 +415,7 @@ export default function AskResultsClient({
                                 </span>
                               )}
                             </h3>
-                            <p>{getCardShortUsp(card)}</p>
+                            <p>{getCardUsp(card)}</p>
                             <div className="result-meta">
                               <span className="mini-tag">Fit {toFitPercent(item.fitScore)}/100</span>
                               {card.bestFor[0] ? <span className="mini-tag">{card.bestFor[0]}</span> : null}
