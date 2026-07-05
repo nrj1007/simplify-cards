@@ -16,10 +16,16 @@ export type ScoredCardItem = {
   reasons: string[];
 };
 
+type ScoredCardSection = {
+  title: string;
+  cards: ScoredCardItem[];
+};
+
 type Props = {
   query: string;
   displayedMatchCount: number;
   cards: ScoredCardItem[];
+  sections?: ScoredCardSection[] | undefined;
   summary: string;
   input: RecommendationInput;
   savedFeedback?: "up" | "down" | null | undefined;
@@ -69,6 +75,7 @@ export default function AskResultsClient({
   query,
   displayedMatchCount,
   cards,
+  sections = [],
   summary,
   input,
   savedFeedback,
@@ -108,9 +115,26 @@ export default function AskResultsClient({
     }
   ].filter((p): p is { heading: string; headingClass: string; tone: string; item: ScoredCardItem } => Boolean(p.item));
 
-  // Split results into Cashback Cards first, Reward Cards second
-  const cashbackCards = cards.filter((c) => cardRewardTypeIncludesCashback(c.card));
-  const rewardCards = cards.filter((c) => !cardRewardTypeIncludesCashback(c.card));
+  const cashbackSection = sections.find((section) => /cashback/i.test(section.title));
+  const rewardSection = sections.find((section) => /reward/i.test(section.title));
+
+  // Prefer the server's split/blend sections. Falling back keeps non-split answers working.
+  const cashbackCards = cashbackSection?.cards ?? cards.filter((c) => cardRewardTypeIncludesCashback(c.card));
+  const rewardCards = rewardSection?.cards ?? cards.filter((c) => !cardRewardTypeIncludesCashback(c.card));
+  const rankedResultCards = [...cashbackCards, ...rewardCards].filter(
+    (item, index, list) => list.findIndex((candidate) => candidate.card.id === item.card.id) === index
+  );
+  const allResultCards = [...cards, ...rankedResultCards].filter(
+    (item, index, list) => list.findIndex((candidate) => candidate.card.id === item.card.id) === index
+  );
+
+  const getFlatIndex = (cardId: string) => cards.findIndex((c) => c.card.id === cardId);
+  const getDisplayRank = (cardId: string) => {
+    const sectionIndex = rankedResultCards.findIndex((c) => c.card.id === cardId);
+    if (sectionIndex >= 0) return sectionIndex + 1;
+    const flatIndex = getFlatIndex(cardId);
+    return flatIndex >= 0 ? flatIndex + 1 : 0;
+  };
 
   const toggleCompare = (cardId: string) => {
     setSelectedCardIds((prev) => {
@@ -127,7 +151,7 @@ export default function AskResultsClient({
   };
 
   const selectedCards = selectedCardIds
-    .map((id) => cards.find((c) => c.card.id === id))
+    .map((id) => allResultCards.find((c) => c.card.id === id))
     .filter((c): c is ScoredCardItem => Boolean(c));
 
   const resultPickClass = (index: number) => {
@@ -272,22 +296,22 @@ export default function AskResultsClient({
                 <div className="result-list">
                   {cashbackCards.map((item) => {
                     const card = item.card;
-                    const overallIndex = cards.findIndex((c) => c.card.id === card.id);
-                    const rank = overallIndex + 1;
+                    const flatIndex = getFlatIndex(card.id);
+                    const rank = getDisplayRank(card.id);
                     const isSelected = selectedCardIds.includes(card.id);
                     const pickLabel =
-                      overallIndex === 0
+                      flatIndex === 0
                         ? "Top pick"
-                        : overallIndex === 1
+                        : flatIndex === 1
                           ? "Strong alternative"
-                          : overallIndex === 2
+                          : flatIndex === 2
                             ? "Also worth a look"
                             : null;
 
                     return (
                       <article
                         key={card.id}
-                        className={`result-card sc-clickable-result-card${resultPickClass(overallIndex)}`}
+                        className={`result-card sc-clickable-result-card${resultPickClass(flatIndex)}`}
                         data-details-url={`/cards/${card.id}`}
                         onClick={(e) => handleCardClick(card.id, e)}
                         role="link"
@@ -377,22 +401,22 @@ export default function AskResultsClient({
                 <div className="result-list">
                   {rewardCards.map((item) => {
                     const card = item.card;
-                    const overallIndex = cards.findIndex((c) => c.card.id === card.id);
-                    const rank = overallIndex + 1;
+                    const flatIndex = getFlatIndex(card.id);
+                    const rank = getDisplayRank(card.id);
                     const isSelected = selectedCardIds.includes(card.id);
                     const pickLabel =
-                      overallIndex === 0
+                      flatIndex === 0
                         ? "Top pick"
-                        : overallIndex === 1
+                        : flatIndex === 1
                           ? "Strong alternative"
-                          : overallIndex === 2
+                          : flatIndex === 2
                             ? "Also worth a look"
                             : null;
 
                     return (
                       <article
                         key={card.id}
-                        className={`result-card sc-clickable-result-card${resultPickClass(overallIndex)}`}
+                        className={`result-card sc-clickable-result-card${resultPickClass(flatIndex)}`}
                         data-details-url={`/cards/${card.id}`}
                         onClick={(e) => handleCardClick(card.id, e)}
                         role="link"
@@ -489,7 +513,7 @@ export default function AskResultsClient({
                 const item = selectedCards[slotIndex];
                 if (item) {
                   const card = item.card;
-                  const rank = cards.findIndex((c) => c.card.id === card.id) + 1;
+                  const rank = getDisplayRank(card.id);
                   return (
                     <article key={card.id} className="sc-compare-selected-card is-filled">
                       <button

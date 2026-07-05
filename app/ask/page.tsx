@@ -131,6 +131,7 @@ export default async function AskPage({ searchParams }: Props) {
                 query={input?.query ?? ""}
                 returnTo={returnTo}
                 savedFeedback={savedFeedback}
+                sections={result.sections}
                 summary={result.summary}
               />
             ) : result ? (
