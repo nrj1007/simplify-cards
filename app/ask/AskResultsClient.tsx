@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import type { CreditCard, RecommendationInput } from "@/lib/types";
 import { cardCtaHref, cardCtaLabel, cardCtaRel } from "@/lib/card-links";
-import { getCardUsp } from "@/lib/card-usp";
+import { getCardShortUsp, getCardUsp } from "@/lib/card-usp";
 import { cardRewardTypeIncludesCashback } from "@/lib/reward-type";
 import { TrackedExternalLink, TrackedLink } from "../ui/TrackedLink";
 import AskFeedback from "../ui/AskFeedback";
@@ -137,6 +137,8 @@ export default function AskResultsClient({
     return "";
   };
 
+  const isSpendEnvelopeReason = (entry: string) => /^Best at /i.test(entry) || /^Needs high spend\b/i.test(entry);
+
   const handleCardClick = (cardId: string, event: React.MouseEvent) => {
     // Prevent navigation if clicking interactive elements inside card
     const target = event.target as HTMLElement;
@@ -179,9 +181,10 @@ export default function AskResultsClient({
                   const feeDisplay = card.annualFee === 0 ? "Rs 0 fee" : `Rs ${card.annualFee.toLocaleString("en-IN")} fee`;
                   const benefitDisplay = getTopCardBenefit(card);
                   const reason = item.reasons.find(
-                    (entry) => !/^Strong card-name match/i.test(entry) && !/^Matches /i.test(entry)
+                    (entry) => !/^Strong card-name match/i.test(entry) && !/^Matches /i.test(entry) && !isSpendEnvelopeReason(entry)
                   );
-                  const descCopy = reason ?? getCardUsp(card);
+                  const hasSpendEnvelopeReason = item.reasons.some(isSpendEnvelopeReason);
+                  const descCopy = reason ?? (hasSpendEnvelopeReason ? getCardShortUsp(card) : getCardUsp(card));
 
                   return (
                     <article
