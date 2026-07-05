@@ -110,9 +110,11 @@ function Sparkle({ className, size = 16 }: { className?: string; size?: number }
 export function FloatingAskButton() {
   return (
     <Link href="/ask" className="sc-floating-ask" aria-label="Ask SimplifyCards">
-      <span className="sc-pulse" />
-      <Sparkle className="sc-sparkle" size={16} />
-      <span>ask</span>
+      <span className="sc-floating-pulse" />
+      <span className="sc-floating-sparkle">
+        <Sparkle size={16} />
+      </span>
+      <span className="sc-floating-label">ask</span>
     </Link>
   );
 }
