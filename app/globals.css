@@ -11194,6 +11194,35 @@ button { cursor: pointer !important; }
   }
 }
 
+/* Match the Ask mockup: stack the precision chips in two full-width groups. */
+.side-stack .sc-precision-sidebar.sc-recommend-right .clarify-box {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 1.35rem !important;
+  width: 100% !important;
+}
+.side-stack .sc-precision-sidebar.sc-recommend-right .clarify-card {
+  width: 100% !important;
+}
+.side-stack .sc-precision-sidebar.sc-recommend-right .clarify-card + .clarify-card {
+  padding-top: 1.25rem !important;
+  border-top: 1px solid rgba(232, 223, 207, 0.95) !important;
+}
+.side-stack .sc-precision-sidebar.sc-recommend-right .clarify-options {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  align-items: flex-start !important;
+  gap: 0.7rem !important;
+}
+.side-stack .sc-precision-sidebar.sc-recommend-right .sc-email-reco-box {
+  flex: 0 0 auto !important;
+  width: 100% !important;
+  margin-top: 1.55rem !important;
+}
+.side-stack .sc-precision-sidebar.sc-recommend-right .sc-email-reco-form {
+  margin-top: 1.15rem !important;
+}
+
 /* Top pick / Strong alternative / Also worth a look are main headings, not gold tags */
 #answer .sc-landing-pick-card > .sc-pick-label,
 .sc-landing-pick-card > .sc-pick-label,
