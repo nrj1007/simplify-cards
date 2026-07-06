@@ -93,34 +93,52 @@ export default function AskResultsClient({
   const toFitPercent = (score: number) =>
     topFitRaw > 0 ? Math.max(1, Math.min(100, Math.round((score / topFitRaw) * 100))) : 100;
 
-  const topThree = cards.slice(0, 3);
-  const topPicksData = [
-    {
-      heading: "Top pick",
-      headingClass: "sc-top-pick",
-      tone: "good",
-      item: topThree[0]
-    },
-    {
-      heading: "Strong alternative",
-      headingClass: "sc-strong-alternative",
-      tone: "warn",
-      item: topThree[1]
-    },
-    {
-      heading: "Also worth a look",
-      headingClass: "sc-also-worth",
-      tone: "skip",
-      item: topThree[2]
-    }
-  ].filter((p): p is { heading: string; headingClass: string; tone: string; item: ScoredCardItem } => Boolean(p.item));
-
   const cashbackSection = sections.find((section) => /cashback/i.test(section.title));
   const rewardSection = sections.find((section) => /reward/i.test(section.title));
 
   // Prefer the server's split/blend sections. Falling back keeps non-split answers working.
   const cashbackCards = cashbackSection?.cards ?? cards.filter((c) => cardRewardTypeIncludesCashback(c.card));
   const rewardCards = rewardSection?.cards ?? cards.filter((c) => !cardRewardTypeIncludesCashback(c.card));
+
+  let topPickItem: ScoredCardItem | undefined = undefined;
+  let strongAlternativeItem: ScoredCardItem | undefined = undefined;
+  let alsoWorthALookItem: ScoredCardItem | undefined = undefined;
+
+  if (cashbackCards.length >= 1) {
+    topPickItem = cashbackCards[0];
+    strongAlternativeItem = rewardCards[0];
+    if (cashbackCards.length >= 2) {
+      alsoWorthALookItem = cashbackCards[1];
+    } else {
+      alsoWorthALookItem = rewardCards[1];
+    }
+  } else {
+    topPickItem = rewardCards[0];
+    strongAlternativeItem = rewardCards[1];
+    alsoWorthALookItem = rewardCards[2];
+  }
+
+  const topPicksData = [
+    {
+      heading: "Top pick",
+      headingClass: "sc-top-pick",
+      tone: "good",
+      item: topPickItem
+    },
+    {
+      heading: "Strong alternative",
+      headingClass: "sc-strong-alternative",
+      tone: "warn",
+      item: strongAlternativeItem
+    },
+    {
+      heading: "Also worth a look",
+      headingClass: "sc-also-worth",
+      tone: "skip",
+      item: alsoWorthALookItem
+    }
+  ].filter((p): p is { heading: string; headingClass: string; tone: string; item: ScoredCardItem } => Boolean(p.item));
+
   const rankedResultCards = [...cashbackCards, ...rewardCards].filter(
     (item, index, list) => list.findIndex((candidate) => candidate.card.id === item.card.id) === index
   );
@@ -136,6 +154,20 @@ export default function AskResultsClient({
     if (rewardIndex >= 0) return rewardIndex + 1;
     const flatIndex = getFlatIndex(cardId);
     return flatIndex >= 0 ? flatIndex + 1 : 0;
+  };
+
+  const getPickLabel = (cardId: string) => {
+    const pick = topPicksData.find((p) => p.item.card.id === cardId);
+    return pick ? pick.heading : null;
+  };
+
+  const getResultPickClass = (cardId: string) => {
+    const pick = topPicksData.find((p) => p.item.card.id === cardId);
+    if (!pick) return "";
+    if (pick.heading === "Top pick") return " sc-result-top-pick best";
+    if (pick.heading === "Strong alternative") return " sc-result-strong-alt";
+    if (pick.heading === "Also worth a look") return " sc-result-also-look";
+    return "";
   };
 
   const toggleCompare = (cardId: string) => {
@@ -155,13 +187,6 @@ export default function AskResultsClient({
   const selectedCards = selectedCardIds
     .map((id) => allResultCards.find((c) => c.card.id === id))
     .filter((c): c is ScoredCardItem => Boolean(c));
-
-  const resultPickClass = (index: number) => {
-    if (index === 0) return " sc-result-top-pick best";
-    if (index === 1) return " sc-result-strong-alt";
-    if (index === 2) return " sc-result-also-look";
-    return "";
-  };
 
   const isSpendEnvelopeReason = (entry: string) => /^Best at /i.test(entry) || /^Needs high spend\b/i.test(entry);
 
@@ -299,22 +324,15 @@ export default function AskResultsClient({
                   <div className="result-list">
                     {cashbackCards.map((item) => {
                       const card = item.card;
-                      const flatIndex = getFlatIndex(card.id);
                       const rank = getDisplayRank(card.id);
                       const isSelected = selectedCardIds.includes(card.id);
-                      const pickLabel =
-                        flatIndex === 0
-                          ? "Top pick"
-                          : flatIndex === 1
-                            ? "Strong alternative"
-                            : flatIndex === 2
-                              ? "Also worth a look"
-                              : null;
+                      const pickLabel = getPickLabel(card.id);
+                      const pickClass = getResultPickClass(card.id);
 
                       return (
                         <article
                           key={card.id}
-                          className={`result-card sc-clickable-result-card${resultPickClass(flatIndex)}`}
+                          className={`result-card sc-clickable-result-card${pickClass}`}
                           data-details-url={`/cards/${card.id}`}
                           onClick={(e) => handleCardClick(card.id, e)}
                           role="link"
@@ -404,22 +422,15 @@ export default function AskResultsClient({
                   <div className="result-list">
                     {rewardCards.map((item) => {
                       const card = item.card;
-                      const flatIndex = getFlatIndex(card.id);
                       const rank = getDisplayRank(card.id);
                       const isSelected = selectedCardIds.includes(card.id);
-                      const pickLabel =
-                        flatIndex === 0
-                          ? "Top pick"
-                          : flatIndex === 1
-                            ? "Strong alternative"
-                            : flatIndex === 2
-                              ? "Also worth a look"
-                              : null;
+                      const pickLabel = getPickLabel(card.id);
+                      const pickClass = getResultPickClass(card.id);
 
                       return (
                         <article
                           key={card.id}
-                          className={`result-card sc-clickable-result-card${resultPickClass(flatIndex)}`}
+                          className={`result-card sc-clickable-result-card${pickClass}`}
                           data-details-url={`/cards/${card.id}`}
                           onClick={(e) => handleCardClick(card.id, e)}
                           role="link"
