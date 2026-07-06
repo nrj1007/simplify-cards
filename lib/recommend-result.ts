@@ -108,6 +108,7 @@ export function toRecommendResult(score: CardScore): RecommendResult {
     applyUrl: card.applyUrl,
     affiliateUrl: card.affiliateUrl,
     tags: card.tags.slice(0, 4),
+    rewardType: card.rewardType,
     usp: getCardUsp(card),
     // Display the full face reward value (no liquidity haircut) — ranking/ordering uses the
     // discounted estimated* fields, but users see real redemption value.

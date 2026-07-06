@@ -364,6 +364,7 @@ export type RecommendResult = {
   applyUrl: string;
   affiliateUrl?: string;
   tags: string[];
+  rewardType: string;
   usp: string;
   estimatedAnnualRewards: number;
   estimatedMilestoneValue: number;

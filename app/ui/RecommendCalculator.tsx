@@ -1,7 +1,9 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { ChevronDown, ExternalLink } from "lucide-react";
+import { ChevronDown } from "lucide-react";
+import type { Route } from "next";
+import { useRouter } from "next/navigation";
 import type { RecommendResult, SpendCategory, SpendProfile } from "@/lib/types";
 import { buildRecommendationMetadata } from "@/lib/analytics-events";
 import { trackEvent } from "@/lib/analytics-client";
@@ -29,7 +31,7 @@ type Props = {
 const CATEGORY_LABELS: Record<SpendCategory, string> = {
   online: "Online shopping",
   base: "Other offline / retail",
-  travel: "Travel (cab, train, etc.)",
+  travel: "Travel (cab, train, etc)",
   hotels: "Hotel bookings",
   airlines: "Flight bookings",
   fuel: "Fuel",
@@ -69,6 +71,16 @@ function formatINRCompact(value: number) {
     return `Rs ${formatted}L`;
   }
   return `Rs ${v.toLocaleString("en-IN")}`;
+}
+
+function formatINRInput(value: number) {
+  return Math.round(value).toString();
+}
+
+function cardTypeLabel(result: RecommendResult) {
+  return /cashback/i.test(result.rewardType) || result.netValueContextLabel === "as cashback"
+    ? "Cashback Card"
+    : "Reward Card";
 }
 
 function calculatorMilestoneLine(result: RecommendResult) {
@@ -141,22 +153,35 @@ function buildInitialSpend(defaultSpend: SpendProfile): Record<SpendCategory, nu
 // ---------------------------------------------------------------------------
 
 function RecommendCard({ result, index, isTopOfSection }: { result: RecommendResult; index: number; isTopOfSection: boolean }) {
+  const router = useRouter();
+  const detailsHref = `/cards/${result.id}` as Route;
+
+  function openDetails() {
+    router.push(detailsHref);
+  }
+
   return (
     <article
-      className={`panel card recommend-card${isTopOfSection && index === 0 ? " recommend-card-top" : ""}`}
+      className={`panel card recommend-card clickable-card${isTopOfSection && index === 0 ? " recommend-card-top" : ""}`}
+      data-detail-url={detailsHref}
       key={result.id}
+      role="link"
+      tabIndex={0}
+      onClick={openDetails}
+      onKeyDown={(event) => {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          openDetails();
+        }
+      }}
     >
       <div className="meta recommend-card-meta">
         <span className="badge">#{index + 1}</span>
         <span>{result.issuer}</span>
       </div>
-      <h3>{result.name}</h3>
-      <div className="meta">
-        {result.tags.map((tag) => (
-          <span className="badge" key={`${result.id}-${tag}`}>
-            {tag}
-          </span>
-        ))}
+      <div className="recommend-title-line">
+        <h3>{result.name}</h3>
+        <span className="card-type-badge">{cardTypeLabel(result)}</span>
       </div>
 
       {result.usp ? (
@@ -235,10 +260,11 @@ function RecommendCard({ result, index, isTopOfSection }: { result: RecommendRes
             source: "recommend",
             card_id: result.id
           }}
-          className="button secondary"
-          href={`/cards/${result.id}`}
+          className="details-link"
+          href={detailsHref}
+          onClick={(event) => event.stopPropagation()}
         >
-          Details
+          Click for more details -&gt;
         </TrackedLink>
         <TrackedExternalLink
           analyticsEvent={{
@@ -247,12 +273,13 @@ function RecommendCard({ result, index, isTopOfSection }: { result: RecommendRes
             source: "recommend",
             card_id: result.id
           }}
-          className="button"
+          className="button apply-now-button"
           href={cardCtaHref(result)}
+          onClick={(event) => event.stopPropagation()}
           rel={cardCtaRel(result)}
           target="_blank"
         >
-          {cardCtaLabel(result)} <ExternalLink size={15} />
+          {cardCtaLabel(result)}
         </TrackedExternalLink>
       </div>
     </article>
@@ -327,7 +354,7 @@ export default function RecommendCalculator({ defaultSpend, initialSections }: P
   const hasSections = sections.length > 1 || (sections.length === 1 && sections[0].title !== "");
 
   function setCategory(category: SpendCategory, value: number) {
-    setSpend((prev) => ({ ...prev, [category]: value }));
+    setSpend((prev) => ({ ...prev, [category]: Math.max(0, Math.min(SLIDER_MAX, value)) }));
   }
 
   useEffect(() => {
@@ -348,6 +375,11 @@ export default function RecommendCalculator({ defaultSpend, initialSections }: P
   return (
     <div className="recommend-layout">
       <aside className="panel recommend-controls">
+        <div className="recommend-controls-head">
+          <h2>Spend profile</h2>
+          <p>Edit monthly spends to refine your shortlist</p>
+        </div>
+
         <div className="recommend-total">
           <div>
             <strong>{formatINRCompact(totalMonthly)}</strong>
@@ -361,26 +393,47 @@ export default function RecommendCalculator({ defaultSpend, initialSections }: P
 
         <div className="recommend-sliders">
           {visibleCategories.map((category) => (
-            <div className="slider-row" key={category}>
+            <div className="slider-row" data-category-row={category} key={category}>
               <div className="slider-head">
                 <label htmlFor={`spend-${category}`}>{CATEGORY_LABELS[category]}</label>
-                <span className="slider-value">{formatINR(spend[category])}</span>
               </div>
-              <input
-                className="slider"
-                id={`spend-${category}`}
-                max={SLIDER_MAX}
-                min={0}
-                step={SLIDER_STEP}
-                type="range"
-                value={spend[category]}
-                onChange={(event) => setCategory(category, Number(event.target.value))}
-              />
+              <div className="spend-control">
+                <input
+                  className="slider"
+                  id={`spend-${category}`}
+                  max={SLIDER_MAX}
+                  min={0}
+                  step={SLIDER_STEP}
+                  type="range"
+                  value={spend[category]}
+                  onChange={(event) => setCategory(category, Number(event.target.value))}
+                />
+                <label className="spend-input-wrap" htmlFor={`spend-${category}-amount`}>
+                  <span className="currency-prefix" aria-hidden="true">Rs</span>
+                  <input
+                    aria-label={`${CATEGORY_LABELS[category]} monthly spend`}
+                    className="spend-amount-input"
+                    id={`spend-${category}-amount`}
+                    inputMode="numeric"
+                    max={SLIDER_MAX}
+                    min={0}
+                    step={SLIDER_STEP}
+                    type="number"
+                    value={formatINRInput(spend[category])}
+                    onChange={(event) => setCategory(category, Number(event.target.value))}
+                  />
+                </label>
+              </div>
             </div>
           ))}
         </div>
 
-        <button className="recommend-more" type="button" onClick={() => setShowMore((value) => !value)}>
+        <button
+          aria-expanded={showMore}
+          className="recommend-more"
+          type="button"
+          onClick={() => setShowMore((value) => !value)}
+        >
           <ChevronDown className={showMore ? "is-open" : ""} size={16} />
           {showMore ? "Fewer categories" : "More categories"}
         </button>
@@ -425,11 +478,11 @@ export default function RecommendCalculator({ defaultSpend, initialSections }: P
         </div>
       </aside>
 
-      <div className="recommend-results">
+      <div className="recommend-results panel recommend-results-panel">
         <div className="section-head recommend-results-head">
           <div>
-            <h2>Top picks for your spend</h2>
-            <p>Ranked by estimated net value per year, after fees.</p>
+            <h2>Top picks for you by <span className="simplify-word">Simplify</span>Cards</h2>
+            <p>Built for your spend profile and ranked by annual value after fees</p>
           </div>
           {pending ? <span className="recommend-updating">Updating…</span> : null}
         </div>

@@ -3,7 +3,6 @@ import { buildPageMetadata } from "@/lib/seo";
 import { defaultSpendProfile, scoreCards, applyResultStrategy } from "@/lib/recommend";
 import { toRecommendResult } from "@/lib/recommend-result";
 import RecommendCalculator from "../ui/RecommendCalculator";
-import PageHero from "../ui/PageHero";
 
 export const metadata: Metadata = buildPageMetadata({
   title: "Card Recommender by Spend",
@@ -23,12 +22,12 @@ export default function RecommendPage() {
   }));
 
   return (
-    <div className="page-shell">
-      <PageHero
-        eyebrow="✦ Spend recommender"
-        title="Find your best card by spend"
-        lead="Set your monthly spend and we'll rank the cards that earn you the most each year, after fees."
-      />
+    <div className="page-shell recommend-page">
+      <section className="page-hero">
+        <div className="container page-hero-inner">
+          <h1 className="smallcaps-compare recommend-heading">recommend</h1>
+        </div>
+      </section>
       <section className="page-content">
         <div className="container">
           <RecommendCalculator defaultSpend={defaultSpendProfile} initialSections={sections} />
