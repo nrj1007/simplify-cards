@@ -1826,6 +1826,7 @@ textarea {
   color: var(--brand-strong);
   font-size: 0.78rem;
   padding: 3px 10px;
+}
 
 .ask-panel {
   display: grid;
