@@ -250,6 +250,23 @@ function HeroAskBox() {
   const [query, setQuery] = useState("");
   const inputRef = useRef<HTMLInputElement | null>(null);
 
+  useEffect(() => {
+    const handleHashFocus = () => {
+      const hash = window.location.hash;
+      if (hash === "#ask-widget-container" || hash === "#ask" || hash === "#hero-ask-input") {
+        const container = document.getElementById("ask-widget-container");
+        if (container) {
+          container.scrollIntoView({ behavior: "smooth", block: "center" });
+        }
+        inputRef.current?.focus();
+      }
+    };
+
+    handleHashFocus();
+    window.addEventListener("hashchange", handleHashFocus);
+    return () => window.removeEventListener("hashchange", handleHashFocus);
+  }, []);
+
   function submit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const trimmed = query.trim();
@@ -267,6 +284,7 @@ function HeroAskBox() {
       <form onSubmit={submit} className="sc-ask-form">
         <Search className="sc-ask-search" size={22} />
         <input
+          id="hero-ask-input"
           ref={inputRef}
           value={query}
           onChange={(event) => setQuery(event.target.value)}
@@ -597,7 +615,6 @@ function ReviewsPanel() {
 function Header() {
   const [open, setOpen] = useState(false);
   const links: Array<{ label: string; href: Route }> = [
-    { label: "ask", href: "/ask" },
     { label: "recommend", href: "/recommend" },
     { label: "calculator", href: "/calculator" as Route },
     { label: "cards", href: "/finder" },

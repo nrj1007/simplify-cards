@@ -108,8 +108,30 @@ function Sparkle({ className, size = 16 }: { className?: string; size?: number }
 }
 
 export function FloatingAskButton() {
+  const pathname = usePathname();
+
+  function handleClick(e: React.MouseEvent<HTMLAnchorElement>) {
+    if (pathname === "/") {
+      e.preventDefault();
+      const container = document.getElementById("ask-widget-container");
+      const input = container?.querySelector<HTMLInputElement>("input");
+      if (container) {
+        container.scrollIntoView({ behavior: "smooth", block: "center" });
+      }
+      if (input) {
+        input.focus();
+      }
+      window.history.pushState(null, "", "/#ask-widget-container");
+    }
+  }
+
   return (
-    <Link href="/ask" className="sc-floating-ask" aria-label="Ask SimplifyCards">
+    <Link
+      href={"/#ask-widget-container" as Route}
+      onClick={handleClick}
+      className="sc-floating-ask"
+      aria-label="Ask SimplifyCards"
+    >
       <span className="sc-floating-pulse" />
       <span className="sc-floating-sparkle">
         <Sparkle size={16} />
