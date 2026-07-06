@@ -751,24 +751,14 @@ export default function AskResultsClient({
                         ))}
                       </tr>
                     )}
-                    <tr>
-                      <td>Reward type</td>
-                      {selectedCards.map((item) => (
-                        <td key={`reward-type-${item.card.id}`}>{item.card.rewardType}</td>
-                      ))}
-                    </tr>
+
                     <tr>
                       <td>Top reward categories</td>
                       {selectedCards.map((item) => (
                         <td key={`rewards-${item.card.id}`}>{rewardSummary(item.card)}</td>
                       ))}
                     </tr>
-                    <tr>
-                      <td>SmartBuy / accelerated caps</td>
-                      {selectedCards.map((item) => (
-                        <td key={`caps-${item.card.id}`}>{smartbuyCapSummary(item.card)}</td>
-                      ))}
-                    </tr>
+
                     <tr>
                       <td>Domestic lounge</td>
                       {selectedCards.map((item) => {
@@ -825,12 +815,7 @@ export default function AskResultsClient({
                         <td key={`exclusions-${item.card.id}`}>{listPreview(item.card.exclusions, 6)}</td>
                       ))}
                     </tr>
-                    <tr>
-                      <td>Fit score</td>
-                      {selectedCards.map((item) => (
-                        <td key={`fit-${item.card.id}`}>Fit {toFitPercent(item.fitScore)}/100</td>
-                      ))}
-                    </tr>
+
                     <tr>
                       <td>Why it matched</td>
                       {selectedCards.map((item) => (
