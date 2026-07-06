@@ -13152,6 +13152,1537 @@ button { cursor: pointer !important; }
    Recommend Page Design System Alignment
    ========================================================================== */
 
+/* --- Block: recommend --- */
+/* Recommend page follows the Compare page visual system */
+.page-hero .page-hero-inner {
+  text-align: left !important;
+}
+.page-hero h1.recommend-heading {
+  text-transform: lowercase !important;
+  font-variant: normal !important;
+  font-variant-caps: normal !important;
+  max-width: none !important;
+}
+.sc-navlinks.landing-navlinks a.is-active {
+  color: #581c87 !important;
+  font-weight: 900 !important;
+  border-bottom: 1px solid #581c87 !important;
+}
+
+/* --- Block: recommend --- */
+/* Requested recommend page clean-up */
+.recommend-layout {
+  align-items: start !important;
+}
+
+.recommend-controls-head,
+.recommend-results-head {
+  margin: 0 0 18px !important;
+}
+
+.recommend-controls-head h2,
+.recommend-results-head h2 {
+  margin: 0 !important;
+  color: #1e112c !important;
+  font-size: clamp(1.5rem, 2.4vw, 2.2rem) !important;
+  line-height: 1.05 !important;
+  font-weight: 950 !important;
+  letter-spacing: -0.04em !important;
+}
+
+.recommend-controls-head p,
+.recommend-results-head p {
+  margin: 10px 0 0 !important;
+  color: #5b5466 !important;
+  font-size: clamp(0.98rem, 1.5vw, 1.18rem) !important;
+  line-height: 1.5 !important;
+  font-weight: 500 !important;
+}
+
+.recommend-results-head {
+  display: block !important;
+}
+
+.recommend-card > .meta:not(.recommend-card-meta),
+.recommend-card .card-usp,
+.recommend-card .recommend-explain {
+  display: none !important;
+}
+
+.recommend-card h3 {
+  margin-bottom: 16px !important;
+}
+
+.recommend-card .actions {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 12px !important;
+  width: 100% !important;
+}
+
+.recommend-card .actions .button.secondary {
+  margin-right: auto !important;
+}
+
+.recommend-card .actions .button:not(.secondary) {
+  margin-left: auto !important;
+  background: #581c87 !important;
+  color: #fff !important;
+  box-shadow: 0 14px 34px rgba(88,28,135,0.24) !important;
+}
+
+.recommend-card .actions .button:not(.secondary):hover {
+  background: #431468 !important;
+}
+
+@media (max-width: 720px) {
+  .recommend-card .actions {
+    flex-direction: column !important;
+    align-items: stretch !important;
+  }
+
+  .recommend-card .actions .button,
+  .recommend-card .actions .button.secondary,
+  .recommend-card .actions .button:not(.secondary) {
+    width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+}
+
+/* --- Block: recommend --- */
+/* Final alignment and interactivity pass for Recommend page */
+.recommend-layout {
+  display: grid !important;
+  grid-template-columns: minmax(320px, 420px) minmax(0, 1fr) !important;
+  gap: 24px !important;
+  align-items: start !important;
+}
+.recommend-controls,
+.recommend-results-panel {
+  position: relative !important;
+  overflow: hidden !important;
+  border-radius: 30px !important;
+  background:
+    radial-gradient(circle at 100% 0%, rgba(184,151,90,0.10), transparent 34%),
+    linear-gradient(180deg, rgba(255,253,248,0.98), rgba(252,250,244,0.96)) !important;
+  border: 1px solid rgba(232,223,207,0.96) !important;
+  box-shadow: 0 22px 58px rgba(30,17,44,0.08) !important;
+  padding: 28px !important;
+}
+.recommend-controls::before,
+.recommend-results-panel::before {
+  content: "" !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  height: 4px !important;
+  background: linear-gradient(90deg, #b8975a 0%, #f0d8a8 48%, #581c87 100%) !important;
+  pointer-events: none !important;
+}
+.recommend-controls-head,
+.recommend-results-head {
+  margin: 0 0 22px !important;
+}
+.recommend-controls-head h2,
+.recommend-results-head h2 {
+  margin: 0 !important;
+  color: #1e112c !important;
+  font-size: clamp(1.75rem, 2.65vw, 2.55rem) !important;
+  line-height: 1.02 !important;
+  font-weight: 950 !important;
+  letter-spacing: -0.055em !important;
+}
+.recommend-controls-head p,
+.recommend-results-head p {
+  margin: 12px 0 0 !important;
+  color: #4d4659 !important;
+  font-size: clamp(1rem, 1.45vw, 1.15rem) !important;
+  line-height: 1.45 !important;
+  font-weight: 550 !important;
+}
+.recommend-total {
+  margin-bottom: 22px !important;
+}
+.spend-control {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) 132px !important;
+  gap: 12px !important;
+  align-items: center !important;
+}
+.spend-input-wrap {
+  display: grid !important;
+  gap: 5px !important;
+  margin: 0 !important;
+  color: #5b5466 !important;
+  font-size: 11px !important;
+  line-height: 1.1 !important;
+  font-weight: 800 !important;
+  letter-spacing: 0 !important;
+  text-transform: none !important;
+}
+.spend-amount-input {
+  width: 100% !important;
+  min-height: 38px !important;
+  border-radius: 14px !important;
+  border: 1px solid rgba(227,223,211,1) !important;
+  background: rgba(255,255,255,0.82) !important;
+  color: #1e112c !important;
+  padding: 9px 10px !important;
+  font: inherit !important;
+  font-weight: 850 !important;
+  outline: none !important;
+}
+.spend-amount-input:focus {
+  border-color: rgba(88,28,135,0.55) !important;
+  box-shadow: 0 0 0 3px rgba(88,28,135,0.10) !important;
+}
+.extra-category.is-hidden {
+  display: none !important;
+}
+.recommend-more {
+  width: 100% !important;
+  justify-content: center !important;
+}
+.recommend-card > .meta:not(.recommend-card-meta),
+.recommend-card .card-usp,
+.recommend-card .recommend-explain {
+  display: none !important;
+}
+.recommend-card .actions {
+  margin-top: 18px !important;
+  padding-top: 12px !important;
+  border-top: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 12px !important;
+  width: 100% !important;
+}
+.recommend-card .actions .button {
+  min-height: 42px !important;
+  border-radius: 16px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  font-weight: 950 !important;
+  letter-spacing: -0.015em !important;
+  white-space: nowrap !important;
+  text-decoration: none !important;
+  transition: transform .18s ease, box-shadow .18s ease, background .18s ease !important;
+}
+.recommend-card .actions .button:hover {
+  transform: translateY(-1px) !important;
+}
+.recommend-card .actions .button.secondary,
+.recommend-card .actions .details-link {
+  margin-right: auto !important;
+  padding: 10px 15px !important;
+  background: rgba(255,255,255,0.76) !important;
+  color: #1e112c !important;
+  border: 1px solid rgba(227,223,211,1) !important;
+  box-shadow: 0 10px 24px rgba(30,17,44,.05) !important;
+}
+.recommend-card .actions .apply-now-button {
+  margin-left: auto !important;
+  padding: 10px 18px !important;
+  background: #581c87 !important;
+  color: #fff !important;
+  box-shadow: 0 14px 34px rgba(88,28,135,0.24) !important;
+}
+.recommend-card .actions .apply-now-button:hover {
+  background: #431468 !important;
+}
+@media (max-width: 980px) {
+  .recommend-layout {
+    grid-template-columns: 1fr !important;
+  }
+}
+@media (max-width: 560px) {
+  .recommend-controls,
+  .recommend-results-panel {
+    padding: 22px !important;
+    border-radius: 26px !important;
+  }
+  .spend-control {
+    grid-template-columns: 1fr !important;
+  }
+  .recommend-card .actions {
+    flex-direction: column !important;
+    align-items: stretch !important;
+  }
+  .recommend-card .actions .button,
+  .recommend-card .actions .button.secondary,
+  .recommend-card .actions .details-link,
+  .recommend-card .actions .apply-now-button {
+    width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+}
+
+/* --- Block: recommend --- */
+/* Final visual polish requested: align panels, remove accent lines, text-style details link, one-line metrics */
+.page-content {
+  padding-top: 18px !important;
+}
+.recommend-layout {
+  align-items: start !important;
+  grid-template-columns: minmax(320px, 420px) minmax(0, 1fr) !important;
+  gap: 24px !important;
+}
+.recommend-controls,
+.recommend-results-panel {
+  align-self: start !important;
+  margin-top: 0 !important;
+  padding-top: 30px !important;
+}
+.recommend-controls::before,
+.recommend-results-panel::before,
+.recommend-card::before {
+  display: none !important;
+  content: none !important;
+  background: none !important;
+}
+.recommend-controls,
+.recommend-results-panel,
+.recommend-card {
+  overflow: hidden !important;
+}
+.recommend-results-head,
+.recommend-controls-head {
+  min-height: 118px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-start !important;
+  margin-bottom: 18px !important;
+}
+.recommend-controls-head h2,
+.recommend-results-head h2 {
+  margin-top: 0 !important;
+}
+.slider-head {
+  justify-content: flex-start !important;
+}
+.slider-head .slider-value {
+  display: none !important;
+}
+.recommend-card .recommend-stats {
+  display: grid !important;
+  grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
+  gap: 10px !important;
+  align-items: stretch !important;
+  margin: 0 0 16px !important;
+}
+.recommend-card .recommend-stats .stat {
+  min-width: 0 !important;
+  min-height: 82px !important;
+  padding: 13px 12px !important;
+}
+.recommend-card .recommend-stats .stat strong {
+  font-size: clamp(1rem, 1.25vw, 1.24rem) !important;
+  line-height: 1.05 !important;
+  word-break: keep-all !important;
+}
+.recommend-card .recommend-stats .stat span {
+  font-size: 12px !important;
+  line-height: 1.25 !important;
+}
+.recommend-card .actions {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 16px !important;
+  margin-top: 18px !important;
+  padding-top: 10px !important;
+  border-top: 0 !important;
+}
+.recommend-card .actions .button.secondary.details-link,
+.recommend-card .actions .details-link {
+  width: auto !important;
+  min-height: auto !important;
+  height: auto !important;
+  padding: 0 !important;
+  margin: 0 auto 0 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  color: #581c87 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  font-weight: 850 !important;
+  font-size: 15px !important;
+  line-height: 1.25 !important;
+  letter-spacing: -0.01em !important;
+  text-decoration: none !important;
+  white-space: nowrap !important;
+  transform: none !important;
+}
+.recommend-card .actions .button.secondary.details-link:hover,
+.recommend-card .actions .details-link:hover {
+  color: #431468 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  transform: none !important;
+  text-decoration: underline !important;
+  text-underline-offset: 4px !important;
+}
+.recommend-card .actions .apply-now-button {
+  margin-left: auto !important;
+}
+@media (max-width: 1260px) {
+  .recommend-card .recommend-stats {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  }
+}
+@media (max-width: 980px) {
+  .recommend-layout {
+    grid-template-columns: 1fr !important;
+  }
+  .recommend-results-head,
+  .recommend-controls-head {
+    min-height: 0 !important;
+  }
+}
+@media (max-width: 720px) {
+  .recommend-card .recommend-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+@media (max-width: 560px) {
+  .recommend-card .actions {
+    flex-direction: column !important;
+    align-items: stretch !important;
+  }
+  .recommend-card .actions .button.secondary.details-link,
+  .recommend-card .actions .details-link {
+    width: auto !important;
+    align-self: flex-start !important;
+    margin-right: 0 !important;
+  }
+  .recommend-card .actions .apply-now-button {
+    width: 100% !important;
+    margin-left: 0 !important;
+  }
+}
+
+/* --- Block: recommend --- */
+/* Punchier compact recommend page refinements */
+.page-content {
+  padding-top: 18px !important;
+}
+.recommend-layout {
+  display: grid !important;
+  grid-template-columns: minmax(330px, 420px) minmax(0, 1fr) !important;
+  gap: 24px !important;
+  align-items: start !important;
+}
+.recommend-controls,
+.recommend-results-panel {
+  align-self: start !important;
+  margin-top: 0 !important;
+  transform: none !important;
+  padding: 24px !important;
+  border-radius: 28px !important;
+}
+.recommend-controls::before,
+.recommend-results-panel::before,
+.recommend-card::before {
+  display: none !important;
+  content: none !important;
+  background: none !important;
+  height: 0 !important;
+}
+.recommend-controls-head,
+.recommend-results-head {
+  min-height: 0 !important;
+  margin: 0 0 18px !important;
+  padding: 0 !important;
+  text-align: left !important;
+  align-items: flex-start !important;
+  justify-content: flex-start !important;
+}
+.recommend-results-head > div,
+.recommend-controls-head > div {
+  width: 100% !important;
+  text-align: left !important;
+}
+.recommend-controls-head h2,
+.recommend-results-head h2 {
+  text-align: left !important;
+  max-width: none !important;
+  margin: 0 !important;
+  letter-spacing: -0.055em !important;
+  line-height: 1.02 !important;
+}
+.recommend-controls-head h2 {
+  font-size: clamp(1.85rem, 2.5vw, 2.65rem) !important;
+}
+.recommend-results-head h2 {
+  font-size: clamp(1.9rem, 2.6vw, 2.85rem) !important;
+}
+.simplify-word {
+  color: #581c87 !important;
+}
+.recommend-controls-head p,
+.recommend-results-head p {
+  text-align: left !important;
+  margin: 8px 0 0 !important;
+  color: #4d4659 !important;
+  font-size: 16px !important;
+  line-height: 1.35 !important;
+  font-weight: 520 !important;
+}
+.recommend-controls-head p {
+  white-space: nowrap !important;
+}
+.recommend-total {
+  margin: 0 0 20px !important;
+  gap: 12px !important;
+}
+.recommend-total > div {
+  text-align: left !important;
+  justify-content: flex-start !important;
+  align-items: flex-start !important;
+}
+.slider-row {
+  margin-bottom: 14px !important;
+}
+.slider-head {
+  margin-bottom: 8px !important;
+}
+.spend-control {
+  grid-template-columns: minmax(0, 1fr) 128px !important;
+  gap: 12px !important;
+  align-items: center !important;
+}
+.spend-input-wrap {
+  display: block !important;
+  margin: 0 !important;
+}
+.spend-input-wrap span {
+  display: none !important;
+}
+.spend-amount-input {
+  min-height: 40px !important;
+  text-align: left !important;
+  padding: 9px 12px !important;
+}
+.recommend-filters {
+  margin-top: 16px !important;
+}
+.recommend-card {
+  cursor: pointer !important;
+  padding: 18px !important;
+  border-radius: 24px !important;
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease !important;
+}
+.recommend-card:hover {
+  transform: translateY(-2px) !important;
+  border-color: rgba(184,151,90,0.46) !important;
+  box-shadow: 0 22px 54px rgba(30,17,44,0.10) !important;
+}
+.recommend-card-meta {
+  margin-bottom: 10px !important;
+}
+.recommend-title-line {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  gap: 10px !important;
+  flex-wrap: wrap !important;
+  margin: 0 0 14px !important;
+}
+.recommend-title-line h3,
+.recommend-card h3 {
+  margin: 0 !important;
+  color: #1e112c !important;
+  font-size: clamp(1.08rem, 1.4vw, 1.28rem) !important;
+  line-height: 1.15 !important;
+  font-weight: 900 !important;
+  letter-spacing: -0.025em !important;
+}
+.card-type-badge {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-height: 26px !important;
+  padding: 6px 11px !important;
+  border-radius: 999px !important;
+  background: linear-gradient(180deg, #fff7df 0%, #efd698 100%) !important;
+  border: 1px solid rgba(184,151,90,0.54) !important;
+  color: #7a5512 !important;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.75), 0 8px 18px rgba(143,107,34,.10) !important;
+  font-size: 11px !important;
+  line-height: 1 !important;
+  font-weight: 850 !important;
+  white-space: nowrap !important;
+}
+.recommend-card .recommend-stats {
+  display: grid !important;
+  grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
+  gap: 8px !important;
+  margin: 0 0 12px !important;
+  align-items: stretch !important;
+}
+.recommend-card .recommend-stats .stat {
+  min-width: 0 !important;
+  min-height: 66px !important;
+  padding: 10px 9px !important;
+  text-align: left !important;
+  align-items: flex-start !important;
+  justify-content: center !important;
+  border-radius: 14px !important;
+}
+.recommend-card .recommend-stats .stat strong {
+  text-align: left !important;
+  width: 100% !important;
+  font-size: clamp(.92rem, 1.05vw, 1.1rem) !important;
+  line-height: 1.05 !important;
+  margin: 0 0 5px !important;
+  white-space: nowrap !important;
+}
+.recommend-card .recommend-stats .stat span {
+  text-align: left !important;
+  font-size: 11px !important;
+  line-height: 1.2 !important;
+}
+.recommend-breakdown {
+  margin: 2px 0 0 !important;
+}
+.recommend-breakdown summary {
+  color: #581c87 !important;
+  font-weight: 700 !important;
+  font-size: 13px !important;
+  line-height: 1.25 !important;
+}
+.recommend-card .actions {
+  margin-top: 12px !important;
+  padding-top: 6px !important;
+  border-top: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 12px !important;
+}
+.recommend-card .actions .details-link {
+  width: auto !important;
+  min-height: auto !important;
+  padding: 0 !important;
+  margin: 0 auto 0 0 !important;
+  color: #581c87 !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  font-weight: 400 !important;
+  font-size: 15px !important;
+  line-height: 1.25 !important;
+  letter-spacing: 0 !important;
+  text-decoration: none !important;
+  transform: none !important;
+  white-space: nowrap !important;
+}
+.recommend-card .actions .details-link:hover {
+  color: #431468 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  transform: none !important;
+  text-decoration: underline !important;
+  text-underline-offset: 4px !important;
+}
+.recommend-card .actions .apply-now-button {
+  margin-left: auto !important;
+  min-height: 40px !important;
+  padding: 9px 18px !important;
+  border-radius: 14px !important;
+}
+@media (max-width: 1360px) {
+  .recommend-card .recommend-stats {
+    grid-template-columns: repeat(5, minmax(96px, 1fr)) !important;
+    overflow-x: auto !important;
+    padding-bottom: 2px !important;
+  }
+}
+@media (max-width: 1080px) {
+  .recommend-layout {
+    grid-template-columns: 1fr !important;
+  }
+  .recommend-controls-head p {
+    white-space: normal !important;
+  }
+}
+@media (max-width: 560px) {
+  .recommend-controls,
+  .recommend-results-panel {
+    padding: 20px !important;
+    border-radius: 24px !important;
+  }
+  .spend-control {
+    grid-template-columns: 1fr !important;
+  }
+  .recommend-card .actions {
+    flex-direction: column !important;
+    align-items: stretch !important;
+  }
+  .recommend-card .actions .details-link {
+    align-self: flex-start !important;
+    white-space: normal !important;
+  }
+  .recommend-card .actions .apply-now-button {
+    width: 100% !important;
+    margin-left: 0 !important;
+  }
+}
+
+/* --- Block: recommend --- */
+/* Final lock: align the title line and subtitle line inside both top panels */
+  html body .page-shell .page-content .container > .recommend-layout {
+    align-items: flex-start !important;
+  }
+
+  html body .page-shell .page-content .container > .recommend-layout > .recommend-controls,
+  html body .page-shell .page-content .container > .recommend-layout > .recommend-results-panel {
+    align-self: flex-start !important;
+    margin-top: 0 !important;
+    transform: none !important;
+    padding-top: 22px !important;
+  }
+
+  html body .recommend-controls,
+  html body .recommend-results-panel {
+    padding-top: 22px !important;
+  }
+
+  html body .recommend-controls-head,
+  html body .recommend-results-head,
+  html body .recommend-results-head > div {
+    display: grid !important;
+    grid-template-rows: 38px 22px !important;
+    row-gap: 4px !important;
+    align-items: start !important;
+    justify-items: start !important;
+    text-align: left !important;
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+  }
+
+  html body .recommend-controls-head,
+  html body .recommend-results-head {
+    margin-bottom: 12px !important;
+  }
+
+  html body .recommend-controls-head h2,
+  html body .recommend-results-head h2 {
+    grid-row: 1 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    font-size: 32px !important;
+    line-height: 38px !important;
+    font-weight: 950 !important;
+    letter-spacing: -0.045em !important;
+    white-space: nowrap !important;
+    text-align: left !important;
+  }
+
+  html body .recommend-controls-head p,
+  html body .recommend-results-head p {
+    grid-row: 2 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    font-size: 15px !important;
+    line-height: 22px !important;
+    font-weight: 500 !important;
+    white-space: nowrap !important;
+    text-align: left !important;
+    color: #4d4659 !important;
+  }
+
+  @media (max-width: 1180px) {
+    html body .recommend-controls-head,
+    html body .recommend-results-head,
+    html body .recommend-results-head > div {
+      grid-template-rows: auto auto !important;
+    }
+
+    html body .recommend-controls-head h2,
+    html body .recommend-results-head h2 {
+      white-space: normal !important;
+      line-height: 1.05 !important;
+      font-size: 30px !important;
+    }
+
+    html body .recommend-controls-head p,
+    html body .recommend-results-head p {
+      white-space: normal !important;
+      line-height: 1.35 !important;
+    }
+  }
+
+/* --- Block: recommend --- */
+/* Final user requested alignment: title line and subtitle line match across both top panels */
+  html body .page-shell .page-content .container > .recommend-layout {
+    align-items: flex-start !important;
+  }
+
+  html body .recommend-layout > .recommend-controls,
+  html body .recommend-layout > .recommend-results-panel {
+    align-self: flex-start !important;
+    margin-top: 0 !important;
+    transform: none !important;
+    padding-top: 24px !important;
+  }
+
+  html body .recommend-controls-head {
+    display: grid !important;
+    grid-template-rows: 38px 22px !important;
+    row-gap: 4px !important;
+    align-items: start !important;
+    justify-items: start !important;
+    text-align: left !important;
+    margin: 0 0 14px !important;
+    padding: 0 !important;
+    min-height: 64px !important;
+  }
+
+  html body .recommend-results-head {
+    display: block !important;
+    text-align: left !important;
+    margin: 0 0 14px !important;
+    padding: 0 !important;
+    min-height: 64px !important;
+  }
+
+  html body .recommend-results-head > div {
+    display: grid !important;
+    grid-template-rows: 38px 22px !important;
+    row-gap: 4px !important;
+    align-items: start !important;
+    justify-items: start !important;
+    text-align: left !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+    min-height: 64px !important;
+  }
+
+  html body .recommend-controls-head h2,
+  html body .recommend-results-head h2 {
+    grid-row: 1 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    color: #1e112c !important;
+    font-size: 32px !important;
+    line-height: 38px !important;
+    font-weight: 950 !important;
+    letter-spacing: -0.045em !important;
+    text-align: left !important;
+    white-space: nowrap !important;
+    max-width: none !important;
+  }
+
+  html body .recommend-controls-head p,
+  html body .recommend-results-head p {
+    grid-row: 2 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    color: #4d4659 !important;
+    font-size: 15px !important;
+    line-height: 22px !important;
+    font-weight: 500 !important;
+    letter-spacing: 0 !important;
+    text-align: left !important;
+    white-space: nowrap !important;
+    max-width: none !important;
+  }
+
+  html body .recommend-results-head .simplify-word {
+    color: #581c87 !important;
+    font: inherit !important;
+    letter-spacing: inherit !important;
+  }
+
+  /* Keep the gold pill exactly like the requested reference */
+  html body .recommend-title-line .card-type-badge,
+  html body .card-type-badge {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    min-height: 26px !important;
+    padding: 6px 14px !important;
+    border-radius: 999px !important;
+    background: linear-gradient(180deg, #fffdf6 0%, #fff5d8 100%) !important;
+    border: 1px solid #caa454 !important;
+    color: #735214 !important;
+    box-shadow: 0 10px 22px rgba(88, 28, 135, 0.22), inset 0 1px 0 rgba(255, 255, 255, 0.88) !important;
+    font-size: 11px !important;
+    line-height: 1 !important;
+    font-weight: 950 !important;
+    letter-spacing: 0.06em !important;
+    text-transform: uppercase !important;
+    white-space: nowrap !important;
+  }
+
+  /* First reward breakdown is open by default and category names inside it should not look heavier than values */
+  html body .recommend-breakdown .compare-table tbody td:first-child {
+    font-weight: 400 !important;
+    color: #3f374c !important;
+  }
+
+  html body .recommend-breakdown .compare-table thead th {
+    font-weight: 650 !important;
+  }
+
+  @media (max-width: 1180px) {
+    html body .recommend-controls-head,
+    html body .recommend-results-head > div {
+      grid-template-rows: auto auto !important;
+      min-height: 0 !important;
+    }
+
+    html body .recommend-controls-head h2,
+    html body .recommend-results-head h2 {
+      white-space: normal !important;
+      line-height: 1.05 !important;
+      font-size: 30px !important;
+    }
+
+    html body .recommend-controls-head p,
+    html body .recommend-results-head p {
+      white-space: normal !important;
+      line-height: 1.35 !important;
+    }
+  }
+
+  @media (max-width: 640px) {
+    html body .recommend-controls-head h2,
+    html body .recommend-results-head h2 {
+      font-size: 26px !important;
+    }
+
+    html body .recommend-controls-head p,
+    html body .recommend-results-head p {
+      font-size: 14px !important;
+    }
+  }
+
+/* --- Block: rupee --- */
+/* Show ₹ inside manual spend amount boxes without making users type it */
+  html body .spend-input-wrap {
+    position: relative !important;
+    display: block !important;
+  }
+
+  html body .spend-input-wrap::before {
+    content: "₹" !important;
+    position: absolute !important;
+    left: 13px !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    color: #1e112c !important;
+    font-weight: 400 !important;
+    line-height: 1 !important;
+    pointer-events: none !important;
+    z-index: 2 !important;
+  }
+
+  html body .spend-amount-input,
+  html body input.spend-amount-input[type="number"] {
+    padding-left: 30px !important;
+    font-weight: 400 !important;
+  }
+
+/* --- Block: recommend --- */
+/* Alignment lock: prevents older recommend/compare styles from vertically centering the two panels */
+  html body .page-shell .page-content .container > .recommend-layout {
+    display: flex !important;
+    align-items: flex-start !important;
+    justify-content: center !important;
+    gap: 24px !important;
+    width: 100% !important;
+    max-width: 1400px !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    grid-template-columns: none !important;
+  }
+
+  html body .page-shell .page-content .container > .recommend-layout > .recommend-controls,
+  html body .page-shell .page-content .container > .recommend-layout > .recommend-results,
+  html body .page-shell .page-content .container > .recommend-layout > .recommend-results-panel {
+    align-self: flex-start !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    transform: translateY(0) !important;
+    top: auto !important;
+    position: relative !important;
+  }
+
+  html body .page-shell .page-content .container > .recommend-layout > .recommend-controls {
+    flex: 0 0 420px !important;
+    width: 420px !important;
+    max-width: 420px !important;
+  }
+
+  html body .page-shell .page-content .container > .recommend-layout > .recommend-results,
+  html body .page-shell .page-content .container > .recommend-layout > .recommend-results-panel {
+    flex: 1 1 0 !important;
+    min-width: 0 !important;
+  }
+
+  html body .recommend-controls,
+  html body .recommend-results-panel {
+    padding: 22px 24px !important;
+    border-radius: 28px !important;
+    background: linear-gradient(180deg, rgba(255,253,248,0.98), rgba(252,250,244,0.96)) !important;
+    border: 1px solid rgba(232,223,207,0.96) !important;
+    box-shadow: 0 18px 44px rgba(30,17,44,0.07) !important;
+    overflow: hidden !important;
+  }
+
+  html body .recommend-controls::before,
+  html body .recommend-results-panel::before,
+  html body .recommend-card::before {
+    display: none !important;
+    content: none !important;
+  }
+
+  html body .recommend-controls-head,
+  html body .recommend-results-head {
+    margin: 0 0 16px !important;
+    padding: 0 !important;
+    min-height: 0 !important;
+    text-align: left !important;
+  }
+
+  html body .recommend-controls-head h2,
+  html body .recommend-results-head h2 {
+    margin: 0 !important;
+    text-align: left !important;
+    max-width: none !important;
+    line-height: 1.02 !important;
+    letter-spacing: -0.055em !important;
+  }
+
+  html body .recommend-controls-head h2 {
+    font-size: clamp(1.85rem, 2.6vw, 2.55rem) !important;
+  }
+
+  html body .recommend-results-head h2 {
+    font-size: clamp(1.85rem, 2.8vw, 2.65rem) !important;
+  }
+
+  html body .recommend-controls-head p,
+  html body .recommend-results-head p {
+    margin: 8px 0 0 !important;
+    max-width: none !important;
+    text-align: left !important;
+    line-height: 1.35 !important;
+  }
+
+  html body .recommend-controls-head p {
+    white-space: nowrap !important;
+  }
+
+  html body .recommend-total {
+    margin: 0 0 18px !important;
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 12px !important;
+  }
+
+  html body .recommend-total > div,
+  html body .recommend-card .recommend-stats .stat {
+    text-align: left !important;
+    align-items: flex-start !important;
+    justify-content: center !important;
+  }
+
+  html body .slider-row {
+    margin-bottom: 12px !important;
+  }
+
+  html body .slider-head {
+    margin-bottom: 6px !important;
+  }
+
+  html body .spend-input-wrap::before,
+  html body .spend-input-wrap span,
+  html body .spend-input-label {
+    display: none !important;
+    content: none !important;
+  }
+
+  html body .spend-control {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) 118px !important;
+    gap: 10px !important;
+    align-items: center !important;
+  }
+
+  html body .spend-amount-input {
+    text-align: left !important;
+    min-height: 38px !important;
+    padding: 8px 11px !important;
+  }
+
+  html body .recommend-card {
+    padding: 16px 18px !important;
+    border-radius: 22px !important;
+    cursor: pointer !important;
+  }
+
+  html body .recommend-card-meta {
+    margin-bottom: 8px !important;
+  }
+
+  html body .recommend-title-line {
+    margin: 0 0 12px !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+    flex-wrap: wrap !important;
+  }
+
+  html body .recommend-title-line h3,
+  html body .recommend-card h3 {
+    margin: 0 !important;
+  }
+
+  html body .recommend-card .recommend-stats {
+    display: grid !important;
+    grid-template-columns: repeat(5, minmax(92px, 1fr)) !important;
+    gap: 8px !important;
+    margin: 0 0 10px !important;
+    overflow-x: auto !important;
+    align-items: stretch !important;
+  }
+
+  html body .recommend-card .recommend-stats .stat {
+    min-height: 62px !important;
+    padding: 9px 9px !important;
+    border-radius: 13px !important;
+    background: rgba(255,255,255,0.70) !important;
+    border: 1px solid rgba(232,223,207,0.95) !important;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.82) !important;
+  }
+
+  html body .recommend-card .recommend-stats .stat strong,
+  html body .recommend-card .recommend-stats .stat span {
+    width: 100% !important;
+    text-align: left !important;
+  }
+
+  html body .recommend-card .recommend-stats .stat strong {
+    margin: 0 0 4px !important;
+    white-space: nowrap !important;
+  }
+
+  html body .recommend-breakdown {
+    margin: 0 !important;
+  }
+
+  html body .recommend-breakdown summary {
+    font-weight: 650 !important;
+  }
+
+  html body .recommend-card .actions {
+    margin-top: 10px !important;
+    padding-top: 4px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 12px !important;
+    border-top: 0 !important;
+  }
+
+  html body .recommend-card .actions .details-link {
+    font-weight: 400 !important;
+    color: #581c87 !important;
+    background: transparent !important;
+    border: 0 !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin: 0 auto 0 0 !important;
+    min-height: auto !important;
+    text-decoration: none !important;
+  }
+
+  html body .recommend-card .actions .apply-now-button {
+    margin-left: auto !important;
+    flex: 0 0 auto !important;
+  }
+
+  @media (max-width: 1080px) {
+    html body .page-shell .page-content .container > .recommend-layout {
+      display: grid !important;
+      grid-template-columns: 1fr !important;
+    }
+    html body .page-shell .page-content .container > .recommend-layout > .recommend-controls {
+      width: 100% !important;
+      max-width: none !important;
+      flex-basis: auto !important;
+    }
+    html body .recommend-controls-head p {
+      white-space: normal !important;
+    }
+  }
+
+/* --- Block: recommend --- */
+html body .recommend-card .recommend-stats .stat strong,
+  html body .recommend-card .recommend-stats .stat span {
+    display: block !important;
+    text-align: left !important;
+  }
+  html body .recommend-card .recommend-stats .stat strong {
+    line-height: 1.05 !important;
+    margin-bottom: 5px !important;
+  }
+  html body .recommend-card .recommend-stats .stat span {
+    line-height: 1.22 !important;
+  }
+
+/* --- Block: recommend --- */
+/* Final override: make both panel headings smaller and more balanced */
+  html body .recommend-controls-head h2,
+  html body .recommend-results-head h2 {
+    font-size: clamp(1.65rem, 2.05vw, 2.25rem) !important;
+    line-height: 1.06 !important;
+    letter-spacing: -0.045em !important;
+    font-weight: 950 !important;
+  }
+
+  html body .recommend-results-head h2 {
+    max-width: 100% !important;
+    white-space: normal !important;
+  }
+
+  @media (min-width: 1200px) {
+    html body .recommend-controls-head h2,
+    html body .recommend-results-head h2 {
+      font-size: 36px !important;
+    }
+  }
+
+  @media (max-width: 640px) {
+    html body .recommend-controls-head h2,
+    html body .recommend-results-head h2 {
+      font-size: 30px !important;
+    }
+  }
+
+/* --- Block: recommend --- */
+/* Final compact pass for the left spend profile panel */
+  html body .page-shell .page-content .container > .recommend-layout > .recommend-controls {
+    width: 400px !important;
+    max-width: 400px !important;
+    flex-basis: 400px !important;
+  }
+
+  html body .recommend-controls {
+    padding: 18px 20px !important;
+    overflow: hidden !important;
+  }
+
+  html body .recommend-controls-head {
+    margin: 0 0 12px !important;
+  }
+
+  html body .recommend-controls-head h2 {
+    font-size: clamp(1.55rem, 1.85vw, 2rem) !important;
+    line-height: 1.02 !important;
+    letter-spacing: -0.045em !important;
+  }
+
+  html body .recommend-controls-head p {
+    margin-top: 4px !important;
+    font-size: 14px !important;
+    line-height: 1.2 !important;
+    white-space: nowrap !important;
+  }
+
+  html body .recommend-total {
+    margin: 0 0 12px !important;
+    gap: 8px !important;
+  }
+
+  html body .recommend-total > div {
+    min-height: 54px !important;
+    padding: 10px 12px !important;
+    border-radius: 14px !important;
+  }
+
+  html body .recommend-total strong {
+    font-size: 18px !important;
+    line-height: 1.05 !important;
+    margin-bottom: 4px !important;
+  }
+
+  html body .recommend-total span {
+    font-size: 12px !important;
+    line-height: 1.1 !important;
+  }
+
+  html body .recommend-sliders {
+    display: grid !important;
+    gap: 0 !important;
+  }
+
+  html body .slider-row {
+    margin: 0 0 8px !important;
+    padding: 0 !important;
+    display: grid !important;
+    gap: 4px !important;
+  }
+
+  html body .slider-head {
+    margin: 0 !important;
+    min-height: 0 !important;
+    line-height: 1.15 !important;
+  }
+
+  html body .slider-head label {
+    display: block !important;
+    margin: 0 !important;
+    font-size: 14px !important;
+    line-height: 1.15 !important;
+    font-weight: 850 !important;
+  }
+
+  html body .spend-control {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) 88px !important;
+    gap: 8px !important;
+    align-items: center !important;
+  }
+
+  html body .spend-input-wrap {
+    display: block !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    line-height: 1 !important;
+  }
+
+  html body .spend-amount-input {
+    height: 32px !important;
+    min-height: 32px !important;
+    border-radius: 12px !important;
+    padding: 5px 9px !important;
+    font-size: 13px !important;
+    line-height: 1.15 !important;
+    font-weight: 400 !important;
+    text-align: left !important;
+  }
+
+  html body .slider {
+    height: 16px !important;
+    margin: 0 !important;
+  }
+
+  html body .recommend-more {
+    min-height: 32px !important;
+    padding: 7px 10px !important;
+    margin-top: 2px !important;
+    border-radius: 12px !important;
+  }
+
+  html body .recommend-filters {
+    margin-top: 10px !important;
+    display: grid !important;
+    gap: 8px !important;
+  }
+
+  html body .recommend-check {
+    min-height: 0 !important;
+    margin: 0 !important;
+    line-height: 1.2 !important;
+  }
+
+  html body .recommend-filters .field {
+    gap: 5px !important;
+  }
+
+  html body .recommend-filters select {
+    min-height: 34px !important;
+    padding-top: 7px !important;
+    padding-bottom: 7px !important;
+  }
+
+  @media (max-width: 1080px) {
+    html body .page-shell .page-content .container > .recommend-layout > .recommend-controls {
+      width: 100% !important;
+      max-width: none !important;
+      flex-basis: auto !important;
+    }
+  }
+
+/* --- Block: recommend --- */
+/* Final pass: remove excess vertical whitespace inside recommendation cards */
+  html body .recommend-results-panel {
+    padding-top: 22px !important;
+    padding-bottom: 22px !important;
+  }
+
+  html body .recommend-cards {
+    display: grid !important;
+    gap: 12px !important;
+  }
+
+  html body .recommend-card {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 8px !important;
+    align-content: start !important;
+    justify-content: flex-start !important;
+    min-height: 0 !important;
+    height: auto !important;
+    padding: 14px 18px !important;
+    border-radius: 20px !important;
+  }
+
+  html body .recommend-card-meta {
+    margin: 0 !important;
+    min-height: 0 !important;
+    line-height: 1.15 !important;
+  }
+
+  html body .recommend-card-meta .badge {
+    min-height: 24px !important;
+    padding: 5px 9px !important;
+    font-size: 11px !important;
+  }
+
+  html body .recommend-title-line {
+    margin: 0 !important;
+    gap: 9px !important;
+    min-height: 0 !important;
+    line-height: 1.15 !important;
+  }
+
+  html body .recommend-title-line h3,
+  html body .recommend-card h3 {
+    margin: 0 !important;
+    font-size: 21px !important;
+    line-height: 1.12 !important;
+  }
+
+  html body .card-type-badge {
+    min-height: 26px !important;
+    padding: 5px 12px !important;
+    font-size: 12px !important;
+    line-height: 1 !important;
+  }
+
+  html body .recommend-card .recommend-stats {
+    margin: 2px 0 4px !important;
+    gap: 8px !important;
+    min-height: 0 !important;
+  }
+
+  html body .recommend-card .recommend-stats .stat {
+    min-height: 54px !important;
+    height: auto !important;
+    padding: 8px 10px !important;
+    border-radius: 13px !important;
+    justify-content: center !important;
+  }
+
+  html body .recommend-card .recommend-stats .stat strong {
+    margin: 0 0 3px !important;
+    font-size: 18px !important;
+    line-height: 1.05 !important;
+  }
+
+  html body .recommend-card .recommend-stats .stat span {
+    font-size: 12px !important;
+    line-height: 1.15 !important;
+  }
+
+  html body .recommend-breakdown {
+    margin: 0 !important;
+    padding: 0 !important;
+    min-height: 0 !important;
+    line-height: 1.15 !important;
+  }
+
+  html body .recommend-breakdown summary {
+    margin: 0 !important;
+    padding: 0 !important;
+    line-height: 1.15 !important;
+    font-size: 14px !important;
+  }
+
+  html body .recommend-card .actions {
+    margin-top: 4px !important;
+    padding-top: 0 !important;
+    min-height: 0 !important;
+    align-self: stretch !important;
+    display: flex !important;
+    align-items: center !important;
+  }
+
+  html body .recommend-card .actions .details-link {
+    font-size: 16px !important;
+    line-height: 1.15 !important;
+  }
+
+  html body .recommend-card .actions .apply-now-button {
+    min-height: 40px !important;
+    padding: 10px 18px !important;
+    border-radius: 15px !important;
+    line-height: 1 !important;
+  }
+
+  @media (max-width: 1180px) {
+    html body .recommend-card .recommend-stats {
+      grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+      overflow-x: visible !important;
+    }
+  }
+
+/* --- Block: rupee --- */
+/* Hard fix: keep a real ₹ prefix visible inside every manual spend amount box */
+  html body .spend-input-wrap {
+    position: relative !important;
+    display: block !important;
+  }
+
+  html body .spend-input-wrap::before {
+    content: none !important;
+    display: none !important;
+  }
+
+  html body .spend-input-wrap .currency-prefix {
+    display: inline-flex !important;
+    position: absolute !important;
+    left: 11px !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    z-index: 5 !important;
+    color: #1e112c !important;
+    font-size: 13px !important;
+    line-height: 1 !important;
+    font-weight: 400 !important;
+    pointer-events: none !important;
+  }
+
+  html body input.spend-amount-input[type="number"],
+  html body .spend-amount-input {
+    padding-left: 25px !important;
+    text-align: left !important;
+    font-weight: 400 !important;
+  }
+
+
+
+/* --- Extra overrides for pixel-perfection --- */
+
 /* 1. Serif Typography for Headings */
 .recommend-page .page-hero h1.recommend-heading {
   font-family: Georgia, serif !important;
@@ -13178,54 +14709,20 @@ button { cursor: pointer !important; }
   font-size: 22px !important;
 }
 
-/* 2. Total Spend Summary Formatting (No Boxes, Inline Text) */
-.recommend-page .recommend-total {
-  display: flex !important;
-  flex-direction: row !important;
-  gap: 20px !important;
-  margin: 0 0 16px !important;
-}
-
-.recommend-page .recommend-total > div {
-  background: transparent !important;
-  border: none !important;
-  box-shadow: none !important;
-  padding: 0 !important;
-  display: flex !important;
-  flex-direction: row !important;
-  align-items: baseline !important;
-  gap: 4px !important;
-  flex: 0 0 auto !important;
-}
-
+/* 2. Total Spend Summary Sizing & Font overrides */
 .recommend-page .recommend-total strong {
-  display: inline-block !important;
   font-family: Georgia, serif !important;
-  font-size: 22px !important;
   font-weight: bold !important;
   color: #1e112c !important;
-  line-height: 1 !important;
 }
 
 .recommend-page .recommend-total span {
-  display: inline-block !important;
   font-family: Inter, sans-serif !important;
-  font-size: 12px !important;
   color: #706a7b !important;
   font-weight: 500 !important;
-  line-height: 1 !important;
 }
 
-/* 3. Sliders Compact Spacing & Blue Accent */
-.recommend-page .slider {
-  accent-color: #0066cc !important;
-}
-
-.recommend-page .slider-row {
-  margin-bottom: 8px !important;
-}
-
-/* 4. Stat Box Numbers Serif Formatting & Wrapping fix */
+/* 3. Stat Box Numbers Serif Formatting */
 .recommend-page .recommend-card .recommend-stats .stat strong {
   font-family: Georgia, serif !important;
   font-weight: bold !important;
@@ -13239,11 +14736,12 @@ button { cursor: pointer !important; }
   white-space: nowrap !important;
 }
 
-.recommend-page .recommend-card .recommend-stats .stat {
-  padding: 6px 8px !important;
+/* 4. Sliders Blue Accent */
+.recommend-page .slider {
+  accent-color: #0066cc !important;
 }
 
-/* 5. Breakdown Table Alignment, Padding, Striping & Header Colors */
+/* 5. Table Header row coloring & row borders */
 .recommend-page .compare-table {
   border: 1px solid rgba(232, 223, 207, 0.95) !important;
   box-shadow: none !important;
@@ -13292,3 +14790,4 @@ button { cursor: pointer !important; }
 .sc-nav-spacer.site-header-spacer {
   height: 54px !important;
 }
+
