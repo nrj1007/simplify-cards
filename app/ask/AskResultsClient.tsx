@@ -104,7 +104,15 @@ export default function AskResultsClient({
   let strongAlternativeItem: ScoredCardItem | undefined = undefined;
   let alsoWorthALookItem: ScoredCardItem | undefined = undefined;
 
-  if (cashbackCards.length >= 1) {
+  if (cashbackCards.length > 0 && rewardCards.length === 0) {
+    topPickItem = cashbackCards[0];
+    strongAlternativeItem = cashbackCards[1];
+    alsoWorthALookItem = cashbackCards[2];
+  } else if (rewardCards.length > 0 && cashbackCards.length === 0) {
+    topPickItem = rewardCards[0];
+    strongAlternativeItem = rewardCards[1];
+    alsoWorthALookItem = rewardCards[2];
+  } else if (cashbackCards.length >= 1) {
     topPickItem = cashbackCards[0];
     strongAlternativeItem = rewardCards[0];
     if (cashbackCards.length >= 2) {
