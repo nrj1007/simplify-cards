@@ -157,6 +157,12 @@ export const creditCardUSPs: CardUSPItem[] = [
     cardName: "YES Bank Marquee Credit Card",
     usp: "A premium rewards card for high spenders who want strong reward earning, travel benefits, lifestyle privileges, and milestone-led value.",
     shortUsp: "Premium rewards"
+  },
+  {
+    cardKey: "titan-sbi",
+    cardName: "Titan Credit Card",
+    usp: "Best for shopping within the Titan ecosystem (Tanishq, Mia, CaratLane, and World of Titan) with up to 7.5% cashback, domestic & international lounge access, and high-value milestone rewards.",
+    shortUsp: "Titan ecosystem cashback & lounge access"
   }
 ];
 

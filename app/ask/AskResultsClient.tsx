@@ -369,7 +369,10 @@ export default function AskResultsClient({
                     (entry) => !/^Strong card-name match/i.test(entry) && !/^Matches /i.test(entry) && !isSpendEnvelopeReason(entry)
                   );
                   const hasSpendEnvelopeReason = item.reasons.some(isSpendEnvelopeReason);
-                  const descCopy = reason ?? (hasSpendEnvelopeReason ? getCardShortUsp(card) : getCardUsp(card));
+                  let descCopy = reason ?? (hasSpendEnvelopeReason ? getCardShortUsp(card) : getCardUsp(card));
+                  if (reason && /uses base rewards/i.test(reason)) {
+                    descCopy = getCardShortUsp(card);
+                  }
 
                   return (
                     <article
