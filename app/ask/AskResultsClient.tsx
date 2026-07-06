@@ -686,6 +686,7 @@ export default function AskResultsClient({
               </article>
             </div>
 
+            {/* TODO: Implement this later
             <div className="sc-email-reco-box">
               <h3>Still deciding?</h3>
               <p>Email yourself this shortlist and come back later</p>
@@ -710,6 +711,7 @@ export default function AskResultsClient({
                 </button>
               </form>
             </div>
+            */}
           </div>
         </section>
 
