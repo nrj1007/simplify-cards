@@ -147,19 +147,34 @@ function extractMaxAnnualFee(query: string, input: RecommendationInput) {
   if (input.maxAnnualFee !== undefined) return input.maxAnnualFee;
 
   const feePatterns = [
-    /under\s+(?:rs\.?\s*)?([\d,]+)/i,
-    /below\s+(?:rs\.?\s*)?([\d,]+)/i,
-    /upto\s+(?:rs\.?\s*)?([\d,]+)/i,
-    /up to\s+(?:rs\.?\s*)?([\d,]+)/i,
-    /within\s+(?:rs\.?\s*)?([\d,]+)/i
+    /under\s+(?:rs\.?\s*)?([\d,]+k?)/i,
+    /below\s+(?:rs\.?\s*)?([\d,]+k?)/i,
+    /upto\s+(?:rs\.?\s*)?([\d,]+k?)/i,
+    /up to\s+(?:rs\.?\s*)?([\d,]+k?)/i,
+    /within\s+(?:rs\.?\s*)?([\d,]+k?)/i
   ];
 
   for (const pattern of feePatterns) {
     const match = query.match(pattern);
     if (!match) continue;
 
-    const parsed = Number(match[1].replace(/,/g, ""));
-    if (!Number.isNaN(parsed)) return parsed;
+    const matchIndex = match.index ?? 0;
+    const precedingText = query.substring(0, matchIndex).trim().toLowerCase();
+    if (
+      /\b(spend|spends|spending|income|salary|limit|cap)\s*(?:of|at|on)?\s*$/i.test(precedingText)
+    ) {
+      continue;
+    }
+
+    let valStr = match[1].toLowerCase();
+    let multiplier = 1;
+    if (valStr.endsWith("k")) {
+      multiplier = 1000;
+      valStr = valStr.slice(0, -1);
+    }
+
+    const parsed = Number(valStr.replace(/,/g, ""));
+    if (!Number.isNaN(parsed)) return parsed * multiplier;
   }
 
   return undefined;

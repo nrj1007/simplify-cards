@@ -128,4 +128,16 @@ describe("query intent parser", () => {
     });
     expect(intentHigh.inferredSpend?.online).toBe(18000); // 7950 * 120000 / 53000 = 18000
   });
+
+  it("distinguishes spend limits from annual fee limits and supports k suffix for fees", () => {
+    const intentSpend = parseQueryIntent({
+      query: "best card for lounge access for cashback with spend under rs 25k"
+    });
+    expect(intentSpend.maxAnnualFee).toBeUndefined();
+
+    const intentFee = parseQueryIntent({
+      query: "best cashback card under 5k"
+    });
+    expect(intentFee.maxAnnualFee).toBe(5000);
+  });
 });
