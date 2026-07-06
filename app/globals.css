@@ -11533,6 +11533,10 @@ button { cursor: pointer !important; }
   opacity: 0.58 !important;
   cursor: not-allowed !important;
 }
+.sc-compare-btn:disabled {
+  opacity: 0.62 !important;
+  cursor: wait !important;
+}
 .sc-floating-compare.sc-compare-limit-pulse {
   animation: scComparePulse 0.78s ease both !important;
 }

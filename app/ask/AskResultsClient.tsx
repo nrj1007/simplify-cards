@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import type { CreditCard, RecommendationInput } from "@/lib/types";
@@ -83,6 +83,7 @@ export default function AskResultsClient({
   returnTo
 }: Props) {
   const router = useRouter();
+  const [isHydrated, setIsHydrated] = useState(false);
   const [selectedCardIds, setSelectedCardIds] = useState<string[]>([]);
   const [pulsing, setPulsing] = useState(false);
   const [emailName, setEmailName] = useState("");
@@ -92,6 +93,11 @@ export default function AskResultsClient({
   const topFitRaw = cards[0]?.fitScore ?? 0;
   const toFitPercent = (score: number) =>
     topFitRaw > 0 ? Math.max(1, Math.min(100, Math.round((score / topFitRaw) * 100))) : 100;
+
+  useEffect(() => {
+    const hydrationTimer = window.setTimeout(() => setIsHydrated(true), 0);
+    return () => window.clearTimeout(hydrationTimer);
+  }, []);
 
   const cashbackSection = sections.find((section) => /cashback/i.test(section.title));
   const rewardSection = sections.find((section) => /reward/i.test(section.title));
@@ -386,13 +392,15 @@ export default function AskResultsClient({
                           <div className="result-actions">
                             <button
                               className={`mini-btn sc-compare-btn${isSelected ? " is-selected" : ""}${!isSelected && selectedCardIds.length >= 3 ? " is-maxed" : ""}`}
+                              disabled={!isHydrated}
                               type="button"
                               onClick={(e) => {
                                 e.stopPropagation();
+                                if (!isHydrated) return;
                                 toggleCompare(card.id);
                               }}
                             >
-                              {isSelected ? "Added to compare" : "Add to compare"}
+                              {!isHydrated ? "Loading compare" : isSelected ? "Added to compare" : "Add to compare"}
                             </button>
                             <TrackedExternalLink
                               analyticsEvent={{
@@ -484,13 +492,15 @@ export default function AskResultsClient({
                           <div className="result-actions">
                             <button
                               className={`mini-btn sc-compare-btn${isSelected ? " is-selected" : ""}${!isSelected && selectedCardIds.length >= 3 ? " is-maxed" : ""}`}
+                              disabled={!isHydrated}
                               type="button"
                               onClick={(e) => {
                                 e.stopPropagation();
+                                if (!isHydrated) return;
                                 toggleCompare(card.id);
                               }}
                             >
-                              {isSelected ? "Added to compare" : "Add to compare"}
+                              {!isHydrated ? "Loading compare" : isSelected ? "Added to compare" : "Add to compare"}
                             </button>
                             <TrackedExternalLink
                               analyticsEvent={{
