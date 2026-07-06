@@ -92,11 +92,23 @@ function rewardRateLabel(card: CreditCard, reward: CreditCard["rewards"][number]
 }
 
 function rewardSummary(card: CreditCard) {
-  return card.rewards
+  const items = card.rewards
     .filter((reward) => !reward.hidden)
     .slice(0, 3)
-    .map((reward) => `${reward.displayCategory ?? reward.category}: ${rewardRateLabel(card, reward)}`)
-    .join("; ");
+    .map((reward) => `${reward.displayCategory ?? reward.category}: ${rewardRateLabel(card, reward)}`);
+
+  if (items.length === 0) return "Not listed";
+
+  return (
+    <>
+      {items.map((item, idx) => (
+        <React.Fragment key={idx}>
+          {item}
+          {idx < items.length - 1 && <br />}
+        </React.Fragment>
+      ))}
+    </>
+  );
 }
 
 function smartbuyCapSummary(card: CreditCard) {
