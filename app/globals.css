@@ -13147,3 +13147,112 @@ button { cursor: pointer !important; }
     width: 100%;
   }
 }
+
+/* ==========================================================================
+   Recommend Page Design System Alignment
+   ========================================================================== */
+
+/* 1. Serif Typography for Headings */
+.recommend-page .page-hero h1.recommend-heading {
+  font-family: Georgia, serif !important;
+  font-weight: 500 !important;
+  letter-spacing: -0.03em !important;
+}
+
+.recommend-page .recommend-controls-head h2,
+.recommend-page .recommend-results-head h2 {
+  font-family: Georgia, serif !important;
+  font-weight: bold !important;
+  letter-spacing: -0.02em !important;
+}
+
+.recommend-page .recommend-title-line h3,
+.recommend-page .recommend-section-title {
+  font-family: Georgia, serif !important;
+  font-weight: bold !important;
+  letter-spacing: -0.02em !important;
+}
+
+/* 2. Total Spend Summary Formatting (No Boxes, Inline Text) */
+.recommend-page .recommend-total {
+  display: flex !important;
+  flex-direction: row !important;
+  gap: 24px !important;
+  margin: 0 0 24px !important;
+}
+
+.recommend-page .recommend-total > div {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: baseline !important;
+  gap: 6px !important;
+  flex: 0 0 auto !important;
+}
+
+.recommend-page .recommend-total strong {
+  display: inline-block !important;
+  font-family: Georgia, serif !important;
+  font-size: 24px !important;
+  font-weight: bold !important;
+  color: #1e112c !important;
+  line-height: 1 !important;
+}
+
+.recommend-page .recommend-total span {
+  display: inline-block !important;
+  font-family: Inter, sans-serif !important;
+  font-size: 13px !important;
+  color: #4d4659 !important;
+  line-height: 1 !important;
+}
+
+/* 3. Blue Sliders Alignment */
+.recommend-page .slider {
+  accent-color: #0066cc !important;
+}
+
+/* 4. Stat Box Numbers Serif Formatting */
+.recommend-page .recommend-card .recommend-stats .stat strong {
+  font-family: Georgia, serif !important;
+  font-weight: bold !important;
+  color: #1e112c !important;
+}
+
+.recommend-page .recommend-card .recommend-stats .stat span {
+  font-family: Inter, sans-serif !important;
+  color: #4d4659 !important;
+}
+
+/* 5. Breakdown Table Striping & Header Colors */
+.recommend-page .compare-table {
+  border: 1px solid rgba(232, 223, 207, 0.95) !important;
+  box-shadow: none !important;
+}
+
+.recommend-page .compare-table th {
+  background: #ecdcb9 !important;
+  color: #1e112c !important;
+  font-family: Georgia, serif !important;
+  font-weight: bold !important;
+  font-size: 14px !important;
+  border-bottom: 2px solid rgba(212, 199, 175, 0.95) !important;
+}
+
+.recommend-page .compare-table td {
+  font-family: Georgia, serif !important;
+  font-size: 14px !important;
+  color: #1e112c !important;
+  border-bottom: 1px solid rgba(232, 223, 207, 0.70) !important;
+}
+
+.recommend-page .compare-table tr:nth-child(even) td {
+  background: #f7f3ea !important;
+}
+
+.recommend-page .compare-table tr:nth-child(odd) td {
+  background: #fdfbf7 !important;
+}
