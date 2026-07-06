@@ -13156,7 +13156,8 @@ button { cursor: pointer !important; }
 .recommend-page .page-hero h1.recommend-heading {
   font-family: Georgia, serif !important;
   font-weight: 500 !important;
-  letter-spacing: -0.03em !important;
+  letter-spacing: -0.035em !important;
+  font-size: clamp(36px, 5vw, 68px) !important;
 }
 
 .recommend-page .recommend-controls-head h2,
@@ -13173,12 +13174,16 @@ button { cursor: pointer !important; }
   letter-spacing: -0.02em !important;
 }
 
+.recommend-page .recommend-title-line h3 {
+  font-size: 22px !important;
+}
+
 /* 2. Total Spend Summary Formatting (No Boxes, Inline Text) */
 .recommend-page .recommend-total {
   display: flex !important;
   flex-direction: row !important;
-  gap: 24px !important;
-  margin: 0 0 24px !important;
+  gap: 20px !important;
+  margin: 0 0 16px !important;
 }
 
 .recommend-page .recommend-total > div {
@@ -13189,14 +13194,14 @@ button { cursor: pointer !important; }
   display: flex !important;
   flex-direction: row !important;
   align-items: baseline !important;
-  gap: 6px !important;
+  gap: 4px !important;
   flex: 0 0 auto !important;
 }
 
 .recommend-page .recommend-total strong {
   display: inline-block !important;
   font-family: Georgia, serif !important;
-  font-size: 24px !important;
+  font-size: 22px !important;
   font-weight: bold !important;
   color: #1e112c !important;
   line-height: 1 !important;
@@ -13205,17 +13210,22 @@ button { cursor: pointer !important; }
 .recommend-page .recommend-total span {
   display: inline-block !important;
   font-family: Inter, sans-serif !important;
-  font-size: 13px !important;
-  color: #4d4659 !important;
+  font-size: 12px !important;
+  color: #706a7b !important;
+  font-weight: 500 !important;
   line-height: 1 !important;
 }
 
-/* 3. Blue Sliders Alignment */
+/* 3. Sliders Compact Spacing & Blue Accent */
 .recommend-page .slider {
   accent-color: #0066cc !important;
 }
 
-/* 4. Stat Box Numbers Serif Formatting */
+.recommend-page .slider-row {
+  margin-bottom: 8px !important;
+}
+
+/* 4. Stat Box Numbers Serif Formatting & Wrapping fix */
 .recommend-page .recommend-card .recommend-stats .stat strong {
   font-family: Georgia, serif !important;
   font-weight: bold !important;
@@ -13225,9 +13235,15 @@ button { cursor: pointer !important; }
 .recommend-page .recommend-card .recommend-stats .stat span {
   font-family: Inter, sans-serif !important;
   color: #4d4659 !important;
+  font-size: 11px !important;
+  white-space: nowrap !important;
 }
 
-/* 5. Breakdown Table Striping & Header Colors */
+.recommend-page .recommend-card .recommend-stats .stat {
+  padding: 6px 8px !important;
+}
+
+/* 5. Breakdown Table Alignment, Padding, Striping & Header Colors */
 .recommend-page .compare-table {
   border: 1px solid rgba(232, 223, 207, 0.95) !important;
   box-shadow: none !important;
@@ -13240,6 +13256,7 @@ button { cursor: pointer !important; }
   font-weight: bold !important;
   font-size: 14px !important;
   border-bottom: 2px solid rgba(212, 199, 175, 0.95) !important;
+  padding: 8px 12px !important;
 }
 
 .recommend-page .compare-table td {
@@ -13247,6 +13264,15 @@ button { cursor: pointer !important; }
   font-size: 14px !important;
   color: #1e112c !important;
   border-bottom: 1px solid rgba(232, 223, 207, 0.70) !important;
+  padding: 8px 12px !important;
+}
+
+/* Right-align columns 2 (Your monthly spend) and 3 (Annual reward) */
+.recommend-page .compare-table th:nth-child(2),
+.recommend-page .compare-table td:nth-child(2),
+.recommend-page .compare-table th:nth-child(3),
+.recommend-page .compare-table td:nth-child(3) {
+  text-align: right !important;
 }
 
 .recommend-page .compare-table tr:nth-child(even) td {
@@ -13255,4 +13281,14 @@ button { cursor: pointer !important; }
 
 .recommend-page .compare-table tr:nth-child(odd) td {
   background: #fdfbf7 !important;
+}
+
+/* Page Spacing Reduction */
+.recommend-page .page-hero {
+  padding-top: 12px !important;
+  padding-bottom: 12px !important;
+}
+
+.sc-nav-spacer.site-header-spacer {
+  height: 54px !important;
 }
