@@ -2098,6 +2098,15 @@ input[type="number"] {
   color: var(--brand-strong);
   cursor: pointer;
 
+  display: inline-flex;
+  font-weight: 600;
+  gap: 6px;
+  justify-content: center !important;
+  min-height: 40px;
+  padding: 8px 12px;
+  width: 100% !important;
+}
+
 .recommend-more svg {
   transition: transform 0.15s ease;
 }
