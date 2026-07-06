@@ -23,21 +23,21 @@
       "category": "international",
       "displayCategory": "International spends",
       "rate": 4,
-      "displayRate": "4 Reward Points / Rs 100 spent",
+      "displayRate": "4 Reward Points / ₹100 spent",
       "capMonthly": null
     },
     {
       "category": "utilities, insurance",
       "displayCategory": "Utility & Insurance spends",
       "rate": 1,
-      "displayRate": "1 Reward Point / Rs 100 spent",
+      "displayRate": "1 Reward Point / ₹100 spent",
       "capMonthly": null
     },
     {
       "category": "base",
       "displayCategory": "Other spends",
       "rate": 2,
-      "displayRate": "2 Reward Points / Rs 100 spent",
+      "displayRate": "2 Reward Points / ₹100 spent",
       "capMonthly": null
     }
   ],
@@ -46,19 +46,19 @@
       "category": "utilities",
       "treatment": "capped",
       "capMonthlySpend": 80000,
-      "notes": "Utility and insurance spends earn rewards capped at monthly spends of Rs 80,000"
+      "notes": "Utility and insurance spends earn rewards capped at monthly spends of ₹80,000"
     },
     {
       "category": "insurance",
       "treatment": "capped",
       "capMonthlySpend": 80000,
-      "notes": "Utility and insurance spends earn rewards capped at monthly spends of Rs 80,000"
+      "notes": "Utility and insurance spends earn rewards capped at monthly spends of ₹80,000"
     },
     {
       "category": "grocery",
       "treatment": "capped",
       "capMonthlySpend": 40000,
-      "notes": "Grocery spends earn rewards capped at monthly spends of Rs 40,000"
+      "notes": "Grocery spends earn rewards capped at monthly spends of ₹40,000"
     }
   ],
   "popularityScore": 50,
@@ -66,7 +66,7 @@
   "loungeInternational": 2,
   "lounge": {
     "domestic": [
-      "Complimentary domestic lounge access (4 visits per quarter) requires a minimum spend of Rs 75,000 in the previous calendar quarter."
+      "Complimentary domestic lounge access (4 visits per quarter) requires a minimum spend of ₹75,000 in the previous calendar quarter."
     ],
     "international": [
       "Complimentary international lounge access (2 visits per calendar year) is provided via Priority Pass or DreamFolks."
@@ -98,29 +98,29 @@
     {
       "value": 1500,
       "kind": "voucher",
-      "label": "Tata CLiQ voucher worth Rs 3,000"
+      "label": "Tata CLiQ voucher worth ₹3,000"
     },
     {
       "value": 2000,
       "kind": "voucher",
-      "label": "EaseMyTrip vouchers worth Rs 4,000 (four vouchers of Rs 1,000 each)"
+      "label": "EaseMyTrip vouchers worth ₹4,000 (four vouchers of ₹1,000 each)"
     },
     {
       "value": 750,
       "kind": "voucher",
-      "label": "Croma voucher worth Rs 1,500"
+      "label": "Croma voucher worth ₹1,500"
     },
     {
       "value": 500,
       "kind": "voucher",
-      "label": "Uber vouchers worth Rs 1,000 (four vouchers of Rs 250 each)"
+      "label": "Uber vouchers worth ₹1,000 (four vouchers of ₹250 each)"
     }
   ],
   "joiningBenefits": [
-    "Tata CLiQ voucher worth Rs 3,000",
-    "EaseMyTrip vouchers worth Rs 4,000 (four vouchers of Rs 1,000 each)",
-    "Croma voucher worth Rs 1,500",
-    "Uber vouchers worth Rs 1,000 (four vouchers of Rs 250 each)"
+    "Tata CLiQ voucher worth ₹3,000",
+    "EaseMyTrip vouchers worth ₹4,000 (four vouchers of ₹1,000 each)",
+    "Croma voucher worth ₹1,500",
+    "Uber vouchers worth ₹1,000 (four vouchers of ₹250 each)"
   ],
   "milestones": [
     {
@@ -128,30 +128,30 @@
       "period": "annual",
       "value": 1000,
       "kind": "points",
-      "label": "Earn 4,000 Reward Points on spending Rs 4 Lakhs in an anniversary year"
+      "label": "Earn 4,000 Reward Points on spending ₹4 Lakhs in an anniversary year"
     },
     {
       "threshold": 500000,
       "period": "annual",
       "value": 500,
       "kind": "points",
-      "label": "2,000 additional Reward Points for every Rs 1 lakh spent beyond Rs 4 lakh in an anniversary year, capped at 20,000 points total"
+      "label": "2,000 additional Reward Points for every ₹1 lakh spent beyond ₹4 lakh in an anniversary year, capped at 20,000 points total"
     },
     {
       "threshold": 1200000,
       "period": "annual",
       "value": 5000,
       "kind": "points",
-      "label": "Maximum milestone rewards capped at 20,000 Reward Points (on Rs 12 Lakhs annual spend) per anniversary year"
+      "label": "Maximum milestone rewards capped at 20,000 Reward Points (on ₹12 Lakhs annual spend) per anniversary year"
     }
   ],
   "milestoneBenefits": [
-    "Earn 4,000 Reward Points on spending Rs 4 Lakhs in an anniversary year",
-    "Earn 2,000 Reward Points for every additional Rs 1 Lakh spent in the same anniversary year",
-    "Maximum milestone rewards capped at 20,000 Reward Points (on Rs 12 Lakhs annual spend) per anniversary year"
+    "Earn 4,000 Reward Points on spending ₹4 Lakhs in an anniversary year",
+    "Earn 2,000 Reward Points for every additional ₹1 Lakh spent in the same anniversary year",
+    "Maximum milestone rewards capped at 20,000 Reward Points (on ₹12 Lakhs annual spend) per anniversary year"
   ],
   "additionalBenefits": [
-    "Buy one movie or event ticket and get up to Rs 500 off on the second ticket twice every month on BookMyShow, subject to spending Rs 25,000 in the preceding calendar quarter",
+    "Buy one movie or event ticket and get up to ₹500 off on the second ticket twice every month on BookMyShow, subject to spending ₹25,000 in the preceding calendar quarter",
     "Up to 4 complimentary golf rounds every month based on eligible spends"
   ],
   "redemption": {
@@ -163,11 +163,11 @@
   "eligibility": {
     "salaried": [
       "Age: 21-65 years",
-      "Minimum net monthly salary: Rs 75,000"
+      "Minimum net monthly salary: ₹75,000"
     ],
     "selfEmployed": [
       "Age: 21-65 years",
-      "Minimum annual ITR: Rs 9,00,000"
+      "Minimum annual ITR: ₹9,00,000"
     ]
   },
   "sourceUrl": "https://www.icicibank.com/personal-banking/cards/credit-card/sapphiro-card",
@@ -178,11 +178,11 @@
   "internalNotes": [
     "Card details manually reviewed and verified by user on 2026-06-06",
     "Official audit completed on 2026-06-06 using ICICI Bank Sapphiro product page.",
-    "Annual fee of Rs 3,500 is waived on spending Rs 6 Lakhs or more in the previous anniversary year.",
-    "Base reward rate is 0.5% (2 points per Rs 100) on domestic transactions and 1.0% (4 points per Rs 100) on international transactions.",
-    "Utility and insurance spends earn 0.25% (1 point per Rs 100) and are capped at monthly spends of Rs 80,000.",
-    "Complimentary domestic lounge access (4 visits per quarter) requires a minimum spend of Rs 75,000 in the previous calendar quarter.",
+    "Annual fee of ₹3,500 is waived on spending ₹6 Lakhs or more in the previous anniversary year.",
+    "Base reward rate is 0.5% (2 points per ₹100) on domestic transactions and 1.0% (4 points per ₹100) on international transactions.",
+    "Utility and insurance spends earn 0.25% (1 point per ₹100) and are capped at monthly spends of ₹80,000.",
+    "Complimentary domestic lounge access (4 visits per quarter) requires a minimum spend of ₹75,000 in the previous calendar quarter.",
     "Complimentary international lounge access (2 visits per calendar year) is provided via Priority Pass or DreamFolks.",
-    "Complimentary golf rounds (up to 4 per month) require spending Rs 50,000 per round in the previous calendar month."
+    "Complimentary golf rounds (up to 4 per month) require spending ₹50,000 per round in the previous calendar month."
   ]
 }

@@ -121,12 +121,12 @@ function isSameLounge(cardA: CreditCard, cardB: CreditCard) {
 function rewardCapLabel(card: CreditCard, reward: CreditCard["rewards"][number]) {
   const capParts: string[] = [];
   const isCashback = card.rewardType.toLowerCase().includes("cashback");
-  const capValue = (value: number) => (isCashback ? `Rs ${value.toLocaleString("en-IN")}` : `${value.toLocaleString("en-IN")} ${card.rewardType}`);
+  const capValue = (value: number) => (isCashback ? `₹${value.toLocaleString("en-IN")}` : `${value.toLocaleString("en-IN")} ${card.rewardType}`);
   if (reward.capDaily) capParts.push(`capped at ${capValue(reward.capDaily)}/day`);
   if (reward.capMonthly) capParts.push(`capped at ${capValue(reward.capMonthly)}/month`);
   if (reward.capStatementQuarter) capParts.push(`capped at ${capValue(reward.capStatementQuarter)}/statement quarter`);
   if (reward.postCapRate !== null && reward.postCapRate !== undefined) {
-    capParts.push(`then ${reward.postCapRate} ${card.rewardType} / Rs 100`);
+    capParts.push(`then ${reward.postCapRate} ${card.rewardType} / ₹100`);
   }
 
   return capParts.length ? ` (${capParts.join(", ")})` : "";
@@ -134,7 +134,7 @@ function rewardCapLabel(card: CreditCard, reward: CreditCard["rewards"][number])
 
 function topRewardLines(card: CreditCard, count = 4) {
   return card.rewards.slice(0, count).map((reward) => {
-    const rate = reward.displayRate ?? `${reward.rate} ${card.rewardType} / Rs 100`;
+    const rate = reward.displayRate ?? `${reward.rate} ${card.rewardType} / ₹100`;
     return `${reward.displayCategory ?? reward.category}: ${rate}${rewardCapLabel(card, reward)}`;
   });
 }

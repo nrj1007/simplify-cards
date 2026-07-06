@@ -45,7 +45,7 @@
   "loungeInternational": 0,
   "lounge": {
     "domestic": [
-      "Either Rs 1,000 gift voucher or 1 domestic lounge access voucher on spends of Rs 1,00,000 and above in each calendar quarter"
+      "Either ₹1,000 gift voucher or 1 domestic lounge access voucher on spends of ₹1,00,000 and above in each calendar quarter"
     ]
   },
   "forexMarkup": 3.5,
@@ -87,11 +87,11 @@
       "period": "quarterly",
       "value": 500,
       "kind": "voucher",
-      "label": "Either Rs 1,000 gift voucher or 1 domestic lounge access voucher on spends of Rs 1,00,000 and above in each calendar quarter"
+      "label": "Either ₹1,000 gift voucher or 1 domestic lounge access voucher on spends of ₹1,00,000 and above in each calendar quarter"
     }
   ],
   "milestoneBenefits": [
-    "Either Rs 1,000 gift voucher or 1 domestic lounge access voucher on spends of Rs 1,00,000 and above in each calendar quarter"
+    "Either ₹1,000 gift voucher or 1 domestic lounge access voucher on spends of ₹1,00,000 and above in each calendar quarter"
   ],
   "joiningBenefitsValued": [
     {
@@ -117,18 +117,18 @@
     "5% cashback on Amazon, BookMyShow, Cult.fit, Flipkart, Myntra, Sony LIV, Swiggy, Tata CLiQ, Uber and Zomato",
     "Up to 10% cashback across 200+ brands via SmartBuy/PayZapp Shop",
     "10% additional discount on Swiggy Dineout using coupon code HDFCCARDS",
-    "1% fuel surcharge waiver at fuel stations across India on transactions from Rs 400 to Rs 5,000"
+    "1% fuel surcharge waiver at fuel stations across India on transactions from ₹400 to ₹5,000"
   ],
   "additionalDetails": [
     "CashPoints are posted on a calendar-month basis, with settled transactions from the 1st to the 30th/31st posted in the first week of the subsequent calendar month",
-    "Reward Points on flights and hotels via SmartBuy redeem at 1 CashPoint = Rs 1, capped at 50,000 CashPoints per calendar month and up to 50% of booking value",
+    "Reward Points on flights and hotels via SmartBuy redeem at 1 CashPoint = ₹1, capped at 50,000 CashPoints per calendar month and up to 50% of booking value",
     "Reward Points for cashback redemption are capped at 3,000 per calendar month",
     "Unredeemed CashPoints expire within 2 years of accumulation"
   ],
   "internalNotes": [
     "Card details manually reviewed and verified by user on 2026-05-31",
     "Audited against official HDFC Bank Millennia product page, terms PDF, lounge voucher PDF, FAQ PDF and fee-waiver page on 2026-05-31.",
-    "Effective 1st December 2023, complimentary domestic airport lounge access is no longer directly available on Millennia Credit Card; lounge access is now integrated into the quarterly milestone choice between a Rs 1,000 voucher and a lounge voucher.",
+    "Effective 1st December 2023, complimentary domestic airport lounge access is no longer directly available on Millennia Credit Card; lounge access is now integrated into the quarterly milestone choice between a ₹1,000 voucher and a lounge voucher.",
     "Effective 1st September 2024, wallet loading and EMI transactions do not earn Reward Points.",
     "Effective 1st September 2024, education payments made through third-party apps do not earn Reward Points, but direct school or college website and POS transactions do earn rewards.",
     "Reward points redemption for cashback is capped at 3,000 CashPoints per calendar month.",
@@ -154,12 +154,12 @@
     "salaried": [
       "Indian national",
       "Age: 21 to 40 years",
-      "Net monthly income above Rs 35,000"
+      "Net monthly income above ₹35,000"
     ],
     "selfEmployed": [
       "Indian national",
       "Age: 21 to 40 years",
-      "ITR above Rs 6 lakh per annum"
+      "ITR above ₹6 lakh per annum"
     ]
   },
   "imageUrl": "/images/hdfc-millennia.webp",

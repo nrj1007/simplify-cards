@@ -77,38 +77,38 @@
       "period": "monthly",
       "value": 500,
       "kind": "points",
-      "label": "500 Reward Points on weekend spends of Rs 15,000 or above at Shoppers Stop (capped once per month, max 5 times a year)"
+      "label": "500 Reward Points on weekend spends of ₹15,000 or above at Shoppers Stop (capped once per month, max 5 times a year)"
     },
     {
       "threshold": 200000,
       "period": "annual",
       "value": 2000,
       "kind": "points",
-      "label": "2,000 Reward Points on annual spends of Rs 2 Lakhs or more"
+      "label": "2,000 Reward Points on annual spends of ₹2 Lakhs or more"
     }
   ],
   "joiningBenefitsValued": [
     {
       "value": 250,
       "kind": "voucher",
-      "label": "Rs 500 Shoppers Stop voucher as welcome benefit, redeemable on any transaction at Shoppers Stop store"
+      "label": "₹500 Shoppers Stop voucher as welcome benefit, redeemable on any transaction at Shoppers Stop store"
     },
     {
       "value": 350,
       "kind": "other",
-      "label": "Complimentary Shoppers Stop Silver Edge membership worth Rs 350"
+      "label": "Complimentary Shoppers Stop Silver Edge membership worth ₹350"
     }
   ],
   "joiningBenefits": [
-    "Rs 500 Shoppers Stop voucher as welcome benefit, redeemable on any transaction at Shoppers Stop store",
-    "Complimentary Shoppers Stop Silver Edge membership worth Rs 350"
+    "₹500 Shoppers Stop voucher as welcome benefit, redeemable on any transaction at Shoppers Stop store",
+    "Complimentary Shoppers Stop Silver Edge membership worth ₹350"
   ],
   "additionalBenefits": [
     "Link RuPay Credit Card to UPI for scan-and-pay transactions",
-    "1% fuel surcharge waiver on transactions from Rs 400 to Rs 5,000, capped at Rs 250 per statement cycle"
+    "1% fuel surcharge waiver on transactions from ₹400 to ₹5,000, capped at ₹250 per statement cycle"
   ],
   "additionalDetails": [
-    "Minimum transaction of Rs 150 required to earn reward points",
+    "Minimum transaction of ₹150 required to earn reward points",
     "Points expire after 2 years from the date of accumulation"
   ],
   "redemption": {
@@ -129,12 +129,12 @@
     "salaried": [
       "Indian national",
       "Age 21 to 60 years",
-      "Monthly income Rs 20,000"
+      "Monthly income ₹20,000"
     ],
     "selfEmployed": [
       "Indian national",
       "Age 21 to 65 years",
-      "Annual ITR greater than Rs 6 lakh"
+      "Annual ITR greater than ₹6 lakh"
     ]
   },
   "imageUrl": "/images/hdfc-shoppers-stop.webp",
@@ -145,8 +145,8 @@
   "popularityScore": 63,
   "internalNotes": [
     "Card details manually reviewed and verified by user on 2026-06-07",
-    "Points value is Rs 1 when redeemed against Shoppers Stop vouchers (1:1), but falls to Rs 0.20 for statement credit or SmartBuy booking.",
-    "Minimum transaction of Rs 150 is required to earn reward points.",
+    "Points value is ₹1 when redeemed against Shoppers Stop vouchers (1:1), but falls to ₹0.20 for statement credit or SmartBuy booking.",
+    "Minimum transaction of ₹150 is required to earn reward points.",
     "Shoppers Stop spends reward points capped at 500/month; non-Shoppers Stop spends capped at 1,00,000/month."
   ]
 }

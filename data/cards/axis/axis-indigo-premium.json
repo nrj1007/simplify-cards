@@ -23,28 +23,28 @@
       "category": "airlines",
       "displayCategory": "IndiGo flight bookings",
       "rate": 7,
-      "displayRate": "7 IndiGo BluChips / Rs 100 spent",
+      "displayRate": "7 IndiGo BluChips / ₹100 spent",
       "capMonthly": null
     },
     {
       "category": "grocery",
       "displayCategory": "Grocery spends",
       "rate": 3,
-      "displayRate": "3 IndiGo BluChips / Rs 100 spent",
+      "displayRate": "3 IndiGo BluChips / ₹100 spent",
       "capMonthly": null
     },
     {
       "category": "hotels",
       "displayCategory": "Hotel bookings",
       "rate": 3,
-      "displayRate": "3 IndiGo BluChips / Rs 100 spent",
+      "displayRate": "3 IndiGo BluChips / ₹100 spent",
       "capMonthly": null
     },
     {
       "category": "base",
       "displayCategory": "All other eligible spends",
       "rate": 2,
-      "displayRate": "2 IndiGo BluChips / Rs 100 spent",
+      "displayRate": "2 IndiGo BluChips / ₹100 spent",
       "capMonthly": null
     }
   ],
@@ -53,7 +53,7 @@
   "lounge": {
     "domestic": [
       "8 complimentary domestic airport lounge visits per calendar year (limited to 2 visits per quarter).",
-      "Requires spends of Rs 50,000 in the preceding 3 calendar months to unlock access (new cardholders are exempt for the month of card issuance and the next 3 calendar months)."
+      "Requires spends of ₹50,000 in the preceding 3 calendar months to unlock access (new cardholders are exempt for the month of card issuance and the next 3 calendar months)."
     ],
     "international": [
       "2 complimentary international lounge visits per calendar year through Priority Pass."
@@ -94,28 +94,28 @@
       "period": "annual",
       "value": 2000,
       "kind": "points",
-      "label": "5,000 IndiGo BluChips voucher on annual spends of Rs 2 lakh"
+      "label": "5,000 IndiGo BluChips voucher on annual spends of ₹2 lakh"
     },
     {
       "threshold": 500000,
       "period": "annual",
       "value": 2000,
       "kind": "points",
-      "label": "5,000 IndiGo BluChips voucher on annual spends of Rs 5 lakh"
+      "label": "5,000 IndiGo BluChips voucher on annual spends of ₹5 lakh"
     },
     {
       "threshold": 800000,
       "period": "annual",
       "value": 2000,
       "kind": "points",
-      "label": "5,000 IndiGo BluChips voucher on annual spends of Rs 8 lakh"
+      "label": "5,000 IndiGo BluChips voucher on annual spends of ₹8 lakh"
     },
     {
       "threshold": 1200000,
       "period": "annual",
       "value": 2000,
       "kind": "points",
-      "label": "5,000 IndiGo BluChips voucher on annual spends of Rs 12 lakh"
+      "label": "5,000 IndiGo BluChips voucher on annual spends of ₹12 lakh"
     }
   ],
   "joiningBenefits": [
@@ -152,7 +152,7 @@
     "Buy one get one movie ticket offer on BookMyShow once every month",
     "Low forex markup of 2.5% on foreign currency transactions",
     "Dining Delights offers through Axis Bank dining programme",
-    "EMI conversion available for transactions exceeding Rs 1,500"
+    "EMI conversion available for transactions exceeding ₹1,500"
   ],
   "redemption": {
     "ecosystemLabel": "IndiGo flight bookings",

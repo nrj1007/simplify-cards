@@ -18,15 +18,15 @@
     {
       "category": "grocery",
       "rate": 5,
-      "displayCategory": "Supermarket & Departmental store spends (min transaction Rs 1,000)",
-      "displayRate": "5% cashback (up to Rs 150/txn)",
+      "displayCategory": "Supermarket & Departmental store spends (min transaction ₹1,000)",
+      "displayRate": "5% cashback (up to ₹150/txn)",
       "capMonthly": 500
     },
     {
       "category": "base",
       "rate": 2,
       "displayCategory": "Other retail spends",
-      "displayRate": "3 reward points / Rs 150 spent",
+      "displayRate": "3 reward points / ₹150 spent",
       "valuePerUnit": 0.25,
       "capMonthly": null
     }
@@ -51,7 +51,7 @@
   ],
   "milestones": [],
   "milestoneBenefits": [
-    "Annual fee waiver on spends of Rs 1,20,000 or more in the previous year"
+    "Annual fee waiver on spends of ₹1,20,000 or more in the previous year"
   ],
   "additionalBenefits": [
     "1% fuel surcharge waiver at authorized pumps"
@@ -75,8 +75,8 @@
   "verificationStatus": "official-direct",
   "internalNotes": [
     "Card details manually reviewed and verified by user on 2026-06-14.",
-    "5% cashback applies on grocery, supermarket, and departmental store purchases of Rs 1,000 or more.",
-    "Groceries cashback is capped at Rs 150 per transaction and Rs 500 per calendar month.",
-    "Other spends earn 3 reward points per Rs 150 spent (effectively 0.5% return value)."
+    "5% cashback applies on grocery, supermarket, and departmental store purchases of ₹1,000 or more.",
+    "Groceries cashback is capped at ₹150 per transaction and ₹500 per calendar month.",
+    "Other spends earn 3 reward points per ₹150 spent (effectively 0.5% return value)."
   ]
 }

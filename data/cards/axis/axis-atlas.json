@@ -19,14 +19,14 @@
     {
       "category": "travel",
       "rate": 5,
-      "displayRate": "5 EDGE Miles per Rs 100",
+      "displayRate": "5 EDGE Miles per ₹100",
       "capMonthly": 10000,
       "postCapRate": 2
     },
     {
       "category": "base",
       "rate": 2,
-      "displayRate": "2 EDGE Miles per Rs 100",
+      "displayRate": "2 EDGE Miles per ₹100",
       "capMonthly": null
     }
   ],
@@ -70,27 +70,27 @@
       "period": "annual",
       "value": 5000,
       "kind": "points",
-      "label": "2,500 EDGE Miles on annual spend of Rs 3 lakh."
+      "label": "2,500 EDGE Miles on annual spend of ₹3 lakh."
     },
     {
       "threshold": 750000,
       "period": "annual",
       "value": 5000,
       "kind": "points",
-      "label": "Additional 2,500 EDGE Miles on annual spend of Rs 7.5 lakh."
+      "label": "Additional 2,500 EDGE Miles on annual spend of ₹7.5 lakh."
     },
     {
       "threshold": 1500000,
       "period": "annual",
       "value": 10000,
       "kind": "points",
-      "label": "Additional 5,000 EDGE Miles on annual spend of Rs 15 lakh."
+      "label": "Additional 5,000 EDGE Miles on annual spend of ₹15 lakh."
     }
   ],
   "milestoneBenefits": [
-    "2,500 EDGE Miles on annual spend of Rs 3 lakh.",
-    "Additional 2,500 EDGE Miles on annual spend of Rs 7.5 lakh.",
-    "Additional 5,000 EDGE Miles on annual spend of Rs 15 lakh."
+    "2,500 EDGE Miles on annual spend of ₹3 lakh.",
+    "Additional 2,500 EDGE Miles on annual spend of ₹7.5 lakh.",
+    "Additional 5,000 EDGE Miles on annual spend of ₹15 lakh."
   ],
   "joiningBenefitsValued": [
     {
@@ -131,7 +131,7 @@
     "jewellery"
   ],
   "additionalBenefits": [
-    "1% fuel surcharge waiver on transactions from Rs 400 to Rs 4,000 (capped at Rs 400 per billing cycle)",
+    "1% fuel surcharge waiver on transactions from ₹400 to ₹4,000 (capped at ₹400 per billing cycle)",
     "Dining Delights discounts at participating restaurants"
   ],
   "additionalDetails": [
@@ -147,7 +147,7 @@
         "partnerPointValue": 1,
         "transferRatio": 2,
         "basis": "fixed",
-        "note": "1 EDGE Mile → 2 Club ITC points · Rs 1/point"
+        "note": "1 EDGE Mile → 2 Club ITC points · ₹1/point"
       }
     ],
     "airlinePartners": [

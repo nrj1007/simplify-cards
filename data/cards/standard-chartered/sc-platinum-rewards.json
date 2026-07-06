@@ -19,21 +19,21 @@
       "category": "fuel",
       "rate": 3.3333333333333335,
       "displayCategory": "Fuel spends",
-      "displayRate": "5 reward points / Rs 150 spent",
+      "displayRate": "5 reward points / ₹150 spent",
       "capMonthly": null
     },
     {
       "category": "dining",
       "rate": 3.3333333333333335,
       "displayCategory": "Dining spends at fine-dining outlets",
-      "displayRate": "5 reward points / Rs 150 spent",
+      "displayRate": "5 reward points / ₹150 spent",
       "capMonthly": null
     },
     {
       "category": "base",
       "rate": 0.6666666666666666,
       "displayCategory": "Other retail spends",
-      "displayRate": "1 reward point / Rs 150 spent",
+      "displayRate": "1 reward point / ₹150 spent",
       "capMonthly": null
     }
   ],
@@ -59,7 +59,7 @@
   "milestoneBenefits": [],
   "additionalBenefits": [
     "1% fuel surcharge waiver at authorized pumps",
-    "First-year and renewal fee waived on spending Rs 500 or more within the first 30 days of card issuance"
+    "First-year and renewal fee waived on spending ₹500 or more within the first 30 days of card issuance"
   ],
   "redemption": {
     "statementBalanceValue": 0.25,
@@ -80,8 +80,8 @@
   "verificationStatus": "official-direct",
   "internalNotes": [
     "Card details manually reviewed and verified by user on 2026-06-14.",
-    "Earns 5 reward points per Rs 150 spent on fuel and fine dining (0.83% return value). 1 point = Rs 0.25.",
-    "All other retail spends earn 1 reward point per Rs 150 spent (0.17% return value).",
-    "Joining fee of Rs 250 is waived if Rs 500 or more is spent within the first 30 days of card issuance. This also waives the subsequent annual fees, effectively making it lifetime free under this condition."
+    "Earns 5 reward points per ₹150 spent on fuel and fine dining (0.83% return value). 1 point = ₹0.25.",
+    "All other retail spends earn 1 reward point per ₹150 spent (0.17% return value).",
+    "Joining fee of ₹250 is waived if ₹500 or more is spent within the first 30 days of card issuance. This also waives the subsequent annual fees, effectively making it lifetime free under this condition."
   ]
 }

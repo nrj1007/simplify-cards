@@ -20,14 +20,14 @@
       "category": "upi",
       "rate": 3,
       "displayCategory": "UPI, contactless, and Pay-by-3 merchant spends",
-      "displayRate": "3 Reward Points / Rs 100 spent",
+      "displayRate": "3 Reward Points / ₹100 spent",
       "capMonthly": null
     },
     {
       "category": "base",
       "rate": 1,
       "displayCategory": "Other retail spends",
-      "displayRate": "1 Reward Point / Rs 100 spent",
+      "displayRate": "1 Reward Point / ₹100 spent",
       "capMonthly": null
     }
   ],
@@ -69,7 +69,7 @@
     "Pay by 3: Eligible transactions at select merchants (TATA Cliq, Netmeds, Skull Candy, 1% Club, etc.) auto-converted into 3-month low-cost EMI",
     "Introductory interest rate of 0.99% per month for first 3 months from card issuance",
     "Up to 50 days interest-free credit period on regular purchases",
-    "1% fuel surcharge waiver on transactions between Rs 500 and Rs 3,000 (up to Rs 100 per month)",
+    "1% fuel surcharge waiver on transactions between ₹500 and ₹3,000 (up to ₹100 per month)",
     "Complimentary air accident cover, credit shield, and lost card liability insurance"
   ],
   "additionalDetails": [
@@ -83,12 +83,12 @@
   },
   "eligibility": {
     "salaried": [
-      "Minimum annual income: Rs 4.2 – 5 lakhs",
+      "Minimum annual income: ₹4.2 – 5 lakhs",
       "Age: 21 – 60 years",
       "Subject to Equitas Small Finance Bank credit approval"
     ],
     "selfEmployed": [
-      "Minimum annual income: Rs 4.2 – 5 lakhs",
+      "Minimum annual income: ₹4.2 – 5 lakhs",
       "Age: 21 – 60 years",
       "Subject to Equitas Small Finance Bank credit approval"
     ]
@@ -101,11 +101,11 @@
   "internalNotes": [
     "Card details audited against the live official Equitas Tiga Credit Card page on 2026-06-15.",
     "Card details manually reviewed and verified by user on 2026-06-15.",
-    "The live page explicitly shows 3X rewards on UPI, contactless, and Pay-by-3 merchant spends, a 1 RP per Rs 100 base earn rate, and 1 RP = Rs 0.15 on Xchange redemption.",
-    "Unlike Selfe and PowerMiles (which use redemption.pointValueTiers for the Equitas Privilege Program spend ladder), Tiga is kept at a flat 1 RP = Rs 0.15: no source publishes a per-tier redemption value ladder for Tiga, and cardinsider states Tiga has no privilege-program enhancement to redemption value. Revisit with pointValueTiers only if the official MITC confirms a Tiga-specific tier ladder.",
+    "The live page explicitly shows 3X rewards on UPI, contactless, and Pay-by-3 merchant spends, a 1 RP per ₹100 base earn rate, and 1 RP = ₹0.15 on Xchange redemption.",
+    "Unlike Selfe and PowerMiles (which use redemption.pointValueTiers for the Equitas Privilege Program spend ladder), Tiga is kept at a flat 1 RP = ₹0.15: no source publishes a per-tier redemption value ladder for Tiga, and cardinsider states Tiga has no privilege-program enhancement to redemption value. Revisit with pointValueTiers only if the official MITC confirms a Tiga-specific tier ladder.",
     "Pay-by-3 merchants include: TATA Cliq, Tony & Guy, SLAM, Netmeds, Skull Candy, 1% Club, Prashanti Sarees, Wedtree, Lectrix.",
-    "The live page explicitly confirms a renewal fee waiver on Rs 1.2 lakh annual spends in the previous anniversary year and a limited-period first-year-free offer excluding GST.",
+    "The live page explicitly confirms a renewal fee waiver on ₹1.2 lakh annual spends in the previous anniversary year and a limited-period first-year-free offer excluding GST.",
     "Finance charges: 3.75% per month (45% per annum) on revolving balances.",
-    "Cash advance fee: 2.5% or Rs 250 whichever is higher."
+    "Cash advance fee: 2.5% or ₹250 whichever is higher."
   ]
 }

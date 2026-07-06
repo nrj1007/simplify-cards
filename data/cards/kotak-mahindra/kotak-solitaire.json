@@ -108,13 +108,13 @@
       {
         "partner": "Brand e-Vouchers",
         "programme": "Brand e-vouchers via Kotak Unbox",
-        "ratio": "1 Air Mile = Rs 0.50",
+        "ratio": "1 Air Mile = ₹0.50",
         "valuePerPoint": 0.5
       },
       {
         "partner": "Travel bookings",
         "programme": "Flight & hotel bookings via Kotak Unbox",
-        "ratio": "1 Air Mile = Rs 1.0",
+        "ratio": "1 Air Mile = ₹1.0",
         "valuePerPoint": 1
       }
     ],
@@ -178,21 +178,21 @@
         "partnerPointValue": 1,
         "transferRatio": 1,
         "basis": "dynamic",
-        "note": "1 Air Mile → 1 Maharaja Club point · Rs 1.0/point"
+        "note": "1 Air Mile → 1 Maharaja Club point · ₹1.0/point"
       },
       {
         "partner": "Marriott Bonvoy",
         "partnerPointValue": 0.6,
         "transferRatio": 0.3333333333333333,
         "basis": "dynamic",
-        "note": "3 Air Miles → 1 Marriott Bonvoy point · avg Rs 0.6/point"
+        "note": "3 Air Miles → 1 Marriott Bonvoy point · avg ₹0.6/point"
       },
       {
         "partner": "Accor (ALL)",
         "partnerPointValue": 2,
         "transferRatio": 0.5,
         "basis": "fixed",
-        "note": "2 Air Miles → 1 Accor ALL point · Rs 2/point"
+        "note": "2 Air Miles → 1 Accor ALL point · ₹2/point"
       }
     ]
   },

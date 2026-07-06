@@ -20,14 +20,14 @@
       "category": "travel",
       "rate": 10,
       "displayCategory": "Standalone hotel and airline spends",
-      "displayRate": "10 reward points / Rs 100 spent",
+      "displayRate": "10 reward points / ₹100 spent",
       "capMonthly": null
     },
     {
       "category": "base",
       "rate": 2,
       "displayCategory": "Other retail spends",
-      "displayRate": "2 reward points / Rs 100 spent",
+      "displayRate": "2 reward points / ₹100 spent",
       "capMonthly": null
     }
   ],
@@ -60,11 +60,11 @@
   ],
   "milestones": [],
   "milestoneBenefits": [
-    "Annual fee waiver on spends of Rs 50,000 or more in the previous year"
+    "Annual fee waiver on spends of ₹50,000 or more in the previous year"
   ],
   "additionalBenefits": [
     "20% instant discount on hotels and 10% off on flights on EaseMyTrip using promo code EMTSCB",
-    "Flat Rs 125 off on bus bookings (min transaction Rs 500) on EaseMyTrip"
+    "Flat ₹125 off on bus bookings (min transaction ₹500) on EaseMyTrip"
   ],
   "redemption": {
     "statementBalanceValue": 0.25,
@@ -85,8 +85,8 @@
   "verificationStatus": "official-direct",
   "internalNotes": [
     "Card details manually reviewed and verified by user on 2026-06-14.",
-    "10X rewards (10 points / Rs 100) apply specifically to standalone airline and hotel bookings, excluding aggregators. Aggregators earn base rate.",
-    "Base rate is 2 points / Rs 100 spent (effectively 0.5% return value).",
+    "10X rewards (10 points / ₹100) apply specifically to standalone airline and hotel bookings, excluding aggregators. Aggregators earn base rate.",
+    "Base rate is 2 points / ₹100 spent (effectively 0.5% return value).",
     "EaseMyTrip discounts require using the promo code EMTSCB."
   ]
 }

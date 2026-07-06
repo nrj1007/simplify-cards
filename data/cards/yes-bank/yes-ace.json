@@ -27,21 +27,21 @@
       "category": "online",
       "rate": 4,
       "displayCategory": "Online shopping",
-      "displayRate": "8 YES Rewardz Points / Rs 200 spent",
+      "displayRate": "8 YES Rewardz Points / ₹200 spent",
       "capMonthly": 5000
     },
     {
       "category": "base",
       "rate": 2,
       "displayCategory": "Other retail spends",
-      "displayRate": "4 YES Rewardz Points / Rs 200 spent",
+      "displayRate": "4 YES Rewardz Points / ₹200 spent",
       "capMonthly": null
     },
     {
       "category": "utilities",
       "rate": 1,
       "displayCategory": "Select categories (utilities, insurance, education, telecom)",
-      "displayRate": "2 YES Rewardz Points / Rs 200 spent",
+      "displayRate": "2 YES Rewardz Points / ₹200 spent",
       "capMonthly": 600
     }
   ],
@@ -74,17 +74,17 @@
     "emi"
   ],
   "joiningBenefits": [
-    "First-year membership fee waived on spending Rs 5,000 within 30 days of card issuance"
+    "First-year membership fee waived on spending ₹5,000 within 30 days of card issuance"
   ],
   "milestoneBenefits": [],
   "additionalBenefits": [
-    "1% fuel surcharge waiver on transactions between Rs 400 and Rs 5,000, capped at Rs 250 per month",
+    "1% fuel surcharge waiver on transactions between ₹400 and ₹5,000, capped at ₹250 per month",
     "Green fee waiver and complimentary golf lessons at select golf courses"
   ],
   "additionalDetails": [
-    "1% fee + GST on utility transactions when cumulative spends exceed Rs 15,000 in a calendar month",
+    "1% fee + GST on utility transactions when cumulative spends exceed ₹15,000 in a calendar month",
     "1% fee + GST on rental transactions",
-    "1% fee + GST on wallet load transactions when cumulative spends exceed Rs 15,000 in a calendar month"
+    "1% fee + GST on wallet load transactions when cumulative spends exceed ₹15,000 in a calendar month"
   ],
   "redemption": {
     "statementBalanceValue": 0.25,
@@ -119,11 +119,11 @@
   "eligibility": {
     "salaried": [
       "Age: 21 to 60 years",
-      "Minimum monthly income: Rs 25,000"
+      "Minimum monthly income: ₹25,000"
     ],
     "selfEmployed": [
       "Age: 21 to 60 years",
-      "Minimum annual income (ITR): Rs 7.5 Lakhs"
+      "Minimum annual income (ITR): ₹7.5 Lakhs"
     ]
   },
   "imageUrl": "/images/yes-ace.webp",
@@ -133,7 +133,7 @@
   "verificationStatus": "official-direct",
   "internalNotes": [
     "Card details manually reviewed and verified by user on 2026-06-13.",
-    "Utility, rental, and wallet transactions are eligible to earn rewards at 2 points per Rs 200 spent, capped at 600 points per month for utilities.",
+    "Utility, rental, and wallet transactions are eligible to earn rewards at 2 points per ₹200 spent, capped at 600 points per month for utilities.",
     "1% fee on utility, rent, and wallet load transactions above thresholds.",
     "Card was earlier known as YES Prosperity Rewards Plus."
   ]

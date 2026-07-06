@@ -27,28 +27,28 @@
       "category": "partner merchants",
       "displayCategory": "AJIO and JioMart online spends",
       "rate": 20,
-      "displayRate": "20 Reward Points / Rs 100 spent",
+      "displayRate": "20 Reward Points / ₹100 spent",
       "capMonthly": null
     },
     {
       "category": "partner merchants",
       "displayCategory": "Other participating Reliance Retail stores spends",
       "rate": 10,
-      "displayRate": "10 Reward Points / Rs 100 spent",
+      "displayRate": "10 Reward Points / ₹100 spent",
       "capMonthly": null
     },
     {
       "category": "dining, travel, international",
       "displayCategory": "Dining, movies, entertainment, domestic airlines & international spends",
       "rate": 5,
-      "displayRate": "5 Reward Points / Rs 100 spent",
+      "displayRate": "5 Reward Points / ₹100 spent",
       "capMonthly": 7500
     },
     {
       "category": "base",
       "displayCategory": "Other eligible retail purchases",
       "rate": 2,
-      "displayRate": "2 Reward Points / Rs 100 spent",
+      "displayRate": "2 Reward Points / ₹100 spent",
       "capMonthly": null
     }
   ],
@@ -96,11 +96,11 @@
     {
       "value": 3000,
       "kind": "voucher",
-      "label": "Reliance Retail Voucher worth Rs 3,000"
+      "label": "Reliance Retail Voucher worth ₹3,000"
     }
   ],
   "joiningBenefits": [
-    "Reliance Retail Voucher worth Rs 3,000 upon payment of joining fee"
+    "Reliance Retail Voucher worth ₹3,000 upon payment of joining fee"
   ],
   "renewalBenefitsValued": [],
   "renewalBenefits": [],
@@ -110,16 +110,16 @@
       "period": "annual",
       "value": 4375,
       "kind": "voucher",
-      "label": "Reliance Retail Vouchers worth Rs 8,750 on overall annual retail spends of Rs 3 lakh"
+      "label": "Reliance Retail Vouchers worth ₹8,750 on overall annual retail spends of ₹3 lakh"
     }
   ],
   "milestoneBenefits": [
-    "Reliance Retail Vouchers worth Rs 8,750 on overall annual retail spends of Rs 3 lakh"
+    "Reliance Retail Vouchers worth ₹8,750 on overall annual retail spends of ₹3 lakh"
   ],
   "additionalBenefits": [
-    "Additional Reliance discount vouchers worth up to Rs 11,999 at participating Reliance Retail stores",
-    "One monthly BookMyShow movie ticket benefit worth up to Rs 250",
-    "1% fuel surcharge waiver on eligible fuel transactions between Rs 500 and Rs 4,000, capped at Rs 250 per month"
+    "Additional Reliance discount vouchers worth up to ₹11,999 at participating Reliance Retail stores",
+    "One monthly BookMyShow movie ticket benefit worth up to ₹250",
+    "1% fuel surcharge waiver on eligible fuel transactions between ₹500 and ₹4,000, capped at ₹250 per month"
   ],
   "redemption": {
     "statementBalanceValue": 0.25,

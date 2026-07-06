@@ -23,35 +23,35 @@
       "category": "travel",
       "rate": 3,
       "displayCategory": "Travel spends",
-      "displayRate": "3 Reward Points / Rs 100 spent",
+      "displayRate": "3 Reward Points / ₹100 spent",
       "capMonthly": null
     },
     {
       "category": "international",
       "rate": 3,
       "displayCategory": "International spends",
-      "displayRate": "3 Reward Points / Rs 100 spent",
+      "displayRate": "3 Reward Points / ₹100 spent",
       "capMonthly": null
     },
     {
       "category": "dining",
       "rate": 2,
       "displayCategory": "Dining spends",
-      "displayRate": "2 Reward Points / Rs 100 spent",
+      "displayRate": "2 Reward Points / ₹100 spent",
       "capMonthly": null
     },
     {
       "category": "base",
       "rate": 1,
       "displayCategory": "All other retail spends",
-      "displayRate": "1 Reward Point / Rs 100 spent",
+      "displayRate": "1 Reward Point / ₹100 spent",
       "capMonthly": null
     },
     {
       "category": "insurance",
       "rate": 1,
       "displayCategory": "Insurance premium spends",
-      "displayRate": "1 Reward Point / Rs 100 spent (capped at 250 points per month)",
+      "displayRate": "1 Reward Point / ₹100 spent (capped at 250 points per month)",
       "capMonthly": 250
     }
   ],
@@ -60,7 +60,7 @@
   "loungeInternational": 2,
   "lounge": {
     "domestic": [
-      "2 complimentary domestic airport lounge visits per quarter (subject to minimum spend of Rs 60,000 in the preceding quarter)."
+      "2 complimentary domestic airport lounge visits per quarter (subject to minimum spend of ₹60,000 in the preceding quarter)."
     ],
     "international": [
       "2 complimentary international airport lounge visits per calendar year."
@@ -112,19 +112,19 @@
     {
       "value": 600,
       "kind": "voucher",
-      "label": "Amazon Pay e-voucher worth Rs 600 on spending Rs 10,000 within first 30 days of card issuance"
+      "label": "Amazon Pay e-voucher worth ₹600 on spending ₹10,000 within first 30 days of card issuance"
     }
   ],
   "joiningBenefits": [
-    "Amazon Pay e-voucher worth Rs 600 on spending Rs 10,000 within the first 30 days of card issuance"
+    "Amazon Pay e-voucher worth ₹600 on spending ₹10,000 within the first 30 days of card issuance"
   ],
   "additionalBenefits": [
     "Buy One Get One complimentary INOX movie ticket (once per quarter)",
     "Up to 15% off at partner hotels via FedDelights dining program",
-    "1% fuel surcharge waiver on eligible transactions (Rs 400–Rs 5,000, capped at Rs 150 per month)"
+    "1% fuel surcharge waiver on eligible transactions (₹400–₹5,000, capped at ₹150 per month)"
   ],
   "additionalDetails": [
-    "A redemption convenience fee of Rs 99 + GST applies per redemption request."
+    "A redemption convenience fee of ₹99 + GST applies per redemption request."
   ],
   "redemption": {
     "statementBalanceValue": 0.25,
@@ -165,12 +165,12 @@
     "Rewards follow a 3-2-1 structure: 3x on travel and international spends, 2x on dining, 1x on all other retail.",
     "Insurance transactions (MCC 6300 & 5960) earn 1x reward point capped at 250 points per calendar month, effective July 15, 2024.",
     "Government transactions are excluded from rewards, effective July 15, 2024.",
-    "Redemption convenience fee of Rs 99 + GST per redemption request.",
-    "Domestic lounge access: 2 visits per quarter, subject to minimum spend of Rs 60,000 in the preceding calendar quarter.",
+    "Redemption convenience fee of ₹99 + GST per redemption request.",
+    "Domestic lounge access: 2 visits per quarter, subject to minimum spend of ₹60,000 in the preceding calendar quarter.",
     "International lounge access: 2 visits per year.",
     "Forex markup confirmed at 2% (reduced from the standard 3.5%).",
-    "Welcome benefit: Amazon Pay e-voucher worth Rs 600 on spending Rs 10,000 within the first 30 days.",
-    "Reward point value estimated at Rs 0.25 per point on statement credit redemption.",
+    "Welcome benefit: Amazon Pay e-voucher worth ₹600 on spending ₹10,000 within the first 30 days.",
+    "Reward point value estimated at ₹0.25 per point on statement credit redemption.",
     "Miles transfer partners: Singapore Airlines KrisFlyer (7:1) and Air India Maharaja Club (6:1) via Federal Rewards portal."
   ]
 }

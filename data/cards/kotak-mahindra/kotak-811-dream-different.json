@@ -78,7 +78,7 @@
     {
       "value": 50,
       "kind": "points",
-      "label": "500 bonus Reward Points (worth Rs 50) on spending ₹5,000 within the first 45 days of card setup"
+      "label": "500 bonus Reward Points (worth ₹50) on spending ₹5,000 within the first 45 days of card setup"
     }
   ],
   "renewalBenefitsValued": [],
@@ -104,13 +104,13 @@
       {
         "partner": "Brand e-Vouchers",
         "programme": "Brand e-vouchers via Kotak Rewards",
-        "ratio": "1 point = Rs 0.10",
+        "ratio": "1 point = ₹0.10",
         "valuePerPoint": 0.1
       },
       {
         "partner": "Travel bookings",
         "programme": "Flight & hotel bookings via Kotak Rewards",
-        "ratio": "1 point = Rs 0.10",
+        "ratio": "1 point = ₹0.10",
         "valuePerPoint": 0.1
       }
     ]
@@ -118,12 +118,12 @@
   "eligibility": {
     "salaried": [
       "Age: 18 to 75 years",
-      "Minimum Fixed Deposit backing of Rs 10,000",
+      "Minimum Fixed Deposit backing of ₹10,000",
       "No income proof or CIBIL score checks required"
     ],
     "selfEmployed": [
       "Age: 18 to 75 years",
-      "Minimum Fixed Deposit backing of Rs 10,000",
+      "Minimum Fixed Deposit backing of ₹10,000",
       "No income proof or CIBIL score checks required"
     ]
   },
@@ -133,7 +133,7 @@
   "verificationStatus": "official-direct",
   "imageUrl": "/images/kotak-811-dream-different.webp",
   "internalNotes": [
-    "Redemption rate for vouchers and merchandise is 1 point = Rs 0.10. Cash statement credit rate is devalued to 1 point = Rs 0.07. Spends on utility, education, wallet loading, government, insurance, gaming, fuel, and rent do not count towards milestone benefits. The anniversary milestone program of ₹750 cashback has been discontinued effective April 1, 2026.",
+    "Redemption rate for vouchers and merchandise is 1 point = ₹0.10. Cash statement credit rate is devalued to 1 point = ₹0.07. Spends on utility, education, wallet loading, government, insurance, gaming, fuel, and rent do not count towards milestone benefits. The anniversary milestone program of ₹750 cashback has been discontinued effective April 1, 2026.",
     "Card details manually reviewed and verified by user on 2026-06-15."
   ]
 }

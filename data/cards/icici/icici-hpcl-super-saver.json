@@ -30,7 +30,7 @@
       "category": "utilities, departmental stores, grocery",
       "displayCategory": "Utility, Departmental Store & Grocery spends",
       "rate": 20,
-      "displayRate": "20 Reward Points / Rs 100 spent",
+      "displayRate": "20 Reward Points / ₹100 spent",
       "valuePerUnit": 0.25,
       "capMonthly": 400
     },
@@ -38,7 +38,7 @@
       "category": "base",
       "displayCategory": "Other retail spends",
       "rate": 2,
-      "displayRate": "2 Reward Points / Rs 100 spent",
+      "displayRate": "2 Reward Points / ₹100 spent",
       "valuePerUnit": 0.25,
       "capMonthly": null
     }
@@ -48,7 +48,7 @@
   "loungeInternational": 0,
   "lounge": {
     "domestic": [
-      "Complimentary domestic airport lounge access (1 visit per quarter) requires a minimum spend of Rs 75,000 in the previous calendar quarter."
+      "Complimentary domestic airport lounge access (1 visit per quarter) requires a minimum spend of ₹75,000 in the previous calendar quarter."
     ]
   },
   "forexMarkup": 3.5,
@@ -90,22 +90,22 @@
     {
       "value": 100,
       "kind": "cashback",
-      "label": "Rs 100 cashback on HP Pay app upon first successful fuel transaction of min Rs 1,000"
+      "label": "₹100 cashback on HP Pay app upon first successful fuel transaction of min ₹1,000"
     }
   ],
   "joiningBenefits": [
     "2,000 Reward Points upon card activation and payment of joining fee",
-    "Rs 100 cashback on HP Pay app upon first successful fuel transaction of min Rs 1,000"
+    "₹100 cashback on HP Pay app upon first successful fuel transaction of min ₹1,000"
   ],
   "milestoneBenefits": [],
   "additionalBenefits": [
     "5% savings on HPCL fuel purchases: 4% cashback plus 1% fuel surcharge waiver",
     "Additional 1.5% benefit as reward points on HP Pay app fuel purchases at HPCL outlets",
-    "25% discount on BookMyShow and INOX movie tickets (minimum 2 tickets), capped at Rs 100 twice a month, subject to spending Rs 25,000 in the preceding calendar quarter"
+    "25% discount on BookMyShow and INOX movie tickets (minimum 2 tickets), capped at ₹100 twice a month, subject to spending ₹25,000 in the preceding calendar quarter"
   ],
   "additionalDetails": [
-    "1% fuel surcharge waiver applies to transactions up to Rs 4,000 at HPCL petrol pumps",
-    "A transaction fee of 1% applies to utility payments exceeding Rs 50,000 per month"
+    "1% fuel surcharge waiver applies to transactions up to ₹4,000 at HPCL petrol pumps",
+    "A transaction fee of 1% applies to utility payments exceeding ₹50,000 per month"
   ],
   "redemption": {
     "statementBalanceValue": 0.25,
@@ -114,11 +114,11 @@
   "eligibility": {
     "salaried": [
       "Age: 21-65 years",
-      "Minimum net monthly salary: Rs 20,000"
+      "Minimum net monthly salary: ₹20,000"
     ],
     "selfEmployed": [
       "Age: 21-65 years",
-      "Minimum annual ITR: Rs 2,40,000"
+      "Minimum annual ITR: ₹2,40,000"
     ]
   },
   "sourceUrl": "https://www.icicibank.com/personal-banking/cards/credit-card/hpcl-super-saver-credit-card",
@@ -129,10 +129,10 @@
   "internalNotes": [
     "Card details manually reviewed and verified by user on 2026-06-06",
     "Official audit completed on 2026-06-06 using ICICI Bank HPCL Super Saver product page and terms.",
-    "Annual fee of Rs 500 is waived on spending Rs 1.5 Lakhs or more in the previous anniversary year.",
-    "Fuel spends earn 4% cashback capped at Rs 200 per month, plus 1% surcharge waiver on transactions up to Rs 4,000.",
-    "Utilities, departmental stores, and grocery spends earn 5% back (20 points per Rs 100 spent) with a shared cap of 400 points (value of Rs 100) per statement cycle.",
-    "Complimentary domestic airport lounge access (1 visit per quarter) requires a minimum spend of Rs 75,000 in the previous calendar quarter.",
-    "BookMyShow movie discount (25% off up to Rs 100 twice a month on min 2 tickets) requires spending Rs 25,000 in the preceding spends quarter (effective April 1, 2026)."
+    "Annual fee of ₹500 is waived on spending ₹1.5 Lakhs or more in the previous anniversary year.",
+    "Fuel spends earn 4% cashback capped at ₹200 per month, plus 1% surcharge waiver on transactions up to ₹4,000.",
+    "Utilities, departmental stores, and grocery spends earn 5% back (20 points per ₹100 spent) with a shared cap of 400 points (value of ₹100) per statement cycle.",
+    "Complimentary domestic airport lounge access (1 visit per quarter) requires a minimum spend of ₹75,000 in the previous calendar quarter.",
+    "BookMyShow movie discount (25% off up to ₹100 twice a month on min 2 tickets) requires spending ₹25,000 in the preceding spends quarter (effective April 1, 2026)."
   ]
 }

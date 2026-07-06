@@ -23,14 +23,14 @@
       "category": "grocery, dining",
       "displayCategory": "Canteen Stores Department (CSD) military canteens, dining, movies, departmental stores, and grocery spends",
       "rate": 10,
-      "displayRate": "10 Reward Points / Rs 100 spent",
+      "displayRate": "10 Reward Points / ₹100 spent",
       "capMonthly": null
     },
     {
       "category": "base",
       "displayCategory": "Other eligible purchases",
       "rate": 2,
-      "displayRate": "2 Reward Points / Rs 100 spent",
+      "displayRate": "2 Reward Points / ₹100 spent",
       "capMonthly": null
     }
   ],
@@ -71,7 +71,7 @@
     {
       "value": 375,
       "kind": "points",
-      "label": "1,500 renewal bonus Reward Points worth Rs 375"
+      "label": "1,500 renewal bonus Reward Points worth ₹375"
     }
   ],
   "renewalBenefits": [
@@ -83,25 +83,25 @@
       "period": "quarterly",
       "value": 250,
       "kind": "voucher",
-      "label": "Rs 500 Pizza Hut e-gift voucher on spends of Rs 50,000 in a calendar quarter"
+      "label": "₹500 Pizza Hut e-gift voucher on spends of ₹50,000 in a calendar quarter"
     },
     {
       "threshold": 500000,
       "period": "annual",
       "value": 3500,
       "kind": "voucher",
-      "label": "Rs 7,000 Yatra or Pantaloons e-gift voucher on annual spends of Rs 5 lakh"
+      "label": "₹7,000 Yatra or Pantaloons e-gift voucher on annual spends of ₹5 lakh"
     }
   ],
   "milestoneBenefits": [
-    "Pizza Hut e-gift voucher worth Rs 500 on quarterly spends of Rs 50,000",
-    "Yatra or Pantaloons e-gift voucher worth Rs 7,000 on annual spends of Rs 5 lakh"
+    "Pizza Hut e-gift voucher worth ₹500 on quarterly spends of ₹50,000",
+    "Yatra or Pantaloons e-gift voucher worth ₹7,000 on annual spends of ₹5 lakh"
   ],
   "additionalBenefits": [
-    "Personal accident insurance cover of Rs 10 lakh, subject to policy terms",
+    "Personal accident insurance cover of ₹10 lakh, subject to policy terms",
     "Card can be embossed with service branch name (Army, Navy, Air Force, or Paramilitary)",
     "24x7 complimentary concierge services",
-    "1% fuel surcharge waiver at petrol pumps in India on transactions from Rs 500 to Rs 4,000, capped at Rs 250 per statement cycle"
+    "1% fuel surcharge waiver at petrol pumps in India on transactions from ₹500 to ₹4,000, capped at ₹250 per statement cycle"
   ],
   "redemption": {
     "statementBalanceValue": 0.25,

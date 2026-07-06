@@ -24,7 +24,7 @@
       "category": "base",
       "displayCategory": "All eligible purchases",
       "rate": 4,
-      "displayRate": "4 Reward Points / Rs 100 spent",
+      "displayRate": "4 Reward Points / ₹100 spent",
       "capMonthly": null
     }
   ],
@@ -69,11 +69,11 @@
     {
       "value": 10000,
       "kind": "points",
-      "label": "40,000 AURUM Reward Points worth Rs 10,000"
+      "label": "40,000 AURUM Reward Points worth ₹10,000"
     }
   ],
   "joiningBenefits": [
-    "40,000 AURUM Reward Points worth Rs 10,000 upon payment of joining fee"
+    "40,000 AURUM Reward Points worth ₹10,000 upon payment of joining fee"
   ],
   "renewalBenefitsValued": [],
   "renewalBenefits": [],
@@ -83,42 +83,42 @@
       "period": "monthly",
       "value": 750,
       "kind": "voucher",
-      "label": "Monthly Tata CLiQ Luxury voucher worth Rs 1,500 on monthly spends of Rs 1 lakh"
+      "label": "Monthly Tata CLiQ Luxury voucher worth ₹1,500 on monthly spends of ₹1 lakh"
     },
     {
       "threshold": 500000,
       "period": "annual",
       "value": 2500,
       "kind": "voucher",
-      "label": "Tata CLiQ Luxury voucher worth Rs 5,000 on annual spends of Rs 5 lakh"
+      "label": "Tata CLiQ Luxury voucher worth ₹5,000 on annual spends of ₹5 lakh"
     },
     {
       "threshold": 1000000,
       "period": "annual",
       "value": 5000,
       "kind": "voucher",
-      "label": "Taj experience voucher worth Rs 10,000 on annual spends of Rs 10 lakh"
+      "label": "Taj experience voucher worth ₹10,000 on annual spends of ₹10 lakh"
     },
     {
       "threshold": 2000000,
       "period": "annual",
       "value": 10000,
       "kind": "voucher",
-      "label": "Apple voucher worth Rs 20,000 on annual spends of Rs 20 lakh"
+      "label": "Apple voucher worth ₹20,000 on annual spends of ₹20 lakh"
     }
   ],
   "milestoneBenefits": [
-    "Monthly Tata CLiQ Luxury voucher worth Rs 1,500 on monthly spends of Rs 1 lakh",
-    "Tata CLiQ Luxury voucher worth Rs 5,000 on annual spends of Rs 5 lakh",
-    "Taj experience voucher worth Rs 10,000 on annual spends of Rs 10 lakh",
-    "Apple voucher worth Rs 20,000 on annual spends of Rs 20 lakh"
+    "Monthly Tata CLiQ Luxury voucher worth ₹1,500 on monthly spends of ₹1 lakh",
+    "Tata CLiQ Luxury voucher worth ₹5,000 on annual spends of ₹5 lakh",
+    "Taj experience voucher worth ₹10,000 on annual spends of ₹10 lakh",
+    "Apple voucher worth ₹20,000 on annual spends of ₹20 lakh"
   ],
   "additionalBenefits": [
-    "4 complimentary movie tickets per month via BookMyShow, capped at Rs 1,000 per month",
+    "4 complimentary movie tickets per month via BookMyShow, capped at ₹1,000 per month",
     "16 complimentary golf rounds and 12 golf lessons per year",
     "1 complimentary airport spa session per quarter at select airports",
     "Complimentary premium memberships including Club Marriott, Wall Street Journal, Mint and IPV membership",
-    "1% fuel surcharge waiver on eligible fuel transactions between Rs 500 and Rs 4,000, capped at Rs 250 per month"
+    "1% fuel surcharge waiver on eligible fuel transactions between ₹500 and ₹4,000, capped at ₹250 per month"
   ],
   "redemption": {
     "statementBalanceValue": 0.25,

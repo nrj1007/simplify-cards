@@ -75,7 +75,7 @@
     {
       "value": 50,
       "kind": "points",
-      "label": "500 bonus Reward Points (worth Rs 50) on spending Rs 3,000 within the first 30 days of card setup"
+      "label": "500 bonus Reward Points (worth ₹50) on spending ₹3,000 within the first 30 days of card setup"
     }
   ],
   "renewalBenefitsValued": [],
@@ -106,13 +106,13 @@
       {
         "partner": "Brand e-Vouchers",
         "programme": "Brand e-vouchers via Kotak Rewards",
-        "ratio": "1 point = Rs 0.10",
+        "ratio": "1 point = ₹0.10",
         "valuePerPoint": 0.1
       },
       {
         "partner": "Travel bookings",
         "programme": "Flight & hotel bookings via Kotak Rewards",
-        "ratio": "1 point = Rs 0.10",
+        "ratio": "1 point = ₹0.10",
         "valuePerPoint": 0.1
       }
     ]
@@ -133,7 +133,7 @@
   "verificationStatus": "official-direct",
   "imageUrl": "/images/kotak-811.webp",
   "internalNotes": [
-    "Redemption rate for vouchers and merchandise is 1 point = Rs 0.10. Cash statement credit rate is devalued to 1 point = Rs 0.07. Spends on utility, education, wallet loading, government, insurance, gaming, fuel, and rent do not count towards milestone benefits.",
+    "Redemption rate for vouchers and merchandise is 1 point = ₹0.10. Cash statement credit rate is devalued to 1 point = ₹0.07. Spends on utility, education, wallet loading, government, insurance, gaming, fuel, and rent do not count towards milestone benefits.",
     "Card details manually reviewed and verified by user on 2026-06-15."
   ]
 }

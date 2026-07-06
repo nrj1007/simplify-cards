@@ -125,7 +125,7 @@ describe("ask ai fallback policy", () => {
     expect(answer.highlights).toEqual(
       expect.arrayContaining([
         expect.stringMatching(/not listed in exclusions/i),
-        expect.stringMatching(/3\.33 reward points per Rs 100/i)
+        expect.stringMatching(/3\.33 reward points per ₹100/i)
       ])
     );
   });

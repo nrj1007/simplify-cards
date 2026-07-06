@@ -22,42 +22,42 @@
       "category": "base",
       "displayCategory": "weekday spends",
       "rate": 1,
-      "displayRate": "1 reward point per Rs 100",
+      "displayRate": "1 reward point per ₹100",
       "capMonthly": null
     },
     {
       "category": "online",
       "displayCategory": "weekend spends",
       "rate": 2,
-      "displayRate": "2 reward points per Rs 100",
+      "displayRate": "2 reward points per ₹100",
       "capMonthly": null
     },
     {
       "category": "utilities",
       "displayCategory": "Utility bill payments",
       "rate": 0.7,
-      "displayRate": "0.7 reward points per Rs 100",
+      "displayRate": "0.7 reward points per ₹100",
       "capMonthly": null
     },
     {
       "category": "insurance",
       "displayCategory": "Insurance premium payments",
       "rate": 0.7,
-      "displayRate": "0.7 reward points per Rs 100",
+      "displayRate": "0.7 reward points per ₹100",
       "capMonthly": null
     },
     {
       "category": "education",
       "displayCategory": "Education fees",
       "rate": 0.7,
-      "displayRate": "0.7 reward points per Rs 100",
+      "displayRate": "0.7 reward points per ₹100",
       "capMonthly": null
     },
     {
       "category": "rent",
       "displayCategory": "Rent payments",
       "rate": 0.7,
-      "displayRate": "0.7 reward points per Rs 100",
+      "displayRate": "0.7 reward points per ₹100",
       "capMonthly": null
     }
   ],
@@ -99,19 +99,19 @@
     {
       "value": 25000,
       "kind": "voucher",
-      "label": "Welcome vouchers worth Rs 50,000 on joining at a discounted fee of Rs 45,000"
+      "label": "Welcome vouchers worth ₹50,000 on joining at a discounted fee of ₹45,000"
     }
   ],
   "joiningBenefits": [
-    "Welcome vouchers worth Rs 50,000 on joining at a discounted fee of Rs 45,000",
-    "Alternative lower-fee joining path at Rs 5,000 with spend-based waiver and no welcome vouchers",
-    "4,000 bonus reward points on spends of Rs 5,00,000 or more within one year from card issue as per revised official note"
+    "Welcome vouchers worth ₹50,000 on joining at a discounted fee of ₹45,000",
+    "Alternative lower-fee joining path at ₹5,000 with spend-based waiver and no welcome vouchers",
+    "4,000 bonus reward points on spends of ₹5,00,000 or more within one year from card issue as per revised official note"
   ],
   "milestoneBenefits": [],
   "additionalBenefits": [
     "Low forex markup of 1.8% on foreign currency transactions (not applicable for complimentary Pioneer Legacy card)",
     "Complimentary golf privileges: 2 complimentary games and 2 complimentary lessons per month (effective 10 March 2026)",
-    "Buy 1 Get 1 free movie tickets on BookMyShow: up to 3 free tickets per month (capped at Rs 300 per ticket discount) plus Rs 50 off on F&B (applicable on the paid variant)",
+    "Buy 1 Get 1 free movie tickets on BookMyShow: up to 3 free tickets per month (capped at ₹300 per ticket discount) plus ₹50 off on F&B (applicable on the paid variant)",
     "No cash advancement or withdrawal charges"
   ],
   "redemption": {

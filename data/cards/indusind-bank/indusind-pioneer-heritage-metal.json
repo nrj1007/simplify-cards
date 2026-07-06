@@ -21,41 +21,41 @@
     {
       "category": "base",
       "rate": 1,
-      "displayRate": "1 reward point per Rs 100",
+      "displayRate": "1 reward point per ₹100",
       "capMonthly": null
     },
     {
       "category": "travel",
       "rate": 2.5,
-      "displayRate": "2.5 reward points per Rs 100",
+      "displayRate": "2.5 reward points per ₹100",
       "capMonthly": null
     },
     {
       "category": "utilities",
       "displayCategory": "Utility bill payments",
       "rate": 0.7,
-      "displayRate": "0.7 reward points per Rs 100",
+      "displayRate": "0.7 reward points per ₹100",
       "capMonthly": null
     },
     {
       "category": "insurance",
       "displayCategory": "Insurance premium payments",
       "rate": 0.7,
-      "displayRate": "0.7 reward points per Rs 100",
+      "displayRate": "0.7 reward points per ₹100",
       "capMonthly": null
     },
     {
       "category": "education",
       "displayCategory": "Education fees",
       "rate": 0.7,
-      "displayRate": "0.7 reward points per Rs 100",
+      "displayRate": "0.7 reward points per ₹100",
       "capMonthly": null
     },
     {
       "category": "rent",
       "displayCategory": "Rent payments",
       "rate": 0.7,
-      "displayRate": "0.7 reward points per Rs 100",
+      "displayRate": "0.7 reward points per ₹100",
       "capMonthly": null
     }
   ],
@@ -94,11 +94,11 @@
     {
       "value": 1,
       "kind": "voucher",
-      "label": "Welcome vouchers worth Rs 1 lakh upon joining fee payment of Rs 1 lakh"
+      "label": "Welcome vouchers worth ₹1 lakh upon joining fee payment of ₹1 lakh"
     }
   ],
   "joiningBenefits": [
-    "Welcome vouchers worth Rs 1 lakh upon joining fee payment of Rs 1 lakh"
+    "Welcome vouchers worth ₹1 lakh upon joining fee payment of ₹1 lakh"
   ],
   "milestoneBenefits": [],
   "additionalBenefits": [
@@ -106,8 +106,8 @@
     "Unlimited domestic lounge visits",
     "Unlimited international lounge visits on eligible network and programme memberships",
     "4 complimentary golf games and 4 complimentary golf lessons per month (effective 10 March 2026)",
-    "Complimentary movie tickets on BookMyShow: 4 free tickets per quarter (capped at Rs 1,000 per ticket) plus 20% off (up to Rs 350) for every 2 tickets on non-movie events",
-    "Complimentary dining benefits via EazyDiner: get Rs 3,000 off on total bill around the year at select restaurants",
+    "Complimentary movie tickets on BookMyShow: 4 free tickets per quarter (capped at ₹1,000 per ticket) plus 20% off (up to ₹350) for every 2 tickets on non-movie events",
+    "Complimentary dining benefits via EazyDiner: get ₹3,000 off on total bill around the year at select restaurants",
     "No late payment fee, no over-limit fee, and no cash advancement charges"
   ],
   "redemption": {

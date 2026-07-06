@@ -322,7 +322,7 @@ const bareSpendCategoryPhrases = new Set([
 ]);
 
 function formatRupees(value: number) {
-  return `Rs ${value.toLocaleString("en-IN")}`;
+  return `₹${value.toLocaleString("en-IN")}`;
 }
 
 function joinNatural(parts: string[]) {
@@ -403,7 +403,7 @@ function formatAnnualSpendLabel(annualTarget: number, suffixPlus = false) {
 }
 
 function formatWaiverRupees(value: number) {
-  return `Rs ${formatAnnualSpendLabel(value)}`;
+  return `₹${formatAnnualSpendLabel(value)}`;
 }
 
 function determineScenarioTargets(input: RecommendationInput, answerCards: CardScore[]) {
@@ -1101,7 +1101,7 @@ function rewardRateLabelForAnswer(cardScore: CardScore, rate: number) {
   const display = Number(rate.toFixed(2));
   const rewardTypeLower = cardScore.card.rewardType.toLowerCase();
   if (rewardTypeLower.includes("point") || rewardTypeLower.includes("mile")) {
-    return `${display} ${cardScore.card.rewardType} per Rs 100`;
+    return `${display} ${cardScore.card.rewardType} per ₹100`;
   }
 
   return `${display}%`;
@@ -1209,16 +1209,16 @@ function buildSpecificQuestionAnswer(input: RecommendationInput, topCard: CardSc
     if (topCard.card.redemption) {
       const highlights = [
         typeof topCard.card.redemption.smartBuyFlightHotelValue === "number"
-          ? `SmartBuy travel value: Rs ${topCard.card.redemption.smartBuyFlightHotelValue} per point.`
+          ? `SmartBuy travel value: ₹${topCard.card.redemption.smartBuyFlightHotelValue} per point.`
           : "",
         typeof topCard.card.redemption.travelEdgeValue === "number"
-          ? `Travel EDGE travel value: Rs ${topCard.card.redemption.travelEdgeValue} per point.`
+          ? `Travel EDGE travel value: ₹${topCard.card.redemption.travelEdgeValue} per point.`
           : "",
         typeof getAirMilesValue(topCard.card) === "number"
           ? `Air miles value: ${getAirMilesValue(topCard.card)} per point.`
           : "",
         typeof topCard.card.redemption.statementBalanceValue === "number"
-          ? `Statement credit value: Rs ${topCard.card.redemption.statementBalanceValue} per point.`
+          ? `Statement credit value: ₹${topCard.card.redemption.statementBalanceValue} per point.`
           : ""
       ].filter(Boolean);
 

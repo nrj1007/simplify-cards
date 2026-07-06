@@ -22,14 +22,14 @@
       "category": "base",
       "displayCategory": "Domestic spends",
       "rate": 3,
-      "displayRate": "6 EDGE REWARD Points / Rs 200 spent",
+      "displayRate": "6 EDGE REWARD Points / ₹200 spent",
       "capMonthly": null
     },
     {
       "category": "international",
       "displayCategory": "International spends",
       "rate": 6,
-      "displayRate": "12 EDGE REWARD Points / Rs 200 spent",
+      "displayRate": "12 EDGE REWARD Points / ₹200 spent",
       "capMonthly": null
     }
   ],
@@ -75,15 +75,15 @@
   ],
   "joiningBenefits": [
     "100 EDGE REWARD Points on first online transaction",
-    "Joining fee waived on spends of Rs 5,000 within 45 days of card setup"
+    "Joining fee waived on spends of ₹5,000 within 45 days of card setup"
   ],
   "renewalBenefits": [
-    "Annual fee waived on spends of Rs 1 lakh in the preceding year"
+    "Annual fee waived on spends of ₹1 lakh in the preceding year"
   ],
   "milestoneBenefits": [],
   "additionalBenefits": [
-    "25% cashback on online and box office movie ticket purchases, capped at Rs 1,000 per calendar year",
-    "1% fuel surcharge waiver on transactions between Rs 400 and Rs 4,000, capped at Rs 400 per billing cycle",
+    "25% cashback on online and box office movie ticket purchases, capped at ₹1,000 per calendar year",
+    "1% fuel surcharge waiver on transactions between ₹400 and ₹4,000, capped at ₹400 per billing cycle",
     "Dining Delights discounts of up to 15% at participating partner restaurants"
   ],
   "redemption": {
@@ -261,12 +261,12 @@
   "eligibility": {
     "salaried": [
       "Age: 18 to 70 years",
-      "Minimum Net Monthly Salary: Rs 20,000",
+      "Minimum Net Monthly Salary: ₹20,000",
       "Resident of India"
     ],
     "selfEmployed": [
       "Age: 18 to 70 years",
-      "Minimum Annual Income (ITR): Rs 3,50,000",
+      "Minimum Annual Income (ITR): ₹3,50,000",
       "Resident of India"
     ]
   },

@@ -13,15 +13,15 @@ import { useNavigationProgress } from "./NavigationProgress";
 const EXAMPLE_QUERIES = [
   "Best lifetime free cashback card",
   "Top cards for airport lounge access",
-  "Best travel card under Rs 5000 fee",
+  "Best travel card under ₹5000 fee",
   "Best card for online shopping",
 ];
 
 const HERO_PROMPTS = [
-  "Best card for Rs 40k online spend?",
+  "Best card for ₹40k online spend?",
   "Which card gives lounge access?",
   "Best UPI card for rewards?",
-  "Best travel card under Rs 5000?",
+  "Best travel card under ₹5000?",
 ];
 
 type Props = {
@@ -87,7 +87,7 @@ export default function AskBox({
           disabled={isLoading}
           id="query"
           name="query"
-          placeholder="Example: I spend Rs 25k on Amazon/Flipkart, Rs 8k on food delivery, and travel 3 times a year. Which cards should I consider?"
+          placeholder="Example: I spend ₹25k on Amazon/Flipkart, ₹8k on food delivery, and travel 3 times a year. Which cards should I consider?"
         />
 
         {defaultMaxAnnualFee !== undefined ? <input name="maxAnnualFee" type="hidden" value={defaultMaxAnnualFee} /> : null}
@@ -128,7 +128,7 @@ export default function AskBox({
           disabled={isLoading}
           id="query"
           name="query"
-          placeholder="e.g. Best cashback card under Rs 2000 annual fee"
+          placeholder="e.g. Best cashback card under ₹2000 annual fee"
         />
       </div>
       {defaultMaxAnnualFee !== undefined ? <input name="maxAnnualFee" type="hidden" value={defaultMaxAnnualFee} /> : null}

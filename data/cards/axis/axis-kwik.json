@@ -21,14 +21,14 @@
       "category": "upi",
       "displayCategory": "UPI spends via Kiwi app",
       "rate": 5,
-      "displayRate": "5 EDGE REWARD Points / Rs 100 spent (1% cashback equivalent)",
+      "displayRate": "5 EDGE REWARD Points / ₹100 spent (1% cashback equivalent)",
       "capMonthly": null
     },
     {
       "category": "base",
       "displayCategory": "All other eligible spends",
       "rate": 1,
-      "displayRate": "2 EDGE REWARD Points / Rs 200 spent",
+      "displayRate": "2 EDGE REWARD Points / ₹200 spent",
       "capMonthly": null
     }
   ],
@@ -55,7 +55,7 @@
     "education",
     "government services",
     "emi transactions",
-    "credit card on UPI transactions less than Rs 2,000",
+    "credit card on UPI transactions less than ₹2,000",
     "transactions excluded under Kwik Axis Bank Credit Card terms"
   ],
   "exclusionCodes": [
@@ -73,7 +73,7 @@
     "Lifetime free card with nil joining fee and nil annual fee",
     "Credit card on UPI through RuPay with seamless transaction experience through any UPI app",
     "Instant virtual card on approval",
-    "1% fuel surcharge waiver on fuel purchases between Rs 400 and Rs 4,000, capped at Rs 150 per month",
+    "1% fuel surcharge waiver on fuel purchases between ₹400 and ₹4,000, capped at ₹150 per month",
     "Card can be activated by linking to UPI and setting UPI PIN or through Axis Bank mobile/internet banking"
   ],
   "redemption": {

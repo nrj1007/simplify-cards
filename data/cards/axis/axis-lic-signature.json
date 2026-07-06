@@ -21,21 +21,21 @@
       "category": "insurance",
       "displayCategory": "LIC Premium payments",
       "rate": 2,
-      "displayRate": "2 Reward Points / Rs 100 spent",
+      "displayRate": "2 Reward Points / ₹100 spent",
       "capMonthly": null
     },
     {
       "category": "international",
       "displayCategory": "International spends",
       "rate": 2,
-      "displayRate": "2 Reward Points / Rs 100 spent",
+      "displayRate": "2 Reward Points / ₹100 spent",
       "capMonthly": null
     },
     {
       "category": "base",
       "displayCategory": "All other eligible spends",
       "rate": 1,
-      "displayRate": "1 Reward Point / Rs 100 spent",
+      "displayRate": "1 Reward Point / ₹100 spent",
       "capMonthly": null
     }
   ],
@@ -44,7 +44,7 @@
   "lounge": {
     "domestic": [
       "8 complimentary domestic airport lounge visits per calendar year (limited to 2 visits per quarter).",
-      "Requires spends of Rs 50,000 in the preceding 3 calendar months to unlock access (new cardholders are exempt for the month of card issuance and the next 3 calendar months)."
+      "Requires spends of ₹50,000 in the preceding 3 calendar months to unlock access (new cardholders are exempt for the month of card issuance and the next 3 calendar months)."
     ]
   },
   "forexMarkup": 3.5,
@@ -77,12 +77,12 @@
   ],
   "milestoneBenefits": [],
   "joiningBenefits": [
-    "100% cashback up to Rs 300 on first utility bill payment within first 30 days of card issuance"
+    "100% cashback up to ₹300 on first utility bill payment within first 30 days of card issuance"
   ],
   "additionalBenefits": [
     "Nil joining fee and nil annual fee",
     "Complimentary lost card liability insurance cover up to credit limit",
-    "1% fuel surcharge waiver on fuel purchases from Rs 400 to Rs 4,000, capped at Rs 400 per month",
+    "1% fuel surcharge waiver on fuel purchases from ₹400 to ₹4,000, capped at ₹400 per month",
     "Dining Delights discounts at participating restaurants"
   ],
   "redemption": {

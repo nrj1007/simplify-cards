@@ -47,25 +47,25 @@
   ],
   "milestones": [],
   "milestoneBenefits": [
-    "Monthly fee of Rs 49 is waived on spending Rs 5,000 or more in the previous calendar month"
+    "Monthly fee of ₹49 is waived on spending ₹5,000 or more in the previous calendar month"
   ],
   "additionalBenefits": [
-    "10% off at Blinkit (up to Rs 1,000 off per month, maximum 5 transactions)",
-    "10% off at Zomato (up to Rs 150 off per transaction, maximum 5 transactions per month)",
-    "20% off at Myntra (up to Rs 700 off once per month)",
-    "Buy 1 Get 1 free movie ticket at INOX on weekends (up to Rs 200 off per transaction, max 2 tickets per month)",
-    "15% cashback on Ola cab bookings (up to Rs 600 cashback per month)",
-    "Yatra discounts on flight and hotel bookings (up to Rs 10,000 off per transaction, once per quarter)"
+    "10% off at Blinkit (up to ₹1,000 off per month, maximum 5 transactions)",
+    "10% off at Zomato (up to ₹150 off per transaction, maximum 5 transactions per month)",
+    "20% off at Myntra (up to ₹700 off once per month)",
+    "Buy 1 Get 1 free movie ticket at INOX on weekends (up to ₹200 off per transaction, max 2 tickets per month)",
+    "15% cashback on Ola cab bookings (up to ₹600 cashback per month)",
+    "Yatra discounts on flight and hotel bookings (up to ₹10,000 off per transaction, once per quarter)"
   ],
   "redemption": {},
   "eligibility": {
     "salaried": [
       "Age: 18 to 65 years",
-      "Minimum monthly income of Rs 50,000"
+      "Minimum monthly income of ₹50,000"
     ],
     "selfEmployed": [
       "Age: 18 to 65 years",
-      "Minimum annual income of Rs 6,000,000 equivalent or subject to bank criteria"
+      "Minimum annual income of ₹6,000,000 equivalent or subject to bank criteria"
     ]
   },
   "imageUrl": "/images/sc-digismart.webp",
@@ -75,7 +75,7 @@
   "verificationStatus": "official-direct",
   "internalNotes": [
     "Card details manually reviewed and verified by user on 2026-06-14.",
-    "This is a monthly fee card with a Rs 49 monthly charge. The fee is waived if spends in the previous month reach Rs 5,000.",
+    "This is a monthly fee card with a ₹49 monthly charge. The fee is waived if spends in the previous month reach ₹5,000.",
     "All benefits are discount/cashback offers requiring the promo code DIGISMART on checkout.",
     "No standard reward points or cashbacks are accumulated outside the partner offers."
   ]

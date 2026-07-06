@@ -78,7 +78,7 @@
     {
       "value": 250,
       "kind": "points",
-      "label": "1,000 Reward Points (worth Rs 250) on spending ₹500 or above within 30 days of card issuance"
+      "label": "1,000 Reward Points (worth ₹250) on spending ₹500 or above within 30 days of card issuance"
     }
   ],
   "renewalBenefitsValued": [],
@@ -99,13 +99,13 @@
       {
         "partner": "Brand e-Vouchers",
         "programme": "Shopping & gift vouchers via Kotak Rewards",
-        "ratio": "1 point = Rs 0.25",
+        "ratio": "1 point = ₹0.25",
         "valuePerPoint": 0.25
       },
       {
         "partner": "Travel bookings",
         "programme": "Flight & hotel bookings via Kotak Rewards",
-        "ratio": "1 point = Rs 0.25",
+        "ratio": "1 point = ₹0.25",
         "valuePerPoint": 0.25
       }
     ]

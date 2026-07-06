@@ -63,7 +63,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     });
   }
 
-  const fee = card.annualFee === 0 ? "lifetime free" : `Rs ${card.annualFee.toLocaleString("en-IN")} annual fee`;
+  const fee = card.annualFee === 0 ? "lifetime free" : `₹ ${card.annualFee.toLocaleString("en-IN")} annual fee`;
   const totalLoungeAccess = getTotalLoungeAccess(card);
   const lounge = totalLoungeAccess === "unlimited"
     ? "unlimited lounge access"
@@ -84,7 +84,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 function formatCurrency(value: number | null | undefined) {
   if (value === null || value === undefined) return "Not listed";
-  return `Rs ${value.toLocaleString("en-IN")}`;
+  return `₹ ${value.toLocaleString("en-IN")}`;
 }
 
 function hasFeeWaiverSpend(value: number | null | undefined) {
@@ -98,7 +98,7 @@ function formatRewardCap(value: number | null | undefined, rewardType: string) {
 
 function formatStatementQuarterCap(value: number | null | undefined) {
   if (!value) return "-";
-  return `Rs ${value.toLocaleString("en-IN")}`;
+  return `₹ ${value.toLocaleString("en-IN")}`;
 }
 
 function formatRewardRate(card: CreditCard, reward: CreditCard["rewards"][number]) {
@@ -107,7 +107,7 @@ function formatRewardRate(card: CreditCard, reward: CreditCard["rewards"][number
   const rewardTypeLower = card.rewardType.toLowerCase();
 
   if (rewardTypeLower.includes("mile") || rewardTypeLower.includes("point")) {
-    return `${reward.rate} ${card.rewardType} / Rs 100`;
+    return `${reward.rate} ${card.rewardType} / ₹100`;
   }
 
   return `${reward.rate}%`;
@@ -193,9 +193,9 @@ function valueLabel(label: string, value: number, rewardType: string) {
     label === "Platinum Travel Collection" ||
     label === "Vouchers"
   ) {
-    return `upto Rs ${value} per point`;
+    return `upto ₹ ${value} per point`;
   }
-  return `upto Rs ${value} per ${singularRewardUnit(rewardType)}`;
+  return `upto ₹ ${value} per ${singularRewardUnit(rewardType)}`;
 }
 
 function formatTatDays(value: number | undefined) {
@@ -363,7 +363,7 @@ export default async function CardPage({ params, searchParams }: Props) {
                         const matched = [...tiers]
                           .sort((a, b) => b.minMonthlySpend - a.minMonthlySpend)
                           .find((t) => tier.monthlySpend >= t.minMonthlySpend);
-                        return matched ? `Rs ${matched.value.toFixed(2)}` : "-";
+                        return matched ? `₹ ${matched.value.toFixed(2)}` : "-";
                       })()}
                     </td>
                   ) : null}
@@ -668,7 +668,7 @@ export default async function CardPage({ params, searchParams }: Props) {
                           <td>
                             {optionLabel ? (
                               <span className="muted" style={{ display: "block", marginBottom: 4 }}>
-                                {optionLabel} {optionAnnualCost > 0 ? `(Rs ${optionAnnualCost.toLocaleString("en-IN")}/yr)` : ""}
+                                {optionLabel} {optionAnnualCost > 0 ? `(₹ ${optionAnnualCost.toLocaleString("en-IN")}/yr)` : ""}
                               </span>
                             ) : null}
                             {reward.displayCategory ?? reward.category}

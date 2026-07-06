@@ -6,20 +6,20 @@ import { estimateFallbackPointUnitValue, estimatePointUnitValue, parseRupeeAmoun
 export function extractMilestoneThreshold(text: string) {
   const normalized = text.toLowerCase().replace(/,/g, "").replace(/\s+/g, " ").trim();
   const lakhMatch =
-    normalized.match(/annual spend(?:s|ing)?(?: of| above| greater than)? rs (\d+(?:\.\d+)?) lakh(?:s)?/) ??
-    normalized.match(/spend(?:s)? of rs (\d+(?:\.\d+)?) lakh(?:s)?/) ??
-    normalized.match(/spending rs (\d+(?:\.\d+)?) lakh(?:s)?/) ??
-    normalized.match(/rs (\d+(?:\.\d+)?) lakh(?:s)? or more/) ??
-    normalized.match(/rs (\d+(?:\.\d+)?) lakh(?:s)?\s+(?:annual\s+)?spend/);
+    normalized.match(/annual spend(?:s|ing)?(?: of| above| greater than)? (?:rs|₹)\s*(\d+(?:\.\d+)?) lakh(?:s)?/) ??
+    normalized.match(/spend(?:s)? of (?:rs|₹)\s*(\d+(?:\.\d+)?) lakh(?:s)?/) ??
+    normalized.match(/spending (?:rs|₹)\s*(\d+(?:\.\d+)?) lakh(?:s)?/) ??
+    normalized.match(/(?:rs|₹)\s*(\d+(?:\.\d+)?) lakh(?:s)? or more/) ??
+    normalized.match(/(?:rs|₹)\s*(\d+(?:\.\d+)?) lakh(?:s)?\s+(?:annual\s+)?spend/);
 
   if (lakhMatch) {
     return Math.round(Number(lakhMatch[1]) * 100000);
   }
 
   const numMatch =
-    normalized.match(/(?:spends|spending|spend|spendings)(?: of| above| greater than| at| on)?(?: rs)?\s*(\d{4,9})/) ??
-    normalized.match(/(?:rs)?\s*(\d{4,9}) or more(?: annual| quarterly| statement)? spend/) ??
-    normalized.match(/spend (?:rs)?\s*(\d{4,9})/);
+    normalized.match(/(?:spends|spending|spend|spendings)(?: of| above| greater than| at| on)?(?: rs|₹)?\s*(\d{4,9})/) ??
+    normalized.match(/(?:rs|₹)?\s*(\d{4,9}) or more(?: annual| quarterly| statement)? spend/) ??
+    normalized.match(/spend (?:rs|₹)?\s*(\d{4,9})/);
 
   if (numMatch) {
     return Number(numMatch[1]);
@@ -42,32 +42,32 @@ export function estimateBenefitLineValue(card: CreditCard, benefit: string) {
 
   const voucherDiscount = 0.5;
 
-  // "rs X worth" — discounted when the line describes vouchers, full value otherwise
-  for (const match of benefit.matchAll(/rs\s+([\d,.]+(?:\.\d+)?)\s+worth/gi)) {
+  // "(rs|₹) X worth" — discounted when the line describes vouchers, full value otherwise
+  for (const match of benefit.matchAll(/(?:rs|₹)\s*([\d,.]+(?:\.\d+)?)\s+worth/gi)) {
     const parsed = parseRupeeAmount(match[1]);
     if (parsed) value += isVoucherBenefit ? Math.round(parsed * voucherDiscount) : parsed;
   }
 
-  // "voucher(s) worth rs X" — always discounted
-  for (const match of benefit.matchAll(/vouchers?\s+worth\s+rs\s+([\d,.]+(?:\.\d+)?)/gi)) {
+  // "voucher(s) worth (rs|₹) X" — always discounted
+  for (const match of benefit.matchAll(/vouchers?\s+worth\s+(?:rs|₹)\s*([\d,.]+(?:\.\d+)?)/gi)) {
     const parsed = parseRupeeAmount(match[1]);
     if (parsed) value += Math.round(parsed * voucherDiscount);
   }
 
-  // "rs X voucher(s)" — always discounted
-  for (const match of benefit.matchAll(/rs\s+([\d,.]+(?:\.\d+)?)\s+vouchers?/gi)) {
+  // "(rs|₹) X voucher(s)" — always discounted
+  for (const match of benefit.matchAll(/(?:rs|₹)\s*([\d,.]+(?:\.\d+)?)\s+vouchers?/gi)) {
     const parsed = parseRupeeAmount(match[1]);
     if (parsed) value += Math.round(parsed * voucherDiscount);
   }
 
-  // "cashback of rs X" — always full value
-  for (const match of benefit.matchAll(/cashback of rs ([\d,.]+(?:\.\d+)?)/gi)) {
+  // "cashback of (rs|₹) X" — always full value
+  for (const match of benefit.matchAll(/cashback of (?:rs|₹)\s*([\d,.]+(?:\.\d+)?)/gi)) {
     const parsed = parseRupeeAmount(match[1]);
     if (parsed) value += parsed;
   }
 
-  // "worth rs X" not preceded by "voucher(s)" — discounted when the line is a voucher benefit, full value otherwise
-  for (const match of benefit.matchAll(/(?<!vouchers? )worth rs ([\d,.]+(?:\.\d+)?)/gi)) {
+  // "worth (rs|₹) X" not preceded by "voucher(s)" — discounted when the line is a voucher benefit, full value otherwise
+  for (const match of benefit.matchAll(/(?<!vouchers? )worth (?:rs|₹)\s*([\d,.]+(?:\.\d+)?)/gi)) {
     const parsed = parseRupeeAmount(match[1]);
     if (parsed) value += isVoucherBenefit ? Math.round(parsed * voucherDiscount) : parsed;
   }

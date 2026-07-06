@@ -28,21 +28,21 @@
       "category": "partner merchants",
       "displayCategory": "Singapore Airlines Group Spends",
       "rate": 2.5,
-      "displayRate": "5 KrisFlyer Miles per Rs 200",
+      "displayRate": "5 KrisFlyer Miles per ₹200",
       "capMonthly": null
     },
     {
       "category": "international",
       "displayCategory": "International Spends",
       "rate": 2.5,
-      "displayRate": "5 KrisFlyer Miles per Rs 200",
+      "displayRate": "5 KrisFlyer Miles per ₹200",
       "capMonthly": null
     },
     {
       "category": "base",
       "displayCategory": "Other Eligible Spends",
       "rate": 1,
-      "displayRate": "2 KrisFlyer Miles per Rs 200",
+      "displayRate": "2 KrisFlyer Miles per ₹200",
       "capMonthly": null
     }
   ],
@@ -83,19 +83,19 @@
       "period": "annual",
       "value": 2400,
       "kind": "points",
-      "label": "3,000 bonus KrisFlyer Miles on reaching Rs 3 Lakh in annual spends"
+      "label": "3,000 bonus KrisFlyer Miles on reaching ₹3 Lakh in annual spends"
     },
     {
       "threshold": 250000,
       "period": "annual",
       "value": 0,
       "kind": "other",
-      "label": "KrisFlyer Elite Silver tier upgrade on reaching annual spends of Rs 2.5 Lakh on Singapore Airlines Group booking channels"
+      "label": "KrisFlyer Elite Silver tier upgrade on reaching annual spends of ₹2.5 Lakh on Singapore Airlines Group booking channels"
     }
   ],
   "milestoneBenefits": [
-    "3,000 bonus KrisFlyer Miles on reaching Rs 3 Lakh in annual spends",
-    "KrisFlyer Elite Silver tier upgrade on reaching annual spends of Rs 2.5 Lakh on Singapore Airlines Group booking channels"
+    "3,000 bonus KrisFlyer Miles on reaching ₹3 Lakh in annual spends",
+    "KrisFlyer Elite Silver tier upgrade on reaching annual spends of ₹2.5 Lakh on Singapore Airlines Group booking channels"
   ],
   "joiningBenefitsValued": [
     {
@@ -127,6 +127,6 @@
     "KrisFlyer Miles are valid for 3 years from the date of credit to the linked account.",
     "Priority Pass membership is complimentary for the primary cardholder for the first 2 card membership years.",
     "International lounge visits beyond the complimentary limit or by guests are charged at USD 27 plus taxes per visit.",
-    "Upgrade to KrisFlyer Elite Silver requires spending at least Rs 2.5 Lakh directly on Singapore Airlines flights booked via the official website or mobile app."
+    "Upgrade to KrisFlyer Elite Silver requires spending at least ₹2.5 Lakh directly on Singapore Airlines flights booked via the official website or mobile app."
   ]
 }

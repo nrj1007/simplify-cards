@@ -20,14 +20,14 @@
       "category": "travel",
       "rate": 5,
       "displayCategory": "International and retail fashion spends",
-      "displayRate": "5 reward points / Rs 100 spent",
+      "displayRate": "5 reward points / ₹100 spent",
       "capMonthly": null
     },
     {
       "category": "base",
       "rate": 2,
       "displayCategory": "Other retail spends",
-      "displayRate": "2 reward points / Rs 100 spent",
+      "displayRate": "2 reward points / ₹100 spent",
       "capMonthly": null
     }
   ],
@@ -84,8 +84,8 @@
   "verificationStatus": "official-direct",
   "internalNotes": [
     "Card details manually reviewed and verified by user on 2026-06-14.",
-    "Earns 5 reward points per Rs 100 spent on overseas or retail fashion transactions (1.25% return value). 1 point = Rs 0.25.",
-    "Earns 2 reward points per Rs 100 spent on other transactions (0.50% return value).",
+    "Earns 5 reward points per ₹100 spent on overseas or retail fashion transactions (1.25% return value). 1 point = ₹0.25.",
+    "Earns 2 reward points per ₹100 spent on other transactions (0.50% return value).",
     "Complimentary domestic lounge access (4 per quarter) is provided unconditionally.",
     "Complimentary international lounge access (2 per month via Priority Pass) is provided only for FUM (Funds Under Management) qualified Priority Banking clients."
   ]

@@ -20,29 +20,29 @@
     {
       "category": "dining, travel, online, international",
       "rate": 6.6667,
-      "displayCategory": "Dining, Travel, Online, International, Birthday, and incremental spends above Rs 20,000",
-      "displayRate": "10 Reward Points per Rs 150 spent",
+      "displayCategory": "Dining, Travel, Online, International, Birthday, and incremental spends above ₹20,000",
+      "displayRate": "10 Reward Points per ₹150 spent",
       "capMonthly": null
     },
     {
       "category": "base",
       "rate": 3.3333,
-      "displayCategory": "Other retail spends up to Rs 20,000",
-      "displayRate": "5 Reward Points per Rs 150 spent",
+      "displayCategory": "Other retail spends up to ₹20,000",
+      "displayRate": "5 Reward Points per ₹150 spent",
       "capMonthly": null
     },
     {
       "category": "rent, education, government",
       "rate": 2,
       "displayCategory": "Rent, education, wallet load, and government spends",
-      "displayRate": "3 Reward Points per Rs 150 spent",
+      "displayRate": "3 Reward Points per ₹150 spent",
       "capMonthly": null
     },
     {
       "category": "utilities, insurance",
       "rate": 0.6667,
       "displayCategory": "Utility, insurance, FASTag, and railway spends",
-      "displayRate": "1 Reward Point per Rs 150 spent",
+      "displayRate": "1 Reward Point per ₹150 spent",
       "capMonthly": null
     }
   ],
@@ -50,10 +50,10 @@
   "loungeInternational": 8,
   "lounge": {
     "domestic": [
-      "4 complimentary domestic airport lounge visits per quarter, subject to a minimum spend of Rs 20,000 in the previous calendar month."
+      "4 complimentary domestic airport lounge visits per quarter, subject to a minimum spend of ₹20,000 in the previous calendar month."
     ],
     "international": [
-      "2 complimentary international airport lounge visits per quarter, subject to a minimum spend of Rs 20,000 in the previous calendar month."
+      "2 complimentary international airport lounge visits per quarter, subject to a minimum spend of ₹20,000 in the previous calendar month."
     ]
   },
   "forexMarkup": 1,
@@ -83,19 +83,19 @@
       "period": "annual",
       "value": 1875,
       "kind": "points",
-      "label": "7,500 Reward Points on annual spending of Rs 8 Lakh"
+      "label": "7,500 Reward Points on annual spending of ₹8 Lakh"
     }
   ],
   "milestoneBenefits": [
-    "Earn 7,500 Reward Points on annual spending of Rs 8 Lakh"
+    "Earn 7,500 Reward Points on annual spending of ₹8 Lakh"
   ],
   "additionalBenefits": [
     "Premium metal credit card",
-    "Welcome benefit of up to 7,500 Reward Points (2,500 points upon fee payment and 2,500 each for spending Rs 20,000 in the 2nd and 3rd cycles)",
+    "Welcome benefit of up to 7,500 Reward Points (2,500 points upon fee payment and 2,500 each for spending ₹20,000 in the 2nd and 3rd cycles)",
     "4 complimentary railway lounge visits per quarter",
     "Complimentary golf privileges (up to 40 rounds/lessons per year)",
-    "Buy 1 Get 1 free movie ticket offer up to Rs 400 twice a month via BookMyShow",
-    "1% fuel surcharge waiver up to Rs 200 per statement cycle at HPCL stations",
+    "Buy 1 Get 1 free movie ticket offer up to ₹400 twice a month via BookMyShow",
+    "1% fuel surcharge waiver up to ₹200 per statement cycle at HPCL stations",
     "Reward points are valid for 24 months"
   ],
   "redemption": {
@@ -106,11 +106,11 @@
   "eligibility": {
     "salaried": [
       "Age: 21 to 65 years",
-      "Minimum annual income of Rs 1,200,000 (Rs 12 Lakh)"
+      "Minimum annual income of ₹1,200,000 (₹12 Lakh)"
     ],
     "selfEmployed": [
       "Age: 21 to 65 years",
-      "Minimum annual income of Rs 1,200,000 (Rs 12 Lakh)"
+      "Minimum annual income of ₹1,200,000 (₹12 Lakh)"
     ]
   },
   "imageUrl": "/images/idfc-ashva.webp",
@@ -120,12 +120,12 @@
   "verificationStatus": "official-direct",
   "internalNotes": [
     "Card details manually reviewed and verified by user on 2026-06-14.",
-    "5X reward points (3.33 points per Rs 100 spent) up to Rs 20,000 per statement cycle.",
-    "10X reward points (6.67 points per Rs 100 spent) on incremental spends above Rs 20,000 and birthday spends.",
-    "3X reward points (2.0 points per Rs 100 spent) on rent, education, wallet load, and government spends.",
-    "1X reward points (0.67 points per Rs 100 spent) on utilities, insurance, railways, and FASTag recharges.",
-    "Airport lounge access requires a minimum spend of Rs 20,000 in the previous calendar month.",
-    "Buy 1 Get 1 movie ticket offer is subject to a spend threshold of Rs 20,000 in the previous calendar month."
+    "5X reward points (3.33 points per ₹100 spent) up to ₹20,000 per statement cycle.",
+    "10X reward points (6.67 points per ₹100 spent) on incremental spends above ₹20,000 and birthday spends.",
+    "3X reward points (2.0 points per ₹100 spent) on rent, education, wallet load, and government spends.",
+    "1X reward points (0.67 points per ₹100 spent) on utilities, insurance, railways, and FASTag recharges.",
+    "Airport lounge access requires a minimum spend of ₹20,000 in the previous calendar month.",
+    "Buy 1 Get 1 movie ticket offer is subject to a spend threshold of ₹20,000 in the previous calendar month."
   ],
   "popularityScore": 63
 }

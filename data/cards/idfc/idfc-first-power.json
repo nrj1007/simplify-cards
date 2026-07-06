@@ -71,23 +71,23 @@
     {
       "category": "fuel",
       "treatment": "capped",
-      "notes": "21X points per Rs 150 spent on HPCL fuel (capped at 700 points/cycle on spends up to Rs 5,000)."
+      "notes": "21X points per ₹150 spent on HPCL fuel (capped at 700 points/cycle on spends up to ₹5,000)."
     },
     {
       "category": "grocery",
       "treatment": "capped",
-      "notes": "15X points per Rs 150 spent on grocery and utility bills (capped at 400 points/cycle on combined spends up to Rs 4,000)."
+      "notes": "15X points per ₹150 spent on grocery and utility bills (capped at 400 points/cycle on combined spends up to ₹4,000)."
     },
     {
       "category": "utilities",
       "treatment": "capped",
-      "notes": "15X points per Rs 150 spent on grocery and utility bills (capped at 400 points/cycle on combined spends up to Rs 4,000)."
+      "notes": "15X points per ₹150 spent on grocery and utility bills (capped at 400 points/cycle on combined spends up to ₹4,000)."
     }
   ],
   "additionalBenefits": [
     "3.5% return value in Reward Points on HPCL fuel spends plus 1.5% as Happy Coins on HP Pay app",
     "2.5% return value on grocery and utility spends",
-    "1% fuel surcharge waiver up to Rs 100 per statement cycle at HPCL stations",
+    "1% fuel surcharge waiver up to ₹100 per statement cycle at HPCL stations",
     "Reward points are valid for 24 months"
   ],
   "redemption": {
@@ -98,11 +98,11 @@
   "eligibility": {
     "salaried": [
       "Age: 21 to 60 years",
-      "Minimum net monthly salary of Rs 20,000"
+      "Minimum net monthly salary of ₹20,000"
     ],
     "selfEmployed": [
       "Age: 21 to 60 years",
-      "Minimum annual ITR of Rs 2,40,000"
+      "Minimum annual ITR of ₹2,40,000"
     ]
   },
   "imageUrl": "/images/idfc-first-power.webp",
@@ -112,10 +112,10 @@
   "verificationStatus": "official-direct",
   "internalNotes": [
     "Card details manually reviewed and verified by user on 2026-06-14.",
-    "HPCL fuel co-branded credit card. 21X points per Rs 150 spent on HPCL fuel (capped at 700 points/cycle).",
-    "15X points per Rs 150 spent on grocery and utility bills (capped at 400 points/cycle on combined spends up to Rs 4,000).",
-    "2X points per Rs 150 spent on other retail and UPI transactions (value: 0.33% return).",
-    "Annual fee of Rs 199 is waived on spending Rs 50,000 in the preceding anniversary year."
+    "HPCL fuel co-branded credit card. 21X points per ₹150 spent on HPCL fuel (capped at 700 points/cycle).",
+    "15X points per ₹150 spent on grocery and utility bills (capped at 400 points/cycle on combined spends up to ₹4,000).",
+    "2X points per ₹150 spent on other retail and UPI transactions (value: 0.33% return).",
+    "Annual fee of ₹199 is waived on spending ₹50,000 in the preceding anniversary year."
   ],
   "popularityScore": 65
 }

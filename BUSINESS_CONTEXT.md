@@ -106,8 +106,8 @@ Goal: keep monthly operating cost low enough that display ads can cover baseline
 Lean target:
 
 ```text
-Rs 1,000 - Rs 5,000/month during early MVP
-Rs 5,000 - Rs 15,000/month during early production
+₹1,000 - ₹5,000/month during early MVP
+₹5,000 - ₹15,000/month during early production
 ```
 
 Cost controls:
@@ -160,8 +160,8 @@ With in-memory JSON and self-built engineering, it can become profitable at very
 Example:
 
 ```text
-Monthly cost: Rs 3,000
-Payout/card: Rs 1,000
+Monthly cost: ₹3,000
+Payout/card: ₹1,000
 Break-even: 3 approved cards/month
 ```
 

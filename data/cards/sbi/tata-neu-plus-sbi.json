@@ -55,7 +55,7 @@
   "loungeInternational": 0,
   "lounge": {
     "domestic": [
-      "4 domestic airport lounge visits every year, capped at 1 per quarter, apply only if spends in the previous quarter are at least Rs 50,000."
+      "4 domestic airport lounge visits every year, capped at 1 per quarter, apply only if spends in the previous quarter are at least ₹50,000."
     ]
   },
   "forexMarkup": 3.5,
@@ -102,7 +102,7 @@
   "renewalBenefits": [],
   "milestoneBenefits": [],
   "additionalBenefits": [
-    "1% fuel surcharge waiver on transactions from Rs 500 to Rs 4,000, capped at Rs 250 per statement cycle"
+    "1% fuel surcharge waiver on transactions from ₹500 to ₹4,000, capped at ₹250 per statement cycle"
   ],
   "redemption": {
     "ecosystemLabel": "Tata Neu App/Website and partner Tata brands",

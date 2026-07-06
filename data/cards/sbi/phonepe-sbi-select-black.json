@@ -28,28 +28,28 @@
       "category": "phonepe",
       "displayCategory": "Eligible PhonePe spends",
       "rate": 10,
-      "displayRate": "10 Reward Points / Rs 100",
+      "displayRate": "10 Reward Points / ₹100",
       "capMonthly": 2000
     },
     {
       "category": "online",
       "displayCategory": "Eligible online spends",
       "rate": 5,
-      "displayRate": "5 Reward Points / Rs 100",
+      "displayRate": "5 Reward Points / ₹100",
       "capMonthly": 2000
     },
     {
       "category": "upi",
       "displayCategory": "Scan & Pay using PhonePe",
       "rate": 1,
-      "displayRate": "1 Reward Point / Rs 100",
+      "displayRate": "1 Reward Point / ₹100",
       "capMonthly": 2000
     },
     {
       "category": "base",
       "displayCategory": "Other eligible spends",
       "rate": 1,
-      "displayRate": "1 Reward Point / Rs 100",
+      "displayRate": "1 Reward Point / ₹100",
       "capMonthly": 2000
     }
   ],
@@ -106,20 +106,20 @@
       "period": "annual",
       "value": 2500,
       "kind": "voucher",
-      "label": "Yatra e-Voucher worth Rs 5,000 on annual spends of Rs 5 lakh"
+      "label": "Yatra e-Voucher worth ₹5,000 on annual spends of ₹5 lakh"
     }
   ],
   "milestoneBenefits": [
-    "Yatra e-Voucher worth Rs 5,000 on annual spends of Rs 5 lakh"
+    "Yatra e-Voucher worth ₹5,000 on annual spends of ₹5 lakh"
   ],
   "joiningBenefits": [
-    "PhonePe e-Gift Card worth Rs 1,500 after payment of annual fee, unless the card is issued under a first-year-free offer"
+    "PhonePe e-Gift Card worth ₹1,500 after payment of annual fee, unless the card is issued under a first-year-free offer"
   ],
   "joiningBenefitsValued": [
     {
       "value": 1500,
       "kind": "other",
-      "label": "PhonePe e-Gift Card worth Rs 1,500 after payment of annual fee, unless the card is issued under a first-year-free offer"
+      "label": "PhonePe e-Gift Card worth ₹1,500 after payment of annual fee, unless the card is issued under a first-year-free offer"
     }
   ],
   "renewalBenefits": [],

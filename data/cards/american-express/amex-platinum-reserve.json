@@ -25,13 +25,13 @@
     {
       "category": "retail",
       "rate": 2,
-      "displayRate": "1 Membership Rewards Point / Rs 50 spent on eligible categories",
+      "displayRate": "1 Membership Rewards Point / ₹50 spent on eligible categories",
       "capMonthly": null
     },
     {
       "category": "partner merchants",
       "rate": 6,
-      "displayRate": "3 Membership Rewards Points / Rs 50 spent via Reward Multiplier on select brands",
+      "displayRate": "3 Membership Rewards Points / ₹50 spent via Reward Multiplier on select brands",
       "capMonthly": null
     }
   ],
@@ -77,11 +77,11 @@
     {
       "value": 5500,
       "kind": "points",
-      "label": "11,000 Membership Rewards points as welcome gift on spending Rs 30,000 within first 90 days"
+      "label": "11,000 Membership Rewards points as welcome gift on spending ₹30,000 within first 90 days"
     }
   ],
   "joiningBenefits": [
-    "11,000 Membership Rewards points as welcome gift on spending Rs 30,000 within first 90 days"
+    "11,000 Membership Rewards points as welcome gift on spending ₹30,000 within first 90 days"
   ],
   "milestones": [
     {
@@ -89,11 +89,11 @@
       "period": "monthly",
       "value": 500,
       "kind": "voucher",
-      "label": "Rs 1,000 monthly voucher on spending Rs 50,000 or more in a calendar month, redeemable across partner brands such as Tata CLiQ Luxury, BookMyShow, and MakeMyTrip, subject to enrolment"
+      "label": "₹1,000 monthly voucher on spending ₹50,000 or more in a calendar month, redeemable across partner brands such as Tata CLiQ Luxury, BookMyShow, and MakeMyTrip, subject to enrolment"
     }
   ],
   "milestoneBenefits": [
-    "Rs 1,000 monthly voucher on spending Rs 50,000 or more in a calendar month, redeemable across partner brands such as Tata CLiQ Luxury, BookMyShow, and MakeMyTrip, subject to enrolment"
+    "₹1,000 monthly voucher on spending ₹50,000 or more in a calendar month, redeemable across partner brands such as Tata CLiQ Luxury, BookMyShow, and MakeMyTrip, subject to enrolment"
   ],
   "additionalBenefits": [
     "Complimentary ALL Accor+ Explorer membership",
@@ -166,12 +166,12 @@
   },
   "eligibility": {
     "salaried": [
-      "Employed with personal annual income of Rs 6 lakh and above",
+      "Employed with personal annual income of ₹6 lakh and above",
       "Good credit history with no payment defaults",
       "Resident Indian with current or permanent residential address in India"
     ],
     "selfEmployed": [
-      "Self-employed with personal annual income of Rs 6 lakh and above",
+      "Self-employed with personal annual income of ₹6 lakh and above",
       "Company has been trading for more than 12 months",
       "Resident Indian with current or permanent residential address in India"
     ]
@@ -188,7 +188,7 @@
   "verificationStatus": "official-direct",
   "internalNotes": [
     "Card details manually reviewed and verified by user on 2026-06-08",
-    "Golf benefit requires monthly spend of Rs 50,000 and allows up to 2 visits per month.",
+    "Golf benefit requires monthly spend of ₹50,000 and allows up to 2 visits per month.",
     "Airline transfers are currently listed at a 2:1 ratio, while Marriott Bonvoy transfers at 1:1 and Hilton Honors transfers at 1:0.9."
   ]
 }

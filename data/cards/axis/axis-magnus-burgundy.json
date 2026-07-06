@@ -21,15 +21,15 @@
       "category": "travel",
       "displayCategory": "Travel EDGE",
       "rate": 30,
-      "displayRate": "60 EDGE REWARD Points / Rs 200 upto Rs 2 lakh per calendar month, then 35 EDGE REWARD Points / Rs 200",
+      "displayRate": "60 EDGE REWARD Points / ₹200 upto ₹2 lakh per calendar month, then 35 EDGE REWARD Points / ₹200",
       "capMonthly": 60000,
       "postCapRate": 17.5
     },
     {
       "category": "base",
-      "displayCategory": "Eligible spends up to Rs 1.5 lakh per calendar month",
+      "displayCategory": "Eligible spends up to ₹1.5 lakh per calendar month",
       "rate": 6,
-      "displayRate": "12 EDGE REWARD Points / Rs 200",
+      "displayRate": "12 EDGE REWARD Points / ₹200",
       "capMonthly": null,
       "tierLowerBound": 0,
       "tierUpperBound": 150000,
@@ -37,9 +37,9 @@
     },
     {
       "category": "base",
-      "displayCategory": "Eligible incremental spends above Rs 1.5 lakh per calendar month",
+      "displayCategory": "Eligible incremental spends above ₹1.5 lakh per calendar month",
       "rate": 17.5,
-      "displayRate": "35 EDGE REWARD Points / Rs 200",
+      "displayRate": "35 EDGE REWARD Points / ₹200",
       "capMonthly": null,
       "tierLowerBound": 150000,
       "tierUpperBound": null,
@@ -53,7 +53,7 @@
   "loungeGuestInternational": 4,
   "lounge": {
     "domestic": [
-      "Domestic lounge access requires minimum spends of Rs 50,000 in the previous 3 calendar months; the spend condition is waived for the month of issuance plus the next 3 calendar months."
+      "Domestic lounge access requires minimum spends of ₹50,000 in the previous 3 calendar months; the spend condition is waived for the month of issuance plus the next 3 calendar months."
     ],
     "international": [
       "Unlimited domestic and international lounge access applies to primary cardholder; guest visits are limited to 4 domestic guest visits per calendar year and 4 international guest visits per card anniversary year on Priority Pass."
@@ -98,24 +98,24 @@
       "category": "rent",
       "treatment": "capped",
       "capMonthlySpend": 50000,
-      "notes": "Rent spends are eligible only up to Rs 50,000 per calendar month for reward earn and spend-based fee waiver calculation."
+      "notes": "Rent spends are eligible only up to ₹50,000 per calendar month for reward earn and spend-based fee waiver calculation."
     }
   ],
   "joiningBenefitsValued": [
     {
       "value": 2500,
       "kind": "voucher",
-      "label": "Choose any one voucher worth Rs 5,000 from Luxe, The Postcard Hotels, or Yatra on first transaction within 30 days of card issuance; not applicable on upgrades from Magnus"
+      "label": "Choose any one voucher worth ₹5,000 from Luxe, The Postcard Hotels, or Yatra on first transaction within 30 days of card issuance; not applicable on upgrades from Magnus"
     }
   ],
   "joiningBenefits": [
-    "Choose any one voucher worth Rs 5,000 from Luxe, The Postcard Hotels, or Yatra on first transaction within 30 days of card issuance; not applicable on upgrades from Magnus"
+    "Choose any one voucher worth ₹5,000 from Luxe, The Postcard Hotels, or Yatra on first transaction within 30 days of card issuance; not applicable on upgrades from Magnus"
   ],
   "additionalBenefits": [
     "4 airport meet and assist services per calendar year",
     "Dining Delights offers across partner restaurants",
     "15% savings on bed and breakfast rates at The Leela Palace Hotels & Resorts, valid till 30 September 2026",
-    "Fuel surcharge waiver of 1% for transactions between Rs 400 and Rs 4,000, capped at Rs 400 per month",
+    "Fuel surcharge waiver of 1% for transactions between ₹400 and ₹4,000, capped at ₹400 per month",
     "No cash withdrawal charges"
   ],
   "redemption": {
@@ -286,13 +286,13 @@
   },
   "eligibility": {
     "salaried": [
-      "Requires an Axis Burgundy relationship at individual level and net salary credit above Rs 3 lakh per month in an Axis Bank salary account, or another eligible Burgundy route",
-      "If qualifying via Rs 10 lakh CASA average monthly balance, Burgundy vintage should exceed 3 months and the latest One Glance Statement should reflect eligibility",
+      "Requires an Axis Burgundy relationship at individual level and net salary credit above ₹3 lakh per month in an Axis Bank salary account, or another eligible Burgundy route",
+      "If qualifying via ₹10 lakh CASA average monthly balance, Burgundy vintage should exceed 3 months and the latest One Glance Statement should reflect eligibility",
       "Card approval remains subject to Axis Bank credit policy"
     ],
     "selfEmployed": [
-      "Requires an Axis Burgundy relationship at individual level and either Rs 30 lakh TRV without demat, or Rs 1 crore TRV including demat, or another eligible Burgundy route",
-      "If qualifying via Rs 10 lakh CASA average monthly balance, Burgundy vintage should exceed 3 months and the latest One Glance Statement should reflect eligibility",
+      "Requires an Axis Burgundy relationship at individual level and either ₹30 lakh TRV without demat, or ₹1 crore TRV including demat, or another eligible Burgundy route",
+      "If qualifying via ₹10 lakh CASA average monthly balance, Burgundy vintage should exceed 3 months and the latest One Glance Statement should reflect eligibility",
       "Card approval remains subject to Axis Bank credit policy"
     ]
   },
@@ -312,17 +312,17 @@
     "Card details manually audited and verified by agent on 2026-06-25",
     "Card details manually reviewed and verified by user on 2026-06-06",
     "Official audit completed on 2026-06-03 using Axis Bank product page, 20 April 2024 revision PDF, 20 June 2025 revision PDF, Magnolia for Burgundy FAQ, and Axis miles-transfer page.",
-    "Domestic lounge access requires minimum spends of Rs 50,000 in the previous 3 calendar months; the spend condition is waived for the month of issuance plus the next 3 calendar months.",
+    "Domestic lounge access requires minimum spends of ₹50,000 in the previous 3 calendar months; the spend condition is waived for the month of issuance plus the next 3 calendar months.",
     "Unlimited domestic and international lounge access applies to primary cardholder; guest visits are limited to 4 domestic guest visits per calendar year and 4 international guest visits per card anniversary year on Priority Pass.",
-    "Travel EDGE earns 60 EDGE REWARD Points per Rs 200 up to cumulative spends of Rs 2 lakh per calendar month; spends above that continue at 35 EDGE REWARD Points per Rs 200.",
-    "Accelerated 35 EDGE REWARD Points are earned only on eligible incremental spends above Rs 1.5 lakh in a calendar month, up to assigned credit limit plus Rs 1.5 lakh per calendar month.",
-    "Spends on Travel EDGE up to Rs 2 lakh per month, Gyftr, and other Axis accelerated offer portals are excluded from the 35-point accelerated calculation because they already earn separate accelerated rewards.",
-    "Rent spends above Rs 50,000 in a calendar month are not considered for accelerated reward points or spend-based fee waiver calculation.",
+    "Travel EDGE earns 60 EDGE REWARD Points per ₹200 up to cumulative spends of ₹2 lakh per calendar month; spends above that continue at 35 EDGE REWARD Points per ₹200.",
+    "Accelerated 35 EDGE REWARD Points are earned only on eligible incremental spends above ₹1.5 lakh in a calendar month, up to assigned credit limit plus ₹1.5 lakh per calendar month.",
+    "Spends on Travel EDGE up to ₹2 lakh per month, Gyftr, and other Axis accelerated offer portals are excluded from the 35-point accelerated calculation because they already earn separate accelerated rewards.",
+    "Rent spends above ₹50,000 in a calendar month are not considered for accelerated reward points or spend-based fee waiver calculation.",
     "EMI transactions, reversed transactions, fees, charges, interest, and cash withdrawals do not count toward accelerated reward calculations.",
     "Miles transfer ratio for Magnus for Burgundy is 5 EDGE REWARD Points = 4 partner points across eligible transfer partners; current annual transfer cap is 10 lakh EDGE REWARD Points in a calendar year, split as 2 lakh to Group A and 8 lakh to Group B.",
     "Accor Live Limitless, Marriott Bonvoy, and Qatar Airways have been removed from the current Burgundy transfer partner set; British Airways, Finnair, and Vietnam Airlines are available in the current verified list.",
-    "Travel-card audit includes full redemption options and current airline and hotel transfer tables from official Axis materials; Gift EDGE redemption is valued at Rs 0.20 per EDGE REWARD Point.",
-    "If Burgundy relationship eligibility is not maintained, Axis Bank may replace Magnus for Burgundy with Magnus Credit Card carrying a Rs 12,500 joining and annual fee and a 5:2 partner transfer ratio.",
+    "Travel-card audit includes full redemption options and current airline and hotel transfer tables from official Axis materials; Gift EDGE redemption is valued at ₹0.20 per EDGE REWARD Point.",
+    "If Burgundy relationship eligibility is not maintained, Axis Bank may replace Magnus for Burgundy with Magnus Credit Card carrying a ₹12,500 joining and annual fee and a 5:2 partner transfer ratio.",
     "Effective 1 October 2025, unredeemed EDGE REWARD Points may be forfeited 30 days after card closure or if minimum amount due remains outstanding for more than 90 days."
   ]
 }

@@ -27,28 +27,28 @@
       "category": "partner merchants",
       "displayCategory": "AJIO and JioMart online spends",
       "rate": 10,
-      "displayRate": "10 Reward Points / Rs 100 spent",
+      "displayRate": "10 Reward Points / ₹100 spent",
       "capMonthly": null
     },
     {
       "category": "partner merchants",
       "displayCategory": "Other participating Reliance Retail stores",
       "rate": 5,
-      "displayRate": "5 Reward Points / Rs 100 spent",
+      "displayRate": "5 Reward Points / ₹100 spent",
       "capMonthly": null
     },
     {
       "category": "dining",
       "displayCategory": "Dining & movie spends",
       "rate": 5,
-      "displayRate": "5 Reward Points / Rs 100 spent",
+      "displayRate": "5 Reward Points / ₹100 spent",
       "capMonthly": 5000
     },
     {
       "category": "base",
       "displayCategory": "Other eligible retail purchases",
       "rate": 1,
-      "displayRate": "1 Reward Point / Rs 100 spent",
+      "displayRate": "1 Reward Point / ₹100 spent",
       "capMonthly": null
     }
   ],
@@ -88,11 +88,11 @@
     {
       "value": 500,
       "kind": "voucher",
-      "label": "Reliance Retail Voucher worth Rs 500"
+      "label": "Reliance Retail Voucher worth ₹500"
     }
   ],
   "joiningBenefits": [
-    "Reliance Retail Voucher worth Rs 500 upon payment of joining fee"
+    "Reliance Retail Voucher worth ₹500 upon payment of joining fee"
   ],
   "renewalBenefitsValued": [],
   "renewalBenefits": [],
@@ -102,31 +102,31 @@
       "period": "annual",
       "value": 250,
       "kind": "voucher",
-      "label": "Reliance Retail voucher worth Rs 500 on annual spends of Rs 25,000"
+      "label": "Reliance Retail voucher worth ₹500 on annual spends of ₹25,000"
     },
     {
       "threshold": 50000,
       "period": "annual",
       "value": 375,
       "kind": "voucher",
-      "label": "Reliance Retail voucher worth Rs 750 on annual spends of Rs 50,000"
+      "label": "Reliance Retail voucher worth ₹750 on annual spends of ₹50,000"
     },
     {
       "threshold": 80000,
       "period": "annual",
       "value": 500,
       "kind": "voucher",
-      "label": "Reliance Retail voucher worth Rs 1,000 on annual spends of Rs 80,000"
+      "label": "Reliance Retail voucher worth ₹1,000 on annual spends of ₹80,000"
     }
   ],
   "milestoneBenefits": [
-    "Reliance Retail voucher worth Rs 500 on annual spends of Rs 25,000 at eligible Reliance formats",
-    "Reliance Retail voucher worth Rs 750 on annual spends of Rs 50,000 at eligible Reliance formats",
-    "Reliance Retail voucher worth Rs 1,000 on annual spends of Rs 80,000 at eligible Reliance formats"
+    "Reliance Retail voucher worth ₹500 on annual spends of ₹25,000 at eligible Reliance formats",
+    "Reliance Retail voucher worth ₹750 on annual spends of ₹50,000 at eligible Reliance formats",
+    "Reliance Retail voucher worth ₹1,000 on annual spends of ₹80,000 at eligible Reliance formats"
   ],
   "additionalBenefits": [
-    "Additional Reliance discount vouchers worth up to Rs 3,200 at participating Reliance brands",
-    "1% fuel surcharge waiver on eligible fuel transactions between Rs 500 and Rs 4,000, capped at Rs 100 per month"
+    "Additional Reliance discount vouchers worth up to ₹3,200 at participating Reliance brands",
+    "1% fuel surcharge waiver on eligible fuel transactions between ₹500 and ₹4,000, capped at ₹100 per month"
   ],
   "redemption": {
     "statementBalanceValue": 0.25,

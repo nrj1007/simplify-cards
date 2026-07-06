@@ -57,7 +57,7 @@
   "loungeInternational": 4,
   "lounge": {
     "domestic": [
-      "8 domestic lounge visits per year, capped at 2 per quarter, apply only if spends in the previous quarter are at least Rs 75,000."
+      "8 domestic lounge visits per year, capped at 2 per quarter, apply only if spends in the previous quarter are at least ₹75,000."
     ],
     "international": [
       "4 international lounge visits per year, capped at 1 per quarter, are available through complimentary Priority Pass membership.",
@@ -115,7 +115,7 @@
   "milestoneBenefits": [],
   "additionalBenefits": [
     "Complimentary Priority Pass membership",
-    "1% fuel surcharge waiver on eligible fuel transactions from Rs 500 to Rs 4,000, capped at Rs 500 per statement cycle"
+    "1% fuel surcharge waiver on eligible fuel transactions from ₹500 to ₹4,000, capped at ₹500 per statement cycle"
   ],
   "redemption": {
     "ecosystemLabel": "Tata Neu App/Website and partner Tata brands",

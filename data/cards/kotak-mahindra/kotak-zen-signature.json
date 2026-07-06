@@ -99,7 +99,7 @@
     {
       "value": 375,
       "kind": "points",
-      "label": "1,500 bonus Zen Points (worth Rs 375) upon payment of joining fee"
+      "label": "1,500 bonus Zen Points (worth ₹375) upon payment of joining fee"
     }
   ],
   "renewalBenefitsValued": [],
@@ -109,14 +109,14 @@
       "period": "annual",
       "value": 1875,
       "kind": "points",
-      "label": "7,500 bonus Zen Points (worth Rs 1,875) on spending ₹3 Lakhs annually"
+      "label": "7,500 bonus Zen Points (worth ₹1,875) on spending ₹3 Lakhs annually"
     },
     {
       "threshold": 600000,
       "period": "annual",
       "value": 1875,
       "kind": "points",
-      "label": "7,500 additional bonus Zen Points (worth Rs 1,875) on spending ₹6 Lakhs annually"
+      "label": "7,500 additional bonus Zen Points (worth ₹1,875) on spending ₹6 Lakhs annually"
     }
   ],
   "milestoneBenefits": [],
@@ -138,13 +138,13 @@
       {
         "partner": "Brand e-Vouchers",
         "programme": "Brand e-vouchers via Kotak Rewards",
-        "ratio": "1 Zen Point = Rs 0.25",
+        "ratio": "1 Zen Point = ₹0.25",
         "valuePerPoint": 0.25
       },
       {
         "partner": "Travel bookings",
         "programme": "Flight & hotel bookings via Kotak Rewards",
-        "ratio": "1 Zen Point = Rs 0.25",
+        "ratio": "1 Zen Point = ₹0.25",
         "valuePerPoint": 0.25
       }
     ]
@@ -152,12 +152,12 @@
   "eligibility": {
     "salaried": [
       "Age: 21 to 60 years",
-      "Minimum Annual Income: Rs 5,00,000",
+      "Minimum Annual Income: ₹5,00,000",
       "Resident of India"
     ],
     "selfEmployed": [
       "Age: 21 to 60 years",
-      "Minimum Annual Income: Rs 5,00,000",
+      "Minimum Annual Income: ₹5,00,000",
       "Resident of India"
     ]
   },
@@ -167,7 +167,7 @@
   "verificationStatus": "official-direct",
   "imageUrl": "/images/kotak-zen-signature.webp",
   "internalNotes": [
-    "Redemption rate for vouchers and merchandise is 1 point = Rs 0.25. Cash statement credit rate was devalued to 1 point = Rs 0.20 on June 1, 2025. Total reward points earned on all transactions capped at 6,500 points per billing cycle.",
+    "Redemption rate for vouchers and merchandise is 1 point = ₹0.25. Cash statement credit rate was devalued to 1 point = ₹0.20 on June 1, 2025. Total reward points earned on all transactions capped at 6,500 points per billing cycle.",
     "Card details manually reviewed and verified by user on 2026-06-15."
   ]
 }

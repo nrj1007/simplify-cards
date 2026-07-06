@@ -21,14 +21,14 @@
       "category": "travel",
       "displayCategory": "Travel EDGE and airline websites",
       "rate": 5,
-      "displayRate": "5 EDGE Miles / Rs 100 spent on Travel EDGE and airline websites",
+      "displayRate": "5 EDGE Miles / ₹100 spent on Travel EDGE and airline websites",
       "capMonthly": null
     },
     {
       "category": "base",
       "displayCategory": "Other eligible retail spends",
       "rate": 2,
-      "displayRate": "2 EDGE Miles / Rs 100 spent",
+      "displayRate": "2 EDGE Miles / ₹100 spent",
       "capMonthly": null
     }
   ],
@@ -77,11 +77,11 @@
     "1,500 EDGE Miles renewal benefit from the second card anniversary year onward"
   ],
   "additionalBenefits": [
-    "5,000 EDGE Miles on cumulative net spends of Rs 1,000 or more within 30 days of card issuance",
+    "5,000 EDGE Miles on cumulative net spends of ₹1,000 or more within 30 days of card issuance",
     "1 EDGE Mile equals Re 1 as per Axis Bank HORIZON value chart",
     "2 complimentary domestic lounge visits per quarter (8 per year)",
     "2 complimentary international lounge visits per quarter (8 per year)",
-    "1% fuel surcharge waiver on eligible fuel transactions from Rs 400 to Rs 5,000, capped at Rs 400 per statement month"
+    "1% fuel surcharge waiver on eligible fuel transactions from ₹400 to ₹5,000, capped at ₹400 per statement month"
   ],
   "additionalDetails": [],
   "redemption": {
@@ -95,7 +95,7 @@
         "partnerPointValue": 1,
         "transferRatio": 1,
         "basis": "fixed",
-        "note": "1 EDGE Mile → 1 Club ITC point · Rs 1/point"
+        "note": "1 EDGE Mile → 1 Club ITC point · ₹1/point"
       }
     ],
     "airlinePartners": [
@@ -253,12 +253,12 @@
   "eligibility": {
     "salaried": [
       "Age: 18 to 70 years",
-      "Minimum Net Monthly Salary: Rs 20,000",
+      "Minimum Net Monthly Salary: ₹20,000",
       "Resident of India"
     ],
     "selfEmployed": [
       "Age: 18 to 70 years",
-      "Minimum Annual Income (ITR): Rs 3,50,000",
+      "Minimum Annual Income (ITR): ₹3,50,000",
       "Resident of India"
     ]
   },

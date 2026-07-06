@@ -20,21 +20,21 @@
       "category": "partner merchants",
       "displayCategory": "Weekend dining spends",
       "rate": 20,
-      "displayRate": "20 Reward Points / Rs 100 spent",
+      "displayRate": "20 Reward Points / ₹100 spent",
       "capMonthly": 1000
     },
     {
       "category": "online",
       "displayCategory": "Online spends",
       "rate": 4,
-      "displayRate": "4 Reward Points / Rs 100 spent",
+      "displayRate": "4 Reward Points / ₹100 spent",
       "capMonthly": null
     },
     {
       "category": "base",
       "displayCategory": "Other eligible retail spends (including weekday dining)",
       "rate": 2,
-      "displayRate": "2 Reward Points / Rs 100 spent",
+      "displayRate": "2 Reward Points / ₹100 spent",
       "capMonthly": null
     }
   ],
@@ -117,7 +117,7 @@
   "additionalDetails": [
     "Redemption fee of ₹99 + GST applies per redemption request via the RBL Rewards portal (rblrewards.rbl.bank.in).",
     "Reward points cannot be redeemed as statement credit against the card bill.",
-    "No direct airline miles transfer — points are redeemed for travel bookings and vouchers through the RBL Rewards portal at Rs 0.25 per point.",
+    "No direct airline miles transfer — points are redeemed for travel bookings and vouchers through the RBL Rewards portal at ₹0.25 per point.",
     "Fuel surcharge waiver of 1% at all fuel stations for transactions between ₹500 and ₹4,000 (Max waiver ₹150/month).",
     "Concierge services including booking, travel and hotel assistance."
   ],
@@ -128,19 +128,19 @@
       {
         "partner": "Brand e-Vouchers",
         "programme": "Shopping, lifestyle & brand gift vouchers",
-        "ratio": "1 point = Rs 0.25",
+        "ratio": "1 point = ₹0.25",
         "valuePerPoint": 0.25
       },
       {
         "partner": "MakeMyTrip / Travel",
         "programme": "Flight & hotel bookings via RBL Rewards portal",
-        "ratio": "1 point = Rs 0.25",
+        "ratio": "1 point = ₹0.25",
         "valuePerPoint": 0.25
       },
       {
         "partner": "Merchandise",
         "programme": "Electronics, apparel & catalogue products",
-        "ratio": "1 point = Rs 0.25",
+        "ratio": "1 point = ₹0.25",
         "valuePerPoint": 0.25
       }
     ]

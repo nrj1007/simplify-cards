@@ -58,7 +58,7 @@
   ],
   "milestones": [],
   "milestoneBenefits": [
-    "Renewal fee waived on annual spends of Rs 1,20,000 or more in the previous year"
+    "Renewal fee waived on annual spends of ₹1,20,000 or more in the previous year"
   ],
   "additionalBenefits": [
     "0.99% per month on eligible 3-month EMI with nil processing fee",
@@ -71,11 +71,11 @@
   "eligibility": {
     "salaried": [
       "Age: 18 to 65 years",
-      "Minimum monthly income of Rs 25,000"
+      "Minimum monthly income of ₹25,000"
     ],
     "selfEmployed": [
       "Age: 18 to 65 years",
-      "Minimum income of Rs 25,000"
+      "Minimum income of ₹25,000"
     ]
   },
   "imageUrl": "/images/sc-smart.webp",
@@ -85,8 +85,8 @@
   "verificationStatus": "official-direct",
   "internalNotes": [
     "Card details manually reviewed and verified by user on 2026-06-14.",
-    "2% cashback on online transactions (capped at Rs 1,000 per statement cycle).",
-    "1% cashback on all other transactions (capped at Rs 500 per statement cycle).",
+    "2% cashback on online transactions (capped at ₹1,000 per statement cycle).",
+    "1% cashback on all other transactions (capped at ₹500 per statement cycle).",
     "Fuel transactions do not earn any cashback."
   ]
 }

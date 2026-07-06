@@ -25,21 +25,21 @@
       "category": "snapdeal",
       "rate": 5,
       "displayCategory": "Snapdeal platform spends",
-      "displayRate": "20 reward points per Rs 100 (5% cashback)",
+      "displayRate": "20 reward points per ₹100 (5% cashback)",
       "capMonthly": null
     },
     {
       "category": "online, grocery, departmental stores",
       "rate": 2.5,
       "displayCategory": "Online shopping, grocery, and departmental store spends",
-      "displayRate": "10 reward points per Rs 100 (2.5% cashback)",
+      "displayRate": "10 reward points per ₹100 (2.5% cashback)",
       "capMonthly": 2000
     },
     {
       "category": "retail",
       "rate": 1,
       "displayCategory": "All other eligible spends (including UPI)",
-      "displayRate": "4 reward points per Rs 100 (1% cashback)",
+      "displayRate": "4 reward points per ₹100 (1% cashback)",
       "capMonthly": null
     }
   ],
@@ -65,12 +65,12 @@
     "cash_advance"
   ],
   "milestoneBenefits": [
-    "500 bonus reward points (worth Rs 125) on spending Rs 5,000 or more within first 60 days of card issuance",
-    "Snapdeal vouchers worth up to Rs 500 on performing a transaction within first 30 days of issuance"
+    "500 bonus reward points (worth ₹125) on spending ₹5,000 or more within first 60 days of card issuance",
+    "Snapdeal vouchers worth up to ₹500 on performing a transaction within first 30 days of issuance"
   ],
   "additionalBenefits": [
     "Reward points auto-credited as cashback to monthly statement (manual redemption required from July 1, 2025 — minimum 1,000 points)",
-    "1% fuel surcharge waiver on fuel transactions between Rs 400 and Rs 5,000, capped at Rs 250 per month"
+    "1% fuel surcharge waiver on fuel transactions between ₹400 and ₹5,000, capped at ₹250 per month"
   ],
   "redemption": {
     "statementBalanceValue": 0.25,
@@ -79,11 +79,11 @@
   "eligibility": {
     "salaried": [
       "Resident Indian",
-      "Annual income of Rs 3.6 lakh or more"
+      "Annual income of ₹3.6 lakh or more"
     ],
     "selfEmployed": [
       "Resident Indian",
-      "Annual income of Rs 4.8 lakh or more"
+      "Annual income of ₹4.8 lakh or more"
     ]
   },
   "sourceUrl": "https://bankofbaroda.bank.in/personal-banking/digital-products/cards/credit-cards/snapdeal-bob-credit-card",
@@ -94,8 +94,8 @@
   "popularityScore": 58,
   "internalNotes": [
     "Card details manually reviewed and verified by user on 2026-06-14.",
-    "Reward structure corrected on 2026-06-14: Snapdeal spends earn 20 RP/Rs 100 (5%), online/grocery/dept stores earn 10 RP/Rs 100 (2.5%, capped at 2,000 RP/statement), all other spends earn 4 RP/Rs 100 (1%).",
+    "Reward structure corrected on 2026-06-14: Snapdeal spends earn 20 RP/₹100 (5%), online/grocery/dept stores earn 10 RP/₹100 (2.5%, capped at 2,000 RP/statement), all other spends earn 4 RP/₹100 (1%).",
     "From July 1, 2025, redemption requires manual initiation via BOBCARD portal/app with a minimum of 1,000 reward points.",
-    "The card's reward points are modeled as cashback (1 RP = Rs 0.25) because points are auto-credited against the monthly statement."
+    "The card's reward points are modeled as cashback (1 RP = ₹0.25) because points are auto-credited against the monthly statement."
   ]
 }

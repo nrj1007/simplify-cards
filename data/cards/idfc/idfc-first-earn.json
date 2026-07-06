@@ -60,13 +60,13 @@
   "milestones": [],
   "milestoneBenefits": [],
   "additionalBenefits": [
-    "Fixed deposit backed virtual RuPay credit card (minimum FD Rs 5,000)",
+    "Fixed deposit backed virtual RuPay credit card (minimum FD ₹5,000)",
     "No income proof or credit score documentation required",
     "1% cashback on UPI spends made via IDFC FIRST Bank Mobile App",
     "0.5% cashback on other UPI spends, online spends, utility, insurance, and fuel spends",
-    "Cashback is automatically credited to the card account in the next cycle (capped at Rs 500 per cycle)",
-    "Complimentary Roadside Assistance (RSA) worth Rs 1,399",
-    "Personal accident cover of Rs 2,00,000 and lost card liability of Rs 25,000"
+    "Cashback is automatically credited to the card account in the next cycle (capped at ₹500 per cycle)",
+    "Complimentary Roadside Assistance (RSA) worth ₹1,399",
+    "Personal accident cover of ₹2,00,000 and lost card liability of ₹25,000"
   ],
   "redemption": {
     "statementBalanceValue": 1,
@@ -76,11 +76,11 @@
   "eligibility": {
     "salaried": [
       "Age: 18 to 80 years",
-      "Fixed Deposit backed card; minimum FD amount of Rs 5,000"
+      "Fixed Deposit backed card; minimum FD amount of ₹5,000"
     ],
     "selfEmployed": [
       "Age: 18 to 80 years",
-      "Fixed Deposit backed card; minimum FD amount of Rs 5,000"
+      "Fixed Deposit backed card; minimum FD amount of ₹5,000"
     ]
   },
   "imageUrl": "/images/idfc-first-earn.webp",
@@ -90,11 +90,11 @@
   "verificationStatus": "official-direct",
   "internalNotes": [
     "Card details manually reviewed and verified by user on 2026-06-14.",
-    "Secured credit card backed by fixed deposit (min Rs 5,000 FD). No credit check or salary slip required.",
+    "Secured credit card backed by fixed deposit (min ₹5,000 FD). No credit check or salary slip required.",
     "1% cashback on UPI transactions made specifically via IDFC FIRST Bank mobile app QR scans.",
     "0.5% cashback on other spends including utility, insurance, fuel, online/offline, and other third-party UPI apps.",
-    "Combined monthly cashback is capped at Rs 500 per statement cycle. EMI transactions are excluded.",
-    "Annual fee of Rs 499 is waived on spending Rs 1,00,000 in the previous anniversary year."
+    "Combined monthly cashback is capped at ₹500 per statement cycle. EMI transactions are excluded.",
+    "Annual fee of ₹499 is waived on spending ₹1,00,000 in the previous anniversary year."
   ],
   "popularityScore": 62
 }

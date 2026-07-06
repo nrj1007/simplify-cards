@@ -73,47 +73,47 @@
       "period": "annual",
       "value": 2000,
       "kind": "points",
-      "label": "5,000 IndiGo BluChips on annual spend of Rs 2 Lakh"
+      "label": "5,000 IndiGo BluChips on annual spend of ₹2 Lakh"
     },
     {
       "threshold": 500000,
       "period": "annual",
       "value": 2000,
       "kind": "points",
-      "label": "5,000 IndiGo BluChips on annual spend of Rs 5 Lakh"
+      "label": "5,000 IndiGo BluChips on annual spend of ₹5 Lakh"
     },
     {
       "threshold": 800000,
       "period": "annual",
       "value": 2000,
       "kind": "points",
-      "label": "5,000 IndiGo BluChips on annual spend of Rs 8 Lakh"
+      "label": "5,000 IndiGo BluChips on annual spend of ₹8 Lakh"
     },
     {
       "threshold": 1000000,
       "period": "annual",
       "value": 2000,
       "kind": "points",
-      "label": "5,000 IndiGo BluChips on annual spend of Rs 10 Lakh"
+      "label": "5,000 IndiGo BluChips on annual spend of ₹10 Lakh"
     },
     {
       "threshold": 1200000,
       "period": "annual",
       "value": 2000,
       "kind": "points",
-      "label": "5,000 IndiGo BluChips on annual spend of Rs 12 Lakh"
+      "label": "5,000 IndiGo BluChips on annual spend of ₹12 Lakh"
     }
   ],
   "milestoneBenefits": [
-    "Vouchers of 5,000 IndiGo BluChips at annual spending milestones of Rs 2 Lakh, Rs 5 Lakh, Rs 8 Lakh, Rs 10 Lakh and Rs 12 Lakh (Up to 25,000 BluChips annually)"
+    "Vouchers of 5,000 IndiGo BluChips at annual spending milestones of ₹2 Lakh, ₹5 Lakh, ₹8 Lakh, ₹10 Lakh and ₹12 Lakh (Up to 25,000 BluChips annually)"
   ],
   "additionalBenefits": [
     "Dual credit card issued on Mastercard and RuPay networks",
     "Welcome benefit of 5,000 IndiGo BluChips voucher plus 1 complimentary IndiGo meal voucher upon fee payment",
-    "Activation bonus of 3,000 IndiGo BluChips on spending Rs 1 Lakh or more within the first 90 days",
+    "Activation bonus of 3,000 IndiGo BluChips on spending ₹1 Lakh or more within the first 90 days",
     "Complimentary Mastercard World/Elite privileges including golf rounds/lessons (4 rounds and 12 lessons annually)",
     "Low forex markup of 1.49%",
-    "Up to Rs 25,000 reimbursement per year for non-refundable flight and hotel cancellations",
+    "Up to ₹25,000 reimbursement per year for non-refundable flight and hotel cancellations",
     "RuPay network card enables UPI payments"
   ],
   "redemption": {
@@ -126,13 +126,13 @@
   "eligibility": {
     "salaried": [
       "Age: 21 to 65 years",
-      "Minimum net monthly salary of Rs 1,50,000 for unsecured variant",
-      "FD-backed variant available with minimum Fixed Deposit of Rs 1 Lakh"
+      "Minimum net monthly salary of ₹1,50,000 for unsecured variant",
+      "FD-backed variant available with minimum Fixed Deposit of ₹1 Lakh"
     ],
     "selfEmployed": [
       "Age: 21 to 65 years",
-      "Minimum annual ITR of Rs 18,00,000 for unsecured variant",
-      "FD-backed variant available with minimum Fixed Deposit of Rs 1 Lakh"
+      "Minimum annual ITR of ₹18,00,000 for unsecured variant",
+      "FD-backed variant available with minimum Fixed Deposit of ₹1 Lakh"
     ]
   },
   "imageUrl": "/images/idfc-indigo.webp",
@@ -143,10 +143,10 @@
   "internalNotes": [
     "Card details manually reviewed and verified by user on 2026-06-14.",
     "IndiGo co-branded credit card. Earns IndiGo BluChips directly credited to user's 6E Rewards account.",
-    "Earns 6 BluChips per Rs 100 spent on IndiGo flights, and 3 BluChips per Rs 100 spent on other retail transactions.",
-    "UPI, insurance, utilities, fuel, rent, and wallet spends earn a reduced rate of 0.5 BluChips per Rs 100 spent.",
+    "Earns 6 BluChips per ₹100 spent on IndiGo flights, and 3 BluChips per ₹100 spent on other retail transactions.",
+    "UPI, insurance, utilities, fuel, rent, and wallet spends earn a reduced rate of 0.5 BluChips per ₹100 spent.",
     "This card does not offer airport lounge access. It offers golf privileges (4 rounds and 12 lessons annually) via Mastercard.",
-    "Fee waiver option available by opening a Fixed Deposit of Rs 1 Lakh with the bank."
+    "Fee waiver option available by opening a Fixed Deposit of ₹1 Lakh with the bank."
   ],
   "popularityScore": 56
 }

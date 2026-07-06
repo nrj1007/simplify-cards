@@ -27,21 +27,21 @@
       "category": "partner merchants",
       "displayCategory": "Apollo 24/7 and Apollo Pharmacy spends",
       "rate": 10,
-      "displayRate": "10 Reward Points / Rs 100 spent",
+      "displayRate": "10 Reward Points / ₹100 spent",
       "capMonthly": null
     },
     {
       "category": "dining, travel",
       "displayCategory": "Dining, travel, movies & entertainment spends",
       "rate": 2,
-      "displayRate": "2 Reward Points / Rs 100 spent",
+      "displayRate": "2 Reward Points / ₹100 spent",
       "capMonthly": 5000
     },
     {
       "category": "base",
       "displayCategory": "Other eligible retail purchases",
       "rate": 0.5,
-      "displayRate": "1 Reward Point / Rs 200 spent",
+      "displayRate": "1 Reward Point / ₹200 spent",
       "capMonthly": null
     }
   ],
@@ -86,11 +86,11 @@
     {
       "value": 1500,
       "kind": "voucher",
-      "label": "Apollo 24/7 e-Gift Voucher worth Rs 1,500"
+      "label": "Apollo 24/7 e-Gift Voucher worth ₹1,500"
     }
   ],
   "joiningBenefits": [
-    "Apollo 24/7 e-Gift Voucher worth Rs 1,500 upon payment of joining fee"
+    "Apollo 24/7 e-Gift Voucher worth ₹1,500 upon payment of joining fee"
   ],
   "renewalBenefitsValued": [],
   "renewalBenefits": [],
@@ -100,15 +100,15 @@
       "period": "annual",
       "value": 1500,
       "kind": "voucher",
-      "label": "Complimentary Noise Smartwatch on overall annual spends of Rs 6 lakh"
+      "label": "Complimentary Noise Smartwatch on overall annual spends of ₹6 lakh"
     }
   ],
   "milestoneBenefits": [
-    "Complimentary Noise Smartwatch on overall annual spends of Rs 6 lakh"
+    "Complimentary Noise Smartwatch on overall annual spends of ₹6 lakh"
   ],
   "additionalBenefits": [
     " FITPASS PRO membership (1 year) and annual health check-up package",
-    "1% fuel surcharge waiver on eligible fuel transactions between Rs 500 and Rs 4,000, capped at Rs 250 per month"
+    "1% fuel surcharge waiver on eligible fuel transactions between ₹500 and ₹4,000, capped at ₹250 per month"
   ],
   "redemption": {
     "statementBalanceValue": 1,

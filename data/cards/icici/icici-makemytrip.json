@@ -23,21 +23,21 @@
       "category": "hotels",
       "displayCategory": "MakeMyTrip Hotel bookings",
       "rate": 6,
-      "displayRate": "6 myCash / Rs 100 spent",
+      "displayRate": "6 myCash / ₹100 spent",
       "capMonthly": null
     },
     {
       "category": "airlines",
       "displayCategory": "MakeMyTrip flight bookings",
       "rate": 3,
-      "displayRate": "3 myCash / Rs 100 spent",
+      "displayRate": "3 myCash / ₹100 spent",
       "capMonthly": null
     },
     {
       "category": "base",
       "displayCategory": "Other retail spends",
       "rate": 1,
-      "displayRate": "1 myCash / Rs 100 spent",
+      "displayRate": "1 myCash / ₹100 spent",
       "capMonthly": null
     }
   ],
@@ -46,7 +46,7 @@
   "loungeInternational": 1,
   "lounge": {
     "domestic": [
-      "Complimentary domestic lounge access (8 visits per year, max 2 per quarter) requires spending Rs 75,000 in the previous calendar quarter."
+      "Complimentary domestic lounge access (8 visits per year, max 2 per quarter) requires spending ₹75,000 in the previous calendar quarter."
     ],
     "international": [
       "Complimentary international lounge access (1 visit per year) requires Priority Pass membership."
@@ -85,7 +85,7 @@
     {
       "value": 500,
       "kind": "voucher",
-      "label": "MakeMyTrip voucher worth Rs 1,000"
+      "label": "MakeMyTrip voucher worth ₹1,000"
     },
     {
       "value": 0,
@@ -97,15 +97,15 @@
     {
       "value": 500,
       "kind": "voucher",
-      "label": "MakeMyTrip hotel voucher worth Rs 1,000"
+      "label": "MakeMyTrip hotel voucher worth ₹1,000"
     }
   ],
   "joiningBenefits": [
-    "MakeMyTrip voucher worth Rs 1,000",
+    "MakeMyTrip voucher worth ₹1,000",
     "Complimentary 1-year MMTBLACK Gold membership"
   ],
   "renewalBenefits": [
-    "MakeMyTrip hotel voucher worth Rs 1,000"
+    "MakeMyTrip hotel voucher worth ₹1,000"
   ],
   "milestones": [
     {
@@ -113,11 +113,11 @@
       "period": "annual",
       "value": 0,
       "kind": "other",
-      "label": "Upgrade to a higher MMTBLACK membership tier on spending Rs 2 lakh or more on MakeMyTrip annually"
+      "label": "Upgrade to a higher MMTBLACK membership tier on spending ₹2 lakh or more on MakeMyTrip annually"
     }
   ],
   "milestoneBenefits": [
-    "Upgrade to a higher MMTBLACK membership tier on spending Rs 2 lakh or more on MakeMyTrip annually"
+    "Upgrade to a higher MMTBLACK membership tier on spending ₹2 lakh or more on MakeMyTrip annually"
   ],
   "additionalBenefits": [],
   "additionalDetails": [
@@ -131,11 +131,11 @@
   "eligibility": {
     "salaried": [
       "Age: 21-65 years",
-      "Minimum net monthly salary: Rs 20,000"
+      "Minimum net monthly salary: ₹20,000"
     ],
     "selfEmployed": [
       "Age: 21-65 years",
-      "Minimum annual ITR: Rs 2,40,000"
+      "Minimum annual ITR: ₹2,40,000"
     ]
   },
   "imageUrl": "/images/icici-makemytrip.webp",
@@ -146,8 +146,8 @@
   "internalNotes": [
     "Card details manually reviewed and verified by user on 2026-06-06",
     "Official audit completed on 2026-06-06 using ICICI Bank MakeMyTrip Credit Card product page.",
-    "Annual fee of Rs 999 is waived on spending Rs 3 Lakhs or more in the previous anniversary year.",
-    "Complimentary domestic lounge access (8 visits per year, max 2 per quarter) requires spending Rs 75,000 in the previous calendar quarter.",
+    "Annual fee of ₹999 is waived on spending ₹3 Lakhs or more in the previous anniversary year.",
+    "Complimentary domestic lounge access (8 visits per year, max 2 per quarter) requires spending ₹75,000 in the previous calendar quarter.",
     "Complimentary international lounge access (1 visit per year) requires Priority Pass membership."
   ]
 }

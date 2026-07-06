@@ -23,21 +23,21 @@
       "category": "online",
       "rate": 6,
       "displayCategory": "Online shopping",
-      "displayRate": "12 YES Rewardz Points / Rs 200 spent",
+      "displayRate": "12 YES Rewardz Points / ₹200 spent",
       "capMonthly": 3000
     },
     {
       "category": "base",
       "rate": 3,
       "displayCategory": "Other retail spends",
-      "displayRate": "6 YES Rewardz Points / Rs 200 spent",
+      "displayRate": "6 YES Rewardz Points / ₹200 spent",
       "capMonthly": null
     },
     {
       "category": "utilities",
       "rate": 2,
       "displayCategory": "Select categories (utilities, insurance, education, telecom)",
-      "displayRate": "4 YES Rewardz Points / Rs 200 spent",
+      "displayRate": "4 YES Rewardz Points / ₹200 spent",
       "capMonthly": 1200
     }
   ],
@@ -47,7 +47,7 @@
   "lounge": {
     "domestic": [
       "2 complimentary domestic lounge visits per calendar quarter",
-      "Access is subject to a spend threshold of Rs 50,000 in the previous calendar quarter."
+      "Access is subject to a spend threshold of ₹50,000 in the previous calendar quarter."
     ],
     "international": [
       "3 complimentary international lounge visits per calendar year via Priority Pass."
@@ -81,18 +81,18 @@
     "emi"
   ],
   "joiningBenefits": [
-    "First-year membership fee waived on spending Rs 20,000 within 30 days of card issuance"
+    "First-year membership fee waived on spending ₹20,000 within 30 days of card issuance"
   ],
   "milestoneBenefits": [],
   "additionalBenefits": [
-    "25% discount on movie tickets on BookMyShow, up to Rs 250 per month",
-    "1% fuel surcharge waiver on transactions between Rs 400 and Rs 5,000, capped at Rs 250 per month",
+    "25% discount on movie tickets on BookMyShow, up to ₹250 per month",
+    "1% fuel surcharge waiver on transactions between ₹400 and ₹5,000, capped at ₹250 per month",
     "Green fee waiver and complimentary golf lessons at select golf courses"
   ],
   "additionalDetails": [
-    "1% fee + GST on utility transactions when cumulative spends exceed Rs 15,000 in a calendar month",
+    "1% fee + GST on utility transactions when cumulative spends exceed ₹15,000 in a calendar month",
     "1% fee + GST on rental transactions",
-    "1% fee + GST on wallet load transactions when cumulative spends exceed Rs 15,000 in a calendar month"
+    "1% fee + GST on wallet load transactions when cumulative spends exceed ₹15,000 in a calendar month"
   ],
   "redemption": {
     "statementBalanceValue": 0.25,
@@ -132,7 +132,7 @@
   "verificationStatus": "official-direct",
   "internalNotes": [
     "Card details manually reviewed and verified by user on 2026-06-14.",
-    "Utility, rental, and wallet transactions are eligible to earn rewards at 2 points per Rs 200 spent, capped at 1200 points per month for utilities.",
+    "Utility, rental, and wallet transactions are eligible to earn rewards at 2 points per ₹200 spent, capped at 1200 points per month for utilities.",
     "1% fee on utility, rent, and wallet load transactions above thresholds.",
     "Card was earlier known as YES Premia / YES ELITE."
   ]

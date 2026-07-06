@@ -22,14 +22,14 @@
       "category": "upi",
       "displayCategory": "UPI spends",
       "rate": 1.3333333333333333,
-      "displayRate": "2 Reward Points / Rs 150 spent",
+      "displayRate": "2 Reward Points / ₹150 spent",
       "capMonthly": null
     },
     {
       "category": "base",
       "displayCategory": "Other eligible spends",
       "rate": 1.3333333333333333,
-      "displayRate": "2 Reward Points / Rs 150 spent",
+      "displayRate": "2 Reward Points / ₹150 spent",
       "capMonthly": null
     }
   ],
@@ -74,12 +74,12 @@
     {
       "value": 500,
       "kind": "cashback",
-      "label": "Rs 500 cashback after logging into the HSBC India app and spending Rs 5,000 within the first 30 days"
+      "label": "₹500 cashback after logging into the HSBC India app and spending ₹5,000 within the first 30 days"
     },
     {
       "value": 125,
       "kind": "voucher",
-      "label": "Rs 250 Amazon eGift Voucher for online application and video KYC completion"
+      "label": "₹250 Amazon eGift Voucher for online application and video KYC completion"
     },
     {
       "value": 0,
@@ -88,13 +88,13 @@
     }
   ],
   "joiningBenefits": [
-    "Rs 500 cashback after logging into the HSBC India app and spending Rs 5,000 within the first 30 days",
-    "Rs 250 Amazon eGift Voucher for online application and video KYC completion",
+    "₹500 cashback after logging into the HSBC India app and spending ₹5,000 within the first 30 days",
+    "₹250 Amazon eGift Voucher for online application and video KYC completion",
     "2-month EazyDiner membership on RuPay card activation"
   ],
   "additionalBenefits": [
     "Link card to UPI apps for scan-and-pay transactions",
-    "Fuel surcharge waiver up to Rs 250 per month on transactions from Rs 400 to Rs 4,000",
+    "Fuel surcharge waiver up to ₹250 per month on transactions from ₹400 to ₹4,000",
     "JCB network global offers"
   ],
   "additionalDetails": [
@@ -108,14 +108,14 @@
         "partnerPointValue": 2,
         "transferRatio": 0.5,
         "basis": "fixed",
-        "note": "2 reward points → 1 Accor ALL point · Rs 2/point"
+        "note": "2 reward points → 1 Accor ALL point · ₹2/point"
       },
       {
         "partner": "Marriott Bonvoy",
         "partnerPointValue": 0.6,
         "transferRatio": 0.5,
         "basis": "dynamic",
-        "note": "2 reward points → 1 Marriott point · avg Rs 0.6/point"
+        "note": "2 reward points → 1 Marriott point · avg ₹0.6/point"
       }
     ],
     "airlinePartners": [
@@ -250,13 +250,13 @@
     "salaried": [
       "Age 18 to 65 years",
       "Resident of India",
-      "Minimum annual income of Rs 6,00,000",
+      "Minimum annual income of ₹6,00,000",
       "Reside in an eligible service city listed by HSBC"
     ],
     "selfEmployed": [
       "Age 25 to 65 years",
       "Resident of India",
-      "Minimum annual income of Rs 12,00,000",
+      "Minimum annual income of ₹12,00,000",
       "Reside in an eligible service city listed by HSBC"
     ]
   },
@@ -268,7 +268,7 @@
   "internalNotes": [
     "Card details manually reviewed and verified by user on 2026-06-08",
     "Card is lifetime free with no joining or renewal fees.",
-    "Earn rate of 2 points per Rs 150 spent is equivalent to 1.33 points per Rs 100 spent.",
+    "Earn rate of 2 points per ₹150 spent is equivalent to 1.33 points per ₹100 spent.",
     "Excludes fuel, rent, wallet loads, education, government, utilities, insurance, and EMI from earning points.",
     "Point-to-mile transfer is supported via the mobile app at a 2:1 ratio for most partners."
   ]

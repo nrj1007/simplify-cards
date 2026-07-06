@@ -22,14 +22,14 @@
       "category": "travel",
       "displayCategory": "Travel spends",
       "rate": 1,
-      "displayRate": "2 Travel Credits / Rs 200 spent",
+      "displayRate": "2 Travel Credits / ₹200 spent",
       "capMonthly": null
     },
     {
       "category": "base",
       "displayCategory": "Other eligible spends",
       "rate": 0.5,
-      "displayRate": "1 Travel Credit / Rs 200 spent",
+      "displayRate": "1 Travel Credit / ₹200 spent",
       "capMonthly": null
     }
   ],
@@ -38,7 +38,7 @@
   "lounge": {
     "domestic": [
       "4 complimentary domestic airport lounge visits per calendar year (limited to 1 visit per quarter).",
-      "1 additional domestic lounge visit on every Rs 1 lakh spend, up to 8 additional visits per year."
+      "1 additional domestic lounge visit on every ₹1 lakh spend, up to 8 additional visits per year."
     ],
     "international": [
       "Complimentary Priority Pass membership for the first 2 years, with no complimentary visits (all visits are charged at standard Priority Pass rates)."
@@ -78,11 +78,11 @@
     {
       "value": 375,
       "kind": "points",
-      "label": "1,500 Travel Credits on spends of Rs 30,000 within 60 days of card issuance, credited on payment of joining fee"
+      "label": "1,500 Travel Credits on spends of ₹30,000 within 60 days of card issuance, credited on payment of joining fee"
     }
   ],
   "joiningBenefits": [
-    "1,500 Travel Credits on spends of Rs 30,000 within 60 days of card issuance, credited on payment of joining fee"
+    "1,500 Travel Credits on spends of ₹30,000 within 60 days of card issuance, credited on payment of joining fee"
   ],
   "renewalBenefits": [],
   "milestones": [
@@ -91,16 +91,16 @@
       "period": "annual",
       "value": 5000,
       "kind": "points",
-      "label": "5,000 bonus Travel Credits on annual spends of Rs 5 lakh"
+      "label": "5,000 bonus Travel Credits on annual spends of ₹5 lakh"
     }
   ],
   "milestoneBenefits": [
-    "5,000 bonus Travel Credits on annual spends of Rs 5 lakh"
+    "5,000 bonus Travel Credits on annual spends of ₹5 lakh"
   ],
   "additionalBenefits": [
-    "Air accident cover up to Rs 50 lakh",
-    "Lost card liability cover up to Rs 1 lakh",
-    "1% fuel surcharge waiver up to Rs 250 per month on eligible fuel spends from Rs 500 to Rs 4,000"
+    "Air accident cover up to ₹50 lakh",
+    "Lost card liability cover up to ₹1 lakh",
+    "1% fuel surcharge waiver up to ₹250 per month on eligible fuel spends from ₹500 to ₹4,000"
   ],
   "redemption": {
     "statementBalanceValue": 0.25,
@@ -112,14 +112,14 @@
         "partnerPointValue": 2,
         "transferRatio": 0.5,
         "basis": "fixed",
-        "note": "2 Travel Credits -> 1 Accor ALL point · Rs 2/point"
+        "note": "2 Travel Credits -> 1 Accor ALL point · ₹2/point"
       },
       {
         "partner": "Club ITC",
         "partnerPointValue": 1,
         "transferRatio": 0.5,
         "basis": "fixed",
-        "note": "2 Travel Credits -> 1 Club ITC point · Rs 1/point"
+        "note": "2 Travel Credits -> 1 Club ITC point · ₹1/point"
       }
     ],
     "airlinePartners": [

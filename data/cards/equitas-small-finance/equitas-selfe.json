@@ -26,14 +26,14 @@
       "category": "partner merchants",
       "rate": 10,
       "displayCategory": "2 chosen accelerated categories: apparel, dining, grocery, utility, or taxi",
-      "displayRate": "10 Reward Points / Rs 100 spent (on 2 chosen categories)",
+      "displayRate": "10 Reward Points / ₹100 spent (on 2 chosen categories)",
       "capMonthly": null
     },
     {
       "category": "base",
       "rate": 2,
       "displayCategory": "All other retail spends",
-      "displayRate": "2 Reward Points / Rs 100 spent",
+      "displayRate": "2 Reward Points / ₹100 spent",
       "capMonthly": null
     }
   ],
@@ -89,7 +89,7 @@
     "Choice of 2 complimentary OTT/brand memberships from: Amazon Prime, Jio Hotstar, Sony LIV, Zee5, or Discovery+ (claim within 90 days of issuance)",
     "Choice of card style: Regular plastic, eco-friendly Green (recycled plastic), or premium Metal variant",
     "Flexible billing date: Choose 12th, 16th, or 20th of every month",
-    "1% fuel surcharge waiver on transactions between Rs 500 and Rs 3,000",
+    "1% fuel surcharge waiver on transactions between ₹500 and ₹3,000",
     "Up to 50 days interest-free credit period on regular purchases"
   ],
   "additionalDetails": [
@@ -122,12 +122,12 @@
   "eligibility": {
     "salaried": [
       "Age: 22 – 60 years",
-      "Minimum annual income: Rs 5 – 18 lakhs (approximate range)",
+      "Minimum annual income: ₹5 – 18 lakhs (approximate range)",
       "Subject to Equitas Small Finance Bank credit approval"
     ],
     "selfEmployed": [
       "Age: 22 – 60 years",
-      "Minimum annual income: Rs 5 lakhs (approximate)",
+      "Minimum annual income: ₹5 lakhs (approximate)",
       "Subject to Equitas Small Finance Bank credit approval"
     ]
   },
@@ -140,10 +140,10 @@
     "The 10 RP accelerated row applies only to 2 self-chosen categories (from apparel, dining, grocery, utility, taxi), not all of them at once, so it uses category 'partner merchants' rather than broad dining/grocery/utility/lifestyle. acceleratedShare 0.5 on dining/grocery/utilities blends the accelerated rate against base for the portion of those categories the cardholder selects; online is 0 (general online is not a choosable accelerated category).",
     "Card details audited against the live official Equitas Selfe Credit Card page on 2026-06-15.",
     "Card details manually reviewed and verified by user on 2026-06-15.",
-    "The live page explicitly shows 5X rewards on 2 self-chosen categories and a base earn rate of 2 RP per Rs 100, so the accelerated row is modeled as 10 RP per Rs 100 on the two selected categories.",
-    "The live page explicitly confirms a renewal fee waiver on Rs 2.4 lakh annual spends in the previous anniversary year and a limited-period first-year-free offer excluding GST.",
-    "Xchange redemption value is spend-tiered via the Equitas Privilege Program (common to all 3 Equitas cards): 1 RP = Rs 0.35 at Blue (base), rising to Rs 0.50 (Gold, Rs 40k/mo), Rs 0.75 (Platinum, Rs 60k/mo), and Rs 1.00 (Diamond, Rs 1L/mo) — a 3.5% to 10% valueback on the 5X categories. Modeled via redemption.pointValueTiers for ranking; ecosystemValue 1 shows the top-tier headline (PowerMiles convention). The flat Rs 0.35 captured in the 2026-06-15 audit is the Blue/base tier only. Silver (Rs 20k/mo) value is unconfirmed, modeled as staying at Blue until Gold.",
+    "The live page explicitly shows 5X rewards on 2 self-chosen categories and a base earn rate of 2 RP per ₹100, so the accelerated row is modeled as 10 RP per ₹100 on the two selected categories.",
+    "The live page explicitly confirms a renewal fee waiver on ₹2.4 lakh annual spends in the previous anniversary year and a limited-period first-year-free offer excluding GST.",
+    "Xchange redemption value is spend-tiered via the Equitas Privilege Program (common to all 3 Equitas cards): 1 RP = ₹0.35 at Blue (base), rising to ₹0.50 (Gold, ₹40k/mo), ₹0.75 (Platinum, ₹60k/mo), and ₹1.00 (Diamond, ₹1L/mo) — a 3.5% to 10% valueback on the 5X categories. Modeled via redemption.pointValueTiers for ranking; ecosystemValue 1 shows the top-tier headline (PowerMiles convention). The flat ₹0.35 captured in the 2026-06-15 audit is the Blue/base tier only. Silver (₹20k/mo) value is unconfirmed, modeled as staying at Blue until Gold.",
     "Metal card variant may carry additional charges; confirm with bank at time of issuance.",
-    "Finance charges: 3.75% per month. Cash advance fee: 2.5% or Rs 250 whichever is higher."
+    "Finance charges: 3.75% per month. Cash advance fee: 2.5% or ₹250 whichever is higher."
   ]
 }

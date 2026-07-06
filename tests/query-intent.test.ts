@@ -4,7 +4,7 @@ import { parseQueryIntent } from "../lib/query-intent";
 describe("query intent parser", () => {
   it("parses cashback, lounge, and fee-cap intent", () => {
     const intent = parseQueryIntent({
-      query: "best cashback card with lounge access under Rs 5000"
+      query: "best cashback card with lounge access under ₹5000"
     });
 
     expect(intent.useCases).toContain("cashback");

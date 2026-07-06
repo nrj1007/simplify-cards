@@ -20,21 +20,21 @@
       "category": "upi",
       "rate": 0.5,
       "displayCategory": "UPI spends",
-      "displayRate": "1 Reward Point / Rs 200 spent",
+      "displayRate": "1 Reward Point / ₹200 spent",
       "capMonthly": null
     },
     {
       "category": "base",
       "rate": 0.5,
       "displayCategory": "All other retail spends",
-      "displayRate": "1 Reward Point / Rs 200 spent",
+      "displayRate": "1 Reward Point / ₹200 spent",
       "capMonthly": null
     },
     {
       "category": "insurance",
       "rate": 0.5,
       "displayCategory": "Insurance premium spends",
-      "displayRate": "1 Reward Point / Rs 200 spent (capped at 250 points per month)",
+      "displayRate": "1 Reward Point / ₹200 spent (capped at 250 points per month)",
       "capMonthly": 250
     }
   ],
@@ -83,7 +83,7 @@
       "period": "quarterly",
       "value": 250,
       "kind": "points",
-      "label": "1,000 bonus Reward Points on achieving quarterly spend of Rs 50,000"
+      "label": "1,000 bonus Reward Points on achieving quarterly spend of ₹50,000"
     }
   ],
   "milestoneBenefits": [],
@@ -91,11 +91,11 @@
     {
       "value": 200,
       "kind": "cashback",
-      "label": "10% cashback on first 5 UPI transactions within first 30 days of card issuance (capped at Rs 200)"
+      "label": "10% cashback on first 5 UPI transactions within first 30 days of card issuance (capped at ₹200)"
     }
   ],
   "joiningBenefits": [
-    "10% cashback on first 5 UPI transactions within first 30 days of card issuance (capped at Rs 200)"
+    "10% cashback on first 5 UPI transactions within first 30 days of card issuance (capped at ₹200)"
   ],
   "additionalBenefits": [
     "RuPay card enabled for UPI payments — link to any UPI app and pay via QR codes"
@@ -103,7 +103,7 @@
   "additionalDetails": [
     "The Wave card is a floater RuPay card linked to your primary Federal Bank Visa or Mastercard credit card. It shares the same credit limit but generates a separate billing statement and requires separate payment.",
     "Eligible only for existing Federal Bank Visa or Mastercard credit card holders. Not available if your primary card is already a RuPay variant.",
-    "A redemption convenience fee of Rs 99 + GST applies per redemption request."
+    "A redemption convenience fee of ₹99 + GST applies per redemption request."
   ],
   "redemption": {
     "statementBalanceValue": 0.25,
@@ -129,12 +129,12 @@
   "internalNotes": [
     "Card details manually reviewed and verified by user on 2026-06-15.",
     "The Wave card is a floater/add-on RuPay credit card linked to an existing Federal Bank Visa or Mastercard credit card. It shares the credit limit but has a separate billing statement.",
-    "Base reward rate: 1 point per Rs 200 spent (0.5% earn rate).",
+    "Base reward rate: 1 point per ₹200 spent (0.5% earn rate).",
     "Insurance transactions (MCC 6300 & 5960) earn 1x reward point capped at 250 points per calendar month, effective July 15, 2024.",
     "Government transactions are excluded from rewards, effective July 15, 2024.",
-    "Redemption convenience fee of Rs 99 + GST per redemption request.",
-    "Welcome offer: 10% cashback on first 5 UPI transactions within first 30 days, capped at Rs 200.",
-    "Milestone: 1,000 bonus reward points on quarterly spend of Rs 50,000.",
+    "Redemption convenience fee of ₹99 + GST per redemption request.",
+    "Welcome offer: 10% cashback on first 5 UPI transactions within first 30 days, capped at ₹200.",
+    "Milestone: 1,000 bonus reward points on quarterly spend of ₹50,000.",
     "Original sourceUrl returned 404 (https://www.federalbank.co.in/wave-credit-card). Updated to main credit cards page."
   ]
 }

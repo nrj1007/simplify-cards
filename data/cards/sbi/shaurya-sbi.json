@@ -23,21 +23,21 @@
       "category": "dining",
       "displayCategory": "Dining and movie spends",
       "rate": 5,
-      "displayRate": "5 Reward Points / Rs 100 spent",
+      "displayRate": "5 Reward Points / ₹100 spent",
       "capMonthly": null
     },
     {
       "category": "grocery",
       "displayCategory": "CSD, departmental stores & grocery spends",
       "rate": 5,
-      "displayRate": "5 Reward Points / Rs 100 spent",
+      "displayRate": "5 Reward Points / ₹100 spent",
       "capMonthly": null
     },
     {
       "category": "base",
       "displayCategory": "Other eligible retail purchases",
       "rate": 1,
-      "displayRate": "1 Reward Point / Rs 100 spent",
+      "displayRate": "1 Reward Point / ₹100 spent",
       "capMonthly": null
     }
   ],
@@ -85,9 +85,9 @@
   "milestones": [],
   "milestoneBenefits": [],
   "additionalBenefits": [
-    "Personal accident insurance cover of Rs 2 lakh, subject to policy terms",
+    "Personal accident insurance cover of ₹2 lakh, subject to policy terms",
     "Card can be embossed with service branch such as Army, Navy, Air Force or Paramilitary",
-    "1% fuel surcharge waiver on eligible fuel transactions from Rs 500 to Rs 3,000, capped at Rs 100 per month"
+    "1% fuel surcharge waiver on eligible fuel transactions from ₹500 to ₹3,000, capped at ₹100 per month"
   ],
   "redemption": {
     "statementBalanceValue": 0.25,

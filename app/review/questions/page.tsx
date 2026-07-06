@@ -12,7 +12,7 @@ function formatLoggedAt(value: string) {
 function summarizeConstraints(entry: Awaited<ReturnType<typeof readUnsupportedQuestionLog>>[number]) {
   const parts: string[] = [];
 
-  if (entry.input.maxAnnualFee !== undefined) parts.push(`Fee <= Rs ${entry.input.maxAnnualFee.toLocaleString("en-IN")}`);
+  if (entry.input.maxAnnualFee !== undefined) parts.push(`Fee <= ₹ ${entry.input.maxAnnualFee.toLocaleString("en-IN")}`);
   if (entry.input.wantsLounge) parts.push("Needs lounge");
   if (entry.input.wantsLifetimeFree) parts.push("Needs LTF");
 

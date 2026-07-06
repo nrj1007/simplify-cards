@@ -19,10 +19,10 @@ export const EQUITAS_PRIVILEGE_TIERS: EquitasPrivilegeTierDefinition[] = [
 export const EQUITAS_PRIVILEGE_BENEFITS = [
   "Higher reward redemption value",
   "Bonus reward points",
-  "Movie and shopping vouchers worth Rs 250",
+  "Movie and shopping vouchers worth ₹250",
   "Golf benefits",
-  "One-way flight booking worth Rs 3,000",
-  "Hotel room night worth Rs 3,500"
+  "One-way flight booking worth ₹3,000",
+  "Hotel room night worth ₹3,500"
 ] as const;
 
 export const EQUITAS_PRIVILEGE_URL = "https://equitas.bank.in/privilege-program/";

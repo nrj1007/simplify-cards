@@ -323,7 +323,7 @@ function rewardFallback(card: CreditCard) {
   const reward = card.rewards.find((item) => item.displayRate) ?? card.rewards[0];
   if (!reward) return DEFAULT_FALLBACK;
   const category = reward.displayCategory ?? reward.category;
-  const rate = reward.displayRate ?? `${reward.rate} ${card.rewardType} per Rs 100`;
+  const rate = reward.displayRate ?? `${reward.rate} ${card.rewardType} per ₹100`;
   return `${rate} on ${category}.`;
 }
 

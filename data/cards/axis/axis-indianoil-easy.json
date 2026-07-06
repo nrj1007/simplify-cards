@@ -21,21 +21,21 @@
       "category": "fuel",
       "displayCategory": "Fuel spends at IndianOil outlets",
       "rate": 20,
-      "displayRate": "20 EDGE REWARD Points / Rs 100 spent at IndianOil outlets",
+      "displayRate": "20 EDGE REWARD Points / ₹100 spent at IndianOil outlets",
       "capMonthly": 1000
     },
     {
       "category": "online",
       "displayCategory": "Online shopping spends",
       "rate": 5,
-      "displayRate": "5 EDGE REWARD Points / Rs 100 spent on online shopping",
+      "displayRate": "5 EDGE REWARD Points / ₹100 spent on online shopping",
       "capMonthly": null
     },
     {
       "category": "base",
       "displayCategory": "Other eligible retail spends",
       "rate": 1,
-      "displayRate": "1 EDGE REWARD Point / Rs 100 spent on other eligible retail spends",
+      "displayRate": "1 EDGE REWARD Point / ₹100 spent on other eligible retail spends",
       "capMonthly": null
     }
   ],
@@ -76,7 +76,7 @@
     {
       "category": "fuel",
       "treatment": "capped",
-      "notes": "Earn 4% value back (20 EDGE REWARD Points per Rs 100 spent) at IndianOil outlets, capped at 1,000 points per month."
+      "notes": "Earn 4% value back (20 EDGE REWARD Points per ₹100 spent) at IndianOil outlets, capped at 1,000 points per month."
     }
   ],
   "joiningBenefitsValued": [
@@ -92,7 +92,7 @@
   "additionalBenefits": [
     "Nil joining fee and nil annual fee as listed on the Axis Bank credit card catalogue",
     "Secured credit card offered through Axis Bank fixed deposit journey",
-    "1% fuel surcharge waiver on eligible fuel transactions from Rs 400 to Rs 4,000, capped at Rs 50 per statement cycle",
+    "1% fuel surcharge waiver on eligible fuel transactions from ₹400 to ₹4,000, capped at ₹50 per statement cycle",
     "10% instant discount on BookMyShow movie tickets",
     "Dining Delights offers through Axis Bank dining programme"
   ],

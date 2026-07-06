@@ -21,14 +21,14 @@
       "category": "base",
       "displayCategory": "Domestic spends",
       "rate": 7.5,
-      "displayRate": "15 EDGE REWARD Points / Rs 200 spent on domestic spends",
+      "displayRate": "15 EDGE REWARD Points / ₹200 spent on domestic spends",
       "capMonthly": null
     },
     {
       "category": "international",
       "displayCategory": "International spends",
       "rate": 15,
-      "displayRate": "30 EDGE REWARD Points / Rs 200 spent on international spends",
+      "displayRate": "30 EDGE REWARD Points / ₹200 spent on international spends",
       "capMonthly": null
     }
   ],
@@ -75,9 +75,9 @@
     "Complimentary airport concierge services",
     "ITC Culinaire, Accor Plus and Club Marriott hotel memberships, subject to product terms",
     "50 complimentary golf rounds per year, subject to product terms",
-    "1% fuel surcharge waiver on transactions from Rs 400 to Rs 4,000, capped at Rs 400 per month",
-    "Purchase protection up to Rs 2 lakh",
-    "Credit shield cover up to Rs 5 lakh",
+    "1% fuel surcharge waiver on transactions from ₹400 to ₹4,000, capped at ₹400 per month",
+    "Purchase protection up to ₹2 lakh",
+    "Credit shield cover up to ₹5 lakh",
     "Travel inconvenience cover up to USD 500 for baggage and personal document loss or delay"
   ],
   "redemption": {

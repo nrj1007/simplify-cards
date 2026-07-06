@@ -19,23 +19,23 @@
   "rewards": [
     {
       "category": "fuel",
-      "displayCategory": "IndianOil fuel outlets (up to Rs 15,000 spend/month)",
+      "displayCategory": "IndianOil fuel outlets (up to ₹15,000 spend/month)",
       "rate": 4,
-      "displayRate": "6 EDGE Miles / Rs 150 spent at IndianOil outlets",
+      "displayRate": "6 EDGE Miles / ₹150 spent at IndianOil outlets",
       "capMonthly": 600
     },
     {
       "category": "grocery",
-      "displayCategory": "Grocery and supermarket spends (up to Rs 5,000 spend/month)",
+      "displayCategory": "Grocery and supermarket spends (up to ₹5,000 spend/month)",
       "rate": 1.3333333333333333,
-      "displayRate": "2 EDGE Miles / Rs 150 spent on grocery and supermarket",
+      "displayRate": "2 EDGE Miles / ₹150 spent on grocery and supermarket",
       "capMonthly": 67
     },
     {
       "category": "base",
       "displayCategory": "Other eligible retail spends",
       "rate": 0.6666666666666666,
-      "displayRate": "1 EDGE Mile / Rs 150 spent on other eligible spends",
+      "displayRate": "1 EDGE Mile / ₹150 spent on other eligible spends",
       "capMonthly": null
     }
   ],
@@ -83,12 +83,12 @@
     }
   ],
   "milestoneBenefits": [
-    "Annual fee waived on spends of Rs 1,00,000 and above in a card anniversary year (excluding wallet, rent, and insurance spends)"
+    "Annual fee waived on spends of ₹1,00,000 and above in a card anniversary year (excluding wallet, rent, and insurance spends)"
   ],
   "additionalBenefits": [
     "500 EDGE Miles on first spend within 30 days of card issuance",
     "Unlimited 1% fuel surcharge waiver on purchases at IndianOil outlets, GST on surcharge is non-refundable",
-    "30% off on Zomato food delivery, capped at Rs 150 per order and valid twice per month",
+    "30% off on Zomato food delivery, capped at ₹150 per order and valid twice per month",
     "Complimentary domestic lounge access, illustrated by Axis as 2 visits per quarter",
     "Axis Dining Delights offers may apply as per programme terms"
   ],
@@ -252,12 +252,12 @@
   "eligibility": {
     "salaried": [
       "Age: 18 to 70 years",
-      "Minimum Net Monthly Salary: Rs 20,000",
+      "Minimum Net Monthly Salary: ₹20,000",
       "Resident of India"
     ],
     "selfEmployed": [
       "Age: 18 to 70 years",
-      "Minimum Annual Income (ITR): Rs 3,50,000",
+      "Minimum Annual Income (ITR): ₹3,50,000",
       "Resident of India"
     ]
   },

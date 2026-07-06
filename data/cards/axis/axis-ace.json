@@ -43,7 +43,7 @@
   "loungeInternational": 0,
   "lounge": {
     "domestic": [
-      "Complimentary domestic lounge access is subject to a spend threshold of Rs 50,000 in the previous three calendar months (effective 1st May 2024). Spend criteria is waived for the month of card issuance and the next three months."
+      "Complimentary domestic lounge access is subject to a spend threshold of ₹50,000 in the previous three calendar months (effective 1st May 2024). Spend criteria is waived for the month of card issuance and the next three months."
     ]
   },
   "forexMarkup": 3.5,
@@ -89,12 +89,12 @@
     "gaming"
   ],
   "additionalBenefits": [
-    "1% fuel surcharge waiver on transactions between Rs 400 and Rs 4,000, capped at Rs 500 per billing cycle",
+    "1% fuel surcharge waiver on transactions between ₹400 and ₹4,000, capped at ₹500 per billing cycle",
     "Dining Delights discounts of up to 15% at partner restaurants via EazyDiner"
   ],
   "additionalDetails": [
     "Cashback is directly credited to your statement in the next billing cycle.",
-    "The 5% and 4% cashback categories have a combined monthly capping of Rs 500."
+    "The 5% and 4% cashback categories have a combined monthly capping of ₹500."
   ],
   "redemption": {
     "statementBalanceValue": 1,
@@ -119,9 +119,9 @@
   "verificationStatus": "official-direct",
   "internalNotes": [
     "Card details manually reviewed and verified by user on 2026-06-02",
-    "Complimentary domestic lounge access is subject to a spend threshold of Rs 50,000 in the previous three calendar months (effective 1st May 2024). Spend criteria is waived for the month of card issuance and the next three months.",
-    "Annual fee waiver tracking of Rs 2 lakh excludes rent and wallet load transactions.",
-    "Utility bill payments are capped at a combined limit of Rs 500 per month along with food delivery and Ola spends.",
+    "Complimentary domestic lounge access is subject to a spend threshold of ₹50,000 in the previous three calendar months (effective 1st May 2024). Spend criteria is waived for the month of card issuance and the next three months.",
+    "Annual fee waiver tracking of ₹2 lakh excludes rent and wallet load transactions.",
+    "Utility bill payments are capped at a combined limit of ₹500 per month along with food delivery and Ola spends.",
     "Cashback is credited to the card account 3 days prior to the statement generation date."
   ],
   "popularityScore": 90

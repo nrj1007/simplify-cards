@@ -26,14 +26,14 @@
       "category": "partner merchants",
       "displayCategory": "Flipkart spends (Plus members)",
       "rate": 12,
-      "displayRate": "12 SuperCoins / Rs 100 spent",
+      "displayRate": "12 SuperCoins / ₹100 spent",
       "capMonthly": null
     },
     {
       "category": "base",
       "displayCategory": "Other eligible retail spends",
       "rate": 2,
-      "displayRate": "2 SuperCoins / Rs 100 spent",
+      "displayRate": "2 SuperCoins / ₹100 spent",
       "capMonthly": null
     }
   ],
@@ -52,7 +52,7 @@
     {
       "category": "online",
       "treatment": "capped",
-      "notes": "Flipkart spends earn 12 SuperCoins per Rs 100 spent for Plus members (capped at 1,500 SuperCoins per order) and 6 SuperCoins per Rs 100 spent for non-Plus members (capped at 750 SuperCoins per order)."
+      "notes": "Flipkart spends earn 12 SuperCoins per ₹100 spent for Plus members (capped at 1,500 SuperCoins per order) and 6 SuperCoins per ₹100 spent for non-Plus members (capped at 750 SuperCoins per order)."
     }
   ],
   "exclusions": [
@@ -89,11 +89,11 @@
     "Flat 30% off on first medicine order from Flipkart Health"
   ],
   "renewalBenefits": [
-    "Annual fee waived on spends of Rs 2 lakh or more in the preceding year"
+    "Annual fee waived on spends of ₹2 lakh or more in the preceding year"
   ],
   "milestoneBenefits": [],
   "additionalBenefits": [
-    "1% fuel surcharge waiver on transactions between Rs 400 and Rs 4,000, capped at Rs 400 per billing cycle",
+    "1% fuel surcharge waiver on transactions between ₹400 and ₹4,000, capped at ₹400 per billing cycle",
     "Dining Delights discounts of up to 15% at participating partner restaurants"
   ],
   "redemption": {

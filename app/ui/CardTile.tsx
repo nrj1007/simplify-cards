@@ -50,7 +50,7 @@ export default function CardTile({
 
       <div className="metric-grid">
         <div className="metric">
-          <b>Rs {resolvedCard.annualFee}</b>
+          <b>₹ {resolvedCard.annualFee}</b>
           <span>Annual fee</span>
         </div>
         <div className="metric">

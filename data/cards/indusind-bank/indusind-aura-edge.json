@@ -21,28 +21,28 @@
       "category": "grocery",
       "rate": 1.6,
       "displayCategory": "Grocery spends under Home plan",
-      "displayRate": "4 savings points per Rs 100",
+      "displayRate": "4 savings points per ₹100",
       "capMonthly": null
     },
     {
       "category": "travel",
       "rate": 1.6,
       "displayCategory": "Travel spends under Travel plan",
-      "displayRate": "4 savings points per Rs 100",
+      "displayRate": "4 savings points per ₹100",
       "capMonthly": null
     },
     {
       "category": "utilities, insurance, government, education, real estate, rent",
       "rate": 0.28,
       "displayCategory": "Utility, insurance, government, education, real estate, and rent spends",
-      "displayRate": "0.7 savings points per Rs 100 spent",
+      "displayRate": "0.7 savings points per ₹100 spent",
       "capMonthly": null
     },
     {
       "category": "base",
       "rate": 0.2,
       "displayCategory": "Base retail spends (weekday)",
-      "displayRate": "0.5 savings points per Rs 100",
+      "displayRate": "0.5 savings points per ₹100",
       "capMonthly": null
     }
   ],
@@ -89,11 +89,11 @@
   "eligibility": {
     "salaried": [
       "Age: 21 to 65 years",
-      "Minimum net monthly salary of Rs 20,000"
+      "Minimum net monthly salary of ₹20,000"
     ],
     "selfEmployed": [
       "Age: 21 to 65 years",
-      "Minimum annual income/ITR of Rs 2.4 Lakhs"
+      "Minimum annual income/ITR of ₹2.4 Lakhs"
     ]
   },
   "imageUrl": "/images/indusind-aura-edge.webp",
@@ -104,7 +104,7 @@
   "internalNotes": [
     "Card details manually reviewed and verified by user on 2026-06-14.",
     "Offered primarily as a lifetime-free card with no joining or annual fees.",
-    "Standard rewards are 1 point per Rs 100 spent on weekdays and 2 points per Rs 100 spent on weekends (at Rs 0.4 per point value).",
-    "Utility, insurance, government, education, and rent spends earn at a flat rate of 0.7 savings points per Rs 100 spent."
+    "Standard rewards are 1 point per ₹100 spent on weekdays and 2 points per ₹100 spent on weekends (at ₹0.4 per point value).",
+    "Utility, insurance, government, education, and rent spends earn at a flat rate of 0.7 savings points per ₹100 spent."
   ]
 }

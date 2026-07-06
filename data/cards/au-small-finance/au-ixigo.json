@@ -21,35 +21,35 @@
       "category": "online",
       "rate": 2.5,
       "displayCategory": "Online spends",
-      "displayRate": "10 reward points per Rs 200",
+      "displayRate": "10 reward points per ₹200",
       "capMonthly": null
     },
     {
       "category": "base",
       "rate": 1.25,
       "displayCategory": "Offline spends",
-      "displayRate": "5 reward points per Rs 200",
+      "displayRate": "5 reward points per ₹200",
       "capMonthly": null
     },
     {
       "category": "upi",
       "rate": 1.25,
       "displayCategory": "UPI transactions on RuPay",
-      "displayRate": "5 reward points per Rs 200",
+      "displayRate": "5 reward points per ₹200",
       "capMonthly": null
     },
     {
       "category": "utilities",
       "rate": 0.5,
       "displayCategory": "Telecom & Utilities transactions",
-      "displayRate": "1 reward point per Rs 100",
+      "displayRate": "1 reward point per ₹100",
       "capMonthly": null
     },
     {
       "category": "insurance",
       "rate": 0.5,
       "displayCategory": "Insurance transactions",
-      "displayRate": "1 reward point per Rs 100 (max 100 points per transaction)",
+      "displayRate": "1 reward point per ₹100 (max 100 points per transaction)",
       "capMonthly": null
     }
   ],
@@ -57,7 +57,7 @@
   "loungeInternational": 1,
   "lounge": {
     "domestic": [
-      "Complimentary domestic airport lounge access requires a minimum spend of Rs 50,000 in the preceding calendar quarter to unlock 2 visits in the subsequent quarter.",
+      "Complimentary domestic airport lounge access requires a minimum spend of ₹50,000 in the preceding calendar quarter to unlock 2 visits in the subsequent quarter.",
       "2 complimentary railway lounge visits per calendar quarter (no spend threshold)"
     ],
     "international": [
@@ -96,12 +96,12 @@
     {
       "value": 500,
       "kind": "voucher",
-      "label": "Get Rs 1,000 ixigo money voucher on the first successful transaction within 30 days of card issuance"
+      "label": "Get ₹1,000 ixigo money voucher on the first successful transaction within 30 days of card issuance"
     }
   ],
   "joiningBenefits": [
-    "Get 1,000 Reward Points (worth Rs 500) on the first successful transaction within 30 days of card issuance",
-    "Get Rs 1,000 ixigo money voucher on the first successful transaction within 30 days of card issuance"
+    "Get 1,000 Reward Points (worth ₹500) on the first successful transaction within 30 days of card issuance",
+    "Get ₹1,000 ixigo money voucher on the first successful transaction within 30 days of card issuance"
   ],
   "milestones": [
     {
@@ -109,20 +109,20 @@
       "period": "quarterly",
       "value": 2500,
       "kind": "points",
-      "label": "Earn 5,000 bonus Reward Points (worth up to Rs 2,500) on spending Rs 75,000 or more per calendar quarter"
+      "label": "Earn 5,000 bonus Reward Points (worth up to ₹2,500) on spending ₹75,000 or more per calendar quarter"
     }
   ],
   "milestoneBenefits": [
-    "Earn 5,000 bonus Reward Points (worth up to Rs 2,500) on spending Rs 75,000 or more per calendar quarter"
+    "Earn 5,000 bonus Reward Points (worth up to ₹2,500) on spending ₹75,000 or more per calendar quarter"
   ],
   "additionalBenefits": [
     "Zero payment gateway charges on train bookings made via ixigo and ConfirmTkt (up to 2 bookings per calendar month)",
     "Up to 10% instant discount on domestic/international flights, hotels, and bus bookings via ixigo (once per calendar month)",
     "2 complimentary railway lounge visits per calendar quarter (no spend threshold)",
-    "1% fuel surcharge waiver on transactions between Rs 400 and Rs 5,000, capped at Rs 250 per month"
+    "1% fuel surcharge waiver on transactions between ₹400 and ₹5,000, capped at ₹250 per month"
   ],
   "additionalDetails": [
-    "A reward redemption fee of Rs 99 + GST applies per redemption request.",
+    "A reward redemption fee of ₹99 + GST applies per redemption request.",
     "Minimum points required to redeem is 200 Reward Points."
   ],
   "redemption": {
@@ -155,10 +155,10 @@
   "internalNotes": [
     "Card details manually reviewed and verified by user on 2026-06-03",
     "Reward points are capped at 10,000 points per monthly statement cycle.",
-    "UPI transactions done using the RuPay variant earn 5 reward points per Rs 200 spent.",
+    "UPI transactions done using the RuPay variant earn 5 reward points per ₹200 spent.",
     "Reward points are not earned on fuel, rent, insurance, wallet, jewellery, education, government, and international transactions.",
-    "Telecom, utilities, and insurance transactions earn 1 reward point per Rs 100 spent. Insurance reward points are capped at 100 per transaction.",
-    "Complimentary domestic airport lounge access requires a minimum spend of Rs 50,000 in the preceding calendar quarter to unlock 2 visits in the subsequent quarter.",
+    "Telecom, utilities, and insurance transactions earn 1 reward point per ₹100 spent. Insurance reward points are capped at 100 per transaction.",
+    "Complimentary domestic airport lounge access requires a minimum spend of ₹50,000 in the preceding calendar quarter to unlock 2 visits in the subsequent quarter.",
     "Priority Pass membership can be requested from credit card support; access charges apply for domestic lounges, guest visits, or exceeding the 1 complimentary international visit per year."
   ],
   "popularityScore": 80

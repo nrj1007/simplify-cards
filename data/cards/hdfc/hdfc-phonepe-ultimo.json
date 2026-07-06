@@ -21,21 +21,21 @@
       "category": "phonepe",
       "displayCategory": "Select PhonePe transactions (recharges, utilities, bill payments, and travel)",
       "rate": 10,
-      "displayRate": "10 Reward Points / Rs 100 spent",
+      "displayRate": "10 Reward Points / ₹100 spent",
       "capMonthly": 1000
     },
     {
       "category": "partner merchants",
       "displayCategory": "Select online brands (Amazon, Flipkart, Myntra, Ajio, Swiggy, Zomato, and Uber)",
       "rate": 5,
-      "displayRate": "5 Reward Points / Rs 100 spent",
+      "displayRate": "5 Reward Points / ₹100 spent",
       "capMonthly": 500
     },
     {
       "category": "upi",
       "displayCategory": "UPI Scan & Pay transactions",
       "rate": 1,
-      "displayRate": "1 Reward Point / Rs 100 spent",
+      "displayRate": "1 Reward Point / ₹100 spent",
       "capMonthly": 500
     },
     {
@@ -53,7 +53,7 @@
   "loungeInternational": 0,
   "lounge": {
     "domestic": [
-      "2 complimentary domestic lounge access visits per quarter on spending Rs 75,000 or more in the previous calendar quarter"
+      "2 complimentary domestic lounge access visits per quarter on spending ₹75,000 or more in the previous calendar quarter"
     ]
   },
   "forexMarkup": 3.5,
@@ -95,20 +95,20 @@
     {
       "value": 499,
       "kind": "other",
-      "label": "PhonePe gift card worth Rs 499 on first RuPay credit-card-on-UPI transaction of minimum Rs 100 within 30 days of card issuance"
+      "label": "PhonePe gift card worth ₹499 on first RuPay credit-card-on-UPI transaction of minimum ₹100 within 30 days of card issuance"
     },
     {
       "value": 50,
       "kind": "other",
-      "label": "Additional scratch cards worth Rs 50 each on next 10 RuPay credit-card-on-UPI transactions of minimum Rs 100"
+      "label": "Additional scratch cards worth ₹50 each on next 10 RuPay credit-card-on-UPI transactions of minimum ₹100"
     }
   ],
   "joiningBenefits": [
-    "PhonePe gift card worth Rs 499 on first RuPay credit-card-on-UPI transaction of minimum Rs 100 within 30 days of card issuance",
-    "Additional scratch cards worth Rs 50 each on next 10 RuPay credit-card-on-UPI transactions of minimum Rs 100"
+    "PhonePe gift card worth ₹499 on first RuPay credit-card-on-UPI transaction of minimum ₹100 within 30 days of card issuance",
+    "Additional scratch cards worth ₹50 each on next 10 RuPay credit-card-on-UPI transactions of minimum ₹100"
   ],
   "additionalBenefits": [
-    "1% fuel surcharge waiver on fuel transactions from Rs 400 to Rs 5,000, capped at Rs 250 per statement cycle"
+    "1% fuel surcharge waiver on fuel transactions from ₹400 to ₹5,000, capped at ₹250 per statement cycle"
   ],
   "redemption": {
     "statementBalanceValue": 1,
@@ -120,19 +120,19 @@
     "salaried": [
       "Indian national",
       "Age 21 to 60 years",
-      "Net monthly income above Rs 25,000"
+      "Net monthly income above ₹25,000"
     ],
     "selfEmployed": [
       "Indian national",
       "Age 21 to 65 years",
-      "ITR above Rs 26 lakh per annum"
+      "ITR above ₹26 lakh per annum"
     ]
   },
   "internalNotes": [
     "Card details manually reviewed and verified by user on 2026-06-07",
     "Audited against official HDFC Bank PhonePe Ultimo product page and terms on 2026-06-07.",
-    "Lounge access requires spending Rs 75,000 in the previous calendar quarter to unlock next quarter access.",
-    "Cashback redemption against statement is 1 Reward Point = Rs 1, minimum 500 points. SmartBuy is 1 Point = Rs 0.30.",
+    "Lounge access requires spending ₹75,000 in the previous calendar quarter to unlock next quarter access.",
+    "Cashback redemption against statement is 1 Reward Point = ₹1, minimum 500 points. SmartBuy is 1 Point = ₹0.30.",
     "1.75% DCC markup fee applies on transactions processed in INR at international locations or with merchants registered overseas.",
     "Fully digital onboarding and application managed through the PhonePe app.",
     "Up to 50 days interest-free credit period.",

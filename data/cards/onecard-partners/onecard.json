@@ -23,14 +23,14 @@
       "category": "online",
       "rate": 10,
       "displayCategory": "Top 2 spend categories of the month (5X multiplier)",
-      "displayRate": "5 OneReward Points / Rs 50 spent",
+      "displayRate": "5 OneReward Points / ₹50 spent",
       "capMonthly": null
     },
     {
       "category": "base",
       "rate": 2,
       "displayCategory": "All other retail spends",
-      "displayRate": "1 OneReward Point / Rs 50 spent",
+      "displayRate": "1 OneReward Point / ₹50 spent",
       "capMonthly": null
     }
   ],
@@ -85,10 +85,10 @@
   "additionalBenefits": [
     "India's first metal credit card — lifetime free",
     "No rewards redemption fee; no minimum points threshold for in-app redemption",
-    "1% fuel surcharge waiver (capped at Rs 400 per month)"
+    "1% fuel surcharge waiver (capped at ₹400 per month)"
   ],
   "additionalDetails": [
-    "5X rewards are active on your top 2 highest-spend categories in a given month. Effective January 6, 2025, you must make a minimum spend of Rs 750 in each of at least 3 different categories during the calendar month to unlock this 5X benefit.",
+    "5X rewards are active on your top 2 highest-spend categories in a given month. Effective January 6, 2025, you must make a minimum spend of ₹750 in each of at least 3 different categories during the calendar month to unlock this 5X benefit.",
     "Card is issued by partner banks: Federal Bank, SBM Bank, South Indian Bank, BOB Financial (BOBCARD), Indian Bank, and CSB Bank. Network and specific MITC terms may vary by issuing bank."
   ],
   "redemption": {
@@ -119,13 +119,13 @@
     "Card details manually reviewed and verified by user on 2026-06-15.",
     "Network confirmed as Visa, Mastercard, and RuPay — all three variants are actively offered depending on issuing partner bank.",
     "Fees confirmed as Lifetime Free (nil joining and annual fee).",
-    "Base reward rate: 1 OneReward Point per Rs 50 spent across all categories (equivalent to 2 points per Rs 100).",
-    "5X multiplier: Top 2 spend categories of the month earn 5X (5 points per Rs 50 spent, equivalent to 10 points per Rs 100 spent).",
-    "Effective January 6, 2025, you must make a minimum spend of Rs 750 in each of at least 3 different categories during the calendar month to unlock the 5X benefit.",
+    "Base reward rate: 1 OneReward Point per ₹50 spent across all categories (equivalent to 2 points per ₹100).",
+    "5X multiplier: Top 2 spend categories of the month earn 5X (5 points per ₹50 spent, equivalent to 10 points per ₹100 spent).",
+    "Effective January 6, 2025, you must make a minimum spend of ₹750 in each of at least 3 different categories during the calendar month to unlock the 5X benefit.",
     "Incremental reward points earned via the 5X multiplier on Education, Utilities, and Insurance are capped at 25,000 points per calendar month.",
     "Reward point exclusions: fuel, rent, cash withdrawals, wallet loads, and money transfers.",
-    "Fuel surcharge waiver: 1% waiver at all fuel stations, capped at Rs 400 per month.",
-    "OneReward Points value: Rs 0.10 per point on statement credit redemption. Minimum 500 points required for statement credit. No redemption fee.",
+    "Fuel surcharge waiver: 1% waiver at all fuel stations, capped at ₹400 per month.",
+    "OneReward Points value: ₹0.10 per point on statement credit redemption. Minimum 500 points required for statement credit. No redemption fee.",
     "Issuing partner banks include: Federal Bank, SBM Bank, South Indian Bank, BOB Financial (BOBCARD), Indian Bank, and CSB Bank. Card-specific MITC terms vary by issuing bank."
   ]
 }

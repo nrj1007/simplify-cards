@@ -103,12 +103,12 @@
   "eligibility": {
     "salaried": [
       "Indian citizen aged 21 years or above",
-      "Monthly income of at least Rs 20,000",
+      "Monthly income of at least ₹20,000",
       "Invite-only programme"
     ],
     "selfEmployed": [
       "Indian citizen aged 21 years or above",
-      "Monthly income of at least Rs 30,000",
+      "Monthly income of at least ₹30,000",
       "Invite-only programme"
     ]
   },

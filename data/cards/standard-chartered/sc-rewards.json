@@ -18,22 +18,22 @@
     {
       "category": "base",
       "rate": 2.6666666666666665,
-      "displayCategory": "Retail spends (up to Rs 20,000 per month)",
-      "displayRate": "4 reward points / Rs 150 spent",
+      "displayCategory": "Retail spends (up to ₹20,000 per month)",
+      "displayRate": "4 reward points / ₹150 spent",
       "capMonthly": null
     },
     {
       "category": "base",
       "rate": 5.333333333333333,
-      "displayCategory": "Incremental retail spends above Rs 20,000 per month",
-      "displayRate": "8 reward points / Rs 150 spent",
+      "displayCategory": "Incremental retail spends above ₹20,000 per month",
+      "displayRate": "8 reward points / ₹150 spent",
       "capMonthly": 2000
     },
     {
       "category": "government, insurance",
       "rate": 0.6666666666666666,
       "displayCategory": "Government and insurance spends",
-      "displayRate": "1 reward point / Rs 150 spent",
+      "displayRate": "1 reward point / ₹150 spent",
       "capMonthly": null
     }
   ],
@@ -63,8 +63,8 @@
   ],
   "milestones": [],
   "milestoneBenefits": [
-    "Annual fee waiver on spends of Rs 1,50,000 or more in the previous year",
-    "4,000 reward points (worth Rs 1,000) on payment of annual renewal fee if spend threshold is not met"
+    "Annual fee waiver on spends of ₹1,50,000 or more in the previous year",
+    "4,000 reward points (worth ₹1,000) on payment of annual renewal fee if spend threshold is not met"
   ],
   "additionalBenefits": [
     "1 complimentary domestic lounge visit per calendar quarter",
@@ -77,11 +77,11 @@
   "eligibility": {
     "salaried": [
       "Age: 18 to 65 years",
-      "Minimum monthly income of Rs 25,000"
+      "Minimum monthly income of ₹25,000"
     ],
     "selfEmployed": [
       "Age: 18 to 67 years",
-      "Minimum income of Rs 25,000"
+      "Minimum income of ₹25,000"
     ]
   },
   "imageUrl": "/images/sc-rewards.webp",
@@ -91,9 +91,9 @@
   "verificationStatus": "official-direct",
   "internalNotes": [
     "Card details manually reviewed and verified by user on 2026-06-14.",
-    "Earns 4 reward points per Rs 150 spent on retail spends up to Rs 20,000 per month (0.67% return value). 1 point = Rs 0.25.",
-    "Earns 8 reward points per Rs 150 spent on incremental retail spends above Rs 20,000 per month (bonus capped at 2,000 points per billing cycle).",
-    "Government and insurance spends earn 1 reward point per Rs 150 spent (0.17% return value).",
+    "Earns 4 reward points per ₹150 spent on retail spends up to ₹20,000 per month (0.67% return value). 1 point = ₹0.25.",
+    "Earns 8 reward points per ₹150 spent on incremental retail spends above ₹20,000 per month (bonus capped at 2,000 points per billing cycle).",
+    "Government and insurance spends earn 1 reward point per ₹150 spent (0.17% return value).",
     "Fuel spends are completely excluded from earning rewards."
   ]
 }

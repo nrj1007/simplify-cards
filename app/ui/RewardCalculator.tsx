@@ -46,7 +46,7 @@ const SLIDER_MAX = 200_000;
 const SLIDER_STEP = 500;
 
 function formatINR(value: number) {
-  return `Rs ${Math.round(value).toLocaleString("en-IN")}`;
+  return `₹ ${Math.round(value).toLocaleString("en-IN")}`;
 }
 
 function formatINRCompact(value: number) {
@@ -54,9 +54,9 @@ function formatINRCompact(value: number) {
   if (v >= 100000) {
     const lakhs = v / 100000;
     const formatted = lakhs % 1 === 0 ? `${lakhs}` : lakhs.toFixed(1);
-    return `Rs ${formatted}L`;
+    return `₹ ${formatted}L`;
   }
-  return `Rs ${v.toLocaleString("en-IN")}`;
+  return `₹ ${v.toLocaleString("en-IN")}`;
 }
 
 function formatUnits(value: number) {
@@ -186,7 +186,7 @@ export default function RewardCalculator({ card, milestones = [] }: Props) {
     return options.sort((a, b) => b.value - a.value);
   }, [annualUnits, cashback, redemption, card.issuer]);
 
-  // Rupee value of one point when transferred to air miles (airMilesValue is a Rs value, e.g. 0.6).
+  // Rupee value of one point when transferred to air miles (airMilesValue is a ₹ value, e.g. 0.6).
   const airMilesRupeePerPoint = !cashback && typeof redemption?.airMilesValue === "number" && redemption.airMilesValue > 0
     ? redemption.airMilesValue
     : null;
@@ -211,8 +211,8 @@ export default function RewardCalculator({ card, milestones = [] }: Props) {
   const partnerValuations = useMemo(() => {
     return (redemption?.transferPartnerValuations ?? [])
       .map((partner) => {
-        // valuePerCardUnit = Rs per card reward unit, correctly applying the transfer ratio.
-        // e.g. Rs 2.2/Accor pt × 2 Accor pts/EDGE Mile = Rs 4.4/EDGE Mile
+        // valuePerCardUnit = ₹ per card reward unit, correctly applying the transfer ratio.
+        // e.g. ₹2.2/Accor pt × 2 Accor pts/EDGE Mile = ₹4.4/EDGE Mile
         const valuePerCardUnit = partner.partnerPointValue * partner.transferRatio;
         return { ...partner, valuePerCardUnit, value: annualUnits * valuePerCardUnit };
       })
@@ -233,14 +233,14 @@ export default function RewardCalculator({ card, milestones = [] }: Props) {
   const redeemRows = useMemo<Array<{ key: string; label: string; type: "direct" | "transfer" | "voucher"; rate: string; value: number }>>(() => {
     const rows: Array<{ key: string; label: string; type: "direct" | "transfer" | "voucher"; rate: string; value: number }> = [];
     for (const option of rupeeOptions) {
-      rows.push({ key: `direct-${option.key}`, label: option.label, type: "direct", rate: `Rs ${option.perPoint} / ${unitLower}`, value: option.value });
+      rows.push({ key: `direct-${option.key}`, label: option.label, type: "direct", rate: `₹ ${option.perPoint} / ${unitLower}`, value: option.value });
     }
     for (const partner of partnerValuations) {
       rows.push({
         key: `transfer-${partner.partner}`,
         label: partner.partner,
         type: "transfer",
-        rate: `Rs ${partner.valuePerCardUnit.toFixed(2)} / ${unitLower}`,
+        rate: `₹ ${partner.valuePerCardUnit.toFixed(2)} / ${unitLower}`,
         value: partner.value
       });
     }
@@ -249,7 +249,7 @@ export default function RewardCalculator({ card, milestones = [] }: Props) {
         key: `voucher-${voucher.partner}-${voucher.programme}`,
         label: `${voucher.partner} — ${voucher.programme}`,
         type: "voucher",
-        rate: `Rs ${voucher.valuePerPoint} / ${unitLower}`,
+        rate: `₹ ${voucher.valuePerPoint} / ${unitLower}`,
         value: voucher.value
       });
     }

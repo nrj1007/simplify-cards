@@ -19,7 +19,7 @@
       "category": "base",
       "rate": 0.2,
       "displayCategory": "Other retail spends",
-      "displayRate": "1 reward point per Rs 150 spent",
+      "displayRate": "1 reward point per ₹150 spent",
       "capMonthly": null
     }
   ],
@@ -46,7 +46,7 @@
   "milestoneBenefits": [],
   "additionalBenefits": [
     "India's first interactive card with reward, EMI and credit buttons",
-    "2 complimentary movie tickets up to Rs 200 every month via BookMyShow",
+    "2 complimentary movie tickets up to ₹200 every month via BookMyShow",
     "1% fuel surcharge waiver"
   ],
   "redemption": {
@@ -65,11 +65,11 @@
   "eligibility": {
     "salaried": [
       "Age: 21 to 65 years",
-      "Minimum net monthly salary of Rs 20,000"
+      "Minimum net monthly salary of ₹20,000"
     ],
     "selfEmployed": [
       "Age: 21 to 65 years",
-      "Minimum annual income/ITR of Rs 2.4 Lakhs"
+      "Minimum annual income/ITR of ₹2.4 Lakhs"
     ]
   },
   "imageUrl": "/images/indusind-nexxt.webp",

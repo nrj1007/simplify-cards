@@ -14,7 +14,7 @@ const RATE_DISPLAY_ALLOWLIST = new Set([
 const isCashbackType = (rt: string) => /cashback/i.test(rt) && !/point|mile|coin|star|credit|neucoin/i.test(rt);
 
 describe("reward rate convention", () => {
-  it("keeps reward.rate (units per Rs 100) consistent with every parseable displayRate", () => {
+  it("keeps reward.rate (units per ₹100) consistent with every parseable displayRate", () => {
     const offenders: string[] = [];
     for (const card of cards) {
       if (isCashbackType(card.rewardType)) continue;
@@ -29,33 +29,33 @@ describe("reward rate convention", () => {
     expect(offenders).toEqual([]);
   });
 
-  it("scores Amex MR earn as units (not the old %-return), e.g. amex-gold base = 2 points/Rs100", () => {
+  it("scores Amex MR earn as units (not the old %-return), e.g. amex-gold base = 2 points/₹100", () => {
     const card = getCardById("amex-gold");
     expect(card).toBeTruthy();
-    // "1 Membership Rewards Point / Rs 50" = 2 units per Rs 100 (was mis-stored as 0.5 %-return).
+    // "1 Membership Rewards Point / ₹50" = 2 units per ₹100 (was mis-stored as 0.5 %-return).
     const retail = card!.rewards.find((r) => r.category === "retail");
     expect(retail!.rate).toBe(2);
-    // Rs 50,000 retail/mo earns 1,000 MR points/mo (uncapped retail row).
+    // ₹50,000 retail/mo earns 1,000 MR points/mo (uncapped retail row).
     const result = calculateRewards(card!, { base: 50000 });
     expect(result.rows.find((r) => r.category === "base")!.monthlyUnits).toBe(1000);
   });
 
   it("buckets spend across structured reward tiers (Magnus base earn)", () => {
-    // Magnus base: 6 pts/Rs100 up to Rs 1.5L/mo (tier 0–150000), then 17.5 pts/Rs100 above
+    // Magnus base: 6 pts/₹100 up to ₹1.5L/mo (tier 0–150000), then 17.5 pts/₹100 above
     // (tier 150000–∞), sourced from the structured tierLowerBound/tierUpperBound fields.
     const card = getCardById("axis-magnus");
     expect(card).toBeTruthy();
     const tiered = card!.rewards.filter((r) => r.category === "base" && r.tierLowerBound !== undefined);
     expect(tiered.length).toBe(2);
 
-    // Rs 3L/mo base: 150000*6/100 + 150000*17.5/100 = 9,000 + 26,250 = 35,250 units/mo.
+    // ₹3L/mo base: 150000*6/100 + 150000*17.5/100 = 9,000 + 26,250 = 35,250 units/mo.
     const result = calculateRewards(card!, { base: 300000 });
     expect(result.rows.find((r) => r.category === "base")!.monthlyUnits).toBe(35250);
   });
 
   it("applies the structured postCapRate beyond a reward cap (matching recommend.ts)", () => {
-    // Marriott Bonvoy "travel, dining, entertainment": 2.6667 pts/Rs100, capped at 1,600 pts/mo,
-    // then a reduced 1.33 pts/Rs100. The displayRate has no "then" clause, so this earning comes
+    // Marriott Bonvoy "travel, dining, entertainment": 2.6667 pts/₹100, capped at 1,600 pts/mo,
+    // then a reduced 1.33 pts/₹100. The displayRate has no "then" clause, so this earning comes
     // purely from the structured `postCapRate` field — which the calculator must honor.
     const card = getCardById("hdfc-marriott-bonvoy");
     expect(card).toBeTruthy();
@@ -63,7 +63,7 @@ describe("reward rate convention", () => {
     expect(reward.capMonthly).toBe(1600);
     expect(reward.postCapRate).toBeGreaterThan(0);
 
-    // Rs 1,00,000/mo travel: 60k reaches the 1,600-pt cap, the remaining 40k earns at 1.33/100.
+    // ₹1,00,000/mo travel: 60k reaches the 1,600-pt cap, the remaining 40k earns at 1.33/100.
     const result = calculateRewards(card!, { travel: 100000 });
     const travel = result.rows.find((r) => r.category === "travel")!;
     // 1,600 (capped) + 40,000 * 1.33 / 100 = 2,132 — strictly above the bare cap.
@@ -101,7 +101,7 @@ describe("reward calculator", () => {
     expect(result.annualUnits).toBe(72000);
   });
 
-  it("applies Burgundy accelerated base earn above Rs 1.5 lakh monthly spend", () => {
+  it("applies Burgundy accelerated base earn above ₹1.5 lakh monthly spend", () => {
     const card = getCardById("axis-magnus-burgundy");
     expect(card).toBeTruthy();
 
@@ -180,10 +180,10 @@ describe("reward calculator", () => {
       education: 0,
       gold: 0,
       government: 0,
-      international: 10000 // Rs 10,000 spend
+      international: 10000 // ₹10,000 spend
     });
 
-    // 10,000 spend on international should earn 400 points per month (4 Reward Points / Rs 100)
+    // 10,000 spend on international should earn 400 points per month (4 Reward Points / ₹100)
     expect(result.monthlyUnits).toBe(400);
     expect(result.annualUnits).toBe(4800);
 
@@ -201,9 +201,9 @@ describe("reward calculator", () => {
     const rules = milestoneRulesForCard(card!);
     
     // Amex Platinum Travel has 3 milestone benefits:
-    // 1. 7,500 MR points at Rs 1.9L
-    // 2. 10,000 MR points at Rs 4.0L
-    // 3. 22,500 MR points + Rs 10k Taj voucher at Rs 7.0L
+    // 1. 7,500 MR points at ₹1.9L
+    // 2. 10,000 MR points at ₹4.0L
+    // 3. 22,500 MR points + ₹10k Taj voucher at ₹7.0L
     expect(rules.length).toBe(3);
 
     const tajMilestone = rules.find(r => r.threshold === 700000);
@@ -225,8 +225,8 @@ describe("reward calculator", () => {
       expect(card).toBeTruthy();
 
       const result = calculateRewards(card!, {
-        base: 10000,      // 1 MR / Rs 50 = 200
-        utilities: 5000   // 1 MR / Rs 50 = 100
+        base: 10000,      // 1 MR / ₹50 = 200
+        utilities: 5000   // 1 MR / ₹50 = 100
       });
 
       expect(result.monthlyUnits).toBe(300);
@@ -257,7 +257,7 @@ describe("reward calculator", () => {
 
       const result = calculateRewards(card!, {
         base: 10000,   // 200
-        online: 10000  // base 1 MR / Rs 50 = 200 (the 2X Reward Multiplier is select-brands only, not all online)
+        online: 10000  // base 1 MR / ₹50 = 200 (the 2X Reward Multiplier is select-brands only, not all online)
       });
 
       expect(result.monthlyUnits).toBe(400);
@@ -288,7 +288,7 @@ describe("reward calculator", () => {
 
       const result = calculateRewards(card!, {
         base: 10000,   // 200
-        online: 10000  // base 1 MR / Rs 50 = 200 (the 3X Reward Multiplier is select-brands only, not all online)
+        online: 10000  // base 1 MR / ₹50 = 200 (the 3X Reward Multiplier is select-brands only, not all online)
       });
 
       expect(result.monthlyUnits).toBe(400);
@@ -303,9 +303,9 @@ describe("reward calculator", () => {
       expect(card).toBeTruthy();
 
       const result = calculateRewards(card!, {
-        base: 8000,          // 1 MR / Rs 40 = 200
-        travel: 8000,        // 3 MR / Rs 40 = 600
-        fuel: 10000          // 5 MR / Rs 100 = 500
+        base: 8000,          // 1 MR / ₹40 = 200
+        travel: 8000,        // 3 MR / ₹40 = 600
+        fuel: 10000          // 5 MR / ₹100 = 500
       });
 
       expect(result.monthlyUnits).toBe(1300);
@@ -322,9 +322,9 @@ describe("reward calculator", () => {
       expect(card).toBeTruthy();
 
       const result = calculateRewards(card!, {
-        online: 2500,  // base 1 MR / Rs 50 => 50 (the 10X is select-merchant only, not all online)
+        online: 2500,  // base 1 MR / ₹50 => 50 (the 10X is select-merchant only, not all online)
         amazon: 2500,  // 5X => 250 MR
-        base: 5000     // 1 MR / Rs 50 => 100 MR
+        base: 5000     // 1 MR / ₹50 => 100 MR
       });
 
       expect(result.monthlyUnits).toBe(400);
@@ -336,7 +336,7 @@ describe("reward calculator", () => {
       expect(card).toBeTruthy();
 
       const result = calculateRewards(card!, {
-        online: 10000, // base 1 MR / Rs 50 => 200 (the 10X select-merchant rate is not on the generic online slider)
+        online: 10000, // base 1 MR / ₹50 => 200 (the 10X select-merchant rate is not on the generic online slider)
         amazon: 10000  // raw 1,000 MR, capped at 250
       });
 
@@ -405,7 +405,7 @@ describe("reward calculator", () => {
       const utilitiesRow = result.rows.find((r) => r.category === "utilities");
       const groceryRow = result.rows.find((r) => r.category === "grocery");
       const baseRow = result.rows.find((r) => r.category === "base");
-      // BPCL fuel earns 25 RP/Rs 100 capped at 2,500/mo (Rs 10k spend hits the cap exactly).
+      // BPCL fuel earns 25 RP/₹100 capped at 2,500/mo (₹10k spend hits the cap exactly).
       expect(fuelRow?.monthlyUnits).toBe(2500);
       expect(fuelRow?.excluded).toBe(false);
       expect(utilitiesRow?.monthlyUnits).toBe(100);
@@ -560,10 +560,10 @@ describe("reward calculator", () => {
       expect(card).toBeTruthy();
 
       const result = calculateRewards(card!, {
-        fuel: 12000, // 13 points / Rs 100 -> 1560 points, capped at 1300 points
-        grocery: 10000, // 5 points / Rs 100 -> 500 points
-        dining: 10000, // 5 points / Rs 100 -> 500 points
-        base: 10000 // 1 point / Rs 100 -> 100 points
+        fuel: 12000, // 13 points / ₹100 -> 1560 points, capped at 1300 points
+        grocery: 10000, // 5 points / ₹100 -> 500 points
+        dining: 10000, // 5 points / ₹100 -> 500 points
+        base: 10000 // 1 point / ₹100 -> 100 points
       });
       expect(result.monthlyUnits).toBe(1300 + 1000 + 100);
       expect(result.annualUnits).toBe(2400 * 12);
@@ -665,9 +665,9 @@ describe("reward calculator", () => {
       expect(card).toBeTruthy();
 
       const result = calculateRewards(card!, {
-        dining: 10000,    // 10 Reward Points / Rs 100 spent = 1000 units
-        grocery: 10000,   // 10 Reward Points / Rs 100 spent = 1000 units
-        base: 20000,      // 2 Reward Points / Rs 100 spent = 400 units
+        dining: 10000,    // 10 Reward Points / ₹100 spent = 1000 units
+        grocery: 10000,   // 10 Reward Points / ₹100 spent = 1000 units
+        base: 20000,      // 2 Reward Points / ₹100 spent = 400 units
         fuel: 5000        // excluded
       });
 
@@ -678,8 +678,8 @@ describe("reward calculator", () => {
       expect(fuelRow?.excluded).toBe(true);
 
       const rules = milestoneRulesForCard(card!);
-      // Quarterly milestone: Rs 500 voucher (net Rs 250) at Rs 50k -> annualized: Rs 1000 at Rs 200k
-      // Annual milestone: Rs 7000 voucher (net Rs 3500) at Rs 5L -> Rs 3500 at Rs 500k
+      // Quarterly milestone: ₹500 voucher (net ₹250) at ₹50k -> annualized: ₹1000 at ₹200k
+      // Annual milestone: ₹7000 voucher (net ₹3500) at ₹5L -> ₹3500 at ₹500k
       expect(rules).toHaveLength(2);
       const quarterly = rules.find(r => r.period === "quarterly");
       expect(quarterly?.threshold).toBe(200000);
@@ -692,9 +692,9 @@ describe("reward calculator", () => {
       expect(card).toBeTruthy();
 
       const result = calculateRewards(card!, {
-        dining: 10000,          // 10 Reward Points / Rs 100 = 1000 units
-        international: 10000,   // 10 Reward Points / Rs 100 = 1000 units
-        base: 10000,            // Other retail purchases at 2 Reward Points / Rs 100 = 200 units
+        dining: 10000,          // 10 Reward Points / ₹100 = 1000 units
+        international: 10000,   // 10 Reward Points / ₹100 = 1000 units
+        base: 10000,            // Other retail purchases at 2 Reward Points / ₹100 = 200 units
         fuel: 5000
       });
 
@@ -705,7 +705,7 @@ describe("reward calculator", () => {
       expect(fuelRow?.excluded).toBe(true);
 
       const rules = milestoneRulesForCard(card!);
-      // Milestone: 12,000 points (worth Rs 3,000) at Rs 3 lakh annual spent
+      // Milestone: 12,000 points (worth ₹3,000) at ₹3 lakh annual spent
       expect(rules).toHaveLength(1);
       expect(rules[0].threshold).toBe(300000);
       expect(rules[0].value).toBe(3000);
@@ -749,8 +749,8 @@ describe("reward calculator", () => {
       expect(card).toBeTruthy();
 
       const result = calculateRewards(card!, {
-        dining: 10000, // 5 pts/Rs 100 = 500
-        base: 10000,   // 2 pts/Rs 100 = 200
+        dining: 10000, // 5 pts/₹100 = 500
+        base: 10000,   // 2 pts/₹100 = 200
         fuel: 5000     // excluded
       });
 
@@ -779,8 +779,8 @@ describe("reward calculator", () => {
       expect(card).toBeTruthy();
 
       const result = calculateRewards(card!, {
-        dining: 10000, // 5 pts/Rs 100 = 500
-        base: 10000,   // 1 pt/Rs 100 = 100
+        dining: 10000, // 5 pts/₹100 = 500
+        base: 10000,   // 1 pt/₹100 = 100
         fuel: 5000     // excluded
       });
 
@@ -798,7 +798,7 @@ describe("reward calculator", () => {
       expect(card).toBeTruthy();
 
       const result = calculateRewards(card!, {
-        base: 10000,     // 4 pts/Rs 100 = 400
+        base: 10000,     // 4 pts/₹100 = 400
         fuel: 5000,      // excluded
         rent: 5000,      // excluded
         government: 5000 // excluded
@@ -821,8 +821,8 @@ describe("reward calculator", () => {
       expect(card).toBeTruthy();
 
       const result = calculateRewards(card!, {
-        dining: 10000, // 2 pts/Rs 100 = 200
-        base: 10000,   // 0.5 pts/Rs 100 = 50
+        dining: 10000, // 2 pts/₹100 = 200
+        base: 10000,   // 0.5 pts/₹100 = 50
         fuel: 5000     // excluded
       });
 
@@ -840,9 +840,9 @@ describe("reward calculator", () => {
       expect(card).toBeTruthy();
 
       const result = calculateRewards(card!, {
-        dining: 10000, // 5 pts/Rs 100 = 500
-        grocery: 10000, // 5 pts/Rs 100 = 500
-        base: 10000,   // 1 pt/Rs 100 = 100
+        dining: 10000, // 5 pts/₹100 = 500
+        grocery: 10000, // 5 pts/₹100 = 500
+        base: 10000,   // 1 pt/₹100 = 100
         fuel: 5000     // excluded
       });
 
@@ -854,8 +854,8 @@ describe("reward calculator", () => {
       expect(card).toBeTruthy();
 
       const result = calculateRewards(card!, {
-        dining: 10000, // 5 pts/Rs 100 = 500
-        base: 10000    // Base row at 1 RP/Rs 100 = 100 units
+        dining: 10000, // 5 pts/₹100 = 500
+        base: 10000    // Base row at 1 RP/₹100 = 100 units
       });
 
       expect(result.monthlyUnits).toBe(600);
@@ -874,7 +874,7 @@ describe("reward calculator", () => {
 
     const rules = milestoneRulesForCard(card!);
 
-    // Structured milestones: a Rs 4 lakh base unlock and an incremental "beyond Rs 4 lakh"
+    // Structured milestones: a ₹4 lakh base unlock and an incremental "beyond ₹4 lakh"
     // milestone whose 20,000-point cap is folded into its label (no separate cap milestone row).
     const base = rules.find((r) => r.threshold === 400000);
     expect(base).toBeTruthy();
@@ -889,11 +889,11 @@ describe("reward calculator", () => {
 
     it("prefers structured milestones over milestoneBenefits text", () => {
       const milestones: Milestone[] = [
-        { threshold: 500000, period: "annual", value: 5000, kind: "voucher", label: "Rs 5,000 flight voucher on Rs 5 lakh annual spend" }
+        { threshold: 500000, period: "annual", value: 5000, kind: "voucher", label: "₹5,000 flight voucher on ₹5 lakh annual spend" }
       ];
       const rules = milestoneRulesForCard({
         ...base,
-        milestoneBenefits: ["Rs 99,999 worth bonus on annual spends of Rs 1 lakh"],
+        milestoneBenefits: ["₹99,999 worth bonus on annual spends of ₹1 lakh"],
         milestones
       });
       expect(rules).toHaveLength(1);
@@ -905,7 +905,7 @@ describe("reward calculator", () => {
 
     it("keeps annual milestone numbers as-authored", () => {
       const milestones: Milestone[] = [
-        { threshold: 400000, period: "annual", value: 8000, kind: "points", label: "8,000 points at Rs 4 lakh" }
+        { threshold: 400000, period: "annual", value: 8000, kind: "points", label: "8,000 points at ₹4 lakh" }
       ];
       const rules = milestoneRulesForCard({ ...base, milestones });
       expect(rules[0]).toMatchObject({ threshold: 400000, value: 8000, period: "annual", isVoucher: false });
@@ -913,7 +913,7 @@ describe("reward calculator", () => {
 
     it("annualizes a quarterly milestone (threshold and value x4)", () => {
       const milestones: Milestone[] = [
-        { threshold: 75000, period: "quarterly", value: 2500, kind: "points", label: "5,000 pts on Rs 75k per quarter" }
+        { threshold: 75000, period: "quarterly", value: 2500, kind: "points", label: "5,000 pts on ₹75k per quarter" }
       ];
       const rules = milestoneRulesForCard({ ...base, milestones });
       expect(rules[0].threshold).toBe(300000);
@@ -923,7 +923,7 @@ describe("reward calculator", () => {
 
     it("annualizes a monthly milestone (threshold and value x12)", () => {
       const milestones: Milestone[] = [
-        { threshold: 10000, period: "monthly", value: 100, kind: "points", label: "100 pts on Rs 10k per month" }
+        { threshold: 10000, period: "monthly", value: 100, kind: "points", label: "100 pts on ₹10k per month" }
       ];
       const rules = milestoneRulesForCard({ ...base, milestones });
       expect(rules[0].threshold).toBe(120000);
@@ -939,14 +939,14 @@ describe("reward calculator", () => {
       online: 0,
       dining: 0,
       travel: 0,
-      hotels: 10000,   // Rs 10,000 spend on MMT Hotels (rate 6%)
-      airlines: 20000, // Rs 20,000 spend on MMT Flights (rate 3%)
+      hotels: 10000,   // ₹10,000 spend on MMT Hotels (rate 6%)
+      airlines: 20000, // ₹20,000 spend on MMT Flights (rate 3%)
       fuel: 0,
       grocery: 0,
       utilities: 0,
       upi: 0,
       amazon: 0,
-      base: 10000,     // Rs 10,000 spend on other base retail (rate 1%)
+      base: 10000,     // ₹10,000 spend on other base retail (rate 1%)
       rent: 0,
       insurance: 0,
       education: 0,
@@ -983,7 +983,7 @@ describe("reward calculator", () => {
       fuel: 4000,      // 4% cashback = 160 (below 200 cap)
       utilities: 1000, // 5% = 200 points
       grocery: 1000,   // 5% = 200 points (total points 400, matches the 400 points cap)
-      base: 10000      // 2 points/Rs 100 = 200 points
+      base: 10000      // 2 points/₹100 = 200 points
     });
 
     expect(result1.monthlyUnits).toBe(760); // 160 + 200 + 200 + 200 = 760
@@ -1004,7 +1004,7 @@ describe("reward calculator", () => {
       fuel: 6000,      // 4% cashback = 240 -> capped at 200
       utilities: 2000, // 5% = 400 points
       grocery: 2000,   // 5% = 400 points (total points 800 -> capped at 400 points)
-      base: 10000      // 2 points/Rs 100 = 200 points
+      base: 10000      // 2 points/₹100 = 200 points
     });
 
     expect(result2.monthlyUnits).toBe(800); // 200 (capped fuel) + 200 (capped utilities) + 200 (capped grocery) + 200 (base) = 800
@@ -1026,9 +1026,9 @@ describe("reward calculator", () => {
     expect(card).toBeTruthy();
 
     const result = calculateRewards(card!, {
-      base: 10000,      // 2 points / Rs 100 = 200 points
-      utilities: 10000, // 1 point / Rs 100 = 100 points
-      insurance: 10000  // 1 point / Rs 100 = 100 points
+      base: 10000,      // 2 points / ₹100 = 200 points
+      utilities: 10000, // 1 point / ₹100 = 100 points
+      insurance: 10000  // 1 point / ₹100 = 100 points
     });
 
     expect(result.monthlyUnits).toBe(400); // 200 + 100 + 100 = 400
@@ -1040,9 +1040,9 @@ describe("reward calculator", () => {
     expect(card).toBeTruthy();
 
     const result = calculateRewards(card!, {
-      base: 10000,      // 2 points / Rs 100 = 200 points
-      utilities: 10000, // 1 point / Rs 100 = 100 points
-      upi: 10000        // 2 points / Rs 100 = 200 points
+      base: 10000,      // 2 points / ₹100 = 200 points
+      utilities: 10000, // 1 point / ₹100 = 100 points
+      upi: 10000        // 2 points / ₹100 = 200 points
     });
 
     expect(result.monthlyUnits).toBe(600); // base 200 + utilities routed to UPI 200 + UPI 200
@@ -1054,10 +1054,10 @@ describe("reward calculator", () => {
     expect(card).toBeTruthy();
 
     const result = calculateRewards(card!, {
-      base: 10000,          // 2 points / Rs 100 = 200 points
-      international: 10000, // 4 points / Rs 100 = 400 points
-      utilities: 10000,     // 1 point / Rs 100 = 100 points
-      insurance: 10000      // 1 point / Rs 100 = 100 points
+      base: 10000,          // 2 points / ₹100 = 200 points
+      international: 10000, // 4 points / ₹100 = 400 points
+      utilities: 10000,     // 1 point / ₹100 = 100 points
+      insurance: 10000      // 1 point / ₹100 = 100 points
     });
 
     expect(result.monthlyUnits).toBe(800); // 200 + 400 + 100 + 100 = 800
@@ -1069,11 +1069,11 @@ describe("reward calculator", () => {
     expect(card).toBeTruthy();
 
     const result = calculateRewards(card!, {
-      fuel: 5000,  // 2.5% cashback => Rs 125/month (cashback, not points)
-      base: 10000  // 2 points / Rs 100 = 200 points/month
+      fuel: 5000,  // 2.5% cashback => ₹125/month (cashback, not points)
+      base: 10000  // 2 points / ₹100 = 200 points/month
     });
 
-    // fuel: 5000 * 2.5% = Rs 125 cashback (returned as-is in units)
+    // fuel: 5000 * 2.5% = ₹125 cashback (returned as-is in units)
     // base: 10000 / 100 * 2 = 200 reward points
     // total monthlyUnits = 125 + 200 = 325
     expect(result.monthlyUnits).toBe(325);
@@ -1085,14 +1085,14 @@ describe("reward calculator", () => {
     expect(card).toBeTruthy();
 
     const result = calculateRewards(card!, {
-      travel: 10000,       // 7% → rate=7 → 7 units per Rs 100 → 700 units
-      international: 5000, // 2% → rate=2 → 2 units per Rs 100 → 100 units
-      base: 10000,         // 1.5% → rate=1.5 → 1.5 units per Rs 100 → 150 units
-      utilities: 5000      // 0.5% → rate=0.5 → 0.5 units per Rs 100 → 25 units
+      travel: 10000,       // 7% → rate=7 → 7 units per ₹100 → 700 units
+      international: 5000, // 2% → rate=2 → 2 units per ₹100 → 100 units
+      base: 10000,         // 1.5% → rate=1.5 → 1.5 units per ₹100 → 150 units
+      utilities: 5000      // 0.5% → rate=0.5 → 0.5 units per ₹100 → 25 units
     });
 
-    // displayRate "X% Adani Reward Points" doesn't match "X Points / Rs Y" parser
-    // → falls back to rate directly (rate already equals % return since 1 point = Rs 1)
+    // displayRate "X% Adani Reward Points" doesn't match "X Points / ₹ Y" parser
+    // → falls back to rate directly (rate already equals % return since 1 point = ₹1)
     // travel:       10000 / 100 * 7   = 700
     // international: 5000 / 100 * 2   = 100
     // base:         10000 / 100 * 1.5 = 150
@@ -1127,8 +1127,8 @@ describe("reward calculator", () => {
     expect(card).toBeTruthy();
 
     const result = calculateRewards(card!, {
-      dining: 5000,        // Swiggy & Zomato: 20 RP / Rs 200 => 10 RP / Rs 100 => 500 units
-      base: 10000,         // Base: 4 RP / Rs 200 => 2 RP / Rs 100 => 200 units
+      dining: 5000,        // Swiggy & Zomato: 20 RP / ₹200 => 10 RP / ₹100 => 500 units
+      base: 10000,         // Base: 4 RP / ₹200 => 2 RP / ₹100 => 200 units
       amazon: 10000,       // No dedicated rate, falls back to Base => 200 units
       fuel: 5000,          // Excluded => 0 units
       rent: 10000          // Excluded => 0 units
@@ -1186,8 +1186,8 @@ describe("reward calculator", () => {
       fuel: 5000,          // 5000 * 5% FP = 250 FP => capped at 150 FP
       grocery: 3000,       // 3000 * 5% FP = 150 FP => capped at 100 FP
       utilities: 3000,     // 3000 * 5% FP = 150 FP => capped at 100 FP
-      base: 15000,         // 15000 * (1 FP / Rs 150) = 100 FP
-      upi: 15000,          // 15000 * (1 FP / Rs 150) = 100 FP
+      base: 15000,         // 15000 * (1 FP / ₹150) = 100 FP
+      upi: 15000,          // 15000 * (1 FP / ₹150) = 100 FP
       rent: 10000,         // Excluded => 0
       government: 5000     // Excluded => 0
     });
@@ -1224,7 +1224,7 @@ describe("reward calculator", () => {
     const result = calculateRewards(card!, {
       amazon: 30000,       // 10X category, 30000 * 10% = 3000 units => capped at 2500 CashPoints
       grocery: 50000,      // 10X category, 50000 * 10% = 5000 units => capped at 1000 CashPoints
-      base: 10000,         // base category, 10000 * (1% base) = 100 CashPoints (2 points / Rs 200 => 1 point / Rs 100)
+      base: 10000,         // base category, 10000 * (1% base) = 100 CashPoints (2 points / ₹200 => 1 point / ₹100)
       upi: 10000,          // upi category, 10000 * (1% base) = 100 CashPoints
       fuel: 5000,          // excluded => 0
       rent: 10000          // excluded => 0
@@ -1434,11 +1434,11 @@ describe("reward calculator", () => {
   });
 
   describe("IRCTC HDFC Bank Credit Card", () => {
-    it("earns 5 reward points per Rs 100 on IRCTC / travel spends", () => {
+    it("earns 5 reward points per ₹100 on IRCTC / travel spends", () => {
       const card = getCardById("hdfc-irctc");
       expect(card).toBeTruthy();
 
-      // Rs 10,000 IRCTC/travel spend: 10,000 / 100 * 5 = 500 points
+      // ₹10,000 IRCTC/travel spend: 10,000 / 100 * 5 = 500 points
       const result = calculateRewards(card!, { travel: 10000 });
 
       expect(result.monthlyUnits).toBe(500);
@@ -1451,11 +1451,11 @@ describe("reward calculator", () => {
       expect(travelRow!.excluded).toBe(false);
     });
 
-    it("earns 1 reward point per Rs 100 on base / other spends", () => {
+    it("earns 1 reward point per ₹100 on base / other spends", () => {
       const card = getCardById("hdfc-irctc");
       expect(card).toBeTruthy();
 
-      // Rs 50,000 base spend: 50,000 / 100 * 1 = 500 points
+      // ₹50,000 base spend: 50,000 / 100 * 1 = 500 points
       const result = calculateRewards(card!, { base: 50000 });
 
       expect(result.monthlyUnits).toBe(500);
@@ -1470,8 +1470,8 @@ describe("reward calculator", () => {
       const card = getCardById("hdfc-irctc");
       expect(card).toBeTruthy();
 
-      // Rs 5,000 IRCTC => 5,000/100 * 5 = 250 pts
-      // Rs 20,000 base  => 20,000/100 * 1 = 200 pts
+      // ₹5,000 IRCTC => 5,000/100 * 5 = 250 pts
+      // ₹20,000 base  => 20,000/100 * 1 = 200 pts
       // Total = 450 pts/month
       const result = calculateRewards(card!, { travel: 5000, base: 20000 });
 
@@ -1483,7 +1483,7 @@ describe("reward calculator", () => {
       const card = getCardById("hdfc-irctc");
       expect(card).toBeTruthy();
 
-      // Rs 300,000 insurance spend: raw = 300,000 / 100 * 1 = 3,000 pts — capped at 2,000
+      // ₹300,000 insurance spend: raw = 300,000 / 100 * 1 = 3,000 pts — capped at 2,000
       const result = calculateRewards(card!, { insurance: 300000 });
 
       const insRow = result.rows.find((r) => r.category === "insurance");
@@ -1505,13 +1505,13 @@ describe("reward calculator", () => {
       expect(result.monthlyUnits).toBe(0);
     });
 
-    it("milestone: Rs 500 gift voucher unlocks at Rs 30,000 quarterly (Rs 1,20,000 annual) spend", () => {
+    it("milestone: ₹500 gift voucher unlocks at ₹30,000 quarterly (₹1,20,000 annual) spend", () => {
       const card = getCardById("hdfc-irctc");
       expect(card).toBeTruthy();
 
       const rules = milestoneRulesForCard(card!);
 
-      // Quarterly Rs 30k = annualised Rs 1,20,000 threshold; Rs 500 GV (net Rs 250) × 4 quarters = Rs 1,000 annualised value
+      // Quarterly ₹30k = annualised ₹1,20,000 threshold; ₹500 GV (net ₹250) × 4 quarters = ₹1,000 annualised value
       const quarterlyMilestone = rules.find((r) => r.threshold === 120000);
       expect(quarterlyMilestone).toBeTruthy();
       expect(quarterlyMilestone!.value).toBe(1000);  // 250 net × 4 quarters
@@ -1521,11 +1521,11 @@ describe("reward calculator", () => {
   });
 
   describe("Swiggy HDFC Bank Credit Card", () => {
-    it("earns 10% cashback on Swiggy spends, capped at Rs 1,500/month", () => {
+    it("earns 10% cashback on Swiggy spends, capped at ₹1,500/month", () => {
       const card = getCardById("hdfc-swiggy");
       expect(card).toBeTruthy();
 
-      // Rs 10,000 Swiggy (dining) spend => 10,000 * 10% = Rs 1,000 cashback
+      // ₹10,000 Swiggy (dining) spend => 10,000 * 10% = ₹1,000 cashback
       const result1 = calculateRewards(card!, { dining: 10000 });
       expect(result1.monthlyUnits).toBe(1000);
 
@@ -1533,7 +1533,7 @@ describe("reward calculator", () => {
       expect(diningRow).toBeTruthy();
       expect(diningRow!.monthlyUnits).toBe(1000);
 
-      // Rs 20,000 Swiggy spend => 2,000 raw cashback capped at Rs 1,500
+      // ₹20,000 Swiggy spend => 2,000 raw cashback capped at ₹1,500
       const result2 = calculateRewards(card!, { dining: 20000 });
       expect(result2.monthlyUnits).toBe(1500);
     });
@@ -1543,7 +1543,7 @@ describe("reward calculator", () => {
       expect(card).toBeTruthy();
 
       // The 5% "online" row is now "partner merchants" (select merchants: Amazon/Flipkart/etc.),
-      // not all online, so typed online spend earns the 1% base rate: Rs 10,000 * 1% = Rs 100.
+      // not all online, so typed online spend earns the 1% base rate: ₹10,000 * 1% = ₹100.
       const result1 = calculateRewards(card!, { online: 10000 });
       expect(result1.monthlyUnits).toBe(100);
 
@@ -1551,16 +1551,16 @@ describe("reward calculator", () => {
       expect(onlineRow).toBeTruthy();
       expect(onlineRow!.monthlyUnits).toBe(100);
 
-      // Rs 40,000 online * 1% base = Rs 400 (under the base row's Rs 500 cap)
+      // ₹40,000 online * 1% base = ₹400 (under the base row's ₹500 cap)
       const result2 = calculateRewards(card!, { online: 40000 });
       expect(result2.monthlyUnits).toBe(400);
     });
 
-    it("earns 1% cashback on other spends, capped at Rs 500/month", () => {
+    it("earns 1% cashback on other spends, capped at ₹500/month", () => {
       const card = getCardById("hdfc-swiggy");
       expect(card).toBeTruthy();
 
-      // Rs 10,000 base spend => 10,000 * 1% = Rs 100 cashback
+      // ₹10,000 base spend => 10,000 * 1% = ₹100 cashback
       const result1 = calculateRewards(card!, { base: 10000 });
       expect(result1.monthlyUnits).toBe(100);
 
@@ -1568,7 +1568,7 @@ describe("reward calculator", () => {
       expect(baseRow).toBeTruthy();
       expect(baseRow!.monthlyUnits).toBe(100);
 
-      // Rs 60,000 base spend => 600 raw cashback capped at Rs 500
+      // ₹60,000 base spend => 600 raw cashback capped at ₹500
       const result2 = calculateRewards(card!, { base: 60000 });
       expect(result2.monthlyUnits).toBe(500);
     });
@@ -1599,7 +1599,7 @@ describe("reward calculator", () => {
   });
 
   describe("Swiggy Orange HDFC Bank Credit Card", () => {
-    it("earns 10% cashback on Swiggy spends, capped at Rs 1,500/month", () => {
+    it("earns 10% cashback on Swiggy spends, capped at ₹1,500/month", () => {
       const card = getCardById("hdfc-swiggy-orange");
       expect(card).toBeTruthy();
 
@@ -1630,7 +1630,7 @@ describe("reward calculator", () => {
       expect(result2.monthlyUnits).toBe(400);
     });
 
-    it("earns 1% cashback on other spends, capped at Rs 500/month", () => {
+    it("earns 1% cashback on other spends, capped at ₹500/month", () => {
       const card = getCardById("hdfc-swiggy-orange");
       expect(card).toBeTruthy();
 
@@ -1675,11 +1675,11 @@ describe("reward calculator", () => {
       const card = getCardById("hdfc-shoppers-stop");
       expect(card).toBeTruthy();
 
-      // Rs 10,000 base spend => 10,000 * 1% = 100 points
+      // ₹10,000 base spend => 10,000 * 1% = 100 points
       const result1 = calculateRewards(card!, { base: 10000 });
       expect(result1.monthlyUnits).toBe(100);
 
-      // Rs 120,000 base spend => 1,200 points raw, capped at 1,000 points
+      // ₹120,000 base spend => 1,200 points raw, capped at 1,000 points
       const result2 = calculateRewards(card!, { base: 120000 });
       expect(result2.monthlyUnits).toBe(1000);
     });
@@ -1714,13 +1714,13 @@ describe("reward calculator", () => {
 
       const rules = milestoneRulesForCard(card!);
 
-      // Weekend monthly Rs 15,000 => annualized Rs 1,80,000 threshold; Rs 500 monthly value => Rs 6,000 annualized
+      // Weekend monthly ₹15,000 => annualized ₹1,80,000 threshold; ₹500 monthly value => ₹6,000 annualized
       const monthlyMilestone = rules.find((r) => r.threshold === 180000);
       expect(monthlyMilestone).toBeTruthy();
       expect(monthlyMilestone!.value).toBe(6000);
       expect(monthlyMilestone!.period).toBe("monthly");
 
-      // Annual Rs 2 Lakhs threshold => Rs 2,000 points value
+      // Annual ₹2 Lakhs threshold => ₹2,000 points value
       const annualMilestone = rules.find((r) => r.threshold === 200000);
       expect(annualMilestone).toBeTruthy();
       expect(annualMilestone!.value).toBe(2000);
@@ -1733,11 +1733,11 @@ describe("reward calculator", () => {
       const card = getCardById("hdfc-shoppers-stop-black");
       expect(card).toBeTruthy();
 
-      // Rs 10,000 base spend => 10,000 * 2% = 200 points
+      // ₹10,000 base spend => 10,000 * 2% = 200 points
       const result1 = calculateRewards(card!, { base: 10000 });
       expect(result1.monthlyUnits).toBe(200);
 
-      // Rs 150,000 base spend => 3,000 points raw, capped at 2,000 points
+      // ₹150,000 base spend => 3,000 points raw, capped at 2,000 points
       const result2 = calculateRewards(card!, { base: 150000 });
       expect(result2.monthlyUnits).toBe(2000);
     });
@@ -1772,7 +1772,7 @@ describe("reward calculator", () => {
 
       const rules = milestoneRulesForCard(card!);
 
-      // Weekend monthly Rs 50,000 => annualized Rs 6,000,000 threshold; Rs 2,000 monthly value => Rs 24,000 annualized
+      // Weekend monthly ₹50,000 => annualized ₹6,000,000 threshold; ₹2,000 monthly value => ₹24,000 annualized
       const monthlyMilestone = rules.find((r) => r.threshold === 600000);
       expect(monthlyMilestone).toBeTruthy();
       expect(monthlyMilestone!.value).toBe(24000);
@@ -1781,11 +1781,11 @@ describe("reward calculator", () => {
   });
 
   describe("Swiggy HDFC Bank BLCK Credit Card", () => {
-    it("earns 10% cashback on Swiggy spends, capped at Rs 1,500/month", () => {
+    it("earns 10% cashback on Swiggy spends, capped at ₹1,500/month", () => {
       const card = getCardById("hdfc-swiggy-black");
       expect(card).toBeTruthy();
 
-      // Rs 10,000 Swiggy (dining) spend => 10,000 * 10% = Rs 1,000 cashback
+      // ₹10,000 Swiggy (dining) spend => 10,000 * 10% = ₹1,000 cashback
       const result1 = calculateRewards(card!, { dining: 10000 });
       expect(result1.monthlyUnits).toBe(1000);
 
@@ -1793,7 +1793,7 @@ describe("reward calculator", () => {
       expect(diningRow).toBeTruthy();
       expect(diningRow!.monthlyUnits).toBe(1000);
 
-      // Rs 20,000 Swiggy spend => 2,000 raw cashback capped at Rs 1,500
+      // ₹20,000 Swiggy spend => 2,000 raw cashback capped at ₹1,500
       const result2 = calculateRewards(card!, { dining: 20000 });
       expect(result2.monthlyUnits).toBe(1500);
     });
@@ -1803,7 +1803,7 @@ describe("reward calculator", () => {
       expect(card).toBeTruthy();
 
       // The 5% "online" row is now "partner merchants" (select merchants: Amazon/Flipkart/etc.),
-      // not all online, so typed online spend earns the 1% base rate: Rs 10,000 * 1% = Rs 100.
+      // not all online, so typed online spend earns the 1% base rate: ₹10,000 * 1% = ₹100.
       const result1 = calculateRewards(card!, { online: 10000 });
       expect(result1.monthlyUnits).toBe(100);
 
@@ -1811,16 +1811,16 @@ describe("reward calculator", () => {
       expect(onlineRow).toBeTruthy();
       expect(onlineRow!.monthlyUnits).toBe(100);
 
-      // Rs 40,000 online * 1% base = Rs 400 (under the base row's Rs 500 cap)
+      // ₹40,000 online * 1% base = ₹400 (under the base row's ₹500 cap)
       const result2 = calculateRewards(card!, { online: 40000 });
       expect(result2.monthlyUnits).toBe(400);
     });
 
-    it("earns 1% cashback on other spends, capped at Rs 500/month", () => {
+    it("earns 1% cashback on other spends, capped at ₹500/month", () => {
       const card = getCardById("hdfc-swiggy-black");
       expect(card).toBeTruthy();
 
-      // Rs 10,000 base spend => 10,000 * 1% = Rs 100 cashback
+      // ₹10,000 base spend => 10,000 * 1% = ₹100 cashback
       const result1 = calculateRewards(card!, { base: 10000 });
       expect(result1.monthlyUnits).toBe(100);
 
@@ -1828,7 +1828,7 @@ describe("reward calculator", () => {
       expect(baseRow).toBeTruthy();
       expect(baseRow!.monthlyUnits).toBe(100);
 
-      // Rs 60,000 base spend => 600 raw cashback capped at Rs 500
+      // ₹60,000 base spend => 600 raw cashback capped at ₹500
       const result2 = calculateRewards(card!, { base: 60000 });
       expect(result2.monthlyUnits).toBe(500);
     });
@@ -1868,15 +1868,15 @@ describe("reward calculator", () => {
   });
 
   describe("HSBC Live+ Credit Card", () => {
-    it("earns 10% cashback on dining, food delivery, and groceries capped at Rs 1,000/month", () => {
+    it("earns 10% cashback on dining, food delivery, and groceries capped at ₹1,000/month", () => {
       const card = getCardById("hsbc-live-plus");
       expect(card).toBeTruthy();
 
-      // Rs 5,000 on dining => 5,000 * 10% = Rs 500 cashback
+      // ₹5,000 on dining => 5,000 * 10% = ₹500 cashback
       const result1 = calculateRewards(card!, { dining: 5000 });
       expect(result1.monthlyUnits).toBe(500);
 
-      // Rs 15,000 on dining => 1,500 capped at Rs 1,000
+      // ₹15,000 on dining => 1,500 capped at ₹1,000
       const result2 = calculateRewards(card!, { dining: 15000 });
       expect(result2.monthlyUnits).toBe(1000);
     });
@@ -1885,7 +1885,7 @@ describe("reward calculator", () => {
       const card = getCardById("hsbc-live-plus");
       expect(card).toBeTruthy();
 
-      // Rs 10,000 base spend => 150 cashback
+      // ₹10,000 base spend => 150 cashback
       const result = calculateRewards(card!, { base: 10000 });
       expect(result.monthlyUnits).toBe(150);
     });
@@ -1909,56 +1909,56 @@ describe("reward calculator", () => {
       const card = getCardById("hsbc-premier");
       expect(card).toBeTruthy();
 
-      // Rs 10,000 hotels => 3,600 points
+      // ₹10,000 hotels => 3,600 points
       const resultHotels = calculateRewards(card!, { hotels: 10000 });
       expect(resultHotels.monthlyUnits).toBe(3600);
 
-      // Rs 10,000 flights => 1,800 points
+      // ₹10,000 flights => 1,800 points
       const resultFlights = calculateRewards(card!, { airlines: 10000 });
       expect(resultFlights.monthlyUnits).toBe(1800);
 
-      // Rs 10,000 travel (general travel / offline) => 300 points
+      // ₹10,000 travel (general travel / offline) => 300 points
       const resultTravel = calculateRewards(card!, { travel: 10000 });
       expect(resultTravel.monthlyUnits).toBe(300);
     });
 
-    it("earns 3 reward points per Rs 100 on base spends", () => {
+    it("earns 3 reward points per ₹100 on base spends", () => {
       const card = getCardById("hsbc-premier");
       expect(card).toBeTruthy();
 
-      // Rs 10,000 base => 300 points
+      // ₹10,000 base => 300 points
       const result = calculateRewards(card!, { base: 10000 });
       expect(result.monthlyUnits).toBe(300);
     });
 
-    it("caps utilities, insurance, and rent rewards at Rs 1 Lakh spend (3,000 points) combined monthly", () => {
+    it("caps utilities, insurance, and rent rewards at ₹1 Lakh spend (3,000 points) combined monthly", () => {
       const card = getCardById("hsbc-premier");
       expect(card).toBeTruthy();
 
-      // Rs 50,000 utilities + Rs 50,000 insurance => Rs 100,000 total spend => 3,000 points
+      // ₹50,000 utilities + ₹50,000 insurance => ₹100,000 total spend => 3,000 points
       const result1 = calculateRewards(card!, { utilities: 50000, insurance: 50000 });
       expect(result1.monthlyUnits).toBe(3000);
 
-      // Rs 150,000 utilities => 4,500 raw points capped at 3,000 points
+      // ₹150,000 utilities => 4,500 raw points capped at 3,000 points
       const result2 = calculateRewards(card!, { utilities: 150000 });
       expect(result2.monthlyUnits).toBe(3000);
 
-      // Rs 150,000 rent => 4,500 raw points capped at 3,000 points
+      // ₹150,000 rent => 4,500 raw points capped at 3,000 points
       const result3 = calculateRewards(card!, { rent: 150000 });
       expect(result3.monthlyUnits).toBe(3000);
     });
   });
 
   describe("HSBC RuPay Cashback Credit Card", () => {
-    it("earns 10% cashback on dining, food delivery, and groceries capped at Rs 400/month", () => {
+    it("earns 10% cashback on dining, food delivery, and groceries capped at ₹400/month", () => {
       const card = getCardById("hsbc-rupay-cashback");
       expect(card).toBeTruthy();
 
-      // Rs 3,000 dining => 300 cashback
+      // ₹3,000 dining => 300 cashback
       const result1 = calculateRewards(card!, { dining: 3000 });
       expect(result1.monthlyUnits).toBe(300);
 
-      // Rs 6,000 dining => 600 capped at Rs 400
+      // ₹6,000 dining => 600 capped at ₹400
       const result2 = calculateRewards(card!, { dining: 6000 });
       expect(result2.monthlyUnits).toBe(400);
     });
@@ -1967,42 +1967,42 @@ describe("reward calculator", () => {
       const card = getCardById("hsbc-rupay-cashback");
       expect(card).toBeTruthy();
 
-      // Rs 10,000 base spend => 100 cashback
+      // ₹10,000 base spend => 100 cashback
       const result = calculateRewards(card!, { base: 10000 });
       expect(result.monthlyUnits).toBe(100);
     });
   });
 
   describe("HSBC Visa/RuPay Platinum Credit Cards", () => {
-    it("earns 2 reward points per Rs 150 spent on base eligible transactions", () => {
+    it("earns 2 reward points per ₹150 spent on base eligible transactions", () => {
       const card = getCardById("hsbc-visa-platinum");
       expect(card).toBeTruthy();
 
-      // Rs 15,000 base spend => 15,000 * 2 / 150 = 200 points
+      // ₹15,000 base spend => 15,000 * 2 / 150 = 200 points
       const result = calculateRewards(card!, { base: 15000 });
       expect(result.monthlyUnits).toBe(200);
     });
 
-    it("earns 12 reward points per Rs 150 spent on Travel with Points (Visa Platinum)", () => {
+    it("earns 12 reward points per ₹150 spent on Travel with Points (Visa Platinum)", () => {
       const card = getCardById("hsbc-visa-platinum");
       expect(card).toBeTruthy();
 
-      // Rs 15,000 travel spend => 15,000 * 12 / 150 = 1200 points
+      // ₹15,000 travel spend => 15,000 * 12 / 150 = 1200 points
       const result = calculateRewards(card!, { travel: 15000 });
       expect(result.monthlyUnits).toBe(1200);
     });
   });
 
   describe("HSBC Taj Credit Card", () => {
-    it("earns 5 reward points per Rs 100 spent at Taj hotels and 1.5 reward points per Rs 100 spent on base transactions", () => {
+    it("earns 5 reward points per ₹100 spent at Taj hotels and 1.5 reward points per ₹100 spent on base transactions", () => {
       const card = getCardById("hsbc-taj");
       expect(card).toBeTruthy();
 
-      // Rs 10,000 hotel spend => 10,000 * 5 / 100 = 500 points
+      // ₹10,000 hotel spend => 10,000 * 5 / 100 = 500 points
       const result1 = calculateRewards(card!, { hotels: 10000 });
       expect(result1.monthlyUnits).toBe(500);
 
-      // Rs 10,000 base spend => 10,000 * 1.5 / 100 = 150 points
+      // ₹10,000 base spend => 10,000 * 1.5 / 100 = 150 points
       const result2 = calculateRewards(card!, { base: 10000 });
       expect(result2.monthlyUnits).toBe(150);
     });
@@ -2014,18 +2014,18 @@ describe("reward calculator", () => {
         const card = getCardById("axis-indianoil");
         expect(card).toBeTruthy();
 
-        // Rs 5,000 fuel spend => 1000 points (using rate = 4% / statementBalanceValue = 0.2 => 20 points per Rs 100)
+        // ₹5,000 fuel spend => 1000 points (using rate = 4% / statementBalanceValue = 0.2 => 20 points per ₹100)
         const result1 = calculateRewards(card!, { fuel: 5000 });
         expect(result1.monthlyUnits).toBe(1000);
 
-        // Rs 10,000 fuel spend => capped at 1000 points
+        // ₹10,000 fuel spend => capped at 1000 points
         const result2 = calculateRewards(card!, { fuel: 10000 });
         expect(result2.monthlyUnits).toBe(1000);
       });
 
       it("earns 1% value return on online shopping", () => {
         const card = getCardById("axis-indianoil");
-        // Rs 5,000 online spends => 50 rupees value return / 0.2 = 250 points
+        // ₹5,000 online spends => 50 rupees value return / 0.2 = 250 points
         const result = calculateRewards(card!, { online: 5000 });
         expect(result.monthlyUnits).toBe(250);
       });
@@ -2036,18 +2036,18 @@ describe("reward calculator", () => {
         const card = getCardById("axis-select");
         expect(card).toBeTruthy();
 
-        // Rs 20,000 spend => 2,000 points
+        // ₹20,000 spend => 2,000 points
         const result1 = calculateRewards(card!, { grocery: 20000 });
         expect(result1.monthlyUnits).toBe(2000);
 
-        // Rs 30,000 spend => capped at 2,000 points
+        // ₹30,000 spend => capped at 2,000 points
         const result2 = calculateRewards(card!, { grocery: 30000 });
         expect(result2.monthlyUnits).toBe(2000);
       });
 
       it("earns 1% value return on base spends", () => {
         const card = getCardById("axis-select");
-        // Rs 10,000 base spend => 200 rupees value return / 0.2 = 1000 points (using first base category rule with rate = 2)
+        // ₹10,000 base spend => 200 rupees value return / 0.2 = 1000 points (using first base category rule with rate = 2)
         const result = calculateRewards(card!, { base: 10000 });
         expect(result.monthlyUnits).toBe(1000);
       });
@@ -2058,11 +2058,11 @@ describe("reward calculator", () => {
         const card = getCardById("axis-reserve");
         expect(card).toBeTruthy();
 
-        // Rs 20,000 domestic => 1500 points
+        // ₹20,000 domestic => 1500 points
         const resultDomestic = calculateRewards(card!, { base: 20000 });
         expect(resultDomestic.monthlyUnits).toBe(1500);
 
-        // Rs 20,000 international => 3000 points
+        // ₹20,000 international => 3000 points
         const resultIntl = calculateRewards(card!, { international: 20000 });
         expect(resultIntl.monthlyUnits).toBe(3000);
       });
@@ -2073,33 +2073,33 @@ describe("reward calculator", () => {
         const card = getCardById("axis-indianoil-premium");
         expect(card).toBeTruthy();
 
-        // Rs 25,000 fuel spend => capped at 600 points (EDGE Miles)
+        // ₹25,000 fuel spend => capped at 600 points (EDGE Miles)
         const result = calculateRewards(card!, { fuel: 25000 });
         expect(result.monthlyUnits).toBe(600);
       });
     });
 
     describe("Cashback Credit Card", () => {
-      it("earns tiered cashback on online spends capped at Rs 4,000/month", () => {
+      it("earns tiered cashback on online spends capped at ₹4,000/month", () => {
         const card = getCardById("axis-cashback");
         expect(card).toBeTruthy();
 
-        // Rs 10,000 online spends => Rs 350 cashback (5k at 2% + 5k at 5%)
+        // ₹10,000 online spends => ₹350 cashback (5k at 2% + 5k at 5%)
         const result1 = calculateRewards(card!, { online: 10000 });
         expect(result1.monthlyUnits).toBe(350);
 
-        // Rs 60,000 online spends => Rs 3,250 cashback (5k at 2% + 35k at 5% + 20k at 7%)
+        // ₹60,000 online spends => ₹3,250 cashback (5k at 2% + 35k at 5% + 20k at 7%)
         const result2 = calculateRewards(card!, { online: 60000 });
         expect(result2.monthlyUnits).toBe(3250);
 
-        // Rs 80,000 online spends => capped at Rs 4,000 cashback (5k at 2% + 35k at 5% + 40k at 7% = 4,650 -> capped at 4k)
+        // ₹80,000 online spends => capped at ₹4,000 cashback (5k at 2% + 35k at 5% + 40k at 7% = 4,650 -> capped at 4k)
         const result3 = calculateRewards(card!, { online: 80000 });
         expect(result3.monthlyUnits).toBe(4000);
       });
 
-      it("earns 0.5% cashback on utility spends capped at Rs 100/month", () => {
+      it("earns 0.5% cashback on utility spends capped at ₹100/month", () => {
         const card = getCardById("axis-cashback");
-        // Rs 30,000 utility spend => Rs 100 cashback
+        // ₹30,000 utility spend => ₹100 cashback
         const result = calculateRewards(card!, { utilities: 30000 });
         expect(result.monthlyUnits).toBe(100);
       });
@@ -2112,11 +2112,11 @@ describe("reward calculator", () => {
         const card = getCardById("axis-rewards");
         expect(card).toBeTruthy();
 
-        // Rs 5,000 departmental store (online) spend => 800 points
+        // ₹5,000 departmental store (online) spend => 800 points
         const result1 = calculateRewards(card!, { online: 5000 });
         expect(result1.monthlyUnits).toBe(800);
 
-        // Rs 10,000 departmental store (online) spend => capped at 1120 points
+        // ₹10,000 departmental store (online) spend => capped at 1120 points
         const result2 = calculateRewards(card!, { online: 10000 });
         expect(result2.monthlyUnits).toBe(1120);
       });
@@ -2127,7 +2127,7 @@ describe("reward calculator", () => {
         const card = getCardById("axis-my-zone");
         expect(card).toBeTruthy();
 
-        // Rs 10,000 base spend => 200 points
+        // ₹10,000 base spend => 200 points
         const result = calculateRewards(card!, { base: 10000 });
         expect(result.monthlyUnits).toBe(200);
       });
@@ -2138,7 +2138,7 @@ describe("reward calculator", () => {
         const card = getCardById("axis-neo");
         expect(card).toBeTruthy();
 
-        // Rs 10,000 base spend => 50 points
+        // ₹10,000 base spend => 50 points
         const result = calculateRewards(card!, { base: 10000 });
         expect(result.monthlyUnits).toBe(50);
       });
@@ -2149,7 +2149,7 @@ describe("reward calculator", () => {
         const card = getCardById("axis-privilege");
         expect(card).toBeTruthy();
 
-        // Rs 20,000 base spend => 1000 points
+        // ₹20,000 base spend => 1000 points
         const result = calculateRewards(card!, { base: 20000 });
         expect(result.monthlyUnits).toBe(1000);
       });
@@ -2160,11 +2160,11 @@ describe("reward calculator", () => {
         const card = getCardById("axis-horizon");
         expect(card).toBeTruthy();
 
-        // Rs 10,000 travel => 500 miles
+        // ₹10,000 travel => 500 miles
         const result1 = calculateRewards(card!, { travel: 10000 });
         expect(result1.monthlyUnits).toBe(500);
 
-        // Rs 10,000 base => 200 miles
+        // ₹10,000 base => 200 miles
         const result2 = calculateRewards(card!, { base: 10000 });
         expect(result2.monthlyUnits).toBe(200);
       });
@@ -2173,31 +2173,31 @@ describe("reward calculator", () => {
 
   describe("Axis Bank Batch 3 Cards", () => {
     describe("Samsung Axis Bank Signature Credit Card", () => {
-      it("earns 10% cashback on Samsung purchases capped at Rs 2,500/month", () => {
+      it("earns 10% cashback on Samsung purchases capped at ₹2,500/month", () => {
         const card = getCardById("axis-samsung-signature");
         expect(card).toBeTruthy();
 
-        // Rs 15,000 Samsung spend => Rs 750 cashback (base rate)
+        // ₹15,000 Samsung spend => ₹750 cashback (base rate)
         const result1 = calculateRewards(card!, { online: 15000 });
         expect(result1.monthlyUnits).toBe(750);
 
-        // Rs 30,000 Samsung spend => 1,500 cashback (base rate)
+        // ₹30,000 Samsung spend => 1,500 cashback (base rate)
         const result2 = calculateRewards(card!, { online: 30000 });
         expect(result2.monthlyUnits).toBe(1500);
       });
 
-      it("earns 2% value return (10 Edge points / Rs 100 spent) on preferred partners", () => {
+      it("earns 2% value return (10 Edge points / ₹100 spent) on preferred partners", () => {
         const card = getCardById("axis-samsung-signature");
         // Preferred partners categories: dining, grocery, online (tested via dining & grocery here)
         const result = calculateRewards(card!, { dining: 10000, grocery: 10000 });
-        // Rs 20,000 spend => 1,000 Edge points earned (base rate fallback)
+        // ₹20,000 spend => 1,000 Edge points earned (base rate fallback)
         expect(result.monthlyUnits).toBe(1000);
       });
 
-      it("earns 1% value return (5 Edge points / Rs 100 spent) on base spends", () => {
+      it("earns 1% value return (5 Edge points / ₹100 spent) on base spends", () => {
         const card = getCardById("axis-samsung-signature");
         const result = calculateRewards(card!, { base: 10000 });
-        // Rs 10,000 spend => 500 Edge points earned
+        // ₹10,000 spend => 500 Edge points earned
         expect(result.monthlyUnits).toBe(500);
       });
     });
@@ -2207,11 +2207,11 @@ describe("reward calculator", () => {
         const card = getCardById("axis-indianoil-easy");
         expect(card).toBeTruthy();
 
-        // Rs 10,000 fuel spend => 10,000 / 100 * 20 = 2,000 points, capped at 1,000 points
+        // ₹10,000 fuel spend => 10,000 / 100 * 20 = 2,000 points, capped at 1,000 points
         const result1 = calculateRewards(card!, { fuel: 10000 });
         expect(result1.monthlyUnits).toBe(1000);
 
-        // Rs 30,000 fuel spend => 6,000 points, capped at 1,000 points
+        // ₹30,000 fuel spend => 6,000 points, capped at 1,000 points
         const result2 = calculateRewards(card!, { fuel: 30000 });
         expect(result2.monthlyUnits).toBe(1000);
       });
@@ -2230,22 +2230,22 @@ describe("reward calculator", () => {
     });
 
     describe("Privilege Easy Credit Card", () => {
-      it("earns 10 Edge points per Rs 200 spent on base eligible retail transactions", () => {
+      it("earns 10 Edge points per ₹200 spent on base eligible retail transactions", () => {
         const card = getCardById("axis-privilege-easy");
         expect(card).toBeTruthy();
 
-        // Rs 20,000 base spend => 20,000 / 200 * 10 = 1,000 Edge points
+        // ₹20,000 base spend => 20,000 / 200 * 10 = 1,000 Edge points
         const result = calculateRewards(card!, { base: 20000 });
         expect(result.monthlyUnits).toBe(1000);
       });
     });
 
     describe("Google Pay Flex Axis Bank Credit Card", () => {
-      it("earns 1 star per Rs 500 spent on base and upi transactions", () => {
+      it("earns 1 star per ₹500 spent on base and upi transactions", () => {
         const card = getCardById("axis-google-pay-flex");
         expect(card).toBeTruthy();
 
-        // Rs 10,000 base + upi spend => 10,000 * 0.2% = Rs 20 value back (20 stars)
+        // ₹10,000 base + upi spend => 10,000 * 0.2% = ₹20 value back (20 stars)
         const result = calculateRewards(card!, { base: 5000, upi: 5000 });
         expect(result.monthlyUnits).toBe(20);
       });
@@ -2257,7 +2257,7 @@ describe("reward calculator", () => {
         expect(card).toBeTruthy();
 
         // The 5% row is "partner merchants" (Freecharge app only), not a typed online category, so
-        // Rs 5,000 of generic online spend earns the 1% base rate => Rs 50.
+        // ₹5,000 of generic online spend earns the 1% base rate => ₹50.
         const result = calculateRewards(card!, { online: 5000 });
         expect(result.monthlyUnits).toBe(50);
       });
@@ -2267,7 +2267,7 @@ describe("reward calculator", () => {
         expect(card).toBeTruthy();
 
         // The 2% commute row is "partner merchants" (Ola/Uber only), so typed travel earns the 1% base
-        // rate: Rs 5,000 travel * 1% + Rs 10,000 base * 1% = 50 + 100 = Rs 150.
+        // rate: ₹5,000 travel * 1% + ₹10,000 base * 1% = 50 + 100 = ₹150.
         const result = calculateRewards(card!, { travel: 5000, base: 10000 });
         expect(result.monthlyUnits).toBe(150);
       });
@@ -2299,7 +2299,7 @@ describe("reward calculator", () => {
     });
 
     describe("Axis Bank Freecharge Credit Card", () => {
-      it("earns 1 Edge reward point per Rs 200 spent on eligible base spends", () => {
+      it("earns 1 Edge reward point per ₹200 spent on eligible base spends", () => {
         const card = getCardById("axis-freecharge");
         expect(card).toBeTruthy();
 
@@ -2322,7 +2322,7 @@ describe("reward calculator", () => {
     });
 
     describe("Fibe Axis Bank Credit Card", () => {
-      it("earns 3% cashback on food delivery, entertainment & local commute, capped at Rs 1,500/month", () => {
+      it("earns 3% cashback on food delivery, entertainment & local commute, capped at ₹1,500/month", () => {
         const card = getCardById("axis-fibe");
         expect(card).toBeTruthy();
 
@@ -2345,27 +2345,27 @@ describe("reward calculator", () => {
         const card = getCardById("axis-airtel");
         expect(card).toBeTruthy();
 
-        // Case A: Utility spend of Rs 2,00, but Rs 0 base spend.
+        // Case A: Utility spend of ₹2,00, but ₹0 base spend.
         // Base cashback = 0, so utility cashback is capped at 1 * 0 = 0.
         const resultA = calculateRewards(card!, { utilities: 2000 });
         expect(resultA.rows.find((r) => r.category === "utilities")!.monthlyUnits).toBe(0);
 
-        // Case B: Utility spend of Rs 2,000, and Rs 10,000 base (offline) spend.
-        // Base cashback = 1% of 10,000 = Rs 100.
-        // Utility cashback cap = 1 * 100 = Rs 100.
-        // Utility spend of Rs 2,000 at 10% is Rs 200, capped at Rs 100.
+        // Case B: Utility spend of ₹2,000, and ₹10,000 base (offline) spend.
+        // Base cashback = 1% of 10,000 = ₹100.
+        // Utility cashback cap = 1 * 100 = ₹100.
+        // Utility spend of ₹2,000 at 10% is ₹200, capped at ₹100.
         const resultB = calculateRewards(card!, { utilities: 2000, base: 10000 });
         expect(resultB.rows.find((r) => r.category === "base")!.monthlyUnits).toBe(100);
         expect(resultB.rows.find((r) => r.category === "utilities")!.monthlyUnits).toBe(100);
 
-        // Case C: Utility spend of Rs 5,000, and Rs 30,000 base spend.
-        // Base cashback = Rs 300. Utility cap = 1 * 300 = Rs 300.
-        // Utility spend of Rs 5,000 at 10% is Rs 500, capped at Rs 300.
+        // Case C: Utility spend of ₹5,000, and ₹30,000 base spend.
+        // Base cashback = ₹300. Utility cap = 1 * 300 = ₹300.
+        // Utility spend of ₹5,000 at 10% is ₹500, capped at ₹300.
         const resultC = calculateRewards(card!, { utilities: 5000, base: 30000 });
         expect(resultC.rows.find((r) => r.category === "utilities")!.monthlyUnits).toBe(300);
       });
 
-      it("earns 10% value-back on Zomato/Blinkit (swiggy zomato category) capped at Rs 200, and 10% on District Movies (dining category) capped at Rs 200 — effective April 2026", () => {
+      it("earns 10% value-back on Zomato/Blinkit (swiggy zomato category) capped at ₹200, and 10% on District Movies (dining category) capped at ₹200 — effective April 2026", () => {
         const card = getCardById("axis-airtel");
         expect(card).toBeTruthy();
 
@@ -2387,7 +2387,7 @@ describe("reward calculator", () => {
     });
 
     describe("Flipkart Axis Bank Super Elite Credit Card", () => {
-      it("earns 2 SuperCoins per Rs 100 on general spend (the 12-SuperCoin rate is Flipkart-only, a brand-specific reward not tied to the generic online slider)", () => {
+      it("earns 2 SuperCoins per ₹100 on general spend (the 12-SuperCoin rate is Flipkart-only, a brand-specific reward not tied to the generic online slider)", () => {
         const card = getCardById("axis-flipkart-super-elite");
         expect(card).toBeTruthy();
 
@@ -2399,7 +2399,7 @@ describe("reward calculator", () => {
     });
 
     describe("Miles and More Axis Bank Credit Card", () => {
-      it("earns flat 4 Award Miles per Rs 200 spent on eligible transactions", () => {
+      it("earns flat 4 Award Miles per ₹200 spent on eligible transactions", () => {
         const card = getCardById("axis-miles-and-more");
         expect(card).toBeTruthy();
 
@@ -2428,9 +2428,9 @@ describe("reward calculator", () => {
         const card = getCardById("yes-ace");
         expect(card).toBeTruthy();
 
-        // Online rate: 4 points / Rs 100
-        // Base rate: 2 points / Rs 100
-        // Utilities rate: 1 point / Rs 100
+        // Online rate: 4 points / ₹100
+        // Base rate: 2 points / ₹100
+        // Utilities rate: 1 point / ₹100
         const result = calculateRewards(card!, {
           online: 10000,
           base: 10000,
@@ -2445,8 +2445,8 @@ describe("reward calculator", () => {
         const card = getCardById("yes-ace");
         expect(card).toBeTruthy();
 
-        // Online cap: 5000 points (reached at Rs 1,25,000 spend)
-        // Utilities cap: 600 points (reached at Rs 60,000 spend)
+        // Online cap: 5000 points (reached at ₹1,25,000 spend)
+        // Utilities cap: 600 points (reached at ₹60,000 spend)
         const result = calculateRewards(card!, {
           online: 150000,
           utilities: 70000
@@ -2475,8 +2475,8 @@ describe("reward calculator", () => {
         const card = getCardById("yes-anq-phi");
         expect(card).toBeTruthy();
 
-        // Travel, dining, grocery, online rate: 12 points / Rs 100
-        // Base rate: 2 points / Rs 100
+        // Travel, dining, grocery, online rate: 12 points / ₹100
+        // Base rate: 2 points / ₹100
         const result = calculateRewards(card!, {
           travel: 5000,
           dining: 5000,
@@ -2495,9 +2495,9 @@ describe("reward calculator", () => {
         const card = getCardById("yes-elite-plus");
         expect(card).toBeTruthy();
 
-        // Online rate: 6 points / Rs 100, cap: 3000 (reached at Rs 50k spend)
-        // Base rate: 3 points / Rs 100
-        // Utilities rate: 2 points / Rs 100, cap: 1200 (reached at Rs 60k spend)
+        // Online rate: 6 points / ₹100, cap: 3000 (reached at ₹50k spend)
+        // Base rate: 3 points / ₹100
+        // Utilities rate: 2 points / ₹100, cap: 1200 (reached at ₹60k spend)
         const result = calculateRewards(card!, {
           online: 60000,
           base: 10000,
@@ -2515,10 +2515,10 @@ describe("reward calculator", () => {
         const card = getCardById("yes-first-preferred");
         expect(card).toBeTruthy();
 
-        // Travel rate: 8 points / Rs 100, cap: 3000 (reached at Rs 37,500 spend)
-        // Dining rate: 8 points / Rs 100, cap: 3000 (reached at Rs 37,500 spend)
-        // Base rate: 4 points / Rs 100
-        // Utilities rate: 2 points / Rs 100
+        // Travel rate: 8 points / ₹100, cap: 3000 (reached at ₹37,500 spend)
+        // Dining rate: 8 points / ₹100, cap: 3000 (reached at ₹37,500 spend)
+        // Base rate: 4 points / ₹100
+        // Utilities rate: 2 points / ₹100
         const result = calculateRewards(card!, {
           travel: 40000,
           dining: 40000,
@@ -2581,7 +2581,7 @@ describe("reward calculator", () => {
         const card = getCardById("yes-klick-rupay");
         expect(card).toBeTruthy();
 
-        // UPI rate: 2 points / Rs 100; base spend routes through UPI because it earns more than base.
+        // UPI rate: 2 points / ₹100; base spend routes through UPI because it earns more than base.
         const result = calculateRewards(card!, {
           upi: 10000,
           base: 10000
@@ -2596,9 +2596,9 @@ describe("reward calculator", () => {
         const card = getCardById("yes-marquee");
         expect(card).toBeTruthy();
 
-        // Online rate: 18 points / Rs 100 spent
-        // Base rate: 9 points / Rs 100 spent
-        // Utilities/Select rate: 5 points / Rs 100 spent
+        // Online rate: 18 points / ₹100 spent
+        // Base rate: 9 points / ₹100 spent
+        // Utilities/Select rate: 5 points / ₹100 spent
         const result = calculateRewards(card!, {
           online: 10000,
           base: 10000,
@@ -2615,7 +2615,7 @@ describe("reward calculator", () => {
 
         // Online cap: 100000 points
         // Base cap: 100000 points
-        // Utilities cap: 1250 points (reached at Rs 25,000 spent)
+        // Utilities cap: 1250 points (reached at ₹25,000 spent)
         const result = calculateRewards(card!, {
           online: 600000, // 1,08,000 points raw, capped at 1,00,000
           utilities: 30000 // 1,500 points raw, capped at 1,250
@@ -2639,11 +2639,11 @@ describe("reward calculator", () => {
     });
 
     describe("YES BANK Paisabazaar PaisaSave RuPay Credit Card", () => {
-      it("earns UPI scan and pay rewards above Rs 2,000 and excludes below", () => {
+      it("earns UPI scan and pay rewards above ₹2,000 and excludes below", () => {
         const card = getCardById("yes-paisabazaar-paisasave-rupay");
         expect(card).toBeTruthy();
 
-        // UPI rate: 1% cashback on scans > Rs 2000
+        // UPI rate: 1% cashback on scans > ₹2000
         const result1 = calculateRewards(card!, { upi: 5000 });
         expect(result1.monthlyUnits).toBe(50); // 5000 * 1%
 
@@ -2672,7 +2672,7 @@ describe("reward calculator", () => {
         const card = getCardById("yes-paisabazaar-paisasave");
         expect(card).toBeTruthy();
 
-        // Cap is Rs 3,000 per category per month (reached at Rs 50k spent)
+        // Cap is ₹3,000 per category per month (reached at ₹50k spent)
         const result = calculateRewards(card!, {
           travel: 60000,
           dining: 60000
@@ -2733,8 +2733,8 @@ describe("reward calculator", () => {
         const card = getCardById("yes-reserv");
         expect(card).toBeTruthy();
 
-        // Online cap: 9000 points (reached at Rs 75,000 spend)
-        // Utilities cap: 750 points (reached at Rs 25,000 spend)
+        // Online cap: 9000 points (reached at ₹75,000 spend)
+        // Utilities cap: 750 points (reached at ₹25,000 spend)
         const result = calculateRewards(card!, {
           online: 100000,
           utilities: 30000
@@ -2797,8 +2797,8 @@ describe("reward calculator", () => {
         const card = getCardById("idfc-wow");
         expect(card).toBeTruthy();
         
-        // Online: 2.0 per Rs 100 spent (4 points per Rs 200)
-        // Utilities: 0.5 per Rs 100 spent (1 point per Rs 200)
+        // Online: 2.0 per ₹100 spent (4 points per ₹200)
+        // Utilities: 0.5 per ₹100 spent (1 point per ₹200)
         const result = calculateRewards(card!, {
           online: 10000,
           utilities: 10000
@@ -2814,9 +2814,9 @@ describe("reward calculator", () => {
         const card = getCardById("idfc-first-classic");
         expect(card).toBeTruthy();
         
-        // Base: 1.5 per Rs 100 spent (3 points per Rs 200)
-        // Dining: 5.0 per Rs 100 spent (10 points per Rs 200)
-        // Utilities: 0.5 per Rs 100 spent (1 point per Rs 200)
+        // Base: 1.5 per ₹100 spent (3 points per ₹200)
+        // Dining: 5.0 per ₹100 spent (10 points per ₹200)
+        // Utilities: 0.5 per ₹100 spent (1 point per ₹200)
         const result = calculateRewards(card!, {
           base: 10000,
           dining: 10000,
@@ -2833,9 +2833,9 @@ describe("reward calculator", () => {
         const card = getCardById("idfc-first-millennia");
         expect(card).toBeTruthy();
         
-        // Base: 1.5 per Rs 100 spent
-        // Travel: 5.0 per Rs 100 spent
-        // Utilities: 0.5 per Rs 100 spent
+        // Base: 1.5 per ₹100 spent
+        // Travel: 5.0 per ₹100 spent
+        // Utilities: 0.5 per ₹100 spent
         const result = calculateRewards(card!, {
           base: 10000,
           travel: 10000,
@@ -2852,9 +2852,9 @@ describe("reward calculator", () => {
         const card = getCardById("idfc-first-select");
         expect(card).toBeTruthy();
         
-        // Base: 1.5 per Rs 100 spent
-        // International: 5.0 per Rs 100 spent
-        // Utilities: 0.5 per Rs 100 spent
+        // Base: 1.5 per ₹100 spent
+        // International: 5.0 per ₹100 spent
+        // Utilities: 0.5 per ₹100 spent
         const result = calculateRewards(card!, {
           base: 10000,
           international: 10000,
@@ -2871,9 +2871,9 @@ describe("reward calculator", () => {
         const card = getCardById("idfc-first-wealth");
         expect(card).toBeTruthy();
         
-        // Base: 1.5 per Rs 100 spent
-        // Dining: 5.0 per Rs 100 spent
-        // Utilities: 0.5 per Rs 100 spent
+        // Base: 1.5 per ₹100 spent
+        // Dining: 5.0 per ₹100 spent
+        // Utilities: 0.5 per ₹100 spent
         const result = calculateRewards(card!, {
           base: 10000,
           dining: 10000,
@@ -2890,9 +2890,9 @@ describe("reward calculator", () => {
         const card = getCardById("idfc-first-power-plus");
         expect(card).toBeTruthy();
         
-        // Fuel: 20.0 per Rs 100 spent, capped at 2400 points (reached at Rs 12,000 spend)
-        // Grocery: 20.0 per Rs 100 spent, capped at 400 points (reached at Rs 2,000 spend)
-        // Base: 2.0 per Rs 100 spent
+        // Fuel: 20.0 per ₹100 spent, capped at 2400 points (reached at ₹12,000 spend)
+        // Grocery: 20.0 per ₹100 spent, capped at 400 points (reached at ₹2,000 spend)
+        // Base: 2.0 per ₹100 spent
         const result = calculateRewards(card!, {
           fuel: 20000,
           grocery: 5000,
@@ -2912,9 +2912,9 @@ describe("reward calculator", () => {
         const card = getCardById("idfc-first-power");
         expect(card).toBeTruthy();
 
-        // Fuel: 14.0 per Rs 100 spent, capped at 700 points (reached at Rs 5,000 spend)
-        // Grocery: 10.0 per Rs 100 spent, capped at 400 points (reached at Rs 4,000 spend)
-        // Base: 1.3333 per Rs 100 spent
+        // Fuel: 14.0 per ₹100 spent, capped at 700 points (reached at ₹5,000 spend)
+        // Grocery: 10.0 per ₹100 spent, capped at 400 points (reached at ₹4,000 spend)
+        // Base: 1.3333 per ₹100 spent
         const result = calculateRewards(card!, {
           fuel: 10000,
           grocery: 5000,
@@ -2934,9 +2934,9 @@ describe("reward calculator", () => {
         const card = getCardById("idfc-mayura");
         expect(card).toBeTruthy();
 
-        // Base: 3.3333 per Rs 100 spent
-        // Travel: 6.6667 per Rs 100 spent
-        // Utilities: 0.6667 per Rs 100 spent
+        // Base: 3.3333 per ₹100 spent
+        // Travel: 6.6667 per ₹100 spent
+        // Utilities: 0.6667 per ₹100 spent
         const result = calculateRewards(card!, {
           base: 15000,
           travel: 15000,
@@ -2956,9 +2956,9 @@ describe("reward calculator", () => {
         const card = getCardById("idfc-ashva");
         expect(card).toBeTruthy();
 
-        // Base: 3.3333 per Rs 100 spent
-        // Travel: 6.6667 per Rs 100 spent
-        // Utilities: 0.6667 per Rs 100 spent
+        // Base: 3.3333 per ₹100 spent
+        // Travel: 6.6667 per ₹100 spent
+        // Utilities: 0.6667 per ₹100 spent
         const result = calculateRewards(card!, {
           base: 15000,
           travel: 15000,
@@ -2978,14 +2978,14 @@ describe("reward calculator", () => {
         const card = getCardById("idfc-first-earn");
         expect(card).toBeTruthy();
 
-        // UPI (via IDFC app): 1.0% cashback, capped at Rs 500; online/base route to UPI because it earns more.
+        // UPI (via IDFC app): 1.0% cashback, capped at ₹500; online/base route to UPI because it earns more.
         const result = calculateRewards(card!, {
           upi: 20000,
           online: 20000,
           base: 20000
         });
 
-        // Total raw UPI-routed cashback is 600, capped at Rs 500/month.
+        // Total raw UPI-routed cashback is 600, capped at ₹500/month.
         expect(result.monthlyUnits).toBe(500);
       });
     });
@@ -2995,9 +2995,9 @@ describe("reward calculator", () => {
         const card = getCardById("idfc-indigo");
         expect(card).toBeTruthy();
 
-        // Airlines (IndiGo): 6.0 per Rs 100 spent
-        // Base: 3.0 per Rs 100 spent
-        // UPI / Utility: 0.5 per Rs 100 spent
+        // Airlines (IndiGo): 6.0 per ₹100 spent
+        // Base: 3.0 per ₹100 spent
+        // UPI / Utility: 0.5 per ₹100 spent
         const result = calculateRewards(card!, {
           airlines: 10000,
           base: 10000,
@@ -3216,7 +3216,7 @@ describe("reward calculator", () => {
     });
 
     describe("Kotak Solitaire Credit Card", () => {
-      it("earns rewards at correct rates (10 Air Miles per Rs 100 on travel via Kotak Unbox, 3 Air Miles per Rs 100 base)", () => {
+      it("earns rewards at correct rates (10 Air Miles per ₹100 on travel via Kotak Unbox, 3 Air Miles per ₹100 base)", () => {
         const card = getCardById("kotak-solitaire");
         expect(card).toBeTruthy();
 
@@ -3232,7 +3232,7 @@ describe("reward calculator", () => {
         expect(result.monthlyUnits).toBe(1300);
       });
 
-      it("enforces monthly cap of 1,00,000 Air Miles on travel and postCapRate of 3 Air Miles per Rs 100", () => {
+      it("enforces monthly cap of 1,00,000 Air Miles on travel and postCapRate of 3 Air Miles per ₹100", () => {
         const card = getCardById("kotak-solitaire");
         expect(card).toBeTruthy();
 
@@ -3264,11 +3264,11 @@ describe("reward calculator", () => {
     });
 
     describe("Kotak Zen Signature Credit Card", () => {
-      it("earns rewards at correct rates (5 Zen Points per Rs 150 base)", () => {
+      it("earns rewards at correct rates (5 Zen Points per ₹150 base)", () => {
         const card = getCardById("kotak-zen-signature");
         expect(card).toBeTruthy();
 
-        // base: 15000 spend -> 1000 Zen Points (matches the first 'base' row which is the shopping row at 10 Zen Points / Rs 150)
+        // base: 15000 spend -> 1000 Zen Points (matches the first 'base' row which is the shopping row at 10 Zen Points / ₹150)
         const result = calculateRewards(card!, {
           base: 15000
         });
@@ -3291,7 +3291,7 @@ describe("reward calculator", () => {
     });
 
     describe("Kotak 811 Credit Card", () => {
-      it("earns rewards at correct rates (2 points / Rs 100 online, 1 point / Rs 100 base/offline)", () => {
+      it("earns rewards at correct rates (2 points / ₹100 online, 1 point / ₹100 base/offline)", () => {
         const card = getCardById("kotak-811");
         expect(card).toBeTruthy();
 
@@ -3325,7 +3325,7 @@ describe("reward calculator", () => {
     });
 
     describe("Kotak Infinite Credit Card", () => {
-      it("earns rewards at correct base rate (1 point / Rs 250 spent)", () => {
+      it("earns rewards at correct base rate (1 point / ₹250 spent)", () => {
         const card = getCardById("kotak-infinite");
         expect(card).toBeTruthy();
 
@@ -3367,7 +3367,7 @@ describe("reward calculator", () => {
     });
 
     describe("811 Dream Different Credit Card", () => {
-      it("earns rewards at correct rates (2 points / Rs 100 online, 1 point / Rs 100 base/offline/utilities)", () => {
+      it("earns rewards at correct rates (2 points / ₹100 online, 1 point / ₹100 base/offline/utilities)", () => {
         const card = getCardById("kotak-811-dream-different");
         expect(card).toBeTruthy();
 
@@ -3491,7 +3491,7 @@ describe("reward calculator", () => {
         const rules = milestoneRulesForCard(card!);
         expect(rules.length).toBe(1);
         expect(rules[0].threshold).toBe(200000);
-        expect(rules[0].value).toBe(600); // Rs 300 BigBasket voucher (net Rs 150) × 4 quarters
+        expect(rules[0].value).toBe(600); // ₹300 BigBasket voucher (net ₹150) × 4 quarters
         expect(rules[0].isVoucher).toBe(true);
       });
     });

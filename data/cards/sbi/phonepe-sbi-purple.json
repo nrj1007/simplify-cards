@@ -28,28 +28,28 @@
       "category": "phonepe",
       "displayCategory": "Eligible PhonePe spends",
       "rate": 3,
-      "displayRate": "3 Reward Points / Rs 100",
+      "displayRate": "3 Reward Points / ₹100",
       "capMonthly": 1000
     },
     {
       "category": "online",
       "displayCategory": "Eligible online spends",
       "rate": 2,
-      "displayRate": "2 Reward Points / Rs 100",
+      "displayRate": "2 Reward Points / ₹100",
       "capMonthly": 1000
     },
     {
       "category": "upi",
       "displayCategory": "Scan & Pay using PhonePe",
       "rate": 1,
-      "displayRate": "1 Reward Point / Rs 100",
+      "displayRate": "1 Reward Point / ₹100",
       "capMonthly": 1000
     },
     {
       "category": "base",
       "displayCategory": "Other eligible spends",
       "rate": 1,
-      "displayRate": "1 Reward Point / Rs 100",
+      "displayRate": "1 Reward Point / ₹100",
       "capMonthly": 1000
     }
   ],
@@ -98,20 +98,20 @@
       "period": "annual",
       "value": 1500,
       "kind": "voucher",
-      "label": "Yatra voucher worth Rs 3,000 on annual spends of Rs 3 lakh"
+      "label": "Yatra voucher worth ₹3,000 on annual spends of ₹3 lakh"
     }
   ],
   "milestoneBenefits": [
-    "Yatra voucher worth Rs 3,000 on annual spends of Rs 3 lakh"
+    "Yatra voucher worth ₹3,000 on annual spends of ₹3 lakh"
   ],
   "joiningBenefits": [
-    "PhonePe e-Gift Card worth Rs 500 after payment of annual fee, unless the card is issued under a first-year-free offer"
+    "PhonePe e-Gift Card worth ₹500 after payment of annual fee, unless the card is issued under a first-year-free offer"
   ],
   "joiningBenefitsValued": [
     {
       "value": 500,
       "kind": "other",
-      "label": "PhonePe e-Gift Card worth Rs 500 after payment of annual fee, unless the card is issued under a first-year-free offer"
+      "label": "PhonePe e-Gift Card worth ₹500 after payment of annual fee, unless the card is issued under a first-year-free offer"
     }
   ],
   "renewalBenefits": [],

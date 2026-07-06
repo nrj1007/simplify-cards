@@ -21,14 +21,14 @@
       "category": "travel",
       "displayCategory": "Travel spends (Travel with Points)",
       "rate": 8,
-      "displayRate": "12 Reward Points / Rs 150 spent via Travel with Points",
+      "displayRate": "12 Reward Points / ₹150 spent via Travel with Points",
       "capMonthly": null
     },
     {
       "category": "base",
       "displayCategory": "Other eligible spends",
       "rate": 1.3333333333333333,
-      "displayRate": "2 Reward Points / Rs 150 spent",
+      "displayRate": "2 Reward Points / ₹150 spent",
       "capMonthly": null
     }
   ],
@@ -74,7 +74,7 @@
     {
       "value": 1000,
       "kind": "points",
-      "label": "2,000 reward points after logging into the HSBC India app and spending Rs 5,000 within the first 30 days"
+      "label": "2,000 reward points after logging into the HSBC India app and spending ₹5,000 within the first 30 days"
     },
     {
       "value": 0,
@@ -84,17 +84,17 @@
     {
       "value": 250,
       "kind": "voucher",
-      "label": "Voucher worth up to Rs 500 (Amazon Pay, Zomato, and Swiggy) on card activation with a single transaction of Rs 300 or more"
+      "label": "Voucher worth up to ₹500 (Amazon Pay, Zomato, and Swiggy) on card activation with a single transaction of ₹300 or more"
     }
   ],
   "joiningBenefits": [
-    "2,000 reward points after logging into the HSBC India app and spending Rs 5,000 within the first 30 days",
+    "2,000 reward points after logging into the HSBC India app and spending ₹5,000 within the first 30 days",
     "Complimentary 3-month Swiggy One membership on card activation",
-    "Voucher worth up to Rs 500 (Amazon Pay, Zomato, and Swiggy) on card activation with a single transaction of Rs 300 or more"
+    "Voucher worth up to ₹500 (Amazon Pay, Zomato, and Swiggy) on card activation with a single transaction of ₹300 or more"
   ],
   "additionalBenefits": [
-    "Fuel surcharge waiver up to Rs 250 per month on transactions from Rs 400 to Rs 4,000",
-    "Rs 250 cashback on contactless fuel spends up to Rs 10,000 per quarter",
+    "Fuel surcharge waiver up to ₹250 per month on transactions from ₹400 to ₹4,000",
+    "₹250 cashback on contactless fuel spends up to ₹10,000 per quarter",
     "Complimentary domestic flight seat selection twice a year on bookings via MakeMyTrip",
     "Times Prime annual membership on card activation (Visa Signature offer)"
   ],
@@ -109,14 +109,14 @@
         "partnerPointValue": 2,
         "transferRatio": 0.5,
         "basis": "fixed",
-        "note": "2 reward points → 1 Accor ALL point · Rs 2/point"
+        "note": "2 reward points → 1 Accor ALL point · ₹2/point"
       },
       {
         "partner": "Marriott Bonvoy",
         "partnerPointValue": 0.6,
         "transferRatio": 0.5,
         "basis": "dynamic",
-        "note": "2 reward points → 1 Marriott point · avg Rs 0.6/point"
+        "note": "2 reward points → 1 Marriott point · avg ₹0.6/point"
       }
     ],
     "airlinePartners": [
@@ -251,13 +251,13 @@
     "salaried": [
       "Age 18 to 65 years",
       "Resident of India",
-      "Minimum annual income of Rs 6,00,000",
+      "Minimum annual income of ₹6,00,000",
       "Reside in an eligible service city listed by HSBC"
     ],
     "selfEmployed": [
       "Age 25 to 65 years",
       "Resident of India",
-      "Minimum annual income of Rs 12,00,000",
+      "Minimum annual income of ₹12,00,000",
       "Reside in an eligible service city listed by HSBC"
     ]
   },
@@ -269,8 +269,8 @@
   "internalNotes": [
     "Card details manually reviewed and verified by user on 2026-06-08",
     "Card is lifetime free with no joining or renewal fees.",
-    "Earn rate of 2 points per Rs 150 spent is equivalent to 1.33 points per Rs 100 spent.",
-    "6X points multiplier on Travel with Points is equivalent to 8 points per Rs 100 spent.",
+    "Earn rate of 2 points per ₹150 spent is equivalent to 1.33 points per ₹100 spent.",
+    "6X points multiplier on Travel with Points is equivalent to 8 points per ₹100 spent.",
     "Excludes fuel, rent, wallet loads, education, government, utilities, insurance, and EMI from earning points.",
     "Point-to-mile transfer is supported via the mobile app at a 2:1 ratio for most partners."
   ]

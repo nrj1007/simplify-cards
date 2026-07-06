@@ -23,14 +23,14 @@
       "category": "utility bills",
       "displayCategory": "utility standing instructions",
       "rate": 20,
-      "displayRate": "20 Reward Points / Rs 100",
+      "displayRate": "20 Reward Points / ₹100",
       "capMonthly": 3000
     },
     {
       "category": "grocery",
       "displayCategory": "grocery and departmental stores",
       "rate": 10,
-      "displayRate": "10 Reward Points / Rs 100",
+      "displayRate": "10 Reward Points / ₹100",
       "capMonthly": 7500,
       "capGroup": "prime-10x"
     },
@@ -38,7 +38,7 @@
       "category": "dining",
       "displayCategory": "dining",
       "rate": 10,
-      "displayRate": "10 Reward Points / Rs 100",
+      "displayRate": "10 Reward Points / ₹100",
       "capMonthly": 7500,
       "capGroup": "prime-10x"
     },
@@ -46,7 +46,7 @@
       "category": "entertainment",
       "displayCategory": "movies",
       "rate": 10,
-      "displayRate": "10 Reward Points / Rs 100",
+      "displayRate": "10 Reward Points / ₹100",
       "capMonthly": 7500,
       "capGroup": "prime-10x"
     },
@@ -54,7 +54,7 @@
       "category": "base",
       "displayCategory": "other retail spends",
       "rate": 2,
-      "displayRate": "2 Reward Points / Rs 100",
+      "displayRate": "2 Reward Points / ₹100",
       "capMonthly": null
     }
   ],
@@ -96,26 +96,26 @@
       "period": "quarterly",
       "value": 500,
       "kind": "voucher",
-      "label": "Pizza Hut e-Gift Voucher worth Rs 1,000 on quarterly spends of Rs 50,000"
+      "label": "Pizza Hut e-Gift Voucher worth ₹1,000 on quarterly spends of ₹50,000"
     },
     {
       "threshold": 500000,
       "period": "annual",
       "value": 3500,
       "kind": "voucher",
-      "label": "E-Gift Voucher worth Rs 7,000 from Yatra.com or Pantaloons on annual spends of Rs 5 lakh"
+      "label": "E-Gift Voucher worth ₹7,000 from Yatra.com or Pantaloons on annual spends of ₹5 lakh"
     }
   ],
   "milestoneBenefits": [
-    "Pizza Hut e-Gift Voucher worth Rs 1,000 on quarterly spends of Rs 50,000",
-    "Renewal fee waived on annual spends of Rs 3 lakh",
-    "E-Gift Voucher worth Rs 7,000 from Yatra.com or Pantaloons on annual spends of Rs 5 lakh"
+    "Pizza Hut e-Gift Voucher worth ₹1,000 on quarterly spends of ₹50,000",
+    "Renewal fee waived on annual spends of ₹3 lakh",
+    "E-Gift Voucher worth ₹7,000 from Yatra.com or Pantaloons on annual spends of ₹5 lakh"
   ],
   "joiningBenefitsValued": [
     {
       "value": 1500,
       "kind": "voucher",
-      "label": "Welcome e-Gift Voucher worth Rs 3,000 from select brands (including Yatra, Shoppers Stop, Marks & Spencer, Bata, and Hush Puppies)"
+      "label": "Welcome e-Gift Voucher worth ₹3,000 from select brands (including Yatra, Shoppers Stop, Marks & Spencer, Bata, and Hush Puppies)"
     }
   ],
   "renewalBenefitsValued": [
@@ -126,17 +126,17 @@
     }
   ],
   "joiningBenefits": [
-    "Welcome e-Gift Voucher worth Rs 3,000 from select brands (including Yatra, Shoppers Stop, Marks & Spencer, Bata, and Hush Puppies)",
+    "Welcome e-Gift Voucher worth ₹3,000 from select brands (including Yatra, Shoppers Stop, Marks & Spencer, Bata, and Hush Puppies)",
     "E-voucher is sent within 15-20 days of joining fee payment"
   ],
   "renewalBenefits": [
-    "Annual renewal fee is waived on annual spends of Rs 3 Lakh in the preceding year",
-    "If not waived, 12,000 bonus Reward Points (worth Rs 3,000) are credited upon payment of the renewal fee"
+    "Annual renewal fee is waived on annual spends of ₹3 Lakh in the preceding year",
+    "If not waived, 12,000 bonus Reward Points (worth ₹3,000) are credited upon payment of the renewal fee"
   ],
   "additionalBenefits": [
-    "Complimentary Club Vistara Silver membership (1 complimentary upgrade voucher + 9 CV points per Rs 100 spent on flights)",
+    "Complimentary Club Vistara Silver membership (1 complimentary upgrade voucher + 9 CV points per ₹100 spent on flights)",
     "Complimentary Trident Privilege Red Tier membership (1,000 welcome points + 1,500 bonus points on first stay)",
-    "1% fuel surcharge waiver on transactions from Rs 500 to Rs 4,000, capped at Rs 250 per statement cycle"
+    "1% fuel surcharge waiver on transactions from ₹500 to ₹4,000, capped at ₹250 per statement cycle"
   ],
   "redemption": {
     "statementBalanceValue": 0.25,
@@ -147,10 +147,10 @@
   "additionalDetails": [],
   "internalNotes": [
     "Card details manually reviewed and verified by user on 2026-06-02",
-    "10X (10 RP/Rs100) on dining, grocery/departmental, and movies shares a cumulative cap of 7,500 RP per month (modeled via capGroup prime-10x); beyond it the base 2 RP/Rs100 applies. Utility-bill standing instructions earn 20 RP/Rs100 capped separately at 3,000 RP/month.",
+    "10X (10 RP/₹100) on dining, grocery/departmental, and movies shares a cumulative cap of 7,500 RP per month (modeled via capGroup prime-10x); beyond it the base 2 RP/₹100 applies. Utility-bill standing instructions earn 20 RP/₹100 capped separately at 3,000 RP/month.",
     "Audited against official SBI Card product page, PRIME card T&C booklet, customer notice dated 1 Aug 2025, and MITC page on 2026-06-02.",
     "Reward Points expire after 24 months.",
-    "Effective 15 Jul 2025, complimentary air accident insurance coverage (previously Rs 50 Lakhs) is discontinued.",
+    "Effective 15 Jul 2025, complimentary air accident insurance coverage (previously ₹50 Lakhs) is discontinued.",
     "Effective 1 Sep 2025, reward accrual on digital gaming platforms/merchants and government related transactions is discontinued.",
     "Effective 1 Apr 2026, reward point redemption for statement credit is capped at a maximum of 60,000 points per month, and redemptions must be made in fixed multiples/blocks of 4,000 points."
   ],

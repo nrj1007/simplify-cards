@@ -22,14 +22,14 @@
       "category": "dining, grocery",
       "displayCategory": "Dining, movies, grocery, and departmental store spends",
       "rate": 6.666666666666667,
-      "displayRate": "10 Reward Points / Rs 150 spent",
+      "displayRate": "10 Reward Points / ₹150 spent",
       "capMonthly": null
     },
     {
       "category": "base",
       "displayCategory": "Other eligible spends",
       "rate": 0.6666666666666666,
-      "displayRate": "1 Reward Point / Rs 150 spent",
+      "displayRate": "1 Reward Point / ₹150 spent",
       "capMonthly": null
     }
   ],
@@ -62,17 +62,17 @@
     {
       "value": 500,
       "kind": "points",
-      "label": "2,000 bonus Reward Points on spends of Rs 2,000 or more in first 60 days"
+      "label": "2,000 bonus Reward Points on spends of ₹2,000 or more in first 60 days"
     }
   ],
   "joiningBenefits": [
-    "2,000 bonus Reward Points on spends of Rs 2,000 or more in first 60 days"
+    "2,000 bonus Reward Points on spends of ₹2,000 or more in first 60 days"
   ],
   "renewalBenefits": [],
   "milestones": [],
   "milestoneBenefits": [],
   "additionalBenefits": [
-    "1% fuel surcharge waiver at petrol pumps in India on transactions from Rs 500 to Rs 3,000, capped at Rs 100 per statement cycle"
+    "1% fuel surcharge waiver at petrol pumps in India on transactions from ₹500 to ₹3,000, capped at ₹100 per statement cycle"
   ],
   "redemption": {
     "statementBalanceValue": 0.25,

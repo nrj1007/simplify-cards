@@ -29,21 +29,21 @@
       "category": "partner merchants",
       "rate": 20,
       "displayCategory": "Travel bookings on Scapia app",
-      "displayRate": "20 Scapia Coins / Rs 100",
+      "displayRate": "20 Scapia Coins / ₹100",
       "capMonthly": null
     },
     {
       "category": "online, retail",
       "rate": 10,
       "displayCategory": "Visa online and offline spends",
-      "displayRate": "10 Scapia Coins / Rs 100",
+      "displayRate": "10 Scapia Coins / ₹100",
       "capMonthly": null
     },
     {
       "category": "upi",
       "rate": 5,
-      "displayCategory": "UPI spends of Rs 500 or more on RuPay",
-      "displayRate": "5 Scapia Coins / Rs 100",
+      "displayCategory": "UPI spends of ₹500 or more on RuPay",
+      "displayRate": "5 Scapia Coins / ₹100",
       "capMonthly": null
     }
   ],
@@ -52,7 +52,7 @@
   "loungeInternational": 0,
   "lounge": {
     "domestic": [
-      "Unlimited domestic airport lounge access requires a minimum spend of Rs 20,000 in the preceding calendar month.",
+      "Unlimited domestic airport lounge access requires a minimum spend of ₹20,000 in the preceding calendar month.",
       "Effective February 27, 2026, insurance spends (MCC 6300) and utility transactions (including telecom, internet, cable, and communication services under MCC 4900, 4812, 4814, 4816, and 4899) are excluded from earning Scapia Coins and do not count towards the domestic lounge spend milestone."
     ]
   },
@@ -98,8 +98,8 @@
     "outstanding_balance_payment"
   ],
   "additionalBenefits": [
-    "Airport privileges worth up to Rs 1,000 back in rewards on airport dining, shopping, and spa services",
-    "International airport privileges (100% value back up to Rs 2,000 on airport dining, duty-free, and brand outlets) are unlocked by booking an international flight of Rs 50,000 or more in a single transaction via the Scapia app"
+    "Airport privileges worth up to ₹1,000 back in rewards on airport dining, shopping, and spa services",
+    "International airport privileges (100% value back up to ₹2,000 on airport dining, duty-free, and brand outlets) are unlocked by booking an international flight of ₹50,000 or more in a single transaction via the Scapia app"
   ],
   "additionalDetails": [
     "Scapia Coins can only be redeemed for flights, hotels, and buses within the Scapia app."
@@ -129,10 +129,10 @@
   "verificationStatus": "official-direct",
   "internalNotes": [
     "Card details manually reviewed and verified by user on 2026-06-02",
-    "Unlimited domestic airport lounge access requires a minimum spend of Rs 20,000 in the preceding calendar month.",
+    "Unlimited domestic airport lounge access requires a minimum spend of ₹20,000 in the preceding calendar month.",
     "Scapia Coins are valid for 3 years (36 months) from the date of credit.",
     "Excluded categories from earning Scapia Coins include fuel, rent, education, utilities, telecom, insurance, government spends, EMI transactions, wallet loading, cash withdrawals, money transfers, and gift cards.",
-    "RuPay virtual card UPI spends of less than Rs 500 do not earn Scapia Coins.",
+    "RuPay virtual card UPI spends of less than ₹500 do not earn Scapia Coins.",
     "Effective February 27, 2026, insurance spends (MCC 6300) and utility transactions (including telecom, internet, cable, and communication services under MCC 4900, 4812, 4814, 4816, and 4899) are excluded from earning Scapia Coins and do not count towards the domestic lounge spend milestone."
   ]
 }

@@ -37,7 +37,7 @@ export const metadata: Metadata = {
 };
 
 function formatFee(value: number) {
-  return value === 0 ? "Rs 0" : `Rs ${new Intl.NumberFormat("en-IN").format(value)}`;
+  return value === 0 ? "₹0" : `₹ ${new Intl.NumberFormat("en-IN").format(value)}`;
 }
 
 function firstRewardRate(card: CreditCard) {

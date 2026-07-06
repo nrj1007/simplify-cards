@@ -93,17 +93,17 @@
     {
       "value": 2500,
       "kind": "voucher",
-      "label": "Flight ticket voucher worth Rs 5,000 on spending Rs 25,000 within 60 days of card activation"
+      "label": "Flight ticket voucher worth ₹5,000 on spending ₹25,000 within 60 days of card activation"
     },
     {
       "value": 2000,
       "kind": "voucher",
-      "label": "Hotel & holiday vouchers worth Rs 4,000 on spending Rs 25,000 within 60 days of card activation"
+      "label": "Hotel & holiday vouchers worth ₹4,000 on spending ₹25,000 within 60 days of card activation"
     }
   ],
   "joiningBenefits": [
-    "Flight ticket voucher worth Rs 5,000 on spending Rs 25,000 within 60 days of card activation",
-    "Hotel & holiday vouchers worth Rs 4,000 on spending Rs 25,000 within 60 days of card activation"
+    "Flight ticket voucher worth ₹5,000 on spending ₹25,000 within 60 days of card activation",
+    "Hotel & holiday vouchers worth ₹4,000 on spending ₹25,000 within 60 days of card activation"
   ],
   "milestoneBenefits": [],
   "additionalBenefits": [
@@ -111,12 +111,12 @@
     "2 complimentary international airport lounge accesses per year",
     "Pranaam Meet & Greet, porter services, valet parking, and premium car parking at Adani-managed airports",
     "Premium lounge upgrades at Adani-managed airports",
-    "50% discount up to Rs 500 twice a month on BookMyShow movie tickets",
-    "1% fuel surcharge waiver on fuel transactions up to Rs 4,000"
+    "50% discount up to ₹500 twice a month on BookMyShow movie tickets",
+    "1% fuel surcharge waiver on fuel transactions up to ₹4,000"
   ],
   "additionalDetails": [
-    "Annual fee of Rs 5,000 waived on spending Rs 6,00,000 or more in the preceding membership year (EMI excluded from spend calculation)",
-    "1 Adani Reward Point = Rs 1, redeemable exclusively on the Adani One app for flights, hotels, trains, buses, cabs, and duty-free shopping",
+    "Annual fee of ₹5,000 waived on spending ₹6,00,000 or more in the preceding membership year (EMI excluded from spend calculation)",
+    "1 Adani Reward Point = ₹1, redeemable exclusively on the Adani One app for flights, hotels, trains, buses, cabs, and duty-free shopping",
     "Reward points credited to your Adani One account at end of each billing cycle"
   ],
   "redemption": {
@@ -129,11 +129,11 @@
   "eligibility": {
     "salaried": [
       "Age: 21 - 65 years",
-      "Minimum net monthly salary: Rs 75,000"
+      "Minimum net monthly salary: ₹75,000"
     ],
     "selfEmployed": [
       "Age: 21 - 65 years",
-      "Minimum annual ITR: Rs 9,00,000"
+      "Minimum annual ITR: ₹9,00,000"
     ]
   },
   "sourceUrl": "https://www.icicibank.com/personal-banking/cards/credit-card/adani-icici-credit-card/signature-credit-card",
@@ -144,16 +144,16 @@
   "internalNotes": [
     "Card details manually reviewed and verified by user on 2026-06-06",
     "Official audit completed on 2026-06-06 using ICICI Bank and Adani One product pages and third-party verified sources.",
-    "Joining fee and Annual fee Rs 5,000 each. Annual fee waived on spending Rs 6,00,000+ in the preceding membership year; EMI purchases excluded from spend count.",
-    "Welcome benefits: Rs 5,000 flight voucher + Rs 4,000 hotel/holiday vouchers on spending Rs 25,000 within 60 days of activation.",
+    "Joining fee and Annual fee ₹5,000 each. Annual fee waived on spending ₹6,00,000+ in the preceding membership year; EMI purchases excluded from spend count.",
+    "Welcome benefits: ₹5,000 flight voucher + ₹4,000 hotel/holiday vouchers on spending ₹25,000 within 60 days of activation.",
     "7% Adani Reward Points on Adani One ecosystem: flights, hotels, trains, buses, cabs, Adani-managed airports, Adani CNG, Adani electricity bills, Trainman.",
     "2% on international spends, 1.5% on other domestic spends, 0.5% on utilities and insurance.",
     "All reward rates are uncapped.",
-    "1 Adani Reward Point = Rs 1 (closed-loop currency). Points are redeemable ONLY on the Adani One app or portal — not transferable to airlines or hotel loyalty programs.",
+    "1 Adani Reward Point = ₹1 (closed-loop currency). Points are redeemable ONLY on the Adani One app or portal — not transferable to airlines or hotel loyalty programs.",
     "Redemption categories on Adani One app: flight bookings, hotel bookings, train/bus/cab bookings, duty-free shopping.",
     "Domestic lounge: 4 complimentary visits per quarter via Visa Lounge Access; 16 per year total.",
     "International lounge: 2 complimentary visits per year.",
     "Pranaam services (Meet & Greet, porter, valet parking, car parking) available at Adani-managed airports.",
-    "1% fuel surcharge waiver on transactions up to Rs 4,000 at fuel outlets."
+    "1% fuel surcharge waiver on transactions up to ₹4,000 at fuel outlets."
   ]
 }

@@ -9,20 +9,20 @@ describe("joining/renewal benefit value", () => {
 
   it("prefers structured joiningBenefitsValued over text and additionalBenefits", () => {
     const joiningBenefitsValued: ValuedBenefit[] = [
-      { value: 5000, kind: "voucher", label: "Rs 5,000 welcome voucher" }
+      { value: 5000, kind: "voucher", label: "₹5,000 welcome voucher" }
     ];
     const { joiningValue } = joiningAndRenewalBenefitValueForCard({
       ...base,
       joiningBenefitsValued,
-      joiningBenefits: ["Cashback of Rs 99,999 as welcome gift"],
-      additionalBenefits: ["Welcome bonus worth Rs 88,888 on joining"]
+      joiningBenefits: ["Cashback of ₹99,999 as welcome gift"],
+      additionalBenefits: ["Welcome bonus worth ₹88,888 on joining"]
     });
     expect(joiningValue).toBe(5000); // structured only; text + additionalBenefits ignored
   });
 
   it("values structured renewalBenefitsValued (the renewalBenefits gap is fixed per card)", () => {
     const renewalBenefitsValued: ValuedBenefit[] = [
-      { value: 2000, kind: "voucher", label: "Rs 2,000 anniversary voucher" }
+      { value: 2000, kind: "voucher", label: "₹2,000 anniversary voucher" }
     ];
     const { renewalValue } = joiningAndRenewalBenefitValueForCard({
       ...base,
@@ -37,8 +37,8 @@ describe("joining/renewal benefit value", () => {
       ...base,
       joiningBenefitsValued: undefined,
       renewalBenefitsValued: undefined,
-      joiningBenefits: ["Cashback of Rs 1,000 as welcome gift"],
-      renewalBenefits: ["Rs 5,000 voucher on anniversary"],
+      joiningBenefits: ["Cashback of ₹1,000 as welcome gift"],
+      renewalBenefits: ["₹5,000 voucher on anniversary"],
       additionalBenefits: [] as string[]
     };
     const { joiningValue, renewalValue } = joiningAndRenewalBenefitValueForCard(card);
@@ -58,7 +58,7 @@ describe("scoreCards", () => {
   it("tiers base earning across structured spend tiers (Magnus, matching the calculator)", () => {
     const magnusReward = (base: number) =>
       scoreCards({ spend: { base } }).find((s) => s.card.id === "axis-magnus")!.estimatedAnnualRewards;
-    // Magnus earns 6 pts/Rs100 up to Rs 1.5L/mo then 17.5 pts/Rs100 above. So doubling base spend
+    // Magnus earns 6 pts/₹100 up to ₹1.5L/mo then 17.5 pts/₹100 above. So doubling base spend
     // from 1.5L to 3L more than doubles the reward — the second band earns at the higher tier rate.
     const atThreshold = magnusReward(150000);
     const aboveThreshold = magnusReward(300000);
@@ -199,7 +199,7 @@ describe("scoreCards", () => {
         annualReward: 12720
       }
     ]);
-    expect(kiwi?.reasons).toContain("Best net value uses Kiwi Neon membership after Rs 999 yearly cost");
+    expect(kiwi?.reasons).toContain("Best net value uses Kiwi Neon membership after ₹999 yearly cost");
   });
 
   it("compares base and Kiwi Neon rewards for mixed open-category spend", () => {
@@ -237,7 +237,7 @@ describe("scoreCards", () => {
         annualReward: 6000
       }
     ]);
-    expect(kiwi?.reasons).toContain("Best net value uses Kiwi Neon membership after Rs 999 yearly cost");
+    expect(kiwi?.reasons).toContain("Best net value uses Kiwi Neon membership after ₹999 yearly cost");
   });
 
   it("routes non-excluded open spend to a UPI reward row when it is the highest earning path", () => {
@@ -459,11 +459,11 @@ describe("scoreCards", () => {
     const atlas = scores.find((score) => score.card.id === "axis-atlas");
     expect(atlas?.annualSpend).toBeGreaterThanOrEqual(1500000);
     expect(atlas?.estimatedMilestoneValue).toBeGreaterThan(0);
-    expect(atlas?.reasons).toEqual(expect.arrayContaining([expect.stringMatching(/Milestone value adds about Rs/i)]));
+    expect(atlas?.reasons).toEqual(expect.arrayContaining([expect.stringMatching(/Milestone value adds about ₹/i)]));
   });
 
   it("does not credit a milestone below its spend threshold (reachability gating)", () => {
-    // SBI Prime's milestones annualize to ~Rs 2L (quarterly) and Rs 5L (annual). A low spender
+    // SBI Prime's milestones annualize to ~₹2L (quarterly) and ₹5L (annual). A low spender
     // reaches neither, so milestone value must be zero; a high spender reaches them.
     // input.spend MERGES with the default profile, so zero the other categories to control the total.
     const zeroed = {
@@ -489,7 +489,7 @@ describe("scoreCards", () => {
     expect(reliancePrime?.estimatedMilestoneValue).toBe(4375);
   });
 
-  it("counts Regalia Gold voucher milestones from 'Rs X worth' wording", () => {
+  it("counts Regalia Gold voucher milestones from '₹ X worth' wording", () => {
     const scores = scoreCards({
       query: "top card under 5000"
     });
@@ -627,7 +627,7 @@ describe("scoreCards", () => {
       }
     });
 
-    // The portal flights tier (16 RP/Rs 100, cap 18,000 RP/mo, post-cap 4) takes a 25% share of travel.
+    // The portal flights tier (16 RP/₹100, cap 18,000 RP/mo, post-cap 4) takes a 25% share of travel.
     // At this spend it blows past the cap and earns the post-cap rate on the excess rather than
     // hard-stopping at the cap.
     const travelOne = scores.find((score) => score.card.id === "hsbc-travelone");
@@ -753,7 +753,7 @@ describe("scoreCards", () => {
     expect(marriott).toBeDefined();
     expect(marriott?.estimatedNetValue).toBeGreaterThan(5305);
     expect(marriott?.reasons).toEqual(
-      expect.arrayContaining([expect.stringMatching(/Joining and renewal benefits add about Rs/i)])
+      expect.arrayContaining([expect.stringMatching(/Joining and renewal benefits add about ₹/i)])
     );
   });
 
@@ -780,7 +780,7 @@ describe("scoreCards", () => {
     for (const card of topCards) {
       expect(card.envelopeScoring).toBeDefined();
       expect(card.envelopeScoring?.bestMonthlySpend).toBeGreaterThan(0);
-      expect(card.reasons).toEqual(expect.arrayContaining([expect.stringMatching(/Best at Rs .*\/month/i)]));
+      expect(card.reasons).toEqual(expect.arrayContaining([expect.stringMatching(/Best at ₹ .*\/month/i)]));
     }
 
     // Burgundy should rank in the top results with a high-spend tier and a warning
@@ -846,7 +846,7 @@ describe("scoreCards", () => {
     expect(scores.some((score) => score.card.id === "axis-magnus-burgundy")).toBe(false);
   });
 
-  it("rewards IndusInd Tiger utility, insurance, education, and rent spends at base rate (1 point per Rs 100)", () => {
+  it("rewards IndusInd Tiger utility, insurance, education, and rent spends at base rate (1 point per ₹100)", () => {
     const scores = scoreCards({
       query: "IndusInd Tiger",
       spend: {
@@ -1040,7 +1040,7 @@ describe("scoreCards", () => {
     expect(scores.indexOf(marriottBonvoy!)).toBeLessThan(scores.indexOf(axisIndigoPremium!));
   });
 
-  it("scales the popularity prior down at low spend and restores it at Rs 10L annual spend", () => {
+  it("scales the popularity prior down at low spend and restores it at ₹10L annual spend", () => {
     const cardId = "sbi-cashback";
     const spendWithOnlyBase = (base: number) => ({
       online: 0,

@@ -19,16 +19,16 @@
   "rewards": [
     {
       "category": "base",
-      "displayCategory": "Retail shopping spends (up to Rs 20,000 spend/month)",
+      "displayCategory": "Retail shopping spends (up to ₹20,000 spend/month)",
       "rate": 10,
-      "displayRate": "20 EDGE REWARD Points / Rs 200 spent on retail shopping",
+      "displayRate": "20 EDGE REWARD Points / ₹200 spent on retail shopping",
       "capMonthly": 2000
     },
     {
       "category": "base",
       "displayCategory": "Other eligible spends",
       "rate": 5,
-      "displayRate": "10 EDGE REWARD Points / Rs 200 spent",
+      "displayRate": "10 EDGE REWARD Points / ₹200 spent",
       "capMonthly": null
     }
   ],
@@ -72,17 +72,17 @@
     "emi"
   ],
   "milestoneBenefits": [
-    "5,000 EDGE REWARD Points on spending Rs 3 lakh in a card anniversary year",
-    "Priority Pass membership renewal on annual spends of Rs 3 lakh",
-    "Additional 6 complimentary golf rounds after spends of Rs 3 lakh in the same anniversary year"
+    "5,000 EDGE REWARD Points on spending ₹3 lakh in a card anniversary year",
+    "Priority Pass membership renewal on annual spends of ₹3 lakh",
+    "Additional 6 complimentary golf rounds after spends of ₹3 lakh in the same anniversary year"
   ],
   "additionalBenefits": [
-    "10,000 EDGE REWARD Points worth Rs 2,000 on first card transaction within 30 days, not applicable for lifetime-free or Burgundy account holders",
-    "Buy one get one movie ticket offer on District app, capped at Rs 250 twice per month",
-    "Flat Rs 500 off once per month on BigBasket on minimum purchase of Rs 2,500",
-    "Flat Rs 200 off on Swiggy twice per month on minimum order value of Rs 1,000",
+    "10,000 EDGE REWARD Points worth ₹2,000 on first card transaction within 30 days, not applicable for lifetime-free or Burgundy account holders",
+    "Buy one get one movie ticket offer on District app, capped at ₹250 twice per month",
+    "Flat ₹500 off once per month on BigBasket on minimum purchase of ₹2,500",
+    "Flat ₹200 off on Swiggy twice per month on minimum order value of ₹1,000",
     "6 complimentary golf rounds per year",
-    "1% fuel surcharge refund on fuel transactions from Rs 400 to Rs 4,000, capped at Rs 400 per statement cycle",
+    "1% fuel surcharge refund on fuel transactions from ₹400 to ₹4,000, capped at ₹400 per statement cycle",
     "Complimentary for Burgundy customers while Burgundy status is maintained"
   ],
   "redemption": {
@@ -260,12 +260,12 @@
   "eligibility": {
     "salaried": [
       "Age: 18 to 70 years",
-      "Minimum Net Monthly Salary: Rs 50,000 (Rs 6,00,000 per annum)",
+      "Minimum Net Monthly Salary: ₹50,000 (₹6,00,000 per annum)",
       "Resident of India"
     ],
     "selfEmployed": [
       "Age: 18 to 70 years",
-      "Minimum Annual Income (ITR): Rs 6,00,000",
+      "Minimum Annual Income (ITR): ₹6,00,000",
       "Resident of India"
     ]
   },

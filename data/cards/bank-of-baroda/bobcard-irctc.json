@@ -21,21 +21,21 @@
       "category": "irctc",
       "rate": 10,
       "displayCategory": "IRCTC train ticket bookings (via IRCTC website/app)",
-      "displayRate": "Up to 40 reward points per Rs 100",
+      "displayRate": "Up to 40 reward points per ₹100",
       "capMonthly": null
     },
     {
       "category": "grocery, departmental stores",
       "rate": 1,
       "displayCategory": "Grocery and departmental store spends",
-      "displayRate": "4 reward points per Rs 100",
+      "displayRate": "4 reward points per ₹100",
       "capMonthly": 1000
     },
     {
       "category": "retail",
       "rate": 0.5,
       "displayCategory": "Other eligible spends",
-      "displayRate": "2 reward points per Rs 100",
+      "displayRate": "2 reward points per ₹100",
       "capMonthly": null
     }
   ],
@@ -60,12 +60,12 @@
     "cash_advance"
   ],
   "milestoneBenefits": [
-    "1,000 bonus reward points on a single transaction of Rs 1,000 or more within 45 days of card issuance"
+    "1,000 bonus reward points on a single transaction of ₹1,000 or more within 45 days of card issuance"
   ],
   "additionalBenefits": [
     "4 complimentary partner railway lounge visits per year, limited to 1 per quarter",
     "1% IRCTC transaction charge waiver on eligible train ticket bookings through the IRCTC website and mobile app",
-    "1% fuel surcharge waiver on fuel transactions between Rs 500 and Rs 3,000, capped at Rs 100 per statement",
+    "1% fuel surcharge waiver on fuel transactions between ₹500 and ₹3,000, capped at ₹100 per statement",
     "Up to 3 lifetime free add-on cards"
   ],
   "additionalDetails": [
@@ -80,12 +80,12 @@
     "salaried": [
       "Resident Indian",
       "Age between 21 and 65 years",
-      "Annual income of Rs 3.6 lakh or more"
+      "Annual income of ₹3.6 lakh or more"
     ],
     "selfEmployed": [
       "Resident Indian",
       "Age between 21 and 65 years",
-      "Annual income of Rs 4.8 lakh or more"
+      "Annual income of ₹4.8 lakh or more"
     ]
   },
   "sourceUrl": "https://bankofbaroda.bank.in/personal-banking/digital-products/cards/credit-cards/irctc-bob-credit-card",
@@ -97,7 +97,7 @@
   "internalNotes": [
     "Card details manually reviewed and verified by user on 2026-06-14.",
     "Audited against the official IRCTC BOBCARD product page on 2026-06-14.",
-    "The official page confirms: up to 40 reward points per Rs 100 on IRCTC train bookings, 4 reward points per Rs 100 on grocery and departmental store spends (capped at 1,000 pts/month), 2 reward points per Rs 100 on other eligible spends.",
+    "The official page confirms: up to 40 reward points per ₹100 on IRCTC train bookings, 4 reward points per ₹100 on grocery and departmental store spends (capped at 1,000 pts/month), 2 reward points per ₹100 on other eligible spends.",
     "The lounge benefit is for partner railway lounges only, not airport lounges, so loungeDomestic remains 0 to avoid mislabeling in airport-lounge UI."
   ]
 }

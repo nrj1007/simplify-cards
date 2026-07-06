@@ -21,7 +21,7 @@
       "category": "base",
       "displayCategory": "Eligible spends",
       "rate": 0.5,
-      "displayRate": "1 EDGE REWARD Point / Rs 200 spent",
+      "displayRate": "1 EDGE REWARD Point / ₹200 spent",
       "capMonthly": null
     }
   ],
@@ -72,14 +72,14 @@
       "period": "monthly",
       "value": 20,
       "kind": "points",
-      "label": "100 EDGE REWARD Points on monthly spends of Rs 2,000 - Rs 4,999"
+      "label": "100 EDGE REWARD Points on monthly spends of ₹2,000 - ₹4,999"
     },
     {
       "threshold": 5000,
       "period": "monthly",
       "value": 70,
       "kind": "points",
-      "label": "350 EDGE REWARD Points on monthly spends of Rs 5,000 or above"
+      "label": "350 EDGE REWARD Points on monthly spends of ₹5,000 or above"
     }
   ],
   "milestoneBenefits": [],
@@ -262,12 +262,12 @@
   "eligibility": {
     "salaried": [
       "Age: 18 to 70 years",
-      "Minimum Net Monthly Salary: Rs 20,000",
+      "Minimum Net Monthly Salary: ₹20,000",
       "Resident of India"
     ],
     "selfEmployed": [
       "Age: 18 to 70 years",
-      "Minimum Annual Income (ITR): Rs 3,50,000",
+      "Minimum Annual Income (ITR): ₹3,50,000",
       "Resident of India"
     ]
   },

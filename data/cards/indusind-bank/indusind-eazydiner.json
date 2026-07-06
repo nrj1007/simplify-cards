@@ -18,7 +18,7 @@
     {
       "category": "dining",
       "rate": 137,
-      "displayRate": "Extra 25% off up to Rs 1,000 + 3X EazyPoints",
+      "displayRate": "Extra 25% off up to ₹1,000 + 3X EazyPoints",
       "capMonthly": null,
       "tierLowerBound": 0,
       "tierUpperBound": 4000,
@@ -37,19 +37,19 @@
     {
       "category": "online",
       "rate": 10,
-      "displayRate": "10 reward points per Rs 100",
+      "displayRate": "10 reward points per ₹100",
       "capMonthly": null
     },
     {
       "category": "travel",
       "rate": 10,
-      "displayRate": "10 reward points per Rs 100",
+      "displayRate": "10 reward points per ₹100",
       "capMonthly": null
     },
     {
       "category": "base",
       "rate": 4,
-      "displayRate": "4 reward points per Rs 100",
+      "displayRate": "4 reward points per ₹100",
       "capMonthly": null
     }
   ],
@@ -86,7 +86,7 @@
     {
       "value": 1875,
       "kind": "voucher",
-      "label": "The Postcard Hotel voucher worth Rs 7,500"
+      "label": "The Postcard Hotel voucher worth ₹7,500"
     }
   ],
   "renewalBenefitsValued": [
@@ -102,12 +102,12 @@
     }
   ],
   "joiningBenefits": [
-    "12-month EazyDiner Prime membership (worth Rs 3,550)",
+    "12-month EazyDiner Prime membership (worth ₹3,550)",
     "2,000 welcome EazyPoints",
-    "The Postcard Hotel voucher worth Rs 7,500"
+    "The Postcard Hotel voucher worth ₹7,500"
   ],
   "renewalBenefits": [
-    "12-month EazyDiner Prime membership renewal (worth Rs 3,550)",
+    "12-month EazyDiner Prime membership renewal (worth ₹3,550)",
     "2,000 bonus EazyPoints"
   ],
   "milestones": [
@@ -116,20 +116,20 @@
       "period": "monthly",
       "value": 0,
       "kind": "other",
-      "label": "Additional Rs 3,000 monthly dining discount cap unlocked upon spending Rs 30,000 or more in the previous calendar month on non-dining transactions"
+      "label": "Additional ₹3,000 monthly dining discount cap unlocked upon spending ₹30,000 or more in the previous calendar month on non-dining transactions"
     }
   ],
   "milestoneBenefits": [
-    "Additional Rs 3,000 monthly dining discount cap unlocked upon spending Rs 30,000 or more in the previous calendar month on non-dining transactions"
+    "Additional ₹3,000 monthly dining discount cap unlocked upon spending ₹30,000 or more in the previous calendar month on non-dining transactions"
   ],
   "additionalBenefits": [
-    "Two complimentary movie tickets every month on BookMyShow (each ticket worth up to Rs 200)",
+    "Two complimentary movie tickets every month on BookMyShow (each ticket worth up to ₹200)",
     "Complimentary premium alcoholic beverage for each diner at over 200 select restaurants booked via EazyDiner app",
     "1% fuel surcharge waiver at all fuel stations in India"
   ],
   "additionalDetails": [
-    "Dining discount is capped at Rs 2,000 per month without spends criteria",
-    "Spend Rs 30,000 or more on non-dining transactions in the previous calendar month to unlock an additional Rs 3,000 dining discount cap (total Rs 5,000 per month)"
+    "Dining discount is capped at ₹2,000 per month without spends criteria",
+    "Spend ₹30,000 or more on non-dining transactions in the previous calendar month to unlock an additional ₹3,000 dining discount cap (total ₹5,000 per month)"
   ],
   "redemption": {
     "statementBalanceValue": 0.2,

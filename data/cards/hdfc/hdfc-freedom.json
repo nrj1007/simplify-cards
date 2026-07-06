@@ -22,21 +22,21 @@
       "category": "partner merchants",
       "displayCategory": "BigBasket, BookMyShow, OYO, Swiggy, and Uber (10X CashPoints)",
       "rate": 6.666666666666667,
-      "displayRate": "10 CashPoints / Rs 150 spent",
+      "displayRate": "10 CashPoints / ₹150 spent",
       "capMonthly": 2500
     },
     {
       "category": "upi",
       "displayCategory": "UPI transactions (RuPay variant)",
       "rate": 0.6666666666666666,
-      "displayRate": "1 CashPoint / Rs 150 spent",
+      "displayRate": "1 CashPoint / ₹150 spent",
       "capMonthly": 500
     },
     {
       "category": "base",
       "displayCategory": "Other retail spends",
       "rate": 0.6666666666666666,
-      "displayRate": "1 CashPoint / Rs 150 spent",
+      "displayRate": "1 CashPoint / ₹150 spent",
       "capMonthly": null
     }
   ],
@@ -91,12 +91,12 @@
   ],
   "milestoneBenefits": [
     "500 CashPoints on fee realisation, applicable only on payment of joining membership fee",
-    "Renewal fee waived on spending Rs 50,000 or more in the preceding 12 months"
+    "Renewal fee waived on spending ₹50,000 or more in the preceding 12 months"
   ],
   "additionalBenefits": [
     "Up to 10% savings on restaurant bill payments via Swiggy Dineout using coupon code HDFCCARDS",
-    "SmartEMI option to convert purchases of Rs 2,500 or more into easy monthly installments",
-    "1% fuel surcharge waiver at fuel stations across India on transactions from Rs 400 to Rs 5,000, capped at Rs 250 per statement cycle"
+    "SmartEMI option to convert purchases of ₹2,500 or more into easy monthly installments",
+    "1% fuel surcharge waiver at fuel stations across India on transactions from ₹400 to ₹5,000, capped at ₹250 per statement cycle"
   ],
   "additionalDetails": [
     "Maximum reward points that can be earned in a single statement cycle is 15,000."
@@ -117,20 +117,20 @@
     "salaried": [
       "Indian national",
       "Age 21 to 60 years",
-      "Gross monthly income Rs 12,000 or above"
+      "Gross monthly income ₹12,000 or above"
     ],
     "selfEmployed": [
       "Indian national",
       "Age 21 to 65 years",
-      "Annual ITR Rs 2 lakh or above"
+      "Annual ITR ₹2 lakh or above"
     ]
   },
   "internalNotes": [
     "The 10X row covers only 5 named merchants (BigBasket=grocery, Swiggy=dining, Uber=travel, OYO=hotels, BookMyShow=entertainment), so it uses category 'partner merchants' rather than the broad dining/travel/grocery/hotels/online (which made it rank #2 for best dining card). acceleratedShare 0.5 on dining/grocery/hotels blends the partner rate against base for the share of those categories that flows through these apps; online is 0 (none of the 5 is general online shopping).",
     "Card details manually reviewed and verified by user on 2026-06-07",
     "Audited against official HDFC Bank Freedom Credit Card product page and terms on 2026-06-07.",
-    "Earn rate is 1 CashPoint per Rs 150 spent on base categories, and 10 CashPoints per Rs 150 spent on select 10X partners.",
-    "CashPoints redemption towards statement credit has a value of 1 CashPoint = Rs 0.15, minimum redemption of 3,334 CashPoints.",
+    "Earn rate is 1 CashPoint per ₹150 spent on base categories, and 10 CashPoints per ₹150 spent on select 10X partners.",
+    "CashPoints redemption towards statement credit has a value of 1 CashPoint = ₹0.15, minimum redemption of 3,334 CashPoints.",
     "1.75% DCC markup fee applies on transactions processed in INR at international locations or with merchants registered overseas."
   ],
   "imageUrl": "/images/hdfc-freedom.webp",

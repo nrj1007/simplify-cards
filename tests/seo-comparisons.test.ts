@@ -90,8 +90,8 @@ describe("SEO comparison pages", () => {
     expect(cards).toBeTruthy();
     if (!cards) return;
 
-    expect(rewardSummary(cards.cardA)).toContain("capped at Rs 2,000/month");
-    expect(rewardSummary(cards.cardB)).toContain("capped at Rs 1,500/month");
+    expect(rewardSummary(cards.cardA)).toContain("capped at ₹2,000/month");
+    expect(rewardSummary(cards.cardB)).toContain("capped at ₹1,500/month");
     expect(redemptionSummary(cards.cardA)).toContain("auto-credited");
   });
 

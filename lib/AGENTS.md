@@ -10,7 +10,7 @@ calls the AI provider. The AI is used only to phrase/resolve, never as the sourc
 - **`card-index.ts`** — the heart of data loading. Reads every `data/cards/**/*.json` at module
   load, sorts by popularity, and builds lookup indexes (by issuer, tag, network, use-case,
   segment, redemption bucket, popularity band, reward category). Exposes `cards`, `getCardById`,
-  and the `getCardsBy*` helpers. Also `stripScoringAnnotations()` (removes `(worth Rs …)` scoring
+  and the `getCardsBy*` helpers. Also `stripScoringAnnotations()` (removes `(worth ₹ …)` scoring
   hints embedded in benefit strings before display).
 - **`cards.ts`** — thin re-export of `card-index.ts` (the public import surface: `import … from
   "@/lib/cards"`).
@@ -28,7 +28,7 @@ calls the AI provider. The AI is used only to phrase/resolve, never as the sourc
 - **`equitas-privilege.ts`** — Equitas Privilege tier definitions (Blue / Silver / Gold / Platinum
   / Diamond) for the Equitas Privilege card's tier-based reward model.
 - **`reward-rate-parse.ts`** — `parseDisplayRate()`: parses human `displayRate` strings
-  (e.g. `"72 Reward Points / Rs 200 spent"`) back to a numeric earn rate (units per ₹100).
+  (e.g. `"72 Reward Points / ₹200 spent"`) back to a numeric earn rate (units per ₹100).
   Used only by maintenance scripts and the card validator — the runtime engines use `reward.rate`
   directly.
 
@@ -41,7 +41,7 @@ calls the AI provider. The AI is used only to phrase/resolve, never as the sourc
   milestone value/threshold rules used by the calculator).
   - **`scoreCards` routes a query to one of several ranking modes** instead of always using the
     broad envelope blend (`REWARD_BLEND_SPEND_LEVELS` `[300000, 600000, 1000000, 2000000, 3000000]` —
-    3L/6L/10L/20L/30L, ~Rs 25k/50k/83k/167k/250k per month — with weights
+    3L/6L/10L/20L/30L, ~₹25k/50k/83k/167k/250k per month — with weights
     `[1, 1.5, 2, 1, 0.75]`, used for broad reward-card scoring):
     - **Category focus** (`categoryFocusConfigs` / `detectCategoryFocus`) — "best dining/grocery/
       online/amazon/flipkart/swiggy/utilities/rent/entertainment card". Scored at a realistic

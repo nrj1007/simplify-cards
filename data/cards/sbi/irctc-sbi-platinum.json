@@ -23,14 +23,14 @@
       "category": "travel",
       "displayCategory": "Eligible AC rail ticket bookings on IRCTC",
       "rate": 8,
-      "displayRate": "10 Reward Points / Rs 125 spent",
+      "displayRate": "10 Reward Points / ₹125 spent",
       "capMonthly": null
     },
     {
       "category": "base",
       "displayCategory": "Other eligible non-fuel retail purchases",
       "rate": 0.8,
-      "displayRate": "1 Reward Point / Rs 125 spent",
+      "displayRate": "1 Reward Point / ₹125 spent",
       "capMonthly": null
     }
   ],
@@ -65,7 +65,7 @@
     {
       "value": 350,
       "kind": "points",
-      "label": "350 activation bonus Reward Points on a single transaction of Rs 500 or more within 60 days of card issuance"
+      "label": "350 activation bonus Reward Points on a single transaction of ₹500 or more within 60 days of card issuance"
     }
   ],
   "renewalBenefitsValued": [
@@ -76,7 +76,7 @@
     }
   ],
   "joiningBenefits": [
-    "350 activation bonus Reward Points on a single transaction of Rs 500 or more within 60 days of card issuance"
+    "350 activation bonus Reward Points on a single transaction of ₹500 or more within 60 days of card issuance"
   ],
   "renewalBenefits": [
     "500 Reward Points on payment of renewal fee"
@@ -84,7 +84,7 @@
   "milestoneBenefits": [],
   "additionalBenefits": [
     "Save 1% transaction charges on eligible railway ticket bookings on IRCTC",
-    "1% fuel surcharge waiver on eligible fuel transactions, capped at Rs 100 per statement cycle"
+    "1% fuel surcharge waiver on eligible fuel transactions, capped at ₹100 per statement cycle"
   ],
   "redemption": {
     "ecosystemLabel": "IRCTC railway ticket bookings",
@@ -106,7 +106,7 @@
   "additionalDetails": [],
   "internalNotes": [
     "Audited against official IRCTC SBI Platinum product page and IRCTC offer page on 2026-06-08.",
-    "The 10% value-back framing comes from 10 Reward Points per Rs 125 on eligible AC1, AC2, AC3, Executive Chair Car, and Chair Car bookings via IRCTC app or website.",
+    "The 10% value-back framing comes from 10 Reward Points per ₹125 on eligible AC1, AC2, AC3, Executive Chair Car, and Chair Car bookings via IRCTC app or website.",
     "Reward Points accrued in the SBI Card account will not get credited to the IRCTC loyalty account if the loyalty account status is blocked, inactive, or suspended.",
     "Card details manually reviewed and verified by user on 2026-06-09."
   ],

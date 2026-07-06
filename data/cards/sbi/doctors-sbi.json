@@ -22,21 +22,21 @@
       "category": "travel",
       "displayCategory": "Travel bookings & medical supplies",
       "rate": 5,
-      "displayRate": "5 Reward Points / Rs 100 spent",
+      "displayRate": "5 Reward Points / ₹100 spent",
       "capMonthly": 7500
     },
     {
       "category": "international",
       "displayCategory": "International spends",
       "rate": 5,
-      "displayRate": "5 Reward Points / Rs 100 spent",
+      "displayRate": "5 Reward Points / ₹100 spent",
       "capMonthly": 7500
     },
     {
       "category": "base",
       "displayCategory": "Other eligible retail purchases",
       "rate": 1,
-      "displayRate": "1 Reward Point / Rs 100 spent",
+      "displayRate": "1 Reward Point / ₹100 spent",
       "capMonthly": null
     }
   ],
@@ -80,20 +80,20 @@
     {
       "value": 1500,
       "kind": "voucher",
-      "label": "Yatra Travel e-Gift Voucher worth Rs 1,500"
+      "label": "Yatra Travel e-Gift Voucher worth ₹1,500"
     }
   ],
   "joiningBenefits": [
-    "Yatra Travel e-Gift Voucher worth Rs 1,500 upon payment of joining fee"
+    "Yatra Travel e-Gift Voucher worth ₹1,500 upon payment of joining fee"
   ],
   "renewalBenefitsValued": [],
   "renewalBenefits": [],
   "milestones": [],
   "milestoneBenefits": [],
   "additionalBenefits": [
-    "Professional indemnity insurance cover of Rs 20 Lakhs for doctors",
-    "5 Reward Points per Rs 100 on all eligible spends on Doctor's Day (1st July)",
-    "1% fuel surcharge waiver on eligible fuel transactions between Rs 500 and Rs 4,000, capped at Rs 250 per month"
+    "Professional indemnity insurance cover of ₹20 Lakhs for doctors",
+    "5 Reward Points per ₹100 on all eligible spends on Doctor's Day (1st July)",
+    "1% fuel surcharge waiver on eligible fuel transactions between ₹500 and ₹4,000, capped at ₹250 per month"
   ],
   "redemption": {
     "statementBalanceValue": 0.25,

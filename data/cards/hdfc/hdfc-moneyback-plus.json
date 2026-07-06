@@ -21,28 +21,28 @@
       "category": "amazon, partner merchants",
       "displayCategory": "Amazon, Flipkart, Swiggy (10X CashPoints)",
       "rate": 10,
-      "displayRate": "20 CashPoints / Rs 200 spent",
+      "displayRate": "20 CashPoints / ₹200 spent",
       "capMonthly": 2500
     },
     {
       "category": "grocery",
       "displayCategory": "Reliance Smart SuperStore & BigBasket (10X CashPoints)",
       "rate": 10,
-      "displayRate": "20 CashPoints / Rs 200 spent",
+      "displayRate": "20 CashPoints / ₹200 spent",
       "capMonthly": 1000
     },
     {
       "category": "base",
       "displayCategory": "Other retail spends",
       "rate": 1,
-      "displayRate": "2 CashPoints / Rs 200 spent",
+      "displayRate": "2 CashPoints / ₹200 spent",
       "capMonthly": null
     },
     {
       "category": "upi",
       "displayCategory": "UPI transactions (RuPay variant)",
       "rate": 1,
-      "displayRate": "2 CashPoints / Rs 200 spent",
+      "displayRate": "2 CashPoints / ₹200 spent",
       "capMonthly": null
     }
   ],
@@ -63,7 +63,7 @@
     {
       "category": "upi",
       "treatment": "rewarded",
-      "notes": "UPI transactions on the RuPay variant earn 2 CashPoints for every Rs 200 spent (same as the base rate)."
+      "notes": "UPI transactions on the RuPay variant earn 2 CashPoints for every ₹200 spent (same as the base rate)."
     }
   ],
   "loungeDomestic": 0,
@@ -112,14 +112,14 @@
       "period": "quarterly",
       "value": 250,
       "kind": "voucher",
-      "label": "Gift voucher worth Rs 500 on spends of Rs 50,000 per calendar quarter"
+      "label": "Gift voucher worth ₹500 on spends of ₹50,000 per calendar quarter"
     }
   ],
   "milestoneBenefits": [
-    "Gift voucher worth Rs 500 on spends of Rs 50,000 per calendar quarter"
+    "Gift voucher worth ₹500 on spends of ₹50,000 per calendar quarter"
   ],
   "additionalBenefits": [
-    "1% fuel surcharge waiver on transactions between Rs 400 and Rs 5,000, capped at Rs 250 per statement cycle",
+    "1% fuel surcharge waiver on transactions between ₹400 and ₹5,000, capped at ₹250 per statement cycle",
     "10% additional discount on Swiggy Dineout using coupon code HDFCCARDS",
     "Up to 50 days interest-free credit period from the date of purchase",
     "Zero lost card liability when reported immediately"
@@ -150,12 +150,12 @@
     "salaried": [
       "Indian national",
       "Age: 21 to 60 years",
-      "Net monthly income > Rs 20,000"
+      "Net monthly income > ₹20,000"
     ],
     "selfEmployed": [
       "Indian national",
       "Age: 21 to 65 years",
-      "ITR > Rs 6 Lakh per annum"
+      "ITR > ₹6 Lakh per annum"
     ]
   },
   "sourceUrl": "https://www.hdfc.bank.in/credit-cards/moneyback-plus-credit-card",
@@ -170,10 +170,10 @@
     "Official audit completed on 2026-06-07 using HDFC Bank MoneyBack+ product page and FAQs.",
     "HDFC Bank charges a revised 1.75% DCC markup fee (effective 15 May 2026) on all transactions processed in INR at international locations or with merchants registered overseas.",
     "10X CashPoints (capped at 2,500/month) on Amazon, Flipkart, Swiggy, Reliance Smart SuperStore & BigBasket.",
-    "Base rate: 2 CashPoints per Rs 200 spent on other spends. RuPay variant UPI transactions earn at base rate.",
+    "Base rate: 2 CashPoints per ₹200 spent on other spends. RuPay variant UPI transactions earn at base rate.",
     "Grocery spends are capped at 1,000 CashPoints/month.",
     "Utility spends are capped at 2,000 CashPoints/month.",
     "Insurance spends do not earn reward points.",
-    "Redemption rate: 1 CashPoint = Rs 0.25 for Flights/Hotels via SmartBuy, 1 CashPoint = Rs 0.25 for Product Catalogue, 1 CashPoint = Rs 0.20 for statement cashback. A standard redemption fee of Rs 99 + GST applies (Rs 50 + GST for statement cashback). CashPoints cannot be transferred to partner airlines or hotel loyalty programs."
+    "Redemption rate: 1 CashPoint = ₹0.25 for Flights/Hotels via SmartBuy, 1 CashPoint = ₹0.25 for Product Catalogue, 1 CashPoint = ₹0.20 for statement cashback. A standard redemption fee of ₹99 + GST applies (₹50 + GST for statement cashback). CashPoints cannot be transferred to partner airlines or hotel loyalty programs."
   ]
 }

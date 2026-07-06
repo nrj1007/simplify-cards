@@ -21,15 +21,15 @@
       "category": "travel",
       "displayCategory": "Travel EDGE",
       "rate": 30,
-      "displayRate": "60 EDGE REWARD Points / Rs 200 upto Rs 2 lakh per calendar month, then 35 EDGE REWARD Points / Rs 200",
+      "displayRate": "60 EDGE REWARD Points / ₹200 upto ₹2 lakh per calendar month, then 35 EDGE REWARD Points / ₹200",
       "capMonthly": 60000,
       "postCapRate": 17.5
     },
     {
       "category": "base",
-      "displayCategory": "Eligible spends up to Rs 1.5 lakh per calendar month",
+      "displayCategory": "Eligible spends up to ₹1.5 lakh per calendar month",
       "rate": 6,
-      "displayRate": "12 EDGE REWARD Points / Rs 200",
+      "displayRate": "12 EDGE REWARD Points / ₹200",
       "capMonthly": null,
       "tierLowerBound": 0,
       "tierUpperBound": 150000,
@@ -37,9 +37,9 @@
     },
     {
       "category": "base",
-      "displayCategory": "Eligible incremental spends above Rs 1.5 lakh per calendar month",
+      "displayCategory": "Eligible incremental spends above ₹1.5 lakh per calendar month",
       "rate": 17.5,
-      "displayRate": "35 EDGE REWARD Points / Rs 200",
+      "displayRate": "35 EDGE REWARD Points / ₹200",
       "capMonthly": null,
       "tierLowerBound": 150000,
       "tierUpperBound": null,
@@ -52,7 +52,7 @@
   "loungeGuestInternational": 4,
   "lounge": {
     "domestic": [
-      "Domestic lounge access requires minimum spends of Rs 50,000 in the previous 3 calendar months; the spend condition is waived for the month of issuance plus the next 3 calendar months."
+      "Domestic lounge access requires minimum spends of ₹50,000 in the previous 3 calendar months; the spend condition is waived for the month of issuance plus the next 3 calendar months."
     ],
     "international": [
       "Unlimited domestic and international lounge access applies to primary cardholder; guest visits are limited to 4 domestic guest visits per calendar year and 4 international guest visits per card anniversary year on Priority Pass."
@@ -97,26 +97,26 @@
       "category": "rent",
       "treatment": "capped",
       "capMonthlySpend": 50000,
-      "notes": "Rent spends are eligible only up to Rs 50,000 per calendar month for reward earn and spend-based fee waiver calculation."
+      "notes": "Rent spends are eligible only up to ₹50,000 per calendar month for reward earn and spend-based fee waiver calculation."
     }
   ],
   "joiningBenefitsValued": [
     {
       "value": 6250,
       "kind": "voucher",
-      "label": "Welcome voucher worth Rs 12,500 from eligible options such as Luxe, The Postcard Hotels or Yatra after card activation with first spend within 30 days"
+      "label": "Welcome voucher worth ₹12,500 from eligible options such as Luxe, The Postcard Hotels or Yatra after card activation with first spend within 30 days"
     }
   ],
   "joiningBenefits": [
-    "Welcome voucher worth Rs 12,500 from eligible options such as Luxe, The Postcard Hotels or Yatra after card activation with first spend within 30 days"
+    "Welcome voucher worth ₹12,500 from eligible options such as Luxe, The Postcard Hotels or Yatra after card activation with first spend within 30 days"
   ],
   "milestoneBenefits": [
-    "Annual fee waiver on spends of Rs 25 lakh in the preceding card anniversary year",
+    "Annual fee waiver on spends of ₹25 lakh in the preceding card anniversary year",
     "For eligible older customers, historical waiver thresholds may differ as per Axis terms"
   ],
   "additionalBenefits": [
     "Dining Delights offers across partner restaurants",
-    "Fuel surcharge waiver of 1% for transactions between Rs 400 and Rs 4,000, capped at Rs 400 per month",
+    "Fuel surcharge waiver of 1% for transactions between ₹400 and ₹4,000, capped at ₹400 per month",
     "No cash withdrawal charges"
   ],
   "redemption": {
@@ -288,11 +288,11 @@
   },
   "eligibility": {
     "salaried": [
-      "Minimum annual income (ITR) of Rs 18 Lakhs, or net monthly salary of Rs 1.5 Lakhs",
+      "Minimum annual income (ITR) of ₹18 Lakhs, or net monthly salary of ₹1.5 Lakhs",
       "Card approval remains subject to Axis Bank credit policy"
     ],
     "selfEmployed": [
-      "Minimum annual income (ITR) of Rs 18 Lakhs",
+      "Minimum annual income (ITR) of ₹18 Lakhs",
       "Card approval remains subject to Axis Bank credit policy"
     ]
   },
@@ -309,17 +309,17 @@
   "internalNotes": [
     "Card details manually reviewed and verified by user on 2026-06-06",
     "Official audit completed on 2026-06-06 using Axis Bank product page, 20 April 2024 revision PDF, 20 June 2025 revision PDF, and Axis miles-transfer page.",
-    "Domestic lounge access requires minimum spends of Rs 50,000 in the previous 3 calendar months; the spend condition is waived for the month of issuance plus the next 3 calendar months.",
+    "Domestic lounge access requires minimum spends of ₹50,000 in the previous 3 calendar months; the spend condition is waived for the month of issuance plus the next 3 calendar months.",
     "Unlimited domestic and international lounge access applies to primary cardholder; guest visits are limited to 4 domestic guest visits per calendar year and 4 international guest visits per card anniversary year on Priority Pass.",
-    "Travel EDGE earns 60 EDGE REWARD Points per Rs 200 up to cumulative spends of Rs 2 lakh per calendar month; spends above that continue at 35 EDGE REWARD Points per Rs 200.",
-    "Accelerated 35 EDGE REWARD Points are earned only on eligible incremental spends above Rs 1.5 lakh in a calendar month, up to assigned credit limit plus Rs 1.5 lakh per calendar month.",
-    "Spends on Travel EDGE up to Rs 2 lakh per month, Gyftr, and other Axis accelerated offer portals are excluded from the 35-point accelerated calculation because they already earn separate accelerated rewards.",
-    "Rent spends above Rs 50,000 in a calendar month are not considered for accelerated reward points or spend-based fee waiver calculation.",
+    "Travel EDGE earns 60 EDGE REWARD Points per ₹200 up to cumulative spends of ₹2 lakh per calendar month; spends above that continue at 35 EDGE REWARD Points per ₹200.",
+    "Accelerated 35 EDGE REWARD Points are earned only on eligible incremental spends above ₹1.5 lakh in a calendar month, up to assigned credit limit plus ₹1.5 lakh per calendar month.",
+    "Spends on Travel EDGE up to ₹2 lakh per month, Gyftr, and other Axis accelerated offer portals are excluded from the 35-point accelerated calculation because they already earn separate accelerated rewards.",
+    "Rent spends above ₹50,000 in a calendar month are not considered for accelerated reward points or spend-based fee waiver calculation.",
     "EMI transactions, reversed transactions, fees, charges, interest, and cash withdrawals do not count toward accelerated reward calculations.",
     "Miles transfer ratio for standard Magnus is 5 EDGE REWARD Points = 2 partner points (0.4 ratio) for standard partners, and 5 EDGE REWARD Points = 1 partner point (0.2 ratio) for British Airways, Finnair, and Vietnam Airlines.",
     "Current annual transfer cap is 5 lakh EDGE REWARD Points in a calendar year, split as 1 lakh to Group A and 4 lakh to Group B.",
     "Accor Live Limitless, Marriott Bonvoy, and Qatar Airways have been removed from the current transfer partner set.",
-    "Gift EDGE redemption is valued at Rs 0.20 per EDGE REWARD Point."
+    "Gift EDGE redemption is valued at ₹0.20 per EDGE REWARD Point."
   ],
   "popularityScore": 50
 }

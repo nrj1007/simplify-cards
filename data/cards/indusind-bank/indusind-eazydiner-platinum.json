@@ -18,7 +18,7 @@
     {
       "category": "dining",
       "rate": 104,
-      "displayRate": "Extra 20% off up to Rs 500 + 2X EazyPoints",
+      "displayRate": "Extra 20% off up to ₹500 + 2X EazyPoints",
       "capMonthly": null,
       "tierLowerBound": 0,
       "tierUpperBound": 2500,
@@ -38,13 +38,13 @@
       "category": "utilities, insurance, government, rent",
       "displayCategory": "Utility, insurance, government, and rent spends",
       "rate": 0.7,
-      "displayRate": "0.7 reward points per Rs 100",
+      "displayRate": "0.7 reward points per ₹100",
       "capMonthly": null
     },
     {
       "category": "base",
       "rate": 2,
-      "displayRate": "2 reward points per Rs 100",
+      "displayRate": "2 reward points per ₹100",
       "capMonthly": null
     }
   ],
@@ -83,15 +83,15 @@
     {
       "value": 0,
       "kind": "other",
-      "label": "3-month EazyDiner Prime membership renewal upon spending Rs 30,000 in 90 days"
+      "label": "3-month EazyDiner Prime membership renewal upon spending ₹30,000 in 90 days"
     }
   ],
   "joiningBenefits": [
-    "Complimentary 3-month EazyDiner Prime membership (worth Rs 1,095)",
+    "Complimentary 3-month EazyDiner Prime membership (worth ₹1,095)",
     "500 welcome bonus EazyPoints"
   ],
   "renewalBenefits": [
-    "3-month EazyDiner Prime membership renewal (worth Rs 1,095) upon spending Rs 30,000 in 90 days"
+    "3-month EazyDiner Prime membership renewal (worth ₹1,095) upon spending ₹30,000 in 90 days"
   ],
   "milestones": [
     {
@@ -99,19 +99,19 @@
       "period": "quarterly",
       "value": 400,
       "kind": "points",
-      "label": "2,000 bonus Reward Points upon spending Rs 30,000 every 90 days (dining spends excluded)"
+      "label": "2,000 bonus Reward Points upon spending ₹30,000 every 90 days (dining spends excluded)"
     }
   ],
   "milestoneBenefits": [
-    "2,000 bonus Reward Points (worth Rs 400) upon spending Rs 30,000 every 90 days (dining spends excluded)"
+    "2,000 bonus Reward Points (worth ₹400) upon spending ₹30,000 every 90 days (dining spends excluded)"
   ],
   "additionalBenefits": [
-    "Two complimentary movie tickets every month on BookMyShow (each ticket worth up to Rs 200)",
+    "Two complimentary movie tickets every month on BookMyShow (each ticket worth up to ₹200)",
     "1% fuel surcharge waiver at all fuel stations in India"
   ],
   "additionalDetails": [
-    "Dining discount of 20% up to Rs 500 is capped at 3 transactions per calendar month and is only applicable when paying through PayEazy on the EazyDiner app",
-    "1 Reward Point = Rs 0.20 when redeemed against restaurant bills via PayEazy on the EazyDiner app"
+    "Dining discount of 20% up to ₹500 is capped at 3 transactions per calendar month and is only applicable when paying through PayEazy on the EazyDiner app",
+    "1 Reward Point = ₹0.20 when redeemed against restaurant bills via PayEazy on the EazyDiner app"
   ],
   "redemption": {
     "statementBalanceValue": 0.2,
@@ -129,7 +129,7 @@
     "Card details manually reviewed and verified by user on 2026-06-27",
     "Extra 20% discount is auto-applied and only applicable when booking and paying through the EazyDiner App via PayEazy. Not applicable for physical card payments, other cards, UPI, or wallets.",
     "Extra 20% discount is not applicable if consecutive transactions are made at the same restaurant within 120 minutes or less.",
-    "Milestone benefit of 2,000 Reward Points requires Rs 30,000 spent every 90 days, excluding dining spends.",
+    "Milestone benefit of 2,000 Reward Points requires ₹30,000 spent every 90 days, excluding dining spends.",
     "Comprehensive insurance cover against unauthorized transactions up to 48 hours prior to reporting card loss"
   ],
   "sourceUrl": "https://www.indusind.com/in/en/personal/cards/credit-card/eazydiner-platinum-credit-card.html",

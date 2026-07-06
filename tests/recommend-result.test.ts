@@ -14,7 +14,7 @@ describe("toRecommendResult", () => {
     expect(result.estimatedMilestoneValue).toBeGreaterThan(0);
     expect(result.feeWaiverHit).toBe(true);
     expect(result.nextMilestoneGap).toBeGreaterThan(0);
-    expect(result.nextMilestoneLabel).toMatch(/Rs 5,000 worth flight vouchers on spends of Rs 7.5 lakh/i);
+    expect(result.nextMilestoneLabel).toMatch(/₹5,000 worth flight vouchers on spends of ₹7.5 lakh/i);
   });
 
   it("surfaces fee-waiver and milestone gaps when they are not hit yet", () => {

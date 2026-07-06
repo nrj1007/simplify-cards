@@ -21,35 +21,35 @@
       "category": "travel",
       "rate": 12,
       "displayCategory": "Travel and hotels",
-      "displayRate": "24 YES Rewardz Points / Rs 200 spent",
+      "displayRate": "24 YES Rewardz Points / ₹200 spent",
       "capMonthly": null
     },
     {
       "category": "dining",
       "rate": 12,
       "displayCategory": "Dining",
-      "displayRate": "24 YES Rewardz Points / Rs 200 spent",
+      "displayRate": "24 YES Rewardz Points / ₹200 spent",
       "capMonthly": null
     },
     {
       "category": "grocery",
       "rate": 12,
       "displayCategory": "Groceries and supermarkets",
-      "displayRate": "24 YES Rewardz Points / Rs 200 spent",
+      "displayRate": "24 YES Rewardz Points / ₹200 spent",
       "capMonthly": null
     },
     {
       "category": "online",
       "rate": 12,
       "displayCategory": "Apparel, online entertainment, OTT, and digital goods",
-      "displayRate": "24 YES Rewardz Points / Rs 200 spent",
+      "displayRate": "24 YES Rewardz Points / ₹200 spent",
       "capMonthly": null
     },
     {
       "category": "base",
       "rate": 2,
       "displayCategory": "Other retail spends",
-      "displayRate": "4 YES Rewardz Points / Rs 200 spent",
+      "displayRate": "4 YES Rewardz Points / ₹200 spent",
       "capMonthly": null
     }
   ],
@@ -99,7 +99,7 @@
   ],
   "milestoneBenefits": [],
   "additionalBenefits": [
-    "1% fuel surcharge waiver on transactions between Rs 400 and Rs 5,000, capped at Rs 300 per month"
+    "1% fuel surcharge waiver on transactions between ₹400 and ₹5,000, capped at ₹300 per month"
   ],
   "additionalDetails": [
     "Co-branded credit card issued in partnership with Anq Finance",
@@ -114,14 +114,14 @@
         "programme": "Digital Gold",
         "ratio": "4:1",
         "valuePerPoint": 0.25,
-        "note": "Redeem points for 24K Digital Gold in the Anq app (4 points = Rs 1 value)"
+        "note": "Redeem points for 24K Digital Gold in the Anq app (4 points = ₹1 value)"
       },
       {
         "partner": "Anq App",
         "programme": "Bitcoin",
         "ratio": "4:1",
         "valuePerPoint": 0.25,
-        "note": "Redeem points for Bitcoin in the Anq app (4 points = Rs 1 value, subject to market fluctuation)"
+        "note": "Redeem points for Bitcoin in the Anq app (4 points = ₹1 value, subject to market fluctuation)"
       }
     ]
   },

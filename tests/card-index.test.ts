@@ -136,11 +136,11 @@ describe("card indexes", () => {
 
   describe("stripScoringAnnotations", () => {
     it("strips worth annotations and trims leading/trailing spaces", () => {
-      expect(stripScoringAnnotations("Complimentary hotel stay (worth Rs 12,000)")).toBe("Complimentary hotel stay");
-      expect(stripScoringAnnotations("Airport transfer (worth Rs 1,500) per year")).toBe("Airport transfer per year");
-      expect(stripScoringAnnotations("2 complimentary golf games (worth Rs 3,500 per game)")).toBe("2 complimentary golf games");
-      expect(stripScoringAnnotations("BookMyShow discount (voucher worth Rs 500)")).toBe("BookMyShow discount");
-      expect(stripScoringAnnotations("Complimentary vouchers (vouchers worth Rs 10,000)")).toBe("Complimentary vouchers");
+      expect(stripScoringAnnotations("Complimentary hotel stay (worth ₹12,000)")).toBe("Complimentary hotel stay");
+      expect(stripScoringAnnotations("Airport transfer (worth ₹1,500) per year")).toBe("Airport transfer per year");
+      expect(stripScoringAnnotations("2 complimentary golf games (worth ₹3,500 per game)")).toBe("2 complimentary golf games");
+      expect(stripScoringAnnotations("BookMyShow discount (voucher worth ₹500)")).toBe("BookMyShow discount");
+      expect(stripScoringAnnotations("Complimentary vouchers (vouchers worth ₹10,000)")).toBe("Complimentary vouchers");
       expect(stripScoringAnnotations("Normal benefit text with no annotations")).toBe("Normal benefit text with no annotations");
     });
   });

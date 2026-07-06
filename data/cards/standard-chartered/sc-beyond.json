@@ -22,14 +22,14 @@
       "category": "base",
       "rate": 3.3333333333333335,
       "displayCategory": "Other retail spends",
-      "displayRate": "5 reward points / Rs 150 spent",
+      "displayRate": "5 reward points / ₹150 spent",
       "capMonthly": null
     },
     {
       "category": "utilities, insurance, government, education, grocery",
       "rate": 2,
       "displayCategory": "Utility, insurance, grocery, school, property management and government spends",
-      "displayRate": "3 reward points / Rs 150 spent",
+      "displayRate": "3 reward points / ₹150 spent",
       "capMonthly": null
     }
   ],
@@ -67,11 +67,11 @@
     "4 complimentary guest lounge visits per year",
     "2 complimentary golf games or lessons every month",
     "15% cashback on duty-free stores",
-    "Buy One Get One free movie ticket offer on BookMyShow (up to Rs 1,000 off per month)",
+    "Buy One Get One free movie ticket offer on BookMyShow (up to ₹1,000 off per month)",
     "25% off on EazyDiner premium dining offers"
   ],
   "redemption": {
-    "ecosystemLabel": "360° Rewards Portal vouchers (1 point = Rs 1, no statement cashback)",
+    "ecosystemLabel": "360° Rewards Portal vouchers (1 point = ₹1, no statement cashback)",
     "ecosystemValue": 1,
     "redemptionFee": 99,
     "pointsExpiryYears": 3
@@ -93,9 +93,9 @@
   "verificationStatus": "official-direct",
   "internalNotes": [
     "Card details manually reviewed and verified by user on 2026-06-26.",
-    "Earns 5 reward points per Rs 150 spent on standard retail categories (3.33% return value). 1 point = Rs 1 redeemable for vouchers/products via the 360 Rewards Portal only — there is no statement-credit/cashback redemption (Rs 99 + GST redemption fee).",
-    "Earns 3 reward points per Rs 150 spent on utility payments, supermarkets, insurance, property management, schools, and government payments (2% return value).",
+    "Earns 5 reward points per ₹150 spent on standard retail categories (3.33% return value). 1 point = ₹1 redeemable for vouchers/products via the 360 Rewards Portal only — there is no statement-credit/cashback redemption (₹99 + GST redemption fee).",
+    "Earns 3 reward points per ₹150 spent on utility payments, supermarkets, insurance, property management, schools, and government payments (2% return value).",
     "Unlimited domestic and international lounge access is provided for the cardholder, plus 4 complimentary guest visits per year.",
-    "Classified as 360° Rewards points (1 point = Rs 1 ecosystem value, no statement cashback) on 2026-06-26."
+    "Classified as 360° Rewards points (1 point = ₹1 ecosystem value, no statement cashback) on 2026-06-26."
   ]
 }

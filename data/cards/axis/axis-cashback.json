@@ -29,7 +29,7 @@
   "rewards": [
     {
       "category": "online",
-      "displayCategory": "Online spends up to Rs 5,000/mo",
+      "displayCategory": "Online spends up to ₹5,000/mo",
       "rate": 2,
       "displayRate": "2% cashback",
       "capMonthly": 4000,
@@ -40,7 +40,7 @@
     },
     {
       "category": "online",
-      "displayCategory": "Online spends Rs 5,000-40,000/mo",
+      "displayCategory": "Online spends ₹5,000-40,000/mo",
       "rate": 5,
       "displayRate": "5% cashback",
       "capMonthly": 4000,
@@ -51,7 +51,7 @@
     },
     {
       "category": "online",
-      "displayCategory": "Online spends above Rs 40,000/mo",
+      "displayCategory": "Online spends above ₹40,000/mo",
       "rate": 7,
       "displayRate": "7% cashback",
       "capMonthly": 4000,
@@ -110,7 +110,7 @@
     "emi"
   ],
   "milestoneBenefits": [
-    "Annual fee waived on spends of Rs 4 lakh or more in a card anniversary year"
+    "Annual fee waived on spends of ₹4 lakh or more in a card anniversary year"
   ],
   "additionalBenefits": [
     "Axis Dining Delights and Wednesday Delight offers may apply as per Axis Bank programme terms"
@@ -122,12 +122,12 @@
   "eligibility": {
     "salaried": [
       "Age: 18 to 70 years",
-      "Minimum Net Monthly Salary: Rs 20,000",
+      "Minimum Net Monthly Salary: ₹20,000",
       "Resident of India"
     ],
     "selfEmployed": [
       "Age: 18 to 70 years",
-      "Minimum Annual Income (ITR): Rs 3,50,000",
+      "Minimum Annual Income (ITR): ₹3,50,000",
       "Resident of India"
     ]
   },

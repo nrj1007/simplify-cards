@@ -21,21 +21,21 @@
       "category": "base",
       "displayCategory": "Other retail spends",
       "rate": 2,
-      "displayRate": "2 Reward Points / Rs 100 spent",
+      "displayRate": "2 Reward Points / ₹100 spent",
       "capMonthly": null
     },
     {
       "category": "utilities, insurance",
       "displayCategory": "Utility & Insurance spends",
       "rate": 1,
-      "displayRate": "1 Reward Point / Rs 100 spent",
+      "displayRate": "1 Reward Point / ₹100 spent",
       "capMonthly": null
     },
     {
       "category": "upi",
       "displayCategory": "Merchant UPI spends",
       "rate": 2,
-      "displayRate": "2 Reward Points / Rs 100 spent",
+      "displayRate": "2 Reward Points / ₹100 spent",
       "capMonthly": null
     }
   ],
@@ -44,7 +44,7 @@
   "loungeInternational": 0,
   "lounge": {
     "domestic": [
-      "Offers 1 complimentary domestic airport lounge access per quarter, subject to spending Rs 75,000 in the preceding calendar quarter.",
+      "Offers 1 complimentary domestic airport lounge access per quarter, subject to spending ₹75,000 in the preceding calendar quarter.",
       "Offers 1 complimentary domestic railway lounge access per quarter (no spends criteria).",
       "One complimentary domestic railway lounge visit per quarter"
     ]
@@ -81,19 +81,19 @@
       "period": "annual",
       "value": 3250,
       "kind": "points",
-      "label": "2,000 reward points on spending Rs 2,00,000 and 1,000 reward points each time Rs 1,00,000 spend is crossed thereafter in an anniversary year, capped at 10,000 points per year"
+      "label": "2,000 reward points on spending ₹2,00,000 and 1,000 reward points each time ₹1,00,000 spend is crossed thereafter in an anniversary year, capped at 10,000 points per year"
     }
   ],
   "milestoneBenefits": [
-    "2,000 reward points on spending Rs 2,00,000 and 1,000 reward points each time Rs 1,00,000 spend is crossed thereafter in an anniversary year, capped at 10,000 points per year"
+    "2,000 reward points on spending ₹2,00,000 and 1,000 reward points each time ₹1,00,000 spend is crossed thereafter in an anniversary year, capped at 10,000 points per year"
   ],
   "additionalBenefits": [
     "One complimentary domestic railway lounge visit per quarter",
-    "25% discount on BookMyShow and INOX movie tickets, capped at Rs 100 twice a month, subject to spending Rs 25,000 in the preceding calendar quarter",
-    "1% fuel surcharge waiver on all fuel transactions of Rs 400 to Rs 4,000 at HPCL petrol pumps"
+    "25% discount on BookMyShow and INOX movie tickets, capped at ₹100 twice a month, subject to spending ₹25,000 in the preceding calendar quarter",
+    "1% fuel surcharge waiver on all fuel transactions of ₹400 to ₹4,000 at HPCL petrol pumps"
   ],
   "additionalDetails": [
-    "A transaction fee of 1% applies to utility payments exceeding Rs 50,000 per month"
+    "A transaction fee of 1% applies to utility payments exceeding ₹50,000 per month"
   ],
   "redemption": {
     "statementBalanceValue": 0.25,
@@ -127,13 +127,13 @@
   "internalNotes": [
     "Card details manually reviewed and verified by user on 2026-06-06",
     "Official audit completed on 2026-06-06 using ICICI Bank Coral RuPay page and terms.",
-    "Joining fee of Rs 500 and Annual fee of Rs 500. Annual fee is waived on spending Rs 1.5 Lakhs or more in the previous anniversary year.",
-    "Earns 2 Reward Points per Rs 100 spent on retail and UPI merchant spends (0.5% return value).",
-    "Earns 1 Reward Point per Rs 100 spent on utility and insurance spends (0.25% return value).",
-    "1% fuel surcharge waiver on fuel transactions of Rs 400 to Rs 4,000 at HPCL petrol pumps.",
-    "Offers 1 complimentary domestic airport lounge access per quarter, subject to spending Rs 75,000 in the preceding calendar quarter.",
+    "Joining fee of ₹500 and Annual fee of ₹500. Annual fee is waived on spending ₹1.5 Lakhs or more in the previous anniversary year.",
+    "Earns 2 Reward Points per ₹100 spent on retail and UPI merchant spends (0.5% return value).",
+    "Earns 1 Reward Point per ₹100 spent on utility and insurance spends (0.25% return value).",
+    "1% fuel surcharge waiver on fuel transactions of ₹400 to ₹4,000 at HPCL petrol pumps.",
+    "Offers 1 complimentary domestic airport lounge access per quarter, subject to spending ₹75,000 in the preceding calendar quarter.",
     "Offers 1 complimentary domestic railway lounge access per quarter (no spends criteria).",
-    "Offers 25% discount on BookMyShow and INOX movie tickets, capped at Rs 100 twice a month, subject to spending Rs 25,000 in the preceding calendar quarter.",
-    "Eligibility: Age must be 21-65 years; minimum monthly income of Rs 20,000 for both salaried and self-employed."
+    "Offers 25% discount on BookMyShow and INOX movie tickets, capped at ₹100 twice a month, subject to spending ₹25,000 in the preceding calendar quarter.",
+    "Eligibility: Age must be 21-65 years; minimum monthly income of ₹20,000 for both salaried and self-employed."
   ]
 }

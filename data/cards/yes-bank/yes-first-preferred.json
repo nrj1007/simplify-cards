@@ -22,28 +22,28 @@
       "category": "travel",
       "rate": 8,
       "displayCategory": "Travel spends",
-      "displayRate": "16 YES Rewardz Points / Rs 200 spent",
+      "displayRate": "16 YES Rewardz Points / ₹200 spent",
       "capMonthly": 3000
     },
     {
       "category": "dining",
       "rate": 8,
       "displayCategory": "Dining spends",
-      "displayRate": "16 YES Rewardz Points / Rs 200 spent",
+      "displayRate": "16 YES Rewardz Points / ₹200 spent",
       "capMonthly": 3000
     },
     {
       "category": "base",
       "rate": 4,
       "displayCategory": "Other retail spends",
-      "displayRate": "8 YES Rewardz Points / Rs 200 spent",
+      "displayRate": "8 YES Rewardz Points / ₹200 spent",
       "capMonthly": null
     },
     {
       "category": "utilities",
       "rate": 2,
       "displayCategory": "Select categories (utilities, grocery, insurance, government/taxes)",
-      "displayRate": "4 YES Rewardz Points / Rs 200 spent",
+      "displayRate": "4 YES Rewardz Points / ₹200 spent",
       "capMonthly": null
     }
   ],
@@ -53,7 +53,7 @@
   "lounge": {
     "domestic": [
       "2 complimentary domestic lounge visits per calendar quarter",
-      "Access is subject to a spend threshold of Rs 75,000 in the previous calendar quarter."
+      "Access is subject to a spend threshold of ₹75,000 in the previous calendar quarter."
     ],
     "international": [
       "Priority Pass or LoungeKey membership for the primary cardmember",
@@ -88,8 +88,8 @@
     "emi"
   ],
   "joiningBenefits": [
-    "First-year membership fee waived on spending Rs 50,000 within 90 days of card issuance",
-    "10,000 bonus YES Rewardz points on first transaction within 90 days of card issuance (worth Rs 2,500)"
+    "First-year membership fee waived on spending ₹50,000 within 90 days of card issuance",
+    "10,000 bonus YES Rewardz points on first transaction within 90 days of card issuance (worth ₹2,500)"
   ],
   "milestoneBenefits": [],
   "milestones": [
@@ -98,18 +98,18 @@
       "period": "annual",
       "value": 5000,
       "kind": "points",
-      "label": "20,000 bonus YES Rewardz points on annual spends of Rs 7.5 Lakhs"
+      "label": "20,000 bonus YES Rewardz points on annual spends of ₹7.5 Lakhs"
     }
   ],
   "additionalBenefits": [
-    "25% discount on movie tickets on BookMyShow, up to Rs 250 per month",
-    "1% fuel surcharge waiver on transactions between Rs 400 and Rs 5,000, capped at Rs 250 per month",
+    "25% discount on movie tickets on BookMyShow, up to ₹250 per month",
+    "1% fuel surcharge waiver on transactions between ₹400 and ₹5,000, capped at ₹250 per month",
     "Green fee waiver and complimentary golf lessons at select golf courses"
   ],
   "additionalDetails": [
-    "1% fee + GST on utility transactions when cumulative spends exceed Rs 15,000 in a calendar month",
+    "1% fee + GST on utility transactions when cumulative spends exceed ₹15,000 in a calendar month",
     "1% fee + GST on rental transactions",
-    "1% fee + GST on wallet load transactions when cumulative spends exceed Rs 15,000 in a calendar month"
+    "1% fee + GST on wallet load transactions when cumulative spends exceed ₹15,000 in a calendar month"
   ],
   "redemption": {
     "statementBalanceValue": 0.25,
@@ -149,7 +149,7 @@
   "verificationStatus": "official-direct",
   "internalNotes": [
     "Card details manually reviewed and verified by user on 2026-06-14.",
-    "Utility, rental, and wallet transactions are eligible to earn rewards at 4 points per Rs 200 spent (except utilities which earn 4 points per Rs 200).",
+    "Utility, rental, and wallet transactions are eligible to earn rewards at 4 points per ₹200 spent (except utilities which earn 4 points per ₹200).",
     "1% fee on utility, rent, and wallet load transactions above thresholds.",
     "Air miles transfer to Air India Maharaja Club at 10:1 ratio."
   ]

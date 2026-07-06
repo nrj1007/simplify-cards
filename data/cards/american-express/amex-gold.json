@@ -24,19 +24,19 @@
     {
       "category": "retail",
       "rate": 2,
-      "displayRate": "1 Membership Rewards Point / Rs 50 spent on eligible categories",
+      "displayRate": "1 Membership Rewards Point / ₹50 spent on eligible categories",
       "capMonthly": null
     },
     {
       "category": "utilities",
       "rate": 2,
-      "displayRate": "1 Membership Rewards Point / Rs 50 spent on utility payments",
+      "displayRate": "1 Membership Rewards Point / ₹50 spent on utility payments",
       "capMonthly": 10000
     },
     {
       "category": "partner merchants",
       "rate": 10,
-      "displayRate": "5 Membership Rewards Points / Rs 50 spent via Reward Multiplier on select brands",
+      "displayRate": "5 Membership Rewards Points / ₹50 spent via Reward Multiplier on select brands",
       "capMonthly": null
     }
   ],
@@ -70,7 +70,7 @@
     {
       "value": 2400,
       "kind": "points",
-      "label": "Welcome gift of 4,000 Bonus Membership Rewards points on payment of annual fee and spending Rs 10,000 within 90 days"
+      "label": "Welcome gift of 4,000 Bonus Membership Rewards points on payment of annual fee and spending ₹10,000 within 90 days"
     }
   ],
   "renewalBenefitsValued": [
@@ -81,7 +81,7 @@
     }
   ],
   "joiningBenefits": [
-    "Welcome gift of 4,000 Bonus Membership Rewards points on payment of annual fee and spending Rs 10,000 within 90 days"
+    "Welcome gift of 4,000 Bonus Membership Rewards points on payment of annual fee and spending ₹10,000 within 90 days"
   ],
   "renewalBenefits": [
     "5,000 Membership Rewards points on first-year card renewal after payment of annual membership fee"
@@ -92,11 +92,11 @@
       "period": "monthly",
       "value": 600,
       "kind": "points",
-      "label": "1,000 bonus Membership Rewards points on completing 6 transactions of Rs 1,000 or more every calendar month"
+      "label": "1,000 bonus Membership Rewards points on completing 6 transactions of ₹1,000 or more every calendar month"
     }
   ],
   "milestoneBenefits": [
-    "1,000 bonus Membership Rewards points on completing 6 transactions of Rs 1,000 or more every calendar month"
+    "1,000 bonus Membership Rewards points on completing 6 transactions of ₹1,000 or more every calendar month"
   ],
   "additionalBenefits": [
     "No pre-set spending limit, subject to American Express policies",
@@ -121,35 +121,35 @@
         "programme": "24K Gold Collection",
         "ratio": "24,000:14,000",
         "valuePerPoint": 0.583,
-        "note": "Redeem 24,000 MR points for Rs 14,000 Taj voucher"
+        "note": "Redeem 24,000 MR points for ₹14,000 Taj voucher"
       },
       {
         "partner": "Taj Voucher",
         "programme": "18K Gold Collection",
         "ratio": "18,000:9,000",
         "valuePerPoint": 0.5,
-        "note": "Redeem 18,000 MR points for Rs 9,000 Taj voucher"
+        "note": "Redeem 18,000 MR points for ₹9,000 Taj voucher"
       },
       {
         "partner": "Shoppers Stop",
         "programme": "24K Gold Collection",
         "ratio": "24,000:10,000",
         "valuePerPoint": 0.417,
-        "note": "Redeem 24,000 MR points for Rs 10,000 Shoppers Stop voucher"
+        "note": "Redeem 24,000 MR points for ₹10,000 Shoppers Stop voucher"
       },
       {
         "partner": "Shoppers Stop / Myntra / Tata CLiQ",
         "programme": "18K Gold Collection",
         "ratio": "18,000:7,000",
         "valuePerPoint": 0.389,
-        "note": "Redeem 18,000 MR points for Rs 7,000 voucher"
+        "note": "Redeem 18,000 MR points for ₹7,000 voucher"
       },
       {
         "partner": "Amazon / Flipkart / Reliance Digital",
         "programme": "24K/18K Gold Collection",
         "ratio": "24,000:8,000",
         "valuePerPoint": 0.333,
-        "note": "Redeem 24,000 MR points for Rs 8,000 voucher or 18,000 MR points for Rs 6,000 voucher"
+        "note": "Redeem 24,000 MR points for ₹8,000 voucher or 18,000 MR points for ₹6,000 voucher"
       }
     ],
     "airlinePartners": [
@@ -204,12 +204,12 @@
   },
   "eligibility": {
     "salaried": [
-      "Personal annual income of Rs 6 lakh and above",
+      "Personal annual income of ₹6 lakh and above",
       "Good credit history with no payment defaults",
       "Resident Indian with current residential address in India"
     ],
     "selfEmployed": [
-      "Personal annual income of Rs 6 lakh and above",
+      "Personal annual income of ₹6 lakh and above",
       "Company has been trading for more than 12 months",
       "Good credit history with no payment defaults",
       "Resident Indian with current residential address in India"
@@ -226,7 +226,7 @@
   "internalNotes": [
     "Card details manually reviewed and verified by user on 2026-06-08",
     "Effective 12 June 2025, fuel payments no longer earn Membership Rewards points on the Gold Card.",
-    "Utility payments continue to earn 1 Membership Rewards point per Rs 50 spent, capped at 10,000 Membership Rewards points in a calendar month.",
+    "Utility payments continue to earn 1 Membership Rewards point per ₹50 spent, capped at 10,000 Membership Rewards points in a calendar month.",
     "Amex currently issues this card only to residents of select serviced cities including Delhi/NCR, Mumbai, Bangalore, Chennai, Pune, Hyderabad, Jaipur, Kolkata, Indore, Coimbatore, Chandigarh/Tricity, Ahmedabad, Surat, Vadodara, Bhopal, Bhubaneshwar, Ernakulam, Vijayawada, Lucknow, Ludhiana, Nagpur, Nashik, Trivandrum, Mysuru, Cuttack and Vizag.",
     "Airline transfers are currently listed at a 2:1 ratio, while Marriott Bonvoy transfers at 1:1 and Hilton Honors transfers at 1:0.9."
   ]

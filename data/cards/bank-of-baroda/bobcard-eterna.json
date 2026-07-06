@@ -22,7 +22,7 @@
       "category": "travel, dining, online, international",
       "rate": 15,
       "displayCategory": "Travel, dining, online, and international spends",
-      "displayRate": "15 reward points per Rs 100",
+      "displayRate": "15 reward points per ₹100",
       "capMonthly": 5000,
       "postCapRate": 3
     },
@@ -30,7 +30,7 @@
       "category": "retail",
       "rate": 3,
       "displayCategory": "Other eligible spends",
-      "displayRate": "3 reward points per Rs 100",
+      "displayRate": "3 reward points per ₹100",
       "capMonthly": null
     }
   ],
@@ -38,7 +38,7 @@
   "loungeInternational": 0,
   "lounge": {
     "domestic": [
-      "Unlimited complimentary domestic lounge access requires Rs 40,000 net spends in the preceding calendar quarter.",
+      "Unlimited complimentary domestic lounge access requires ₹40,000 net spends in the preceding calendar quarter.",
       "For newly issued fresh cards, the spend threshold is waived in the quarter of card issuance; if the card is issued in the last month of a quarter, the waiver extends through the following quarter.",
       "Interest, fees, reversed transactions, and EMI instalments are excluded from the lounge-eligibility spend calculation."
     ]
@@ -65,11 +65,11 @@
     "fees_and_charges"
   ],
   "milestoneBenefits": [
-    "10,000 bonus reward points on spending Rs 50,000 within first 60 days",
-    "20,000 bonus reward points on annual spends of Rs 5,00,000"
+    "10,000 bonus reward points on spending ₹50,000 within first 60 days",
+    "20,000 bonus reward points on annual spends of ₹5,00,000"
   ],
   "additionalBenefits": [
-    "Free personal accident death cover: air Rs 1 crore, non-air Rs 10 lakh",
+    "Free personal accident death cover: air ₹1 crore, non-air ₹10 lakh",
     "Up to 3 lifetime free add-on cards"
   ],
   "redemption": {
@@ -80,12 +80,12 @@
     "salaried": [
       "Resident Indian",
       "Age between 21 and 65 years",
-      "Annual income of Rs 12 lakh or more"
+      "Annual income of ₹12 lakh or more"
     ],
     "selfEmployed": [
       "Resident Indian",
       "Age between 21 and 65 years",
-      "Annual income of Rs 12 lakh or more"
+      "Annual income of ₹12 lakh or more"
     ]
   },
   "sourceUrl": "https://bankofbaroda.bank.in/personal-banking/digital-products/cards/credit-cards/eterna",
@@ -98,8 +98,8 @@
   "internalNotes": [
     "Card details manually reviewed and verified by user on 2026-06-14.",
     "Audited against the official Bank of Baroda Eterna product page on 2026-06-14.",
-    "The current product page explicitly confirms milestone rewards, cashback redemption at 1 reward point = Rs 0.25, fuel surcharge waiver, insurance cover, and the Rs 12 lakh annual income eligibility threshold.",
-    "The current official rewards copy says 15 reward points per Rs 100 on online shopping, international, dining, and travel spends with a maximum of 5,000 reward points per statement, so the accelerated row is modeled as one combined capped bucket rather than separate per-category caps.",
-    "BOBCARD's lounge terms PDF dated 1 April 2026 confirms that domestic lounge access requires Rs 40,000 net spends in the preceding calendar quarter, with a fresh-card waiver in the issuance quarter."
+    "The current product page explicitly confirms milestone rewards, cashback redemption at 1 reward point = ₹0.25, fuel surcharge waiver, insurance cover, and the ₹12 lakh annual income eligibility threshold.",
+    "The current official rewards copy says 15 reward points per ₹100 on online shopping, international, dining, and travel spends with a maximum of 5,000 reward points per statement, so the accelerated row is modeled as one combined capped bucket rather than separate per-category caps.",
+    "BOBCARD's lounge terms PDF dated 1 April 2026 confirms that domestic lounge access requires ₹40,000 net spends in the preceding calendar quarter, with a fresh-card waiver in the issuance quarter."
   ]
 }

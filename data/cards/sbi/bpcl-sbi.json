@@ -24,21 +24,21 @@
       "category": "fuel",
       "displayCategory": "Fuel spends at BPCL petrol pumps",
       "rate": 13,
-      "displayRate": "13 Reward Points / Rs 100 spent",
+      "displayRate": "13 Reward Points / ₹100 spent",
       "capMonthly": 1300
     },
     {
       "category": "grocery, dining",
       "displayCategory": "Grocery, departmental stores, movies, and dining spends",
       "rate": 5,
-      "displayRate": "5 Reward Points / Rs 100 spent",
+      "displayRate": "5 Reward Points / ₹100 spent",
       "capMonthly": 5000
     },
     {
       "category": "base",
       "displayCategory": "Other eligible spends",
       "rate": 1,
-      "displayRate": "1 Reward Point / Rs 100 spent",
+      "displayRate": "1 Reward Point / ₹100 spent",
       "capMonthly": null
     }
   ],
@@ -69,11 +69,11 @@
     {
       "value": 500,
       "kind": "points",
-      "label": "2,000 activation bonus Reward Points worth Rs 500 on payment of joining fee"
+      "label": "2,000 activation bonus Reward Points worth ₹500 on payment of joining fee"
     }
   ],
   "joiningBenefits": [
-    "2,000 activation bonus Reward Points worth Rs 500 on payment of joining fee"
+    "2,000 activation bonus Reward Points worth ₹500 on payment of joining fee"
   ],
   "renewalBenefits": [],
   "milestones": [],
@@ -82,11 +82,11 @@
     {
       "category": "fuel",
       "treatment": "capped",
-      "notes": "Earn 13 Reward Points per Rs 100 spent at BPCL petrol pumps, capped at 1,300 points per month."
+      "notes": "Earn 13 Reward Points per ₹100 spent at BPCL petrol pumps, capped at 1,300 points per month."
     }
   ],
   "additionalBenefits": [
-    "1% fuel surcharge waiver up to Rs 100 per month on eligible BPCL fuel transactions up to Rs 4,000"
+    "1% fuel surcharge waiver up to ₹100 per month on eligible BPCL fuel transactions up to ₹4,000"
   ],
   "redemption": {
     "statementBalanceValue": 0.25,

@@ -147,11 +147,11 @@ function extractMaxAnnualFee(query: string, input: RecommendationInput) {
   if (input.maxAnnualFee !== undefined) return input.maxAnnualFee;
 
   const feePatterns = [
-    /under\s+(?:rs\.?\s*)?([\d,]+k?)/i,
-    /below\s+(?:rs\.?\s*)?([\d,]+k?)/i,
-    /upto\s+(?:rs\.?\s*)?([\d,]+k?)/i,
-    /up to\s+(?:rs\.?\s*)?([\d,]+k?)/i,
-    /within\s+(?:rs\.?\s*)?([\d,]+k?)/i
+    /under\s+(?:(?:rs|₹)\.?\s*)?([\d,]+k?)/i,
+    /below\s+(?:(?:rs|₹)\.?\s*)?([\d,]+k?)/i,
+    /upto\s+(?:(?:rs|₹)\.?\s*)?([\d,]+k?)/i,
+    /up to\s+(?:(?:rs|₹)\.?\s*)?([\d,]+k?)/i,
+    /within\s+(?:(?:rs|₹)\.?\s*)?([\d,]+k?)/i
   ];
 
   for (const pattern of feePatterns) {

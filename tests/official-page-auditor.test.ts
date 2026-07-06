@@ -59,7 +59,7 @@ describe("Official Page Auditor", () => {
   it("identifies high-impact keywords in diff text", () => {
     const diffLines = [
       "Complimentary lounge access capped at 4 visits w.e.f 1st August 2026.",
-      "Revised annual fee waiver threshold to Rs 15 Lakhs."
+      "Revised annual fee waiver threshold to ₹15 Lakhs."
     ];
 
     const keywords = classifyHighImpactKeywords(diffLines);

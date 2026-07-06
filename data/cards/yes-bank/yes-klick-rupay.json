@@ -19,15 +19,15 @@
     {
       "category": "upi",
       "rate": 2,
-      "displayCategory": "UPI transactions above Rs 2,000",
-      "displayRate": "4 YES Rewardz Points / Rs 200 spent on UPI transactions above Rs 2,000",
+      "displayCategory": "UPI transactions above ₹2,000",
+      "displayRate": "4 YES Rewardz Points / ₹200 spent on UPI transactions above ₹2,000",
       "capMonthly": null
     },
     {
       "category": "base",
       "rate": 1,
       "displayCategory": "Other retail spends",
-      "displayRate": "2 YES Rewardz Points / Rs 200 spent",
+      "displayRate": "2 YES Rewardz Points / ₹200 spent",
       "capMonthly": null
     }
   ],
@@ -75,10 +75,10 @@
   "milestoneBenefits": [],
   "additionalBenefits": [
     "Virtual-only RuPay credit card with lifetime free membership",
-    "1% fuel surcharge waiver on transactions between Rs 400 and Rs 5,000, capped at Rs 250 per month"
+    "1% fuel surcharge waiver on transactions between ₹400 and ₹5,000, capped at ₹250 per month"
   ],
   "additionalDetails": [
-    "UPI transactions of Rs 2,000 or below do not earn reward points",
+    "UPI transactions of ₹2,000 or below do not earn reward points",
     "Existing YES BANK credit cardholders are not eligible for this card"
   ],
   "redemption": {
@@ -120,6 +120,6 @@
   "internalNotes": [
     "Card details manually reviewed and verified by user on 2026-06-14.",
     "Virtual RuPay credit card issued by YES Bank.",
-    "UPI transactions of Rs 2,000 or below are excluded from rewards."
+    "UPI transactions of ₹2,000 or below are excluded from rewards."
   ]
 }

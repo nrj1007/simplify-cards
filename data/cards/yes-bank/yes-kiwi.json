@@ -86,36 +86,36 @@
       "period": "annual",
       "value": 500,
       "kind": "cashback",
-      "label": "Kiwi Neon milestone: 3% cashback on eligible yearly Kiwi App spends of Rs 50,000 + 1 lounge access"
+      "label": "Kiwi Neon milestone: 3% cashback on eligible yearly Kiwi App spends of ₹50,000 + 1 lounge access"
     },
     {
       "threshold": 100000,
       "period": "annual",
       "value": 1500,
       "kind": "cashback",
-      "label": "Kiwi Neon milestone: 4% cashback on eligible yearly Kiwi App spends of Rs 1,00,000 + 1 lounge access"
+      "label": "Kiwi Neon milestone: 4% cashback on eligible yearly Kiwi App spends of ₹1,00,000 + 1 lounge access"
     },
     {
       "threshold": 150000,
       "period": "annual",
       "value": 2500,
       "kind": "cashback",
-      "label": "Kiwi Neon milestone: 5% cashback on eligible yearly Kiwi App spends of Rs 1,50,000 + 1 lounge access"
+      "label": "Kiwi Neon milestone: 5% cashback on eligible yearly Kiwi App spends of ₹1,50,000 + 1 lounge access"
     }
   ],
   "milestoneBenefits": [
-    "Kiwi Neon milestone: 3% cashback on eligible yearly Kiwi App spends of Rs 50,000 + 1 lounge access",
-    "Kiwi Neon milestone: 4% cashback on eligible yearly Kiwi App spends of Rs 1,00,000 + 1 lounge access",
-    "Kiwi Neon milestone: 5% cashback on eligible yearly Kiwi App spends of Rs 1,50,000 + 1 lounge access"
+    "Kiwi Neon milestone: 3% cashback on eligible yearly Kiwi App spends of ₹50,000 + 1 lounge access",
+    "Kiwi Neon milestone: 4% cashback on eligible yearly Kiwi App spends of ₹1,00,000 + 1 lounge access",
+    "Kiwi Neon milestone: 5% cashback on eligible yearly Kiwi App spends of ₹1,50,000 + 1 lounge access"
   ],
   "additionalBenefits": [
-    "1% fuel surcharge waiver on transactions between Rs 400 and Rs 4,000, capped at Rs 100 per month",
-    "Redeem Kiwis instantly as cashback into bank account via UPI at a rate of 4 Kiwis = Rs 1"
+    "1% fuel surcharge waiver on transactions between ₹400 and ₹4,000, capped at ₹100 per month",
+    "Redeem Kiwis instantly as cashback into bank account via UPI at a rate of 4 Kiwis = ₹1"
   ],
   "additionalDetails": [
     "Co-branded credit card issued in partnership with Kiwi (GoKiwi)",
     "All spends are processed via UPI scan & pay through the Kiwi app, earning 1.5% cashback across all non-excluded categories",
-    "Optional 'Kiwi Neon' annual subscription (Rs 999/year) upgrades eligible Kiwi App spends to 2% cashback; above Rs 1.5 lakh yearly spend continues at 2% unless a Neon milestone applies."
+    "Optional 'Kiwi Neon' annual subscription (₹999/year) upgrades eligible Kiwi App spends to 2% cashback; above ₹1.5 lakh yearly spend continues at 2% unless a Neon milestone applies."
   ],
   "redemption": {
     "statementBalanceValue": 1,
@@ -139,7 +139,7 @@
   "internalNotes": [
     "Card details manually reviewed and verified by user on 2026-06-14.",
     "Virtual RuPay credit card issued by YES Bank in partnership with Kiwi (GoKiwi).",
-    "Rewards are earned as Kiwis where 4 Kiwis = Rs 1, redeemable directly to bank account via UPI.",
+    "Rewards are earned as Kiwis where 4 Kiwis = ₹1, redeemable directly to bank account via UPI.",
     "All spend categories (online, dining, grocery, travel, base, amazon) are scored at the UPI rate (1.5% cashback) since the card is used exclusively via UPI scan & pay through the Kiwi app — there is no non-UPI swipe mode."
   ]
 }

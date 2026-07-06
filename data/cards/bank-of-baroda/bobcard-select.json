@@ -21,14 +21,14 @@
       "category": "dining, utility bills, online",
       "rate": 5,
       "displayCategory": "Dining, utility bills, and online spends",
-      "displayRate": "5 Reward Points / Rs 100",
+      "displayRate": "5 Reward Points / ₹100",
       "capMonthly": 1000
     },
     {
       "category": "retail",
       "rate": 1,
       "displayCategory": "Other eligible spends",
-      "displayRate": "1 Reward Point / Rs 100",
+      "displayRate": "1 Reward Point / ₹100",
       "capMonthly": null
     }
   ],
@@ -53,8 +53,8 @@
     "cash_advance"
   ],
   "milestoneBenefits": [
-    "First year fee reversal on spending Rs 7,500 within first 60 days",
-    "Annual fee waiver on spending Rs 70,000 in a year"
+    "First year fee reversal on spending ₹7,500 within first 60 days",
+    "Annual fee waiver on spending ₹70,000 in a year"
   ],
   "additionalBenefits": [
     "Up to 3 lifetime free add-on cards",
@@ -85,7 +85,7 @@
   "internalNotes": [
     "Card details manually reviewed and verified by user on 2026-06-14.",
     "Audited against the official Bank of Baroda Select product page on 2026-06-14.",
-    "The current official page confirms 5 reward points per Rs 100 on dining, utility bills, and online spends, 1 reward point per Rs 100 on other eligible spends, and a 1,000 reward-point monthly cap on the 5X categories.",
+    "The current official page confirms 5 reward points per ₹100 on dining, utility bills, and online spends, 1 reward point per ₹100 on other eligible spends, and a 1,000 reward-point monthly cap on the 5X categories.",
     "The official product page currently shows 'Coming soon...' under detailed eligibility, document, and terms sections."
   ]
 }

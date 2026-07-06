@@ -22,19 +22,19 @@
     {
       "category": "fuel",
       "rate": 20,
-      "displayRate": "20 EDGE REWARD Points / Rs 100 spent at IndianOil outlets",
+      "displayRate": "20 EDGE REWARD Points / ₹100 spent at IndianOil outlets",
       "capMonthly": 1000
     },
     {
       "category": "online",
       "rate": 5,
-      "displayRate": "5 EDGE REWARD Points / Rs 100 spent on online shopping",
+      "displayRate": "5 EDGE REWARD Points / ₹100 spent on online shopping",
       "capMonthly": null
     },
     {
       "category": "base",
       "rate": 1,
-      "displayRate": "1 EDGE REWARD Point / Rs 100 spent on other eligible retail spends",
+      "displayRate": "1 EDGE REWARD Point / ₹100 spent on other eligible retail spends",
       "capMonthly": null
     }
   ],
@@ -76,13 +76,13 @@
     {
       "category": "fuel",
       "treatment": "capped",
-      "notes": "Earn 4% value back (20 EDGE REWARD Points per Rs 100 spent) at IndianOil outlets, capped at 1,000 points per month."
+      "notes": "Earn 4% value back (20 EDGE REWARD Points per ₹100 spent) at IndianOil outlets, capped at 1,000 points per month."
     }
   ],
   "additionalBenefits": [
     "Up to 1,250 EDGE REWARD Points on first fuel transaction within 30 days of card issuance",
     "10% instant discount on BookMyShow movie tickets",
-    "1% fuel surcharge waiver on eligible fuel transactions, capped at Rs 50 per statement cycle",
+    "1% fuel surcharge waiver on eligible fuel transactions, capped at ₹50 per statement cycle",
     "Dining Delights offers through Axis Bank dining programme",
     "RuPay variant supports credit card UPI payments where enabled"
   ],
@@ -260,12 +260,12 @@
   "eligibility": {
     "salaried": [
       "Age: 18 to 70 years",
-      "Minimum Net Monthly Salary: Rs 20,000",
+      "Minimum Net Monthly Salary: ₹20,000",
       "Resident of India"
     ],
     "selfEmployed": [
       "Age: 18 to 70 years",
-      "Minimum Annual Income (ITR): Rs 3,50,000",
+      "Minimum Annual Income (ITR): ₹3,50,000",
       "Resident of India"
     ]
   },

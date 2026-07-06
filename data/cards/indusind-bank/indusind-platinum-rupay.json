@@ -18,20 +18,20 @@
     {
       "category": "upi",
       "rate": 0.7,
-      "displayRate": "2 reward points per Rs 100",
+      "displayRate": "2 reward points per ₹100",
       "capMonthly": null
     },
     {
       "category": "utilities, insurance, government, rent",
       "displayCategory": "Utility, insurance, government, and rent spends",
       "rate": 0.245,
-      "displayRate": "0.7 reward points per Rs 100",
+      "displayRate": "0.7 reward points per ₹100",
       "capMonthly": null
     },
     {
       "category": "base",
       "rate": 0.35,
-      "displayRate": "1 reward point per Rs 100",
+      "displayRate": "1 reward point per ₹100",
       "capMonthly": null
     }
   ],
@@ -56,12 +56,12 @@
   ],
   "milestoneBenefits": [],
   "additionalBenefits": [
-    "Travel insurance cover (worth Rs 2,25,000) including lost baggage cover (up to Rs 1,00,000) and passport loss cover (up to Rs 50,000)",
+    "Travel insurance cover (worth ₹2,25,000) including lost baggage cover (up to ₹1,00,000) and passport loss cover (up to ₹50,000)",
     "1% fuel surcharge waiver at all fuel stations in India"
   ],
   "additionalDetails": [
     "Cash redemption is capped at 2,500 reward points per calendar month",
-    "1 Reward Point = Rs 0.35 when redeemed against statement cash credit"
+    "1 Reward Point = ₹0.35 when redeemed against statement cash credit"
   ],
   "redemption": {
     "statementBalanceValue": 0.35,
@@ -86,7 +86,7 @@
     "Card details manually reviewed and verified by user on 2026-05-30",
     "Comprehensive insurance cover against unauthorized transactions up to 48 hours prior to reporting card loss",
     "Insurance cover against counterfeit fraud",
-    "Select merchant categories (utility, insurance, government, and rent) earn 0.7 reward points per Rs 100 spent (0.245% yield)."
+    "Select merchant categories (utility, insurance, government, and rent) earn 0.7 reward points per ₹100 spent (0.245% yield)."
   ],
   "sourceUrl": "https://www.indusind.com/in/en/personal/cards/credit-card/platinum-rupay-credit-card.html",
   "applyUrl": "https://www.indusind.com/in/en/personal/cards/credit-card/platinum-rupay-credit-card.html",

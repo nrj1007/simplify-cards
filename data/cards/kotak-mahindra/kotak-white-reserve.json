@@ -71,14 +71,14 @@
     {
       "value": 7500,
       "kind": "voucher",
-      "label": "Complimentary Club Marriott membership (worth Rs 15,000)"
+      "label": "Complimentary Club Marriott membership (worth ₹15,000)"
     }
   ],
   "renewalBenefitsValued": [
     {
       "value": 7500,
       "kind": "voucher",
-      "label": "Complimentary Club Marriott membership (worth Rs 15,000) on card renewal"
+      "label": "Complimentary Club Marriott membership (worth ₹15,000) on card renewal"
     }
   ],
   "milestones": [
@@ -157,13 +157,13 @@
       {
         "partner": "Brand e-Vouchers",
         "programme": "Premium brand e-vouchers via Kotak Rewards",
-        "ratio": "1 White Pass = Rs 1.0",
+        "ratio": "1 White Pass = ₹1.0",
         "valuePerPoint": 1
       },
       {
         "partner": "Travel bookings",
         "programme": "Flight & hotel bookings via Kotak Rewards",
-        "ratio": "1 White Pass = Rs 1.0",
+        "ratio": "1 White Pass = ₹1.0",
         "valuePerPoint": 1
       }
     ]
@@ -187,6 +187,6 @@
   "imageUrl": "/images/kotak-white-reserve.webp",
   "internalNotes": [
     "Card details manually reviewed and verified by user on 2026-06-15.",
-    "White Pass value can be redeemed at 1 White Pass = Rs 1.0 on vouchers, flights, and hotels, and Rs 0.70 for statement cashback. Guest charges for lounges are $35 per guest per visit. Customer can hold only one active White/White Reserve card."
+    "White Pass value can be redeemed at 1 White Pass = ₹1.0 on vouchers, flights, and hotels, and ₹0.70 for statement cashback. Guest charges for lounges are $35 per guest per visit. Customer can hold only one active White/White Reserve card."
   ]
 }

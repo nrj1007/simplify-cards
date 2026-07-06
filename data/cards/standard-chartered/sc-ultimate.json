@@ -21,14 +21,14 @@
       "category": "base",
       "rate": 3.3333333333333335,
       "displayCategory": "General retail spends (excl. fuel and capped categories)",
-      "displayRate": "5 reward points / Rs 150 spent",
+      "displayRate": "5 reward points / ₹150 spent",
       "capMonthly": null
     },
     {
       "category": "utilities, grocery, insurance, rent, education, government",
       "rate": 2,
       "displayCategory": "Utility, supermarket, insurance, rent, school fees, and government spends",
-      "displayRate": "3 reward points / Rs 150 spent",
+      "displayRate": "3 reward points / ₹150 spent",
       "capMonthly": null
     }
   ],
@@ -40,7 +40,7 @@
       "4 complimentary domestic lounge visits per calendar quarter"
     ],
     "international": [
-      "1 complimentary international lounge visit per month via Priority Pass, subject to a minimum spend of Rs 20,000 in the previous calendar month."
+      "1 complimentary international lounge visit per month via Priority Pass, subject to a minimum spend of ₹20,000 in the previous calendar month."
     ]
   },
   "forexMarkup": 2,
@@ -64,23 +64,23 @@
   ],
   "milestones": [],
   "milestoneBenefits": [
-    "6,000 reward points (worth Rs 6,000) on payment of joining fee"
+    "6,000 reward points (worth ₹6,000) on payment of joining fee"
   ],
   "additionalBenefits": [
-    "5% cashback on duty-free spends (maximum Rs 1,000 cashback per month)",
+    "5% cashback on duty-free spends (maximum ₹1,000 cashback per month)",
     "1 complimentary golf game and 1 complimentary coaching session per month",
     "Complimentary Priority Pass membership",
     "Reduced foreign currency markup of 2.0%"
   ],
   "redemption": {
-    "ecosystemLabel": "360° Rewards Portal vouchers (1 point = Rs 1, no statement cashback)",
+    "ecosystemLabel": "360° Rewards Portal vouchers (1 point = ₹1, no statement cashback)",
     "ecosystemValue": 1,
     "redemptionFee": 99
   },
   "eligibility": {
     "salaried": [
       "Age: 21 to 65 years",
-      "Minimum monthly income of Rs 2,50,000 or self-declared high relationship value"
+      "Minimum monthly income of ₹2,50,000 or self-declared high relationship value"
     ],
     "selfEmployed": [
       "Age: 21 to 65 years",
@@ -94,9 +94,9 @@
   "verificationStatus": "official-direct",
   "internalNotes": [
     "Card details manually reviewed and verified by user on 2026-06-14.",
-    "Earns 5 reward points per Rs 150 spent on base retail spends (3.33% return value). 1 point = Rs 1 redeemable for vouchers/products via the 360 Rewards Portal only — there is no statement-credit/cashback redemption (Rs 99 + GST redemption fee).",
-    "Utility, supermarket, insurance, rent/property management, school/education, and government payments earn a lower rate of 3 reward points per Rs 150 spent (2.0% return value).",
+    "Earns 5 reward points per ₹150 spent on base retail spends (3.33% return value). 1 point = ₹1 redeemable for vouchers/products via the 360 Rewards Portal only — there is no statement-credit/cashback redemption (₹99 + GST redemption fee).",
+    "Utility, supermarket, insurance, rent/property management, school/education, and government payments earn a lower rate of 3 reward points per ₹150 spent (2.0% return value).",
     "Fuel spends are completely excluded from earning rewards.",
-    "International lounge access via Priority Pass requires a spend of Rs 20,000 in the previous calendar month."
+    "International lounge access via Priority Pass requires a spend of ₹20,000 in the previous calendar month."
   ]
 }

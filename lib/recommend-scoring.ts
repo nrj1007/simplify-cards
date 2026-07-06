@@ -35,10 +35,10 @@ export function formatEnvelopeSpendLabel(monthlySpend: number) {
   if (monthlySpend >= 100000) {
     const lakhs = monthlySpend / 100000;
     const formattedLakhs = Number.isInteger(lakhs) ? `${lakhs}` : lakhs.toFixed(1);
-    return `Rs ${formattedLakhs}L+/month`;
+    return `₹ ${formattedLakhs}L+/month`;
   }
 
-  return `Rs ${monthlySpend.toLocaleString("en-IN")}/month`;
+  return `₹ ${monthlySpend.toLocaleString("en-IN")}/month`;
 }
 
 export function formatSpendInLakhs(amount: number): string {

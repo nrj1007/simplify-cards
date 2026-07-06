@@ -27,14 +27,14 @@
       "category": "utilities, insurance",
       "displayCategory": "Utility & Insurance spends",
       "rate": 1,
-      "displayRate": "1 Reward Point / Rs 100 spent",
+      "displayRate": "1 Reward Point / ₹100 spent",
       "capMonthly": null
     },
     {
       "category": "base",
       "displayCategory": "Other spends",
       "rate": 2,
-      "displayRate": "2 Reward Points / Rs 100 spent",
+      "displayRate": "2 Reward Points / ₹100 spent",
       "capMonthly": null
     }
   ],
@@ -43,19 +43,19 @@
       "category": "utilities",
       "treatment": "capped",
       "capMonthlySpend": 40000,
-      "notes": "Utility spends earn rewards capped at monthly spends of Rs 40,000"
+      "notes": "Utility spends earn rewards capped at monthly spends of ₹40,000"
     },
     {
       "category": "insurance",
       "treatment": "capped",
       "capMonthlySpend": 40000,
-      "notes": "Insurance spends earn rewards capped at monthly spends of Rs 40,000"
+      "notes": "Insurance spends earn rewards capped at monthly spends of ₹40,000"
     },
     {
       "category": "grocery",
       "treatment": "capped",
       "capMonthlySpend": 20000,
-      "notes": "Grocery spends earn rewards capped at monthly spends of Rs 20,000"
+      "notes": "Grocery spends earn rewards capped at monthly spends of ₹20,000"
     }
   ],
   "popularityScore": 60,
@@ -63,8 +63,8 @@
   "loungeInternational": 0,
   "lounge": {
     "domestic": [
-      "One complimentary domestic airport lounge visit per quarter, subject to spending Rs 35,000 in the preceding calendar quarter",
-      "Complimentary domestic airport lounge access (1 visit per quarter) requires a minimum spend of Rs 35,000 in the previous calendar quarter.",
+      "One complimentary domestic airport lounge visit per quarter, subject to spending ₹35,000 in the preceding calendar quarter",
+      "Complimentary domestic airport lounge access (1 visit per quarter) requires a minimum spend of ₹35,000 in the previous calendar quarter.",
       "Complimentary railway lounge access (1 visit per quarter) is unconditional (no spend criteria).",
       "One complimentary railway lounge visit per quarter"
     ],
@@ -104,20 +104,20 @@
       "period": "annual",
       "value": 3250,
       "kind": "points",
-      "label": "2,000 reward points on spending Rs 2,00,000 and 1,000 reward points each time Rs 1,00,000 spend is crossed thereafter in an anniversary year, capped at 10,000 points per year"
+      "label": "2,000 reward points on spending ₹2,00,000 and 1,000 reward points each time ₹1,00,000 spend is crossed thereafter in an anniversary year, capped at 10,000 points per year"
     }
   ],
   "milestoneBenefits": [
-    "2,000 reward points on spending Rs 2,00,000 and 1,000 reward points each time Rs 1,00,000 spend is crossed thereafter in an anniversary year, capped at 10,000 points per year"
+    "2,000 reward points on spending ₹2,00,000 and 1,000 reward points each time ₹1,00,000 spend is crossed thereafter in an anniversary year, capped at 10,000 points per year"
   ],
   "additionalBenefits": [
-    "One complimentary domestic airport lounge visit per quarter, subject to spending Rs 35,000 in the preceding calendar quarter",
-    "25% discount on BookMyShow and INOX movie tickets, capped at Rs 100 twice a month, subject to spending Rs 25,000 in the preceding calendar quarter",
+    "One complimentary domestic airport lounge visit per quarter, subject to spending ₹35,000 in the preceding calendar quarter",
+    "25% discount on BookMyShow and INOX movie tickets, capped at ₹100 twice a month, subject to spending ₹25,000 in the preceding calendar quarter",
     "One complimentary railway lounge visit per quarter",
     "1% fuel surcharge waiver at HPCL petrol pumps"
   ],
   "additionalDetails": [
-    "A transaction fee of 1% applies to utility payments exceeding Rs 50,000 per month",
+    "A transaction fee of 1% applies to utility payments exceeding ₹50,000 per month",
     "Reward points can be transferred to Air India Maharaja Club at a 6:1 ratio (minimum 2,000 points)"
   ],
   "redemption": {
@@ -136,11 +136,11 @@
   "eligibility": {
     "salaried": [
       "Age: 21-65 years",
-      "Minimum net monthly salary: Rs 20,000"
+      "Minimum net monthly salary: ₹20,000"
     ],
     "selfEmployed": [
       "Age: 21-65 years",
-      "Minimum annual ITR: Rs 2,40,000"
+      "Minimum annual ITR: ₹2,40,000"
     ]
   },
   "sourceUrl": "https://www.icicibank.com/personal-banking/cards/credit-card/coral-credit-card",
@@ -151,13 +151,13 @@
   "internalNotes": [
     "Card details manually reviewed and verified by user on 2026-06-06",
     "Official audit completed on 2026-06-06 using ICICI Bank Coral product page and notice revisions.",
-    "Annual fee of Rs 500 is waived on spending Rs 1.5 Lakhs or more in the previous anniversary year.",
-    "Base reward rate is 2 points per Rs 100 spent (0.5% return value); utility and insurance spends earn 1 point per Rs 100 spent (0.25% return value).",
-    "Utility and insurance spends earn rewards capped at monthly spends of Rs 40,000 per category.",
-    "Grocery spends earn rewards capped at monthly spends of Rs 20,000.",
-    "Complimentary domestic airport lounge access (1 visit per quarter) requires a minimum spend of Rs 35,000 in the previous calendar quarter.",
+    "Annual fee of ₹500 is waived on spending ₹1.5 Lakhs or more in the previous anniversary year.",
+    "Base reward rate is 2 points per ₹100 spent (0.5% return value); utility and insurance spends earn 1 point per ₹100 spent (0.25% return value).",
+    "Utility and insurance spends earn rewards capped at monthly spends of ₹40,000 per category.",
+    "Grocery spends earn rewards capped at monthly spends of ₹20,000.",
+    "Complimentary domestic airport lounge access (1 visit per quarter) requires a minimum spend of ₹35,000 in the previous calendar quarter.",
     "Complimentary railway lounge access (1 visit per quarter) is unconditional (no spend criteria).",
-    "BookMyShow movie discount (25% off up to Rs 100 twice a month on min 2 tickets) requires spending Rs 25,000 in the preceding spends quarter (effective April 1, 2026).",
+    "BookMyShow movie discount (25% off up to ₹100 twice a month on min 2 tickets) requires spending ₹25,000 in the preceding spends quarter (effective April 1, 2026).",
     "Reward points can be transferred to Air India Maharaja Club at a 6:1 ratio, requiring a minimum of 2,000 points per transfer."
   ]
 }

@@ -83,33 +83,33 @@
       "period": "monthly",
       "value": 2000,
       "kind": "points",
-      "label": "2,000 Reward Points on weekend spends of Rs 50,000 or above at Shoppers Stop in a month (capped once per month)"
+      "label": "2,000 Reward Points on weekend spends of ₹50,000 or above at Shoppers Stop in a month (capped once per month)"
     }
   ],
   "joiningBenefitsValued": [
     {
       "value": 750,
       "kind": "voucher",
-      "label": "Rs 1,500 Shoppers Stop voucher as welcome benefit on any transaction at Shoppers Stop"
+      "label": "₹1,500 Shoppers Stop voucher as welcome benefit on any transaction at Shoppers Stop"
     },
     {
       "value": 4500,
       "kind": "other",
-      "label": "Complimentary Shoppers Stop Black membership worth Rs 4,500"
+      "label": "Complimentary Shoppers Stop Black membership worth ₹4,500"
     }
   ],
   "joiningBenefits": [
-    "Rs 1,500 Shoppers Stop voucher as welcome benefit on any transaction at Shoppers Stop",
-    "Complimentary Shoppers Stop Black membership worth Rs 4,500"
+    "₹1,500 Shoppers Stop voucher as welcome benefit on any transaction at Shoppers Stop",
+    "Complimentary Shoppers Stop Black membership worth ₹4,500"
   ],
   "additionalBenefits": [
     "Link Credit Card for scan-and-pay transactions",
-    "1% fuel surcharge waiver on transactions from Rs 400 to Rs 5,000, capped at Rs 250 per statement cycle"
+    "1% fuel surcharge waiver on transactions from ₹400 to ₹5,000, capped at ₹250 per statement cycle"
   ],
   "additionalDetails": [
-    "Minimum transaction of Rs 150 required to earn reward points",
+    "Minimum transaction of ₹150 required to earn reward points",
     "Points expire after 2 years from the date of accumulation",
-    "Includes accidental air death cover worth Rs 3 crore, emergency overseas hospitalization cover up to Rs 50 lakh, and credit liability cover up to Rs 9 lakh"
+    "Includes accidental air death cover worth ₹3 crore, emergency overseas hospitalization cover up to ₹50 lakh, and credit liability cover up to ₹9 lakh"
   ],
   "redemption": {
     "statementBalanceValue": 0.2,
@@ -129,12 +129,12 @@
     "salaried": [
       "Indian national",
       "Age 21 to 60 years",
-      "Monthly income Rs 70,000"
+      "Monthly income ₹70,000"
     ],
     "selfEmployed": [
       "Indian national",
       "Age 21 to 65 years",
-      "Annual income greater than Rs 8.4 lakh"
+      "Annual income greater than ₹8.4 lakh"
     ]
   },
   "imageUrl": "/images/hdfc-shoppers-stop-black.webp",
@@ -145,8 +145,8 @@
   "popularityScore": 67,
   "internalNotes": [
     "Card details manually reviewed and verified by user on 2026-06-07",
-    "Points value is Rs 1 when redeemed against Shoppers Stop vouchers (1:1), but falls to Rs 0.20 for statement credit or Rs 0.50 for SmartBuy booking/Airmiles.",
-    "Minimum transaction of Rs 150 is required to earn reward points.",
+    "Points value is ₹1 when redeemed against Shoppers Stop vouchers (1:1), but falls to ₹0.20 for statement credit or ₹0.50 for SmartBuy booking/Airmiles.",
+    "Minimum transaction of ₹150 is required to earn reward points.",
     "Shoppers Stop spends reward points capped at 2,000/month; non-Shoppers Stop spends capped at 2,000/month."
   ]
 }

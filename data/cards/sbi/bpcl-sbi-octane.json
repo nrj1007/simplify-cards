@@ -26,28 +26,28 @@
       "category": "fuel",
       "displayCategory": "Fuel and lubricant purchases at BPCL petrol pumps",
       "rate": 25,
-      "displayRate": "25 Reward Points / Rs 100",
+      "displayRate": "25 Reward Points / ₹100",
       "capMonthly": 2500
     },
     {
       "category": "partner merchants",
       "displayCategory": "Bharatgas online payments",
       "rate": 25,
-      "displayRate": "25 Reward Points / Rs 100",
+      "displayRate": "25 Reward Points / ₹100",
       "capMonthly": 2500
     },
     {
       "category": "grocery, dining, entertainment",
       "displayCategory": "Grocery, departmental stores, movies, and dining",
       "rate": 10,
-      "displayRate": "10 Reward Points / Rs 100",
+      "displayRate": "10 Reward Points / ₹100",
       "capMonthly": 5000
     },
     {
       "category": "base",
       "displayCategory": "Other eligible non-fuel retail spends",
       "rate": 1,
-      "displayRate": "1 Reward Point / Rs 100",
+      "displayRate": "1 Reward Point / ₹100",
       "capMonthly": null
     }
   ],
@@ -81,7 +81,7 @@
     "disputed_transactions"
   ],
   "joiningBenefits": [
-    "6,000 bonus Reward Points worth Rs 1,500 on payment of annual fee"
+    "6,000 bonus Reward Points worth ₹1,500 on payment of annual fee"
   ],
   "joiningBenefitsValued": [
     {
@@ -93,7 +93,7 @@
   "renewalBenefits": [],
   "milestoneBenefits": [],
   "additionalBenefits": [
-    "1% fuel surcharge waiver on eligible BPCL fuel transactions up to Rs 4,000, capped at Rs 100 per month"
+    "1% fuel surcharge waiver on eligible BPCL fuel transactions up to ₹4,000, capped at ₹100 per month"
   ],
   "redemption": {
     "statementBalanceValue": 0.25
@@ -114,7 +114,7 @@
   "internalNotes": [
     "Audited against official SBI Card product page and BPCL SBI Card OCTANE T&C booklet on 2026-06-08.",
     "Reward Points expire after 24 months.",
-    "The live product page positions the card as offering 7.25% value back on BPCL purchases, which is effectively the 25 Reward Points per Rs 100 earn plus surcharge waiver framing; the rewards table keeps the points structure as the canonical model.",
+    "The live product page positions the card as offering 7.25% value back on BPCL purchases, which is effectively the 25 Reward Points per ₹100 earn plus surcharge waiver framing; the rewards table keeps the points structure as the canonical model.",
     "The current official card materials show Visa and RuPay acceptance references for the card booklet, so both networks are retained.",
     "Card details manually reviewed and verified by user on 2026-06-25."
   ],

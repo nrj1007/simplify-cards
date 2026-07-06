@@ -25,21 +25,21 @@
       "category": "partner merchants",
       "displayCategory": "Online and retail Landmark stores",
       "rate": 10,
-      "displayRate": "10 Reward Points / Rs 100 spent",
+      "displayRate": "10 Reward Points / ₹100 spent",
       "capMonthly": null
     },
     {
       "category": "dining",
       "displayCategory": "Dining and movie spends",
       "rate": 5,
-      "displayRate": "5 Reward Points / Rs 100 spent",
+      "displayRate": "5 Reward Points / ₹100 spent",
       "capMonthly": null
     },
     {
       "category": "base",
       "displayCategory": "Other retail purchases",
       "rate": 1,
-      "displayRate": "1 Reward Point / Rs 100 spent",
+      "displayRate": "1 Reward Point / ₹100 spent",
       "capMonthly": null
     }
   ],
@@ -90,14 +90,14 @@
       "period": "annual",
       "value": 2000,
       "kind": "points",
-      "label": "8,000 bonus reward points on overall annual retail spends of Rs 2 lakh"
+      "label": "8,000 bonus reward points on overall annual retail spends of ₹2 lakh"
     }
   ],
   "milestoneBenefits": [
-    "8,000 bonus reward points on overall annual retail spends of Rs 2 lakh"
+    "8,000 bonus reward points on overall annual retail spends of ₹2 lakh"
   ],
   "additionalBenefits": [
-    "1% fuel surcharge waiver on eligible fuel transactions between Rs 500 and Rs 3,000, capped at Rs 100 per month"
+    "1% fuel surcharge waiver on eligible fuel transactions between ₹500 and ₹3,000, capped at ₹100 per month"
   ],
   "redemption": {
     "statementBalanceValue": 0.25,

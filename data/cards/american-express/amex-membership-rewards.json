@@ -24,13 +24,13 @@
     {
       "category": "retail",
       "rate": 2,
-      "displayRate": "1 Membership Rewards Point / Rs 50 spent on eligible categories",
+      "displayRate": "1 Membership Rewards Point / ₹50 spent on eligible categories",
       "capMonthly": null
     },
     {
       "category": "partner merchants",
       "rate": 4,
-      "displayRate": "2 Membership Rewards Points / Rs 50 spent via Reward Multiplier on select brands",
+      "displayRate": "2 Membership Rewards Points / ₹50 spent via Reward Multiplier on select brands",
       "capMonthly": null
     }
   ],
@@ -89,22 +89,22 @@
       "period": "monthly",
       "value": 600,
       "kind": "points",
-      "label": "1,000 Bonus Membership Rewards points on 4 transactions of Rs 1,500 or more in a calendar month"
+      "label": "1,000 Bonus Membership Rewards points on 4 transactions of ₹1,500 or more in a calendar month"
     },
     {
       "threshold": 20000,
       "period": "monthly",
       "value": 600,
       "kind": "points",
-      "label": "Additional 1,000 Membership Rewards points on spending Rs 20,000 or more in a calendar month"
+      "label": "Additional 1,000 Membership Rewards points on spending ₹20,000 or more in a calendar month"
     }
   ],
   "milestoneBenefits": [
-    "1,000 Bonus Membership Rewards points on 4 transactions of Rs 1,500 or more in a calendar month",
-    "Additional 1,000 Membership Rewards points on spending Rs 20,000 or more in a calendar month"
+    "1,000 Bonus Membership Rewards points on 4 transactions of ₹1,500 or more in a calendar month",
+    "Additional 1,000 Membership Rewards points on spending ₹20,000 or more in a calendar month"
   ],
   "additionalDetails": [
-    "50% renewal fee waiver applies when previous-year spends are between Rs 90,000 and Rs 1,49,999"
+    "50% renewal fee waiver applies when previous-year spends are between ₹90,000 and ₹1,49,999"
   ],
   "redemption": {
     "statementBalanceValue": 0.25,
@@ -125,35 +125,35 @@
         "programme": "24K Gold Collection",
         "ratio": "24,000:14,000",
         "valuePerPoint": 0.583,
-        "note": "Redeem 24,000 MR points for Rs 14,000 Taj voucher"
+        "note": "Redeem 24,000 MR points for ₹14,000 Taj voucher"
       },
       {
         "partner": "Taj Voucher",
         "programme": "18K Gold Collection",
         "ratio": "18,000:9,000",
         "valuePerPoint": 0.5,
-        "note": "Redeem 18,000 MR points for Rs 9,000 Taj voucher"
+        "note": "Redeem 18,000 MR points for ₹9,000 Taj voucher"
       },
       {
         "partner": "Shoppers Stop",
         "programme": "24K Gold Collection",
         "ratio": "24,000:10,000",
         "valuePerPoint": 0.417,
-        "note": "Redeem 24,000 MR points for Rs 10,000 Shoppers Stop voucher"
+        "note": "Redeem 24,000 MR points for ₹10,000 Shoppers Stop voucher"
       },
       {
         "partner": "Shoppers Stop / Myntra / Tata CLiQ",
         "programme": "18K Gold Collection",
         "ratio": "18,000:7,000",
         "valuePerPoint": 0.389,
-        "note": "Redeem 18,000 MR points for Rs 7,000 voucher"
+        "note": "Redeem 18,000 MR points for ₹7,000 voucher"
       },
       {
         "partner": "Amazon / Flipkart / Reliance Digital",
         "programme": "24K/18K Gold Collection",
         "ratio": "24,000:8,000",
         "valuePerPoint": 0.333,
-        "note": "Redeem 24,000 MR points for Rs 8,000 voucher or 18,000 MR points for Rs 6,000 voucher"
+        "note": "Redeem 24,000 MR points for ₹8,000 voucher or 18,000 MR points for ₹6,000 voucher"
       }
     ],
     "airlinePartners": [
@@ -208,12 +208,12 @@
   },
   "eligibility": {
     "salaried": [
-      "Employed with personal annual income of Rs 6 lakh and above",
+      "Employed with personal annual income of ₹6 lakh and above",
       "Good credit history with no payment defaults",
       "Resident Indian with current or permanent residential address in India"
     ],
     "selfEmployed": [
-      "Self-employed with personal annual income of Rs 6 lakh and above",
+      "Self-employed with personal annual income of ₹6 lakh and above",
       "Company has been trading for more than 12 months",
       "Resident Indian with current or permanent residential address in India"
     ]
@@ -228,7 +228,7 @@
   "verificationStatus": "official-direct",
   "internalNotes": [
     "Card details manually reviewed and verified by user on 2026-06-26",
-    "The additional 1,000 Membership Rewards points on Rs 20,000 monthly spend is an enrollment-based benefit.",
+    "The additional 1,000 Membership Rewards points on ₹20,000 monthly spend is an enrollment-based benefit.",
     "Airline transfers are currently listed at a 2:1 ratio, while Marriott Bonvoy transfers at 1:1 and Hilton Honors transfers at 1:0.9."
   ]
 }

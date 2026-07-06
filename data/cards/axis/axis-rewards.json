@@ -19,16 +19,16 @@
   "rewards": [
     {
       "category": "departmental stores",
-      "displayCategory": "Apparel and departmental stores (up to Rs 7,000 spend/month)",
+      "displayCategory": "Apparel and departmental stores (up to ₹7,000 spend/month)",
       "rate": 16,
-      "displayRate": "20 EDGE REWARD Points / Rs 125 spent on apparel and departmental stores",
+      "displayRate": "20 EDGE REWARD Points / ₹125 spent on apparel and departmental stores",
       "capMonthly": 1120
     },
     {
       "category": "base",
       "displayCategory": "Other eligible retail spends",
       "rate": 1.6,
-      "displayRate": "2 EDGE REWARD Points / Rs 125 spent",
+      "displayRate": "2 EDGE REWARD Points / ₹125 spent",
       "capMonthly": null
     }
   ],
@@ -70,14 +70,14 @@
       "period": "monthly",
       "value": 300,
       "kind": "points",
-      "label": "1,500 bonus EDGE REWARD Points on spends of Rs 30,000 per statement cycle (excluding rent, wallet, insurance, and cash withdrawals)"
+      "label": "1,500 bonus EDGE REWARD Points on spends of ₹30,000 per statement cycle (excluding rent, wallet, insurance, and cash withdrawals)"
     }
   ],
   "milestoneBenefits": [],
   "additionalBenefits": [
-    "5,000 EDGE REWARD Points on cumulative net spends of Rs 1,000 or above within 30 days of card issuance",
-    "Bouquet of memberships worth up to Rs 1,000 every anniversary year",
-    "Rs 150 instant discount on Swiggy twice per calendar month on minimum transaction value of Rs 500",
+    "5,000 EDGE REWARD Points on cumulative net spends of ₹1,000 or above within 30 days of card issuance",
+    "Bouquet of memberships worth up to ₹1,000 every anniversary year",
+    "₹150 instant discount on Swiggy twice per calendar month on minimum transaction value of ₹500",
     "1% fuel surcharge waiver on eligible fuel transactions"
   ],
   "redemption": {
@@ -255,12 +255,12 @@
   "eligibility": {
     "salaried": [
       "Age: 18 to 70 years",
-      "Minimum Net Monthly Salary: Rs 20,000",
+      "Minimum Net Monthly Salary: ₹20,000",
       "Resident of India"
     ],
     "selfEmployed": [
       "Age: 18 to 70 years",
-      "Minimum Annual Income (ITR): Rs 3,50,000",
+      "Minimum Annual Income (ITR): ₹3,50,000",
       "Resident of India"
     ]
   },

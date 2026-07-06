@@ -21,21 +21,21 @@
       "category": "utilities, insurance, government, education, real estate, rent",
       "displayCategory": "Utility, insurance, government, education, real estate, and rent spends",
       "rate": 0.35,
-      "displayRate": "0.7 reward points per Rs 100",
+      "displayRate": "0.7 reward points per ₹100",
       "capMonthly": null
     },
     {
       "category": "base",
       "displayCategory": "Base spends (Weekdays)",
       "rate": 0.5,
-      "displayRate": "1 reward point per Rs 100",
+      "displayRate": "1 reward point per ₹100",
       "capMonthly": null
     },
     {
       "category": "base",
       "displayCategory": "Base spends (Weekends)",
       "rate": 1,
-      "displayRate": "2 reward points per Rs 100",
+      "displayRate": "2 reward points per ₹100",
       "capMonthly": null
     }
   ],
@@ -64,11 +64,11 @@
       "period": "annual",
       "value": 4000,
       "kind": "points",
-      "label": "4,000 bonus reward points on annual spends of Rs 6,00,000 or more"
+      "label": "4,000 bonus reward points on annual spends of ₹6,00,000 or more"
     }
   ],
   "milestoneBenefits": [
-    "4,000 bonus reward points (worth Rs 2,000) on annual spends of Rs 6,00,000 or more"
+    "4,000 bonus reward points (worth ₹2,000) on annual spends of ₹6,00,000 or more"
   ],
   "additionalBenefits": [
     "1 complimentary golf game and 1 complimentary golf lesson per quarter",
@@ -97,7 +97,7 @@
   "internalNotes": [
     "Card details manually reviewed and verified by user on 2026-05-30",
     "Complimentary airport lounge access discontinued effective March 7, 2025.",
-    "Reward redemption fee of Rs 149 applies for cash credit redemptions (w.e.f April 1, 2025). Cash redemption is capped at 50% of the total points balance and 5,000 points per month."
+    "Reward redemption fee of ₹149 applies for cash credit redemptions (w.e.f April 1, 2025). Cash redemption is capped at 50% of the total points balance and 5,000 points per month."
   ],
   "sourceUrl": "https://www.indusind.com/in/en/personal/cards/credit-card/legend-credit-card.html",
   "applyUrl": "https://www.indusind.com/in/en/personal/cards/credit-card/legend-credit-card.html",

@@ -37,21 +37,21 @@ type Props = {
 
 const MATTER_CHIPS = ["Travel", "Cashback", "Lounge access", "Low annual fee"];
 const SPEND_CHIPS = [
-  { label: "Under Rs 25k", querySuffix: "under rs 25k" },
-  { label: "Rs 25k-75k", querySuffix: "rs 25k-75k" },
-  { label: "Rs 75k+", querySuffix: "rs 75k+" }
+  { label: "Under ₹25k", querySuffix: "under rs 25k" },
+  { label: "₹25k-75k", querySuffix: "rs 25k-75k" },
+  { label: "₹75k+", querySuffix: "rs 75k+" }
 ] as const;
 
 function formatCurrency(value: number | null | undefined) {
   if (value === null || value === undefined) return "Not listed";
   if (value === 0) return "Lifetime free";
-  return `Rs ${value.toLocaleString("en-IN")} fee`;
+  return `₹ ${value.toLocaleString("en-IN")} fee`;
 }
 
 function formatRupees(value: number | null | undefined) {
   if (value === null || value === undefined) return "Not listed";
   if (value === 0) return "Lifetime free";
-  return `Rs ${value.toLocaleString("en-IN")}`;
+  return `₹ ${value.toLocaleString("en-IN")}`;
 }
 
 function formatRewardCap(value: number | null | undefined, rewardType: string) {
@@ -60,7 +60,7 @@ function formatRewardCap(value: number | null | undefined, rewardType: string) {
 }
 
 function stripScoringAnnotations(benefit: string): string {
-  return benefit.replace(/\s*\((?:vouchers?\s+)?worth Rs[^)]+\)/gi, "").trim();
+  return benefit.replace(/\s*\((?:vouchers?\s+)?worth (?:Rs|₹)[^)]+\)/gi, "").trim();
 }
 
 function listPreview(items: string[] | undefined, count = 4) {
@@ -85,7 +85,7 @@ function rewardRateLabel(card: CreditCard, reward: CreditCard["rewards"][number]
 
   const rewardType = card.rewardType.toLowerCase();
   if (rewardType.includes("point") || rewardType.includes("mile")) {
-    return `${reward.rate} ${card.rewardType} / Rs 100`;
+    return `${reward.rate} ${card.rewardType} / ₹100`;
   }
 
   return `${reward.rate}%`;
@@ -130,19 +130,19 @@ function redemptionSummary(card: CreditCard) {
 
   const parts: string[] = [];
   if (typeof card.redemption.smartBuyFlightHotelValue === "number") {
-    parts.push(`SmartBuy travel: upto Rs ${card.redemption.smartBuyFlightHotelValue} per point`);
+    parts.push(`SmartBuy travel: upto ₹ ${card.redemption.smartBuyFlightHotelValue} per point`);
   }
   if (typeof card.redemption.travelEdgeValue === "number") {
-    parts.push(`Travel EDGE travel: upto Rs ${card.redemption.travelEdgeValue} per point`);
+    parts.push(`Travel EDGE travel: upto ₹ ${card.redemption.travelEdgeValue} per point`);
   }
   if (typeof card.redemption.travelPortalValue === "number") {
-    parts.push(`Travel portal: upto Rs ${card.redemption.travelPortalValue} per point`);
+    parts.push(`Travel portal: upto ₹ ${card.redemption.travelPortalValue} per point`);
   }
   if (typeof card.redemption.airMilesValue === "number") {
-    parts.push(`Air miles: upto Rs ${card.redemption.airMilesValue} per point`);
+    parts.push(`Air miles: upto ₹ ${card.redemption.airMilesValue} per point`);
   }
   if (typeof card.redemption.statementBalanceValue === "number") {
-    parts.push(`Statement credit: upto Rs ${card.redemption.statementBalanceValue} per point`);
+    parts.push(`Statement credit: upto ₹ ${card.redemption.statementBalanceValue} per point`);
   }
 
   return parts.length ? parts.join("; ") : "Not listed";
@@ -165,7 +165,7 @@ function getTopCardBenefit(card: CreditCard): string {
   if (card.feeWaiverSpend && card.feeWaiverSpend > 0) {
     const lakhs = card.feeWaiverSpend / 100000;
     const formatted = Number.isInteger(lakhs) ? `${lakhs}` : lakhs.toFixed(1);
-    return `Rs ${formatted}L waiver`;
+    return `₹ ${formatted}L waiver`;
   }
   if (card.bestFor && card.bestFor[0]) {
     return card.bestFor[0];
@@ -363,7 +363,7 @@ export default function AskResultsClient({
                 {topPicksData.map(({ heading, headingClass, tone, item }, idx) => {
                   const card = item.card;
                   const cardTypeLabel = cardRewardTypeIncludesCashback(card) ? "Cashback Card" : "Reward Card";
-                  const feeDisplay = card.annualFee === 0 ? "Rs 0 fee" : `Rs ${card.annualFee.toLocaleString("en-IN")} fee`;
+                  const feeDisplay = card.annualFee === 0 ? "₹0 fee" : `₹ ${card.annualFee.toLocaleString("en-IN")} fee`;
                   const benefitDisplay = getTopCardBenefit(card);
                   const reason = item.reasons.find(
                     (entry) => !/^Strong card-name match/i.test(entry) && !/^Matches /i.test(entry) && !isSpendEnvelopeReason(entry)
@@ -500,7 +500,7 @@ export default function AskResultsClient({
                                 <span className="mini-tag">Fit {toFitPercent(item.fitScore)}/100</span>
                                 {card.bestFor[0] ? <span className="mini-tag">{card.bestFor[0]}</span> : null}
                                 <span className="mini-tag">
-                                  {card.annualFee === 0 ? "Lifetime free" : `Rs ${card.annualFee.toLocaleString("en-IN")} fee`}
+                                  {card.annualFee === 0 ? "Lifetime free" : `₹ ${card.annualFee.toLocaleString("en-IN")} fee`}
                                 </span>
                               </div>
                               <Link
@@ -600,7 +600,7 @@ export default function AskResultsClient({
                                 <span className="mini-tag">Fit {toFitPercent(item.fitScore)}/100</span>
                                 {card.bestFor[0] ? <span className="mini-tag">{card.bestFor[0]}</span> : null}
                                 <span className="mini-tag">
-                                  {card.annualFee === 0 ? "Lifetime free" : `Rs ${card.annualFee.toLocaleString("en-IN")} fee`}
+                                  {card.annualFee === 0 ? "Lifetime free" : `₹ ${card.annualFee.toLocaleString("en-IN")} fee`}
                                 </span>
                               </div>
                               <Link
@@ -685,7 +685,7 @@ export default function AskResultsClient({
                         <small>{card.issuer}</small>
                         <strong>{card.name}</strong>
                         <em>
-                          Fit {toFitPercent(item.fitScore)}/100 · {card.annualFee === 0 ? "Lifetime free" : `Rs ${card.annualFee.toLocaleString("en-IN")}`}
+                          Fit {toFitPercent(item.fitScore)}/100 · {card.annualFee === 0 ? "Lifetime free" : `₹ ${card.annualFee.toLocaleString("en-IN")}`}
                         </em>
                       </div>
                     </article>

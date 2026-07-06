@@ -20,14 +20,14 @@
       "category": "movies, grocery, departmental stores",
       "rate": 5,
       "displayCategory": "Movies, grocery, and departmental store spends",
-      "displayRate": "5 reward points per Rs 100",
+      "displayRate": "5 reward points per ₹100",
       "capMonthly": 1000
     },
     {
       "category": "retail",
       "rate": 1,
       "displayCategory": "All other eligible spends",
-      "displayRate": "1 reward point per Rs 100",
+      "displayRate": "1 reward point per ₹100",
       "capMonthly": null
     }
   ],
@@ -52,8 +52,8 @@
     "cash_advance"
   ],
   "milestoneBenefits": [
-    "First year fee reversal on spending Rs 6,000 within first 60 days",
-    "Annual fee waiver on spending Rs 35,000 in a year"
+    "First year fee reversal on spending ₹6,000 within first 60 days",
+    "Annual fee waiver on spending ₹35,000 in a year"
   ],
   "additionalBenefits": [
     "Up to 3 lifetime free add-on cards",
@@ -67,12 +67,12 @@
     "salaried": [
       "Resident Indian",
       "Age: 21 to 60 years",
-      "Minimum net annual income of Rs 3 lakh (existing BOBCARD customer) or Rs 3.6 lakh (new customer)"
+      "Minimum net annual income of ₹3 lakh (existing BOBCARD customer) or ₹3.6 lakh (new customer)"
     ],
     "selfEmployed": [
       "Resident Indian",
       "Age: 24 to 65 years",
-      "Minimum net annual income of Rs 3.6 lakh (existing BOBCARD customer) or Rs 4.8 lakh (new customer)"
+      "Minimum net annual income of ₹3.6 lakh (existing BOBCARD customer) or ₹4.8 lakh (new customer)"
     ]
   },
   "sourceUrl": "https://bankofbaroda.bank.in/personal-banking/digital-products/cards/credit-cards/easy",
@@ -85,7 +85,7 @@
     "Card details manually reviewed and verified by user on 2026-06-14.",
     "Audited against the official Bank of Baroda Easy product page on 2026-06-14.",
     "Correct 5X categories are movies, grocery, and departmental stores (capped at 1,000 pts/month) — NOT online/dining/utility as previously stored.",
-    "Redemption value is Rs 0.20 per point (corrected from Rs 0.25).",
+    "Redemption value is ₹0.20 per point (corrected from ₹0.25).",
     "Utility bill spends (MCC 4900) earn base 1X rate on this card, not accelerated."
   ]
 }

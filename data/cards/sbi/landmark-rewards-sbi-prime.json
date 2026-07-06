@@ -27,21 +27,21 @@
       "category": "partner merchants",
       "displayCategory": "Online and retail Landmark stores",
       "rate": 25,
-      "displayRate": "25 Reward Points / Rs 100",
+      "displayRate": "25 Reward Points / ₹100",
       "capMonthly": null
     },
     {
       "category": "dining, entertainment, travel",
       "displayCategory": "dining, movies, and international spends",
       "rate": 10,
-      "displayRate": "10 Reward Points / Rs 100",
+      "displayRate": "10 Reward Points / ₹100",
       "capMonthly": null
     },
     {
       "category": "base",
       "displayCategory": "other retail purchases",
       "rate": 2,
-      "displayRate": "2 Reward Points / Rs 100",
+      "displayRate": "2 Reward Points / ₹100",
       "capMonthly": null
     }
   ],
@@ -89,14 +89,14 @@
       "period": "annual",
       "value": 5000,
       "kind": "points",
-      "label": "20,000 bonus Reward Points on overall annual retail spends of Rs 5 lakh"
+      "label": "20,000 bonus Reward Points on overall annual retail spends of ₹5 lakh"
     }
   ],
   "milestoneBenefits": [
-    "20,000 bonus Reward Points on overall annual retail spends of Rs 5 lakh"
+    "20,000 bonus Reward Points on overall annual retail spends of ₹5 lakh"
   ],
   "joiningBenefits": [
-    "12,000 bonus Reward Points worth Rs 3,000 on payment of annual fee",
+    "12,000 bonus Reward Points worth ₹3,000 on payment of annual fee",
     "Reward Points are credited within 30 days of annual fee payment"
   ],
   "joiningBenefitsValued": [
@@ -107,7 +107,7 @@
     }
   ],
   "renewalBenefits": [
-    "12,000 Reward Points worth Rs 3,000 on payment of renewal fee",
+    "12,000 Reward Points worth ₹3,000 on payment of renewal fee",
     "Reward Points are credited within 30 days of renewal fee payment"
   ],
   "renewalBenefitsValued": [
@@ -119,7 +119,7 @@
   ],
   "additionalBenefits": [
     "Reward Points can be redeemed instantly at Lifestyle, Home Centre, Spar, Max, Baby Shop, and EasyBuy stores",
-    "1% fuel surcharge waiver on eligible fuel spends from Rs 500 to Rs 3,000, capped at Rs 100 per month"
+    "1% fuel surcharge waiver on eligible fuel spends from ₹500 to ₹3,000, capped at ₹100 per month"
   ],
   "redemption": {
     "ecosystemLabel": "Lifestyle, Home Centre, Spar, Max, Baby Shop, and EasyBuy stores",

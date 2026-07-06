@@ -23,14 +23,14 @@
       "category": "travel",
       "displayCategory": "Travel spends",
       "rate": 2,
-      "displayRate": "4 Travel Credits / Rs 200 spent",
+      "displayRate": "4 Travel Credits / ₹200 spent",
       "capMonthly": null
     },
     {
       "category": "base",
       "displayCategory": "Other eligible spends",
       "rate": 1,
-      "displayRate": "2 Travel Credits / Rs 200 spent",
+      "displayRate": "2 Travel Credits / ₹200 spent",
       "capMonthly": null
     }
   ],
@@ -39,7 +39,7 @@
   "lounge": {
     "domestic": [
       "8 complimentary domestic airport lounge visits every year, capped at 2 visits per quarter.",
-      "1 additional domestic airport lounge visit is unlocked on every Rs 1 lakh spend, capped at 12 additional visits per year, taking the total annual domestic lounge access up to 20 visits."
+      "1 additional domestic airport lounge visit is unlocked on every ₹1 lakh spend, capped at 12 additional visits per year, taking the total annual domestic lounge access up to 20 visits."
     ],
     "international": [
       "Complimentary Priority Pass membership worth $99 is provided for the first 2 years.",
@@ -85,13 +85,13 @@
     "disputed_transactions"
   ],
   "joiningBenefits": [
-    "3,000 Travel Credits on spends of Rs 60,000 within 60 days of card issuance, credited on payment of joining fee"
+    "3,000 Travel Credits on spends of ₹60,000 within 60 days of card issuance, credited on payment of joining fee"
   ],
   "joiningBenefitsValued": [
     {
       "value": 3000,
       "kind": "points",
-      "label": "3,000 Travel Credits on spends of Rs 60,000 within 60 days of card issuance, credited on payment of joining fee"
+      "label": "3,000 Travel Credits on spends of ₹60,000 within 60 days of card issuance, credited on payment of joining fee"
     }
   ],
   "renewalBenefits": [],
@@ -101,18 +101,18 @@
       "period": "annual",
       "value": 10000,
       "kind": "points",
-      "label": "10,000 bonus Travel Credits on annual spends of Rs 8 lakh"
+      "label": "10,000 bonus Travel Credits on annual spends of ₹8 lakh"
     }
   ],
   "milestoneBenefits": [
-    "10,000 bonus Travel Credits on annual spends of Rs 8 lakh"
+    "10,000 bonus Travel Credits on annual spends of ₹8 lakh"
   ],
   "additionalBenefits": [
-    "Flight cancellation cover up to 6 times per year at Rs 3,500 each",
-    "Lost card liability cover up to Rs 1 lakh",
-    "Air accident cover up to Rs 1 crore",
+    "Flight cancellation cover up to 6 times per year at ₹3,500 each",
+    "Lost card liability cover up to ₹1 lakh",
+    "Air accident cover up to ₹1 crore",
     "Loss or delay of checked-in baggage and travel-document covers as listed in SBI Card terms",
-    "1% fuel surcharge waiver on eligible fuel transactions from Rs 500 to Rs 4,000, capped at Rs 250 per statement cycle"
+    "1% fuel surcharge waiver on eligible fuel transactions from ₹500 to ₹4,000, capped at ₹250 per statement cycle"
   ],
   "redemption": {
     "statementBalanceValue": 0.25,
@@ -124,14 +124,14 @@
         "partnerPointValue": 2,
         "transferRatio": 0.5,
         "basis": "fixed",
-        "note": "2 Travel Credits -> 1 Accor ALL point · Rs 2/point"
+        "note": "2 Travel Credits -> 1 Accor ALL point · ₹2/point"
       },
       {
         "partner": "Club ITC",
         "partnerPointValue": 1,
         "transferRatio": 0.5,
         "basis": "fixed",
-        "note": "2 Travel Credits -> 1 Club ITC point · Rs 1/point"
+        "note": "2 Travel Credits -> 1 Club ITC point · ₹1/point"
       }
     ],
     "airlinePartners": [
@@ -310,8 +310,8 @@
   },
   "additionalDetails": [
     "1 Travel Credit = Re 1 for air mile or hotel point conversion",
-    "1 Travel Credit = Rs 0.50 for travel bookings",
-    "1 Travel Credit = Rs 0.25 for Shop & Smile product catalogue"
+    "1 Travel Credit = ₹0.50 for travel bookings",
+    "1 Travel Credit = ₹0.25 for Shop & Smile product catalogue"
   ],
   "internalNotes": [
     "Audited against official SBI Card MILES PRIME product page and current MILES PRIME T&C booklet on 2026-06-08.",

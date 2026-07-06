@@ -614,9 +614,9 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
     const envelopeLabel = envelopeMonthlySpend ? formatEnvelopeSpendLabel(envelopeMonthlySpend) : null;
     const feeWaiverReason =
       card.feeWaiverSpend && annualSpend >= card.feeWaiverSpend
-        ? `Fee waiver likely at Rs ${formatSpendInLakhs(annualSpend)} yearly spend`
+        ? `Fee waiver likely at ₹${formatSpendInLakhs(annualSpend)} yearly spend`
         : card.feeWaiverSpend
-          ? `Fee waiver needs Rs ${formatSpendInLakhs(card.feeWaiverSpend)} yearly spend`
+          ? `Fee waiver needs ₹${formatSpendInLakhs(card.feeWaiverSpend)} yearly spend`
           : "No fee waiver listed";
     const strongestRewards = [...rewardBreakdown]
       .sort((a, b) => b.annualReward - a.annualReward)
@@ -632,13 +632,13 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
       ...(intent.issuers.includes(card.issuer) ? [`Matches ${card.issuer} issuer intent`] : []),
       ...matchedTags.map((tag) => `Matches ${tag} intent`),
       ...strongestRewards,
-      ...(estimatedMilestoneValue > 0 ? [`Milestone value adds about Rs ${estimatedMilestoneValue.toLocaleString("en-IN")}`] : []),
+      ...(estimatedMilestoneValue > 0 ? [`Milestone value adds about ₹${estimatedMilestoneValue.toLocaleString("en-IN")}`] : []),
       ...(estimatedJoiningAndRenewalValue > 0
-        ? [`Joining and renewal benefits add about Rs ${estimatedJoiningAndRenewalValue.toLocaleString("en-IN")} per year`]
+        ? [`Joining and renewal benefits add about ₹${estimatedJoiningAndRenewalValue.toLocaleString("en-IN")} per year`]
         : []),
-      ...(optionLabel ? [`Best net value uses ${optionLabel} after Rs ${optionAnnualCost.toLocaleString("en-IN")} yearly cost`] : []),
-      ...(flexibilityValue > 0 ? [`Rewards on usually excluded categories improve broader card utility (adds about Rs ${Math.round(flexibilityValue).toLocaleString("en-IN")} flexibility value)`] : []),
-      card.annualFee === 0 ? "No annual fee" : `Effective annual fee is Rs ${estimatedAnnualFee}`,
+      ...(optionLabel ? [`Best net value uses ${optionLabel} after ₹${optionAnnualCost.toLocaleString("en-IN")} yearly cost`] : []),
+      ...(flexibilityValue > 0 ? [`Rewards on usually excluded categories improve broader card utility (adds about ₹${Math.round(flexibilityValue).toLocaleString("en-IN")} flexibility value)`] : []),
+      card.annualFee === 0 ? "No annual fee" : `Effective annual fee is ₹${estimatedAnnualFee}`,
       feeWaiverReason,
       loungeScore(card) > 0
         ? card.loungeDomestic === "unlimited" || card.loungeInternational === "unlimited"
@@ -1056,7 +1056,7 @@ export function answerFromCards(input: RecommendationInput) {
     summary:
       topCards.length === 0
         ? "No card matched the selected constraints. Try increasing the annual fee limit or removing lounge/lifetime-free filters."
-        : `${topCards[0].card.name} looks strongest with an estimated net yearly value of Rs ${Math.round(topCards[0].displayNetValue).toLocaleString("en-IN")}.`,
+        : `${topCards[0].card.name} looks strongest with an estimated net yearly value of ₹${Math.round(topCards[0].displayNetValue).toLocaleString("en-IN")}.`,
     cards: topCards,
     ...(hasSplit ? { sections: resultSections } : {})
   };

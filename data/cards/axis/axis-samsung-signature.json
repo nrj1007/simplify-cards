@@ -21,7 +21,7 @@
       "category": "partner merchants",
       "displayCategory": "Samsung purchases (eligible online & offline channels)",
       "rate": 10,
-      "displayRate": "10% Cashback on Samsung purchases (up to Rs 2,500/month)",
+      "displayRate": "10% Cashback on Samsung purchases (up to ₹2,500/month)",
       "valuePerUnit": 1,
       "capMonthly": 2500
     },
@@ -29,7 +29,7 @@
       "category": "partner merchants",
       "displayCategory": "Preferred partners (BigBasket, Myntra, Tata 1mg, Urban Company, Zomato)",
       "rate": 10,
-      "displayRate": "10 EDGE REWARD Points / Rs 100 spent (2.0% return value)",
+      "displayRate": "10 EDGE REWARD Points / ₹100 spent (2.0% return value)",
       "valuePerUnit": 0.2,
       "capMonthly": null
     },
@@ -37,7 +37,7 @@
       "category": "base",
       "displayCategory": "Other eligible retail spends",
       "rate": 5,
-      "displayRate": "5 EDGE REWARD Points / Rs 100 spent (1.0% return value)",
+      "displayRate": "5 EDGE REWARD Points / ₹100 spent (1.0% return value)",
       "valuePerUnit": 0.2,
       "capMonthly": null
     }
@@ -97,9 +97,9 @@
   ],
   "milestoneBenefits": [],
   "additionalBenefits": [
-    "1% fuel surcharge waiver on transactions from Rs 400 to Rs 4,000, capped at Rs 500 per statement",
-    "Dining Delights offer of 15% off up to Rs 500 once per month at participating restaurants",
-    "Convert transactions of Rs 2,500 or more into EMI"
+    "1% fuel surcharge waiver on transactions from ₹400 to ₹4,000, capped at ₹500 per statement",
+    "Dining Delights offer of 15% off up to ₹500 once per month at participating restaurants",
+    "Convert transactions of ₹2,500 or more into EMI"
   ],
   "redemption": {
     "statementBalanceValue": 0.2,
@@ -276,12 +276,12 @@
   "eligibility": {
     "salaried": [
       "Age: 18 to 70 years",
-      "Minimum Net Monthly Salary: Rs 25,000",
+      "Minimum Net Monthly Salary: ₹25,000",
       "Resident of India"
     ],
     "selfEmployed": [
       "Age: 18 to 70 years",
-      "Minimum Annual Income (ITR): Rs 3,50,000",
+      "Minimum Annual Income (ITR): ₹3,50,000",
       "Resident of India"
     ]
   },

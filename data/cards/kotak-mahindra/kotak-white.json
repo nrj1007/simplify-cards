@@ -126,13 +126,13 @@
       {
         "partner": "Brand e-Vouchers",
         "programme": "Premium brand e-vouchers via Kotak Rewards",
-        "ratio": "1 White Pass = Rs 1.0",
+        "ratio": "1 White Pass = ₹1.0",
         "valuePerPoint": 1
       },
       {
         "partner": "Travel bookings",
         "programme": "Flight & hotel bookings via Kotak Rewards",
-        "ratio": "1 White Pass = Rs 1.0",
+        "ratio": "1 White Pass = ₹1.0",
         "valuePerPoint": 1
       }
     ]
@@ -140,12 +140,12 @@
   "eligibility": {
     "salaried": [
       "Age: 28 to 60 years",
-      "Minimum Annual Income: Rs 25,00,000",
+      "Minimum Annual Income: ₹25,00,000",
       "Resident of India"
     ],
     "selfEmployed": [
       "Age: 28 to 60 years",
-      "Minimum Annual Income: Rs 25,0,000",
+      "Minimum Annual Income: ₹25,0,000",
       "Resident of India"
     ]
   },
@@ -156,7 +156,7 @@
   "imageUrl": "/images/kotak-white.webp",
   "internalNotes": [
     "Card details manually reviewed and verified by user on 2026-06-15.",
-    "White Pass value can be redeemed at 1 White Pass = Rs 1.0 on vouchers, flights, and hotels, and Rs 0.70 for statement cashback.",
+    "White Pass value can be redeemed at 1 White Pass = ₹1.0 on vouchers, flights, and hotels, and ₹0.70 for statement cashback.",
     "Spends on rent, wallet, EMI, insurance, utilities, education, government, transportation, and fuel do not earn White Pass milestones."
   ]
 }

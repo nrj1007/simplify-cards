@@ -82,13 +82,13 @@
       {
         "partner": "Brand e-Vouchers",
         "programme": "Shopping & gift vouchers via Kotak Rewards",
-        "ratio": "1 point = Rs 0.07",
+        "ratio": "1 point = ₹0.07",
         "valuePerPoint": 0.07
       },
       {
         "partner": "Travel bookings",
         "programme": "Flight & hotel bookings via Kotak Rewards",
-        "ratio": "1 point = Rs 0.07",
+        "ratio": "1 point = ₹0.07",
         "valuePerPoint": 0.07
       }
     ]

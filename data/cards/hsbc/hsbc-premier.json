@@ -22,7 +22,7 @@
       "category": "travel with points hotels",
       "rate": 36,
       "displayCategory": "Hotels via HSBC",
-      "displayRate": "Up to 36 Reward Points / Rs 100",
+      "displayRate": "Up to 36 Reward Points / ₹100",
       "capMonthly": 18000,
       "postCapRate": 3
     },
@@ -30,7 +30,7 @@
       "category": "travel with points flights",
       "rate": 18,
       "displayCategory": "Flights via HSBC",
-      "displayRate": "Up to 18 Reward Points / Rs 100",
+      "displayRate": "Up to 18 Reward Points / ₹100",
       "capMonthly": 18000,
       "postCapRate": 3
     },
@@ -38,7 +38,7 @@
       "category": "travel with points car rentals",
       "rate": 6,
       "displayCategory": "Car rentals via HSBC",
-      "displayRate": "Up to 6 Reward Points / Rs 100",
+      "displayRate": "Up to 6 Reward Points / ₹100",
       "capMonthly": 18000,
       "postCapRate": 3
     },
@@ -46,14 +46,14 @@
       "category": "utilities, insurance, rent, education, government, gold",
       "displayCategory": "Utility, insurance, rent, education, tax, and jewelry spends",
       "rate": 3,
-      "displayRate": "3 Reward Points / Rs 100",
+      "displayRate": "3 Reward Points / ₹100",
       "capMonthly": 3000
     },
     {
       "category": "base",
       "displayCategory": "Other eligible spends",
       "rate": 3,
-      "displayRate": "3 Reward Points / Rs 100",
+      "displayRate": "3 Reward Points / ₹100",
       "capMonthly": null
     }
   ],
@@ -85,37 +85,37 @@
       "category": "utilities",
       "treatment": "capped",
       "capMonthlySpend": 100000,
-      "notes": "Utility spends earn reward points capped at cumulative Rs 1 Lakh spend per calendar month combined with insurance, rent, education, government/tax, and jewelry (effective 1 April 2025)."
+      "notes": "Utility spends earn reward points capped at cumulative ₹1 Lakh spend per calendar month combined with insurance, rent, education, government/tax, and jewelry (effective 1 April 2025)."
     },
     {
       "category": "insurance",
       "treatment": "capped",
       "capMonthlySpend": 100000,
-      "notes": "Insurance spends earn reward points capped at cumulative Rs 1 Lakh spend per calendar month combined with utility, rent, education, government/tax, and jewelry (effective 1 April 2025)."
+      "notes": "Insurance spends earn reward points capped at cumulative ₹1 Lakh spend per calendar month combined with utility, rent, education, government/tax, and jewelry (effective 1 April 2025)."
     },
     {
       "category": "rent",
       "treatment": "capped",
       "capMonthlySpend": 100000,
-      "notes": "Rent spends earn reward points capped at cumulative Rs 1 Lakh spend per calendar month combined with utility, insurance, education, government/tax, and jewelry (effective 1 April 2025)."
+      "notes": "Rent spends earn reward points capped at cumulative ₹1 Lakh spend per calendar month combined with utility, insurance, education, government/tax, and jewelry (effective 1 April 2025)."
     },
     {
       "category": "education",
       "treatment": "capped",
       "capMonthlySpend": 100000,
-      "notes": "Education spends earn reward points capped at cumulative Rs 1 Lakh spend per calendar month combined with utility, insurance, rent, government/tax, and jewelry (effective 1 April 2025)."
+      "notes": "Education spends earn reward points capped at cumulative ₹1 Lakh spend per calendar month combined with utility, insurance, rent, government/tax, and jewelry (effective 1 April 2025)."
     },
     {
       "category": "government",
       "treatment": "capped",
       "capMonthlySpend": 100000,
-      "notes": "Government and tax spends earn reward points capped at cumulative Rs 1 Lakh spend per calendar month combined with utility, insurance, rent, education, and jewelry (effective 1 April 2025)."
+      "notes": "Government and tax spends earn reward points capped at cumulative ₹1 Lakh spend per calendar month combined with utility, insurance, rent, education, and jewelry (effective 1 April 2025)."
     },
     {
       "category": "gold",
       "treatment": "capped",
       "capMonthlySpend": 100000,
-      "notes": "Jewelry spends earn reward points capped at cumulative Rs 1 Lakh spend per calendar month combined with utility, insurance, rent, education, and government/tax (effective 1 April 2025)."
+      "notes": "Jewelry spends earn reward points capped at cumulative ₹1 Lakh spend per calendar month combined with utility, insurance, rent, education, and government/tax (effective 1 April 2025)."
     }
   ],
   "exclusions": [
@@ -145,9 +145,9 @@
   ],
   "additionalBenefits": [
     "Qualified 1:1 point transfer to airline miles and hotel loyalty programmes via the HSBC India Mobile Banking app",
-    "Buy One Get One free movie ticket offer on BookMyShow (up to Rs 750 per ticket, max Rs 1,500 per month)",
-    "30% off dining bill up to Rs 1,500 via EazyDiner",
-    "1% fuel surcharge waiver on transactions from Rs 400 to Rs 4,000"
+    "Buy One Get One free movie ticket offer on BookMyShow (up to ₹750 per ticket, max ₹1,500 per month)",
+    "30% off dining bill up to ₹1,500 via EazyDiner",
+    "1% fuel surcharge waiver on transactions from ₹400 to ₹4,000"
   ],
   "additionalDetails": [
     "Reward points never expire",
@@ -160,14 +160,14 @@
         "partnerPointValue": 2,
         "transferRatio": 1,
         "basis": "fixed",
-        "note": "1 reward point → 1 Accor ALL point · Rs 2/point"
+        "note": "1 reward point → 1 Accor ALL point · ₹2/point"
       },
       {
         "partner": "Marriott Bonvoy",
         "partnerPointValue": 0.6,
         "transferRatio": 1,
         "basis": "dynamic",
-        "note": "1 reward point → 1 Marriott point · avg Rs 0.6/point"
+        "note": "1 reward point → 1 Marriott point · avg ₹0.6/point"
       }
     ],
     "airlinePartners": [
@@ -302,12 +302,12 @@
     "salaried": [
       "Age 18 to 65 years",
       "Resident of India",
-      "Existing HSBC Premier customer relationship (requires meeting Quarterly Total Relationship Balance or monthly salary credit of Rs 3 Lakhs)"
+      "Existing HSBC Premier customer relationship (requires meeting Quarterly Total Relationship Balance or monthly salary credit of ₹3 Lakhs)"
     ],
     "selfEmployed": [
       "Age 25 to 65 years",
       "Resident of India",
-      "Existing HSBC Premier customer relationship (requires meeting Quarterly Total Relationship Balance of Rs 50 Lakhs or qualifying home loan)"
+      "Existing HSBC Premier customer relationship (requires meeting Quarterly Total Relationship Balance of ₹50 Lakhs or qualifying home loan)"
     ]
   },
   "sourceUrl": "https://www.hsbc.co.in/credit-cards/products/premier/",
@@ -318,7 +318,7 @@
   "internalNotes": [
     "Qualified HSBC Premier relationship status waives the joining and annual fees.",
     "Excludes fuel, education, government, tax, jewelry, wallet loads, and cash advances from earning points (effective 1 April 2025).",
-    "Points on utilities, insurance, and rent are capped at cumulative spends of Rs 1 Lakh per calendar month combined (effective 1 April 2025).",
+    "Points on utilities, insurance, and rent are capped at cumulative spends of ₹1 Lakh per calendar month combined (effective 1 April 2025).",
     "Card details manually reviewed and verified by user on 2026-06-08"
   ]
 }

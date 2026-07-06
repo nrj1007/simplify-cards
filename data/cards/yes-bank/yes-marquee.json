@@ -22,21 +22,21 @@
       "category": "online",
       "rate": 18,
       "displayCategory": "Online spends",
-      "displayRate": "36 YES Rewardz Points / Rs 200 spent",
+      "displayRate": "36 YES Rewardz Points / ₹200 spent",
       "capMonthly": 100000
     },
     {
       "category": "base",
       "rate": 9,
       "displayCategory": "Other retail spends",
-      "displayRate": "18 YES Rewardz Points / Rs 200 spent",
+      "displayRate": "18 YES Rewardz Points / ₹200 spent",
       "capMonthly": 100000
     },
     {
       "category": "utilities",
       "rate": 5,
       "displayCategory": "Select categories (utilities, insurance, education, telecom)",
-      "displayRate": "10 YES Rewardz Points / Rs 200 spent",
+      "displayRate": "10 YES Rewardz Points / ₹200 spent",
       "capMonthly": 1250
     }
   ],
@@ -48,7 +48,7 @@
   "lounge": {
     "domestic": [
       "Domestic lounge access up to 6 visits per quarter for primary and add-on cardmembers",
-      "Domestic lounge access is subject to a spend threshold of Rs 1,00,000 in the previous calendar quarter."
+      "Domestic lounge access is subject to a spend threshold of ₹1,00,000 in the previous calendar quarter."
     ],
     "international": [
       "Unlimited international lounge access for primary and add-on cardmembers"
@@ -87,7 +87,7 @@
   ],
   "milestoneBenefits": [],
   "additionalBenefits": [
-    "Buy one get one movie benefit on BookMyShow with monthly cap (up to 3 tickets per month, max discount Rs 800 per ticket)",
+    "Buy one get one movie benefit on BookMyShow with monthly cap (up to 3 tickets per month, max discount ₹800 per ticket)",
     "Purchase protection cover on eligible electronics",
     "Green fee waiver and golf lessons at select golf courses"
   ],

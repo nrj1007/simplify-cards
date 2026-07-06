@@ -24,21 +24,21 @@
       "category": "travel",
       "displayCategory": "IndiGo flight spends",
       "rate": 3,
-      "displayRate": "3 IndiGo BluChips / Rs 100 spent",
+      "displayRate": "3 IndiGo BluChips / ₹100 spent",
       "capMonthly": null
     },
     {
       "category": "hotels",
       "displayCategory": "Hotel and lodging spends",
       "rate": 2,
-      "displayRate": "2 IndiGo BluChips / Rs 100 spent",
+      "displayRate": "2 IndiGo BluChips / ₹100 spent",
       "capMonthly": null
     },
     {
       "category": "base",
       "displayCategory": "Other eligible spends",
       "rate": 1,
-      "displayRate": "1 IndiGo BluChip / Rs 100 spent",
+      "displayRate": "1 IndiGo BluChip / ₹100 spent",
       "capMonthly": null
     }
   ],
@@ -47,7 +47,7 @@
   "lounge": {
     "domestic": [
       "4 complimentary domestic airport lounge visits per calendar year (limited to 1 visit per quarter).",
-      "Requires spends of Rs 50,000 in the preceding calendar quarter to unlock access."
+      "Requires spends of ₹50,000 in the preceding calendar quarter to unlock access."
     ],
     "international": []
   },
@@ -107,30 +107,30 @@
       "period": "annual",
       "value": 1000,
       "kind": "points",
-      "label": "2,500 IndiGo BluChips on annual spends of Rs 2 lakh"
+      "label": "2,500 IndiGo BluChips on annual spends of ₹2 lakh"
     },
     {
       "threshold": 400000,
       "period": "annual",
       "value": 1000,
       "kind": "points",
-      "label": "2,500 IndiGo BluChips on annual spends of Rs 4 lakh"
+      "label": "2,500 IndiGo BluChips on annual spends of ₹4 lakh"
     },
     {
       "threshold": 600000,
       "period": "annual",
       "value": 1000,
       "kind": "points",
-      "label": "2,500 IndiGo BluChips on annual spends of Rs 6 lakh"
+      "label": "2,500 IndiGo BluChips on annual spends of ₹6 lakh"
     }
   ],
   "milestoneBenefits": [
-    "2,500 IndiGo BluChips on annual spends of Rs 2 lakh",
-    "2,500 IndiGo BluChips on annual spends of Rs 4 lakh",
-    "2,500 IndiGo BluChips on annual spends of Rs 6 lakh"
+    "2,500 IndiGo BluChips on annual spends of ₹2 lakh",
+    "2,500 IndiGo BluChips on annual spends of ₹4 lakh",
+    "2,500 IndiGo BluChips on annual spends of ₹6 lakh"
   ],
   "additionalBenefits": [
-    "1% fuel surcharge waiver up to Rs 200 per month on eligible fuel spends from Rs 500 to Rs 4,000"
+    "1% fuel surcharge waiver up to ₹200 per month on eligible fuel spends from ₹500 to ₹4,000"
   ],
   "redemption": {
     "ecosystemLabel": "IndiGo flight bookings",

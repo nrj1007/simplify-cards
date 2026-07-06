@@ -34,7 +34,7 @@ export async function generateMetadata({ searchParams }: Props): Promise<Metadat
 
 function formatCurrency(value: number | null | undefined) {
   if (value === null || value === undefined) return "Not listed";
-  return `Rs ${value.toLocaleString("en-IN")}`;
+  return `₹ ${value.toLocaleString("en-IN")}`;
 }
 
 function hasFeeWaiverSpend(value: number | null | undefined) {
@@ -55,7 +55,7 @@ function rewardRateLabel(card: Card, reward: Card["rewards"][number]) {
 
   const rewardType = card.rewardType.toLowerCase();
   if (rewardType.includes("point") || rewardType.includes("mile")) {
-    return `${reward.rate} ${card.rewardType} / Rs 100`;
+    return `${reward.rate} ${card.rewardType} / ₹100`;
   }
 
   return `${reward.rate}%`;
@@ -88,16 +88,16 @@ function redemptionSummary(card: Card) {
 
   const parts: string[] = [];
   if (typeof card.redemption.smartBuyFlightHotelValue === "number") {
-    parts.push(`SmartBuy travel: upto Rs ${card.redemption.smartBuyFlightHotelValue} per point`);
+    parts.push(`SmartBuy travel: upto ₹ ${card.redemption.smartBuyFlightHotelValue} per point`);
   }
   if (typeof card.redemption.travelEdgeValue === "number") {
-    parts.push(`Travel EDGE travel: upto Rs ${card.redemption.travelEdgeValue} per point`);
+    parts.push(`Travel EDGE travel: upto ₹ ${card.redemption.travelEdgeValue} per point`);
   }
   if (typeof card.redemption.airMilesValue === "number") {
-    parts.push(`Air miles: upto Rs ${card.redemption.airMilesValue} per point`);
+    parts.push(`Air miles: upto ₹ ${card.redemption.airMilesValue} per point`);
   }
   if (typeof card.redemption.statementBalanceValue === "number") {
-    parts.push(`Statement credit: upto Rs ${card.redemption.statementBalanceValue} per point`);
+    parts.push(`Statement credit: upto ₹ ${card.redemption.statementBalanceValue} per point`);
   }
 
   return parts.length ? parts.join("; ") : "Not listed";

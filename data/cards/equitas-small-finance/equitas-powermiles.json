@@ -20,14 +20,14 @@
       "category": "international",
       "rate": 9,
       "displayCategory": "International POS and online purchases",
-      "displayRate": "9 Reward Points / Rs 100 spent (3X on international)",
+      "displayRate": "9 Reward Points / ₹100 spent (3X on international)",
       "capMonthly": null
     },
     {
       "category": "base",
       "rate": 3,
       "displayCategory": "All other retail spends",
-      "displayRate": "3 Reward Points / Rs 100 spent",
+      "displayRate": "3 Reward Points / ₹100 spent",
       "capMonthly": null
     }
   ],
@@ -79,7 +79,7 @@
     "Complimentary Club Marriott membership (up to 25% off on F&B, Hotel and Spa; complimentary membership for spouse)",
     "Complimentary EazyDiner Prime membership (25-50% savings, 2,000 welcome EazyPoints, and 2X EazyPoints on every meal)",
     "24x7 global personal concierge services for travel, entertainment, and business",
-    "Air accident cover of Rs 1 crore when flight tickets are booked with the PowerMiles card",
+    "Air accident cover of ₹1 crore when flight tickets are booked with the PowerMiles card",
     "Zero lost card liability after reporting theft or fraud",
     "1% fuel surcharge waiver on eligible transactions",
     "Up to 50 days interest-free credit period"
@@ -129,12 +129,12 @@
   "internalNotes": [
     "Card details audited against the live official Equitas PowerMiles Credit Card page on 2026-06-15.",
     "Card details manually reviewed and verified by user on 2026-06-15.",
-    "Annual fee waiver: Rs 4,80,000 spend in anniversary year.",
+    "Annual fee waiver: ₹4,80,000 spend in anniversary year.",
     "Forex markup: 2% on all foreign currency transactions (lower than Tiga and Selfe at 3.5%).",
-    "The live page explicitly shows a base earn rate of 3 RP per Rs 100 and 3X rewards on international spends, so the international row is modeled as 9 RP per Rs 100.",
-    "The live page explicitly shows 1 RP = Rs 0.50 on Xchange redemption and 1:1 Xchange Brands redemption for Apple iMagine, Tanishq, Taj, M&S, and The Body Shop.",
+    "The live page explicitly shows a base earn rate of 3 RP per ₹100 and 3X rewards on international spends, so the international row is modeled as 9 RP per ₹100.",
+    "The live page explicitly shows 1 RP = ₹0.50 on Xchange redemption and 1:1 Xchange Brands redemption for Apple iMagine, Tanishq, Taj, M&S, and The Body Shop.",
     "Lounge: 2 domestic per quarter (40+ lounges), 1 international per quarter (1000+ lounges).",
-    "Finance charges: 3.75% per month. Cash advance fee: 2.5% or Rs 250 whichever is higher.",
+    "Finance charges: 3.75% per month. Cash advance fee: 2.5% or ₹250 whichever is higher.",
     "The live public page says reward points can be converted to airline miles, but it does not disclose the current partner list or transfer ratios; those fields are left blank until an official public source is available."
   ]
 }

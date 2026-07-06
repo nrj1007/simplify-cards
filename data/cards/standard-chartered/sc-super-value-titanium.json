@@ -18,21 +18,21 @@
     {
       "category": "fuel",
       "rate": 5,
-      "displayCategory": "Fuel spends (max transaction Rs 2,000)",
+      "displayCategory": "Fuel spends (max transaction ₹2,000)",
       "displayRate": "5% cashback",
       "capMonthly": 200
     },
     {
       "category": "utilities",
       "rate": 5,
-      "displayCategory": "Telephone & mobile bills (min transaction Rs 750 via BillPay)",
+      "displayCategory": "Telephone & mobile bills (min transaction ₹750 via BillPay)",
       "displayRate": "5% cashback",
       "capMonthly": 200
     },
     {
       "category": "utilities",
       "rate": 5,
-      "displayCategory": "Other utility bills (min transaction Rs 750 via BillPay)",
+      "displayCategory": "Other utility bills (min transaction ₹750 via BillPay)",
       "displayRate": "5% cashback",
       "capMonthly": 100
     },
@@ -40,7 +40,7 @@
       "category": "base",
       "rate": 0.6666666666666666,
       "displayCategory": "Other retail spends",
-      "displayRate": "1 reward point / Rs 150 spent",
+      "displayRate": "1 reward point / ₹150 spent",
       "valuePerUnit": 0.25,
       "capMonthly": null
     }
@@ -60,15 +60,15 @@
   "exclusions": [
     "Cash withdrawal / cash advance transactions",
     "Fees and charges (including annual fee and finance charges)",
-    "Fuel transactions above Rs 2,000",
-    "Utility/Telecom transactions below Rs 750 or made outside SC BillPay"
+    "Fuel transactions above ₹2,000",
+    "Utility/Telecom transactions below ₹750 or made outside SC BillPay"
   ],
   "exclusionCodes": [
     "cash_advance"
   ],
   "milestones": [],
   "milestoneBenefits": [
-    "Annual fee waiver on spends of Rs 90,000 or more in the previous year"
+    "Annual fee waiver on spends of ₹90,000 or more in the previous year"
   ],
   "additionalBenefits": [],
   "redemption": {
@@ -78,11 +78,11 @@
   "eligibility": {
     "salaried": [
       "Age: 21 to 65 years",
-      "Minimum monthly income of Rs 55,000"
+      "Minimum monthly income of ₹55,000"
     ],
     "selfEmployed": [
       "Age: 21 to 65 years",
-      "Minimum annual income equivalent to Rs 55,000/month or subject to bank criteria"
+      "Minimum annual income equivalent to ₹55,000/month or subject to bank criteria"
     ]
   },
   "imageUrl": "/images/sc-super-value-titanium.webp",
@@ -92,9 +92,9 @@
   "verificationStatus": "official-direct",
   "internalNotes": [
     "Card details manually reviewed and verified by user on 2026-06-14.",
-    "5% cashback on fuel transactions up to Rs 2,000 (monthly cashback cap of Rs 200). Fuel surcharge waiver is not applicable.",
-    "5% cashback on telephone bills via BillPay (minimum transaction of Rs 750, monthly cap of Rs 200).",
-    "5% cashback on utility bills via BillPay (minimum transaction of Rs 750, monthly cap of Rs 100).",
-    "Other retail spends earn 1 reward point per Rs 150 spent. 1 point = Rs 0.25 (effectively 0.17% return value)."
+    "5% cashback on fuel transactions up to ₹2,000 (monthly cashback cap of ₹200). Fuel surcharge waiver is not applicable.",
+    "5% cashback on telephone bills via BillPay (minimum transaction of ₹750, monthly cap of ₹200).",
+    "5% cashback on utility bills via BillPay (minimum transaction of ₹750, monthly cap of ₹100).",
+    "Other retail spends earn 1 reward point per ₹150 spent. 1 point = ₹0.25 (effectively 0.17% return value)."
   ]
 }

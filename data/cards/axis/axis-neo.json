@@ -21,7 +21,7 @@
       "category": "base",
       "displayCategory": "Eligible spends",
       "rate": 0.5,
-      "displayRate": "1 EDGE REWARD Point / Rs 200 spent",
+      "displayRate": "1 EDGE REWARD Point / ₹200 spent",
       "capMonthly": null
     }
   ],
@@ -66,11 +66,11 @@
   ],
   "milestoneBenefits": [],
   "additionalBenefits": [
-    "100% cashback up to Rs 300 on first utility bill payment within 30 days of card issuance",
-    "Flat Rs 120 off on Zomato food delivery twice per month on minimum order value of Rs 499",
-    "5% off on Paytm mobile recharge, broadband, DTH and utility payments, capped at Rs 150 per month",
-    "10% off on Blinkit, capped at Rs 250 per month on minimum spends of Rs 750",
-    "10% off on BookMyShow movie tickets, capped at Rs 100 per month",
+    "100% cashback up to ₹300 on first utility bill payment within 30 days of card issuance",
+    "Flat ₹120 off on Zomato food delivery twice per month on minimum order value of ₹499",
+    "5% off on Paytm mobile recharge, broadband, DTH and utility payments, capped at ₹150 per month",
+    "10% off on Blinkit, capped at ₹250 per month on minimum spends of ₹750",
+    "10% off on BookMyShow movie tickets, capped at ₹100 per month",
     "Dining Delights discounts at participating restaurants"
   ],
   "redemption": {
@@ -248,12 +248,12 @@
   "eligibility": {
     "salaried": [
       "Age: 18 to 70 years",
-      "Minimum Net Monthly Salary: Rs 20,000",
+      "Minimum Net Monthly Salary: ₹20,000",
       "Resident of India"
     ],
     "selfEmployed": [
       "Age: 18 to 70 years",
-      "Minimum Annual Income (ITR): Rs 3,50,000",
+      "Minimum Annual Income (ITR): ₹3,50,000",
       "Resident of India"
     ]
   },

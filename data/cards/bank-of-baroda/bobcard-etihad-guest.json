@@ -28,14 +28,14 @@
       "category": "airlines, partner merchants",
       "displayCategory": "Etihad Airways spends",
       "rate": 3,
-      "displayRate": "3 Etihad Guest Miles / Rs 100 spent",
+      "displayRate": "3 Etihad Guest Miles / ₹100 spent",
       "capMonthly": null
     },
     {
       "category": "base",
       "displayCategory": "Other eligible spends",
       "rate": 1,
-      "displayRate": "1 Etihad Guest Mile / Rs 100 spent",
+      "displayRate": "1 Etihad Guest Mile / ₹100 spent",
       "capMonthly": null
     }
   ],
@@ -97,12 +97,12 @@
     {
       "category": "utilities",
       "treatment": "excluded",
-      "notes": "Utility payments earn no rewards and utility spends of Rs 50,000 or above incur a 1% processing fee (capped at Rs 3,000)."
+      "notes": "Utility payments earn no rewards and utility spends of ₹50,000 or above incur a 1% processing fee (capped at ₹3,000)."
     }
   ],
   "joiningBenefits": [
     "Complimentary Silver Tier membership in the Etihad Guest program.",
-    "Up to 7,500 bonus Etihad Guest Miles: 5,000 miles on spending Rs 25,000 and another 2,500 miles on cumulative spends of Rs 50,000 within the first 60 days of card issuance."
+    "Up to 7,500 bonus Etihad Guest Miles: 5,000 miles on spending ₹25,000 and another 2,500 miles on cumulative spends of ₹50,000 within the first 60 days of card issuance."
   ],
   "joiningBenefitsValued": [
     {
@@ -112,7 +112,7 @@
     }
   ],
   "renewalBenefits": [
-    "Annual fee waived on spends of Rs 3 lakh or more in the preceding anniversary year."
+    "Annual fee waived on spends of ₹3 lakh or more in the preceding anniversary year."
   ],
   "milestoneBenefits": [],
   "milestones": [
@@ -121,25 +121,25 @@
       "period": "monthly",
       "value": 200,
       "kind": "points",
-      "label": "250 bonus miles on completing 4 transactions totaling Rs 25,000 in a month"
+      "label": "250 bonus miles on completing 4 transactions totaling ₹25,000 in a month"
     },
     {
       "threshold": 200000,
       "period": "quarterly",
       "value": 1600,
       "kind": "points",
-      "label": "2,000 bonus miles on quarterly spends of Rs 2,00,000"
+      "label": "2,000 bonus miles on quarterly spends of ₹2,00,000"
     },
     {
       "threshold": 750000,
       "period": "annual",
       "value": 9600,
       "kind": "points",
-      "label": "12,000 bonus miles on annual spends of Rs 7.5 lakh"
+      "label": "12,000 bonus miles on annual spends of ₹7.5 lakh"
     }
   ],
   "additionalBenefits": [
-    "1% fuel surcharge waiver on transactions between Rs 400 and Rs 4,000 across fuel stations in India.",
+    "1% fuel surcharge waiver on transactions between ₹400 and ₹4,000 across fuel stations in India.",
     "Complimentary Silver Tier status offering 25% bonus miles on Etihad flights and extra baggage allowance."
   ],
   "additionalDetails": [
@@ -154,12 +154,12 @@
     "salaried": [
       "Resident Indian",
       "Age between 21 and 60 years",
-      "Annual income of Rs 18 lakh or more"
+      "Annual income of ₹18 lakh or more"
     ],
     "selfEmployed": [
       "Resident Indian",
       "Age between 21 and 60 years",
-      "Annual income of Rs 18 lakh or more"
+      "Annual income of ₹18 lakh or more"
     ]
   },
   "sourceUrl": "https://www.bobcard.co.in/etihad-guest-bobcard",
@@ -171,7 +171,7 @@
   "internalNotes": [
     "Card details manually reviewed and verified by user on 2026-06-17.",
     "Audited against the official BOBCARD Etihad Guest product page and terms on 2026-06-17.",
-    "Etihad Guest Miles are brand-locked in the Etihad ecosystem, so rewardLiquidity is set to brand-locked. Internal ranking values miles at Rs 0.80 (rewardLiquidityFactor 0.8); display keeps the Rs 1.0 ecosystemValue.",
+    "Etihad Guest Miles are brand-locked in the Etihad ecosystem, so rewardLiquidity is set to brand-locked. Internal ranking values miles at ₹0.80 (rewardLiquidityFactor 0.8); display keeps the ₹1.0 ecosystemValue.",
     "Standard monthly, quarterly, and annual spends milestones mapped under structured milestones list.",
     "Lounge access terms and DreamFolks web portal tokenization requirements documented in lounge/internalNotes."
   ]

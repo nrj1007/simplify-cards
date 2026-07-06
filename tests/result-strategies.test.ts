@@ -287,7 +287,7 @@ describe("applyResultStrategy gating (via scoreCards integration)", () => {
       displayNetValue: 50000,
       envelopeScoring: {
         bestMonthlySpend: 25000,
-        bestSpendLabel: "Rs 25k/month",
+        bestSpendLabel: "₹25k/month",
         normalizedFitScore: 100,
         splitOrderScore: 10
       }
@@ -298,7 +298,7 @@ describe("applyResultStrategy gating (via scoreCards integration)", () => {
       displayNetValue: 1000,
       envelopeScoring: {
         bestMonthlySpend: 25000,
-        bestSpendLabel: "Rs 25k/month",
+        bestSpendLabel: "₹25k/month",
         normalizedFitScore: 100,
         splitOrderScore: 1000
       }

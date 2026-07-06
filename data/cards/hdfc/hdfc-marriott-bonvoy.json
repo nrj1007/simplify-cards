@@ -28,7 +28,7 @@
     {
       "category": "marriott, partner merchants",
       "rate": 5.333333333333333,
-      "displayRate": "8 Marriott Bonvoy Points / Rs 150",
+      "displayRate": "8 Marriott Bonvoy Points / ₹150",
       "capMonthly": 3200,
       "postCapRate": 1.33
     },
@@ -36,7 +36,7 @@
       "category": "travel, dining, entertainment",
       "rate": 2.6666666666666665,
       "displayCategory": "travel, dining and entertainment",
-      "displayRate": "4 Marriott Bonvoy Points / Rs 150",
+      "displayRate": "4 Marriott Bonvoy Points / ₹150",
       "capMonthly": 1600,
       "postCapRate": 1.33
     },
@@ -44,7 +44,7 @@
       "category": "base",
       "displayCategory": "others",
       "rate": 1.3333333333333333,
-      "displayRate": "2 Marriott Bonvoy Points / Rs 150",
+      "displayRate": "2 Marriott Bonvoy Points / ₹150",
       "capMonthly": null
     }
   ],
@@ -94,7 +94,7 @@
       "category": "travel",
       "treatment": "capped",
       "capMonthlySpend": 60000,
-      "notes": "Travel, dining and entertainment spends earn 4 Marriott Bonvoy Points per Rs 150 only on the first Rs 60,000 spent in a calendar month; spends beyond that threshold earn the base rate of 2 Marriott Bonvoy Points per Rs 150."
+      "notes": "Travel, dining and entertainment spends earn 4 Marriott Bonvoy Points per ₹150 only on the first ₹60,000 spent in a calendar month; spends beyond that threshold earn the base rate of 2 Marriott Bonvoy Points per ₹150."
     }
   ],
   "milestones": [
@@ -103,33 +103,33 @@
       "period": "annual",
       "value": 9000,
       "kind": "points",
-      "label": "1 Free Night Award redeemable for a one-night stay up to 15,000 Marriott Bonvoy Points on eligible spend of Rs 6 lakh in an anniversary year"
+      "label": "1 Free Night Award redeemable for a one-night stay up to 15,000 Marriott Bonvoy Points on eligible spend of ₹6 lakh in an anniversary year"
     },
     {
       "threshold": 900000,
       "period": "annual",
       "value": 9000,
       "kind": "points",
-      "label": "1 Free Night Award redeemable for a one-night stay up to 15,000 Marriott Bonvoy Points on eligible spend of Rs 9 lakh in an anniversary year"
+      "label": "1 Free Night Award redeemable for a one-night stay up to 15,000 Marriott Bonvoy Points on eligible spend of ₹9 lakh in an anniversary year"
     },
     {
       "threshold": 1500000,
       "period": "annual",
       "value": 9000,
       "kind": "points",
-      "label": "1 Free Night Award redeemable for a one-night stay up to 15,000 Marriott Bonvoy Points on eligible spend of Rs 15 lakh in an anniversary year"
+      "label": "1 Free Night Award redeemable for a one-night stay up to 15,000 Marriott Bonvoy Points on eligible spend of ₹15 lakh in an anniversary year"
     }
   ],
   "milestoneBenefits": [
-    "1 Free Night Award redeemable for a one-night stay up to 15,000 Marriott Bonvoy Points on eligible spend of Rs 6 lakh in an anniversary year",
-    "1 Free Night Award redeemable for a one-night stay up to 15,000 Marriott Bonvoy Points on eligible spend of Rs 9 lakh in an anniversary year",
-    "1 Free Night Award redeemable for a one-night stay up to 15,000 Marriott Bonvoy Points on eligible spend of Rs 15 lakh in an anniversary year"
+    "1 Free Night Award redeemable for a one-night stay up to 15,000 Marriott Bonvoy Points on eligible spend of ₹6 lakh in an anniversary year",
+    "1 Free Night Award redeemable for a one-night stay up to 15,000 Marriott Bonvoy Points on eligible spend of ₹9 lakh in an anniversary year",
+    "1 Free Night Award redeemable for a one-night stay up to 15,000 Marriott Bonvoy Points on eligible spend of ₹15 lakh in an anniversary year"
   ],
   "joiningBenefitsValued": [
     {
       "value": 0,
       "kind": "points",
-      "label": "1 Free Night Award redeemable for a one-night stay up to 15,000 Marriott Bonvoy Points on the first eligible transaction of Rs 500 within 90 days of card open date or on card fee levy, whichever is earlier (counted under renewal — granted every fee cycle)"
+      "label": "1 Free Night Award redeemable for a one-night stay up to 15,000 Marriott Bonvoy Points on the first eligible transaction of ₹500 within 90 days of card open date or on card fee levy, whichever is earlier (counted under renewal — granted every fee cycle)"
     },
     {
       "value": 0,
@@ -143,7 +143,7 @@
     }
   ],
   "joiningBenefits": [
-    "1 Free Night Award redeemable for a one-night stay up to 15,000 Marriott Bonvoy Points on the first eligible transaction of Rs 500 within 90 days of card open date or on card fee levy, whichever is earlier",
+    "1 Free Night Award redeemable for a one-night stay up to 15,000 Marriott Bonvoy Points on the first eligible transaction of ₹500 within 90 days of card open date or on card fee levy, whichever is earlier",
     "10 Elite Night Credits on meeting the welcome benefit condition",
     "Marriott Bonvoy Silver Elite Status"
   ],
@@ -165,16 +165,16 @@
   "internalNotes": [
     "Card details manually reviewed and verified by user on 2026-06-01",
     "Audited against official HDFC Marriott Bonvoy product page, FAQ PDF and card benefit terms PDF on 2026-06-01.",
-    "Annual fee is Rs 3,000 plus taxes with no annual fee waiver currently listed on the official product page.",
-    "Marriott Bonvoy Points are valued at Rs 0.60 each for scoring. Each Free Night Award is redeemable for a stay worth up to 15,000 points, so valued at 15,000 x 0.60 = Rs 9,000. The fee-levy Free Night recurs every anniversary year, so it is modelled as a renewal benefit (counted in full each year), not a one-time joining benefit (which would be amortized over 3 years). The three spend-milestone Free Nights are valued the same.",
+    "Annual fee is ₹3,000 plus taxes with no annual fee waiver currently listed on the official product page.",
+    "Marriott Bonvoy Points are valued at ₹0.60 each for scoring. Each Free Night Award is redeemable for a stay worth up to 15,000 points, so valued at 15,000 x 0.60 = ₹9,000. The fee-levy Free Night recurs every anniversary year, so it is modelled as a renewal benefit (counted in full each year), not a one-time joining benefit (which would be amortized over 3 years). The three spend-milestone Free Nights are valued the same.",
     "The card offers 12 total complimentary lounge accesses per year across domestic and international lounges.",
     "International lounge access is provided via the DCI travel tool app.",
-    "Marriott hotel spends earn 8 Marriott Bonvoy Points per Rs 150 only on the first Rs 60,000 spent in a calendar month; spends beyond that threshold earn 2 Marriott Bonvoy Points per Rs 150.",
-    "Travel, dining and entertainment spends earn 4 Marriott Bonvoy Points per Rs 150 only on the first Rs 60,000 spent in a calendar month; spends beyond that threshold earn 2 Marriott Bonvoy Points per Rs 150.",
+    "Marriott hotel spends earn 8 Marriott Bonvoy Points per ₹150 only on the first ₹60,000 spent in a calendar month; spends beyond that threshold earn 2 Marriott Bonvoy Points per ₹150.",
+    "Travel, dining and entertainment spends earn 4 Marriott Bonvoy Points per ₹150 only on the first ₹60,000 spent in a calendar month; spends beyond that threshold earn 2 Marriott Bonvoy Points per ₹150.",
     "Marriott Bonvoy Points expire after 24 months of inactivity in the Marriott Bonvoy account.",
     "Excluded spends include fuel, online gaming, Smart EMI and Dial an EMI transactions, wallet or prepaid loads and voucher purchases, cash advances, card fees and charges, payment of outstanding balances, government transactions and rental transactions.",
     "Concierge service is available from 9 AM to 9 PM.",
-    "Insurance and protection cover includes delay or loss of checked-in baggage up to USD 250, loss of travel documents up to USD 250, flight delay cover up to USD 250, air accidental cover up to USD 12,500, emergency medical expenses up to USD 18,750, credit shield up to Rs 1,00,000, and loss liability cover up to Rs 9,00,000."
+    "Insurance and protection cover includes delay or loss of checked-in baggage up to USD 250, loss of travel documents up to USD 250, flight delay cover up to USD 250, air accidental cover up to USD 12,500, emergency medical expenses up to USD 18,750, credit shield up to ₹1,00,000, and loss liability cover up to ₹9,00,000."
   ],
   "supportingSourceUrls": [
     "https://www.hdfc.bank.in/credit-cards/marriott-bonvoy-credit-card",
@@ -191,12 +191,12 @@
     "salaried": [
       "Indian national",
       "Age 21 to 60 years",
-      "Net monthly income greater than Rs 1,00,000"
+      "Net monthly income greater than ₹1,00,000"
     ],
     "selfEmployed": [
       "Indian national",
       "Age 21 to 65 years",
-      "Annual ITR greater than Rs 15 lakh"
+      "Annual ITR greater than ₹15 lakh"
     ]
   },
   "sourceUrl": "https://www.hdfc.bank.in/credit-cards/marriott-bonvoy-credit-card",

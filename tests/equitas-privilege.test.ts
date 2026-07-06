@@ -17,7 +17,7 @@ describe("Equitas Privilege Program", () => {
     [60000, "Platinum"],
     [99999, "Platinum"],
     [100000, "Diamond"]
-  ] as const)("maps Rs %i monthly spend to %s", (monthlySpend, expectedTier) => {
+  ] as const)("maps ₹ %i monthly spend to %s", (monthlySpend, expectedTier) => {
     expect(equitasPrivilegeTierForMonthlySpend(monthlySpend)).toBe(expectedTier);
   });
 
@@ -39,6 +39,6 @@ describe("Equitas Privilege Program", () => {
 
   it("lists the benefit categories described by Equitas", () => {
     expect(EQUITAS_PRIVILEGE_BENEFITS).toContain("Higher reward redemption value");
-    expect(EQUITAS_PRIVILEGE_BENEFITS).toContain("Hotel room night worth Rs 3,500");
+    expect(EQUITAS_PRIVILEGE_BENEFITS).toContain("Hotel room night worth ₹3,500");
   });
 });

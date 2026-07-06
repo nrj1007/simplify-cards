@@ -4,7 +4,7 @@ import { SPEND_CATEGORIES, rankResults, toRecommendResult } from "@/lib/recommen
 import type { ResultStrategyName } from "@/lib/result-strategies";
 import type { SpendProfile } from "@/lib/types";
 
-const MAX_MONTHLY_SPEND = 10_000_000; // Rs 1 crore/month clamp to guard against abuse.
+const MAX_MONTHLY_SPEND = 10_000_000; // ₹1 crore/month clamp to guard against abuse.
 
 const RESULT_STRATEGY_NAMES = new Set<ResultStrategyName>(["single-list", "reward-type-split"]);
 

@@ -56,9 +56,9 @@ export default function FinderFilterForm({ issuers, tags, defaultIssuer = "", de
           <label htmlFor="fee">Max annual fee</label>
           <select defaultValue={defaultFee} id="fee" name="fee">
             <option value="">Any fee</option>
-            <option value="0">Rs 0</option>
-            <option value="1000">Rs 1,000</option>
-            <option value="5000">Rs 5,000</option>
+            <option value="0">₹0</option>
+            <option value="1000">₹1,000</option>
+            <option value="5000">₹5,000</option>
           </select>
         </div>
       </div>

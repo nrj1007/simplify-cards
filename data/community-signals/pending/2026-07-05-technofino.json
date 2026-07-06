@@ -1,0 +1,116 @@
+{
+  "generatedAt": "2026-07-05T06:11:26.741Z",
+  "source": "technofino",
+  "feed": "https://technofino.in/community/whats-new/posts/5982841/",
+  "pagesScanned": 3,
+  "windowHours": 24,
+  "windowDays": 1,
+  "createdOnly": true,
+  "cutoffTimestamp": 1783145470,
+  "requiresManualApproval": true,
+  "mayUpdateCardDbAutomatically": false,
+  "threads": [
+    {
+      "page": 1,
+      "title": "Sbi cashback card credited less cashback amount",
+      "url": "https://technofino.in/community/threads/sbi-cashback-card-credited-less-cashback-amount.48691/",
+      "author": "deeppeed",
+      "forum": "Credit Card Bill Payment",
+      "replies": "1",
+      "views": "9",
+      "latestTime": "Jul 5, 2026 at 11:19 AM",
+      "latestTimestamp": 1783230566,
+      "createdTime": "Jul 5, 2026 at 11:16 AM",
+      "createdTimestamp": 1783230417,
+      "isRecentlyCreatedThread": true,
+      "relevance": {
+        "score": 12,
+        "isRelevantCreditCardSignal": true,
+        "matchedKeywords": [
+          "credit\\s*card",
+          "cashback",
+          "sbi"
+        ],
+        "excludedReasons": [],
+        "cardMatches": [
+          {
+            "cardId": "sbi-cashback",
+            "cardName": "Cashback Credit Card",
+            "issuer": "SBI Card",
+            "score": 11
+          }
+        ]
+      }
+    }
+  ],
+  "comments": [
+    {
+      "threadTitle": "Sbi cashback card credited less cashback amount",
+      "threadUrl": "https://technofino.in/community/threads/sbi-cashback-card-credited-less-cashback-amount.48691/",
+      "postUrl": "https://technofino.in/community/threads/sbi-cashback-card-credited-less-cashback-amount.48691/#post-1238920",
+      "postId": "1238920",
+      "author": "m4b",
+      "time": "Jul 5, 2026 at 11:19 AM",
+      "timestamp": 1783230566,
+      "text": "well well, cred doesn't always route you to the payment gateway that's eligible for cashback.",
+      "topicOverlap": {
+        "isRelevant": true,
+        "overlapReason": "shared-topic-terms",
+        "sharedTerms": [
+          "cashback",
+          "cashback"
+        ]
+      }
+    },
+    {
+      "threadTitle": "Sbi cashback card credited less cashback amount",
+      "threadUrl": "https://technofino.in/community/threads/sbi-cashback-card-credited-less-cashback-amount.48691/",
+      "postUrl": "https://technofino.in/community/threads/sbi-cashback-card-credited-less-cashback-amount.48691/#post-1238919",
+      "postId": "1238919",
+      "author": "deeppeed",
+      "time": "Jul 5, 2026 at 11:16 AM",
+      "timestamp": 1783230417,
+      "text": "Hey all\nMy friend and I both had earned 2k last month cashback but today we saw I got 1663rs cashback and my friend got 1389rs cashback. We didn't have any refunds either as both of us only bought gift cards from cred. \nAnyone else faced the same and any idea what to do here?",
+      "topicOverlap": {
+        "isRelevant": true,
+        "overlapReason": "shared-topic-terms",
+        "sharedTerms": [
+          "cashback",
+          "cashback"
+        ]
+      }
+    }
+  ],
+  "reviewQueue": [
+    {
+      "title": "Sbi cashback card credited less cashback amount",
+      "url": "https://technofino.in/community/threads/sbi-cashback-card-credited-less-cashback-amount.48691/",
+      "signalType": "terms-change",
+      "candidateText": "Sbi cashback card credited less cashback amount Credit Card Bill Payment",
+      "discussionDetails": "Possible terms, fee, reward, or charge change. Matched cards: Cashback Credit Card. Signals: credit\\s*card, cashback, sbi. Snippet: Sbi cashback card credited less cashback amount Credit Card Bill Payment",
+      "publishedAt": "2026-07-05",
+      "sourceType": "thread",
+      "createdAt": "2026-07-05",
+      "isRecentlyCreatedThread": true,
+      "relevanceScore": 12,
+      "matchedKeywords": [
+        "credit\\s*card",
+        "cashback",
+        "sbi"
+      ],
+      "candidateCardIds": [
+        "sbi-cashback"
+      ],
+      "candidateCards": [
+        {
+          "cardId": "sbi-cashback",
+          "name": "Cashback Credit Card",
+          "issuer": "SBI Card"
+        }
+      ],
+      "requiresOfficialVerification": true,
+      "approvedForCardDb": false,
+      "approvedForCardContent": false
+    }
+  ]
+}

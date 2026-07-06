@@ -79,7 +79,7 @@
     {
       "value": 500,
       "kind": "points",
-      "label": "5,000 Reward Points (worth Rs 500) upon payment of joining fee"
+      "label": "5,000 Reward Points (worth ₹500) upon payment of joining fee"
     }
   ],
   "renewalBenefitsValued": [],
@@ -108,13 +108,13 @@
       {
         "partner": "Brand e-Vouchers",
         "programme": "Shopping & gift vouchers via Kotak Rewards",
-        "ratio": "1 point = Rs 0.10",
+        "ratio": "1 point = ₹0.10",
         "valuePerPoint": 0.1
       },
       {
         "partner": "Travel bookings",
         "programme": "Flight & hotel bookings via Kotak Rewards",
-        "ratio": "1 point = Rs 0.10",
+        "ratio": "1 point = ₹0.10",
         "valuePerPoint": 0.1
       }
     ]
@@ -123,12 +123,12 @@
   "eligibility": {
     "salaried": [
       "Age: 21 to 60 years",
-      "Minimum Annual Income: Rs 5,00,000",
+      "Minimum Annual Income: ₹5,00,000",
       "Resident of India"
     ],
     "selfEmployed": [
       "Age: 21 to 60 years",
-      "Minimum Annual Income: Rs 5,00,000",
+      "Minimum Annual Income: ₹5,00,000",
       "Resident of India"
     ]
   },
@@ -140,6 +140,6 @@
   "imageUrl": "/images/kotak-league-platinum.webp",
   "internalNotes": [
     "Card details manually reviewed and verified by user on 2026-06-15.",
-    "Redemption rate for vouchers and merchandise is 1 point = Rs 0.10. Cash statement credit rate is 1 point = Rs 0.07."
+    "Redemption rate for vouchers and merchandise is 1 point = ₹0.10. Cash statement credit rate is 1 point = ₹0.07."
   ]
 }

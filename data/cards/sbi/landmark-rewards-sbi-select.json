@@ -24,21 +24,21 @@
       "category": "partner merchants",
       "displayCategory": "Landmark Stores (Lifestyle, Max, Home Centre, Spar, Babyshop, EasyBuy)",
       "rate": 15,
-      "displayRate": "15 Reward Points / Rs 100 spent",
+      "displayRate": "15 Reward Points / ₹100 spent",
       "capMonthly": null
     },
     {
       "category": "dining, international",
       "displayCategory": "Dining, movie, and international spends",
       "rate": 10,
-      "displayRate": "10 Reward Points / Rs 100 spent",
+      "displayRate": "10 Reward Points / ₹100 spent",
       "capMonthly": null
     },
     {
       "category": "base",
       "displayCategory": "Other eligible retail purchases",
       "rate": 2,
-      "displayRate": "2 Reward Points / Rs 100 spent",
+      "displayRate": "2 Reward Points / ₹100 spent",
       "capMonthly": null
     }
   ],
@@ -76,11 +76,11 @@
     {
       "value": 1500,
       "kind": "points",
-      "label": "6,000 welcome bonus Reward Points worth Rs 1,500"
+      "label": "6,000 welcome bonus Reward Points worth ₹1,500"
     }
   ],
   "joiningBenefits": [
-    "6,000 welcome bonus Reward Points (worth Rs 1,500) upon payment of joining fee"
+    "6,000 welcome bonus Reward Points (worth ₹1,500) upon payment of joining fee"
   ],
   "renewalBenefitsValued": [],
   "renewalBenefits": [],
@@ -90,14 +90,14 @@
       "period": "annual",
       "value": 3000,
       "kind": "points",
-      "label": "12,000 bonus Reward Points (worth Rs 3,000) on overall annual retail spends of Rs 3 lakh"
+      "label": "12,000 bonus Reward Points (worth ₹3,000) on overall annual retail spends of ₹3 lakh"
     }
   ],
   "milestoneBenefits": [
-    "12,000 bonus Reward Points (worth Rs 3,000) on overall annual retail spends of Rs 3 lakh"
+    "12,000 bonus Reward Points (worth ₹3,000) on overall annual retail spends of ₹3 lakh"
   ],
   "additionalBenefits": [
-    "1% fuel surcharge waiver on transactions between Rs 500 and Rs 3,000, capped at Rs 100 per statement cycle"
+    "1% fuel surcharge waiver on transactions between ₹500 and ₹3,000, capped at ₹100 per statement cycle"
   ],
   "redemption": {
     "statementBalanceValue": 0.25,

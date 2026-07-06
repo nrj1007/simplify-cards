@@ -22,7 +22,7 @@
       "category": "smartbuy hotels",
       "displayCategory": "Hotels via iShop",
       "rate": 36,
-      "displayRate": "72 Reward Points / Rs 200 spent (12X)",
+      "displayRate": "72 Reward Points / ₹200 spent (12X)",
       "capMonthly": 18000,
       "capDaily": 10000
     },
@@ -30,7 +30,7 @@
       "category": "smartbuy flights",
       "displayCategory": "Flights via iShop",
       "rate": 18,
-      "displayRate": "36 Reward Points / Rs 200 spent (6X)",
+      "displayRate": "36 Reward Points / ₹200 spent (6X)",
       "capMonthly": 18000,
       "capDaily": 10000
     },
@@ -38,35 +38,35 @@
       "category": "utilities",
       "displayCategory": "Utility spends",
       "rate": 3,
-      "displayRate": "6 Reward Points / Rs 200 spent",
+      "displayRate": "6 Reward Points / ₹200 spent",
       "capMonthly": 1000
     },
     {
       "category": "grocery",
       "displayCategory": "Grocery spends",
       "rate": 3,
-      "displayRate": "6 Reward Points / Rs 200 spent",
+      "displayRate": "6 Reward Points / ₹200 spent",
       "capMonthly": 1000
     },
     {
       "category": "education",
       "displayCategory": "Education spends",
       "rate": 3,
-      "displayRate": "6 Reward Points / Rs 200 spent",
+      "displayRate": "6 Reward Points / ₹200 spent",
       "capMonthly": 1000
     },
     {
       "category": "insurance",
       "displayCategory": "Insurance spends",
       "rate": 3,
-      "displayRate": "6 Reward Points / Rs 200 spent",
+      "displayRate": "6 Reward Points / ₹200 spent",
       "capMonthly": 5000
     },
     {
       "category": "retail",
       "displayCategory": "Other spends",
       "rate": 3,
-      "displayRate": "6 Reward Points / Rs 200 spent",
+      "displayRate": "6 Reward Points / ₹200 spent",
       "capMonthly": null
     }
   ],
@@ -138,12 +138,12 @@
     }
   ],
   "joiningBenefits": [
-    "12,500 ICICI Bank Reward Points (worth Rs 12,500) on payment of joining fee",
-    "Complimentary one-year Taj Epicure Plus membership including one-night stay voucher (worth Rs 12,000) on card activation",
-    "Complimentary one-year EazyDiner Prime membership (worth Rs 2,995) on card activation"
+    "12,500 ICICI Bank Reward Points (worth ₹12,500) on payment of joining fee",
+    "Complimentary one-year Taj Epicure Plus membership including one-night stay voucher (worth ₹12,000) on card activation",
+    "Complimentary one-year EazyDiner Prime membership (worth ₹2,995) on card activation"
   ],
   "renewalBenefits": [
-    "12,500 ICICI Bank Reward Points (worth Rs 12,500) on payment of annual fee",
+    "12,500 ICICI Bank Reward Points (worth ₹12,500) on payment of annual fee",
     "Complimentary annual renewal of Taj Epicure and EazyDiner Prime memberships"
   ],
   "milestones": [
@@ -152,25 +152,25 @@
       "period": "annual",
       "value": 1500,
       "kind": "voucher",
-      "label": "EaseMyTrip air travel voucher worth Rs 3,000 on reaching Rs 4 lakh annual spend"
+      "label": "EaseMyTrip air travel voucher worth ₹3,000 on reaching ₹4 lakh annual spend"
     },
     {
       "threshold": 800000,
       "period": "annual",
       "value": 1500,
       "kind": "voucher",
-      "label": "Additional EaseMyTrip air travel voucher worth Rs 3,000 on reaching Rs 8 lakh annual spend"
+      "label": "Additional EaseMyTrip air travel voucher worth ₹3,000 on reaching ₹8 lakh annual spend"
     }
   ],
   "milestoneBenefits": [
-    "EaseMyTrip air travel voucher worth Rs 3,000 on reaching Rs 4 lakh annual spend",
-    "Additional EaseMyTrip air travel voucher worth Rs 3,000 on reaching Rs 8 lakh annual spend"
+    "EaseMyTrip air travel voucher worth ₹3,000 on reaching ₹4 lakh annual spend",
+    "Additional EaseMyTrip air travel voucher worth ₹3,000 on reaching ₹8 lakh annual spend"
   ],
   "additionalBenefits": [
     "Unlimited complimentary golf rounds and lessons every month at premier courses",
     "Complimentary Priority Pass membership for both the primary and Plus cardholder",
-    "Buy-One-Get-One (BOGO) movie, show or event tickets worth up to Rs 750 via BookMyShow, up to twice a month",
-    "Fuel surcharge waiver of 1% on transactions up to Rs 4,000"
+    "Buy-One-Get-One (BOGO) movie, show or event tickets worth up to ₹750 via BookMyShow, up to twice a month",
+    "Fuel surcharge waiver of 1% on transactions up to ₹4,000"
   ],
   "additionalDetails": [],
   "redemption": {
@@ -211,14 +211,14 @@
   "internalNotes": [
     "Card details manually reviewed and verified by user on 2026-06-06",
     "Official audit completed on 2026-06-06 using ICICI Bank product page, reward terms, and Truztee golf booking rules.",
-    "Base reward rate is 6 points per Rs 200 spend (3% return value on travel booking, 1.2% return value on statement credit).",
+    "Base reward rate is 6 points per ₹200 spend (3% return value on travel booking, 1.2% return value on statement credit).",
     "iShop accelerated rewards (12X on hotels, 6X on flights) are capped at 18,000 points per month and 10,000 points per day.",
     "Utility, grocery, and education spends earn base rewards but are subject to separate, individual monthly caps of 1,000 points per category.",
     "Unlimited domestic and international lounge access applies to both primary and add-on cardholders, with no spend-based criteria.",
     "Comp Priority Pass is provided to primary and Plus cardholders; guest visits are charged at USD 27 plus GST.",
     "Unlimited complimentary golf rounds and lessons can be booked via Truztee platform; cancellations require 24 hours notice.",
     "Exclusions include fuel, rent, government services, tax payments, and e-wallet loading.",
-    "BookMyShow BOGO offers up to Rs 750 off on a minimum of 2 tickets, twice a calendar month.",
-    "Air Accident Insurance cover is up to Rs 3 crore for primary cardholder, subject to card usage terms."
+    "BookMyShow BOGO offers up to ₹750 off on a minimum of 2 tickets, twice a calendar month.",
+    "Air Accident Insurance cover is up to ₹3 crore for primary cardholder, subject to card usage terms."
   ]
 }

@@ -57,9 +57,9 @@ export function formatRupeesCompact(value: number) {
   if (value >= 100000) {
     const lakh = value / 100000;
     const formatted = Number.isInteger(lakh) ? `${lakh}` : lakh.toFixed(1);
-    return `Rs ${formatted} lakh`;
+    return `₹ ${formatted} lakh`;
   }
-  return `Rs ${value.toLocaleString("en-IN")}`;
+  return `₹ ${value.toLocaleString("en-IN")}`;
 }
 
 function isCashbackCard(card: CreditCard) {
@@ -201,7 +201,7 @@ export function deriveBestFor(card: CreditCard): DecisionCard[] {
       out.push({
         icon: "✦",
         title: `Best for ${prettyTitle(top.displayCategory ?? top.category)}`,
-        desc: top.displayRate ?? `${top.rate} ${card.rewardType} per Rs 100 spent.`
+        desc: top.displayRate ?? `${top.rate} ${card.rewardType} per ₹100 spent.`
       });
     }
   }

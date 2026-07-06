@@ -19,14 +19,14 @@
       "category": "travel",
       "displayCategory": "Travel purchases",
       "rate": 5,
-      "displayRate": "5 Reward Points / Rs 100 spent",
+      "displayRate": "5 Reward Points / ₹100 spent",
       "capMonthly": null
     },
     {
       "category": "base",
       "displayCategory": "Domestic retail spends",
       "rate": 2,
-      "displayRate": "2 Reward Points / Rs 100 spent",
+      "displayRate": "2 Reward Points / ₹100 spent",
       "capMonthly": null
     }
   ],
@@ -95,7 +95,7 @@
   "additionalDetails": [
     "Redemption fee of ₹99 + GST applies per redemption request via the RBL Rewards portal.",
     "Reward points cannot be redeemed as statement credit against the card bill.",
-    "No direct airline miles transfer — points are redeemed for travel bookings and vouchers through the RBL Rewards portal (rblrewards.rbl.bank.in) at Rs 0.25 per point.",
+    "No direct airline miles transfer — points are redeemed for travel bookings and vouchers through the RBL Rewards portal (rblrewards.rbl.bank.in) at ₹0.25 per point.",
     "Fuel surcharge waiver of 1% at all fuel stations for transactions between ₹500 and ₹4,000 (Max waiver ₹250/month).",
     "International transactions do not earn reward points (zero forex markup still applies)."
   ],
@@ -106,31 +106,31 @@
       {
         "partner": "MakeMyTrip",
         "programme": "Travel bookings",
-        "ratio": "1 point = Rs 0.25",
+        "ratio": "1 point = ₹0.25",
         "valuePerPoint": 0.25
       },
       {
         "partner": "Taj Experiences",
         "programme": "Hotel voucher (milestone reward)",
-        "ratio": "1 point = Rs 0.25",
+        "ratio": "1 point = ₹0.25",
         "valuePerPoint": 0.25
       },
       {
         "partner": "Amazon",
         "programme": "Amazon Pay / Gift voucher (milestone reward)",
-        "ratio": "1 point = Rs 0.25",
+        "ratio": "1 point = ₹0.25",
         "valuePerPoint": 0.25
       },
       {
         "partner": "Croma",
         "programme": "Gift voucher (milestone reward)",
-        "ratio": "1 point = Rs 0.25",
+        "ratio": "1 point = ₹0.25",
         "valuePerPoint": 0.25
       },
       {
         "partner": "Myntra",
         "programme": "Gift voucher (milestone reward)",
-        "ratio": "1 point = Rs 0.25",
+        "ratio": "1 point = ₹0.25",
         "valuePerPoint": 0.25
       }
     ]
@@ -151,8 +151,8 @@
     "Card details manually reviewed and verified by user on 2026-06-15.",
     "International transactions do not earn reward points (zero forex markup still applies).",
     "Spend-based extra lounge visit can be accessed through a voucher issued by Lounge Key. Subsequent Priority Pass visits are charged at $35.",
-    "Reward points cannot be redeemed as statement credit. Redemption fee of Rs 99 + GST applies per request via the RBL Rewards portal (rblrewards.rbl.bank.in).",
-    "No direct airline miles transfer programme — points redeemed for travel bookings and vouchers at Rs 0.25 per point."
+    "Reward points cannot be redeemed as statement credit. Redemption fee of ₹99 + GST applies per request via the RBL Rewards portal (rblrewards.rbl.bank.in).",
+    "No direct airline miles transfer programme — points redeemed for travel bookings and vouchers at ₹0.25 per point."
   ],
   "lastVerified": "2026-06-15",
   "verificationStatus": "official-direct",

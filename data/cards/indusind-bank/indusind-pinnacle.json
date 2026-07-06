@@ -21,28 +21,28 @@
       "category": "online",
       "displayCategory": "E-commerce transactions",
       "rate": 1.875,
-      "displayRate": "2.5 reward points per Rs 100",
+      "displayRate": "2.5 reward points per ₹100",
       "capMonthly": null
     },
     {
       "category": "travel",
       "displayCategory": "E-com travel and airline transactions",
       "rate": 1.125,
-      "displayRate": "1.5 reward points per Rs 100",
+      "displayRate": "1.5 reward points per ₹100",
       "capMonthly": null
     },
     {
       "category": "utilities, insurance, government, education, real estate, rent",
       "displayCategory": "Utility, insurance, government, education, real estate, and rent spends",
       "rate": 0.525,
-      "displayRate": "0.7 reward points per Rs 100",
+      "displayRate": "0.7 reward points per ₹100",
       "capMonthly": null
     },
     {
       "category": "base",
       "displayCategory": "base",
       "rate": 0.75,
-      "displayRate": "1 reward point per Rs 100",
+      "displayRate": "1 reward point per ₹100",
       "capMonthly": null
     }
   ],
@@ -51,7 +51,7 @@
   "loungeInternational": 4,
   "lounge": {
     "domestic": [
-      "Effective April 1, 2026, spends criteria tracking of Rs 1.5 Lakh per quarter is initiated to unlock domestic lounge access from July 2026 quarter onwards."
+      "Effective April 1, 2026, spends criteria tracking of ₹1.5 Lakh per quarter is initiated to unlock domestic lounge access from July 2026 quarter onwards."
     ],
     "international": [
       "Effective March 13, 2025, Priority Pass lounge benefit is revised to 1 complimentary international visit per quarter."
@@ -101,14 +101,14 @@
   ],
   "joiningBenefits": [
     "Choice of Montblanc luxury merchandise (watches, writing instruments, leather goods, or eyewear)",
-    "Complimentary luxury stays at The Postcard Hotel (worth Rs 12,000)",
+    "Complimentary luxury stays at The Postcard Hotel (worth ₹12,000)",
     "Choice of brand and e-commerce vouchers via Vouchagram or Vouchagram Premium (including Amazon, Flipkart, Myntra, Swiggy, Zomato, Uber, Ola, Bata, Titan, Vero Moda, and ALDO)",
-    "Note: Welcome gifts are subject to change and only applicable upon payment of the joining fee at eligible fee points (standard joining fee of Rs 15,000)"
+    "Note: Welcome gifts are subject to change and only applicable upon payment of the joining fee at eligible fee points (standard joining fee of ₹15,000)"
   ],
   "milestoneBenefits": [],
   "additionalBenefits": [
     "1 complimentary golf game and 1 complimentary lesson per month",
-    "Complimentary Hole-in-One insurance worth Rs 20,000",
+    "Complimentary Hole-in-One insurance worth ₹20,000",
     "Complimentary Auto Assist roadside emergency services (breakdown assistance, key replacement, flat tire, emergency fuel)",
     "1% fuel surcharge waiver at all fuel stations in India",
     "Travel insurance cover including lost/delayed baggage, passport loss, lost ticket, and missed connection"
@@ -141,7 +141,7 @@
     "Card details manually reviewed and verified by user on 2026-05-30",
     "Effective March 13, 2025, Priority Pass lounge benefit is revised to 1 complimentary international visit per quarter.",
     "Effective March 13, 2025, golf benefit is revised to 1 complimentary game and 1 complimentary lesson per month.",
-    "Effective April 1, 2026, spends criteria tracking of Rs 1.5 Lakh per quarter is initiated to unlock domestic lounge access from July 2026 quarter onwards.",
+    "Effective April 1, 2026, spends criteria tracking of ₹1.5 Lakh per quarter is initiated to unlock domestic lounge access from July 2026 quarter onwards.",
     "Reward points on rent transactions capped at 500 per statement cycle.",
     "Redemption towards Club Vistara discontinued effective Oct 31, 2024. Redemption towards InterMiles discontinued effective Jan 21, 2025."
   ],

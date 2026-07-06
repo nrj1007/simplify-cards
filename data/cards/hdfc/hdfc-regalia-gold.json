@@ -29,7 +29,7 @@
     {
       "category": "smartbuy hotels",
       "rate": 25,
-      "displayRate": "Up to 10X Reward Points (50 RP / Rs 200 spent via SmartBuy)",
+      "displayRate": "Up to 10X Reward Points (50 RP / ₹200 spent via SmartBuy)",
       "capMonthly": 4000,
       "capDaily": 2000,
       "capGroup": "smartbuy"
@@ -38,7 +38,7 @@
       "category": "smartbuy flights, smartbuy gyftr",
       "displayCategory": "smartbuy flights/gyftr",
       "rate": 12.5,
-      "displayRate": "Up to 5X Reward Points (25 RP / Rs 200 spent on flights & instant vouchers via SmartBuy)",
+      "displayRate": "Up to 5X Reward Points (25 RP / ₹200 spent on flights & instant vouchers via SmartBuy)",
       "capMonthly": 4000,
       "capDaily": 2000,
       "capGroup": "smartbuy"
@@ -46,7 +46,7 @@
     {
       "category": "smartbuy train",
       "rate": 7.5,
-      "displayRate": "3X Reward Points (15 RP / Rs 200 spent via SmartBuy)",
+      "displayRate": "3X Reward Points (15 RP / ₹200 spent via SmartBuy)",
       "capMonthly": 4000,
       "capDaily": 2000,
       "capGroup": "smartbuy"
@@ -54,14 +54,14 @@
     {
       "category": "select lifestyle brands",
       "rate": 12.5,
-      "displayRate": "25 Reward Points / Rs 200 (5X Reward Points)",
+      "displayRate": "25 Reward Points / ₹200 (5X Reward Points)",
       "capMonthly": 5000
     },
     {
       "category": "base",
       "displayCategory": "others",
       "rate": 2.5,
-      "displayRate": "5 Reward Points / Rs 200",
+      "displayRate": "5 Reward Points / ₹200",
       "capMonthly": 50000
     }
   ],
@@ -70,7 +70,7 @@
   "lounge": {
     "domestic": [
       "12 complimentary visits per year (max 3 per quarter).",
-      "From 1 July 2026 access is spend-gated: requires Rs 60,000 of spend in the preceding calendar quarter to unlock the next quarter."
+      "From 1 July 2026 access is spend-gated: requires ₹60,000 of spend in the preceding calendar quarter to unlock the next quarter."
     ],
     "international": [
       "Complimentary Priority Pass membership on request after 4 retail transactions.",
@@ -134,41 +134,41 @@
       "period": "annual",
       "value": 2500,
       "kind": "voucher",
-      "label": "Rs 5,000 worth flight vouchers on spends of Rs 5 lakh"
+      "label": "₹5,000 worth flight vouchers on spends of ₹5 lakh"
     },
     {
       "threshold": 750000,
       "period": "annual",
       "value": 2500,
       "kind": "voucher",
-      "label": "Rs 5,000 worth flight vouchers on spends of Rs 7.5 lakh"
+      "label": "₹5,000 worth flight vouchers on spends of ₹7.5 lakh"
     },
     {
       "threshold": 150000,
       "period": "quarterly",
       "value": 750,
       "kind": "voucher",
-      "label": "Rs 1,500 worth Myntra or Nykaa vouchers on quarterly spends of Rs 1.5 lakh"
+      "label": "₹1,500 worth Myntra or Nykaa vouchers on quarterly spends of ₹1.5 lakh"
     }
   ],
   "milestoneBenefits": [
-    "Rs 5,000 worth flight vouchers on spends of Rs 5 lakh",
-    "Rs 5,000 worth flight vouchers on spends of Rs 7.5 lakh",
-    "Rs 1,500 worth Myntra or Nykaa vouchers on quarterly spends of Rs 1.5 lakh",
-    "Renewal fee waived on annual spends of Rs 4 lakh"
+    "₹5,000 worth flight vouchers on spends of ₹5 lakh",
+    "₹5,000 worth flight vouchers on spends of ₹7.5 lakh",
+    "₹1,500 worth Myntra or Nykaa vouchers on quarterly spends of ₹1.5 lakh",
+    "Renewal fee waived on annual spends of ₹4 lakh"
   ],
   "joiningBenefitsValued": [
     {
       "value": 0,
       "kind": "other",
-      "label": "Complimentary Swiggy One and MMTBLACK Gold membership as welcome benefits on spends of Rs 1 lakh in first 90 days"
+      "label": "Complimentary Swiggy One and MMTBLACK Gold membership as welcome benefits on spends of ₹1 lakh in first 90 days"
     }
   ],
   "joiningBenefits": [
-    "Complimentary Swiggy One and MMTBLACK Gold membership as welcome benefits on spends of Rs 1 lakh in first 90 days"
+    "Complimentary Swiggy One and MMTBLACK Gold membership as welcome benefits on spends of ₹1 lakh in first 90 days"
   ],
   "additionalBenefits": [
-    "Boarding Edge Programme: Upload boarding pass on SmartBuy to choose 2 complimentary perks per quarter (spa session, buffet, room upgrade, or Rs 750 Uber voucher)",
+    "Boarding Edge Programme: Upload boarding pass on SmartBuy to choose 2 complimentary perks per quarter (spa session, buffet, room upgrade, or ₹750 Uber voucher)",
     "Dining privileges via Swiggy Dineout with up to 25% savings",
     "SmartEMI conversion after purchase"
   ],
@@ -191,14 +191,14 @@
         "partnerPointValue": 2,
         "transferRatio": 0.5,
         "basis": "fixed",
-        "note": "2 reward points → 1 Accor ALL point · Rs 2/point"
+        "note": "2 reward points → 1 Accor ALL point · ₹2/point"
       },
       {
         "partner": "Marriott Bonvoy",
         "partnerPointValue": 0.6,
         "transferRatio": 0.333,
         "basis": "dynamic",
-        "note": "3 reward points → 1 Marriott point · avg Rs 0.6/point"
+        "note": "3 reward points → 1 Marriott point · avg ₹0.6/point"
       }
     ],
     "airlinePartners": [
@@ -284,13 +284,13 @@
     "salaried": [
       "Indian national",
       "Age 21 to 60 years",
-      "Net monthly income greater than Rs 1 lakh for government employees",
-      "Net monthly income greater than Rs 1.5 lakh for non-government employees"
+      "Net monthly income greater than ₹1 lakh for government employees",
+      "Net monthly income greater than ₹1.5 lakh for non-government employees"
     ],
     "selfEmployed": [
       "Indian national",
       "Age 21 to 65 years",
-      "ITR greater than Rs 18 lakh per annum"
+      "ITR greater than ₹18 lakh per annum"
     ]
   },
   "sourceUrl": "https://www.hdfc.bank.in/credit-cards/regalia-gold-credit-card",
@@ -301,21 +301,21 @@
   "imageUrl": "/images/hdfc-regalia-gold.png",
   "internalNotes": [
     "Card details manually reviewed and verified by user on 2026-05-30",
-    "Joining/Renewal fee is Rs 2,500 + taxes, with renewal fee waived on Rs 4 Lakh spends in 12 months.",
+    "Joining/Renewal fee is ₹2,500 + taxes, with renewal fee waived on ₹4 Lakh spends in 12 months.",
     "Reward Points earning is capped at 50,000 per statement cycle.",
-    "Base rewards rate is 5 Reward Points for every Rs 200 spent on retail spends (effective 15 May 2026). Prior to this, it was 4 Reward Points / Rs 150.",
-    "5X Reward Points (25 RP / Rs 200) on Myntra, Nykaa, Marks & Spencer, and Reliance Digital, capped at 5,000 Reward Points per month across these brands combined.",
+    "Base rewards rate is 5 Reward Points for every ₹200 spent on retail spends (effective 15 May 2026). Prior to this, it was 4 Reward Points / ₹150.",
+    "5X Reward Points (25 RP / ₹200) on Myntra, Nykaa, Marks & Spencer, and Reliance Digital, capped at 5,000 Reward Points per month across these brands combined.",
     "SmartBuy reward caps: 2,000 bonus Reward Points per day and 4,000 bonus Reward Points per month.",
-    "SmartBuy multipliers: 10X (50 RP / Rs 200) on hotels, PharmEasy, Jockey, and IGP; 5X (25 RP / Rs 200) on flights and Gyftr instant vouchers; 3X (15 RP / Rs 200) on trains via ConfirmTkt.",
+    "SmartBuy multipliers: 10X (50 RP / ₹200) on hotels, PharmEasy, Jockey, and IGP; 5X (25 RP / ₹200) on flights and Gyftr instant vouchers; 3X (15 RP / ₹200) on trains via ConfirmTkt.",
     "Reward Points on grocery transactions are capped at 2,00,000 total cycle cap, but specifically capped at 2,000 Reward Points per calendar month for grocery spends.",
     "Reward Points on utility and telecom transactions are capped at 2,00,000 total cycle cap, but specifically capped at 2,000 Reward Points per calendar month for utility and telecom categories individually.",
     "Reward Points on insurance transactions have a maximum cap of 2,000 Reward Points per calendar month (effective 1 July 2025).",
     "No reward points are earned on online skill-based gaming transactions and wallet loading (excluding PayZapp) (effective 1 July 2025).",
     "No reward points are earned on education payments made through third-party apps like CRED, Cheq, MobiKwik, etc. (effective 1 September 2024); direct school/college website or POS transactions do earn rewards.",
     "A 1.75% markup fee (effective 15 May 2026) is charged on all transactions carried out in Indian Currency at international locations or with merchants registered overseas (DCC / Overseas Markup).",
-    "Complimentary domestic lounge access (12 visits per year, 3 per quarter) is spend-based starting 1 July 2026: Requires spending Rs 60,000 in the preceding calendar quarter to unlock access for the next quarter.",
+    "Complimentary domestic lounge access (12 visits per year, 3 per quarter) is spend-based starting 1 July 2026: Requires spending ₹60,000 in the preceding calendar quarter to unlock access for the next quarter.",
     "Complimentary Priority Pass membership is available on request after completing 4 retail transactions on the card. Offers 6 complimentary international lounge visits per calendar year outside India (for primary and add-on cardholders). Visits exceeding the complimentary limit will be charged at US $27 + GST per visit.",
-    "Boarding Edge Programme (new as of May 2026): Upload boarding pass on SmartBuy to choose 2 complimentary perks per quarter (spa session, buffet, room upgrade, or Rs 750 Uber voucher).",
-    "Redemption: 1 Reward Point = Rs 0.50 for flights/hotels via SmartBuy or Air Miles transfer, and 1 Reward Point = Rs 0.20 for statement cashback."
+    "Boarding Edge Programme (new as of May 2026): Upload boarding pass on SmartBuy to choose 2 complimentary perks per quarter (spa session, buffet, room upgrade, or ₹750 Uber voucher).",
+    "Redemption: 1 Reward Point = ₹0.50 for flights/hotels via SmartBuy or Air Miles transfer, and 1 Reward Point = ₹0.20 for statement cashback."
   ]
 }

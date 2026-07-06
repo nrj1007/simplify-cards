@@ -21,41 +21,41 @@
       "category": "utilities, insurance, government, education, real estate, rent",
       "displayCategory": "Utility, insurance, government, education, real estate, and rent spends",
       "rate": 1,
-      "displayRate": "1 point per Rs 100",
+      "displayRate": "1 point per ₹100",
       "capMonthly": null
     },
     {
       "category": "base",
-      "displayCategory": "Base spends (up to Rs 1L)",
+      "displayCategory": "Base spends (up to ₹1L)",
       "rate": 1,
-      "displayRate": "1 point per Rs 100",
+      "displayRate": "1 point per ₹100",
       "capMonthly": null,
       "tierLowerBound": 0,
       "tierUpperBound": 8333
     },
     {
       "category": "base",
-      "displayCategory": "Base spends (Rs 1.01L - 2.5L)",
+      "displayCategory": "Base spends (₹1.01L - 2.5L)",
       "rate": 2,
-      "displayRate": "2 points per Rs 100",
+      "displayRate": "2 points per ₹100",
       "capMonthly": null,
       "tierLowerBound": 8333,
       "tierUpperBound": 20833
     },
     {
       "category": "base",
-      "displayCategory": "Base spends (Rs 2.51L - 5L)",
+      "displayCategory": "Base spends (₹2.51L - 5L)",
       "rate": 4,
-      "displayRate": "4 points per Rs 100",
+      "displayRate": "4 points per ₹100",
       "capMonthly": null,
       "tierLowerBound": 20833,
       "tierUpperBound": 41667
     },
     {
       "category": "base",
-      "displayCategory": "Base spends (above Rs 5L)",
+      "displayCategory": "Base spends (above ₹5L)",
       "rate": 6,
-      "displayRate": "6 points per Rs 100",
+      "displayRate": "6 points per ₹100",
       "capMonthly": null,
       "tierLowerBound": 41667,
       "tierUpperBound": null
@@ -91,7 +91,7 @@
   "milestoneBenefits": [],
   "additionalBenefits": [
     "1 complimentary golf game or lesson per quarter",
-    "1 complimentary movie ticket up to Rs 500 every 6 months on BookMyShow",
+    "1 complimentary movie ticket up to ₹500 every 6 months on BookMyShow",
     "Auto Assist roadside emergency services (breakdown, key replacement, flat tire)"
   ],
   "additionalDetails": [

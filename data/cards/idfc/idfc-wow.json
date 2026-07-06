@@ -67,11 +67,11 @@
   "eligibility": {
     "salaried": [
       "Age: 18 to 75 years",
-      "Minimum Fixed Deposit of Rs 20,000"
+      "Minimum Fixed Deposit of ₹20,000"
     ],
     "selfEmployed": [
       "Age: 18 to 75 years",
-      "Minimum Fixed Deposit of Rs 20,000"
+      "Minimum Fixed Deposit of ₹20,000"
     ]
   },
   "imageUrl": "/images/idfc-wow.png",
@@ -81,8 +81,8 @@
   "verificationStatus": "official-direct",
   "internalNotes": [
     "Card details manually reviewed and verified by user on 2026-06-14.",
-    "Secured credit card issued against a Fixed Deposit (minimum Rs 20,000).",
-    "4 Reward Points per Rs 200 spent (value: 0.5% return), 1 Reward Point per Rs 200 spent on utility/insurance/FASTag/railways (value: 0.125% return).",
+    "Secured credit card issued against a Fixed Deposit (minimum ₹20,000).",
+    "4 Reward Points per ₹200 spent (value: 0.5% return), 1 Reward Point per ₹200 spent on utility/insurance/FASTag/railways (value: 0.125% return).",
     "Reward points are valid for 24 months."
   ],
   "popularityScore": 84

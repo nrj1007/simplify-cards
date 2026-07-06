@@ -24,7 +24,7 @@
       "category": "base",
       "displayCategory": "Eligible retail spends",
       "rate": 2,
-      "displayRate": "4 EDGE REWARD Points / Rs 200 spent",
+      "displayRate": "4 EDGE REWARD Points / ₹200 spent",
       "capMonthly": null
     }
   ],
@@ -65,15 +65,15 @@
     "emi"
   ],
   "milestoneBenefits": [
-    "1,000 EDGE REWARD Points on annual spends of Rs 1.5 lakh for eligible customers onboarded from 1 April 2025",
-    "SonyLIV Premium membership renewal on spending Rs 1.5 lakh in a card anniversary year for eligible paid-card customers onboarded before 31 March 2025"
+    "1,000 EDGE REWARD Points on annual spends of ₹1.5 lakh for eligible customers onboarded from 1 April 2025",
+    "SonyLIV Premium membership renewal on spending ₹1.5 lakh in a card anniversary year for eligible paid-card customers onboarded before 31 March 2025"
   ],
   "additionalBenefits": [
-    "SonyLIV Premium annual subscription worth Rs 1,499 on first purchase within 30 days of issuance",
-    "Buy one get one movie ticket on District app, capped at Rs 200 per month",
-    "Flat Rs 120 off on Swiggy food delivery twice per month on minimum order value of Rs 500",
-    "AJIO discount offers including up to Rs 1,000 off on eligible purchases",
-    "1 complimentary domestic airport lounge visit per calendar quarter (4 per year) on spends of Rs 50,000 in the last 3 months",
+    "SonyLIV Premium annual subscription worth ₹1,499 on first purchase within 30 days of issuance",
+    "Buy one get one movie ticket on District app, capped at ₹200 per month",
+    "Flat ₹120 off on Swiggy food delivery twice per month on minimum order value of ₹500",
+    "AJIO discount offers including up to ₹1,000 off on eligible purchases",
+    "1 complimentary domestic airport lounge visit per calendar quarter (4 per year) on spends of ₹50,000 in the last 3 months",
     "1% fuel surcharge waiver on eligible fuel transactions"
   ],
   "redemption": {
@@ -251,12 +251,12 @@
   "eligibility": {
     "salaried": [
       "Age: 18 to 70 years",
-      "Minimum Net Monthly Salary: Rs 20,000",
+      "Minimum Net Monthly Salary: ₹20,000",
       "Resident of India"
     ],
     "selfEmployed": [
       "Age: 18 to 70 years",
-      "Minimum Annual Income (ITR): Rs 3,50,000",
+      "Minimum Annual Income (ITR): ₹3,50,000",
       "Resident of India"
     ]
   },

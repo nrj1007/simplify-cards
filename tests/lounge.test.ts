@@ -28,10 +28,10 @@ describe("getLoungeConditions", () => {
     const internationalConditions = getLoungeConditions(card!, "international");
 
     expect(domesticConditions.every((item) => !item.toLowerCase().includes("priority pass"))).toBe(true);
-    expect(domesticConditions.some((item) => item.includes("Rs 1.5 Lakh per quarter"))).toBe(true);
+    expect(domesticConditions.some((item) => item.includes("₹1.5 Lakh per quarter"))).toBe(true);
 
     expect(internationalConditions.some((item) => item.toLowerCase().includes("priority pass"))).toBe(true);
-    expect(internationalConditions.every((item) => !item.includes("Rs 1.5 Lakh per quarter"))).toBe(true);
+    expect(internationalConditions.every((item) => !item.includes("₹1.5 Lakh per quarter"))).toBe(true);
   });
 
   it("correctly separates domestic premium upgrades from international lounge conditions for Adani One Platinum", () => {

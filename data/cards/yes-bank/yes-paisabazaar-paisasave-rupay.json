@@ -20,7 +20,7 @@
       "category": "upi",
       "rate": 1,
       "displayCategory": "UPI scan & pay spends",
-      "displayRate": "2 Reward Points per INR 200 spent on UPI transactions above Rs 2,000",
+      "displayRate": "2 Reward Points per INR 200 spent on UPI transactions above ₹2,000",
       "capMonthly": null
     }
   ],
@@ -42,7 +42,7 @@
     "Rental payments",
     "Wallet loading transactions",
     "Cash withdrawal / cash advance transactions",
-    "UPI scan & pay transactions up to Rs 2,000"
+    "UPI scan & pay transactions up to ₹2,000"
   ],
   "exclusionCodes": [
     "fuel",
@@ -53,8 +53,8 @@
   "milestoneBenefits": [],
   "additionalBenefits": [
     "Virtual RuPay accompaniment to the physical PaisaSave card",
-    "1% cashback on eligible UPI transactions above Rs 2,000",
-    "Reward points redeem at 1 point = Rs 1 with no redemption fee",
+    "1% cashback on eligible UPI transactions above ₹2,000",
+    "Reward points redeem at 1 point = ₹1 with no redemption fee",
     "Lifetime free card with nil joining and annual fee"
   ],
   "redemption": {
@@ -76,7 +76,7 @@
   "verificationStatus": "official-direct",
   "internalNotes": [
     "Card details manually reviewed and verified by user on 2026-06-14.",
-    "UPI scan and pay transaction rewards only apply to transactions above Rs 2,000.",
-    "Reward points are credited as YES Rewardz points and can be redeemed at Rs 1.0 per point."
+    "UPI scan and pay transaction rewards only apply to transactions above ₹2,000.",
+    "Reward points are credited as YES Rewardz points and can be redeemed at ₹1.0 per point."
   ]
 }

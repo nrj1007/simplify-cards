@@ -113,22 +113,22 @@
     {
       "value": 250,
       "kind": "voucher",
-      "label": "Rs 250 Flipkart Gift Card on fee realisation"
+      "label": "₹250 Flipkart Gift Card on fee realisation"
     },
     {
       "value": 1000,
       "kind": "voucher",
-      "label": "Rs 1,000 additional Flipkart benefit on the first transaction on Flipkart, as per card offer terms"
+      "label": "₹1,000 additional Flipkart benefit on the first transaction on Flipkart, as per card offer terms"
     }
   ],
   "joiningBenefits": [
-    "Rs 250 Flipkart Gift Card on fee realisation",
-    "Rs 1,000 additional Flipkart benefit on the first transaction on Flipkart, as per card offer terms"
+    "₹250 Flipkart Gift Card on fee realisation",
+    "₹1,000 additional Flipkart benefit on the first transaction on Flipkart, as per card offer terms"
   ],
   "renewalBenefits": [],
   "milestoneBenefits": [],
   "additionalBenefits": [
-    "1% fuel surcharge waiver on eligible fuel transactions from Rs 500 to Rs 4,000, capped at Rs 400 per statement cycle"
+    "1% fuel surcharge waiver on eligible fuel transactions from ₹500 to ₹4,000, capped at ₹400 per statement cycle"
   ],
   "redemption": {},
   "additionalDetails": [
@@ -149,7 +149,7 @@
   "internalNotes": [
     "Audited against official SBI Card product page and Flipkart SBI Card T&C booklet on 2026-06-08.",
     "The live product page currently foregrounds a 12% off Cleartrip offer, but the detailed booklet continues to state 5% cashback on Cleartrip. The card data keeps the durable cashback structure and leaves promotional offer treatment out of the core rewards table.",
-    "The Flipkart booklet explicitly states quarterly cashback limits of Rs 4,000 for accelerated cashback categories, so the rewards rows use capStatementQuarter rather than a synthetic monthly cap.",
+    "The Flipkart booklet explicitly states quarterly cashback limits of ₹4,000 for accelerated cashback categories, so the rewards rows use capStatementQuarter rather than a synthetic monthly cap.",
     "The current Flipkart SBI terms explicitly exclude wallet loads, rent/property management, government-related spends, education, utilities, insurance, jewellery, gaming, EMI/Flexipay, ATM withdrawals, and outstanding balance payments from cashback.",
     "Card details manually reviewed and verified by user on 2026-06-09."
   ],

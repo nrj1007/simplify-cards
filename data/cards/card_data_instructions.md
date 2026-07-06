@@ -64,7 +64,7 @@ Keep `applyUrl` as the canonical official issuer or partner product page. If a c
 **Example mapping from official terms to JSON:**
 ```json
 "internalNotes": [
-  "Effective 1st April 2026, continued access to the Infinia programme is aligned to a minimum card spend of Rs 18 Lakhs or RLV of Rs 50 Lakhs.",
+  "Effective 1st April 2026, continued access to the Infinia programme is aligned to a minimum card spend of ₹18 Lakhs or RLV of ₹50 Lakhs.",
   "Golf cancellations must be made 1 clear day in advance for domestic courses and 4 clear days in advance for international courses."
 ]
 ```
@@ -170,7 +170,7 @@ of `internalNotes` / `additionalBenefits`.
 "lounge": {
   "domestic": [
     "12 complimentary visits per year (max 3 per quarter).",
-    "From 1 July 2026 access is spend-gated: requires Rs 60,000 of spend in the preceding calendar quarter to unlock the next quarter."
+    "From 1 July 2026 access is spend-gated: requires ₹60,000 of spend in the preceding calendar quarter to unlock the next quarter."
   ],
   "international": [
     "Complimentary Priority Pass membership on request after 4 retail transactions.",
@@ -224,7 +224,7 @@ Define the redemption values for different options, along with transfer ratios f
   "smartBuyFlightHotelValue": 1,
   "airMilesValue": 1,
   "transferPartnerValuations": [
-    { "partner": "Accor (ALL)", "partnerPointValue": 2, "transferRatio": 0.5, "basis": "fixed", "note": "2 reward points → 1 Accor ALL point · Rs 2/point" }
+    { "partner": "Accor (ALL)", "partnerPointValue": 2, "transferRatio": 0.5, "basis": "fixed", "note": "2 reward points → 1 Accor ALL point · ₹2/point" }
   ],
   "airlinePartners": [
     {
@@ -250,7 +250,7 @@ This array powers the **Transfer partner value** block in the Reward Calculator.
 Each entry has four fields:
 
 *   **`partner`**: Display label for the partner programme (e.g. `"Accor (ALL)"`, `"Club ITC"`, `"Marriott Bonvoy"`).
-*   **`partnerPointValue`**: Rupee value of **1 partner programme point** (NOT 1 card point). This is intrinsic to the partner and identical across every card that transfers to it — e.g. an Accor ALL point is worth Rs 2.2 whether the points came from Atlas, Infinia, or TravelOne.
+*   **`partnerPointValue`**: Rupee value of **1 partner programme point** (NOT 1 card point). This is intrinsic to the partner and identical across every card that transfers to it — e.g. an Accor ALL point is worth ₹2.2 whether the points came from Atlas, Infinia, or TravelOne.
 *   **`transferRatio`**: How many partner points you receive per **1 card reward unit**. Derive it from the partner's `ratio` field (written `card:partner`) as `partner ÷ card`:
     *   `1:2` → `2`  (1 card unit → 2 partner points)
     *   `1:1` → `1`
@@ -258,13 +258,13 @@ Each entry has four fields:
     *   `3:1` → `0.333`
     *   `5:1` → `0.2`
 *   **`basis`**: `"fixed"` if the partner has a published/stable conversion (Accor, Club ITC), `"dynamic"` if value swings with award availability (most airline miles, Marriott Bonvoy) — for dynamic partners use a typical-case average.
-*   **`note`** (optional): A short human-readable line, e.g. `"2 reward points → 1 Accor ALL point · Rs 2/point"`.
+*   **`note`** (optional): A short human-readable line, e.g. `"2 reward points → 1 Accor ALL point · ₹2/point"`.
 
 The calculator computes `value per card unit = partnerPointValue × transferRatio`, so the same `partnerPointValue` produces card-specific results purely through `transferRatio`.
 
 **Current known valuations** (reuse these exact numbers; ask the user before adding any partner not listed here):
 
-| Partner | `partnerPointValue` (Rs / partner point) | `basis` |
+| Partner | `partnerPointValue` (₹ / partner point) | `basis` |
 |---|---|---|
 | Accor (ALL) | 2.2 | fixed |
 | Club ITC | 1 | fixed |
@@ -291,25 +291,25 @@ The calculator computes `value per card unit = partnerPointValue × transferRati
 must agree numerically (the validator enforces it), so the UI shows the advertised wording while the
 engine never has to parse prose. Follow these guidelines:
 
-*   **`rate` (Canonical Earn Rate — reward-currency units per Rs 100):** A decimal giving the number
-    of **reward-currency units** (points / miles / cashback-rupees) earned per **Rs 100** of spend.
+*   **`rate` (Canonical Earn Rate — reward-currency units per ₹100):** A decimal giving the number
+    of **reward-currency units** (points / miles / cashback-rupees) earned per **₹100** of spend.
     The rupee value is applied separately by the engine via the `redemption` point value — **do not**
     bake the point value into `rate`.
     *   *Example:* A card earning **6 reward points per ₹100** has `"rate": 6` (not `2.4`). If each
         point is worth ₹0.40, the engine multiplies `6 × 0.40` to get the 2.4% yield at scoring time.
     *   *Cashback cards* (rewardType contains "cashback") are the one case where a unit **is** a rupee,
-        so `rate` = rupees per Rs 100 = the cashback % (e.g. a 5% card has `"rate": 5`).
+        so `rate` = rupees per ₹100 = the cashback % (e.g. a 5% card has `"rate": 5`).
     *   `rate` must equal the units implied by `displayRate` (the validator enforces this — see below).
-        Store the **exact** division: `"5 Reward Points / Rs 150"` → `rate = 5 × 100 / 150 =
-        3.3333333333333335`. Long decimals on `/Rs 150`-style rows are expected and correct; the UI
+        Store the **exact** division: `"5 Reward Points / ₹150"` → `rate = 5 × 100 / 150 =
+        3.3333333333333335`. Long decimals on `/₹150`-style rows are expected and correct; the UI
         rounds them for display. Run `npm run normalize:reward-rates` to derive `rate` from `displayRate`.
 *   **`displayRate` (Uniform Visual Representation):** The user-facing string, matching the official
     page. Define it whenever a card expresses rewards as points / miles / EazyPoints / etc.
     *   *Example:* For the card above, `"displayRate": "6 reward points per ₹100"`.
-    *   Preserve the issuer's displayed spend currency and wording on the website. Do **not** normalize display text from `₹` to `Rs`, from `INR` to `Rs`, or from `for every ₹100` to `/ Rs 100` just for consistency.
+    *   Preserve the issuer's displayed spend currency and wording on the website. Do **not** normalize display text from `₹` to `₹`, from `INR` to `₹`, or from `for every ₹100` to `/ ₹100` just for consistency.
     *   Always use a clear, user-friendly format matching the official website (e.g. `"X reward points / ₹100"`, `"X EazyPoints / INR 100"`, or `"X reward points / ₹150"`).
     *   `displayRate` is **display-only** — the engines never parse it for scoring. But because the
-        validator checks `rate` against the `"<units> … / Rs|INR|₹ <amount>"`-style pattern in `displayRate`, the
+        validator checks `rate` against the `"<units> … / ₹|INR|₹ <amount>"`-style pattern in `displayRate`, the
         two must stay numerically consistent. Editing the points/spend in `displayRate` means re-running
         `npm run normalize:reward-rates` (or updating `rate` by hand). A reward whose `displayRate` is
         intentionally inconsistent with a correct `rate` (rare) must be added to the validator's
@@ -320,9 +320,9 @@ engine never has to parse prose. Follow these guidelines:
 *   When an issuer lists multiple capped categories separately (for example grocery, insurance, utility, and telecom/cable each with their own monthly cap), keep them as separate visible reward rows rather than collapsing them into one combined line that implies a shared cap.
 *   If the display needs separate rows but the scoring model only understands a broader canonical category, keep the canonical `category` stable and use distinct `displayCategory` labels for the UI rows.
 *   **Spend-tiered earning (`tierLowerBound` / `tierUpperBound`):** When a category earns at different
-    rates across **monthly-spend bands** (e.g. Magnus base: 6 pts/Rs100 up to Rs 1.5L/mo, then 17.5
+    rates across **monthly-spend bands** (e.g. Magnus base: 6 pts/₹100 up to ₹1.5L/mo, then 17.5
     above), model each band as its own reward row sharing the same `category`, and set the structured
-    bounds: `tierLowerBound` is the inclusive lower bound (Rs/month), `tierUpperBound` the exclusive
+    bounds: `tierLowerBound` is the inclusive lower bound (₹/month), `tierUpperBound` the exclusive
     upper bound (or `null` for the open-ended top band). Both the calculator and recommender bucket
     monthly spend across the tiers, so the bounds — not the `displayCategory` text — drive scoring.
     Tiering only activates when **every** matching row for the category carries a tier. Keep the human
@@ -339,7 +339,7 @@ engine never has to parse prose. Follow these guidelines:
 Some cards redeem into a closed ecosystem rather than statement credit, miles, or SmartBuy.
 
 *   When using a custom redemption label like `Tata Neu brands`, make sure the UI wording remains explicit about the reward unit.
-*   Prefer output such as `upto Rs 1 per NeuCoin` rather than vague text like `Rs 1`.
+*   Prefer output such as `upto ₹1 per NeuCoin` rather than vague text like `₹1`.
 *   Keep ecosystem value in structured `redemption` data, not only in prose.
 
 ### G. Shared / two-level caps (`capGroup` + card-level `capGroups`)
@@ -503,7 +503,7 @@ npm test
 Some benefits do not state a rupee amount (e.g. "complimentary hotel stay", "golf game", "airport transfer"). The scoring engine can only extract value from benefit strings that contain a recognisable rupee amount or point quantity. When you add such benefits, **append an estimated value in parentheses** so the engine picks it up.
 
 > [!IMPORTANT]
-> Always use the format **`worth Rs X,XXX`** or **`voucher worth Rs X,XXX`** so the parser can extract it. Do not use shorthand like "~₹5K" or "approx 5000".
+> Always use the format **`worth ₹ X,XXX`** or **`voucher worth ₹ X,XXX`** so the parser can extract it. Do not use shorthand like "~₹5K" or "approx 5000".
 
 ### Hotel Stays
 
@@ -511,24 +511,24 @@ Use the following value benchmarks when writing benefit strings for complimentar
 
 | Hotel tier / programme | Estimated value per night | Notes |
 |---|---|---|
-| Budget / 3-star | Rs 3,000 | e.g. Ibis, Lemon Tree |
-| Business / 4-star | Rs 6,000 | e.g. Novotel, Marriott Courtyard |
-| Premium / 5-star | Rs 12,000 | e.g. JW Marriott, Hyatt Regency |
-| Luxury / flagship | Rs 20,000 | e.g. Taj, Oberoi, St. Regis |
-| Marriott Bonvoy free night (up to 15,000 pts) | Rs 7,500 | Already handled by point conversion in code |
-| Marriott Bonvoy free night (up to 35,000 pts) | Rs 17,500 | Already handled by point conversion in code |
+| Budget / 3-star | ₹3,000 | e.g. Ibis, Lemon Tree |
+| Business / 4-star | ₹6,000 | e.g. Novotel, Marriott Courtyard |
+| Premium / 5-star | ₹12,000 | e.g. JW Marriott, Hyatt Regency |
+| Luxury / flagship | ₹20,000 | e.g. Taj, Oberoi, St. Regis |
+| Marriott Bonvoy free night (up to 15,000 pts) | ₹7,500 | Already handled by point conversion in code |
+| Marriott Bonvoy free night (up to 35,000 pts) | ₹17,500 | Already handled by point conversion in code |
 
 **Example benefit string to write:**
 
 ```json
 "joiningBenefits": [
-  "Complimentary one-night stay at a premium 5-star hotel (worth Rs 12,000) on first transaction"
+  "Complimentary one-night stay at a premium 5-star hotel (worth ₹12,000) on first transaction"
 ]
 ```
 
 ```json
 "milestoneBenefits": [
-  "Complimentary luxury hotel stay (worth Rs 20,000) on annual spends of Rs 10 lakh"
+  "Complimentary luxury hotel stay (worth ₹20,000) on annual spends of ₹10 lakh"
 ]
 ```
 
@@ -536,7 +536,7 @@ Use the following value benchmarks when writing benefit strings for complimentar
 > Hotel stay values are treated as **voucher benefits** by the scoring engine and automatically discounted to **50% of face value** to account for restricted availability, blackout dates, and limited hotel choice. Write the full rack-rate estimate — the discount is applied in code.
 
 > [!TIP]
-> If a benefit has a capped or conditional value (e.g. "up to Rs 5,000"), use the **capped figure**, not an assumed average. The engine sums the stated amount, so overstating leads to inflated scoring.
+> If a benefit has a capped or conditional value (e.g. "up to ₹5,000"), use the **capped figure**, not an assumed average. The engine sums the stated amount, so overstating leads to inflated scoring.
 
 > [!IMPORTANT]
 > **Value a benefit paid in the card's own reward currency at the card's point value, not the
@@ -551,16 +551,16 @@ Use the following value benchmarks when writing benefit strings for complimentar
 ### Milestones (`milestones`) — preferred over `milestoneBenefits` parsing
 
 `milestoneBenefits` is free text the scoring engine and reward calculator must **regex-parse at
-runtime** to recover the spend threshold and rupee value (the `worth Rs …` trick above exists only
+runtime** to recover the spend threshold and rupee value (the `worth ₹ …` trick above exists only
 to feed that parser). The optional structured **`milestones`** field carries those numbers
 explicitly, so nothing has to be parsed and quarterly/monthly milestones are scored correctly.
 
 ```json
 "milestones": [
   { "threshold": 500000, "period": "annual", "value": 2500, "kind": "voucher",
-    "label": "Rs 5,000 flight voucher on annual spends of Rs 5 lakh" },
+    "label": "₹5,000 flight voucher on annual spends of ₹5 lakh" },
   { "threshold": 75000, "period": "quarterly", "value": 2500, "kind": "points",
-    "label": "5,000 bonus Reward Points on Rs 75,000 spend per calendar quarter" }
+    "label": "5,000 bonus Reward Points on ₹75,000 spend per calendar quarter" }
 ]
 ```
 
@@ -573,11 +573,11 @@ explicitly, so nothing has to be parsed and quarterly/monthly milestones are sco
 * **`value` is the net rupee value we score — already discounted, same convention as
   `joiningBenefitsValued` / `renewalBenefitsValued`.** Unlike the `milestoneBenefits` prose path
   (where the engine halves voucher amounts at runtime), the structured `milestones` path uses
-  `value` as-is — so for a `"voucher"` write **50% of face value** yourself (e.g. a Rs 5,000 gift
+  `value` as-is — so for a `"voucher"` write **50% of face value** yourself (e.g. a ₹5,000 gift
   voucher → `value: 2500`) to account for restricted use, expiry, and breakage. Famous near-cash
   vouchers (Amazon/Flipkart/Myntra) can be valued closer to face; brand-locked vouchers should be
   discounted harder.
-* `label` is the user-facing string — **no embedded `(worth Rs …)`** annotation; the value lives in
+* `label` is the user-facing string — **no embedded `(worth ₹ …)`** annotation; the value lives in
   the `value` field.
 * **Coexistence rule:** when `milestones` is present it is the source of truth for that card; its
   `milestoneBenefits` are ignored for scoring and display. Don't duplicate — a fully migrated card
@@ -604,12 +604,12 @@ Joining and renewal benefit **value** is parsed from prose at runtime today
 
 ```json
 "renewalBenefitsValued": [
-  { "value": 1500, "kind": "voucher", "label": "Rs 1,500 voucher on card anniversary" }
+  { "value": 1500, "kind": "voucher", "label": "₹1,500 voucher on card anniversary" }
 ]
 ```
 
 * `value` is the **net** rupee value (vouchers already discounted — same convention as milestones);
-  `kind` ∈ {voucher, points, cashback, other}; `label` carries no embedded `(worth Rs …)`.
+  `kind` ∈ {voucher, points, cashback, other}; `label` carries no embedded `(worth ₹ …)`.
 * Joining value is amortized over 3 years in scoring; renewal value counts each year.
 * **Recurring "welcome" perks are renewal, not joining.** A benefit the cardholder receives **every
   year** the card is held — even if the issuer markets it as a "welcome"/"annual" benefit, e.g. a

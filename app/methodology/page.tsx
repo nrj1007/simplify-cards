@@ -29,7 +29,7 @@ const RANKING_MODES = [
   },
   {
     title: "Lounge Access",
-    description: "We parse domestic and international lounge benefits, including complex spend-conditioned rules (e.g., spend Rs. 35,000 in the previous quarter to unlock access) and guest visit allowances, so you know exactly what is required to access a lounge."
+    description: "We parse domestic and international lounge benefits, including complex spend-conditioned rules (e.g., spend ₹35,000 in the previous quarter to unlock access) and guest visit allowances, so you know exactly what is required to access a lounge."
   },
   {
     title: "Fuel Cards",

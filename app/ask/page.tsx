@@ -22,7 +22,7 @@ const ASK_EXAMPLES = [
   "Best lifetime free cashback card",
   "Top cards for airport lounge access",
   "Axis Atlas",
-  "Best travel card under Rs 5000 fee",
+  "Best travel card under ₹5000 fee",
   "SBI Cashback"
 ];
 

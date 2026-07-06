@@ -271,5 +271,5 @@ export function getCardSegments() {
  * and must not be shown to users.
  */
 export function stripScoringAnnotations(benefit: string): string {
-  return benefit.replace(/\s*\((?:vouchers?\s+)?worth Rs[^)]+\)/gi, "").trim();
+  return benefit.replace(/\s*\((?:vouchers?\s+)?worth (?:Rs|₹)[^)]+\)/gi, "").trim();
 }

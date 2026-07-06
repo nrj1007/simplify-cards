@@ -21,21 +21,21 @@
       "category": "online",
       "rate": 10,
       "displayCategory": "Online spends",
-      "displayRate": "10 POPcoins / Rs 100 spent",
+      "displayRate": "10 POPcoins / ₹100 spent",
       "capMonthly": null
     },
     {
       "category": "upi",
       "rate": 7,
       "displayCategory": "UPI scans via POP UPI App",
-      "displayRate": "7 POPcoins / Rs 100 spent",
+      "displayRate": "7 POPcoins / ₹100 spent",
       "capMonthly": 6000
     },
     {
       "category": "base",
       "rate": 2,
       "displayCategory": "Other UPI and offline retail spends",
-      "displayRate": "2 POPcoins / Rs 100 spent",
+      "displayRate": "2 POPcoins / ₹100 spent",
       "capMonthly": null
     }
   ],
@@ -73,7 +73,7 @@
     "cash_advance"
   ],
   "joiningBenefits": [
-    "Welcome offers worth up to Rs 5,000 including 500 POPcoins and brand vouchers (Blinkit, Cleartrip, Zomato Gold, PharmEasy Plus, Rapido)"
+    "Welcome offers worth up to ₹5,000 including 500 POPcoins and brand vouchers (Blinkit, Cleartrip, Zomato Gold, PharmEasy Plus, Rapido)"
   ],
   "milestones": [
     {
@@ -81,14 +81,14 @@
       "period": "annual",
       "value": 375,
       "kind": "points",
-      "label": "1,500 bonus POPcoins on annual spends of Rs 1.5 Lakh"
+      "label": "1,500 bonus POPcoins on annual spends of ₹1.5 Lakh"
     }
   ],
   "additionalBenefits": [
-    "1% fuel surcharge waiver on transactions between Rs 1,000 and Rs 3,500 (capped at Rs 300 per month)"
+    "1% fuel surcharge waiver on transactions between ₹1,000 and ₹3,500 (capped at ₹300 per month)"
   ],
   "additionalDetails": [
-    "Annual fee of Rs 399 is waived if spends exceed Rs 1,50,000 in the preceding anniversary year."
+    "Annual fee of ₹399 is waived if spends exceed ₹1,50,000 in the preceding anniversary year."
   ],
   "redemption": {
     "ecosystemLabel": "POP Reward Store vouchers",
@@ -143,11 +143,11 @@
   "eligibility": {
     "salaried": [
       "Age: 21 to 60 years",
-      "Minimum net monthly salary of Rs 25,000"
+      "Minimum net monthly salary of ₹25,000"
     ],
     "selfEmployed": [
       "Age: 21 to 60 years",
-      "Minimum annual ITR of Rs 7,50,000"
+      "Minimum annual ITR of ₹7,50,000"
     ]
   },
   "imageUrl": "/images/yes-pop-club.webp",
@@ -157,10 +157,10 @@
   "verificationStatus": "official-direct",
   "internalNotes": [
     "Card details manually reviewed and verified by user on 2026-06-14.",
-    "1 POPcoin = Rs 1 on POPclub app (direct purchase/brand discount).",
-    "1 POPcoin = Rs 0.25 when redeemed for anchor brand vouchers (Blinkit, Zomato, Cult, Cleartrip, Rapido, Pharmeasy) on POP Reward Store.",
-    "Standard RuPay UPI transactions earn 2 POPcoins per Rs 100.",
-    "UPI transactions via POP UPI App earn 7 POPcoins per Rs 100.",
-    "POP UPI earning is capped at 500 POPcoins per transaction and 6,000 POPcoins per month (modeled as upi row capMonthly 6000). Online (10 POPcoins/Rs 100) has no monthly cap per official terms."
+    "1 POPcoin = ₹1 on POPclub app (direct purchase/brand discount).",
+    "1 POPcoin = ₹0.25 when redeemed for anchor brand vouchers (Blinkit, Zomato, Cult, Cleartrip, Rapido, Pharmeasy) on POP Reward Store.",
+    "Standard RuPay UPI transactions earn 2 POPcoins per ₹100.",
+    "UPI transactions via POP UPI App earn 7 POPcoins per ₹100.",
+    "POP UPI earning is capped at 500 POPcoins per transaction and 6,000 POPcoins per month (modeled as upi row capMonthly 6000). Online (10 POPcoins/₹100) has no monthly cap per official terms."
   ]
 }

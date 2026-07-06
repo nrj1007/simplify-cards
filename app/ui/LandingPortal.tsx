@@ -187,7 +187,7 @@ function PhoneFrame({ variant }: { variant: "recommend" | "calculator" | "cards"
               <div>
                 <p>
                   <b>Online shopping</b>
-                  <strong>Rs 15k</strong>
+                  <strong>₹15k</strong>
                 </p>
                 <i><em /></i>
               </div>
@@ -217,7 +217,7 @@ function PhoneFrame({ variant }: { variant: "recommend" | "calculator" | "cards"
               <span>Comparison Yields:</span>
               <div>
                 <p><b>Metric</b><b>Infinia</b><b>SBI CB</b></p>
-                <p><span>Rewards</span><strong>Rs 42.5k</strong><strong>Rs 12k</strong></p>
+                <p><span>Rewards</span><strong>₹42.5k</strong><strong>₹12k</strong></p>
                 <p><span>Lounge</span><b>Compl.</b><em>None</em></p>
               </div>
             </div>
