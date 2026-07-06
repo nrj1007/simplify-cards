@@ -10902,6 +10902,8 @@ button { cursor: pointer !important; }
 .side-stack .sc-feedback-sidebar .ask-feedback {
   display: block !important;
   margin: 0 !important;
+  border-top: none !important;
+  padding-top: 0 !important;
 }
 .side-stack .sc-feedback-sidebar .ask-feedback-label {
   display: block !important;
