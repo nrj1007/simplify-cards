@@ -9,6 +9,8 @@ import { getCardShortUsp, getCardUsp } from "@/lib/card-usp";
 import { cardRewardTypeIncludesCashback } from "@/lib/reward-type";
 import { TrackedExternalLink, TrackedLink } from "../ui/TrackedLink";
 import AskFeedback from "../ui/AskFeedback";
+import { getLoungeConditions } from "@/lib/lounge";
+import LoungeInfo from "../ui/LoungeInfo";
 
 export type ScoredCardItem = {
   card: CreditCard;
@@ -44,6 +46,94 @@ function formatCurrency(value: number | null | undefined) {
   if (value === null || value === undefined) return "Not listed";
   if (value === 0) return "Lifetime free";
   return `Rs ${value.toLocaleString("en-IN")} fee`;
+}
+
+function formatRupees(value: number | null | undefined) {
+  if (value === null || value === undefined) return "Not listed";
+  if (value === 0) return "Lifetime free";
+  return `Rs ${value.toLocaleString("en-IN")}`;
+}
+
+function formatRewardCap(value: number | null | undefined, rewardType: string) {
+  if (!value) return "-";
+  return `${value.toLocaleString("en-IN")} ${rewardType}`;
+}
+
+function stripScoringAnnotations(benefit: string): string {
+  return benefit.replace(/\s*\((?:vouchers?\s+)?worth Rs[^)]+\)/gi, "").trim();
+}
+
+function listPreview(items: string[] | undefined, count = 4) {
+  if (!items || items.length === 0) return "Not listed";
+  return items.slice(0, count).map(stripScoringAnnotations).join(", ");
+}
+
+function milestoneSummary(card: CreditCard) {
+  return listPreview(card.milestoneBenefits, 4);
+}
+
+function hasFeeWaiverSpend(value: number | null | undefined) {
+  return typeof value === "number" && value > 0;
+}
+
+function loungeValue(value: CreditCard["loungeDomestic"] | CreditCard["loungeInternational"]) {
+  return value === "unlimited" ? "Unlimited" : `${value}`;
+}
+
+function rewardRateLabel(card: CreditCard, reward: CreditCard["rewards"][number]) {
+  if (reward.displayRate) return reward.displayRate;
+
+  const rewardType = card.rewardType.toLowerCase();
+  if (rewardType.includes("point") || rewardType.includes("mile")) {
+    return `${reward.rate} ${card.rewardType} / Rs 100`;
+  }
+
+  return `${reward.rate}%`;
+}
+
+function rewardSummary(card: CreditCard) {
+  return card.rewards
+    .filter((reward) => !reward.hidden)
+    .slice(0, 3)
+    .map((reward) => `${reward.displayCategory ?? reward.category}: ${rewardRateLabel(card, reward)}`)
+    .join("; ");
+}
+
+function smartbuyCapSummary(card: CreditCard) {
+  const smartbuyRewards = card.rewards.filter((reward) => reward.category.includes("smartbuy"));
+  if (smartbuyRewards.length === 0) return "Not listed";
+
+  const caps = smartbuyRewards.map((reward) => {
+    const parts = [];
+    if (reward.capDaily) parts.push(`daily ${formatRewardCap(reward.capDaily, card.rewardType)}`);
+    if (reward.capMonthly) parts.push(`monthly ${formatRewardCap(reward.capMonthly, card.rewardType)}`);
+    return `${reward.category}: ${parts.length ? parts.join(", ") : "no cap listed"}`;
+  });
+
+  return caps.join("; ");
+}
+
+function redemptionSummary(card: CreditCard) {
+  if (!card.redemption) return "Not listed";
+
+  const parts: string[] = [];
+  if (typeof card.redemption.smartBuyFlightHotelValue === "number") {
+    parts.push(`SmartBuy travel: upto Rs ${card.redemption.smartBuyFlightHotelValue} per point`);
+  }
+  if (typeof card.redemption.travelEdgeValue === "number") {
+    parts.push(`Travel EDGE travel: upto Rs ${card.redemption.travelEdgeValue} per point`);
+  }
+  if (typeof card.redemption.travelPortalValue === "number") {
+    parts.push(`Travel portal: upto Rs ${card.redemption.travelPortalValue} per point`);
+  }
+  if (typeof card.redemption.airMilesValue === "number") {
+    parts.push(`Air miles: upto Rs ${card.redemption.airMilesValue} per point`);
+  }
+  if (typeof card.redemption.statementBalanceValue === "number") {
+    parts.push(`Statement credit: upto Rs ${card.redemption.statementBalanceValue} per point`);
+  }
+
+  return parts.length ? parts.join("; ") : "Not listed";
 }
 
 function getCardVisualClass(card: CreditCard, index: number) {
@@ -89,6 +179,7 @@ export default function AskResultsClient({
   const [emailName, setEmailName] = useState("");
   const [emailId, setEmailId] = useState("");
   const [emailSent, setEmailSent] = useState(false);
+  const [isCompareSectionVisible, setIsCompareSectionVisible] = useState(false);
 
   const topFitRaw = cards[0]?.fitScore ?? 0;
   const toFitPercent = (score: number) =>
@@ -96,7 +187,22 @@ export default function AskResultsClient({
 
   useEffect(() => {
     const hydrationTimer = window.setTimeout(() => setIsHydrated(true), 0);
-    return () => window.clearTimeout(hydrationTimer);
+
+    const compareSection = document.getElementById("compare-section");
+    if (!compareSection) return () => window.clearTimeout(hydrationTimer);
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsCompareSectionVisible(entry.isIntersecting);
+      },
+      { threshold: 0.1 }
+    );
+    observer.observe(compareSection);
+
+    return () => {
+      window.clearTimeout(hydrationTimer);
+      observer.disconnect();
+    };
   }, []);
 
   const cashbackSection = sections.find((section) => /cashback/i.test(section.title));
@@ -201,6 +307,8 @@ export default function AskResultsClient({
   const selectedCards = selectedCardIds
     .map((id) => allResultCards.find((c) => c.card.id === id))
     .filter((c): c is ScoredCardItem => Boolean(c));
+
+  const showFeeWaiverRow = selectedCards.some((item) => hasFeeWaiverSpend(item.card.feeWaiverSpend));
 
   const isSpendEnvelopeReason = (entry: string) => /^Best at /i.test(entry) || /^Needs high spend\b/i.test(entry);
 
@@ -620,9 +728,101 @@ export default function AskResultsClient({
                       ))}
                     </tr>
                     <tr>
+                      <td>Joining fee</td>
+                      {selectedCards.map((item) => (
+                        <td key={`joining-${item.card.id}`}>{formatCurrency(item.card.joiningFee)}</td>
+                      ))}
+                    </tr>
+                    <tr>
                       <td>Annual fee</td>
                       {selectedCards.map((item) => (
                         <td key={`fee-${item.card.id}`}>{formatCurrency(item.card.annualFee)}</td>
+                      ))}
+                    </tr>
+                    {showFeeWaiverRow && (
+                      <tr>
+                        <td>Fee waiver spend</td>
+                        {selectedCards.map((item) => (
+                          <td key={`waiver-${item.card.id}`}>
+                            {hasFeeWaiverSpend(item.card.feeWaiverSpend)
+                              ? formatRupees(item.card.feeWaiverSpend)
+                              : "-"}
+                          </td>
+                        ))}
+                      </tr>
+                    )}
+                    <tr>
+                      <td>Reward type</td>
+                      {selectedCards.map((item) => (
+                        <td key={`reward-type-${item.card.id}`}>{item.card.rewardType}</td>
+                      ))}
+                    </tr>
+                    <tr>
+                      <td>Top reward categories</td>
+                      {selectedCards.map((item) => (
+                        <td key={`rewards-${item.card.id}`}>{rewardSummary(item.card)}</td>
+                      ))}
+                    </tr>
+                    <tr>
+                      <td>SmartBuy / accelerated caps</td>
+                      {selectedCards.map((item) => (
+                        <td key={`caps-${item.card.id}`}>{smartbuyCapSummary(item.card)}</td>
+                      ))}
+                    </tr>
+                    <tr>
+                      <td>Domestic lounge</td>
+                      {selectedCards.map((item) => {
+                        const loungeConditions = getLoungeConditions(item.card, "domestic");
+                        return (
+                          <td key={`dom-lounge-${item.card.id}`}>
+                            <div style={{ display: "inline-flex", alignItems: "center", gap: "4px" }}>
+                              <span>{loungeValue(item.card.loungeDomestic)}</span>
+                              {loungeConditions.length > 0 && (
+                                <LoungeInfo items={loungeConditions} label="Domestic lounge conditions" />
+                              )}
+                            </div>
+                          </td>
+                        );
+                      })}
+                    </tr>
+                    <tr>
+                      <td>International lounge</td>
+                      {selectedCards.map((item) => {
+                        const loungeConditions = getLoungeConditions(item.card, "international");
+                        return (
+                          <td key={`intl-lounge-${item.card.id}`}>
+                            <div style={{ display: "inline-flex", alignItems: "center", gap: "4px" }}>
+                              <span>{loungeValue(item.card.loungeInternational)}</span>
+                              {loungeConditions.length > 0 && (
+                                <LoungeInfo items={loungeConditions} label="International lounge conditions" />
+                              )}
+                            </div>
+                          </td>
+                        );
+                      })}
+                    </tr>
+                    <tr>
+                      <td>Forex markup</td>
+                      {selectedCards.map((item) => (
+                        <td key={`forex-${item.card.id}`}>{item.card.forexMarkup}%</td>
+                      ))}
+                    </tr>
+                    <tr>
+                      <td>Milestone benefits</td>
+                      {selectedCards.map((item) => (
+                        <td key={`milestones-${item.card.id}`}>{milestoneSummary(item.card)}</td>
+                      ))}
+                    </tr>
+                    <tr>
+                      <td>Redemption</td>
+                      {selectedCards.map((item) => (
+                        <td key={`redemption-${item.card.id}`}>{redemptionSummary(item.card)}</td>
+                      ))}
+                    </tr>
+                    <tr>
+                      <td>Key exclusions</td>
+                      {selectedCards.map((item) => (
+                        <td key={`exclusions-${item.card.id}`}>{listPreview(item.card.exclusions, 6)}</td>
                       ))}
                     </tr>
                     <tr>
@@ -759,9 +959,9 @@ export default function AskResultsClient({
 
       {/* Floating Compare Tray */}
       <div
-        className={`sc-floating-compare${selectedCards.length > 0 ? " is-visible" : ""}${pulsing ? " sc-compare-limit-pulse" : ""}`}
+        className={`sc-floating-compare${selectedCards.length > 0 && !isCompareSectionVisible ? " is-visible" : ""}${pulsing ? " sc-compare-limit-pulse" : ""}`}
         id="sc-floating-compare"
-        aria-hidden={selectedCards.length === 0 ? "true" : "false"}
+        aria-hidden={selectedCards.length === 0 || isCompareSectionVisible ? "true" : "false"}
       >
         <div className="sc-floating-compare-icon">
           <svg viewBox="0 0 110 90" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
