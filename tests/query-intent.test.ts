@@ -110,4 +110,22 @@ describe("query intent parser", () => {
     expect(intent.inferredSpend?.utilities).toBe(53000);
     expect(Object.entries(intent.inferredSpend ?? {}).every(([category, amount]) => category === "utilities" || amount === 0)).toBe(true);
   });
+
+  it("parses general spend suffixes like 'spend under 25k' into scaled spend profiles", () => {
+    const intentUnder25k = parseQueryIntent({
+      query: "best cashback card with spend under rs 25k"
+    });
+    expect(intentUnder25k.inferredSpend?.online).toBe(3000); // 7950 * 20000 / 53000 = 3000
+    expect(intentUnder25k.inferredSpend?.dining).toBe(2000); // 5300 * 20000 / 53000 = 2000
+
+    const intentMid = parseQueryIntent({
+      query: "best card with spend rs 25k-75k"
+    });
+    expect(intentMid.inferredSpend?.online).toBe(7500); // 7950 * 50000 / 53000 = 7500
+
+    const intentHigh = parseQueryIntent({
+      query: "best card with spend rs 75k+"
+    });
+    expect(intentHigh.inferredSpend?.online).toBe(18000); // 7950 * 120000 / 53000 = 18000
+  });
 });

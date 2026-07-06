@@ -233,8 +233,71 @@ function extractFocusedSpend(query: string) {
   return spend satisfies SpendProfile;
 }
 
+const baselineProfileForScaling = {
+  online: 7950,
+  base: 6360,
+  travel: 6360,
+  hotels: 0,
+  airlines: 0,
+  dining: 5300,
+  grocery: 5300,
+  fuel: 2650,
+  amazon: 4240,
+  upi: 4240,
+  utilities: 4240,
+  rent: 0,
+  insurance: 3180,
+  education: 1590,
+  gold: 1590,
+  government: 0,
+  international: 0
+};
+
+function scaleToTotal(target: number): SpendProfile {
+  const currentTotal = 53000;
+  const scale = target / currentTotal;
+  return Object.fromEntries(
+    Object.entries(baselineProfileForScaling).map(([category, amount]) => [
+      category,
+      Math.round(amount * scale)
+    ])
+  ) as unknown as SpendProfile;
+}
+
+function extractGeneralSpend(query: string): SpendProfile | undefined {
+  const normalized = query.toLowerCase();
+  if (
+    normalized.includes("spend under 25k") ||
+    normalized.includes("spend under rs 25k") ||
+    normalized.includes("spend less than 25k") ||
+    normalized.includes("spend below 25k") ||
+    normalized.includes("spend below rs 25k")
+  ) {
+    return scaleToTotal(20000);
+  }
+  if (
+    normalized.includes("spend 25k-75k") ||
+    normalized.includes("spend rs 25k-75k") ||
+    normalized.includes("spend 25k to 75k") ||
+    normalized.includes("spend rs 25k to 75k")
+  ) {
+    return scaleToTotal(50000);
+  }
+  if (
+    normalized.includes("spend 75k+") ||
+    normalized.includes("spend rs 75k+") ||
+    normalized.includes("spend 75k plus") ||
+    normalized.includes("spend rs 75k plus") ||
+    normalized.includes("spend above 75k") ||
+    normalized.includes("spend above rs 75k")
+  ) {
+    return scaleToTotal(120000);
+  }
+  return undefined;
+}
+
 function inferSpendProfile(query: string) {
-  return extractSpendMix(query) ?? extractFocusedSpend(query);
+  return extractGeneralSpend(query) ?? extractSpendMix(query) ?? extractFocusedSpend(query);
 }
 
 export function parseQueryIntent(input: RecommendationInput): QueryIntent {

@@ -35,9 +35,9 @@ type Props = {
 
 const MATTER_CHIPS = ["Travel", "Cashback", "Lounge access", "Low annual fee"];
 const SPEND_CHIPS = [
-  { label: "Under Rs 25k", href: "/recommend" },
-  { label: "Rs 25k-75k", href: "/recommend" },
-  { label: "Rs 75k+", href: "/recommend" }
+  { label: "Under Rs 25k", querySuffix: "under rs 25k" },
+  { label: "Rs 25k-75k", querySuffix: "rs 25k-75k" },
+  { label: "Rs 75k+", querySuffix: "rs 75k+" }
 ] as const;
 
 function formatCurrency(value: number | null | undefined) {
@@ -686,7 +686,11 @@ export default function AskResultsClient({
                 <p>Tell us the range so premium fees make sense</p>
                 <div className="clarify-options">
                   {SPEND_CHIPS.map((chip) => (
-                    <Link key={chip.label} className="option-chip" href={chip.href}>
+                    <Link
+                      key={chip.label}
+                      className="option-chip"
+                      href={`/ask?query=${encodeURIComponent(`${query ? query : "best card"} with spend ${chip.querySuffix}`)}`}
+                    >
                       {chip.label}
                     </Link>
                   ))}
