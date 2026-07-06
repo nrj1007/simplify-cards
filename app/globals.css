@@ -1826,33 +1826,150 @@ textarea {
   color: var(--brand-strong);
   font-size: 0.78rem;
   padding: 3px 10px;
+
+.ask-panel {
+  display: grid;
+  gap: 14px;
+  padding: 20px;
+}
+
+.ask-panel label {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+}
+
+.ask-panel textarea {
+  min-height: 76px;
+}
+
+.ask-panel .button[type="submit"] {
+  font-size: 15px;
+  min-height: 46px;
+  width: 100%;
+}
+
+.home-askbox-wrap .ask-panel {
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(15, 23, 42, 0.04), 0 24px 56px rgba(15, 23, 42, 0.1);
+}
+
+.ask-examples {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 8px 0 4px;
+}
+
+.ask-example {
+  background: var(--soft);
+  border: 1px solid #c7e4df;
+  border-radius: 20px;
+  color: var(--brand-strong);
+  font-size: 0.78rem;
+  padding: 3px 10px;
   white-space: nowrap;
 }
 
 .ask-example:hover {
   background: #d4ede9;
-}
-
-/* Spend recommender */
+}/* Spend recommender */
 .recommend-layout {
-  align-items: start;
-  display: grid;
-  gap: 18px;
-  grid-template-columns: 340px minmax(0, 1fr);
+  display: grid !important;
+  grid-template-columns: minmax(330px, 420px) minmax(0, 1fr) !important;
+  gap: 24px !important;
+  align-items: flex-start !important;
   margin-top: 18px;
 }
 
-.recommend-controls {
-  display: grid;
-  gap: 18px;
-  padding: 20px;
-  position: sticky;
-  top: 88px;
+.recommend-controls,
+.recommend-results-panel {
+  align-self: flex-start !important;
+  margin-top: 0 !important;
+  transform: none !important;
+  padding: 24px !important;
+  padding-top: 22px !important;
+  border-radius: 28px !important;
+  position: relative !important;
+  overflow: hidden !important;
+  background:
+    radial-gradient(circle at 100% 0%, rgba(184,151,90,0.10), transparent 34%),
+    linear-gradient(180deg, rgba(255,253,248,0.98), rgba(252,250,244,0.96)) !important;
+  border: 1px solid rgba(232,223,207,0.96) !important;
+  box-shadow: 0 22px 58px rgba(30,17,44,0.08) !important;
+}
+
+.recommend-controls::before,
+.recommend-results-panel::before,
+.recommend-card::before {
+  display: none !important;
+  content: none !important;
+  background: none !important;
+  height: 0 !important;
+}
+
+html body .recommend-controls-head,
+html body .recommend-results-head,
+html body .recommend-results-head > div {
+  display: grid !important;
+  grid-template-rows: 34px 20px !important;
+  row-gap: 6px !important;
+  align-items: start !important;
+  justify-items: start !important;
+  text-align: left !important;
+  min-height: 60px !important;
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+  margin-bottom: 12px !important;
+}
+
+html body .recommend-controls-head h2,
+html body .recommend-results-head h2 {
+  grid-row: 1 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  color: #1e112c !important;
+  font-size: 28px !important;
+  line-height: 34px !important;
+  font-weight: 950 !important;
+  letter-spacing: -0.045em !important;
+  font-family: inherit !important;
+  text-align: left !important;
+  text-transform: none !important;
+  white-space: nowrap !important;
+  max-width: none !important;
+}
+
+html body .recommend-controls-head p,
+html body .recommend-results-head p {
+  grid-row: 2 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  color: #4d4659 !important;
+  font-size: 15px !important;
+  line-height: 20px !important;
+  font-weight: 500 !important;
+  letter-spacing: 0 !important;
+  font-family: inherit !important;
+  text-align: left !important;
+  white-space: nowrap !important;
+  max-width: none !important;
+}
+
+html body .recommend-results-head .simplify-word {
+  color: #581c87 !important;
+  font-size: inherit !important;
+  line-height: inherit !important;
+  font-weight: inherit !important;
+  letter-spacing: inherit !important;
+  font-family: inherit !important;
 }
 
 .recommend-total {
-  display: flex;
-  gap: 12px;
+  display: flex !important;
+  margin: 0 0 20px !important;
+  gap: 12px !important;
 }
 
 .recommend-total > div {
@@ -1861,6 +1978,9 @@ textarea {
   border-radius: var(--radius-md);
   flex: 1;
   padding: 10px 12px;
+  text-align: left !important;
+  justify-content: flex-start !important;
+  align-items: flex-start !important;
 }
 
 .recommend-total strong {
@@ -1881,12 +2001,14 @@ textarea {
 .slider-row {
   display: grid;
   gap: 6px;
+  margin-bottom: 14px !important;
 }
 
 .slider-head {
   align-items: baseline;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start !important;
+  margin-bottom: 8px !important;
 }
 
 .slider-head label {
@@ -1894,10 +2016,8 @@ textarea {
   font-weight: 600;
 }
 
-.slider-value {
-  color: var(--brand-strong);
-  font-size: 13px;
-  font-weight: 700;
+.slider-head .slider-value {
+  display: none !important;
 }
 
 .slider {
@@ -1907,6 +2027,68 @@ textarea {
   width: 100%;
 }
 
+.spend-control {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) 128px !important;
+  gap: 12px !important;
+  align-items: center !important;
+}
+
+html body .spend-input-wrap {
+  position: relative !important;
+  display: block !important;
+  margin: 0 !important;
+}
+
+html body .spend-input-wrap::before {
+  content: "₹" !important;
+  position: absolute !important;
+  left: 13px !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  color: #1e112c !important;
+  font-weight: 400 !important;
+  line-height: 1 !important;
+  pointer-events: none !important;
+  z-index: 2 !important;
+}
+
+.spend-input-wrap span {
+  display: none !important;
+}
+
+html body .spend-amount-input,
+html body input.spend-amount-input[type="number"] {
+  width: 100% !important;
+  min-height: 40px !important;
+  border-radius: 14px !important;
+  border: 1px solid rgba(227,223,211,1) !important;
+  background: rgba(255,255,255,0.82) !important;
+  color: #1e112c !important;
+  outline: none !important;
+  padding: 9px 12px !important;
+  padding-left: 30px !important;
+  font: inherit !important;
+  font-weight: 400 !important;
+  text-align: left !important;
+}
+
+html body .spend-amount-input:focus {
+  border-color: rgba(88,28,135,0.55) !important;
+  box-shadow: 0 0 0 3px rgba(88,28,135,0.10) !important;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none !important;
+  margin: 0 !important;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield !important;
+  appearance: textfield !important;
+}
+
 .recommend-more {
   align-items: center;
   background: #fff;
@@ -1914,13 +2096,6 @@ textarea {
   border-radius: 14px;
   color: var(--brand-strong);
   cursor: pointer;
-  display: inline-flex;
-  font-weight: 600;
-  gap: 6px;
-  justify-content: center;
-  min-height: 40px;
-  padding: 8px 12px;
-}
 
 .recommend-more svg {
   transition: transform 0.15s ease;

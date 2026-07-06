@@ -40,9 +40,32 @@ export async function POST(request: Request) {
   }
 
   const wantsLifetimeFree = body.wantsLifetimeFree === true;
-  const rawMaxFee = body.maxAnnualFee == null || body.maxAnnualFee === "" ? NaN : Number(body.maxAnnualFee);
-  const maxAnnualFee =
-    !wantsLifetimeFree && Number.isFinite(rawMaxFee) && rawMaxFee >= 0 ? rawMaxFee : undefined;
+  let minAnnualFee: number | undefined = undefined;
+  let maxAnnualFee: number | undefined = undefined;
+
+  if (!wantsLifetimeFree && body.maxAnnualFee != null && body.maxAnnualFee !== "") {
+    const feeStr = String(body.maxAnnualFee);
+    if (feeStr === "0") {
+      minAnnualFee = 0;
+      maxAnnualFee = 0;
+    } else if (feeStr === "1-1000") {
+      minAnnualFee = 1;
+      maxAnnualFee = 1000;
+    } else if (feeStr === "1001-5000") {
+      minAnnualFee = 1001;
+      maxAnnualFee = 5000;
+    } else if (feeStr === "5001-10000") {
+      minAnnualFee = 5001;
+      maxAnnualFee = 10000;
+    } else if (feeStr === "10001-plus") {
+      minAnnualFee = 10001;
+    } else {
+      const parsedNum = Number(body.maxAnnualFee);
+      if (Number.isFinite(parsedNum) && parsedNum >= 0) {
+        maxAnnualFee = parsedNum;
+      }
+    }
+  }
 
   const resultStrategy =
     typeof body.resultStrategy === "string" && RESULT_STRATEGY_NAMES.has(body.resultStrategy as ResultStrategyName)
@@ -52,6 +75,7 @@ export async function POST(request: Request) {
   const input = {
     spend: sanitizeSpend(body.spend),
     maxAnnualFee,
+    minAnnualFee,
     wantsLounge: body.wantsLounge === true,
     wantsLifetimeFree,
     resultStrategy

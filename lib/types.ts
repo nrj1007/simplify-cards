@@ -268,6 +268,7 @@ export type SpendProfile = Partial<Record<SpendCategory, number>>;
 export type RecommendationInput = {
   query?: string;
   maxAnnualFee?: number;
+  minAnnualFee?: number;
   wantsLounge?: boolean;
   wantsLifetimeFree?: boolean;
   spend?: SpendProfile;

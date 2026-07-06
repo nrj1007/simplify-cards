@@ -414,10 +414,17 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
       }
       return true;
     })
-    .filter((card) => (effectiveMaxAnnualFee === undefined ? true : card.annualFee <= effectiveMaxAnnualFee))
-    .filter((card) =>
-      effectiveMaxAnnualFee === undefined || hasExplicitAnnualFeeLanguage(input.query) ? true : card.joiningFee <= effectiveMaxAnnualFee
-    )
+    .filter((card) => {
+      const minFee = input.minAnnualFee ?? 0;
+      if (card.annualFee < minFee) return false;
+      if (effectiveMaxAnnualFee !== undefined && card.annualFee > effectiveMaxAnnualFee) return false;
+      return true;
+    })
+    .filter((card) => {
+      const minFee = input.minAnnualFee ?? 0;
+      if (effectiveMaxAnnualFee === undefined || hasExplicitAnnualFeeLanguage(input.query)) return true;
+      return card.joiningFee >= minFee && card.joiningFee <= effectiveMaxAnnualFee;
+    })
     .filter((card) => (wantsLifetimeFree ? (card.annualFee === 0 && card.joiningFee === 0 && !requiresRelationshipAccess(card)) : true))
     .filter((card) =>
       wantsInternationalLounge
