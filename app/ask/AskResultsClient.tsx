@@ -838,7 +838,7 @@ export default function AskResultsClient({
                       <td>Action</td>
                       {selectedCards.map((item) => (
                         <td key={`action-${item.card.id}`}>
-                          <div className="sc-compare-action-row">
+                          <div className="sc-compare-action-row" style={{ flexDirection: "column", alignItems: "stretch" }}>
                             <Link href={`/cards/${item.card.id}`}>Details</Link>
                             <TrackedExternalLink
                               analyticsEvent={{
