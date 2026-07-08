@@ -2,7 +2,9 @@ import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import { SITE_DESCRIPTION, SITE_NAME, SITE_URL } from "@/lib/seo";
 import { NavigationProgressProvider } from "./ui/NavigationProgress";
-import { FloatingAskButton, SiteFooter, SiteHeader } from "./ui/SiteChrome";
+import { FloatingAskButton } from "./ui/SiteChrome";
+import { SiteFooter } from "./ui/SiteFooter";
+import { SiteHeader, SiteHeaderSpacer } from "./ui/SiteHeader";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
@@ -40,7 +42,7 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
         <NavigationProgressProvider>
           <div className="app-shell">
             <SiteHeader />
-            <div className="sc-nav-spacer site-header-spacer" aria-hidden="true" />
+            <SiteHeaderSpacer />
             <main className="main">{children}</main>
             <SiteFooter />
             <FloatingAskButton />
