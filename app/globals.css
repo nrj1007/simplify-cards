@@ -15240,8 +15240,8 @@ html body .recommend-card .recommend-stats .stat strong,
 .recommend-page .page-content > .container {
   width: 100% !important;
   max-width: 1400px !important;
-  padding-left: 16px !important;
-  padding-right: 16px !important;
+  padding-left: 32px !important;
+  padding-right: 32px !important;
 }
 
 .recommend-page .page-hero-inner {
@@ -15249,9 +15249,12 @@ html body .recommend-card .recommend-stats .stat strong,
 }
 
 .recommend-page .page-hero h1.recommend-heading {
-  font-size: clamp(36px, 5vw, 68px) !important;
-  letter-spacing: -0.04em !important;
-  line-height: 0.98 !important;
+  font-family: Times, "Times New Roman", serif !important;
+  font-size: 64px !important;
+  font-weight: 800 !important;
+  letter-spacing: -0.025em !important;
+  line-height: 1.08 !important;
+  padding-bottom: 0.06em !important;
 }
 
 .recommend-page .page-content {
@@ -15290,19 +15293,28 @@ html body .recommend-card .recommend-stats .stat strong,
 }
 
 .recommend-page .recommend-controls-head h2 {
+  font-family: Times, "Times New Roman", serif !important;
   font-size: clamp(25px, 1.85vw, 32px) !important;
+  font-weight: 950 !important;
   line-height: 1.02 !important;
 }
 
 .recommend-page .recommend-results-head h2 {
-  font-size: clamp(30px, 3vw, 42px) !important;
-  line-height: 1.05 !important;
+  font-family: Times, "Times New Roman", serif !important;
+  font-size: 36px !important;
+  font-weight: 950 !important;
+  line-height: 1.06 !important;
 }
 
 .recommend-page .recommend-controls-head p,
 .recommend-page .recommend-results-head p {
+  font-family: Times, "Times New Roman", serif !important;
   margin-top: 8px !important;
   line-height: 1.35 !important;
+}
+
+.recommend-page .recommend-results-head p {
+  font-size: 15px !important;
 }
 
 .recommend-page .recommend-controls-head p {
@@ -15345,7 +15357,9 @@ html body .recommend-card .recommend-stats .stat strong,
 }
 
 .recommend-page .slider-head label {
+  font-family: Times, "Times New Roman", serif !important;
   font-size: 14px !important;
+  font-weight: 850 !important;
 }
 
 .recommend-page .spend-control {
@@ -15382,6 +15396,7 @@ html body .recommend-card .recommend-stats .stat strong,
   min-height: 32px !important;
   padding: 5px 9px 5px 25px !important;
   border-radius: 12px !important;
+  font-family: Times, "Times New Roman", serif !important;
   font-size: 13px !important;
 }
 
@@ -15393,12 +15408,15 @@ html body .recommend-card .recommend-stats .stat strong,
 
 .recommend-page .recommend-card-meta {
   gap: 10px !important;
-  font-size: 15px !important;
+  font-family: Times, "Times New Roman", serif !important;
+  font-size: 16px !important;
+  line-height: 1.15 !important;
 }
 
 .recommend-page .recommend-card-meta .badge {
   min-height: 24px !important;
   padding: 5px 9px !important;
+  font-family: Times, "Times New Roman", serif !important;
   font-size: 11px !important;
 }
 
@@ -15408,16 +15426,20 @@ html body .recommend-card .recommend-stats .stat strong,
 
 .recommend-page .recommend-title-line h3,
 .recommend-page .recommend-card h3 {
+  font-family: Times, "Times New Roman", serif !important;
   font-size: 21px !important;
-  letter-spacing: -0.03em !important;
+  font-weight: 900 !important;
+  letter-spacing: -0.025em !important;
   line-height: 1.12 !important;
 }
 
 .recommend-page .recommend-title-line .card-type-badge,
 .recommend-page .card-type-badge {
   min-height: 26px !important;
-  padding: 5px 12px !important;
-  font-size: 12px !important;
+  padding: 6px 14px !important;
+  font-family: Times, "Times New Roman", serif !important;
+  font-size: 11px !important;
+  font-weight: 950 !important;
 }
 
 .recommend-page .recommend-card .recommend-stats {
@@ -15432,28 +15454,37 @@ html body .recommend-card .recommend-stats .stat strong,
 }
 
 .recommend-page .recommend-card .recommend-stats .stat strong {
+  font-family: Times, "Times New Roman", serif !important;
   margin-bottom: 3px !important;
   font-size: 18px !important;
 }
 
 .recommend-page .recommend-card .recommend-stats .stat span {
+  font-family: Times, "Times New Roman", serif !important;
   font-size: 12px !important;
+  font-weight: 400 !important;
   line-height: 1.15 !important;
 }
 
 .recommend-page .recommend-breakdown summary {
+  font-family: Times, "Times New Roman", serif !important;
   font-size: 14px !important;
+  font-weight: 650 !important;
 }
 
 .recommend-page .recommend-breakdown .compare-table thead th {
-  padding: 12px 16px !important;
-  font-size: 14px !important;
+  padding: 16px 18px !important;
+  font-family: Times, "Times New Roman", serif !important;
+  font-size: 13px !important;
+  font-weight: 650 !important;
+  line-height: 1.25 !important;
 }
 
 .recommend-page .recommend-breakdown .compare-table tbody td {
-  padding: 13px 18px !important;
-  font-size: 16px !important;
-  line-height: 1.35 !important;
+  padding: 15px 18px !important;
+  font-family: Times, "Times New Roman", serif !important;
+  font-size: 14px !important;
+  line-height: 1.45 !important;
 }
 
 .recommend-page .recommend-card .actions {
@@ -15461,7 +15492,9 @@ html body .recommend-card .recommend-stats .stat strong,
 }
 
 .recommend-page .recommend-card .actions .details-link {
+  font-family: Times, "Times New Roman", serif !important;
   font-size: 16px !important;
+  font-weight: 400 !important;
 }
 
 @media (max-width: 1280px) {
@@ -15489,5 +15522,17 @@ html body .recommend-card .recommend-stats .stat strong,
     width: 100% !important;
     max-width: none !important;
     flex-basis: auto !important;
+  }
+}
+
+@media (max-width: 639px) {
+  .recommend-page .page-hero .container,
+  .recommend-page .page-content > .container {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+
+  .recommend-page .page-hero h1.recommend-heading {
+    font-size: clamp(42px, 16vw, 64px) !important;
   }
 }
