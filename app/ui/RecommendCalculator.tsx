@@ -60,7 +60,7 @@ const SLIDER_STEP = 500;
 // ---------------------------------------------------------------------------
 
 function formatINR(value: number) {
-  return `Rs ${value.toLocaleString("en-IN")}`;
+  return `₹${value.toLocaleString("en-IN")}`;
 }
 
 function formatINRCompact(value: number) {
@@ -68,9 +68,9 @@ function formatINRCompact(value: number) {
   if (v >= 100000) {
     const lakhs = v / 100000;
     const formatted = lakhs % 1 === 0 ? `${lakhs}` : lakhs.toFixed(1);
-    return `Rs ${formatted}L`;
+    return `₹${formatted}L`;
   }
-  return `Rs ${v.toLocaleString("en-IN")}`;
+  return `₹${v.toLocaleString("en-IN")}`;
 }
 
 function formatINRInput(value: number) {
@@ -409,7 +409,7 @@ export default function RecommendCalculator({ defaultSpend, initialSections }: P
                   onChange={(event) => setCategory(category, Number(event.target.value))}
                 />
                 <label className="spend-input-wrap" htmlFor={`spend-${category}-amount`}>
-                  <span className="currency-prefix" aria-hidden="true">Rs</span>
+                  <span className="currency-prefix" aria-hidden="true">₹</span>
                   <input
                     aria-label={`${CATEGORY_LABELS[category]} monthly spend`}
                     className="spend-amount-input"
@@ -461,11 +461,11 @@ export default function RecommendCalculator({ defaultSpend, initialSections }: P
               onChange={(event) => setMaxAnnualFee(event.target.value)}
             >
               <option value="">Any fee range</option>
-              <option value="0">Rs 0</option>
-              <option value="1-1000">Rs 1 - Rs 1,000</option>
-              <option value="1001-5000">Rs 1,001 - Rs 5,000</option>
-              <option value="5001-10000">Rs 5,001 - Rs 10,000</option>
-              <option value="10001-plus">Rs 10,001+</option>
+              <option value="0">₹0</option>
+              <option value="1-1000">₹1 - ₹1,000</option>
+              <option value="1001-5000">₹1,001 - ₹5,000</option>
+              <option value="5001-10000">₹5,001 - ₹10,000</option>
+              <option value="10001-plus">₹10,001+</option>
             </select>
           </div>
           <label className="recommend-check">

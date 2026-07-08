@@ -14678,3 +14678,555 @@ html body .recommend-card .recommend-stats .stat strong,
     text-align: left !important;
     font-weight: 400 !important;
   }
+
+/* Recommend page final mockup lock. Scoped to body only; header/footer selectors are intentionally untouched. */
+.recommend-page {
+  font-family: Georgia, "Times New Roman", serif !important;
+}
+
+.recommend-page .page-hero,
+.recommend-page .page-content {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+.recommend-page .page-hero {
+  margin: 0 !important;
+  padding: 40px 0 30px !important;
+}
+
+.recommend-page .page-hero::before,
+.recommend-page .page-hero::after,
+.recommend-page .page-hero-inner::before,
+.recommend-page .page-hero-inner::after,
+.recommend-page .page-content::before,
+.recommend-page .page-content::after {
+  content: none !important;
+  display: none !important;
+}
+
+.recommend-page .page-hero .container,
+.recommend-page .page-content > .container {
+  width: min(100% - 84px, 1900px) !important;
+  max-width: 1900px !important;
+  margin: 0 auto !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+.recommend-page .page-hero-inner {
+  border: 0 !important;
+  margin: 0 auto !important;
+  padding: 0 !important;
+  text-align: left !important;
+}
+
+.recommend-page .page-hero h1.recommend-heading {
+  max-width: none !important;
+  margin: 0 !important;
+  color: #1e112c !important;
+  font-family: Georgia, "Times New Roman", serif !important;
+  font-size: clamp(56px, 5.25vw, 96px) !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.055em !important;
+  line-height: 0.92 !important;
+  text-transform: lowercase !important;
+}
+
+.recommend-page .page-content {
+  padding: 0 0 72px !important;
+}
+
+.recommend-page .recommend-layout {
+  display: grid !important;
+  grid-template-columns: minmax(520px, 560px) minmax(0, 1fr) !important;
+  align-items: start !important;
+  justify-content: stretch !important;
+  gap: 34px !important;
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 auto !important;
+}
+
+.recommend-page .recommend-controls,
+.recommend-page .recommend-results-panel {
+  align-self: start !important;
+  margin: 0 !important;
+  overflow: hidden !important;
+  background: linear-gradient(180deg, rgba(255, 253, 248, 0.98), rgba(252, 250, 244, 0.96)) !important;
+  border: 1px solid rgba(232, 223, 207, 0.96) !important;
+  border-radius: 30px !important;
+  box-shadow: 0 18px 44px rgba(30, 17, 44, 0.07) !important;
+  transform: none !important;
+}
+
+.recommend-page .recommend-controls {
+  width: auto !important;
+  max-width: none !important;
+  flex: none !important;
+  gap: 0 !important;
+  padding: 32px 28px !important;
+}
+
+.recommend-page .recommend-results-panel {
+  min-width: 0 !important;
+  padding: 34px 34px 30px !important;
+}
+
+.recommend-page .recommend-controls-head,
+.recommend-page .recommend-results-head,
+.recommend-page .recommend-results-head > div {
+  display: block !important;
+  min-height: 0 !important;
+  margin: 0 0 26px !important;
+  padding: 0 !important;
+  text-align: left !important;
+}
+
+.recommend-page .recommend-controls-head h2,
+.recommend-page .recommend-results-head h2 {
+  margin: 0 !important;
+  padding: 0 !important;
+  max-width: none !important;
+  color: #1e112c !important;
+  font-family: Georgia, "Times New Roman", serif !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.045em !important;
+  text-align: left !important;
+  text-transform: none !important;
+}
+
+.recommend-page .recommend-controls-head h2 {
+  font-size: 36px !important;
+  line-height: 1.05 !important;
+}
+
+.recommend-page .recommend-results-head h2 {
+  font-size: 44px !important;
+  line-height: 1.02 !important;
+  white-space: nowrap !important;
+}
+
+.recommend-page .recommend-results-head .simplify-word {
+  color: #581c87 !important;
+  font: inherit !important;
+  letter-spacing: inherit !important;
+}
+
+.recommend-page .recommend-controls-head p,
+.recommend-page .recommend-results-head p {
+  margin: 12px 0 0 !important;
+  padding: 0 !important;
+  color: #4d4659 !important;
+  font-family: Georgia, "Times New Roman", serif !important;
+  font-size: 20px !important;
+  font-weight: 500 !important;
+  letter-spacing: 0 !important;
+  line-height: 1.25 !important;
+  text-align: left !important;
+  white-space: nowrap !important;
+}
+
+.recommend-page .recommend-total {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 14px !important;
+  margin: 0 0 34px !important;
+}
+
+.recommend-page .recommend-total > div {
+  min-height: 0 !important;
+  padding: 0 !important;
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  text-align: left !important;
+}
+
+.recommend-page .recommend-total strong {
+  display: inline !important;
+  margin: 0 !important;
+  color: #1e112c !important;
+  font-family: Georgia, "Times New Roman", serif !important;
+  font-size: 24px !important;
+  font-weight: 700 !important;
+  line-height: 1 !important;
+}
+
+.recommend-page .recommend-total span {
+  display: inline !important;
+  margin-left: 0 !important;
+  color: #1e112c !important;
+  font-family: Georgia, "Times New Roman", serif !important;
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  line-height: 1 !important;
+}
+
+.recommend-page .recommend-sliders {
+  display: grid !important;
+  gap: 0 !important;
+}
+
+.recommend-page .slider-row {
+  display: grid !important;
+  gap: 12px !important;
+  margin: 0 0 20px !important;
+  padding: 0 !important;
+}
+
+.recommend-page .slider-head {
+  margin: 0 !important;
+  min-height: 0 !important;
+  line-height: 1.15 !important;
+}
+
+.recommend-page .slider-head label {
+  display: block !important;
+  margin: 0 !important;
+  color: #1e112c !important;
+  font-family: Georgia, "Times New Roman", serif !important;
+  font-size: 20px !important;
+  font-weight: 700 !important;
+  line-height: 1.15 !important;
+}
+
+.recommend-page .spend-control {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) 124px !important;
+  align-items: center !important;
+  gap: 14px !important;
+}
+
+.recommend-page .slider {
+  width: 100% !important;
+  height: 18px !important;
+  margin: 0 !important;
+  accent-color: #0b7ff3 !important;
+}
+
+.recommend-page .spend-input-wrap {
+  position: relative !important;
+  display: block !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  line-height: 1 !important;
+}
+
+.recommend-page .spend-input-wrap::before {
+  content: "₹" !important;
+  position: absolute !important;
+  left: 18px !important;
+  top: 50% !important;
+  z-index: 2 !important;
+  transform: translateY(-50%) !important;
+  color: #1e112c !important;
+  font-family: Georgia, "Times New Roman", serif !important;
+  font-size: 18px !important;
+  font-weight: 400 !important;
+  line-height: 1 !important;
+  pointer-events: none !important;
+}
+
+.recommend-page .spend-input-wrap .currency-prefix {
+  display: none !important;
+}
+
+.recommend-page .spend-amount-input,
+.recommend-page input.spend-amount-input[type="number"] {
+  width: 100% !important;
+  height: 46px !important;
+  min-height: 46px !important;
+  padding: 8px 18px 8px 43px !important;
+  border: 1px solid #e3dfd3 !important;
+  border-radius: 16px !important;
+  background: #fffdf8 !important;
+  color: #1e112c !important;
+  font-family: Georgia, "Times New Roman", serif !important;
+  font-size: 17px !important;
+  font-weight: 400 !important;
+  line-height: 1.15 !important;
+  text-align: left !important;
+}
+
+.recommend-page .recommend-more,
+.recommend-page .recommend-filters {
+  font-family: Georgia, "Times New Roman", serif !important;
+}
+
+.recommend-page .recommend-card {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 12px !important;
+  min-height: 0 !important;
+  height: auto !important;
+  padding: 26px 28px !important;
+  border-radius: 26px !important;
+  background: rgba(255, 253, 248, 0.74) !important;
+  border: 1px solid rgba(232, 223, 207, 0.95) !important;
+  box-shadow: none !important;
+  cursor: pointer !important;
+}
+
+.recommend-page .recommend-card:hover {
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+.recommend-page .recommend-card-meta {
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  margin: 0 !important;
+  color: #4d4659 !important;
+  font-family: Georgia, "Times New Roman", serif !important;
+  font-size: 20px !important;
+  line-height: 1.15 !important;
+}
+
+.recommend-page .recommend-card-meta .badge {
+  min-height: 0 !important;
+  padding: 0 !important;
+  background: transparent !important;
+  border: 0 !important;
+  color: #1e112c !important;
+  font-family: Georgia, "Times New Roman", serif !important;
+  font-size: 14px !important;
+  font-weight: 700 !important;
+}
+
+.recommend-page .recommend-title-line {
+  display: flex !important;
+  align-items: center !important;
+  flex-wrap: wrap !important;
+  gap: 16px !important;
+  margin: 0 !important;
+  line-height: 1.15 !important;
+}
+
+.recommend-page .recommend-title-line h3,
+.recommend-page .recommend-card h3 {
+  margin: 0 !important;
+  color: #1e112c !important;
+  font-family: Georgia, "Times New Roman", serif !important;
+  font-size: 28px !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.035em !important;
+  line-height: 1.08 !important;
+}
+
+.recommend-page .recommend-title-line .card-type-badge,
+.recommend-page .card-type-badge {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-height: 34px !important;
+  padding: 7px 22px !important;
+  border-radius: 999px !important;
+  background: linear-gradient(180deg, #fffdf6 0%, #fff5d8 100%) !important;
+  border: 1px solid #caa454 !important;
+  color: #735214 !important;
+  box-shadow: none !important;
+  font-family: Georgia, "Times New Roman", serif !important;
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.06em !important;
+  line-height: 1 !important;
+  text-transform: uppercase !important;
+  white-space: nowrap !important;
+}
+
+.recommend-page .card-usp,
+.recommend-page .recommend-explain {
+  display: none !important;
+}
+
+.recommend-page .recommend-card .recommend-stats {
+  display: grid !important;
+  grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
+  gap: 14px !important;
+  margin: 2px 0 4px !important;
+  overflow-x: visible !important;
+}
+
+.recommend-page .recommend-card .recommend-stats .stat {
+  min-height: 80px !important;
+  padding: 13px 14px !important;
+  background: rgba(255, 253, 248, 0.94) !important;
+  border: 1px solid rgba(232, 223, 207, 0.95) !important;
+  border-radius: 14px !important;
+  box-shadow: none !important;
+  text-align: left !important;
+}
+
+.recommend-page .recommend-card .recommend-stats .stat strong {
+  display: block !important;
+  margin: 0 0 5px !important;
+  color: #1e112c !important;
+  font-family: Georgia, "Times New Roman", serif !important;
+  font-size: 25px !important;
+  font-weight: 700 !important;
+  line-height: 1.05 !important;
+  white-space: nowrap !important;
+}
+
+.recommend-page .recommend-card .recommend-stats .stat span {
+  display: block !important;
+  color: #1e112c !important;
+  font-family: Georgia, "Times New Roman", serif !important;
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  line-height: 1.18 !important;
+}
+
+.recommend-page .recommend-breakdown {
+  margin: 0 !important;
+  padding: 0 !important;
+  line-height: 1.15 !important;
+}
+
+.recommend-page .recommend-breakdown summary {
+  margin: 0 !important;
+  padding: 0 !important;
+  color: #581c87 !important;
+  font-family: Georgia, "Times New Roman", serif !important;
+  font-size: 20px !important;
+  font-weight: 700 !important;
+  line-height: 1.15 !important;
+}
+
+.recommend-page .recommend-breakdown .table-wrap {
+  margin-top: 0 !important;
+  overflow-x: auto !important;
+}
+
+.recommend-page .recommend-breakdown .compare-table {
+  width: 100% !important;
+  min-width: 0 !important;
+  border: 0 !important;
+  border-collapse: separate !important;
+  border-spacing: 0 !important;
+  box-shadow: none !important;
+  table-layout: fixed !important;
+}
+
+.recommend-page .recommend-breakdown .compare-table thead th {
+  padding: 17px 22px !important;
+  background: linear-gradient(180deg, #f8f0df 0%, #efe3cc 100%) !important;
+  border-bottom: 1px solid rgba(184, 151, 90, 0.28) !important;
+  color: #1e112c !important;
+  font-family: Georgia, "Times New Roman", serif !important;
+  font-size: 18px !important;
+  font-weight: 700 !important;
+  line-height: 1.25 !important;
+  text-align: center !important;
+}
+
+.recommend-page .recommend-breakdown .compare-table tbody td {
+  padding: 18px 26px !important;
+  background: rgba(255, 253, 248, 0.92) !important;
+  border-bottom: 1px solid rgba(227, 223, 211, 0.88) !important;
+  color: #3f374c !important;
+  font-family: Georgia, "Times New Roman", serif !important;
+  font-size: 20px !important;
+  font-weight: 400 !important;
+  line-height: 1.45 !important;
+  text-align: left !important;
+  vertical-align: top !important;
+}
+
+.recommend-page .recommend-breakdown .compare-table tbody tr:nth-child(even) td {
+  background: rgba(248, 244, 235, 0.74) !important;
+}
+
+.recommend-page .recommend-breakdown .compare-table tbody td:first-child {
+  background: rgba(245, 234, 210, 0.64) !important;
+  color: #3f374c !important;
+}
+
+.recommend-page .recommend-breakdown .compare-table tbody tr:nth-child(even) td:first-child {
+  background: rgba(239, 227, 204, 0.72) !important;
+}
+
+.recommend-page .recommend-breakdown .compare-table th:nth-child(1),
+.recommend-page .recommend-breakdown .compare-table td:nth-child(1) {
+  width: 24% !important;
+}
+
+.recommend-page .recommend-breakdown .compare-table th:nth-child(2),
+.recommend-page .recommend-breakdown .compare-table td:nth-child(2),
+.recommend-page .recommend-breakdown .compare-table th:nth-child(3),
+.recommend-page .recommend-breakdown .compare-table td:nth-child(3) {
+  width: 38% !important;
+}
+
+.recommend-page .recommend-card .actions {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 12px !important;
+  margin-top: 8px !important;
+  padding-top: 0 !important;
+  border-top: 0 !important;
+}
+
+.recommend-page .recommend-card .actions .details-link {
+  color: #581c87 !important;
+  font-family: Georgia, "Times New Roman", serif !important;
+  font-size: 18px !important;
+  font-weight: 700 !important;
+  text-decoration: none !important;
+}
+
+@media (max-width: 1280px) {
+  .recommend-page .page-hero .container,
+  .recommend-page .page-content > .container {
+    width: min(100% - 56px, 1400px) !important;
+  }
+
+  .recommend-page .recommend-layout {
+    grid-template-columns: minmax(420px, 520px) minmax(0, 1fr) !important;
+  }
+
+  .recommend-page .recommend-results-head h2 {
+    font-size: 38px !important;
+    white-space: normal !important;
+  }
+}
+
+@media (max-width: 1080px) {
+  .recommend-page .recommend-layout {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .recommend-page .page-hero .container,
+  .recommend-page .page-content > .container {
+    width: min(100% - 28px, 1400px) !important;
+  }
+
+  .recommend-page .page-hero h1.recommend-heading {
+    font-size: clamp(42px, 16vw, 64px) !important;
+  }
+
+  .recommend-page .recommend-controls,
+  .recommend-page .recommend-results-panel {
+    padding: 22px 20px !important;
+    border-radius: 24px !important;
+  }
+
+  .recommend-page .spend-control {
+    grid-template-columns: 1fr !important;
+  }
+
+  .recommend-page .spend-input-wrap {
+    max-width: 148px !important;
+  }
+
+  .recommend-page .recommend-card .recommend-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
