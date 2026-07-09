@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { cards, getIssuers, getTags } from "@/lib/cards";
+import { logAnalyticsEvent } from "@/lib/analytics-logs";
 import { buildPageMetadata } from "@/lib/seo";
 import CardTile from "../ui/CardTile";
 import FinderFilterForm from "../ui/FinderFilterForm";
@@ -22,6 +23,7 @@ type Props = {
 
 export default async function FinderPage({ searchParams }: Props) {
   const params = await searchParams;
+  const hasFilters = Boolean(params.issuer || params.tag || params.fee);
   const feeLimit = params.fee ? Number(params.fee) : undefined;
   const filteredCards = cards.filter((card) => {
     const issuerOk = params.issuer ? card.issuer === params.issuer : true;
@@ -29,6 +31,19 @@ export default async function FinderPage({ searchParams }: Props) {
     const feeOk = feeLimit === undefined || Number.isNaN(feeLimit) ? true : card.annualFee <= feeLimit;
     return issuerOk && tagOk && feeOk;
   });
+
+  if (hasFilters) {
+    await logAnalyticsEvent({
+      event_name: "filter_used",
+      page: "finder",
+      source: "finder",
+      metadata: {
+        issuer: params.issuer ?? null,
+        tag: params.tag ?? null,
+        fee: params.fee ?? null
+      }
+    });
+  }
 
   return (
     <div className="page-shell">

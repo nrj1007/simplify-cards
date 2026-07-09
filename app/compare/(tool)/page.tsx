@@ -2,7 +2,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { ExternalLink } from "lucide-react";
 import { cards } from "@/lib/cards";
-import AnalyticsMount from "@/app/ui/AnalyticsMount";
+import { logAnalyticsEvent } from "@/lib/analytics-logs";
 import { getLoungeConditions } from "@/lib/lounge";
 import LoungeInfo from "@/app/ui/LoungeInfo";
 import PageHero from "@/app/ui/PageHero";
@@ -204,6 +204,12 @@ export default async function ComparePage({ searchParams }: Props) {
   const first = cards.find((card) => card.id === (params.a ?? "sbi-cashback")) ?? cards[0];
   const second = cards.find((card) => card.id === (params.b ?? "hdfc-millennia")) ?? cards[1];
   const showFeeWaiverRow = hasFeeWaiverSpend(first.feeWaiverSpend) || hasFeeWaiverSpend(second.feeWaiverSpend);
+  await logAnalyticsEvent({
+    event_name: "compare_viewed",
+    page: "compare",
+    source: "compare",
+    card_ids: [first.id, second.id]
+  });
 
   return (
     <div className="page-shell">
@@ -214,14 +220,6 @@ export default async function ComparePage({ searchParams }: Props) {
       />
       <section className="page-content">
         <div className="container">
-          <AnalyticsMount
-            event={{
-              event_name: "compare_viewed",
-              page: "compare",
-              source: "compare",
-              card_ids: [first.id, second.id]
-            }}
-          />
           <form className="panel card compare-form" style={{ marginBottom: 18 }}>
         <div className="filters">
           <div className="field">

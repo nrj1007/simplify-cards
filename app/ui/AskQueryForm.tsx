@@ -5,7 +5,6 @@ import { useState } from "react";
 import type { Route } from "next";
 import { useRouter } from "next/navigation";
 import { LoadingButton } from "@/components/LoadingButton";
-import { trackEvent } from "@/lib/analytics-client";
 import { loadingCopy } from "@/lib/loading-copy";
 import { triggerAskResultsLoading } from "./AskResultsLoadingBoundary";
 
@@ -59,12 +58,6 @@ export default function AskQueryForm({
       return;
     }
 
-    trackEvent({
-      event_name: "ask_query_submitted",
-      page: "ask",
-      source: "ask",
-      query
-    });
     setSubmittedQuery(query);
     triggerAskResultsLoading();
     router.push(nextHref as Route);

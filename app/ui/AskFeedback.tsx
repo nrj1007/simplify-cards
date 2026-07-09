@@ -13,6 +13,8 @@ type Props = {
   returnTo: string;
   returnAnchor?: string;
   savedFeedback?: "up" | "down" | null;
+  feedbackError?: boolean;
+  readStatusFromUrl?: boolean;
   source?: "ask" | "details";
   label?: string;
 };
@@ -25,10 +27,24 @@ export default function AskFeedback({
   returnTo,
   returnAnchor = "",
   savedFeedback,
+  feedbackError = false,
+  readStatusFromUrl = false,
   source = "ask",
   label = "Was this helpful?"
 }: Props) {
   const [showDownFeedback, setShowDownFeedback] = useState(false);
+  const [urlStatus] = useState<{ savedFeedback: "up" | "down" | null; feedbackError: boolean }>(() => {
+    if (!readStatusFromUrl || typeof window === "undefined") {
+      return { savedFeedback: null, feedbackError: false };
+    }
+
+    const params = new URLSearchParams(window.location.search);
+    const feedback = params.get("feedbackSaved");
+    return {
+      savedFeedback: feedback === "up" || feedback === "down" ? feedback : null,
+      feedbackError: params.get("feedbackError") === "1"
+    };
+  });
   const analyticsContext = useMemo(
     () => ({
       sessionId: getOrCreateSessionId(),
@@ -37,6 +53,8 @@ export default function AskFeedback({
     }),
     []
   );
+  const resolvedSavedFeedback = savedFeedback ?? urlStatus.savedFeedback;
+  const resolvedFeedbackError = feedbackError || urlStatus.feedbackError;
 
   return (
     <>
@@ -57,29 +75,32 @@ export default function AskFeedback({
         <span className="ask-feedback-label">{label}</span>
         <div className="ask-feedback-actions">
           <button
-            className={`ask-feedback-button${savedFeedback === "up" ? " ask-feedback-button-active" : ""}`}
+            className={`ask-feedback-button${resolvedSavedFeedback === "up" ? " ask-feedback-button-active" : ""}`}
             name="feedback"
             type="submit"
             value="up"
           >
             <ThumbsUp size={14} />
-            <span>{savedFeedback === "up" ? "Yes saved" : "Yes"}</span>
+            <span>{resolvedSavedFeedback === "up" ? "Yes saved" : "Yes"}</span>
           </button>
           <button
-            className={`ask-feedback-button${savedFeedback === "down" ? " ask-feedback-button-active" : ""}`}
+            className={`ask-feedback-button${resolvedSavedFeedback === "down" ? " ask-feedback-button-active" : ""}`}
             onClick={() => setShowDownFeedback(true)}
             type="button"
           >
             <ThumbsDown size={14} />
-            <span>{savedFeedback === "down" ? "No saved" : "No"}</span>
+            <span>{resolvedSavedFeedback === "down" ? "No saved" : "No"}</span>
           </button>
         </div>
         <div className="ask-feedback-status" aria-live="polite">
-          {savedFeedback === "up" ? <span className="ask-feedback-message ask-feedback-success">Marked helpful. Thanks.</span> : null}
-          {savedFeedback === "down" ? (
+          {resolvedSavedFeedback === "up" ? <span className="ask-feedback-message ask-feedback-success">Marked helpful. Thanks.</span> : null}
+          {resolvedSavedFeedback === "down" ? (
             <span className="ask-feedback-message ask-feedback-success">Marked not helpful. Thanks.</span>
           ) : null}
-          {!savedFeedback ? <span className="ask-feedback-message">Tap Yes or No to send quick feedback.</span> : null}
+          {!resolvedSavedFeedback ? <span className="ask-feedback-message">Tap Yes or No to send quick feedback.</span> : null}
+          {resolvedFeedbackError ? (
+            <span className="ask-feedback-message ask-feedback-error">Feedback could not be saved on the server.</span>
+          ) : null}
         </div>
       </form>
 

@@ -7,18 +7,16 @@ import { getCardContent } from "@/lib/card-content";
 import { getTotalLoungeAccess } from "@/lib/lounge";
 import AskFeedback from "@/app/ui/AskFeedback";
 import AskBox from "@/app/ui/AskBox";
-import AnalyticsMount from "@/app/ui/AnalyticsMount";
 import RewardCalculator from "@/app/ui/RewardCalculator";
 import CardImageFallback from "@/app/ui/CardImageFallback";
 import { TrackedExternalLink } from "@/app/ui/TrackedLink";
-import { buildCardDetailMetadata } from "@/lib/analytics-events";
 import {
   EQUITAS_PRIVILEGE_BENEFITS,
   EQUITAS_PRIVILEGE_TIERS,
   EQUITAS_PRIVILEGE_URL,
   isEquitasPrivilegeCard
 } from "@/lib/equitas-privilege";
-import { milestoneRulesForCard, scoreCards } from "@/lib/recommend";
+import { milestoneRulesForCard } from "@/lib/recommend";
 import { comparisonsForCard, comparisonTitle } from "@/lib/seo-comparisons";
 import { landingsForCard } from "@/lib/seo-landing";
 import {
@@ -37,11 +35,6 @@ import type { CreditCard, Redemption } from "@/lib/types";
 
 type Props = {
   params: Promise<{ id: string }>;
-  searchParams: Promise<{
-    feedbackSaved?: string;
-    feedbackError?: string;
-    query?: string;
-  }>;
 };
 
 function buildCardSeoTitle(name: string) {
@@ -252,14 +245,11 @@ function loungeShortValue(card: CreditCard): string | null {
   return `${domestic} + ${international}`;
 }
 
-export default async function CardPage({ params, searchParams }: Props) {
+export default async function CardPage({ params }: Props) {
   const { id } = await params;
-  const query = await searchParams;
   const card = getCardById(id);
   if (!card) notFound();
 
-  const savedFeedback = query.feedbackSaved === "up" || query.feedbackSaved === "down" ? query.feedbackSaved : null;
-  const feedbackError = query.feedbackError === "1";
   const cardContent = getCardContent(card.id);
   const ctaLabel = cardCtaLabel(card);
   const latestUpdate = cardContent?.updates[0];
@@ -399,19 +389,6 @@ export default async function CardPage({ params, searchParams }: Props) {
     </section>
   ) : null;
 
-  // Optional, clearly-labelled query-context fit — only when a query is passed in. Never a
-  // standalone/generic fit score.
-  const queryText = query.query?.trim();
-  let queryFit: number | null = null;
-  if (queryText) {
-    const scored = scoreCards({ query: queryText });
-    const topScore = scored[0]?.fitScore ?? 0;
-    const mine = scored.find((entry) => entry.card.id === card.id);
-    if (mine && topScore > 0) {
-      queryFit = Math.max(1, Math.min(100, Math.round((mine.fitScore / topScore) * 100)));
-    }
-  }
-
   const loungeValue = loungeShortValue(card);
   const compareHref = (
     firstAlternative ? `/compare?a=${card.id}&b=${firstAlternative.id}` : `/compare?a=${card.id}`
@@ -462,15 +439,6 @@ export default async function CardPage({ params, searchParams }: Props) {
 
   return (
     <div className="page-shell card-detail-page">
-      <AnalyticsMount
-        event={{
-          event_name: "card_detail_viewed",
-          page: "cards/[id]",
-          source: "details",
-          card_id: card.id,
-          metadata: buildCardDetailMetadata(card)
-        }}
-      />
       {jsonLd.map((schema, index) => (
         <script
           key={index}
@@ -488,7 +456,6 @@ export default async function CardPage({ params, searchParams }: Props) {
             </p>
             <div className="card-hero-tags">
               {card.bestFor[0] ? <span className="tag primary">{titleCaseWord(card.bestFor[0])}</span> : null}
-              {queryFit !== null ? <span className="tag primary">Fit for your query: {queryFit}/100</span> : null}
               {card.tags
                 .filter((tag) => tag.toLowerCase() !== (card.bestFor[0] ?? "").toLowerCase())
                 .map((tag) => (
@@ -1087,13 +1054,10 @@ export default async function CardPage({ params, searchParams }: Props) {
                     query={card.name}
                     returnAnchor="page-feedback"
                     returnTo={`/cards/${card.id}`}
-                    savedFeedback={savedFeedback}
+                    readStatusFromUrl
                     source="details"
                     summary={`Card details page for ${card.name}`}
                   />
-                  {feedbackError ? (
-                    <p className="ask-feedback-message ask-feedback-error">Feedback could not be saved on the server.</p>
-                  ) : null}
                 </div>
               </div>
             </section>

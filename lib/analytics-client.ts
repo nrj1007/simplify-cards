@@ -34,6 +34,11 @@ export function getDeviceType(): AnalyticsDeviceType {
   return "desktop";
 }
 
+function clientAnalyticsEnabled() {
+  if (process.env.NEXT_PUBLIC_SC_CLIENT_ANALYTICS === "1") return true;
+  return process.env.NODE_ENV !== "production";
+}
+
 export function buildClientAnalyticsPayload(payload: AnalyticsEventPayload): AnalyticsEventPayload {
   return {
     ...payload,
@@ -45,6 +50,7 @@ export function buildClientAnalyticsPayload(payload: AnalyticsEventPayload): Ana
 
 export function trackEvent(payload: AnalyticsEventPayload) {
   if (typeof window === "undefined") return;
+  if (!clientAnalyticsEnabled()) return;
 
   try {
     const requestPayload = buildClientAnalyticsPayload(payload);

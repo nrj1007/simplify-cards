@@ -2,10 +2,10 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import AskQueryForm from "../ui/AskQueryForm";
 import AskResultsLoadingBoundary from "../ui/AskResultsLoadingBoundary";
-import AnalyticsMount from "../ui/AnalyticsMount";
 import CardTile from "../ui/CardTile";
 import { answerQuestion } from "@/lib/ask-ai";
 import { buildAskResultMetadata } from "@/lib/analytics-events";
+import { logAnalyticsEvent } from "@/lib/analytics-logs";
 import { buildPageMetadata } from "@/lib/seo";
 import { scoreCards } from "@/lib/recommend";
 import type { RecommendationInput } from "@/lib/types";
@@ -60,6 +60,22 @@ export default async function AskPage({ searchParams }: Props) {
   const params = await searchParams;
   const input = parseInput(params);
   const result = input ? await answerQuestion(input) : null;
+  if (input?.query && result) {
+    await logAnalyticsEvent({
+      event_name: "ask_query_submitted",
+      page: "ask",
+      source: "ask",
+      query: input.query
+    });
+    await logAnalyticsEvent({
+      event_name: "ask_result_rendered",
+      page: "ask",
+      source: "ask",
+      query: input.query,
+      card_ids: result.cards.map((item) => item.card.id),
+      metadata: buildAskResultMetadata(result)
+    });
+  }
   const savedFeedback = params.feedbackSaved === "up" || params.feedbackSaved === "down" ? params.feedbackSaved : null;
   const feedbackError = params.feedbackError === "1";
   const flatMatchCount = result?.cards.length ?? 0;
@@ -109,19 +125,6 @@ export default async function AskPage({ searchParams }: Props) {
       <section className="ask-content">
         <div className="container content-grid">
           <AskResultsLoadingBoundary>
-            {result && input?.query ? (
-              <AnalyticsMount
-                event={{
-                  event_name: "ask_result_rendered",
-                  page: "ask",
-                  source: "ask",
-                  query: input.query,
-                  card_ids: result.cards.map((item) => item.card.id),
-                  metadata: buildAskResultMetadata(result)
-                }}
-              />
-            ) : null}
-
             {result && result.cards && result.cards.length > 0 ? (
               <AskResultsClient
                 cards={result.cards}

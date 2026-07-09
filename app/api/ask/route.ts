@@ -1,7 +1,29 @@
 import { NextResponse } from "next/server";
 import { answerQuestion, buildFallbackSummary, getAskResultCacheStatus } from "@/lib/ask-ai";
+import { buildAskResultMetadata } from "@/lib/analytics-events";
+import { logAnalyticsEvent } from "@/lib/analytics-logs";
 import { answerFromCards } from "@/lib/recommend";
 import type { RecommendationInput } from "@/lib/types";
+
+async function logAskEvents(input: RecommendationInput, result: Awaited<ReturnType<typeof answerQuestion>>) {
+  const query = input.query?.trim();
+  if (!query) return;
+
+  await logAnalyticsEvent({
+    event_name: "ask_query_submitted",
+    page: "ask",
+    source: "ask",
+    query
+  });
+  await logAnalyticsEvent({
+    event_name: "ask_result_rendered",
+    page: "ask",
+    source: "ask",
+    query,
+    card_ids: result.cards.map((item) => item.card.id),
+    metadata: buildAskResultMetadata(result)
+  });
+}
 
 export async function POST(request: Request) {
   let input: RecommendationInput = { query: "" };
@@ -16,6 +38,7 @@ export async function POST(request: Request) {
 
   try {
     const result = await answerQuestion(input);
+    await logAskEvents(input, result);
     return NextResponse.json(result, {
       headers: {
         "X-Ask-Cache": getAskResultCacheStatus(result) ?? "SKIP"

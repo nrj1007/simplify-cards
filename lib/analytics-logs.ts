@@ -3,7 +3,11 @@ import path from "node:path";
 import { buildStoredAnalyticsEvent, type AnalyticsEventPayload, type StoredAnalyticsEvent } from "./analytics";
 
 export function getAnalyticsEventsLogPath() {
-  return process.env.ANALYTICS_LOG_PATH ?? path.join(process.cwd(), "data", "analytics", "events.jsonl");
+  if (process.env.NODE_ENV === "test" && process.env.ANALYTICS_LOG_PATH) {
+    return process.env.ANALYTICS_LOG_PATH;
+  }
+
+  return path.join(/*turbopackIgnore: true*/ process.cwd(), "data", "analytics", "events.jsonl");
 }
 
 export async function appendAnalyticsEvent(event: StoredAnalyticsEvent) {

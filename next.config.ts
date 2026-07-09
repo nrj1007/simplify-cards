@@ -8,10 +8,18 @@ const nextConfig: NextConfig = {
     // worker pool on CI or lower-memory machines.
     cpus: 2
   },
-  // card-index.ts reads data/cards/**/*.json at runtime via fs, so the JSON must be traced
-  // into serverless function bundles (API routes) rather than left behind during build.
+  // Dynamic routes that read card-index.ts need card JSON files in their serverless bundles.
+  // Keep this scoped so unrelated functions do not trace the whole project.
   outputFileTracingIncludes: {
-    "/**": ["./data/cards/**/*.json"]
+    "/api/ask": ["./data/cards/**/*.json", "./data/card-content.json"],
+    "/api/cards": ["./data/cards/**/*.json"],
+    "/api/debug-ranking": ["./data/cards/**/*.json"],
+    "/api/recommend": ["./data/cards/**/*.json"],
+    "/api/track-click": ["./data/cards/**/*.json"],
+    "/ask": ["./data/cards/**/*.json", "./data/card-content.json"],
+    "/calculator": ["./data/cards/**/*.json"],
+    "/compare": ["./data/cards/**/*.json"],
+    "/finder": ["./data/cards/**/*.json"]
   }
 };
 

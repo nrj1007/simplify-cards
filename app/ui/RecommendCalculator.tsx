@@ -5,8 +5,6 @@ import { ChevronDown } from "lucide-react";
 import type { Route } from "next";
 import { useRouter } from "next/navigation";
 import type { RecommendResult, SpendCategory, SpendProfile } from "@/lib/types";
-import { buildRecommendationMetadata } from "@/lib/analytics-events";
-import { trackEvent } from "@/lib/analytics-client";
 import { TrackedExternalLink, TrackedLink } from "./TrackedLink";
 import { cardCtaHref, cardCtaLabel, cardCtaRel } from "@/lib/card-links";
 
@@ -307,7 +305,6 @@ export default function RecommendCalculator({ defaultSpend, initialSections }: P
   const [pending, setPending] = useState(false);
 
   const isFirstRun = useRef(true);
-  const trackedSignatureRef = useRef<string | null>(null);
 
   useEffect(() => {
     // Skip the first run: initialSections already match the default profile (server-rendered).
@@ -361,28 +358,13 @@ export default function RecommendCalculator({ defaultSpend, initialSections }: P
         ? sections.filter((section) => /rewards?/i.test(section.title))
         : sections;
 
-  // Flat list of visible results across sections for analytics and empty-state handling.
+  // Flat list of visible results across sections for empty-state handling.
   const allResults = displayedSections.flatMap((s) => s.results);
   const hasSections = displayedSections.length > 1 || (displayedSections.length === 1 && displayedSections[0].title !== "");
 
   function setCategory(category: SpendCategory, value: number) {
     setSpend((prev) => ({ ...prev, [category]: Math.max(0, Math.min(SLIDER_MAX, value)) }));
   }
-
-  useEffect(() => {
-    const topThreeCardIds = allResults.slice(0, 3).map((result) => result.id);
-    const signature = JSON.stringify(topThreeCardIds);
-    if (trackedSignatureRef.current === signature) return;
-    trackedSignatureRef.current = signature;
-
-    trackEvent({
-      event_name: "recommendation_generated",
-      page: "recommend",
-      source: "recommend",
-      card_ids: topThreeCardIds,
-      metadata: buildRecommendationMetadata(spend, maxAnnualFee, wantsLounge, wantsLifetimeFree, allResults)
-    });
-  }, [sections, spend, maxAnnualFee, wantsLounge, wantsLifetimeFree, rewardTypeView]); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <div className="recommend-layout">

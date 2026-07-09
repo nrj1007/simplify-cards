@@ -1,8 +1,5 @@
 "use client";
 
-import type { FormEvent } from "react";
-import { trackEvent } from "@/lib/analytics-client";
-
 type Props = {
   issuers: string[];
   tags: string[];
@@ -12,23 +9,8 @@ type Props = {
 };
 
 export default function FinderFilterForm({ issuers, tags, defaultIssuer = "", defaultTag = "", defaultFee = "" }: Props) {
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
-    const formData = new FormData(event.currentTarget);
-
-    trackEvent({
-      event_name: "filter_used",
-      page: "finder",
-      source: "finder",
-      metadata: {
-        issuer: String(formData.get("issuer") ?? "").trim() || null,
-        tag: String(formData.get("tag") ?? "").trim() || null,
-        fee: String(formData.get("fee") ?? "").trim() || null
-      }
-    });
-  }
-
   return (
-    <form className="panel card" method="GET" style={{ marginBottom: 18 }} onSubmit={handleSubmit}>
+    <form className="panel card" method="GET" style={{ marginBottom: 18 }}>
       <div className="filters">
         <div className="field">
           <label htmlFor="issuer">Issuer</label>
