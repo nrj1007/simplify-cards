@@ -1868,7 +1868,7 @@ describe("reward calculator", () => {
   });
 
   describe("HSBC Live+ Credit Card", () => {
-    it("earns 10% cashback on dining, food delivery, and groceries capped at ₹1,000/month", () => {
+    it("earns 10% cashback on dining, groceries, and utilities capped at ₹1,200/month", () => {
       const card = getCardById("hsbc-live-plus");
       expect(card).toBeTruthy();
 
@@ -1876,9 +1876,13 @@ describe("reward calculator", () => {
       const result1 = calculateRewards(card!, { dining: 5000 });
       expect(result1.monthlyUnits).toBe(500);
 
-      // ₹15,000 on dining => 1,500 capped at ₹1,000
+      // ₹15,000 on dining => 1,500 capped at ₹1,200
       const result2 = calculateRewards(card!, { dining: 15000 });
-      expect(result2.monthlyUnits).toBe(1000);
+      expect(result2.monthlyUnits).toBe(1200);
+
+      // ₹5,000 on utilities => 5,000 * 10% = ₹500 cashback
+      const result3 = calculateRewards(card!, { utilities: 5000 });
+      expect(result3.monthlyUnits).toBe(500);
     });
 
     it("earns 1.5% cashback on base spends", () => {
@@ -1890,15 +1894,16 @@ describe("reward calculator", () => {
       expect(result.monthlyUnits).toBe(150);
     });
 
-    it("excludes fuel, rent, insurance, government, education, and utilities spends", () => {
+    it("earns conditional fuel cashback and excludes rent, insurance, government, and education spends", () => {
       const card = getCardById("hsbc-live-plus");
+      const fuelResult = calculateRewards(card!, { fuel: 5000 });
+      expect(fuelResult.monthlyUnits).toBe(125);
+
       const result = calculateRewards(card!, {
-        fuel: 5000,
         rent: 5000,
         insurance: 5000,
         government: 5000,
-        education: 5000,
-        utilities: 5000
+        education: 5000
       });
       expect(result.monthlyUnits).toBe(0);
     });
@@ -3784,7 +3789,6 @@ describe("reward calculator", () => {
     });
   });
 });
-
 
 
 

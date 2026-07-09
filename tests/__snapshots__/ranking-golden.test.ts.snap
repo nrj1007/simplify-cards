@@ -18,6 +18,7 @@ exports[`ranking golden (representative queries) > produces stable top-N orderin
   ],
   "category-bill-payments": [
     "icici-emeralde-private-metal",
+    "hsbc-live-plus",
     "phonepe-sbi-select-black",
     "sc-ultimate",
     "bobcard-eterna",
@@ -28,7 +29,6 @@ exports[`ranking golden (representative queries) > produces stable top-N orderin
     "sbi-card-pulse",
     "axis-ace",
     "hdfc-marriott-bonvoy",
-    "sc-rewards",
   ],
   "category-education-payments": [
     "icici-emeralde-private-metal",
@@ -63,6 +63,7 @@ exports[`ranking golden (representative queries) > produces stable top-N orderin
   "category-utilities": [
     "icici-emeralde-private-metal",
     "phonepe-sbi-select-black",
+    "hsbc-live-plus",
     "sc-ultimate",
     "bobcard-eterna",
     "amex-gold",
@@ -72,10 +73,10 @@ exports[`ranking golden (representative queries) > produces stable top-N orderin
     "sbi-card-pulse",
     "axis-ace",
     "hdfc-marriott-bonvoy",
-    "sc-rewards",
   ],
   "category-utility-bills": [
     "icici-emeralde-private-metal",
+    "hsbc-live-plus",
     "phonepe-sbi-select-black",
     "sc-ultimate",
     "bobcard-eterna",
@@ -86,7 +87,6 @@ exports[`ranking golden (representative queries) > produces stable top-N orderin
     "sbi-card-pulse",
     "axis-ace",
     "hdfc-marriott-bonvoy",
-    "sc-rewards",
   ],
   "combo-dining-under-5000": [
     "indusind-eazydiner",
@@ -391,9 +391,9 @@ exports[`ranking golden (representative queries) > produces stable top-N orderin
     "phonepe-sbi-select-black",
     "kotak-solitaire",
     "bobcard-eterna",
+    "hsbc-live-plus",
     "indusind-eazydiner",
     "au-ixigo",
-    "hsbc-live-plus",
     "sbi-cashback",
     "sbi-card-elite",
     "sbi-card-prime",
@@ -457,6 +457,7 @@ exports[`ranking golden (representative queries) > produces stable top-N orderin
   "spend-fuel-heavy": [
     "bpcl-sbi-octane",
     "idfc-first-power-plus",
+    "hsbc-live-plus",
     "axis-indianoil-easy",
     "icici-hpcl-super-saver",
     "bpcl-sbi",
@@ -466,7 +467,6 @@ exports[`ranking golden (representative queries) > produces stable top-N orderin
     "kotak-cashback-plus",
     "icici-hpcl-coral",
     "axis-indianoil-premium",
-    "kotak-pvr-inox",
   ],
   "spend-high-base": [
     "hsbc-premier",
@@ -597,6 +597,7 @@ exports[`ranking golden (representative queries) > produces stable top-N orderin
   "usecase-fuel": [
     "bpcl-sbi-octane",
     "idfc-first-power-plus",
+    "hsbc-live-plus",
     "axis-indianoil-easy",
     "kotak-cashback-plus",
     "bpcl-sbi",
@@ -606,7 +607,6 @@ exports[`ranking golden (representative queries) > produces stable top-N orderin
     "hdfc-indianoil",
     "icici-hpcl-coral",
     "axis-indianoil-premium",
-    "sc-platinum-rewards",
   ],
   "usecase-grocery": [
     "hsbc-live-plus",
@@ -688,10 +688,10 @@ exports[`result split golden (all query modes) > snapshots section membership fo
   "category-bill-payments": {
     "Cashback cards": [
       "phonepe-sbi-select-black",
+      "hsbc-live-plus",
       "hdfc-phonepe-ultimo",
       "phonepe-sbi-purple",
       "cheq-au",
-      "axis-ace",
     ],
     "Rewards cards": [
       "equitas-selfe",
@@ -742,10 +742,10 @@ exports[`result split golden (all query modes) > snapshots section membership fo
   "category-utilities": {
     "Cashback cards": [
       "phonepe-sbi-select-black",
+      "hsbc-live-plus",
       "hdfc-phonepe-ultimo",
       "phonepe-sbi-purple",
       "cheq-au",
-      "axis-ace",
     ],
     "Rewards cards": [
       "equitas-selfe",
@@ -758,10 +758,10 @@ exports[`result split golden (all query modes) > snapshots section membership fo
   "category-utility-bills": {
     "Cashback cards": [
       "phonepe-sbi-select-black",
+      "hsbc-live-plus",
       "hdfc-phonepe-ultimo",
       "phonepe-sbi-purple",
       "cheq-au",
-      "axis-ace",
     ],
     "Rewards cards": [
       "equitas-selfe",
@@ -773,8 +773,8 @@ exports[`result split golden (all query modes) > snapshots section membership fo
   },
   "combo-dining-under-5000": {
     "Cashback cards": [
-      "yes-paisabazaar-paisasave",
       "hsbc-live-plus",
+      "yes-paisabazaar-paisasave",
       "bpcl-sbi-octane",
       "hsbc-rupay-cashback",
       "axis-fibe",
@@ -821,6 +821,7 @@ exports[`result split golden (all query modes) > snapshots section membership fo
   "forex": {
     "Cashback cards": [
       "csb-jupiter-edge-plus",
+      "hsbc-live-plus",
       "icici-amazon-pay",
     ],
     "Rewards cards": [
@@ -831,7 +832,6 @@ exports[`result split golden (all query modes) > snapshots section membership fo
       "idfc-mayura",
       "idfc-wow",
       "equitas-powermiles",
-      "au-ixigo",
     ],
   },
   "forex-zero": {
@@ -863,7 +863,9 @@ exports[`result split golden (all query modes) > snapshots section membership fo
     ],
   },
   "intl-lounge-query": {
-    "Cashback cards": [],
+    "Cashback cards": [
+      "hsbc-live-plus",
+    ],
     "Rewards cards": [
       "hsbc-premier",
       "axis-magnus-burgundy",
@@ -874,7 +876,6 @@ exports[`result split golden (all query modes) > snapshots section membership fo
       "axis-reserve",
       "hdfc-diners-club-black-metal",
       "hdfc-infinia-metal",
-      "icici-times-black",
     ],
   },
   "issuer-amex": {
@@ -972,9 +973,9 @@ exports[`result split golden (all query modes) > snapshots section membership fo
     "Cashback cards": [
       "titan-sbi",
       "hsbc-rupay-cashback",
+      "hsbc-live-plus",
       "hdfc-phonepe-ultimo",
       "phonepe-sbi-select-black",
-      "hsbc-live-plus",
     ],
     "Rewards cards": [
       "hsbc-premier",
@@ -988,9 +989,9 @@ exports[`result split golden (all query modes) > snapshots section membership fo
     "Cashback cards": [
       "titan-sbi",
       "hsbc-rupay-cashback",
+      "hsbc-live-plus",
       "phonepe-sbi-select-black",
       "hdfc-phonepe-ultimo",
-      "hsbc-live-plus",
     ],
     "Rewards cards": [
       "hsbc-premier",
@@ -1194,10 +1195,10 @@ exports[`result split golden (all query modes) > snapshots section membership fo
   "spend-fuel-heavy": {
     "Cashback cards": [
       "bpcl-sbi-octane",
+      "hsbc-live-plus",
       "icici-hpcl-super-saver",
       "bpcl-sbi",
       "kotak-cashback-plus",
-      "icici-hpcl-coral",
     ],
     "Rewards cards": [
       "idfc-first-power-plus",
@@ -1212,8 +1213,8 @@ exports[`result split golden (all query modes) > snapshots section membership fo
       "titan-sbi",
       "hsbc-rupay-cashback",
       "phonepe-sbi-select-black",
-      "hsbc-live-plus",
       "hdfc-phonepe-ultimo",
+      "hsbc-live-plus",
     ],
     "Rewards cards": [
       "hsbc-premier",
@@ -1226,6 +1227,7 @@ exports[`result split golden (all query modes) > snapshots section membership fo
   "spend-international": {
     "Cashback cards": [
       "csb-jupiter-edge-plus",
+      "hsbc-live-plus",
       "icici-amazon-pay",
     ],
     "Rewards cards": [
@@ -1236,7 +1238,6 @@ exports[`result split golden (all query modes) > snapshots section membership fo
       "hdfc-diners-club-black-metal",
       "icici-emeralde-private-metal",
       "hdfc-infinia-metal",
-      "scapia-federal",
     ],
   },
   "spend-level-heavy": {
@@ -1321,8 +1322,8 @@ exports[`result split golden (all query modes) > snapshots section membership fo
   },
   "usecase-dining": {
     "Cashback cards": [
-      "yes-paisabazaar-paisasave",
       "hsbc-live-plus",
+      "yes-paisabazaar-paisasave",
       "axis-fibe",
       "bpcl-sbi-octane",
       "hsbc-rupay-cashback",
@@ -1338,10 +1339,10 @@ exports[`result split golden (all query modes) > snapshots section membership fo
   "usecase-entertainment": {
     "Cashback cards": [
       "phonepe-sbi-select-black",
-      "hsbc-live-plus",
       "sbi-cashback",
       "axis-airtel",
       "csb-jupiter-edge-plus",
+      "hsbc-rupay-cashback",
     ],
     "Rewards cards": [
       "yes-marquee",
@@ -1354,10 +1355,10 @@ exports[`result split golden (all query modes) > snapshots section membership fo
   "usecase-fuel": {
     "Cashback cards": [
       "bpcl-sbi-octane",
+      "hsbc-live-plus",
       "kotak-cashback-plus",
       "icici-hpcl-coral",
       "bpcl-sbi",
-      "icici-hpcl-super-saver",
     ],
     "Rewards cards": [
       "idfc-first-power-plus",
