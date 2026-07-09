@@ -1243,8 +1243,8 @@ exports[`result split golden (all query modes) > snapshots section membership fo
     "Cashback cards": [
       "phonepe-sbi-select-black",
       "hsbc-rupay-cashback",
-      "titan-sbi",
       "hsbc-live-plus",
+      "titan-sbi",
       "hdfc-phonepe-ultimo",
     ],
     "Rewards cards": [
