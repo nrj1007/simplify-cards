@@ -24,6 +24,8 @@ type Props = {
   initialSections: ResultSection[];
 };
 
+type RewardTypeView = "all" | "cashback" | "rewards";
+
 // ---------------------------------------------------------------------------
 // Constants
 // ---------------------------------------------------------------------------
@@ -31,7 +33,7 @@ type Props = {
 const CATEGORY_LABELS: Record<SpendCategory, string> = {
   online: "Online shopping",
   base: "Other offline / retail",
-  travel: "Travel (cab, train, etc)",
+  travel: "Travel",
   hotels: "Hotel bookings",
   airlines: "Flight bookings",
   fuel: "Fuel",
@@ -48,8 +50,8 @@ const CATEGORY_LABELS: Record<SpendCategory, string> = {
   international: "International spends"
 };
 
-const CORE_CATEGORIES: SpendCategory[] = ["online", "dining", "travel", "hotels", "airlines", "fuel", "grocery", "utilities", "upi"];
-const MORE_CATEGORIES: SpendCategory[] = ["base", "amazon", "rent", "insurance", "education", "gold", "government", "international"];
+const CORE_CATEGORIES: SpendCategory[] = ["online", "base", "hotels", "airlines", "dining", "grocery", "utilities", "upi"];
+const MORE_CATEGORIES: SpendCategory[] = ["fuel", "rent", "insurance", "education", "gold", "government", "international"];
 const ALL_CATEGORIES: SpendCategory[] = [...CORE_CATEGORIES, ...MORE_CATEGORIES];
 
 const SLIDER_MAX = 100_000;
@@ -300,7 +302,7 @@ export default function RecommendCalculator({ defaultSpend, initialSections }: P
   const [maxAnnualFee, setMaxAnnualFee] = useState<string>("");
   const [wantsLounge, setWantsLounge] = useState(false);
   const [wantsLifetimeFree, setWantsLifetimeFree] = useState(false);
-  const [groupByType, setGroupByType] = useState(false);
+  const [rewardTypeView, setRewardTypeView] = useState<RewardTypeView>("all");
   const [sections, setSections] = useState<ResultSection[]>(initialSections);
   const [pending, setPending] = useState(false);
 
@@ -325,7 +327,7 @@ export default function RecommendCalculator({ defaultSpend, initialSections }: P
           maxAnnualFee: maxAnnualFee || null,
           wantsLounge,
           wantsLifetimeFree,
-          resultStrategy: groupByType ? "reward-type-split" : "single-list"
+          resultStrategy: rewardTypeView === "all" ? "single-list" : "reward-type-split"
         }),
         signal: controller.signal
       })
@@ -348,14 +350,20 @@ export default function RecommendCalculator({ defaultSpend, initialSections }: P
       clearTimeout(timer);
       controller.abort();
     };
-  }, [spend, maxAnnualFee, wantsLounge, wantsLifetimeFree, groupByType]);
+  }, [spend, maxAnnualFee, wantsLounge, wantsLifetimeFree, rewardTypeView]);
 
   const totalMonthly = ALL_CATEGORIES.reduce((sum, category) => sum + spend[category], 0);
   const visibleCategories = showMore ? ALL_CATEGORIES : CORE_CATEGORIES;
+  const displayedSections =
+    rewardTypeView === "cashback"
+      ? sections.filter((section) => /cashback/i.test(section.title))
+      : rewardTypeView === "rewards"
+        ? sections.filter((section) => /rewards?/i.test(section.title))
+        : sections;
 
-  // Flat list of all results across sections for analytics
-  const allResults = sections.flatMap((s) => s.results);
-  const hasSections = sections.length > 1 || (sections.length === 1 && sections[0].title !== "");
+  // Flat list of visible results across sections for analytics and empty-state handling.
+  const allResults = displayedSections.flatMap((s) => s.results);
+  const hasSections = displayedSections.length > 1 || (displayedSections.length === 1 && displayedSections[0].title !== "");
 
   function setCategory(category: SpendCategory, value: number) {
     setSpend((prev) => ({ ...prev, [category]: Math.max(0, Math.min(SLIDER_MAX, value)) }));
@@ -374,7 +382,7 @@ export default function RecommendCalculator({ defaultSpend, initialSections }: P
       card_ids: topThreeCardIds,
       metadata: buildRecommendationMetadata(spend, maxAnnualFee, wantsLounge, wantsLifetimeFree, allResults)
     });
-  }, [sections, spend, maxAnnualFee, wantsLounge, wantsLifetimeFree]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [sections, spend, maxAnnualFee, wantsLounge, wantsLifetimeFree, rewardTypeView]); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <div className="recommend-layout">
@@ -472,16 +480,22 @@ export default function RecommendCalculator({ defaultSpend, initialSections }: P
               <option value="10001-plus">₹10,001+</option>
             </select>
           </div>
-          <label className="recommend-check">
-            <input
-              checked={groupByType}
-              disabled={wantsLounge || wantsLifetimeFree}
-              id="recommend-group-by-type"
-              type="checkbox"
-              onChange={(event) => setGroupByType(event.target.checked)}
-            />
-            Group by reward type
-          </label>
+          <div className="field">
+            <label htmlFor="recommend-reward-type-view">Card type</label>
+            <select
+              id="recommend-reward-type-view"
+              name="reward-type-view"
+              value={rewardTypeView}
+              onChange={(event) => {
+                setPending(true);
+                setRewardTypeView(event.target.value as RewardTypeView);
+              }}
+            >
+              <option value="all">All cards</option>
+              <option value="cashback">Cashback cards</option>
+              <option value="rewards">Reward cards</option>
+            </select>
+          </div>
         </div>
       </aside>
 
@@ -500,6 +514,12 @@ export default function RecommendCalculator({ defaultSpend, initialSections }: P
               Move a slider to set your spend and see recommendations.
             </p>
           </div>
+        ) : pending && allResults.length === 0 ? (
+          <div className="panel card">
+            <p className="muted" style={{ margin: 0 }}>
+              Updating recommendations…
+            </p>
+          </div>
         ) : allResults.length === 0 ? (
           <div className="panel card">
             <p className="muted" style={{ margin: 0 }}>
@@ -509,7 +529,7 @@ export default function RecommendCalculator({ defaultSpend, initialSections }: P
         ) : hasSections ? (
           // Sectioned view: two headed groups (e.g. Rewards + Cashback)
           <div className="recommend-sections">
-            {sections.map((section) =>
+            {displayedSections.map((section) =>
               section.results.length === 0 ? null : (
                 <div className="recommend-section" key={section.title}>
                   <h3 className="recommend-section-title">{section.title}</h3>
@@ -530,7 +550,7 @@ export default function RecommendCalculator({ defaultSpend, initialSections }: P
         ) : (
           // Flat single-list view (default)
           <div className="recommend-cards">
-            {(sections[0]?.results ?? []).map((result, index) => (
+            {(displayedSections[0]?.results ?? []).map((result, index) => (
               <RecommendCard
                 key={result.id}
                 result={result}
