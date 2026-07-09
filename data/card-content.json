@@ -397,6 +397,18 @@
       }
     ]
   },
+  "hsbc-live-plus": {
+    "updates": [
+      {
+        "title": "HSBC Live+ Visa Infinite upgrade reported from 26 July 2026",
+        "summary": "From 26 July 2026, Live+ offers 10% cashback up to ₹1,200/month on food, dining, groceries, shopping and utilities. It also adds contactless fuel cashback, 1.99% forex markup, 2 domestic lounge visits/year, and 1 international lounge visit/year from 1 September 2026.",
+        "sourceType": "manual",
+        "sourceLabel": "Paisabazaar report based on HSBC Live+ upgrade communication",
+        "sourceUrl": "https://www.paisabazaar.com/credit-card/hsbc-live-plus-credit-card-upgrade-july-2026/",
+        "publishedAt": "2026-07-10"
+      }
+    ]
+  },
   "axis-reserve": {
     "updates": [
       {
