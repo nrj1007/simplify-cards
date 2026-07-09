@@ -3,7 +3,7 @@
   "issuer": "HSBC Bank",
   "name": "Live+ Credit Card",
   "network": [
-    "Visa Infinite"
+    "Visa"
   ],
   "joiningFee": 999,
   "annualFee": 999,
