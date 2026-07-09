@@ -227,7 +227,11 @@ function RecommendCard({ result, index, isTopOfSection }: { result: RecommendRes
       </div>
 
       {result.breakdown.length > 0 ? (
-        <details className="recommend-breakdown" open={index === 0}>
+        <details
+          className="recommend-breakdown"
+          onClick={(event) => event.stopPropagation()}
+          onKeyDown={(event) => event.stopPropagation()}
+        >
           <summary>Reward breakdown</summary>
           <div className="table-wrap">
             <table className="compare-table">
