@@ -397,6 +397,18 @@
       }
     ]
   },
+  "hsbc-live-plus": {
+    "updates": [
+      {
+        "title": "HSBC Live+ cashback benefits refreshed",
+        "summary": "HSBC's official Live+ page now positions the card with 10% cashback on dining, food delivery and grocery spends capped at ₹1,000 per month, plus 1.5% unlimited cashback on most other spends. The card activation voucher listed by HSBC is now worth up to ₹750 for Amazon Pay, Zomato and Swiggy.",
+        "sourceType": "manual",
+        "sourceLabel": "HSBC official product page",
+        "sourceUrl": "https://www.hsbc.co.in/credit-cards/products/live-plus/",
+        "publishedAt": "2026-07-10"
+      }
+    ]
+  },
   "axis-reserve": {
     "updates": [
       {
