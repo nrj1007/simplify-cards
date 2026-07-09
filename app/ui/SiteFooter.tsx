@@ -119,7 +119,7 @@ export function SiteFooter() {
               <Link className={styles.footerLink} href="/ask">ask</Link>
               <Link className={styles.footerLink} href="/recommend">recommend</Link>
               <Link className={styles.footerLink} href={"/calculator" as Route}>calculator</Link>
-              <Link className={styles.footerLink} href="/finder">cards</Link>
+              <Link className={styles.footerLink} href="/cards">cards</Link>
               <Link className={styles.footerLink} href="/compare">compare</Link>
               <Link className={styles.footerLink} href={"/latest" as Route}>latest updates</Link>
             </div>

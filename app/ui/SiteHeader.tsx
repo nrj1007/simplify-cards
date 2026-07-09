@@ -44,7 +44,7 @@ export function SiteHeader() {
   const links: Array<{ label: string; href: Route }> = [
     { label: "recommend", href: "/recommend" },
     { label: "calculator", href: "/calculator" as Route },
-    { label: "cards", href: "/finder" },
+    { label: "cards", href: "/cards" },
     { label: "compare", href: "/compare" }
   ];
 
@@ -101,8 +101,8 @@ export function SiteHeaderSpacer() {
 }
 
 function isActiveHeaderLink(pathname: string, href: Route) {
-  if (href === "/finder") {
-    return pathname === "/finder" || pathname.startsWith("/cards");
+  if (href === "/cards") {
+    return pathname === "/cards" || pathname.startsWith("/cards/");
   }
 
   return pathname === href || pathname.startsWith(`${href}/`);
