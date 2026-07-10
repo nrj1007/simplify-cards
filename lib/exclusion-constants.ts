@@ -10,6 +10,9 @@ export const EXCLUSION_CODES = [
   "wallet_load",
   "government",
   "tax",
+  "international",
+  "hospital",
+  "local_transport",
   "real_estate",
   "property_management",
   "cash_advance",
@@ -33,5 +36,6 @@ export const SPEND_CATEGORY_EXCLUSION_CODE_MAP: Partial<Record<SpendCategory, re
   rent: ["rent", "real_estate", "property_management"],
   insurance: ["insurance"],
   education: ["education"],
-  gold: ["gold", "jewellery"]
+  gold: ["gold", "jewellery"],
+  international: ["international"]
 } as const;

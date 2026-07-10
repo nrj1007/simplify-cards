@@ -80,6 +80,9 @@
     "Cash advances"
   ],
   "exclusionCodes": [
+    "international",
+    "hospital",
+    "local_transport",
     "rent",
     "insurance",
     "emi",
