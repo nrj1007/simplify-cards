@@ -35,11 +35,20 @@
       "capGroup": "smartbuy"
     },
     {
-      "category": "smartbuy flights, smartbuy gyftr",
-      "displayCategory": "smartbuy flights/gyftr",
+      "category": "smartbuy flights",
+      "displayCategory": "smartbuy flights",
       "rate": 12.5,
-      "displayRate": "Up to 5X Reward Points (25 RP / ₹200 spent on flights & instant vouchers via SmartBuy)",
+      "displayRate": "Up to 5X Reward Points (25 RP / ₹200 spent on flights via SmartBuy)",
       "capMonthly": 4000,
+      "capDaily": 2000,
+      "capGroup": "smartbuy"
+    },
+    {
+      "category": "smartbuy gyftr",
+      "displayCategory": "smartbuy gyftr",
+      "rate": 12.5,
+      "displayRate": "Up to 5X Reward Points (25 RP / ₹200 spent on instant vouchers via SmartBuy)",
+      "capMonthly": 3000,
       "capDaily": 2000,
       "capGroup": "smartbuy"
     },
@@ -295,7 +304,7 @@
   },
   "sourceUrl": "https://www.hdfc.bank.in/credit-cards/regalia-gold-credit-card",
   "applyUrl": "https://www.hdfc.bank.in/credit-cards/regalia-gold-credit-card",
-  "lastVerified": "2026-05-30",
+  "lastVerified": "2026-07-10",
   "verificationStatus": "official-direct",
   "popularityScore": 88,
   "imageUrl": "/images/hdfc-regalia-gold.png",
@@ -305,7 +314,7 @@
     "Reward Points earning is capped at 50,000 per statement cycle.",
     "Base rewards rate is 5 Reward Points for every ₹200 spent on retail spends (effective 15 May 2026). Prior to this, it was 4 Reward Points / ₹150.",
     "5X Reward Points (25 RP / ₹200) on Myntra, Nykaa, Marks & Spencer, and Reliance Digital, capped at 5,000 Reward Points per month across these brands combined.",
-    "SmartBuy reward caps: 2,000 bonus Reward Points per day and 4,000 bonus Reward Points per month.",
+    "SmartBuy reward caps: 2,000 bonus Reward Points per day and 4,000 bonus Reward Points per month. Effective 1 July 2026, Brand Vouchers through Gyftr/Woohoo have a separate 3,000 Reward Points monthly cap within the overall SmartBuy cap; base Reward Points continue as per card terms.",
     "SmartBuy multipliers: 10X (50 RP / ₹200) on hotels, PharmEasy, Jockey, and IGP; 5X (25 RP / ₹200) on flights and Gyftr instant vouchers; 3X (15 RP / ₹200) on trains via ConfirmTkt.",
     "Reward Points on grocery transactions are capped at 2,00,000 total cycle cap, but specifically capped at 2,000 Reward Points per calendar month for grocery spends.",
     "Reward Points on utility and telecom transactions are capped at 2,00,000 total cycle cap, but specifically capped at 2,000 Reward Points per calendar month for utility and telecom categories individually.",

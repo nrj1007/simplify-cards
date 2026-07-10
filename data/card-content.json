@@ -50,6 +50,14 @@
   "hdfc-infinia-metal": {
     "updates": [
       {
+        "title": "HDFC capped Infinia SmartBuy vouchers",
+        "summary": "From 1 July 2026, SmartBuy brand vouchers earn accelerated points only up to 3,000 points per month. The overall SmartBuy monthly cap stays 15,000 points.",
+        "sourceType": "manual",
+        "sourceLabel": "HDFC SmartBuy terms",
+        "sourceUrl": "https://offers.smartbuy.hdfc.bank.in/offer_details/smartbuy/15282",
+        "publishedAt": "2026-07-01"
+      },
+      {
         "title": "HDFC Infinia program retention criteria updated",
         "summary": "Effective 1 April 2026, HDFC introduced new program retention criteria requiring cardholders to maintain a minimum of ₹18 Lakhs in card spends or ₹50 Lakhs in relationship value per financial year.",
         "sourceType": "manual",
@@ -81,6 +89,14 @@
   },
   "hdfc-regalia-gold": {
     "updates": [
+      {
+        "title": "HDFC capped Regalia Gold SmartBuy vouchers",
+        "summary": "From 1 July 2026, SmartBuy brand vouchers earn accelerated points only up to 3,000 points per month. The overall SmartBuy monthly cap stays 4,000 points.",
+        "sourceType": "manual",
+        "sourceLabel": "HDFC SmartBuy terms",
+        "sourceUrl": "https://offers.smartbuy.hdfc.bank.in/offer_details/smartbuy/15282",
+        "publishedAt": "2026-07-01"
+      },
       {
         "title": "HDFC revised Regalia Gold base rewards rate",
         "summary": "Effective 15 May 2026, HDFC Bank has revised the base reward points earning rate to 5 reward points for every ₹200 spent on eligible transactions (previously 4 points per ₹150).",
@@ -130,6 +146,14 @@
   "hdfc-diners-club-black-metal": {
     "updates": [
       {
+        "title": "HDFC capped Diners Black SmartBuy vouchers",
+        "summary": "From 1 July 2026, SmartBuy brand vouchers earn accelerated points only up to 3,000 points per month. The overall SmartBuy monthly cap stays 10,000 points.",
+        "sourceType": "manual",
+        "sourceLabel": "HDFC SmartBuy terms",
+        "sourceUrl": "https://offers.smartbuy.hdfc.bank.in/offer_details/smartbuy/15282",
+        "publishedAt": "2026-07-01"
+      },
+      {
         "title": "HDFC revised Diners Club Black rewards capping",
         "summary": "Effective 1 July 2025, HDFC Bank revised the reward points capping on insurance spends to 5,000 reward points per calendar month. Grocery and utility transactions remain capped at 2,000 reward points per calendar month.",
         "sourceType": "manual",
@@ -173,6 +197,14 @@
   },
   "hdfc-diners-club-privilege": {
     "updates": [
+      {
+        "title": "HDFC capped Diners Privilege SmartBuy vouchers",
+        "summary": "From 1 July 2026, SmartBuy brand vouchers earn accelerated points only up to 3,000 points per month. The overall SmartBuy monthly cap stays 4,000 points.",
+        "sourceType": "manual",
+        "sourceLabel": "HDFC SmartBuy terms",
+        "sourceUrl": "https://offers.smartbuy.hdfc.bank.in/offer_details/smartbuy/15282",
+        "publishedAt": "2026-07-01"
+      },
       {
         "title": "HDFC revised Diners Privilege rewards, lounge access and DCC rules",
         "summary": "Reward earnings moved to 4 reward points per Rs 200 on eligible categories from 15 May 2026. Lounge access becomes spend-gated from the quarter starting 1 July 2026, with 2 domestic and 1 international access per quarter available only after Rs 60,000 prior-quarter spend. The official change notice also revises INR DCC markup to 1.75% and the card reissuance fee to Rs 199.",
