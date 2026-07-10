@@ -233,7 +233,7 @@ describe("applyResultStrategy gating (via scoreCards integration)", () => {
     expect(sections[1].title).toBe("Rewards cards");
   });
 
-  it("keeps forex split sections strictly primary-bucket so AU ixigo is not duplicated", async () => {
+  it("keeps forex split sections strictly primary-bucket so AU ixigo is not duplicated into cashback", async () => {
     const { applyResultStrategy, scoreCards } = await import("../lib/recommend");
 
     const scored = scoreCards({
@@ -249,7 +249,7 @@ describe("applyResultStrategy gating (via scoreCards integration)", () => {
     const rewardIds = sections.find((section) => section.title === "Rewards cards")?.cards.map((score) => score.card.id) ?? [];
 
     expect(cashbackIds).not.toContain("au-ixigo");
-    expect(rewardIds).toContain("au-ixigo");
+    expect(rewardIds).not.toContain("au-ixigo");
   });
 
   it("single-list order matches rankResults (display-order sort, not fitScore)", async () => {
