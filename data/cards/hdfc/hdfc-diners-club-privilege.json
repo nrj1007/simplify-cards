@@ -50,6 +50,15 @@
       "capGroup": "smartbuy"
     },
     {
+      "category": "smartbuy gyftr",
+      "displayCategory": "Brand Vouchers via SmartBuy (5X)",
+      "rate": 10,
+      "displayRate": "20 Reward Points / Rs 200 spent on brand vouchers via SmartBuy (5X)",
+      "capMonthly": 3000,
+      "capDaily": 2000,
+      "capGroup": "smartbuy"
+    },
+    {
       "category": "smartbuy",
       "displayCategory": "Other SmartBuy spends, e.g. online (5X)",
       "rate": 10,
@@ -179,7 +188,7 @@
   },
   "sourceUrl": "https://www.hdfc.bank.in/credit-cards/diners-privilege-credit-card",
   "applyUrl": "https://www.hdfc.bank.in/credit-cards/diners-privilege-credit-card",
-  "lastVerified": "2026-06-07",
+  "lastVerified": "2026-07-10",
   "verificationStatus": "official-direct",
   "imageUrl": "/images/hdfc-diners-club-privilege.webp",
   "popularityScore": 70,
@@ -188,7 +197,7 @@
     "Joining/Renewal fee is Rs 1,000 + GST, waived on annual spends of Rs 3 Lakh.",
     "Reward Points earnings are 4 points per Rs 200 spent on eligible categories (base earn rate of 2 points per Rs 100 spent).",
     "5X Reward Points (20 points per Rs 200) on Swiggy and Zomato, with the additional 4X points capped at 2,500 Reward Points per calendar month.",
-    "10X Reward Points on SmartBuy transactions, capped at 4,000 Reward Points per calendar month (and 2,000 per day).",
+    "SmartBuy transactions are capped at 4,000 Reward Points per calendar month and 2,000 per day. Effective 1 July 2026, Brand Vouchers through Gyftr/Woohoo have a separate 3,000 Reward Points monthly cap within the overall SmartBuy cap; base Reward Points continue as per card terms.",
     "Reward Points on grocery transactions, utility transactions, and telecom transactions are capped at 2,000 per calendar month individually.",
     "Reward Points on insurance transactions are capped at 2,000 per calendar month (effective 1 July 2025).",
     "A 1.75% markup fee (effective 15 May 2026) is charged on all transactions carried out in Indian Currency at international locations or with merchants registered overseas (DCC / Overseas Markup).",
