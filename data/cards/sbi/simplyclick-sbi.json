@@ -142,5 +142,19 @@
   "imageUrl": "/images/simplyclick-sbi.png",
   "lastVerified": "2026-06-08",
   "verificationStatus": "official-direct",
-  "popularityScore": 74
+  "popularityScore": 74,
+  "applyLinks": [
+    {
+      "url": "https://www.sbicard.com/en/personal/credit-cards/simplyclick-sbi-card.html",
+      "provider": "official"
+    },
+    {
+      "url": "https://bitli.in/Gd5vqO2",
+      "provider": "other"
+    },
+    {
+      "url": "https://bitli.in/q0Cc6MZ",
+      "provider": "earnkaro"
+    }
+  ]
 }

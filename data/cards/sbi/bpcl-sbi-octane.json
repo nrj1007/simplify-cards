@@ -127,5 +127,16 @@
   "imageUrl": "/images/bpcl-sbi-octane.png",
   "lastVerified": "2026-06-25",
   "verificationStatus": "official-direct",
-  "popularityScore": 75
+  "popularityScore": 75,
+  "applyLinks": [
+    {
+      "url": "https://www.sbicard.com/en/personal/credit-cards/bpcl-sbi-octane.html",
+      "provider": "official"
+    },
+    {
+      "url": "https://bitli.in/8PVBhil",
+      "provider": "earnkaro",
+      "earnings": "Flat Rs 2240 Profit"
+    }
+  ]
 }

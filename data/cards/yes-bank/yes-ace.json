@@ -136,5 +136,11 @@
     "Utility, rental, and wallet transactions are eligible to earn rewards at 2 points per ₹200 spent, capped at 600 points per month for utilities.",
     "1% fee on utility, rent, and wallet load transactions above thresholds.",
     "Card was earlier known as YES Prosperity Rewards Plus."
+  ],
+  "applyLinks": [
+    {
+      "url": "https://www.yesbank.in/personal-banking/yes-individual/cards/credit-cards",
+      "provider": "official"
+    }
   ]
 }

@@ -270,5 +270,16 @@
   "lastVerified": "2026-06-11",
   "verificationStatus": "official-direct",
   "popularityScore": 69,
-  "imageUrl": "/images/axis-horizon.webp"
+  "imageUrl": "/images/axis-horizon.webp",
+  "applyLinks": [
+    {
+      "url": "https://www.axisbank.com/retail/cards/credit-card/axis-horizon-credit-card",
+      "provider": "official"
+    },
+    {
+      "url": "https://bitli.in/uJNdmi5",
+      "provider": "earnkaro",
+      "earnings": "Upto Rs 2800 Profit"
+    }
+  ]
 }

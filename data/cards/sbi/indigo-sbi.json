@@ -160,5 +160,11 @@
   "applyUrl": "https://www.sbicard.com/en/personal/credit-cards/indigo-sbi-card.html",
   "lastVerified": "2026-06-13",
   "verificationStatus": "official-direct",
-  "popularityScore": 62
+  "popularityScore": 62,
+  "applyLinks": [
+    {
+      "url": "https://www.sbicard.com/en/personal/credit-cards/indigo-sbi-card.html",
+      "provider": "official"
+    }
+  ]
 }

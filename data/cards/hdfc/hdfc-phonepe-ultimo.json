@@ -144,5 +144,11 @@
   "applyUrl": "https://www.hdfcbank.com/personal/pay/cards/credit-cards/phonepe-hdfc-bank-ultimo-credit-card",
   "lastVerified": "2026-06-25",
   "verificationStatus": "official-direct",
-  "popularityScore": 74
+  "popularityScore": 74,
+  "applyLinks": [
+    {
+      "url": "https://www.hdfcbank.com/personal/pay/cards/credit-cards/phonepe-hdfc-bank-ultimo-credit-card",
+      "provider": "official"
+    }
+  ]
 }

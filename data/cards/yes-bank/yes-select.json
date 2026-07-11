@@ -124,5 +124,16 @@
     "YES BANK SELECT card details manually reviewed and verified by user on 2026-06-14.",
     "Domestic lounge access requires ₹35,000 spend in the previous calendar quarter.",
     "Forex markup fee is 2.5%."
+  ],
+  "applyLinks": [
+    {
+      "url": "https://www.yesbank.in/personal-banking/yes-individual/cards/credit-cards",
+      "provider": "official"
+    },
+    {
+      "url": "https://bitli.in/LvhSR76",
+      "provider": "earnkaro",
+      "earnings": "Flat Rs 945 Profit"
+    }
   ]
 }

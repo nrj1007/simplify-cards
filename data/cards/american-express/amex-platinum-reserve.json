@@ -190,5 +190,16 @@
     "Card details manually reviewed and verified by user on 2026-06-08",
     "Golf benefit requires monthly spend of ₹50,000 and allows up to 2 visits per month.",
     "Airline transfers are currently listed at a 2:1 ratio, while Marriott Bonvoy transfers at 1:1 and Hilton Honors transfers at 1:0.9."
+  ],
+  "applyLinks": [
+    {
+      "url": "https://www.americanexpress.com/in/credit-cards/platinum-reserve-credit-card/",
+      "provider": "official"
+    },
+    {
+      "url": "https://bitli.in/YH3FFnb",
+      "provider": "earnkaro",
+      "earnings": "Flat Rs 2450 Profit"
+    }
   ]
 }

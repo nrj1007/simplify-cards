@@ -141,5 +141,20 @@
   "internalNotes": [
     "Card details manually reviewed and verified by user on 2026-06-15.",
     "Redemption rate for vouchers and merchandise is 1 point = ₹0.10. Cash statement credit rate is 1 point = ₹0.07."
+  ],
+  "applyLinks": [
+    {
+      "url": "https://www.kotak.com/en/personal-banking/cards/credit-cards.html",
+      "provider": "official"
+    },
+    {
+      "url": "https://bitli.in/KnUa4Dt",
+      "provider": "other"
+    },
+    {
+      "url": "https://bitli.in/I7oc1XU",
+      "provider": "earnkaro",
+      "earnings": "Upto Rs 1400 Profit"
+    }
   ]
 }

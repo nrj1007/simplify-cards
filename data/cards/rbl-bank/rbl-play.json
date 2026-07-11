@@ -93,5 +93,16 @@
   ],
   "lastVerified": "2026-06-14",
   "verificationStatus": "official-direct",
-  "imageUrl": "/images/rbl-play.webp"
+  "imageUrl": "/images/rbl-play.webp",
+  "applyLinks": [
+    {
+      "url": "https://www.rblbank.com/personal-banking/cards/credit-cards/rbl-bank-play-credit-card",
+      "provider": "official"
+    },
+    {
+      "url": "https://bitli.in/ixThUli",
+      "provider": "earnkaro",
+      "earnings": "Flat Rs 1280 Profit"
+    }
+  ]
 }

@@ -145,5 +145,15 @@
       "kind": "points",
       "label": "500 CashPoints on payment of joining membership fee"
     }
+  ],
+  "applyLinks": [
+    {
+      "url": "https://www.hdfc.bank.in/credit-cards/freedom-credit-card",
+      "provider": "official"
+    },
+    {
+      "url": "https://bitli.in/muAydQl",
+      "provider": "earnkaro"
+    }
   ]
 }

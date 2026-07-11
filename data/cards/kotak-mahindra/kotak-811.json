@@ -135,5 +135,11 @@
   "internalNotes": [
     "Redemption rate for vouchers and merchandise is 1 point = ₹0.10. Cash statement credit rate is devalued to 1 point = ₹0.07. Spends on utility, education, wallet loading, government, insurance, gaming, fuel, and rent do not count towards milestone benefits.",
     "Card details manually reviewed and verified by user on 2026-06-15."
+  ],
+  "applyLinks": [
+    {
+      "url": "https://www.kotak.com/en/personal-banking/cards/credit-cards/kotak-811-credit-card.html",
+      "provider": "official"
+    }
   ]
 }

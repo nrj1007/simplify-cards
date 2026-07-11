@@ -128,5 +128,11 @@
     "5 points per ₹100 spent at Taj properties equals 3.33% reward rate (since 1.5 points = ₹1).",
     "1.5 points per ₹100 spent on base purchases equals 1.0% reward rate.",
     "Excludes fuel, rent, wallet loads, education, government, utility, insurance, and EMI spends."
+  ],
+  "applyLinks": [
+    {
+      "url": "https://www.hsbc.co.in/credit-cards/products/taj/",
+      "provider": "official"
+    }
   ]
 }

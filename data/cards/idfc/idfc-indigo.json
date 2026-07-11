@@ -148,5 +148,16 @@
     "This card does not offer airport lounge access. It offers golf privileges (4 rounds and 12 lessons annually) via Mastercard.",
     "Fee waiver option available by opening a Fixed Deposit of ₹1 Lakh with the bank."
   ],
-  "popularityScore": 56
+  "popularityScore": 56,
+  "applyLinks": [
+    {
+      "url": "https://www.idfcfirstbank.com/credit-card",
+      "provider": "official"
+    },
+    {
+      "url": "https://bitli.in/ggIz7vO",
+      "provider": "earnkaro",
+      "earnings": "Upto Rs 1050 Profit"
+    }
+  ]
 }

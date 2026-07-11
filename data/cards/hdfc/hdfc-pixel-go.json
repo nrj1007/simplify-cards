@@ -132,5 +132,16 @@
   "applyUrl": "https://www.hdfc.bank.in/credit-cards/pixel-go-credit-card",
   "lastVerified": "2026-06-25",
   "verificationStatus": "official-direct",
-  "popularityScore": 78
+  "popularityScore": 78,
+  "applyLinks": [
+    {
+      "url": "https://www.hdfc.bank.in/credit-cards/pixel-go-credit-card",
+      "provider": "official"
+    },
+    {
+      "url": "https://bitli.in/8yj5bU5",
+      "provider": "earnkaro",
+      "earnings": "Upto Rs 1500 Profit"
+    }
+  ]
 }

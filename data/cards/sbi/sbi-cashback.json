@@ -114,5 +114,20 @@
     "April 2026 notice lists MCCs 7993, 7994 and 5816 for digital gaming platforms or merchants; 4784 for tolls; and 9222, 9311 and 9402 for government-related transactions.",
     "Popularity score updated to 100 on 2026-06-25."
   ],
-  "popularityScore": 100
+  "popularityScore": 100,
+  "applyLinks": [
+    {
+      "url": "https://www.sbicard.com/en/personal/credit-cards/rewards/cashback-sbi-card.page",
+      "provider": "official"
+    },
+    {
+      "url": "https://bitli.in/1692qrG",
+      "provider": "other"
+    },
+    {
+      "url": "https://bitli.in/UOAnt1t",
+      "provider": "earnkaro",
+      "earnings": "Flat Rs 2240 Profit"
+    }
+  ]
 }

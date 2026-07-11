@@ -107,6 +107,7 @@ export function toRecommendResult(score: CardScore): RecommendResult {
     issuer: card.issuer,
     applyUrl: card.applyUrl,
     affiliateUrl: card.affiliateUrl,
+    applyLinks: card.applyLinks,
     tags: card.tags.slice(0, 4),
     rewardType: card.rewardType,
     usp: getCardUsp(card),

@@ -309,5 +309,16 @@
   "applyUrl": "https://www.sbicard.com/en/personal/credit-cards/travel/sbi-card-miles.page",
   "lastVerified": "2026-06-13",
   "verificationStatus": "official-direct",
-  "popularityScore": 67
+  "popularityScore": 67,
+  "applyLinks": [
+    {
+      "url": "https://www.sbicard.com/en/personal/credit-cards/travel/sbi-card-miles.page",
+      "provider": "official"
+    },
+    {
+      "url": "https://bitli.in/CffimEu",
+      "provider": "earnkaro",
+      "earnings": "Flat Rs 2240 Profit"
+    }
+  ]
 }

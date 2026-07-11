@@ -101,5 +101,20 @@
     "The current product page explicitly confirms milestone rewards, cashback redemption at 1 reward point = ₹0.25, fuel surcharge waiver, insurance cover, and the ₹12 lakh annual income eligibility threshold.",
     "The current official rewards copy says 15 reward points per ₹100 on online shopping, international, dining, and travel spends with a maximum of 5,000 reward points per statement, so the accelerated row is modeled as one combined capped bucket rather than separate per-category caps.",
     "BOBCARD's lounge terms PDF dated 1 April 2026 confirms that domestic lounge access requires ₹40,000 net spends in the preceding calendar quarter, with a fresh-card waiver in the issuance quarter."
+  ],
+  "applyLinks": [
+    {
+      "url": "https://bankofbaroda.bank.in/personal-banking/digital-products/cards/credit-cards/eterna",
+      "provider": "official"
+    },
+    {
+      "url": "https://bitli.in/Th6jxzo",
+      "provider": "other"
+    },
+    {
+      "url": "https://bitli.in/dUDpsGy",
+      "provider": "earnkaro",
+      "earnings": "Flat Rs 950 Profit"
+    }
   ]
 }

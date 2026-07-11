@@ -330,5 +330,11 @@
   "applyUrl": "https://www.sbicard.com/en/personal/credit-cards/travel/sbi-card-miles-prime.page",
   "lastVerified": "2026-06-09",
   "verificationStatus": "official-direct",
-  "popularityScore": 71
+  "popularityScore": 71,
+  "applyLinks": [
+    {
+      "url": "https://www.sbicard.com/en/personal/credit-cards/travel/sbi-card-miles-prime.page",
+      "provider": "official"
+    }
+  ]
 }

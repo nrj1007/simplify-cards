@@ -118,5 +118,16 @@
   "applyUrl": "https://www.sbicard.com/en/personal/credit-cards/travel/irctc-sbi-platinum-card.page",
   "lastVerified": "2026-06-09",
   "verificationStatus": "official-direct",
-  "popularityScore": 72
+  "popularityScore": 72,
+  "applyLinks": [
+    {
+      "url": "https://www.sbicard.com/en/personal/credit-cards/travel/irctc-sbi-platinum-card.page",
+      "provider": "official"
+    },
+    {
+      "url": "https://bitli.in/og78m28",
+      "provider": "earnkaro",
+      "earnings": "Flat Rs 2240 Profit"
+    }
+  ]
 }

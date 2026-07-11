@@ -104,5 +104,19 @@
   "affiliateUrl": "https://bitli.in/Rajm4H6",
   "lastVerified": "2026-06-13",
   "verificationStatus": "official-direct",
-  "popularityScore": 66
+  "popularityScore": 66,
+  "applyLinks": [
+    {
+      "url": "https://www.sbicard.com/en/personal/credit-cards/shopping/simplysave-sbi-card-sprint.page",
+      "provider": "official"
+    },
+    {
+      "url": "https://bitli.in/Rajm4H6",
+      "provider": "other"
+    },
+    {
+      "url": "https://bitli.in/niMnTpB",
+      "provider": "earnkaro"
+    }
+  ]
 }

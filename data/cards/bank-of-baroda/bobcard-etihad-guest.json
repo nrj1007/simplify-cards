@@ -174,5 +174,15 @@
     "Etihad Guest Miles are brand-locked in the Etihad ecosystem, so rewardLiquidity is set to brand-locked. Internal ranking values miles at ₹0.80 (rewardLiquidityFactor 0.8); display keeps the ₹1.0 ecosystemValue.",
     "Standard monthly, quarterly, and annual spends milestones mapped under structured milestones list.",
     "Lounge access terms and DreamFolks web portal tokenization requirements documented in lounge/internalNotes."
+  ],
+  "applyLinks": [
+    {
+      "url": "https://www.bobcard.co.in/etihad-guest-bobcard",
+      "provider": "official"
+    },
+    {
+      "url": "https://bitli.in/Axe87hK",
+      "provider": "earnkaro"
+    }
   ]
 }

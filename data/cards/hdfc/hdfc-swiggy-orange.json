@@ -137,5 +137,15 @@
   "applyUrl": "https://www.hdfcbank.com/personal/pay/cards/credit-cards/swiggy-hdfc-bank-credit-card",
   "lastVerified": "2026-06-07",
   "verificationStatus": "official-direct",
-  "popularityScore": 20
+  "popularityScore": 20,
+  "applyLinks": [
+    {
+      "url": "https://www.hdfcbank.com/personal/pay/cards/credit-cards/swiggy-hdfc-bank-credit-card",
+      "provider": "official"
+    },
+    {
+      "url": "https://bitli.in/jAkn9Uh",
+      "provider": "earnkaro"
+    }
+  ]
 }

@@ -143,5 +143,11 @@
   "internalNotes": [
     "Card details manually reviewed and verified by user on 2026-06-13.",
     "YES BANK Anq Phi is a co-branded card in partnership with Anq Finance. It has been discontinued."
+  ],
+  "applyLinks": [
+    {
+      "url": "https://anq.finance/",
+      "provider": "official"
+    }
   ]
 }

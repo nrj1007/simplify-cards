@@ -134,5 +134,20 @@
   "affiliateUrl": "https://bitli.in/PqBnzn5",
   "lastVerified": "2026-06-14",
   "verificationStatus": "official-direct",
-  "imageUrl": "/images/indusind-tiger.webp"
+  "imageUrl": "/images/indusind-tiger.webp",
+  "applyLinks": [
+    {
+      "url": "https://www.indusind.bank.in/in/en/personal/cards/credit-card/tiger-credit-card.html",
+      "provider": "official"
+    },
+    {
+      "url": "https://bitli.in/PqBnzn5",
+      "provider": "other"
+    },
+    {
+      "url": "https://bitli.in/IdBs0da",
+      "provider": "earnkaro",
+      "earnings": "Flat Rs 600 Profit"
+    }
+  ]
 }

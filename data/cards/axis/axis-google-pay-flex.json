@@ -127,5 +127,11 @@
   "lastVerified": "2026-06-25",
   "verificationStatus": "official-direct",
   "popularityScore": 65,
-  "imageUrl": "/images/axis-google-pay-flex.png"
+  "imageUrl": "/images/axis-google-pay-flex.png",
+  "applyLinks": [
+    {
+      "url": "https://www.axisbank.com/retail/cards/credit-card",
+      "provider": "official"
+    }
+  ]
 }

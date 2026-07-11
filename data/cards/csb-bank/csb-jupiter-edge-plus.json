@@ -153,5 +153,11 @@
     "Interest rate of 3.5% per month (42% per annum) applies."
   ],
   "popularityScore": 100,
-  "imageUrl": "/images/csb-jupiter-edge-plus.webp"
+  "imageUrl": "/images/csb-jupiter-edge-plus.webp",
+  "applyLinks": [
+    {
+      "url": "https://jupiter.money/credit-card/",
+      "provider": "official"
+    }
+  ]
 }

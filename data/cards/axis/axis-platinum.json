@@ -283,5 +283,11 @@
   "lastVerified": "2026-06-13",
   "verificationStatus": "official-direct",
   "popularityScore": 64,
-  "imageUrl": "/images/axis-platinum.webp"
+  "imageUrl": "/images/axis-platinum.webp",
+  "applyLinks": [
+    {
+      "url": "https://www.axisbank.com/retail/cards/credit-card/platinum-credit-card",
+      "provider": "official"
+    }
+  ]
 }

@@ -308,5 +308,11 @@
     "Platinum tier (15L spend): 18 domestic / 12 international lounge visits per anniversary year.",
     "Gold, rent, wallet load, government, insurance, fuel, utilities, and telecom transactions are completely excluded from earning rewards and tier/milestone spend calculations."
   ],
-  "popularityScore": 89
+  "popularityScore": 89,
+  "applyLinks": [
+    {
+      "url": "https://www.axisbank.com/retail/cards/credit-card/axis-bank-atlas-credit-card",
+      "provider": "official"
+    }
+  ]
 }

@@ -189,5 +189,11 @@
     "Fuel earns 1 Membership Rewards point per ₹100 spent plus 4 additional bonus Membership Rewards points per ₹100 spent, capped at 5,000 bonus points per calendar month.",
     "Reward Xcelerator on Platinum is presented by American Express as an up to 20X earn benefit on select partner brands rather than a universal online earn rate; the exact multiplier depends on the partner offer.",
     "Membership Rewards points on the Platinum Card do not expire."
+  ],
+  "applyLinks": [
+    {
+      "url": "https://www.americanexpress.com/in/charge-cards/platinum-card/",
+      "provider": "official"
+    }
   ]
 }

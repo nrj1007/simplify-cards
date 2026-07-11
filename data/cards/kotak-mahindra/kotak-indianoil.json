@@ -128,5 +128,11 @@
   "internalNotes": [
     "Fuel rewards are capped at 1,200 points per cycle. Grocery/dining rewards share a combined monthly cap of 800 points.",
     "Card details manually reviewed and verified by user on 2026-06-15."
+  ],
+  "applyLinks": [
+    {
+      "url": "https://www.kotak.com/en/personal-banking/cards/credit-cards/indian-oil-credit-card.html",
+      "provider": "official"
+    }
   ]
 }

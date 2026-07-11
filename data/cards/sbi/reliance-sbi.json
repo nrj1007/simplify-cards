@@ -155,5 +155,11 @@
   "applyUrl": "https://www.sbicard.com/en/personal/credit-cards/shopping/reliance-sbi-card.page",
   "lastVerified": "2026-06-13",
   "verificationStatus": "official-direct",
-  "popularityScore": 55
+  "popularityScore": 55,
+  "applyLinks": [
+    {
+      "url": "https://www.sbicard.com/en/personal/credit-cards/shopping/reliance-sbi-card.page",
+      "provider": "official"
+    }
+  ]
 }

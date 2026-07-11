@@ -95,5 +95,11 @@
     "Earns 8 reward points per ₹150 spent on incremental retail spends above ₹20,000 per month (bonus capped at 2,000 points per billing cycle).",
     "Government and insurance spends earn 1 reward point per ₹150 spent (0.17% return value).",
     "Fuel spends are completely excluded from earning rewards."
+  ],
+  "applyLinks": [
+    {
+      "url": "https://www.sc.com/in/credit-cards/rewards-credit-card/",
+      "provider": "official"
+    }
   ]
 }

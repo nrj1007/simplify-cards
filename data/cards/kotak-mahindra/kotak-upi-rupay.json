@@ -111,5 +111,11 @@
   "internalNotes": [
     "Kotak UPI RuPay credit card is issued as a virtual-only card. Spends on fuel, rent, railway, wallet, EMI, education, balance transfer, insurance, government, and skill gaming do not earn reward points.",
     "Card details manually reviewed and verified by user on 2026-06-15."
+  ],
+  "applyLinks": [
+    {
+      "url": "https://www.kotak.com/en/personal-banking/cards/credit-cards/kotak-upi-rupay-credit-card.html",
+      "provider": "official"
+    }
   ]
 }

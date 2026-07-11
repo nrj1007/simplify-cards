@@ -88,5 +88,11 @@
     "10X rewards (10 points / ₹100) apply specifically to standalone airline and hotel bookings, excluding aggregators. Aggregators earn base rate.",
     "Base rate is 2 points / ₹100 spent (effectively 0.5% return value).",
     "EaseMyTrip discounts require using the promo code EMTSCB."
+  ],
+  "applyLinks": [
+    {
+      "url": "https://www.sc.com/in/credit-cards/easemytrip-credit-card/",
+      "provider": "official"
+    }
   ]
 }

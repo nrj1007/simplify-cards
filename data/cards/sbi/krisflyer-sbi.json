@@ -128,5 +128,11 @@
     "Priority Pass membership is complimentary for the primary cardholder for the first 2 card membership years.",
     "International lounge visits beyond the complimentary limit or by guests are charged at USD 27 plus taxes per visit.",
     "Upgrade to KrisFlyer Elite Silver requires spending at least ₹2.5 Lakh directly on Singapore Airlines flights booked via the official website or mobile app."
+  ],
+  "applyLinks": [
+    {
+      "url": "https://www.sbicard.com/en/personal/credit-cards/travel/krisflyer-sbi-card.page",
+      "provider": "official"
+    }
   ]
 }

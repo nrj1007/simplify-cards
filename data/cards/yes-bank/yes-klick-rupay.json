@@ -121,5 +121,11 @@
     "Card details manually reviewed and verified by user on 2026-06-14.",
     "Virtual RuPay credit card issued by YES Bank.",
     "UPI transactions of ₹2,000 or below are excluded from rewards."
+  ],
+  "applyLinks": [
+    {
+      "url": "https://www.yesbank.in/personal-banking/yes-individual/cards/credit-cards",
+      "provider": "official"
+    }
   ]
 }

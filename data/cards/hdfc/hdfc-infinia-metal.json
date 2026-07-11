@@ -358,5 +358,11 @@
   "lastVerified": "2026-05-28",
   "verificationStatus": "official-direct",
   "imageUrl": "/images/infinia-metal-official.webp",
-  "popularityScore": 100
+  "popularityScore": 100,
+  "applyLinks": [
+    {
+      "url": "https://www.hdfc.bank.in/credit-cards/infinia-credit-card",
+      "provider": "official"
+    }
+  ]
 }

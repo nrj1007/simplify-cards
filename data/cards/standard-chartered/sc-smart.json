@@ -88,5 +88,11 @@
     "2% cashback on online transactions (capped at ₹1,000 per statement cycle).",
     "1% cashback on all other transactions (capped at ₹500 per statement cycle).",
     "Fuel transactions do not earn any cashback."
+  ],
+  "applyLinks": [
+    {
+      "url": "https://www.sc.com/in/credit-cards/smart-credit-card/",
+      "provider": "official"
+    }
   ]
 }

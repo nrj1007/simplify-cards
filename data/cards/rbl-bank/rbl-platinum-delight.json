@@ -130,5 +130,11 @@
   ],
   "lastVerified": "2026-06-15",
   "verificationStatus": "official-direct",
-  "imageUrl": "/images/rbl-platinum-delight.webp"
+  "imageUrl": "/images/rbl-platinum-delight.webp",
+  "applyLinks": [
+    {
+      "url": "https://www.rblbank.com/personal-banking/cards/credit-cards/platinum-delight-credit-card",
+      "provider": "official"
+    }
+  ]
 }

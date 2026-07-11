@@ -148,5 +148,11 @@
     "Points value is ₹1 when redeemed against Shoppers Stop vouchers (1:1), but falls to ₹0.20 for statement credit or ₹0.50 for SmartBuy booking/Airmiles.",
     "Minimum transaction of ₹150 is required to earn reward points.",
     "Shoppers Stop spends reward points capped at 2,000/month; non-Shoppers Stop spends capped at 2,000/month."
+  ],
+  "applyLinks": [
+    {
+      "url": "https://www.hdfcbank.com/personal/pay/cards/credit-cards/shoppers-stop-black-credit-card",
+      "provider": "official"
+    }
   ]
 }

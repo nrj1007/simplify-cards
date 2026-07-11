@@ -271,5 +271,11 @@
     "Earn rate of 2 points per ₹150 spent is equivalent to 1.33 points per ₹100 spent.",
     "Excludes fuel, rent, wallet loads, education, government, utilities, insurance, and EMI from earning points.",
     "Point-to-mile transfer is supported via the mobile app at a 2:1 ratio for most partners."
+  ],
+  "applyLinks": [
+    {
+      "url": "https://www.hsbc.co.in/credit-cards/products/rupay-platinum-credit-card/",
+      "provider": "official"
+    }
   ]
 }

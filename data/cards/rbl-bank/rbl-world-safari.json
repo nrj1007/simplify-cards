@@ -156,5 +156,16 @@
   ],
   "lastVerified": "2026-06-15",
   "verificationStatus": "official-direct",
-  "imageUrl": "/images/rbl-world-safari.png"
+  "imageUrl": "/images/rbl-world-safari.png",
+  "applyLinks": [
+    {
+      "url": "https://www.rblbank.com/personal-banking/cards/credit-cards/world-safari-credit-card",
+      "provider": "official"
+    },
+    {
+      "url": "https://bitli.in/Uf9qEVZ",
+      "provider": "earnkaro",
+      "earnings": "Flat Rs 1280 Profit"
+    }
+  ]
 }

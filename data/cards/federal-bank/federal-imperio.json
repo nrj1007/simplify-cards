@@ -173,5 +173,11 @@
     "Milestone benefit: Complimentary Big Basket voucher worth ₹300 on achieving quarterly spend of ₹50,000.",
     "Note: The healthcare category is mapped to base as there is no dedicated healthcare SpendCategory in the system.",
     "Miles transfer partners: Singapore Airlines KrisFlyer (9:1) and Air India Maharaja Club (7:1) via Federal Rewards portal."
+  ],
+  "applyLinks": [
+    {
+      "url": "https://www.federalbank.co.in/imperio-credit-card",
+      "provider": "official"
+    }
   ]
 }

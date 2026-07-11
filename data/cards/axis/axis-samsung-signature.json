@@ -299,5 +299,16 @@
   "lastVerified": "2026-06-12",
   "verificationStatus": "official-direct",
   "popularityScore": 67,
-  "imageUrl": "/images/axis-samsung-signature.webp"
+  "imageUrl": "/images/axis-samsung-signature.webp",
+  "applyLinks": [
+    {
+      "url": "https://www.axisbank.com/retail/cards/credit-card/samsung-axis-bank-signature-credit-card",
+      "provider": "official"
+    },
+    {
+      "url": "https://bitli.in/H1abtIh",
+      "provider": "earnkaro",
+      "earnings": "Flat Rs 2240 Profit"
+    }
+  ]
 }

@@ -196,5 +196,15 @@
     "Fuel surcharge waiver is not applicable on this card (discontinued since August 2023).",
     "Card reissuance fee is ₹199 for lost, stolen or damaged cards (effective 15 May 2026).",
     "Onboarding benefit: Complimentary annual memberships of Swiggy One and Times Prime memberships are awarded on spending ₹75,000 within the first 90 days of card issuance."
+  ],
+  "applyLinks": [
+    {
+      "url": "https://www.hdfc.bank.in/credit-cards/diners-privilege-credit-card",
+      "provider": "official"
+    },
+    {
+      "url": "https://bitli.in/vq3Cyjk",
+      "provider": "earnkaro"
+    }
   ]
 }

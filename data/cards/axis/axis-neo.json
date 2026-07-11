@@ -272,5 +272,20 @@
   "lastVerified": "2026-06-12",
   "verificationStatus": "official-direct",
   "popularityScore": 68,
-  "imageUrl": "/images/axis-neo.webp"
+  "imageUrl": "/images/axis-neo.webp",
+  "applyLinks": [
+    {
+      "url": "https://www.axisbank.com/retail/cards/credit-card/neo-credit-card",
+      "provider": "official"
+    },
+    {
+      "url": "https://bitli.in/Ty74TWT",
+      "provider": "other"
+    },
+    {
+      "url": "https://bitli.in/dStVEbx",
+      "provider": "earnkaro",
+      "earnings": "Upto Rs 1920 Profit"
+    }
+  ]
 }

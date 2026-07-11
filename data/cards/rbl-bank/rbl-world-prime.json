@@ -147,5 +147,11 @@
   ],
   "lastVerified": "2026-06-15",
   "verificationStatus": "official-direct",
-  "imageUrl": "/images/rbl-world-prime.webp"
+  "imageUrl": "/images/rbl-world-prime.webp",
+  "applyLinks": [
+    {
+      "url": "https://www.rblbank.com/personal-banking/cards/credit-cards/world-prime-credit-card",
+      "provider": "official"
+    }
+  ]
 }

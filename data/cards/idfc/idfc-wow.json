@@ -85,5 +85,16 @@
     "4 Reward Points per ₹200 spent (value: 0.5% return), 1 Reward Point per ₹200 spent on utility/insurance/FASTag/railways (value: 0.125% return).",
     "Reward points are valid for 24 months."
   ],
-  "popularityScore": 84
+  "popularityScore": 84,
+  "applyLinks": [
+    {
+      "url": "https://www.idfcfirstbank.com/credit-card",
+      "provider": "official"
+    },
+    {
+      "url": "https://bitli.in/OdHGIdx",
+      "provider": "earnkaro",
+      "earnings": "Flat Rs 350 Profit"
+    }
+  ]
 }

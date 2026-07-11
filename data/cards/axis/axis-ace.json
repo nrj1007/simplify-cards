@@ -124,5 +124,16 @@
     "Utility bill payments are capped at a combined limit of ₹500 per month along with food delivery and Ola spends.",
     "Cashback is credited to the card account 3 days prior to the statement generation date."
   ],
-  "popularityScore": 90
+  "popularityScore": 90,
+  "applyLinks": [
+    {
+      "url": "https://www.axisbank.com/retail/cards/credit-card/axis-bank-ace-credit-card",
+      "provider": "official"
+    },
+    {
+      "url": "https://bitli.in/o27TE6C",
+      "provider": "earnkaro",
+      "earnings": "Flat Rs 2240 Profit"
+    }
+  ]
 }

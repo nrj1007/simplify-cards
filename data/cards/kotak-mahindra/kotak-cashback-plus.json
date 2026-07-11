@@ -113,5 +113,20 @@
   "internalNotes": [
     "Card details manually reviewed and verified by user on 2026-06-15.",
     "Accelerated cashback categories (online grocery, food, movies, OTT, fuel) share a combined billing cycle cap of 750 points. No base cashback is earned on these once the cap is reached."
+  ],
+  "applyLinks": [
+    {
+      "url": "https://www.kotak.com/en/personal-banking/cards/credit-cards/kotak-cashback-plus-credit-card.html",
+      "provider": "official"
+    },
+    {
+      "url": "https://bitli.in/2Vs2gf3",
+      "provider": "other"
+    },
+    {
+      "url": "https://bitli.in/vpwTvug",
+      "provider": "earnkaro",
+      "earnings": "Upto Rs 1540 Profit"
+    }
   ]
 }

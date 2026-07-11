@@ -96,5 +96,16 @@
     "Combined monthly cashback is capped at ₹500 per statement cycle. EMI transactions are excluded.",
     "Annual fee of ₹499 is waived on spending ₹1,00,000 in the previous anniversary year."
   ],
-  "popularityScore": 62
+  "popularityScore": 62,
+  "applyLinks": [
+    {
+      "url": "https://www.idfcfirstbank.com/credit-card",
+      "provider": "official"
+    },
+    {
+      "url": "https://bitli.in/aGHzxT6",
+      "provider": "earnkaro",
+      "earnings": "Flat Rs 350 Profit"
+    }
+  ]
 }

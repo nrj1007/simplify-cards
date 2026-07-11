@@ -104,5 +104,11 @@
     "1% fuel surcharge waiver on all fuel transactions of ₹400 to ₹4,000 at HPCL petrol pumps.",
     "No complimentary lounge access is offered on this card.",
     "Eligibility: Age must be between 21 and 65 years; minimum monthly income of ₹20,000 for both salaried and self-employed."
+  ],
+  "applyLinks": [
+    {
+      "url": "https://www.icicibank.com/personal-banking/cards/credit-card/platinum-chip-credit-card.html",
+      "provider": "official"
+    }
   ]
 }

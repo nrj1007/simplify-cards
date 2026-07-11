@@ -145,5 +145,11 @@
     "Xchange redemption value is spend-tiered via the Equitas Privilege Program (common to all 3 Equitas cards): 1 RP = ₹0.35 at Blue (base), rising to ₹0.50 (Gold, ₹40k/mo), ₹0.75 (Platinum, ₹60k/mo), and ₹1.00 (Diamond, ₹1L/mo) — a 3.5% to 10% valueback on the 5X categories. Modeled via redemption.pointValueTiers for ranking; ecosystemValue 1 shows the top-tier headline (PowerMiles convention). The flat ₹0.35 captured in the 2026-06-15 audit is the Blue/base tier only. Silver (₹20k/mo) value is unconfirmed, modeled as staying at Blue until Gold.",
     "Metal card variant may carry additional charges; confirm with bank at time of issuance.",
     "Finance charges: 3.75% per month. Cash advance fee: 2.5% or ₹250 whichever is higher."
+  ],
+  "applyLinks": [
+    {
+      "url": "https://equitas.bank.in/personal-banking/pay/credit-cards/selfe-credit-card/",
+      "provider": "official"
+    }
   ]
 }

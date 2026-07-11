@@ -149,6 +149,12 @@ export type Redemption = {
   redemptionFee?: number;
 };
 
+export type ApplyLink = {
+  url: string;
+  provider: "official" | "earnkaro" | string;
+  earnings?: string;
+};
+
 export type CreditCard = {
   id: string;
   issuer: string;
@@ -257,6 +263,7 @@ export type CreditCard = {
   sourceUrl: string;
   applyUrl: string;
   affiliateUrl?: string;
+  applyLinks: ApplyLink[];
   lastVerified: string;
   verificationStatus: "official-direct" | "official-indexed" | "official-catalogue" | "official-mixed" | "needs-review";
   imageUrl?: string;
@@ -364,6 +371,7 @@ export type RecommendResult = {
   issuer: string;
   applyUrl: string;
   affiliateUrl?: string;
+  applyLinks?: ApplyLink[];
   tags: string[];
   rewardType: string;
   usp: string;

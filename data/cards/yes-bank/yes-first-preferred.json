@@ -152,5 +152,11 @@
     "Utility, rental, and wallet transactions are eligible to earn rewards at 4 points per ₹200 spent (except utilities which earn 4 points per ₹200).",
     "1% fee on utility, rent, and wallet load transactions above thresholds.",
     "Air miles transfer to Air India Maharaja Club at 10:1 ratio."
+  ],
+  "applyLinks": [
+    {
+      "url": "https://applycc.yesbank.in/creditCardTemplates/yesFirstPreffered.html",
+      "provider": "official"
+    }
   ]
 }
