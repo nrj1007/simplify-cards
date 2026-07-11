@@ -12,7 +12,8 @@ export const DEFAULT_HEADER_LINKS: SiteHeaderLink[] = [
   { label: "Recommend", href: "/recommend" },
   { label: "Calculator", href: "/calculator" as Route },
   { label: "Cards", href: "/cards" },
-  { label: "Compare", href: "/compare" }
+  { label: "Compare", href: "/compare" },
+  { label: "Updates", href: "/latest" as Route }
 ];
 
 function joinClasses(...classes: Array<string | false | undefined>) {
