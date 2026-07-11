@@ -42,10 +42,10 @@ export function SiteHeader() {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
   const links: Array<{ label: string; href: Route }> = [
-    { label: "recommend", href: "/recommend" },
-    { label: "calculator", href: "/calculator" as Route },
-    { label: "cards", href: "/cards" },
-    { label: "compare", href: "/compare" }
+    { label: "Recommend", href: "/recommend" },
+    { label: "Calculator", href: "/calculator" as Route },
+    { label: "Cards", href: "/cards" },
+    { label: "Compare", href: "/compare" }
   ];
 
   return (

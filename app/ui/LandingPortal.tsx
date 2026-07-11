@@ -615,10 +615,10 @@ function ReviewsPanel() {
 function Header() {
   const [open, setOpen] = useState(false);
   const links: Array<{ label: string; href: Route }> = [
-    { label: "recommend", href: "/recommend" },
-    { label: "calculator", href: "/calculator" as Route },
-    { label: "cards", href: "/finder" },
-    { label: "compare", href: "/compare" }
+    { label: "Recommend", href: "/recommend" },
+    { label: "Calculator", href: "/calculator" as Route },
+    { label: "Cards", href: "/finder" },
+    { label: "Compare", href: "/compare" }
   ];
 
   return (
