@@ -278,5 +278,20 @@
   "lastVerified": "2026-06-12",
   "verificationStatus": "official-direct",
   "popularityScore": 67,
-  "imageUrl": "/images/axis-privilege.webp"
+  "imageUrl": "/images/axis-privilege.webp",
+  "applyLinks": [
+    {
+      "url": "https://www.axisbank.com/retail/cards/credit-card/privilege-credit-card-with-unlimited-benefits",
+      "provider": "official"
+    },
+    {
+      "url": "https://bitli.in/E2dS91Q",
+      "provider": "other"
+    },
+    {
+      "url": "https://bitli.in/dC73EFn",
+      "provider": "earnkaro",
+      "earnings": "Upto Rs 2080 Profit"
+    }
+  ]
 }

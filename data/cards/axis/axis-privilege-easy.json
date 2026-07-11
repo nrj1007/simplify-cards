@@ -287,5 +287,11 @@
   "lastVerified": "2026-06-12",
   "verificationStatus": "official-direct",
   "popularityScore": 66,
-  "imageUrl": "/images/axis-privilege-easy.webp"
+  "imageUrl": "/images/axis-privilege-easy.webp",
+  "applyLinks": [
+    {
+      "url": "https://www.axisbank.com/retail/cards/credit-card/privilege-easy-credit-card",
+      "provider": "official"
+    }
+  ]
 }

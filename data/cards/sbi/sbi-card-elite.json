@@ -159,5 +159,20 @@
   "imageUrl": "/images/sbi-card-elite.png",
   "lastVerified": "2026-06-08",
   "verificationStatus": "official-direct",
-  "popularityScore": 75
+  "popularityScore": 75,
+  "applyLinks": [
+    {
+      "url": "https://www.sbicard.com/en/personal/credit-cards/sbi-card-elite.html",
+      "provider": "official"
+    },
+    {
+      "url": "https://bitli.in/12LYtzD",
+      "provider": "other"
+    },
+    {
+      "url": "https://bitli.in/5Fmsdi1",
+      "provider": "earnkaro",
+      "earnings": "Flat Rs 2240 Profit"
+    }
+  ]
 }

@@ -106,5 +106,11 @@
     "From February 5, 2024, rent payments and e-wallet loading transactions do not earn reward points.",
     "No domestic or international lounge access on this card.",
     "Reward points transferable to Air India Maharaja Club at 6:1 ratio."
+  ],
+  "applyLinks": [
+    {
+      "url": "https://www.icicibank.com/personal-banking/cards/credit-card/hpcl-coral-credit-card",
+      "provider": "official"
+    }
   ]
 }

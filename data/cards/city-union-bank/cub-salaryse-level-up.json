@@ -187,5 +187,11 @@
     "The public CUB page/PDFs do not publish a numeric minimum salary threshold; the app-only eligibility flow appears to assess salary credit and employer/profile eligibility.",
     "Card details manually reviewed and verified by user on 2026-06-18."
   ],
-  "imageUrl": "/images/cub-salaryse-level-up-landscape.webp"
+  "imageUrl": "/images/cub-salaryse-level-up-landscape.webp",
+  "applyLinks": [
+    {
+      "url": "https://www.cityunionbank.bank.in/cub-salaryse-level-up-credit-card",
+      "provider": "official"
+    }
+  ]
 }

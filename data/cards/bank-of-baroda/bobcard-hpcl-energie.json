@@ -103,5 +103,15 @@
     "Audited against the official Bank of Baroda HPCL Energie product page on 2026-06-14.",
     "The current official page confirms 24 reward points per ₹150 on HPCL fuel spends, 10 reward points per ₹150 on utilities, grocery, and departmental stores, 2 reward points per ₹150 on other eligible spends, and 4 domestic lounge visits at 1 per quarter.",
     "HP Pay direct payment mode is excluded from the QR-based fuel benefit wording on the official page."
+  ],
+  "applyLinks": [
+    {
+      "url": "https://bankofbaroda.bank.in/personal-banking/digital-products/cards/credit-cards",
+      "provider": "official"
+    },
+    {
+      "url": "https://bitli.in/Axe87hK",
+      "provider": "earnkaro"
+    }
   ]
 }

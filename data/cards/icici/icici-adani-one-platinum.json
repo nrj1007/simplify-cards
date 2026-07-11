@@ -153,5 +153,11 @@
     "International lounge: No complimentary access.",
     "Other airport perks: 2 complimentary premium lounge upgrades per quarter, 2 premium car parking and 2 valet car parking services per year, 4 domestic porter services per year.",
     "1% fuel surcharge waiver on transactions up to ₹4,000 at fuel outlets."
+  ],
+  "applyLinks": [
+    {
+      "url": "https://www.icicibank.com/personal-banking/cards/credit-card/adani-icici-credit-card/platinum-card",
+      "provider": "official"
+    }
   ]
 }

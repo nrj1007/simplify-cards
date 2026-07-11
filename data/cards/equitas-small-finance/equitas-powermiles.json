@@ -136,5 +136,11 @@
     "Lounge: 2 domestic per quarter (40+ lounges), 1 international per quarter (1000+ lounges).",
     "Finance charges: 3.75% per month. Cash advance fee: 2.5% or ₹250 whichever is higher.",
     "The live public page says reward points can be converted to airline miles, but it does not disclose the current partner list or transfer ratios; those fields are left blank until an official public source is available."
+  ],
+  "applyLinks": [
+    {
+      "url": "https://equitas.bank.in/personal-banking/pay/credit-cards/powermiles-credit-card/",
+      "provider": "official"
+    }
   ]
 }

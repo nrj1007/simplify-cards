@@ -127,5 +127,11 @@
   "applyUrl": "https://www.hdfcbank.com/personal/pay/cards/credit-cards/phonepe-hdfc-bank-uno-credit-card",
   "lastVerified": "2026-06-25",
   "verificationStatus": "official-direct",
-  "popularityScore": 72
+  "popularityScore": 72,
+  "applyLinks": [
+    {
+      "url": "https://www.hdfcbank.com/personal/pay/cards/credit-cards/phonepe-hdfc-bank-uno-credit-card",
+      "provider": "official"
+    }
+  ]
 }

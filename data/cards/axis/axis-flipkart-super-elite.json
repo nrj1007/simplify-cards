@@ -127,5 +127,11 @@
   "lastVerified": "2026-06-17",
   "verificationStatus": "official-direct",
   "popularityScore": 62,
-  "imageUrl": "/images/axis-flipkart-super-elite.webp"
+  "imageUrl": "/images/axis-flipkart-super-elite.webp",
+  "applyLinks": [
+    {
+      "url": "https://www.axis.bank.in/cards/credit-card/flipkart-axis-bank-super-elite-credit-card",
+      "provider": "official"
+    }
+  ]
 }

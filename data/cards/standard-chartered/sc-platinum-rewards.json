@@ -83,5 +83,11 @@
     "Earns 5 reward points per ₹150 spent on fuel and fine dining (0.83% return value). 1 point = ₹0.25.",
     "All other retail spends earn 1 reward point per ₹150 spent (0.17% return value).",
     "Joining fee of ₹250 is waived if ₹500 or more is spent within the first 30 days of card issuance. This also waives the subsequent annual fees, effectively making it lifetime free under this condition."
+  ],
+  "applyLinks": [
+    {
+      "url": "https://www.sc.com/in/credit-cards/platinum-rewards/",
+      "provider": "official"
+    }
   ]
 }

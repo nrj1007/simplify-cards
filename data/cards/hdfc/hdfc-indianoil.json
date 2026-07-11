@@ -156,5 +156,15 @@
     "Earn rate: 5% FP (5 FP per ₹100 spent) on Fuel, Groceries, Utilities. Base and UPI earn 1 FP per ₹150 spent.",
     "Capping: Fuel capped at 150 FP/month (250 FP for first 6 months), Groceries capped at 100 FP/month, Utilities capped at 100 FP/month.",
     "Redemption: 1 FP = 3 XRP = ₹0.96 at participating IndianOil outlets for free fuel. 1 FP = ₹0.20 for statement credit or catalogue products."
+  ],
+  "applyLinks": [
+    {
+      "url": "https://www.hdfc.bank.in/credit-cards/indianoil-hdfc-bank-credit-card",
+      "provider": "official"
+    },
+    {
+      "url": "https://bitli.in/NuTw5h2",
+      "provider": "earnkaro"
+    }
   ]
 }

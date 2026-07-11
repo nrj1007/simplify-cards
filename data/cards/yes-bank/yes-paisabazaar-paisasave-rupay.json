@@ -78,5 +78,11 @@
     "Card details manually reviewed and verified by user on 2026-06-14.",
     "UPI scan and pay transaction rewards only apply to transactions above ₹2,000.",
     "Reward points are credited as YES Rewardz points and can be redeemed at ₹1.0 per point."
+  ],
+  "applyLinks": [
+    {
+      "url": "https://www.paisabazaar.com/yes-bank/paisabazaar-paisasave-credit-card/",
+      "provider": "official"
+    }
   ]
 }

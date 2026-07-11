@@ -134,5 +134,11 @@
     "EMI transactions, EMI on call, cash transactions, fees, and interest do not earn rewards; if a transaction is converted to EMI later, rewards are clawed back.",
     "An add-on card can be applied for through iMobile app or Net Banking."
   ],
-  "popularityScore": 97
+  "popularityScore": 97,
+  "applyLinks": [
+    {
+      "url": "https://www.amazon.in/",
+      "provider": "official"
+    }
+  ]
 }

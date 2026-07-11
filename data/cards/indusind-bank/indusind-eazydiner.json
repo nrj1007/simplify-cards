@@ -154,5 +154,15 @@
   "applyUrl": "https://www.indusind.bank.in/in/en/personal/cards/credit-card/eazydiner-credit-card.html",
   "lastVerified": "2026-06-27",
   "verificationStatus": "official-direct",
-  "imageUrl": "/images/indusind-eazydiner.webp"
+  "imageUrl": "/images/indusind-eazydiner.webp",
+  "applyLinks": [
+    {
+      "url": "https://www.indusind.bank.in/in/en/personal/cards/credit-card/eazydiner-credit-card.html",
+      "provider": "official"
+    },
+    {
+      "url": "https://bitli.in/xxMw7sh",
+      "provider": "earnkaro"
+    }
+  ]
 }

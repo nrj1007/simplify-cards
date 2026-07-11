@@ -156,5 +156,16 @@
   "applyUrl": "https://www.hdfcbank.com/personal/pay/cards/credit-cards/irctc-credit-card",
   "lastVerified": "2026-06-07",
   "verificationStatus": "official-direct",
-  "popularityScore": 70
+  "popularityScore": 70,
+  "applyLinks": [
+    {
+      "url": "https://www.hdfcbank.com/personal/pay/cards/credit-cards/irctc-credit-card",
+      "provider": "official"
+    },
+    {
+      "url": "https://bitli.in/sdVxV7F",
+      "provider": "earnkaro",
+      "earnings": "Flat Rs 1500 Profit"
+    }
+  ]
 }

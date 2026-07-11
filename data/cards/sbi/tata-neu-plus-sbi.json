@@ -138,5 +138,16 @@
   "applyUrl": "https://www.sbicard.com/en/personal/credit-cards/lifestyle/tata-neu-plus-sbi-card.page",
   "lastVerified": "2026-06-09",
   "verificationStatus": "official-direct",
-  "popularityScore": 71
+  "popularityScore": 71,
+  "applyLinks": [
+    {
+      "url": "https://www.sbicard.com/en/personal/credit-cards/lifestyle/tata-neu-plus-sbi-card.page",
+      "provider": "official"
+    },
+    {
+      "url": "https://bitli.in/s7xR7v2",
+      "provider": "earnkaro",
+      "earnings": "Flat Rs 2240 Profit"
+    }
+  ]
 }

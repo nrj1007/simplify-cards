@@ -98,5 +98,11 @@
     "Utility, supermarket, insurance, rent/property management, school/education, and government payments earn a lower rate of 3 reward points per ₹150 spent (2.0% return value).",
     "Fuel spends are completely excluded from earning rewards.",
     "International lounge access via Priority Pass requires a spend of ₹20,000 in the previous calendar month."
+  ],
+  "applyLinks": [
+    {
+      "url": "https://www.sc.com/in/credit-cards/ultimate-card/",
+      "provider": "official"
+    }
   ]
 }

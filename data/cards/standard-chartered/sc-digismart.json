@@ -78,5 +78,11 @@
     "This is a monthly fee card with a ₹49 monthly charge. The fee is waived if spends in the previous month reach ₹5,000.",
     "All benefits are discount/cashback offers requiring the promo code DIGISMART on checkout.",
     "No standard reward points or cashbacks are accumulated outside the partner offers."
+  ],
+  "applyLinks": [
+    {
+      "url": "https://www.sc.com/in/credit-cards/digismart-card/",
+      "provider": "official"
+    }
   ]
 }

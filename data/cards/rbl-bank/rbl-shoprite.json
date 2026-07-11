@@ -113,5 +113,16 @@
   ],
   "lastVerified": "2026-06-15",
   "verificationStatus": "official-direct",
-  "imageUrl": "/images/rbl-shoprite.webp"
+  "imageUrl": "/images/rbl-shoprite.webp",
+  "applyLinks": [
+    {
+      "url": "https://www.rblbank.com/personal-banking/cards/credit-cards/shoprite-credit-card",
+      "provider": "official"
+    },
+    {
+      "url": "https://bitli.in/XU9gTgc",
+      "provider": "earnkaro",
+      "earnings": "Flat Rs 1200 Profit"
+    }
+  ]
 }

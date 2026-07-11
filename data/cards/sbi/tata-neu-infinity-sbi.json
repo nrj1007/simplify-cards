@@ -153,5 +153,16 @@
   "applyUrl": "https://www.sbicard.com/en/personal/credit-cards/tata-neu-infinity-sbi-card.html",
   "lastVerified": "2026-06-08",
   "verificationStatus": "official-direct",
-  "popularityScore": 78
+  "popularityScore": 78,
+  "applyLinks": [
+    {
+      "url": "https://www.sbicard.com/en/personal/credit-cards/tata-neu-infinity-sbi-card.html",
+      "provider": "official"
+    },
+    {
+      "url": "https://bitli.in/vhrml6o",
+      "provider": "earnkaro",
+      "earnings": "Flat Rs 2240 Profit"
+    }
+  ]
 }

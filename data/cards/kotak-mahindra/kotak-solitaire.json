@@ -215,5 +215,11 @@
     "No air miles are earned on international transactions despite zero forex markup.",
     "Air Miles expire 3 years from the date of credit.",
     "Card details manually reviewed and verified by user on 2026-06-15."
+  ],
+  "applyLinks": [
+    {
+      "url": "https://www.kotak.com/en/solitaire.html",
+      "provider": "official"
+    }
   ]
 }

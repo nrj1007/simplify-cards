@@ -118,5 +118,11 @@
     "UPI spends under ₹2,000 are not eligible for cashback."
   ],
   "popularityScore": 60,
-  "imageUrl": "/images/sbm-paisabazaar-paisa-plus.webp"
+  "imageUrl": "/images/sbm-paisabazaar-paisa-plus.webp",
+  "applyLinks": [
+    {
+      "url": "https://www.paisabazaar.com/sbm-bank/paisabazaar-paisa-plus-credit-card/",
+      "provider": "official"
+    }
+  ]
 }

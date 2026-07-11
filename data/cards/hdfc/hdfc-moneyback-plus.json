@@ -175,5 +175,11 @@
     "Utility spends are capped at 2,000 CashPoints/month.",
     "Insurance spends do not earn reward points.",
     "Redemption rate: 1 CashPoint = ₹0.25 for Flights/Hotels via SmartBuy, 1 CashPoint = ₹0.25 for Product Catalogue, 1 CashPoint = ₹0.20 for statement cashback. A standard redemption fee of ₹99 + GST applies (₹50 + GST for statement cashback). CashPoints cannot be transferred to partner airlines or hotel loyalty programs."
+  ],
+  "applyLinks": [
+    {
+      "url": "https://www.hdfc.bank.in/credit-cards/moneyback-plus-credit-card",
+      "provider": "official"
+    }
   ]
 }

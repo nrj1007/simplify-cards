@@ -155,5 +155,11 @@
     "International lounge: 2 complimentary visits per year.",
     "Pranaam services (Meet & Greet, porter, valet parking, car parking) available at Adani-managed airports.",
     "1% fuel surcharge waiver on transactions up to ₹4,000 at fuel outlets."
+  ],
+  "applyLinks": [
+    {
+      "url": "https://www.icicibank.com/personal-banking/cards/credit-card/adani-icici-credit-card/signature-credit-card",
+      "provider": "official"
+    }
   ]
 }

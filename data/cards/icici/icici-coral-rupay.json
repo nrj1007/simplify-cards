@@ -135,5 +135,11 @@
     "Offers 1 complimentary domestic railway lounge access per quarter (no spends criteria).",
     "Offers 25% discount on BookMyShow and INOX movie tickets, capped at ₹100 twice a month, subject to spending ₹25,000 in the preceding calendar quarter.",
     "Eligibility: Age must be 21-65 years; minimum monthly income of ₹20,000 for both salaried and self-employed."
+  ],
+  "applyLinks": [
+    {
+      "url": "https://www.icicibank.com/personal-banking/cards/credit-card/rupay-credit-card",
+      "provider": "official"
+    }
   ]
 }

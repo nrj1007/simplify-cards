@@ -97,5 +97,15 @@
     "Reward structure corrected on 2026-06-14: Snapdeal spends earn 20 RP/₹100 (5%), online/grocery/dept stores earn 10 RP/₹100 (2.5%, capped at 2,000 RP/statement), all other spends earn 4 RP/₹100 (1%).",
     "From July 1, 2025, redemption requires manual initiation via BOBCARD portal/app with a minimum of 1,000 reward points.",
     "The card's reward points are modeled as cashback (1 RP = ₹0.25) because points are auto-credited against the monthly statement."
+  ],
+  "applyLinks": [
+    {
+      "url": "https://bankofbaroda.bank.in/personal-banking/digital-products/cards/credit-cards/snapdeal-bob-credit-card",
+      "provider": "official"
+    },
+    {
+      "url": "https://bitli.in/Axe87hK",
+      "provider": "earnkaro"
+    }
   ]
 }

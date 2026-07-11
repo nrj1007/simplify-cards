@@ -108,5 +108,11 @@
     "Lounge access (airport and railway) is subject to a spend threshold of ₹20,000 in the previous calendar month.",
     "Buy 1 Get 1 movie ticket offer is subject to a spend threshold of ₹20,000 in the previous calendar month."
   ],
-  "popularityScore": 77
+  "popularityScore": 77,
+  "applyLinks": [
+    {
+      "url": "https://www.idfcfirstbank.com/credit-card",
+      "provider": "official"
+    }
+  ]
 }

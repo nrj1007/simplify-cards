@@ -177,5 +177,11 @@
     "Utility, insurance, education, and government spends are capped at a combined limit of 5,000 points per statement cycle.",
     "Point transfers to Air India Maharaja Club are at a 1:1 ratio with a minimum transfer of 2,000 points.",
     "Priority Pass is provided to both primary and Plus cardholders."
+  ],
+  "applyLinks": [
+    {
+      "url": "https://www.icicibank.com/personal-banking/cards/credit-card/times-black-icici-credit-card.html",
+      "provider": "official"
+    }
   ]
 }

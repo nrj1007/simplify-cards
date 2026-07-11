@@ -88,5 +88,15 @@
     "The official product page currently shows 'Coming soon...' under detailed eligibility and document sections.",
     "Eligibility is aligned to the age and income thresholds used across comparable BOBCARD products because the live Premier page does not currently publish its own detailed eligibility grid.",
     "Card details manually reviewed and verified by user on 2026-06-14."
+  ],
+  "applyLinks": [
+    {
+      "url": "https://bankofbaroda.bank.in/personal-banking/digital-products/cards/credit-cards/premier",
+      "provider": "official"
+    },
+    {
+      "url": "https://bitli.in/Axe87hK",
+      "provider": "earnkaro"
+    }
   ]
 }

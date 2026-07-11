@@ -278,5 +278,20 @@
   "lastVerified": "2026-06-12",
   "verificationStatus": "official-direct",
   "popularityScore": 70,
-  "imageUrl": "/images/axis-rewards.webp"
+  "imageUrl": "/images/axis-rewards.webp",
+  "applyLinks": [
+    {
+      "url": "https://www.axisbank.com/retail/cards/credit-card/rewards-credit-card",
+      "provider": "official"
+    },
+    {
+      "url": "https://bitli.in/S6YMiaY",
+      "provider": "other"
+    },
+    {
+      "url": "https://bitli.in/ADt9KLz",
+      "provider": "earnkaro",
+      "earnings": "Upto Rs 2080 Profit"
+    }
+  ]
 }

@@ -323,5 +323,11 @@
   "applyUrl": "https://www.hsbc.co.in/credit-cards/products/travelone/",
   "lastVerified": "2026-05-27",
   "verificationStatus": "official-direct",
-  "popularityScore": 90
+  "popularityScore": 90,
+  "applyLinks": [
+    {
+      "url": "https://www.hsbc.co.in/credit-cards/products/travelone/",
+      "provider": "official"
+    }
+  ]
 }

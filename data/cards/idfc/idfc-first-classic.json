@@ -96,5 +96,11 @@
     "1X reward points (0.5 per ₹100 spent) on utility, insurance, FASTag, and railway spends.",
     "Complimentary railway lounge access is subject to a spend threshold of ₹20,000 in the previous calendar month."
   ],
-  "popularityScore": 71
+  "popularityScore": 71,
+  "applyLinks": [
+    {
+      "url": "https://www.idfcfirstbank.com/credit-card",
+      "provider": "official"
+    }
+  ]
 }

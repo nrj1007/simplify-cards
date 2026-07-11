@@ -197,5 +197,16 @@
   "imageUrl": "/images/hdfc-tata-neu-plus.webp",
   "lastVerified": "2026-06-07",
   "verificationStatus": "official-direct",
-  "popularityScore": 70
+  "popularityScore": 70,
+  "applyLinks": [
+    {
+      "url": "https://www.hdfc.bank.in/credit-cards/tata-neu-plus-hdfc-bank-credit-card",
+      "provider": "official"
+    },
+    {
+      "url": "https://bitli.in/aKoY3Em",
+      "provider": "earnkaro",
+      "earnings": "Flat Rs 600 Profit"
+    }
+  ]
 }

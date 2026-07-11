@@ -155,5 +155,20 @@
     "Cashback is rounded down for each individual transaction.",
     "Cashback is not applicable on transactions less than ₹100."
   ],
-  "popularityScore": 91
+  "popularityScore": 91,
+  "applyLinks": [
+    {
+      "url": "https://www.axis.bank.in/cards/credit-card/flipkart-axisbank-credit-card",
+      "provider": "official"
+    },
+    {
+      "url": "https://bitli.in/K4bltAe",
+      "provider": "other"
+    },
+    {
+      "url": "https://bitli.in/SpShO9u",
+      "provider": "earnkaro",
+      "earnings": "Upto Rs 1920 Profit"
+    }
+  ]
 }

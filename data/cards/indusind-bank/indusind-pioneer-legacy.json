@@ -141,5 +141,11 @@
   "applyUrl": "https://www.indusind.bank.in/in/en/personal/cards/credit-card/pioneer-legacy-credit-card.html",
   "lastVerified": "2026-05-29",
   "verificationStatus": "official-direct",
-  "imageUrl": "/images/pioneer_legacy_world_card.jpg"
+  "imageUrl": "/images/pioneer_legacy_world_card.jpg",
+  "applyLinks": [
+    {
+      "url": "https://www.indusind.bank.in/in/en/personal/cards/credit-card/pioneer-legacy-credit-card.html",
+      "provider": "official"
+    }
+  ]
 }

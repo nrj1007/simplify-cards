@@ -163,5 +163,11 @@
   "applyUrl": "https://www.sbicard.com/en/personal/credit-cards/shopping/titan-sbi-card.page",
   "lastVerified": "2026-06-25",
   "verificationStatus": "official-direct",
-  "popularityScore": 72
+  "popularityScore": 72,
+  "applyLinks": [
+    {
+      "url": "https://www.sbicard.com/en/personal/credit-cards/shopping/titan-sbi-card.page",
+      "provider": "official"
+    }
+  ]
 }

@@ -321,5 +321,16 @@
     "Accor Live Limitless, Marriott Bonvoy, and Qatar Airways have been removed from the current transfer partner set.",
     "Gift EDGE redemption is valued at ₹0.20 per EDGE REWARD Point."
   ],
-  "popularityScore": 50
+  "popularityScore": 50,
+  "applyLinks": [
+    {
+      "url": "https://www.axisbank.com/retail/cards/credit-card/axis-bank-magnus-card",
+      "provider": "official"
+    },
+    {
+      "url": "https://bitli.in/fkDt961",
+      "provider": "earnkaro",
+      "earnings": "Upto Rs 2800 Profit"
+    }
+  ]
 }

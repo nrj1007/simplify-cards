@@ -99,5 +99,15 @@
     "Audited against the official IRCTC BOBCARD product page on 2026-06-14.",
     "The official page confirms: up to 40 reward points per ₹100 on IRCTC train bookings, 4 reward points per ₹100 on grocery and departmental store spends (capped at 1,000 pts/month), 2 reward points per ₹100 on other eligible spends.",
     "The lounge benefit is for partner railway lounges only, not airport lounges, so loungeDomestic remains 0 to avoid mislabeling in airport-lounge UI."
+  ],
+  "applyLinks": [
+    {
+      "url": "https://bankofbaroda.bank.in/personal-banking/digital-products/cards/credit-cards/irctc-bob-credit-card",
+      "provider": "official"
+    },
+    {
+      "url": "https://bitli.in/Axe87hK",
+      "provider": "earnkaro"
+    }
   ]
 }

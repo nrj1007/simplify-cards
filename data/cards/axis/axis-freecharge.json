@@ -284,5 +284,11 @@
   "lastVerified": "2026-06-12",
   "verificationStatus": "official-direct",
   "popularityScore": 63,
-  "imageUrl": "/images/axis-freecharge.webp"
+  "imageUrl": "/images/axis-freecharge.webp",
+  "applyLinks": [
+    {
+      "url": "https://www.axisbank.com/retail/cards/credit-card/axis-bank-freecharge-credit-card",
+      "provider": "official"
+    }
+  ]
 }

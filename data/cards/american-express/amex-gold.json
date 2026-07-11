@@ -229,5 +229,11 @@
     "Utility payments continue to earn 1 Membership Rewards point per ₹50 spent, capped at 10,000 Membership Rewards points in a calendar month.",
     "Amex currently issues this card only to residents of select serviced cities including Delhi/NCR, Mumbai, Bangalore, Chennai, Pune, Hyderabad, Jaipur, Kolkata, Indore, Coimbatore, Chandigarh/Tricity, Ahmedabad, Surat, Vadodara, Bhopal, Bhubaneshwar, Ernakulam, Vijayawada, Lucknow, Ludhiana, Nagpur, Nashik, Trivandrum, Mysuru, Cuttack and Vizag.",
     "Airline transfers are currently listed at a 2:1 ratio, while Marriott Bonvoy transfers at 1:1 and Hilton Honors transfers at 1:0.9."
+  ],
+  "applyLinks": [
+    {
+      "url": "https://www.americanexpress.com/in/charge-cards/gold-card/",
+      "provider": "official"
+    }
   ]
 }

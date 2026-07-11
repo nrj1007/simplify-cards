@@ -166,5 +166,11 @@
   "applyUrl": "https://www.phonepe.com/credit-cards/phonepe-sbi-card-select-black-credit-card-rupay/",
   "lastVerified": "2026-06-25",
   "verificationStatus": "official-direct",
-  "popularityScore": 68
+  "popularityScore": 68,
+  "applyLinks": [
+    {
+      "url": "https://www.phonepe.com/credit-cards/phonepe-sbi-card-select-black-credit-card-rupay/",
+      "provider": "official"
+    }
+  ]
 }

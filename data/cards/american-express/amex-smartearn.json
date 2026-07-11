@@ -186,5 +186,11 @@
     "10X rewards are capped at 500 Membership Rewards points per month jointly for Flipkart, Uber, BookMyShow and other listed 10X merchants, and separately capped at 500 Membership Rewards points per month jointly for EaseMyTrip and Zomato.",
     "5X rewards on Amazon are capped at 250 Membership Rewards points per month.",
     "Welcome cashback is credited as statement credit within 10 working days after completion of eligible spends."
+  ],
+  "applyLinks": [
+    {
+      "url": "https://www.americanexpress.com/in/credit-cards/smart-earn-credit-card/",
+      "provider": "official"
+    }
   ]
 }

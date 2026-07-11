@@ -275,5 +275,19 @@
   "lastVerified": "2026-06-12",
   "verificationStatus": "official-direct",
   "popularityScore": 69,
-  "imageUrl": "/images/axis-my-zone.webp"
+  "imageUrl": "/images/axis-my-zone.webp",
+  "applyLinks": [
+    {
+      "url": "https://www.axisbank.com/retail/cards/credit-card/my-zone-credit-card",
+      "provider": "official"
+    },
+    {
+      "url": "https://bitli.in/jMaWzKb",
+      "provider": "other"
+    },
+    {
+      "url": "https://bitli.in/w0zK8jr",
+      "provider": "earnkaro"
+    }
+  ]
 }

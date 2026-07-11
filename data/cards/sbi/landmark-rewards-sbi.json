@@ -125,5 +125,11 @@
   "applyUrl": "https://www.sbicard.com/en/personal/credit-cards/landmark-sbi-card.html",
   "lastVerified": "2026-06-13",
   "verificationStatus": "official-direct",
-  "popularityScore": 59
+  "popularityScore": 59,
+  "applyLinks": [
+    {
+      "url": "https://www.sbicard.com/en/personal/credit-cards/landmark-sbi-card.html",
+      "provider": "official"
+    }
+  ]
 }

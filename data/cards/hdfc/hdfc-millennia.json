@@ -168,5 +168,16 @@
   "applyUrl": "https://www.hdfc.bank.in/credit-cards/millennia-credit-card",
   "lastVerified": "2026-05-31",
   "verificationStatus": "official-direct",
-  "popularityScore": 92
+  "popularityScore": 92,
+  "applyLinks": [
+    {
+      "url": "https://www.hdfc.bank.in/credit-cards/millennia-credit-card",
+      "provider": "official"
+    },
+    {
+      "url": "https://bitli.in/iD8kH88",
+      "provider": "earnkaro",
+      "earnings": "Flat Rs 1500 Profit"
+    }
+  ]
 }

@@ -127,5 +127,11 @@
     "Fuel surcharge waiver: 1% waiver at all fuel stations, capped at ₹400 per month.",
     "OneReward Points value: ₹0.10 per point on statement credit redemption. Minimum 500 points required for statement credit. No redemption fee.",
     "Issuing partner banks include: Federal Bank, SBM Bank, South Indian Bank, BOB Financial (BOBCARD), Indian Bank, and CSB Bank. Card-specific MITC terms vary by issuing bank."
+  ],
+  "applyLinks": [
+    {
+      "url": "https://www.getonecard.app/apply/",
+      "provider": "official"
+    }
   ]
 }

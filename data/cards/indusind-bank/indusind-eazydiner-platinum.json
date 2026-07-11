@@ -136,5 +136,15 @@
   "applyUrl": "https://www.indusind.com/in/en/personal/cards/credit-card/eazydiner-platinum-credit-card.html",
   "lastVerified": "2026-06-27",
   "verificationStatus": "official-direct",
-  "imageUrl": "/images/indusind-eazydiner-platinum.webp"
+  "imageUrl": "/images/indusind-eazydiner-platinum.webp",
+  "applyLinks": [
+    {
+      "url": "https://www.indusind.com/in/en/personal/cards/credit-card/eazydiner-platinum-credit-card.html",
+      "provider": "official"
+    },
+    {
+      "url": "https://bitli.in/xxMw7sh",
+      "provider": "earnkaro"
+    }
+  ]
 }

@@ -92,5 +92,16 @@
   "applyUrl": "https://www.indusind.com/in/en/personal/cards/credit-card/platinum-rupay-credit-card.html",
   "lastVerified": "2026-05-30",
   "verificationStatus": "official-direct",
-  "imageUrl": "/images/indusind-platinum-rupay.webp"
+  "imageUrl": "/images/indusind-platinum-rupay.webp",
+  "applyLinks": [
+    {
+      "url": "https://www.indusind.com/in/en/personal/cards/credit-card/platinum-rupay-credit-card.html",
+      "provider": "official"
+    },
+    {
+      "url": "https://bitli.in/mtf8Dsy",
+      "provider": "earnkaro",
+      "earnings": "Upto Rs 1290 Profit"
+    }
+  ]
 }

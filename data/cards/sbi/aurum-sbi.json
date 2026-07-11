@@ -147,5 +147,11 @@
   "applyUrl": "https://www.aurumcreditcard.com/",
   "lastVerified": "2026-06-13",
   "verificationStatus": "official-direct",
-  "popularityScore": 54
+  "popularityScore": 54,
+  "applyLinks": [
+    {
+      "url": "https://www.aurumcreditcard.com/",
+      "provider": "official"
+    }
+  ]
 }

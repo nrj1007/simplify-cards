@@ -127,5 +127,16 @@
     "Airport lounge access requires a minimum spend of ₹20,000 in the previous calendar month.",
     "Buy 1 Get 1 movie ticket offer is subject to a spend threshold of ₹20,000 in the previous calendar month."
   ],
-  "popularityScore": 63
+  "popularityScore": 63,
+  "applyLinks": [
+    {
+      "url": "https://www.idfcfirstbank.com/credit-card",
+      "provider": "official"
+    },
+    {
+      "url": "https://bitli.in/cghkHt2",
+      "provider": "earnkaro",
+      "earnings": "Upto Rs 1050 Profit"
+    }
+  ]
 }

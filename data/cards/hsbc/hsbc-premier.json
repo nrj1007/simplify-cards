@@ -320,5 +320,11 @@
     "Excludes fuel, education, government, tax, jewelry, wallet loads, and cash advances from earning points (effective 1 April 2025).",
     "Points on utilities, insurance, and rent are capped at cumulative spends of ₹1 Lakh per calendar month combined (effective 1 April 2025).",
     "Card details manually reviewed and verified by user on 2026-06-08"
+  ],
+  "applyLinks": [
+    {
+      "url": "https://www.hsbc.co.in/credit-cards/products/premier/",
+      "provider": "official"
+    }
   ]
 }

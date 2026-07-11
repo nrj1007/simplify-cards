@@ -123,5 +123,11 @@
   "applyUrl": "https://www.sbicard.com/en/personal/credit-cards/lifestyle/doctors-sbi-card.page",
   "lastVerified": "2026-06-13",
   "verificationStatus": "official-direct",
-  "popularityScore": 40
+  "popularityScore": 40,
+  "applyLinks": [
+    {
+      "url": "https://www.sbicard.com/en/personal/credit-cards/lifestyle/doctors-sbi-card.page",
+      "provider": "official"
+    }
+  ]
 }

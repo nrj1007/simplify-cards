@@ -139,5 +139,16 @@
   "lastVerified": "2026-06-09",
   "verificationStatus": "official-direct",
   "popularityScore": 72,
-  "imageUrl": "/images/axis-cashback.webp"
+  "imageUrl": "/images/axis-cashback.webp",
+  "applyLinks": [
+    {
+      "url": "https://www.axisbank.com/retail/cards/credit-card/cashback-credit-card",
+      "provider": "official"
+    },
+    {
+      "url": "https://bitli.in/KgWN539",
+      "provider": "earnkaro",
+      "earnings": "Upto Rs 2080 Profit"
+    }
+  ]
 }

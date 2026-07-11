@@ -151,5 +151,11 @@
     "Domestic lounge access is spend-gated: requires minimum spend of ₹20,000 in the preceding quarter.",
     "Welcome benefit: Amazon Pay e-voucher worth ₹200 on spending ₹3,000 within the first 30 days.",
     "Miles transfer partners: Singapore Airlines KrisFlyer (13:1) via Federal Rewards portal."
+  ],
+  "applyLinks": [
+    {
+      "url": "https://www.federalbank.co.in/signet-credit-card",
+      "provider": "official"
+    }
   ]
 }

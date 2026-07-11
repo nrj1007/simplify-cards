@@ -282,5 +282,16 @@
   "lastVerified": "2026-06-12",
   "verificationStatus": "official-direct",
   "popularityScore": 78,
-  "imageUrl": "/images/axis-select.webp"
+  "imageUrl": "/images/axis-select.webp",
+  "applyLinks": [
+    {
+      "url": "https://www.axisbank.com/retail/cards/credit-card/axis-bank-select-credit-card",
+      "provider": "official"
+    },
+    {
+      "url": "https://bitli.in/06Qld43",
+      "provider": "earnkaro",
+      "earnings": "Upto Rs 2800 Profit"
+    }
+  ]
 }

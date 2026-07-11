@@ -88,5 +88,11 @@
     "Card has been discontinued for new applications. Milestone rewards are movie ticket codes valid for 2 months.",
     "Card details manually reviewed and verified by user on 2026-06-14."
   ],
-  "status": "discontinued"
+  "status": "discontinued",
+  "applyLinks": [
+    {
+      "url": "https://www.kotak.com/en/personal-banking/cards/credit-cards.html",
+      "provider": "official"
+    }
+  ]
 }

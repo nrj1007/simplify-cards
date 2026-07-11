@@ -151,5 +151,16 @@
     "Cashback on individual transactions is rounded down to the nearest rupee.",
     "Minimum order value of ₹499 applies for Zomato and Blinkit value-back eligibility. Wallet loads and gift card purchases are excluded from the value-back offer."
   ],
-  "popularityScore": 50
+  "popularityScore": 50,
+  "applyLinks": [
+    {
+      "url": "https://www.axisbank.com/retail/cards/credit-card/airtel-axis-bank-credit-card",
+      "provider": "official"
+    },
+    {
+      "url": "https://bitli.in/AZ9r5p1",
+      "provider": "earnkaro",
+      "earnings": "Flat Rs 2240 Profit"
+    }
+  ]
 }

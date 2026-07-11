@@ -128,5 +128,11 @@
   "internalNotes": [
     "Invite-only credit card for Wealth Management clients. Every 1 Reward Point converts to 2 Air Miles for partner travel redemptions. Cashback redemption value is devalued to ₹0.70 per point. Foreign markup fee is reduced to 2%. A 2% DCC fee applies for international transactions. Spends on wallet, fuel, rent, insurance, utilities, education, government, and gaming do not earn reward points.",
     "Card details manually reviewed and verified by user on 2026-06-15."
+  ],
+  "applyLinks": [
+    {
+      "url": "https://www.kotak.com/en/personal-banking/cards/credit-cards/wealth-management-infinite-credit-card.html",
+      "provider": "official"
+    }
   ]
 }

@@ -158,5 +158,11 @@
   "applyUrl": "https://www.phonepe.com/credit-cards/phonepe-sbi-card-purple-credit-card/",
   "lastVerified": "2026-06-25",
   "verificationStatus": "official-direct",
-  "popularityScore": 69
+  "popularityScore": 69,
+  "applyLinks": [
+    {
+      "url": "https://www.phonepe.com/credit-cards/phonepe-sbi-card-purple-credit-card/",
+      "provider": "official"
+    }
+  ]
 }

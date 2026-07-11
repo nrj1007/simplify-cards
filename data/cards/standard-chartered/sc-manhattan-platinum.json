@@ -78,5 +78,11 @@
     "5% cashback applies on grocery, supermarket, and departmental store purchases of ₹1,000 or more.",
     "Groceries cashback is capped at ₹150 per transaction and ₹500 per calendar month.",
     "Other spends earn 3 reward points per ₹150 spent (effectively 0.5% return value)."
+  ],
+  "applyLinks": [
+    {
+      "url": "https://www.sc.com/in/credit-cards/manhattan-platinum-card/",
+      "provider": "official"
+    }
   ]
 }

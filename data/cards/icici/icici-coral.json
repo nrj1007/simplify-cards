@@ -159,5 +159,11 @@
     "Complimentary railway lounge access (1 visit per quarter) is unconditional (no spend criteria).",
     "BookMyShow movie discount (25% off up to ₹100 twice a month on min 2 tickets) requires spending ₹25,000 in the preceding spends quarter (effective April 1, 2026).",
     "Reward points can be transferred to Air India Maharaja Club at a 6:1 ratio, requiring a minimum of 2,000 points per transfer."
+  ],
+  "applyLinks": [
+    {
+      "url": "https://www.icicibank.com/personal-banking/cards/credit-card/coral-credit-card",
+      "provider": "official"
+    }
   ]
 }

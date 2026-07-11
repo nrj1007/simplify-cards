@@ -204,5 +204,19 @@
   "affiliateUrl": "https://bitli.in/06iuZ9O",
   "lastVerified": "2026-06-01",
   "verificationStatus": "official-direct",
-  "popularityScore": 85
+  "popularityScore": 85,
+  "applyLinks": [
+    {
+      "url": "https://www.hdfc.bank.in/credit-cards/marriott-bonvoy-credit-card",
+      "provider": "official"
+    },
+    {
+      "url": "https://bitli.in/06iuZ9O",
+      "provider": "other"
+    },
+    {
+      "url": "https://bitli.in/VUR3mFm",
+      "provider": "earnkaro"
+    }
+  ]
 }

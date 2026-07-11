@@ -137,5 +137,11 @@
   "applyUrl": "https://www.apollo247.com/apollo-sbi-credit-card-faqs",
   "lastVerified": "2026-06-25",
   "verificationStatus": "official-direct",
-  "popularityScore": 49
+  "popularityScore": 49,
+  "applyLinks": [
+    {
+      "url": "https://www.apollo247.com/apollo-sbi-credit-card-faqs",
+      "provider": "official"
+    }
+  ]
 }

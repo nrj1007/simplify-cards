@@ -113,5 +113,16 @@
   "applyUrl": "https://www.sbicard.com/en/personal/credit-cards/travel/irctc-rupay-sbi-card.page",
   "lastVerified": "2026-06-09",
   "verificationStatus": "official-direct",
-  "popularityScore": 70
+  "popularityScore": 70,
+  "applyLinks": [
+    {
+      "url": "https://www.sbicard.com/en/personal/credit-cards/travel/irctc-rupay-sbi-card.page",
+      "provider": "official"
+    },
+    {
+      "url": "https://bitli.in/CU0dzKC",
+      "provider": "earnkaro",
+      "earnings": "Flat Rs 2240 Profit"
+    }
+  ]
 }

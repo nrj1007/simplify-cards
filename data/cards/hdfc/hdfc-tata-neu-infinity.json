@@ -209,5 +209,15 @@
   "imageUrl": "/images/hdfc-tata-neu-infinity.webp",
   "lastVerified": "2026-05-31",
   "verificationStatus": "official-direct",
-  "popularityScore": 86
+  "popularityScore": 86,
+  "applyLinks": [
+    {
+      "url": "https://www.hdfc.bank.in/credit-cards/tata-neu-infinity-hdfc-bank-credit-card",
+      "provider": "official"
+    },
+    {
+      "url": "https://bitli.in/QdcK6H2",
+      "provider": "earnkaro"
+    }
+  ]
 }

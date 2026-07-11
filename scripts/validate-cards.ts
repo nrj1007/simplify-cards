@@ -657,6 +657,34 @@ if (cardFiles.length === 0) {
     if (card.affiliateUrl !== undefined && !isValidUrl(card.affiliateUrl)) {
       addIssue("must be a valid https URL when present", cardId, "affiliateUrl");
     }
+    
+    if (!Array.isArray(card.applyLinks) || card.applyLinks.length === 0) {
+      addIssue("must be a non-empty array", cardId, "applyLinks");
+    } else {
+      let hasOfficial = false;
+      card.applyLinks.forEach((link, idx) => {
+        const field = `applyLinks[${idx}]`;
+        if (!isObject(link)) {
+          addIssue("must be an object", cardId, field);
+          return;
+        }
+        if (!isValidUrl(link.url)) {
+          addIssue("url must be a valid https URL", cardId, field);
+        }
+        if (!isNonEmptyString(link.provider)) {
+          addIssue("provider must be a non-empty string", cardId, field);
+        } else if (link.provider === "official") {
+          hasOfficial = true;
+        }
+        if (link.earnings !== undefined && !isNonEmptyString(link.earnings)) {
+          addIssue("earnings must be a non-empty string when present", cardId, field);
+        }
+      });
+      if (!hasOfficial) {
+        addIssue("must contain at least one official apply link", cardId, "applyLinks");
+      }
+    }
+
     validateDate(card.lastVerified, cardId, "lastVerified");
 
     validateRewards(card.rewards, cardId, card.rewardType, "rewards");

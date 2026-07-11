@@ -81,5 +81,11 @@
     "Card details manually reviewed and verified by user on 2026-06-14.",
     "India's first interactive credit card with built-in buttons to choose payment options (Credit, EMI, Rewards) at POS.",
     "Cash credit redemption is capped at 2,500 reward points per calendar month."
+  ],
+  "applyLinks": [
+    {
+      "url": "https://www.indusind.com/in/en/personal/cards/credit-card/nexxt-credit-card.html",
+      "provider": "official"
+    }
   ]
 }

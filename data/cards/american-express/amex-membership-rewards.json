@@ -230,5 +230,11 @@
     "Card details manually reviewed and verified by user on 2026-06-26",
     "The additional 1,000 Membership Rewards points on ₹20,000 monthly spend is an enrollment-based benefit.",
     "Airline transfers are currently listed at a 2:1 ratio, while Marriott Bonvoy transfers at 1:1 and Hilton Honors transfers at 1:0.9."
+  ],
+  "applyLinks": [
+    {
+      "url": "https://www.americanexpress.com/in/credit-cards/membership-rewards-card/",
+      "provider": "official"
+    }
   ]
 }

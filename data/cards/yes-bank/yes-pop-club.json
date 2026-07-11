@@ -162,5 +162,11 @@
     "Standard RuPay UPI transactions earn 2 POPcoins per ₹100.",
     "UPI transactions via POP UPI App earn 7 POPcoins per ₹100.",
     "POP UPI earning is capped at 500 POPcoins per transaction and 6,000 POPcoins per month (modeled as upi row capMonthly 6000). Online (10 POPcoins/₹100) has no monthly cap per official terms."
+  ],
+  "applyLinks": [
+    {
+      "url": "https://popclub.co/",
+      "provider": "official"
+    }
   ]
 }

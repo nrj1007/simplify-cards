@@ -163,5 +163,20 @@
   "affiliateUrl": "https://bitli.in/0MdfcFH",
   "lastVerified": "2026-06-09",
   "verificationStatus": "official-direct",
-  "popularityScore": 77
+  "popularityScore": 77,
+  "applyLinks": [
+    {
+      "url": "https://www.sbicard.com/en/personal/credit-cards/flipkart-sbi-card.html",
+      "provider": "official"
+    },
+    {
+      "url": "https://bitli.in/0MdfcFH",
+      "provider": "other"
+    },
+    {
+      "url": "https://bitli.in/5q3FjDn",
+      "provider": "earnkaro",
+      "earnings": "Flat Rs 2240 Profit"
+    }
+  ]
 }

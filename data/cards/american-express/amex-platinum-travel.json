@@ -223,5 +223,11 @@
     "Priority Pass membership fee of US$99 is waived; lounge visit charges are payable at actual prevailing rates",
     "Points do not expire as long as the card account is active and in good standing",
     "Transfer ratios yield up to 1 point per MR point (Marriott Bonvoy transfers at a 1:1 ratio, while airline partners transfer at 2:1)"
+  ],
+  "applyLinks": [
+    {
+      "url": "https://www.americanexpress.com/in/credit-cards/platinum-travel-credit-card/",
+      "provider": "official"
+    }
   ]
 }

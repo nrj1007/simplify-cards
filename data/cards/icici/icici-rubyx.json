@@ -198,5 +198,11 @@
     "Offers 25% discount on movie tickets, capped at ₹150 per ticket, twice a month (minimum 2 tickets), subject to spending ₹25,000 in the preceding calendar quarter.",
     "Complimentary golf rounds (up to 4 per month) require spending ₹50,000 per round in the previous calendar month.",
     "Eligibility: Age must be 21-65 years; minimum net monthly salary of ₹50,000 for salaried, and annual income/ITR of ₹5,50,000 for self-employed."
+  ],
+  "applyLinks": [
+    {
+      "url": "https://www.icicibank.com/personal-banking/cards/credit-card/rubyx-card",
+      "provider": "official"
+    }
   ]
 }

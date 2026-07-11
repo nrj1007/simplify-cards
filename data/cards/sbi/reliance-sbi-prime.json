@@ -149,5 +149,11 @@
   "applyUrl": "https://www.sbicard.com/en/personal/credit-cards/shopping/reliance-sbi-card-prime.page",
   "lastVerified": "2026-06-13",
   "verificationStatus": "official-direct",
-  "popularityScore": 60
+  "popularityScore": 60,
+  "applyLinks": [
+    {
+      "url": "https://www.sbicard.com/en/personal/credit-cards/shopping/reliance-sbi-card-prime.page",
+      "provider": "official"
+    }
+  ]
 }

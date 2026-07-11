@@ -188,5 +188,11 @@
   "internalNotes": [
     "Card details manually reviewed and verified by user on 2026-06-15.",
     "White Pass value can be redeemed at 1 White Pass = ₹1.0 on vouchers, flights, and hotels, and ₹0.70 for statement cashback. Guest charges for lounges are $35 per guest per visit. Customer can hold only one active White/White Reserve card."
+  ],
+  "applyLinks": [
+    {
+      "url": "https://www.kotak.com/en/personal-banking/cards/credit-cards/white-reserve-credit-card.html",
+      "provider": "official"
+    }
   ]
 }

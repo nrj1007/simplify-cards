@@ -116,5 +116,16 @@
   "applyUrl": "https://www.sbicard.com/en/personal/credit-cards/bpcl-sbi-card.html",
   "lastVerified": "2026-06-25",
   "verificationStatus": "official-direct",
-  "popularityScore": 64
+  "popularityScore": 64,
+  "applyLinks": [
+    {
+      "url": "https://www.sbicard.com/en/personal/credit-cards/bpcl-sbi-card.html",
+      "provider": "official"
+    },
+    {
+      "url": "https://bitli.in/f8DT9mw",
+      "provider": "earnkaro",
+      "earnings": "Flat Rs 2240 Profit"
+    }
+  ]
 }

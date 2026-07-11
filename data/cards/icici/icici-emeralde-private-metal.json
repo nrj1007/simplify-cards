@@ -220,5 +220,11 @@
     "Exclusions include fuel, rent, government services, tax payments, and e-wallet loading.",
     "BookMyShow BOGO offers up to ₹750 off on a minimum of 2 tickets, twice a calendar month.",
     "Air Accident Insurance cover is up to ₹3 crore for primary cardholder, subject to card usage terms."
+  ],
+  "applyLinks": [
+    {
+      "url": "https://www.icicibank.com/personal-banking/cards/credit-card/emeralde-private-metal-credit-card",
+      "provider": "official"
+    }
   ]
 }

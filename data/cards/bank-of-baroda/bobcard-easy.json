@@ -87,5 +87,15 @@
     "Correct 5X categories are movies, grocery, and departmental stores (capped at 1,000 pts/month) — NOT online/dining/utility as previously stored.",
     "Redemption value is ₹0.20 per point (corrected from ₹0.25).",
     "Utility bill spends (MCC 4900) earn base 1X rate on this card, not accelerated."
+  ],
+  "applyLinks": [
+    {
+      "url": "https://bankofbaroda.bank.in/personal-banking/digital-products/cards/credit-cards/easy",
+      "provider": "official"
+    },
+    {
+      "url": "https://bitli.in/Axe87hK",
+      "provider": "earnkaro"
+    }
   ]
 }

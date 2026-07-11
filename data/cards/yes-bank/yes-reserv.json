@@ -131,5 +131,11 @@
     "YES BANK RESERV card details manually reviewed and verified by user on 2026-06-14.",
     "Domestic lounge access requires ₹1 Lakh spend in the previous calendar quarter.",
     "Forex markup fee is 1.75%."
+  ],
+  "applyLinks": [
+    {
+      "url": "https://www.yesbank.in/personal-banking/yes-individual/cards/credit-cards",
+      "provider": "official"
+    }
   ]
 }

@@ -158,5 +158,11 @@
   "applyUrl": "https://www.sbicard.com/en/personal/credit-cards/shopping/landmark-sbi-card-prime.page",
   "lastVerified": "2026-06-09",
   "verificationStatus": "official-direct",
-  "popularityScore": 69
+  "popularityScore": 69,
+  "applyLinks": [
+    {
+      "url": "https://www.sbicard.com/en/personal/credit-cards/shopping/landmark-sbi-card-prime.page",
+      "provider": "official"
+    }
+  ]
 }
