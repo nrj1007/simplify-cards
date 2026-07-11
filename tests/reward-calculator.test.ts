@@ -1894,7 +1894,7 @@ describe("reward calculator", () => {
       expect(result.monthlyUnits).toBe(150);
     });
 
-    it("earns conditional fuel cashback and excludes rent, insurance, government, and education spends", () => {
+    it("earns conditional fuel cashback and excludes rent, insurance, government, education, and international spends", () => {
       const card = getCardById("hsbc-live-plus");
       const fuelResult = calculateRewards(card!, { fuel: 5000 });
       expect(fuelResult.monthlyUnits).toBe(125);
@@ -1903,7 +1903,8 @@ describe("reward calculator", () => {
         rent: 5000,
         insurance: 5000,
         government: 5000,
-        education: 5000
+        education: 5000,
+        international: 5000
       });
       expect(result.monthlyUnits).toBe(0);
     });
@@ -3789,7 +3790,6 @@ describe("reward calculator", () => {
     });
   });
 });
-
 
 
 
