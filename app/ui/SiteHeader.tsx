@@ -15,14 +15,6 @@ export const DEFAULT_HEADER_LINKS: SiteHeaderLink[] = [
   { label: "Compare", href: "/compare" }
 ];
 
-export const LANDING_HEADER_LINKS: SiteHeaderLink[] = [
-  { label: "Recommend", href: "/recommend" },
-  { label: "Calculator", href: "/calculator" as Route },
-  { label: "Cards", href: "/finder" },
-  { label: "Compare", href: "/compare" },
-  { label: "Updates", href: "/latest" as Route }
-];
-
 function joinClasses(...classes: Array<string | false | undefined>) {
   return classes.filter(Boolean).join(" ");
 }
@@ -58,7 +50,7 @@ export function SiteLogoMark() {
 export function SiteHeader({ links: providedLinks }: { links?: SiteHeaderLink[] } = {}) {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
-  const links = providedLinks ?? (pathname === "/" ? LANDING_HEADER_LINKS : DEFAULT_HEADER_LINKS);
+  const links = providedLinks ?? DEFAULT_HEADER_LINKS;
 
   return (
     <nav className={joinClasses(styles.topnav, "site-header")}>
