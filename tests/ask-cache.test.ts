@@ -1,11 +1,12 @@
 import fs from "node:fs";
 import path from "node:path";
-import { afterEach, beforeEach, describe, expect, it } from "vitest";
+import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { answerQuestion, getAskResultCacheStatus } from "../lib/ask-ai";
 import { clearAskCache } from "../lib/ask-cache";
 
 const logPath = path.join(process.cwd(), "data", "question-logs", "unsupported-questions.json");
 const originalApiKey = process.env.OPENAI_API_KEY;
+const originalFetch = global.fetch;
 
 function cleanupLogFile() {
   if (fs.existsSync(logPath)) fs.rmSync(logPath, { force: true });
@@ -16,6 +17,21 @@ describe("ask intent cache", () => {
     clearAskCache();
     cleanupLogFile();
     delete process.env.OPENAI_API_KEY;
+    delete process.env.GEMINI_API_KEY;
+    global.fetch = vi.fn(async () =>
+      Response.json({
+        output_text: JSON.stringify({
+          summary: "Mock summary"
+        }),
+        candidates: [
+          {
+            content: {
+              parts: [{ text: JSON.stringify({ summary: "Mock summary" }) }]
+            }
+          }
+        ]
+      })
+    ) as typeof fetch;
   });
 
   afterEach(() => {
@@ -23,6 +39,7 @@ describe("ask intent cache", () => {
     cleanupLogFile();
     if (originalApiKey) process.env.OPENAI_API_KEY = originalApiKey;
     else delete process.env.OPENAI_API_KEY;
+    global.fetch = originalFetch;
   });
 
   it("reuses answers for different phrasings that resolve to the same intent and card list", async () => {
