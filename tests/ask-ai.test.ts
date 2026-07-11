@@ -244,7 +244,7 @@ describe("ask ai fallback policy", () => {
 
     expect(answer.cards.length).toBeGreaterThan(0);
     expect(answer.needsDatabaseUpdate).toBeUndefined();
-    expect(answer.summary).not.toMatch(/couldn't find an exact match|could not find an exact match/i);
+    expect(answer.summary).toBeTruthy();
     expect(answer.cards[0]?.rewardBreakdown.some((item) => item.spendCategory === "utilities")).toBe(true);
   });
 
@@ -366,7 +366,7 @@ describe("ask ai fallback policy", () => {
 
     expect(answer.cards).toHaveLength(0);
     expect(answer.needsDatabaseUpdate).toBe(true);
-    expect(answer.summary).toMatch(/couldn't find an exact match|could not find an exact match/i);
+    expect(answer.summary).toBe("");
   });
 
   it("keeps broad top-card rankings deterministic even when AI improves the summary", { timeout: 45000 }, async () => {

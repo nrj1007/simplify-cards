@@ -1860,8 +1860,7 @@ export async function answerQuestion(input: RecommendationInput): Promise<AskAiR
     await logUnsupportedQuestion(input, reason);
 
     return {
-      summary:
-        "I couldn't find an exact match for your query.",
+      summary: "",
       cards: [],
       highlights: [],
       needsDatabaseUpdate: true,
