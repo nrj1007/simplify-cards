@@ -1,7 +1,7 @@
 "use client";
 
 import { type CSSProperties, type ReactNode, useMemo, useRef, useState } from "react";
-import { ChevronDown, Trophy, TrendingUp } from "lucide-react";
+import { ChevronDown, Gift, Trophy, TrendingUp } from "lucide-react";
 import type { CreditCard, SpendCategory } from "@/lib/types";
 import type { MilestoneRule } from "@/lib/recommend";
 import {
@@ -18,7 +18,6 @@ import {
 
 type Props = {
   card: CreditCard;
-  detailLink?: ReactNode;
   milestones?: MilestoneRule[];
   picker?: ReactNode;
   variant?: "compact" | "calculator";
@@ -112,7 +111,7 @@ function milestonePrimaryValue(rule: MilestoneRule) {
 
 type RupeeOption = { key: string; label: string; perPoint: number; value: number; note?: string };
 
-export default function RewardCalculator({ card, detailLink, milestones = [], picker, variant = "compact" }: Props) {
+export default function RewardCalculator({ card, milestones = [], picker, variant = "compact" }: Props) {
   const buckets = useMemo(() => calculatorBucketsForCard(card), [card]);
   const moreCats = useMemo(() => moreCategoriesForCard(card), [card]);
   const redemptionScrollerRef = useRef<HTMLDivElement>(null);
@@ -309,10 +308,9 @@ export default function RewardCalculator({ card, detailLink, milestones = [], pi
   const hasExcluded = earnRows.some((row) => row.excluded);
   const allCalculatorCategories = useMemo(
     () => [
-      ...buckets.map((bucket) => ({ id: bucket.id, label: bucket.label, displayRate: bucket.displayRate })),
-      ...moreCats.map((cat) => ({ id: cat, label: CATEGORY_LABELS[cat], displayRate: undefined }))
+      ...buckets.map((bucket) => ({ id: bucket.id, label: bucket.label, displayRate: bucket.displayRate }))
     ],
-    [buckets, moreCats]
+    [buckets]
   );
 
   const netAnnualValue = totalReturnsPlusVoucher - result.annualSurcharge;
@@ -344,6 +342,13 @@ export default function RewardCalculator({ card, detailLink, milestones = [], pi
   }
 
   if (variant === "calculator") {
+    const monthlyNextMilestone = nextMilestone ? Math.ceil(nextMilestone.threshold / 12) : null;
+    const monthlyProgressTarget = monthlyNextMilestone && monthlyNextMilestone > 0 ? monthlyNextMilestone : totalMonthlySpend || 1;
+    const milestoneProgress = Math.max(0, Math.min(100, (totalMonthlySpend / monthlyProgressTarget) * 100));
+    const earnedMilestone = earnedMilestones[earnedMilestones.length - 1] ?? null;
+    const currentMilestoneTitle = earnedMilestone ? (milestonePrimaryValue(earnedMilestone) ?? formatINR(earnedMilestone.value)) : "Milestone rewards";
+    const nextMilestoneTitle = nextMilestone ? (milestonePrimaryValue(nextMilestone) ?? formatINR(nextMilestone.value)) : "All milestones unlocked";
+    const forecastUnitLabel = cashback ? "cashback/year" : "reward points/year";
     const allRedemptionCards = [
       ...redeemRows.map((row, index) => ({ ...row, best: hasClearBest && index === 0 })),
       ...(airMilesPerPoint && airMilesRupeePerPoint
@@ -430,7 +435,7 @@ export default function RewardCalculator({ card, detailLink, milestones = [], pi
               })}
             </div>
             <p className="spend-profile-note">
-              Categories marked excluded earn no rewards on this card. Unlisted categories are treated as issuer-excluded.
+              Note: Categories not listed are treated as issuer-excluded and earn no rewards
             </p>
           </div>
 
@@ -439,7 +444,6 @@ export default function RewardCalculator({ card, detailLink, milestones = [], pi
               <div>
                 <h2>Reward forecast</h2>
               </div>
-              {detailLink}
             </div>
 
             <div className="calc-headline reward-forecast-card">
@@ -447,7 +451,7 @@ export default function RewardCalculator({ card, detailLink, milestones = [], pi
                 <span className="calc-headline-label forecast-kicker">You earn</span>
                 <div className="forecast-score-row">
                   <strong className="calc-headline-units forecast-score">
-                    {formatUnits(annualUnits)} <span className="forecast-unit">{unitLabel}/year</span>
+                    {formatUnits(annualUnits)} <span className="forecast-unit">{forecastUnitLabel}</span>
                   </strong>
                 </div>
               </div>
@@ -455,7 +459,12 @@ export default function RewardCalculator({ card, detailLink, milestones = [], pi
                 <span className="forecast-value-label">
                   {result.annualSurcharge > 0 ? "Net annual value" : "Best redemption value"}
                 </span>
-                <strong className="forecast-value">{formatINR(result.annualSurcharge > 0 ? netAnnualValue : totalReturnsPlusVoucher)}</strong>
+                <strong className="forecast-value">
+                  <span className="forecast-currency-symbol">₹</span>
+                  <span className="forecast-currency-amount">
+                    {Math.round(result.annualSurcharge > 0 ? netAnnualValue : totalReturnsPlusVoucher).toLocaleString("en-IN")}
+                  </span>
+                </strong>
                 <span className="forecast-value-subtitle">
                   {result.annualSurcharge > 0
                     ? `${formatINR(totalReturnsPlusVoucher)} gross minus ${formatINR(result.annualSurcharge)} fees`
@@ -465,12 +474,13 @@ export default function RewardCalculator({ card, detailLink, milestones = [], pi
                 </span>
                 <div className="forecast-mini-grid">
                   <span className="forecast-stat">
-                    <Trophy size={16} aria-hidden="true" />
+                    <Trophy className="forecast-stat-icon" size={16} aria-hidden="true" />
                     <b>{formatINR(earnedNonVoucherMilestoneValue + earnedVoucherValue)}</b>
                     milestone benefit
                   </span>
+                  <i aria-hidden="true" className="forecast-stat-separator" />
                   <span className="forecast-stat">
-                    <TrendingUp size={16} aria-hidden="true" />
+                    <TrendingUp className="forecast-stat-icon" size={16} aria-hidden="true" />
                     <b>{effectiveRate.toFixed(1)}%</b>
                     effective return
                   </span>
@@ -485,38 +495,100 @@ export default function RewardCalculator({ card, detailLink, milestones = [], pi
             ) : (
               <>
                 {milestones.length > 0 ? (
-                  <section className="milestone-progress-section" aria-labelledby="milestone-progress-title">
+                  <>
+                  <div className="section-head recommend-results-head calculator-results-head milestone-results-head">
+                    <div>
+                      <h2>Milestone rewards</h2>
+                    </div>
+                  </div>
+                  <section
+                    className="milestone-progress-section"
+                    aria-labelledby="milestone-progress-title"
+                    style={{ "--milestone-progress": `${milestoneProgress}%` } as CSSProperties}
+                  >
                     <header className="milestone-progress-head">
                       <h3 id="milestone-progress-title">Milestone rewards</h3>
                       <p>Earn more when you spend more</p>
                     </header>
+                    <div
+                      className="milestone-journey"
+                      aria-label={`Progress toward next milestone is ${Math.round(milestoneProgress)} percent.`}
+                    >
+                      <div className="milestone-node milestone-node-current">
+                        <span className="milestone-you-are-here">You are here</span>
+                        <span className="milestone-circle">1</span>
+                        <span className="milestone-status milestone-status-unlocked">
+                          {earnedMilestone ? "Unlocked" : "In progress"}
+                        </span>
+                        <strong className="milestone-node-title">Milestone 1</strong>
+                        <small className="milestone-node-threshold">Spend {formatINR(totalMonthlySpend)}/month</small>
+                      </div>
+
+                      <div className="milestone-track" aria-hidden="true">
+                        <span className="milestone-track-fill" />
+                      </div>
+
+                      <div className="milestone-node milestone-node-next">
+                        <span className="milestone-circle">2</span>
+                        <span className="milestone-status milestone-status-placeholder" aria-hidden="true">
+                          Upcoming
+                        </span>
+                        <strong className="milestone-node-title">Milestone 2</strong>
+                        <small className="milestone-node-threshold">
+                          {monthlyNextMilestone ? `Spend ${formatINR(monthlyNextMilestone)}/month` : "Completed"}
+                        </small>
+                      </div>
+                    </div>
                     <div className="milestone-reward-grid">
-                      {earnedMilestones.slice(-2).map((rule, index) => (
-                        <article className="milestone-reward-card milestone-reward-unlocked" key={`ms-earned-${index}`}>
+                        <article className="milestone-reward-card milestone-reward-unlocked">
                           <span className="milestone-card-badge is-unlocked">Unlocked</span>
+                          <div className="milestone-reward-illustration milestone-gift" aria-hidden="true">
+                            <Gift />
+                          </div>
                           <div className="milestone-reward-copy">
-                            <h4>{milestonePrimaryValue(rule) ?? formatINR(rule.value)}</h4>
-                            <p>{rule.label}</p>
-                            <small>{rule.threshold > 0 ? `At ${formatINRCompact(rule.threshold)}/yr` : "Ongoing milestone"}</small>
+                            <h4>{currentMilestoneTitle}</h4>
+                            <p>
+                              {earnedMilestone
+                                ? `Unlocked! ${earnedMilestone.label}`
+                                : "Increase spends to unlock the first milestone reward."}
+                            </p>
                           </div>
                         </article>
-                      ))}
-                      {nextMilestone ? (
+
                         <article className="milestone-reward-card milestone-reward-next">
                           <span className="milestone-card-badge is-next">Next milestone</span>
+                          <div className="milestone-reward-illustration milestone-trophy" aria-hidden="true">
+                            <Trophy />
+                          </div>
                           <div className="milestone-reward-copy">
-                            <h4>{milestonePrimaryValue(nextMilestone) ?? formatINR(nextMilestone.value)}</h4>
-                            <p>{nextMilestone.label}</p>
-                            <small>{formatINRCompact(nextMilestone.threshold - annualSpend)} more annual spend needed</small>
+                            <h4>{nextMilestoneTitle}</h4>
+                            <p>
+                              {nextMilestone
+                                ? `Unlock when your monthly spend reaches ${formatINR(monthlyNextMilestone ?? 0)}.`
+                                : "You have reached the available milestone thresholds for this card."}
+                            </p>
                           </div>
                         </article>
-                      ) : null}
                     </div>
+                    {nextMilestone ? (
+                      <div className="milestone-next-step">
+                        <span className="milestone-next-icon" aria-hidden="true">
+                          <TrendingUp />
+                        </span>
+                        <div>
+                          <h4>How to reach the next milestone</h4>
+                          <p className="milestone-next-step-copy">
+                            You need <strong>{formatINR(Math.max((monthlyNextMilestone ?? 0) - totalMonthlySpend, 0))}</strong> more in monthly spend to unlock the next milestone.
+                          </p>
+                        </div>
+                      </div>
+                    ) : null}
+                  </section>
                     <div className="milestone-footnote-inline">
                       <span className="milestone-footnote-icon" aria-hidden="true">i</span>
-                      <span>Milestone value is estimated and only counts once you reach each spend threshold.</span>
+                      <span>Milestone value is estimated and only counts once you reach each spend threshold</span>
                     </div>
-                  </section>
+                  </>
                 ) : null}
 
                 {!cashback && allRedemptionCards.length > 0 ? (

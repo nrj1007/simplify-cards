@@ -1,4 +1,3 @@
-import Link from "next/link";
 import type { Metadata } from "next";
 import CalculatorPicker from "@/app/ui/CalculatorPicker";
 import RewardCalculator from "@/app/ui/RewardCalculator";
@@ -38,11 +37,6 @@ export default async function CalculatorPage({ searchParams }: Props) {
             <RewardCalculator
               key={card.id}
               card={card}
-              detailLink={
-                <Link className="calculator-detail-link" href={`/cards/${card.id}`}>
-                  View card details
-                </Link>
-              }
               milestones={milestoneRulesForCard(card)}
               picker={<CalculatorPicker cards={cardOptions} selectedCardId={card.id} variant="calculator" />}
               variant="calculator"
