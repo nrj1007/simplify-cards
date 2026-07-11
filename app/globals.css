@@ -4122,6 +4122,853 @@ input[type="number"] {
   }
 }
 
+/* Calculator redesign: scoped to /calculator body content only. */
+.calculator-modern-shell {
+  color: #1e112c;
+}
+
+.calculator-modern-shell .calculator-page-hero {
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  margin: 0;
+  padding: 34px 0 0;
+}
+
+.calculator-modern-shell .calculator-page-hero .page-hero-inner {
+  max-width: 1400px;
+  padding-left: 16px;
+  padding-right: 16px;
+  text-align: left;
+}
+
+.calculator-modern-shell .calculator-page-hero h1 {
+  color: #1e112c;
+  font-size: clamp(2.6rem, 7vw, 4rem);
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  line-height: 1.08;
+  margin: 0;
+  text-transform: lowercase;
+}
+
+.calculator-modern-shell .page-content {
+  background: transparent;
+  padding-top: 18px;
+}
+
+.calculator-modern-shell .page-content > .container {
+  max-width: 1400px;
+}
+
+.calculator-layout-shell {
+  margin: 0;
+  padding: 0;
+}
+
+.calculator-recommend-layout.calc-grid {
+  align-items: flex-start;
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+  margin: 0 auto;
+  max-width: 1400px;
+  width: 100%;
+}
+
+.calculator-recommend-layout > .recommend-controls,
+.calculator-recommend-layout > .calculator-results-panel {
+  background: linear-gradient(180deg, rgba(255, 253, 248, 0.98), rgba(252, 250, 244, 0.96));
+  border: 1px solid rgba(232, 223, 207, 0.96);
+  border-radius: 28px;
+  box-shadow: 0 18px 44px rgba(30, 17, 44, 0.07);
+  margin: 0;
+  overflow: hidden;
+}
+
+.calculator-recommend-layout > .recommend-controls {
+  flex: 0 0 400px;
+  max-width: 400px;
+  padding: 18px 20px;
+  width: 400px;
+}
+
+.calculator-recommend-layout > .calculator-results-panel {
+  display: grid;
+  flex: 1 1 0;
+  gap: 14px;
+  min-width: 0;
+  padding: 18px 20px;
+}
+
+.calculator-recommend-layout .recommend-controls-head,
+.calculator-recommend-layout .calculator-results-head {
+  align-items: start;
+  display: grid;
+  gap: 4px;
+  grid-template-columns: minmax(0, 1fr) auto;
+  margin: 0 0 12px;
+  min-height: 64px;
+  padding: 0;
+}
+
+.calculator-recommend-layout .recommend-controls-head h2,
+.calculator-recommend-layout .calculator-results-head h2 {
+  color: #1e112c;
+  font-size: 32px;
+  font-weight: 950;
+  letter-spacing: -0.045em;
+  line-height: 38px;
+  margin: 0;
+  white-space: nowrap;
+}
+
+.calculator-recommend-layout .moved-before-total {
+  margin: 12px 0 8px;
+  min-height: 0;
+}
+
+.calculator-recommend-layout .calculator-card-picker.calc-picker {
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  display: grid;
+  gap: 10px;
+  grid-template-columns: 1fr;
+  margin: 0 0 12px;
+  padding: 0;
+}
+
+.calculator-recommend-layout .calculator-card-picker .field {
+  display: grid;
+  gap: 5px;
+  min-width: 0;
+}
+
+.calculator-recommend-layout .calculator-card-picker .field label {
+  color: #5b5466;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0;
+  line-height: 1.15;
+  text-transform: none;
+}
+
+.calculator-recommend-layout .calculator-card-picker select {
+  appearance: none;
+  background-color: rgba(255, 255, 255, 0.72);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='%231e112c' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-position: right 12px center;
+  background-repeat: no-repeat;
+  background-size: 16px 16px;
+  border: 1px solid rgba(232, 223, 207, 0.95);
+  border-radius: 14px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.82);
+  color: #1e112c;
+  font-size: 13px;
+  font-weight: 500;
+  height: 38px;
+  line-height: 1.2;
+  min-height: 38px;
+  padding: 8px 38px 8px 12px;
+  width: 100%;
+}
+
+.calculator-recommend-layout .recommend-total {
+  display: grid;
+  gap: 8px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin: 0 0 12px;
+}
+
+.calculator-recommend-layout .recommend-total > div {
+  align-items: flex-start;
+  background: #efe3fb;
+  border: 1px solid #dfcef7;
+  border-radius: 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 54px;
+  padding: 10px 12px;
+}
+
+.calculator-recommend-layout .recommend-total strong {
+  color: #1e112c;
+  font-size: 18px;
+  font-weight: 950;
+  letter-spacing: -0.035em;
+  line-height: 1.05;
+  margin: 0 0 4px;
+}
+
+.calculator-recommend-layout .recommend-total span {
+  color: #3f374c;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.1;
+}
+
+.calculator-recommend-layout .spend-profile .recommend-sliders {
+  display: grid;
+  gap: 0;
+}
+
+.calculator-recommend-layout .spend-profile .slider-row.spend-row {
+  align-items: end;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  display: grid;
+  gap: 8px;
+  grid-template-columns: minmax(0, 1fr) 88px;
+  margin: 0 0 8px;
+  padding: 0;
+}
+
+.calculator-recommend-layout .spend-profile .slider-main {
+  display: grid;
+  gap: 4px;
+  min-width: 0;
+}
+
+.calculator-recommend-layout .spend-profile .slider-head {
+  display: block;
+  line-height: 1.15;
+  margin: 0;
+  min-height: 0;
+}
+
+.calculator-recommend-layout .spend-profile .slider-head label,
+.calculator-recommend-layout .spend-profile .slider-label-text {
+  color: #1e112c;
+  display: block;
+  font-size: 14px;
+  font-weight: 850;
+  letter-spacing: 0;
+  line-height: 1.15;
+  margin: 0;
+  text-transform: none;
+}
+
+.calculator-recommend-layout .spend-profile input.slider {
+  appearance: none;
+  background: transparent;
+  cursor: pointer;
+  height: 16px;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.calculator-recommend-layout .spend-profile input.slider::-webkit-slider-runnable-track {
+  background: linear-gradient(to right, #581c87 0%, #581c87 var(--range-progress), #f4f4f4 var(--range-progress), #f4f4f4 100%);
+  border: 1px solid #b8b8b8;
+  border-radius: 999px;
+  height: 9px;
+}
+
+.calculator-recommend-layout .spend-profile input.slider::-webkit-slider-thumb {
+  appearance: none;
+  background: #581c87;
+  border: 0;
+  border-radius: 999px;
+  box-shadow: none;
+  height: 23px;
+  margin-top: -8px;
+  width: 23px;
+}
+
+.calculator-recommend-layout .spend-profile input.slider::-moz-range-track {
+  background: #f4f4f4;
+  border: 1px solid #b8b8b8;
+  border-radius: 999px;
+  height: 9px;
+}
+
+.calculator-recommend-layout .spend-profile input.slider::-moz-range-progress {
+  background: #581c87;
+  border-radius: 999px;
+  height: 9px;
+}
+
+.calculator-recommend-layout .spend-profile input.slider::-moz-range-thumb {
+  background: #581c87;
+  border: 0;
+  border-radius: 999px;
+  box-shadow: none;
+  height: 23px;
+  width: 23px;
+}
+
+.calculator-recommend-layout .spend-profile .spend-amount-pill {
+  display: block;
+  line-height: 1;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  width: 88px;
+}
+
+.calculator-recommend-layout .spend-profile .spend-amount-pill span {
+  color: #5b5466;
+  font-size: 13px;
+  font-weight: 500;
+  left: 9px;
+  line-height: 1;
+  pointer-events: none;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+}
+
+.calculator-recommend-layout .spend-profile .spend-amount-input {
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(232, 223, 207, 0.95);
+  border-radius: 12px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.82);
+  color: #1e112c;
+  font-size: 13px;
+  font-weight: 400;
+  height: 32px;
+  line-height: 1.15;
+  min-height: 32px;
+  padding: 5px 9px 5px 23px;
+  text-align: left;
+  width: 100%;
+}
+
+.calculator-recommend-layout .spend-profile-note {
+  color: #70687a;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.35;
+  margin: 10px 0 0;
+}
+
+.calculator-results-panel .calculator-detail-link {
+  align-self: center;
+  color: #581c87;
+  font-size: 13px;
+  font-weight: 850;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.calculator-results-panel .calculator-detail-link:hover {
+  text-decoration: underline;
+}
+
+.calculator-results-panel .reward-forecast-card {
+  align-items: stretch;
+  background: linear-gradient(135deg, rgba(255, 253, 248, 0.99) 0%, rgba(250, 246, 237, 0.98) 54%, rgba(244, 237, 222, 0.98) 100%);
+  border: 1px solid rgba(232, 223, 211, 0.98);
+  border-radius: 30px;
+  box-shadow: 0 22px 58px rgba(30, 17, 44, 0.075), inset 0 1px 0 rgba(255, 255, 255, 0.86);
+  color: #1e112c;
+  display: grid;
+  gap: 16px;
+  grid-template-columns: minmax(0, 1fr) 245px;
+  min-height: 0;
+  overflow: hidden;
+  padding: 18px;
+  position: relative;
+}
+
+.calculator-results-panel .reward-forecast-card::before {
+  background: linear-gradient(90deg, #b8975a 0%, #f0d8a8 48%, #581c87 100%);
+  content: "";
+  height: 4px;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.calculator-results-panel .reward-forecast-card .forecast-main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 0;
+  overflow: hidden;
+  padding: 18px 10px 18px 18px;
+}
+
+.calculator-results-panel .reward-forecast-card .forecast-kicker {
+  align-items: center;
+  background: rgba(88, 28, 135, 0.08);
+  border: 1px solid rgba(88, 28, 135, 0.11);
+  border-radius: 999px;
+  color: #581c87;
+  display: inline-flex;
+  font-size: 11px;
+  font-weight: 950;
+  letter-spacing: 0.07em;
+  line-height: 1;
+  margin: 0 0 14px;
+  min-height: 26px;
+  padding: 7px 11px;
+  text-transform: uppercase;
+  width: fit-content;
+}
+
+.calculator-results-panel .reward-forecast-card .forecast-score {
+  align-items: baseline;
+  color: #581c87;
+  display: flex;
+  flex-wrap: wrap;
+  font-size: clamp(2.7rem, 4.2vw, 3.75rem);
+  font-weight: 950;
+  gap: 10px;
+  letter-spacing: -0.07em;
+  line-height: 0.9;
+  margin: 0;
+}
+
+.calculator-results-panel .reward-forecast-card .forecast-score span {
+  flex-basis: 100%;
+  color: #6b6475;
+  font-size: clamp(0.95rem, 1.45vw, 1.25rem);
+  font-weight: 850;
+  letter-spacing: -0.035em;
+  line-height: 1.05;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  white-space: normal;
+}
+
+.calculator-results-panel .reward-forecast-card .forecast-value-card {
+  align-content: center;
+  background: linear-gradient(135deg, #1e112c 0%, #35144f 54%, #581c87 100%);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 24px;
+  box-shadow: 0 18px 38px rgba(88, 28, 135, 0.22);
+  color: #fff;
+  display: grid;
+  gap: 10px;
+  overflow: hidden;
+  padding: 18px;
+  text-align: left;
+}
+
+.calculator-results-panel .reward-forecast-card .forecast-value-label {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 11px;
+  font-weight: 950;
+  letter-spacing: 0.07em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.calculator-results-panel .reward-forecast-card .forecast-value {
+  color: #fff;
+  display: block;
+  font-size: clamp(2rem, 3.4vw, 3.1rem);
+  font-weight: 950;
+  letter-spacing: -0.06em;
+  line-height: 0.95;
+}
+
+.calculator-results-panel .reward-forecast-card .forecast-value-subtitle {
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.32;
+}
+
+.calculator-results-panel .reward-forecast-card .forecast-mini-grid {
+  display: grid;
+  gap: 8px;
+  grid-template-columns: 1fr 1fr;
+  margin-top: 4px;
+}
+
+.calculator-results-panel .reward-forecast-card .forecast-stat {
+  align-content: center;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 16px;
+  color: rgba(255, 255, 255, 0.78);
+  display: grid;
+  font-size: 12px;
+  font-weight: 700;
+  gap: 3px;
+  line-height: 1.12;
+  min-height: 52px;
+  padding: 10px;
+}
+
+.calculator-results-panel .reward-forecast-card .forecast-stat b {
+  color: #f0d8a8;
+  display: block;
+  font-size: 14px;
+  font-weight: 950;
+  line-height: 1;
+}
+
+.calculator-results-panel .calculator-critical-note {
+  margin: 0;
+}
+
+.calculator-results-panel .milestone-progress-section,
+.calculator-results-panel .points-worth-card,
+.calculator-results-panel .calculator-placeholder-card {
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(232, 223, 207, 0.95);
+  border-radius: 24px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.82);
+  padding: 18px;
+}
+
+.calculator-results-panel .milestone-progress-head {
+  margin: 0 0 14px;
+}
+
+.calculator-results-panel .milestone-progress-head h3,
+.calculator-results-panel .calc-section-title h3 {
+  color: #1e112c;
+  font-size: 24px;
+  font-weight: 950;
+  letter-spacing: -0.045em;
+  line-height: 1.05;
+  margin: 0;
+}
+
+.calculator-results-panel .milestone-progress-head p,
+.calculator-results-panel .redemption-heading-copy p {
+  margin: 6px 0 0;
+}
+
+.calculator-results-panel .milestone-reward-grid {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.calculator-results-panel .milestone-reward-card {
+  background: linear-gradient(135deg, rgba(239, 227, 251, 0.98), rgba(255, 253, 248, 0.96));
+  border: 1px solid rgba(232, 223, 211, 0.96);
+  border-radius: 20px;
+  display: grid;
+  gap: 10px;
+  min-width: 0;
+  padding: 16px;
+}
+
+.calculator-results-panel .milestone-reward-next {
+  background: linear-gradient(135deg, #1e112c 0%, #371553 55%, #581c87 100%);
+  color: #fff;
+}
+
+.calculator-results-panel .milestone-card-badge {
+  align-items: center;
+  background: rgba(88, 28, 135, 0.08);
+  border: 1px solid rgba(88, 28, 135, 0.12);
+  border-radius: 999px;
+  color: #581c87;
+  display: inline-flex;
+  font-size: 11px;
+  font-weight: 950;
+  line-height: 1;
+  padding: 6px 9px;
+  width: fit-content;
+}
+
+.calculator-results-panel .milestone-reward-next .milestone-card-badge {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.18);
+  color: #f0d8a8;
+}
+
+.calculator-results-panel .milestone-reward-copy h4 {
+  color: inherit;
+  font-size: 21px;
+  font-weight: 950;
+  letter-spacing: -0.04em;
+  line-height: 1.05;
+  margin: 0;
+}
+
+.calculator-results-panel .milestone-reward-copy p,
+.calculator-results-panel .milestone-reward-copy small {
+  color: #5b5466;
+  display: block;
+  font-size: 13px;
+  font-weight: 650;
+  line-height: 1.35;
+  margin: 6px 0 0;
+}
+
+.calculator-results-panel .milestone-reward-next .milestone-reward-copy p,
+.calculator-results-panel .milestone-reward-next .milestone-reward-copy small {
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.calculator-results-panel .milestone-footnote-inline {
+  align-items: center;
+  color: #70687a;
+  display: flex;
+  font-size: 12px;
+  font-weight: 600;
+  gap: 8px;
+  line-height: 1.35;
+  margin-top: 12px;
+}
+
+.calculator-results-panel .milestone-footnote-icon {
+  align-items: center;
+  background: rgba(88, 28, 135, 0.08);
+  border-radius: 999px;
+  color: #581c87;
+  display: inline-flex;
+  flex: 0 0 auto;
+  font-size: 11px;
+  font-weight: 950;
+  height: 18px;
+  justify-content: center;
+  width: 18px;
+}
+
+.calculator-results-panel .calc-section-title {
+  align-items: center;
+  display: flex;
+  gap: 16px;
+  justify-content: space-between;
+}
+
+.calculator-results-panel .redemption-carousel-controls {
+  display: flex;
+  gap: 8px;
+}
+
+.calculator-results-panel .redemption-carousel-controls button {
+  align-items: center;
+  background: rgba(255, 255, 255, 0.76);
+  border: 1px solid rgba(232, 223, 207, 0.95);
+  border-radius: 999px;
+  color: #581c87;
+  cursor: pointer;
+  display: inline-flex;
+  height: 34px;
+  justify-content: center;
+  width: 34px;
+}
+
+.calculator-results-panel .redemption-carousel-controls button:first-child svg {
+  transform: rotate(90deg);
+}
+
+.calculator-results-panel .redemption-carousel-controls button:last-child svg {
+  transform: rotate(-90deg);
+}
+
+.calculator-results-panel .redemption-card-grid {
+  display: grid;
+  gap: 12px;
+  grid-auto-columns: minmax(220px, 260px);
+  grid-auto-flow: column;
+  overflow-x: auto;
+  padding-bottom: 4px;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: thin;
+}
+
+.calculator-results-panel .redemption-option-card {
+  background: rgba(255, 255, 255, 0.82);
+  border: 1px solid rgba(232, 223, 207, 0.95);
+  border-radius: 22px;
+  display: grid;
+  gap: 10px;
+  min-height: 180px;
+  padding: 16px;
+  position: relative;
+  scroll-snap-align: start;
+}
+
+.calculator-results-panel .redemption-option-card.is-best {
+  background: linear-gradient(135deg, #fff8e8 0%, #f7e9c1 48%, #efe3fb 100%);
+  border-color: rgba(184, 151, 90, 0.58);
+}
+
+.calculator-results-panel .redemption-best-ribbon,
+.calculator-results-panel .redemption-type-pill {
+  align-items: center;
+  border-radius: 999px;
+  display: inline-flex;
+  font-size: 11px;
+  font-weight: 950;
+  line-height: 1;
+  padding: 6px 9px;
+  width: fit-content;
+}
+
+.calculator-results-panel .redemption-best-ribbon {
+  background: #581c87;
+  color: #fff;
+}
+
+.calculator-results-panel .redemption-type-pill {
+  background: rgba(88, 28, 135, 0.08);
+  color: #581c87;
+  text-transform: uppercase;
+}
+
+.calculator-results-panel .redemption-type-pill.type-transfer,
+.calculator-results-panel .redemption-type-pill.type-miles {
+  background: #edf4ff;
+  color: #1d4ed8;
+}
+
+.calculator-results-panel .redemption-type-pill.type-voucher {
+  background: #f5ead2;
+  color: #8f6b22;
+}
+
+.calculator-results-panel .redemption-option-card h4 {
+  color: #1e112c;
+  font-size: 16px;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  margin: 0;
+}
+
+.calculator-results-panel .redemption-main-value {
+  color: #1e112c;
+  font-size: 24px;
+  font-weight: 950;
+  letter-spacing: -0.045em;
+  line-height: 1;
+}
+
+.calculator-results-panel .redemption-rate {
+  color: #5b5466;
+  font-size: 12px;
+  font-weight: 650;
+  line-height: 1.3;
+}
+
+.calculator-results-panel .calc-breakdown {
+  margin: 0;
+}
+
+.calculator-results-panel .calc-breakdown summary {
+  color: #581c87;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 900;
+  padding: 8px 0;
+}
+
+.calculator-results-panel .table-wrap {
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(232, 223, 207, 0.95);
+  border-radius: 18px;
+  overflow: auto;
+}
+
+.calculator-results-panel .calc-disclaimer {
+  margin-top: 0;
+}
+
+.calculator-results-panel .calculator-placeholder-card {
+  align-content: center;
+  display: grid;
+  min-height: 280px;
+}
+
+.calculator-results-panel .calculator-placeholder-card span {
+  color: #581c87;
+  font-size: 12px;
+  font-weight: 950;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.calculator-results-panel .calculator-placeholder-card strong {
+  color: #1e112c;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 950;
+  letter-spacing: -0.06em;
+  line-height: 0.98;
+  margin-top: 12px;
+  max-width: 640px;
+}
+
+.calculator-results-panel .calculator-placeholder-card p {
+  margin: 14px 0 0;
+  max-width: 560px;
+}
+
+@media (min-width: 640px) {
+  .calculator-modern-shell .calculator-page-hero .page-hero-inner,
+  .calculator-modern-shell .page-content > .container {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+}
+
+@media (max-width: 1080px) {
+  .calculator-recommend-layout.calc-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .calculator-recommend-layout > .recommend-controls {
+    flex-basis: auto;
+    max-width: none;
+    width: 100%;
+  }
+}
+
+@media (max-width: 760px) {
+  .calculator-results-panel .reward-forecast-card,
+  .milestone-reward-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .calculator-results-panel .reward-forecast-card .forecast-main {
+    padding: 14px 6px 4px;
+  }
+
+  .calculator-results-panel .calc-section-title {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 640px) {
+  .calculator-modern-shell .calculator-page-hero {
+    padding-top: 24px;
+  }
+
+  .calculator-recommend-layout .recommend-controls-head,
+  .calculator-recommend-layout .calculator-results-head {
+    grid-template-columns: 1fr;
+    min-height: 0;
+  }
+
+  .calculator-recommend-layout .recommend-controls-head h2,
+  .calculator-recommend-layout .calculator-results-head h2 {
+    font-size: 26px;
+    line-height: 1.08;
+    white-space: normal;
+  }
+
+  .calculator-recommend-layout .spend-profile .slider-row.spend-row {
+    grid-template-columns: 1fr;
+  }
+
+  .calculator-recommend-layout .spend-profile .spend-amount-pill {
+    width: 100%;
+  }
+
+  .calculator-results-panel .reward-forecast-card .forecast-mini-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* =========================================================
    Ask results surface (universal Ask redesign)
    Full-bleed hero + content grid, scoped under .ask-results

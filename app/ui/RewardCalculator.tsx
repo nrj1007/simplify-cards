@@ -1,7 +1,7 @@
 "use client";
 
-import { useMemo, useState } from "react";
-import { ChevronDown } from "lucide-react";
+import { type CSSProperties, type ReactNode, useMemo, useRef, useState } from "react";
+import { ChevronDown, Trophy, TrendingUp } from "lucide-react";
 import type { CreditCard, SpendCategory } from "@/lib/types";
 import type { MilestoneRule } from "@/lib/recommend";
 import {
@@ -13,13 +13,15 @@ import {
   CATEGORY_LABELS,
   calculatorBucketsForCard,
   moreCategoriesForCard,
-  calculateRewardsByBucket,
-  CalculatorBucket
+  calculateRewardsByBucket
 } from "@/lib/reward-calculator";
 
 type Props = {
   card: CreditCard;
+  detailLink?: ReactNode;
   milestones?: MilestoneRule[];
+  picker?: ReactNode;
+  variant?: "compact" | "calculator";
 };
 
 const DEFAULT_SPEND: Partial<Record<SpendCategory, number>> = {
@@ -110,9 +112,10 @@ function milestonePrimaryValue(rule: MilestoneRule) {
 
 type RupeeOption = { key: string; label: string; perPoint: number; value: number; note?: string };
 
-export default function RewardCalculator({ card, milestones = [] }: Props) {
+export default function RewardCalculator({ card, detailLink, milestones = [], picker, variant = "compact" }: Props) {
   const buckets = useMemo(() => calculatorBucketsForCard(card), [card]);
   const moreCats = useMemo(() => moreCategoriesForCard(card), [card]);
+  const redemptionScrollerRef = useRef<HTMLDivElement>(null);
 
   const [showAdditional, setShowAdditional] = useState(false);
   const [showAllRedeem, setShowAllRedeem] = useState(false);
@@ -302,12 +305,298 @@ export default function RewardCalculator({ card, milestones = [] }: Props) {
   const totalReturnsPlusVoucher = totalAnnualValue + earnedVoucherValue;
   const effectiveRate = annualSpend > 0 && totalReturnsPlusVoucher > 0 ? (totalReturnsPlusVoucher / annualSpend) * 100 : 0;
 
-  function setCategory(category: string, value: number) {
-    setSpend((prev) => ({ ...prev, [category]: value }));
-  }
-
   const earnRows = result.rows.filter((row) => row.monthlySpend > 0);
   const hasExcluded = earnRows.some((row) => row.excluded);
+  const allCalculatorCategories = useMemo(
+    () => [
+      ...buckets.map((bucket) => ({ id: bucket.id, label: bucket.label, displayRate: bucket.displayRate })),
+      ...moreCats.map((cat) => ({ id: cat, label: CATEGORY_LABELS[cat], displayRate: undefined }))
+    ],
+    [buckets, moreCats]
+  );
+
+  const netAnnualValue = totalReturnsPlusVoucher - result.annualSurcharge;
+  const calculatorNote = equitasPrivilegeTier ? equitasPrivilegeTierNote(equitasPrivilegeTier) : null;
+
+  function setCategory(category: string, value: number) {
+    const nextValue = Math.max(0, Math.min(SLIDER_MAX, Math.round(value / SLIDER_STEP) * SLIDER_STEP));
+    setSpend((prev) => ({ ...prev, [category]: nextValue }));
+  }
+
+  function setCategoryFromText(category: string, value: string) {
+    const numeric = Number(value.replace(/[^0-9]/g, ""));
+    setCategory(category, Number.isFinite(numeric) ? numeric : 0);
+  }
+
+  function sliderStyle(value: number): CSSProperties {
+    return { "--range-progress": `${Math.min(100, Math.max(0, (value / SLIDER_MAX) * 100))}%` } as CSSProperties;
+  }
+
+  function controlId(category: string, suffix = "") {
+    return `calc-${category.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "")}${suffix}`;
+  }
+
+  function scrollRedemptions(direction: "previous" | "next") {
+    redemptionScrollerRef.current?.scrollBy({
+      behavior: "smooth",
+      left: direction === "previous" ? -320 : 320
+    });
+  }
+
+  if (variant === "calculator") {
+    const allRedemptionCards = [
+      ...redeemRows.map((row, index) => ({ ...row, best: hasClearBest && index === 0 })),
+      ...(airMilesPerPoint && airMilesRupeePerPoint
+        ? [
+            {
+              best: false,
+              key: "airmiles",
+              label: "Transfer to airline miles / hotel points",
+              rate: `${airMilesPerPoint} / ${unitLower} = ${formatINR(annualUnits * airMilesRupeePerPoint)}`,
+              type: "miles" as const,
+              value: annualUnits * airMilesPerPoint
+            }
+          ]
+        : [])
+    ];
+
+    return (
+      <div className="calc calculator-layout-shell">
+        <div className="calc-grid calculator-recommend-layout">
+          <div className="calc-inputs spend-profile recommend-controls">
+            <div className="spend-profile-head recommend-controls-head card-picker-head">
+              <h2>Pick card of your choice</h2>
+            </div>
+            {picker}
+
+            <div className="spend-profile-head recommend-controls-head moved-before-total">
+              <h2>Spend profile</h2>
+            </div>
+            <div className="calc-total recommend-total">
+              <div>
+                <strong>{formatINRCompact(totalMonthlySpend)}</strong>
+                <span>per month</span>
+              </div>
+              <div>
+                <strong>{formatINRCompact(annualSpend)}</strong>
+                <span>per year</span>
+              </div>
+            </div>
+
+            <div className="calc-sliders recommend-sliders">
+              {allCalculatorCategories.map((category) => {
+                const excluded = result.rows.find((row) => row.category === category.id)?.excluded ?? false;
+                const value = spend[category.id] ?? 0;
+                return (
+                  <div className="slider-row spend-row" key={category.id}>
+                    <div className="slider-main">
+                      <div className="slider-head">
+                        <label htmlFor={controlId(category.id)}>
+                          <span className="slider-label-text">{category.label}</span>
+                          {(category.displayRate || (excluded && value > 0)) && (
+                            <span className="slider-tags">
+                              {category.displayRate ? <span className="calc-tag">{category.displayRate}</span> : null}
+                              {excluded && value > 0 ? <span className="calc-tag calc-tag-excluded">not rewarded</span> : null}
+                            </span>
+                          )}
+                        </label>
+                      </div>
+                      <input
+                        className="slider"
+                        id={controlId(category.id)}
+                        max={SLIDER_MAX}
+                        min={0}
+                        step={SLIDER_STEP}
+                        style={sliderStyle(value)}
+                        type="range"
+                        value={value}
+                        onChange={(event) => setCategory(category.id, Number(event.target.value))}
+                      />
+                    </div>
+                    <label className="spend-amount-pill" htmlFor={controlId(category.id, "-amount")}>
+                      <span>₹</span>
+                      <input
+                        aria-label={`${category.label} monthly spend`}
+                        className="spend-amount-input"
+                        id={controlId(category.id, "-amount")}
+                        inputMode="numeric"
+                        type="text"
+                        value={Math.round(value).toLocaleString("en-IN")}
+                        onChange={(event) => setCategoryFromText(category.id, event.target.value)}
+                      />
+                    </label>
+                  </div>
+                );
+              })}
+            </div>
+            <p className="spend-profile-note">
+              Categories marked excluded earn no rewards on this card. Unlisted categories are treated as issuer-excluded.
+            </p>
+          </div>
+
+          <div className="calc-output recommend-results-panel calculator-results-panel">
+            <div className="section-head recommend-results-head calculator-results-head">
+              <div>
+                <h2>Reward forecast</h2>
+              </div>
+              {detailLink}
+            </div>
+
+            <div className="calc-headline reward-forecast-card">
+              <div className="calc-headline-main forecast-main">
+                <span className="calc-headline-label forecast-kicker">You earn</span>
+                <div className="forecast-score-row">
+                  <strong className="calc-headline-units forecast-score">
+                    {formatUnits(annualUnits)} <span className="forecast-unit">{unitLabel}/year</span>
+                  </strong>
+                </div>
+              </div>
+              <div className="calc-headline-aside forecast-value-card">
+                <span className="forecast-value-label">
+                  {result.annualSurcharge > 0 ? "Net annual value" : "Best redemption value"}
+                </span>
+                <strong className="forecast-value">{formatINR(result.annualSurcharge > 0 ? netAnnualValue : totalReturnsPlusVoucher)}</strong>
+                <span className="forecast-value-subtitle">
+                  {result.annualSurcharge > 0
+                    ? `${formatINR(totalReturnsPlusVoucher)} gross minus ${formatINR(result.annualSurcharge)} fees`
+                    : cashback
+                      ? "Cashback value from your spends"
+                      : "Max value from your points"}
+                </span>
+                <div className="forecast-mini-grid">
+                  <span className="forecast-stat">
+                    <Trophy size={16} aria-hidden="true" />
+                    <b>{formatINR(earnedNonVoucherMilestoneValue + earnedVoucherValue)}</b>
+                    milestone benefit
+                  </span>
+                  <span className="forecast-stat">
+                    <TrendingUp size={16} aria-hidden="true" />
+                    <b>{effectiveRate.toFixed(1)}%</b>
+                    effective return
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            {calculatorNote ? <p className="calc-tier-note calculator-critical-note">{calculatorNote}</p> : null}
+
+            {annualUnits <= 0 ? (
+              <p className="muted calc-empty">Set your monthly spend on the left to see what this card earns.</p>
+            ) : (
+              <>
+                {milestones.length > 0 ? (
+                  <section className="milestone-progress-section" aria-labelledby="milestone-progress-title">
+                    <header className="milestone-progress-head">
+                      <h3 id="milestone-progress-title">Milestone rewards</h3>
+                      <p>Earn more when you spend more</p>
+                    </header>
+                    <div className="milestone-reward-grid">
+                      {earnedMilestones.slice(-2).map((rule, index) => (
+                        <article className="milestone-reward-card milestone-reward-unlocked" key={`ms-earned-${index}`}>
+                          <span className="milestone-card-badge is-unlocked">Unlocked</span>
+                          <div className="milestone-reward-copy">
+                            <h4>{milestonePrimaryValue(rule) ?? formatINR(rule.value)}</h4>
+                            <p>{rule.label}</p>
+                            <small>{rule.threshold > 0 ? `At ${formatINRCompact(rule.threshold)}/yr` : "Ongoing milestone"}</small>
+                          </div>
+                        </article>
+                      ))}
+                      {nextMilestone ? (
+                        <article className="milestone-reward-card milestone-reward-next">
+                          <span className="milestone-card-badge is-next">Next milestone</span>
+                          <div className="milestone-reward-copy">
+                            <h4>{milestonePrimaryValue(nextMilestone) ?? formatINR(nextMilestone.value)}</h4>
+                            <p>{nextMilestone.label}</p>
+                            <small>{formatINRCompact(nextMilestone.threshold - annualSpend)} more annual spend needed</small>
+                          </div>
+                        </article>
+                      ) : null}
+                    </div>
+                    <div className="milestone-footnote-inline">
+                      <span className="milestone-footnote-icon" aria-hidden="true">i</span>
+                      <span>Milestone value is estimated and only counts once you reach each spend threshold.</span>
+                    </div>
+                  </section>
+                ) : null}
+
+                {!cashback && allRedemptionCards.length > 0 ? (
+                  <>
+                    <div className="calc-section-title points-worth-outside-title">
+                      <div className="redemption-heading-copy">
+                        <h3>Redemption value</h3>
+                        <p className="muted calc-note">Compare what your points are worth across redemption options.</p>
+                      </div>
+                      <div className="redemption-carousel-controls" aria-label="Redemption carousel controls">
+                        <button type="button" aria-label="Previous redemption options" onClick={() => scrollRedemptions("previous")}>
+                          <ChevronDown aria-hidden="true" size={16} />
+                        </button>
+                        <button type="button" aria-label="Next redemption options" onClick={() => scrollRedemptions("next")}>
+                          <ChevronDown aria-hidden="true" size={16} />
+                        </button>
+                      </div>
+                    </div>
+                    <div className="calc-block points-worth-card redemption-showcase">
+                      <div className="redemption-card-grid" ref={redemptionScrollerRef} role="list" aria-label="Redemption options">
+                        {allRedemptionCards.map((row) => (
+                          <article className={`redemption-option-card${row.best ? " is-best" : ""}`} key={row.key} role="listitem">
+                            {row.best ? <span className="redemption-best-ribbon">Best</span> : null}
+                            <span className={`redemption-type-pill type-${row.type}`}>{row.type}</span>
+                            <h4>{row.label}</h4>
+                            <strong className="redemption-main-value">
+                              {row.type === "miles" ? `${formatUnits(row.value)} miles/pts` : formatINR(row.value)}
+                            </strong>
+                            <span className="redemption-rate">{row.rate}</span>
+                          </article>
+                        ))}
+                      </div>
+                    </div>
+                  </>
+                ) : null}
+
+                {earnRows.length > 0 ? (
+                  <details className="calc-breakdown">
+                    <summary>How you earn it</summary>
+                    <div className="table-wrap">
+                      <table className="compare-table">
+                        <thead>
+                          <tr>
+                            <th>Category</th>
+                            <th>Monthly spend</th>
+                            <th>{unitLabel}/yr</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {earnRows.map((row) => (
+                            <tr key={row.category}>
+                              <td>
+                                {row.label ?? CATEGORY_LABELS[row.category as SpendCategory] ?? row.category}
+                                {row.excluded ? (
+                                  <span className="calc-tag calc-tag-excluded">excluded</span>
+                                ) : row.earnsBaseRateOnly ? (
+                                  <span className="calc-tag">base rate</span>
+                                ) : null}
+                              </td>
+                              <td>{formatINR(row.monthlySpend)}</td>
+                              <td>{row.excluded ? "—" : formatUnits(row.annualUnits)}</td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                    {hasExcluded ? <p className="muted calc-note">Categories marked excluded earn no rewards on this card.</p> : null}
+                  </details>
+                ) : null}
+              </>
+            )}
+
+            <p className="muted calc-disclaimer">
+              Estimates only. Reward rates, caps, and redemption values follow each bank&apos;s current terms and can change.
+            </p>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="calc">

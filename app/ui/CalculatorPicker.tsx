@@ -10,14 +10,16 @@ type CardOption = { id: string; name: string; issuer: string };
 type Props = {
   cards: CardOption[];
   selectedCardId?: string;
+  variant?: "default" | "calculator";
 };
 
-export default function CalculatorPicker({ cards, selectedCardId }: Props) {
+export default function CalculatorPicker({ cards, selectedCardId, variant = "default" }: Props) {
   const router = useRouter();
   const { startNavigation } = useNavigationProgress();
   const selectedCard = cards.find((card) => card.id === selectedCardId);
   const [issuer, setIssuer] = useState(selectedCard?.issuer ?? "");
   const [cardId, setCardId] = useState(selectedCardId ?? "");
+  const isCalculator = variant === "calculator";
 
   const issuers = [...new Set(cards.map((card) => card.issuer))].sort((a, b) => a.localeCompare(b));
   const issuerCards = cards
@@ -25,9 +27,9 @@ export default function CalculatorPicker({ cards, selectedCardId }: Props) {
     .sort((a, b) => a.name.localeCompare(b.name));
 
   return (
-    <div className="calc-picker">
+    <div className={isCalculator ? "calc-picker calculator-card-picker" : "calc-picker"}>
       <div className="field">
-        <label htmlFor="calc-bank">Bank</label>
+        <label htmlFor="calc-bank">{isCalculator ? "Issuer" : "Bank"}</label>
         <select
           id="calc-bank"
           value={issuer}
@@ -36,7 +38,7 @@ export default function CalculatorPicker({ cards, selectedCardId }: Props) {
             setCardId("");
           }}
         >
-          <option value="">Select a bank</option>
+          <option value="">{isCalculator ? "Select an issuer" : "Select a bank"}</option>
           {issuers.map((name) => (
             <option key={name} value={name}>
               {name}
@@ -60,7 +62,9 @@ export default function CalculatorPicker({ cards, selectedCardId }: Props) {
             }
           }}
         >
-          <option value="">{issuer ? "Select a card" : "Select a bank first"}</option>
+          <option value="">
+            {issuer ? "Select a card" : isCalculator ? "Select an issuer first" : "Select a bank first"}
+          </option>
           {issuerCards.map((card) => (
             <option key={card.id} value={card.id}>
               {card.name}

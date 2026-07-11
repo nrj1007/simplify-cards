@@ -2,7 +2,6 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import CalculatorPicker from "@/app/ui/CalculatorPicker";
 import RewardCalculator from "@/app/ui/RewardCalculator";
-import PageHero from "@/app/ui/PageHero";
 import { cards, getCardById } from "@/lib/cards";
 import { milestoneRulesForCard } from "@/lib/recommend";
 import { buildPageMetadata } from "@/lib/seo";
@@ -27,40 +26,51 @@ export default async function CalculatorPage({ searchParams }: Props) {
     .sort((a, b) => a.issuer.localeCompare(b.issuer) || a.name.localeCompare(b.name));
 
   return (
-    <div className="page-shell">
-      <PageHero
-        eyebrow="✦ Reward calculator"
-        title="Reward calculator"
-        lead="Pick any bank and card, then enter your monthly spend to estimate what you earn and what it is worth."
-      />
+    <div className="page-shell calculator-modern-shell">
+      <section className="page-hero calculator-page-hero" aria-labelledby="calculator-page-title">
+        <div className="container page-hero-inner">
+          <h1 id="calculator-page-title">calculator</h1>
+        </div>
+      </section>
       <section className="page-content">
         <div className="container">
-          <div className="panel card">
-            <CalculatorPicker cards={cardOptions} selectedCardId={card?.id} />
-          </div>
-
           {card ? (
-            <div className="panel card calc-standalone" style={{ marginTop: 18 }}>
-          <div className="page-header-wrap" style={{ marginBottom: 0 }}>
-            <div>
-              <div className="issuer">{card.issuer}</div>
-              <h2 style={{ margin: 0 }}>{card.name}</h2>
-            </div>
-            <Link className="button secondary" href={`/cards/${card.id}`}>
-              View card details
-            </Link>
-          </div>
-          <p className="muted calc-intro">
-            Enter your monthly spend to estimate how many {card.rewardType} you earn and what they are worth across each
-            redemption option.
-          </p>
-              <RewardCalculator key={card.id} card={card} milestones={milestoneRulesForCard(card)} />
-            </div>
+            <RewardCalculator
+              key={card.id}
+              card={card}
+              detailLink={
+                <Link className="calculator-detail-link" href={`/cards/${card.id}`}>
+                  View card details
+                </Link>
+              }
+              milestones={milestoneRulesForCard(card)}
+              picker={<CalculatorPicker cards={cardOptions} selectedCardId={card.id} variant="calculator" />}
+              variant="calculator"
+            />
           ) : (
-            <div className="panel card" style={{ marginTop: 18 }}>
-              <p className="muted" style={{ margin: 0 }}>
-                Select a bank and card above to calculate your rewards.
-              </p>
+            <div className="calc calculator-layout-shell">
+              <div className="calc-grid calculator-recommend-layout">
+                <div className="calc-inputs spend-profile recommend-controls">
+                  <div className="spend-profile-head recommend-controls-head card-picker-head">
+                    <h2>Pick card of your choice</h2>
+                  </div>
+                  <CalculatorPicker cards={cardOptions} variant="calculator" />
+                </div>
+                <div className="calc-output recommend-results-panel calculator-results-panel calculator-empty-results">
+                  <div className="section-head recommend-results-head calculator-results-head">
+                    <div>
+                      <h2>Reward forecast</h2>
+                    </div>
+                  </div>
+                  <div className="calculator-placeholder-card">
+                    <span>Choose an issuer and card</span>
+                    <strong>Your reward forecast will appear here.</strong>
+                    <p className="muted">
+                      The calculator uses verified reward rates, caps, redemption values, and milestone rules from the card dataset.
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
           )}
         </div>
