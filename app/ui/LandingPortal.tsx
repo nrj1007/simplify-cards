@@ -681,11 +681,11 @@ function Footer({ onOpenPolicy }: { onOpenPolicy: (policy: PolicyKey) => void })
         <div>
           <h4>quick navigation</h4>
           <div className="sc-footer-links">
-            <Link href="/recommend">recommend</Link>
-            <Link href={"/calculator" as Route}>calculator</Link>
-            <Link href="/finder">cards</Link>
-            <Link href="/compare">compare</Link>
-            <Link href={"/latest" as Route}>latest updates</Link>
+            <Link href="/recommend">Recommend</Link>
+            <Link href={"/calculator" as Route}>Calculator</Link>
+            <Link href="/finder">Cards</Link>
+            <Link href="/compare">Compare</Link>
+            <Link href={"/latest" as Route}>Latest updates</Link>
           </div>
         </div>
         <div>
