@@ -1370,6 +1370,7 @@ export function resolveDirectCardDetailQuery(input: Pick<RecommendationInput, "q
   if (getUnsupportedQuestionReason({ query: input.query })) return null;
 
   const normalizedQuery = normalizeForMatch(input.query);
+  // TODO: Check comparison queries (e.g., redirect to /compare/card-a-vs-card-b if query matches two cards)
   if (!normalizedQuery || /\b(top|best|recommend|recommended|suggest|compare|vs|versus)\b/.test(normalizedQuery)) {
     return null;
   }

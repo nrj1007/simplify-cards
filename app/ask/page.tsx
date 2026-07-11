@@ -66,6 +66,8 @@ export default async function AskPage({ searchParams }: Props) {
     redirect(`/cards/${directCardId}` as Route);
   }
 
+  // TODO: Check comparison queries (e.g., redirect to /compare/card-a-vs-card-b if query matches two cards)
+
   const result = input ? await answerQuestion(input) : null;
   if (input?.query && result) {
     await logAnalyticsEvent({

@@ -51,6 +51,7 @@ These are listed or have official pages, but should not be added as active-new-a
 - [ ] Add conversation context/history to the Ask AI follow-up flow (e.g., passing previous query/result details) to support contextual follow-up questions.
 - [ ] Suggest follow-up questions on the Ask page based on the user's previous query to help guide their card discovery.
 - [ ] Log unsupported or stale user questions for manual database enrichment instead of answering via web search.
+- [ ] Check comparison queries in the Ask AI flow to see if we can redirect comparison queries (e.g., "A vs B") directly to the compare page.
 - [ ] Expand stored card facts toward maximum answerability, so Ask AI can answer most user questions from reviewed card data instead of only handling rankings and broad comparisons.
 - [ ] Improve generic ranking quality for broad asks like `top cards under 5000`, so results reflect stronger user intent and practical fit instead of only raw modeled value.
 - [ ] Add redemption preference controls to the recommender/calculator and expose milestone and fee-waiver impact more explicitly in the UI.
