@@ -672,10 +672,10 @@ function Footer({ onOpenPolicy }: { onOpenPolicy: (policy: PolicyKey) => void })
             <button type="button" onClick={() => onOpenPolicy("terms")}>Terms & Conditions</button>
           </div>
           <div className="sc-socials" aria-label="Social media links">
-            <a href="#" aria-label="Instagram" title="Instagram"><Instagram size={17} /></a>
-            <a href="#" aria-label="YouTube" title="YouTube"><Youtube size={17} /></a>
-            <a href="#" aria-label="LinkedIn" title="LinkedIn"><Linkedin size={16} /></a>
-            <a href="#" aria-label="X" title="X">X</a>
+            <a href="https://www.instagram.com/simplifycardsin/" aria-label="Instagram" title="Instagram"><Instagram size={17} /></a>
+            <a href="https://www.youtube.com/@SimplifyCards" aria-label="YouTube" title="YouTube"><Youtube size={17} /></a>
+            <a href="https://www.linkedin.com/company/simplifycards/" aria-label="LinkedIn" title="LinkedIn"><Linkedin size={16} /></a>
+            <a href="https://x.com/SimplifyCards" aria-label="X" title="X">X</a>
           </div>
         </div>
         <div>

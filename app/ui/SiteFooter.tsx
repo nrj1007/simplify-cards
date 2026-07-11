@@ -107,10 +107,10 @@ export function SiteFooter() {
               <button type="button" className={styles.footerLink} onClick={() => setPolicy("terms")}>Terms & Conditions</button>
             </div>
             <div className={styles.socials} aria-label="Social media links">
-              <a className={joinClasses(styles.socialLink, styles.instagram)} href="#" aria-label="Instagram" title="Instagram"><Instagram size={17} /></a>
-              <a className={joinClasses(styles.socialLink, styles.youtube)} href="#" aria-label="YouTube" title="YouTube"><Youtube size={17} /></a>
-              <a className={joinClasses(styles.socialLink, styles.linkedin)} href="#" aria-label="LinkedIn" title="LinkedIn"><Linkedin size={16} /></a>
-              <a className={joinClasses(styles.socialLink, styles.x)} href="#" aria-label="X" title="X">X</a>
+              <a className={joinClasses(styles.socialLink, styles.instagram)} href="https://www.instagram.com/simplifycardsin/" aria-label="Instagram" title="Instagram"><Instagram size={17} /></a>
+              <a className={joinClasses(styles.socialLink, styles.youtube)} href="https://www.youtube.com/@SimplifyCards" aria-label="YouTube" title="YouTube"><Youtube size={17} /></a>
+              <a className={joinClasses(styles.socialLink, styles.linkedin)} href="https://www.linkedin.com/company/simplifycards/" aria-label="LinkedIn" title="LinkedIn"><Linkedin size={16} /></a>
+              <a className={joinClasses(styles.socialLink, styles.x)} href="https://x.com/SimplifyCards" aria-label="X" title="X">X</a>
             </div>
           </div>
           <div>
