@@ -84,6 +84,13 @@ describe("ask ai fallback policy", () => {
     const answer = await answerQuestion({ query: "millenia" });
 
     expect(answer.cards[0]?.card.id).toBe("hdfc-millennia");
+    expect(answer.summary).toMatch(/millen/i);
+  });
+
+  it("resolves multi-token card-name misspellings like 'hdfc millenia' to HDFC Millennia", async () => {
+    const answer = await answerQuestion({ query: "hdfc millenia" });
+
+    expect(answer.cards[0]?.card.id).toBe("hdfc-millennia");
     expect(answer.summary).toMatch(/Millennia/i);
   });
 

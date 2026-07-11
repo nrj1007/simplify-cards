@@ -257,13 +257,17 @@ const genericCardNameWords = new Set([
 
 const queryTokenCanonicalMap: Record<string, string> = {
   mmt: "makemytrip",
-  mrcc: "membership rewards"
+  mrcc: "membership rewards",
+  millenia: "millennia",
+  milenia: "millennia"
 };
 
 const queryPhraseCardIdMap: Array<{ phrases: string[]; cardId: string }> = [
   { phrases: ["icici mmt", "mmt icici"], cardId: "icici-makemytrip" },
   { phrases: ["amex mrcc", "mrcc amex", "american express mrcc"], cardId: "amex-membership-rewards" },
-  { phrases: ["platinum reserve", "amex platinum reserve", "american express platinum reserve"], cardId: "amex-platinum-reserve" }
+  { phrases: ["platinum reserve", "amex platinum reserve", "american express platinum reserve"], cardId: "amex-platinum-reserve" },
+  { phrases: ["hdfc millenia", "millenia hdfc", "hdfc milenia", "milenia hdfc"], cardId: "hdfc-millennia" },
+  { phrases: ["idfc millenia", "millenia idfc", "idfc first millenia", "idfc milenia", "milenia idfc", "idfc first milenia"], cardId: "idfc-first-millennia" }
 ];
 
 function normalizeQuery(query?: string) {
