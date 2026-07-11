@@ -122,34 +122,6 @@ function cardSlug(id: string) {
   return `/cards/${id}` as Route;
 }
 
-function LogoMark() {
-  return (
-    <svg className="sc-logo-mark" viewBox="0 0 110 90" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <defs>
-        <linearGradient id="scCardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#1e112c" />
-          <stop offset="60%" stopColor="#581c87" />
-          <stop offset="100%" stopColor="#b8975a" />
-        </linearGradient>
-        <linearGradient id="scCheckGrad" x1="0%" y1="100%" x2="100%" y2="0%">
-          <stop offset="0%" stopColor="#1e112c" />
-          <stop offset="50%" stopColor="#b8975a" />
-          <stop offset="100%" stopColor="#f3e8ff" />
-        </linearGradient>
-        <linearGradient id="scTopSliceGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#fdfbf7" />
-          <stop offset="100%" stopColor="#b8975a" />
-        </linearGradient>
-      </defs>
-      <path d="M40 15 C 54 11, 80 13, 92 16 C 94 17, 95 19, 94 21 C 92 24, 70 24, 44 21 C 41 21, 40 18, 40 15 Z" fill="url(#scTopSliceGrad)" />
-      <path d="M16 20 C 16 16, 20 15, 25 16 L88 28 C 92 28, 94 31, 94 35 L88 65 C 88 68, 85 70, 81 70 L22 79 C 18 79, 16 76, 16 71 Z" fill="url(#scCardGrad)" />
-      <rect x="22" y="28" width="16" height="12" rx="3.5" fill="#f3edf5" opacity="0.95" />
-      <path d="M20 56 L48 66 L105 18 L44 84 Z" stroke="#fdfbf7" strokeWidth="6" strokeLinejoin="miter" fill="none" />
-      <path d="M20 56 L48 66 L105 18 L44 84 Z" fill="url(#scCheckGrad)" />
-    </svg>
-  );
-}
-
 function PhoneFrame({ variant }: { variant: "recommend" | "calculator" | "cards" | "compare" }) {
   const time = variant === "calculator" ? "2:37" : variant === "cards" ? "2:43" : variant === "compare" ? "2:45" : "2:41";
 
@@ -612,53 +584,6 @@ function ReviewsPanel() {
   );
 }
 
-function Header() {
-  const [open, setOpen] = useState(false);
-  const links: Array<{ label: string; href: Route }> = [
-    { label: "Recommend", href: "/recommend" },
-    { label: "Calculator", href: "/calculator" as Route },
-    { label: "Cards", href: "/finder" },
-    { label: "Compare", href: "/compare" },
-    { label: "Updates", href: "/latest" as Route }
-  ];
-
-  return (
-    <nav className="sc-topnav">
-      <div className="sc-topnav-inner">
-        <Link href="/" className="sc-brand" aria-label="SimplifyCards home">
-          <LogoMark />
-          <span>
-            <b>Simplify</b>Cards
-          </span>
-        </Link>
-        <div className="sc-navlinks">
-          {links.map((link) => (
-            <Link href={link.href} key={link.href}>
-              {link.label}
-            </Link>
-          ))}
-        </div>
-        <div className="sc-mobile-menu">
-          <button type="button" onClick={() => setOpen((value) => !value)} aria-label="Open navigation menu">
-            <span />
-            <span />
-            <span />
-          </button>
-          {open ? (
-            <div className="sc-mobile-popover">
-              {links.map((link) => (
-                <Link href={link.href} key={link.href} onClick={() => setOpen(false)}>
-                  {link.label}
-                </Link>
-              ))}
-            </div>
-          ) : null}
-        </div>
-      </div>
-    </nav>
-  );
-}
-
 function Footer({ onOpenPolicy }: { onOpenPolicy: (policy: PolicyKey) => void }) {
   return (
     <footer className="sc-footer">
@@ -747,8 +672,6 @@ export default function LandingPortal({ popularCards, updates }: LandingPortalPr
 
   return (
     <div className="sc-landing">
-      <Header />
-      <div className="sc-nav-spacer" aria-hidden="true" />
       <header className="sc-hero">
         <div className="sc-hero-badge">
           <span><Cpu size={15} />AI-Powered</span>

@@ -6,11 +6,28 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 import styles from "./SiteChrome.module.css";
 
+export type SiteHeaderLink = { label: string; href: Route };
+
+export const DEFAULT_HEADER_LINKS: SiteHeaderLink[] = [
+  { label: "Recommend", href: "/recommend" },
+  { label: "Calculator", href: "/calculator" as Route },
+  { label: "Cards", href: "/cards" },
+  { label: "Compare", href: "/compare" }
+];
+
+export const LANDING_HEADER_LINKS: SiteHeaderLink[] = [
+  { label: "Recommend", href: "/recommend" },
+  { label: "Calculator", href: "/calculator" as Route },
+  { label: "Cards", href: "/finder" },
+  { label: "Compare", href: "/compare" },
+  { label: "Updates", href: "/latest" as Route }
+];
+
 function joinClasses(...classes: Array<string | false | undefined>) {
   return classes.filter(Boolean).join(" ");
 }
 
-function LogoMark() {
+export function SiteLogoMark() {
   return (
     <svg className={styles.logoMark} viewBox="0 0 110 90" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
       <defs>
@@ -38,21 +55,16 @@ function LogoMark() {
   );
 }
 
-export function SiteHeader() {
+export function SiteHeader({ links: providedLinks }: { links?: SiteHeaderLink[] } = {}) {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
-  const links: Array<{ label: string; href: Route }> = [
-    { label: "Recommend", href: "/recommend" },
-    { label: "Calculator", href: "/calculator" as Route },
-    { label: "Cards", href: "/cards" },
-    { label: "Compare", href: "/compare" }
-  ];
+  const links = providedLinks ?? (pathname === "/" ? LANDING_HEADER_LINKS : DEFAULT_HEADER_LINKS);
 
   return (
     <nav className={joinClasses(styles.topnav, "site-header")}>
       <div className={styles.topnavInner}>
         <Link href="/" className={styles.brand} aria-label="SimplifyCards home">
-          <LogoMark />
+          <SiteLogoMark />
           <span>
             <b className={styles.brandStrong}>Simplify</b>Cards
           </span>
