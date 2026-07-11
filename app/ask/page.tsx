@@ -1,9 +1,11 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import type { Route } from "next";
+import { redirect } from "next/navigation";
 import AskQueryForm from "../ui/AskQueryForm";
 import AskResultsLoadingBoundary from "../ui/AskResultsLoadingBoundary";
 import CardTile from "../ui/CardTile";
-import { answerQuestion } from "@/lib/ask-ai";
+import { answerQuestion, resolveDirectCardDetailQuery } from "@/lib/ask-ai";
 import { buildAskResultMetadata } from "@/lib/analytics-events";
 import { logAnalyticsEvent } from "@/lib/analytics-logs";
 import { buildPageMetadata } from "@/lib/seo";
@@ -59,6 +61,11 @@ function parseInput(params: { query?: string; maxAnnualFee?: string; prevQuery?:
 export default async function AskPage({ searchParams }: Props) {
   const params = await searchParams;
   const input = parseInput(params);
+  const directCardId = input ? resolveDirectCardDetailQuery(input) : null;
+  if (directCardId) {
+    redirect(`/cards/${directCardId}` as Route);
+  }
+
   const result = input ? await answerQuestion(input) : null;
   if (input?.query && result) {
     await logAnalyticsEvent({

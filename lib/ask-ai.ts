@@ -1365,6 +1365,26 @@ function buildCardFamilyLookupResult(input: RecommendationInput, scoredCards: Ca
   };
 }
 
+export function resolveDirectCardDetailQuery(input: Pick<RecommendationInput, "query" | "previousQuery" | "contextCardIds">) {
+  if (input.previousQuery || input.contextCardIds?.length) return null;
+  if (getUnsupportedQuestionReason({ query: input.query })) return null;
+
+  const normalizedQuery = normalizeForMatch(input.query);
+  if (!normalizedQuery || /\b(top|best|recommend|recommended|suggest|compare|vs|versus)\b/.test(normalizedQuery)) {
+    return null;
+  }
+
+  if (parseSpecificCardQuestion(input.query).questionType !== "generic") return null;
+
+  const exactMatch = findExactCardNameOrIdMatch(input.query);
+  if (exactMatch) return exactMatch;
+
+  if (!isSpecificCardLookup({ query: input.query })) return null;
+
+  const matchingCards = findCardLookupMatches(input.query);
+  return matchingCards.length === 1 ? matchingCards[0].id : null;
+}
+
 export function getUnsupportedQuestionReason(input: RecommendationInput) {
   const query = normalizeQuery(input.query);
   const intent = parseQueryIntent(input);

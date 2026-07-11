@@ -1,7 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
-import { answerQuestion, confidenceFromGap, getUnsupportedQuestionReason } from "../lib/ask-ai";
+import { answerQuestion, confidenceFromGap, getUnsupportedQuestionReason, resolveDirectCardDetailQuery } from "../lib/ask-ai";
 import { clearAskCache } from "../lib/ask-cache";
 import { scoreCards } from "../lib/recommend";
 
@@ -71,6 +71,18 @@ describe("ask ai fallback policy", () => {
     expect(answer.highlights?.length).toBeLessThanOrEqual(4);
     expect(answer.highlights?.some((h: string) => /lounge visits/i.test(h))).toBe(false);
     expect(answer.cards[0]?.card.id).toBe("axis-atlas");
+  });
+
+  it("resolves direct single-card queries for detail-page redirects", () => {
+    expect(resolveDirectCardDetailQuery({ query: "Axis Atlas" })).toBe("axis-atlas");
+    expect(resolveDirectCardDetailQuery({ query: "Infinia" })).toBe("hdfc-infinia-metal");
+    expect(resolveDirectCardDetailQuery({ query: "sbi cashback" })).toBe("sbi-cashback");
+  });
+
+  it("does not resolve recommendations or card-detail questions as direct detail redirects", () => {
+    expect(resolveDirectCardDetailQuery({ query: "best axis travel card" })).toBeNull();
+    expect(resolveDirectCardDetailQuery({ query: "is rent excluded on atlas?" })).toBeNull();
+    expect(resolveDirectCardDetailQuery({ query: "Axis Atlas vs HDFC Infinia" })).toBeNull();
   });
 
   it("returns Infinia when the exact HDFC card is present in the dataset", async () => {
