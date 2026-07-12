@@ -18348,6 +18348,10 @@ html body .calculator-modern-shell .calculator-results-head {
   margin: 0 0 8px !important;
 }
 
+html body .calculator-modern-shell .calculator-results-head > div {
+  margin: 0 !important;
+}
+
 html body .calculator-modern-shell .calculator-results-panel .reward-forecast-card {
   margin: 0 0 14px !important;
 }
@@ -18526,11 +18530,13 @@ html body .calculator-modern-shell .page-content > .container {
   width: 100% !important;
   max-width: 1400px !important;
   margin: 0 auto !important;
-  padding-left: 16px !important;
-  padding-right: 16px !important;
+  padding-left: 24px !important;
+  padding-right: 24px !important;
 }
 
 html body .calculator-modern-shell .calculator-page-hero .page-hero-inner {
+  padding-left: 32px !important;
+  padding-right: 32px !important;
   padding-bottom: 20px !important;
 }
 
@@ -18547,6 +18553,7 @@ html body .calculator-modern-shell .calculator-page-hero h1 {
 
 html body .calculator-modern-shell .page-content {
   padding-top: 10px !important;
+  padding-bottom: 0 !important;
 }
 
 html body .calculator-modern-shell .calculator-recommend-layout.calc-grid {
@@ -18583,6 +18590,7 @@ html body .calculator-modern-shell .calculator-recommend-layout > .recommend-con
 html body .calculator-modern-shell .calculator-recommend-layout > .calculator-results-panel {
   flex: 1 1 0 !important;
   min-width: 0 !important;
+  gap: 10px !important;
 }
 
 html body .calculator-modern-shell .recommend-controls-head,
@@ -18591,6 +18599,10 @@ html body .calculator-modern-shell .calculator-results-head > div {
   display: block !important;
   min-height: 0 !important;
   margin: 0 0 8px !important;
+}
+
+html body .calculator-modern-shell .calculator-results-panel .calculator-results-head > div {
+  margin: 0 !important;
 }
 
 html body .calculator-modern-shell .recommend-controls-head h2,
@@ -18640,8 +18652,8 @@ html body .calculator-modern-shell .recommend-total {
 }
 
 html body .calculator-modern-shell .recommend-total > div {
-  min-height: 62px !important;
-  padding: 11px 14px !important;
+  min-height: 50px !important;
+  padding: 8px 10px !important;
   border-radius: 14px !important;
 }
 
@@ -18658,20 +18670,40 @@ html body .calculator-modern-shell .recommend-total span {
 }
 
 html body .calculator-modern-shell .spend-profile .recommend-sliders {
-  gap: 12px !important;
+  gap: 14px !important;
 }
 
 html body .calculator-modern-shell .spend-profile .slider-row.spend-row {
-  grid-template-columns: minmax(0, 1fr) 106px !important;
-  grid-template-rows: auto 34px !important;
+  grid-template-columns: minmax(0, 1fr) 96px !important;
+  grid-template-rows: auto 30px !important;
   column-gap: 10px !important;
-  row-gap: 5px !important;
+  row-gap: 2px !important;
+  align-items: center !important;
+  margin: 0 !important;
+  grid-template-areas: "label label" "slider amount" !important;
+}
+
+html body .calculator-modern-shell .spend-profile .slider-main {
+  display: contents !important;
+}
+
+html body .calculator-modern-shell .spend-profile input.slider {
+  grid-area: slider !important;
+  height: 14px !important;
+}
+
+html body .calculator-modern-shell .spend-profile .slider-head {
+  grid-area: label !important;
 }
 
 html body .calculator-modern-shell .spend-profile .spend-amount-pill {
-  width: 106px !important;
-  height: 34px !important;
-  padding: 0 12px !important;
+  grid-area: amount !important;
+  width: 96px !important;
+  min-width: 96px !important;
+  height: 32px !important;
+  min-height: 32px !important;
+  padding: 0 11px !important;
+  gap: 10px !important;
   border: 1px solid rgba(227, 223, 211, .96) !important;
   border-radius: 14px !important;
   background: rgba(255, 255, 255, .82) !important;
@@ -18684,6 +18716,15 @@ html body .calculator-modern-shell .spend-profile .spend-amount-pill span {
   font-weight: 500 !important;
 }
 
+html body .calculator-modern-shell .milestone-footnote-icon {
+  width: 15px !important;
+  height: 15px !important;
+}
+
+html body .calculator-modern-shell .spend-profile .spend-amount-input {
+  height: 14px !important;
+}
+
 html body .calculator-modern-shell .spend-profile .slider-head label,
 html body .calculator-modern-shell .spend-profile .slider-label-text {
   font-size: 12px !important;
@@ -18693,8 +18734,8 @@ html body .calculator-modern-shell .spend-profile .slider-label-text {
 }
 
 html body .calculator-modern-shell .spend-profile-note {
-  margin: 6px 0 0 !important;
-  padding: 10px 12px !important;
+  margin: 18px 0 0 !important;
+  padding: 8px 10px !important;
   border-radius: 12px !important;
   font-size: 12px !important;
   line-height: 1.25 !important;
@@ -18706,6 +18747,9 @@ html body .calculator-modern-shell .calculator-results-panel .reward-forecast-ca
   min-height: 154px !important;
   margin: 0 0 14px !important;
   border-radius: 22px !important;
+  grid-template-columns: calc(50% - 48px) calc(50% + 48px) !important;
+  gap: 0 !important;
+  background: radial-gradient(ellipse at 28% 18%, rgba(255, 255, 255, .96) 0%, rgba(255, 255, 255, .56) 26%, transparent 58%), radial-gradient(ellipse at 82% 8%, rgba(255, 255, 255, .58) 0%, rgba(255, 255, 255, .16) 30%, transparent 62%), linear-gradient(100deg, #fff 0%, #fffefa 34%, #fcf6e6 55%, #f6e9c2 78%, #ecd18d 100%) !important;
 }
 
 html body .calculator-modern-shell .reward-forecast-card .forecast-main {
@@ -18736,8 +18780,10 @@ html body .calculator-modern-shell .reward-forecast-card .forecast-score span {
 
 html body .calculator-modern-shell .reward-forecast-card .forecast-value-card {
   row-gap: 4px !important;
+  column-gap: 0 !important;
   padding-top: 14px !important;
   padding-bottom: 14px !important;
+  border-radius: 0 !important;
 }
 
 html body .calculator-modern-shell .reward-forecast-card .forecast-value-label {
@@ -18767,12 +18813,14 @@ html body .calculator-modern-shell .calculator-results-panel .points-worth-outsi
 }
 
 html body .calculator-modern-shell .points-worth-outside-title h3 {
+  margin: 0 !important;
   font-size: 20px !important;
   line-height: 1.05 !important;
   letter-spacing: -.035em !important;
 }
 
 html body .calculator-modern-shell .points-worth-outside-title .calc-note {
+  margin-top: 3px !important;
   font-size: 12px !important;
   line-height: 1.2 !important;
   font-weight: 600 !important;
@@ -18817,6 +18865,7 @@ html body .calculator-modern-shell .points-worth-card.redemption-showcase {
   border-radius: 30px !important;
   background: radial-gradient(circle at 0 0, rgba(255, 255, 255, .96), transparent 28%), linear-gradient(180deg, rgba(255, 254, 250, .98), rgba(250, 247, 241, .97)) !important;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, .95), 0 16px 34px rgba(30, 17, 44, .05) !important;
+  display: block !important;
 }
 
 html body .calculator-modern-shell .redemption-card-grid {
@@ -18851,6 +18900,7 @@ html body .calculator-modern-shell .redemption-option-card {
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, .98), 0 12px 26px rgba(30, 17, 44, .045) !important;
   text-align: center !important;
   scroll-snap-align: start !important;
+  gap: 0 !important;
 }
 
 html body .calculator-modern-shell .redemption-option-card.is-best {
@@ -18904,14 +18954,18 @@ html body .calculator-modern-shell .redemption-icon-shell.premium-medallion::aft
 
 html body .calculator-modern-shell .redemption-icon-shell svg {
   z-index: 1 !important;
-  width: 42px !important;
-  height: 42px !important;
+  width: 60px !important;
+  height: 60px !important;
   color: #581c87 !important;
   stroke-width: 1.8 !important;
 }
 
 html body .calculator-modern-shell .redemption-icon-transfer svg {
   color: #9c7527 !important;
+}
+
+html body .calculator-modern-shell .redemption-icon-transfer.premium-medallion {
+  background: radial-gradient(circle at 28% 20%, rgba(255, 255, 255, .96), transparent 38%), linear-gradient(145deg, #fffdf8, #f7edd4) !important;
 }
 
 html body .calculator-modern-shell .redemption-type-pill {
@@ -18966,6 +19020,8 @@ html body .calculator-modern-shell .redemption-rate {
 }
 
 html body .calculator-modern-shell .milestone-circle {
+  width: 44px !important;
+  height: 44px !important;
   font-size: 1.15rem !important;
   line-height: 1 !important;
   font-weight: 950 !important;
@@ -18976,12 +19032,22 @@ html body .calculator-modern-shell .milestone-status {
   font-size: .87rem !important;
   line-height: 1 !important;
   font-weight: 850 !important;
+  min-height: 24px !important;
+  margin: 14px 0 !important;
+  padding: 8px 16px !important;
+  white-space: nowrap !important;
 }
 
 html body .calculator-modern-shell .milestone-card-badge {
   font-size: .84rem !important;
   line-height: 1 !important;
   font-weight: 900 !important;
+  top: 16px !important;
+  left: 22px !important;
+  right: auto !important;
+  transform: none !important;
+  min-height: 28px !important;
+  padding: 6px 14px !important;
 }
 
 html body .calculator-modern-shell .milestone-reward-copy h4 {
@@ -18997,21 +19063,65 @@ html body .calculator-modern-shell .milestone-reward-copy p {
 }
 
 html body .calculator-modern-shell .milestone-next-step h4 {
+  margin: 0 0 4px !important;
   font-size: .96rem !important;
   line-height: 1.2 !important;
   font-weight: 900 !important;
 }
 
 html body .calculator-modern-shell .milestone-next-step p {
+  margin: 0 !important;
   font-size: .81rem !important;
   line-height: 1.4 !important;
   font-weight: 400 !important;
 }
 
 html body .calculator-modern-shell .milestone-footnote-inline {
+  gap: 6px !important;
   font-size: 11px !important;
   line-height: 1.35 !important;
   font-weight: 500 !important;
+}
+
+html body .calculator-modern-shell .milestone-results-head {
+  margin: 14px 0 8px !important;
+}
+
+html body .calculator-modern-shell .milestone-progress-section {
+  background: radial-gradient(circle at 0 0, rgba(255, 255, 255, .94) 0%, transparent 28%), radial-gradient(circle at 100% 0, rgba(184, 151, 90, .08) 0%, transparent 34%), linear-gradient(rgba(255, 253, 248, .98), rgba(252, 250, 244, .96)) !important;
+}
+
+html body .calculator-modern-shell .milestone-journey {
+  grid-template-columns: 112px minmax(150px, 1fr) 112px !important;
+  padding-top: 22px !important;
+}
+
+html body .calculator-modern-shell .milestone-track {
+  height: 10px !important;
+  margin: 15px -42px 0 !important;
+}
+
+html body .calculator-modern-shell .milestone-reward-card {
+  grid-template-columns: 112px minmax(0, 1fr) !important;
+  gap: 20px !important;
+  min-height: 178px !important;
+  padding: 58px 22px 20px !important;
+  border-radius: 22px !important;
+}
+
+html body .calculator-modern-shell .milestone-reward-illustration {
+  width: 122px !important;
+  height: 122px !important;
+  margin: 12px 0 0 !important;
+}
+
+html body .calculator-modern-shell .milestone-next-icon {
+  width: 56px !important;
+  height: 56px !important;
+}
+
+html body .calculator-modern-shell .milestone-next-step {
+  min-height: 0 !important;
 }
 
 html body .calculator-modern-shell .calculator-recommend-layout.progressive-flow > .recommend-controls {
@@ -19104,9 +19214,15 @@ html body .calculator-modern-shell .calc-breakdown summary {
   font-size: 16px !important;
   line-height: 1.2 !important;
   font-weight: 900 !important;
+  padding: 8px 0 !important;
+}
+
+html body .calculator-modern-shell .calc-breakdown {
+  margin: 6px 0 0 !important;
 }
 
 html body .calculator-modern-shell .calc-disclaimer {
+  margin: 4px 0 0 !important;
   font-size: 16px !important;
   line-height: 1.35 !important;
   font-weight: 400 !important;
@@ -19134,7 +19250,14 @@ html body .calculator-modern-shell .calc-disclaimer {
   }
 
   html body .calculator-modern-shell .calculator-page-hero .page-hero-inner {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
     padding-bottom: 0 !important;
+  }
+
+  html body .calculator-modern-shell .page-content > .container {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
   }
 
   html body .calculator-modern-shell .calculator-recommend-layout > .recommend-controls,
@@ -19162,5 +19285,53 @@ html body .calculator-modern-shell .calc-disclaimer {
     flex-basis: min(54vw, 196px) !important;
     min-width: min(54vw, 196px) !important;
     min-height: 252px !important;
+  }
+
+  html body .calculator-modern-shell .spend-profile .slider-row.spend-row {
+    grid-template-columns: minmax(0, 1fr) 118px !important;
+    grid-template-rows: auto 40px !important;
+    column-gap: 10px !important;
+    row-gap: 5px !important;
+  }
+
+  html body .calculator-modern-shell .spend-profile .spend-amount-pill {
+    width: 118px !important;
+    min-width: 118px !important;
+    height: 40px !important;
+    min-height: 40px !important;
+  }
+
+  html body .calculator-modern-shell .calculator-results-panel .reward-forecast-card {
+    grid-template-columns: 1fr !important;
+  }
+
+  html body .calculator-modern-shell .points-worth-card.redemption-showcase {
+    padding: 12px !important;
+  }
+
+  html body .calculator-modern-shell .milestone-journey {
+    grid-template-columns: 92px minmax(56px, 1fr) 92px !important;
+  }
+
+  html body .calculator-modern-shell .milestone-reward-card {
+    grid-template-columns: 88px minmax(0, 1fr) !important;
+    gap: 12px !important;
+    min-height: 0 !important;
+    padding: 54px 14px 14px !important;
+  }
+
+  html body .calculator-modern-shell .milestone-reward-illustration {
+    width: 88px !important;
+    height: 88px !important;
+    margin: 0 !important;
+  }
+
+  html body .calculator-modern-shell .milestone-next-step {
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 0 !important;
+  }
+
+  html body .calculator-modern-shell .milestone-next-icon {
+    display: none !important;
   }
 }
