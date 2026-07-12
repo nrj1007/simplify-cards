@@ -43,26 +43,34 @@ export default async function CalculatorPage({ searchParams }: Props) {
             />
           ) : (
             <div className="calc calculator-layout-shell">
-              <div className="calc-grid calculator-recommend-layout">
+              <div className="calc-grid calculator-recommend-layout progressive-flow is-selection-only" data-step="selection">
                 <div className="calc-inputs spend-profile recommend-controls">
                   <div className="spend-profile-head recommend-controls-head card-picker-head">
                     <h2>Pick card of your choice</h2>
                   </div>
                   <CalculatorPicker cards={cardOptions} variant="calculator" />
                 </div>
-                <div className="calc-output recommend-results-panel calculator-results-panel calculator-empty-results">
-                  <div className="section-head recommend-results-head calculator-results-head">
-                    <div>
-                      <h2>Reward forecast</h2>
+                <div className="calc-output recommend-results-panel calculator-results-panel">
+                  <aside className="calculator-empty-guide" aria-live="polite" aria-label="How the reward calculator works">
+                    <div className="empty-guide-selection-copy">
+                      <h2>See your reward forecast</h2>
+                      <p className="empty-guide-description">Select an issuer and credit card to begin</p>
                     </div>
-                  </div>
-                  <div className="calculator-placeholder-card">
-                    <span>Choose an issuer and card</span>
-                    <strong>Your reward forecast will appear here.</strong>
-                    <p className="muted">
-                      The calculator uses verified reward rates, caps, redemption values, and milestone rules from the card dataset.
-                    </p>
-                  </div>
+                    <ol className="empty-guide-steps">
+                      <li className="empty-guide-step">
+                        <span className="empty-guide-step-number">1</span>
+                        <strong>Pick a card</strong>
+                      </li>
+                      <li className="empty-guide-step">
+                        <span className="empty-guide-step-number">2</span>
+                        <strong>Add spends</strong>
+                      </li>
+                      <li className="empty-guide-step">
+                        <span className="empty-guide-step-number">3</span>
+                        <strong>View rewards</strong>
+                      </li>
+                    </ol>
+                  </aside>
                 </div>
               </div>
             </div>

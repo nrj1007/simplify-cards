@@ -1,7 +1,19 @@
 "use client";
 
-import { type CSSProperties, type ReactNode, useMemo, useRef, useState } from "react";
-import { ChevronDown, Gift, Trophy, TrendingUp } from "lucide-react";
+import { type CSSProperties, type ReactNode, useEffect, useMemo, useRef, useState } from "react";
+import {
+  Building2,
+  ChevronDown,
+  ChevronLeft,
+  ChevronRight,
+  CreditCard as CreditCardIcon,
+  Gift,
+  Plane,
+  Star,
+  TicketCheck,
+  Trophy,
+  TrendingUp
+} from "lucide-react";
 import type { CreditCard, SpendCategory } from "@/lib/types";
 import type { MilestoneRule } from "@/lib/recommend";
 import {
@@ -111,6 +123,17 @@ function milestonePrimaryValue(rule: MilestoneRule) {
 
 type RupeeOption = { key: string; label: string; perPoint: number; value: number; note?: string };
 
+function RedemptionIcon({ type }: { type: "direct" | "transfer" | "voucher" | "miles" }) {
+  const Icon = type === "transfer" ? Building2 : type === "voucher" ? TicketCheck : type === "miles" ? Plane : CreditCardIcon;
+  const extraClass = type === "voucher" ? " unified-voucher-icon" : type === "miles" ? " refined-flight-icon" : "";
+
+  return (
+    <span className={`redemption-icon-shell redemption-icon-${type} premium-medallion${extraClass}`} aria-hidden="true">
+      <Icon />
+    </span>
+  );
+}
+
 export default function RewardCalculator({ card, milestones = [], picker, variant = "compact" }: Props) {
   const buckets = useMemo(() => calculatorBucketsForCard(card), [card]);
   const moreCats = useMemo(() => moreCategoriesForCard(card), [card]);
@@ -118,6 +141,7 @@ export default function RewardCalculator({ card, milestones = [], picker, varian
 
   const [showAdditional, setShowAdditional] = useState(false);
   const [showAllRedeem, setShowAllRedeem] = useState(false);
+  const [redemptionScrollState, setRedemptionScrollState] = useState({ previous: false, next: true });
   const [spend, setSpend] = useState<Record<string, number>>(() => {
     const initial = {} as Record<string, number>;
     const b = calculatorBucketsForCard(card);
@@ -235,14 +259,14 @@ export default function RewardCalculator({ card, milestones = [], picker, varian
   const redeemRows = useMemo<Array<{ key: string; label: string; type: "direct" | "transfer" | "voucher"; rate: string; value: number }>>(() => {
     const rows: Array<{ key: string; label: string; type: "direct" | "transfer" | "voucher"; rate: string; value: number }> = [];
     for (const option of rupeeOptions) {
-      rows.push({ key: `direct-${option.key}`, label: option.label, type: "direct", rate: `₹ ${option.perPoint} / ${unitLower}`, value: option.value });
+      rows.push({ key: `direct-${option.key}`, label: option.label, type: "direct", rate: `₹${option.perPoint} / ${unitLower}`, value: option.value });
     }
     for (const partner of partnerValuations) {
       rows.push({
         key: `transfer-${partner.partner}`,
         label: partner.partner,
         type: "transfer",
-        rate: `₹ ${partner.valuePerCardUnit.toFixed(2)} / ${unitLower}`,
+        rate: `₹${partner.valuePerCardUnit.toFixed(2)} / ${unitLower}`,
         value: partner.value
       });
     }
@@ -251,20 +275,18 @@ export default function RewardCalculator({ card, milestones = [], picker, varian
         key: `voucher-${voucher.partner}-${voucher.programme}`,
         label: `${voucher.partner} — ${voucher.programme}`,
         type: "voucher",
-        rate: `₹ ${voucher.valuePerPoint} / ${unitLower}`,
+        rate: `₹${voucher.valuePerPoint} / ${unitLower}`,
         value: voucher.value
       });
     }
     return rows.sort((a, b) => b.value - a.value);
   }, [rupeeOptions, partnerValuations, voucherValuations, unitLower]);
   const visibleRedeemRows = showAllRedeem ? redeemRows : redeemRows.slice(0, 3);
-  const topRatePerUnit = redeemRows.length > 0 && annualUnits > 0 ? redeemRows[0].value / annualUnits : null;
   const totalRedeemRows = redeemRows.length + (airMilesPerPoint ? 1 : 0);
   const hasClearBest =
     totalRedeemRows >= 2 &&
     redeemRows.length > 0 &&
-    (redeemRows.length === 1 || redeemRows[0].value > redeemRows[1].value) &&
-    !(airMilesRupeePerPoint && topRatePerUnit !== null && topRatePerUnit === airMilesRupeePerPoint);
+    (redeemRows.length === 1 || redeemRows[0].value > redeemRows[1].value);
 
   // Best rupee outcome across direct redemptions, valued transfer partners, and vouchers.
   const bestRupeeValue = Math.max(
@@ -335,11 +357,33 @@ export default function RewardCalculator({ card, milestones = [], picker, varian
   }
 
   function scrollRedemptions(direction: "previous" | "next") {
+    const scroller = redemptionScrollerRef.current;
+    const cardWidth = scroller?.querySelector<HTMLElement>(".redemption-option-card")?.offsetWidth ?? 208;
+    const gap = scroller ? Number.parseFloat(getComputedStyle(scroller).columnGap || getComputedStyle(scroller).gap) || 12 : 12;
     redemptionScrollerRef.current?.scrollBy({
       behavior: "smooth",
-      left: direction === "previous" ? -320 : 320
+      left: direction === "previous" ? -(cardWidth + gap) : cardWidth + gap
     });
   }
+
+  function updateRedemptionScrollState() {
+    const scroller = redemptionScrollerRef.current;
+    if (!scroller) return;
+    const maxScroll = Math.max(0, scroller.scrollWidth - scroller.clientWidth);
+    setRedemptionScrollState({
+      previous: scroller.scrollLeft > 2,
+      next: scroller.scrollLeft < maxScroll - 2
+    });
+  }
+
+  useEffect(() => {
+    const scroller = redemptionScrollerRef.current;
+    if (!scroller) return;
+    updateRedemptionScrollState();
+    const observer = new ResizeObserver(updateRedemptionScrollState);
+    observer.observe(scroller);
+    return () => observer.disconnect();
+  }, [annualUnits]);
 
   if (variant === "calculator") {
     const monthlyNextMilestone = nextMilestone ? Math.ceil(nextMilestone.threshold / 12) : null;
@@ -502,22 +546,46 @@ export default function RewardCalculator({ card, milestones = [], picker, varian
                         <p className="muted calc-note">Compare what your points are worth across redemption options</p>
                       </div>
                       <div className="redemption-carousel-controls" aria-label="Redemption carousel controls">
-                        <button type="button" aria-label="Previous redemption options" onClick={() => scrollRedemptions("previous")}>
-                          <ChevronDown aria-hidden="true" size={16} />
+                        <button
+                          className="redemption-carousel-arrow redemption-carousel-prev"
+                          type="button"
+                          aria-label="Previous redemption options"
+                          disabled={!redemptionScrollState.previous}
+                          onClick={() => scrollRedemptions("previous")}
+                        >
+                          <ChevronLeft aria-hidden="true" />
                         </button>
-                        <button type="button" aria-label="Next redemption options" onClick={() => scrollRedemptions("next")}>
-                          <ChevronDown aria-hidden="true" size={16} />
+                        <button
+                          className="redemption-carousel-arrow redemption-carousel-next"
+                          type="button"
+                          aria-label="Next redemption options"
+                          disabled={!redemptionScrollState.next}
+                          onClick={() => scrollRedemptions("next")}
+                        >
+                          <ChevronRight aria-hidden="true" />
                         </button>
                       </div>
                     </div>
                     <div className="calc-block points-worth-card redemption-showcase">
-                      <div className="redemption-card-grid" ref={redemptionScrollerRef} role="list" aria-label="Redemption options">
+                      <div
+                        className="redemption-card-grid"
+                        ref={redemptionScrollerRef}
+                        role="list"
+                        aria-label="Redemption options"
+                        onScroll={updateRedemptionScrollState}
+                      >
                         {allRedemptionCards.map((row) => (
                           <article className={`redemption-option-card${row.best ? " is-best" : ""}`} key={row.key} role="listitem">
-                            {row.best ? <span className="redemption-best-ribbon">Best</span> : null}
+                            {row.best ? (
+                              <span className="redemption-best-ribbon">
+                                <Star aria-hidden="true" />
+                                Best
+                              </span>
+                            ) : null}
+                            <RedemptionIcon type={row.type} />
                             <span className={`redemption-type-pill type-${row.type}`}>{row.type}</span>
                             <h4>{row.label}</h4>
-                            <strong className="redemption-main-value">
+                            <strong className={`redemption-main-value${row.type === "miles" ? " miles-value" : ""}`}>
                               {row.type === "miles" ? `${formatUnits(row.value)} miles/pts` : formatINR(row.value)}
                             </strong>
                             <span className="redemption-rate">{row.rate}</span>

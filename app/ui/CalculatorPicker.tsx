@@ -63,7 +63,7 @@ export default function CalculatorPicker({ cards, selectedCardId, variant = "def
           }}
         >
           <option value="">
-            {issuer ? "Select a card" : isCalculator ? "Select an issuer first" : "Select a bank first"}
+            {isCalculator ? "Select a card" : issuer ? "Select a card" : "Select a bank first"}
           </option>
           {issuerCards.map((card) => (
             <option key={card.id} value={card.id}>

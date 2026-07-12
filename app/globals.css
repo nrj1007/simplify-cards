@@ -4122,6 +4122,7 @@ input[type="number"] {
   }
 }
 
+
 /* Calculator redesign: scoped to /calculator body content only. */
 .calculator-modern-shell {
   color: #1e112c;
@@ -18497,5 +18498,536 @@ html body .calculator-modern-shell .calc-disclaimer {
     position: relative !important;
     left: -22px !important;
     max-width: calc(100vw - 48px) !important;
+  }
+}
+
+/* Calculator reference parity: selected and progressive empty states. */
+html body .calculator-modern-shell {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+html body .calculator-modern-shell .calculator-page-hero {
+  padding: 24px 0 0 !important;
+}
+
+html body .calculator-modern-shell .calculator-page-hero .page-hero-inner,
+html body .calculator-modern-shell .page-content > .container {
+  width: 100% !important;
+  max-width: 1400px !important;
+  margin: 0 auto !important;
+  padding-left: 16px !important;
+  padding-right: 16px !important;
+}
+
+html body .calculator-modern-shell .calculator-page-hero h1 {
+  margin: 0 !important;
+  padding: 0 0 .06em !important;
+  font-size: clamp(2rem, 8.4vw, 2.65rem) !important;
+  line-height: 1.08 !important;
+  font-weight: 800 !important;
+  letter-spacing: -0.025em !important;
+  text-transform: none !important;
+}
+
+html body .calculator-modern-shell .page-content {
+  padding-top: 10px !important;
+}
+
+html body .calculator-modern-shell .calculator-recommend-layout.calc-grid {
+  display: flex !important;
+  align-items: flex-start !important;
+  justify-content: center !important;
+  gap: 14px !important;
+  width: 100% !important;
+  max-width: 1400px !important;
+  margin: 0 auto !important;
+  padding: 0 !important;
+}
+
+html body .calculator-modern-shell .calculator-recommend-layout > .recommend-controls,
+html body .calculator-modern-shell .calculator-recommend-layout > .calculator-results-panel {
+  align-self: flex-start !important;
+  margin: 0 !important;
+  padding: 14px 16px !important;
+  border: 1px solid rgba(232, 223, 207, .96) !important;
+  border-radius: 28px !important;
+  background: linear-gradient(180deg, rgba(255, 253, 248, .98), rgba(252, 250, 244, .96)) !important;
+  box-shadow: 0 18px 44px rgba(30, 17, 44, .07) !important;
+}
+
+html body .calculator-modern-shell .calculator-recommend-layout > .recommend-controls {
+  flex: 0 0 400px !important;
+  width: 400px !important;
+  max-width: 400px !important;
+}
+
+html body .calculator-modern-shell .calculator-recommend-layout > .calculator-results-panel {
+  flex: 1 1 0 !important;
+  min-width: 0 !important;
+}
+
+html body .calculator-modern-shell .recommend-controls-head,
+html body .calculator-modern-shell .calculator-results-head,
+html body .calculator-modern-shell .calculator-results-head > div {
+  display: block !important;
+  min-height: 0 !important;
+  margin: 0 0 8px !important;
+}
+
+html body .calculator-modern-shell .recommend-controls-head h2,
+html body .calculator-modern-shell .calculator-results-head h2 {
+  font-size: 24px !important;
+  line-height: 1.12 !important;
+  letter-spacing: -0.04em !important;
+}
+
+html body .calculator-modern-shell .spend-profile-head.card-picker-head {
+  margin-bottom: 8px !important;
+}
+
+html body .calculator-modern-shell .calculator-card-picker.calc-picker {
+  gap: 8px !important;
+  margin-bottom: 0 !important;
+}
+
+html body .calculator-modern-shell .calculator-card-picker select {
+  height: 42px !important;
+  min-height: 42px !important;
+  border-radius: 14px !important;
+  font-size: 14px !important;
+}
+
+html body .calculator-modern-shell .spend-profile-head.moved-before-total {
+  margin: 12px 0 8px !important;
+}
+
+html body .calculator-modern-shell .recommend-total {
+  gap: 10px !important;
+  margin-bottom: 10px !important;
+}
+
+html body .calculator-modern-shell .recommend-total > div {
+  min-height: 62px !important;
+  padding: 11px 14px !important;
+  border-radius: 14px !important;
+}
+
+html body .calculator-modern-shell .recommend-total strong {
+  font-size: 22px !important;
+}
+
+html body .calculator-modern-shell .recommend-total span {
+  margin-top: 4px !important;
+  font-size: 14px !important;
+}
+
+html body .calculator-modern-shell .spend-profile .recommend-sliders {
+  gap: 12px !important;
+}
+
+html body .calculator-modern-shell .spend-profile .slider-row.spend-row {
+  grid-template-columns: minmax(0, 1fr) 106px !important;
+  grid-template-rows: auto 34px !important;
+  column-gap: 10px !important;
+  row-gap: 5px !important;
+}
+
+html body .calculator-modern-shell .spend-profile .spend-amount-pill {
+  width: 106px !important;
+  height: 34px !important;
+  padding: 0 12px !important;
+  border: 1px solid rgba(227, 223, 211, .96) !important;
+  border-radius: 14px !important;
+  background: rgba(255, 255, 255, .82) !important;
+}
+
+html body .calculator-modern-shell .spend-profile .spend-amount-input,
+html body .calculator-modern-shell .spend-profile .spend-amount-pill span {
+  font-size: 14px !important;
+}
+
+html body .calculator-modern-shell .spend-profile-note {
+  margin: 6px 0 0 !important;
+  padding: 10px 12px !important;
+  border-radius: 12px !important;
+  font-size: 13px !important;
+}
+
+html body .calculator-modern-shell .calculator-results-panel .reward-forecast-card {
+  height: auto !important;
+  min-height: 154px !important;
+  margin: 0 0 14px !important;
+  border-radius: 22px !important;
+}
+
+html body .calculator-modern-shell .reward-forecast-card .forecast-main {
+  gap: 7px !important;
+  padding: 16px clamp(42px, 4vw, 64px) 16px clamp(24px, 2.5vw, 36px) !important;
+}
+
+html body .calculator-modern-shell .reward-forecast-card .forecast-score,
+html body .calculator-modern-shell .reward-forecast-card .forecast-value {
+  font-size: clamp(2.9rem, 3.75vw, 4rem) !important;
+  line-height: .84 !important;
+}
+
+html body .calculator-modern-shell .reward-forecast-card .forecast-score .forecast-unit,
+html body .calculator-modern-shell .reward-forecast-card .forecast-score span {
+  margin-top: 7px !important;
+  font-size: clamp(.78rem, .92vw, .98rem) !important;
+}
+
+html body .calculator-modern-shell .reward-forecast-card .forecast-value-card {
+  row-gap: 4px !important;
+  padding-top: 14px !important;
+  padding-bottom: 14px !important;
+}
+
+html body .calculator-modern-shell .reward-forecast-card .forecast-value-label {
+  min-height: 24px !important;
+  margin-bottom: 4px !important;
+  padding: 4px 11px 3px !important;
+  font-size: 12px !important;
+}
+
+html body .calculator-modern-shell .reward-forecast-card .forecast-mini-grid {
+  margin-top: 2px !important;
+}
+
+html body .calculator-modern-shell .calculator-results-panel .points-worth-outside-title {
+  display: flex !important;
+  align-items: flex-end !important;
+  justify-content: space-between !important;
+  gap: 16px !important;
+  margin: 12px 0 8px !important;
+}
+
+html body .calculator-modern-shell .points-worth-outside-title h3 {
+  font-size: 22px !important;
+}
+
+html body .calculator-modern-shell .points-worth-outside-title .calc-note {
+  font-size: 12px !important;
+}
+
+html body .calculator-modern-shell .redemption-carousel-controls {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+}
+
+html body .calculator-modern-shell .redemption-carousel-arrow {
+  display: inline-grid !important;
+  place-items: center !important;
+  width: 34px !important;
+  height: 34px !important;
+  padding: 0 !important;
+  border: 1px solid rgba(227, 223, 211, .96) !important;
+  border-radius: 12px !important;
+  background: rgba(255, 253, 248, .96) !important;
+  color: #581c87 !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .95), 0 8px 18px rgba(30, 17, 44, .06) !important;
+}
+
+html body .calculator-modern-shell .redemption-carousel-arrow:disabled {
+  cursor: default !important;
+  opacity: .38 !important;
+}
+
+html body .calculator-modern-shell .redemption-carousel-arrow svg {
+  width: 18px !important;
+  height: 18px !important;
+  transform: none !important;
+  stroke-width: 2.4 !important;
+}
+
+html body .calculator-modern-shell .points-worth-card.redemption-showcase {
+  position: relative !important;
+  overflow: hidden !important;
+  padding: 14px !important;
+  border: 1px solid rgba(232, 223, 207, .92) !important;
+  border-radius: 30px !important;
+  background: radial-gradient(circle at 0 0, rgba(255, 255, 255, .96), transparent 28%), linear-gradient(180deg, rgba(255, 254, 250, .98), rgba(250, 247, 241, .97)) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .95), 0 16px 34px rgba(30, 17, 44, .05) !important;
+}
+
+html body .calculator-modern-shell .redemption-card-grid {
+  display: flex !important;
+  gap: 12px !important;
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+  padding: 0 28px 4px 2px !important;
+  margin-right: -6px !important;
+  scroll-behavior: smooth !important;
+  scroll-snap-type: x proximity !important;
+  scrollbar-width: none !important;
+}
+
+html body .calculator-modern-shell .redemption-card-grid::-webkit-scrollbar {
+  display: none !important;
+}
+
+html body .calculator-modern-shell .redemption-option-card {
+  position: relative !important;
+  display: flex !important;
+  flex: 0 0 clamp(182px, 18.2vw, 208px) !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  min-width: 0 !important;
+  min-height: 264px !important;
+  padding: 18px 12px 16px !important;
+  overflow: hidden !important;
+  border: 1px solid rgba(226, 219, 230, .92) !important;
+  border-radius: 24px !important;
+  background: radial-gradient(circle at 50% 0, rgba(255, 255, 255, .96), transparent 34%), linear-gradient(180deg, #fff, #fbfaf7) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .98), 0 12px 26px rgba(30, 17, 44, .045) !important;
+  text-align: center !important;
+  scroll-snap-align: start !important;
+}
+
+html body .calculator-modern-shell .redemption-option-card.is-best {
+  border: 1.5px solid rgba(184, 151, 90, .82) !important;
+  background: radial-gradient(circle at 50% 0, rgba(255, 255, 255, .98), transparent 34%), linear-gradient(180deg, #fffefb, #fcf7eb) !important;
+}
+
+html body .calculator-modern-shell .redemption-best-ribbon {
+  position: absolute !important;
+  top: 0 !important;
+  right: 0 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  min-height: 32px !important;
+  padding: 6px 11px !important;
+  border-radius: 0 22px 0 18px !important;
+  color: #fffdf6 !important;
+  background: linear-gradient(135deg, #c99c39, #e3b954 46%, #b47d17) !important;
+  font-size: 11px !important;
+  font-weight: 900 !important;
+}
+
+html body .calculator-modern-shell .redemption-best-ribbon svg {
+  width: 13px !important;
+  height: 13px !important;
+  fill: currentColor !important;
+}
+
+html body .calculator-modern-shell .redemption-icon-shell.premium-medallion {
+  position: relative !important;
+  display: grid !important;
+  place-items: center !important;
+  width: 72px !important;
+  height: 72px !important;
+  margin: 6px 0 10px !important;
+  overflow: hidden !important;
+  border: 1px solid rgba(221, 213, 229, .94) !important;
+  border-radius: 24px !important;
+  background: radial-gradient(circle at 28% 20%, rgba(255, 255, 255, .94), transparent 38%), linear-gradient(145deg, #fff, #f5f1f8) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .98), 0 12px 24px rgba(30, 17, 44, .07) !important;
+}
+
+html body .calculator-modern-shell .redemption-icon-shell.premium-medallion::after {
+  content: "" !important;
+  position: absolute !important;
+  inset: 6px !important;
+  border: 1px solid rgba(255, 255, 255, .68) !important;
+  border-radius: 19px !important;
+}
+
+html body .calculator-modern-shell .redemption-icon-shell svg {
+  z-index: 1 !important;
+  width: 42px !important;
+  height: 42px !important;
+  color: #581c87 !important;
+  stroke-width: 1.8 !important;
+}
+
+html body .calculator-modern-shell .redemption-icon-transfer svg {
+  color: #9c7527 !important;
+}
+
+html body .calculator-modern-shell .redemption-type-pill {
+  min-height: 24px !important;
+  margin: 0 0 10px !important;
+  padding: 5px 11px !important;
+  border-radius: 999px !important;
+  font-size: 9px !important;
+  font-weight: 900 !important;
+  letter-spacing: .06em !important;
+  text-transform: uppercase !important;
+}
+
+html body .calculator-modern-shell .redemption-type-pill.type-transfer {
+  color: #7f5d19 !important;
+  background: linear-gradient(180deg, #f8efd9, #f2e4c2) !important;
+}
+
+html body .calculator-modern-shell .redemption-type-pill.type-voucher,
+html body .calculator-modern-shell .redemption-type-pill.type-miles,
+html body .calculator-modern-shell .redemption-type-pill.type-direct {
+  color: #581c87 !important;
+  background: linear-gradient(180deg, #f1e8fb, #e9ddf7) !important;
+}
+
+html body .calculator-modern-shell .redemption-option-card h4 {
+  min-height: 42px !important;
+  margin: 0 0 12px !important;
+  color: #1e112c !important;
+  font-size: clamp(.8rem, .9vw, .91rem) !important;
+  line-height: 1.18 !important;
+  font-weight: 900 !important;
+}
+
+html body .calculator-modern-shell .redemption-main-value {
+  margin-top: auto !important;
+  color: #1e112c !important;
+  font-size: clamp(1.42rem, 1.8vw, 1.84rem) !important;
+  line-height: .96 !important;
+  font-weight: 950 !important;
+  white-space: nowrap !important;
+}
+
+html body .calculator-modern-shell .redemption-rate {
+  min-height: 30px !important;
+  margin-top: 8px !important;
+  color: #736d79 !important;
+  font-size: 10px !important;
+  line-height: 1.35 !important;
+  font-weight: 600 !important;
+}
+
+html body .calculator-modern-shell .calculator-recommend-layout.progressive-flow > .recommend-controls {
+  min-height: 0 !important;
+}
+
+html body .calculator-modern-shell .calculator-empty-guide {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-start !important;
+  width: 100% !important;
+  min-height: 0 !important;
+  padding: 0 !important;
+}
+
+html body .calculator-modern-shell .calculator-empty-guide h2 {
+  margin: 0 0 8px !important;
+  color: #1e112c !important;
+  font-size: 24px !important;
+  line-height: 1.12 !important;
+  font-weight: 950 !important;
+  letter-spacing: -0.04em !important;
+}
+
+html body .calculator-modern-shell .empty-guide-description {
+  margin: 0 0 14px !important;
+  color: #1e112c !important;
+  font-size: 13px !important;
+  line-height: 1.15 !important;
+  font-weight: 900 !important;
+}
+
+html body .calculator-modern-shell .empty-guide-steps {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 12px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  list-style: none !important;
+}
+
+html body .calculator-modern-shell .empty-guide-step {
+  display: grid !important;
+  grid-template-columns: 30px minmax(0, 1fr) !important;
+  align-items: center !important;
+  gap: 12px !important;
+  height: 92px !important;
+  padding: 14px 18px !important;
+  border: 1px solid rgba(232, 223, 207, .94) !important;
+  border-radius: 20px !important;
+  background: rgba(255, 255, 255, .68) !important;
+}
+
+html body .calculator-modern-shell .empty-guide-step:first-child {
+  border-color: rgba(88, 28, 135, .18) !important;
+  background: #f4ecf8 !important;
+}
+
+html body .calculator-modern-shell .empty-guide-step-number {
+  display: grid !important;
+  place-items: center !important;
+  width: 30px !important;
+  height: 30px !important;
+  border-radius: 999px !important;
+  background: #f2eee7 !important;
+  color: #6f675f !important;
+  font-size: 13px !important;
+  font-weight: 950 !important;
+}
+
+html body .calculator-modern-shell .empty-guide-step:first-child .empty-guide-step-number {
+  color: #fff !important;
+  background: #581c87 !important;
+}
+
+html body .calculator-modern-shell .empty-guide-step strong {
+  color: #5b5466 !important;
+  font-size: 13px !important;
+  line-height: 1.2 !important;
+  font-weight: 850 !important;
+}
+
+html body .calculator-modern-shell .empty-guide-step:first-child strong {
+  color: #1e112c !important;
+}
+
+@media (max-width: 1080px) {
+  html body .calculator-modern-shell .calculator-recommend-layout.calc-grid {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+  }
+
+  html body .calculator-modern-shell .calculator-recommend-layout > .recommend-controls {
+    width: 100% !important;
+    max-width: none !important;
+  }
+}
+
+@media (max-width: 640px) {
+  html body .calculator-modern-shell .calculator-page-hero {
+    padding-top: 18px !important;
+  }
+
+  html body .calculator-modern-shell .calculator-page-hero h1 {
+    font-size: 2.65rem !important;
+  }
+
+  html body .calculator-modern-shell .calculator-recommend-layout > .recommend-controls,
+  html body .calculator-modern-shell .calculator-recommend-layout > .calculator-results-panel {
+    padding: 12px !important;
+  }
+
+  html body .calculator-modern-shell .empty-guide-steps {
+    gap: 7px !important;
+  }
+
+  html body .calculator-modern-shell .empty-guide-step {
+    grid-template-columns: 1fr !important;
+    justify-items: center !important;
+    height: 74px !important;
+    padding: 9px 7px !important;
+    text-align: center !important;
+  }
+
+  html body .calculator-modern-shell .empty-guide-step strong {
+    font-size: 11px !important;
+  }
+
+  html body .calculator-modern-shell .redemption-option-card {
+    flex-basis: min(54vw, 196px) !important;
+    min-width: min(54vw, 196px) !important;
+    min-height: 252px !important;
   }
 }
