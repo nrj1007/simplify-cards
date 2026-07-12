@@ -18507,6 +18507,14 @@ html body .calculator-modern-shell {
   max-width: none !important;
   margin: 0 !important;
   padding: 0 !important;
+  font-family: ui-sans-serif, system-ui, -apple-system, "system-ui", "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
+}
+
+html body .calculator-modern-shell button,
+html body .calculator-modern-shell input,
+html body .calculator-modern-shell select,
+html body .calculator-modern-shell textarea {
+  font-family: inherit !important;
 }
 
 html body .calculator-modern-shell .calculator-page-hero {
@@ -18564,9 +18572,12 @@ html body .calculator-modern-shell .calculator-recommend-layout > .calculator-re
 }
 
 html body .calculator-modern-shell .calculator-recommend-layout > .recommend-controls {
+  display: flex !important;
+  flex-direction: column !important;
   flex: 0 0 400px !important;
   width: 400px !important;
   max-width: 400px !important;
+  gap: 0 !important;
 }
 
 html body .calculator-modern-shell .calculator-recommend-layout > .calculator-results-panel {
@@ -18598,11 +18609,25 @@ html body .calculator-modern-shell .calculator-card-picker.calc-picker {
   margin-bottom: 0 !important;
 }
 
+html body .calculator-modern-shell .calculator-card-picker .field {
+  gap: 6px !important;
+}
+
+html body .calculator-modern-shell .calculator-card-picker .field label,
+html body .calculator-modern-shell .spend-profile .slider-head label,
+html body .calculator-modern-shell .spend-profile .slider-label-text {
+  font-size: 13px !important;
+  line-height: 1.15 !important;
+  letter-spacing: -.01em !important;
+}
+
 html body .calculator-modern-shell .calculator-card-picker select {
-  height: 42px !important;
-  min-height: 42px !important;
+  height: 36px !important;
+  min-height: 36px !important;
+  padding: 8px 38px 8px 12px !important;
   border-radius: 14px !important;
-  font-size: 14px !important;
+  font-size: 13px !important;
+  line-height: 1.2 !important;
 }
 
 html body .calculator-modern-shell .spend-profile-head.moved-before-total {
@@ -18621,12 +18646,15 @@ html body .calculator-modern-shell .recommend-total > div {
 }
 
 html body .calculator-modern-shell .recommend-total strong {
-  font-size: 22px !important;
+  font-size: 18px !important;
+  line-height: 1.05 !important;
+  letter-spacing: -.035em !important;
 }
 
 html body .calculator-modern-shell .recommend-total span {
   margin-top: 4px !important;
-  font-size: 14px !important;
+  font-size: 12px !important;
+  line-height: 1.15 !important;
 }
 
 html body .calculator-modern-shell .spend-profile .recommend-sliders {
@@ -18651,14 +18679,26 @@ html body .calculator-modern-shell .spend-profile .spend-amount-pill {
 
 html body .calculator-modern-shell .spend-profile .spend-amount-input,
 html body .calculator-modern-shell .spend-profile .spend-amount-pill span {
-  font-size: 14px !important;
+  font-size: 12px !important;
+  line-height: 1 !important;
+  font-weight: 500 !important;
+}
+
+html body .calculator-modern-shell .spend-profile .slider-head label,
+html body .calculator-modern-shell .spend-profile .slider-label-text {
+  font-size: 12px !important;
+  line-height: 1.1 !important;
+  font-weight: 850 !important;
+  letter-spacing: 0 !important;
 }
 
 html body .calculator-modern-shell .spend-profile-note {
   margin: 6px 0 0 !important;
   padding: 10px 12px !important;
   border-radius: 12px !important;
-  font-size: 13px !important;
+  font-size: 12px !important;
+  line-height: 1.25 !important;
+  font-weight: 500 !important;
 }
 
 html body .calculator-modern-shell .calculator-results-panel .reward-forecast-card {
@@ -18677,12 +18717,21 @@ html body .calculator-modern-shell .reward-forecast-card .forecast-score,
 html body .calculator-modern-shell .reward-forecast-card .forecast-value {
   font-size: clamp(2.9rem, 3.75vw, 4rem) !important;
   line-height: .84 !important;
+  letter-spacing: -.075em !important;
+}
+
+html body .calculator-modern-shell .reward-forecast-card .forecast-kicker {
+  font-size: clamp(.92rem, 1.05vw, 1.12rem) !important;
+  line-height: 1 !important;
+  letter-spacing: -.02em !important;
 }
 
 html body .calculator-modern-shell .reward-forecast-card .forecast-score .forecast-unit,
 html body .calculator-modern-shell .reward-forecast-card .forecast-score span {
   margin-top: 7px !important;
   font-size: clamp(.78rem, .92vw, .98rem) !important;
+  line-height: 1 !important;
+  letter-spacing: -.035em !important;
 }
 
 html body .calculator-modern-shell .reward-forecast-card .forecast-value-card {
@@ -18702,6 +18751,13 @@ html body .calculator-modern-shell .reward-forecast-card .forecast-mini-grid {
   margin-top: 2px !important;
 }
 
+html body .calculator-modern-shell .reward-forecast-card .forecast-mini-grid .forecast-stat {
+  font-size: clamp(.68rem, .76vw, .79rem) !important;
+  line-height: 1.15 !important;
+  font-weight: 650 !important;
+  letter-spacing: -.015em !important;
+}
+
 html body .calculator-modern-shell .calculator-results-panel .points-worth-outside-title {
   display: flex !important;
   align-items: flex-end !important;
@@ -18711,11 +18767,15 @@ html body .calculator-modern-shell .calculator-results-panel .points-worth-outsi
 }
 
 html body .calculator-modern-shell .points-worth-outside-title h3 {
-  font-size: 22px !important;
+  font-size: 20px !important;
+  line-height: 1.05 !important;
+  letter-spacing: -.035em !important;
 }
 
 html body .calculator-modern-shell .points-worth-outside-title .calc-note {
   font-size: 12px !important;
+  line-height: 1.2 !important;
+  font-weight: 600 !important;
 }
 
 html body .calculator-modern-shell .redemption-carousel-controls {
@@ -18892,6 +18952,7 @@ html body .calculator-modern-shell .redemption-main-value {
   font-size: clamp(1.42rem, 1.8vw, 1.84rem) !important;
   line-height: .96 !important;
   font-weight: 950 !important;
+  letter-spacing: -.025em !important;
   white-space: nowrap !important;
 }
 
@@ -18902,6 +18963,55 @@ html body .calculator-modern-shell .redemption-rate {
   font-size: 10px !important;
   line-height: 1.35 !important;
   font-weight: 600 !important;
+}
+
+html body .calculator-modern-shell .milestone-circle {
+  font-size: 1.15rem !important;
+  line-height: 1 !important;
+  font-weight: 950 !important;
+  letter-spacing: -.03em !important;
+}
+
+html body .calculator-modern-shell .milestone-status {
+  font-size: .87rem !important;
+  line-height: 1 !important;
+  font-weight: 850 !important;
+}
+
+html body .calculator-modern-shell .milestone-card-badge {
+  font-size: .84rem !important;
+  line-height: 1 !important;
+  font-weight: 900 !important;
+}
+
+html body .calculator-modern-shell .milestone-reward-copy h4 {
+  font-size: clamp(1.05rem, 1.45vw, 1.35rem) !important;
+  line-height: 1.08 !important;
+  letter-spacing: -.025em !important;
+}
+
+html body .calculator-modern-shell .milestone-reward-copy p {
+  font-size: .83rem !important;
+  line-height: 1.52 !important;
+  font-weight: 520 !important;
+}
+
+html body .calculator-modern-shell .milestone-next-step h4 {
+  font-size: .96rem !important;
+  line-height: 1.2 !important;
+  font-weight: 900 !important;
+}
+
+html body .calculator-modern-shell .milestone-next-step p {
+  font-size: .81rem !important;
+  line-height: 1.4 !important;
+  font-weight: 400 !important;
+}
+
+html body .calculator-modern-shell .milestone-footnote-inline {
+  font-size: 11px !important;
+  line-height: 1.35 !important;
+  font-weight: 500 !important;
 }
 
 html body .calculator-modern-shell .calculator-recommend-layout.progressive-flow > .recommend-controls {
@@ -18932,6 +19042,7 @@ html body .calculator-modern-shell .empty-guide-description {
   font-size: 13px !important;
   line-height: 1.15 !important;
   font-weight: 900 !important;
+  letter-spacing: -.01em !important;
 }
 
 html body .calculator-modern-shell .empty-guide-steps {
@@ -18969,6 +19080,7 @@ html body .calculator-modern-shell .empty-guide-step-number {
   background: #f2eee7 !important;
   color: #6f675f !important;
   font-size: 13px !important;
+  line-height: 1 !important;
   font-weight: 950 !important;
 }
 
@@ -18986,6 +19098,18 @@ html body .calculator-modern-shell .empty-guide-step strong {
 
 html body .calculator-modern-shell .empty-guide-step:first-child strong {
   color: #1e112c !important;
+}
+
+html body .calculator-modern-shell .calc-breakdown summary {
+  font-size: 16px !important;
+  line-height: 1.2 !important;
+  font-weight: 900 !important;
+}
+
+html body .calculator-modern-shell .calc-disclaimer {
+  font-size: 16px !important;
+  line-height: 1.35 !important;
+  font-weight: 400 !important;
 }
 
 @media (max-width: 1080px) {
