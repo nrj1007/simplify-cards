@@ -435,7 +435,7 @@ export default function RewardCalculator({ card, milestones = [], picker, varian
               })}
             </div>
             <p className="spend-profile-note">
-              Note: Categories not listed are treated as issuer-excluded and earn no rewards
+              Categories not listed are treated as issuer-excluded and earn no rewards
             </p>
           </div>
 
@@ -494,6 +494,40 @@ export default function RewardCalculator({ card, milestones = [], picker, varian
               <p className="muted calc-empty">Set your monthly spend on the left to see what this card earns.</p>
             ) : (
               <>
+                {!cashback && allRedemptionCards.length > 0 ? (
+                  <>
+                    <div className="calc-section-title points-worth-outside-title">
+                      <div className="redemption-heading-copy">
+                        <h3>Redemption value</h3>
+                        <p className="muted calc-note">Compare what your points are worth across redemption options</p>
+                      </div>
+                      <div className="redemption-carousel-controls" aria-label="Redemption carousel controls">
+                        <button type="button" aria-label="Previous redemption options" onClick={() => scrollRedemptions("previous")}>
+                          <ChevronDown aria-hidden="true" size={16} />
+                        </button>
+                        <button type="button" aria-label="Next redemption options" onClick={() => scrollRedemptions("next")}>
+                          <ChevronDown aria-hidden="true" size={16} />
+                        </button>
+                      </div>
+                    </div>
+                    <div className="calc-block points-worth-card redemption-showcase">
+                      <div className="redemption-card-grid" ref={redemptionScrollerRef} role="list" aria-label="Redemption options">
+                        {allRedemptionCards.map((row) => (
+                          <article className={`redemption-option-card${row.best ? " is-best" : ""}`} key={row.key} role="listitem">
+                            {row.best ? <span className="redemption-best-ribbon">Best</span> : null}
+                            <span className={`redemption-type-pill type-${row.type}`}>{row.type}</span>
+                            <h4>{row.label}</h4>
+                            <strong className="redemption-main-value">
+                              {row.type === "miles" ? `${formatUnits(row.value)} miles/pts` : formatINR(row.value)}
+                            </strong>
+                            <span className="redemption-rate">{row.rate}</span>
+                          </article>
+                        ))}
+                      </div>
+                    </div>
+                  </>
+                ) : null}
+
                 {milestones.length > 0 ? (
                   <>
                   <div className="section-head recommend-results-head calculator-results-head milestone-results-head">
@@ -530,8 +564,8 @@ export default function RewardCalculator({ card, milestones = [], picker, varian
 
                       <div className="milestone-node milestone-node-next">
                         <span className="milestone-circle">2</span>
-                        <span className="milestone-status milestone-status-placeholder" aria-hidden="true">
-                          Upcoming
+                        <span className="milestone-status milestone-status-placeholder" aria-hidden="false">
+                          Next milestone
                         </span>
                         <strong className="milestone-node-title">Milestone 2</strong>
                         <small className="milestone-node-threshold">
@@ -587,40 +621,6 @@ export default function RewardCalculator({ card, milestones = [], picker, varian
                     <div className="milestone-footnote-inline">
                       <span className="milestone-footnote-icon" aria-hidden="true">i</span>
                       <span>Milestone value is estimated and only counts once you reach each spend threshold</span>
-                    </div>
-                  </>
-                ) : null}
-
-                {!cashback && allRedemptionCards.length > 0 ? (
-                  <>
-                    <div className="calc-section-title points-worth-outside-title">
-                      <div className="redemption-heading-copy">
-                        <h3>Redemption value</h3>
-                        <p className="muted calc-note">Compare what your points are worth across redemption options.</p>
-                      </div>
-                      <div className="redemption-carousel-controls" aria-label="Redemption carousel controls">
-                        <button type="button" aria-label="Previous redemption options" onClick={() => scrollRedemptions("previous")}>
-                          <ChevronDown aria-hidden="true" size={16} />
-                        </button>
-                        <button type="button" aria-label="Next redemption options" onClick={() => scrollRedemptions("next")}>
-                          <ChevronDown aria-hidden="true" size={16} />
-                        </button>
-                      </div>
-                    </div>
-                    <div className="calc-block points-worth-card redemption-showcase">
-                      <div className="redemption-card-grid" ref={redemptionScrollerRef} role="list" aria-label="Redemption options">
-                        {allRedemptionCards.map((row) => (
-                          <article className={`redemption-option-card${row.best ? " is-best" : ""}`} key={row.key} role="listitem">
-                            {row.best ? <span className="redemption-best-ribbon">Best</span> : null}
-                            <span className={`redemption-type-pill type-${row.type}`}>{row.type}</span>
-                            <h4>{row.label}</h4>
-                            <strong className="redemption-main-value">
-                              {row.type === "miles" ? `${formatUnits(row.value)} miles/pts` : formatINR(row.value)}
-                            </strong>
-                            <span className="redemption-rate">{row.rate}</span>
-                          </article>
-                        ))}
-                      </div>
                     </div>
                   </>
                 ) : null}
