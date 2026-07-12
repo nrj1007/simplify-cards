@@ -19346,3 +19346,81 @@ html body .calculator-modern-shell .calc-disclaimer {
     display: none !important;
   }
 }
+
+/* Phone/touch fix: use swipe navigation and prevent carousel arrows from overlapping section copy. */
+@media (max-width: 1100px), (hover: none) and (pointer: coarse) {
+  html body .cards-row .cards-row-arrow {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+  }
+
+  html body .cards-row-head {
+    padding-right: 0 !important;
+  }
+}
+
+/* Phone layout: show one complete card plus at least half of the following card. */
+@media (max-width: 639px) {
+  html body .cards-carousel {
+    display: grid !important;
+    grid-auto-flow: column !important;
+    grid-auto-columns: calc(66.6667% - 9.34px) !important;
+    gap: 14px !important;
+    padding-right: 16px !important;
+    scroll-padding-right: 16px !important;
+    scroll-snap-type: x mandatory !important;
+  }
+
+  html body .cards-tile {
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    flex-basis: auto !important;
+  }
+}
+
+/* Phone only: scale carousel-card typography to suit the narrower 1.5-card layout. */
+@media (max-width: 639px) {
+  html body .cards-art-title-stack .cards-issuer,
+  html body .cards-issuer {
+    font-size: 8px !important;
+    line-height: 10px !important;
+    letter-spacing: 0.13em !important;
+  }
+
+  html body .cards-art-title-stack strong,
+  html body .cards-tile-art strong {
+    font-size: 14px !important;
+    line-height: 1.08 !important;
+    letter-spacing: -0.02em !important;
+  }
+
+  html body .cards-card-type {
+    font-size: 8px !important;
+    letter-spacing: 0.025em !important;
+  }
+
+  html body .cards-tile-copy p {
+    font-size: 11px !important;
+    line-height: 1.35 !important;
+  }
+
+  html body .cards-rank-badge,
+  html body .cards-tile-meta span {
+    font-size: 8.5px !important;
+    line-height: 1.05 !important;
+  }
+
+  html body .cards-details-link {
+    font-size: 11px !important;
+    line-height: 1.15 !important;
+  }
+
+  html body .cards-landing-action {
+    font-size: 12px !important;
+    line-height: 1.1 !important;
+  }
+}
+
