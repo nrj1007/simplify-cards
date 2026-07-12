@@ -18522,10 +18522,15 @@ html body .calculator-modern-shell .page-content > .container {
   padding-right: 16px !important;
 }
 
+html body .calculator-modern-shell .calculator-page-hero .page-hero-inner {
+  padding-bottom: 20px !important;
+}
+
 html body .calculator-modern-shell .calculator-page-hero h1 {
   margin: 0 !important;
   padding: 0 0 .06em !important;
-  font-size: clamp(2rem, 8.4vw, 2.65rem) !important;
+  font-family: ui-sans-serif, system-ui, -apple-system, "system-ui", "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
+  font-size: 4rem !important;
   line-height: 1.08 !important;
   font-weight: 800 !important;
   letter-spacing: -0.025em !important;
@@ -19001,7 +19006,11 @@ html body .calculator-modern-shell .empty-guide-step:first-child strong {
   }
 
   html body .calculator-modern-shell .calculator-page-hero h1 {
-    font-size: 2.65rem !important;
+    font-size: 2.6rem !important;
+  }
+
+  html body .calculator-modern-shell .calculator-page-hero .page-hero-inner {
+    padding-bottom: 0 !important;
   }
 
   html body .calculator-modern-shell .calculator-recommend-layout > .recommend-controls,
