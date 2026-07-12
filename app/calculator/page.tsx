@@ -28,7 +28,7 @@ export default async function CalculatorPage({ searchParams }: Props) {
     <div className="page-shell calculator-modern-shell">
       <section className="page-hero calculator-page-hero" aria-labelledby="calculator-page-title">
         <div className="container page-hero-inner">
-          <h1 id="calculator-page-title">calculator</h1>
+          <h1 id="calculator-page-title">Calculator</h1>
         </div>
       </section>
       <section className="page-content">
