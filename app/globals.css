@@ -5370,7 +5370,7 @@ input[type="number"] {
   width: calc(100% - 88px) !important;
   max-width: 1220px !important;
   margin: 0 auto 18px !important;
-  padding-top: 60px !important;
+  padding-top: 80px !important;
 }
 
 .calculator-modern-shell .milestone-track {
