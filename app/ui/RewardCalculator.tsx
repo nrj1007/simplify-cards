@@ -1,16 +1,12 @@
 "use client";
 
-import { type CSSProperties, type ReactNode, useEffect, useMemo, useRef, useState } from "react";
+import { type CSSProperties, type ReactNode, useEffect, useMemo, useRef, useState, Fragment } from "react";
 import {
-  Building2,
   ChevronDown,
   ChevronLeft,
   ChevronRight,
   CreditCard as CreditCardIcon,
-  Gift,
-  Plane,
   Star,
-  TicketCheck,
   Trophy,
   TrendingUp
 } from "lucide-react";
@@ -124,12 +120,108 @@ function milestonePrimaryValue(rule: MilestoneRule) {
 type RupeeOption = { key: string; label: string; perPoint: number; value: number; note?: string };
 
 function RedemptionIcon({ type }: { type: "direct" | "transfer" | "voucher" | "miles" }) {
-  const Icon = type === "transfer" ? Building2 : type === "voucher" ? TicketCheck : type === "miles" ? Plane : CreditCardIcon;
-  const extraClass = type === "voucher" ? " unified-voucher-icon" : type === "miles" ? " refined-flight-icon" : "";
+  const isHotel = type === "transfer";
+  const isVoucher = type === "voucher";
+  const isMiles = type === "miles";
+  const isDirect = type === "direct";
+
+  const extraClass = isVoucher ? " unified-voucher-icon" : isMiles ? " refined-flight-icon" : "";
 
   return (
     <span className={`redemption-icon-shell redemption-icon-${type} premium-medallion${extraClass}`} aria-hidden="true">
-      <Icon />
+      {isHotel && (
+        <svg viewBox="0 0 96 96" role="img">
+          <defs>
+            <linearGradient id="marriottBuilding" x1="18" y1="18" x2="78" y2="82" gradientUnits="userSpaceOnUse">
+              <stop stopColor="#D8B66A"></stop>
+              <stop offset="1" stopColor="#8F6B22"></stop>
+            </linearGradient>
+            <linearGradient id="marriottGlass" x1="0" y1="0" x2="1" y2="1">
+              <stop stopColor="#FFF8E7"></stop>
+              <stop offset="1" stopColor="#E9D7A8"></stop>
+            </linearGradient>
+            <filter id="marriottShadow" x="-30%" y="-30%" width="160%" height="170%">
+              <feDropShadow dx="0" dy="5" stdDeviation="4" floodColor="#7B5718" floodOpacity=".20"></feDropShadow>
+            </filter>
+          </defs>
+          <circle cx="48" cy="48" r="34" fill="#FBF4E2"></circle>
+          <g filter="url(#marriottShadow)">
+            <path d="M27 72V31a6 6 0 0 1 6-6h30a6 6 0 0 1 6 6v41" fill="url(#marriottBuilding)"></path>
+            <path d="M33 25h30l-4-8H37l-4 8Z" fill="#B8975A"></path>
+            <rect x="43" y="14" width="10" height="11" rx="2" fill="#FFF4D0"></rect>
+            <path d="M45.5 22v-5l2.5 3 2.5-3v5" fill="none" stroke="#8F6B22" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"></path>
+            <g fill="url(#marriottGlass)">
+              <rect x="34" y="34" width="7" height="8" rx="1.5"></rect>
+              <rect x="45" y="34" width="7" height="8" rx="1.5"></rect>
+              <rect x="56" y="34" width="7" height="8" rx="1.5"></rect>
+              <rect x="34" y="47" width="7" height="8" rx="1.5"></rect>
+              <rect x="56" y="47" width="7" height="8" rx="1.5"></rect>
+            </g>
+            <path d="M43 72V58a5 5 0 0 1 10 0v14" fill="#FFF4D0"></path>
+            <path d="M22 73h52" stroke="#7B5718" strokeWidth="4" strokeLinecap="round"></path>
+          </g>
+          <path d="m72 18 2 4 4.5.7-3.2 3.1.8 4.4-4.1-2.1-4.1 2.1.8-4.4-3.2-3.1 4.5-.7 2-4Z" fill="#D8B66A"></path>
+        </svg>
+      )}
+      {isVoucher && (
+        <svg viewBox="0 0 96 96" role="img">
+          <defs>
+            <linearGradient id="unifiedVoucherBody" x1="18" y1="24" x2="78" y2="74" gradientUnits="userSpaceOnUse">
+              <stop stopColor="#7A42E1"></stop>
+              <stop offset="1" stopColor="#581C87"></stop>
+            </linearGradient>
+            <linearGradient id="unifiedVoucherGold" x1="0" y1="0" x2="1" y2="1">
+              <stop stopColor="#F4DFA8"></stop>
+              <stop offset=".55" stopColor="#D8B66A"></stop>
+              <stop offset="1" stopColor="#A77B29"></stop>
+            </linearGradient>
+            <filter id="unifiedVoucherShadow" x="-30%" y="-30%" width="160%" height="170%">
+              <feDropShadow dx="0" dy="5" stdDeviation="4" floodColor="#581C87" floodOpacity=".20"></feDropShadow>
+            </filter>
+          </defs>
+          <circle cx="48" cy="48" r="34" fill="#F3ECFB"></circle>
+          <g filter="url(#unifiedVoucherShadow)">
+            <path d="M22 31h52a5 5 0 0 1 5 5v8a7 7 0 0 0 0 14v8a5 5 0 0 1-5 5H22a5 5 0 0 1-5-5v-8a7 7 0 0 0 0-14v-8a5 5 0 0 1 5-5Z" fill="url(#unifiedVoucherBody)"></path>
+            <path d="M48 31v40" stroke="url(#unifiedVoucherGold)" strokeWidth="3" strokeDasharray="4 4"></path>
+            <circle cx="61" cy="48" r="13" fill="#FFF7E4" stroke="url(#unifiedVoucherGold)" strokeWidth="3"></circle>
+            <path d="m61 39 2.3 4.8 5.3.8-3.8 3.7.9 5.2-4.7-2.5-4.7 2.5.9-5.2-3.8-3.7 5.3-.8L61 39Z" fill="#B8975A"></path>
+            <path d="M28 40h11M28 48h8M28 56h11" stroke="#F4E8FF" strokeWidth="3" strokeLinecap="round"></path>
+          </g>
+        </svg>
+      )}
+      {isMiles && (
+        <svg viewBox="0 0 96 96" role="img">
+          <defs>
+            <linearGradient id="refinedFlightBody" x1="18" y1="24" x2="78" y2="72" gradientUnits="userSpaceOnUse">
+              <stop stopColor="#8A54D6"></stop>
+              <stop offset="1" stopColor="#581C87"></stop>
+            </linearGradient>
+            <linearGradient id="refinedFlightAccent" x1="0" y1="0" x2="1" y2="1">
+              <stop stopColor="#C5ACF4"></stop>
+              <stop offset="1" stopColor="#7A42E1"></stop>
+            </linearGradient>
+            <filter id="refinedFlightShadow" x="-30%" y="-30%" width="160%" height="170%">
+              <feDropShadow dx="0" dy="5" stdDeviation="4" floodColor="#581C87" floodOpacity=".18"></feDropShadow>
+            </filter>
+          </defs>
+          <circle cx="48" cy="48" r="34" fill="#F2ECFB"></circle>
+          <path d="M19 67c12 8 28 9 45 4" fill="none" stroke="#B8975A" strokeWidth="3" strokeLinecap="round" strokeDasharray="5 6"></path>
+          <g filter="url(#refinedFlightShadow)">
+            <path d="M19 52c0-2 2-4 5-4h28l18-13c3-2 7-2 9 1 2 2 1 5-2 7L60 55H24c-3 0-5-1-5-3Z" fill="url(#refinedFlightBody)"></path>
+            <path d="M35 48 25 32h7l15 16Z" fill="url(#refinedFlightAccent)"></path>
+            <path d="m42 55-9 13h7l13-13Z" fill="#9B7BE5"></path>
+            <path d="m24 48-8-9h6l11 9Zm1 7-8 8h6l10-8Z" fill="#8159CE"></path>
+            <path d="M61 48h14c3 0 5 1 6 4-1 2-3 3-6 3H61Z" fill="#6E35AF"></path>
+            <g fill="#F7F2FF">
+              <circle cx="34" cy="51" r="1.6"></circle>
+              <circle cx="40" cy="51" r="1.6"></circle>
+              <circle cx="46" cy="51" r="1.6"></circle>
+              <circle cx="52" cy="51" r="1.6"></circle>
+            </g>
+          </g>
+        </svg>
+      )}
+      {isDirect && <CreditCardIcon />}
     </span>
   );
 }
@@ -386,10 +478,19 @@ export default function RewardCalculator({ card, milestones = [], picker, varian
   }, [annualUnits]);
 
   if (variant === "calculator") {
-    const monthlyNextMilestone = nextMilestone ? Math.ceil(nextMilestone.threshold / 12) : null;
-    const monthlyProgressTarget = monthlyNextMilestone && monthlyNextMilestone > 0 ? monthlyNextMilestone : totalMonthlySpend || 1;
-    const milestoneProgress = Math.max(0, Math.min(100, (totalMonthlySpend / monthlyProgressTarget) * 100));
     const earnedMilestone = earnedMilestones[earnedMilestones.length - 1] ?? null;
+    const currentMilestoneIndex = earnedMilestones.length;
+    const currentMonthlyThreshold = earnedMilestone ? Math.ceil(earnedMilestone.threshold / 12) : 0;
+    
+    const monthlyNextMilestone = nextMilestone ? Math.ceil(nextMilestone.threshold / 12) : null;
+    const nextMilestoneIndex = currentMilestoneIndex + 1;
+    
+    let milestoneProgress = 100;
+    if (monthlyNextMilestone) {
+      const spendInBracket = Math.max(0, totalMonthlySpend - currentMonthlyThreshold);
+      const bracketSize = monthlyNextMilestone - currentMonthlyThreshold;
+      milestoneProgress = bracketSize > 0 ? Math.max(0, Math.min(100, (spendInBracket / bracketSize) * 100)) : 100;
+    }
     const currentMilestoneTitle = earnedMilestone ? (milestonePrimaryValue(earnedMilestone) ?? formatINR(earnedMilestone.value)) : "Milestone rewards";
     const nextMilestoneTitle = nextMilestone ? (milestonePrimaryValue(nextMilestone) ?? formatINR(nextMilestone.value)) : "All milestones unlocked";
     const forecastUnitLabel = cashback ? "cashback/year" : "reward points/year";
@@ -616,36 +717,91 @@ export default function RewardCalculator({ card, milestones = [], picker, varian
                       className="milestone-journey"
                       aria-label={`Progress toward next milestone is ${Math.round(milestoneProgress)} percent.`}
                     >
-                      <div className="milestone-node milestone-node-current">
-                        <span className="milestone-you-are-here">You are here</span>
-                        <span className="milestone-circle">1</span>
-                        <span className="milestone-status milestone-status-unlocked">
-                          {earnedMilestone ? "Unlocked" : "In progress"}
-                        </span>
-                        <strong className="milestone-node-title">Milestone 1</strong>
-                        <small className="milestone-node-threshold">Spend {formatINR(totalMonthlySpend)}/month</small>
-                      </div>
+                      {(() => {
+                        const allNodes = [
+                          { title: "Get started", threshold: 0, index: 0, circle: "-" },
+                          ...(milestones || []).map((m, i) => ({
+                            title: `Milestone ${i + 1}`,
+                            threshold: Math.ceil(m.threshold / 12),
+                            index: i + 1,
+                            circle: (i + 1).toString()
+                          }))
+                        ];
 
-                      <div className="milestone-track" aria-hidden="true">
-                        <span className="milestone-track-fill" />
-                      </div>
+                        return allNodes.map((node, idx) => {
+                          const isCurrentNode = idx === currentMilestoneIndex;
+                          let statusText = "Next milestone";
+                          let isVisibleBadge = false;
 
-                      <div className="milestone-node milestone-node-next">
-                        <span className="milestone-circle">2</span>
-                        <span className="milestone-status milestone-status-placeholder" aria-hidden="false">
-                          Next milestone
-                        </span>
-                        <strong className="milestone-node-title">Milestone 2</strong>
-                        <small className="milestone-node-threshold">
-                          {monthlyNextMilestone ? `Spend ${formatINR(monthlyNextMilestone)}/month` : "Completed"}
-                        </small>
-                      </div>
+                          if (idx <= currentMilestoneIndex) {
+                            statusText = "Unlocked";
+                            isVisibleBadge = idx > 0;
+                          } else if (idx === currentMilestoneIndex + 1) {
+                            statusText = "In progress";
+                            isVisibleBadge = true;
+                          }
+                          
+                          let trackFill = 0;
+                          if (idx < allNodes.length - 1) {
+                            const nextNode = allNodes[idx + 1];
+                            const spendInBracket = Math.max(0, totalMonthlySpend - node.threshold);
+                            const bracketSize = nextNode.threshold - node.threshold;
+                            trackFill = bracketSize > 0 ? Math.max(0, Math.min(100, (spendInBracket / bracketSize) * 100)) : 100;
+                          }
+
+                          return (
+                            <Fragment key={idx}>
+                              <div className={`milestone-node ${idx <= currentMilestoneIndex ? 'milestone-node-current' : 'milestone-node-next'}`}>
+                                {isCurrentNode && <span className="milestone-you-are-here">You are here</span>}
+                                <span className="milestone-circle">{node.circle}</span>
+                                <span className={`milestone-status ${isVisibleBadge ? 'milestone-status-unlocked' : 'milestone-status-placeholder'}`}>
+                                  {statusText}
+                                </span>
+                                <strong className="milestone-node-title">{node.title}</strong>
+                                <small className="milestone-node-threshold">Spend {formatINR(node.threshold)}/month</small>
+                              </div>
+                              {idx < allNodes.length - 1 && (
+                                <div className="milestone-track" aria-hidden="true">
+                                  <span className="milestone-track-fill" style={{ "--milestone-progress": `${trackFill}%` } as CSSProperties} />
+                                </div>
+                              )}
+                            </Fragment>
+                          );
+                        });
+                      })()}
                     </div>
                     <div className="milestone-reward-grid">
                         <article className="milestone-reward-card milestone-reward-unlocked">
-                          <span className="milestone-card-badge is-unlocked">Unlocked</span>
+                          <span className={`milestone-card-badge ${earnedMilestone ? 'is-unlocked' : 'is-next'}`}>
+                            {earnedMilestone ? "Unlocked" : "Locked"}
+                          </span>
                           <div className="milestone-reward-illustration milestone-gift" aria-hidden="true">
-                            <Gift />
+                            <svg viewBox="0 0 120 120" role="img">
+                              <defs>
+                                <linearGradient id="giftBodyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                  <stop offset="0%" stopColor="#8f54dd" />
+                                  <stop offset="100%" stopColor="#581c87" />
+                                </linearGradient>
+                                <linearGradient id="giftLidGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                  <stop offset="0%" stopColor="#b78cff" />
+                                  <stop offset="100%" stopColor="#7d46d7" />
+                                </linearGradient>
+                              </defs>
+                              <ellipse cx="60" cy="100" rx="34" ry="8" fill="rgba(88,28,135,0.12)" />
+                              <rect x="24" y="42" width="72" height="46" rx="10" fill="url(#giftBodyGrad)" />
+                              <rect x="18" y="32" width="84" height="18" rx="8" fill="url(#giftLidGrad)" />
+                              <rect x="55" y="32" width="10" height="56" rx="5" fill="#eadcff" />
+                              <path d="M60 34c-14-1-24-7-24-17 0-6 5-10 11-10 8 0 13 10 13 27Z" fill="none" stroke="#581c87" strokeWidth="6" strokeLinecap="round" />
+                              <path d="M60 34c14-1 24-7 24-17 0-6-5-10-11-10-8 0-13 10-13 27Z" fill="none" stroke="#581c87" strokeWidth="6" strokeLinecap="round" />
+                              <circle cx="78" cy="76" r="17" fill="#ffffff" stroke="#7d46d7" strokeWidth="4" />
+                              <path d="m70 76 5 5 11-12" fill="none" stroke="#581c87" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
+                              <circle cx="18" cy="54" r="3" fill="#f4c63d" />
+                              <circle cx="101" cy="45" r="3" fill="#f4c63d" />
+                              <circle cx="103" cy="73" r="2.5" fill="#64a8ff" />
+                              <circle cx="18" cy="79" r="2.5" fill="#64a8ff" />
+                              <path d="M11 84c4 0 4 6 8 6" fill="none" stroke="#35a7ff" strokeWidth="3" strokeLinecap="round" />
+                              <path d="M95 25c4 0 4-6 8-6" fill="none" stroke="#ff7b6c" strokeWidth="3" strokeLinecap="round" />
+                            </svg>
                           </div>
                           <div className="milestone-reward-copy">
                             <h4>{currentMilestoneTitle}</h4>
@@ -658,15 +814,34 @@ export default function RewardCalculator({ card, milestones = [], picker, varian
                         </article>
 
                         <article className="milestone-reward-card milestone-reward-next">
-                          <span className="milestone-card-badge is-next">Next milestone</span>
+                          <span className="milestone-card-badge is-next">
+                            {monthlyNextMilestone ? "Next milestone" : "Completed"}
+                          </span>
                           <div className="milestone-reward-illustration milestone-trophy" aria-hidden="true">
-                            <Trophy />
+                            <svg viewBox="0 0 120 120" role="img">
+                              <defs>
+                                <linearGradient id="trophyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                  <stop offset="0%" stopColor="#d8c49a" />
+                                  <stop offset="100%" stopColor="#a98b52" />
+                                </linearGradient>
+                              </defs>
+                              <path d="M39 24h42v28c0 18-10 30-21 30S39 70 39 52V24Z" fill="url(#trophyGrad)" stroke="#947948" strokeWidth="3" />
+                              <path d="M39 31H23v12c0 11 9 20 20 20M81 31h16v12c0 11-9 20-20 20" fill="none" stroke="#947948" strokeWidth="5" strokeLinecap="round" />
+                              <path d="M60 82v12M44 100h32" fill="none" stroke="#947948" strokeWidth="6" strokeLinecap="round" />
+                              <rect x="45" y="92" width="30" height="8" rx="4" fill="#b89a62" />
+                              <path d="m60 34 5 10 11 2-8 7 2 12-10-6-10 6 2-12-8-7 11-2 5-10Z" fill="#fff7dc" />
+                              <circle cx="25" cy="28" r="2.5" fill="#d8c49a" />
+                              <circle cx="20" cy="58" r="2.5" fill="#c6b28b" />
+                              <circle cx="99" cy="34" r="2.5" fill="#d8c49a" />
+                              <circle cx="96" cy="65" r="2.5" fill="#c6b28b" />
+                              <path d="M93 21h4M95 19v4M18 18h4M20 16v4" stroke="#d8c49a" strokeWidth="2" strokeLinecap="round" />
+                            </svg>
                           </div>
                           <div className="milestone-reward-copy">
                             <h4>{nextMilestoneTitle}</h4>
                             <p>
                               {nextMilestone
-                                ? `Unlock when your monthly spend reaches ${formatINR(monthlyNextMilestone ?? 0)}.`
+                                ? `Unlock when your ${nextMilestone.period} spend reaches ${formatINR(nextMilestone.threshold)}.`
                                 : "You have reached the available milestone thresholds for this card."}
                             </p>
                           </div>
@@ -675,7 +850,10 @@ export default function RewardCalculator({ card, milestones = [], picker, varian
                     {nextMilestone ? (
                       <div className="milestone-next-step">
                         <span className="milestone-next-icon" aria-hidden="true">
-                          <TrendingUp />
+                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-trending-up">
+                            <path d="M4 19V9M9 19v-5M14 19V7M19 19V4" />
+                            <path d="m4 10 5-4 5 2 6-6" />
+                          </svg>
                         </span>
                         <div>
                           <h4>How to reach the next milestone</h4>
@@ -718,6 +896,16 @@ export default function RewardCalculator({ card, milestones = [], picker, varian
                               </td>
                               <td>{formatINR(row.monthlySpend)}</td>
                               <td>{row.excluded ? "—" : formatUnits(row.annualUnits)}</td>
+                            </tr>
+                          ))}
+                          {earnedMilestones.map((milestone, idx) => (
+                            <tr key={`milestone-${idx}`} className="calc-breakdown-milestone-row">
+                              <td>
+                                Milestone bonus
+                                <span className="calc-tag">{milestone.period}</span>
+                              </td>
+                              <td>—</td>
+                              <td>{milestone.label}</td>
                             </tr>
                           ))}
                         </tbody>
@@ -1009,6 +1197,16 @@ export default function RewardCalculator({ card, milestones = [], picker, varian
                             </td>
                             <td>{formatINR(row.monthlySpend)}</td>
                             <td>{row.excluded ? "—" : formatUnits(row.annualUnits)}</td>
+                          </tr>
+                        ))}
+                        {earnedMilestones.map((milestone, idx) => (
+                          <tr key={`milestone-${idx}`} className="calc-breakdown-milestone-row">
+                            <td>
+                              Milestone bonus
+                              <span className="calc-tag">{milestone.period}</span>
+                            </td>
+                            <td>—</td>
+                            <td>{milestone.label}</td>
                           </tr>
                         ))}
                       </tbody>
