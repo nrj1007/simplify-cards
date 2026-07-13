@@ -53,7 +53,10 @@ const MORE_CATEGORIES: SpendCategory[] = ["fuel", "rent", "insurance", "educatio
 const ALL_CATEGORIES: SpendCategory[] = [...CORE_CATEGORIES, ...MORE_CATEGORIES];
 
 const SLIDER_MAX = 100_000;
-const SLIDER_STEP = 500;
+// The default spend profile contains values such as ₹7,950 and ₹6,360.
+// Keep the range step aligned with that precision so the range and number
+// controls always render the same initial value.
+const SLIDER_STEP = 10;
 
 // ---------------------------------------------------------------------------
 // Helpers
@@ -169,7 +172,9 @@ function RecommendCard({ result, index, isTopOfSection }: { result: RecommendRes
       tabIndex={0}
       onClick={openDetails}
       onKeyDown={(event) => {
-        if (event.key === "Enter" || event.key === " ") {
+        // Interactive children (the breakdown and CTA links) own their keyboard
+        // events. Only activate the card when the card itself has focus.
+        if (event.target === event.currentTarget && (event.key === "Enter" || event.key === " ")) {
           event.preventDefault();
           openDetails();
         }
@@ -303,6 +308,7 @@ export default function RecommendCalculator({ defaultSpend, initialSections }: P
   const [rewardTypeView, setRewardTypeView] = useState<RewardTypeView>("all");
   const [sections, setSections] = useState<ResultSection[]>(initialSections);
   const [pending, setPending] = useState(false);
+  const [updateError, setUpdateError] = useState<string | null>(null);
 
   const isFirstRun = useRef(true);
 
@@ -316,6 +322,7 @@ export default function RecommendCalculator({ defaultSpend, initialSections }: P
     const controller = new AbortController();
     const timer = setTimeout(() => {
       setPending(true);
+      setUpdateError(null);
       fetch("/api/recommend", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -328,7 +335,10 @@ export default function RecommendCalculator({ defaultSpend, initialSections }: P
         }),
         signal: controller.signal
       })
-        .then((res) => res.json())
+        .then((res) => {
+          if (!res.ok) throw new Error(`Recommendation request failed with status ${res.status}`);
+          return res.json();
+        })
         .then((data: { results?: RecommendResult[]; sections?: ResultSection[] }) => {
           if (data.sections) {
             setSections(data.sections);
@@ -339,7 +349,10 @@ export default function RecommendCalculator({ defaultSpend, initialSections }: P
           setPending(false);
         })
         .catch((error: unknown) => {
-          if (!(error instanceof DOMException && error.name === "AbortError")) setPending(false);
+          if (!(error instanceof DOMException && error.name === "AbortError")) {
+            setUpdateError("Recommendations couldn’t be updated. The previous results are still shown — please try again.");
+            setPending(false);
+          }
         });
     }, 250);
 
@@ -489,6 +502,12 @@ export default function RecommendCalculator({ defaultSpend, initialSections }: P
           </div>
           {pending ? <span className="recommend-updating">Updating…</span> : null}
         </div>
+
+        {updateError ? (
+          <div className="panel card" role="alert" style={{ marginBottom: "1rem" }}>
+            <p style={{ margin: 0 }}>{updateError}</p>
+          </div>
+        ) : null}
 
         {totalMonthly === 0 ? (
           <div className="panel card">
