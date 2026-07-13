@@ -212,7 +212,7 @@ describe("ask ai fallback policy", () => {
     expect(highlights.some((h: string) => /all-round value/i.test(h))).toBe(true);
   });
 
-  it("uses AI to improve the summary for broad top-card queries when an OpenAI API key is configured", async () => {
+  it("does not call AI for broad top-card queries even when an API key is configured", async () => {
     process.env.OPENAI_API_KEY = "test-key";
     global.fetch = vi.fn(async () =>
       ({
@@ -235,9 +235,9 @@ describe("ask ai fallback policy", () => {
 
     const answer = await answerQuestion({ query: "top 10 credit cards" });
 
-    expect(global.fetch).toHaveBeenCalledTimes(1);
+    expect(global.fetch).not.toHaveBeenCalled();
     expect(answer.cards).toHaveLength(10);
-    expect(answer.summary).toMatch(/Magnus Credit Card for Burgundy/i);
+    expect(answer.summary).toBe("Top 10 picks for this query.");
   });
 
   it("shows the actual top 10 ranked cards for broad top-card questions", { timeout: 45000 }, async () => {
@@ -388,7 +388,7 @@ describe("ask ai fallback policy", () => {
     expect(answer.summary).toBe("");
   });
 
-  it("keeps broad top-card rankings deterministic even when AI improves the summary", { timeout: 45000 }, async () => {
+  it("keeps broad top-card rankings deterministic without calling AI", { timeout: 45000 }, async () => {
     process.env.OPENAI_API_KEY = "test-key";
     global.fetch = vi.fn(async () =>
       ({
@@ -412,8 +412,8 @@ describe("ask ai fallback policy", () => {
     const answer = await answerQuestion({ query: "best cashback card" });
     const rawTopTenIds = scoreCards({ query: "best cashback card", resultStrategy: "reward-type-split" }).slice(0, 10).map((item) => item.card.id);
 
-    expect(global.fetch).toHaveBeenCalledTimes(1);
-    expect(answer.summary).toMatch(/Kotak Cashback\+/i);
+    expect(global.fetch).not.toHaveBeenCalled();
+    expect(answer.summary).toBe("Top 10 picks for this query.");
     expect(answer.cards).toHaveLength(10);
     expect(answer.cards.map((item) => item.card.id)).toEqual(rawTopTenIds);
   });
@@ -430,7 +430,7 @@ describe("ask ai fallback policy", () => {
     expect(answer.meta?.needsFollowUp).toBe(true);
   });
 
-  it("passes previous query context into the grounded AI summary prompt", async () => {
+  it("does not call AI for follow-up ranking questions", async () => {
     process.env.OPENAI_API_KEY = "test-key";
     global.fetch = vi.fn(async () =>
       ({
@@ -457,14 +457,10 @@ describe("ask ai fallback policy", () => {
       contextCardIds: ["sbi-cashback"]
     });
 
-    const requestBody = JSON.parse(String((global.fetch as ReturnType<typeof vi.fn>).mock.calls[0]?.[1]?.body));
-    const userPrompt = requestBody.input[1].content[0].text;
-
-    expect(userPrompt).toContain('"previousQuestion": "best card for online cashback"');
-    expect(userPrompt).toContain('"isFollowUpQuestion": true');
+    expect(global.fetch).not.toHaveBeenCalled();
   });
 
-  it("uses gpt-5-mini summary generation for non-ranking recommendation phrasing when an OpenAI API key is configured", async () => {
+  it("keeps category recommendation phrasing deterministic without calling AI", async () => {
     process.env.OPENAI_API_KEY = "test-key";
     global.fetch = vi.fn(async () =>
       ({
@@ -487,27 +483,15 @@ describe("ask ai fallback policy", () => {
 
     const answer = await answerQuestion({ query: "cashback card for online spends" });
 
-    expect(global.fetch).toHaveBeenCalledTimes(1);
-    expect(answer.summary).toMatch(/SBI Cashback Credit Card/);
+    expect(global.fetch).not.toHaveBeenCalled();
+    expect(answer.summary).toBe("Top 10 picks for this query.");
     expect(answer.cards.length).toBeGreaterThan(0);
-    expect(answer.meta?.ai).toMatchObject({
-      aiUsed: true,
-      providersUsed: ["openai"],
-      fallbackUsed: false
+    expect(answer.meta?.ai).toEqual({
+      aiUsed: false,
+      providersUsed: [],
+      fallbackUsed: false,
+      calls: []
     });
-    expect(answer.meta?.ai?.calls).toEqual(
-      expect.arrayContaining([
-        expect.objectContaining({
-          purpose: "top_cards_summary",
-          schema_name: "grounded_top_cards_answer",
-          primary_provider: "openai",
-          provider_used: "openai",
-          fallback_provider: "gemini",
-          fallback_used: false,
-          success: true
-        })
-      ])
-    );
   });
 
   it("uses AI as a fallback for fuzzy specific-card resolution when deterministic matching is weak", async () => {

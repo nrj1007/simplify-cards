@@ -10,7 +10,13 @@ export function getAnalyticsEventsLogPath() {
   return path.join(/*turbopackIgnore: true*/ process.cwd(), "data", "analytics", "events.jsonl");
 }
 
+function canPersistAnalyticsToFilesystem() {
+  return process.env.VERCEL !== "1";
+}
+
 export async function appendAnalyticsEvent(event: StoredAnalyticsEvent) {
+  if (!canPersistAnalyticsToFilesystem()) return event;
+
   try {
     const logPath = getAnalyticsEventsLogPath();
     await fs.mkdir(path.dirname(logPath), { recursive: true });
@@ -22,6 +28,8 @@ export async function appendAnalyticsEvent(event: StoredAnalyticsEvent) {
 }
 
 export async function readAnalyticsLog(limit = 5000): Promise<StoredAnalyticsEvent[]> {
+  if (!canPersistAnalyticsToFilesystem()) return [];
+
   const logPath = getAnalyticsEventsLogPath();
 
   try {

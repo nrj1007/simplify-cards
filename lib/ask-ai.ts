@@ -1503,71 +1503,6 @@ async function generateGroundedSummary(
   return typeof response.result?.summary === "string" && response.result.summary.trim() ? response.result.summary.trim() : null;
 }
 
-function buildGroundedTopCardsPrompt(input: RecommendationInput, shortlistedCards: CardScore[]) {
-  const cardFacts = shortlistedCards.slice(0, 5).map((item, index) => ({
-    rank: index + 1,
-    id: item.card.id,
-    name: item.card.name,
-    issuer: item.card.issuer,
-    annualFee: item.card.annualFee,
-    joiningFee: item.card.joiningFee,
-    bestFor: item.card.bestFor,
-    tags: item.card.tags,
-    loungeDomestic: item.card.loungeDomestic,
-    loungeInternational: item.card.loungeInternational,
-    combinedLoungeAccess: item.card.combinedLoungeAccess ?? null,
-    forexMarkup: item.card.forexMarkup,
-    envelopeBestSpend: item.envelopeScoring?.bestSpendLabel ?? null,
-    estimatedAnnualRewards: item.displayAnnualRewards,
-    estimatedMilestoneValue: item.estimatedMilestoneValue,
-    estimatedAnnualFee: item.estimatedAnnualFee,
-    estimatedNetValue: item.displayNetValue,
-    reasons: item.reasons.slice(0, 5),
-    sourceUrl: item.card.sourceUrl
-  }));
-
-  return JSON.stringify(
-    {
-      userQuestion: input.query ?? "",
-      previousQuestion: input.previousQuery ?? null,
-      isFollowUpQuestion: Boolean(input.previousQuery),
-      requestedCount: requestedTopCardCount(input.query),
-      constraints: {
-        maxAnnualFee: input.maxAnnualFee ?? null,
-        wantsLounge: input.wantsLounge ?? false,
-        wantsLifetimeFree: input.wantsLifetimeFree ?? false
-      },
-      rankedCards: cardFacts
-    },
-    null,
-    2
-  );
-}
-
-async function generateTopCardsSummary(
-  input: RecommendationInput,
-  shortlistedCards: CardScore[],
-  aiTraces?: Array<{ purpose: string; trace: AiCallTrace }>
-) {
-  const response = await callAiWithSchemaDetailed<{ summary: string }>({
-    systemPrompt:
-      "You are a grounded Indian credit-card assistant. Use only the provided ranked card shortlist. Do not change the ranking, do not invent facts, and do not mention cards outside the provided list. Write one short paragraph for a broad top-cards query. Mention the top card first, mention one or two nearby alternatives if helpful, and if envelope spend data is present, briefly note that rankings reflect each card at its strongest spend level. Keep it clean and readable, not robotic.",
-    userPrompt: buildGroundedTopCardsPrompt(input, shortlistedCards),
-    schemaName: "grounded_top_cards_answer",
-    schema: {
-      type: "object",
-      additionalProperties: false,
-      properties: {
-        summary: { type: "string" }
-      },
-      required: ["summary"]
-    }
-  });
-
-  aiTraces?.push({ purpose: "top_cards_summary", trace: response.trace });
-  return typeof response.result?.summary === "string" && response.result.summary.trim() ? response.result.summary.trim() : null;
-}
-
 async function tryAiDatabaseFallback(
   input: RecommendationInput,
   scoredCards: CardScore[],
@@ -1934,10 +1869,9 @@ export async function answerQuestion(input: RecommendationInput): Promise<AskAiR
     const cached = readResolvedCache("top-cards");
     if (cached) return cached;
 
-    const topCardsSummary = await generateTopCardsSummary(input, answer.cards, aiTraces);
     return finalizeAskAnswer(input, resolvedCacheKey("top-cards"), {
       ...answer,
-      summary: topCardsSummary ?? buildFallbackSummary(inputForAnswer, answer.cards),
+      summary: buildFallbackSummary(inputForAnswer, answer.cards),
       highlights: buildTopCardsHighlights(input, answer.cards),
       meta: {
         ...buildAskMeta("top-cards", {

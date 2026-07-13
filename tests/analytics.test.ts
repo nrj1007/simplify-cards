@@ -8,6 +8,7 @@ import { validateAnalyticsEventPayload } from "../lib/analytics";
 
 let tempDir = "";
 let logPath = "";
+const originalVercel = process.env.VERCEL;
 
 function cleanup() {
   if (tempDir && fs.existsSync(tempDir)) {
@@ -24,6 +25,8 @@ describe("analytics validation and logging", () => {
 
   afterEach(() => {
     delete process.env.ANALYTICS_LOG_PATH;
+    if (originalVercel === undefined) delete process.env.VERCEL;
+    else process.env.VERCEL = originalVercel;
     cleanup();
   });
 
@@ -96,6 +99,24 @@ describe("analytics validation and logging", () => {
       event_name: "compare_viewed",
       card_ids: ["a", "b"]
     });
+  });
+
+  it("skips filesystem analytics persistence on Vercel", async () => {
+    process.env.VERCEL = "1";
+
+    await appendAnalyticsEvent({
+      event_name: "ask_query_submitted",
+      received_at: "2026-06-07T12:00:00.000Z",
+      session_id: "session-1",
+      page: "ask",
+      source: "ask",
+      query: "best cashback card",
+      device_type: "desktop",
+      referrer: ""
+    });
+
+    expect(fs.existsSync(logPath)).toBe(false);
+    await expect(readAnalyticsLog()).resolves.toEqual([]);
   });
 
   it("reads recent analytics log entries and skips malformed jsonl lines", async () => {
