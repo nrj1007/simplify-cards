@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useMemo, useRef, useState } from "react";
 import type { Route } from "next";
@@ -124,6 +125,37 @@ function cardSlug(id: string) {
 
 function PhoneFrame({ variant }: { variant: "recommend" | "calculator" | "cards" | "compare" }) {
   const time = variant === "calculator" ? "2:37" : variant === "cards" ? "2:43" : variant === "compare" ? "2:45" : "2:41";
+  const previews = {
+    recommend: {
+      src: "/landing-recommend-preview.png",
+      width: 532,
+      height: 597,
+      title: "Top picks for you",
+      description: "Built for your spend profile and ranked by annual value after fees"
+    },
+    calculator: {
+      src: "/landing-calculator-preview.png",
+      width: 660,
+      height: 863,
+      title: "Redemption value",
+      description: "Compare what your points are worth across redemption options"
+    },
+    cards: {
+      src: "/landing-cards-preview.png",
+      width: 1063,
+      height: 1240,
+      title: "Best reward credit cards",
+      description: "Premium cards with strong overall value, rewards, and privileges"
+    },
+    compare: {
+      src: "/landing-compare-preview.png",
+      width: 533,
+      height: 746,
+      title: "Cashback Credit Card",
+      description: "SBI Card"
+    }
+  } as const;
+  const preview = previews[variant];
 
   return (
     <div className="sc-phone-frame" aria-hidden="true">
@@ -136,66 +168,20 @@ function PhoneFrame({ variant }: { variant: "recommend" | "calculator" | "cards"
         <span className="sc-phone-network">LTE</span>
       </div>
       <div className="sc-phone-screen">
-        {variant === "recommend" ? (
-          <>
-            <div className="sc-mini-recommend-search">
-              <span>recommends loading...</span>
-              <b>view ✨</b>
-            </div>
-            <div className="sc-mini-recommend-card">
-              <span>Top Live Recommender:</span>
-              <div>
-                <b>1. Infinia Metal</b>
-                <strong>99% Match</strong>
-              </div>
-            </div>
-            <span className="sc-phone-cta sc-phone-cta-purple">recommend →</span>
-          </>
-        ) : null}
-        {variant === "calculator" ? (
-          <>
-            <div className="sc-mini-calculator">
-              <span>Adjust Spends:</span>
-              <div>
-                <p>
-                  <b>Online shopping</b>
-                  <strong>₹15k</strong>
-                </p>
-                <i><em /></i>
-              </div>
-            </div>
-            <span className="sc-phone-cta sc-phone-cta-teal">calculator →</span>
-          </>
-        ) : null}
-        {variant === "cards" ? (
-          <>
-            <div className="sc-mini-card-art">
-              <p>
-                <span>Infinia Metal</span>
-                <i />
-              </p>
-              <strong>**** **** **** 8820</strong>
-            </div>
-            <div className="sc-mini-perks">
-              <span>Key Perks:</span>
-              <p>• Unlimited global airport lounge access</p>
-            </div>
-            <span className="sc-phone-cta sc-phone-cta-gold">cards →</span>
-          </>
-        ) : null}
-        {variant === "compare" ? (
-          <>
-            <div className="sc-mini-compare">
-              <span>Comparison Yields:</span>
-              <div>
-                <p><b>Metric</b><b>Infinia</b><b>SBI CB</b></p>
-                <p><span>Rewards</span><strong>₹42.5k</strong><strong>₹12k</strong></p>
-                <p><span>Lounge</span><b>Compl.</b><em>None</em></p>
-              </div>
-            </div>
-            <span className="sc-phone-cta sc-phone-cta-blue">compare →</span>
-          </>
-        ) : null}
+        <div className={`sc-feature-preview sc-feature-preview-${variant}`}>
+          <div className="sc-shot-title-block">
+            <strong>{preview.title}</strong>
+            <span>{preview.description}</span>
+          </div>
+          <Image
+            className="sc-feature-preview-image"
+            src={preview.src}
+            width={preview.width}
+            height={preview.height}
+            alt=""
+            priority
+          />
+        </div>
       </div>
     </div>
   );
@@ -277,6 +263,7 @@ function HeroAskBox() {
         {[
           "best card for lounge access",
           "best cashback card for online shopping",
+          "HDFC Millenia",
           "best card for fuel spends"
         ].map((prompt) => (
           <button type="button" key={prompt} onClick={() => setQuery(prompt)}>
@@ -291,26 +278,26 @@ function HeroAskBox() {
 function FeatureGrid() {
   const features: Array<{ title: string; copy: string; href: Route; variant: "recommend" | "calculator" | "cards" | "compare" }> = [
     {
-      title: "recommend",
-      copy: "Tell us your monthly spends and get a ranked shortlist of cards",
+      title: "Recommend",
+      copy: "Tell us how you spend and get your best cards ranked",
       href: "/recommend",
       variant: "recommend"
     },
     {
-      title: "calculator",
-      copy: "Move spend sliders to estimate annual rewards, fees, and net value",
+      title: "Calculator",
+      copy: "See your annual rewards fees and real value",
       href: "/calculator" as Route,
       variant: "calculator"
     },
     {
-      title: "cards",
-      copy: "Browse verified card details, perks, limits, and exclusions",
-      href: "/finder",
+      title: "Cards",
+      copy: "Find the top cards across every category",
+      href: "/cards",
       variant: "cards"
     },
     {
-      title: "compare",
-      copy: "Compare selected cards side by side on rewards, fees, lounge access, and rules",
+      title: "Compare",
+      copy: "Compare cards side by side and pick the better fit",
       href: "/compare",
       variant: "compare"
     }

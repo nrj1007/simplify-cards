@@ -116,13 +116,9 @@
   cursor: pointer;
 }
 
-.mobileButton span {
-  display: block;
-  width: 4px;
-  height: 4px;
-  margin: 1px;
-  border-radius: 999px;
-  background: currentColor;
+.mobileButton svg {
+  width: 20px;
+  height: 20px;
 }
 
 .mobilePopover {

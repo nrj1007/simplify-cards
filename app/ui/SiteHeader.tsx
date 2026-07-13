@@ -4,6 +4,7 @@ import type { Route } from "next";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
+import { Menu } from "lucide-react";
 import styles from "./SiteChrome.module.css";
 
 export type SiteHeaderLink = { label: string; href: Route };
@@ -74,9 +75,7 @@ export function SiteHeader({ links: providedLinks }: { links?: SiteHeaderLink[] 
         </div>
         <div className={styles.mobileMenu}>
           <button type="button" className={styles.mobileButton} onClick={() => setOpen((value) => !value)} aria-label="Open navigation menu">
-            <span />
-            <span />
-            <span />
+            <Menu aria-hidden="true" size={20} />
           </button>
           {open ? (
             <div className={styles.mobilePopover}>
