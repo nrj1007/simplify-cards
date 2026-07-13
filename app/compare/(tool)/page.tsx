@@ -1,11 +1,10 @@
 import Link from "next/link";
 import type { Metadata } from "next";
-import { ExternalLink } from "lucide-react";
 import { cards } from "@/lib/cards";
 import { logAnalyticsEvent } from "@/lib/analytics-logs";
 import { getLoungeConditions } from "@/lib/lounge";
 import LoungeInfo from "@/app/ui/LoungeInfo";
-import PageHero from "@/app/ui/PageHero";
+import ComparePicker from "@/app/ui/ComparePicker";
 import { TrackedExternalLink, TrackedLink } from "@/app/ui/TrackedLink";
 import { stripScoringAnnotations } from "@/lib/card-index";
 import { buildPageMetadata } from "@/lib/seo";
@@ -33,8 +32,8 @@ export async function generateMetadata({ searchParams }: Props): Promise<Metadat
 }
 
 function formatCurrency(value: number | null | undefined) {
-  if (value === null || value === undefined) return "Not listed";
-  return `₹ ${value.toLocaleString("en-IN")}`;
+  if (value === null || value === undefined) return "Not Listed";
+  return `Rs ${value.toLocaleString("en-IN")}`;
 }
 
 function hasFeeWaiverSpend(value: number | null | undefined) {
@@ -71,7 +70,7 @@ function rewardSummary(card: Card) {
 
 function smartbuyCapSummary(card: Card) {
   const smartbuyRewards = card.rewards.filter((reward) => reward.category.includes("smartbuy"));
-  if (smartbuyRewards.length === 0) return "Not listed";
+  if (smartbuyRewards.length === 0) return "Not Listed";
 
   const caps = smartbuyRewards.map((reward) => {
     const parts = [];
@@ -84,7 +83,7 @@ function smartbuyCapSummary(card: Card) {
 }
 
 function redemptionSummary(card: Card) {
-  if (!card.redemption) return "Not listed";
+  if (!card.redemption) return "Not Listed";
 
   const parts: string[] = [];
   if (typeof card.redemption.smartBuyFlightHotelValue === "number") {
@@ -100,11 +99,11 @@ function redemptionSummary(card: Card) {
     parts.push(`Statement credit: upto ₹ ${card.redemption.statementBalanceValue} per point`);
   }
 
-  return parts.length ? parts.join("; ") : "Not listed";
+  return parts.length ? parts.join("; ") : "Not Listed";
 }
 
 function listPreview(items: string[] | undefined, count = 4) {
-  if (!items || items.length === 0) return "Not listed";
+  if (!items || items.length === 0) return "Not Listed";
   return items.slice(0, count).map(stripScoringAnnotations).join(", ");
 }
 
@@ -175,10 +174,10 @@ function CompareOverviewCard({ card }: { card: Card }) {
             source: "compare",
             card_id: card.id
           }}
-          className="button secondary"
+          className="button secondary details-link"
           href={`/cards/${card.id}`}
         >
-          View details
+          Click for more details →
         </TrackedLink>
         <TrackedExternalLink
           analyticsEvent={{
@@ -187,12 +186,12 @@ function CompareOverviewCard({ card }: { card: Card }) {
             source: "compare",
             card_id: card.id
           }}
-          className="button"
+          className="button apply-now-button"
           href={cardCtaHref(card)}
           rel={cardCtaRel(card)}
           target="_blank"
         >
-          {cardCtaLabel(card)} <ExternalLink size={15} />
+          {cardCtaLabel(card) === "Apply" ? "Apply now" : cardCtaLabel(card)}
         </TrackedExternalLink>
       </div>
     </article>
@@ -201,51 +200,36 @@ function CompareOverviewCard({ card }: { card: Card }) {
 
 export default async function ComparePage({ searchParams }: Props) {
   const params = await searchParams;
-  const first = cards.find((card) => card.id === (params.a ?? "sbi-cashback")) ?? cards[0];
-  const second = cards.find((card) => card.id === (params.b ?? "hdfc-millennia")) ?? cards[1];
-  const showFeeWaiverRow = hasFeeWaiverSpend(first.feeWaiverSpend) || hasFeeWaiverSpend(second.feeWaiverSpend);
-  await logAnalyticsEvent({
-    event_name: "compare_viewed",
-    page: "compare",
-    source: "compare",
-    card_ids: [first.id, second.id]
-  });
+  const first = params.a ? cards.find((card) => card.id === params.a) : undefined;
+  const second = params.b ? cards.find((card) => card.id === params.b) : undefined;
+  const showComparison = Boolean(first && second);
+  const showFeeWaiverRow = Boolean(
+    first && second && (hasFeeWaiverSpend(first.feeWaiverSpend) || hasFeeWaiverSpend(second.feeWaiverSpend))
+  );
+  const pickerCards = cards
+    .map(({ id, issuer, name }) => ({ id, issuer, name }))
+    .sort((a, b) => a.issuer.localeCompare(b.issuer) || a.name.localeCompare(b.name));
+
+  if (first && second) {
+    await logAnalyticsEvent({
+      event_name: "compare_viewed",
+      page: "compare",
+      source: "compare",
+      card_ids: [first.id, second.id]
+    });
+  }
 
   return (
-    <div className="page-shell">
-      <PageHero
-        eyebrow="✦ Compare cards"
-        title="Compare Cards"
-        lead="Compare fees, rewards, lounge access, milestone benefits, and exclusions side by side."
-      />
+    <div className={`page-shell compare-reference-page${showComparison ? " has-results" : " is-empty"}`}>
+      <section className="compare-reference-hero">
+        <div className="container"><h1>Compare</h1></div>
+      </section>
       <section className="page-content">
         <div className="container">
-          <form className="panel card compare-form" style={{ marginBottom: 18 }}>
-        <div className="filters">
-          <div className="field">
-            <label htmlFor="a">First card</label>
-            <select id="a" name="a" defaultValue={first.id}>
-              {cards.map((card) => (
-                <option value={card.id} key={card.id}>
-                  {card.name}
-                </option>
-              ))}
-            </select>
-          </div>
-          <div className="field">
-            <label htmlFor="b">Second card</label>
-            <select id="b" name="b" defaultValue={second.id}>
-              {cards.map((card) => (
-                <option value={card.id} key={card.id}>
-                  {card.name}
-                </option>
-              ))}
-            </select>
-          </div>
-        </div>
-        <button className="button compare-submit">Compare</button>
-      </form>
+          <ComparePicker cards={pickerCards} initialFirst={first?.id} initialSecond={second?.id} />
 
+      {first && second ? (
+        <>
       <div className="grid compare-overview">
         <CompareOverviewCard card={first} />
         <CompareOverviewCard card={second} />
@@ -343,6 +327,8 @@ export default async function ComparePage({ searchParams }: Props) {
           </table>
         </div>
       </div>
+        </>
+      ) : null}
         </div>
       </section>
     </div>
