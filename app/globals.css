@@ -19974,16 +19974,25 @@ html body .card-detail-page .card-reference-details-section {
 }
 
 html body .card-detail-page .card-reference-details-grid {
-  columns: 2;
-  column-gap: 10px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  align-items: stretch;
 }
 
-html body .card-detail-page .card-reference-details-grid > .panel {
+html body .card-detail-page .card-reference-detail-column {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+html body .card-detail-page .card-reference-detail-column > .panel {
   width: 100%;
   min-width: 0;
-  margin: 0 0 10px;
+  margin: 0;
   display: block;
-  break-inside: avoid;
   border: 1px solid rgba(232, 223, 207, 0.96);
   border-radius: 25px;
   background: rgba(255, 253, 248, 0.92);
@@ -20058,7 +20067,11 @@ html body .card-detail-page .card-detail-calculator-output dd {
 
 @media (max-width: 960px) {
   html body .card-detail-page .card-reference-details-grid {
-    columns: 1;
+    grid-template-columns: 1fr;
+  }
+
+  html body .card-detail-page .card-reference-detail-column {
+    justify-content: flex-start;
   }
 
   html body .card-detail-page .card-detail-calculator-output.is-cashback {

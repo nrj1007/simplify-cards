@@ -497,6 +497,7 @@ export default async function CardPage({ params }: Props) {
                 <h2>How the card works</h2>
               </div>
               <div className="card-reference-details-grid">
+                <div className="card-reference-detail-column">
             <section className="panel card-reference-detail-card">
               <div className="panel-body">
                 <div className="section-head">
@@ -681,6 +682,8 @@ export default async function CardPage({ params }: Props) {
                 </div>
               </section>
             ) : null}
+                </div>
+                <div className="card-reference-detail-column">
 
             {card.exclusions.length ? (
               <section className="panel card-reference-detail-card">
@@ -800,6 +803,7 @@ export default async function CardPage({ params }: Props) {
                 </div>
               </section>
             ) : null}
+                </div>
               </div>
             </section>
 
