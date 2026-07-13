@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     type: "website"
   },
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
     title: `Find the Right Indian Credit Card | ${SITE_NAME}`,
     description:
       "Ask questions, compare cards, estimate rewards, and find the right Indian credit card with verified fees, benefits, lounges, exclusions, and redemption details."
