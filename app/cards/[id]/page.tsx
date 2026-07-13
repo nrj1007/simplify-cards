@@ -682,6 +682,31 @@ export default async function CardPage({ params }: Props) {
                 </div>
               </section>
             ) : null}
+
+            {cardContent?.tips.length ? (
+              <section className="panel card-reference-detail-card">
+                <div className="panel-body">
+                  <div className="section-head">
+                    <div>
+                      <h2 className="section-title">Tips</h2>
+                      <p className="section-sub">Practical notes from verified sources.</p>
+                    </div>
+                  </div>
+                  <div className="content-list">
+                    {cardContent.tips.map((tip, index) => (
+                      <article className="content-item" key={`${tip.sourceLabel}-${index}`}>
+                        <p className="muted">{tip.text}</p>
+                        {tip.sourceUrl ? (
+                          <a className="button secondary" href={tip.sourceUrl} rel="nofollow" target="_blank">
+                            Open source <ExternalLink size={15} />
+                          </a>
+                        ) : null}
+                      </article>
+                    ))}
+                  </div>
+                </div>
+              </section>
+            ) : null}
                 </div>
                 <div className="card-reference-detail-column">
 
@@ -886,31 +911,6 @@ export default async function CardPage({ params }: Props) {
                             Details
                           </Link>
                         </div>
-                      </article>
-                    ))}
-                  </div>
-                </div>
-              </section>
-            ) : null}
-
-            {cardContent?.tips.length ? (
-              <section className="panel">
-                <div className="panel-body">
-                  <div className="section-head">
-                    <div>
-                      <h2 className="section-title">Tips</h2>
-                      <p className="section-sub">Practical notes from verified sources.</p>
-                    </div>
-                  </div>
-                  <div className="content-list">
-                    {cardContent.tips.map((tip, index) => (
-                      <article className="content-item" key={`${tip.sourceLabel}-${index}`}>
-                        <p className="muted">{tip.text}</p>
-                        {tip.sourceUrl ? (
-                          <a className="button secondary" href={tip.sourceUrl} rel="nofollow" target="_blank">
-                            Open source <ExternalLink size={15} />
-                          </a>
-                        ) : null}
                       </article>
                     ))}
                   </div>
