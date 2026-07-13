@@ -417,6 +417,256 @@ html body .compare-reference-page .compare-table tbody tr:last-child td { border
   html body .compare-reference-page .compare-card .apply-now-button { width: 100%; }
 }
 
+/* Updates reference layout. Shared header and footer remain outside this scope. */
+.main:has(.updates-reference-page) {
+  padding: 0;
+}
+
+html body .updates-reference-page {
+  min-height: 60vh;
+  color: #1e112c;
+  background: transparent;
+}
+
+html body .updates-reference-page .updates-cards-shell {
+  width: 100%;
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 0 32px 72px;
+}
+
+html body .updates-reference-page .updates-simple-title {
+  padding: 34px 0 20px;
+  overflow: visible;
+}
+
+html body .updates-reference-page .updates-simple-title h1 {
+  display: block;
+  max-width: none;
+  margin: 0;
+  padding: 0 0 0.06em;
+  color: #1e112c;
+  font-size: 64px;
+  line-height: 1.08;
+  font-weight: 800;
+  letter-spacing: 0;
+}
+
+html body .updates-reference-page .updates-page-status {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
+
+html body .updates-reference-page .updates-row,
+html body .updates-reference-page .updates-pagination,
+html body .updates-reference-page .updates-empty {
+  width: 100%;
+  max-width: 760px;
+}
+
+html body .updates-reference-page .updates-row {
+  margin-bottom: 34px;
+}
+
+html body .updates-reference-page .updates-row-head {
+  margin: 0 0 4px;
+}
+
+html body .updates-reference-page .updates-row-head h2 {
+  margin: 0;
+  padding: 0 0 10px;
+  border-bottom: 1px solid rgba(227, 223, 211, 0.92);
+  color: #5b5466;
+  font-size: 14px;
+  line-height: 1.4;
+  font-weight: 800;
+  letter-spacing: 0;
+}
+
+html body .updates-reference-page .updates-list {
+  width: 100%;
+}
+
+html body .updates-reference-page .updates-tile {
+  position: relative;
+  display: block;
+  width: 100%;
+  min-width: 0;
+  padding: 20px 0 22px;
+  border: 0;
+  border-bottom: 1px solid rgba(227, 223, 211, 0.82);
+  border-radius: 0;
+  color: #1e112c;
+  background: transparent;
+  box-shadow: none;
+}
+
+html body .updates-reference-page .updates-tile-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 7px;
+  margin-bottom: 7px;
+}
+
+html body .updates-reference-page .updates-card-name,
+html body .updates-reference-page .updates-date {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+html body .updates-reference-page .updates-card-name {
+  color: #202124;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+html body .updates-reference-page .updates-card-name:hover {
+  color: #581c87;
+  text-decoration: underline;
+}
+
+html body .updates-reference-page .updates-date {
+  color: #6f6878;
+  font-weight: 500;
+}
+
+html body .updates-reference-page .updates-date::before {
+  content: "\2022";
+  margin-right: 7px;
+  color: #9b94a3;
+}
+
+html body .updates-reference-page .updates-tile-art {
+  position: static;
+  display: flex;
+  flex-direction: column;
+  width: auto;
+  min-height: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+
+html body .updates-reference-page .updates-issuer {
+  order: 2;
+  margin: 4px 0 8px;
+  color: #5f6368;
+  font-size: 12px;
+  line-height: 1.4;
+  font-weight: 500;
+}
+
+html body .updates-reference-page .updates-title {
+  order: 1;
+  margin: 0;
+  color: #581c87;
+  font-size: clamp(1.2rem, 2.2vw, 1.4rem);
+  line-height: 1.28;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+
+html body .updates-reference-page .updates-tile-copy {
+  display: block;
+}
+
+html body .updates-reference-page .updates-summary {
+  margin: 0 0 8px;
+  color: #4d5156;
+  font-size: 14px;
+  line-height: 1.58;
+  font-weight: 400;
+}
+
+html body .updates-reference-page .updates-source {
+  display: inline;
+  color: #6f6878;
+  font-size: 12px;
+  line-height: 1.45;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+html body .updates-reference-page a.updates-source:hover {
+  color: #581c87;
+  text-decoration: underline;
+}
+
+html body .updates-reference-page .updates-pagination {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  margin: 36px 0 0;
+  padding: 8px 0 0;
+  border: 0;
+}
+
+html body .updates-reference-page .updates-pagination button {
+  min-width: 0;
+  padding: 5px 2px;
+  border: 0;
+  border-radius: 0;
+  color: #581c87;
+  background: transparent;
+  box-shadow: none;
+  font: inherit;
+  font-size: 15px;
+  line-height: 1.2;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+html body .updates-reference-page .updates-pagination button:hover {
+  color: #3f0d68;
+  text-decoration: underline;
+  text-underline-offset: 5px;
+}
+
+html body .updates-reference-page .updates-pagination button[aria-current="page"] {
+  color: #1e112c;
+  font-weight: 900;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 6px;
+}
+
+html body .updates-reference-page .updates-empty {
+  padding: 20px 0 48px;
+}
+
+@media (max-width: 639px) {
+  html body .updates-reference-page .updates-cards-shell {
+    padding-right: 16px;
+    padding-left: 16px;
+  }
+
+  html body .updates-reference-page .updates-simple-title {
+    padding-top: 24px;
+    padding-bottom: 20px;
+  }
+
+  html body .updates-reference-page .updates-simple-title h1 {
+    font-size: 41.6px;
+  }
+
+  html body .updates-reference-page .updates-tile {
+    padding-top: 18px;
+    padding-bottom: 20px;
+  }
+}
+
 /* Card detail reference layout: scoped so the shared header, footer, and other routes stay unchanged. */
 .card-detail-page {
   --card-ref-ink: #1e112c;
