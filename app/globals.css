@@ -19984,7 +19984,7 @@ html body .card-detail-page .card-reference-detail-column {
   min-width: 0;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
   gap: 10px;
 }
 
@@ -19997,6 +19997,10 @@ html body .card-detail-page .card-reference-detail-column > .panel {
   border-radius: 25px;
   background: rgba(255, 253, 248, 0.92);
   box-shadow: 0 16px 42px rgba(30, 17, 44, 0.06);
+}
+
+html body .card-detail-page .card-reference-detail-column > .panel:last-child {
+  flex-grow: 1;
 }
 
 html body .card-detail-page .card-reference-details-grid > .panel > .panel-body {
