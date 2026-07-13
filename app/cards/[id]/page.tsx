@@ -711,14 +711,16 @@ export default async function CardPage({ params }: Props) {
                 <div className="card-reference-detail-column">
 
             {card.exclusions.length ? (
-              <section className="panel card-reference-detail-card">
+              <section className="panel card-reference-detail-card card-reference-exclusions" id="exclusions">
                 <div className="panel-body">
                   <div className="section-head">
                     <div>
-                      <h2 className="section-title">Spending that does not earn {card.rewardType.toLowerCase()}</h2>
+                      <h2 className="section-title">Exclusions</h2>
+                      <p className="section-sub">Spending that does not earn {card.rewardType.toLowerCase()}.</p>
                     </div>
+                    <span className="card-reference-exclusion-count">{card.exclusions.length} listed</span>
                   </div>
-                  <DetailList className="detail-list-columns" items={card.exclusions} />
+                  <DetailList className="detail-list-columns card-reference-exclusion-list" items={card.exclusions} />
                 </div>
               </section>
             ) : null}

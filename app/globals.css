@@ -20781,6 +20781,30 @@ h6::first-letter {
   text-transform: uppercase;
 }
 
+html body .card-detail-page .card-reference-exclusions .section-head {
+  align-items: flex-start;
+}
+
+html body .card-detail-page .card-reference-exclusion-count {
+  flex: 0 0 auto;
+  padding: 6px 9px;
+  border: 1px solid #ead9f2;
+  border-radius: 999px;
+  color: #581c87;
+  background: #f5eafd;
+  font-size: 11px;
+  line-height: 1.2;
+  font-weight: 800;
+}
+
+html body .card-detail-page .card-reference-exclusion-list {
+  margin-top: 17px;
+}
+
+html body .card-detail-page .card-reference-exclusion-list li::marker {
+  color: #8f6b22;
+}
+
 /* SEO guide pages. Shared header and footer intentionally remain outside this scope. */
 .main:has(.seo-guide) {
   padding: 0;
