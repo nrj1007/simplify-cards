@@ -1,7 +1,7 @@
 import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
-import { afterEach, beforeEach, describe, expect, it } from "vitest";
+import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { POST } from "../app/api/analytics/route";
 import { appendAnalyticsEvent, readAnalyticsLog } from "../lib/analytics-logs";
 import { validateAnalyticsEventPayload } from "../lib/analytics";
@@ -27,6 +27,7 @@ describe("analytics validation and logging", () => {
     delete process.env.ANALYTICS_LOG_PATH;
     if (originalVercel === undefined) delete process.env.VERCEL;
     else process.env.VERCEL = originalVercel;
+    vi.restoreAllMocks();
     cleanup();
   });
 
@@ -101,8 +102,9 @@ describe("analytics validation and logging", () => {
     });
   });
 
-  it("skips filesystem analytics persistence on Vercel", async () => {
+  it("writes structured runtime logs instead of filesystem analytics on Vercel", async () => {
     process.env.VERCEL = "1";
+    const consoleInfo = vi.spyOn(console, "info").mockImplementation(() => {});
 
     await appendAnalyticsEvent({
       event_name: "ask_query_submitted",
@@ -116,6 +118,13 @@ describe("analytics validation and logging", () => {
     });
 
     expect(fs.existsSync(logPath)).toBe(false);
+    expect(consoleInfo).toHaveBeenCalledTimes(1);
+    expect(JSON.parse(String(consoleInfo.mock.calls[0]?.[0]))).toMatchObject({
+      log_type: "analytics_event",
+      event_name: "ask_query_submitted",
+      page: "ask",
+      query: "best cashback card"
+    });
     await expect(readAnalyticsLog()).resolves.toEqual([]);
   });
 

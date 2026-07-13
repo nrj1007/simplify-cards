@@ -15,7 +15,10 @@ function canPersistAnalyticsToFilesystem() {
 }
 
 export async function appendAnalyticsEvent(event: StoredAnalyticsEvent) {
-  if (!canPersistAnalyticsToFilesystem()) return event;
+  if (!canPersistAnalyticsToFilesystem()) {
+    console.info(JSON.stringify({ log_type: "analytics_event", ...event }));
+    return event;
+  }
 
   try {
     const logPath = getAnalyticsEventsLogPath();
