@@ -74,12 +74,7 @@ textarea {
 /* Compare reference layout. Shared header and footer are intentionally outside this scope. */
 html body .compare-reference-page {
   color: #1e112c;
-  background:
-    linear-gradient(rgba(88, 28, 135, 0.035) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(88, 28, 135, 0.035) 1px, transparent 1px),
-    radial-gradient(circle at 78% 8%, rgba(216, 182, 106, 0.14), transparent 35%),
-    #fbfaf7;
-  background-size: 56px 56px, 56px 56px, auto, auto;
+  background: transparent;
 }
 
 html body .compare-reference-page > .compare-reference-hero {
