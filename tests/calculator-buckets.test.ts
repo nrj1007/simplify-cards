@@ -74,18 +74,14 @@ describe("calculator buckets", () => {
     expect(hasHidden).toBe(false);
   });
 
-  it("moreCategoriesForCard returns the fixed 5 minus any already present as a bucket ID or covered by reward category", () => {
+  it("moreCategoriesForCard returns only uncovered categories that are not excluded", () => {
     const card = getCardById("axis-cashback");
     expect(card).toBeTruthy();
     const buckets = calculatorBucketsForCard(card!);
-    const bucketIds = new Set(buckets.map((b) => b.id));
     const moreCats = moreCategoriesForCard(card!);
-    
-    // Axis Cashback has:
-    // bucket IDs: online, utilities, base.
-    // Fixed 5: ["rent", "insurance", "education", "gold", "government"]
-    // None of these 5 are in the bucket IDs for axis-cashback, so it should return all 5.
-    expect(moreCats).toEqual(["rent", "insurance", "education", "gold", "government"]);
+
+    expect(moreCats.every((cat) => !buckets.some((bucket) => bucket.id === cat))).toBe(true);
+    expect(moreCats.every((cat) => !calculateRewards(card!, { [cat]: 1000 }).rows.some((row) => row.category === cat && row.excluded))).toBe(true);
 
     // Test that au-ixigo (which has a dedicated insurance row) does not return insurance in moreCategoriesForCard
     const auIxigo = getCardById("au-ixigo");

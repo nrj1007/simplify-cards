@@ -232,7 +232,9 @@ function isCategoryCoveredByBuckets(cat: SpendCategory, buckets: CalculatorBucke
 
 export function moreCategoriesForCard(card: CreditCard): SpendCategory[] {
   const buckets = calculatorBucketsForCard(card);
-  return MORE_CATEGORIES.filter((cat) => !isCategoryCoveredByBuckets(cat, buckets));
+  return MORE_CATEGORIES.filter(
+    (cat) => !isCategoryCoveredByBuckets(cat, buckets) && !isCategoryExcluded(card, cat)
+  );
 }
 
 function findRewardsForCategory(card: CreditCard, category: SpendCategory): Reward[] {

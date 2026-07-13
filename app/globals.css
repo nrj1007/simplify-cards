@@ -329,7 +329,7 @@ textarea {
   display: grid;
   grid-template-columns: minmax(0, 1fr) 330px;
   gap: 20px;
-  align-items: stretch;
+  align-items: start;
   padding: 18px;
   border: 1px solid rgba(232, 223, 207, 0.96);
   border-radius: 30px;
@@ -396,6 +396,8 @@ textarea {
 .card-detail-calculator-more svg.is-open { transform: rotate(180deg); }
 
 .card-detail-calculator-output {
+  align-self: start;
+  min-height: 410px;
   padding: 18px;
   border-radius: 24px;
   display: flex;
