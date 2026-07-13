@@ -1,14 +1,28 @@
-const puppeteer = require('puppeteer');
+const { chromium } = require('playwright');
+const path = require('path');
 
 (async () => {
-  const browser = await puppeteer.launch({ headless: true });
+  const browser = await chromium.launch({ headless: true });
   const page = await browser.newPage();
   
-  // Set viewport to mobile size to force clipping scenarios
-  await page.setViewport({ width: 375, height: 812 });
+  // Mobile viewport to simulate clipping
+  await page.setViewportSize({ width: 375, height: 812 });
   
-  // Navigate to local dev server (assuming it's running, or we just load the HTML)
-  // Wait, I will just create a test HTML file with the exact CSS and HTML structure!
-  
-  await browser.close();
+  try {
+    console.log("Navigating to calculator...");
+    await page.goto('http://localhost:3000/calculator?card=amex-gold', { waitUntil: 'networkidle' });
+    
+    // Wait for the milestone progress section to render
+    await page.waitForSelector('.milestone-progress-section', { timeout: 10000 });
+    
+    console.log("Taking screenshot...");
+    const screenshotPath = path.join(__dirname, 'milestone-screenshot.png');
+    await page.locator('.milestone-progress-section').screenshot({ path: screenshotPath });
+    
+    console.log(`Screenshot saved to ${screenshotPath}`);
+  } catch (err) {
+    console.error("Error during Playwright execution:", err);
+  } finally {
+    await browser.close();
+  }
 })();
