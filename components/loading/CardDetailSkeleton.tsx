@@ -1,53 +1,25 @@
 export function CardDetailSkeleton() {
   return (
-    <main className="loading-page">
-      <div className="loading-container card-detail-loading-grid">
-        <section className="loading-panel card-detail-loading-hero">
-          <div>
-            <div className="loading-panel-title compact">
-              <span className="loading-spinner-badge" aria-hidden="true">
-                <span />
-              </span>
-              <div aria-hidden="true" className="loading-copy-block">
-                <div className="loading-title medium" />
-                <div className="loading-subtitle short" />
-              </div>
-            </div>
-            <div className="loading-pill" />
-            <div className="loading-title wide" />
-            <div className="loading-subtitle" />
+    <main className="loading-page card-detail-reference-loading">
+      <div className="loading-container">
+        <section className="card-detail-reference-loading-hero">
+          <div className="loading-copy-block" aria-hidden="true">
             <div className="loading-subtitle short" />
-            <div className="loading-chip-row">
-              <span />
-              <span />
-              <span />
-            </div>
+            <div className="loading-title wide" />
           </div>
-          <div className="loading-card-face">
+          <div className="loading-panel card-detail-reference-loading-product">
             <div className="loading-card-image" />
-            <div className="loading-mini-grid">
-              <span />
-              <span />
-              <span />
-              <span />
-            </div>
+            <div className="loading-mini-grid"><span /><span /></div>
           </div>
         </section>
-
-        <aside className="loading-panel card-detail-loading-side">
-          <div className="loading-card-image" />
-          <div className="skeleton-line short" />
-          <div className="skeleton-block button" />
-          <div className="skeleton-block button muted" />
-          <div className="skeleton-block button muted" />
-        </aside>
-
+        <div className="loading-mini-grid card-detail-reference-loading-metrics">
+          <span /><span /><span /><span />
+        </div>
         <section className="loading-panel loading-wide-panel">
           <div className="skeleton-line heading" />
           <div className="skeleton-line" />
           <div className="skeleton-line short" />
         </section>
-
         <section className="loading-panel loading-wide-panel">
           <div className="skeleton-line heading" />
           <div className="skeleton-table" />

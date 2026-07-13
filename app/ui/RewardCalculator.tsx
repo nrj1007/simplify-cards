@@ -28,7 +28,7 @@ type Props = {
   card: CreditCard;
   milestones?: MilestoneRule[];
   picker?: ReactNode;
-  variant?: "compact" | "calculator";
+  variant?: "compact" | "calculator" | "card-detail";
 };
 
 const DEFAULT_SPEND: Partial<Record<SpendCategory, number>> = {
@@ -476,6 +476,67 @@ export default function RewardCalculator({ card, milestones = [], picker, varian
     observer.observe(scroller);
     return () => observer.disconnect();
   }, [annualUnits]);
+
+  if (variant === "card-detail") {
+    const netAfterAnnualFee = totalReturnsPlusVoucher - result.annualSurcharge - card.annualFee;
+    const controls = [
+      ...buckets.map((bucket) => ({ id: bucket.id, label: bucket.label, displayRate: bucket.displayRate })),
+      ...(showAdditional
+        ? moreCats.map((category) => ({ id: category, label: CATEGORY_LABELS[category], displayRate: undefined }))
+        : [])
+    ];
+
+    return (
+      <div className="card-detail-calculator">
+        <div className="card-detail-calculator-controls">
+          {controls.map((control) => {
+            const value = spend[control.id] ?? 0;
+            const excluded = result.rows.find((row) => row.category === control.id)?.excluded ?? false;
+            return (
+              <div className="card-detail-range-row" key={control.id}>
+                <label htmlFor={controlId(control.id, "-detail")}>
+                  {control.label}
+                  {control.displayRate ? <small>{control.displayRate}</small> : null}
+                  {excluded && value > 0 ? <small>Not rewarded</small> : null}
+                </label>
+                <input
+                  id={controlId(control.id, "-detail")}
+                  max={SLIDER_MAX}
+                  min={0}
+                  step={SLIDER_STEP}
+                  style={sliderStyle(value)}
+                  type="range"
+                  value={value}
+                  onChange={(event) => setCategory(control.id, Number(event.target.value))}
+                />
+                <output htmlFor={controlId(control.id, "-detail")}>{formatINR(value)}</output>
+              </div>
+            );
+          })}
+          {moreCats.length > 0 ? (
+            <button className="card-detail-calculator-more" type="button" onClick={() => setShowAdditional((value) => !value)}>
+              <ChevronDown className={showAdditional ? "is-open" : ""} size={16} />
+              {showAdditional ? "Fewer categories" : "More categories"}
+            </button>
+          ) : null}
+        </div>
+
+        <aside className="card-detail-calculator-output" aria-live="polite">
+          <div>
+            <span>Estimated annual {cashback ? "cashback" : "reward value"}</span>
+            <strong>{formatINR(totalReturnsPlusVoucher)}</strong>
+          </div>
+          <dl>
+            <div><dt>Annual spend</dt><dd>{formatINR(annualSpend)}</dd></div>
+            <div><dt>Effective return</dt><dd>{effectiveRate.toFixed(1)}%</dd></div>
+            {result.annualSurcharge > 0 ? <div><dt>Annual surcharge</dt><dd>{formatINR(result.annualSurcharge)}</dd></div> : null}
+            <div><dt>Net after annual fee</dt><dd>{formatINR(netAfterAnnualFee)}</dd></div>
+          </dl>
+          {calculatorNote ? <p>{calculatorNote}</p> : null}
+        </aside>
+      </div>
+    );
+  }
 
   if (variant === "calculator") {
     const earnedMilestone = earnedMilestones[earnedMilestones.length - 1] ?? null;

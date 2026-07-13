@@ -6,7 +6,6 @@ import { cards, getCardById } from "@/lib/cards";
 import { getCardContent } from "@/lib/card-content";
 import { getTotalLoungeAccess } from "@/lib/lounge";
 import AskFeedback from "@/app/ui/AskFeedback";
-import AskBox from "@/app/ui/AskBox";
 import RewardCalculator from "@/app/ui/RewardCalculator";
 import CardImageFallback from "@/app/ui/CardImageFallback";
 import { TrackedExternalLink } from "@/app/ui/TrackedLink";
@@ -393,47 +392,18 @@ export default async function CardPage({ params }: Props) {
   const compareHref = (
     firstAlternative ? `/compare?a=${card.id}&b=${firstAlternative.id}` : `/compare?a=${card.id}`
   ) as Route;
-  const fitQueryHref = `/ask?query=${encodeURIComponent(`Is the ${card.name} a good fit for me?`)}` as Route;
-
+  const headlineReward = [...rewardRows]
+    .sort((a, b) => b.reward.rate - a.reward.rate)[0]?.reward;
   const heroMetrics: Array<{ value: string; label: string }> = [
     { value: card.annualFee === 0 ? "Lifetime free" : formatCurrency(card.annualFee), label: "Annual fee" },
     hasFeeWaiverSpend(card.feeWaiverSpend)
       ? { value: formatRupeesCompact(card.feeWaiverSpend as number), label: "Fee waiver spend" }
       : { value: formatCurrency(card.joiningFee), label: "Joining fee" },
-    loungeValue ? { value: loungeValue, label: "Lounge visits" } : { value: card.network.join(" / "), label: "Network" },
+    headlineReward
+      ? { value: formatRewardRate(card, headlineReward), label: `Top ${card.rewardType.toLowerCase()} rate` }
+      : { value: card.network.join(" / "), label: "Network" },
     { value: `${card.forexMarkup}%`, label: "Forex markup" }
   ];
-
-  const quickFacts: Array<{ value: string; label: string }> = [
-    {
-      value: card.annualFee === 0 && card.joiningFee === 0 ? "Lifetime free" : formatCurrency(card.annualFee),
-      label: card.joiningFee === card.annualFee && card.annualFee !== 0 ? "Joining + annual fee" : "Annual fee"
-    }
-  ];
-  quickFacts.push(
-    hasFeeWaiverSpend(card.feeWaiverSpend)
-      ? { value: formatRupeesCompact(card.feeWaiverSpend as number), label: "Annual fee waiver spend" }
-      : { value: card.network.join(" / "), label: "Network" }
-  );
-  if (card.combinedLoungeAccess !== undefined) {
-    quickFacts.push({
-      value: card.combinedLoungeAccess === "unlimited" ? "Unlimited" : `${card.combinedLoungeAccess}`,
-      label: card.combinedLoungeAccessLabel ?? "Lounge / year"
-    });
-    quickFacts.push({ value: `${card.forexMarkup}%`, label: "Forex markup" });
-  } else if (loungeValue) {
-    quickFacts.push({
-      value: card.loungeDomestic === "unlimited" ? "Unlimited" : `${card.loungeDomestic}`,
-      label: "Domestic lounge / yr"
-    });
-    quickFacts.push({
-      value: card.loungeInternational === "unlimited" ? "Unlimited" : `${card.loungeInternational}`,
-      label: "International lounge / yr"
-    });
-  } else {
-    quickFacts.push({ value: `${card.forexMarkup}%`, label: "Forex markup" });
-    quickFacts.push({ value: formatCurrency(card.joiningFee), label: "Joining fee" });
-  }
 
   const cardImageStyle = card.id === "hdfc-regalia-gold" ? { objectPosition: "center 25%" as const } : undefined;
 
@@ -446,176 +416,89 @@ export default async function CardPage({ params }: Props) {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
         />
       ))}
-      <section className="page-hero">
-        <div className="container page-hero-inner card-hero-grid">
-          <div className="card-hero-copy">
-            <div className="page-eyebrow">✦ Card detail</div>
-            <h1>{card.name}</h1>
-            <p className="page-hero-lead">
-              A {card.rewardType} card{card.bestFor.length ? ` for ${card.bestFor.slice(0, 3).join(", ")}` : ""}.
-            </p>
-            <div className="card-hero-tags">
-              {card.bestFor[0] ? <span className="tag primary">{titleCaseWord(card.bestFor[0])}</span> : null}
-              {card.tags
-                .filter((tag) => tag.toLowerCase() !== (card.bestFor[0] ?? "").toLowerCase())
-                .map((tag) => (
-                  <span className="tag" key={tag}>
-                    {titleCaseWord(tag)}
-                  </span>
-                ))}
-              {loungeValue ? <span className="tag">{loungeValue} lounge visits</span> : null}
-              <span className="tag">{card.forexMarkup}% forex</span>
-              <span className="tag">Last verified: {card.lastVerified}</span>
+      <main>
+        <section className="card-reference-hero">
+          <div className="container card-reference-hero-grid">
+            <div className="card-reference-identity">
+              <p>{card.issuer}</p>
+              <h1>{card.name}</h1>
             </div>
-          </div>
-
-          <aside className="card-hero-card">
-            <div className="card-hero-image">
+            <div className="card-reference-product">
+              <div className="card-reference-image-stage">
               {card.imageUrl ? (
                 <img src={card.imageUrl} alt={`${card.name} credit card`} style={cardImageStyle} />
               ) : (
                 <CardImageFallback issuer={card.issuer} name={card.name} />
               )}
-            </div>
-            <div className="card-hero-top">
-              <div>
-                <div className="issuer">{card.issuer}</div>
-                <h2>{card.name}</h2>
+              </div>
+              <div className="card-reference-product-actions">
+                <TrackedExternalLink
+                  analyticsEvent={{ event_name: "apply_clicked", page: "cards/[id]", source: "details", card_id: card.id }}
+                  className="card-reference-btn primary"
+                  href={cardCtaHref(card)}
+                  rel={cardCtaRel(card)}
+                  target="_blank"
+                >
+                  {ctaLabel}
+                </TrackedExternalLink>
+                <Link className="card-reference-btn" href={compareHref}>Compare</Link>
               </div>
             </div>
-            <div className="card-hero-metrics">
-              {heroMetrics.map((metric) => (
-                <div className="card-hero-metric" key={metric.label}>
-                  <b>{metric.value}</b>
-                  <span>{metric.label}</span>
-                </div>
-              ))}
-            </div>
-            <div className="card-hero-actions">
-              <a className="btn btn-primary" href="#calculator">
-                Calculate rewards →
-              </a>
-              <Link className="btn btn-ghost" href={compareHref}>
-                Compare before applying
-              </Link>
-            </div>
-          </aside>
-        </div>
-      </section>
+          </div>
+        </section>
 
-      <section className="page-content">
-        <div className="container content-grid">
-          <div className="main-stack">
+        <section className="card-reference-section card-reference-metrics-section">
+          <div className="container card-reference-metrics">
+            {heroMetrics.map((metric) => (
+              <article key={metric.label}>
+                <strong>{metric.value}</strong>
+                <span>{metric.label}</span>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <div className="container card-reference-stack">
             {take ? (
-              <section className="panel" id="take">
-                <div className="panel-body">
-                  <div className="section-head">
-                    <div>
-                      <h2 className="section-title">SimplifyCards take</h2>
-                      <p className="section-sub">A quick decision view before the full facts.</p>
-                    </div>
-                  </div>
-                  <p className="take-lead">
-                    <strong>Good fit if:</strong> {take.goodFitIf}.
-                  </p>
-                  {take.whyItWorks || take.whereValueDrops ? (
-                    <div className="take-grid">
-                      {take.whyItWorks ? (
-                        <article className="take good">
-                          <h3>Why it can work</h3>
-                          <p>{take.whyItWorks}</p>
-                        </article>
-                      ) : null}
-                      {take.whereValueDrops ? (
-                        <article className="take warn">
-                          <h3>Where value may drop</h3>
-                          <p>{take.whereValueDrops}</p>
-                        </article>
-                      ) : null}
-                    </div>
-                  ) : null}
+              <section className="card-reference-decision-section" id="take">
+                <p className="card-reference-take">
+                  <span>SimplifyCards take:</span>
+                  <strong>{take.goodFitIf ? `A good fit if ${take.goodFitIf}.` : take.whyItWorks}</strong>
+                </p>
+                <div className="card-reference-decisions">
+                  <article className="good">
+                    <h3>Best for</h3>
+                    <strong>{bestFor[0]?.title ?? titleCaseWord(card.bestFor[0] ?? card.rewardType)}</strong>
+                    <p>{bestFor[0]?.desc || take.whyItWorks}</p>
+                  </article>
+                  <article className="warn">
+                    <h3>Watch out</h3>
+                    <strong>{avoidIf[0]?.title ?? "Check the conditions"}</strong>
+                    <p>{avoidIf[0]?.desc || take.whereValueDrops}</p>
+                  </article>
+                  <article className="verdict">
+                    <h3>Bottom line</h3>
+                    <strong>{take.goodFitIf ? `Good fit if ${take.goodFitIf}.` : card.name}</strong>
+                    <p>{take.whyItWorks || take.whereValueDrops}</p>
+                  </article>
                 </div>
               </section>
             ) : null}
+
+            <section className="card-reference-section" id="calculator">
+              <div className="card-reference-section-title">
+                <h2>Estimate your {card.rewardType.toLowerCase()}</h2>
+                <p>Adjust your monthly spend to see the card&apos;s estimated annual value.</p>
+              </div>
+              <RewardCalculator card={card} milestones={milestoneRulesForCard(card)} variant="card-detail" />
+            </section>
 
             <section className="panel">
               <div className="panel-body">
                 <div className="section-head">
                   <div>
-                    <h2 className="section-title">Quick facts</h2>
-                    <p className="section-sub">The key fields before the full details.</p>
-                  </div>
-                </div>
-                <div className="score-grid">
-                  {quickFacts.slice(0, 4).map((fact) => (
-                    <div className="score" key={fact.label}>
-                      <b>{fact.value}</b>
-                      <span>{fact.label}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </section>
-
-            <section className="panel" id="calculator">
-              <div className="panel-body">
-                <div className="section-head">
-                  <div>
-                    <h2 className="section-title">Reward calculator</h2>
-                    <p className="section-sub">
-                      Enter your monthly spend to estimate how many {card.rewardType} you earn and what they are worth.
-                    </p>
-                  </div>
-                </div>
-                <RewardCalculator card={card} milestones={milestoneRulesForCard(card)} />
-              </div>
-            </section>
-
-            {bestFor.length > 0 || avoidIf.length > 0 ? (
-              <section className="panel">
-                <div className="panel-body">
-                  <div className="section-head">
-                    <div>
-                      <h2 className="section-title">Best for / avoid if</h2>
-                      <p className="section-sub">Who this card suits — and who should skip it.</p>
-                    </div>
-                  </div>
-                  {bestFor.length ? (
-                    <div className="benefit-grid">
-                      {bestFor.map((item) => (
-                        <article className="benefit" key={item.title}>
-                          <div className="benefit-icon">{item.icon}</div>
-                          <div>
-                            <h3>{item.title}</h3>
-                            <p>{item.desc}</p>
-                          </div>
-                        </article>
-                      ))}
-                    </div>
-                  ) : null}
-                  {avoidIf.length ? (
-                    <div className="benefit-grid" style={{ marginTop: bestFor.length ? 14 : 0 }}>
-                      {avoidIf.map((item) => (
-                        <article className="benefit warn" key={item.title}>
-                          <div className="benefit-icon">{item.icon}</div>
-                          <div>
-                            <h3>{item.title}</h3>
-                            <p>{item.desc}</p>
-                          </div>
-                        </article>
-                      ))}
-                    </div>
-                  ) : null}
-                </div>
-              </section>
-            ) : null}
-
-            <section className="panel">
-              <div className="panel-body">
-                <div className="section-head">
-                  <div>
-                    <h2 className="section-title">Rewards and redemption</h2>
-                    <p className="section-sub">Earn rates, caps, and how points convert to value.</p>
+                    <h2 className="section-title">How the card works</h2>
+                    <p className="section-sub">Reward rates, caps, and how points convert to value.</p>
                   </div>
                 </div>
                 <div className="table-wrap">
@@ -1030,6 +913,33 @@ export default async function CardPage({ params }: Props) {
 
             <section className="panel">
               <div className="panel-body">
+                <div className="section-head">
+                  <div>
+                    <h2 className="section-title">Card details and verification</h2>
+                    <p className="section-sub">Additional facts retained from the verified card record.</p>
+                  </div>
+                </div>
+                <div className="info-grid card-reference-fact-list">
+                  <div className="info-row"><span>Issuer</span><strong>{card.issuer}</strong></div>
+                  <div className="info-row"><span>Joining fee</span><strong>{formatCurrency(card.joiningFee)}</strong></div>
+                  <div className="info-row"><span>Annual fee</span><strong>{formatCurrency(card.annualFee)}</strong></div>
+                  {hasFeeWaiverSpend(card.feeWaiverSpend) ? (
+                    <div className="info-row"><span>Fee waiver spend</span><strong>{formatRupeesCompact(card.feeWaiverSpend as number)}</strong></div>
+                  ) : null}
+                  <div className="info-row"><span>Reward type</span><strong>{card.rewardType}</strong></div>
+                  <div className="info-row"><span>Card network</span><strong>{card.network.join(" / ")}</strong></div>
+                  <div className="info-row"><span>Forex markup</span><strong>{card.forexMarkup}%</strong></div>
+                  {loungeValue ? <div className="info-row"><span>Lounge visits</span><strong>{loungeValue}</strong></div> : null}
+                  <div className="info-row"><span>Last verified</span><strong>{card.lastVerified}</strong></div>
+                  {latestUpdate ? (
+                    <div className="info-row"><span>Latest update</span><strong>{formatUpdateDate(latestUpdate.publishedAt)}</strong></div>
+                  ) : null}
+                </div>
+              </div>
+            </section>
+
+            <section className="panel">
+              <div className="panel-body">
                 <div className="actions">
                   <TrackedExternalLink
                     analyticsEvent={{
@@ -1061,94 +971,8 @@ export default async function CardPage({ params }: Props) {
                 </div>
               </div>
             </section>
-          </div>
-
-          <aside className="side-stack card-side">
-            <section className="side">
-              <h3 className="side-title">Card summary</h3>
-              <div className="summary">
-                <div className="summary-row">
-                  <span>Issuer</span>
-                  <b>{card.issuer}</b>
-                </div>
-                <div className="summary-row">
-                  <span>Joining fee</span>
-                  <b>{formatCurrency(card.joiningFee)}</b>
-                </div>
-                <div className="summary-row">
-                  <span>Annual fee</span>
-                  <b>{formatCurrency(card.annualFee)}</b>
-                </div>
-                {hasFeeWaiverSpend(card.feeWaiverSpend) ? (
-                  <div className="summary-row">
-                    <span>Waiver spend</span>
-                    <b>{formatRupeesCompact(card.feeWaiverSpend as number)}</b>
-                  </div>
-                ) : null}
-                <div className="summary-row">
-                  <span>Reward type</span>
-                  <b>{card.rewardType}</b>
-                </div>
-                <div className="summary-row">
-                  <span>Forex markup</span>
-                  <b>{card.forexMarkup}%</b>
-                </div>
-                <div className="summary-row">
-                  <span>Network</span>
-                  <b>{card.network.join(" / ")}</b>
-                </div>
-              </div>
-              <div className="side-actions">
-                <Link className="side-action primary" href={fitQueryHref}>
-                  Check if it fits me
-                </Link>
-                <Link className="side-action" href={compareHref}>
-                  Compare cards
-                </Link>
-                <TrackedExternalLink
-                  analyticsEvent={{
-                    event_name: "apply_clicked",
-                    page: "cards/[id]",
-                    source: "details",
-                    card_id: card.id
-                  }}
-                  className="side-action"
-                  href={cardCtaHref(card)}
-                  rel={cardCtaRel(card)}
-                  target="_blank"
-                >
-                  {ctaLabel} <ExternalLink size={14} />
-                </TrackedExternalLink>
-              </div>
-              <p className="side-note">
-                Apply buttons may use affiliate links. Check official site links open issuer or partner pages. Always verify final fees,
-                eligibility, and benefits before applying.
-              </p>
-            </section>
-
-            <section className="side">
-              <h3 className="side-title">Ask about this card</h3>
-              <AskBox defaultQuery="" showHelperText={false} />
-            </section>
-
-            <section className="side">
-              <h3 className="side-title">Data freshness</h3>
-              <div className="summary">
-                <div className="summary-row">
-                  <span>Last verified</span>
-                  <b>{card.lastVerified}</b>
-                </div>
-                {latestUpdate ? (
-                  <div className="summary-row">
-                    <span>Latest update</span>
-                    <b>{formatUpdateDate(latestUpdate.publishedAt)}</b>
-                  </div>
-                ) : null}
-              </div>
-            </section>
-          </aside>
         </div>
-      </section>
+      </main>
     </div>
   );
 }
