@@ -16,6 +16,29 @@ export const metadata: Metadata = {
     template: `%s | ${SITE_NAME}`
   },
   description: SITE_DESCRIPTION,
+  icons: {
+    icon: [
+      {
+        url: "/icon.png",
+        type: "image/png",
+        sizes: "512x512"
+      }
+    ],
+    shortcut: [
+      {
+        url: "/icon.png",
+        type: "image/png",
+        sizes: "512x512"
+      }
+    ],
+    apple: [
+      {
+        url: "/apple-icon.png",
+        type: "image/png",
+        sizes: "180x180"
+      }
+    ]
+  },
   robots: {
     index: true,
     follow: true
