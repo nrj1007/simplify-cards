@@ -916,22 +916,6 @@ export default async function CardPage({ params }: Props) {
 
             <section className="panel">
               <div className="panel-body">
-                <div className="actions">
-                  <TrackedExternalLink
-                    analyticsEvent={{
-                      event_name: "apply_clicked",
-                      page: "cards/[id]",
-                      source: "details",
-                      card_id: card.id
-                    }}
-                    className="button"
-                    href={cardCtaHref(card)}
-                    rel={cardCtaRel(card)}
-                    target="_blank"
-                  >
-                    {ctaLabel} <ExternalLink size={15} />
-                  </TrackedExternalLink>
-                </div>
                 <div id="page-feedback">
                   <AskFeedback
                     cardIds={[card.id]}
