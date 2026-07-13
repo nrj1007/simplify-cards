@@ -19941,6 +19941,139 @@ html body .card-detail-page .card-detail-calculator {
   gap: 16px;
 }
 
+/* Card detail reference composition. Shared header and footer remain outside this scope. */
+html body .card-detail-page .card-reference-decision-topline {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-bottom: 9px;
+}
+
+html body .card-detail-page .card-reference-decision-topline > span {
+  width: 30px;
+  height: 30px;
+  flex: 0 0 30px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.82);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.78);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+html body .card-detail-page .card-reference-decision-topline h3 {
+  margin: 0;
+}
+
+html body .card-detail-page .card-reference-decisions .verdict .card-reference-decision-topline > span {
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.14);
+}
+
+html body .card-detail-page .card-reference-details-section {
+  padding: 0;
+}
+
+html body .card-detail-page .card-reference-details-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+html body .card-detail-page .card-reference-details-grid > .panel {
+  min-width: 0;
+  margin: 0;
+  border: 1px solid rgba(232, 223, 207, 0.96);
+  border-radius: 25px;
+  background: rgba(255, 253, 248, 0.92);
+  box-shadow: 0 16px 42px rgba(30, 17, 44, 0.06);
+}
+
+html body .card-detail-page .card-reference-details-grid > .panel > .panel-body {
+  padding: 16px;
+}
+
+html body .card-detail-page .card-reference-details-grid .section-title {
+  font-size: 18px;
+  line-height: 1.2;
+  font-weight: 800;
+}
+
+html body .card-detail-page .card-reference-details-grid .section-sub {
+  font-size: 13px;
+}
+
+html body .card-detail-page .card-reference-details-grid .detail-section {
+  margin-top: 14px;
+}
+
+html body .card-detail-page .card-reference-details-grid .detail-section h3 {
+  margin-bottom: 10px;
+  font-size: 15px;
+  font-weight: 800;
+}
+
+html body .card-detail-page .card-reference-details-grid .benefit-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+html body .card-detail-page .card-reference-details-grid .benefit {
+  padding: 12px;
+  border-radius: 16px;
+}
+
+html body .card-detail-page .card-reference-details-grid .content-item {
+  padding: 12px;
+}
+
+html body .card-detail-page .card-reference-detail-wide {
+  grid-column: 1 / -1;
+}
+
+html body .card-detail-page .card-detail-calculator-output {
+  gap: 12px;
+}
+
+html body .card-detail-page .card-detail-calculator-output.is-cashback {
+  height: 190px;
+}
+
+html body .card-detail-page .card-detail-calculator-output > div > strong {
+  font-weight: 900;
+  letter-spacing: 0;
+}
+
+html body .card-detail-page .card-detail-calculator-output dl {
+  gap: 6px;
+  padding-top: 12px;
+}
+
+html body .card-detail-page .card-detail-calculator-output dt,
+html body .card-detail-page .card-detail-calculator-output dd {
+  font-size: 12px;
+}
+
+@media (max-width: 960px) {
+  html body .card-detail-page .card-reference-details-grid {
+    grid-template-columns: 1fr;
+  }
+
+  html body .card-detail-page .card-detail-calculator-output.is-cashback {
+    width: 100%;
+    height: auto;
+    min-height: 173px;
+  }
+}
+
+@media (max-width: 560px) {
+  html body .card-detail-page .card-reference-details-grid .benefit-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 @media (max-width: 460px) {
   html body .card-detail-page main .container {
     width: min(calc(100% - 22px), 1180px);

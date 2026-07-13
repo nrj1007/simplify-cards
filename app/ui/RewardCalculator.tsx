@@ -479,8 +479,13 @@ export default function RewardCalculator({ card, milestones = [], picker, varian
 
   if (variant === "card-detail") {
     const netAfterAnnualFee = totalReturnsPlusVoucher - result.annualSurcharge - card.annualFee;
+    const detailLabel = (id: string, fallback: string) => {
+      if (card.broadOnlineReward && id === "online") return "Online shopping";
+      if (card.broadOnlineReward && id === "base") return "Eligible offline spending";
+      return fallback;
+    };
     const controls = [
-      ...buckets.map((bucket) => ({ id: bucket.id, label: bucket.label, displayRate: bucket.displayRate })),
+      ...buckets.map((bucket) => ({ id: bucket.id, label: detailLabel(bucket.id, bucket.label), displayRate: bucket.displayRate })),
       ...(showAdditional
         ? moreCats.map((category) => ({ id: category, label: CATEGORY_LABELS[category], displayRate: undefined }))
         : [])
@@ -496,7 +501,6 @@ export default function RewardCalculator({ card, milestones = [], picker, varian
               <div className="card-detail-range-row" key={control.id}>
                 <label htmlFor={controlId(control.id, "-detail")}>
                   {control.label}
-                  {control.displayRate ? <small>{control.displayRate}</small> : null}
                   {excluded && value > 0 ? <small>Not rewarded</small> : null}
                 </label>
                 <input
@@ -521,16 +525,16 @@ export default function RewardCalculator({ card, milestones = [], picker, varian
           ) : null}
         </div>
 
-        <aside className="card-detail-calculator-output" aria-live="polite">
+        <aside className={`card-detail-calculator-output${cashback ? " is-cashback" : ""}`} aria-live="polite">
           <div>
             <span>Estimated annual {cashback ? "cashback" : "reward value"}</span>
             <strong>{formatINR(totalReturnsPlusVoucher)}</strong>
           </div>
           <dl>
-            <div><dt>Annual spend</dt><dd>{formatINR(annualSpend)}</dd></div>
-            <div><dt>Effective return</dt><dd>{effectiveRate.toFixed(1)}%</dd></div>
+            <div><dt>Annual spend</dt><dd>{formatINRCompact(annualSpend)}</dd></div>
+            <div><dt>{cashback ? "Effective cashback rate" : "Effective return"}</dt><dd>{effectiveRate.toFixed(1)}%</dd></div>
             {result.annualSurcharge > 0 ? <div><dt>Annual surcharge</dt><dd>{formatINR(result.annualSurcharge)}</dd></div> : null}
-            <div><dt>Net after annual fee</dt><dd>{formatINR(netAfterAnnualFee)}</dd></div>
+            <div><dt>After {formatINR(card.annualFee)} Annual Fee</dt><dd>{formatINR(netAfterAnnualFee)}</dd></div>
           </dl>
           {calculatorNote ? <p>{calculatorNote}</p> : null}
         </aside>

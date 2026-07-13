@@ -318,7 +318,7 @@ export default async function CardPage({ params }: Props) {
   const firstAlternative = alternatives[0];
   const showEquitasPrivilegeProgram = isEquitasPrivilegeCard(card);
   const equitasPrivilegeProgramSection = showEquitasPrivilegeProgram ? (
-    <section className="panel" id="privilege-program">
+    <section className="panel card-reference-detail-card card-reference-detail-wide" id="privilege-program">
       <div className="panel-body">
         <div className="section-head">
           <div>
@@ -397,10 +397,10 @@ export default async function CardPage({ params }: Props) {
   const heroMetrics: Array<{ value: string; label: string }> = [
     { value: card.annualFee === 0 ? "Lifetime free" : formatCurrency(card.annualFee), label: "Annual fee" },
     hasFeeWaiverSpend(card.feeWaiverSpend)
-      ? { value: formatRupeesCompact(card.feeWaiverSpend as number), label: "Fee waiver spend" }
+      ? { value: formatRupeesCompact(card.feeWaiverSpend as number), label: "Annual spend for fee waiver" }
       : { value: formatCurrency(card.joiningFee), label: "Joining fee" },
     headlineReward
-      ? { value: formatRewardRate(card, headlineReward), label: `Top ${card.rewardType.toLowerCase()} rate` }
+      ? { value: formatRewardRate(card, headlineReward), label: `${headlineReward.displayCategory ?? headlineReward.category} ${card.rewardType.toLowerCase()} rate` }
       : { value: card.network.join(" / "), label: "Network" },
     { value: `${card.forexMarkup}%`, label: "Forex markup" }
   ];
@@ -467,17 +467,17 @@ export default async function CardPage({ params }: Props) {
                 </p>
                 <div className="card-reference-decisions">
                   <article className="good">
-                    <h3>Best for</h3>
+                    <div className="card-reference-decision-topline"><span>✓</span><h3>Best for</h3></div>
                     <strong>{bestFor[0]?.title ?? titleCaseWord(card.bestFor[0] ?? card.rewardType)}</strong>
                     <p>{bestFor[0]?.desc || take.whyItWorks}</p>
                   </article>
                   <article className="warn">
-                    <h3>Watch out</h3>
+                    <div className="card-reference-decision-topline"><span>!</span><h3>Watch out</h3></div>
                     <strong>{avoidIf[0]?.title ?? "Check the conditions"}</strong>
                     <p>{avoidIf[0]?.desc || take.whereValueDrops}</p>
                   </article>
                   <article className="verdict">
-                    <h3>Bottom line</h3>
+                    <div className="card-reference-decision-topline"><span>✦</span><h3>Bottom line</h3></div>
                     <strong>{take.goodFitIf ? `Good fit if ${take.goodFitIf}.` : card.name}</strong>
                     <p>{take.whyItWorks || take.whereValueDrops}</p>
                   </article>
@@ -493,12 +493,16 @@ export default async function CardPage({ params }: Props) {
               <RewardCalculator card={card} milestones={milestoneRulesForCard(card)} variant="card-detail" />
             </section>
 
-            <section className="panel">
+            <section className="card-reference-details-section">
+              <div className="card-reference-section-title">
+                <h2>How the card works</h2>
+              </div>
+              <div className="card-reference-details-grid">
+            <section className="panel card-reference-detail-card">
               <div className="panel-body">
                 <div className="section-head">
                   <div>
-                    <h2 className="section-title">How the card works</h2>
-                    <p className="section-sub">Reward rates, caps, and how points convert to value.</p>
+                    <h2 className="section-title">{card.rewardType} rates</h2>
                   </div>
                 </div>
                 <div className="table-wrap">
@@ -650,12 +654,11 @@ export default async function CardPage({ params }: Props) {
             {equitasPrivilegeProgramSection}
 
             {loungeMilestoneRules.length ? (
-              <section className="panel">
+              <section className="panel card-reference-detail-card">
                 <div className="panel-body">
                   <div className="section-head">
                     <div>
-                      <h2 className="section-title">Lounge and milestone rules</h2>
-                      <p className="section-sub">The spend conditions worth knowing before you rely on a benefit.</p>
+                      <h2 className="section-title">Important conditions</h2>
                     </div>
                   </div>
                   <div className="rules">
@@ -681,12 +684,11 @@ export default async function CardPage({ params }: Props) {
             ) : null}
 
             {card.exclusions.length ? (
-              <section className="panel">
+              <section className="panel card-reference-detail-card">
                 <div className="panel-body">
                   <div className="section-head">
                     <div>
-                      <h2 className="section-title">Exclusions</h2>
-                      <p className="section-sub">Categories that earn no rewards on this card.</p>
+                      <h2 className="section-title">Spending that does not earn {card.rewardType.toLowerCase()}</h2>
                     </div>
                   </div>
                   <DetailList className="detail-list-columns" items={card.exclusions} />
@@ -695,7 +697,7 @@ export default async function CardPage({ params }: Props) {
             ) : null}
 
             {hasFinePrint ? (
-              <section className="panel">
+              <section className="panel card-reference-detail-card">
                 <div className="panel-body">
                   <div className="section-head">
                     <div>
@@ -732,7 +734,7 @@ export default async function CardPage({ params }: Props) {
             ) : null}
 
             {cardContent?.updates.length ? (
-              <section className="panel">
+              <section className="panel card-reference-detail-card">
                 <div className="panel-body">
                   <div className="section-head">
                     <div>
@@ -768,7 +770,7 @@ export default async function CardPage({ params }: Props) {
             ) : null}
 
             {hasEligibility ? (
-              <section className="panel">
+              <section className="panel card-reference-detail-card">
                 <div className="panel-body">
                   <div className="section-head">
                     <div>
@@ -799,6 +801,8 @@ export default async function CardPage({ params }: Props) {
                 </div>
               </section>
             ) : null}
+              </div>
+            </section>
 
             {landingGuides.length ? (
               <section className="panel">
@@ -911,7 +915,7 @@ export default async function CardPage({ params }: Props) {
               </section>
             ) : null}
 
-            <section className="panel">
+            <section className="panel card-reference-detail-card">
               <div className="panel-body">
                 <div className="section-head">
                   <div>
