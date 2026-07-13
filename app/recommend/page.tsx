@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { buildPageMetadata } from "@/lib/seo";
-import { defaultSpendProfile, scoreCards, applyResultStrategy } from "@/lib/recommend";
+import { scoreCards, applyResultStrategy } from "@/lib/recommend";
 import { toRecommendResult } from "@/lib/recommend-result";
 import type { SpendProfile } from "@/lib/types";
 import RecommendCalculator from "../ui/RecommendCalculator";
@@ -13,8 +13,8 @@ export const metadata: Metadata = buildPageMetadata({
 });
 
 const recommendPageDefaultSpend: SpendProfile = {
-  online: defaultSpendProfile.online ?? 0,
-  base: defaultSpendProfile.base ?? 0,
+  online: 0,
+  base: 0,
   travel: 0,
   hotels: 0,
   airlines: 0,

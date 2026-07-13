@@ -21602,3 +21602,740 @@ html body .seo-guide .seo-guide-disclosure p:last-child {
     flex-direction: column;
   }
 }
+
+/* Recommend empty state reference. Shared header and footer remain unchanged. */
+html body .recommend-page,
+html body .recommend-page button,
+html body .recommend-page input,
+html body .recommend-page select {
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
+}
+
+html body .recommend-page .page-hero {
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 24px 0 0 !important;
+  overflow: visible !important;
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+html body .recommend-page .page-hero .container,
+html body .recommend-page .page-content > .container {
+  width: 100% !important;
+  max-width: 1400px !important;
+  margin: 0 auto !important;
+  padding-right: 32px !important;
+  padding-left: 32px !important;
+}
+
+html body .recommend-page .page-hero-inner {
+  margin: 0 auto !important;
+  padding-top: 0 !important;
+  padding-bottom: 20px !important;
+  overflow: visible !important;
+  border: 0 !important;
+  text-align: left !important;
+}
+
+html body .recommend-page .page-hero h1.recommend-heading {
+  display: block !important;
+  width: auto !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 0 0.06em !important;
+  color: #1e112c !important;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
+  font-size: 64px !important;
+  line-height: 1.08 !important;
+  font-weight: 800 !important;
+  letter-spacing: -1.6px !important;
+  text-transform: none !important;
+  font-variant: normal !important;
+  font-variant-caps: normal !important;
+}
+
+html body .recommend-page .page-content {
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 10px 0 0 !important;
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+html body .recommend-page .recommend-layout {
+  display: flex !important;
+  width: 100% !important;
+  max-width: 1400px !important;
+  margin: 0 auto !important;
+  align-items: flex-start !important;
+  justify-content: center !important;
+  gap: 24px !important;
+}
+
+html body .recommend-page .page-content .container > .recommend-layout.is-empty {
+  display: grid !important;
+  grid-template-columns: 400px minmax(0, 1fr) !important;
+  align-items: stretch !important;
+}
+
+html body .recommend-page .recommend-controls,
+html body .recommend-page .recommend-results-panel {
+  margin: 0 !important;
+  overflow: hidden !important;
+  border: 1px solid rgba(232, 223, 207, 0.96) !important;
+  border-radius: 28px !important;
+  background: rgba(255, 253, 248, 0.96) !important;
+  box-shadow: 0 18px 44px rgba(30, 17, 44, 0.07) !important;
+  transform: none !important;
+}
+
+html body .recommend-page .recommend-controls::before,
+html body .recommend-page .recommend-results-panel::before {
+  display: none !important;
+  content: none !important;
+}
+
+html body .recommend-page .recommend-controls {
+  display: grid !important;
+  width: 400px !important;
+  max-width: 400px !important;
+  flex: 0 0 400px !important;
+  align-self: flex-start !important;
+  gap: 18px !important;
+  padding: 22px 20px 18px !important;
+}
+
+html body .recommend-page .recommend-results-panel {
+  min-width: 0 !important;
+  flex: 1 1 0 !important;
+  align-self: flex-start !important;
+  padding: 22px 24px !important;
+}
+
+html body .recommend-page .page-content .container > .recommend-layout.is-empty > .recommend-results-panel {
+  display: flex !important;
+  height: auto !important;
+  min-height: 0 !important;
+  align-self: stretch !important;
+  flex-direction: column !important;
+}
+
+html body .recommend-page .recommend-controls-head {
+  display: grid !important;
+  min-height: 60px !important;
+  grid-template-rows: 34px 20px !important;
+  row-gap: 6px !important;
+  align-items: start !important;
+  justify-items: start !important;
+  margin: 0 0 12px !important;
+  padding: 0 !important;
+  text-align: left !important;
+}
+
+html body .recommend-page .recommend-controls-head h2 {
+  grid-row: 1 !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  color: #1e112c !important;
+  font-family: inherit !important;
+  font-size: 26.64px !important;
+  line-height: 1.02 !important;
+  font-weight: 950 !important;
+  letter-spacing: -1.2px !important;
+  text-align: left !important;
+  text-transform: none !important;
+  white-space: nowrap !important;
+}
+
+html body .recommend-page .recommend-controls-head p {
+  grid-row: 2 !important;
+  margin: 4px 0 0 !important;
+  padding: 0 !important;
+  color: #4d4659 !important;
+  font-family: inherit !important;
+  font-size: 14px !important;
+  line-height: 1.2 !important;
+  font-weight: 500 !important;
+  letter-spacing: 0 !important;
+  text-align: left !important;
+  white-space: nowrap !important;
+}
+
+html body .recommend-page .recommend-total {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 8px !important;
+  margin: 0 0 12px !important;
+}
+
+html body .recommend-page .recommend-total > div {
+  min-height: 63px !important;
+  padding: 10px 12px !important;
+  border: 1px solid #e4d4ff !important;
+  border-radius: 14px !important;
+  background: #f0e3ff !important;
+  box-shadow: none !important;
+  text-align: left !important;
+}
+
+html body .recommend-page .recommend-total strong {
+  display: block !important;
+  margin: 0 0 4px !important;
+  color: #1e112c !important;
+  font-family: inherit !important;
+  font-size: 18px !important;
+  line-height: 1.05 !important;
+  font-weight: 700 !important;
+}
+
+html body .recommend-page .recommend-total span {
+  display: block !important;
+  margin: 0 !important;
+  color: #4d4659 !important;
+  font-family: inherit !important;
+  font-size: 12px !important;
+  line-height: 1.1 !important;
+  font-weight: 400 !important;
+}
+
+html body .recommend-page .recommend-sliders {
+  display: grid !important;
+  gap: 0 !important;
+}
+
+html body .recommend-page .slider-row {
+  display: grid !important;
+  gap: 4px !important;
+  margin: 0 0 8px !important;
+  padding: 0 !important;
+}
+
+html body .recommend-page .slider-head {
+  min-height: 0 !important;
+  margin: 0 !important;
+  line-height: 1.15 !important;
+}
+
+html body .recommend-page .slider-head label {
+  display: block !important;
+  margin: 0 !important;
+  color: #1e112c !important;
+  font-family: inherit !important;
+  font-size: 14px !important;
+  line-height: 1.15 !important;
+  font-weight: 850 !important;
+}
+
+html body .recommend-page .spend-control {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) 88px !important;
+  gap: 8px !important;
+  align-items: center !important;
+}
+
+html body .recommend-page .slider {
+  width: 100% !important;
+  height: 16px !important;
+  margin: 0 !important;
+  accent-color: #64209b !important;
+}
+
+html body .recommend-page .spend-input-wrap {
+  position: relative !important;
+  display: block !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  line-height: 1 !important;
+}
+
+html body .recommend-page .spend-input-wrap::before {
+  display: none !important;
+  content: none !important;
+}
+
+html body .recommend-page .spend-input-wrap .currency-prefix {
+  position: absolute !important;
+  top: 50% !important;
+  left: 11px !important;
+  z-index: 5 !important;
+  display: inline-flex !important;
+  transform: translateY(-50%) !important;
+  color: #1e112c !important;
+  font-size: 13px !important;
+  line-height: 1 !important;
+  font-weight: 400 !important;
+  pointer-events: none !important;
+}
+
+html body .recommend-page .spend-amount-input,
+html body .recommend-page input.spend-amount-input[type="number"] {
+  width: 100% !important;
+  height: 32px !important;
+  min-height: 32px !important;
+  padding: 5px 9px 5px 25px !important;
+  border: 1px solid #e3dfd3 !important;
+  border-radius: 12px !important;
+  color: #1e112c !important;
+  background: #fffdf8 !important;
+  font-family: inherit !important;
+  font-size: 13px !important;
+  line-height: 1.15 !important;
+  font-weight: 400 !important;
+  text-align: left !important;
+}
+
+html body .recommend-page .recommend-more {
+  display: flex !important;
+  width: 100% !important;
+  height: 34px !important;
+  min-height: 34px !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 6px !important;
+  margin: 2px 0 0 !important;
+  padding: 7px 10px !important;
+  border: 1px solid #e3dfd3 !important;
+  border-radius: 12px !important;
+  color: #581c87 !important;
+  background: #fffdf8 !important;
+  font-size: 14px !important;
+  line-height: 1.2 !important;
+  cursor: pointer !important;
+}
+
+html body .recommend-page .recommend-filters {
+  display: grid !important;
+  gap: 8px !important;
+  margin: 10px 0 0 !important;
+  padding: 16px 0 0 !important;
+  border-top: 1px solid #e3dfd3 !important;
+}
+
+html body .recommend-page .recommend-check {
+  display: flex !important;
+  min-height: 23px !important;
+  align-items: center !important;
+  gap: 9px !important;
+  margin: 0 !important;
+  color: #30263a !important;
+  font-size: 14px !important;
+  line-height: 1.2 !important;
+}
+
+html body .recommend-page .recommend-check input {
+  width: 18px !important;
+  height: 18px !important;
+  flex: 0 0 18px !important;
+  margin: 0 !important;
+  accent-color: #581c87 !important;
+}
+
+html body .recommend-page .recommend-filters .field {
+  display: grid !important;
+  min-height: 57px !important;
+  gap: 5px !important;
+  margin: 0 !important;
+}
+
+html body .recommend-page .recommend-filters .field > label {
+  color: #665e70 !important;
+  font-size: 12px !important;
+  line-height: 1.3 !important;
+  font-weight: 800 !important;
+}
+
+html body .recommend-page .recommend-filters select {
+  width: 100% !important;
+  min-height: 34px !important;
+  padding: 7px 12px !important;
+  border: 1px solid #e3dfd3 !important;
+  border-radius: 12px !important;
+  color: #30263a !important;
+  background: #fffdf8 !important;
+  font-size: 14px !important;
+}
+
+html body .recommend-page .recommend-empty-guide {
+  display: flex !important;
+  width: 100% !important;
+  min-height: 100% !important;
+  flex: 1 1 auto !important;
+  align-items: flex-start !important;
+  justify-content: flex-start !important;
+  padding: 0 !important;
+  text-align: left !important;
+}
+
+html body .recommend-page .recommend-empty-guide-inner {
+  display: flex !important;
+  width: 100% !important;
+  max-width: none !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  margin: 0 !important;
+  text-align: left !important;
+}
+
+html body .recommend-page .recommend-empty-guide h2 {
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  color: #1e112c !important;
+  font-family: inherit !important;
+  font-size: 32px !important;
+  line-height: 1.05 !important;
+  font-weight: 950 !important;
+  letter-spacing: -1.44px !important;
+  text-align: left !important;
+  white-space: nowrap !important;
+}
+
+html body .recommend-page .recommend-empty-guide-lead {
+  max-width: 520px !important;
+  margin: 6px 0 0 !important;
+  padding: 0 !important;
+  color: #4d4659 !important;
+  font-family: inherit !important;
+  font-size: 15px !important;
+  line-height: 1.25 !important;
+  font-weight: 520 !important;
+  text-align: left !important;
+  white-space: normal !important;
+}
+
+@media (max-width: 1080px) {
+  html body .recommend-page .recommend-layout {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    align-items: start !important;
+  }
+
+  html body .recommend-page .page-content .container > .recommend-layout.is-empty {
+    grid-template-columns: 1fr !important;
+  }
+
+  html body .recommend-page .recommend-controls {
+    width: 100% !important;
+    max-width: none !important;
+    flex-basis: auto !important;
+  }
+
+  html body .recommend-page .page-content .container > .recommend-layout.is-empty > .recommend-results-panel {
+    min-height: 338px !important;
+  }
+}
+
+@media (max-width: 639px) {
+  html body .recommend-page .page-hero {
+    padding-top: 12px !important;
+  }
+
+  html body .recommend-page .page-hero .container,
+  html body .recommend-page .page-content > .container {
+    padding-right: 16px !important;
+    padding-left: 16px !important;
+  }
+
+  html body .recommend-page .page-hero-inner {
+    padding-bottom: 10px !important;
+  }
+
+  html body .recommend-page .page-hero h1.recommend-heading {
+    font-size: 41.6px !important;
+    line-height: 1.08 !important;
+    letter-spacing: -1.04px !important;
+  }
+
+  html body .recommend-page .page-content {
+    padding-top: 0 !important;
+  }
+
+  html body .recommend-page .page-content .container > .recommend-layout {
+    gap: 12px !important;
+  }
+
+  html body .recommend-page .recommend-controls,
+  html body .recommend-page .recommend-results-panel {
+    padding: 14px !important;
+    border-radius: 22px !important;
+  }
+
+  html body .recommend-page .recommend-controls-head {
+    margin-bottom: 10px !important;
+  }
+
+  html body .recommend-page .recommend-controls-head h2,
+  html body .recommend-page .recommend-empty-guide h2 {
+    font-size: 26px !important;
+    white-space: normal !important;
+  }
+
+  html body .recommend-page .recommend-controls-head p {
+    white-space: normal !important;
+  }
+
+  html body .recommend-page .recommend-total {
+    gap: 7px !important;
+    margin-bottom: 10px !important;
+  }
+
+  html body .recommend-page .recommend-total > div {
+    min-height: 59px !important;
+    padding: 8px 10px !important;
+  }
+
+  html body .recommend-page .slider-row {
+    margin-bottom: 6px !important;
+  }
+
+  html body .recommend-page .recommend-more {
+    margin-top: 0 !important;
+  }
+
+  html body .recommend-page .recommend-filters {
+    gap: 6px !important;
+    margin-top: 8px !important;
+  }
+
+  html body .recommend-page .page-content .container > .recommend-layout.is-empty > .recommend-results-panel {
+    min-height: 338px !important;
+  }
+
+  html body .recommend-page .recommend-empty-guide {
+    min-height: 300px !important;
+  }
+}
+
+/* Recommend populated state reference. */
+html body .recommend-page,
+html body .recommend-page * {
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
+}
+
+html body .recommend-page .recommend-layout:not(.is-empty) .recommend-results-head {
+  display: flex !important;
+  width: 100% !important;
+  height: 60px !important;
+  min-height: 60px !important;
+  align-items: flex-start !important;
+  justify-content: flex-start !important;
+  margin: 0 0 16px !important;
+  padding: 0 !important;
+  overflow: visible !important;
+  text-align: left !important;
+}
+
+html body .recommend-page .recommend-layout:not(.is-empty) .recommend-results-panel,
+html body .recommend-page .recommend-layout:not(.is-empty) .recommend-results-panel * {
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
+}
+
+html body .recommend-page .recommend-layout:not(.is-empty) .recommend-results-head > div {
+  display: grid !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  min-height: 60px !important;
+  grid-template-rows: 34px 20px !important;
+  row-gap: 6px !important;
+  align-items: start !important;
+  justify-items: start !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  text-align: left !important;
+}
+
+html body .recommend-page .recommend-layout:not(.is-empty) .recommend-results-head h2 {
+  grid-row: 1 !important;
+  width: auto !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  color: #1e112c !important;
+  font-size: 36px !important;
+  line-height: 1.06 !important;
+  font-weight: 950 !important;
+  letter-spacing: -1.62px !important;
+  text-align: left !important;
+  white-space: normal !important;
+}
+
+html body .recommend-page .recommend-layout:not(.is-empty) .recommend-results-head p {
+  grid-row: 2 !important;
+  width: auto !important;
+  max-width: 100% !important;
+  margin: 8px 0 0 !important;
+  padding: 0 !important;
+  color: #4d4659 !important;
+  font-size: 15px !important;
+  line-height: 1.35 !important;
+  font-weight: 500 !important;
+  letter-spacing: 0 !important;
+  text-align: left !important;
+  white-space: normal !important;
+}
+
+html body .recommend-page .recommend-layout:not(.is-empty) .recommend-cards,
+html body .recommend-page .recommend-layout:not(.is-empty) .recommend-sections,
+html body .recommend-page .recommend-layout:not(.is-empty) .recommend-section,
+html body .recommend-page .recommend-layout:not(.is-empty) .recommend-card,
+html body .recommend-page .recommend-layout:not(.is-empty) .recommend-title-line,
+html body .recommend-page .recommend-layout:not(.is-empty) .recommend-stats,
+html body .recommend-page .recommend-layout:not(.is-empty) .recommend-card .actions {
+  min-width: 0 !important;
+  max-width: 100% !important;
+}
+
+html body .recommend-page .recommend-layout:not(.is-empty) .recommend-card {
+  width: 100% !important;
+}
+
+html body .recommend-page .recommend-layout:not(.is-empty) .recommend-card-meta {
+  gap: 8px !important;
+  color: #5b5466 !important;
+  font-size: 13px !important;
+  line-height: 1.15 !important;
+}
+
+html body .recommend-page .recommend-layout:not(.is-empty) .recommend-card-meta .badge {
+  min-height: 24px !important;
+  padding: 5px 9px !important;
+  border: 1px solid transparent !important;
+  font-size: 11px !important;
+  line-height: 1.15 !important;
+  font-weight: 800 !important;
+}
+
+html body .recommend-page .recommend-breakdown[open] {
+  margin-top: 2px !important;
+}
+
+html body .recommend-page .recommend-breakdown[open] > :not(summary) {
+  margin-top: 8px !important;
+}
+
+html body .recommend-page .recommend-breakdown-notes {
+  display: grid !important;
+  gap: 6px !important;
+  margin-top: 10px !important;
+  padding: 10px 12px !important;
+  border: 1px solid #e3dfd3 !important;
+  border-radius: 12px !important;
+  background: rgba(255, 253, 248, 0.78) !important;
+}
+
+html body .recommend-page .recommend-breakdown-notes .card-usp,
+html body .recommend-page .recommend-breakdown-notes .recommend-explain {
+  display: grid !important;
+  gap: 4px !important;
+  margin: 0 !important;
+  color: #4d4659 !important;
+  font-size: 13px !important;
+  line-height: 1.35 !important;
+}
+
+html body .recommend-page .recommend-breakdown-notes p {
+  margin: 0 !important;
+}
+
+@media (max-width: 980px) {
+  html body .recommend-page .recommend-layout:not(.is-empty) .recommend-results-head,
+  html body .recommend-page .recommend-layout:not(.is-empty) .recommend-results-head > div {
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    margin: 0 0 16px !important;
+    padding: 0 !important;
+    overflow: visible !important;
+  }
+
+  html body .recommend-page .recommend-layout:not(.is-empty) .recommend-results-head h2 {
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    margin: 0 0 9px !important;
+    font-size: 28px !important;
+    line-height: 1.08 !important;
+    white-space: normal !important;
+    overflow-wrap: normal !important;
+    word-break: normal !important;
+  }
+
+  html body .recommend-page .recommend-layout:not(.is-empty) .recommend-results-head p {
+    display: block !important;
+    position: static !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    font-size: 15px !important;
+    line-height: 1.4 !important;
+  }
+}
+
+@media (max-width: 639px) {
+  html body .recommend-page .recommend-layout:not(.is-empty) .recommend-results-head,
+  html body .recommend-page .recommend-layout:not(.is-empty) .recommend-results-head > div {
+    margin-bottom: 10px !important;
+  }
+
+  html body .recommend-page .recommend-layout:not(.is-empty) .recommend-results-head h2 {
+    margin-bottom: 5px !important;
+    font-size: 26px !important;
+  }
+
+  html body .recommend-page .recommend-layout:not(.is-empty) .recommend-results-head p {
+    margin-top: 0 !important;
+    font-size: 14px !important;
+    line-height: 1.3 !important;
+  }
+
+  html body .recommend-page .recommend-layout:not(.is-empty) .recommend-cards {
+    width: 100% !important;
+    gap: 9px !important;
+    padding-top: 6px !important;
+  }
+
+  html body .recommend-page .recommend-layout:not(.is-empty) .recommend-card {
+    gap: 6px !important;
+    padding: 12px !important;
+    border-radius: 18px !important;
+  }
+
+  html body .recommend-page .recommend-layout:not(.is-empty) .recommend-card-meta {
+    margin-bottom: 0 !important;
+  }
+
+  html body .recommend-page .recommend-layout:not(.is-empty) .recommend-title-line {
+    gap: 7px !important;
+  }
+
+  html body .recommend-page .recommend-layout:not(.is-empty) .recommend-card .recommend-stats {
+    gap: 7px !important;
+    margin: 1px 0 2px !important;
+  }
+
+  html body .recommend-page .recommend-layout:not(.is-empty) .recommend-card .recommend-stats .stat {
+    min-height: 50px !important;
+    padding: 7px 8px !important;
+  }
+
+  html body .recommend-page .recommend-layout:not(.is-empty) .recommend-breakdown summary {
+    padding: 2px 0 !important;
+  }
+
+  html body .recommend-page .recommend-layout:not(.is-empty) .recommend-card .actions {
+    margin-top: 2px !important;
+    gap: 8px !important;
+  }
+
+  html body .recommend-page .recommend-layout:not(.is-empty) .recommend-card .actions .apply-now-button {
+    min-height: 36px !important;
+    padding: 8px 14px !important;
+  }
+}

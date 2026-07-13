@@ -48,8 +48,8 @@ const CATEGORY_LABELS: Record<SpendCategory, string> = {
   international: "International spends"
 };
 
-const CORE_CATEGORIES: SpendCategory[] = ["online", "base", "hotels", "airlines", "dining", "grocery", "utilities", "upi"];
-const MORE_CATEGORIES: SpendCategory[] = ["fuel", "rent", "insurance", "education", "gold", "government", "international"];
+const CORE_CATEGORIES: SpendCategory[] = ["online", "dining", "travel", "hotels", "airlines", "fuel", "grocery", "utilities", "upi"];
+const MORE_CATEGORIES: SpendCategory[] = ["amazon", "base", "rent", "insurance", "education", "gold", "government", "international"];
 const ALL_CATEGORIES: SpendCategory[] = [...CORE_CATEGORIES, ...MORE_CATEGORIES];
 
 const SLIDER_MAX = 100_000;
@@ -189,10 +189,6 @@ function RecommendCard({ result, index, isTopOfSection }: { result: RecommendRes
         <span className="card-type-badge">{cardTypeLabel(result)}</span>
       </div>
 
-      {result.usp ? (
-        <p className="card-usp">{result.usp}</p>
-      ) : null}
-
       <div className="stats recommend-stats">
         <div className="stat">
           <strong>{formatINR(result.estimatedAnnualRewards)}</strong>
@@ -202,12 +198,10 @@ function RecommendCard({ result, index, isTopOfSection }: { result: RecommendRes
           <strong>{formatINR(result.estimatedMilestoneValue)}</strong>
           <span>Milestones / year</span>
         </div>
-        {result.estimatedJoiningAndRenewalValue > 0 ? (
-          <div className="stat">
-            <strong>{formatINR(result.estimatedJoiningAndRenewalValue)}</strong>
-            <span>Joining/renewal value</span>
-          </div>
-        ) : null}
+        <div className="stat">
+          <strong>{formatINR(result.estimatedJoiningAndRenewalValue)}</strong>
+          <span>Joining/renewal value</span>
+        </div>
         {result.estimatedForexCost > 0 ? (
           <div className="stat">
             <strong>-{formatINR(result.estimatedForexCost)}</strong>
@@ -222,13 +216,6 @@ function RecommendCard({ result, index, isTopOfSection }: { result: RecommendRes
           <strong>{formatINR(result.estimatedNetValue)}</strong>
           <span>{result.netValueContextLabel ? `Net value / year · ${result.netValueContextLabel}` : "Net value / year"}</span>
         </div>
-      </div>
-
-      <div className="recommend-explain">
-        <p><strong>Milestones:</strong> {calculatorMilestoneLine(result)}</p>
-        <p><strong>Fee waiver:</strong> {calculatorFeeWaiverLine(result)}</p>
-        {calculatorAdjustmentLines(result)}
-        <p><strong>Next unlock:</strong> {calculatorNextUnlockLine(result)}</p>
       </div>
 
       {result.breakdown.length > 0 ? (
@@ -258,6 +245,15 @@ function RecommendCard({ result, index, isTopOfSection }: { result: RecommendRes
               </tbody>
             </table>
           </div>
+          <div className="recommend-breakdown-notes">
+            {result.usp ? <p className="card-usp">{result.usp}</p> : null}
+            <div className="recommend-explain">
+              <p><strong>Milestones:</strong> {calculatorMilestoneLine(result)}</p>
+              <p><strong>Fee waiver:</strong> {calculatorFeeWaiverLine(result)}</p>
+              {calculatorAdjustmentLines(result)}
+              <p><strong>Next unlock:</strong> {calculatorNextUnlockLine(result)}</p>
+            </div>
+          </div>
         </details>
       ) : null}
 
@@ -273,7 +269,7 @@ function RecommendCard({ result, index, isTopOfSection }: { result: RecommendRes
           href={detailsHref}
           onClick={(event) => event.stopPropagation()}
         >
-          Click for more details -&gt;
+          Click for more details →
         </TrackedLink>
         <TrackedExternalLink
           analyticsEvent={{
@@ -305,6 +301,7 @@ export default function RecommendCalculator({ defaultSpend, initialSections }: P
   const [maxAnnualFee, setMaxAnnualFee] = useState<string>("");
   const [wantsLounge, setWantsLounge] = useState(false);
   const [wantsLifetimeFree, setWantsLifetimeFree] = useState(false);
+  const [groupByType, setGroupByType] = useState(false);
   const [rewardTypeView, setRewardTypeView] = useState<RewardTypeView>("all");
   const [sections, setSections] = useState<ResultSection[]>(initialSections);
   const [pending, setPending] = useState(false);
@@ -331,7 +328,7 @@ export default function RecommendCalculator({ defaultSpend, initialSections }: P
           maxAnnualFee: maxAnnualFee || null,
           wantsLounge,
           wantsLifetimeFree,
-          resultStrategy: rewardTypeView === "all" ? "single-list" : "reward-type-split"
+          resultStrategy: groupByType ? "reward-type-split" : "single-list"
         }),
         signal: controller.signal
       })
@@ -360,7 +357,7 @@ export default function RecommendCalculator({ defaultSpend, initialSections }: P
       clearTimeout(timer);
       controller.abort();
     };
-  }, [spend, maxAnnualFee, wantsLounge, wantsLifetimeFree, rewardTypeView]);
+  }, [spend, maxAnnualFee, wantsLounge, wantsLifetimeFree, groupByType, rewardTypeView]);
 
   const totalMonthly = ALL_CATEGORIES.reduce((sum, category) => sum + spend[category], 0);
   const visibleCategories = showMore ? ALL_CATEGORIES : CORE_CATEGORIES;
@@ -380,7 +377,7 @@ export default function RecommendCalculator({ defaultSpend, initialSections }: P
   }
 
   return (
-    <div className="recommend-layout">
+    <div className={`recommend-layout${totalMonthly === 0 ? " is-empty" : ""}`}>
       <aside className="panel recommend-controls">
         <div className="recommend-controls-head">
           <h2>Spend profile</h2>
@@ -475,59 +472,78 @@ export default function RecommendCalculator({ defaultSpend, initialSections }: P
               <option value="10001-plus">₹10,001+</option>
             </select>
           </div>
-          <div className="field">
-            <label htmlFor="recommend-reward-type-view">Card type</label>
-            <select
-              id="recommend-reward-type-view"
-              name="reward-type-view"
-              value={rewardTypeView}
+          <label className="recommend-check">
+            <input
+              checked={groupByType}
+              id="recommend-group-by-type"
+              type="checkbox"
               onChange={(event) => {
+                const checked = event.target.checked;
                 setPending(true);
-                setRewardTypeView(event.target.value as RewardTypeView);
+                setGroupByType(checked);
+                if (!checked) setRewardTypeView("all");
               }}
-            >
-              <option value="all">All cards</option>
-              <option value="cashback">Cashback cards</option>
-              <option value="rewards">Reward cards</option>
-            </select>
-          </div>
+            />
+            Group by reward type
+          </label>
+          {groupByType ? (
+            <div className="field recommend-card-type-filter">
+              <label htmlFor="recommend-reward-type-view">Card type</label>
+              <select
+                id="recommend-reward-type-view"
+                name="reward-type-view"
+                value={rewardTypeView}
+                onChange={(event) => {
+                  setPending(true);
+                  setRewardTypeView(event.target.value as RewardTypeView);
+                }}
+              >
+                <option value="all">All cards</option>
+                <option value="cashback">Cashback cards</option>
+                <option value="rewards">Reward cards</option>
+              </select>
+            </div>
+          ) : null}
         </div>
       </aside>
 
       <div className="recommend-results panel recommend-results-panel">
-        <div className="section-head recommend-results-head">
-          <div>
-            <h2>Top picks for you by <span className="simplify-word">Simplify</span>Cards</h2>
-            <p>Built for your spend profile and ranked by annual value after fees</p>
-          </div>
-          {pending ? <span className="recommend-updating">Updating…</span> : null}
-        </div>
-
-        {updateError ? (
-          <div className="panel card" role="alert" style={{ marginBottom: "1rem" }}>
-            <p style={{ margin: 0 }}>{updateError}</p>
-          </div>
-        ) : null}
-
         {totalMonthly === 0 ? (
-          <div className="panel card">
-            <p className="muted" style={{ margin: 0 }}>
-              Move a slider to set your spend and see recommendations.
-            </p>
+          <div className="recommend-empty-guide" role="region" aria-label="How recommendations work">
+            <div className="recommend-empty-guide-inner">
+              <h2>Add your monthly spends</h2>
+              <p className="recommend-empty-guide-lead">Your personalised card recommendations will appear here</p>
+            </div>
           </div>
-        ) : pending && allResults.length === 0 ? (
+        ) : (
+          <>
+            <div className="section-head recommend-results-head">
+              <div>
+                <h2>Top picks for you by <span className="simplify-word">Simplify</span>Cards</h2>
+                <p>Built for your spend profile and ranked by annual value after fees</p>
+              </div>
+              {pending ? <span className="recommend-updating">Updating…</span> : null}
+            </div>
+
+            {updateError ? (
+              <div className="panel card" role="alert" style={{ marginBottom: "1rem" }}>
+                <p style={{ margin: 0 }}>{updateError}</p>
+              </div>
+            ) : null}
+
+            {pending && allResults.length === 0 ? (
           <div className="panel card">
             <p className="muted" style={{ margin: 0 }}>
               Updating recommendations…
             </p>
           </div>
-        ) : allResults.length === 0 ? (
+            ) : allResults.length === 0 ? (
           <div className="panel card">
             <p className="muted" style={{ margin: 0 }}>
               No cards match these filters — try loosening them.
             </p>
           </div>
-        ) : hasSections ? (
+            ) : hasSections ? (
           // Sectioned view: two headed groups (e.g. Rewards + Cashback)
           <div className="recommend-sections">
             {displayedSections.map((section) =>
@@ -548,7 +564,7 @@ export default function RecommendCalculator({ defaultSpend, initialSections }: P
               )
             )}
           </div>
-        ) : (
+            ) : (
           // Flat single-list view (default)
           <div className="recommend-cards">
             {(displayedSections[0]?.results ?? []).map((result, index) => (
@@ -560,6 +576,8 @@ export default function RecommendCalculator({ defaultSpend, initialSections }: P
               />
             ))}
           </div>
+            )}
+          </>
         )}
       </div>
     </div>
