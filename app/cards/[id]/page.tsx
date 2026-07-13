@@ -239,9 +239,8 @@ function loungeShortValue(card: CreditCard): string | null {
   const hasDomestic = card.loungeDomestic === "unlimited" || card.loungeDomestic > 0;
   const hasInternational = card.loungeInternational === "unlimited" || card.loungeInternational > 0;
   if (!hasDomestic && !hasInternational) return null;
-  const domestic = card.loungeDomestic === "unlimited" ? "∞" : card.loungeDomestic;
-  const international = card.loungeInternational === "unlimited" ? "∞" : card.loungeInternational;
-  return `${domestic} + ${international}`;
+  if (card.loungeDomestic === "unlimited" || card.loungeInternational === "unlimited") return "Unlimited";
+  return `${card.loungeDomestic} + ${card.loungeInternational}`;
 }
 
 export default async function CardPage({ params }: Props) {
@@ -251,7 +250,6 @@ export default async function CardPage({ params }: Props) {
 
   const cardContent = getCardContent(card.id);
   const ctaLabel = cardCtaLabel(card);
-  const latestUpdate = cardContent?.updates[0];
   const jsonLd = buildCardJsonLd(card);
 
   // Redemption / rewards table data (issuer-aware labels + voucher rows).
@@ -402,7 +400,8 @@ export default async function CardPage({ params }: Props) {
     headlineReward
       ? { value: formatRewardRate(card, headlineReward), label: `${headlineReward.displayCategory ?? headlineReward.category} ${card.rewardType.toLowerCase()} rate` }
       : { value: card.network.join(" / "), label: "Network" },
-    { value: `${card.forexMarkup}%`, label: "Forex markup" }
+    { value: `${card.forexMarkup}%`, label: "Forex markup" },
+    { value: loungeValue ?? "None", label: "Lounge visits" }
   ];
 
   const cardImageStyle = card.id === "hdfc-regalia-gold" ? { objectPosition: "center 25%" as const } : undefined;
@@ -914,33 +913,6 @@ export default async function CardPage({ params }: Props) {
                 </div>
               </section>
             ) : null}
-
-            <section className="panel card-reference-detail-card">
-              <div className="panel-body">
-                <div className="section-head">
-                  <div>
-                    <h2 className="section-title">Card details and verification</h2>
-                    <p className="section-sub">Additional facts retained from the verified card record.</p>
-                  </div>
-                </div>
-                <div className="info-grid card-reference-fact-list">
-                  <div className="info-row"><span>Issuer</span><strong>{card.issuer}</strong></div>
-                  <div className="info-row"><span>Joining fee</span><strong>{formatCurrency(card.joiningFee)}</strong></div>
-                  <div className="info-row"><span>Annual fee</span><strong>{formatCurrency(card.annualFee)}</strong></div>
-                  {hasFeeWaiverSpend(card.feeWaiverSpend) ? (
-                    <div className="info-row"><span>Fee waiver spend</span><strong>{formatRupeesCompact(card.feeWaiverSpend as number)}</strong></div>
-                  ) : null}
-                  <div className="info-row"><span>Reward type</span><strong>{card.rewardType}</strong></div>
-                  <div className="info-row"><span>Card network</span><strong>{card.network.join(" / ")}</strong></div>
-                  <div className="info-row"><span>Forex markup</span><strong>{card.forexMarkup}%</strong></div>
-                  {loungeValue ? <div className="info-row"><span>Lounge visits</span><strong>{loungeValue}</strong></div> : null}
-                  <div className="info-row"><span>Last verified</span><strong>{card.lastVerified}</strong></div>
-                  {latestUpdate ? (
-                    <div className="info-row"><span>Latest update</span><strong>{formatUpdateDate(latestUpdate.publishedAt)}</strong></div>
-                  ) : null}
-                </div>
-              </div>
-            </section>
 
             <section className="panel">
               <div className="panel-body">
