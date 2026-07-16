@@ -134,7 +134,7 @@
   "imageUrl": "/images/yes-kiwi.webp",
   "sourceUrl": "https://gokiwi.in/cards/yesbank/",
   "applyUrl": "https://gokiwi.in/cards/yesbank/",
-  "lastVerified": "2026-06-14",
+  "lastVerified": "2026-07-16",
   "verificationStatus": "official-direct",
   "internalNotes": [
     "Card details manually reviewed and verified by user on 2026-06-14.",
@@ -146,6 +146,11 @@
     {
       "url": "https://gokiwi.in/cards/yesbank/",
       "provider": "official"
+    },
+    {
+      "url": "https://gokiwi.sng.link/E5owq/bisn/ezn3",
+      "provider": "referral",
+      "earnings": "Flat Rs 1500 Profit"
     }
   ]
 }
