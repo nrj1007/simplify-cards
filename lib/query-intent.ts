@@ -97,7 +97,10 @@ const spendCategoryAliases: Array<{ category: SpendCategory; aliases: string[] }
   { category: "insurance", aliases: ["insurance", "insurance premium", "insurance premiums"] },
   { category: "education", aliases: ["education", "school fees", "school fee", "education payments", "tuition"] },
   { category: "gold", aliases: ["gold", "jewellery", "jewelry"] },
-  { category: "government", aliases: ["government", "tax", "taxes", "tax payments", "government payments"] },
+  {
+    category: "government",
+    aliases: ["government", "govt", "tax", "taxes", "govt payments", "tax payments", "government payments"]
+  },
   { category: "international", aliases: ["international", "foreign", "forex", "international spends", "abroad", "foreign spends"] }
 ];
 

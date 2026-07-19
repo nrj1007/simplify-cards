@@ -111,6 +111,19 @@ describe("query intent parser", () => {
     expect(Object.entries(intent.inferredSpend ?? {}).every(([category, amount]) => category === "utilities" || amount === 0)).toBe(true);
   });
 
+  it("treats govt shorthand as government-focused spend intent", () => {
+    const intent = parseQueryIntent({
+      query: "best card for tax/govt payments"
+    });
+
+    expect(intent.inferredSpend?.government).toBe(53000);
+    expect(
+      Object.entries(intent.inferredSpend ?? {}).every(
+        ([category, amount]) => category === "government" || amount === 0
+      )
+    ).toBe(true);
+  });
+
   it("parses general spend suffixes like 'spend under 25k' into scaled spend profiles", () => {
     const intentUnder25k = parseQueryIntent({
       query: "best cashback card with spend under rs 25k"

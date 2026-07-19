@@ -320,7 +320,13 @@ const bareSpendCategoryPhrases = new Set([
   "education payments",
   "school fees",
   "gold",
+  "government",
   "government payments",
+  "govt",
+  "govt payments",
+  "tax",
+  "taxes",
+  "tax payments",
   "international spends",
   "forex"
 ]);

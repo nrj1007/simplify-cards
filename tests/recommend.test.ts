@@ -3,6 +3,8 @@ import { answerFromCards, cardMatchesSegment, defaultSpendProfile, joiningAndRen
 import { getCardById } from "../lib/cards";
 import type { ValuedBenefit } from "../lib/types";
 import { CATEGORY_FOCUS_BLEND_WEIGHTS, CATEGORY_FOCUS_MULTIPLIERS } from "../lib/ranking-config";
+import { detectCategoryFocus } from "../lib/recommend-category-focus";
+import { parseQueryIntent } from "../lib/query-intent";
 
 describe("joining/renewal benefit value", () => {
   const base = getCardById("hdfc-regalia-gold")!;
@@ -908,6 +910,25 @@ describe("scoreCards", () => {
       )
     ).toBe(true);
     expect(bareDiningScores.findIndex((score) => score.card.id === "simplyclick-sbi")).toBe(-1);
+  });
+
+  it("routes tax and govt aliases through government category-focus scoring", () => {
+    const queries = [
+      "best card for tax/govt payments",
+      "best card for tax payments",
+      "best card for govt payments"
+    ];
+
+    for (const query of queries) {
+      const input = { query };
+      expect(detectCategoryFocus(input, parseQueryIntent(input))?.key).toBe("government");
+
+      const topScore = scoreCards(input)[0];
+      expect(topScore).toBeDefined();
+      expect(
+        topScore!.displayBreakdown.find((item) => item.spendCategory === "government")?.monthlySpend
+      ).toBe(5000);
+    }
   });
 
   it("adds structured score reasons that reconcile to fitScore for broad queries", () => {

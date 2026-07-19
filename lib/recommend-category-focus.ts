@@ -105,9 +105,9 @@ export const categoryFocusConfigs: CategoryFocusConfig[] = [
   {
     key: "government",
     spendCategory: "government",
-    rewardPattern: /government/i,
-    queryPattern: /government/i,
-    positioning: ["government", "tax", "taxes"],
+    rewardPattern: /\b(?:government|govt|tax(?:es)?)\b/i,
+    queryPattern: /\b(?:government|govt|tax(?:es)?)\b/i,
+    positioning: ["government", "govt", "tax", "taxes"],
     matchByEarning: true
   }
 ];
