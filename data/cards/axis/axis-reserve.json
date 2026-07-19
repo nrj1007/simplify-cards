@@ -276,6 +276,11 @@
     {
       "url": "https://www.axisbank.com/retail/cards/credit-card/reserve-credit-card",
       "provider": "official"
+    },
+    {
+      "url": "https://linksredirect.com/?cid=297687&source=linkkit&url=https%3A%2F%2Fweb.axis.bank.in%2FDigitalChannel%2FWebForm%2F",
+      "provider": "cuelinks",
+      "earnings": "₹ 1890.00 / Lead"
     }
   ]
 }

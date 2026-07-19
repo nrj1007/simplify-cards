@@ -49,4 +49,19 @@ describe("card link CTA helpers", () => {
     expect(cardCtaLabel(card)).toBe("Check official site");
     expect(cardCtaRel(card)).toBe("nofollow");
   });
+
+  it("compares profit between earnkaro and cuelinks and selects the highest", () => {
+    const card = {
+      applyUrl: "https://issuer.example/card",
+      applyLinks: [
+        { url: "https://issuer.example/card", provider: "official" },
+        { url: "https://earnkaro.example/card", provider: "earnkaro", earnings: "Flat Rs 1000 Profit" },
+        { url: "https://cuelinks.example/card", provider: "cuelinks", earnings: "1200.00 / Lead" }
+      ]
+    };
+
+    expect(cardCtaHref(card)).toBe("https://cuelinks.example/card");
+    expect(cardCtaLabel(card)).toBe("Apply");
+    expect(cardCtaRel(card)).toBe("sponsored nofollow");
+  });
 });
