@@ -46,10 +46,12 @@ describe("feedback log helpers", () => {
 
   it("emits a structured console log instead of writing on Vercel", async () => {
     vi.stubEnv("VERCEL", "1");
+    vi.stubEnv("BLOB_READ_WRITE_TOKEN", "");
+    vi.stubEnv("VERCEL_OIDC_TOKEN", "");
     const consoleInfo = vi.spyOn(console, "info").mockImplementation(() => undefined);
     const entry = buildFeedbackEntry();
 
-    await logAskFeedback(entry);
+    await expect(logAskFeedback(entry)).rejects.toThrow(/durable record storage/i);
 
     expect(fs.existsSync(testLogPath)).toBe(false);
     expect(consoleInfo).toHaveBeenCalledOnce();

@@ -1,32 +1,39 @@
 import fs from "node:fs";
-import os from "node:os";
 import path from "node:path";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { POST } from "../app/api/analytics/route";
 import { appendAnalyticsEvent, readAnalyticsLog } from "../lib/analytics-logs";
 import { validateAnalyticsEventPayload } from "../lib/analytics";
 
-let tempDir = "";
-let logPath = "";
+const logPath = path.join(process.cwd(), "data", "analytics", "events.test.jsonl");
 const originalVercel = process.env.VERCEL;
+const originalBlobToken = process.env.BLOB_READ_WRITE_TOKEN;
+const originalOidcToken = process.env.VERCEL_OIDC_TOKEN;
+const originalBlobStoreId = process.env.BLOB_STORE_ID;
 
 function cleanup() {
-  if (tempDir && fs.existsSync(tempDir)) {
-    fs.rmSync(tempDir, { recursive: true, force: true });
-  }
+  if (fs.existsSync(logPath)) fs.unlinkSync(logPath);
 }
 
 describe("analytics validation and logging", () => {
   beforeEach(() => {
-    tempDir = fs.mkdtempSync(path.join(os.tmpdir(), "card-ai-analytics-"));
-    logPath = path.join(tempDir, "events.jsonl");
     process.env.ANALYTICS_LOG_PATH = logPath;
+    delete process.env.BLOB_READ_WRITE_TOKEN;
+    delete process.env.VERCEL_OIDC_TOKEN;
+    delete process.env.BLOB_STORE_ID;
+    cleanup();
   });
 
   afterEach(() => {
     delete process.env.ANALYTICS_LOG_PATH;
     if (originalVercel === undefined) delete process.env.VERCEL;
     else process.env.VERCEL = originalVercel;
+    if (originalBlobToken === undefined) delete process.env.BLOB_READ_WRITE_TOKEN;
+    else process.env.BLOB_READ_WRITE_TOKEN = originalBlobToken;
+    if (originalOidcToken === undefined) delete process.env.VERCEL_OIDC_TOKEN;
+    else process.env.VERCEL_OIDC_TOKEN = originalOidcToken;
+    if (originalBlobStoreId === undefined) delete process.env.BLOB_STORE_ID;
+    else process.env.BLOB_STORE_ID = originalBlobStoreId;
     vi.restoreAllMocks();
     cleanup();
   });
@@ -125,7 +132,7 @@ describe("analytics validation and logging", () => {
       page: "ask",
       query: "best cashback card"
     });
-    await expect(readAnalyticsLog()).resolves.toEqual([]);
+    await expect(readAnalyticsLog()).rejects.toThrow("Durable analytics storage is not configured");
   });
 
   it("reads recent analytics log entries and skips malformed jsonl lines", async () => {

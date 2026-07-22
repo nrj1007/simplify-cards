@@ -5,7 +5,7 @@ import { answerQuestion, confidenceFromGap, getUnsupportedQuestionReason, resolv
 import { clearAskCache } from "../lib/ask-cache";
 import { scoreCards } from "../lib/recommend";
 
-const logPath = path.join(process.cwd(), "data", "question-logs", "unsupported-questions.json");
+const logPath = path.join(process.cwd(), "data", "question-logs", "unsupported-questions.ask-ai.test.json");
 const originalApiKey = process.env.OPENAI_API_KEY;
 const originalFetch = global.fetch;
 
@@ -15,6 +15,7 @@ function cleanupLogFile() {
 
 describe("ask ai fallback policy", () => {
   beforeEach(() => {
+    vi.stubEnv("UNSUPPORTED_QUESTION_LOG_PATH", logPath);
     cleanupLogFile();
     clearAskCache();
     delete process.env.OPENAI_API_KEY;
@@ -27,6 +28,7 @@ describe("ask ai fallback policy", () => {
     if (originalApiKey) process.env.OPENAI_API_KEY = originalApiKey;
     else delete process.env.OPENAI_API_KEY;
     global.fetch = originalFetch;
+    vi.unstubAllEnvs();
   });
 
   it("flags latest-information questions as unsupported without web search", () => {

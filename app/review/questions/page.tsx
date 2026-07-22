@@ -1,6 +1,8 @@
 import { readUnsupportedQuestionLog } from "@/lib/question-logs";
 import PageHero from "@/app/ui/PageHero";
 
+export const dynamic = "force-dynamic";
+
 function formatLoggedAt(value: string) {
   const date = new Date(value);
   return new Intl.DateTimeFormat("en-IN", {

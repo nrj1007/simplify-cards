@@ -4,17 +4,18 @@ import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import {
   appendUnsupportedQuestionLog,
   readUnsupportedQuestionLog,
-  unsupportedQuestionLogPath
 } from "../lib/question-logs";
 
-const logDir = path.dirname(unsupportedQuestionLogPath);
+const testLogPath = path.join(process.cwd(), "data", "question-logs", "unsupported-questions.test.json");
+const logDir = path.dirname(testLogPath);
 
 function cleanupLogFile() {
-  if (fs.existsSync(unsupportedQuestionLogPath)) fs.rmSync(unsupportedQuestionLogPath, { force: true });
+  if (fs.existsSync(testLogPath)) fs.rmSync(testLogPath, { force: true });
 }
 
 describe("question log helpers", () => {
   beforeEach(() => {
+    vi.stubEnv("UNSUPPORTED_QUESTION_LOG_PATH", testLogPath);
     fs.mkdirSync(logDir, { recursive: true });
     cleanupLogFile();
   });
@@ -31,7 +32,7 @@ describe("question log helpers", () => {
 
   it("returns log entries newest first", async () => {
     fs.writeFileSync(
-      unsupportedQuestionLogPath,
+      testLogPath,
       JSON.stringify(
         [
           {
@@ -74,6 +75,8 @@ describe("question log helpers", () => {
 
   it("emits a structured console log instead of writing on Vercel", async () => {
     vi.stubEnv("VERCEL", "1");
+    vi.stubEnv("BLOB_READ_WRITE_TOKEN", "");
+    vi.stubEnv("VERCEL_OIDC_TOKEN", "");
     const consoleInfo = vi.spyOn(console, "info").mockImplementation(() => undefined);
     const entry = {
       query: "latest devaluation",
@@ -84,7 +87,7 @@ describe("question log helpers", () => {
 
     await appendUnsupportedQuestionLog(entry);
 
-    expect(fs.existsSync(unsupportedQuestionLogPath)).toBe(false);
+    expect(fs.existsSync(testLogPath)).toBe(false);
     expect(consoleInfo).toHaveBeenCalledOnce();
     expect(JSON.parse(String(consoleInfo.mock.calls[0][0]))).toEqual({
       log_type: "unsupported_question",

@@ -178,7 +178,7 @@ export default async function AnalyticsReviewPage() {
       <PageHero
         eyebrow="Internal review"
         title="Analytics"
-        lead="Review recent product usage from the local analytics JSONL log."
+        lead="Review recent product usage stored in the private durable record store."
       />
 
       <section className="page-content">

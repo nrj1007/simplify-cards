@@ -4,7 +4,7 @@ import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { answerQuestion, getAskResultCacheStatus } from "../lib/ask-ai";
 import { clearAskCache } from "../lib/ask-cache";
 
-const logPath = path.join(process.cwd(), "data", "question-logs", "unsupported-questions.json");
+const logPath = path.join(process.cwd(), "data", "question-logs", "unsupported-questions.ask-cache.test.json");
 const originalApiKey = process.env.OPENAI_API_KEY;
 const originalFetch = global.fetch;
 
@@ -14,6 +14,7 @@ function cleanupLogFile() {
 
 describe("ask intent cache", () => {
   beforeEach(() => {
+    vi.stubEnv("UNSUPPORTED_QUESTION_LOG_PATH", logPath);
     clearAskCache();
     cleanupLogFile();
     delete process.env.OPENAI_API_KEY;
@@ -40,6 +41,7 @@ describe("ask intent cache", () => {
     if (originalApiKey) process.env.OPENAI_API_KEY = originalApiKey;
     else delete process.env.OPENAI_API_KEY;
     global.fetch = originalFetch;
+    vi.unstubAllEnvs();
   });
 
   it("reuses answers for different phrasings that resolve to the same intent and card list", async () => {

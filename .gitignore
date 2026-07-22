@@ -14,3 +14,4 @@ data/analytics/events.jsonl
 .DS_Store
 
 .vercel
+.env*
