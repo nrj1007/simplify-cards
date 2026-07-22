@@ -1,11 +1,9 @@
-import fs from "node:fs/promises";
-import path from "node:path";
 import { cards, getCardById } from "./cards";
 import { answerFromCards, defaultSpendProfile, getAirMilesValue, requestedTopCardCount, scoreCards, isBroadGenericRankingQuery } from "./recommend";
 import type { CardScore } from "./types";
 import type { RecommendationInput } from "./types";
 import { SPLIT_SCOPE } from "./result-strategies";
-import { unsupportedQuestionLogPath } from "./question-logs";
+import { appendUnsupportedQuestionLog } from "./question-logs";
 import type { UnsupportedQuestionLogEntry } from "./question-logs";
 import { parseQueryIntent } from "./query-intent";
 import { callAiWithSchemaDetailed, type AiCallTrace } from "./ai-provider";
@@ -1413,26 +1411,7 @@ export async function logUnsupportedQuestion(input: RecommendationInput, reason:
     input
   };
 
-  try {
-    const logDir = path.dirname(unsupportedQuestionLogPath);
-    await fs.mkdir(logDir, { recursive: true });
-
-    let existingEntries: UnsupportedQuestionLogEntry[] = [];
-
-    try {
-      const existingContent = await fs.readFile(unsupportedQuestionLogPath, "utf8");
-      existingEntries = JSON.parse(existingContent) as UnsupportedQuestionLogEntry[];
-    } catch (error) {
-      if ((error as NodeJS.ErrnoException).code !== "ENOENT") throw error;
-    }
-
-    existingEntries.push(entry);
-    await fs.writeFile(unsupportedQuestionLogPath, JSON.stringify(existingEntries, null, 2));
-  } catch (error) {
-    console.error("Failed to write to unsupported question log:", error);
-  }
-
-  return entry;
+  return appendUnsupportedQuestionLog(entry);
 }
 
 function buildGroundedAskPrompt(input: RecommendationInput, shortlistedCards: CardScore[]) {
