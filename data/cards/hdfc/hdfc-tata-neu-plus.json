@@ -212,6 +212,11 @@
       "url": "https://inr.deals/track?id=nee478969210&src=merchant-backend&campaign=cpl&url=https://applyonline.hdfcbank.com/cards/credit-cards.html",
       "provider": "inrDeals",
       "earnings": "Flat ₹700 / Lead"
+    },
+    {
+      "url": "https://linksredirect.com/?cid=297687&source=linkkit&url=https%3A%2F%2Fapplyonline.hdfc.bank.in%2Fcards%2Fcredit-cards.html%23nbb",
+      "provider": "cuelinks",
+      "earnings": "1800/Lead (NTB)"
     }
   ]
 }
