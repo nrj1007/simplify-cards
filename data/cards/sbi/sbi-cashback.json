@@ -133,6 +133,11 @@
       "url": "https://linksredirect.com/?cid=297687&source=linkkit&url=https%3A%2F%2Fwww.sbicard.com%2Fsprint%2Felite",
       "provider": "cuelinks",
       "earnings": "₹ 1890.00 / Lead"
+    },
+    {
+      "url": "https://inr.deals/track?id=nee478969210&src=merchant-backend&campaign=cpa_cb&url=https://www.sbicard.com",
+      "provider": "inrDeals",
+      "earnings": "Flat ₹1350 / Sale"
     }
   ]
 }

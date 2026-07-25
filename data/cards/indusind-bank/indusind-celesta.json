@@ -111,6 +111,11 @@
     {
       "url": "https://www.indusind.com/in/en/personal/cards/credit-card/celesta-credit-card.html",
       "provider": "official"
+    },
+    {
+      "url": "https://inr.deals/track?id=nee478969210&src=merchant-backend&campaign=cpa&url=https://induseasycredit.indusind.bank.in/",
+      "provider": "inrDeals",
+      "earnings": "Flat ₹950 / Action"
     }
   ]
 }

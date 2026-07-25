@@ -156,6 +156,11 @@
     {
       "url": "https://www.federalbank.co.in/signet-credit-card",
       "provider": "official"
+    },
+    {
+      "url": "https://inr.deals/track?id=nee478969210&src=merchant-backend&campaign=cpa&url=https://creditcards.federalbank.co.in",
+      "provider": "inrDeals",
+      "earnings": "Flat ₹600 / Action"
     }
   ]
 }
