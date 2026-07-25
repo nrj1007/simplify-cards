@@ -1,0 +1,105 @@
+{
+  "id": "au-lit",
+  "issuer": "AU Small Finance Bank",
+  "name": "LIT Credit Card",
+  "network": [
+    "Visa"
+  ],
+  "joiningFee": 0,
+  "annualFee": 0,
+  "feeWaiverSpend": null,
+  "bestFor": [
+    "customizable",
+    "rewards"
+  ],
+  "rewardType": "reward points",
+  "broadOnlineReward": false,
+  "rewards": [
+    {
+      "category": "base",
+      "rate": 0.25,
+      "displayCategory": "All retail spends",
+      "displayRate": "1 reward point per ₹100",
+      "capMonthly": null
+    }
+  ],
+  "loungeDomestic": 0,
+  "loungeInternational": 0,
+  "lounge": {
+    "domestic": [
+      "LIT card has no default complimentary airport lounge access. Domestic airport lounge access (1 or 2 visits per quarter) can be activated as a customizable feature pack via the AU 0101 app."
+    ],
+    "international": [
+      "LIT card has no default complimentary international airport lounge access."
+    ]
+  },
+  "forexMarkup": 3.49,
+  "tags": [
+    "customizable",
+    "rewards"
+  ],
+  "exclusions": [
+    "fuel spends",
+    "rental payments",
+    "wallet loading and top-up transactions",
+    "educational services and school fees",
+    "government services",
+    "utility payments"
+  ],
+  "exclusionCodes": [
+    "fuel",
+    "rent",
+    "wallet_load",
+    "education",
+    "government",
+    "utilities"
+  ],
+  "joiningBenefitsValued": [],
+  "joiningBenefits": [],
+  "milestones": [],
+  "milestoneBenefits": [],
+  "additionalBenefits": [
+    "Customizable feature packs (e.g., 5X/10X rewards on online/offline retail spends, 5% cashback on groceries/dining/apparel) can be activated on-demand via the AU 0101 app for a nominal fee.",
+    "1% fuel surcharge waiver on transactions between ₹400 and ₹5,000"
+  ],
+  "additionalDetails": [
+    "A reward redemption fee of ₹99 + GST applies per redemption request.",
+    "Subscription fees for feature packs are charged in the monthly statement cycles when they are active."
+  ],
+  "redemption": {
+    "ecosystemLabel": "AU Rewardz",
+    "ecosystemValue": 0.25,
+    "statementBalanceValue": 0.25,
+    "pointsExpiryYears": 2
+  },
+  "eligibility": {
+    "salaried": [
+      "Resident Indian citizen",
+      "Age 21 to 60 years"
+    ],
+    "selfEmployed": [
+      "Resident Indian citizen",
+      "Age 21 to 60 years"
+    ]
+  },
+  "supportingSourceUrls": [
+    "https://www.aubank.in/personal-banking/credit-cards/lit-credit-card"
+  ],
+  "sourceUrl": "https://www.aubank.in/personal-banking/credit-cards/lit-credit-card",
+  "applyUrl": "https://www.aubank.in/personal-banking/credit-cards/lit-credit-card",
+  "imageUrl": "/images/au-lit.webp",
+  "lastVerified": "2026-06-15",
+  "verificationStatus": "official-direct",
+  "popularityScore": 70,
+  "applyLinks": [
+    {
+      "url": "https://www.aubank.in/personal-banking/credit-cards/lit-credit-card",
+      "provider": "official"
+    },
+    {
+      "url": "https://bitli.in/21b3uEo",
+      "provider": "earnkaro",
+      "earnings": "Flat Rs 1540 Profit"
+    }
+  ]
+}

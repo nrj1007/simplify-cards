@@ -34,6 +34,10 @@ exports[`reward calculator golden (all cards) > computes stable earn for every c
     "high": "online:5000 dining:2500 travel:2500 hotels:2500 airlines:2500 fuel:x grocery:2500 utilities:2500 upi:2500 amazon:2500 international:x base:2500 rent:x insurance:1000 education:x gold:2500 government:x |31000 (surcharge:2000)",
     "moderate": "online:625 dining:313 travel:313 hotels:313 airlines:313 fuel:x grocery:313 utilities:313 upi:313 amazon:313 international:x base:313 rent:x insurance:125 education:x gold:313 government:x |3875 (surcharge:250)",
   },
+  "au-lit": {
+    "high": "online:500 dining:500 travel:500 hotels:500 airlines:500 fuel:x grocery:500 utilities:x upi:500 amazon:500 international:500 base:500 rent:x insurance:500 education:x gold:500 government:x |6000 (surcharge:2000)",
+    "moderate": "online:63 dining:63 travel:63 hotels:63 airlines:63 fuel:x grocery:63 utilities:x upi:63 amazon:63 international:63 base:63 rent:x insurance:63 education:x gold:63 government:x |750 (surcharge:250)",
+  },
   "aurum-sbi": {
     "high": "online:8000 dining:8000 travel:8000 hotels:8000 airlines:8000 fuel:x grocery:8000 utilities:8000 upi:8000 amazon:8000 international:8000 base:8000 rent:x insurance:8000 education:8000 gold:8000 government:x |112000 (surcharge:2000)",
     "moderate": "online:1000 dining:1000 travel:1000 hotels:1000 airlines:1000 fuel:x grocery:1000 utilities:1000 upi:1000 amazon:1000 international:1000 base:1000 rent:x insurance:1000 education:1000 gold:1000 government:x |14000 (surcharge:250)",
