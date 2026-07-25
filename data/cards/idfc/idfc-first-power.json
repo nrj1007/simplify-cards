@@ -132,6 +132,11 @@
       "url": "https://inr.deals/track?id=nee478969210&src=merchant-backend&campaign=cpa&url=https://www.idfcfirstbank.com/credit-card/ntb-diy/apply",
       "provider": "inrDeals",
       "earnings": "Upto ₹540 / Action"
+    },
+    {
+      "url": "https://linksredirect.com/?cid=297687&source=linkkit&url=https%3A%2F%2Fwww.idfcfirst.bank.in%2Fcredit-card%2Fntb-diy%2Fapply",
+      "provider": "cuelinks",
+      "earnings": "1012/Lead (NTB)"
     }
   ]
 }
