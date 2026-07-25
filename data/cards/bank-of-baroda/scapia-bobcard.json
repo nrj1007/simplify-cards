@@ -142,6 +142,11 @@
       "url": "https://inr.deals/track?id=nee478969210&src=merchant-backend&campaign=cpa&url=https://apply.scapia.cards/",
       "provider": "inrDeals",
       "earnings": "Flat ₹475 / Action"
+    },
+    {
+      "url": "https://linksredirect.com/?cid=297687&source=linkkit&url=https%3A%2F%2Fetihadguest.bobcard.in%2F",
+      "provider": "cuelinks",
+      "earnings": "975/Lead"
     }
   ]
 }
