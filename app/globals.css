@@ -92,8 +92,9 @@ html body .compare-reference-page > .page-content > .container {
 html body .compare-reference-page > .compare-reference-hero h1 {
   margin: 0;
   color: #1e112c;
-  font-size: 64px;
-  line-height: 1.08;
+  white-space: nowrap;
+  font-size: clamp(1.45rem, 3vw, 2.6rem);
+  line-height: 1.15;
   font-weight: 800;
   letter-spacing: 0;
 }
@@ -395,7 +396,8 @@ html body .compare-reference-page .compare-table tbody tr:last-child td { border
   }
 
   html body .compare-reference-page > .compare-reference-hero h1 {
-    font-size: 41.6px;
+    font-size: clamp(1rem, 4.5vw, 1.45rem);
+    letter-spacing: -0.02em;
   }
 
   html body .compare-reference-page > .page-content { padding-top: 8px !important; }

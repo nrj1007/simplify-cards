@@ -1,27 +1,16 @@
 import type { Route } from "next";
-import Link from "next/link";
 import { notFound } from "next/navigation";
-import ComparePicker from "./ComparePicker";
-import {
-  chooseReasons,
-  comparisonDisplayName,
-  comparisonFaqs,
-  comparisonLastUpdated,
-  comparisonRows,
-  comparisonTitle,
-  forexComparisonSummary,
-  finalRecommendation,
-  formatCurrency,
-  getSeoComparison,
-  getSeoComparisonCards,
-  keyBenefit,
-  loungeComparisonSummary,
-  quickVerdict,
-  relatedComparisons,
-  rewardsComparisonSummary,
-  totalLoungeLabel
-} from "@/lib/seo-comparisons";
+import LoungeInfo from "@/app/ui/LoungeInfo";
+import { TrackedExternalLink, TrackedLink } from "@/app/ui/TrackedLink";
 import { cards } from "@/lib/cards";
+import { stripScoringAnnotations } from "@/lib/card-index";
+import { cardCtaHref, cardCtaLabel, cardCtaRel } from "@/lib/card-links";
+import { getLoungeConditions } from "@/lib/lounge";
+import {
+  comparisonPageTitle,
+  getSeoComparison,
+  getSeoComparisonCards
+} from "@/lib/seo-comparisons";
 
 type Card = (typeof cards)[number];
 
@@ -29,19 +18,94 @@ type Props = {
   slug: string;
 };
 
-function compareToolHref(cardAId: string, cardBId: string) {
-  return `/compare?a=${cardAId}&b=${cardBId}` as Route;
-}
-
 function cardHref(cardId: string) {
   return `/cards/${cardId}` as Route;
 }
 
-function cleanText(value: string) {
-  return value.replace(/(?<!\d)\.(?=\s|$|[;,])/g, "");
+function formatCurrency(value: number | null | undefined) {
+  if (value === null || value === undefined) return "Not Listed";
+  return `Rs ${value.toLocaleString("en-IN")}`;
 }
 
-function SeoCompareCard({ card, other }: { card: Card; other: Card }) {
+function hasFeeWaiverSpend(value: number | null | undefined) {
+  return typeof value === "number" && value > 0;
+}
+
+function formatRewardCap(value: number | null | undefined, rewardType: string) {
+  if (!value) return "-";
+  return `${value.toLocaleString("en-IN")} ${rewardType}`;
+}
+
+function loungeValue(value: Card["loungeDomestic"] | Card["loungeInternational"]) {
+  return value === "unlimited" ? "Unlimited" : `${value}`;
+}
+
+function rewardRateLabel(card: Card, reward: Card["rewards"][number]) {
+  if (reward.displayRate) return reward.displayRate;
+
+  const rewardType = card.rewardType.toLowerCase();
+  if (rewardType.includes("point") || rewardType.includes("mile")) {
+    return `${reward.rate} ${card.rewardType} / Rs 100`;
+  }
+
+  return `${reward.rate}%`;
+}
+
+function rewardSummary(card: Card) {
+  return card.rewards
+    .filter((reward) => !reward.hidden)
+    .slice(0, 3)
+    .map((reward) => `${reward.displayCategory ?? reward.category}: ${rewardRateLabel(card, reward)}`)
+    .join("; ");
+}
+
+function smartbuyCapSummary(card: Card) {
+  const smartbuyRewards = card.rewards.filter((reward) => reward.category.includes("smartbuy"));
+  if (smartbuyRewards.length === 0) return "Not Listed";
+
+  const caps = smartbuyRewards.map((reward) => {
+    const parts = [];
+    if (reward.capDaily) parts.push(`daily ${formatRewardCap(reward.capDaily, card.rewardType)}`);
+    if (reward.capMonthly) parts.push(`monthly ${formatRewardCap(reward.capMonthly, card.rewardType)}`);
+    return `${reward.category}: ${parts.length ? parts.join(", ") : "no cap listed"}`;
+  });
+
+  return caps.join("; ");
+}
+
+function redemptionSummary(card: Card) {
+  if (!card.redemption) return "Not Listed";
+
+  const parts: string[] = [];
+  if (typeof card.redemption.smartBuyFlightHotelValue === "number") {
+    parts.push(`SmartBuy travel: upto Rs ${card.redemption.smartBuyFlightHotelValue} per point`);
+  }
+  if (typeof card.redemption.travelEdgeValue === "number") {
+    parts.push(`Travel EDGE travel: upto Rs ${card.redemption.travelEdgeValue} per point`);
+  }
+  if (typeof card.redemption.airMilesValue === "number") {
+    parts.push(`Air miles: upto Rs ${card.redemption.airMilesValue} per point`);
+  }
+  if (typeof card.redemption.statementBalanceValue === "number") {
+    parts.push(`Statement credit: upto Rs ${card.redemption.statementBalanceValue} per point`);
+  }
+
+  return parts.length ? parts.join("; ") : "Not Listed";
+}
+
+function listPreview(items: string[] | undefined, count = 4) {
+  if (!items || items.length === 0) return "Not Listed";
+  return items.slice(0, count).map(stripScoringAnnotations).join(", ");
+}
+
+function milestoneSummary(card: Card) {
+  return listPreview(card.milestoneBenefits, 4);
+}
+
+function CompareOverviewCard({ card }: { card: Card }) {
+  const loungeConditions = getLoungeConditions(card);
+  const showFeeWaiver = hasFeeWaiverSpend(card.feeWaiverSpend);
+
   return (
     <article className="panel card compare-card">
       <div>
@@ -61,16 +125,21 @@ function SeoCompareCard({ card, other }: { card: Card; other: Card }) {
 
       <div className="stats compare-card-stats">
         <div className="stat">
-          <strong>{cleanText(formatCurrency(card.annualFee))}</strong>
+          <strong>{formatCurrency(card.annualFee)}</strong>
           <span>Annual fee</span>
         </div>
+        {showFeeWaiver ? (
+          <div className="stat">
+            <strong>{formatCurrency(card.feeWaiverSpend)}</strong>
+            <span>Fee waiver spend</span>
+          </div>
+        ) : null}
         <div className="stat">
-          <strong>{cleanText(formatCurrency(card.feeWaiverSpend))}</strong>
-          <span>Fee waiver spend</span>
-        </div>
-        <div className="stat">
-          <strong>{totalLoungeLabel(card)}</strong>
-          <span>Total lounge</span>
+          <strong>{loungeValue(card.loungeDomestic)}</strong>
+          <span className="stat-label">
+            Domestic lounge
+            <LoungeInfo items={loungeConditions} label="Domestic lounge conditions" />
+          </span>
         </div>
         <div className="stat">
           <strong>{card.forexMarkup}%</strong>
@@ -80,21 +149,41 @@ function SeoCompareCard({ card, other }: { card: Card; other: Card }) {
 
       <div className="compare-card-section">
         <strong>Best for</strong>
-        <p className="muted">{cleanText(keyBenefit(card))}</p>
+        <p className="muted">{card.bestFor.join(", ")}</p>
       </div>
 
       <div className="compare-card-section">
-        <strong>Choose this if</strong>
-        <p className="muted">{cleanText(chooseReasons(card, other).join(" "))}</p>
+        <strong>Top rewards</strong>
+        <p className="muted">{rewardSummary(card)}</p>
       </div>
 
       <div className="actions">
-        <Link className="button secondary details-link" href={cardHref(card.id)}>
-          Click for more details
-        </Link>
-        <Link className="button apply-now-button" href={compareToolHref(card.id, other.id)}>
-          Open in compare tool
-        </Link>
+        <TrackedLink
+          analyticsEvent={{
+            event_name: "details_clicked",
+            page: "compare",
+            source: "compare",
+            card_id: card.id
+          }}
+          className="button secondary details-link"
+          href={cardHref(card.id)}
+        >
+          Click for more details →
+        </TrackedLink>
+        <TrackedExternalLink
+          analyticsEvent={{
+            event_name: "apply_clicked",
+            page: "compare",
+            source: "compare",
+            card_id: card.id
+          }}
+          className="button apply-now-button"
+          href={cardCtaHref(card)}
+          rel={cardCtaRel(card)}
+          target="_blank"
+        >
+          {cardCtaLabel(card) === "Apply" ? "Apply now" : cardCtaLabel(card)}
+        </TrackedExternalLink>
       </div>
     </article>
   );
@@ -106,210 +195,116 @@ export default function SeoComparisonPage({ slug }: Props) {
   if (!config || !pair) notFound();
 
   const { cardA, cardB } = pair;
-  const nameA = comparisonDisplayName(cardA);
-  const nameB = comparisonDisplayName(cardB);
-  const rows = comparisonRows(cardA, cardB);
-  const faqs = comparisonFaqs(cardA, cardB);
-  const cleanedFaqs = faqs.map((faq) => ({ ...faq, a: cleanText(faq.a) }));
-  const related = relatedComparisons(config.slug);
-  const pickerCards = cards
-    .map(({ id, issuer, name }) => ({ id, issuer, name }))
-    .sort((a, b) => a.issuer.localeCompare(b.issuer) || a.name.localeCompare(b.name));
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: cleanedFaqs.map((faq) => ({
-      "@type": "Question",
-      name: faq.q,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: faq.a
-      }
-    }))
-  };
+  const showFeeWaiverRow = hasFeeWaiverSpend(cardA.feeWaiverSpend) || hasFeeWaiverSpend(cardB.feeWaiverSpend);
 
   return (
-    <div className="page-shell compare-reference-page seo-comparison has-results">
+    <div className="page-shell compare-reference-page has-results">
       <section className="compare-reference-hero">
         <div className="container">
-          <h1>Compare</h1>
+          <h1>{comparisonPageTitle(config)}</h1>
         </div>
       </section>
-
-      <div className="page-content">
+      <section className="page-content">
         <div className="container">
-          <ComparePicker cards={pickerCards} initialFirst={cardA.id} initialSecond={cardB.id} />
-
-          <div className="seo-comparison-heading">
-            <div className="page-eyebrow">Popular comparison</div>
-            <h2>{nameA} vs {nameB}</h2>
-            <p>{cleanText(quickVerdict(cardA, cardB))}</p>
-          </div>
-
           <div className="grid compare-overview">
-            <SeoCompareCard card={cardA} other={cardB} />
-            <SeoCompareCard card={cardB} other={cardA} />
+            <CompareOverviewCard card={cardA} />
+            <CompareOverviewCard card={cardB} />
           </div>
-        </div>
 
-        <div className="container seo-comparison-grid">
-          <section className="seo-comparison-main">
-            <article className="panel seo-verdict-card seo-comparison-section">
-              <div className="page-eyebrow">Quick verdict</div>
-              <h2>{comparisonTitle(config)}</h2>
-              <p>{cleanText(quickVerdict(cardA, cardB))}</p>
-            </article>
-
-            <div className="seo-choice-grid">
-              <section className="panel seo-choice-card">
-                <h2>Choose {nameA} if</h2>
-                <ul>
-                  {chooseReasons(cardA, cardB).map((reason) => (
-                    <li key={reason}>{cleanText(reason)}</li>
-                  ))}
-                </ul>
-                <Link className="action-secondary" href={cardHref(cardA.id)}>
-                  View {nameA}
-                </Link>
-              </section>
-
-              <section className="panel seo-choice-card">
-                <h2>Choose {nameB} if</h2>
-                <ul>
-                  {chooseReasons(cardB, cardA).map((reason) => (
-                    <li key={reason}>{cleanText(reason)}</li>
-                  ))}
-                </ul>
-                <Link className="action-secondary" href={cardHref(cardB.id)}>
-                  View {nameB}
-                </Link>
-              </section>
-            </div>
-
-            <section className="panel compare-table-shell seo-comparison-table-panel" aria-labelledby="comparison-table">
-              <div className="seo-section-head">
-                <div>
-                  <div className="page-eyebrow">Side-by-side</div>
-                  <h2 id="comparison-table">Fees, rewards and benefits compared</h2>
-                </div>
-              </div>
-              <div className="table-wrap">
-                <table className="compare-table compare-table-rich seo-comparison-table">
-                  <thead>
+          <div className="panel compare-table-shell">
+            <div className="table-wrap">
+              <table className="compare-table compare-table-rich">
+                <thead>
+                  <tr>
+                    <th>Feature</th>
+                    <th>{cardA.name}</th>
+                    <th>{cardB.name}</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Issuer</td>
+                    <td>{cardA.issuer}</td>
+                    <td>{cardB.issuer}</td>
+                  </tr>
+                  <tr>
+                    <td>Network</td>
+                    <td>{cardA.network.join(", ")}</td>
+                    <td>{cardB.network.join(", ")}</td>
+                  </tr>
+                  <tr>
+                    <td>Joining fee</td>
+                    <td>{formatCurrency(cardA.joiningFee)}</td>
+                    <td>{formatCurrency(cardB.joiningFee)}</td>
+                  </tr>
+                  <tr>
+                    <td>Annual fee</td>
+                    <td>{formatCurrency(cardA.annualFee)}</td>
+                    <td>{formatCurrency(cardB.annualFee)}</td>
+                  </tr>
+                  {showFeeWaiverRow ? (
                     <tr>
-                      <th>Feature</th>
-                      <th>{cardA.name}</th>
-                      <th>{cardB.name}</th>
+                      <td>Fee waiver spend</td>
+                      <td>{hasFeeWaiverSpend(cardA.feeWaiverSpend) ? formatCurrency(cardA.feeWaiverSpend) : "-"}</td>
+                      <td>{hasFeeWaiverSpend(cardB.feeWaiverSpend) ? formatCurrency(cardB.feeWaiverSpend) : "-"}</td>
                     </tr>
-                  </thead>
-                  <tbody>
-                    {rows.map((row) => (
-                      <tr key={row.label}>
-                        <td>{row.label}</td>
-                        <td>{cleanText(row.valueA)}</td>
-                        <td>{cleanText(row.valueB)}</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            </section>
-
-            <section className="panel seo-comparison-section">
-              <h2>Rewards comparison</h2>
-              <p>
-                {cardA.name}: {cleanText(rewardsComparisonSummary(cardA))}
-              </p>
-              <p>
-                {cardB.name}: {cleanText(rewardsComparisonSummary(cardB))}
-              </p>
-            </section>
-
-            <section className="panel seo-comparison-section">
-              <h2>Lounge access comparison</h2>
-              <p>{cleanText(loungeComparisonSummary(cardA, cardB))}</p>
-            </section>
-
-            <section className="panel seo-comparison-section">
-              <h2>Forex and international travel comparison</h2>
-              <p>{cleanText(forexComparisonSummary(cardA, cardB))} Check issuer terms before using either card for large international spends</p>
-            </section>
-
-            <section className="panel seo-comparison-section">
-              <h2>Exclusions and limitations</h2>
-              <p>Review the exclusions row carefully Reward caps, merchant restrictions, and excluded spends can materially change real value</p>
-            </section>
-
-            <section className="panel seo-comparison-section">
-              <h2>Final recommendation</h2>
-              <p>{cleanText(finalRecommendation(cardA, cardB))}</p>
-            </section>
-          </section>
-
-          <aside className="seo-comparison-side">
-            <section className="panel seo-side-panel">
-              <h2>Compare tool</h2>
-              <p>Open this pair in the interactive compare tool if you want to switch cards or inspect more rows</p>
-              <Link className="btn btn-primary seo-side-cta" href={compareToolHref(cardA.id, cardB.id)}>
-                Open compare tool
-              </Link>
-            </section>
-
-            <section className="panel seo-side-panel">
-              <h2>Card detail pages</h2>
-              <div className="seo-related-links">
-                <Link href={cardHref(cardA.id)}>{cardA.name}</Link>
-                <Link href={cardHref(cardB.id)}>{cardB.name}</Link>
-              </div>
-            </section>
-
-            <section className="panel seo-side-panel">
-              <h2>Related comparisons</h2>
-              <div className="seo-related-links">
-                {related.map((item) => (
-                  <Link key={item.slug} href={`/compare/${item.slug}` as Route}>
-                    {comparisonTitle(item)}
-                  </Link>
-                ))}
-              </div>
-            </section>
-          </aside>
-        </div>
-
-        <section className="container seo-faq-section" aria-labelledby="comparison-faq">
-          <div className="panel">
-            <div className="seo-section-head">
-              <div>
-                <div className="page-eyebrow">FAQ</div>
-                <h2 id="comparison-faq">Common questions</h2>
-              </div>
-            </div>
-            <div className="seo-faq-grid">
-              {cleanedFaqs.map((faq) => (
-                <article key={faq.q}>
-                  <h3>{faq.q}</h3>
-                  <p>{faq.a}</p>
-                </article>
-              ))}
+                  ) : null}
+                  <tr>
+                    <td>Reward type</td>
+                    <td>{cardA.rewardType}</td>
+                    <td>{cardB.rewardType}</td>
+                  </tr>
+                  <tr>
+                    <td>Best for</td>
+                    <td>{cardA.bestFor.join(", ")}</td>
+                    <td>{cardB.bestFor.join(", ")}</td>
+                  </tr>
+                  <tr>
+                    <td>Top reward categories</td>
+                    <td>{rewardSummary(cardA)}</td>
+                    <td>{rewardSummary(cardB)}</td>
+                  </tr>
+                  <tr>
+                    <td>SmartBuy / accelerated caps</td>
+                    <td>{smartbuyCapSummary(cardA)}</td>
+                    <td>{smartbuyCapSummary(cardB)}</td>
+                  </tr>
+                  <tr>
+                    <td>Domestic lounge</td>
+                    <td>{loungeValue(cardA.loungeDomestic)}</td>
+                    <td>{loungeValue(cardB.loungeDomestic)}</td>
+                  </tr>
+                  <tr>
+                    <td>International lounge</td>
+                    <td>{loungeValue(cardA.loungeInternational)}</td>
+                    <td>{loungeValue(cardB.loungeInternational)}</td>
+                  </tr>
+                  <tr>
+                    <td>Forex markup</td>
+                    <td>{cardA.forexMarkup}%</td>
+                    <td>{cardB.forexMarkup}%</td>
+                  </tr>
+                  <tr>
+                    <td>Milestone benefits</td>
+                    <td>{milestoneSummary(cardA)}</td>
+                    <td>{milestoneSummary(cardB)}</td>
+                  </tr>
+                  <tr>
+                    <td>Redemption</td>
+                    <td>{redemptionSummary(cardA)}</td>
+                    <td>{redemptionSummary(cardB)}</td>
+                  </tr>
+                  <tr>
+                    <td>Key exclusions</td>
+                    <td>{listPreview(cardA.exclusions, 6)}</td>
+                    <td>{listPreview(cardB.exclusions, 6)}</td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
           </div>
-        </section>
-
-        <section className="container seo-disclosure" aria-label="Disclosure">
-          <p>
-            <strong>Disclosure:</strong> Apply buttons may use affiliate links Check official site links open issuer or partner pages,
-            and this comparison uses existing card data
-          </p>
-          <p>Last updated: {comparisonLastUpdated(cardA, cardB)}</p>
-        </section>
-      </div>
-
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(jsonLd)
-        }}
-      />
+        </div>
+      </section>
     </div>
   );
 }

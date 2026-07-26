@@ -29,6 +29,13 @@ export const SEO_COMPARISONS: SeoComparisonConfig[] = [
   { slug: "amex-platinum-travel-vs-axis-atlas", cardAId: "amex-platinum-travel", cardBId: "axis-atlas" }
 ];
 
+const SEO_COMPARISON_PAGE_TITLES: Record<string, string> = {
+  "axis-atlas-vs-hdfc-regalia-gold": "Axis Bank Atlas vs HDFC Bank Regalia Gold",
+  "sbi-cashback-vs-hdfc-millennia": "SBI Cashback vs HDFC Millennia",
+  "sbi-cashback-vs-hdfc-swiggy": "SBI Cashback vs Swiggy HDFC Bank",
+  "hdfc-infinia-metal-vs-hdfc-diners-club-black-metal": "HDFC Bank Infinia Metal vs HDFC Bank Diners Club Black Metal"
+};
+
 export const SEO_COMPARISON_SLUGS = SEO_COMPARISONS.map((comparison) => comparison.slug);
 export const INDEXABLE_SEO_COMPARISONS = SEO_COMPARISONS.filter((comparison) => !comparison.canonicalSlug);
 export const INDEXABLE_SEO_COMPARISON_SLUGS = INDEXABLE_SEO_COMPARISONS.map((comparison) => comparison.slug);
@@ -52,6 +59,12 @@ export function comparisonDisplayName(card: CreditCard) {
   return card.name;
 }
 
+export function comparisonPageTitle(config: SeoComparisonConfig) {
+  const cards = getSeoComparisonCards(config);
+  if (!cards) return config.slug;
+  return SEO_COMPARISON_PAGE_TITLES[config.slug] ?? `${comparisonDisplayName(cards.cardA)} vs ${comparisonDisplayName(cards.cardB)}`;
+}
+
 export function buildSeoComparisonMetadata(slug: string): Metadata {
   const config = getSeoComparison(slug);
   const cards = config ? getSeoComparisonCards(config) : null;
@@ -65,8 +78,8 @@ export function buildSeoComparisonMetadata(slug: string): Metadata {
 
   const nameA = comparisonDisplayName(cards.cardA);
   const nameB = comparisonDisplayName(cards.cardB);
-  const title = `${nameA} vs ${nameB}: Fees, Rewards & Benefits Compared | Simplify Cards`;
-  const description = `Compare ${nameA} and ${nameB} by fees, rewards, lounge access, forex charges, exclusions and best use case in India`;
+  const title = `${comparisonPageTitle(config)} | Simplify Cards`;
+  const description = `Compare ${nameA} and ${nameB} across fees, rewards, lounge access, milestone benefits, redemption, and exclusions`;
   const canonicalSlug = canonicalComparisonSlug(config);
   const metadata = buildPageMetadata({
     title,
