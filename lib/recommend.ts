@@ -1056,7 +1056,7 @@ export function answerFromCards(input: RecommendationInput) {
     summary:
       topCards.length === 0
         ? "No card matched the selected constraints. Try increasing the annual fee limit or removing lounge/lifetime-free filters."
-        : `${topCards[0].card.name} looks strongest with an estimated net yearly value of ₹${Math.round(topCards[0].displayNetValue).toLocaleString("en-IN")}.`,
+        : `${topCards[0].card.name} looks strongest with an estimated net yearly value of ₹${Math.round(topCards[0].displayNetValue).toLocaleString("en-IN")}`,
     cards: topCards,
     ...(hasSplit ? { sections: resultSections } : {})
   };

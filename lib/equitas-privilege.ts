@@ -44,5 +44,5 @@ export function equitasPrivilegeTierNote(tier: EquitasPrivilegeTier) {
     return "Considering Blue tier based on the current monthly spend. Higher tiers require the relevant monthly threshold to be met in all three months of each calendar quarter.";
   }
 
-  return `Considering ${tier} tier assumes your total spend is distributed evenly and the monthly threshold is met in all three months of each calendar quarter.`;
+  return `Considering ${tier} tier assumes your total spend is distributed evenly and the monthly threshold is met in all three months of each calendar quarter`;
 }

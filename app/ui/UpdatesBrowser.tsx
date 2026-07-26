@@ -58,7 +58,7 @@ export default function UpdatesBrowser({ updates }: { updates: Update[] }) {
       </section>
 
       {updates.length === 0 ? (
-        <p className="updates-empty">No updates yet. Check back soon.</p>
+        <p className="updates-empty">No updates yet Check back soon</p>
       ) : (
         <>
           <div className="updates-page-status" aria-live="polite">

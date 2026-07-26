@@ -142,7 +142,7 @@ export function SiteFooter() {
           </div>
         </div>
         <div className={styles.footerBottom}>
-          <span>© 2026 SimplifyCards. All rights reserved.</span>
+          <span>© 2026 SimplifyCards All rights reserved</span>
         </div>
       </footer>
       {policy ? <PolicyModal policy={policy} onClose={() => setPolicy(null)} /> : null}

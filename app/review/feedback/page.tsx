@@ -41,7 +41,7 @@ export default async function ReviewFeedbackPage() {
           </div>
 
           {entries.length === 0 ? (
-            <div className="notice">No feedback has been logged yet.</div>
+            <div className="notice">No feedback has been logged yet</div>
           ) : (
             <div className="review-list">
               {entries.map((entry, index) => (
@@ -50,7 +50,7 @@ export default async function ReviewFeedbackPage() {
                     <strong>{entry.query || "Untitled query"}</strong>
                     <span className="badge">{entry.feedback === "up" ? "Helpful" : "Needs improvement"}</span>
                   </div>
-                  {entry.comment ? <p>{entry.comment}</p> : <p className="muted">No written comment.</p>}
+                  {entry.comment ? <p>{entry.comment}</p> : <p className="muted">No written comment</p>}
                   <div className="meta">
                     <span>{formatDateTime(entry.submittedAt)}</span>
                     <span>Source: {entry.source ?? "ask"}</span>

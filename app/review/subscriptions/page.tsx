@@ -35,7 +35,7 @@ export default async function ReviewSubscriptionsPage() {
           </div>
 
           {entries.length === 0 ? (
-            <div className="notice">No subscriptions have been stored yet.</div>
+            <div className="notice">No subscriptions have been stored yet</div>
           ) : (
             <div className="analytics-review-table-shell">
               <table className="compare-table analytics-review-table">

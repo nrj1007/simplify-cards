@@ -93,13 +93,13 @@ export default function AskFeedback({
           </button>
         </div>
         <div className="ask-feedback-status" aria-live="polite">
-          {resolvedSavedFeedback === "up" ? <span className="ask-feedback-message ask-feedback-success">Marked helpful. Thanks.</span> : null}
+          {resolvedSavedFeedback === "up" ? <span className="ask-feedback-message ask-feedback-success">Marked helpful Thanks</span> : null}
           {resolvedSavedFeedback === "down" ? (
-            <span className="ask-feedback-message ask-feedback-success">Marked not helpful. Thanks.</span>
+            <span className="ask-feedback-message ask-feedback-success">Marked not helpful Thanks</span>
           ) : null}
-          {!resolvedSavedFeedback ? <span className="ask-feedback-message">Tap Yes or No to send quick feedback.</span> : null}
+          {!resolvedSavedFeedback ? <span className="ask-feedback-message">Tap Yes or No to send quick feedback</span> : null}
           {resolvedFeedbackError ? (
-            <span className="ask-feedback-message ask-feedback-error">Feedback could not be saved on the server.</span>
+            <span className="ask-feedback-message ask-feedback-error">Feedback could not be saved on the server</span>
           ) : null}
         </div>
       </form>
@@ -116,7 +116,7 @@ export default function AskFeedback({
             <div className="feedback-modal-head">
               <div>
                 <h3 id="feedback-modal-title">What felt off?</h3>
-                <p className="muted">Optional, but helpful.</p>
+                <p className="muted">Optional, but helpful</p>
               </div>
               <button
                 aria-label="Close feedback form"

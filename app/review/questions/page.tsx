@@ -46,7 +46,7 @@ export default async function ReviewQuestionsPage() {
           </div>
 
           {entries.length === 0 ? (
-            <div className="notice">No unsupported questions have been logged yet.</div>
+            <div className="notice">No unsupported questions have been logged yet</div>
           ) : (
             <div className="review-list">
               {entries.map((entry, index) => (

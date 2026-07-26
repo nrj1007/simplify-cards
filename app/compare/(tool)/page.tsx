@@ -26,7 +26,7 @@ export async function generateMetadata({ searchParams }: Props): Promise<Metadat
 
   return buildPageMetadata({
     title: `Compare ${first.name} vs ${second.name}`,
-    description: `Compare ${first.name} and ${second.name} across fees, rewards, lounge access, milestone benefits, redemption, and exclusions.`,
+    description: `Compare ${first.name} and ${second.name} across fees, rewards, lounge access, milestone benefits, redemption, and exclusions`,
     path: "/compare"
   });
 }

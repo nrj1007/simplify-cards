@@ -152,7 +152,7 @@ export default async function AskPage({ searchParams }: Props) {
                   <div className="panel-body">
                     <h2 className="section-title">No confident match</h2>
                     <div className="empty-state">
-                      <h3>We could not answer this confidently.</h3>
+                      <h3>We could not answer this confidently</h3>
                       <p>
                         {result.summary ||
                           "Try rephrasing — mention a use case like “cashback” or “lounge access” — or browse all cards below."}
@@ -174,8 +174,8 @@ export default async function AskPage({ searchParams }: Props) {
                 <section className="panel">
                   <div className="panel-body">
                     <div className="empty-state">
-                      <h3>Ask your first question.</h3>
-                      <p>Type a question above and SimplifyCards will return a grounded answer from verified card data.</p>
+                      <h3>Ask your first question</h3>
+                      <p>Type a question above and SimplifyCards will return a grounded answer from verified card data</p>
                     </div>
                   </div>
                 </section>

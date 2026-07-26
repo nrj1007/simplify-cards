@@ -701,7 +701,7 @@ export default function RewardCalculator({ card, milestones = [], picker, varian
             {calculatorNote ? <p className="calc-tier-note calculator-critical-note">{calculatorNote}</p> : null}
 
             {annualUnits <= 0 ? (
-              <p className="muted calc-empty">Set your monthly spend on the left to see what this card earns.</p>
+              <p className="muted calc-empty">Set your monthly spend on the left to see what this card earns</p>
             ) : (
               <>
                 {!cashback && allRedemptionCards.length > 0 ? (
@@ -780,7 +780,7 @@ export default function RewardCalculator({ card, milestones = [], picker, varian
                     </header>
                     <div
                       className="milestone-journey"
-                      aria-label={`Progress toward next milestone is ${Math.round(milestoneProgress)} percent.`}
+                      aria-label={`Progress toward next milestone is ${Math.round(milestoneProgress)} percent`}
                     >
                       {(() => {
                         const allNodes = [
@@ -873,7 +873,7 @@ export default function RewardCalculator({ card, milestones = [], picker, varian
                             <p>
                               {earnedMilestone
                                 ? `Unlocked! ${earnedMilestone.label}`
-                                : "Increase spends to unlock the first milestone reward."}
+                                : "Increase spends to unlock the first milestone reward"}
                             </p>
                           </div>
                         </article>
@@ -906,8 +906,8 @@ export default function RewardCalculator({ card, milestones = [], picker, varian
                             <h4>{nextMilestoneTitle}</h4>
                             <p>
                               {nextMilestone
-                                ? `Unlock when your ${nextMilestone.period} spend reaches ${formatINR(nextMilestone.threshold)}.`
-                                : "You have reached the available milestone thresholds for this card."}
+                                ? `Unlock when your ${nextMilestone.period} spend reaches ${formatINR(nextMilestone.threshold)}`
+                                : "You have reached the available milestone thresholds for this card"}
                             </p>
                           </div>
                         </article>
@@ -923,7 +923,7 @@ export default function RewardCalculator({ card, milestones = [], picker, varian
                         <div>
                           <h4>How to reach the next milestone</h4>
                           <p className="milestone-next-step-copy">
-                            You need <strong>{formatINR(Math.max((monthlyNextMilestone ?? 0) - totalMonthlySpend, 0))}</strong> more in monthly spend to unlock the next milestone.
+                            You need <strong>{formatINR(Math.max((monthlyNextMilestone ?? 0) - totalMonthlySpend, 0))}</strong> more in monthly spend to unlock the next milestone
                           </p>
                         </div>
                       </div>
@@ -976,14 +976,14 @@ export default function RewardCalculator({ card, milestones = [], picker, varian
                         </tbody>
                       </table>
                     </div>
-                    {hasExcluded ? <p className="muted calc-note">Categories marked excluded earn no rewards on this card.</p> : null}
+                    {hasExcluded ? <p className="muted calc-note">Categories marked excluded earn no rewards on this card</p> : null}
                   </details>
                 ) : null}
               </>
             )}
 
             <p className="muted calc-disclaimer">
-              Estimates only. Reward rates, caps, and redemption values follow each bank&apos;s current terms and can change.
+              Estimates only Reward rates, caps, and redemption values follow each bank&apos;s current terms and can change
             </p>
           </div>
         </div>
@@ -1120,7 +1120,7 @@ export default function RewardCalculator({ card, milestones = [], picker, varian
           ) : null}
 
           {annualUnits <= 0 ? (
-            <p className="muted calc-empty">Set your monthly spend on the left to see what this card earns.</p>
+            <p className="muted calc-empty">Set your monthly spend on the left to see what this card earns</p>
           ) : (
             <>
               {milestones.length > 0 ? (
@@ -1149,7 +1149,7 @@ export default function RewardCalculator({ card, milestones = [], picker, varian
                     ) : null}
                   </div>
                   <p className="muted calc-note">
-                    Milestone value is estimated and only counts once you reach each spend threshold.
+                    Milestone value is estimated and only counts once you reach each spend threshold
                   </p>
                 </div>
               ) : null}
@@ -1182,7 +1182,7 @@ export default function RewardCalculator({ card, milestones = [], picker, varian
                         </strong>
                       </div>
                       <p className="muted calc-note" style={{ margin: "4px 0 0" }}>
-                        Calculated as {formatINR(totalReturnsPlusVoucher)} gross rewards minus {formatINR(result.annualSurcharge)} surcharge.
+                        Calculated as {formatINR(totalReturnsPlusVoucher)} gross rewards minus {formatINR(result.annualSurcharge)} surcharge
                       </p>
                     </div>
                   ) : null}
@@ -1193,7 +1193,7 @@ export default function RewardCalculator({ card, milestones = [], picker, varian
                 <div className="calc-block">
                   <h3>What your points are worth</h3>
                   <p className="muted calc-note" style={{ margin: "0 0 10px" }}>
-                    Same points, very different value depending on how you redeem.
+                    Same points, very different value depending on how you redeem
                   </p>
                   <div className="calc-redeem-list">
                     {visibleRedeemRows.map((row, index) => (
@@ -1279,7 +1279,7 @@ export default function RewardCalculator({ card, milestones = [], picker, varian
                   </div>
                   {hasExcluded ? (
                     <p className="muted calc-note">
-                      Categories marked excluded earn no rewards on this card.
+                      Categories marked excluded earn no rewards on this card
                     </p>
                   ) : null}
                 </details>
@@ -1288,7 +1288,7 @@ export default function RewardCalculator({ card, milestones = [], picker, varian
           )}
 
           <p className="muted calc-disclaimer">
-            Estimates only. Reward rates, caps, and redemption values follow each bank&apos;s current terms and can change.
+            Estimates only Reward rates, caps, and redemption values follow each bank&apos;s current terms and can change
           </p>
         </div>
       </div>

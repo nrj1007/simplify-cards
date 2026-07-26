@@ -101,7 +101,7 @@ export default function AskBox({
           </Link>
         </div>
 
-        <div className="micro-note">No guaranteed approvals. We help you evaluate fit before you apply.</div>
+        <div className="micro-note">No guaranteed approvals We help you evaluate fit before you apply</div>
       </form>
     );
   }

@@ -50,7 +50,7 @@ export default async function ReviewInboxPage() {
           </div>
 
           {entries.length === 0 ? (
-            <div className="notice">No Telegram messages have been synced yet.</div>
+            <div className="notice">No Telegram messages have been synced yet</div>
           ) : (
             <div className="review-list">
               {entries.map((entry) => (

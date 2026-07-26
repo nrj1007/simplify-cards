@@ -23,7 +23,7 @@ describe("Equitas Privilege Program", () => {
 
   it("explains the even monthly-spend assumption for an upgraded tier", () => {
     expect(equitasPrivilegeTierNote("Gold")).toBe(
-      "Considering Gold tier assumes your total spend is distributed evenly and the monthly threshold is met in all three months of each calendar quarter."
+      "Considering Gold tier assumes your total spend is distributed evenly and the monthly threshold is met in all three months of each calendar quarter"
     );
   });
 

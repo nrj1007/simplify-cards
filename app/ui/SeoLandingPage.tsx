@@ -112,7 +112,7 @@ export default function SeoLandingPage({ slug }: Props) {
             <div className="seo-guide-summary-icon"><ShieldCheck aria-hidden="true" size={25} /></div>
             <div>
               <strong>Grounded in verified card data</strong>
-              <p>Fees, rewards, exclusions, redemption rules, and benefits from the SimplifyCards dataset.</p>
+              <p>Fees, rewards, exclusions, redemption rules, and benefits from the SimplifyCards dataset</p>
             </div>
             <dl>
               <div>
@@ -136,7 +136,7 @@ export default function SeoLandingPage({ slug }: Props) {
                 <div className="page-eyebrow">Ranked shortlist</div>
                 <h2 id="ranked-cards">Top cards for this search</h2>
               </div>
-              <p>Ranked from existing SimplifyCards data. Open any card for full rewards, exclusions, redemption, and eligibility details.</p>
+              <p>Ranked from existing SimplifyCards data Open any card for full rewards, exclusions, redemption, and eligibility details</p>
             </header>
 
             {sections ? (
@@ -192,7 +192,7 @@ export default function SeoLandingPage({ slug }: Props) {
               <section className="seo-guide-side-panel seo-guide-continue">
                 <CalendarDays aria-hidden="true" size={20} />
                 <h2>Continue your search</h2>
-                <p>Use the AI ask flow for your own spend pattern, fee limit, or card shortlist.</p>
+                <p>Use the AI ask flow for your own spend pattern, fee limit, or card shortlist</p>
                 <Link className="seo-guide-primary-action" href={askHref(config.ctaQuery)}>
                   Ask SimplifyCards <ArrowRight aria-hidden="true" size={17} />
                 </Link>
@@ -207,7 +207,7 @@ export default function SeoLandingPage({ slug }: Props) {
               <div className="page-eyebrow">FAQ</div>
               <h2 id="seo-faq">Common questions</h2>
             </div>
-            <p>Practical answers about the shortlist, verification, and how rankings work.</p>
+            <p>Practical answers about the shortlist, verification, and how rankings work</p>
           </header>
           <div className="seo-guide-faq-list">
             {config.faqs.map((faq, index) => (
@@ -223,7 +223,7 @@ export default function SeoLandingPage({ slug }: Props) {
           <div>
             <div className="page-eyebrow">Explore next</div>
             <h2 id="seo-related">Related guides</h2>
-            <p>Explore nearby card searches or compare specific cards side by side.</p>
+            <p>Explore nearby card searches or compare specific cards side by side</p>
           </div>
           <nav className="seo-guide-related-links" aria-label="Related credit card guides">
             {relatedGuides.map((landing) => (

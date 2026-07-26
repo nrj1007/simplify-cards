@@ -46,7 +46,7 @@ export default function ContactPage() {
 
             <article className="panel about-card">
               <div className="page-eyebrow">In-Product</div>
-              <h2>Send corrections and suggestions through the product.</h2>
+              <h2>Send corrections and suggestions through the product</h2>
               <p>
                 If you spot a stale card detail or a ranking that looks wrong, the fastest path is to open the relevant card, Ask result,
                 calculator, or comparison and share feedback from there. That keeps the report tied to the exact card or query.

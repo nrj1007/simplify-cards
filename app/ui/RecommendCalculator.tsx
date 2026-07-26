@@ -88,24 +88,24 @@ function cardTypeLabel(result: RecommendResult) {
 
 function calculatorMilestoneLine(result: RecommendResult) {
   if (result.estimatedMilestoneValue > 0) {
-    return `Milestones add ${formatINR(result.estimatedMilestoneValue)} per year.`;
+    return `Milestones add ${formatINR(result.estimatedMilestoneValue)} per year`;
   }
 
   if (result.nextMilestoneGap !== null) {
-    return `${formatINR(result.nextMilestoneGap)} more yearly spend to unlock the next milestone.`;
+    return `${formatINR(result.nextMilestoneGap)} more yearly spend to unlock the next milestone`;
   }
 
-  return "No milestone uplift at this spend.";
+  return "No milestone uplift at this spend";
 }
 
 function calculatorFeeWaiverLine(result: RecommendResult) {
-  if (result.annualFee === 0) return "No annual fee on this card.";
-  if (result.feeWaiverHit) return "Fee waiver hit at your current yearly spend.";
+  if (result.annualFee === 0) return "No annual fee on this card";
+  if (result.feeWaiverHit) return "Fee waiver hit at your current yearly spend";
   if (result.nextFeeWaiverGap !== null) {
-    return `${formatINR(result.nextFeeWaiverGap)} more yearly spend to unlock fee waiver.`;
+    return `${formatINR(result.nextFeeWaiverGap)} more yearly spend to unlock fee waiver`;
   }
 
-  return "Fee waiver not listed for this card.";
+  return "Fee waiver not listed for this card";
 }
 
 function calculatorNextUnlockLine(result: RecommendResult) {
@@ -113,18 +113,18 @@ function calculatorNextUnlockLine(result: RecommendResult) {
     result.nextMilestoneGap !== null
       ? {
           gap: result.nextMilestoneGap,
-          text: `Next milestone in ${formatINR(result.nextMilestoneGap)} yearly spend.`
+          text: `Next milestone in ${formatINR(result.nextMilestoneGap)} yearly spend`
         }
       : null,
     result.nextFeeWaiverGap !== null
       ? {
           gap: result.nextFeeWaiverGap,
-          text: `Fee waiver in ${formatINR(result.nextFeeWaiverGap)} yearly spend.`
+          text: `Fee waiver in ${formatINR(result.nextFeeWaiverGap)} yearly spend`
         }
       : null
   ].filter((item): item is { gap: number; text: string } => Boolean(item));
 
-  if (candidates.length === 0) return "No near-term unlock remaining.";
+  if (candidates.length === 0) return "No near-term unlock remaining";
   return candidates.sort((a, b) => a.gap - b.gap)[0].text;
 }
 
@@ -132,12 +132,12 @@ function calculatorAdjustmentLines(result: RecommendResult) {
   const lines = [];
   if (result.estimatedJoiningAndRenewalValue > 0) {
     lines.push(
-      <p key="joining-renewal"><strong>Joining/renewal value:</strong> Adds {formatINR(result.estimatedJoiningAndRenewalValue)} per year.</p>
+      <p key="joining-renewal"><strong>Joining/renewal value:</strong> Adds {formatINR(result.estimatedJoiningAndRenewalValue)} per year</p>
     );
   }
   if (result.estimatedForexCost > 0) {
     lines.push(
-      <p key="forex-cost"><strong>Forex cost:</strong> Deducts {formatINR(result.estimatedForexCost)} per year.</p>
+      <p key="forex-cost"><strong>Forex cost:</strong> Deducts {formatINR(result.estimatedForexCost)} per year</p>
     );
   }
   return lines;

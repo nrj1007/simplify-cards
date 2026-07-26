@@ -50,7 +50,7 @@ describe("card-detail milestone rules", () => {
       "@id": `https://www.simplifycards.in/cards/${base.id}`,
       name: base.name,
       url: `https://www.simplifycards.in/cards/${base.id}`,
-      description: `${base.name} credit card by ${base.issuer}. Annual fee: ₹${base.annualFee}. Reward type: ${base.rewardType}.`,
+      description: `${base.name} credit card by ${base.issuer} Annual fee: ₹${base.annualFee} Reward type: ${base.rewardType}`,
       provider: {
         "@type": "BankOrCreditUnion",
         name: base.issuer

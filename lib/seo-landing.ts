@@ -324,13 +324,13 @@ function rewardFallback(card: CreditCard) {
   if (!reward) return DEFAULT_FALLBACK;
   const category = reward.displayCategory ?? reward.category;
   const rate = reward.displayRate ?? `${reward.rate} ${card.rewardType} per ₹100`;
-  return `${rate} on ${category}.`;
+  return `${rate} on ${category}`;
 }
 
 function limitationFor(card: CreditCard) {
   const exclusion = card.exclusions[0];
   if (exclusion) return clean(exclusion);
-  if (card.feeWaiverSpend) return `Renewal fee waived only on ${formatRupeesCompact(card.feeWaiverSpend)} annual spend.`;
+  if (card.feeWaiverSpend) return `Renewal fee waived only on ${formatRupeesCompact(card.feeWaiverSpend)} annual spend`;
   if (card.rewards.some((reward) => typeof reward.capMonthly === "number" && reward.capMonthly > 0)) {
     return "Top reward categories are capped monthly.";
   }

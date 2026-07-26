@@ -133,7 +133,7 @@ function EmptyState({ children }: { children: React.ReactNode }) {
 }
 
 function CountTable({ rows, labelHeader }: { rows: CountRow[]; labelHeader: string }) {
-  if (rows.length === 0) return <EmptyState>No data yet.</EmptyState>;
+  if (rows.length === 0) return <EmptyState>No data yet</EmptyState>;
 
   return (
     <div className="analytics-review-table-shell">
@@ -217,7 +217,7 @@ export default async function AnalyticsReviewPage() {
             <span className="badge">Top 20</span>
           </div>
           {applyRows.length === 0 ? (
-            <EmptyState>No data yet.</EmptyState>
+            <EmptyState>No data yet</EmptyState>
           ) : (
             <div className="analytics-review-table-shell">
               <table className="compare-table analytics-review-table">
@@ -248,7 +248,7 @@ export default async function AnalyticsReviewPage() {
             <span className="badge">Top 10 clicked cards</span>
           </div>
           {sourceBreakdown.length === 0 ? (
-            <EmptyState>No data yet.</EmptyState>
+            <EmptyState>No data yet</EmptyState>
           ) : (
             <div className="analytics-source-list">
               {sourceBreakdown.map((row) => (
@@ -276,7 +276,7 @@ export default async function AnalyticsReviewPage() {
             <span className="badge">Newest 50</span>
           </div>
           {zeroResultQueries.length === 0 ? (
-            <EmptyState>No data yet.</EmptyState>
+            <EmptyState>No data yet</EmptyState>
           ) : (
             <div className="review-list analytics-query-list">
               {zeroResultQueries.map((event, index) => (
@@ -299,7 +299,7 @@ export default async function AnalyticsReviewPage() {
             <span className="badge">Last 14 days</span>
           </div>
           {last14DayEvents.length === 0 ? (
-            <EmptyState>No data yet.</EmptyState>
+            <EmptyState>No data yet</EmptyState>
           ) : (
             <div className="analytics-review-table-shell">
               <table className="compare-table analytics-review-table">

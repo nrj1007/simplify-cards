@@ -30,6 +30,7 @@ import {
 } from "@/lib/card-detail";
 import { buildPageMetadata } from "@/lib/seo";
 import { cardCtaHref, cardCtaLabel, cardCtaRel } from "@/lib/card-links";
+import { withoutSentenceEndingFullStop } from "@/lib/display-text";
 import type { CreditCard, Redemption } from "@/lib/types";
 
 type Props = {
@@ -50,7 +51,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!card) {
     return buildPageMetadata({
       title: "Card not found",
-      description: "The requested credit card page could not be found on SimplifyCards.",
+      description: "The requested credit card page could not be found on SimplifyCards",
       path: "/cards"
     });
   }
@@ -63,11 +64,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       ? `${totalLoungeAccess} lounge visits`
       : null;
   const descParts = [card.issuer, fee, lounge].filter(Boolean).join(" · ");
-  const description = `${card.name} by ${card.issuer}. ${descParts}. Verified rewards, fees, benefits, exclusions, and redemption details.`;
+  const description = `${card.name} by ${card.issuer} ${descParts} Verified rewards, fees, benefits, exclusions, and redemption details`;
 
   return buildPageMetadata({
     title: buildCardSeoTitle(card.name),
-    description: `Check ${card.name} fees, rewards, lounge access, forex charges, eligibility, exclusions and whether this credit card is worth it in India.`,
+    description: `Check ${card.name} fees, rewards, lounge access, forex charges, eligibility, exclusions and whether this credit card is worth it in India`,
     path: `/cards/${card.id}`,
     type: "article",
     imageUrl: card.imageUrl
@@ -203,12 +204,12 @@ function formatAnnualCap(group: string | undefined, annualCap: number | undefine
 }
 
 function DetailList({ items, className }: { items?: string[]; className?: string }) {
-  if (!items || items.length === 0) return <p className="muted">Not listed.</p>;
+  if (!items || items.length === 0) return <p className="muted">Not listed</p>;
 
   return (
     <ul className={className ? `detail-list ${className}` : "detail-list"}>
       {items.map((item) => (
-        <li key={item}>{item}</li>
+        <li key={item}>{withoutSentenceEndingFullStop(item)}</li>
       ))}
     </ul>
   );
@@ -223,7 +224,7 @@ function formatUpdateDate(value: string) {
 function updateSummaryPoints(summary: string) {
   return summary
     .split(/(?<=\.)\s+/)
-    .map((item) => item.trim())
+    .map((item) => withoutSentenceEndingFullStop(item.trim()))
     .filter(Boolean);
 }
 
@@ -321,7 +322,7 @@ export default async function CardPage({ params }: Props) {
         <div className="section-head">
           <div>
             <h2 className="section-title">Equitas Privilege Program</h2>
-            <p className="section-sub">Shared spend-based tiers for Tiga, Selfe, and PowerMiles.</p>
+            <p className="section-sub">Shared spend-based tiers for Tiga, Selfe, and PowerMiles</p>
           </div>
         </div>
 
@@ -364,9 +365,9 @@ export default async function CardPage({ params }: Props) {
           <h3>How tier qualification works</h3>
           <DetailList
             items={[
-              "Meet the monthly threshold in all 3 months of the calendar quarter.",
-              "Tier status is reviewed quarterly and may be upgraded or downgraded.",
-              "Calendar quarters are Apr-Jun, Jul-Sep, Oct-Dec, and Jan-Mar."
+              "Meet the monthly threshold in all 3 months of the calendar quarter",
+              "Tier status is reviewed quarterly and may be upgraded or downgraded",
+              "Calendar quarters are Apr-Jun, Jul-Sep, Oct-Dec, and Jan-Mar"
             ]}
           />
         </div>
@@ -375,8 +376,8 @@ export default async function CardPage({ params }: Props) {
           <h3>Benefits available across tiers</h3>
           <DetailList items={[...EQUITAS_PRIVILEGE_BENEFITS]} className="detail-list-columns" />
           <p className="muted">
-            Benefit availability varies by tier. The reward calculator&apos;s tier estimate assumes your
-            spend is maintained evenly each month.
+            Benefit availability varies by tier The reward calculator&apos;s tier estimate assumes your
+            spend is maintained evenly each month
           </p>
           <a className="button secondary" href={EQUITAS_PRIVILEGE_URL} rel="nofollow" target="_blank">
             Official program terms <ExternalLink size={15} />
@@ -462,7 +463,7 @@ export default async function CardPage({ params }: Props) {
               <section className="card-reference-decision-section" id="take">
                 <p className="card-reference-take">
                   <span>SimplifyCards take:</span>
-                  <strong>{take.goodFitIf ? `A good fit if ${take.goodFitIf}.` : take.whyItWorks}</strong>
+                  <strong>{take.goodFitIf ? `A good fit if ${take.goodFitIf}` : take.whyItWorks}</strong>
                 </p>
                 <div className="card-reference-decisions">
                   <article className="good">
@@ -477,7 +478,7 @@ export default async function CardPage({ params }: Props) {
                   </article>
                   <article className="verdict">
                     <div className="card-reference-decision-topline"><span>✦</span><h3>Bottom line</h3></div>
-                    <strong>{take.goodFitIf ? `Good fit if ${take.goodFitIf}.` : card.name}</strong>
+                    <strong>{take.goodFitIf ? `Good fit if ${take.goodFitIf}` : card.name}</strong>
                     <p>{take.whyItWorks || take.whereValueDrops}</p>
                   </article>
                 </div>
@@ -487,7 +488,7 @@ export default async function CardPage({ params }: Props) {
             <section className="card-reference-section" id="calculator">
               <div className="card-reference-section-title">
                 <h2>Estimate your {card.rewardType.toLowerCase()}</h2>
-                <p>Adjust your monthly spend to see the card&apos;s estimated annual value.</p>
+                <p>Adjust your monthly spend to see the card&apos;s estimated annual value</p>
               </div>
               <RewardCalculator card={card} milestones={milestoneRulesForCard(card)} variant="card-detail" />
             </section>
@@ -643,7 +644,7 @@ export default async function CardPage({ params }: Props) {
                     ) : null}
                     {card.id === "axis-atlas" && (
                       <p className="muted calc-note" style={{ marginTop: 12 }}>
-                        Annual caps of 30,000 EDGE Miles for Group A and 120,000 EDGE Miles for Group B apply.
+                        Annual caps of 30,000 EDGE Miles for Group A and 120,000 EDGE Miles for Group B apply
                       </p>
                     )}
                   </div>
@@ -689,13 +690,13 @@ export default async function CardPage({ params }: Props) {
                   <div className="section-head">
                     <div>
                       <h2 className="section-title">Tips</h2>
-                      <p className="section-sub">Practical notes from verified sources.</p>
+                      <p className="section-sub">Practical notes from verified sources</p>
                     </div>
                   </div>
                   <div className="content-list">
                     {cardContent.tips.map((tip, index) => (
                       <article className="content-item" key={`${tip.sourceLabel}-${index}`}>
-                        <p className="muted">{tip.text}</p>
+                        <p className="muted">{withoutSentenceEndingFullStop(tip.text)}</p>
                         {tip.sourceUrl ? (
                           <a className="button secondary" href={tip.sourceUrl} rel="nofollow" target="_blank">
                             Open source <ExternalLink size={15} />
@@ -716,7 +717,7 @@ export default async function CardPage({ params }: Props) {
                   <div className="section-head">
                     <div>
                       <h2 className="section-title">Benefits and fine print</h2>
-                      <p className="section-sub">Welcome, renewal, and other listed benefits.</p>
+                      <p className="section-sub">Welcome, renewal, and other listed benefits</p>
                     </div>
                   </div>
                   {hasJoiningBenefits ? (
@@ -753,7 +754,7 @@ export default async function CardPage({ params }: Props) {
                   <div className="section-head">
                     <div>
                       <h2 className="section-title">Latest updates</h2>
-                      <p className="section-sub">Recent changes to this card.</p>
+                      <p className="section-sub">Recent changes to this card</p>
                     </div>
                   </div>
                   <div className="content-list content-list-updates">
@@ -789,7 +790,7 @@ export default async function CardPage({ params }: Props) {
                   <div className="section-head">
                     <div>
                       <h2 className="section-title">Eligibility</h2>
-                      <p className="section-sub">Check this before you apply.</p>
+                      <p className="section-sub">Check this before you apply</p>
                     </div>
                   </div>
                   <div className="benefit-grid">
@@ -822,7 +823,7 @@ export default async function CardPage({ params }: Props) {
                   <div className="section-head">
                     <div>
                       <h2 className="section-title">Exclusions</h2>
-                      <p className="section-sub">Spending that does not earn {card.rewardType.toLowerCase()}.</p>
+                      <p className="section-sub">Spending that does not earn {card.rewardType.toLowerCase()}</p>
                     </div>
                     <span className="card-reference-exclusion-count">{card.exclusions.length} listed</span>
                   </div>
@@ -840,7 +841,7 @@ export default async function CardPage({ params }: Props) {
                   <div className="section-head">
                     <div>
                       <h2 className="section-title">Featured in our guides</h2>
-                      <p className="section-sub">Category shortlists where this card appears in the top picks.</p>
+                      <p className="section-sub">Category shortlists where this card appears in the top picks</p>
                     </div>
                   </div>
                   <div className="alt-grid">
@@ -848,7 +849,7 @@ export default async function CardPage({ params }: Props) {
                       <article className="alt-card" key={landing.slug}>
                         <small>{landing.eyebrow}</small>
                         <h3>{landing.h1}</h3>
-                        <p>{landing.intro}</p>
+                        <p>{withoutSentenceEndingFullStop(landing.intro)}</p>
                         <div className="alt-actions">
                           <Link className="alt-btn primary" href={`/${landing.slug}` as Route}>
                             Open guide
@@ -867,7 +868,7 @@ export default async function CardPage({ params }: Props) {
                   <div className="section-head">
                     <div>
                       <h2 className="section-title">Popular comparison guides</h2>
-                      <p className="section-sub">Crawlable side-by-side guides that include this card.</p>
+                      <p className="section-sub">Crawlable side-by-side guides that include this card</p>
                     </div>
                   </div>
                   <div className="alt-grid">
@@ -875,7 +876,7 @@ export default async function CardPage({ params }: Props) {
                       <article className="alt-card" key={comparison.slug}>
                         <small>Comparison guide</small>
                         <h3>{comparisonTitle(comparison)}</h3>
-                        <p>Compare fees, rewards, lounge access, forex markup, milestones, and exclusions.</p>
+                        <p>Compare fees, rewards, lounge access, forex markup, milestones, and exclusions</p>
                         <div className="alt-actions">
                           <Link className="alt-btn primary" href={`/compare/${comparison.slug}` as Route}>
                             Open guide
@@ -894,7 +895,7 @@ export default async function CardPage({ params }: Props) {
                   <div className="section-head">
                     <div>
                       <h2 className="section-title">Compare before you decide</h2>
-                      <p className="section-sub">Alternatives based on what you might want instead.</p>
+                      <p className="section-sub">Alternatives based on what you might want instead</p>
                     </div>
                   </div>
                   <div className="alt-grid">
@@ -903,7 +904,7 @@ export default async function CardPage({ params }: Props) {
                         <small>{alternativeIntent(alt)}</small>
                         <h3>{alt.name}</h3>
                         <p>
-                          {alt.bestFor.length ? `Best for ${alt.bestFor.slice(0, 3).join(", ")}.` : `${alt.rewardType} card.`}
+                          {alt.bestFor.length ? `Best for ${alt.bestFor.slice(0, 3).join(", ")}` : `${alt.rewardType} card`}
                         </p>
                         <div className="alt-actions">
                           <Link className="alt-btn primary" href={`/compare?a=${card.id}&b=${alt.id}`}>

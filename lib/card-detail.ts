@@ -2,6 +2,7 @@ import { cards, getCardById } from "./cards";
 import { stripScoringAnnotations } from "./card-index";
 import { getMeaningfulLoungeConditions, getTotalLoungeAccess } from "./lounge";
 import { buildCanonicalUrl } from "./seo";
+import { withoutSentenceEndingFullStop } from "./display-text";
 import type { CreditCard } from "./types";
 
 // ---------------------------------------------------------------------------
@@ -149,7 +150,7 @@ export function deriveTake(card: CreditCard): CardTake | null {
   if (card.milestoneBenefits?.length || card.milestones?.length) positives.push("milestone rewards");
   if (card.annualFee === 0 && card.joiningFee === 0) positives.push("no annual fee");
   const whyVerb = positives.length >= 2 ? "combines" : "offers";
-  const whyItWorks = positives.length ? `It ${whyVerb} ${joinNatural(positives.slice(0, 3))}.` : "";
+  const whyItWorks = positives.length ? `It ${whyVerb} ${joinNatural(positives.slice(0, 3))}` : "";
 
   const cautions: string[] = [];
   if (card.feeWaiverSpend && card.feeWaiverSpend > 0) {
@@ -162,7 +163,7 @@ export function deriveTake(card: CreditCard): CardTake | null {
   // Each caution is its own clause (some contain internal comma-lists), so render them as
   // separate sentences rather than comma-splicing them into one run-on.
   const whereValueDrops = cautions.length
-    ? cautions.slice(0, 3).map((clause) => `${capitalizeFirst(clause)}.`).join(" ")
+    ? cautions.slice(0, 3).map((clause) => capitalizeFirst(clause)).join(" ")
     : "";
 
   if (!whyItWorks && !whereValueDrops) return null;
@@ -192,8 +193,8 @@ export function deriveBestFor(card: CreditCard): DecisionCard[] {
       icon: "₹",
       title: "Best for simple cashback",
       desc: top?.displayRate
-        ? `${top.displayRate} on ${prettyInline(top.displayCategory ?? top.category)}, auto-credited with no points to manage.`
-        : "Direct cashback with no reward points to track or redeem."
+        ? `${top.displayRate} on ${prettyInline(top.displayCategory ?? top.category)}, auto-credited with no points to manage`
+        : "Direct cashback with no reward points to track or redeem"
     });
   } else {
     const top = topAcceleratedReward(card);
@@ -201,7 +202,7 @@ export function deriveBestFor(card: CreditCard): DecisionCard[] {
       out.push({
         icon: "✦",
         title: `Best for ${prettyTitle(top.displayCategory ?? top.category)}`,
-        desc: top.displayRate ?? `${top.rate} ${card.rewardType} per ₹100 spent.`
+        desc: withoutSentenceEndingFullStop(top.displayRate ?? `${top.rate} ${card.rewardType} per ₹100 spent`)
       });
     }
   }
@@ -210,7 +211,7 @@ export function deriveBestFor(card: CreditCard): DecisionCard[] {
     out.push({
       icon: "✈",
       title: "Best for airport lounge access",
-      desc: `${loungeCountLabel(card)} complimentary lounge visits a year across domestic and international.`
+      desc: `${loungeCountLabel(card)} complimentary lounge visits a year across domestic and international`
     });
   }
 
@@ -218,7 +219,7 @@ export function deriveBestFor(card: CreditCard): DecisionCard[] {
     out.push({
       icon: "↗",
       title: "Best for international spends",
-      desc: `A low ${card.forexMarkup}% forex markup keeps overseas and forex transactions cheaper.`
+      desc: `A low ${card.forexMarkup}% forex markup keeps overseas and forex transactions cheaper`
     });
   }
 
@@ -227,7 +228,7 @@ export function deriveBestFor(card: CreditCard): DecisionCard[] {
     out.push({
       icon: "✦",
       title: "Best for travel and redemptions",
-      desc: `Earns ${card.rewardType} you can put toward flights, hotels, or transfer partners.`
+      desc: `Earns ${card.rewardType} you can put toward flights, hotels, or transfer partners`
     });
   }
 
@@ -235,7 +236,7 @@ export function deriveBestFor(card: CreditCard): DecisionCard[] {
     out.push({
       icon: "0",
       title: "Best as a no-fee everyday card",
-      desc: "Lifetime-free, so there's no annual fee to recover before it adds value."
+      desc: "Lifetime-free, so there's no annual fee to recover before it adds value"
     });
   }
 
@@ -249,7 +250,7 @@ export function deriveAvoidIf(card: CreditCard): DecisionCard[] {
     out.push({
       icon: "↗",
       title: "Avoid for heavy international use",
-      desc: `A ${card.forexMarkup}% forex markup is on the higher side for overseas spends.`
+      desc: `A ${card.forexMarkup}% forex markup is on the higher side for overseas spends`
     });
   }
 
@@ -259,7 +260,7 @@ export function deriveAvoidIf(card: CreditCard): DecisionCard[] {
       title: "Avoid if your spend is low",
       desc: `The ${formatRupeesCompact(card.annualFee)} fee waives only at ${formatRupeesCompact(
         card.feeWaiverSpend
-      )}/year, and some benefits can be spend-gated.`
+      )}/year, and some benefits can be spend-gated`
     });
   }
 
@@ -268,7 +269,7 @@ export function deriveAvoidIf(card: CreditCard): DecisionCard[] {
     out.push({
       icon: "⊘",
       title: `Avoid if you spend big on ${joinNatural(excl.slice(0, 3))}`,
-      desc: "These categories are excluded and won't earn rewards."
+      desc: "These categories are excluded and won't earn rewards"
     });
   }
 
@@ -276,7 +277,7 @@ export function deriveAvoidIf(card: CreditCard): DecisionCard[] {
     out.push({
       icon: "≤",
       title: "Avoid if you expect uncapped rewards",
-      desc: "Top reward categories are capped each month, so very high spends don't scale linearly."
+      desc: "Top reward categories are capped each month, so very high spends don't scale linearly"
     });
   }
 
@@ -286,7 +287,7 @@ export function deriveAvoidIf(card: CreditCard): DecisionCard[] {
     out.push({
       icon: "?",
       title: "Avoid if you want pure cashback",
-      desc: "Simpler cashback cards exist if you'd rather not manage reward points."
+      desc: "Simpler cashback cards exist if you'd rather not manage reward points"
     });
   }
 
@@ -308,30 +309,30 @@ export function deriveLoungeMilestoneRules(card: CreditCard): CardRule[] {
   if (card.combinedLoungeAccess !== undefined) {
     rules.push({
       label: card.combinedLoungeAccessLabel ?? "Lounge access",
-      text: `${loungeValueLabel(card.combinedLoungeAccess)} visits per year.`,
-      conditions: getMeaningfulLoungeConditions(card)
+      text: `${loungeValueLabel(card.combinedLoungeAccess)} visits per year`,
+      conditions: getMeaningfulLoungeConditions(card).map(withoutSentenceEndingFullStop)
     });
   } else {
     if (card.loungeDomestic === "unlimited" || card.loungeDomestic > 0) {
       rules.push({
         label: "Domestic lounge",
-        text: `${loungeValueLabel(card.loungeDomestic)} visits per year.`,
-        conditions: getMeaningfulLoungeConditions(card, "domestic")
+        text: `${loungeValueLabel(card.loungeDomestic)} visits per year`,
+        conditions: getMeaningfulLoungeConditions(card, "domestic").map(withoutSentenceEndingFullStop)
       });
     }
     if (card.loungeInternational === "unlimited" || card.loungeInternational > 0) {
       rules.push({
         label: "International lounge",
-        text: `${loungeValueLabel(card.loungeInternational)} visits per year.`,
-        conditions: getMeaningfulLoungeConditions(card, "international")
+        text: `${loungeValueLabel(card.loungeInternational)} visits per year`,
+        conditions: getMeaningfulLoungeConditions(card, "international").map(withoutSentenceEndingFullStop)
       });
     }
   }
 
   // Prefer reviewed structured milestone labels; fall back to the free-text milestoneBenefits.
   const milestoneLabels = card.milestones?.length
-    ? card.milestones.map((milestone) => milestone.label)
-    : (card.milestoneBenefits ?? []).map((benefit) => stripScoringAnnotations(benefit));
+    ? card.milestones.map((milestone) => withoutSentenceEndingFullStop(milestone.label))
+    : (card.milestoneBenefits ?? []).map((benefit) => withoutSentenceEndingFullStop(stripScoringAnnotations(benefit)));
   for (const label of milestoneLabels) {
     if (/renewal fee|fee waiv|annual fee waiv/i.test(label)) continue;
     if (label) rules.push({ label: "Milestone", text: label });
@@ -340,7 +341,7 @@ export function deriveLoungeMilestoneRules(card: CreditCard): CardRule[] {
   if (card.feeWaiverSpend && card.feeWaiverSpend > 0) {
     rules.push({
       label: "Fee waiver",
-      text: `Renewal fee waived on annual spends of ${formatRupeesCompact(card.feeWaiverSpend)}.`
+      text: `Renewal fee waived on annual spends of ${formatRupeesCompact(card.feeWaiverSpend)}`
     });
   }
 
@@ -418,7 +419,7 @@ export function buildCardJsonLd(card: CreditCard) {
     "@id": url,
     name: card.name,
     url,
-    description: `${card.name} credit card by ${card.issuer}. Annual fee: ₹${card.annualFee}. Reward type: ${card.rewardType}.`,
+    description: `${card.name} credit card by ${card.issuer} Annual fee: ₹${card.annualFee} Reward type: ${card.rewardType}`,
     provider: {
       "@type": "BankOrCreditUnion",
       name: card.issuer

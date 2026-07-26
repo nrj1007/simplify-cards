@@ -133,7 +133,7 @@ export default function OgImage() {
                 }}
               >
                 <span>Find the cards that</span>
-                <span style={{ color: "#581c87" }}>save you more.</span>
+                <span style={{ color: "#581c87" }}>save you more</span>
               </div>
               <div
                 style={{

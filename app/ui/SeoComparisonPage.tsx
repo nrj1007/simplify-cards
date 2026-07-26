@@ -60,7 +60,7 @@ export default function SeoComparisonPage({ slug }: Props) {
       <PageHero
         eyebrow="Credit card comparison"
         title={`${nameA} vs ${nameB}`}
-        lead={`Compare ${nameA} and ${nameB} by fees, rewards, lounge access, forex markup, exclusions, milestones, and fit.`}
+        lead={`Compare ${nameA} and ${nameB} by fees, rewards, lounge access, forex markup, exclusions, milestones, and fit`}
       >
         <div className="seo-landing-hero-actions">
           <Link className="btn btn-primary" href={compareToolHref(cardA.id, cardB.id)}>
@@ -86,7 +86,7 @@ export default function SeoComparisonPage({ slug }: Props) {
 
             <div className="seo-choice-grid">
               <section className="panel seo-choice-card">
-                <h2>Choose {nameA} if...</h2>
+                <h2>Choose {nameA} if</h2>
                 <ul>
                   {chooseReasons(cardA, cardB).map((reason) => (
                     <li key={reason}>{reason}</li>
@@ -98,7 +98,7 @@ export default function SeoComparisonPage({ slug }: Props) {
               </section>
 
               <section className="panel seo-choice-card">
-                <h2>Choose {nameB} if...</h2>
+                <h2>Choose {nameB} if</h2>
                 <ul>
                   {chooseReasons(cardB, cardA).map((reason) => (
                     <li key={reason}>{reason}</li>
@@ -156,12 +156,12 @@ export default function SeoComparisonPage({ slug }: Props) {
 
             <section className="panel seo-comparison-section">
               <h2>Forex and international travel comparison</h2>
-              <p>{forexComparisonSummary(cardA, cardB)} Check issuer terms before using either card for large international spends.</p>
+              <p>{forexComparisonSummary(cardA, cardB)} Check issuer terms before using either card for large international spends</p>
             </section>
 
             <section className="panel seo-comparison-section">
               <h2>Exclusions and limitations</h2>
-              <p>Review the exclusions row carefully. Reward caps, merchant restrictions, and excluded spends can materially change real value.</p>
+              <p>Review the exclusions row carefully Reward caps, merchant restrictions, and excluded spends can materially change real value</p>
             </section>
 
             <section className="panel seo-comparison-section">
@@ -173,7 +173,7 @@ export default function SeoComparisonPage({ slug }: Props) {
           <aside className="seo-comparison-side">
             <section className="panel seo-side-panel">
               <h2>Compare tool</h2>
-              <p>Open this pair in the interactive compare tool if you want to switch cards or inspect more rows.</p>
+              <p>Open this pair in the interactive compare tool if you want to switch cards or inspect more rows</p>
               <Link className="btn btn-primary seo-side-cta" href={compareToolHref(cardA.id, cardB.id)}>
                 Open compare tool
               </Link>

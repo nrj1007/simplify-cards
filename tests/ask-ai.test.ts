@@ -193,14 +193,14 @@ describe("ask ai fallback policy", () => {
     const answer = await answerQuestion({ query: "top card under 5000" });
 
     expect(answer.cards).toHaveLength(10);
-    expect(answer.summary).toBe("Top 10 picks for this query.");
+    expect(answer.summary).toBe("Top 10 picks for this query");
   });
 
   it("returns the requested number of cards for top-N broad ranking queries", { timeout: 45000 }, async () => {
     const answer = await answerQuestion({ query: "top 10 credit cards" });
 
     expect(answer.cards).toHaveLength(10);
-    expect(answer.summary).toBe("Top 10 picks for this query.");
+    expect(answer.summary).toBe("Top 10 picks for this query");
   });
 
   it("keeps the top-cards take skimmable and free of stale spend-tier framing", { timeout: 45000 }, async () => {
@@ -239,7 +239,7 @@ describe("ask ai fallback policy", () => {
 
     expect(global.fetch).not.toHaveBeenCalled();
     expect(answer.cards).toHaveLength(10);
-    expect(answer.summary).toBe("Top 10 picks for this query.");
+    expect(answer.summary).toBe("Top 10 picks for this query");
   });
 
   it("shows the actual top 10 ranked cards for broad top-card questions", { timeout: 45000 }, async () => {
@@ -415,7 +415,7 @@ describe("ask ai fallback policy", () => {
     const rawTopTenIds = scoreCards({ query: "best cashback card", resultStrategy: "reward-type-split" }).slice(0, 10).map((item) => item.card.id);
 
     expect(global.fetch).not.toHaveBeenCalled();
-    expect(answer.summary).toBe("Top 10 picks for this query.");
+    expect(answer.summary).toBe("Top 10 picks for this query");
     expect(answer.cards).toHaveLength(10);
     expect(answer.cards.map((item) => item.card.id)).toEqual(rawTopTenIds);
   });
@@ -486,7 +486,7 @@ describe("ask ai fallback policy", () => {
     const answer = await answerQuestion({ query: "cashback card for online spends" });
 
     expect(global.fetch).not.toHaveBeenCalled();
-    expect(answer.summary).toBe("Top 10 picks for this query.");
+    expect(answer.summary).toBe("Top 10 picks for this query");
     expect(answer.cards.length).toBeGreaterThan(0);
     expect(answer.meta?.ai).toEqual({
       aiUsed: false,

@@ -49,9 +49,9 @@ export default function TermsPage() {
                 You agree to use SimplifyCards only for lawful purposes. You shall not:
               </p>
               <ul className="about-list">
-                <li>Attempt to scrape, extract, or copy credit card datasets or code without our prior written permission.</li>
-                <li>Use any automated system (including robots, spiders, or offline readers) to access the website in a manner that sends more request messages to our servers than a human can reasonably produce.</li>
-                <li>Interfere with or disrupt the security or performance of the website.</li>
+                <li>Attempt to scrape, extract, or copy credit card datasets or code without our prior written permission</li>
+                <li>Use any automated system (including robots, spiders, or offline readers) to access the website in a manner that sends more request messages to our servers than a human can reasonably produce</li>
+                <li>Interfere with or disrupt the security or performance of the website</li>
               </ul>
 
               <h3>6. Intellectual Property</h3>

@@ -385,7 +385,7 @@ function buildBestFitHighlights(topCard: CardScore, alternativeNames: string[], 
   const headlineFeature = buildImportantFeatures(topCard).slice(0, 1);
   const alternativeLine =
     alternativeNames.length > 0
-      ? [`${alternativeNames.length === 1 ? "Closest alternative" : "Closest alternatives"}: ${joinNatural(alternativeNames)}.`]
+      ? [`${alternativeNames.length === 1 ? "Closest alternative" : "Closest alternatives"}: ${joinNatural(alternativeNames)}`]
       : [];
   return [...new Set([...headlineFeature, ...scenarioHighlights, ...alternativeLine])].slice(0, 4);
 }
@@ -484,7 +484,7 @@ function buildBalancedScenarioHighlights(input: RecommendationInput, answerCards
 
   const groupedEntries = [...groupedByWinner.values()].map(({ cardName, labels }) => `${cardName} at ${labels.join("/")}`);
 
-  return [`Best by yearly spend — ${groupedEntries.join("; ")}.`];
+  return [`Best by yearly spend — ${groupedEntries.join("; ")}`];
 }
 
 function buildTopCardsHighlights(input: RecommendationInput, answerCards: CardScore[]) {
@@ -567,10 +567,10 @@ function buildScenarioHighlights(
 
   // Collapse to a single guidance line when both scenarios point to the same alternative.
   if (smartbuyAlt && travelAlt && smartbuyAlt.card.id === travelAlt.card.id) {
-    scenarioHighlights.push(`For heavier online or travel spend, ${smartbuyAlt.card.name} pulls ahead.`);
+    scenarioHighlights.push(`For heavier online or travel spend, ${smartbuyAlt.card.name} pulls ahead`);
   } else {
-    if (smartbuyAlt) scenarioHighlights.push(`For online and partner-brand spend, ${smartbuyAlt.card.name} pulls ahead.`);
-    if (travelAlt) scenarioHighlights.push(`For travel-heavy spend, ${travelAlt.card.name} pulls ahead.`);
+    if (smartbuyAlt) scenarioHighlights.push(`For online and partner-brand spend, ${smartbuyAlt.card.name} pulls ahead`);
+    if (travelAlt) scenarioHighlights.push(`For travel-heavy spend, ${travelAlt.card.name} pulls ahead`);
   }
 
   // Consolidate fee-waiver thresholds into one line instead of one bullet per card.
@@ -584,12 +584,12 @@ function buildScenarioHighlights(
     waiverParts.push({ name: score.card.name, amount: formatWaiverRupees(score.card.feeWaiverSpend) });
   }
   if (waiverParts.length === 1) {
-    scenarioHighlights.push(`Fee waiver kicks in around ${waiverParts[0].amount}/year spend.`);
+    scenarioHighlights.push(`Fee waiver kicks in around ${waiverParts[0].amount}/year spend`);
   } else if (waiverParts.length > 1) {
     // Cap the list so a large top-N answer doesn't produce a 10-card line.
     const shown = waiverParts.slice(0, 3).map((part) => `${part.name}: ${part.amount}`);
     const suffix = waiverParts.length > 3 ? " · and more" : "";
-    scenarioHighlights.push(`Fee waivers per year — ${shown.join(" · ")}${suffix}.`);
+    scenarioHighlights.push(`Fee waivers per year — ${shown.join(" · ")}${suffix}`);
   }
 
   return [...new Set(scenarioHighlights)];
@@ -622,7 +622,7 @@ export function buildFallbackSummary(input: RecommendationInput, shortlistedCard
     const requestedCount = requestedTopCardCount(input.query, input.resultStrategy);
     const topThreeText = shortlistedCards.length >= requestedCount ? `Top ${requestedCount} picks` : "Top picks";
 
-    return `${topThreeText} for this query.`;
+    return `${topThreeText} for this query`;
   }
 
   const lowerQuery = normalizeQuery(input.query);
@@ -660,14 +660,14 @@ export function buildFallbackSummary(input: RecommendationInput, shortlistedCard
   const alternativeNames = curatedAlternativeNames.length > 0 ? curatedAlternativeNames : fallbackAlternativeNames;
 
   const opener = exactNameAsked
-    ? `If you specifically mean ${topCard.card.name}, that looks like the right fit.`
-    : `${topCard.card.name} looks like the best fit.`;
+    ? `If you specifically mean ${topCard.card.name}, that looks like the right fit`
+    : `${topCard.card.name} looks like the best fit`;
 
   // Lowercase only each reason's leading letter so the clause reads naturally after "because"
   // while preserving units and proper nouns inside (e.g. "Rs 5,000", card names).
   const whyItFits =
     fitReasons.length > 0
-      ? `It stands out because ${joinNatural(fitReasons.map((reason) => reason.charAt(0).toLowerCase() + reason.slice(1)))}.`
+      ? `It stands out because ${joinNatural(fitReasons.map((reason) => reason.charAt(0).toLowerCase() + reason.slice(1)))}`
       : "";
 
   return [opener, whyItFits].filter(Boolean).join(" ");
@@ -1131,9 +1131,9 @@ function buildSpecificQuestionAnswer(input: RecommendationInput, topCard: CardSc
 
     if (subjectMatchesExclusions(topCard.card.exclusions, subject)) {
       return {
-        summary: `No, ${topCard.card.name} does not appear to earn rewards on ${subject} purchases based on the listed exclusions.`,
+        summary: `No, ${topCard.card.name} does not appear to earn rewards on ${subject} purchases based on the listed exclusions`,
         highlights: [
-          `Excluded category match found for ${subject}.`,
+          `Excluded category match found for ${subject}`,
           `Relevant exclusion: ${topCard.card.exclusions.find((entry) => subjectMatchesExclusions([entry], subject)) ?? topCard.card.exclusions[0] ?? "Issuer exclusions listed for this card."}`
         ]
       };
@@ -1144,14 +1144,14 @@ function buildSpecificQuestionAnswer(input: RecommendationInput, topCard: CardSc
       const answerPrefix = directMatch ? "Yes" : "Based on the current dataset, yes";
       const answerPrefixClean = directMatch ? "Yes" : "Yes";
       const confidenceLine = directMatch
-        ? `The card has a matching rewards bucket for ${rewardMatch.category}.`
-        : `${subject} purchases would generally fall under ${rewardMatch.category} spends and are not listed in exclusions.`;
+        ? `The card has a matching rewards bucket for ${rewardMatch.category}`
+        : `${subject} purchases would generally fall under ${rewardMatch.category} spends and are not listed in exclusions`;
 
       return {
-        summary: `${answerPrefixClean}, ${topCard.card.name} should earn rewards on ${subject} purchases.`,
+        summary: `${answerPrefixClean}, ${topCard.card.name} should earn rewards on ${subject} purchases`,
         highlights: [
           confidenceLine,
-          `Expected earn rate: ${rewardRateLabelForAnswer(topCard, rewardMatch.rate)}.`
+          `Expected earn rate: ${rewardRateLabelForAnswer(topCard, rewardMatch.rate)}`
         ]
       };
     }
@@ -1164,23 +1164,23 @@ function buildSpecificQuestionAnswer(input: RecommendationInput, topCard: CardSc
 
     if (subjectMatchesExclusions(topCard.card.exclusions, subject)) {
       return {
-        summary: `Yes, ${subject} is part of the listed exclusions on ${topCard.card.name}.`,
+        summary: `Yes, ${subject} is part of the listed exclusions on ${topCard.card.name}`,
         highlights: [
-          `Excluded category match found for ${subject}.`,
+          `Excluded category match found for ${subject}`,
           `Relevant exclusion: ${topCard.card.exclusions.find((entry) => subjectMatchesExclusions([entry], subject)) ?? topCard.card.exclusions[0] ?? "Issuer exclusions listed for this card."}`
         ]
       };
     }
 
     return {
-      summary: `No, ${subject} is not explicitly listed in the exclusions for ${topCard.card.name}.`,
+      summary: `No, ${subject} is not explicitly listed in the exclusions for ${topCard.card.name}`,
       highlights: ["No matching exclusion entry was found for that category."]
     };
   }
 
   if (parsed.questionType === "lounge") {
     return {
-      summary: `${topCard.card.name} lists ${topCard.card.loungeDomestic === "unlimited" ? "unlimited" : topCard.card.loungeDomestic} domestic and ${topCard.card.loungeInternational === "unlimited" ? "unlimited" : topCard.card.loungeInternational} international lounge accesses.`,
+      summary: `${topCard.card.name} lists ${topCard.card.loungeDomestic === "unlimited" ? "unlimited" : topCard.card.loungeDomestic} domestic and ${topCard.card.loungeInternational === "unlimited" ? "unlimited" : topCard.card.loungeInternational} international lounge accesses`,
       highlights: buildImportantFeatures(topCard)
     };
   }
@@ -1189,15 +1189,15 @@ function buildSpecificQuestionAnswer(input: RecommendationInput, topCard: CardSc
     return {
       summary:
         topCard.card.feeWaiverSpend !== null
-          ? `${topCard.card.name} lists an annual fee waiver spend target of ${formatWaiverRupees(topCard.card.feeWaiverSpend)}.`
-          : `${topCard.card.name} does not list a fee-waiver spend target.`,
-      highlights: topCard.card.feeWaiverSpend !== null ? [`Fee waiver threshold: ${formatWaiverRupees(topCard.card.feeWaiverSpend)}.`] : []
+          ? `${topCard.card.name} lists an annual fee waiver spend target of ${formatWaiverRupees(topCard.card.feeWaiverSpend)}`
+          : `${topCard.card.name} does not list a fee-waiver spend target`,
+      highlights: topCard.card.feeWaiverSpend !== null ? [`Fee waiver threshold: ${formatWaiverRupees(topCard.card.feeWaiverSpend)}`] : []
     };
   }
 
   if (parsed.questionType === "forex") {
     return {
-      summary: `${topCard.card.name} lists a forex markup of ${topCard.card.forexMarkup}%.`,
+      summary: `${topCard.card.name} lists a forex markup of ${topCard.card.forexMarkup}%`,
       highlights: topCard.card.forexMarkup <= 2 ? ["This is relatively low for an Indian credit card."] : []
     };
   }
@@ -1205,7 +1205,7 @@ function buildSpecificQuestionAnswer(input: RecommendationInput, topCard: CardSc
   if (parsed.questionType === "milestone") {
     if (topCard.card.milestoneBenefits?.length) {
       return {
-        summary: `${topCard.card.name} does include milestone benefits.`,
+        summary: `${topCard.card.name} does include milestone benefits`,
         highlights: topCard.card.milestoneBenefits.slice(0, 3)
       };
     }
@@ -1217,21 +1217,21 @@ function buildSpecificQuestionAnswer(input: RecommendationInput, topCard: CardSc
     if (topCard.card.redemption) {
       const highlights = [
         typeof topCard.card.redemption.smartBuyFlightHotelValue === "number"
-          ? `SmartBuy travel value: ₹${topCard.card.redemption.smartBuyFlightHotelValue} per point.`
+          ? `SmartBuy travel value: ₹${topCard.card.redemption.smartBuyFlightHotelValue} per point`
           : "",
         typeof topCard.card.redemption.travelEdgeValue === "number"
-          ? `Travel EDGE travel value: ₹${topCard.card.redemption.travelEdgeValue} per point.`
+          ? `Travel EDGE travel value: ₹${topCard.card.redemption.travelEdgeValue} per point`
           : "",
         typeof getAirMilesValue(topCard.card) === "number"
-          ? `Air miles value: ${getAirMilesValue(topCard.card)} per point.`
+          ? `Air miles value: ${getAirMilesValue(topCard.card)} per point`
           : "",
         typeof topCard.card.redemption.statementBalanceValue === "number"
-          ? `Statement credit value: ₹${topCard.card.redemption.statementBalanceValue} per point.`
+          ? `Statement credit value: ₹${topCard.card.redemption.statementBalanceValue} per point`
           : ""
       ].filter(Boolean);
 
       return {
-        summary: `${topCard.card.name} has redemption details available.`,
+        summary: `${topCard.card.name} has redemption details available`,
         highlights
       };
     }
@@ -1242,7 +1242,7 @@ function buildSpecificQuestionAnswer(input: RecommendationInput, topCard: CardSc
   if (parsed.questionType === "eligibility") {
     if (topCard.card.eligibility?.salaried?.length || topCard.card.eligibility?.selfEmployed?.length) {
       return {
-        summary: `${topCard.card.name} does have eligibility criteria available.`,
+        summary: `${topCard.card.name} does have eligibility criteria available`,
         highlights: [...(topCard.card.eligibility?.salaried ?? []), ...(topCard.card.eligibility?.selfEmployed ?? [])].slice(0, 3)
       };
     }
@@ -1277,7 +1277,7 @@ function cardMentionsPolicySubject(cardScore: CardScore, subject: string) {
 
 function buildUnsupportedPolicySummary(input: RecommendationInput, topCard?: CardScore, subject?: string) {
   if (topCard && subject) {
-    return `I could not verify whether ${topCard.card.name} earns rewards on ${subject} purchases.`;
+    return `I could not verify whether ${topCard.card.name} earns rewards on ${subject} purchases`;
   }
 
   return "I could not verify that rewards-policy detail.";
@@ -1359,7 +1359,7 @@ function buildCardFamilyLookupResult(input: RecommendationInput, scoredCards: Ca
   const label = input.query?.trim() || "this";
 
   return {
-    summary: `I found multiple matching ${label} cards in our database.`,
+    summary: `I found multiple matching ${label} cards in our database`,
     cards: familyCards,
     highlights: [
       ...familyCards.map((item, index) => `#${index + 1}: ${item.card.name}`),

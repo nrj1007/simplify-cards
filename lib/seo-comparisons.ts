@@ -66,7 +66,7 @@ export function buildSeoComparisonMetadata(slug: string): Metadata {
   const nameA = comparisonDisplayName(cards.cardA);
   const nameB = comparisonDisplayName(cards.cardB);
   const title = `${nameA} vs ${nameB}: Fees, Rewards & Benefits Compared | Simplify Cards`;
-  const description = `Compare ${nameA} and ${nameB} by fees, rewards, lounge access, forex charges, exclusions and best use case in India.`;
+  const description = `Compare ${nameA} and ${nameB} by fees, rewards, lounge access, forex charges, exclusions and best use case in India`;
   const canonicalSlug = canonicalComparisonSlug(config);
   const metadata = buildPageMetadata({
     title,
@@ -187,7 +187,7 @@ function firstBestFor(card: CreditCard) {
   if (card.bestFor.length) {
     return {
       title: card.bestFor.slice(0, 3).join(", "),
-      desc: `${card.rewardType} card for ${card.bestFor.slice(0, 3).join(", ")}.`
+      desc: `${card.rewardType} card for ${card.bestFor.slice(0, 3).join(", ")}`
     };
   }
   return null;
@@ -204,17 +204,17 @@ export function keyBenefit(card: CreditCard) {
 export function chooseReasons(card: CreditCard, other: CreditCard) {
   const reasons: string[] = [];
   if (!isEffectivelySameFee(card, other) && card.annualFee < other.annualFee) {
-    reasons.push(`You prefer the lower listed annual fee (${formatCurrency(card.annualFee)}).`);
+    reasons.push(`You prefer the lower listed annual fee (${formatCurrency(card.annualFee)})`);
   }
   if (!isSameLounge(card, other) && loungeScore(card) > loungeScore(other)) {
-    reasons.push(`You want more listed lounge access (${totalLoungeLabel(card)}).`);
+    reasons.push(`You want more listed lounge access (${totalLoungeLabel(card)})`);
   }
   if (!isSameForex(card, other) && card.forexMarkup < other.forexMarkup) {
-    reasons.push(`You value the lower listed forex markup (${card.forexMarkup}%).`);
+    reasons.push(`You value the lower listed forex markup (${card.forexMarkup}%)`);
   }
   const useCase = firstBestFor(card);
   if (useCase) reasons.push(useCase.desc);
-  if (reasons.length === 0 && card.bestFor.length) reasons.push(`Your priority matches ${card.bestFor.slice(0, 3).join(", ")}.`);
+  if (reasons.length === 0 && card.bestFor.length) reasons.push(`Your priority matches ${card.bestFor.slice(0, 3).join(", ")}`);
   if (reasons.length === 0) reasons.push(SAFE_FALLBACK);
   return reasons.slice(0, 4);
 }
@@ -227,7 +227,7 @@ function sentenceToIfClause(reason: string) {
 export function quickVerdict(cardA: CreditCard, cardB: CreditCard) {
   const reasonA = chooseReasons(cardA, cardB)[0];
   const reasonB = chooseReasons(cardB, cardA)[0];
-  return `${comparisonDisplayName(cardA)} is easier to justify if ${sentenceToIfClause(reasonA)}. ${comparisonDisplayName(cardB)} is easier to justify if ${sentenceToIfClause(reasonB)}.`;
+  return `${comparisonDisplayName(cardA)} is easier to justify if ${sentenceToIfClause(reasonA)} ${comparisonDisplayName(cardB)} is easier to justify if ${sentenceToIfClause(reasonB)}`;
 }
 
 export function finalRecommendation(cardA: CreditCard, cardB: CreditCard) {
@@ -237,31 +237,31 @@ export function finalRecommendation(cardA: CreditCard, cardB: CreditCard) {
   const useCaseA = firstBestFor(cardA);
   const useCaseB = firstBestFor(cardB);
 
-  if (useCaseA) parts.push(`Start with ${nameA} if ${sentenceToIfClause(useCaseA.desc)}.`);
-  if (useCaseB) parts.push(`Choose ${nameB} if ${sentenceToIfClause(useCaseB.desc)}.`);
+  if (useCaseA) parts.push(`Start with ${nameA} if ${sentenceToIfClause(useCaseA.desc)}`);
+  if (useCaseB) parts.push(`Choose ${nameB} if ${sentenceToIfClause(useCaseB.desc)}`);
 
   if (isEffectivelySameFee(cardA, cardB)) {
-    parts.push(`The listed annual fees are effectively tied (${formatCurrency(cardA.annualFee)} vs ${formatCurrency(cardB.annualFee)}), so fee alone should not decide this comparison.`);
+    parts.push(`The listed annual fees are effectively tied (${formatCurrency(cardA.annualFee)} vs ${formatCurrency(cardB.annualFee)}), so fee alone should not decide this comparison`);
   } else {
     const lowerFee = cardA.annualFee < cardB.annualFee ? cardA : cardB;
-    parts.push(`${comparisonDisplayName(lowerFee)} has the lower listed annual fee.`);
+    parts.push(`${comparisonDisplayName(lowerFee)} has the lower listed annual fee`);
   }
 
   if (isSameLounge(cardA, cardB)) {
-    parts.push(loungeScore(cardA) === 0 ? "Neither card has a lounge-access advantage in the current data." : "Both cards show the same total lounge-access count in the current data.");
+    parts.push(loungeScore(cardA) === 0 ? "Neither card has a lounge-access advantage in the current data" : "Both cards show the same total lounge-access count in the current data");
   } else {
     const strongerLounge = loungeScore(cardA) > loungeScore(cardB) ? cardA : cardB;
-    parts.push(`${comparisonDisplayName(strongerLounge)} has more listed lounge access.`);
+    parts.push(`${comparisonDisplayName(strongerLounge)} has more listed lounge access`);
   }
 
   if (isSameForex(cardA, cardB)) {
-    parts.push(`Both cards list the same ${cardA.forexMarkup}% forex markup.`);
+    parts.push(`Both cards list the same ${cardA.forexMarkup}% forex markup`);
   } else {
     const lowerForex = cardA.forexMarkup < cardB.forexMarkup ? cardA : cardB;
-    parts.push(`${comparisonDisplayName(lowerForex)} has the lower listed forex markup.`);
+    parts.push(`${comparisonDisplayName(lowerForex)} has the lower listed forex markup`);
   }
 
-  parts.push("Verify issuer terms before applying.");
+  parts.push("Verify issuer terms before applying");
   return parts.join(" ");
 }
 
@@ -279,10 +279,10 @@ export function loungeComparisonSummary(cardA: CreditCard, cardB: CreditCard) {
 
   const summary =
     scoreA === 0 && scoreB === 0
-      ? `Both ${nameA} and ${nameB} do not offer complimentary lounge visits in the current card data.`
+      ? `Both ${nameA} and ${nameB} do not offer complimentary lounge visits in the current card data`
       : scoreA === scoreB
-        ? `Both cards show the same total lounge-access count in the current data: ${totalLoungeLabel(cardA)}.`
-        : `${scoreA > scoreB ? nameA : nameB} shows more listed lounge access in the current card data.`;
+        ? `Both cards show the same total lounge-access count in the current data: ${totalLoungeLabel(cardA)}`
+        : `${scoreA > scoreB ? nameA : nameB} shows more listed lounge access in the current card data`;
 
   return tieredNotes.length ? `${summary} ${tieredNotes.join(" ")}` : summary;
 }
@@ -292,11 +292,11 @@ export function forexComparisonSummary(cardA: CreditCard, cardB: CreditCard) {
   const nameB = comparisonDisplayName(cardB);
 
   if (isSameForex(cardA, cardB)) {
-    return `Both ${nameA} and ${nameB} list a ${cardA.forexMarkup}% forex markup. Forex charges are tied in the current card data.`;
+    return `Both ${nameA} and ${nameB} list a ${cardA.forexMarkup}% forex markup Forex charges are tied in the current card data`;
   }
 
   const lowerForex = cardA.forexMarkup < cardB.forexMarkup ? cardA : cardB;
-  return `${nameA} lists a ${cardA.forexMarkup}% forex markup. ${nameB} lists a ${cardB.forexMarkup}% forex markup. ${comparisonDisplayName(lowerForex)} has the lower listed forex markup.`;
+  return `${nameA} lists a ${cardA.forexMarkup}% forex markup ${nameB} lists a ${cardB.forexMarkup}% forex markup ${comparisonDisplayName(lowerForex)} has the lower listed forex markup`;
 }
 
 export function rewardsComparisonSummary(card: CreditCard) {
@@ -354,22 +354,22 @@ export function comparisonFaqs(cardA: CreditCard, cardB: CreditCard) {
       q: `Which card has the lower annual fee: ${nameA} or ${nameB}?`,
       a:
         cardA.annualFee === cardB.annualFee
-          ? `Both cards list the same annual fee in our current data: ${formatCurrency(cardA.annualFee)}.`
-          : `${cardA.annualFee < cardB.annualFee ? nameA : nameB} lists the lower annual fee in our current data.`
+          ? `Both cards list the same annual fee in our current data: ${formatCurrency(cardA.annualFee)}`
+          : `${cardA.annualFee < cardB.annualFee ? nameA : nameB} lists the lower annual fee in our current data`
     },
     {
       q: `Which card is better for lounge access?`,
       a:
         loungeScore(cardA) === loungeScore(cardB)
-          ? `Both cards show similar total lounge access in our current data. Check domestic, international, guest, and spend-condition details before deciding.`
-          : `${loungeScore(cardA) > loungeScore(cardB) ? nameA : nameB} lists more total lounge access in our current data.`
+          ? `Both cards show similar total lounge access in our current data Check domestic, international, guest, and spend-condition details before deciding`
+          : `${loungeScore(cardA) > loungeScore(cardB) ? nameA : nameB} lists more total lounge access in our current data`
     },
     {
       q: `Which card has lower forex markup?`,
       a:
         cardA.forexMarkup === cardB.forexMarkup
-          ? `Both cards list a ${cardA.forexMarkup}% forex markup in our current data.`
-          : `${cardA.forexMarkup < cardB.forexMarkup ? nameA : nameB} lists the lower forex markup in our current data.`
+          ? `Both cards list a ${cardA.forexMarkup}% forex markup in our current data`
+          : `${cardA.forexMarkup < cardB.forexMarkup ? nameA : nameB} lists the lower forex markup in our current data`
     },
     {
       q: "Do affiliate links affect this comparison?",

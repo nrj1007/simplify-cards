@@ -447,7 +447,7 @@ function LatestUpdates({ updates }: { updates: LandingUpdate[] }) {
           <h2>Latest updates</h2>
         </div>
         <article className="sc-latest-card">
-          <p>No verified updates yet. Check back soon.</p>
+          <p>No verified updates yet Check back soon</p>
         </article>
       </section>
     );
@@ -619,7 +619,7 @@ function Footer({ onOpenPolicy }: { onOpenPolicy: (policy: PolicyKey) => void })
         </div>
       </div>
       <div className="sc-footer-bottom">
-        <span>© 2026 SimplifyCards. All rights reserved.</span>
+        <span>© 2026 SimplifyCards All rights reserved</span>
       </div>
     </footer>
   );

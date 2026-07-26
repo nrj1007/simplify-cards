@@ -27,8 +27,8 @@ export default function CardTile({
   const ctaLabel = cardCtaLabel(resolvedCard);
   const why =
     resolvedCard.bestFor.length > 0
-      ? `Good for ${resolvedCard.bestFor.slice(0, 2).join(", ").toLowerCase()}.`
-      : `${resolvedCard.rewardType} rewards from ${resolvedCard.issuer}.`;
+      ? `Good for ${resolvedCard.bestFor.slice(0, 2).join(", ").toLowerCase()}`
+      : `${resolvedCard.rewardType} rewards from ${resolvedCard.issuer}`;
 
   return (
     <article className="card-tile">

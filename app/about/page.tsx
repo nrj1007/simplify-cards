@@ -39,7 +39,7 @@ export default function AboutPage() {
           <section className="about-main">
             <article className="panel about-card">
               <div className="page-eyebrow">What we do</div>
-              <h2>Make card decisions less opaque.</h2>
+              <h2>Make card decisions less opaque</h2>
               <p>
                 Credit-card marketing often highlights the best-case reward rate while hiding caps, exclusions, redemption value, and
                 renewal conditions. SimplifyCards is designed to show those trade-offs together so you can shortlist cards with more
@@ -49,7 +49,7 @@ export default function AboutPage() {
 
             <article className="panel about-card">
               <div className="page-eyebrow">How it works</div>
-              <h2>Data first, AI second.</h2>
+              <h2>Data first, AI second</h2>
               <ul className="about-list">
                 {PRINCIPLES.map((principle) => (
                   <li key={principle}>{principle}</li>

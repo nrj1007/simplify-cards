@@ -55,10 +55,10 @@ export default function PrivacyPage() {
                 The minimal information we collect is used solely to:
               </p>
               <ul className="about-list">
-                <li>Provide, operate, and maintain the website.</li>
-                <li>Improve, personalize, and expand our search, comparison, and calculator features.</li>
-                <li>Monitor and analyze usage trends and diagnose technical issues.</li>
-                <li>Incorporate feedback and correct credit card details in our database.</li>
+                <li>Provide, operate, and maintain the website</li>
+                <li>Improve, personalize, and expand our search, comparison, and calculator features</li>
+                <li>Monitor and analyze usage trends and diagnose technical issues</li>
+                <li>Incorporate feedback and correct credit card details in our database</li>
               </ul>
 
               <h3>5. Affiliate Links and Third-Party Sites</h3>
