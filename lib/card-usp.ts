@@ -1,4 +1,5 @@
 import type { CreditCard } from "./types";
+import { withoutSentenceEndingFullStop } from "./display-text";
 
 export interface CardUSPItem {
   cardKey: string;
@@ -840,7 +841,7 @@ for (const item of creditCardUSPs) {
 // generated from the card's own fields. Shared by the /ask results and the /recommend DTO.
 export function getCardUsp(card: CreditCard): string {
   if (curatedMap[card.id]) {
-    return curatedMap[card.id];
+    return withoutSentenceEndingFullStop(curatedMap[card.id]);
   }
 
   // Dynamic fallback generation
@@ -861,14 +862,14 @@ export function getCardUsp(card: CreditCard): string {
   const featuresText = features.length > 0 ? `featuring ${features.join(" and ")}` : "";
 
   const summary = [ltfText, bestForText, featuresText].filter(Boolean).join(", ").replace(/,\s*,/g, ",").trim();
-  return summary ? summary + "." : "High-value rewards credit card.";
+  return summary ? summary : "High-value rewards credit card";
 }
 
 // Compact USP for a card: curated short line for popular cards, otherwise a very short line.
 // Used for display constraints (e.g., homepage/popular picks section).
 export function getCardShortUsp(card: CreditCard): string {
   if (curatedShortMap[card.id]) {
-    return curatedShortMap[card.id];
+    return withoutSentenceEndingFullStop(curatedShortMap[card.id]);
   }
 
   // Dynamic fallback: compact description
@@ -882,5 +883,5 @@ export function getCardShortUsp(card: CreditCard): string {
     parts.push(`${card.rewardType} card`);
   }
 
-  return parts.join(", ") + ".";
+  return parts.join(", ");
 }
