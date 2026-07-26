@@ -6,9 +6,9 @@ import { milestoneRulesForCard } from "@/lib/recommend";
 import { buildPageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Reward Calculator",
+  title: "Redemption",
   description:
-    "Estimate the rewards and rupee value you earn on any Indian credit card based on your monthly spend, including milestone benefits.",
+    "Estimate the rewards and rupee value you earn on any Indian credit card based on your monthly spend, including milestone benefits",
   path: "/calculator"
 });
 
@@ -28,7 +28,7 @@ export default async function CalculatorPage({ searchParams }: Props) {
     <div className="page-shell calculator-modern-shell">
       <section className="page-hero calculator-page-hero" aria-labelledby="calculator-page-title">
         <div className="container page-hero-inner">
-          <h1 id="calculator-page-title">Calculator</h1>
+          <h1 id="calculator-page-title">Redemption</h1>
         </div>
       </section>
       <section className="page-content">

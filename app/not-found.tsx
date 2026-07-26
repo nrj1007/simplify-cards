@@ -37,7 +37,7 @@ export default function NotFound() {
             <div className="message-page-links">
               <Link href="/recommend" className="text-link">Spend Recommender</Link>
               <span>•</span>
-              <Link href="/calculator" className="text-link">Rewards Calculator</Link>
+              <Link href="/calculator" className="text-link">Rewards Redemption</Link>
               <span>•</span>
               <Link href="/compare" className="text-link">Compare Cards</Link>
             </div>

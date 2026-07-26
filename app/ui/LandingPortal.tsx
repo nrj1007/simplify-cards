@@ -284,7 +284,7 @@ function FeatureGrid() {
       variant: "recommend"
     },
     {
-      title: "Calculator",
+      title: "Redemption",
       copy: "See your annual rewards fees and real value",
       href: "/calculator" as Route,
       variant: "calculator"
@@ -595,7 +595,7 @@ function Footer({ onOpenPolicy }: { onOpenPolicy: (policy: PolicyKey) => void })
           <h4>quick navigation</h4>
           <div className="sc-footer-links">
             <Link href="/recommend">Recommend</Link>
-            <Link href={"/calculator" as Route}>Calculator</Link>
+            <Link href={"/calculator" as Route}>Redemption</Link>
             <Link href="/finder">Cards</Link>
             <Link href="/compare">Compare</Link>
             <Link href={"/latest" as Route}>Latest updates</Link>

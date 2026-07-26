@@ -11,7 +11,7 @@ export type SiteHeaderLink = { label: string; href: Route };
 
 export const DEFAULT_HEADER_LINKS: SiteHeaderLink[] = [
   { label: "Recommend", href: "/recommend" },
-  { label: "Calculator", href: "/calculator" as Route },
+  { label: "Redemption", href: "/calculator" as Route },
   { label: "Cards", href: "/cards" },
   { label: "Compare", href: "/compare" },
   { label: "Updates", href: "/latest" as Route }
