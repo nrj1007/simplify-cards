@@ -198,7 +198,7 @@ export default function SeoComparisonPage({ slug }: Props) {
   const showFeeWaiverRow = hasFeeWaiverSpend(cardA.feeWaiverSpend) || hasFeeWaiverSpend(cardB.feeWaiverSpend);
 
   return (
-    <div className="page-shell compare-reference-page has-results">
+    <div className="page-shell compare-reference-page seo-comparison-page has-results">
       <section className="compare-reference-hero">
         <div className="container">
           <h1>{comparisonPageTitle(config)}</h1>
