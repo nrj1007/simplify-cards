@@ -2,7 +2,7 @@ import { cards, getCardById } from "./cards";
 import { stripScoringAnnotations } from "./card-index";
 import { getMeaningfulLoungeConditions, getTotalLoungeAccess } from "./lounge";
 import { buildCanonicalUrl } from "./seo";
-import { withoutSentenceEndingFullStop } from "./display-text";
+import { properCaseLabel, withoutSentenceEndingFullStop } from "./display-text";
 import type { CreditCard } from "./types";
 
 // ---------------------------------------------------------------------------
@@ -202,7 +202,7 @@ export function deriveBestFor(card: CreditCard): DecisionCard[] {
       out.push({
         icon: "✦",
         title: `Best for ${prettyTitle(top.displayCategory ?? top.category)}`,
-        desc: withoutSentenceEndingFullStop(top.displayRate ?? `${top.rate} ${card.rewardType} per ₹100 spent`)
+      desc: withoutSentenceEndingFullStop(top.displayRate ?? `${top.rate} ${properCaseLabel(card.rewardType)} per ₹100 spent`)
       });
     }
   }
@@ -228,7 +228,7 @@ export function deriveBestFor(card: CreditCard): DecisionCard[] {
     out.push({
       icon: "✦",
       title: "Best for travel and redemptions",
-      desc: `Earns ${card.rewardType} you can put toward flights, hotels, or transfer partners`
+      desc: `Earns ${properCaseLabel(card.rewardType)} you can put toward flights, hotels, or transfer partners`
     });
   }
 
@@ -419,7 +419,7 @@ export function buildCardJsonLd(card: CreditCard) {
     "@id": url,
     name: card.name,
     url,
-    description: `${card.name} credit card by ${card.issuer} Annual fee: ₹${card.annualFee} Reward type: ${card.rewardType}`,
+    description: `${card.name} credit card by ${card.issuer} Annual fee: ₹${card.annualFee} Reward type: ${properCaseLabel(card.rewardType)}`,
     provider: {
       "@type": "BankOrCreditUnion",
       name: card.issuer

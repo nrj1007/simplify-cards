@@ -31,9 +31,44 @@ function hasFeeWaiverSpend(value: number | null | undefined) {
   return typeof value === "number" && value > 0;
 }
 
+const DISPLAY_CASE_OVERRIDES: Record<string, string> = {
+  amex: "Amex",
+  bpcl: "BPCL",
+  edge: "EDGE",
+  emi: "EMI",
+  gyftr: "Gyftr",
+  hdfc: "HDFC",
+  hpcl: "HPCL",
+  irctc: "IRCTC",
+  mmt: "MMT",
+  rp: "RP",
+  sbi: "SBI",
+  smartbuy: "SmartBuy",
+  upi: "UPI"
+};
+
+function properCaseLabel(value: string) {
+  return value
+    .split(/(\s+|\/|-)/)
+    .map((part) => {
+      if (!part.trim() || part === "/" || part === "-") return part;
+      const override = DISPLAY_CASE_OVERRIDES[part.toLowerCase()];
+      return override ?? `${part.charAt(0).toUpperCase()}${part.slice(1)}`;
+    })
+    .join("");
+}
+
+function displayList(items: string[]) {
+  return items.map(properCaseLabel).join(", ");
+}
+
+function rewardCategoryLabel(reward: Card["rewards"][number]) {
+  return properCaseLabel(reward.displayCategory ?? reward.category);
+}
+
 function formatRewardCap(value: number | null | undefined, rewardType: string) {
   if (!value) return "-";
-  return `${value.toLocaleString("en-IN")} ${rewardType}`;
+  return `${value.toLocaleString("en-IN")} ${properCaseLabel(rewardType)}`;
 }
 
 function loungeValue(value: Card["loungeDomestic"] | Card["loungeInternational"]) {
@@ -45,7 +80,7 @@ function rewardRateLabel(card: Card, reward: Card["rewards"][number]) {
 
   const rewardType = card.rewardType.toLowerCase();
   if (rewardType.includes("point") || rewardType.includes("mile")) {
-    return `${reward.rate} ${card.rewardType} / Rs 100`;
+    return `${reward.rate} ${properCaseLabel(card.rewardType)} / Rs 100`;
   }
 
   return `${reward.rate}%`;
@@ -55,7 +90,7 @@ function rewardSummary(card: Card) {
   return card.rewards
     .filter((reward) => !reward.hidden)
     .slice(0, 3)
-    .map((reward) => `${reward.displayCategory ?? reward.category}: ${rewardRateLabel(card, reward)}`)
+    .map((reward) => `${rewardCategoryLabel(reward)}: ${rewardRateLabel(card, reward)}`)
     .join("; ");
 }
 
@@ -65,9 +100,9 @@ function smartbuyCapSummary(card: Card) {
 
   const caps = smartbuyRewards.map((reward) => {
     const parts = [];
-    if (reward.capDaily) parts.push(`daily ${formatRewardCap(reward.capDaily, card.rewardType)}`);
-    if (reward.capMonthly) parts.push(`monthly ${formatRewardCap(reward.capMonthly, card.rewardType)}`);
-    return `${reward.category}: ${parts.length ? parts.join(", ") : "no cap listed"}`;
+    if (reward.capDaily) parts.push(`Daily ${formatRewardCap(reward.capDaily, card.rewardType)}`);
+    if (reward.capMonthly) parts.push(`Monthly ${formatRewardCap(reward.capMonthly, card.rewardType)}`);
+    return `${rewardCategoryLabel(reward)}: ${parts.length ? parts.join(", ") : "No cap listed"}`;
   });
 
   return caps.join("; ");
@@ -149,7 +184,7 @@ function CompareOverviewCard({ card }: { card: Card }) {
 
       <div className="compare-card-section">
         <strong>Best for</strong>
-        <p className="muted">{card.bestFor.join(", ")}</p>
+        <p className="muted">{displayList(card.bestFor)}</p>
       </div>
 
       <div className="compare-card-section">
@@ -251,13 +286,13 @@ export default function SeoComparisonPage({ slug }: Props) {
                   ) : null}
                   <tr>
                     <td>Reward type</td>
-                    <td>{cardA.rewardType}</td>
-                    <td>{cardB.rewardType}</td>
+                    <td>{properCaseLabel(cardA.rewardType)}</td>
+                    <td>{properCaseLabel(cardB.rewardType)}</td>
                   </tr>
                   <tr>
                     <td>Best for</td>
-                    <td>{cardA.bestFor.join(", ")}</td>
-                    <td>{cardB.bestFor.join(", ")}</td>
+                    <td>{displayList(cardA.bestFor)}</td>
+                    <td>{displayList(cardB.bestFor)}</td>
                   </tr>
                   <tr>
                     <td>Top reward categories</td>

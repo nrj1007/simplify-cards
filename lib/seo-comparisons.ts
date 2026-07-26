@@ -105,6 +105,41 @@ export function formatCurrency(value: number | null | undefined) {
   return value === 0 ? "Rs 0" : formatRupeesCompact(value);
 }
 
+const DISPLAY_CASE_OVERRIDES: Record<string, string> = {
+  amex: "Amex",
+  bpcl: "BPCL",
+  edge: "EDGE",
+  emi: "EMI",
+  gyftr: "Gyftr",
+  hdfc: "HDFC",
+  hpcl: "HPCL",
+  irctc: "IRCTC",
+  mmt: "MMT",
+  rp: "RP",
+  sbi: "SBI",
+  smartbuy: "SmartBuy",
+  upi: "UPI"
+};
+
+function properCaseLabel(value: string) {
+  return value
+    .split(/(\s+|\/|-)/)
+    .map((part) => {
+      if (!part.trim() || part === "/" || part === "-") return part;
+      const override = DISPLAY_CASE_OVERRIDES[part.toLowerCase()];
+      return override ?? `${part.charAt(0).toUpperCase()}${part.slice(1)}`;
+    })
+    .join("");
+}
+
+function displayList(items: string[], count = items.length) {
+  return items.slice(0, count).map(properCaseLabel).join(", ");
+}
+
+function rewardCategoryLabel(reward: CreditCard["rewards"][number]) {
+  return properCaseLabel(reward.displayCategory ?? reward.category);
+}
+
 function loungeLabel(value: CreditCard["loungeDomestic"] | CreditCard["loungeInternational"]) {
   return value === "unlimited" ? "Unlimited" : `${value} per year`;
 }
@@ -134,12 +169,12 @@ function isSameLounge(cardA: CreditCard, cardB: CreditCard) {
 function rewardCapLabel(card: CreditCard, reward: CreditCard["rewards"][number]) {
   const capParts: string[] = [];
   const isCashback = card.rewardType.toLowerCase().includes("cashback");
-  const capValue = (value: number) => (isCashback ? `₹${value.toLocaleString("en-IN")}` : `${value.toLocaleString("en-IN")} ${card.rewardType}`);
+  const capValue = (value: number) => (isCashback ? `₹${value.toLocaleString("en-IN")}` : `${value.toLocaleString("en-IN")} ${properCaseLabel(card.rewardType)}`);
   if (reward.capDaily) capParts.push(`capped at ${capValue(reward.capDaily)}/day`);
   if (reward.capMonthly) capParts.push(`capped at ${capValue(reward.capMonthly)}/month`);
   if (reward.capStatementQuarter) capParts.push(`capped at ${capValue(reward.capStatementQuarter)}/statement quarter`);
   if (reward.postCapRate !== null && reward.postCapRate !== undefined) {
-    capParts.push(`then ${reward.postCapRate} ${card.rewardType} / ₹100`);
+    capParts.push(`then ${reward.postCapRate} ${properCaseLabel(card.rewardType)} / ₹100`);
   }
 
   return capParts.length ? ` (${capParts.join(", ")})` : "";
@@ -147,8 +182,8 @@ function rewardCapLabel(card: CreditCard, reward: CreditCard["rewards"][number])
 
 function topRewardLines(card: CreditCard, count = 4) {
   return card.rewards.slice(0, count).map((reward) => {
-    const rate = reward.displayRate ?? `${reward.rate} ${card.rewardType} / ₹100`;
-    return `${reward.displayCategory ?? reward.category}: ${rate}${rewardCapLabel(card, reward)}`;
+    const rate = reward.displayRate ?? `${reward.rate} ${properCaseLabel(card.rewardType)} / ₹100`;
+    return `${rewardCategoryLabel(reward)}: ${rate}${rewardCapLabel(card, reward)}`;
   });
 }
 
@@ -198,9 +233,10 @@ function firstBestFor(card: CreditCard) {
   const derived = deriveBestFor(card)[0];
   if (derived) return derived;
   if (card.bestFor.length) {
+    const bestFor = displayList(card.bestFor, 3);
     return {
-      title: card.bestFor.slice(0, 3).join(", "),
-      desc: `${card.rewardType} card for ${card.bestFor.slice(0, 3).join(", ")}`
+      title: bestFor,
+      desc: `${properCaseLabel(card.rewardType)} card for ${bestFor}`
     };
   }
   return null;
@@ -227,7 +263,7 @@ export function chooseReasons(card: CreditCard, other: CreditCard) {
   }
   const useCase = firstBestFor(card);
   if (useCase) reasons.push(useCase.desc);
-  if (reasons.length === 0 && card.bestFor.length) reasons.push(`Your priority matches ${card.bestFor.slice(0, 3).join(", ")}`);
+  if (reasons.length === 0 && card.bestFor.length) reasons.push(`Your priority matches ${displayList(card.bestFor, 3)}`);
   if (reasons.length === 0) reasons.push(SAFE_FALLBACK);
   return reasons.slice(0, 4);
 }
@@ -346,7 +382,7 @@ export function comparisonRows(cardA: CreditCard, cardB: CreditCard) {
       cardB.feeWaiverSpend ? formatCurrency(cardB.feeWaiverSpend) : BOTH_MISSING_FALLBACK
     ],
     ["Best use case", bestUseCase(cardA), bestUseCase(cardB)],
-    ["Reward type", cardA.rewardType || BOTH_MISSING_FALLBACK, cardB.rewardType || BOTH_MISSING_FALLBACK],
+    ["Reward type", cardA.rewardType ? properCaseLabel(cardA.rewardType) : BOTH_MISSING_FALLBACK, cardB.rewardType ? properCaseLabel(cardB.rewardType) : BOTH_MISSING_FALLBACK],
     ["Top rewards", rewardSummary(cardA), rewardSummary(cardB)],
     ["Domestic lounge", loungeLabel(cardA.loungeDomestic), loungeLabel(cardB.loungeDomestic)],
     ["International lounge", loungeLabel(cardA.loungeInternational), loungeLabel(cardB.loungeInternational)],

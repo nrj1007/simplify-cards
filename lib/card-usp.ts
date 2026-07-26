@@ -1,5 +1,5 @@
 import type { CreditCard } from "./types";
-import { withoutSentenceEndingFullStop } from "./display-text";
+import { properCaseLabel, withoutSentenceEndingFullStop } from "./display-text";
 
 export interface CardUSPItem {
   cardKey: string;
@@ -878,9 +878,9 @@ export function getCardShortUsp(card: CreditCard): string {
     parts.push("Lifetime free");
   }
   if (card.bestFor.length > 0) {
-    parts.push(`best for ${card.bestFor.slice(0, 2).join(" & ")}`);
+    parts.push(`best for ${card.bestFor.slice(0, 2).map(properCaseLabel).join(" & ")}`);
   } else {
-    parts.push(`${card.rewardType} card`);
+    parts.push(`${properCaseLabel(card.rewardType)} card`);
   }
 
   return parts.join(", ");

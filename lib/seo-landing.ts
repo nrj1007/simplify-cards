@@ -3,6 +3,7 @@ import { deriveBestFor, formatRupeesCompact } from "./card-detail";
 import { stripScoringAnnotations } from "./cards";
 import { scoreCards } from "./recommend";
 import { buildCanonicalUrl, buildPageMetadata, SITE_NAME } from "./seo";
+import { properCaseLabel } from "./display-text";
 import type { CreditCard, RecommendationInput } from "./types";
 import { SPLIT_SCOPE } from "./result-strategies";
 import { applyResultStrategy } from "./recommend";
@@ -322,8 +323,8 @@ function annualFeeLabel(card: CreditCard) {
 function rewardFallback(card: CreditCard) {
   const reward = card.rewards.find((item) => item.displayRate) ?? card.rewards[0];
   if (!reward) return DEFAULT_FALLBACK;
-  const category = reward.displayCategory ?? reward.category;
-  const rate = reward.displayRate ?? `${reward.rate} ${card.rewardType} per ₹100`;
+  const category = properCaseLabel(reward.displayCategory ?? reward.category);
+  const rate = reward.displayRate ?? `${reward.rate} ${properCaseLabel(card.rewardType)} per ₹100`;
   return `${rate} on ${category}`;
 }
 

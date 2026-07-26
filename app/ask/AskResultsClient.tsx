@@ -56,7 +56,44 @@ function formatRupees(value: number | null | undefined) {
 
 function formatRewardCap(value: number | null | undefined, rewardType: string) {
   if (!value) return "-";
-  return `${value.toLocaleString("en-IN")} ${rewardType}`;
+  return `${value.toLocaleString("en-IN")} ${properCaseLabel(rewardType)}`;
+}
+
+const DISPLAY_CASE_OVERRIDES: Record<string, string> = {
+  amex: "Amex",
+  bpcl: "BPCL",
+  edge: "EDGE",
+  emi: "EMI",
+  gyftr: "Gyftr",
+  hdfc: "HDFC",
+  hpcl: "HPCL",
+  irctc: "IRCTC",
+  mmt: "MMT",
+  rp: "RP",
+  sbi: "SBI",
+  smartbuy: "SmartBuy",
+  upi: "UPI"
+};
+
+function properCaseLabel(value: string) {
+  return value
+    .split(/(\s+|\/|-)/)
+    .map((part) => {
+      if (!part.trim() || part === "/" || part === "-") return part;
+      const override = DISPLAY_CASE_OVERRIDES[part.toLowerCase()];
+      return override ?? `${part.charAt(0).toUpperCase()}${part.slice(1)}`;
+    })
+    .join("");
+}
+
+function displayList(items: string[] | undefined, count?: number) {
+  if (!items || items.length === 0) return "Not listed";
+  const shown = typeof count === "number" ? items.slice(0, count) : items;
+  return shown.map(properCaseLabel).join(", ");
+}
+
+function rewardCategoryLabel(reward: CreditCard["rewards"][number]) {
+  return properCaseLabel(reward.displayCategory ?? reward.category);
 }
 
 function stripScoringAnnotations(benefit: string): string {
@@ -85,7 +122,7 @@ function rewardRateLabel(card: CreditCard, reward: CreditCard["rewards"][number]
 
   const rewardType = card.rewardType.toLowerCase();
   if (rewardType.includes("point") || rewardType.includes("mile")) {
-    return `${reward.rate} ${card.rewardType} / ₹100`;
+    return `${reward.rate} ${properCaseLabel(card.rewardType)} / ₹100`;
   }
 
   return `${reward.rate}%`;
@@ -95,7 +132,7 @@ function rewardSummary(card: CreditCard) {
   const items = card.rewards
     .filter((reward) => !reward.hidden)
     .slice(0, 3)
-    .map((reward) => `${reward.displayCategory ?? reward.category}: ${rewardRateLabel(card, reward)}`);
+    .map((reward) => `${rewardCategoryLabel(reward)}: ${rewardRateLabel(card, reward)}`);
 
   if (items.length === 0) return "Not listed";
 
@@ -117,9 +154,9 @@ function smartbuyCapSummary(card: CreditCard) {
 
   const caps = smartbuyRewards.map((reward) => {
     const parts = [];
-    if (reward.capDaily) parts.push(`daily ${formatRewardCap(reward.capDaily, card.rewardType)}`);
-    if (reward.capMonthly) parts.push(`monthly ${formatRewardCap(reward.capMonthly, card.rewardType)}`);
-    return `${reward.category}: ${parts.length ? parts.join(", ") : "no cap listed"}`;
+    if (reward.capDaily) parts.push(`Daily ${formatRewardCap(reward.capDaily, card.rewardType)}`);
+    if (reward.capMonthly) parts.push(`Monthly ${formatRewardCap(reward.capMonthly, card.rewardType)}`);
+    return `${rewardCategoryLabel(reward)}: ${parts.length ? parts.join(", ") : "No cap listed"}`;
   });
 
   return caps.join("; ");
@@ -739,7 +776,7 @@ export default function AskResultsClient({
                     <tr>
                       <td>Best for</td>
                       {selectedCards.map((item) => (
-                        <td key={`best-${item.card.id}`}>{item.card.bestFor.slice(0, 3).join(", ") || "-"}</td>
+                        <td key={`best-${item.card.id}`}>{displayList(item.card.bestFor, 3)}</td>
                       ))}
                     </tr>
                     <tr>

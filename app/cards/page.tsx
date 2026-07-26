@@ -8,6 +8,7 @@ import {
   getCardById,
   getPopularCards
 } from "@/lib/cards";
+import { properCaseLabel } from "@/lib/display-text";
 import type { CreditCard } from "@/lib/types";
 import CardsCarousel, { type CardsCarouselItem } from "../ui/CardsCarousel";
 
@@ -84,15 +85,15 @@ function rateLabel(card: CreditCard) {
   if (displayRate) return displayRate.toLowerCase().startsWith("up to") ? displayRate : `up to ${displayRate}`;
 
   const maxRate = Math.max(0, ...card.rewards.map((reward) => reward.rate * (reward.valuePerUnit ?? 1)));
-  return maxRate > 0 ? `up to ${Number(maxRate.toFixed(2))}%` : card.rewardType;
+  return maxRate > 0 ? `up to ${Number(maxRate.toFixed(2))}%` : properCaseLabel(card.rewardType);
 }
 
 function summaryForCard(card: CreditCard) {
   if (card.bestFor.length > 0) {
-    return `Strong fit for ${card.bestFor.slice(0, 2).join(" and ").toLowerCase()} spends`;
+    return `Strong fit for ${card.bestFor.slice(0, 2).map(properCaseLabel).join(" and ")} spends`;
   }
   if (card.additionalBenefits?.[0]) return card.additionalBenefits[0];
-  return `${card.rewardType} card from ${card.issuer}`;
+  return `${properCaseLabel(card.rewardType)} card from ${card.issuer}`;
 }
 
 function toCarouselItems(cards: readonly CreditCard[], limit = 8): CardsCarouselItem[] {

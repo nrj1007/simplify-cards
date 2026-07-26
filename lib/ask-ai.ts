@@ -9,6 +9,7 @@ import { parseQueryIntent } from "./query-intent";
 import { callAiWithSchemaDetailed, type AiCallTrace } from "./ai-provider";
 import { getTotalLoungeAccess } from "./lounge";
 import { askCacheKey, getAskCache, setAskCache, type AskCacheStatus } from "./ask-cache";
+import { properCaseLabel } from "./display-text";
 
 export type AskIntent =
   | "specific-card"
@@ -345,11 +346,11 @@ function buildImportantFeatures(cardScore: CardScore) {
   const features: string[] = [];
 
   if (card.bestFor.length > 0) {
-    features.push(`Built for ${joinNatural(card.bestFor.slice(0, 3))}`);
+    features.push(`Built for ${joinNatural(card.bestFor.slice(0, 3).map(properCaseLabel))}`);
   }
 
   if (card.rewardType) {
-    features.push(`Earns ${card.rewardType}`);
+    features.push(`Earns ${properCaseLabel(card.rewardType)}`);
   }
 
   const totalLoungeAccess = getTotalLoungeAccess(card);

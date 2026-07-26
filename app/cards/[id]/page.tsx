@@ -30,7 +30,7 @@ import {
 } from "@/lib/card-detail";
 import { buildPageMetadata } from "@/lib/seo";
 import { cardCtaHref, cardCtaLabel, cardCtaRel } from "@/lib/card-links";
-import { withoutSentenceEndingFullStop } from "@/lib/display-text";
+import { properCaseLabel, withoutSentenceEndingFullStop } from "@/lib/display-text";
 import type { CreditCard, Redemption } from "@/lib/types";
 
 type Props = {
@@ -86,7 +86,7 @@ function hasFeeWaiverSpend(value: number | null | undefined) {
 
 function formatRewardCap(value: number | null | undefined, rewardType: string) {
   if (!value) return "-";
-  return `${value.toLocaleString("en-IN")} ${rewardType}`;
+  return `${value.toLocaleString("en-IN")} ${properCaseLabel(rewardType)}`;
 }
 
 function formatStatementQuarterCap(value: number | null | undefined) {
@@ -100,7 +100,7 @@ function formatRewardRate(card: CreditCard, reward: CreditCard["rewards"][number
   const rewardTypeLower = card.rewardType.toLowerCase();
 
   if (rewardTypeLower.includes("mile") || rewardTypeLower.includes("point")) {
-    return `${reward.rate} ${card.rewardType} / ₹100`;
+    return `${reward.rate} ${properCaseLabel(card.rewardType)} / ₹100`;
   }
 
   return `${reward.rate}%`;
@@ -399,7 +399,7 @@ export default async function CardPage({ params }: Props) {
       ? { value: formatRupeesCompact(card.feeWaiverSpend as number), label: "Annual spend for fee waiver" }
       : { value: formatCurrency(card.joiningFee), label: "Joining fee" },
     headlineReward
-      ? { value: formatRewardRate(card, headlineReward), label: `${headlineReward.displayCategory ?? headlineReward.category} ${card.rewardType.toLowerCase()} rate` }
+      ? { value: formatRewardRate(card, headlineReward), label: `${properCaseLabel(headlineReward.displayCategory ?? headlineReward.category)} ${properCaseLabel(card.rewardType)} rate` }
       : { value: card.network.join(" / "), label: "Network" },
     { value: `${card.forexMarkup}%`, label: "Forex markup" },
     { value: loungeValue ?? "None", label: "Lounge visits" }
@@ -487,7 +487,7 @@ export default async function CardPage({ params }: Props) {
 
             <section className="card-reference-section" id="calculator">
               <div className="card-reference-section-title">
-                <h2>Estimate your {card.rewardType.toLowerCase()}</h2>
+                <h2>Estimate your {properCaseLabel(card.rewardType)}</h2>
                 <p>Adjust your monthly spend to see the card&apos;s estimated annual value</p>
               </div>
               <RewardCalculator card={card} milestones={milestoneRulesForCard(card)} variant="card-detail" />
@@ -503,7 +503,7 @@ export default async function CardPage({ params }: Props) {
               <div className="panel-body">
                 <div className="section-head">
                   <div>
-                    <h2 className="section-title">{card.rewardType} rates</h2>
+                    <h2 className="section-title">{properCaseLabel(card.rewardType)} rates</h2>
                   </div>
                 </div>
                 <div className="table-wrap">
@@ -526,7 +526,7 @@ export default async function CardPage({ params }: Props) {
                                 {optionLabel} {optionAnnualCost > 0 ? `(₹ ${optionAnnualCost.toLocaleString("en-IN")}/yr)` : ""}
                               </span>
                             ) : null}
-                            {reward.displayCategory ?? reward.category}
+                            {properCaseLabel(reward.displayCategory ?? reward.category)}
                           </td>
                           <td>{formatRewardRate(card, reward)}</td>
                           {hasDailyCap && <td className="cap-column">{formatRewardCap(reward.capDaily, card.rewardType)}</td>}

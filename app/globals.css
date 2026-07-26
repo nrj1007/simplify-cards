@@ -19508,8 +19508,8 @@ html body .calculator-modern-shell .calculator-page-hero {
 
 html body .calculator-modern-shell .calculator-page-hero h1 {
   margin-bottom: 0 !important;
-  font-size: clamp(3.2rem, 6vw, 5rem) !important;
-  line-height: .92 !important;
+  font-size: clamp(2.35rem, 4.2vw, 3.4rem) !important;
+  line-height: 1.03 !important;
   font-weight: 800 !important;
 }
 
@@ -22505,7 +22505,7 @@ html body .updates-reference-page .updates-simple-title h1 {
 
 html body .seo-comparison-page > .compare-reference-hero h1 {
   white-space: nowrap !important;
-  font-size: clamp(1.45rem, 3vw, 2.6rem) !important;
+  font-size: clamp(1.25rem, 2.25vw, 2rem) !important;
   line-height: 1.15 !important;
 }
 
@@ -22524,12 +22524,12 @@ html body .seo-comparison-page > .compare-reference-hero h1 {
   html body .compare-reference-page:not(.seo-comparison-page) > .compare-reference-hero h1,
   html body .cards-page-main .cards-simple-title h1,
   html body .updates-reference-page .updates-simple-title h1 {
-    font-size: 41.6px !important;
-    line-height: 1 !important;
+    font-size: 34px !important;
+    line-height: 1.06 !important;
   }
 
   html body .seo-comparison-page > .compare-reference-hero h1 {
-    font-size: clamp(1rem, 4.5vw, 1.45rem) !important;
+    font-size: clamp(1rem, 4vw, 1.25rem) !important;
     letter-spacing: -0.02em !important;
   }
 }
