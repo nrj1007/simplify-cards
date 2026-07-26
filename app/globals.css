@@ -14237,6 +14237,39 @@ button { cursor: pointer !important; }
   font-weight: 500 !important;
   white-space: nowrap !important;
 }
+.best-cards-clean-page {
+  background: transparent !important;
+}
+.best-cards-simple-title {
+  width: 100%;
+  padding: 34px 0 20px;
+  background: transparent;
+}
+.best-cards-title-inner {
+  display: block !important;
+  height: auto !important;
+}
+.best-cards-simple-title h1 {
+  margin: 0;
+  padding: 0 0 0.06em;
+  color: #1e112c;
+  font-size: clamp(2rem, 8.4vw, 4rem);
+  line-height: 1.08;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+}
+.best-cards-clean-page .ask-content {
+  padding-top: 0 !important;
+}
+.best-cards-clean-grid {
+  grid-template-columns: minmax(0, 1fr) !important;
+}
+@media (max-width: 520px) {
+  .best-cards-simple-title {
+    padding-top: 24px;
+    padding-bottom: 20px;
+  }
+}
 .sc-results-category .result-list {
   display: flex !important;
   flex-direction: column !important;

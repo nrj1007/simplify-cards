@@ -3,6 +3,10 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, CalendarDays, Check, ShieldCheck, Sparkles } from "lucide-react";
 import CardImageFallback from "./CardImageFallback";
+import { TrackedExternalLink } from "./TrackedLink";
+import { cardCtaHref, cardCtaLabel, cardCtaRel } from "@/lib/card-links";
+import { getCardUsp } from "@/lib/card-usp";
+import { cardRewardTypeIncludesCashback } from "@/lib/reward-type";
 import {
   buildLandingJsonLd,
   deriveCardSummary,
@@ -12,7 +16,7 @@ import {
   selectCardsForLanding,
   selectSectionsForLanding
 } from "@/lib/seo-landing";
-import type { CreditCard } from "@/lib/types";
+import type { CardScore, CreditCard } from "@/lib/types";
 
 type Props = {
   slug: string;
@@ -79,6 +83,211 @@ function RankedCard({ card, rank }: { card: CreditCard; rank: number }) {
   );
 }
 
+function toFitPercent(score: number, topFitRaw: number) {
+  return topFitRaw > 0 ? Math.max(1, Math.min(100, Math.round((score / topFitRaw) * 100))) : 100;
+}
+
+function pickData(cashbackCards: CardScore[], rewardCards: CardScore[]) {
+  let topPickItem: CardScore | undefined;
+  let strongAlternativeItem: CardScore | undefined;
+  let alsoWorthALookItem: CardScore | undefined;
+
+  if (cashbackCards.length > 0 && rewardCards.length === 0) {
+    topPickItem = cashbackCards[0];
+    strongAlternativeItem = cashbackCards[1];
+    alsoWorthALookItem = cashbackCards[2];
+  } else if (rewardCards.length > 0 && cashbackCards.length === 0) {
+    topPickItem = rewardCards[0];
+    strongAlternativeItem = rewardCards[1];
+    alsoWorthALookItem = rewardCards[2];
+  } else if (cashbackCards.length >= 1) {
+    topPickItem = cashbackCards[0];
+    strongAlternativeItem = rewardCards[0];
+    alsoWorthALookItem = cashbackCards[1] ?? rewardCards[1];
+  } else {
+    topPickItem = rewardCards[0];
+    strongAlternativeItem = rewardCards[1];
+    alsoWorthALookItem = rewardCards[2];
+  }
+
+  return [
+    { heading: "Top pick", item: topPickItem },
+    { heading: "Strong alternative", item: strongAlternativeItem },
+    { heading: "Also worth a look", item: alsoWorthALookItem }
+  ].filter((pick): pick is { heading: string; item: CardScore } => Boolean(pick.item));
+}
+
+function BestCreditCardResult({
+  item,
+  rank,
+  topFitRaw,
+  pickLabel
+}: {
+  item: CardScore;
+  rank: number;
+  topFitRaw: number;
+  pickLabel: string | null;
+}) {
+  const { card } = item;
+  const pickClass =
+    pickLabel === "Top pick"
+      ? " sc-result-top-pick best"
+      : pickLabel === "Strong alternative"
+        ? " sc-result-strong-alt"
+        : pickLabel === "Also worth a look"
+          ? " sc-result-also-look"
+          : "";
+
+  return (
+    <article className={`result-card sc-clickable-result-card${pickClass}`} data-details-url={`/cards/${card.id}`}>
+      <div className="result-main">
+        <div>
+          <div className="sc-result-kicker">
+            <div className="rank">{rank}</div>
+            <span className="sc-result-bank">{card.issuer}</span>
+          </div>
+          <h3 className="sc-result-title-row">
+            <span className="sc-result-card-name">{card.name}</span>
+            {pickLabel ? <span className="sc-result-pick-label sc-result-pick-inline">{pickLabel}</span> : null}
+          </h3>
+          <p>{getCardUsp(card)}</p>
+          <div className="result-meta">
+            <span className="mini-tag">Fit {toFitPercent(item.fitScore, topFitRaw)}/100</span>
+            {card.bestFor[0] ? <span className="mini-tag">{card.bestFor[0]}</span> : null}
+            <span className="mini-tag">
+              {card.annualFee === 0 ? "Lifetime free" : `₹ ${card.annualFee.toLocaleString("en-IN")} fee`}
+            </span>
+          </div>
+          <Link className="sc-more-details" href={`/cards/${card.id}` as Route}>
+            Click for more details →
+          </Link>
+        </div>
+      </div>
+      <div className="result-actions">
+        <Link className="mini-btn sc-compare-btn" href={`/compare?a=${card.id}` as Route}>
+          Add to compare
+        </Link>
+        <TrackedExternalLink
+          analyticsEvent={{
+            event_name: "apply_clicked",
+            page: "best-credit-cards-india",
+            source: "ask",
+            card_id: card.id
+          }}
+          className="mini-btn primary sc-apply-btn"
+          href={cardCtaHref(card)}
+          rel={cardCtaRel(card)}
+          target="_blank"
+        >
+          {cardCtaLabel(card)}
+        </TrackedExternalLink>
+      </div>
+    </article>
+  );
+}
+
+function BestCreditCardsCleanPage({
+  config,
+  scores,
+  listedCards,
+  jsonLd
+}: {
+  config: NonNullable<ReturnType<typeof getSeoLanding>>;
+  scores: CardScore[];
+  listedCards: CreditCard[];
+  jsonLd: ReturnType<typeof buildLandingJsonLd>;
+}) {
+  const sections = selectSectionsForLanding(config);
+  const cashbackSection = sections?.find((section) => /cashback/i.test(section.title));
+  const rewardSection = sections?.find((section) => /reward/i.test(section.title));
+  const cashbackCards = cashbackSection?.cards ?? scores.filter((score) => cardRewardTypeIncludesCashback(score.card));
+  const rewardCards = rewardSection?.cards ?? scores.filter((score) => !cardRewardTypeIncludesCashback(score.card));
+  const topFitRaw = scores[0]?.fitScore ?? 0;
+  const picks = pickData(cashbackCards, rewardCards);
+  const pickLabelByCardId = new Map(picks.map((pick) => [pick.item.card.id, pick.heading]));
+
+  return (
+    <div className="ask-results best-cards-clean-page">
+      <section aria-labelledby="best-credit-cards-page-title" className="best-cards-simple-title">
+        <div className="container best-cards-title-inner">
+          <h1 id="best-credit-cards-page-title">Best credit cards</h1>
+        </div>
+      </section>
+
+      <section className="ask-content">
+        <div className="container content-grid best-cards-clean-grid">
+          <div className="main-stack">
+            <section className="panel sc-results-panel">
+              <div className="panel-body">
+                <div aria-label="Result view options" className="sc-result-view-toggle">
+                  <div className="sc-result-heading-left">
+                    <h3>
+                      All <span className="sc-purple-number">{listedCards.length}</span> matching cards
+                    </h3>
+                  </div>
+                </div>
+
+                <div className="sc-results-combined-view">
+                  {cashbackCards.length ? (
+                    <section className="sc-results-category sc-results-category-cashback">
+                      <div className="sc-results-category-head">
+                        <h3>Cashback Cards</h3>
+                        <span className="sc-results-category-count">
+                          {cashbackCards.length} card{cashbackCards.length === 1 ? "" : "s"}
+                        </span>
+                      </div>
+                      <div className="result-list">
+                        {cashbackCards.map((item, index) => (
+                          <BestCreditCardResult
+                            key={item.card.id}
+                            item={item}
+                            rank={index + 1}
+                            topFitRaw={topFitRaw}
+                            pickLabel={pickLabelByCardId.get(item.card.id) ?? null}
+                          />
+                        ))}
+                      </div>
+                    </section>
+                  ) : null}
+
+                  {rewardCards.length ? (
+                    <section className="sc-results-category sc-results-category-reward">
+                      <div className="sc-results-category-head">
+                        <h3>Reward Cards</h3>
+                        <span className="sc-results-category-count">
+                          {rewardCards.length} card{rewardCards.length === 1 ? "" : "s"}
+                        </span>
+                      </div>
+                      <div className="result-list">
+                        {rewardCards.map((item, index) => (
+                          <BestCreditCardResult
+                            key={item.card.id}
+                            item={item}
+                            rank={index + 1}
+                            topFitRaw={topFitRaw}
+                            pickLabel={pickLabelByCardId.get(item.card.id) ?? null}
+                          />
+                        ))}
+                      </div>
+                    </section>
+                  ) : null}
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+      </section>
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(jsonLd)
+        }}
+      />
+    </div>
+  );
+}
+
 export default function SeoLandingPage({ slug }: Props) {
   const config = getSeoLanding(slug);
   if (!config) return null;
@@ -89,6 +298,10 @@ export default function SeoLandingPage({ slug }: Props) {
   const relatedGuides = SEO_LANDINGS.filter((landing) => landing.slug !== config.slug).slice(0, 6);
   const jsonLd = buildLandingJsonLd(config, listedCards);
   const lastUpdated = landingLastUpdated(listedCards);
+
+  if (config.slug === "best-credit-cards-india") {
+    return <BestCreditCardsCleanPage config={config} scores={scores} listedCards={listedCards} jsonLd={jsonLd} />;
+  }
 
   return (
     <div className="page-shell seo-landing seo-guide">
