@@ -1654,6 +1654,27 @@ html body .updates-reference-page .updates-empty {
   grid-template-columns: minmax(0, 1fr) minmax(280px, 360px);
 }
 
+.compare-reference-page .seo-comparison-heading {
+  margin: 0 0 18px;
+  padding: 18px 2px 4px;
+}
+
+.compare-reference-page .seo-comparison-heading h2 {
+  color: var(--navy);
+  font-size: clamp(30px, 5vw, 48px);
+  letter-spacing: -0.04em;
+  line-height: 1.04;
+  margin: 6px 0 10px;
+}
+
+.compare-reference-page .seo-comparison-heading p {
+  color: var(--muted);
+  font-size: 17px;
+  line-height: 1.5;
+  margin: 0;
+  max-width: 880px;
+}
+
 .seo-comparison-main,
 .seo-comparison-side {
   display: grid;
@@ -1700,6 +1721,10 @@ html body .updates-reference-page .updates-empty {
 .seo-comparison-table th,
 .seo-comparison-table td {
   min-width: 180px;
+}
+
+.compare-reference-page .seo-comparison-table-panel .seo-section-head {
+  padding: 20px 20px 0;
 }
 
 /* =========================================================
