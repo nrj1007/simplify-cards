@@ -27,6 +27,15 @@ const SUPPORT_LINKS: Array<{ label: string; href: Route }> = [
   { label: "Compare two cards", href: "/compare" }
 ];
 
+const CLEAN_LANDING_TITLES: Record<string, string> = {
+  "best-credit-cards-india": "Best credit cards",
+  "best-cashback-credit-cards-india": "Best cashback cards",
+  "best-travel-credit-cards-india": "Best travel cards",
+  "best-lounge-access-credit-cards-india": "Best lounge cards",
+  "best-lifetime-free-credit-cards-india": "Best lifetime-free cards",
+  "best-fuel-credit-cards-india": "Best fuel cards"
+};
+
 function askHref(query: string) {
   return `/ask?query=${encodeURIComponent(query)}` as Route;
 }
@@ -121,12 +130,14 @@ function BestCreditCardResult({
   item,
   rank,
   topFitRaw,
-  pickLabel
+  pickLabel,
+  page
 }: {
   item: CardScore;
   rank: number;
   topFitRaw: number;
   pickLabel: string | null;
+  page: string;
 }) {
   const { card } = item;
   const pickClass =
@@ -170,7 +181,7 @@ function BestCreditCardResult({
         <TrackedExternalLink
           analyticsEvent={{
             event_name: "apply_clicked",
-            page: "best-credit-cards-india",
+            page,
             source: "ask",
             card_id: card.id
           }}
@@ -188,11 +199,13 @@ function BestCreditCardResult({
 
 function BestCreditCardsCleanPage({
   config,
+  title,
   scores,
   listedCards,
   jsonLd
 }: {
   config: NonNullable<ReturnType<typeof getSeoLanding>>;
+  title: string;
   scores: CardScore[];
   listedCards: CreditCard[];
   jsonLd: ReturnType<typeof buildLandingJsonLd>;
@@ -210,7 +223,7 @@ function BestCreditCardsCleanPage({
     <div className="ask-results best-cards-clean-page">
       <section aria-labelledby="best-credit-cards-page-title" className="best-cards-simple-title">
         <div className="container best-cards-title-inner">
-          <h1 id="best-credit-cards-page-title">Best credit cards</h1>
+          <h1 id="best-credit-cards-page-title">{title}</h1>
         </div>
       </section>
 
@@ -244,6 +257,7 @@ function BestCreditCardsCleanPage({
                             rank={index + 1}
                             topFitRaw={topFitRaw}
                             pickLabel={pickLabelByCardId.get(item.card.id) ?? null}
+                            page={config.slug}
                           />
                         ))}
                       </div>
@@ -266,6 +280,7 @@ function BestCreditCardsCleanPage({
                             rank={index + 1}
                             topFitRaw={topFitRaw}
                             pickLabel={pickLabelByCardId.get(item.card.id) ?? null}
+                            page={config.slug}
                           />
                         ))}
                       </div>
@@ -299,8 +314,9 @@ export default function SeoLandingPage({ slug }: Props) {
   const jsonLd = buildLandingJsonLd(config, listedCards);
   const lastUpdated = landingLastUpdated(listedCards);
 
-  if (config.slug === "best-credit-cards-india") {
-    return <BestCreditCardsCleanPage config={config} scores={scores} listedCards={listedCards} jsonLd={jsonLd} />;
+  const cleanTitle = CLEAN_LANDING_TITLES[config.slug];
+  if (cleanTitle) {
+    return <BestCreditCardsCleanPage config={config} title={cleanTitle} scores={scores} listedCards={listedCards} jsonLd={jsonLd} />;
   }
 
   return (

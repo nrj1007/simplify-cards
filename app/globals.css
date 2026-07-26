@@ -14248,6 +14248,10 @@ button { cursor: pointer !important; }
 .best-cards-title-inner {
   display: block !important;
   height: auto !important;
+  width: min(1400px, 100%) !important;
+  margin: 0 auto !important;
+  padding-left: 16px !important;
+  padding-right: 16px !important;
 }
 .best-cards-simple-title h1 {
   margin: 0;
@@ -14260,6 +14264,12 @@ button { cursor: pointer !important; }
 }
 .best-cards-clean-page .ask-content {
   padding-top: 0 !important;
+}
+.best-cards-clean-page .ask-content > .container.best-cards-clean-grid {
+  width: min(1400px, 100%) !important;
+  max-width: none !important;
+  padding-left: 16px !important;
+  padding-right: 16px !important;
 }
 .best-cards-clean-grid {
   grid-template-columns: minmax(0, 1fr) !important;
