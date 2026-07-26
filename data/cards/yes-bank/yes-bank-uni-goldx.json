@@ -1,0 +1,137 @@
+{
+  "id": "yes-bank-uni-goldx",
+  "issuer": "YES Bank",
+  "name": "Uni GoldX Credit Card",
+  "network": [
+    "RuPay"
+  ],
+  "joiningFee": 0,
+  "annualFee": 0,
+  "feeWaiverSpend": null,
+  "bestFor": [
+    "gold",
+    "forex",
+    "upi"
+  ],
+  "rewardType": "Uni Coins",
+  "broadOnlineReward": true,
+  "rewards": [
+    {
+      "category": "base",
+      "rate": 1.0,
+      "displayCategory": "All retail spends",
+      "displayRate": "1% back in digital gold (100 Uni Coins per ₹100 spent)",
+      "capMonthly": null
+    },
+    {
+      "category": "upi",
+      "rate": 1.0,
+      "displayCategory": "UPI scans on RuPay",
+      "displayRate": "1% back in digital gold (100 Uni Coins per ₹100 spent)",
+      "capMonthly": null
+    },
+    {
+      "category": "travel",
+      "rate": 7.0,
+      "displayCategory": "Flight bookings via Uni Store",
+      "displayRate": "7% back in digital gold",
+      "capMonthly": null
+    },
+    {
+      "category": "hotels",
+      "rate": 10.0,
+      "displayCategory": "Hotel bookings via Uni Store",
+      "displayRate": "10% back in digital gold",
+      "capMonthly": null
+    },
+    {
+      "category": "online",
+      "rate": 8.0,
+      "displayCategory": "Brand vouchers via Uni Store",
+      "displayRate": "Up to 8% back in digital gold",
+      "capMonthly": null
+    }
+  ],
+  "loungeDomestic": 0,
+  "loungeInternational": 0,
+  "lounge": {
+    "domestic": [
+      "Uni GoldX has no complimentary domestic airport lounge access."
+    ],
+    "international": [
+      "Uni GoldX has no complimentary international airport lounge access."
+    ]
+  },
+  "forexMarkup": 0,
+  "tags": [
+    "upi",
+    "gold",
+    "forex"
+  ],
+  "exclusions": [
+    "fuel spends",
+    "rental payments",
+    "wallet loading and top-up transactions",
+    "educational services and school fees",
+    "government services",
+    "utility payments"
+  ],
+  "exclusionCodes": [
+    "fuel",
+    "rent",
+    "wallet_load",
+    "education",
+    "government",
+    "utilities"
+  ],
+  "joiningBenefitsValued": [],
+  "joiningBenefits": [],
+  "milestones": [],
+  "milestoneBenefits": [],
+  "additionalBenefits": [
+    "Convert Uni Coins directly into 24K digital gold or cash equivalents inside the Uni app.",
+    "0% forex markup fee on foreign currency transactions.",
+    "1% fuel surcharge waiver on transactions up to ₹7,50, capped at ₹500 per month.",
+    "No physical card is issued; it is a virtual RuPay credit card."
+  ],
+  "additionalDetails": [
+    "UPI transactions require linking the RuPay card to a UPI app like Google Pay, PhonePe, or Paytm."
+  ],
+  "redemption": {
+    "ecosystemLabel": "Uni Coins",
+    "ecosystemValue": 0.01,
+    "statementBalanceValue": 0.01,
+    "pointsExpiryYears": null
+  },
+  "eligibility": {
+    "salaried": [
+      "Resident Indian citizen",
+      "Age 21 to 60 years"
+    ],
+    "selfEmployed": [
+      "Resident Indian citizen",
+      "Age 21 to 60 years"
+    ]
+  },
+  "supportingSourceUrls": [
+    "https://www.yesbank.in/personal-banking/yes-individual/cards/credit-cards/yes-bank-uni-rupay-credit-card",
+    "https://www.uni.cards/"
+  ],
+  "sourceUrl": "https://www.yesbank.in/personal-banking/yes-individual/cards/credit-cards/yes-bank-uni-rupay-credit-card",
+  "applyUrl": "https://www.uni.cards/",
+  "imageUrl": "/images/yes-bank-uni-goldx.webp",
+  "lastVerified": "2026-06-15",
+  "verificationStatus": "official-direct",
+  "popularityScore": 75,
+  "applyLinks": [
+    {
+      "url": "https://www.uni.cards/",
+      "provider": "official"
+    },
+    {
+      "url": "https://inr.deals/track?id=nee478969210&src=merchant-detail-backend&campaign=cpa&url=https%3A%2F%2Fwww.uni.cards%2F",
+      "provider": "inrDeals",
+      "earnings": "Upto Rs 180"
+    }
+  ]
+}
