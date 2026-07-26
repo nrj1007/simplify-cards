@@ -160,9 +160,9 @@
       "provider": "official"
     },
     {
-      "url": "https://inr.deals/track?id=nee478969210&src=merchant-backend&campaign=cpa&url=https://web.jupiter.money/rupay-csb/web-ob/landing",
+      "url": "https://inr.deals/track?id=nee478969210&src=merchant-detail-backend&campaign=cpa&url=https%3A%2F%2Fweb.jupiter.money%2Frupay-csb%2Fweb-ob%2Flanding",
       "provider": "inrDeals",
-      "earnings": "Upto ₹800 / Action"
+      "earnings": "Upto Rs 800"
     }
   ]
 }
