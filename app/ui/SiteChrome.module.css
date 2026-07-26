@@ -25,13 +25,15 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 12px;
+  gap: 24px;
+  min-height: 40px;
 }
 
 .brand {
   display: inline-flex;
   align-items: center;
   gap: 10px;
+  flex: 0 0 auto;
   border: 0;
   background: transparent;
   color: var(--sc-ink, #1e112c);
@@ -66,6 +68,7 @@
   align-items: center;
   justify-content: flex-end;
   gap: 28px;
+  min-height: 40px;
   overflow-x: auto;
   scrollbar-width: none;
 }
@@ -75,8 +78,12 @@
 }
 
 .navLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   flex-shrink: 0;
-  padding: 0;
+  min-height: 40px;
+  padding: 0 2px;
   border-bottom: 1px solid transparent;
   color: var(--sc-muted, #5b5466);
   font-size: 14px;

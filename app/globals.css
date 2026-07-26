@@ -22460,8 +22460,8 @@ html body .calculator-modern-shell .calculator-page-hero,
 html body .compare-reference-page:not(.seo-comparison-page) > .compare-reference-hero,
 html body .cards-page-main .cards-simple-title,
 html body .updates-reference-page .updates-simple-title {
-  padding-top: 24px !important;
-  padding-bottom: 18px !important;
+  padding-top: 18px !important;
+  padding-bottom: 14px !important;
 }
 
 html body .recommend-page .page-hero .container,
@@ -22495,8 +22495,8 @@ html body .updates-reference-page .updates-simple-title h1 {
   margin: 0 !important;
   color: #1e112c !important;
   font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
-  font-size: clamp(3.2rem, 6vw, 5rem) !important;
-  line-height: .92 !important;
+  font-size: clamp(1.85rem, 3.2vw, 2.75rem) !important;
+  line-height: 1.08 !important;
   font-weight: 800 !important;
   letter-spacing: 0 !important;
   text-transform: none !important;
@@ -22505,7 +22505,7 @@ html body .updates-reference-page .updates-simple-title h1 {
 
 html body .seo-comparison-page > .compare-reference-hero h1 {
   white-space: nowrap !important;
-  font-size: clamp(1.25rem, 2.25vw, 2rem) !important;
+  font-size: clamp(1.1rem, 2vw, 1.7rem) !important;
   line-height: 1.15 !important;
 }
 
@@ -22515,8 +22515,8 @@ html body .seo-comparison-page > .compare-reference-hero h1 {
   html body .compare-reference-page:not(.seo-comparison-page) > .compare-reference-hero,
   html body .cards-page-main .cards-simple-title,
   html body .updates-reference-page .updates-simple-title {
-    padding-top: 18px !important;
-    padding-bottom: 18px !important;
+    padding-top: 14px !important;
+    padding-bottom: 14px !important;
   }
 
   html body .recommend-page .page-hero h1.recommend-heading,
@@ -22524,12 +22524,12 @@ html body .seo-comparison-page > .compare-reference-hero h1 {
   html body .compare-reference-page:not(.seo-comparison-page) > .compare-reference-hero h1,
   html body .cards-page-main .cards-simple-title h1,
   html body .updates-reference-page .updates-simple-title h1 {
-    font-size: 34px !important;
-    line-height: 1.06 !important;
+    font-size: 28px !important;
+    line-height: 1.1 !important;
   }
 
   html body .seo-comparison-page > .compare-reference-hero h1 {
-    font-size: clamp(1rem, 4vw, 1.25rem) !important;
+    font-size: clamp(0.95rem, 3.6vw, 1.15rem) !important;
     letter-spacing: -0.02em !important;
   }
 }
