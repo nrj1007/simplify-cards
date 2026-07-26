@@ -194,6 +194,11 @@
     {
       "url": "https://www.americanexpress.com/in/charge-cards/platinum-card/",
       "provider": "official"
+    },
+    {
+      "url": "https://bitlii.com/B8Nr35UJzC",
+      "provider": "realcash",
+      "earnings": "Flat Rs 4392"
     }
   ]
 }
