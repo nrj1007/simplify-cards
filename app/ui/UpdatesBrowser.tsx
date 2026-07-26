@@ -54,7 +54,7 @@ export default function UpdatesBrowser({ updates }: { updates: Update[] }) {
   return (
     <div className="updates-cards-shell">
       <section className="updates-simple-title" aria-labelledby="updates-page-title">
-        <h1 id="updates-page-title" ref={titleRef}>Latest Updates</h1>
+        <h1 id="updates-page-title" ref={titleRef}>Latest updates</h1>
       </section>
 
       {updates.length === 0 ? (

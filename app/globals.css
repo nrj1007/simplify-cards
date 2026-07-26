@@ -422,6 +422,10 @@ html body .compare-reference-page .compare-table tbody tr:last-child td { border
   padding: 0;
 }
 
+.main:has(.cards-page-main) {
+  padding: 0;
+}
+
 html body .updates-reference-page {
   min-height: 60vh;
   color: #1e112c;
@@ -430,13 +434,13 @@ html body .updates-reference-page {
 
 html body .updates-reference-page .updates-cards-shell {
   width: 100%;
-  max-width: 980px;
+  max-width: 1400px;
   margin: 0 auto;
-  padding: 0 32px 72px;
+  padding: 0 16px 72px;
 }
 
 html body .updates-reference-page .updates-simple-title {
-  padding: 34px 0 20px;
+  padding: 24px 0 18px;
   overflow: visible;
 }
 
@@ -446,8 +450,8 @@ html body .updates-reference-page .updates-simple-title h1 {
   margin: 0;
   padding: 0 0 0.06em;
   color: #1e112c;
-  font-size: 64px;
-  line-height: 1.08;
+  font-size: clamp(3.2rem, 6vw, 5rem);
+  line-height: .92;
   font-weight: 800;
   letter-spacing: 0;
 }
@@ -653,12 +657,13 @@ html body .updates-reference-page .updates-empty {
   }
 
   html body .updates-reference-page .updates-simple-title {
-    padding-top: 24px;
-    padding-bottom: 20px;
+    padding-top: 18px;
+    padding-bottom: 18px;
   }
 
   html body .updates-reference-page .updates-simple-title h1 {
     font-size: 41.6px;
+    line-height: 1;
   }
 
   html body .updates-reference-page .updates-tile {
@@ -18080,19 +18085,19 @@ html body .recommend-card .recommend-stats .stat strong,
 }
 
 .cards-page-main .cards-simple-title {
-  padding-top: 42px;
-  padding-bottom: 28px;
+  padding-top: 24px;
+  padding-bottom: 18px;
   margin: 0;
 }
 
 .cards-page-main .cards-simple-title h1 {
   margin: 0;
   color: #1e112c;
-  font-size: clamp(2.75rem, 5vw, 4rem);
-  line-height: 1;
-  font-weight: 950;
-  letter-spacing: -0.065em;
-  text-transform: lowercase;
+  font-size: clamp(3.2rem, 6vw, 5rem);
+  line-height: .92;
+  font-weight: 800;
+  letter-spacing: 0;
+  text-transform: none;
 }
 
 .cards-page-main .cards-rows-stack {
@@ -18560,8 +18565,8 @@ html body .recommend-card .recommend-stats .stat strong,
   }
 
   .cards-page-main .cards-simple-title {
-    padding-top: 48px;
-    padding-bottom: 34px;
+    padding-top: 24px;
+    padding-bottom: 18px;
   }
 
   .cards-page-main .cards-row-head {
@@ -18644,6 +18649,16 @@ html body .recommend-card .recommend-stats .stat strong,
 }
 
 @media (max-width: 639px) {
+  .cards-page-main .cards-simple-title {
+    padding-top: 18px;
+    padding-bottom: 18px;
+  }
+
+  .cards-page-main .cards-simple-title h1 {
+    font-size: 41.6px;
+    line-height: 1;
+  }
+
   .cards-page-main .cards-netflix-shell {
     padding-left: 16px;
     padding-right: 16px;

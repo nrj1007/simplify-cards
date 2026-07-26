@@ -150,7 +150,7 @@ export default function CardsPage() {
     <div className="cards-page-main">
       <div className="cards-netflix-shell">
         <section aria-labelledby="cards-page-title" className="cards-simple-title">
-          <h1 id="cards-page-title">cards</h1>
+          <h1 id="cards-page-title">Cards</h1>
         </section>
         <div className="cards-rows-stack">
           {rows.map((row) => (
