@@ -7,12 +7,12 @@ import { Instagram, Linkedin, Youtube } from "lucide-react";
 import styles from "./SiteChrome.module.css";
 
 const GUIDE_LINKS: Array<{ label: string; href: Route }> = [
-  { label: "Best credit cards", href: "/best-credit-cards-india" as Route },
-  { label: "Best cashback cards", href: "/best-cashback-credit-cards-india" as Route },
-  { label: "Best travel cards", href: "/best-travel-credit-cards-india" as Route },
-  { label: "Best lounge cards", href: "/best-lounge-access-credit-cards-india" as Route },
-  { label: "Best lifetime-free cards", href: "/best-lifetime-free-credit-cards-india" as Route },
-  { label: "Best fuel cards", href: "/best-fuel-credit-cards-india" as Route }
+  { label: "Best Credit Cards", href: "/best-credit-cards-india" as Route },
+  { label: "Best Cashback Cards", href: "/best-cashback-credit-cards-india" as Route },
+  { label: "Best Travel Cards", href: "/best-travel-credit-cards-india" as Route },
+  { label: "Best Lounge Cards", href: "/best-lounge-access-credit-cards-india" as Route },
+  { label: "Best Lifetime-Free Cards", href: "/best-lifetime-free-credit-cards-india" as Route },
+  { label: "Best Fuel Cards", href: "/best-fuel-credit-cards-india" as Route }
 ];
 
 const COMPARISON_LINKS: Array<{ label: string; href: Route }> = [
@@ -98,7 +98,7 @@ export function SiteFooter() {
       <footer className={joinClasses(styles.footer, "site-footer")}>
         <div className={styles.footerGrid}>
           <div>
-            <h4>company</h4>
+            <h4>Company</h4>
             <div className={styles.footerLinks}>
               <button type="button" className={styles.footerLink} onClick={() => setPolicy("about")}>About</button>
               <button type="button" className={styles.footerLink} onClick={() => setPolicy("contact")}>Contact us</button>
@@ -114,18 +114,18 @@ export function SiteFooter() {
             </div>
           </div>
           <div>
-            <h4>quick navigation</h4>
+            <h4>Quick Navigation</h4>
             <div className={styles.footerLinks}>
               <Link className={styles.footerLink} href="/ask">Ask</Link>
               <Link className={styles.footerLink} href="/recommend">Recommend</Link>
               <Link className={styles.footerLink} href={"/calculator" as Route}>Redemption</Link>
               <Link className={styles.footerLink} href="/cards">Cards</Link>
               <Link className={styles.footerLink} href="/compare">Compare</Link>
-              <Link className={styles.footerLink} href={"/latest" as Route}>Latest updates</Link>
+              <Link className={styles.footerLink} href={"/latest" as Route}>Latest Updates</Link>
             </div>
           </div>
           <div>
-            <h4>popular guides</h4>
+            <h4>Popular Guides</h4>
             <div className={styles.footerLinks}>
               {GUIDE_LINKS.map((link) => (
                 <Link className={styles.footerLink} href={link.href} key={link.href}>{link.label}</Link>
@@ -133,7 +133,7 @@ export function SiteFooter() {
             </div>
           </div>
           <div>
-            <h4>popular comparisons</h4>
+            <h4>Popular Comparisons</h4>
             <div className={styles.footerLinks}>
               {COMPARISON_LINKS.map((link) => (
                 <Link className={styles.footerLink} href={link.href} key={link.href}>{link.label}</Link>

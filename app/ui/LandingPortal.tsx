@@ -51,12 +51,12 @@ type LandingPortalProps = {
 };
 
 const GUIDE_LINKS: Array<{ label: string; href: Route }> = [
-  { label: "Best credit cards", href: "/best-credit-cards-india" as Route },
-  { label: "Best cashback cards", href: "/best-cashback-credit-cards-india" as Route },
-  { label: "Best travel cards", href: "/best-travel-credit-cards-india" as Route },
-  { label: "Best lounge cards", href: "/best-lounge-access-credit-cards-india" as Route },
-  { label: "Best lifetime-free cards", href: "/best-lifetime-free-credit-cards-india" as Route },
-  { label: "Best fuel cards", href: "/best-fuel-credit-cards-india" as Route }
+  { label: "Best Credit Cards", href: "/best-credit-cards-india" as Route },
+  { label: "Best Cashback Cards", href: "/best-cashback-credit-cards-india" as Route },
+  { label: "Best Travel Cards", href: "/best-travel-credit-cards-india" as Route },
+  { label: "Best Lounge Cards", href: "/best-lounge-access-credit-cards-india" as Route },
+  { label: "Best Lifetime-Free Cards", href: "/best-lifetime-free-credit-cards-india" as Route },
+  { label: "Best Fuel Cards", href: "/best-fuel-credit-cards-india" as Route }
 ];
 
 const COMPARISON_LINKS: Array<{ label: string; href: Route }> = [
@@ -255,7 +255,7 @@ function HeroAskBox() {
         <button type="submit">
           <span className="sc-pulse" />
           <Sparkle className="sc-sparkle" size={20} />
-          <span>ask</span>
+          <span>Ask</span>
         </button>
       </form>
       <div className="sc-prompt-chips">
@@ -444,7 +444,7 @@ function LatestUpdates({ updates }: { updates: LandingUpdate[] }) {
     return (
       <section id="latest-news" className="sc-section sc-latest">
         <div className="sc-section-head sc-section-head-simple">
-          <h2>Latest updates</h2>
+          <h2>Latest Updates</h2>
         </div>
         <article className="sc-latest-card">
           <p>No verified updates yet Check back soon</p>
@@ -456,7 +456,7 @@ function LatestUpdates({ updates }: { updates: LandingUpdate[] }) {
   return (
     <section id="latest-news" className="sc-section sc-latest">
       <div className="sc-section-head sc-section-head-simple">
-        <Link href={"/latest" as Route}>Latest updates</Link>
+        <Link href={"/latest" as Route}>Latest Updates</Link>
       </div>
       <div className="sc-latest-grid">
         <article className="sc-latest-card">
@@ -487,7 +487,7 @@ function LatestUpdates({ updates }: { updates: LandingUpdate[] }) {
           </div>
         </article>
         <aside className="sc-subscribe-card">
-          <h3>Subscribe to latest updates</h3>
+          <h3>Subscribe to Latest Updates</h3>
           {status === "success" ? (
             <div className="sc-subscribe-success-container">
               <p className="sc-subscribe-success">
@@ -576,7 +576,7 @@ function Footer({ onOpenPolicy }: { onOpenPolicy: (policy: PolicyKey) => void })
     <footer className="sc-footer">
       <div className="sc-footer-grid">
         <div>
-          <h4>company</h4>
+          <h4>Company</h4>
           <div className="sc-footer-links">
             <button type="button" onClick={() => onOpenPolicy("about")}>About</button>
             <button type="button" onClick={() => onOpenPolicy("contact")}>Contact us</button>
@@ -592,17 +592,17 @@ function Footer({ onOpenPolicy }: { onOpenPolicy: (policy: PolicyKey) => void })
           </div>
         </div>
         <div>
-          <h4>quick navigation</h4>
+          <h4>Quick Navigation</h4>
           <div className="sc-footer-links">
             <Link href="/recommend">Recommend</Link>
             <Link href={"/calculator" as Route}>Redemption</Link>
             <Link href="/finder">Cards</Link>
             <Link href="/compare">Compare</Link>
-            <Link href={"/latest" as Route}>Latest updates</Link>
+            <Link href={"/latest" as Route}>Latest Updates</Link>
           </div>
         </div>
         <div>
-          <h4>popular guides</h4>
+          <h4>Popular Guides</h4>
           <div className="sc-footer-links">
             {GUIDE_LINKS.map((link) => (
               <Link href={link.href} key={link.href}>{link.label}</Link>
@@ -610,7 +610,7 @@ function Footer({ onOpenPolicy }: { onOpenPolicy: (policy: PolicyKey) => void })
           </div>
         </div>
         <div>
-          <h4>popular comparisons</h4>
+          <h4>Popular Comparisons</h4>
           <div className="sc-footer-links">
             {COMPARISON_LINKS.map((link) => (
               <Link href={link.href} key={link.href}>{link.label}</Link>

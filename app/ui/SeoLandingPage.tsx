@@ -28,12 +28,12 @@ const SUPPORT_LINKS: Array<{ label: string; href: Route }> = [
 ];
 
 const CLEAN_LANDING_TITLES: Record<string, string> = {
-  "best-credit-cards-india": "Best credit cards",
-  "best-cashback-credit-cards-india": "Best cashback cards",
-  "best-travel-credit-cards-india": "Best travel cards",
-  "best-lounge-access-credit-cards-india": "Best lounge cards",
-  "best-lifetime-free-credit-cards-india": "Best lifetime-free cards",
-  "best-fuel-credit-cards-india": "Best fuel cards"
+  "best-credit-cards-india": "Best Credit Cards",
+  "best-cashback-credit-cards-india": "Best Cashback Cards",
+  "best-travel-credit-cards-india": "Best Travel Cards",
+  "best-lounge-access-credit-cards-india": "Best Lounge Cards",
+  "best-lifetime-free-credit-cards-india": "Best Lifetime-Free Cards",
+  "best-fuel-credit-cards-india": "Best Fuel Cards"
 };
 
 function askHref(query: string) {

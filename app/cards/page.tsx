@@ -115,32 +115,32 @@ function rowCards(ids: readonly string[], fallback: readonly CreditCard[]) {
 export default function CardsPage() {
   const rows = [
     {
-      title: "Best credit cards",
+      title: "Best Credit Cards",
       description: "Premium cards with strong overall value, rewards, and privileges",
       items: toCarouselItems(rowCards(MOCKUP_ROW_IDS.best, getPopularCards(12)), 8)
     },
     {
-      title: "Best cashback cards",
+      title: "Best Cashback Cards",
       description: "Simple value-back cards for online shopping, food, grocery, and UPI spends",
       items: toCarouselItems(rowCards(MOCKUP_ROW_IDS.cashback, getCardsByUseCase("cashback")), 8)
     },
     {
-      title: "Best travel cards",
+      title: "Best Travel Cards",
       description: "Cards built for flights, hotels, forex, rewards transfer, and travel perks",
       items: toCarouselItems(rowCards(MOCKUP_ROW_IDS.travel, getCardsByUseCase("travel")), 8)
     },
     {
-      title: "Best lounge cards",
+      title: "Best Lounge Cards",
       description: "Cards to shortlist when airport lounge access matters",
       items: toCarouselItems(rowCards(MOCKUP_ROW_IDS.lounge, getCardsByTag("lounge")), 8)
     },
     {
-      title: "Best lifetime-free cards",
+      title: "Best Lifetime-Free Cards",
       description: "Low-friction cards with no annual fee positioning",
       items: toCarouselItems(rowCards(MOCKUP_ROW_IDS.lifetimeFree, getCardsByCardSegment("ltf")), 8)
     },
     {
-      title: "Best fuel cards",
+      title: "Best Fuel Cards",
       description: "Cards to compare for petrol, diesel, surcharge waiver, and fuel rewards",
       items: toCarouselItems(rowCards(MOCKUP_ROW_IDS.fuel, getCardsByRewardCategory("fuel")), 8)
     }

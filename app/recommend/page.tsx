@@ -46,7 +46,7 @@ export default function RecommendPage() {
     <div className="page-shell recommend-page">
       <section className="page-hero">
         <div className="container page-hero-inner">
-          <h1 className="smallcaps-compare recommend-heading">recommend</h1>
+          <h1 className="smallcaps-compare recommend-heading">Recommend</h1>
         </div>
       </section>
       <section className="page-content">

@@ -753,7 +753,7 @@ export default async function CardPage({ params }: Props) {
                 <div className="panel-body">
                   <div className="section-head">
                     <div>
-                      <h2 className="section-title">Latest updates</h2>
+                      <h2 className="section-title">Latest Updates</h2>
                       <p className="section-sub">Recent changes to this card</p>
                     </div>
                   </div>

@@ -5219,7 +5219,7 @@ input[type="number"] {
   letter-spacing: -0.025em;
   line-height: 1.08;
   margin: 0;
-  text-transform: lowercase;
+  text-transform: none;
 }
 
 .calculator-modern-shell .page-content {
@@ -10526,7 +10526,7 @@ body {
   font-size: 0.6875rem !important;
   line-height: 1 !important;
   font-weight: 700 !important;
-  text-transform: lowercase !important;
+  text-transform: none !important;
   letter-spacing: 0.025em !important;
   transition: background 0.2s ease, transform 0.2s ease !important;
 }
@@ -10868,7 +10868,7 @@ body,
   font-size: 0.875rem !important;
   line-height: 1.25rem !important;
   font-weight: 800 !important;
-  text-transform: lowercase !important;
+  text-transform: none !important;
   text-decoration: none !important;
   cursor: pointer !important;
   transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease !important;
@@ -14993,7 +14993,7 @@ button { cursor: pointer !important; }
   font-weight: 400 !important;
   letter-spacing: 0.03em !important;
   line-height: 24px !important;
-  text-transform: lowercase !important;
+  text-transform: none !important;
   cursor: pointer !important;
   transition: background 0.2s ease, transform 0.2s ease !important;
 }
@@ -15147,7 +15147,7 @@ button { cursor: pointer !important; }
   font-weight: 950;
   letter-spacing: -0.06em;
   line-height: 0.98;
-  text-transform: lowercase;
+  text-transform: none;
 }
 
 .recommend-page .page-content {
@@ -15696,7 +15696,7 @@ button { cursor: pointer !important; }
   text-align: left !important;
 }
 .page-hero h1.recommend-heading {
-  text-transform: lowercase !important;
+  text-transform: none !important;
   font-variant: normal !important;
   font-variant-caps: normal !important;
   max-width: none !important;
@@ -17263,7 +17263,7 @@ html body .recommend-card .recommend-stats .stat strong,
   font-weight: 700 !important;
   letter-spacing: -0.055em !important;
   line-height: 0.92 !important;
-  text-transform: lowercase !important;
+  text-transform: none !important;
 }
 
 .recommend-page .page-content {
@@ -18727,7 +18727,7 @@ html body .calculator-modern-shell .calculator-page-hero h1 {
   line-height: .9 !important;
   font-weight: 950 !important;
   letter-spacing: -0.07em !important;
-  text-transform: lowercase !important;
+  text-transform: none !important;
 }
 
 html body .calculator-modern-shell .page-content {

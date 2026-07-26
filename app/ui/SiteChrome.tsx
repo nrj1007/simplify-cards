@@ -50,7 +50,7 @@ export function FloatingAskButton() {
       <span className="sc-floating-sparkle">
         <Sparkle size={16} />
       </span>
-      <span className="sc-floating-label">ask</span>
+      <span className="sc-floating-label">Ask</span>
     </Link>
   );
 }
