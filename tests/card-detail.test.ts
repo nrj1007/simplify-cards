@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { getCardById } from "../lib/cards";
 import { buildCardJsonLd, deriveLoungeMilestoneRules } from "../lib/card-detail";
+import { properCaseLabel } from "../lib/display-text";
 import type { Milestone } from "../lib/types";
 
 describe("card-detail milestone rules", () => {
@@ -50,7 +51,7 @@ describe("card-detail milestone rules", () => {
       "@id": `https://www.simplifycards.in/cards/${base.id}`,
       name: base.name,
       url: `https://www.simplifycards.in/cards/${base.id}`,
-      description: `${base.name} credit card by ${base.issuer} Annual fee: ₹${base.annualFee} Reward type: ${base.rewardType}`,
+      description: `${base.name} credit card by ${base.issuer} Annual fee: ₹${base.annualFee} Reward type: ${properCaseLabel(base.rewardType)}`,
       provider: {
         "@type": "BankOrCreditUnion",
         name: base.issuer

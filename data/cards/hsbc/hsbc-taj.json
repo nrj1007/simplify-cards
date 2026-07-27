@@ -133,11 +133,6 @@
     {
       "url": "https://www.hsbc.co.in/credit-cards/products/taj/",
       "provider": "official"
-    },
-    {
-      "url": "https://inr.deals/track?id=nee478969210&src=merchant-backend&campaign=cpa&url=https://www.accountopening.hsbc.co.in/credit-cards/",
-      "provider": "inrDeals",
-      "earnings": "Flat ₹1500 / Action"
     }
   ]
 }
