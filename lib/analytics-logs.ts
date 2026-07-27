@@ -1,10 +1,12 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 import { buildStoredAnalyticsEvent, type AnalyticsEventPayload, type StoredAnalyticsEvent } from "./analytics";
+import { updateAnalyticsDailySummary } from "./analytics-summary";
 import {
   isDurableRecordStorageConfigured,
   isVercelRuntime,
   readDurableRecords,
+  readRecentDurableRecordsByDatePrefix,
   writeUniqueDurableRecord
 } from "./durable-records";
 
@@ -30,6 +32,7 @@ export async function appendAnalyticsEvent(event: StoredAnalyticsEvent) {
     if (isDurableRecordStorageConfigured()) {
       try {
         await writeUniqueDurableRecord("analytics", event, event.received_at);
+        await updateAnalyticsDailySummary(event);
       } catch (error) {
         console.error("Failed to persist analytics event to durable storage:", error);
       }
@@ -56,7 +59,7 @@ export async function readAnalyticsLog(limit = 5000): Promise<StoredAnalyticsEve
     }
 
     const entries = await readDurableRecords<StoredAnalyticsEvent>("analytics", limit);
-    return entries.sort((left, right) => left.received_at.localeCompare(right.received_at));
+    return entries.sort((left, right) => right.received_at.localeCompare(left.received_at));
   }
 
   const logPath = getAnalyticsEventsLogPath();
@@ -78,6 +81,21 @@ export async function readAnalyticsLog(limit = 5000): Promise<StoredAnalyticsEve
   } catch {
     return [];
   }
+}
+
+export async function readRecentAnalyticsLogByDatePrefix(dateKeys: string[], limit = 1000) {
+  if (!canPersistAnalyticsToFilesystem()) {
+    if (!isDurableRecordStorageConfigured()) {
+      throw new Error("Durable analytics storage is not configured");
+    }
+
+    const entries = await readRecentDurableRecordsByDatePrefix<StoredAnalyticsEvent>("analytics", dateKeys, limit);
+    return entries.sort((left, right) => right.received_at.localeCompare(left.received_at));
+  }
+
+  const events = await readAnalyticsLog(limit);
+  const dateSet = new Set(dateKeys);
+  return events.filter((event) => dateSet.has(event.received_at.slice(0, 10)));
 }
 
 export async function logAnalyticsEvent(payload: AnalyticsEventPayload) {

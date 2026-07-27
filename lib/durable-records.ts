@@ -2,7 +2,13 @@ import { get, list, put } from "@vercel/blob";
 import type { ListBlobResultBlob } from "@vercel/blob";
 import { randomUUID } from "node:crypto";
 
-export const durableRecordKinds = ["unsupported-questions", "feedback", "subscriptions", "analytics"] as const;
+export const durableRecordKinds = [
+  "unsupported-questions",
+  "feedback",
+  "subscriptions",
+  "analytics",
+  "analytics-daily"
+] as const;
 
 export type DurableRecordKind = (typeof durableRecordKinds)[number];
 
@@ -64,6 +70,10 @@ async function readDurableRecord<T>(pathname: string) {
   return JSON.parse(content) as T;
 }
 
+export async function readKeyedDurableRecord<T>(kind: DurableRecordKind, key: string) {
+  return readDurableRecord<T>(`${durableRecordPrefix(kind)}${key}.json`);
+}
+
 export async function readDurableRecords<T>(kind: DurableRecordKind, limit = 250) {
   const blobs: ListBlobResultBlob[] = [];
   let cursor: string | undefined;
@@ -78,6 +88,56 @@ export async function readDurableRecords<T>(kind: DurableRecordKind, limit = 250
     blobs.push(...result.blobs);
     if (!result.hasMore || !result.cursor) break;
     cursor = result.cursor;
+  }
+
+  const selected = blobs
+    .sort((left, right) => right.uploadedAt.getTime() - left.uploadedAt.getTime())
+    .slice(0, Math.max(0, limit));
+  const entries: T[] = [];
+
+  for (let index = 0; index < selected.length; index += READ_BATCH_SIZE) {
+    const batch = selected.slice(index, index + READ_BATCH_SIZE);
+    const values = await Promise.all(
+      batch.map(async (blob) => {
+        try {
+          return await readDurableRecord<T>(blob.pathname);
+        } catch (error) {
+          console.error(`Failed to read durable record ${blob.pathname}:`, error);
+          return null;
+        }
+      })
+    );
+
+    for (const value of values) {
+      if (value !== null) entries.push(value as T);
+    }
+  }
+
+  return entries;
+}
+
+export async function readRecentDurableRecordsByDatePrefix<T>(
+  kind: DurableRecordKind,
+  dateKeys: string[],
+  limit = 250
+) {
+  const blobs: ListBlobResultBlob[] = [];
+
+  for (const dateKey of dateKeys) {
+    if (blobs.length >= limit) break;
+
+    let cursor: string | undefined;
+    for (let page = 0; page < MAX_LIST_PAGES && blobs.length < limit; page += 1) {
+      const result = await list({
+        prefix: `${durableRecordPrefix(kind)}${dateKey}`,
+        limit: Math.min(1000, Math.max(1, limit - blobs.length)),
+        ...(cursor ? { cursor } : {})
+      });
+
+      blobs.push(...result.blobs);
+      if (!result.hasMore || !result.cursor) break;
+      cursor = result.cursor;
+    }
   }
 
   const selected = blobs

@@ -12,6 +12,7 @@ import {
   durableRecordPrefix,
   isDurableRecordStorageConfigured,
   readDurableRecords,
+  readRecentDurableRecordsByDatePrefix,
   upsertDurableRecord,
   writeUniqueDurableRecord
 } from "../lib/durable-records";
@@ -80,6 +81,26 @@ describe("durable record storage", () => {
     ]);
     expect(blobMocks.list).toHaveBeenCalledWith(
       expect.objectContaining({ prefix: durableRecordPrefix("feedback") })
+    );
+  });
+
+  it("reads records by recent timestamp date prefixes", async () => {
+    blobMocks.list.mockImplementation(async ({ prefix }: { prefix: string }) => ({
+      blobs: prefix.endsWith("2026-07-27")
+        ? [{ pathname: "today.json", uploadedAt: new Date("2026-07-27T10:00:00.000Z") }]
+        : [{ pathname: "yesterday.json", uploadedAt: new Date("2026-07-26T10:00:00.000Z") }],
+      hasMore: false
+    }));
+    blobMocks.get.mockImplementation(async (pathname: string) => ({
+      stream: jsonStream({ pathname })
+    }));
+
+    await expect(readRecentDurableRecordsByDatePrefix("analytics", ["2026-07-27", "2026-07-26"], 2)).resolves.toEqual([
+      { pathname: "today.json" },
+      { pathname: "yesterday.json" }
+    ]);
+    expect(blobMocks.list).toHaveBeenCalledWith(
+      expect.objectContaining({ prefix: `${durableRecordPrefix("analytics")}2026-07-27` })
     );
   });
 });

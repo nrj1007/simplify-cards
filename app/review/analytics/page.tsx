@@ -1,122 +1,18 @@
-import { readAnalyticsLog } from "@/lib/analytics-logs";
-import { getCardById } from "@/lib/cards";
-import type { AnalyticsEventName, AnalyticsSource, StoredAnalyticsEvent } from "@/lib/analytics";
+import { readRecentAnalyticsLogByDatePrefix } from "@/lib/analytics-logs";
+import {
+  buildDailySummaryFromEvents,
+  getAnalyticsDateKeys,
+  mergeDailySummaries,
+  readAnalyticsDailySummaries
+} from "@/lib/analytics-summary";
 import PageHero from "@/app/ui/PageHero";
 
 export const dynamic = "force-dynamic";
-
-const ASK_QUERY_EVENT: AnalyticsEventName = "ask_query_submitted";
-const ASK_RESULT_EVENT: AnalyticsEventName = "ask_result_rendered";
-const APPLY_CLICK_EVENT: AnalyticsEventName = "apply_clicked";
 
 type CountRow = {
   label: string;
   count: number;
 };
-
-type ApplyCardRow = {
-  cardId: string;
-  cardName: string;
-  count: number;
-};
-
-function isRecentEvent(event: StoredAnalyticsEvent, since: Date) {
-  const receivedAt = new Date(event.received_at);
-  return Number.isFinite(receivedAt.getTime()) && receivedAt > since;
-}
-
-function countByLabel(items: string[]) {
-  const counts = new Map<string, number>();
-
-  for (const item of items) {
-    const label = item.trim();
-    if (!label) continue;
-    counts.set(label, (counts.get(label) ?? 0) + 1);
-  }
-
-  return Array.from(counts, ([label, count]) => ({ label, count })).sort((a, b) => b.count - a.count);
-}
-
-function getTopAskQueries(events: StoredAnalyticsEvent[]) {
-  return countByLabel(
-    events
-      .filter((event) => event.event_name === ASK_QUERY_EVENT)
-      .map((event) => event.query ?? "")
-  ).slice(0, 25);
-}
-
-function getApplyRows(events: StoredAnalyticsEvent[]) {
-  const rows = countByLabel(
-    events
-      .filter((event) => event.event_name === APPLY_CLICK_EVENT)
-      .map((event) => event.card_id ?? "")
-  );
-
-  return rows.map((row) => {
-    const card = getCardById(row.label);
-
-    return {
-      cardId: row.label,
-      cardName: card?.name ?? row.label,
-      count: row.count
-    };
-  });
-}
-
-function getSourceBreakdown(events: StoredAnalyticsEvent[], topCards: ApplyCardRow[]) {
-  const topCardIds = new Set(topCards.slice(0, 10).map((row) => row.cardId));
-  const counts = new Map<string, Map<AnalyticsSource, number>>();
-
-  for (const event of events) {
-    if (event.event_name !== APPLY_CLICK_EVENT || !event.card_id || !topCardIds.has(event.card_id)) continue;
-
-    const sourceCounts = counts.get(event.card_id) ?? new Map<AnalyticsSource, number>();
-    sourceCounts.set(event.source, (sourceCounts.get(event.source) ?? 0) + 1);
-    counts.set(event.card_id, sourceCounts);
-  }
-
-  return topCards.slice(0, 10).map((row) => {
-    const sources = Array.from(counts.get(row.cardId) ?? [], ([source, count]) => ({ source, count })).sort(
-      (a, b) => b.count - a.count
-    );
-
-    return {
-      ...row,
-      sources
-    };
-  });
-}
-
-function getZeroResultQueries(events: StoredAnalyticsEvent[]) {
-  return events
-    .filter((event) => {
-      if (event.event_name !== ASK_RESULT_EVENT || !event.query) return false;
-      return (event.card_ids?.length ?? 0) === 0 || event.metadata?.intent === "unsupported";
-    })
-    .sort((a, b) => new Date(b.received_at).getTime() - new Date(a.received_at).getTime())
-    .slice(0, 50);
-}
-
-function getDailyUsageRows(events: StoredAnalyticsEvent[], now: Date) {
-  const counts = new Map<string, number>();
-
-  for (const event of events) {
-    const date = event.received_at.slice(0, 10);
-    if (!date) continue;
-    counts.set(date, (counts.get(date) ?? 0) + 1);
-  }
-
-  return Array.from({ length: 14 }, (_, index) => {
-    const date = new Date(now);
-    date.setDate(now.getDate() - index);
-    const dateKey = date.toISOString().slice(0, 10);
-
-    return {
-      date: dateKey,
-      count: counts.get(dateKey) ?? 0
-    };
-  });
-}
 
 function formatDateTime(value: string) {
   const date = new Date(value);
@@ -158,20 +54,29 @@ function CountTable({ rows, labelHeader }: { rows: CountRow[]; labelHeader: stri
 }
 
 export default async function AnalyticsReviewPage() {
-  const events = await readAnalyticsLog(10000);
   const now = new Date();
-  const thirtyDaysAgo = new Date(now);
-  thirtyDaysAgo.setDate(now.getDate() - 30);
-  const fourteenDaysAgo = new Date(now);
-  fourteenDaysAgo.setDate(now.getDate() - 14);
+  const dailyDateKeys = getAnalyticsDateKeys(14, now);
+  const eventWindowDateKeys = getAnalyticsDateKeys(30, now);
+  const storedSummaries = await readAnalyticsDailySummaries(eventWindowDateKeys);
+  const summariesByDate = new Map(storedSummaries.map((summary) => [summary.date, summary]));
+  const missingSummaryDateKeys = eventWindowDateKeys.filter((date) => !summariesByDate.has(date));
+  const recentEvents =
+    missingSummaryDateKeys.length > 0 ? await readRecentAnalyticsLogByDatePrefix(missingSummaryDateKeys, 2000).catch(() => []) : [];
+  const recentEventsByDate = new Map<string, typeof recentEvents>();
 
-  const last30DayEvents = events.filter((event) => isRecentEvent(event, thirtyDaysAgo));
-  const last14DayEvents = events.filter((event) => isRecentEvent(event, fourteenDaysAgo));
-  const topAskQueries = getTopAskQueries(last30DayEvents);
-  const applyRows = getApplyRows(last30DayEvents);
-  const sourceBreakdown = getSourceBreakdown(last30DayEvents, applyRows);
-  const zeroResultQueries = getZeroResultQueries(last30DayEvents);
-  const dailyUsageRows = getDailyUsageRows(last14DayEvents, now);
+  for (const event of recentEvents) {
+    const date = event.received_at.slice(0, 10);
+    if (!date) continue;
+    recentEventsByDate.set(date, [...(recentEventsByDate.get(date) ?? []), event]);
+  }
+
+  for (const [date, dateEvents] of recentEventsByDate) {
+    if (!summariesByDate.has(date)) {
+      summariesByDate.set(date, buildDailySummaryFromEvents(date, dateEvents));
+    }
+  }
+
+  const summary = mergeDailySummaries([...summariesByDate.values()], dailyDateKeys, eventWindowDateKeys);
 
   return (
     <div className="page-shell review-page analytics-review">
@@ -185,19 +90,19 @@ export default async function AnalyticsReviewPage() {
         <div className="container">
           <div className="panel review-summary">
             <div className="stat">
-              <strong>{events.length.toLocaleString("en-IN")}</strong>
-              <span>Events loaded</span>
+              <strong>{summary.eventsLoaded.toLocaleString("en-IN")}</strong>
+              <span>Events summarized</span>
             </div>
             <div className="stat">
-              <strong>{last30DayEvents.length.toLocaleString("en-IN")}</strong>
+              <strong>{summary.last30DayEvents.toLocaleString("en-IN")}</strong>
               <span>Events in last 30 days</span>
             </div>
             <div className="stat">
-              <strong>{topAskQueries.length.toLocaleString("en-IN")}</strong>
+              <strong>{summary.topAskQueries.length.toLocaleString("en-IN")}</strong>
               <span>Tracked ask queries</span>
             </div>
             <div className="stat">
-              <strong>{applyRows.length.toLocaleString("en-IN")}</strong>
+              <strong>{summary.applyRows.length.toLocaleString("en-IN")}</strong>
               <span>Cards with apply clicks</span>
             </div>
           </div>
@@ -208,7 +113,7 @@ export default async function AnalyticsReviewPage() {
             <strong>Top ask queries</strong>
             <span className="badge">Last 30 days</span>
           </div>
-          <CountTable labelHeader="Query" rows={topAskQueries} />
+          <CountTable labelHeader="Query" rows={summary.topAskQueries} />
         </article>
 
         <article className="panel review-item">
@@ -216,7 +121,7 @@ export default async function AnalyticsReviewPage() {
             <strong>Apply clicks by card</strong>
             <span className="badge">Top 20</span>
           </div>
-          {applyRows.length === 0 ? (
+          {summary.applyRows.length === 0 ? (
             <EmptyState>No data yet</EmptyState>
           ) : (
             <div className="analytics-review-table-shell">
@@ -229,7 +134,7 @@ export default async function AnalyticsReviewPage() {
                   </tr>
                 </thead>
                 <tbody>
-                  {applyRows.slice(0, 20).map((row) => (
+                  {summary.applyRows.slice(0, 20).map((row) => (
                     <tr key={row.cardId}>
                       <td>{row.cardName}</td>
                       <td>{row.cardId}</td>
@@ -247,11 +152,11 @@ export default async function AnalyticsReviewPage() {
             <strong>Apply source breakdown</strong>
             <span className="badge">Top 10 clicked cards</span>
           </div>
-          {sourceBreakdown.length === 0 ? (
+          {summary.sourceBreakdown.length === 0 ? (
             <EmptyState>No data yet</EmptyState>
           ) : (
             <div className="analytics-source-list">
-              {sourceBreakdown.map((row) => (
+              {summary.sourceBreakdown.map((row) => (
                 <div className="analytics-source-row" key={row.cardId}>
                   <div>
                     <strong>{row.cardName}</strong>
@@ -275,11 +180,11 @@ export default async function AnalyticsReviewPage() {
             <strong>Zero-result and unsupported queries</strong>
             <span className="badge">Newest 50</span>
           </div>
-          {zeroResultQueries.length === 0 ? (
+          {summary.zeroResultQueries.length === 0 ? (
             <EmptyState>No data yet</EmptyState>
           ) : (
             <div className="review-list analytics-query-list">
-              {zeroResultQueries.map((event, index) => (
+              {summary.zeroResultQueries.map((event, index) => (
                 <div className="analytics-query-row" key={`${event.received_at}-${event.query}-${index}`}>
                   <strong>{event.query}</strong>
                   <div className="meta">
@@ -298,7 +203,7 @@ export default async function AnalyticsReviewPage() {
             <strong>Daily usage</strong>
             <span className="badge">Last 14 days</span>
           </div>
-          {last14DayEvents.length === 0 ? (
+          {summary.dailyUsageRows.every((row) => row.count === 0) ? (
             <EmptyState>No data yet</EmptyState>
           ) : (
             <div className="analytics-review-table-shell">
@@ -310,7 +215,7 @@ export default async function AnalyticsReviewPage() {
                   </tr>
                 </thead>
                 <tbody>
-                  {dailyUsageRows.map((row) => (
+                  {summary.dailyUsageRows.map((row) => (
                     <tr key={row.date}>
                       <td>{row.date}</td>
                       <td>{row.count.toLocaleString("en-IN")}</td>
