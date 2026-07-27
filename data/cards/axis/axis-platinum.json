@@ -157,6 +157,13 @@
         "annualCap": 100000
       },
       {
+        "airline": "Qatar Airways",
+        "programme": "Privilege Club",
+        "ratio": "10:1",
+        "group": "Group A",
+        "annualCap": 100000
+      },
+      {
         "airline": "Japan Airlines",
         "programme": "JAL Mileage Bank",
         "ratio": "20:1",
@@ -278,10 +285,11 @@
   ],
   "internalNotes": [
     "Axis Bank Platinum Credit Card has been discontinued.",
-    "Card details manually reviewed and verified by user on 2026-06-13."
+    "Card details manually reviewed and verified by user on 2026-06-13.",
+    "Qatar Airways Privilege Club was reported back on the Axis Travel EDGE portal in July 2026 at the reduced new-partner transfer ratio for this card bucket; Axis public miles-transfer page confirms the transfer program but does not expose the logged-in partner table publicly, so this row needs issuer-portal review."
   ],
-  "lastVerified": "2026-06-13",
-  "verificationStatus": "official-direct",
+  "lastVerified": "2026-07-27",
+  "verificationStatus": "needs-review",
   "popularityScore": 64,
   "imageUrl": "/images/axis-platinum.webp",
   "applyLinks": [

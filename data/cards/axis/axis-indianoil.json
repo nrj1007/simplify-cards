@@ -156,6 +156,13 @@
         "annualCap": 100000
       },
       {
+        "airline": "Qatar Airways",
+        "programme": "Privilege Club",
+        "ratio": "10:1",
+        "group": "Group A",
+        "annualCap": 100000
+      },
+      {
         "airline": "Japan Airlines",
         "programme": "JAL Mileage Bank",
         "ratio": "20:1",
@@ -279,10 +286,11 @@
     "Reviewed against the official Axis Travel EDGE transfer terms and the Axis eligible cards PDF on 2026-06-11.",
     "INDIANOIL AXIS BANK Credit Card is listed in the official eligible cards PDF and follows the 'Other cards' transfer bucket on the Travel EDGE partner table.",
     "Accor and Marriott rows were present only inside commented-out HTML on the live Travel EDGE terms page on 2026-06-11, so they were not carried as active transfer partners.",
-    "Card details manually reviewed and verified by user on 2026-06-11."
+    "Card details manually reviewed and verified by user on 2026-06-11.",
+    "Qatar Airways Privilege Club was reported back on the Axis Travel EDGE portal in July 2026 at the reduced new-partner transfer ratio for this card bucket; Axis public miles-transfer page confirms the transfer program but does not expose the logged-in partner table publicly, so this row needs issuer-portal review."
   ],
-  "lastVerified": "2026-06-11",
-  "verificationStatus": "official-direct",
+  "lastVerified": "2026-07-27",
+  "verificationStatus": "needs-review",
   "popularityScore": 80,
   "imageUrl": "/images/axis-indianoil.webp",
   "applyLinks": [

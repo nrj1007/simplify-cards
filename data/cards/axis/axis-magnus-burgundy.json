@@ -204,6 +204,13 @@
         "annualCap": 200000
       },
       {
+        "airline": "Qatar Airways",
+        "programme": "Privilege Club",
+        "ratio": "5:2",
+        "group": "Group A",
+        "annualCap": 200000
+      },
+      {
         "airline": "Vietnam Airlines",
         "programme": "Lotusmiles",
         "ratio": "5:2",
@@ -306,8 +313,8 @@
   "sourceUrl": "https://www.axis.bank.in/cards/credit-card/axis-bank-magnus-credit-card",
   "applyUrl": "https://www.axisbank.com/retail/cards/credit-card/axis-bank-magnus-card",
   "imageUrl": "/images/axis-magnus-burgundy.webp",
-  "lastVerified": "2026-06-25",
-  "verificationStatus": "official-direct",
+  "lastVerified": "2026-07-27",
+  "verificationStatus": "needs-review",
   "internalNotes": [
     "Card details manually audited and verified by agent on 2026-06-25",
     "Card details manually reviewed and verified by user on 2026-06-06",
@@ -320,10 +327,11 @@
     "Rent spends above ₹50,000 in a calendar month are not considered for accelerated reward points or spend-based fee waiver calculation.",
     "EMI transactions, reversed transactions, fees, charges, interest, and cash withdrawals do not count toward accelerated reward calculations.",
     "Miles transfer ratio for Magnus for Burgundy is 5 EDGE REWARD Points = 4 partner points across eligible transfer partners; current annual transfer cap is 10 lakh EDGE REWARD Points in a calendar year, split as 2 lakh to Group A and 8 lakh to Group B.",
-    "Accor Live Limitless, Marriott Bonvoy, and Qatar Airways have been removed from the current Burgundy transfer partner set; British Airways, Finnair, and Vietnam Airlines are available in the current verified list.",
+    "Accor Live Limitless and Marriott Bonvoy remain removed; Qatar Airways Privilege Club has reportedly returned to the current Burgundy transfer partner set at the reduced new-partner ratio. British Airways, Finnair, and Vietnam Airlines remain available in the current partner list.",
     "Travel-card audit includes full redemption options and current airline and hotel transfer tables from official Axis materials; Gift EDGE redemption is valued at ₹0.20 per EDGE REWARD Point.",
     "If Burgundy relationship eligibility is not maintained, Axis Bank may replace Magnus for Burgundy with Magnus Credit Card carrying a ₹12,500 joining and annual fee and a 5:2 partner transfer ratio.",
-    "Effective 1 October 2025, unredeemed EDGE REWARD Points may be forfeited 30 days after card closure or if minimum amount due remains outstanding for more than 90 days."
+    "Effective 1 October 2025, unredeemed EDGE REWARD Points may be forfeited 30 days after card closure or if minimum amount due remains outstanding for more than 90 days.",
+    "Qatar Airways Privilege Club was reported back on the Axis Travel EDGE portal in July 2026 at the reduced new-partner transfer ratio for this card bucket; Axis public miles-transfer page confirms the transfer program but does not expose the logged-in partner table publicly, so this row needs issuer-portal review."
   ],
   "applyLinks": [
     {
