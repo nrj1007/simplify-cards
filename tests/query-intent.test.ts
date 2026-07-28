@@ -140,6 +140,11 @@ describe("query intent parser", () => {
       query: "best card with spend rs 75k+"
     });
     expect(intentHigh.inferredSpend?.online).toBe(18000); // 7950 * 120000 / 53000 = 18000
+
+    const composedIntent = parseQueryIntent({
+      query: "best travel card with monthly spend ₹25k-75k"
+    });
+    expect(composedIntent.inferredSpend?.online).toBe(7500);
   });
 
   it("distinguishes spend limits from annual fee limits and supports k suffix for fees", () => {

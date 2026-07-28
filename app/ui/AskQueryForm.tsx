@@ -1,16 +1,16 @@
 "use client";
 
-import type { FormEvent } from "react";
+import type { ChangeEvent, FormEvent } from "react";
 import { useState } from "react";
 import type { Route } from "next";
 import { useRouter } from "next/navigation";
 import { LoadingButton } from "@/components/LoadingButton";
 import { loadingCopy } from "@/lib/loading-copy";
 import { triggerAskResultsLoading } from "./AskResultsLoadingBoundary";
+import { useAskQueryComposer } from "../ask/AskQueryComposer";
 
 type Props = {
   defaultValue?: string;
-  maxAnnualFee?: number;
   placeholder: string;
   ariaLabel: string;
   buttonLabel: string;
@@ -19,9 +19,10 @@ type Props = {
   contextParams?: Record<string, string>;
 };
 
+type QueryInputElement = HTMLInputElement | HTMLTextAreaElement;
+
 export default function AskQueryForm({
   defaultValue = "",
-  maxAnnualFee,
   placeholder,
   ariaLabel,
   buttonLabel,
@@ -30,8 +31,15 @@ export default function AskQueryForm({
   contextParams
 }: Props) {
   const router = useRouter();
+  const composer = useAskQueryComposer();
   const [submittedQuery, setSubmittedQuery] = useState<string | null>(null);
   const isLoading = submittedQuery !== null && submittedQuery !== defaultValue.trim();
+  const queryValue = composer.draftQuery;
+
+  function handleQueryChange(event: ChangeEvent<QueryInputElement>) {
+    const nextQuery = event.currentTarget.value;
+    composer.setDraftQuery(nextQuery);
+  }
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -44,8 +52,8 @@ export default function AskQueryForm({
     }
 
     const nextParams = new URLSearchParams({ query });
-    if (typeof maxAnnualFee === "number") {
-      nextParams.set("maxAnnualFee", String(maxAnnualFee));
+    if (typeof composer.draftMaxAnnualFee === "number") {
+      nextParams.set("maxAnnualFee", String(composer.draftMaxAnnualFee));
     }
     if (contextParams) {
       for (const [key, value] of Object.entries(contextParams)) {
@@ -68,21 +76,27 @@ export default function AskQueryForm({
       {multiline ? (
         <textarea
           aria-label={ariaLabel}
-          defaultValue={defaultValue}
+          data-ask-query-input
           disabled={isLoading}
           name="query"
+          onChange={handleQueryChange}
           placeholder={placeholder}
+          value={queryValue}
         />
       ) : (
         <input
           aria-label={ariaLabel}
-          defaultValue={defaultValue}
+          data-ask-query-input
           disabled={isLoading}
           name="query"
+          onChange={handleQueryChange}
           placeholder={placeholder}
+          value={queryValue}
         />
       )}
-      {typeof maxAnnualFee === "number" ? <input name="maxAnnualFee" type="hidden" value={maxAnnualFee} /> : null}
+      {typeof composer.draftMaxAnnualFee === "number" ? (
+        <input name="maxAnnualFee" type="hidden" value={composer.draftMaxAnnualFee} />
+      ) : null}
       <LoadingButton className="btn btn-primary" loading={isLoading} loadingText={loadingCopy.ask.title} type="submit">
         {buttonLabel}
       </LoadingButton>

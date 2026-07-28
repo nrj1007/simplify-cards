@@ -12,6 +12,7 @@ import { buildPageMetadata } from "@/lib/seo";
 import { scoreCards } from "@/lib/recommend";
 import type { RecommendationInput } from "@/lib/types";
 import AskResultsClient from "./AskResultsClient";
+import { AskQueryComposerProvider, AskQueryExamples } from "./AskQueryComposer";
 
 export const metadata: Metadata = buildPageMetadata({
   title: "Ask SimplifyCards",
@@ -98,7 +99,12 @@ export default async function AskPage({ searchParams }: Props) {
     : "/ask";
 
   return (
-    <div className="ask-results">
+    <AskQueryComposerProvider
+      initialMaxAnnualFee={input?.maxAnnualFee}
+      initialQuery={input?.query ?? ""}
+      key={`${input?.query ?? ""}:${input?.maxAnnualFee ?? ""}`}
+    >
+      <div className="ask-results">
       <section className="ask-hero">
         <div className="container ask-hero-inner">
           <h1>
@@ -111,22 +117,12 @@ export default async function AskPage({ searchParams }: Props) {
             buttonLabel="ask again"
             className="ask-search"
             defaultValue={input?.query ?? ""}
-            maxAnnualFee={input?.maxAnnualFee}
             placeholder="e.g. best card for travel and cashback"
           />
 
           <div className="query-examples">
             <span className="query-examples-label">try asking:</span>
-            {ASK_EXAMPLES.map((example) => (
-              <Link
-                key={example}
-                className="query-chip"
-                data-route-loader="ask-results"
-                href={`/ask?query=${encodeURIComponent(example)}`}
-              >
-                {example}
-              </Link>
-            ))}
+            <AskQueryExamples examples={ASK_EXAMPLES} />
           </div>
         </div>
       </section>
@@ -184,6 +180,7 @@ export default async function AskPage({ searchParams }: Props) {
           </AskResultsLoadingBoundary>
         </div>
       </section>
-    </div>
+      </div>
+    </AskQueryComposerProvider>
   );
 }

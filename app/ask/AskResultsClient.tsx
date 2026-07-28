@@ -11,6 +11,13 @@ import { TrackedExternalLink, TrackedLink } from "../ui/TrackedLink";
 import AskFeedback from "../ui/AskFeedback";
 import { getLoungeConditions } from "@/lib/lounge";
 import LoungeInfo from "../ui/LoungeInfo";
+import { useAskQueryComposer } from "./AskQueryComposer";
+import {
+  ASK_MATTER_CHIPS,
+  ASK_SPEND_CHIPS,
+  isMatterChipActive,
+  isSpendChipActive
+} from "@/lib/ask-query-composer";
 
 export type ScoredCardItem = {
   card: CreditCard;
@@ -34,13 +41,6 @@ type Props = {
   feedbackError?: boolean;
   returnTo: string;
 };
-
-const MATTER_CHIPS = ["Travel", "Cashback", "Lounge access", "Low annual fee"];
-const SPEND_CHIPS = [
-  { label: "Under ₹25k", querySuffix: "under rs 25k" },
-  { label: "₹25k-75k", querySuffix: "rs 25k-75k" },
-  { label: "₹75k+", querySuffix: "rs 75k+" }
-] as const;
 
 function formatCurrency(value: number | null | undefined) {
   if (value === null || value === undefined) return "Not listed";
@@ -222,6 +222,7 @@ export default function AskResultsClient({
   returnTo
 }: Props) {
   const router = useRouter();
+  const { applyMatter, applySpend, draftQuery } = useAskQueryComposer();
   const [isHydrated, setIsHydrated] = useState(false);
   const [selectedCardIds, setSelectedCardIds] = useState<string[]>([]);
   const [pulsing, setPulsing] = useState(false);
@@ -916,14 +917,16 @@ export default function AskResultsClient({
                 <h3>What matters most?</h3>
                 <p>Pick a priority and we’ll tune the ranking</p>
                 <div className="clarify-options">
-                  {MATTER_CHIPS.map((chip) => (
-                    <Link
+                  {ASK_MATTER_CHIPS.map((chip) => (
+                    <button
+                      aria-pressed={isMatterChipActive(draftQuery, chip)}
                       key={chip}
-                      className="option-chip"
-                      href={`/ask?query=${encodeURIComponent(`${query ? query : "best card"} for ${chip.toLowerCase()}`)}`}
+                      className={`option-chip${isMatterChipActive(draftQuery, chip) ? " is-active" : ""}`}
+                      onClick={() => applyMatter(chip)}
+                      type="button"
                     >
                       {chip}
-                    </Link>
+                    </button>
                   ))}
                 </div>
               </article>
@@ -932,14 +935,16 @@ export default function AskResultsClient({
                 <h3>Monthly spend?</h3>
                 <p>Tell us the range so premium fees make sense</p>
                 <div className="clarify-options">
-                  {SPEND_CHIPS.map((chip) => (
-                    <Link
+                  {ASK_SPEND_CHIPS.map((chip) => (
+                    <button
+                      aria-pressed={isSpendChipActive(draftQuery, chip)}
                       key={chip.label}
-                      className="option-chip"
-                      href={`/ask?query=${encodeURIComponent(`${query ? query : "best card"} with spend ${chip.querySuffix}`)}`}
+                      className={`option-chip${isSpendChipActive(draftQuery, chip) ? " is-active" : ""}`}
+                      onClick={() => applySpend(chip)}
+                      type="button"
                     >
                       {chip.label}
-                    </Link>
+                    </button>
                   ))}
                 </div>
               </article>

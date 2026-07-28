@@ -283,7 +283,7 @@ function scaleToTotal(target: number): SpendProfile {
 }
 
 function extractGeneralSpend(query: string): SpendProfile | undefined {
-  const normalized = query.toLowerCase();
+  const normalized = query.toLowerCase().replace(/₹\s*/g, "rs ");
   if (
     normalized.includes("spend under 25k") ||
     normalized.includes("spend under rs 25k") ||

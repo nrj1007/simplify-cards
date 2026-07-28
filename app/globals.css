@@ -15067,6 +15067,17 @@ button { cursor: pointer !important; }
   background: var(--brand) !important;
   color: #fff !important;
 }
+.ask-results .ask-hero button.query-chip,
+.side-stack button.option-chip {
+  font-family: inherit !important;
+  cursor: pointer !important;
+}
+.side-stack .option-chip.is-active,
+.side-stack .option-chip[aria-pressed="true"] {
+  border-color: #581c87 !important;
+  background: #581c87 !important;
+  color: #fff !important;
+}
 @media (min-width: 640px) {
   .ask-results .ask-hero {
     padding-top: 80px !important;
