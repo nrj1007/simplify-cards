@@ -340,6 +340,14 @@
   "axis-atlas": {
     "updates": [
       {
+        "title": "Axis revised Travel EDGE transfer program for Atlas",
+        "summary": "Effective 2 April 2026, Axis Bank revised its Travel EDGE transfer program: Accor Live Limitless, Marriott Bonvoy, and Qatar Airways were removed as transfer partners. Three new airline partners (British Airways, Finnair, Vietnam Airlines) were added at a 2:1 transfer ratio, while legacy partners continue to transfer at 1:2 ratio. Annual caps of 30,000 EDGE Miles for Group A and 120,000 EDGE Miles for Group B apply.",
+        "sourceType": "manual",
+        "sourceLabel": "Axis Bank official notice",
+        "sourceUrl": "https://www.axisbank.com/retail/cards/credit-card/atlas-credit-card",
+        "publishedAt": "2026-04-02"
+      },
+      {
         "title": "Axis restored Qatar Airways at a reduced Atlas ratio",
         "summary": "Qatar Airways Privilege Club is again available on Travel EDGE for Atlas at a 2:1 EDGE Miles to Avios ratio. Accor and Marriott remain unavailable, while legacy airline partners continue at 1:2.",
         "sourceType": "manual",
@@ -402,6 +410,14 @@
   "axis-magnus-burgundy": {
     "updates": [
       {
+        "title": "Axis revised Magnus for Burgundy transfer partners",
+        "summary": "Effective 2 April 2026, Axis Bank revised its transfer partner program for Magnus for Burgundy: Accor Live Limitless, Marriott Bonvoy, and Qatar Airways were removed as transfer partners. Three new airline partners (British Airways, Finnair, Vietnam Airlines) were added at a 5:2 transfer ratio, while legacy partners continue to transfer at a 5:4 ratio. Annual caps of 2,00,000 EDGE REWARD Points for Group A and 8,00,000 EDGE REWARD Points for Group B apply.",
+        "sourceType": "manual",
+        "sourceLabel": "Axis Bank official notice",
+        "sourceUrl": "https://www.axis.bank.in/cards/credit-card/axis-bank-magnus-credit-card",
+        "publishedAt": "2026-04-02"
+      },
+      {
         "title": "Axis restored Qatar Airways at a reduced Burgundy ratio",
         "summary": "Qatar Airways Privilege Club is again available on Travel EDGE for Magnus for Burgundy at a 5:2 EDGE REWARD Points to Avios ratio. Accor and Marriott remain unavailable.",
         "sourceType": "manual",
@@ -453,6 +469,13 @@
   },
   "axis-reserve": {
     "updates": [
+      {
+        "title": "Transfer partner list revised",
+        "summary": "Effective April 2, 2026: Marriott Bonvoy, Accor Live Limitless and Qatar Airways Privilege Club removed; British Airways Executive Club, Finnair Plus and Vietnam Airlines Lotusmiles added.",
+        "sourceType": "manual",
+        "sourceLabel": "Axis Bank Customer Notice",
+        "publishedAt": "2026-04-02"
+      },
       {
         "title": "Axis restored Qatar Airways at a reduced Reserve ratio",
         "summary": "Qatar Airways Privilege Club is again available on Travel EDGE for Reserve at a 5:1 EDGE REWARD Points to Avios ratio. Accor and Marriott remain unavailable.",
