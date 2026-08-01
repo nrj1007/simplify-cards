@@ -27,6 +27,7 @@ function trackedHref(analyticsEvent: AnalyticsEventPayload, href: string, kind: 
   });
 
   if (analyticsEvent.card_id) params.set("card_id", analyticsEvent.card_id);
+  if (analyticsEvent.query) params.set("query", analyticsEvent.query);
   if (kind === "internal") params.set("href", href);
 
   return `/api/track-click?${params.toString()}` as Route;

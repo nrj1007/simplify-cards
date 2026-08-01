@@ -106,6 +106,10 @@ export default async function AnalyticsReviewPage() {
               <span>Cards with detail views</span>
             </div>
             <div className="stat">
+              <strong>{summary.askDetailClickRows.length.toLocaleString("en-IN")}</strong>
+              <span>Cards opened from Ask</span>
+            </div>
+            <div className="stat">
               <strong>{summary.applyRows.length.toLocaleString("en-IN")}</strong>
               <span>Cards with apply clicks</span>
             </div>
@@ -224,6 +228,158 @@ export default async function AnalyticsReviewPage() {
                   ))}
                 </tbody>
               </table>
+            </div>
+          )}
+        </article>
+
+        <article className="panel review-item">
+          <div className="review-item-head">
+            <strong>Ask to card detail clicks</strong>
+            <span className="badge">Top 25</span>
+          </div>
+          {summary.askDetailClickRows.length === 0 ? (
+            <EmptyState>No data yet</EmptyState>
+          ) : (
+            <div className="analytics-review-table-shell">
+              <table className="compare-table analytics-review-table">
+                <thead>
+                  <tr>
+                    <th>Card</th>
+                    <th>Card ID</th>
+                    <th>Ask clicks</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {summary.askDetailClickRows.slice(0, 25).map((row) => (
+                    <tr key={row.cardId}>
+                      <td>{row.cardName}</td>
+                      <td>{row.cardId}</td>
+                      <td>{row.count.toLocaleString("en-IN")}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          )}
+        </article>
+
+        <article className="panel review-item">
+          <div className="review-item-head">
+            <strong>Query to card detail clicks</strong>
+            <span className="badge">Top 50</span>
+          </div>
+          {summary.queryToCardRows.length === 0 ? (
+            <EmptyState>No data yet</EmptyState>
+          ) : (
+            <div className="analytics-review-table-shell">
+              <table className="compare-table analytics-review-table">
+                <thead>
+                  <tr>
+                    <th>Query</th>
+                    <th>Card</th>
+                    <th>Card ID</th>
+                    <th>Clicks</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {summary.queryToCardRows.map((row) => (
+                    <tr key={`${row.query}-${row.cardId}`}>
+                      <td>{row.query}</td>
+                      <td>{row.cardName}</td>
+                      <td>{row.cardId}</td>
+                      <td>{row.count.toLocaleString("en-IN")}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          )}
+        </article>
+
+        <article className="panel review-item">
+          <div className="review-item-head">
+            <strong>Card detail apply conversion</strong>
+            <span className="badge">Top viewed cards</span>
+          </div>
+          {summary.cardDetailApplyConversionRows.length === 0 ? (
+            <EmptyState>No data yet</EmptyState>
+          ) : (
+            <div className="analytics-review-table-shell">
+              <table className="compare-table analytics-review-table">
+                <thead>
+                  <tr>
+                    <th>Card</th>
+                    <th>Card ID</th>
+                    <th>Detail views</th>
+                    <th>Detail apply clicks</th>
+                    <th>Conversion</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {summary.cardDetailApplyConversionRows.slice(0, 25).map((row) => (
+                    <tr key={row.cardId}>
+                      <td>{row.cardName}</td>
+                      <td>{row.cardId}</td>
+                      <td>{row.views.toLocaleString("en-IN")}</td>
+                      <td>{row.detailApplyClicks.toLocaleString("en-IN")}</td>
+                      <td>{(row.conversionRate * 100).toFixed(1)}%</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          )}
+        </article>
+
+        <article className="panel review-item">
+          <div className="review-item-head">
+            <strong>Card detail traffic</strong>
+            <span className="badge">Bot and source split</span>
+          </div>
+          <div className="analytics-review-grid">
+            <div>
+              <h3>Human vs bot</h3>
+              <CountTable labelHeader="Traffic" rows={summary.cardViewTrafficRows} />
+            </div>
+            <div>
+              <h3>User agent family</h3>
+              <CountTable labelHeader="User agent" rows={summary.cardViewUserAgentRows} />
+            </div>
+            <div>
+              <h3>Country</h3>
+              <CountTable labelHeader="Country" rows={summary.cardViewCountryRows} />
+            </div>
+            <div>
+              <h3>Referrer host</h3>
+              <CountTable labelHeader="Referrer" rows={summary.cardViewReferrerRows} />
+            </div>
+          </div>
+        </article>
+
+        <article className="panel review-item">
+          <div className="review-item-head">
+            <strong>Detail click source breakdown</strong>
+            <span className="badge">Top 10 clicked cards</span>
+          </div>
+          {summary.detailSourceBreakdown.length === 0 ? (
+            <EmptyState>No data yet</EmptyState>
+          ) : (
+            <div className="analytics-source-list">
+              {summary.detailSourceBreakdown.map((row) => (
+                <div className="analytics-source-row" key={row.cardId}>
+                  <div>
+                    <strong>{row.cardName}</strong>
+                    <span>{row.count.toLocaleString("en-IN")} total clicks</span>
+                  </div>
+                  <div className="review-actions">
+                    {row.sources.map((source) => (
+                      <span className="badge" key={`${row.cardId}-${source.source}`}>
+                        {source.source}: {source.count.toLocaleString("en-IN")}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              ))}
             </div>
           )}
         </article>

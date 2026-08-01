@@ -24,12 +24,30 @@ describe("analytics daily summaries", () => {
         event_name: "card_detail_viewed",
         page: "cards/[id]",
         source: "details",
-        card_id: "hdfc-infinia-metal"
+        card_id: "hdfc-infinia-metal",
+        metadata: {
+          request_referrer_host: "google.com",
+          request_user_agent_family: "chrome",
+          request_user_agent_is_bot: false,
+          request_country: "IN"
+        }
       }),
       event({
         event_name: "card_detail_viewed",
         page: "cards/[id]",
         source: "details",
+        card_id: "hdfc-infinia-metal",
+        metadata: {
+          request_user_agent_family: "googlebot",
+          request_user_agent_is_bot: true,
+          request_country: "US"
+        }
+      }),
+      event({
+        event_name: "details_clicked",
+        page: "ask",
+        source: "ask",
+        query: "best travel card",
         card_id: "hdfc-infinia-metal"
       }),
       event({
@@ -73,9 +91,18 @@ describe("analytics daily summaries", () => {
       })
     ]);
 
-    expect(summary.total_events).toBe(7);
+    expect(summary.total_events).toBe(8);
     expect(summary.ask_queries).toEqual({ "best upi cards": 2 });
     expect(summary.card_detail_views_by_card).toEqual({ "hdfc-infinia-metal": 2 });
+    expect(summary.card_detail_views_by_referrer_host).toEqual({ direct: 1, "google.com": 1 });
+    expect(summary.card_detail_views_by_traffic_class).toEqual({ bot: 1, human: 1 });
+    expect(summary.card_detail_views_by_user_agent_family).toEqual({ chrome: 1, googlebot: 1 });
+    expect(summary.card_detail_views_by_country).toEqual({ IN: 1, US: 1 });
+    expect(summary.detail_clicks_by_card).toEqual({ "hdfc-infinia-metal": 1 });
+    expect(summary.ask_detail_clicks_by_card).toEqual({ "hdfc-infinia-metal": 1 });
+    expect(summary.ask_query_to_card_detail_clicks).toEqual({
+      ["best travel card\u001fhdfc-infinia-metal"]: 1
+    });
     expect(summary.apply_clicks_by_card).toEqual({ "sbi-cashback": 1 });
     expect(summary.apply_clicks_by_card_source).toEqual({ "sbi-cashback": { compare: 1 } });
     expect(summary.zero_result_queries).toHaveLength(1);
@@ -95,7 +122,13 @@ describe("analytics daily summaries", () => {
         event_name: "card_detail_viewed",
         page: "cards/[id]",
         source: "details",
-        card_id: "axis-atlas"
+        card_id: "axis-atlas",
+        metadata: {
+          request_referrer_host: "google.com",
+          request_user_agent_family: "chrome",
+          request_user_agent_is_bot: false,
+          request_country: "IN"
+        }
       }),
       event({
         event_name: "card_detail_viewed",
@@ -110,6 +143,19 @@ describe("analytics daily summaries", () => {
         card_id: "hdfc-infinia-metal"
       }),
       event({
+        event_name: "details_clicked",
+        page: "ask",
+        source: "ask",
+        query: "best travel card",
+        card_id: "axis-atlas"
+      }),
+      event({
+        event_name: "details_clicked",
+        page: "finder",
+        source: "finder",
+        card_id: "axis-atlas"
+      }),
+      event({
         event_name: "apply_clicked",
         page: "ask",
         source: "ask",
@@ -117,27 +163,57 @@ describe("analytics daily summaries", () => {
       }),
       event({
         event_name: "apply_clicked",
-        page: "compare",
-        source: "compare",
-        card_id: "sbi-cashback"
+        page: "cards/[id]",
+        source: "details",
+        card_id: "axis-atlas"
       })
     ]);
 
     const review = mergeDailySummaries([summary], ["2026-07-27"], ["2026-07-27"]);
 
-    expect(review.eventsLoaded).toBe(6);
-    expect(review.last30DayEvents).toBe(6);
+    expect(review.eventsLoaded).toBe(8);
+    expect(review.last30DayEvents).toBe(8);
     expect(review.topAskQueries).toEqual([{ label: "best cashback card", count: 1 }]);
     expect(review.cardViewRows).toEqual([
       expect.objectContaining({ cardId: "axis-atlas", count: 2 }),
       expect.objectContaining({ cardId: "hdfc-infinia-metal", count: 1 })
     ]);
-    expect(review.applyRows[0]).toMatchObject({ cardId: "sbi-cashback", count: 2 });
-    expect(review.sourceBreakdown[0]?.sources).toEqual([
-      { source: "ask", count: 1 },
-      { source: "compare", count: 1 }
+    expect(review.detailClickRows[0]).toMatchObject({ cardId: "axis-atlas", count: 2 });
+    expect(review.askDetailClickRows).toEqual([expect.objectContaining({ cardId: "axis-atlas", count: 1 })]);
+    expect(review.queryToCardRows).toEqual([
+      expect.objectContaining({ query: "best travel card", cardId: "axis-atlas", count: 1 })
     ]);
-    expect(review.dailyUsageRows).toEqual([{ date: "2026-07-27", count: 6 }]);
+    expect(review.cardDetailApplyConversionRows[0]).toMatchObject({
+      cardId: "axis-atlas",
+      views: 2,
+      detailApplyClicks: 1,
+      conversionRate: 0.5
+    });
+    expect(review.cardViewReferrerRows).toEqual([
+      { label: "direct", count: 2 },
+      { label: "google.com", count: 1 }
+    ]);
+    expect(review.cardViewTrafficRows).toEqual([{ label: "human", count: 3 }]);
+    expect(review.cardViewUserAgentRows).toEqual([
+      { label: "unknown", count: 2 },
+      { label: "chrome", count: 1 }
+    ]);
+    expect(review.cardViewCountryRows).toEqual([
+      { label: "unknown", count: 2 },
+      { label: "IN", count: 1 }
+    ]);
+    expect(review.applyRows).toEqual([
+      expect.objectContaining({ cardId: "axis-atlas", count: 1 }),
+      expect.objectContaining({ cardId: "sbi-cashback", count: 1 })
+    ]);
+    expect(review.sourceBreakdown.find((row) => row.cardId === "axis-atlas")?.sources).toEqual([
+      { source: "details", count: 1 }
+    ]);
+    expect(review.detailSourceBreakdown[0]?.sources).toEqual([
+      { source: "ask", count: 1 },
+      { source: "finder", count: 1 }
+    ]);
+    expect(review.dailyUsageRows).toEqual([{ date: "2026-07-27", count: 8 }]);
   });
 
   it("merges AI usage and ask abuse signals into review rows", () => {

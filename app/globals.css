@@ -4394,6 +4394,17 @@ input[type="number"] {
   white-space: nowrap;
 }
 
+.analytics-review-grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.analytics-review-grid h3 {
+  font-size: 14px;
+  margin: 0 0 8px;
+}
+
 .analytics-source-list {
   display: grid;
   gap: 12px;

@@ -175,7 +175,15 @@ describe("analytics validation and logging", () => {
     const response = await POST(
       new Request("http://localhost/api/analytics", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          "User-Agent": "Googlebot/2.1",
+          "Referer": "https://www.google.com/search?q=infinia",
+          "X-Vercel-IP-Country": "IN",
+          "X-Vercel-IP-Country-Region": "KA",
+          "X-Vercel-IP-City": "Bengaluru",
+          "X-Vercel-IP-AS-Number": "15169"
+        },
         body: JSON.stringify({
           event_name: "details_clicked",
           page: "finder",
@@ -196,7 +204,16 @@ describe("analytics validation and logging", () => {
     expect(lines).toHaveLength(1);
     expect(JSON.parse(lines[0])).toMatchObject({
       event_name: "details_clicked",
-      card_id: "hdfc-millennia"
+      card_id: "hdfc-millennia",
+      metadata: {
+        request_user_agent_family: "googlebot",
+        request_user_agent_is_bot: true,
+        request_country: "IN",
+        request_region: "KA",
+        request_city: "Bengaluru",
+        request_asn: "15169",
+        request_referrer_host: "www.google.com"
+      }
     });
   });
 

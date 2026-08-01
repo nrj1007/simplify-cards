@@ -20,6 +20,14 @@ export type AnalyticsDailySummary = {
   ask_anonymous_result_count: number;
   ask_empty_referrer_result_count: number;
   card_detail_views_by_card: Record<string, number>;
+  card_detail_views_by_referrer_host: Record<string, number>;
+  card_detail_views_by_traffic_class: Record<string, number>;
+  card_detail_views_by_user_agent_family: Record<string, number>;
+  card_detail_views_by_country: Record<string, number>;
+  detail_clicks_by_card: Record<string, number>;
+  detail_clicks_by_card_source: Record<string, Partial<Record<AnalyticsSource, number>>>;
+  ask_detail_clicks_by_card: Record<string, number>;
+  ask_query_to_card_detail_clicks: Record<string, number>;
   apply_clicks_by_card: Record<string, number>;
   apply_clicks_by_card_source: Record<string, Partial<Record<AnalyticsSource, number>>>;
   ai_result_count: number;
@@ -40,8 +48,28 @@ export type AnalyticsReviewSummary = {
   last30DayEvents: number;
   topAskQueries: Array<{ label: string; count: number }>;
   cardViewRows: Array<{ cardId: string; cardName: string; count: number }>;
+  detailClickRows: Array<{ cardId: string; cardName: string; count: number }>;
+  askDetailClickRows: Array<{ cardId: string; cardName: string; count: number }>;
+  cardDetailApplyConversionRows: Array<{
+    cardId: string;
+    cardName: string;
+    views: number;
+    detailApplyClicks: number;
+    conversionRate: number;
+  }>;
+  queryToCardRows: Array<{ query: string; cardId: string; cardName: string; count: number }>;
+  cardViewReferrerRows: Array<{ label: string; count: number }>;
+  cardViewTrafficRows: Array<{ label: string; count: number }>;
+  cardViewUserAgentRows: Array<{ label: string; count: number }>;
+  cardViewCountryRows: Array<{ label: string; count: number }>;
   applyRows: Array<{ cardId: string; cardName: string; count: number }>;
   sourceBreakdown: Array<{
+    cardId: string;
+    cardName: string;
+    count: number;
+    sources: Array<{ source: AnalyticsSource; count: number }>;
+  }>;
+  detailSourceBreakdown: Array<{
     cardId: string;
     cardName: string;
     count: number;
@@ -87,6 +115,14 @@ function emptyDailySummary(date: string, now = new Date().toISOString()): Analyt
     ask_anonymous_result_count: 0,
     ask_empty_referrer_result_count: 0,
     card_detail_views_by_card: {},
+    card_detail_views_by_referrer_host: {},
+    card_detail_views_by_traffic_class: {},
+    card_detail_views_by_user_agent_family: {},
+    card_detail_views_by_country: {},
+    detail_clicks_by_card: {},
+    detail_clicks_by_card_source: {},
+    ask_detail_clicks_by_card: {},
+    ask_query_to_card_detail_clicks: {},
     apply_clicks_by_card: {},
     apply_clicks_by_card_source: {},
     ai_result_count: 0,
@@ -139,6 +175,26 @@ function metadataString(event: StoredAnalyticsEvent, key: string) {
 
 function metadataBoolean(event: StoredAnalyticsEvent, key: string) {
   return event.metadata?.[key] === true;
+}
+
+function metadataLabel(event: StoredAnalyticsEvent, key: string) {
+  const value = metadataString(event, key)?.trim();
+  return value || undefined;
+}
+
+function referrerHost(value: string | undefined) {
+  if (!value) return undefined;
+  try {
+    return new URL(value).host;
+  } catch {
+    return undefined;
+  }
+}
+
+const queryToCardSeparator = "\u001f";
+
+function queryToCardKey(query: string, cardId: string) {
+  return `${query}${queryToCardSeparator}${cardId}`;
 }
 
 function getAiCallRows(event: StoredAnalyticsEvent) {
@@ -229,6 +285,25 @@ export function addEventToDailySummary(summary: AnalyticsDailySummary, event: St
 
   if (event.event_name === "card_detail_viewed" && event.card_id) {
     addCount(summary.card_detail_views_by_card, event.card_id);
+    addCount(
+      summary.card_detail_views_by_referrer_host,
+      metadataLabel(event, "request_referrer_host") ?? referrerHost(event.referrer) ?? "direct"
+    );
+    addCount(summary.card_detail_views_by_traffic_class, metadataBoolean(event, "request_user_agent_is_bot") ? "bot" : "human");
+    addCount(summary.card_detail_views_by_user_agent_family, metadataLabel(event, "request_user_agent_family") ?? "unknown");
+    addCount(summary.card_detail_views_by_country, metadataLabel(event, "request_country") ?? "unknown");
+  }
+
+  if (event.event_name === "details_clicked" && event.card_id) {
+    addCount(summary.detail_clicks_by_card, event.card_id);
+    const sourceCounts = summary.detail_clicks_by_card_source[event.card_id] ?? {};
+    addCount(sourceCounts, event.source);
+    summary.detail_clicks_by_card_source[event.card_id] = sourceCounts;
+
+    if (event.source === "ask") {
+      addCount(summary.ask_detail_clicks_by_card, event.card_id);
+      if (event.query) addCount(summary.ask_query_to_card_detail_clicks, queryToCardKey(event.query, event.card_id));
+    }
   }
 
   if (event.event_name === "apply_clicked" && event.card_id) {
@@ -285,6 +360,14 @@ export function mergeDailySummaries(
 ): AnalyticsReviewSummary {
   const topAskQueryCounts: Record<string, number> = {};
   const cardViewCounts: Record<string, number> = {};
+  const cardViewReferrerCounts: Record<string, number> = {};
+  const cardViewTrafficCounts: Record<string, number> = {};
+  const cardViewUserAgentCounts: Record<string, number> = {};
+  const cardViewCountryCounts: Record<string, number> = {};
+  const detailClickCounts: Record<string, number> = {};
+  const detailClickSourceCounts: Record<string, Partial<Record<AnalyticsSource, number>>> = {};
+  const askDetailClickCounts: Record<string, number> = {};
+  const queryToCardClickCounts: Record<string, number> = {};
   const applyCounts: Record<string, number> = {};
   const applySourceCounts: Record<string, Partial<Record<AnalyticsSource, number>>> = {};
   const zeroResultQueries: StoredAnalyticsEvent[] = [];
@@ -313,6 +396,13 @@ export function mergeDailySummaries(
 
     for (const [query, count] of Object.entries(summary.ask_queries)) addCount(topAskQueryCounts, query, count);
     for (const [cardId, count] of Object.entries(summary.card_detail_views_by_card ?? {})) addCount(cardViewCounts, cardId, count);
+    for (const [label, count] of Object.entries(summary.card_detail_views_by_referrer_host ?? {})) addCount(cardViewReferrerCounts, label, count);
+    for (const [label, count] of Object.entries(summary.card_detail_views_by_traffic_class ?? {})) addCount(cardViewTrafficCounts, label, count);
+    for (const [label, count] of Object.entries(summary.card_detail_views_by_user_agent_family ?? {})) addCount(cardViewUserAgentCounts, label, count);
+    for (const [label, count] of Object.entries(summary.card_detail_views_by_country ?? {})) addCount(cardViewCountryCounts, label, count);
+    for (const [cardId, count] of Object.entries(summary.detail_clicks_by_card ?? {})) addCount(detailClickCounts, cardId, count);
+    for (const [cardId, count] of Object.entries(summary.ask_detail_clicks_by_card ?? {})) addCount(askDetailClickCounts, cardId, count);
+    for (const [label, count] of Object.entries(summary.ask_query_to_card_detail_clicks ?? {})) addCount(queryToCardClickCounts, label, count);
     for (const [cardId, count] of Object.entries(summary.apply_clicks_by_card)) addCount(applyCounts, cardId, count);
     askResultCount += summary.ask_result_count ?? 0;
     askAnonymousResultCount += summary.ask_anonymous_result_count ?? 0;
@@ -332,6 +422,12 @@ export function mergeDailySummaries(
       const merged = applySourceCounts[cardId] ?? {};
       for (const [source, count] of Object.entries(sourceCounts)) addCount(merged, source, count);
       applySourceCounts[cardId] = merged;
+    }
+
+    for (const [cardId, sourceCounts] of Object.entries(summary.detail_clicks_by_card_source ?? {})) {
+      const merged = detailClickSourceCounts[cardId] ?? {};
+      for (const [source, count] of Object.entries(sourceCounts)) addCount(merged, source, count);
+      detailClickSourceCounts[cardId] = merged;
     }
 
     zeroResultQueries.push(...summary.zero_result_queries);
@@ -354,16 +450,69 @@ export function mergeDailySummaries(
       count: row.count
     };
   });
+  const detailClickRows = sortedCountRows(detailClickCounts).map((row) => {
+    const card = getCardById(row.label);
+    return {
+      cardId: row.label,
+      cardName: card?.name ?? row.label,
+      count: row.count
+    };
+  });
+  const askDetailClickRows = sortedCountRows(askDetailClickCounts).map((row) => {
+    const card = getCardById(row.label);
+    return {
+      cardId: row.label,
+      cardName: card?.name ?? row.label,
+      count: row.count
+    };
+  });
+  const cardDetailApplyConversionRows = sortedCountRows(cardViewCounts).map((row) => {
+    const card = getCardById(row.label);
+    const detailApplyClicks = applySourceCounts[row.label]?.details ?? 0;
+    return {
+      cardId: row.label,
+      cardName: card?.name ?? row.label,
+      views: row.count,
+      detailApplyClicks,
+      conversionRate: row.count > 0 ? detailApplyClicks / row.count : 0
+    };
+  });
+  const queryToCardRows = sortedCountRows(queryToCardClickCounts)
+    .slice(0, 50)
+    .map((row) => {
+      const [query, cardId] = row.label.split(queryToCardSeparator);
+      const card = getCardById(cardId ?? "");
+      return {
+        query: query ?? row.label,
+        cardId: cardId ?? "",
+        cardName: card?.name ?? cardId ?? "",
+        count: row.count
+      };
+    });
 
   return {
     eventsLoaded,
     last30DayEvents,
     topAskQueries: sortedCountRows(topAskQueryCounts).slice(0, 25),
     cardViewRows,
+    detailClickRows,
+    askDetailClickRows,
+    cardDetailApplyConversionRows,
+    queryToCardRows,
+    cardViewReferrerRows: sortedCountRows(cardViewReferrerCounts).slice(0, 25),
+    cardViewTrafficRows: sortedCountRows(cardViewTrafficCounts),
+    cardViewUserAgentRows: sortedCountRows(cardViewUserAgentCounts).slice(0, 25),
+    cardViewCountryRows: sortedCountRows(cardViewCountryCounts).slice(0, 25),
     applyRows,
     sourceBreakdown: applyRows.slice(0, 10).map((row) => ({
       ...row,
       sources: Object.entries(applySourceCounts[row.cardId] ?? {})
+        .map(([source, count]) => ({ source: source as AnalyticsSource, count }))
+        .sort((left, right) => right.count - left.count || left.source.localeCompare(right.source))
+    })),
+    detailSourceBreakdown: detailClickRows.slice(0, 10).map((row) => ({
+      ...row,
+      sources: Object.entries(detailClickSourceCounts[row.cardId] ?? {})
         .map(([source, count]) => ({ source: source as AnalyticsSource, count }))
         .sort((left, right) => right.count - left.count || left.source.localeCompare(right.source))
     })),

@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { validateAnalyticsEventPayload } from "@/lib/analytics";
 import { logAnalyticsEvent } from "@/lib/analytics-logs";
+import { buildRequestAnalyticsMetadata } from "@/lib/analytics-request";
 import { getCardById } from "@/lib/cards";
 import { cardCtaHref } from "@/lib/card-links";
 
@@ -22,6 +23,7 @@ export async function GET(request: Request) {
   const source = url.searchParams.get("source") ?? "";
   const page = url.searchParams.get("page") ?? "";
   const cardId = url.searchParams.get("card_id") ?? "";
+  const query = url.searchParams.get("query") ?? "";
   const href = safeInternalPath(url.searchParams.get("href"));
   const kind = url.searchParams.get("kind");
 
@@ -40,10 +42,12 @@ export async function GET(request: Request) {
       event_name: eventName,
       page,
       source,
+      query: query || undefined,
       card_id: cardId || undefined,
       metadata: {
         tracking_mode: "server_redirect",
-        destination_kind: kind === "external" ? "external" : "internal"
+        destination_kind: kind === "external" ? "external" : "internal",
+        ...buildRequestAnalyticsMetadata(request)
       }
     });
 

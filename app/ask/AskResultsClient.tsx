@@ -8,6 +8,7 @@ import { cardCtaHref, cardCtaLabel, cardCtaRel } from "@/lib/card-links";
 import { getCardShortUsp, getCardUsp } from "@/lib/card-usp";
 import { cardRewardTypeIncludesCashback } from "@/lib/reward-type";
 import { TrackedExternalLink, TrackedLink } from "../ui/TrackedLink";
+import { trackEvent } from "@/lib/analytics-client";
 import AskFeedback from "../ui/AskFeedback";
 import { getLoungeConditions } from "@/lib/lounge";
 import LoungeInfo from "../ui/LoungeInfo";
@@ -366,6 +367,26 @@ export default function AskResultsClient({
     // Prevent navigation if clicking interactive elements inside card
     const target = event.target as HTMLElement;
     if (target.closest("button, a, input, select, textarea")) return;
+    trackEvent({
+      event_name: "details_clicked",
+      page: "ask",
+      source: "ask",
+      query,
+      card_id: cardId
+    });
+    router.push(`/cards/${cardId}`);
+  };
+
+  const handleKeyboardCardNavigation = (cardId: string, event: React.KeyboardEvent) => {
+    if (event.key !== "Enter" && event.key !== " ") return;
+    event.preventDefault();
+    trackEvent({
+      event_name: "details_clicked",
+      page: "ask",
+      source: "ask",
+      query,
+      card_id: cardId
+    });
     router.push(`/cards/${cardId}`);
   };
 
@@ -420,12 +441,7 @@ export default function AskResultsClient({
                       onClick={(e) => handleCardClick(card.id, e)}
                       role="link"
                       tabIndex={0}
-                      onKeyDown={(e) => {
-                        if (e.key === "Enter" || e.key === " ") {
-                          e.preventDefault();
-                          router.push(`/cards/${card.id}`);
-                        }
-                      }}
+                      onKeyDown={(e) => handleKeyboardCardNavigation(card.id, e)}
                     >
                       <div className={`sc-main-pick-heading ${headingClass}`}>{heading}</div>
                       <div className={`sc-card-visual ${getCardVisualClass(card, idx)}`}>
@@ -443,13 +459,20 @@ export default function AskResultsClient({
                           <span>{feeDisplay}</span>
                           <span>{benefitDisplay}</span>
                         </div>
-                        <Link
+                        <TrackedLink
+                          analyticsEvent={{
+                            event_name: "details_clicked",
+                            page: "ask",
+                            source: "ask",
+                            query,
+                            card_id: card.id
+                          }}
                           className="sc-top-more-details"
                           href={`/cards/${card.id}`}
                           onClick={(e) => e.stopPropagation()}
                         >
                           Click for more details →
-                        </Link>
+                        </TrackedLink>
                         <TrackedExternalLink
                           analyticsEvent={{
                             event_name: "apply_clicked",
@@ -512,12 +535,7 @@ export default function AskResultsClient({
                           onClick={(e) => handleCardClick(card.id, e)}
                           role="link"
                           tabIndex={0}
-                          onKeyDown={(e) => {
-                            if (e.key === "Enter" || e.key === " ") {
-                              e.preventDefault();
-                              router.push(`/cards/${card.id}`);
-                            }
-                          }}
+                          onKeyDown={(e) => handleKeyboardCardNavigation(card.id, e)}
                         >
                           <div className="result-main">
                             <div>
@@ -541,13 +559,20 @@ export default function AskResultsClient({
                                   {card.annualFee === 0 ? "Lifetime free" : `₹ ${card.annualFee.toLocaleString("en-IN")} fee`}
                                 </span>
                               </div>
-                              <Link
+                              <TrackedLink
+                                analyticsEvent={{
+                                  event_name: "details_clicked",
+                                  page: "ask",
+                                  source: "ask",
+                                  query,
+                                  card_id: card.id
+                                }}
                                 className="sc-more-details"
                                 href={`/cards/${card.id}`}
                                 onClick={(e) => e.stopPropagation()}
                               >
                                 Click for more details →
-                              </Link>
+                              </TrackedLink>
                             </div>
                           </div>
                           <div className="result-actions">
@@ -612,12 +637,7 @@ export default function AskResultsClient({
                           onClick={(e) => handleCardClick(card.id, e)}
                           role="link"
                           tabIndex={0}
-                          onKeyDown={(e) => {
-                            if (e.key === "Enter" || e.key === " ") {
-                              e.preventDefault();
-                              router.push(`/cards/${card.id}`);
-                            }
-                          }}
+                          onKeyDown={(e) => handleKeyboardCardNavigation(card.id, e)}
                         >
                           <div className="result-main">
                             <div>
@@ -641,13 +661,20 @@ export default function AskResultsClient({
                                   {card.annualFee === 0 ? "Lifetime free" : `₹ ${card.annualFee.toLocaleString("en-IN")} fee`}
                                 </span>
                               </div>
-                              <Link
+                              <TrackedLink
+                                analyticsEvent={{
+                                  event_name: "details_clicked",
+                                  page: "ask",
+                                  source: "ask",
+                                  query,
+                                  card_id: card.id
+                                }}
                                 className="sc-more-details"
                                 href={`/cards/${card.id}`}
                                 onClick={(e) => e.stopPropagation()}
                               >
                                 Click for more details →
-                              </Link>
+                              </TrackedLink>
                             </div>
                           </div>
                           <div className="result-actions">
