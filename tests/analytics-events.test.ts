@@ -49,6 +49,11 @@ describe("analytics event payload builders", () => {
       needs_database_update: false,
       display_mode: "ranked-list",
       ai_used: true,
+      ai_attempted: true,
+      ai_schema_call_count: 1,
+      ai_provider_attempt_count: 1,
+      ai_successful_schema_call_count: 1,
+      ai_failed_schema_call_count: 0,
       ai_providers_used: ["openai"],
       ai_fallback_used: false,
       ai_calls: [

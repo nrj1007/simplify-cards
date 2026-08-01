@@ -105,9 +105,86 @@ export default async function AnalyticsReviewPage() {
               <strong>{summary.applyRows.length.toLocaleString("en-IN")}</strong>
               <span>Cards with apply clicks</span>
             </div>
+            <div className="stat">
+              <strong>{summary.aiUsage.providerAttemptCount.toLocaleString("en-IN")}</strong>
+              <span>AI provider attempts</span>
+            </div>
+            <div className="stat">
+              <strong>{summary.askSignals.botLikeQueryCount.toLocaleString("en-IN")}</strong>
+              <span>Bot-like ask results</span>
+            </div>
           </div>
 
           <div className="review-list">
+        <article className="panel review-item">
+          <div className="review-item-head">
+            <strong>AI usage</strong>
+            <span className="badge">Last 30 days</span>
+          </div>
+          <div className="review-summary analytics-review-mini-summary">
+            <div className="stat">
+              <strong>{summary.aiUsage.resultCount.toLocaleString("en-IN")}</strong>
+              <span>Ask results with AI attempts</span>
+            </div>
+            <div className="stat">
+              <strong>{summary.aiUsage.schemaCallCount.toLocaleString("en-IN")}</strong>
+              <span>Schema calls</span>
+            </div>
+            <div className="stat">
+              <strong>{summary.aiUsage.successfulSchemaCallCount.toLocaleString("en-IN")}</strong>
+              <span>Successful schema calls</span>
+            </div>
+            <div className="stat">
+              <strong>{summary.aiUsage.failedSchemaCallCount.toLocaleString("en-IN")}</strong>
+              <span>Failed schema calls</span>
+            </div>
+            <div className="stat">
+              <strong>{summary.aiUsage.fallbackResultCount.toLocaleString("en-IN")}</strong>
+              <span>Results using fallback provider</span>
+            </div>
+          </div>
+          <CountTable labelHeader="Provider attempts" rows={summary.aiUsage.providerAttempts} />
+          <CountTable labelHeader="AI purpose" rows={summary.aiUsage.callsByPurpose} />
+          <CountTable labelHeader="Ask intent" rows={summary.aiUsage.resultsByIntent} />
+        </article>
+
+        <article className="panel review-item">
+          <div className="review-item-head">
+            <strong>Ask abuse signals</strong>
+            <span className="badge">Last 30 days</span>
+          </div>
+          <div className="review-summary analytics-review-mini-summary">
+            <div className="stat">
+              <strong>{summary.askSignals.resultCount.toLocaleString("en-IN")}</strong>
+              <span>Ask results</span>
+            </div>
+            <div className="stat">
+              <strong>{summary.askSignals.anonymousResultCount.toLocaleString("en-IN")}</strong>
+              <span>Anonymous ask results</span>
+            </div>
+            <div className="stat">
+              <strong>{summary.askSignals.emptyReferrerResultCount.toLocaleString("en-IN")}</strong>
+              <span>Empty-referrer ask results</span>
+            </div>
+          </div>
+          {summary.botLikeAskQueries.length === 0 ? (
+            <EmptyState>No bot-like ask queries detected</EmptyState>
+          ) : (
+            <div className="review-list analytics-query-list">
+              {summary.botLikeAskQueries.map((event, index) => (
+                <div className="analytics-query-row" key={`${event.received_at}-${event.query}-${index}`}>
+                  <strong>{event.query}</strong>
+                  <div className="meta">
+                    <span>{formatDateTime(event.received_at)}</span>
+                    <span>Intent: {String(event.metadata?.intent ?? "unknown")}</span>
+                    <span>AI attempts: {String(event.metadata?.ai_provider_attempt_count ?? 0)}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+        </article>
+
         <article className="panel review-item">
           <div className="review-item-head">
             <strong>Top ask queries</strong>

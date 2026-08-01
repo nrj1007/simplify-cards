@@ -7,6 +7,9 @@ export function isVerifiedByUser(card: CreditCard) {
 }
 
 export function buildAskResultMetadata(result: AskAiResult) {
+  const aiCalls = result.meta?.ai?.calls ?? [];
+  const aiProviderAttemptCount = aiCalls.reduce((total, call) => total + 1 + (call.fallback_used ? 1 : 0), 0);
+
   return {
     intent: result.meta?.intent ?? "unsupported",
     confidence: result.meta?.confidence ?? "low",
@@ -15,9 +18,14 @@ export function buildAskResultMetadata(result: AskAiResult) {
     needs_database_update: Boolean(result.needsDatabaseUpdate),
     display_mode: result.displayMode ?? "default",
     ai_used: result.meta?.ai?.aiUsed ?? false,
+    ai_attempted: aiCalls.length > 0,
+    ai_schema_call_count: aiCalls.length,
+    ai_provider_attempt_count: aiProviderAttemptCount,
+    ai_successful_schema_call_count: aiCalls.filter((call) => call.success).length,
+    ai_failed_schema_call_count: aiCalls.filter((call) => !call.success).length,
     ai_providers_used: result.meta?.ai?.providersUsed ?? [],
     ai_fallback_used: result.meta?.ai?.fallbackUsed ?? false,
-    ai_calls: result.meta?.ai?.calls ?? []
+    ai_calls: aiCalls
   };
 }
 
