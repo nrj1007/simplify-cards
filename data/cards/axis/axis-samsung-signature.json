@@ -172,6 +172,13 @@
         "annualCap": 100000
       },
       {
+        "airline": "Qatar Airways",
+        "programme": "Privilege Club",
+        "ratio": "10:1",
+        "group": "Group A",
+        "annualCap": 100000
+      },
+      {
         "airline": "Japan Airlines",
         "programme": "JAL Mileage Bank",
         "ratio": "20:1",
@@ -294,10 +301,11 @@
   "internalNotes": [
     "Samsung Axis Bank Signature Credit Card is listed as an eligible card in the Axis Travel EDGE programme under the 'Other cards' transfer bucket.",
     "Reward rows for Samsung purchases (10% capped) and the 5 preferred partners (BigBasket, Myntra, Tata 1mg, Urban Company, Zomato; 2% EDGE) are narrow co-brand/partner sets, so they use category 'partner merchants' rather than broad dining/grocery/online (which over-ranked the card to #1 for online). acceleratedShare online/grocery 0.25 reflects that only a portion of broad online/grocery spend routes through these specific merchants.",
-    "Card details manually reviewed and verified by user on 2026-06-12."
+    "Card details manually reviewed and verified by user on 2026-06-12.",
+    "Qatar Airways Privilege Club was reported back on the Axis Travel EDGE portal in July 2026 at the reduced new-partner transfer ratio for this card bucket; Axis public miles-transfer page confirms the transfer program but does not expose the logged-in partner table publicly, so this row needs issuer-portal review."
   ],
-  "lastVerified": "2026-06-12",
-  "verificationStatus": "official-direct",
+  "lastVerified": "2026-07-27",
+  "verificationStatus": "needs-review",
   "popularityScore": 67,
   "imageUrl": "/images/axis-samsung-signature.webp",
   "applyLinks": [

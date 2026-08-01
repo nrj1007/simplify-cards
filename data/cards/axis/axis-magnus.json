@@ -206,6 +206,13 @@
         "annualCap": 100000
       },
       {
+        "airline": "Qatar Airways",
+        "programme": "Privilege Club",
+        "ratio": "5:1",
+        "group": "Group A",
+        "annualCap": 100000
+      },
+      {
         "airline": "Vietnam Airlines",
         "programme": "Lotusmiles",
         "ratio": "5:1",
@@ -304,8 +311,8 @@
   "sourceUrl": "https://www.axisbank.com/retail/cards/credit-card/axis-bank-magnus-card/more-benefits",
   "applyUrl": "https://www.axisbank.com/retail/cards/credit-card/axis-bank-magnus-card",
   "imageUrl": "/images/axis-magnus.webp",
-  "lastVerified": "2026-06-06",
-  "verificationStatus": "official-direct",
+  "lastVerified": "2026-07-27",
+  "verificationStatus": "needs-review",
   "internalNotes": [
     "Card details manually reviewed and verified by user on 2026-06-06",
     "Official audit completed on 2026-06-06 using Axis Bank product page, 20 April 2024 revision PDF, 20 June 2025 revision PDF, and Axis miles-transfer page.",
@@ -318,8 +325,9 @@
     "EMI transactions, reversed transactions, fees, charges, interest, and cash withdrawals do not count toward accelerated reward calculations.",
     "Miles transfer ratio for standard Magnus is 5 EDGE REWARD Points = 2 partner points (0.4 ratio) for standard partners, and 5 EDGE REWARD Points = 1 partner point (0.2 ratio) for British Airways, Finnair, and Vietnam Airlines.",
     "Current annual transfer cap is 5 lakh EDGE REWARD Points in a calendar year, split as 1 lakh to Group A and 4 lakh to Group B.",
-    "Accor Live Limitless, Marriott Bonvoy, and Qatar Airways have been removed from the current transfer partner set.",
-    "Gift EDGE redemption is valued at ₹0.20 per EDGE REWARD Point."
+    "Accor Live Limitless and Marriott Bonvoy remain removed; Qatar Airways Privilege Club has reportedly returned to the current transfer partner set.",
+    "Gift EDGE redemption is valued at ₹0.20 per EDGE REWARD Point.",
+    "Qatar Airways Privilege Club was reported back on the Axis Travel EDGE portal in July 2026 at the reduced new-partner transfer ratio for this card bucket; Axis public miles-transfer page confirms the transfer program but does not expose the logged-in partner table publicly, so this row needs issuer-portal review."
   ],
   "popularityScore": 50,
   "applyLinks": [

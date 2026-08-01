@@ -165,6 +165,13 @@
         "annualCap": 100000
       },
       {
+        "airline": "Qatar Airways",
+        "programme": "Privilege Club",
+        "ratio": "5:1",
+        "group": "Group A",
+        "annualCap": 100000
+      },
+      {
         "airline": "Vietnam Airlines",
         "programme": "Lotusmiles",
         "ratio": "5:1",
@@ -262,14 +269,15 @@
   "additionalDetails": [
     "Travel EDGE transfers for Reserve cards are capped at 5,00,000 EDGE REWARD Points per customer ID per calendar year, including up to 1,00,000 to Group A partners and 4,00,000 to Group B partners.",
     "Minimum 300 EDGE REWARD Points are required per partner-transfer request.",
-    "Effective April 2, 2026: Marriott Bonvoy, Accor Live Limitless and Qatar Airways Privilege Club removed; British Airways Executive Club, Finnair Plus and Vietnam Airlines Lotusmiles added."
+    "Accor Live Limitless and Marriott Bonvoy remain removed after the April 2026 change. Qatar Airways Privilege Club reportedly returned in July 2026 at the reduced new-partner ratio, alongside British Airways Executive Club, Finnair Plus and Vietnam Airlines Lotusmiles."
   ],
   "internalNotes": [
     "Reserve card uses a premium 5:2 transfer ratio to most partners vs 10:1 / 20:1 for Other cards.",
-    "Card details manually reviewed and verified by user on 2026-06-12."
+    "Card details manually reviewed and verified by user on 2026-06-12.",
+    "Qatar Airways Privilege Club was reported back on the Axis Travel EDGE portal in July 2026 at the reduced new-partner transfer ratio for this card bucket; Axis public miles-transfer page confirms the transfer program but does not expose the logged-in partner table publicly, so this row needs issuer-portal review."
   ],
-  "lastVerified": "2026-06-12",
-  "verificationStatus": "official-direct",
+  "lastVerified": "2026-07-27",
+  "verificationStatus": "needs-review",
   "popularityScore": 75,
   "imageUrl": "/images/axis-reserve.webp",
   "applyLinks": [

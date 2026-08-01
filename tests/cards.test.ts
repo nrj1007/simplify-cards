@@ -115,7 +115,9 @@ describe("travel card calculator partner data", () => {
 
     expect(burgundy).toBeTruthy();
     expect(burgundy?.redemption?.transferPartnerValuations?.map((partner) => partner.partner)).toEqual(["Club ITC"]);
-    expect(burgundy?.redemption?.airlinePartners?.some((partner) => partner.airline === "Qatar Airways")).toBe(false);
+    expect(
+      burgundy?.redemption?.airlinePartners?.find((partner) => partner.airline === "Qatar Airways")
+    ).toMatchObject({ programme: "Privilege Club", ratio: "5:2", group: "Group A" });
     expect(burgundy?.redemption?.hotelPartners?.some((partner) => partner.programme === "Marriott Bonvoy")).toBe(false);
   });
 });
