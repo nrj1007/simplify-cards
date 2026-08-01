@@ -8,6 +8,7 @@ import { getTotalLoungeAccess } from "@/lib/lounge";
 import AskFeedback from "@/app/ui/AskFeedback";
 import RewardCalculator from "@/app/ui/RewardCalculator";
 import CardImageFallback from "@/app/ui/CardImageFallback";
+import AnalyticsMount from "@/app/ui/AnalyticsMount";
 import { TrackedExternalLink } from "@/app/ui/TrackedLink";
 import {
   EQUITAS_PRIVILEGE_BENEFITS,
@@ -31,6 +32,7 @@ import {
 import { buildPageMetadata } from "@/lib/seo";
 import { cardCtaHref, cardCtaLabel, cardCtaRel } from "@/lib/card-links";
 import { properCaseLabel, withoutSentenceEndingFullStop } from "@/lib/display-text";
+import { buildCardDetailMetadata } from "@/lib/analytics-events";
 import type { CreditCard, Redemption } from "@/lib/types";
 
 type Props = {
@@ -409,6 +411,15 @@ export default async function CardPage({ params }: Props) {
 
   return (
     <div className="page-shell card-detail-page">
+      <AnalyticsMount
+        event={{
+          event_name: "card_detail_viewed",
+          page: "cards/[id]",
+          source: "details",
+          card_id: card.id,
+          metadata: buildCardDetailMetadata(card)
+        }}
+      />
       {jsonLd.map((schema, index) => (
         <script
           key={index}

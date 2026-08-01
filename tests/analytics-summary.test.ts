@@ -21,6 +21,18 @@ describe("analytics daily summaries", () => {
       event({ query: "best upi cards" }),
       event({ query: "best upi cards" }),
       event({
+        event_name: "card_detail_viewed",
+        page: "cards/[id]",
+        source: "details",
+        card_id: "hdfc-infinia-metal"
+      }),
+      event({
+        event_name: "card_detail_viewed",
+        page: "cards/[id]",
+        source: "details",
+        card_id: "hdfc-infinia-metal"
+      }),
+      event({
         event_name: "apply_clicked",
         page: "compare",
         source: "compare",
@@ -61,8 +73,9 @@ describe("analytics daily summaries", () => {
       })
     ]);
 
-    expect(summary.total_events).toBe(5);
+    expect(summary.total_events).toBe(7);
     expect(summary.ask_queries).toEqual({ "best upi cards": 2 });
+    expect(summary.card_detail_views_by_card).toEqual({ "hdfc-infinia-metal": 2 });
     expect(summary.apply_clicks_by_card).toEqual({ "sbi-cashback": 1 });
     expect(summary.apply_clicks_by_card_source).toEqual({ "sbi-cashback": { compare: 1 } });
     expect(summary.zero_result_queries).toHaveLength(1);
@@ -79,6 +92,24 @@ describe("analytics daily summaries", () => {
     const summary = buildDailySummaryFromEvents("2026-07-27", [
       event({ query: "best cashback card" }),
       event({
+        event_name: "card_detail_viewed",
+        page: "cards/[id]",
+        source: "details",
+        card_id: "axis-atlas"
+      }),
+      event({
+        event_name: "card_detail_viewed",
+        page: "cards/[id]",
+        source: "details",
+        card_id: "axis-atlas"
+      }),
+      event({
+        event_name: "card_detail_viewed",
+        page: "cards/[id]",
+        source: "details",
+        card_id: "hdfc-infinia-metal"
+      }),
+      event({
         event_name: "apply_clicked",
         page: "ask",
         source: "ask",
@@ -94,15 +125,19 @@ describe("analytics daily summaries", () => {
 
     const review = mergeDailySummaries([summary], ["2026-07-27"], ["2026-07-27"]);
 
-    expect(review.eventsLoaded).toBe(3);
-    expect(review.last30DayEvents).toBe(3);
+    expect(review.eventsLoaded).toBe(6);
+    expect(review.last30DayEvents).toBe(6);
     expect(review.topAskQueries).toEqual([{ label: "best cashback card", count: 1 }]);
+    expect(review.cardViewRows).toEqual([
+      expect.objectContaining({ cardId: "axis-atlas", count: 2 }),
+      expect.objectContaining({ cardId: "hdfc-infinia-metal", count: 1 })
+    ]);
     expect(review.applyRows[0]).toMatchObject({ cardId: "sbi-cashback", count: 2 });
     expect(review.sourceBreakdown[0]?.sources).toEqual([
       { source: "ask", count: 1 },
       { source: "compare", count: 1 }
     ]);
-    expect(review.dailyUsageRows).toEqual([{ date: "2026-07-27", count: 3 }]);
+    expect(review.dailyUsageRows).toEqual([{ date: "2026-07-27", count: 6 }]);
   });
 
   it("merges AI usage and ask abuse signals into review rows", () => {

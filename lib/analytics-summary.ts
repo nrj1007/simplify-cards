@@ -19,6 +19,7 @@ export type AnalyticsDailySummary = {
   ask_result_count: number;
   ask_anonymous_result_count: number;
   ask_empty_referrer_result_count: number;
+  card_detail_views_by_card: Record<string, number>;
   apply_clicks_by_card: Record<string, number>;
   apply_clicks_by_card_source: Record<string, Partial<Record<AnalyticsSource, number>>>;
   ai_result_count: number;
@@ -38,6 +39,7 @@ export type AnalyticsReviewSummary = {
   eventsLoaded: number;
   last30DayEvents: number;
   topAskQueries: Array<{ label: string; count: number }>;
+  cardViewRows: Array<{ cardId: string; cardName: string; count: number }>;
   applyRows: Array<{ cardId: string; cardName: string; count: number }>;
   sourceBreakdown: Array<{
     cardId: string;
@@ -84,6 +86,7 @@ function emptyDailySummary(date: string, now = new Date().toISOString()): Analyt
     ask_result_count: 0,
     ask_anonymous_result_count: 0,
     ask_empty_referrer_result_count: 0,
+    card_detail_views_by_card: {},
     apply_clicks_by_card: {},
     apply_clicks_by_card_source: {},
     ai_result_count: 0,
@@ -224,6 +227,10 @@ export function addEventToDailySummary(summary: AnalyticsDailySummary, event: St
     }
   }
 
+  if (event.event_name === "card_detail_viewed" && event.card_id) {
+    addCount(summary.card_detail_views_by_card, event.card_id);
+  }
+
   if (event.event_name === "apply_clicked" && event.card_id) {
     addCount(summary.apply_clicks_by_card, event.card_id);
     const sourceCounts = summary.apply_clicks_by_card_source[event.card_id] ?? {};
@@ -277,6 +284,7 @@ export function mergeDailySummaries(
   eventWindowDateKeys: string[]
 ): AnalyticsReviewSummary {
   const topAskQueryCounts: Record<string, number> = {};
+  const cardViewCounts: Record<string, number> = {};
   const applyCounts: Record<string, number> = {};
   const applySourceCounts: Record<string, Partial<Record<AnalyticsSource, number>>> = {};
   const zeroResultQueries: StoredAnalyticsEvent[] = [];
@@ -304,6 +312,7 @@ export function mergeDailySummaries(
     if (dailyCounts.has(summary.date)) dailyCounts.set(summary.date, summary.total_events);
 
     for (const [query, count] of Object.entries(summary.ask_queries)) addCount(topAskQueryCounts, query, count);
+    for (const [cardId, count] of Object.entries(summary.card_detail_views_by_card ?? {})) addCount(cardViewCounts, cardId, count);
     for (const [cardId, count] of Object.entries(summary.apply_clicks_by_card)) addCount(applyCounts, cardId, count);
     askResultCount += summary.ask_result_count ?? 0;
     askAnonymousResultCount += summary.ask_anonymous_result_count ?? 0;
@@ -337,11 +346,20 @@ export function mergeDailySummaries(
       count: row.count
     };
   });
+  const cardViewRows = sortedCountRows(cardViewCounts).map((row) => {
+    const card = getCardById(row.label);
+    return {
+      cardId: row.label,
+      cardName: card?.name ?? row.label,
+      count: row.count
+    };
+  });
 
   return {
     eventsLoaded,
     last30DayEvents,
     topAskQueries: sortedCountRows(topAskQueryCounts).slice(0, 25),
+    cardViewRows,
     applyRows,
     sourceBreakdown: applyRows.slice(0, 10).map((row) => ({
       ...row,

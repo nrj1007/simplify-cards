@@ -35,8 +35,7 @@ export function getDeviceType(): AnalyticsDeviceType {
 }
 
 function clientAnalyticsEnabled() {
-  if (process.env.NEXT_PUBLIC_SC_CLIENT_ANALYTICS === "1") return true;
-  return process.env.NODE_ENV !== "production";
+  return process.env.NEXT_PUBLIC_SC_CLIENT_ANALYTICS !== "0";
 }
 
 export function buildClientAnalyticsPayload(payload: AnalyticsEventPayload): AnalyticsEventPayload {

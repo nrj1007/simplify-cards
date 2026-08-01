@@ -102,6 +102,10 @@ export default async function AnalyticsReviewPage() {
               <span>Tracked ask queries</span>
             </div>
             <div className="stat">
+              <strong>{summary.cardViewRows.length.toLocaleString("en-IN")}</strong>
+              <span>Cards with detail views</span>
+            </div>
+            <div className="stat">
               <strong>{summary.applyRows.length.toLocaleString("en-IN")}</strong>
               <span>Cards with apply clicks</span>
             </div>
@@ -191,6 +195,37 @@ export default async function AnalyticsReviewPage() {
             <span className="badge">Last 30 days</span>
           </div>
           <CountTable labelHeader="Query" rows={summary.topAskQueries} />
+        </article>
+
+        <article className="panel review-item">
+          <div className="review-item-head">
+            <strong>Card detail views</strong>
+            <span className="badge">Top 25</span>
+          </div>
+          {summary.cardViewRows.length === 0 ? (
+            <EmptyState>No data yet</EmptyState>
+          ) : (
+            <div className="analytics-review-table-shell">
+              <table className="compare-table analytics-review-table">
+                <thead>
+                  <tr>
+                    <th>Card</th>
+                    <th>Card ID</th>
+                    <th>Views</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {summary.cardViewRows.slice(0, 25).map((row) => (
+                    <tr key={row.cardId}>
+                      <td>{row.cardName}</td>
+                      <td>{row.cardId}</td>
+                      <td>{row.count.toLocaleString("en-IN")}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          )}
         </article>
 
         <article className="panel review-item">
