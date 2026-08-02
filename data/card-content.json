@@ -31,7 +31,10 @@
         "sourceType": "manual",
         "sourceLabel": "BOBCARD official updates",
         "sourceUrl": "https://www.bobcard.co.in/credit-card-types/bobcard-scapia-credit-card",
-        "publishedAt": "2026-02-27"
+        "publishedAt": "2026-02-27",
+        "groupId": "scapia-rewards-lounge-revision-2026-02-27",
+        "groupTitle": "Scapia rewards and lounge access revised",
+        "groupSummary": "Effective 27 February 2026, Scapia revised reward eligibility and lounge thresholds across its co-branded cards. Insurance and utility spends no longer earn Scapia Coins, domestic lounge access now requires ₹20,000 prior-month spend, and international airport privileges require an eligible Scapia app flight booking."
       }
     ]
   },
@@ -43,7 +46,10 @@
         "sourceType": "manual",
         "sourceLabel": "Federal Bank official updates",
         "sourceUrl": "https://www.federalbank.co.in/co-branded-credit-cards",
-        "publishedAt": "2026-02-27"
+        "publishedAt": "2026-02-27",
+        "groupId": "scapia-rewards-lounge-revision-2026-02-27",
+        "groupTitle": "Scapia rewards and lounge access revised",
+        "groupSummary": "Effective 27 February 2026, Scapia revised reward eligibility and lounge thresholds across its co-branded cards. Insurance and utility spends no longer earn Scapia Coins, domestic lounge access now requires ₹20,000 prior-month spend, and international airport privileges require an eligible Scapia app flight booking."
       }
     ]
   },
@@ -55,7 +61,10 @@
         "sourceType": "manual",
         "sourceLabel": "HDFC SmartBuy terms",
         "sourceUrl": "https://offers.smartbuy.hdfc.bank.in/offer_details/smartbuy/15282",
-        "publishedAt": "2026-07-01"
+        "publishedAt": "2026-07-01",
+        "groupId": "hdfc-smartbuy-voucher-cap-2026-07-01",
+        "groupTitle": "HDFC capped SmartBuy brand voucher rewards",
+        "groupSummary": "From 1 July 2026, HDFC SmartBuy brand vouchers earn accelerated points only up to 3,000 points per month across affected premium cards. Each card's overall SmartBuy monthly cap continues to apply separately."
       },
       {
         "title": "HDFC Infinia program retention criteria updated",
@@ -95,7 +104,10 @@
         "sourceType": "manual",
         "sourceLabel": "HDFC SmartBuy terms",
         "sourceUrl": "https://offers.smartbuy.hdfc.bank.in/offer_details/smartbuy/15282",
-        "publishedAt": "2026-07-01"
+        "publishedAt": "2026-07-01",
+        "groupId": "hdfc-smartbuy-voucher-cap-2026-07-01",
+        "groupTitle": "HDFC capped SmartBuy brand voucher rewards",
+        "groupSummary": "From 1 July 2026, HDFC SmartBuy brand vouchers earn accelerated points only up to 3,000 points per month across affected premium cards. Each card's overall SmartBuy monthly cap continues to apply separately."
       },
       {
         "title": "HDFC revised Regalia Gold base rewards rate",
@@ -103,7 +115,10 @@
         "sourceType": "manual",
         "sourceLabel": "HDFC Bank official notice",
         "sourceUrl": "https://www.hdfc.bank.in/credit-cards/regalia-gold-credit-card",
-        "publishedAt": "2026-05-15"
+        "publishedAt": "2026-05-15",
+        "groupId": "hdfc-dcc-markup-revision-2026-05-15",
+        "groupTitle": "HDFC revised DCC markup fee",
+        "groupSummary": "Effective 15 May 2026, HDFC revised its Dynamic Currency Conversion markup fee to 1.75% on INR-denominated international transactions or transactions with overseas-registered merchants for affected cards."
       },
       {
         "title": "HDFC revised domestic lounge access rules for Regalia Gold",
@@ -151,7 +166,10 @@
         "sourceType": "manual",
         "sourceLabel": "HDFC SmartBuy terms",
         "sourceUrl": "https://offers.smartbuy.hdfc.bank.in/offer_details/smartbuy/15282",
-        "publishedAt": "2026-07-01"
+        "publishedAt": "2026-07-01",
+        "groupId": "hdfc-smartbuy-voucher-cap-2026-07-01",
+        "groupTitle": "HDFC capped SmartBuy brand voucher rewards",
+        "groupSummary": "From 1 July 2026, HDFC SmartBuy brand vouchers earn accelerated points only up to 3,000 points per month across affected premium cards. Each card's overall SmartBuy monthly cap continues to apply separately."
       },
       {
         "title": "HDFC revised Diners Club Black rewards capping",
@@ -167,7 +185,10 @@
         "sourceType": "manual",
         "sourceLabel": "HDFC Bank official notice",
         "sourceUrl": "https://www.hdfc.bank.in/credit-cards/diners-club-black-metal-edition-credit-card",
-        "publishedAt": "2026-05-15"
+        "publishedAt": "2026-05-15",
+        "groupId": "hdfc-dcc-markup-revision-2026-05-15",
+        "groupTitle": "HDFC revised DCC markup fee",
+        "groupSummary": "Effective 15 May 2026, HDFC revised its Dynamic Currency Conversion markup fee to 1.75% on INR-denominated international transactions or transactions with overseas-registered merchants for affected cards."
       }
     ],
     "tips": [
@@ -203,7 +224,10 @@
         "sourceType": "manual",
         "sourceLabel": "HDFC SmartBuy terms",
         "sourceUrl": "https://offers.smartbuy.hdfc.bank.in/offer_details/smartbuy/15282",
-        "publishedAt": "2026-07-01"
+        "publishedAt": "2026-07-01",
+        "groupId": "hdfc-smartbuy-voucher-cap-2026-07-01",
+        "groupTitle": "HDFC capped SmartBuy brand voucher rewards",
+        "groupSummary": "From 1 July 2026, HDFC SmartBuy brand vouchers earn accelerated points only up to 3,000 points per month across affected premium cards. Each card's overall SmartBuy monthly cap continues to apply separately."
       },
       {
         "title": "HDFC revised Diners Privilege rewards, lounge access and DCC rules",
@@ -230,7 +254,10 @@
         "sourceType": "manual",
         "sourceLabel": "IndusInd Bank official notice",
         "sourceUrl": "https://www.indusind.com/in/en/personal/schedule-of-charges.html",
-        "publishedAt": "2026-05-15"
+        "publishedAt": "2026-05-15",
+        "groupId": "indusind-credit-card-charges-revised-2026-05-15",
+        "groupTitle": "IndusInd credit card charges revised",
+        "groupSummary": "Effective 15 June 2026, IndusInd Bank revised credit card charges for affected cards, including late payment fees and fee treatment for DCC, high cumulative fuel spends, and high utility/transport payments."
       },
       {
         "title": "Complimentary airport lounge access discontinued",
@@ -250,7 +277,10 @@
         "sourceType": "manual",
         "sourceLabel": "IndusInd Bank official notice",
         "sourceUrl": "https://www.indusind.bank.in/content/dam/indusind-corporate/Other/Lounge-Terms-and-Conditions.pdf",
-        "publishedAt": "2026-04-01"
+        "publishedAt": "2026-04-01",
+        "groupId": "indusind-domestic-lounge-spend-tracking-2026-04-01",
+        "groupTitle": "IndusInd domestic lounge access spend tracking updated",
+        "groupSummary": "Effective 1 April 2026, IndusInd initiated spend-criteria tracking for affected cards to unlock complimentary domestic lounge access from the July 2026 quarter onwards."
       },
       {
         "title": "Golf benefit updates",
@@ -270,7 +300,10 @@
         "sourceType": "manual",
         "sourceLabel": "IndusInd Bank official notice",
         "sourceUrl": "https://www.indusind.com/in/en/personal/schedule-of-charges.html",
-        "publishedAt": "2026-05-15"
+        "publishedAt": "2026-05-15",
+        "groupId": "indusind-credit-card-charges-revised-2026-05-15",
+        "groupTitle": "IndusInd credit card charges revised",
+        "groupSummary": "Effective 15 June 2026, IndusInd Bank revised credit card charges for affected cards, including late payment fees and fee treatment for DCC, high cumulative fuel spends, and high utility/transport payments."
       },
       {
         "title": "Domestic Lounge access update",
@@ -278,7 +311,10 @@
         "sourceType": "manual",
         "sourceLabel": "IndusInd Bank official notice",
         "sourceUrl": "https://www.indusind.bank.in/content/dam/indusind-corporate/Other/Lounge-Terms-and-Conditions.pdf",
-        "publishedAt": "2026-04-01"
+        "publishedAt": "2026-04-01",
+        "groupId": "indusind-domestic-lounge-spend-tracking-2026-04-01",
+        "groupTitle": "IndusInd domestic lounge access spend tracking updated",
+        "groupSummary": "Effective 1 April 2026, IndusInd initiated spend-criteria tracking for affected cards to unlock complimentary domestic lounge access from the July 2026 quarter onwards."
       },
       {
         "title": "Golf and International Lounge updates",
@@ -321,7 +357,10 @@
         "sourceType": "manual",
         "sourceLabel": "IndusInd Bank official notice",
         "sourceUrl": "https://www.indusind.com/in/en/personal/schedule-of-charges.html",
-        "publishedAt": "2026-05-15"
+        "publishedAt": "2026-05-15",
+        "groupId": "indusind-credit-card-charges-revised-2026-05-15",
+        "groupTitle": "IndusInd credit card charges revised",
+        "groupSummary": "Effective 15 June 2026, IndusInd Bank revised credit card charges for affected cards, including late payment fees and fee treatment for DCC, high cumulative fuel spends, and high utility/transport payments."
       }
     ]
   },
@@ -345,7 +384,10 @@
         "sourceType": "manual",
         "sourceLabel": "Axis Bank official notice",
         "sourceUrl": "https://www.axisbank.com/retail/cards/credit-card/atlas-credit-card",
-        "publishedAt": "2026-04-02"
+        "publishedAt": "2026-04-02",
+        "groupId": "axis-travel-edge-partner-revision-2026-04-02",
+        "groupTitle": "Axis revised Travel EDGE transfer partners",
+        "groupSummary": "Effective 2 April 2026, Axis revised Travel EDGE transfer partners across affected travel cards, removing Accor, Marriott and Qatar Airways, adding British Airways, Finnair and Vietnam Airlines, and retaining card-specific transfer ratios and annual caps."
       },
       {
         "title": "Axis restored Qatar Airways at a reduced Atlas ratio",
@@ -353,7 +395,10 @@
         "sourceType": "manual",
         "sourceLabel": "Axis Travel EDGE portal reports via Magnify",
         "sourceUrl": "https://magnify.club/guides/axis-qatar-airways-returns-new-transfer-ratios/",
-        "publishedAt": "2026-07-24"
+        "publishedAt": "2026-07-24",
+        "groupId": "axis-qatar-airways-restored-2026-07-24",
+        "groupTitle": "Axis restored Qatar Airways on Travel EDGE at reduced ratios",
+        "groupSummary": "Qatar Airways Privilege Club is again available on Travel EDGE for affected Axis cards at reduced card-specific transfer ratios. Accor and Marriott remain unavailable."
       }
     ],
     "tips": [
@@ -391,7 +436,10 @@
         "sourceType": "manual",
         "sourceLabel": "Axis Travel EDGE portal reports via Magnify",
         "sourceUrl": "https://magnify.club/guides/axis-qatar-airways-returns-new-transfer-ratios/",
-        "publishedAt": "2026-07-24"
+        "publishedAt": "2026-07-24",
+        "groupId": "axis-qatar-airways-restored-2026-07-24",
+        "groupTitle": "Axis restored Qatar Airways on Travel EDGE at reduced ratios",
+        "groupSummary": "Qatar Airways Privilege Club is again available on Travel EDGE for affected Axis cards at reduced card-specific transfer ratios. Accor and Marriott remain unavailable."
       }
     ],
     "tips": [
@@ -415,7 +463,10 @@
         "sourceType": "manual",
         "sourceLabel": "Axis Bank official notice",
         "sourceUrl": "https://www.axis.bank.in/cards/credit-card/axis-bank-magnus-credit-card",
-        "publishedAt": "2026-04-02"
+        "publishedAt": "2026-04-02",
+        "groupId": "axis-travel-edge-partner-revision-2026-04-02",
+        "groupTitle": "Axis revised Travel EDGE transfer partners",
+        "groupSummary": "Effective 2 April 2026, Axis revised Travel EDGE transfer partners across affected travel cards, removing Accor, Marriott and Qatar Airways, adding British Airways, Finnair and Vietnam Airlines, and retaining card-specific transfer ratios and annual caps."
       },
       {
         "title": "Axis restored Qatar Airways at a reduced Burgundy ratio",
@@ -423,7 +474,10 @@
         "sourceType": "manual",
         "sourceLabel": "Axis Travel EDGE portal reports via Magnify",
         "sourceUrl": "https://magnify.club/guides/axis-qatar-airways-returns-new-transfer-ratios/",
-        "publishedAt": "2026-07-24"
+        "publishedAt": "2026-07-24",
+        "groupId": "axis-qatar-airways-restored-2026-07-24",
+        "groupTitle": "Axis restored Qatar Airways on Travel EDGE at reduced ratios",
+        "groupSummary": "Qatar Airways Privilege Club is again available on Travel EDGE for affected Axis cards at reduced card-specific transfer ratios. Accor and Marriott remain unavailable."
       },
       {
         "title": "Axis revised Magnus for Burgundy rewards and spend exclusions",
@@ -474,7 +528,10 @@
         "summary": "Effective April 2, 2026: Marriott Bonvoy, Accor Live Limitless and Qatar Airways Privilege Club removed; British Airways Executive Club, Finnair Plus and Vietnam Airlines Lotusmiles added.",
         "sourceType": "manual",
         "sourceLabel": "Axis Bank Customer Notice",
-        "publishedAt": "2026-04-02"
+        "publishedAt": "2026-04-02",
+        "groupId": "axis-travel-edge-partner-revision-2026-04-02",
+        "groupTitle": "Axis revised Travel EDGE transfer partners",
+        "groupSummary": "Effective 2 April 2026, Axis revised Travel EDGE transfer partners across affected travel cards, removing Accor, Marriott and Qatar Airways, adding British Airways, Finnair and Vietnam Airlines, and retaining card-specific transfer ratios and annual caps."
       },
       {
         "title": "Axis restored Qatar Airways at a reduced Reserve ratio",
@@ -482,7 +539,10 @@
         "sourceType": "manual",
         "sourceLabel": "Axis Travel EDGE portal reports via Magnify",
         "sourceUrl": "https://magnify.club/guides/axis-qatar-airways-returns-new-transfer-ratios/",
-        "publishedAt": "2026-07-24"
+        "publishedAt": "2026-07-24",
+        "groupId": "axis-qatar-airways-restored-2026-07-24",
+        "groupTitle": "Axis restored Qatar Airways on Travel EDGE at reduced ratios",
+        "groupSummary": "Qatar Airways Privilege Club is again available on Travel EDGE for affected Axis cards at reduced card-specific transfer ratios. Accor and Marriott remain unavailable."
       }
     ],
     "tips": [

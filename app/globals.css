@@ -530,6 +530,12 @@ html body .updates-reference-page .updates-date {
   line-height: 1.4;
 }
 
+html body .updates-reference-page .updates-card-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px 8px;
+}
+
 html body .updates-reference-page .updates-card-name {
   color: #202124;
   font-weight: 700;
@@ -9595,8 +9601,14 @@ input[type="number"] {
   text-transform: uppercase;
 }
 
-.sc-latest-card-name {
+.sc-latest-card-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 10px;
   margin-bottom: 8px;
+}
+
+.sc-latest-card-name {
   color: var(--sc-purple);
   font-size: 13px;
   font-weight: 900;

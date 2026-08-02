@@ -18,7 +18,8 @@ calls the AI provider. The AI is used only to phrase/resolve, never as the sourc
   `CardScore`, `RecommendResult`, `RecommendationInput`. Changing `CreditCard` changes the schema
   every card JSON must satisfy.
 - **`card-content.ts`** — editorial tips/updates from `data/card-content.json` (not part of the
-  card schema).
+  card schema). Aggregated Latest Updates collapse entries with the same `groupId`; per-card
+  content stays ungrouped for detail pages.
 - **`card-links.ts`** — resolves the correct apply/affiliate URL for a card (`applyUrl` vs
   `affiliateUrl`); centralises the affiliate vs non-affiliate link decision.
 - **`card-usp.ts`** — `getCardUsp(card)`: one-line marketing USP for a card. Returns a curated

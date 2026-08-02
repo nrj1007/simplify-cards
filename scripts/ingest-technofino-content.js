@@ -14,10 +14,24 @@ function summarizeText(value, maxLength = 220) {
   return `${text.slice(0, maxLength - 3).trimEnd()}...`;
 }
 
+function slugify(value) {
+  return String(value || "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, " ")
+    .trim()
+    .replace(/\s+/g, "-");
+}
+
+function groupIdForSignal(signal, publishedAt) {
+  const cardIds = Array.isArray(signal.cardIds) ? signal.cardIds : [];
+  if (cardIds.length <= 1) return undefined;
+  return signal.groupId || `${slugify(signal.title)}-${publishedAt}`;
+}
+
 function dedupeUpdates(updates) {
   const seen = new Set();
   return updates.filter((update) => {
-    const key = `${update.title}|${update.publishedAt}|${update.sourceUrl || ""}`;
+    const key = `${update.groupId || update.title}|${update.publishedAt}|${update.sourceUrl || ""}`;
     if (seen.has(key)) return false;
     seen.add(key);
     return true;
@@ -72,15 +86,26 @@ function buildAdditions(files) {
         additions[cardId] ||= {};
 
         if (contentType === "update") {
-          additions[cardId].updates ||= [];
-          additions[cardId].updates.push({
+          const publishedAt = signal.publishedAt || String(file.generatedAt || "").slice(0, 10);
+          const summary = signal.summary || summarizeText(signal.candidateText || signal.title);
+          const groupId = groupIdForSignal(signal, publishedAt);
+          const update = {
             title: signal.title,
-            summary: signal.summary || summarizeText(signal.candidateText || signal.title),
+            summary,
             sourceType: "technofino",
             sourceLabel: "TechnoFino",
             sourceUrl: signal.url,
-            publishedAt: signal.publishedAt || String(file.generatedAt || "").slice(0, 10)
-          });
+            publishedAt
+          };
+
+          if (groupId) {
+            update.groupId = groupId;
+            update.groupTitle = signal.groupTitle || signal.title;
+            update.groupSummary = signal.groupSummary || summary;
+          }
+
+          additions[cardId].updates ||= [];
+          additions[cardId].updates.push(update);
         } else {
           additions[cardId].tips ||= [];
           additions[cardId].tips.push({

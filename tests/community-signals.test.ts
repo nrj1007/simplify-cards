@@ -69,6 +69,37 @@ describe("community signal ingestion helpers", () => {
     expect(additions["sbi-cashback"].tips).toHaveLength(1);
   });
 
+  it("adds group fields for approved multi-card updates", () => {
+    const file: PendingTechnofinoFile = {
+      fileName: "2026-05-12-technofino.json",
+      generatedAt: "2026-05-12T10:00:00.000Z",
+      source: "technofino",
+      reviewQueue: [
+        {
+          title: "HDFC premium cards devaluation",
+          url: "https://technofino.in/hdfc",
+          signalType: "terms-change",
+          candidateText: "Multiple HDFC premium cards have revised reward caps.",
+          requiresOfficialVerification: true,
+          approvedForCardDb: false,
+          approvedForCardContent: true,
+          cardIds: ["hdfc-regalia-gold", "hdfc-infinia-metal"],
+          publishedAt: "2026-05-12"
+        }
+      ]
+    };
+
+    const drafts = file.reviewQueue.map((signal) => buildCommunitySignalDraft(file, signal));
+    const additions = buildCardContentAdditions(drafts);
+
+    expect(additions["hdfc-regalia-gold"].updates?.[0]).toMatchObject({
+      groupId: "hdfc-premium-cards-devaluation-2026-05-12",
+      groupTitle: "HDFC premium cards devaluation",
+      groupSummary: "Multiple HDFC premium cards have revised reward caps."
+    });
+    expect(additions["hdfc-infinia-metal"].updates?.[0].groupId).toBe("hdfc-premium-cards-devaluation-2026-05-12");
+  });
+
   it("dedupes merged card-content entries", () => {
     const merged = mergeCardContent(
       {

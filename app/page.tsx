@@ -81,7 +81,8 @@ function toLandingUpdate(update: CardUpdateWithMeta): LandingUpdate {
     sourceUrl: update.sourceUrl,
     cardId: update.cardId,
     cardName: update.cardName,
-    cardIssuer: update.cardIssuer
+    cardIssuer: update.cardIssuer,
+    cards: update.cards
   };
 }
 

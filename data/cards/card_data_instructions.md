@@ -447,6 +447,11 @@ Major card updates (devaluations, golf benefit revisions, or lounge spends track
     *   `sourceLabel`: Friendly name of the source (e.g., "IndusInd Bank official notice").
     *   `sourceUrl`: Direct canonical link to the announcement PDF or official web page.
     *   `publishedAt`: Release date in `YYYY-MM-DD` format.
+    *   `groupId` (optional, required for multi-card notices): Stable feed grouping key when the same notice applies to more than one card, e.g. `"hdfc-smartbuy-voucher-cap-2026-07-01"`.
+    *   `groupTitle` (optional): Feed-level headline used by `/latest` and the landing-page Latest Updates carousel when grouped.
+    *   `groupSummary` (optional): Feed-level summary used by grouped Latest Updates. Keep card-specific nuance in each card's `summary`.
+
+*   **Grouping rule**: If one official notice, circular, source URL, or verified community signal applies to multiple cards, every affected card's update entry must share the same `groupId`. Use `groupTitle` and `groupSummary` for the deduplicated feed copy, while preserving card-specific `title` and `summary` for card detail pages. Single-card updates should omit the group fields.
 
 **Example entry:**
 ```json
@@ -458,7 +463,10 @@ Major card updates (devaluations, golf benefit revisions, or lounge spends track
       "sourceType": "manual",
       "sourceLabel": "IndusInd Bank official notice",
       "sourceUrl": "https://www.indusind.bank.in/content/dam/indusind-corporate/Other/Lounge-Terms-and-Conditions.pdf",
-      "publishedAt": "2026-04-01"
+      "publishedAt": "2026-04-01",
+      "groupId": "indusind-domestic-lounge-spend-tracking-2026-04-01",
+      "groupTitle": "IndusInd domestic lounge access spend tracking updated",
+      "groupSummary": "Effective 1 April 2026, IndusInd initiated spend-criteria tracking for affected cards to unlock complimentary domestic lounge access from the July 2026 quarter onwards."
     }
   ]
 }

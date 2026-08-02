@@ -83,7 +83,9 @@ tests/          Vitest unit tests (one per lib module)
 - **Authoring/updating cards:** follow **`data/cards/card_data_instructions.md`** (conventions,
   exclusion codes, redemption/lounge fields, scoring annotations) and run `npm run validate:cards`.
 - `data/card-content.json` holds non-schema editorial content (tips, dated updates) keyed by
-  card id, served via `lib/card-content.ts`.
+  card id, served via `lib/card-content.ts`. Multi-card Latest Updates should share
+  `groupId`/`groupTitle`/`groupSummary` so aggregated feeds deduplicate them while card pages keep
+  their per-card entries.
 - Generated/append-only logs live under `data/question-logs/`, `data/community-signals/`,
   `data/telegram-inbox/` — these are data, not code.
 

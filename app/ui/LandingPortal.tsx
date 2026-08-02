@@ -43,6 +43,11 @@ export type LandingUpdate = {
   cardId: string;
   cardName: string;
   cardIssuer: string;
+  cards: Array<{
+    cardId: string;
+    cardName: string;
+    cardIssuer: string;
+  }>;
 };
 
 type LandingPortalProps = {
@@ -461,9 +466,13 @@ function LatestUpdates({ updates }: { updates: LandingUpdate[] }) {
       <div className="sc-latest-grid">
         <article className="sc-latest-card">
           <time dateTime={active.publishedAt}>{formatDate(active.publishedAt)}</time>
-          <Link href={cardSlug(active.cardId)} className="sc-latest-card-name">
-            {active.cardName}
-          </Link>
+          <div className="sc-latest-card-links" aria-label="Affected cards">
+            {active.cards.map((card) => (
+              <Link href={cardSlug(card.cardId)} className="sc-latest-card-name" key={card.cardId}>
+                {card.cardName}
+              </Link>
+            ))}
+          </div>
           <h3>{active.title}</h3>
           <p>{active.summary}</p>
           <div className="sc-news-controls">
@@ -474,7 +483,7 @@ function LatestUpdates({ updates }: { updates: LandingUpdate[] }) {
               {updates.map((update, index) => (
                 <button
                   type="button"
-                  key={`${update.cardId}-${update.publishedAt}-${update.title}`}
+                  key={`${update.cardId}-${update.publishedAt}-${update.title}-${index}`}
                   className={index === activeIndex ? "active" : ""}
                   onClick={() => setActiveIndex(index)}
                   aria-label={`Show ${update.title}`}

@@ -39,6 +39,7 @@ Compare the retrieved details against the current card entry in its per-card fil
 - **Network Variants**: Confirm the currently offered network(s) and remove stale networks that are no longer shown on the official product page or official documents.
 - **Card Image**: Verify that the card has a good `imageUrl` pointing to the actual card face, not a banner, eligibility artwork, or generic marketing visual.
 - **Latest Updates**: Check whether the issuer has any recent official updates, revision notices, devaluations, fee changes, lounge-rule changes, reward revisions, or benefit changes that should be added to `data/card-content.json`.
+  - When the same notice applies to multiple cards, add matching `groupId`, `groupTitle`, and `groupSummary` fields to every affected card's update entry so the Latest Updates feed deduplicates them. Keep `title` and `summary` card-specific when the card-level details differ.
 - **Rewards Capping**: Limits on specific categories (e.g., monthly limits on grocery, utilities, insurance, or rent).
 - **Milestones**: Spend-threshold unlocks (e.g. a Rs 5,000 voucher on Rs 5 lakh annual spend, or bonus points on a per-calendar-quarter spend). Capture `threshold` + `period` (annual/quarterly/monthly) + `value` + `kind`, and write them to the structured `milestones` field (see Step 4) — do not rely on the runtime text parser.
 - **Lounge Spends Requirements**: Spend-based lounge unlock criteria (e.g., spending ₹35,000 in the previous quarter to unlock the next quarter's lounge access). Capture these as user-facing bullets and write them into the structured `lounge` field (see Step 4) — not into `internalNotes` or `additionalBenefits`.
@@ -154,6 +155,7 @@ If a fact already has a structured home, do not repeat it in visible prose.
    - Set `"lastVerified"` to today's date in `YYYY-MM-DD` format.
    - Set `"verificationStatus"` to `"official-direct"`.
    - If you add `Latest Updates`, keep them limited to official notices published within the trailing 12 months as of the review date. Older notices should stay out of `Latest Updates` unless the user explicitly asks for historical updates.
+   - If a `Latest Updates` item is part of a multi-card notice, use a stable `groupId` such as `issuer-change-name-yyyy-mm-dd`, plus feed-level `groupTitle` and `groupSummary`. Single-card updates should omit these fields.
 8. **Unique Rendering Keys**:
    - If you split a category row (e.g., splitting unified base spends into weekdays and weekends rows), verify that the combination of `category` and `displayCategory` is unique for each row. This prevents React key duplication errors when the UI maps over rewards.
 9. **Reward Calculator Verification for Travel Cards**:

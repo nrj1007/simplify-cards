@@ -13,6 +13,11 @@ type Update = {
   cardId: string;
   cardName: string;
   cardIssuer: string;
+  cards: Array<{
+    cardId: string;
+    cardName: string;
+    cardIssuer: string;
+  }>;
 };
 
 const PAGE_SIZE = 10;
@@ -74,7 +79,13 @@ export default function UpdatesBrowser({ updates }: { updates: Update[] }) {
                   {monthUpdates.map((update) => (
                     <article className="updates-tile" key={`${update.cardId}-${update.publishedAt}-${update.title}`}>
                       <div className="updates-tile-meta">
-                        <Link className="updates-card-name" href={`/cards/${update.cardId}` as Route}>{update.cardName}</Link>
+                        <div className="updates-card-links" aria-label="Affected cards">
+                          {update.cards.map((card) => (
+                            <Link className="updates-card-name" href={`/cards/${card.cardId}` as Route} key={card.cardId}>
+                              {card.cardName}
+                            </Link>
+                          ))}
+                        </div>
                         <time className="updates-date" dateTime={update.publishedAt}>{dateLabel(update.publishedAt)}</time>
                       </div>
                       <div className="updates-tile-art">

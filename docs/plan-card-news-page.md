@@ -2,9 +2,9 @@
 
 ## Context
 
-`data/card-content.json` currently holds 20 cards' editorial content: 31 updates (devaluations,
-benefit changes, new features) and 20 tips. `lib/card-content.ts` exposes `getCardContent(cardId)`
-which returns up to 3 updates sorted newest-first, and `hasCardContent(cardId)`.
+`data/card-content.json` holds cards' editorial content: dated updates (devaluations,
+benefit changes, new features) and tips. `lib/card-content.ts` exposes `getCardContent(cardId)`
+which returns up to 3 per-card updates sorted newest-first, and `hasCardContent(cardId)`.
 
 This data is only surfaced on individual card detail pages (via `getCardContent`). There is no
 aggregated view, so:
@@ -28,27 +28,17 @@ export type CardUpdateWithMeta = CardUpdate & {
   cardId: string;
   cardName: string;
   cardIssuer: string;
+  cards: Array<{
+    cardId: string;
+    cardName: string;
+    cardIssuer: string;
+  }>;
 };
 
 export function getAllUpdates(limit = 50): CardUpdateWithMeta[] {
-  const result: CardUpdateWithMeta[] = [];
-
-  for (const card of cards) {
-    const entry = cardContent[card.id];
-    if (!entry?.updates) continue;
-    for (const update of entry.updates) {
-      result.push({
-        ...update,
-        cardId: card.id,
-        cardName: card.name,
-        cardIssuer: card.issuer
-      });
-    }
-  }
-
-  return result
-    .sort((a, b) => b.publishedAt.localeCompare(a.publishedAt))
-    .slice(0, limit);
+  // Aggregate per-card updates and collapse entries that share groupId.
+  // Grouped feed items keep cardId/cardName/cardIssuer for compatibility and
+  // expose every affected card through cards[] for the UI.
 }
 ```
 
@@ -177,6 +167,8 @@ workflow stays the same:
 - When a card benefit changes, add an entry to `data/card-content.json` under the card's ID.
 - Use `publishedAt: "YYYY-MM-DD"` (ISO date, string).
 - `sourceType: "manual"` for direct issuer verification; `"technofino"` for community-sourced.
+- If the same notice applies to multiple cards, add the same `groupId` to every affected update.
+  Add `groupTitle` and `groupSummary` for the deduplicated `/latest` and landing-page feed copy.
 - Run `npm run validate:cards` (card JSON) and `npx tsc --noEmit` after any content change.
 
 ## Verification

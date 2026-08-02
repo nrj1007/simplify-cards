@@ -83,6 +83,115 @@ describe("card content helpers", () => {
     expect(all[1].cardId).toBe("icici-amazon-pay");
   });
 
+  it("groups multi-card updates by groupId with affected card metadata", () => {
+    const content: CardContentMap = {
+      "sbi-cashback": {
+        updates: [
+          {
+            title: "SBI specific title",
+            summary: "SBI specific summary",
+            sourceType: "manual",
+            sourceLabel: "Manual",
+            publishedAt: "2026-06-15",
+            groupId: "shared-change-2026-06-15",
+            groupTitle: "Shared change",
+            groupSummary: "Shared feed summary"
+          }
+        ]
+      },
+      "hdfc-regalia-gold": {
+        updates: [
+          {
+            title: "HDFC specific title",
+            summary: "HDFC specific summary",
+            sourceType: "manual",
+            sourceLabel: "Manual",
+            publishedAt: "2026-06-15",
+            groupId: "shared-change-2026-06-15",
+            groupTitle: "Shared change",
+            groupSummary: "Shared feed summary"
+          }
+        ]
+      }
+    };
+
+    const all = getAllUpdates(50, content);
+
+    expect(all).toHaveLength(1);
+    expect(all[0]).toMatchObject({
+      title: "Shared change",
+      summary: "Shared feed summary",
+      groupId: "shared-change-2026-06-15"
+    });
+    expect(all[0].cards.map((card) => card.cardId).sort()).toEqual(["hdfc-regalia-gold", "sbi-cashback"]);
+  });
+
+  it("keeps per-card content ungrouped on detail pages", () => {
+    const content: CardContentMap = {
+      "sbi-cashback": {
+        updates: [
+          {
+            title: "SBI specific title",
+            summary: "SBI specific summary",
+            sourceType: "manual",
+            sourceLabel: "Manual",
+            publishedAt: "2026-06-15",
+            groupId: "shared-change-2026-06-15",
+            groupTitle: "Shared change",
+            groupSummary: "Shared feed summary"
+          }
+        ]
+      }
+    };
+
+    const entry = getCardContent("sbi-cashback", content);
+
+    expect(entry?.updates[0]).toMatchObject({
+      title: "SBI specific title",
+      summary: "SBI specific summary",
+      groupTitle: "Shared change"
+    });
+  });
+
+  it("applies limits after grouping updates", () => {
+    const content: CardContentMap = {
+      "sbi-cashback": {
+        updates: [
+          {
+            title: "Grouped SBI",
+            summary: "x",
+            sourceType: "manual",
+            sourceLabel: "Manual",
+            publishedAt: "2026-06-03",
+            groupId: "shared-change-2026-06-03"
+          }
+        ]
+      },
+      "hdfc-regalia-gold": {
+        updates: [
+          {
+            title: "Grouped HDFC",
+            summary: "x",
+            sourceType: "manual",
+            sourceLabel: "Manual",
+            publishedAt: "2026-06-03",
+            groupId: "shared-change-2026-06-03"
+          }
+        ]
+      },
+      "icici-amazon-pay": {
+        updates: [
+          { title: "Ungrouped", summary: "x", sourceType: "manual", sourceLabel: "Manual", publishedAt: "2026-06-02" }
+        ]
+      }
+    };
+
+    const all = getAllUpdates(1, content);
+
+    expect(all).toHaveLength(1);
+    expect(all[0].cards).toHaveLength(2);
+  });
+
   it("respects the limit argument", () => {
     const content: CardContentMap = {
       "sbi-cashback": {

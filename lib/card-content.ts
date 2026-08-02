@@ -10,6 +10,9 @@ export type CardUpdate = {
   sourceLabel: string;
   sourceUrl?: string;
   publishedAt: string;
+  groupId?: string;
+  groupTitle?: string;
+  groupSummary?: string;
 };
 
 export type CardTip = {
@@ -47,25 +50,54 @@ export function hasCardContent(cardId: string, source: CardContentMap = cardCont
   return Boolean(entry && (entry.updates.length > 0 || entry.tips.length > 0));
 }
 
-export type CardUpdateWithMeta = CardUpdate & {
+export type CardUpdateCard = {
   cardId: string;
   cardName: string;
   cardIssuer: string;
+};
+
+export type CardUpdateWithMeta = CardUpdate & CardUpdateCard & {
+  cards: CardUpdateCard[];
 };
 
 // Aggregates every card's updates into one chronological (newest-first) feed.
 // Used by the /latest page. Iterates the card index for name/issuer; safe from
 // circular imports because card-index.ts does not import this module.
 export function getAllUpdates(limit = 50, source: CardContentMap = cardContent): CardUpdateWithMeta[] {
-  const result: CardUpdateWithMeta[] = [];
+  const ungrouped: CardUpdateWithMeta[] = [];
+  const grouped = new Map<string, CardUpdateWithMeta>();
 
   for (const card of cards) {
     const entry = source[card.id];
     if (!entry?.updates) continue;
     for (const update of entry.updates) {
-      result.push({ ...update, cardId: card.id, cardName: card.name, cardIssuer: card.issuer });
+      const cardMeta = { cardId: card.id, cardName: card.name, cardIssuer: card.issuer };
+
+      if (!update.groupId) {
+        ungrouped.push({ ...update, ...cardMeta, cards: [cardMeta] });
+        continue;
+      }
+
+      const existing = grouped.get(update.groupId);
+      if (!existing) {
+        grouped.set(update.groupId, {
+          ...update,
+          title: update.groupTitle ?? update.title,
+          summary: update.groupSummary ?? update.summary,
+          ...cardMeta,
+          cards: [cardMeta]
+        });
+        continue;
+      }
+
+      existing.cards.push(cardMeta);
+      if (update.publishedAt > existing.publishedAt) {
+        existing.publishedAt = update.publishedAt;
+      }
     }
   }
 
-  return result.sort((left, right) => right.publishedAt.localeCompare(left.publishedAt)).slice(0, limit);
+  return [...ungrouped, ...grouped.values()]
+    .sort((left, right) => right.publishedAt.localeCompare(left.publishedAt) || left.title.localeCompare(right.title))
+    .slice(0, limit);
 }

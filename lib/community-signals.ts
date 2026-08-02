@@ -24,6 +24,9 @@ export type PendingTechnofinoSignal = {
   publishedAt?: string;
   summary?: string;
   tipText?: string;
+  groupId?: string;
+  groupTitle?: string;
+  groupSummary?: string;
 };
 
 export type PendingTechnofinoFile = {
@@ -52,6 +55,9 @@ export type CommunitySignalDraft = {
   suggestedPublishedAt: string;
   suggestedSummary: string;
   suggestedTipText: string;
+  suggestedGroupId?: string;
+  suggestedGroupTitle?: string;
+  suggestedGroupSummary?: string;
 };
 
 const pendingSignalsDir = path.join(process.cwd(), "data", "community-signals", "pending");
@@ -76,6 +82,16 @@ function dateOnly(value: string) {
 
 function defaultContentType(signalType: string): "update" | "tip" {
   return signalType === "discussion" || signalType === "merchant-reward-behavior" ? "tip" : "update";
+}
+
+function slugify(value: string) {
+  return normalize(value).replace(/\s+/g, "-");
+}
+
+function suggestedGroupIdForSignal(signal: PendingTechnofinoSignal, publishedAt: string) {
+  const cardIds = signal.cardIds ?? [];
+  if (cardIds.length <= 1) return undefined;
+  return signal.groupId ?? `${slugify(signal.title)}-${publishedAt}`;
 }
 
 function getIssuerShorthands(issuer: string): string[] {
@@ -200,6 +216,9 @@ export function buildCommunitySignalDraft(file: PendingTechnofinoFile, signal: P
   const suggestedContentType = signal.contentType ?? defaultContentType(signal.signalType);
   const explicitCardIds = signal.cardIds ?? [];
   const missingFields: string[] = [];
+  const suggestedPublishedAt = signal.publishedAt ?? dateOnly(file.generatedAt);
+  const suggestedSummary = signal.summary ?? summarizeText(signal.candidateText || signal.title);
+  const suggestedGroupId = suggestedContentType === "update" ? suggestedGroupIdForSignal(signal, suggestedPublishedAt) : undefined;
 
   if (signal.approvedForCardContent && explicitCardIds.length === 0) {
     missingFields.push("cardIds");
@@ -218,9 +237,12 @@ export function buildCommunitySignalDraft(file: PendingTechnofinoFile, signal: P
     approvedCardNames: approvedCardNames(explicitCardIds),
     readyToIngest: Boolean(signal.approvedForCardContent) && missingFields.length === 0,
     missingFields,
-    suggestedPublishedAt: signal.publishedAt ?? dateOnly(file.generatedAt),
-    suggestedSummary: signal.summary ?? summarizeText(signal.candidateText || signal.title),
-    suggestedTipText: signal.tipText ?? summarizeText(signal.candidateText || signal.title)
+    suggestedPublishedAt,
+    suggestedSummary,
+    suggestedTipText: signal.tipText ?? summarizeText(signal.candidateText || signal.title),
+    suggestedGroupId,
+    suggestedGroupTitle: suggestedGroupId ? signal.groupTitle ?? signal.title : undefined,
+    suggestedGroupSummary: suggestedGroupId ? signal.groupSummary ?? suggestedSummary : undefined
   };
 }
 
@@ -229,7 +251,7 @@ export function buildCommunitySignalDrafts(files: PendingTechnofinoFile[]) {
 }
 
 function buildUpdateEntry(draft: CommunitySignalDraft): CardUpdate {
-  return {
+  const update: CardUpdate = {
     title: draft.signal.title,
     summary: draft.suggestedSummary,
     sourceType: "technofino",
@@ -237,6 +259,14 @@ function buildUpdateEntry(draft: CommunitySignalDraft): CardUpdate {
     sourceUrl: draft.signal.url,
     publishedAt: draft.suggestedPublishedAt
   };
+
+  if (draft.suggestedGroupId) {
+    update.groupId = draft.suggestedGroupId;
+    update.groupTitle = draft.suggestedGroupTitle;
+    update.groupSummary = draft.suggestedGroupSummary;
+  }
+
+  return update;
 }
 
 function buildTipEntry(draft: CommunitySignalDraft): CardTip {
@@ -274,7 +304,7 @@ function dedupeUpdates(updates: CardUpdate[]) {
   const seen = new Set<string>();
 
   return updates.filter((update) => {
-    const key = `${update.title}|${update.publishedAt}|${update.sourceUrl ?? ""}`;
+    const key = `${update.groupId ?? update.title}|${update.publishedAt}|${update.sourceUrl ?? ""}`;
     if (seen.has(key)) return false;
     seen.add(key);
     return true;
