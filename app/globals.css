@@ -9570,7 +9570,7 @@ input[type="number"] {
 }
 
 .sc-latest-card,
-.sc-subscribe-card,
+.sc-whatsapp-channel-card,
 .sc-review-form-card {
   border: 1px solid #e8dfcf;
   border-radius: 28px;
@@ -9670,7 +9670,7 @@ input[type="number"] {
   background: var(--sc-purple);
 }
 
-.sc-subscribe-card {
+.sc-whatsapp-channel-card {
   display: flex;
   min-height: 240px;
   flex-direction: column;
@@ -9678,7 +9678,19 @@ input[type="number"] {
   padding: 24px;
 }
 
-.sc-subscribe-card h3,
+.sc-whatsapp-channel-icon {
+  display: inline-flex;
+  width: 46px;
+  height: 46px;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 18px;
+  border-radius: 16px;
+  background: #e7f7ef;
+  color: #128c4a;
+}
+
+.sc-whatsapp-channel-card h3,
 .sc-review-form-card h3 {
   margin: 0;
   color: var(--sc-ink);
@@ -9687,7 +9699,7 @@ input[type="number"] {
   letter-spacing: 0;
 }
 
-.sc-subscribe-card p {
+.sc-whatsapp-channel-card p {
   margin: 8px 0 18px;
   color: var(--sc-muted);
   font-size: 14px;
@@ -9695,13 +9707,11 @@ input[type="number"] {
   line-height: 1.5;
 }
 
-.sc-subscribe-card form,
 .sc-review-form-card {
   display: grid;
   gap: 12px;
 }
 
-.sc-subscribe-card input,
 .sc-review-form-card input,
 .sc-review-form-card textarea,
 .sc-review-form-card select {
@@ -9716,7 +9726,6 @@ input[type="number"] {
   padding: 12px 14px;
 }
 
-.sc-subscribe-card input:focus,
 .sc-review-form-card input:focus,
 .sc-review-form-card textarea:focus,
 .sc-review-form-card select:focus {
@@ -9724,8 +9733,12 @@ input[type="number"] {
   box-shadow: 0 0 0 4px rgba(88, 28, 135, 0.1);
 }
 
-.sc-subscribe-card button,
+.sc-whatsapp-channel-card a,
 .sc-review-form-card button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
   border: 0;
   border-radius: 16px;
   background: var(--sc-purple);
@@ -9737,45 +9750,21 @@ input[type="number"] {
   transition: background 0.2s ease;
 }
 
-.sc-subscribe-card button:hover,
+.sc-whatsapp-channel-card a:hover,
 .sc-review-form-card button:hover {
   background: var(--sc-purple-dark);
 }
 
-.sc-subscribe-success-container {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  margin-top: 12px;
-}
-
-.sc-subscribe-success {
-  color: var(--green);
-  font-size: 15px;
-  font-weight: 700;
-  line-height: 1.5;
-  margin: 0;
-}
-
-.sc-subscribe-reset-btn {
-  font-size: 13px !important;
-  padding: 8px 12px !important;
-  background: transparent !important;
-  border: 1px solid var(--sc-line) !important;
-  color: var(--sc-muted) !important;
-  width: max-content;
-}
-
-.sc-subscribe-reset-btn:hover {
-  background: var(--sc-line) !important;
-  color: var(--sc-ink) !important;
-}
-
-.sc-subscribe-error {
-  color: #b91c1c;
-  font-size: 13px;
-  font-weight: 700;
-  margin: 8px 0 0;
+.sc-whatsapp-channel-disabled {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px dashed #d8d3c5;
+  border-radius: 16px;
+  color: var(--sc-muted);
+  font-size: 14px;
+  font-weight: 900;
+  padding: 13px 16px;
 }
 
 .sc-reviews {
@@ -10182,7 +10171,7 @@ input[type="number"] {
   }
 
   .sc-latest-card,
-  .sc-subscribe-card,
+  .sc-whatsapp-channel-card,
   .sc-review-form-card {
     padding: 20px;
   }
