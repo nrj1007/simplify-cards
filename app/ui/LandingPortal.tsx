@@ -7,6 +7,7 @@ import type { Route } from "next";
 import { useRouter } from "next/navigation";
 import { useNavigationProgress } from "./NavigationProgress";
 import {
+  CheckCircle2,
   ChevronLeft,
   ChevronRight,
   Cpu,
@@ -76,6 +77,12 @@ const COMPARISON_LINKS: Array<{ label: string; href: Route }> = [
 ];
 
 const WHATSAPP_CHANNEL_URL = process.env.NEXT_PUBLIC_WHATSAPP_CHANNEL_URL?.trim() ?? "";
+
+const WHATSAPP_CHANNEL_BENEFITS = [
+  "Important updates only",
+  "No noisy group chats",
+  "Free to follow"
+];
 
 const POLICY_COPY = {
   about: {
@@ -454,24 +461,38 @@ function LatestUpdates({ updates }: { updates: LandingUpdate[] }) {
             </button>
           </div>
         </article>
-        <aside className="sc-whatsapp-channel-card">
-          <div>
+        <aside className="sc-whatsapp-channel-card" aria-labelledby="sc-whatsapp-channel-title">
+          <div className="sc-whatsapp-channel-copy">
             <span className="sc-whatsapp-channel-icon" aria-hidden="true">
-              <MessageCircle size={22} />
+              <MessageCircle size={30} />
             </span>
-            <h3>Join our WhatsApp channel</h3>
-            <p>Get verified credit-card updates, fee changes, reward changes, and new-card alerts as soon as we publish them.</p>
+            <div>
+              <span className="sc-whatsapp-channel-eyebrow">SimplifyCards on WhatsApp</span>
+              <h3 id="sc-whatsapp-channel-title">Never miss a credit card update that matters</h3>
+              <p>Get timely alerts for new launches, limited-time offers, reward devaluations, fee changes, and airline or hotel transfer bonuses.</p>
+              <div className="sc-whatsapp-channel-benefits" aria-label="WhatsApp channel benefits">
+                {WHATSAPP_CHANNEL_BENEFITS.map((benefit) => (
+                  <span key={benefit}>
+                    <CheckCircle2 size={18} />
+                    {benefit}
+                  </span>
+                ))}
+              </div>
+            </div>
           </div>
-          {WHATSAPP_CHANNEL_URL ? (
-            <a href={WHATSAPP_CHANNEL_URL} target="_blank" rel="noopener noreferrer">
-              <MessageCircle size={17} />
-              Join WhatsApp channel
-            </a>
-          ) : (
-            <span className="sc-whatsapp-channel-disabled">
-              WhatsApp channel link coming soon
-            </span>
-          )}
+          <div className="sc-whatsapp-channel-action">
+            {WHATSAPP_CHANNEL_URL ? (
+              <a href={WHATSAPP_CHANNEL_URL} target="_blank" rel="noopener noreferrer">
+                <MessageCircle size={21} />
+                Join WhatsApp channel
+              </a>
+            ) : (
+              <span className="sc-whatsapp-channel-disabled">
+                WhatsApp channel link coming soon
+              </span>
+            )}
+            <p><strong>Your phone number stays private</strong> from other channel followers.</p>
+          </div>
         </aside>
       </div>
     </section>
