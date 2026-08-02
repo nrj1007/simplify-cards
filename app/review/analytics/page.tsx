@@ -114,6 +114,10 @@ export default async function AnalyticsReviewPage() {
               <span>Cards with apply clicks</span>
             </div>
             <div className="stat">
+              <strong>{summary.feedback.count.toLocaleString("en-IN")}</strong>
+              <span>Feedback submissions</span>
+            </div>
+            <div className="stat">
               <strong>{summary.aiUsage.providerAttemptCount.toLocaleString("en-IN")}</strong>
               <span>AI provider attempts</span>
             </div>
@@ -199,6 +203,54 @@ export default async function AnalyticsReviewPage() {
             <span className="badge">Last 30 days</span>
           </div>
           <CountTable labelHeader="Query" rows={summary.topAskQueries} />
+        </article>
+
+        <article className="panel review-item">
+          <div className="review-item-head">
+            <strong>Feedback submissions</strong>
+            <span className="badge">Last 30 days</span>
+          </div>
+          <div className="review-summary analytics-review-mini-summary">
+            <div className="stat">
+              <strong>{summary.feedback.count.toLocaleString("en-IN")}</strong>
+              <span>Total feedback</span>
+            </div>
+            <div className="stat">
+              <strong>{summary.feedback.withCommentCount.toLocaleString("en-IN")}</strong>
+              <span>With comment</span>
+            </div>
+            <div className="stat">
+              <strong>{summary.feedback.withoutCommentCount.toLocaleString("en-IN")}</strong>
+              <span>Quick taps</span>
+            </div>
+          </div>
+          <div className="analytics-review-grid">
+            <div>
+              <h3>Feedback value</h3>
+              <CountTable labelHeader="Feedback" rows={summary.feedback.byValue} />
+            </div>
+            <div>
+              <h3>Feedback source</h3>
+              <CountTable labelHeader="Source" rows={summary.feedback.bySource} />
+            </div>
+          </div>
+          {summary.feedbackEvents.length === 0 ? (
+            <EmptyState>No feedback events yet</EmptyState>
+          ) : (
+            <div className="review-list analytics-query-list">
+              {summary.feedbackEvents.map((event, index) => (
+                <div className="analytics-query-row" key={`${event.received_at}-${event.query}-${index}`}>
+                  <strong>{event.query ?? "No query"}</strong>
+                  <div className="meta">
+                    <span>{formatDateTime(event.received_at)}</span>
+                    <span>Feedback: {String(event.metadata?.feedback ?? "unknown")}</span>
+                    <span>Source: {String(event.metadata?.feedback_source ?? event.source)}</span>
+                    <span>Comment: {event.metadata?.has_comment === true ? "yes" : "no"}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
         </article>
 
         <article className="panel review-item">

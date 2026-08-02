@@ -4,6 +4,7 @@ import type { RecommendationInput } from "@/lib/types";
 import type { AskFeedbackValue } from "@/lib/feedback-logs";
 import { logAnalyticsEvent } from "@/lib/analytics-logs";
 import { buildFeedbackAnalyticsPayload } from "@/lib/analytics-events";
+import { buildRequestAnalyticsMetadata } from "@/lib/analytics-request";
 
 type FeedbackPayload = {
   query?: string;
@@ -36,18 +37,24 @@ export async function POST(request: Request) {
     source: payload.source === "details" ? "details" : "ask"
   });
 
-  await logAnalyticsEvent(
-    buildFeedbackAnalyticsPayload({
-      query: payload.query.trim(),
-      cardIds: payload.cardIds.filter((value): value is string => typeof value === "string"),
-      feedback: payload.feedback,
-      hasComment: Boolean(payload.comment?.trim()),
-      feedbackSource: payload.source === "details" ? "details" : "ask",
-      sessionId: payload.sessionId,
-      deviceType: payload.deviceType,
-      referrer: payload.referrer
-    })
-  );
+  const analyticsPayload = buildFeedbackAnalyticsPayload({
+    query: payload.query.trim(),
+    cardIds: payload.cardIds.filter((value): value is string => typeof value === "string"),
+    feedback: payload.feedback,
+    hasComment: Boolean(payload.comment?.trim()),
+    feedbackSource: payload.source === "details" ? "details" : "ask",
+    sessionId: payload.sessionId,
+    deviceType: payload.deviceType,
+    referrer: payload.referrer
+  });
+
+  await logAnalyticsEvent({
+    ...analyticsPayload,
+    metadata: {
+      ...(analyticsPayload.metadata ?? {}),
+      ...buildRequestAnalyticsMetadata(request)
+    }
+  });
 
   return NextResponse.json({ ok: true });
 }

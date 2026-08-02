@@ -57,6 +57,18 @@ describe("analytics daily summaries", () => {
         card_id: "sbi-cashback"
       }),
       event({
+        event_name: "feedback_submitted",
+        page: "ask",
+        source: "ask",
+        query: "best travel card",
+        card_ids: ["hdfc-infinia-metal"],
+        metadata: {
+          feedback: "down",
+          has_comment: true,
+          feedback_source: "ask"
+        }
+      }),
+      event({
         event_name: "ask_result_rendered",
         query: "unknown card",
         card_ids: [],
@@ -91,7 +103,7 @@ describe("analytics daily summaries", () => {
       })
     ]);
 
-    expect(summary.total_events).toBe(8);
+    expect(summary.total_events).toBe(9);
     expect(summary.ask_queries).toEqual({ "best upi cards": 2 });
     expect(summary.card_detail_views_by_card).toEqual({ "hdfc-infinia-metal": 2 });
     expect(summary.card_detail_views_by_referrer_host).toEqual({ direct: 1, "google.com": 1 });
@@ -105,6 +117,11 @@ describe("analytics daily summaries", () => {
     });
     expect(summary.apply_clicks_by_card).toEqual({ "sbi-cashback": 1 });
     expect(summary.apply_clicks_by_card_source).toEqual({ "sbi-cashback": { compare: 1 } });
+    expect(summary.feedback_count).toBe(1);
+    expect(summary.feedback_with_comment_count).toBe(1);
+    expect(summary.feedback_by_value).toEqual({ down: 1 });
+    expect(summary.feedback_by_source).toEqual({ ask: 1 });
+    expect(summary.feedback_events).toHaveLength(1);
     expect(summary.zero_result_queries).toHaveLength(1);
     expect(summary.ai_result_count).toBe(1);
     expect(summary.ai_provider_attempt_count).toBe(2);
@@ -166,13 +183,37 @@ describe("analytics daily summaries", () => {
         page: "cards/[id]",
         source: "details",
         card_id: "axis-atlas"
+      }),
+      event({
+        event_name: "feedback_submitted",
+        page: "ask",
+        source: "ask",
+        query: "best cashback card",
+        card_ids: ["axis-atlas"],
+        metadata: {
+          feedback: "up",
+          has_comment: false,
+          feedback_source: "ask"
+        }
+      }),
+      event({
+        event_name: "feedback_submitted",
+        page: "cards/[id]",
+        source: "details",
+        query: "axis atlas",
+        card_ids: ["axis-atlas"],
+        metadata: {
+          feedback: "down",
+          has_comment: true,
+          feedback_source: "details"
+        }
       })
     ]);
 
     const review = mergeDailySummaries([summary], ["2026-07-27"], ["2026-07-27"]);
 
-    expect(review.eventsLoaded).toBe(8);
-    expect(review.last30DayEvents).toBe(8);
+    expect(review.eventsLoaded).toBe(10);
+    expect(review.last30DayEvents).toBe(10);
     expect(review.topAskQueries).toEqual([{ label: "best cashback card", count: 1 }]);
     expect(review.cardViewRows).toEqual([
       expect.objectContaining({ cardId: "axis-atlas", count: 2 }),
@@ -213,7 +254,21 @@ describe("analytics daily summaries", () => {
       { source: "ask", count: 1 },
       { source: "finder", count: 1 }
     ]);
-    expect(review.dailyUsageRows).toEqual([{ date: "2026-07-27", count: 8 }]);
+    expect(review.feedback).toEqual({
+      count: 2,
+      withCommentCount: 1,
+      withoutCommentCount: 1,
+      byValue: [
+        { label: "down", count: 1 },
+        { label: "up", count: 1 }
+      ],
+      bySource: [
+        { label: "ask", count: 1 },
+        { label: "details", count: 1 }
+      ]
+    });
+    expect(review.feedbackEvents).toHaveLength(2);
+    expect(review.dailyUsageRows).toEqual([{ date: "2026-07-27", count: 10 }]);
   });
 
   it("merges AI usage and ask abuse signals into review rows", () => {

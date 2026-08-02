@@ -30,6 +30,11 @@ export type AnalyticsDailySummary = {
   ask_query_to_card_detail_clicks: Record<string, number>;
   apply_clicks_by_card: Record<string, number>;
   apply_clicks_by_card_source: Record<string, Partial<Record<AnalyticsSource, number>>>;
+  feedback_count: number;
+  feedback_with_comment_count: number;
+  feedback_by_value: Record<string, number>;
+  feedback_by_source: Record<string, number>;
+  feedback_events: StoredAnalyticsEvent[];
   ai_result_count: number;
   ai_schema_call_count: number;
   ai_provider_attempt_count: number;
@@ -75,6 +80,7 @@ export type AnalyticsReviewSummary = {
     count: number;
     sources: Array<{ source: AnalyticsSource; count: number }>;
   }>;
+  feedbackEvents: StoredAnalyticsEvent[];
   zeroResultQueries: StoredAnalyticsEvent[];
   botLikeAskQueries: StoredAnalyticsEvent[];
   dailyUsageRows: Array<{ date: string; count: number }>;
@@ -95,11 +101,19 @@ export type AnalyticsReviewSummary = {
     emptyReferrerResultCount: number;
     botLikeQueryCount: number;
   };
+  feedback: {
+    count: number;
+    withCommentCount: number;
+    withoutCommentCount: number;
+    byValue: Array<{ label: string; count: number }>;
+    bySource: Array<{ label: string; count: number }>;
+  };
 };
 
 const MAX_STORED_QUERY_LABELS = 250;
 const MAX_STORED_ZERO_RESULT_QUERIES = 100;
 const MAX_STORED_BOT_LIKE_QUERIES = 100;
+const MAX_STORED_FEEDBACK_EVENTS = 100;
 
 function emptyDailySummary(date: string, now = new Date().toISOString()): AnalyticsDailySummary {
   return {
@@ -125,6 +139,11 @@ function emptyDailySummary(date: string, now = new Date().toISOString()): Analyt
     ask_query_to_card_detail_clicks: {},
     apply_clicks_by_card: {},
     apply_clicks_by_card_source: {},
+    feedback_count: 0,
+    feedback_with_comment_count: 0,
+    feedback_by_value: {},
+    feedback_by_source: {},
+    feedback_events: [],
     ai_result_count: 0,
     ai_schema_call_count: 0,
     ai_provider_attempt_count: 0,
@@ -313,6 +332,15 @@ export function addEventToDailySummary(summary: AnalyticsDailySummary, event: St
     summary.apply_clicks_by_card_source[event.card_id] = sourceCounts;
   }
 
+  if (event.event_name === "feedback_submitted") {
+    summary.feedback_count = (summary.feedback_count ?? 0) + 1;
+    if (metadataBoolean(event, "has_comment")) {
+      summary.feedback_with_comment_count = (summary.feedback_with_comment_count ?? 0) + 1;
+    }
+    addCount(summary.feedback_by_value, metadataLabel(event, "feedback") ?? "unknown");
+    addCount(summary.feedback_by_source, metadataLabel(event, "feedback_source") ?? event.source);
+  }
+
   if (isZeroResultEvent(event)) {
     summary.zero_result_queries = [event, ...summary.zero_result_queries]
       .sort((left, right) => right.received_at.localeCompare(left.received_at))
@@ -323,6 +351,12 @@ export function addEventToDailySummary(summary: AnalyticsDailySummary, event: St
     summary.bot_like_ask_queries = [event, ...(summary.bot_like_ask_queries ?? [])]
       .sort((left, right) => right.received_at.localeCompare(left.received_at))
       .slice(0, MAX_STORED_BOT_LIKE_QUERIES);
+  }
+
+  if (event.event_name === "feedback_submitted") {
+    summary.feedback_events = [event, ...(summary.feedback_events ?? [])]
+      .sort((left, right) => right.received_at.localeCompare(left.received_at))
+      .slice(0, MAX_STORED_FEEDBACK_EVENTS);
   }
 
   return summary;
@@ -370,6 +404,9 @@ export function mergeDailySummaries(
   const queryToCardClickCounts: Record<string, number> = {};
   const applyCounts: Record<string, number> = {};
   const applySourceCounts: Record<string, Partial<Record<AnalyticsSource, number>>> = {};
+  const feedbackByValueCounts: Record<string, number> = {};
+  const feedbackBySourceCounts: Record<string, number> = {};
+  const feedbackEvents: StoredAnalyticsEvent[] = [];
   const zeroResultQueries: StoredAnalyticsEvent[] = [];
   const botLikeAskQueries: StoredAnalyticsEvent[] = [];
   const dailyCounts = new Map(dailyDateKeys.map((date) => [date, 0]));
@@ -379,6 +416,8 @@ export function mergeDailySummaries(
   let askResultCount = 0;
   let askAnonymousResultCount = 0;
   let askEmptyReferrerResultCount = 0;
+  let feedbackCount = 0;
+  let feedbackWithCommentCount = 0;
   let aiResultCount = 0;
   let aiSchemaCallCount = 0;
   let aiProviderAttemptCount = 0;
@@ -404,9 +443,13 @@ export function mergeDailySummaries(
     for (const [cardId, count] of Object.entries(summary.ask_detail_clicks_by_card ?? {})) addCount(askDetailClickCounts, cardId, count);
     for (const [label, count] of Object.entries(summary.ask_query_to_card_detail_clicks ?? {})) addCount(queryToCardClickCounts, label, count);
     for (const [cardId, count] of Object.entries(summary.apply_clicks_by_card)) addCount(applyCounts, cardId, count);
+    for (const [value, count] of Object.entries(summary.feedback_by_value ?? {})) addCount(feedbackByValueCounts, value, count);
+    for (const [source, count] of Object.entries(summary.feedback_by_source ?? {})) addCount(feedbackBySourceCounts, source, count);
     askResultCount += summary.ask_result_count ?? 0;
     askAnonymousResultCount += summary.ask_anonymous_result_count ?? 0;
     askEmptyReferrerResultCount += summary.ask_empty_referrer_result_count ?? 0;
+    feedbackCount += summary.feedback_count ?? 0;
+    feedbackWithCommentCount += summary.feedback_with_comment_count ?? 0;
     aiResultCount += summary.ai_result_count ?? 0;
     aiSchemaCallCount += summary.ai_schema_call_count ?? 0;
     aiProviderAttemptCount += summary.ai_provider_attempt_count ?? 0;
@@ -430,6 +473,7 @@ export function mergeDailySummaries(
       detailClickSourceCounts[cardId] = merged;
     }
 
+    feedbackEvents.push(...(summary.feedback_events ?? []));
     zeroResultQueries.push(...summary.zero_result_queries);
     botLikeAskQueries.push(...(summary.bot_like_ask_queries ?? []));
   }
@@ -516,6 +560,9 @@ export function mergeDailySummaries(
         .map(([source, count]) => ({ source: source as AnalyticsSource, count }))
         .sort((left, right) => right.count - left.count || left.source.localeCompare(right.source))
     })),
+    feedbackEvents: feedbackEvents
+      .sort((left, right) => right.received_at.localeCompare(left.received_at))
+      .slice(0, 50),
     zeroResultQueries: zeroResultQueries
       .sort((left, right) => right.received_at.localeCompare(left.received_at))
       .slice(0, 50),
@@ -539,6 +586,13 @@ export function mergeDailySummaries(
       anonymousResultCount: askAnonymousResultCount,
       emptyReferrerResultCount: askEmptyReferrerResultCount,
       botLikeQueryCount: botLikeAskQueries.length
+    },
+    feedback: {
+      count: feedbackCount,
+      withCommentCount: feedbackWithCommentCount,
+      withoutCommentCount: Math.max(0, feedbackCount - feedbackWithCommentCount),
+      byValue: sortedCountRows(feedbackByValueCounts),
+      bySource: sortedCountRows(feedbackBySourceCounts)
     }
   };
 }

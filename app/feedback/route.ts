@@ -3,6 +3,7 @@ import { logAskFeedback } from "@/lib/feedback-logs";
 import type { RecommendationInput } from "@/lib/types";
 import { logAnalyticsEvent } from "@/lib/analytics-logs";
 import { buildFeedbackAnalyticsPayload } from "@/lib/analytics-events";
+import { buildRequestAnalyticsMetadata } from "@/lib/analytics-request";
 
 export async function POST(request: Request) {
   let returnTo = "/";
@@ -52,21 +53,27 @@ export async function POST(request: Request) {
       source
     });
 
-    await logAnalyticsEvent(
-      buildFeedbackAnalyticsPayload({
-        query,
-        cardIds,
-        feedback: feedbackValue,
-        hasComment: Boolean(comment),
-        feedbackSource: source,
-        sessionId: analyticsSessionId || undefined,
-        deviceType:
-          analyticsDeviceTypeRaw === "mobile" || analyticsDeviceTypeRaw === "tablet" || analyticsDeviceTypeRaw === "desktop"
-            ? analyticsDeviceTypeRaw
-            : undefined,
-        referrer: analyticsReferrer || undefined
-      })
-    );
+    const analyticsPayload = buildFeedbackAnalyticsPayload({
+      query,
+      cardIds,
+      feedback: feedbackValue,
+      hasComment: Boolean(comment),
+      feedbackSource: source,
+      sessionId: analyticsSessionId || undefined,
+      deviceType:
+        analyticsDeviceTypeRaw === "mobile" || analyticsDeviceTypeRaw === "tablet" || analyticsDeviceTypeRaw === "desktop"
+          ? analyticsDeviceTypeRaw
+          : undefined,
+      referrer: analyticsReferrer || undefined
+    });
+
+    await logAnalyticsEvent({
+      ...analyticsPayload,
+      metadata: {
+        ...(analyticsPayload.metadata ?? {}),
+        ...buildRequestAnalyticsMetadata(request)
+      }
+    });
 
     const redirectUrl = new URL(returnTo, request.url);
     redirectUrl.searchParams.set("feedbackSaved", feedbackValue);
