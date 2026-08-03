@@ -467,10 +467,12 @@ function LatestUpdates({ updates }: { updates: LandingUpdate[] }) {
         </article>
         <aside className="sc-whatsapp-channel-card">
           <div>
-            <span className="sc-whatsapp-channel-icon" aria-hidden="true">
-              <WhatsAppLogo size={24} />
-            </span>
-            <h3>Never miss a credit card update that matters</h3>
+            <div className="sc-whatsapp-channel-heading">
+              <span className="sc-whatsapp-channel-icon" aria-hidden="true">
+                <WhatsAppLogo size={24} />
+              </span>
+              <h3>Never miss a credit card update that matters</h3>
+            </div>
             <p>Get timely alerts for new launches, limited-time offers, reward devaluations and airline or hotel transfer bonuses.</p>
           </div>
           {WHATSAPP_CHANNEL_URL ? (

@@ -9678,13 +9678,19 @@ input[type="number"] {
   padding: 24px;
 }
 
+.sc-whatsapp-channel-heading {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
 .sc-whatsapp-channel-icon {
   display: inline-flex;
+  flex: 0 0 auto;
   width: 46px;
   height: 46px;
   align-items: center;
   justify-content: center;
-  margin-bottom: 18px;
   border-radius: 16px;
   background: #e7f7ef;
   color: #128c4a;
