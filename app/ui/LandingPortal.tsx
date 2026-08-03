@@ -75,7 +75,8 @@ const COMPARISON_LINKS: Array<{ label: string; href: Route }> = [
   }
 ];
 
-const WHATSAPP_CHANNEL_URL = process.env.NEXT_PUBLIC_WHATSAPP_CHANNEL_URL?.trim() ?? "";
+const WHATSAPP_CHANNEL_URL =
+  process.env.NEXT_PUBLIC_WHATSAPP_CHANNEL_URL?.trim() ?? "https://wa.me/message/3GE5P5YFUQ6RM1";
 
 const POLICY_COPY = {
   about: {
