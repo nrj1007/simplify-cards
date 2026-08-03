@@ -470,13 +470,13 @@ function LatestUpdates({ updates }: { updates: LandingUpdate[] }) {
             <span className="sc-whatsapp-channel-icon" aria-hidden="true">
               <WhatsAppLogo size={24} />
             </span>
-            <h3>Join our WhatsApp channel</h3>
-            <p>Get verified credit-card updates, fee changes, reward changes, and new-card alerts as soon as we publish them.</p>
+            <h3>Never miss a credit card update that matters</h3>
+            <p>Get timely alerts for new launches, limited-time offers, reward devaluations and airline or hotel transfer bonuses.</p>
           </div>
           {WHATSAPP_CHANNEL_URL ? (
             <a href={WHATSAPP_CHANNEL_URL} target="_blank" rel="noopener noreferrer">
               <WhatsAppLogo size={18} />
-              Join WhatsApp channel
+              Join WhatsApp Channel
             </a>
           ) : (
             <span className="sc-whatsapp-channel-disabled">
