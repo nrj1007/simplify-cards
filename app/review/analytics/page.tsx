@@ -46,21 +46,68 @@ function HitGraph({ rows, emptyLabel = "No hits yet" }: { rows: HitGraphRow[]; e
   if (rows.every((row) => row.count === 0)) return <EmptyState>{emptyLabel}</EmptyState>;
 
   const maxCount = Math.max(1, ...rows.map((row) => row.count));
+  const chartWidth = 720;
+  const chartHeight = 260;
+  const padding = { top: 18, right: 18, bottom: 46, left: 52 };
+  const plotWidth = chartWidth - padding.left - padding.right;
+  const plotHeight = chartHeight - padding.top - padding.bottom;
+  const barGap = rows.length > 12 ? 6 : 14;
+  const barWidth = Math.max(4, (plotWidth - barGap * (rows.length - 1)) / rows.length);
+  const yTicks = [0, Math.ceil(maxCount / 2), maxCount];
+  const labeledXIndexes = new Set(
+    rows.length > 12
+      ? [0, Math.floor((rows.length - 1) / 2), rows.length - 1]
+      : rows.map((_, index) => index)
+  );
 
   return (
-    <div className="analytics-hit-chart">
-      {rows.map((row) => {
-        const width = `${Math.max(2, Math.round((row.count / maxCount) * 100))}%`;
-        return (
-          <div className="analytics-hit-row" key={row.label}>
-            <span>{row.label}</span>
-            <div aria-hidden="true" className="analytics-hit-track">
-              <i style={{ width }} />
-            </div>
-            <strong>{row.count.toLocaleString("en-IN")}</strong>
-          </div>
-        );
-      })}
+    <div className="analytics-axis-chart" role="img" aria-label="Hits chart with time on X axis and hit count on Y axis">
+      <svg viewBox={`0 0 ${chartWidth} ${chartHeight}`} preserveAspectRatio="none">
+        {yTicks.map((tick) => {
+          const y = padding.top + plotHeight - (tick / maxCount) * plotHeight;
+          return (
+            <g key={tick}>
+              <line className="analytics-axis-grid" x1={padding.left} x2={chartWidth - padding.right} y1={y} y2={y} />
+              <text className="analytics-axis-label" x={padding.left - 10} y={y + 4} textAnchor="end">
+                {tick.toLocaleString("en-IN")}
+              </text>
+            </g>
+          );
+        })}
+        <line className="analytics-axis-line" x1={padding.left} x2={padding.left} y1={padding.top} y2={padding.top + plotHeight} />
+        <line
+          className="analytics-axis-line"
+          x1={padding.left}
+          x2={chartWidth - padding.right}
+          y1={padding.top + plotHeight}
+          y2={padding.top + plotHeight}
+        />
+        <text className="analytics-axis-title" x={16} y={padding.top + plotHeight / 2} textAnchor="middle" transform={`rotate(-90 16 ${padding.top + plotHeight / 2})`}>
+          Hits
+        </text>
+        <text className="analytics-axis-title" x={padding.left + plotWidth / 2} y={chartHeight - 6} textAnchor="middle">
+          Time
+        </text>
+        {rows.map((row, index) => {
+          const barHeight = (row.count / maxCount) * plotHeight;
+          const x = padding.left + index * (barWidth + barGap);
+          const y = padding.top + plotHeight - barHeight;
+          const labelX = x + barWidth / 2;
+
+          return (
+            <g key={row.label}>
+              <rect className="analytics-hit-bar" x={x} y={y} width={barWidth} height={Math.max(row.count > 0 ? 2 : 0, barHeight)} rx="4">
+                <title>{`${row.label}: ${row.count.toLocaleString("en-IN")} hits`}</title>
+              </rect>
+              {labeledXIndexes.has(index) ? (
+                <text className="analytics-axis-label analytics-x-label" x={labelX} y={padding.top + plotHeight + 22} textAnchor="middle">
+                  {row.label}
+                </text>
+              ) : null}
+            </g>
+          );
+        })}
+      </svg>
     </div>
   );
 }
