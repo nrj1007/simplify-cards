@@ -14,6 +14,11 @@ type CountRow = {
   count: number;
 };
 
+type HitGraphRow = {
+  label: string;
+  count: number;
+};
+
 function formatDateTime(value: string) {
   const date = new Date(value);
   if (!Number.isFinite(date.getTime())) return value;
@@ -24,8 +29,40 @@ function formatDateTime(value: string) {
   }).format(date);
 }
 
+function formatHourLabel(value: Date) {
+  return new Intl.DateTimeFormat("en-IN", {
+    day: "2-digit",
+    month: "short",
+    hour: "2-digit",
+    hour12: false
+  }).format(value);
+}
+
 function EmptyState({ children }: { children: React.ReactNode }) {
   return <div className="notice">{children}</div>;
+}
+
+function HitGraph({ rows, emptyLabel = "No hits yet" }: { rows: HitGraphRow[]; emptyLabel?: string }) {
+  if (rows.every((row) => row.count === 0)) return <EmptyState>{emptyLabel}</EmptyState>;
+
+  const maxCount = Math.max(1, ...rows.map((row) => row.count));
+
+  return (
+    <div className="analytics-hit-chart">
+      {rows.map((row) => {
+        const width = `${Math.max(2, Math.round((row.count / maxCount) * 100))}%`;
+        return (
+          <div className="analytics-hit-row" key={row.label}>
+            <span>{row.label}</span>
+            <div aria-hidden="true" className="analytics-hit-track">
+              <i style={{ width }} />
+            </div>
+            <strong>{row.count.toLocaleString("en-IN")}</strong>
+          </div>
+        );
+      })}
+    </div>
+  );
 }
 
 function CountTable({ rows, labelHeader }: { rows: CountRow[]; labelHeader: string }) {
@@ -53,15 +90,47 @@ function CountTable({ rows, labelHeader }: { rows: CountRow[]; labelHeader: stri
   );
 }
 
+function buildLast24HourHitRows(events: Array<{ received_at: string }>, now: Date): HitGraphRow[] {
+  const hourMs = 60 * 60 * 1000;
+  const currentHourStart = new Date(now);
+  currentHourStart.setMinutes(0, 0, 0);
+
+  const buckets = new Map<string, HitGraphRow>();
+  const firstHourStart = new Date(currentHourStart.getTime() - 23 * hourMs);
+  const endExclusive = new Date(currentHourStart.getTime() + hourMs);
+
+  for (let index = 0; index < 24; index += 1) {
+    const hour = new Date(firstHourStart.getTime() + index * hourMs);
+    buckets.set(hour.toISOString(), {
+      label: formatHourLabel(hour),
+      count: 0
+    });
+  }
+
+  for (const event of events) {
+    const receivedAt = new Date(event.received_at);
+    const timestamp = receivedAt.getTime();
+    if (!Number.isFinite(timestamp) || timestamp < firstHourStart.getTime() || timestamp >= endExclusive.getTime()) continue;
+
+    receivedAt.setMinutes(0, 0, 0);
+    const bucket = buckets.get(receivedAt.toISOString());
+    if (bucket) bucket.count += 1;
+  }
+
+  return [...buckets.values()];
+}
+
 export default async function AnalyticsReviewPage() {
   const now = new Date();
   const dailyDateKeys = getAnalyticsDateKeys(14, now);
   const eventWindowDateKeys = getAnalyticsDateKeys(30, now);
+  const hourlyDateKeys = getAnalyticsDateKeys(2, now);
   const storedSummaries = await readAnalyticsDailySummaries(eventWindowDateKeys);
   const summariesByDate = new Map(storedSummaries.map((summary) => [summary.date, summary]));
   const missingSummaryDateKeys = eventWindowDateKeys.filter((date) => !summariesByDate.has(date));
   const recentEvents =
     missingSummaryDateKeys.length > 0 ? await readRecentAnalyticsLogByDatePrefix(missingSummaryDateKeys, 2000).catch(() => []) : [];
+  const recentHourlyEvents = await readRecentAnalyticsLogByDatePrefix(hourlyDateKeys, 5000).catch(() => []);
   const recentEventsByDate = new Map<string, typeof recentEvents>();
 
   for (const event of recentEvents) {
@@ -77,6 +146,11 @@ export default async function AnalyticsReviewPage() {
   }
 
   const summary = mergeDailySummaries([...summariesByDate.values()], dailyDateKeys, eventWindowDateKeys);
+  const last24HourHitRows = buildLast24HourHitRows(recentHourlyEvents, now);
+  const last7DayHitRows = [...summary.dailyUsageRows]
+    .slice(0, 7)
+    .reverse()
+    .map((row) => ({ label: row.date, count: row.count }));
 
   return (
     <div className="page-shell review-page analytics-review">
@@ -128,6 +202,23 @@ export default async function AnalyticsReviewPage() {
           </div>
 
           <div className="review-list">
+        <article className="panel review-item">
+          <div className="review-item-head">
+            <strong>Hits</strong>
+            <span className="badge">Last 1 day and 7 days</span>
+          </div>
+          <div className="analytics-review-grid analytics-hit-grid">
+            <div>
+              <h3>Last 1 day by hour</h3>
+              <HitGraph rows={last24HourHitRows} />
+            </div>
+            <div>
+              <h3>Last 7 days by day</h3>
+              <HitGraph rows={last7DayHitRows} />
+            </div>
+          </div>
+        </article>
+
         <article className="panel review-item">
           <div className="review-item-head">
             <strong>AI usage</strong>

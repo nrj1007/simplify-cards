@@ -4411,6 +4411,47 @@ input[type="number"] {
   margin: 0 0 8px;
 }
 
+.analytics-hit-grid {
+  align-items: start;
+}
+
+.analytics-hit-chart {
+  display: grid;
+  gap: 8px;
+}
+
+.analytics-hit-row {
+  align-items: center;
+  display: grid;
+  gap: 10px;
+  grid-template-columns: 72px minmax(120px, 1fr) 48px;
+}
+
+.analytics-hit-row > span {
+  color: var(--muted);
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.analytics-hit-row > strong {
+  font-size: 13px;
+  text-align: right;
+}
+
+.analytics-hit-track {
+  background: rgba(20, 94, 94, 0.1);
+  border-radius: 999px;
+  height: 10px;
+  overflow: hidden;
+}
+
+.analytics-hit-track i {
+  background: linear-gradient(90deg, var(--teal), var(--gold));
+  border-radius: inherit;
+  display: block;
+  height: 100%;
+}
+
 .analytics-source-list {
   display: grid;
   gap: 12px;
