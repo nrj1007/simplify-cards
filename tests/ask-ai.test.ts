@@ -7,6 +7,7 @@ import { scoreCards } from "../lib/recommend";
 
 const logPath = path.join(process.cwd(), "data", "question-logs", "unsupported-questions.ask-ai.test.json");
 const originalApiKey = process.env.OPENAI_API_KEY;
+const originalGeminiKey = process.env.GEMINI_API_KEY;
 const originalFetch = global.fetch;
 
 function cleanupLogFile() {
@@ -19,6 +20,7 @@ describe("ask ai fallback policy", () => {
     cleanupLogFile();
     clearAskCache();
     delete process.env.OPENAI_API_KEY;
+    delete process.env.GEMINI_API_KEY;
     vi.restoreAllMocks();
   });
 
@@ -27,6 +29,8 @@ describe("ask ai fallback policy", () => {
     cleanupLogFile();
     if (originalApiKey) process.env.OPENAI_API_KEY = originalApiKey;
     else delete process.env.OPENAI_API_KEY;
+    if (originalGeminiKey) process.env.GEMINI_API_KEY = originalGeminiKey;
+    else delete process.env.GEMINI_API_KEY;
     global.fetch = originalFetch;
     vi.unstubAllEnvs();
   });
@@ -497,7 +501,7 @@ describe("ask ai fallback policy", () => {
   });
 
   it("uses AI as a fallback for fuzzy specific-card resolution when deterministic matching is weak", async () => {
-    process.env.OPENAI_API_KEY = "test-key";
+    process.env.GEMINI_API_KEY = "test-key";
     global.fetch = vi
       .fn()
       .mockImplementationOnce(
@@ -505,15 +509,17 @@ describe("ask ai fallback policy", () => {
           ({
             ok: true,
             json: async () => ({
-              output: [
+              candidates: [
                 {
-                  content: [
-                    {
-                      text: JSON.stringify({
-                        cardId: "hsbc-travelone"
-                      })
-                    }
-                  ]
+                  content: {
+                    parts: [
+                      {
+                        text: JSON.stringify({
+                          cardId: "hsbc-travelone"
+                        })
+                      }
+                    ]
+                  }
                 }
               ]
             })
@@ -524,15 +530,17 @@ describe("ask ai fallback policy", () => {
           ({
             ok: true,
             json: async () => ({
-              output: [
+              candidates: [
                 {
-                  content: [
-                    {
-                      text: JSON.stringify({
-                        summary: "HSBC TravelOne Credit Card looks like the right fit."
-                      })
-                    }
-                  ]
+                  content: {
+                    parts: [
+                      {
+                        text: JSON.stringify({
+                          summary: "HSBC TravelOne Credit Card looks like the right fit."
+                        })
+                      }
+                    ]
+                  }
                 }
               ]
             })
@@ -543,17 +551,17 @@ describe("ask ai fallback policy", () => {
 
     expect(global.fetch).toHaveBeenCalledTimes(2);
     expect(answer.cards[0]?.card.id).toBe("hsbc-travelone");
-    expect(answer.meta?.ai?.providersUsed).toEqual(["openai"]);
+    expect(answer.meta?.ai?.providersUsed).toEqual(["gemini"]);
     expect(answer.meta?.ai?.calls).toEqual(
       expect.arrayContaining([
         expect.objectContaining({
           purpose: "card_resolution",
-          provider_used: "openai",
+          provider_used: "gemini",
           success: true
         }),
         expect.objectContaining({
           purpose: "answer_summary",
-          provider_used: "openai",
+          provider_used: "gemini",
           success: true
         })
       ])
@@ -561,25 +569,51 @@ describe("ask ai fallback policy", () => {
   });
 
   it("tries an AI/database fallback before returning a hard no-answer for unresolved specific lookups", async () => {
-    process.env.OPENAI_API_KEY = "test-key";
-    global.fetch = vi.fn(async () =>
-      ({
-        ok: true,
-        json: async () => ({
-          output: [
-            {
-              content: [
+    process.env.GEMINI_API_KEY = "test-key";
+    global.fetch = vi
+      .fn()
+      .mockImplementationOnce(
+        async () =>
+          ({
+            ok: true,
+            json: async () => ({
+              candidates: [
                 {
-                  text: JSON.stringify({
-                    summary: "The closest verified match in the current database is HSBC TravelOne Credit Card."
-                  })
+                  content: {
+                    parts: [
+                      {
+                        text: JSON.stringify({
+                          cardId: null
+                        })
+                      }
+                    ]
+                  }
                 }
               ]
-            }
-          ]
-        })
-      }) as unknown as Response
-    ) as typeof fetch;
+            })
+          }) as unknown as Response
+      )
+      .mockImplementationOnce(
+        async () =>
+          ({
+            ok: true,
+            json: async () => ({
+              candidates: [
+                {
+                  content: {
+                    parts: [
+                      {
+                        text: JSON.stringify({
+                          summary: "The closest verified match in the current database is HSBC TravelOne Credit Card."
+                        })
+                      }
+                    ]
+                  }
+                }
+              ]
+            })
+          }) as unknown as Response
+      ) as typeof fetch;
 
     const answer = await answerQuestion({ query: "centurionx" });
 

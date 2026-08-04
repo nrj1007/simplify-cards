@@ -1,14 +1,14 @@
-export type AiProviderName = "openai" | "gemini";
+export type AiProviderName = "gemini";
 
 export type AiCallTrace = {
   schemaName: string;
   primaryProvider: AiProviderName;
   providerUsed: AiProviderName | null;
-  fallbackProvider: AiProviderName;
+  fallbackProvider: null;
   fallbackUsed: boolean;
   success: boolean;
   primaryModel: string;
-  fallbackModel: string;
+  fallbackModel: null;
 };
 
 type ProviderCallResult<T> = {
@@ -24,9 +24,7 @@ export type SchemaCallOptions = {
 };
 
 export function getActiveProvider(): AiProviderName {
-  const env = process.env.AI_PROVIDER?.split("#")[0]?.toLowerCase().trim();
-  if (env === "gemini") return "gemini";
-  return "openai";
+  return "gemini";
 }
 
 function isAiDebugEnabled() {
@@ -69,96 +67,6 @@ function toGeminiSchema(schema: Record<string, unknown>): Record<string, unknown
   }
 
   return result;
-}
-
-function extractOpenAiText(payload: unknown): string | null {
-  if (!payload || typeof payload !== "object") return null;
-
-  const directOutputText = (payload as { output_text?: unknown }).output_text;
-  if (typeof directOutputText === "string" && directOutputText.trim()) return directOutputText.trim();
-
-  const output = (payload as { output?: unknown }).output;
-  if (!Array.isArray(output)) return null;
-
-  for (const item of output) {
-    if (!item || typeof item !== "object") continue;
-    const content = (item as { content?: unknown }).content;
-    if (!Array.isArray(content)) continue;
-
-    for (const part of content) {
-      if (!part || typeof part !== "object") continue;
-      const text = (part as { text?: unknown }).text;
-      if (typeof text === "string" && text.trim()) return text.trim();
-    }
-  }
-
-  return null;
-}
-
-async function callOpenAi<T>(options: SchemaCallOptions): Promise<ProviderCallResult<T>> {
-  const apiKey = process.env.OPENAI_API_KEY?.trim();
-  const model = process.env.OPENAI_ASK_MODEL ?? "gpt-4o-mini";
-  if (!apiKey) {
-    debugAi("OpenAI key missing", { schemaName: options.schemaName, model });
-    return { result: null, model };
-  }
-
-  try {
-    const response = await fetch("https://api.openai.com/v1/responses", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${apiKey}`,
-      },
-      body: JSON.stringify({
-        model,
-        input: [
-          {
-            role: "system",
-            content: [{ type: "input_text", text: options.systemPrompt }],
-          },
-          {
-            role: "user",
-            content: [{ type: "input_text", text: options.userPrompt }],
-          },
-        ],
-        text: {
-          format: {
-            type: "json_schema",
-            name: options.schemaName,
-            strict: true,
-            schema: options.schema,
-          },
-        },
-      }),
-    });
-
-    if (!response.ok) {
-      debugAi("OpenAI returned non-OK response", {
-        schemaName: options.schemaName,
-        model,
-        status: response.status,
-        statusText: response.statusText
-      });
-      return { result: null, model };
-    }
-
-    const payload = (await response.json()) as unknown;
-    const rawText = extractOpenAiText(payload);
-    if (!rawText) {
-      debugAi("OpenAI response had no extractable text", { schemaName: options.schemaName, model });
-      return { result: null, model };
-    }
-
-    return { result: JSON.parse(rawText) as T, model };
-  } catch (error) {
-    debugAi("OpenAI request failed", {
-      schemaName: options.schemaName,
-      model,
-      error: error instanceof Error ? error.message : String(error)
-    });
-    return { result: null, model };
-  }
 }
 
 async function callGemini<T>(options: SchemaCallOptions): Promise<ProviderCallResult<T>> {
@@ -242,10 +150,9 @@ export async function callAiWithSchemaDetailed<T>(
 ): Promise<{ result: T | null; trace: AiCallTrace }> {
   try {
     const primary = getActiveProvider();
-    const fallback = primary === "gemini" ? "openai" : "gemini";
     debugAi("Starting AI schema call", { schemaName: options.schemaName, primaryProvider: primary });
 
-    const primaryResponse = await (primary === "gemini" ? callGemini<T>(options) : callOpenAi<T>(options));
+    const primaryResponse = await callGemini<T>(options);
     if (primaryResponse.result !== null) {
       debugAi("Primary AI provider returned a result", {
         schemaName: options.schemaName,
@@ -257,46 +164,18 @@ export async function callAiWithSchemaDetailed<T>(
           schemaName: options.schemaName,
           primaryProvider: primary,
           providerUsed: primary,
-          fallbackProvider: fallback,
+          fallbackProvider: null,
           fallbackUsed: false,
           success: true,
           primaryModel: primaryResponse.model,
-          fallbackModel: fallback === "gemini" ? (process.env.GEMINI_ASK_MODEL ?? "gemini-2.0-flash").trim() : (process.env.OPENAI_ASK_MODEL ?? "gpt-4o-mini")
+          fallbackModel: null
         }
       };
     }
 
-    debugAi("Primary AI provider returned null, trying fallback", {
+    debugAi("Gemini returned null; OpenAI fallback is disabled", {
       schemaName: options.schemaName,
-      primaryProvider: primary,
-      fallbackProvider: fallback
-    });
-
-    const fallbackResponse = await (primary === "gemini" ? callOpenAi<T>(options) : callGemini<T>(options));
-    if (fallbackResponse.result !== null) {
-      debugAi("Fallback AI provider returned a result", {
-        schemaName: options.schemaName,
-        provider: fallback
-      });
-      return {
-        result: fallbackResponse.result,
-        trace: {
-          schemaName: options.schemaName,
-          primaryProvider: primary,
-          providerUsed: fallback,
-          fallbackProvider: fallback,
-          fallbackUsed: true,
-          success: true,
-          primaryModel: primaryResponse.model,
-          fallbackModel: fallbackResponse.model
-        }
-      };
-    }
-
-    debugAi("Both AI providers returned null", {
-      schemaName: options.schemaName,
-      primaryProvider: primary,
-      fallbackProvider: fallback
+      primaryProvider: primary
     });
     return {
       result: null,
@@ -304,16 +183,15 @@ export async function callAiWithSchemaDetailed<T>(
         schemaName: options.schemaName,
         primaryProvider: primary,
         providerUsed: null,
-        fallbackProvider: fallback,
-        fallbackUsed: true,
+        fallbackProvider: null,
+        fallbackUsed: false,
         success: false,
         primaryModel: primaryResponse.model,
-        fallbackModel: fallbackResponse.model
+        fallbackModel: null
       }
     };
   } catch (error) {
     const primary = getActiveProvider();
-    const fallback = primary === "gemini" ? "openai" : "gemini";
     debugAi("AI schema call threw unexpectedly", {
       schemaName: options.schemaName,
       error: error instanceof Error ? error.message : String(error)
@@ -324,11 +202,11 @@ export async function callAiWithSchemaDetailed<T>(
         schemaName: options.schemaName,
         primaryProvider: primary,
         providerUsed: null,
-        fallbackProvider: fallback,
+        fallbackProvider: null,
         fallbackUsed: false,
         success: false,
-        primaryModel: primary === "openai" ? (process.env.OPENAI_ASK_MODEL ?? "gpt-4o-mini") : (process.env.GEMINI_ASK_MODEL ?? "gemini-2.0-flash").trim(),
-        fallbackModel: fallback === "openai" ? (process.env.OPENAI_ASK_MODEL ?? "gpt-4o-mini") : (process.env.GEMINI_ASK_MODEL ?? "gemini-2.0-flash").trim()
+        primaryModel: (process.env.GEMINI_ASK_MODEL ?? "gemini-2.0-flash").trim(),
+        fallbackModel: null
       }
     };
   }

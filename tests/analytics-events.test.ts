@@ -20,19 +20,19 @@ describe("analytics event payload builders", () => {
         needsFollowUp: true,
         ai: {
           aiUsed: true,
-          providersUsed: ["openai"],
+          providersUsed: ["gemini"],
           fallbackUsed: false,
           calls: [
             {
               purpose: "top_cards_summary",
               schema_name: "grounded_top_cards_answer",
-              primary_provider: "openai",
-              provider_used: "openai",
-              fallback_provider: "gemini",
+              primary_provider: "gemini",
+              provider_used: "gemini",
+              fallback_provider: null,
               fallback_used: false,
               success: true,
-              primary_model: "gpt-4o-mini",
-              fallback_model: "gemini-2.0-flash"
+              primary_model: "gemini-2.0-flash",
+              fallback_model: null
             }
           ]
         }
@@ -54,19 +54,19 @@ describe("analytics event payload builders", () => {
       ai_provider_attempt_count: 1,
       ai_successful_schema_call_count: 1,
       ai_failed_schema_call_count: 0,
-      ai_providers_used: ["openai"],
+      ai_providers_used: ["gemini"],
       ai_fallback_used: false,
       ai_calls: [
         {
           purpose: "top_cards_summary",
           schema_name: "grounded_top_cards_answer",
-          primary_provider: "openai",
-          provider_used: "openai",
-          fallback_provider: "gemini",
+          primary_provider: "gemini",
+          provider_used: "gemini",
+          fallback_provider: null,
           fallback_used: false,
           success: true,
-          primary_model: "gpt-4o-mini",
-          fallback_model: "gemini-2.0-flash"
+          primary_model: "gemini-2.0-flash",
+          fallback_model: null
         }
       ]
     });

@@ -2,7 +2,6 @@ import { afterEach, describe, expect, it, vi } from "vitest";
 import { callAiWithSchemaDetailed, getActiveProvider } from "../lib/ai-provider";
 
 const originalProvider = process.env.AI_PROVIDER;
-const originalOpenAiKey = process.env.OPENAI_API_KEY;
 const originalGeminiKey = process.env.GEMINI_API_KEY;
 const originalFetch = global.fetch;
 
@@ -10,8 +9,6 @@ describe("getActiveProvider", () => {
   afterEach(() => {
     if (originalProvider === undefined) delete process.env.AI_PROVIDER;
     else process.env.AI_PROVIDER = originalProvider;
-    if (originalOpenAiKey === undefined) delete process.env.OPENAI_API_KEY;
-    else process.env.OPENAI_API_KEY = originalOpenAiKey;
     if (originalGeminiKey === undefined) delete process.env.GEMINI_API_KEY;
     else process.env.GEMINI_API_KEY = originalGeminiKey;
     global.fetch = originalFetch;
@@ -27,23 +24,20 @@ describe("getActiveProvider", () => {
     expect(getActiveProvider()).toBe("gemini");
   });
 
-  it("defaults to openai for unknown values", () => {
+  it("uses gemini even for unknown values", () => {
     process.env.AI_PROVIDER = "something-else";
-    expect(getActiveProvider()).toBe("openai");
+    expect(getActiveProvider()).toBe("gemini");
   });
 
-  it("returns provider trace when the primary provider succeeds", async () => {
+  it("returns provider trace when gemini succeeds", async () => {
     process.env.AI_PROVIDER = "openai";
-    process.env.OPENAI_API_KEY = "test-openai";
-    delete process.env.GEMINI_API_KEY;
+    process.env.GEMINI_API_KEY = "test-gemini";
     global.fetch = vi.fn(async () =>
       ({
         ok: true,
         json: async () => ({
-          output: [
-            {
-              content: [{ text: JSON.stringify({ value: "ok" }) }]
-            }
+          candidates: [
+            { content: { parts: [{ text: JSON.stringify({ value: "ok" }) }] } }
           ]
         })
       }) as unknown as Response
@@ -64,41 +58,25 @@ describe("getActiveProvider", () => {
     expect(response.result).toEqual({ value: "ok" });
     expect(response.trace).toMatchObject({
       schemaName: "test_schema",
-      primaryProvider: "openai",
-      providerUsed: "openai",
-      fallbackProvider: "gemini",
+      primaryProvider: "gemini",
+      providerUsed: "gemini",
+      fallbackProvider: null,
       fallbackUsed: false,
       success: true
     });
   });
 
-  it("records fallback usage when the primary provider fails and the fallback succeeds", async () => {
+  it("does not call OpenAI fallback when gemini fails", async () => {
     process.env.AI_PROVIDER = "gemini";
-    process.env.OPENAI_API_KEY = "test-openai";
     process.env.GEMINI_API_KEY = "test-gemini";
-    global.fetch = vi
-      .fn()
-      .mockImplementationOnce(
-        async () =>
-          ({
-            ok: false,
-            status: 500,
-            statusText: "boom"
-          }) as unknown as Response
-      )
-      .mockImplementationOnce(
-        async () =>
-          ({
-            ok: true,
-            json: async () => ({
-              output: [
-                {
-                  content: [{ text: JSON.stringify({ value: "fallback-ok" }) }]
-                }
-              ]
-            })
-          }) as unknown as Response
-      ) as typeof fetch;
+    global.fetch = vi.fn(
+      async () =>
+        ({
+          ok: false,
+          status: 500,
+          statusText: "boom"
+        }) as unknown as Response
+    ) as typeof fetch;
 
     const response = await callAiWithSchemaDetailed<{ value: string }>({
       systemPrompt: "system",
@@ -112,14 +90,14 @@ describe("getActiveProvider", () => {
       }
     });
 
-    expect(response.result).toEqual({ value: "fallback-ok" });
+    expect(response.result).toBeNull();
     expect(response.trace).toMatchObject({
       primaryProvider: "gemini",
-      providerUsed: "openai",
-      fallbackProvider: "openai",
-      fallbackUsed: true,
-      success: true
+      providerUsed: null,
+      fallbackProvider: null,
+      fallbackUsed: false,
+      success: false
     });
-    expect(global.fetch).toHaveBeenCalledTimes(2);
+    expect(global.fetch).toHaveBeenCalledTimes(1);
   });
 });

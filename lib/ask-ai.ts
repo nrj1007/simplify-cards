@@ -39,13 +39,13 @@ export type AskAiAnalyticsSummary = {
   calls: Array<{
     purpose: string;
     schema_name: string;
-    primary_provider: "openai" | "gemini";
-    provider_used: "openai" | "gemini" | null;
-    fallback_provider: "openai" | "gemini";
+    primary_provider: "gemini";
+    provider_used: "gemini" | null;
+    fallback_provider: null;
     fallback_used: boolean;
     success: boolean;
     primary_model: string;
-    fallback_model: string;
+    fallback_model: null;
   }>;
 };
 
@@ -146,9 +146,7 @@ function summarizeAiTraces(
   traces: Array<{ purpose: string; trace: AiCallTrace }>
 ): AskAiAnalyticsSummary {
   const successfulCalls = traces.filter(({ trace }) => trace.success && trace.providerUsed);
-  const providersUsed = [...new Set(successfulCalls.map(({ trace }) => trace.providerUsed).filter(Boolean))] as Array<
-    "openai" | "gemini"
-  >;
+  const providersUsed = [...new Set(successfulCalls.map(({ trace }) => trace.providerUsed).filter(Boolean))] as Array<"gemini">;
 
   return {
     aiUsed: successfulCalls.length > 0,
@@ -1579,7 +1577,6 @@ function normalizedSpend(spend: RecommendationInput["spend"]) {
 
 function aiProviderMode() {
   return {
-    openai: Boolean(process.env.OPENAI_API_KEY),
     gemini: Boolean(process.env.GEMINI_API_KEY)
   };
 }
