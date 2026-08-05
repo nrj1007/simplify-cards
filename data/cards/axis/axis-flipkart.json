@@ -88,7 +88,9 @@
     "education payments via third-party apps",
     "government services",
     "online skill-based gaming",
-    "purchases of gift cards on Flipkart and Myntra"
+    "purchases of gift cards on Flipkart and Myntra",
+    "Gift cards",
+    "Tolls and FASTag"
   ],
   "exclusionCodes": [
     "fuel",
@@ -105,7 +107,9 @@
     "insurance",
     "education",
     "government",
-    "gaming"
+    "gaming",
+    "gift_cards",
+    "tolls"
   ],
   "milestoneBenefits": [],
   "joiningBenefitsValued": [
@@ -145,6 +149,8 @@
   "lastVerified": "2026-06-02",
   "verificationStatus": "official-direct",
   "internalNotes": [
+    "Effective 28 August 2026, Axis Bank charges a 3.5% DCC markup fee on all transactions processed in INR at international locations or with merchants registered overseas.",
+    "Effective 28 August 2026, gift card purchases and toll/FASTag payments no longer earn rewards or count towards spend-based fee waivers and milestone benefits.",
     "Card details manually reviewed and verified by user on 2026-06-02",
     "Effective 20 June 2025, cashback on Myntra increased to 7.5% from 1%, capped at ₹4,000 per statement quarter.",
     "Flipkart and Cleartrip continue to earn 5% cashback, each capped at ₹4,000 per statement quarter per merchant.",

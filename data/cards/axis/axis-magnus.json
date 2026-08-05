@@ -78,7 +78,9 @@
     "fuel",
     "cash advances",
     "repayments",
-    "transactions excluded under Axis Bank Magnus Credit Card terms"
+    "transactions excluded under Axis Bank Magnus Credit Card terms",
+    "Gift cards",
+    "Tolls and FASTag"
   ],
   "exclusionCodes": [
     "utilities",
@@ -90,7 +92,9 @@
     "jewellery",
     "fuel",
     "cash_advance",
-    "outstanding_balance_payment"
+    "outstanding_balance_payment",
+    "gift_cards",
+    "tolls"
   ],
   "specialSpendRules": [
     {
@@ -314,6 +318,8 @@
   "lastVerified": "2026-07-27",
   "verificationStatus": "needs-review",
   "internalNotes": [
+    "Effective 28 August 2026, Axis Bank charges a 2% DCC markup fee on all transactions processed in INR at international locations or with merchants registered overseas.",
+    "Effective 28 August 2026, gift card purchases and toll/FASTag payments no longer earn rewards or count towards spend-based fee waivers and milestone benefits.",
     "Card details manually reviewed and verified by user on 2026-06-06",
     "Official audit completed on 2026-06-06 using Axis Bank product page, 20 April 2024 revision PDF, 20 June 2025 revision PDF, and Axis miles-transfer page.",
     "Domestic lounge access requires minimum spends of ₹50,000 in the previous 3 calendar months; the spend condition is waived for the month of issuance plus the next 3 calendar months.",

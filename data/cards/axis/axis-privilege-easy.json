@@ -47,7 +47,9 @@
     "Government services spends",
     "Educational institution payments",
     "Purchase of gold or jewellery",
-    "EMI transactions"
+    "EMI transactions",
+    "Gift cards",
+    "Tolls and FASTag"
   ],
   "exclusionCodes": [
     "fuel",
@@ -59,7 +61,9 @@
     "education",
     "gold",
     "jewellery",
-    "emi"
+    "emi",
+    "gift_cards",
+    "tolls"
   ],
   "milestones": [
     {
@@ -288,6 +292,8 @@
     "Minimum 300 EDGE REWARD Points are required per partner-transfer request."
   ],
   "internalNotes": [
+    "Effective 28 August 2026, Axis Bank charges a 3.5% DCC markup fee on all transactions processed in INR at international locations or with merchants registered overseas.",
+    "Effective 28 August 2026, gift card purchases and toll/FASTag payments no longer earn rewards or count towards spend-based fee waivers and milestone benefits.",
     "Privilege Easy Credit Card is listed as an eligible card in the Axis Travel EDGE programme under the 'Other cards' transfer bucket.",
     "Card details manually reviewed and verified by user on 2026-06-12.",
     "Qatar Airways Privilege Club was reported back on the Axis Travel EDGE portal in July 2026 at the reduced new-partner transfer ratio for this card bucket; Axis public miles-transfer page confirms the transfer program but does not expose the logged-in partner table publicly, so this row needs issuer-portal review."

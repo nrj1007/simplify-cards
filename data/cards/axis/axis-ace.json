@@ -70,7 +70,9 @@
     "balance transfers",
     "payment of outstanding balances",
     "card fees and other bank charges",
-    "online skill-based gaming"
+    "online skill-based gaming",
+    "Gift cards",
+    "Tolls and FASTag"
   ],
   "exclusionCodes": [
     "fuel",
@@ -86,7 +88,9 @@
     "balance_transfer",
     "outstanding_balance_payment",
     "fees_and_charges",
-    "gaming"
+    "gaming",
+    "gift_cards",
+    "tolls"
   ],
   "additionalBenefits": [
     "1% fuel surcharge waiver on transactions between ₹400 and ₹4,000, capped at ₹500 per billing cycle",
@@ -118,6 +122,8 @@
   "lastVerified": "2026-06-02",
   "verificationStatus": "official-direct",
   "internalNotes": [
+    "Effective 28 August 2026, Axis Bank charges a 3.5% DCC markup fee on all transactions processed in INR at international locations or with merchants registered overseas.",
+    "Effective 28 August 2026, gift card purchases and toll/FASTag payments no longer earn rewards or count towards spend-based fee waivers and milestone benefits.",
     "Card details manually reviewed and verified by user on 2026-06-02",
     "Complimentary domestic lounge access is subject to a spend threshold of ₹50,000 in the previous three calendar months (effective 1st May 2024). Spend criteria is waived for the month of card issuance and the next three months.",
     "Annual fee waiver tracking of ₹2 lakh excludes rent and wallet load transactions.",

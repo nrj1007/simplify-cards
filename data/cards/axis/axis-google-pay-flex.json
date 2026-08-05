@@ -50,14 +50,18 @@
     "E-wallet loading transactions",
     "Educational institution payments via third-party apps",
     "Online skill-based gaming spends",
-    "Cash withdrawal and financial services transactions"
+    "Cash withdrawal and financial services transactions",
+    "Gift cards",
+    "Tolls and FASTag"
   ],
   "exclusionCodes": [
     "rent",
     "wallet_load",
     "education",
     "gaming",
-    "cash_advance"
+    "cash_advance",
+    "gift_cards",
+    "tolls"
   ],
   "milestones": [
     {
@@ -119,6 +123,8 @@
     ]
   },
   "internalNotes": [
+    "Effective 28 August 2026, Axis Bank charges a 3.5% DCC markup fee on all transactions processed in INR at international locations or with merchants registered overseas.",
+    "Effective 28 August 2026, gift card purchases and toll/FASTag payments no longer earn rewards or count towards spend-based fee waivers and milestone benefits.",
     "Card details manually reviewed and verified by user on 2026-06-11.",
     "Classified as cashback and stars (1:1 statement balance value) on 2026-06-25."
   ],

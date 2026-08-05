@@ -95,7 +95,9 @@
     "Purchase of gold or jewellery",
     "Spends at financial institutions (cash advances, repayments, etc.)",
     "Online skill-based gaming transactions",
-    "EMI transactions"
+    "EMI transactions",
+    "Gift cards",
+    "Tolls and FASTag"
   ],
   "exclusionCodes": [
     "fuel",
@@ -107,7 +109,9 @@
     "jewellery",
     "cash_advance",
     "gaming",
-    "emi"
+    "emi",
+    "gift_cards",
+    "tolls"
   ],
   "milestoneBenefits": [
     "Annual fee waived on spends of ₹4 lakh or more in a card anniversary year"
@@ -134,6 +138,8 @@
   "sourceUrl": "https://www.axisbank.com/retail/cards/credit-card/cashback-credit-card",
   "applyUrl": "https://www.axisbank.com/retail/cards/credit-card/cashback-credit-card",
   "internalNotes": [
+    "Effective 28 August 2026, Axis Bank charges a 3.5% DCC markup fee on all transactions processed in INR at international locations or with merchants registered overseas.",
+    "Effective 28 August 2026, gift card purchases and toll/FASTag payments no longer earn rewards or count towards spend-based fee waivers and milestone benefits.",
     "Card details manually reviewed and verified by user on 2026-06-09."
   ],
   "lastVerified": "2026-06-09",

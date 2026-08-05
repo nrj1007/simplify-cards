@@ -78,14 +78,18 @@
     "wallet load",
     "education payments via third-party apps",
     "utilities",
-    "transactions excluded under IndiGo Axis Bank Premium Credit Card terms"
+    "transactions excluded under IndiGo Axis Bank Premium Credit Card terms",
+    "Gift cards",
+    "Tolls and FASTag"
   ],
   "exclusionCodes": [
     "fuel",
     "rent",
     "wallet_load",
     "education",
-    "utilities"
+    "utilities",
+    "gift_cards",
+    "tolls"
   ],
   "milestoneBenefits": [],
   "milestones": [
@@ -173,6 +177,8 @@
   "applyUrl": "https://www.axisbank.com/retail/cards/credit-card/indigo-axis-bank-premium-credit-card",
   "imageUrl": "/images/axis-indigo-premium.png",
   "internalNotes": [
+    "Effective 28 August 2026, Axis Bank charges a 3.5% DCC markup fee on all transactions processed in INR at international locations or with merchants registered overseas.",
+    "Effective 28 August 2026, gift card purchases and toll/FASTag payments no longer earn rewards or count towards spend-based fee waivers and milestone benefits.",
     "Card details manually reviewed and verified by user on 2026-06-13."
   ],
   "lastVerified": "2026-06-13",

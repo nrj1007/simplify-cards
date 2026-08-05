@@ -23,7 +23,9 @@ export const EXCLUSION_CODES = [
   "gaming",
   "disputed_transactions",
   "priority_pass_spend",
-  "cash_withdrawal"
+  "cash_withdrawal",
+  "gift_cards",
+  "tolls"
 ] as const;
 
 export type ExclusionCode = (typeof EXCLUSION_CODES)[number];

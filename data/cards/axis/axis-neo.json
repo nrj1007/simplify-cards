@@ -48,7 +48,9 @@
     "Purchase of gold or jewellery",
     "Spends at financial institutions (cash advances, repayments, etc.)",
     "Online skill-based gaming transactions",
-    "EMI transactions"
+    "EMI transactions",
+    "Gift cards",
+    "Tolls and FASTag"
   ],
   "exclusionCodes": [
     "fuel",
@@ -62,7 +64,9 @@
     "jewellery",
     "cash_advance",
     "gaming",
-    "emi"
+    "emi",
+    "gift_cards",
+    "tolls"
   ],
   "milestoneBenefits": [],
   "additionalBenefits": [
@@ -272,6 +276,8 @@
     "Minimum 300 EDGE REWARD Points are required per partner-transfer request."
   ],
   "internalNotes": [
+    "Effective 28 August 2026, Axis Bank charges a 3.5% DCC markup fee on all transactions processed in INR at international locations or with merchants registered overseas.",
+    "Effective 28 August 2026, gift card purchases and toll/FASTag payments no longer earn rewards or count towards spend-based fee waivers and milestone benefits.",
     "Neo Credit Card is listed as an eligible card in the Axis Travel EDGE programme under the 'Other cards' transfer bucket.",
     "Myntra benefit removed — it is commented out in the official page HTML as of 2026-06-12 and no longer an active offer.",
     "Card details manually reviewed and verified by user on 2026-06-12.",

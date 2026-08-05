@@ -117,7 +117,9 @@
     "utilities",
     "telecom",
     "gold",
-    "jewellery"
+    "jewellery",
+    "Gift cards",
+    "Tolls and FASTag"
   ],
   "exclusionCodes": [
     "fuel",
@@ -128,7 +130,9 @@
     "utilities",
     "telecom",
     "gold",
-    "jewellery"
+    "jewellery",
+    "gift_cards",
+    "tolls"
   ],
   "additionalBenefits": [
     "1% fuel surcharge waiver on transactions from ₹400 to ₹4,000 (capped at ₹400 per billing cycle)",
@@ -303,6 +307,8 @@
   "lastVerified": "2026-07-27",
   "verificationStatus": "needs-review",
   "internalNotes": [
+    "Effective 28 August 2026, Axis Bank charges a 3.5% DCC markup fee on all transactions processed in INR at international locations or with merchants registered overseas.",
+    "Effective 28 August 2026, gift card purchases and toll/FASTag payments no longer earn rewards or count towards spend-based fee waivers and milestone benefits.",
     "Card details manually reviewed and verified by user on 2026-06-02",
     "EDGE Miles are valid for 3 years from the date of earning.",
     "Miles may expire if the loyalty account remains inactive (no earn, redeem, or login) for 365 consecutive days.",

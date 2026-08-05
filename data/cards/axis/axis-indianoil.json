@@ -60,7 +60,9 @@
     "Government services spends",
     "Educational institution payments",
     "Purchase of gold or jewellery",
-    "Spends at financial institutions (cash advances, repayments, etc.)"
+    "Spends at financial institutions (cash advances, repayments, etc.)",
+    "Gift cards",
+    "Tolls and FASTag"
   ],
   "exclusionCodes": [
     "rent",
@@ -70,7 +72,9 @@
     "government",
     "education",
     "gold",
-    "jewellery"
+    "jewellery",
+    "gift_cards",
+    "tolls"
   ],
   "specialSpendRules": [
     {
@@ -283,6 +287,8 @@
     "Minimum 300 EDGE REWARD Points are required per partner-transfer request."
   ],
   "internalNotes": [
+    "Effective 28 August 2026, Axis Bank charges a 3.5% DCC markup fee on all transactions processed in INR at international locations or with merchants registered overseas.",
+    "Effective 28 August 2026, gift card purchases and toll/FASTag payments no longer earn rewards or count towards spend-based fee waivers and milestone benefits.",
     "Reviewed against the official Axis Travel EDGE transfer terms and the Axis eligible cards PDF on 2026-06-11.",
     "INDIANOIL AXIS BANK Credit Card is listed in the official eligible cards PDF and follows the 'Other cards' transfer bucket on the Travel EDGE partner table.",
     "Accor and Marriott rows were present only inside commented-out HTML on the live Travel EDGE terms page on 2026-06-11, so they were not carried as active transfer partners.",

@@ -52,7 +52,9 @@
     "Utilities and telecom spends",
     "Government services spends",
     "Educational institution payments",
-    "Transportation and tolls spends"
+    "Transportation and tolls spends",
+    "Gift cards",
+    "Tolls and FASTag"
   ],
   "exclusionCodes": [
     "fuel",
@@ -62,7 +64,9 @@
     "utilities",
     "government",
     "education",
-    "fees_and_charges"
+    "fees_and_charges",
+    "gift_cards",
+    "tolls"
   ],
   "milestones": [
     {
@@ -270,6 +274,8 @@
     ]
   },
   "internalNotes": [
+    "Effective 28 August 2026, Axis Bank charges a 3.5% DCC markup fee on all transactions processed in INR at international locations or with merchants registered overseas.",
+    "Effective 28 August 2026, gift card purchases and toll/FASTag payments no longer earn rewards or count towards spend-based fee waivers and milestone benefits.",
     "Card details manually reviewed and verified by user on 2026-06-11.",
     "Qatar Airways Privilege Club was reported back on the Axis Travel EDGE portal in July 2026 at the reduced new-partner transfer ratio for this card bucket; Axis public miles-transfer page confirms the transfer program but does not expose the logged-in partner table publicly, so this row needs issuer-portal review."
   ],

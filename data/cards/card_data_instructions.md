@@ -276,7 +276,7 @@ The calculator computes `value per card unit = partnerPointValue × transferRati
 ### C. Exclusions (`exclusions` and `exclusionCodes`)
 *   **`exclusions`**: This array must ONLY contain spend categories, transaction types, or merchants that are **excluded from earning reward points** (i.e., they yield 0% rewards). Do not place general bank policies, eligibility constraints, lounge access conditions, or fee info here; those belong in fields like `eligibility`, `additionalBenefits`, `additionalDetails`, or `internalNotes`.
 *   **`exclusionCodes`**: Map the textual exclusions from the `"exclusions"` array into canonical constants under `"exclusionCodes"` for deterministic ranking checks.
-*   **Allowed Exclusion Codes:** `fuel`, `rent`, `insurance`, `education`, `gold`, `jewellery`, `utilities`, `telecom`, `wallet_load`, `government`, `tax`, `real_estate`, `property_management`, `cash_advance`, `balance_transfer`, `outstanding_balance_payment`, `emi`, `fees_and_charges`, `gaming`, `cash_withdrawal`
+*   **Allowed Exclusion Codes:** `fuel`, `rent`, `insurance`, `education`, `gold`, `jewellery`, `utilities`, `telecom`, `wallet_load`, `government`, `tax`, `real_estate`, `property_management`, `cash_advance`, `balance_transfer`, `outstanding_balance_payment`, `emi`, `fees_and_charges`, `gaming`, `cash_withdrawal`, `gift_cards`, `tolls`
 
 > [!NOTE]
 > **Exclusions vs. Revised/Capped Rates**:

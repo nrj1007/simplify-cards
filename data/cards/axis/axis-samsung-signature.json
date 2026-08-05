@@ -71,7 +71,9 @@
     "Educational institution payments",
     "Purchase of gold or jewellery",
     "Online skill-based gaming spends",
-    "Transactions excluded under Samsung Axis Bank Signature Credit Card terms"
+    "Transactions excluded under Samsung Axis Bank Signature Credit Card terms",
+    "Gift cards",
+    "Tolls and FASTag"
   ],
   "exclusionCodes": [
     "fuel",
@@ -83,7 +85,9 @@
     "education",
     "gold",
     "gaming",
-    "fees_and_charges"
+    "fees_and_charges",
+    "gift_cards",
+    "tolls"
   ],
   "joiningBenefitsValued": [
     {
@@ -299,6 +303,8 @@
     "Minimum 300 EDGE REWARD Points are required per partner-transfer request."
   ],
   "internalNotes": [
+    "Effective 28 August 2026, Axis Bank charges a 3.5% DCC markup fee on all transactions processed in INR at international locations or with merchants registered overseas.",
+    "Effective 28 August 2026, gift card purchases and toll/FASTag payments no longer earn rewards or count towards spend-based fee waivers and milestone benefits.",
     "Samsung Axis Bank Signature Credit Card is listed as an eligible card in the Axis Travel EDGE programme under the 'Other cards' transfer bucket.",
     "Reward rows for Samsung purchases (10% capped) and the 5 preferred partners (BigBasket, Myntra, Tata 1mg, Urban Company, Zomato; 2% EDGE) are narrow co-brand/partner sets, so they use category 'partner merchants' rather than broad dining/grocery/online (which over-ranked the card to #1 for online). acceleratedShare online/grocery 0.25 reflects that only a portion of broad online/grocery spend routes through these specific merchants.",
     "Card details manually reviewed and verified by user on 2026-06-12.",

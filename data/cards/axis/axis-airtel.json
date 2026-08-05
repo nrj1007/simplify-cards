@@ -85,7 +85,9 @@
     "government services",
     "insurance services",
     "education services",
-    "utility spends not done on Airtel Thanks App"
+    "utility spends not done on Airtel Thanks App",
+    "Gift cards",
+    "Tolls and FASTag"
   ],
   "exclusionCodes": [
     "fuel",
@@ -98,7 +100,9 @@
     "fees_and_charges",
     "government",
     "insurance",
-    "education"
+    "education",
+    "gift_cards",
+    "tolls"
   ],
   "joiningBenefitsValued": [
     {
@@ -136,6 +140,8 @@
   "lastVerified": "2026-06-25",
   "verificationStatus": "official-direct",
   "internalNotes": [
+    "Effective 28 August 2026, Axis Bank charges a 3.5% DCC markup fee on all transactions processed in INR at international locations or with merchants registered overseas.",
+    "Effective 28 August 2026, gift card purchases and toll/FASTag payments no longer earn rewards or count towards spend-based fee waivers and milestone benefits.",
     "Card details manually audited and verified by agent on 2026-06-25",
     "Card details manually reviewed and verified by user on 2026-06-02",
     "Cashback is credited directly to the credit card statement and not redeemed separately.",

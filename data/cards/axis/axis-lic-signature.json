@@ -65,7 +65,9 @@
     "rent",
     "education payments via third-party apps",
     "utilities above fee threshold",
-    "transactions excluded under LIC Axis Bank Signature Credit Card terms"
+    "transactions excluded under LIC Axis Bank Signature Credit Card terms",
+    "Gift cards",
+    "Tolls and FASTag"
   ],
   "exclusionCodes": [
     "fuel",
@@ -73,7 +75,9 @@
     "emi",
     "rent",
     "education",
-    "utilities"
+    "utilities",
+    "gift_cards",
+    "tolls"
   ],
   "milestoneBenefits": [],
   "joiningBenefits": [
@@ -104,6 +108,8 @@
   "applyUrl": "https://www.axisbank.com/retail/cards/credit-card/lic-axis-bank-signature-credit-card",
   "imageUrl": "/images/axis-lic-signature.webp",
   "internalNotes": [
+    "Effective 28 August 2026, Axis Bank charges a 3.5% DCC markup fee on all transactions processed in INR at international locations or with merchants registered overseas.",
+    "Effective 28 August 2026, gift card purchases and toll/FASTag payments no longer earn rewards or count towards spend-based fee waivers and milestone benefits.",
     "Card details manually reviewed and verified by user on 2026-06-13."
   ],
   "lastVerified": "2026-06-13",

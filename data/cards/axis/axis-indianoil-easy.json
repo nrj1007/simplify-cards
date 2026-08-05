@@ -59,7 +59,9 @@
     "Government services spends",
     "Educational institution payments",
     "Purchase of gold or jewellery",
-    "Spends at financial institutions (cash advances, repayments, etc.)"
+    "Spends at financial institutions (cash advances, repayments, etc.)",
+    "Gift cards",
+    "Tolls and FASTag"
   ],
   "exclusionCodes": [
     "rent",
@@ -69,7 +71,9 @@
     "government",
     "education",
     "gold",
-    "jewellery"
+    "jewellery",
+    "gift_cards",
+    "tolls"
   ],
   "milestoneBenefits": [],
   "specialSpendRules": [
@@ -113,6 +117,8 @@
     ]
   },
   "internalNotes": [
+    "Effective 28 August 2026, Axis Bank charges a 3.5% DCC markup fee on all transactions processed in INR at international locations or with merchants registered overseas.",
+    "Effective 28 August 2026, gift card purchases and toll/FASTag payments no longer earn rewards or count towards spend-based fee waivers and milestone benefits.",
     "Card details manually reviewed and verified by user on 2026-06-11."
   ],
   "sourceUrl": "https://www.axisbank.com/retail/cards/credit-card/indianoil-axis-bank-credit-card",

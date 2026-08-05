@@ -50,7 +50,9 @@
     "Educational institution payments",
     "Purchase of gold or jewellery",
     "Movie ticket purchases",
-    "EMI transactions"
+    "EMI transactions",
+    "Gift cards",
+    "Tolls and FASTag"
   ],
   "exclusionCodes": [
     "fuel",
@@ -62,7 +64,9 @@
     "education",
     "gold",
     "jewellery",
-    "emi"
+    "emi",
+    "gift_cards",
+    "tolls"
   ],
   "milestoneBenefits": [
     "1,000 EDGE REWARD Points on annual spends of ₹1.5 lakh for eligible customers onboarded from 1 April 2025",
@@ -275,6 +279,8 @@
     "Minimum 300 EDGE REWARD Points are required per partner-transfer request."
   ],
   "internalNotes": [
+    "Effective 28 August 2026, Axis Bank charges a 3.5% DCC markup fee on all transactions processed in INR at international locations or with merchants registered overseas.",
+    "Effective 28 August 2026, gift card purchases and toll/FASTag payments no longer earn rewards or count towards spend-based fee waivers and milestone benefits.",
     "Axis Bank My Zone Credit Card is listed as an eligible card in the Axis Travel EDGE programme under the 'Other cards' transfer bucket.",
     "Transfer partner table mirrored from the verified axis-indianoil card (same Other cards bucket) on 2026-06-12.",
     "Card details manually reviewed and verified by user on 2026-06-12.",

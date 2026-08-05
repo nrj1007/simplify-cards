@@ -58,7 +58,9 @@
     "Purchase of gold or jewellery",
     "Spends at financial institutions (cash advances, repayments, etc.)",
     "Online skill-based gaming transactions",
-    "EMI transactions"
+    "EMI transactions",
+    "Gift cards",
+    "Tolls and FASTag"
   ],
   "exclusionCodes": [
     "fuel",
@@ -72,7 +74,9 @@
     "jewellery",
     "cash_advance",
     "gaming",
-    "emi"
+    "emi",
+    "gift_cards",
+    "tolls"
   ],
   "joiningBenefits": [],
   "renewalBenefits": [],
@@ -108,6 +112,8 @@
   "sourceUrl": "https://www.axis.bank.in/cards/credit-card/fibe-axis-bank-credit-card",
   "applyUrl": "https://www.axis.bank.in/cards/credit-card/fibe-axis-bank-credit-card",
   "internalNotes": [
+    "Effective 28 August 2026, Axis Bank charges a 3.5% DCC markup fee on all transactions processed in INR at international locations or with merchants registered overseas.",
+    "Effective 28 August 2026, gift card purchases and toll/FASTag payments no longer earn rewards or count towards spend-based fee waivers and milestone benefits.",
     "Fibe Axis Bank Credit Card is a numberless RuPay card sourced exclusively to existing Fibe customers.",
     "Card details manually reviewed and verified by user on 2026-06-12."
   ],

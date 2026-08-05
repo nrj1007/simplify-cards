@@ -61,14 +61,18 @@
     "wallet load",
     "education payments via third-party apps",
     "online skill-based gaming",
-    "transactions excluded under IKEA Family Credit Card terms"
+    "transactions excluded under IKEA Family Credit Card terms",
+    "Gift cards",
+    "Tolls and FASTag"
   ],
   "exclusionCodes": [
     "fuel",
     "rent",
     "wallet_load",
     "education",
-    "gaming"
+    "gaming",
+    "gift_cards",
+    "tolls"
   ],
   "milestoneBenefits": [],
   "additionalBenefits": [
@@ -95,6 +99,8 @@
   "applyUrl": "https://www.axisbank.com/retail/cards/credit-card/ikea-family-credit-card",
   "imageUrl": "/images/axis-ikea-family.webp",
   "internalNotes": [
+    "Effective 28 August 2026, Axis Bank charges a 3.5% DCC markup fee on all transactions processed in INR at international locations or with merchants registered overseas.",
+    "Effective 28 August 2026, gift card purchases and toll/FASTag payments no longer earn rewards or count towards spend-based fee waivers and milestone benefits.",
     "Card details manually reviewed and verified by user on 2026-06-13."
   ],
   "lastVerified": "2026-06-13",

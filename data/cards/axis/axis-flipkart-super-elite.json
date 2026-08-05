@@ -66,7 +66,9 @@
     "Purchase of gold or jewellery",
     "Spends at financial institutions (cash advances, repayments, etc.)",
     "Online skill-based gaming transactions",
-    "EMI transactions"
+    "EMI transactions",
+    "Gift cards",
+    "Tolls and FASTag"
   ],
   "exclusionCodes": [
     "fuel",
@@ -80,7 +82,9 @@
     "jewellery",
     "cash_advance",
     "gaming",
-    "emi"
+    "emi",
+    "gift_cards",
+    "tolls"
   ],
   "joiningBenefits": [
     "500 SuperCoins on card activation",
@@ -120,6 +124,8 @@
     "1 SuperCoin = Re 1, redeemable on Flipkart, Myntra, and Cleartrip for vouchers, products, and travel bookings."
   ],
   "internalNotes": [
+    "Effective 28 August 2026, Axis Bank charges a 3.5% DCC markup fee on all transactions processed in INR at international locations or with merchants registered overseas.",
+    "Effective 28 August 2026, gift card purchases and toll/FASTag payments no longer earn rewards or count towards spend-based fee waivers and milestone benefits.",
     "Flipkart Axis Bank Super Elite Credit Card is a SuperCoin-earning card where 1 SuperCoin = Re 1 in the Flipkart ecosystem.",
     "Flipkart Axis Bank Super Elite Credit Card has been discontinued, as confirmed by Technofino community discussion on June 17, 2026.",
     "Card details manually reviewed and verified by user on 2026-06-17."

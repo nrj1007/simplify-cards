@@ -79,7 +79,9 @@
     "gold and jewellery",
     "fuel",
     "cash advances",
-    "repayments"
+    "repayments",
+    "Gift cards",
+    "Tolls and FASTag"
   ],
   "exclusionCodes": [
     "utilities",
@@ -91,7 +93,9 @@
     "jewellery",
     "fuel",
     "cash_advance",
-    "outstanding_balance_payment"
+    "outstanding_balance_payment",
+    "gift_cards",
+    "tolls"
   ],
   "specialSpendRules": [
     {
@@ -316,6 +320,8 @@
   "lastVerified": "2026-07-27",
   "verificationStatus": "needs-review",
   "internalNotes": [
+    "Effective 28 August 2026, Axis Bank charges a 2% DCC markup fee on all transactions processed in INR at international locations or with merchants registered overseas.",
+    "Effective 28 August 2026, gift card purchases and toll/FASTag payments no longer earn rewards or count towards spend-based fee waivers and milestone benefits.",
     "Card details manually audited and verified by agent on 2026-06-25",
     "Card details manually reviewed and verified by user on 2026-06-06",
     "Official audit completed on 2026-06-03 using Axis Bank product page, 20 April 2024 revision PDF, 20 June 2025 revision PDF, Magnolia for Burgundy FAQ, and Axis miles-transfer page.",
