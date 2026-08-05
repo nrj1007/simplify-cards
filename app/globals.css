@@ -476,6 +476,23 @@ html body .updates-reference-page .updates-empty {
   max-width: 760px;
 }
 
+html body .updates-reference-page .updates-content-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 760px) minmax(280px, 360px);
+  gap: 56px;
+  align-items: start;
+}
+
+html body .updates-reference-page .updates-feed-column {
+  min-width: 0;
+}
+
+html body .updates-reference-page .updates-whatsapp-rail {
+  position: sticky;
+  top: 96px;
+  min-height: 0;
+}
+
 html body .updates-reference-page .updates-row {
   margin-bottom: 34px;
 }
@@ -677,6 +694,18 @@ html body .updates-reference-page .updates-empty {
   html body .updates-reference-page .updates-tile {
     padding-top: 18px;
     padding-bottom: 20px;
+  }
+}
+
+@media (max-width: 980px) {
+  html body .updates-reference-page .updates-content-layout {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  html body .updates-reference-page .updates-whatsapp-rail {
+    position: static;
+    max-width: 760px;
   }
 }
 

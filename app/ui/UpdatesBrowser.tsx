@@ -3,6 +3,7 @@
 import type { Route } from "next";
 import Link from "next/link";
 import { useRef, useState } from "react";
+import WhatsAppUpdatesCta from "./WhatsAppUpdatesCta";
 
 type Update = {
   title: string;
@@ -62,68 +63,76 @@ export default function UpdatesBrowser({ updates }: { updates: Update[] }) {
         <h1 id="updates-page-title" ref={titleRef}>Latest Updates</h1>
       </section>
 
-      {updates.length === 0 ? (
-        <p className="updates-empty">No updates yet Check back soon</p>
-      ) : (
-        <>
-          <div className="updates-page-status" aria-live="polite">
-            Showing {start + 1}–{Math.min(start + PAGE_SIZE, updates.length)} of {updates.length} updates · Page {page + 1} of {pageCount}
-          </div>
-          <div className="updates-rows-stack">
-            {Array.from(grouped.entries()).map(([key, monthUpdates], monthIndex) => (
-              <section className="updates-row" aria-labelledby={`updates-month-${monthIndex}`} key={key}>
-                <div className="updates-row-head">
-                  <h2 id={`updates-month-${monthIndex}`}>{monthLabel(key)}</h2>
-                </div>
-                <div className="updates-list">
-                  {monthUpdates.map((update) => (
-                    <article className="updates-tile" key={`${update.cardId}-${update.publishedAt}-${update.title}`}>
-                      <div className="updates-tile-meta">
-                        <div className="updates-card-links" aria-label="Affected cards">
-                          {update.cards.map((card) => (
-                            <Link className="updates-card-name" href={`/cards/${card.cardId}` as Route} key={card.cardId}>
-                              {card.cardName}
-                            </Link>
-                          ))}
-                        </div>
-                        <time className="updates-date" dateTime={update.publishedAt}>{dateLabel(update.publishedAt)}</time>
-                      </div>
-                      <div className="updates-tile-art">
-                        <span className="updates-issuer">{update.cardIssuer}</span>
-                        <h3 className="updates-title">{update.title}</h3>
-                      </div>
-                      <div className="updates-tile-copy">
-                        <p className="updates-summary">{update.summary}</p>
-                        {update.sourceUrl ? (
-                          <a className="updates-source" href={update.sourceUrl} rel="nofollow noopener noreferrer" target="_blank">
-                            Source: {update.sourceLabel} ↗
-                          </a>
-                        ) : (
-                          <span className="updates-source updates-source-plain">Source: {update.sourceLabel}</span>
-                        )}
-                      </div>
-                    </article>
-                  ))}
-                </div>
-              </section>
-            ))}
-          </div>
-          <nav className="updates-pagination" aria-label="Updates pagination">
-            {Array.from({ length: pageCount }, (_, index) => (
-              <button
-                className="updates-page-button"
-                type="button"
-                aria-current={index === page ? "page" : undefined}
-                aria-label={`Go to updates page ${index + 1}`}
-                onClick={() => selectPage(index)}
-                key={index}
-              >
-                {index + 1}
-              </button>
-            ))}
-          </nav>
-        </>
+      {updates.length > 0 && (
+        <div className="updates-page-status" aria-live="polite">
+          Showing {start + 1}–{Math.min(start + PAGE_SIZE, updates.length)} of {updates.length} updates · Page {page + 1} of {pageCount}
+        </div>
       )}
+
+      <div className="updates-content-layout">
+        <div className="updates-feed-column">
+          {updates.length === 0 ? (
+            <p className="updates-empty">No updates yet Check back soon</p>
+          ) : (
+            <>
+              <div className="updates-rows-stack">
+                {Array.from(grouped.entries()).map(([key, monthUpdates], monthIndex) => (
+                  <section className="updates-row" aria-labelledby={`updates-month-${monthIndex}`} key={key}>
+                    <div className="updates-row-head">
+                      <h2 id={`updates-month-${monthIndex}`}>{monthLabel(key)}</h2>
+                    </div>
+                    <div className="updates-list">
+                      {monthUpdates.map((update) => (
+                        <article className="updates-tile" key={`${update.cardId}-${update.publishedAt}-${update.title}`}>
+                          <div className="updates-tile-meta">
+                            <div className="updates-card-links" aria-label="Affected cards">
+                              {update.cards.map((card) => (
+                                <Link className="updates-card-name" href={`/cards/${card.cardId}` as Route} key={card.cardId}>
+                                  {card.cardName}
+                                </Link>
+                              ))}
+                            </div>
+                            <time className="updates-date" dateTime={update.publishedAt}>{dateLabel(update.publishedAt)}</time>
+                          </div>
+                          <div className="updates-tile-art">
+                            <span className="updates-issuer">{update.cardIssuer}</span>
+                            <h3 className="updates-title">{update.title}</h3>
+                          </div>
+                          <div className="updates-tile-copy">
+                            <p className="updates-summary">{update.summary}</p>
+                            {update.sourceUrl ? (
+                              <a className="updates-source" href={update.sourceUrl} rel="nofollow noopener noreferrer" target="_blank">
+                                Source: {update.sourceLabel} ↗
+                              </a>
+                            ) : (
+                              <span className="updates-source updates-source-plain">Source: {update.sourceLabel}</span>
+                            )}
+                          </div>
+                        </article>
+                      ))}
+                    </div>
+                  </section>
+                ))}
+              </div>
+              <nav className="updates-pagination" aria-label="Updates pagination">
+                {Array.from({ length: pageCount }, (_, index) => (
+                  <button
+                    className="updates-page-button"
+                    type="button"
+                    aria-current={index === page ? "page" : undefined}
+                    aria-label={`Go to updates page ${index + 1}`}
+                    onClick={() => selectPage(index)}
+                    key={index}
+                  >
+                    {index + 1}
+                  </button>
+                ))}
+              </nav>
+            </>
+          )}
+        </div>
+        <WhatsAppUpdatesCta className="updates-whatsapp-rail" />
+      </div>
     </div>
   );
 }
