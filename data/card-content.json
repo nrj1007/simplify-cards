@@ -791,6 +791,17 @@
   "axis-indigo-premium": {
     "updates": [
       {
+        "title": "Reciprocal points transfer launched with Accor ALL",
+        "summary": "Effective 13 July 2026, IndiGo and Accor launched a reciprocal loyalty partnership. You can now transfer IndiGo BluChips to Accor Live Limitless (ALL) at a 6:1 ratio (6,000 BluChips = 1,000 ALL points).",
+        "sourceType": "manual",
+        "sourceLabel": "IndiGo official announcement",
+        "sourceUrl": "https://www.goindigo.in/bluchip.html",
+        "publishedAt": "2026-07-13",
+        "groupId": "indigo-accor-partnership-2026-07",
+        "groupTitle": "IndiGo and Accor launch reciprocal points transfer",
+        "groupSummary": "Effective 13 July 2026, IndiGo BluChips and Accor Live Limitless (ALL) allow reciprocal point transfers. BluChips convert to ALL at a 6:1 ratio, while ALL points convert to BluChips at a 3:2 ratio."
+      },
+      {
         "title": "Axis Bank revised DCC markup and gift card rewards",
         "summary": "Effective 28 August 2026, Axis Bank has increased the Dynamic Currency Conversion (DCC) markup to 3.5% for most Axis credit cards. Additionally, gift card purchases are excluded from earning reward points/cashback and no longer count towards spend-based fee waivers or milestone benefits. Tolls and FASTag spends will also cease earning rewards.",
         "sourceType": "manual",
@@ -804,6 +815,17 @@
   },
   "axis-indigo": {
     "updates": [
+      {
+        "title": "Reciprocal points transfer launched with Accor ALL",
+        "summary": "Effective 13 July 2026, IndiGo and Accor launched a reciprocal loyalty partnership. You can now transfer IndiGo BluChips to Accor Live Limitless (ALL) at a 6:1 ratio (6,000 BluChips = 1,000 ALL points).",
+        "sourceType": "manual",
+        "sourceLabel": "IndiGo official announcement",
+        "sourceUrl": "https://www.goindigo.in/bluchip.html",
+        "publishedAt": "2026-07-13",
+        "groupId": "indigo-accor-partnership-2026-07",
+        "groupTitle": "IndiGo and Accor launch reciprocal points transfer",
+        "groupSummary": "Effective 13 July 2026, IndiGo BluChips and Accor Live Limitless (ALL) allow reciprocal point transfers. BluChips convert to ALL at a 6:1 ratio, while ALL points convert to BluChips at a 3:2 ratio."
+      },
       {
         "title": "Axis Bank revised DCC markup and gift card rewards",
         "summary": "Effective 28 August 2026, Axis Bank has increased the Dynamic Currency Conversion (DCC) markup to 3.5% for most Axis credit cards. Additionally, gift card purchases are excluded from earning reward points/cashback and no longer count towards spend-based fee waivers or milestone benefits. Tolls and FASTag spends will also cease earning rewards.",
@@ -981,6 +1003,51 @@
         "groupId": "axis-dcc-gift-card-devaluation-general-2026-08-28",
         "groupTitle": "Axis Bank revised DCC markup and spend exclusions",
         "groupSummary": "Effective 28 August 2026, Axis Bank revised DCC markup fees (to 3.5% for most cards), excluded gift cards and toll/FASTag payments from earning rewards or counting towards spend milestones, and updated late payment fees across affected cards."
+      }
+    ]
+  },
+  "idfc-indigo": {
+    "updates": [
+      {
+        "title": "Reciprocal points transfer launched with Accor ALL",
+        "summary": "Effective 13 July 2026, IndiGo and Accor launched a reciprocal loyalty partnership. You can now transfer IndiGo BluChips to Accor Live Limitless (ALL) at a 6:1 ratio (6,000 BluChips = 1,000 ALL points).",
+        "sourceType": "manual",
+        "sourceLabel": "IndiGo official announcement",
+        "sourceUrl": "https://www.goindigo.in/bluchip.html",
+        "publishedAt": "2026-07-13",
+        "groupId": "indigo-accor-partnership-2026-07",
+        "groupTitle": "IndiGo and Accor launch reciprocal points transfer",
+        "groupSummary": "Effective 13 July 2026, IndiGo BluChips and Accor Live Limitless (ALL) allow reciprocal point transfers. BluChips convert to ALL at a 6:1 ratio, while ALL points convert to BluChips at a 3:2 ratio."
+      }
+    ]
+  },
+  "indigo-sbi-elite": {
+    "updates": [
+      {
+        "title": "Reciprocal points transfer launched with Accor ALL",
+        "summary": "Effective 13 July 2026, IndiGo and Accor launched a reciprocal loyalty partnership. You can now transfer IndiGo BluChips to Accor Live Limitless (ALL) at a 6:1 ratio (6,000 BluChips = 1,000 ALL points).",
+        "sourceType": "manual",
+        "sourceLabel": "IndiGo official announcement",
+        "sourceUrl": "https://www.goindigo.in/bluchip.html",
+        "publishedAt": "2026-07-13",
+        "groupId": "indigo-accor-partnership-2026-07",
+        "groupTitle": "IndiGo and Accor launch reciprocal points transfer",
+        "groupSummary": "Effective 13 July 2026, IndiGo BluChips and Accor Live Limitless (ALL) allow reciprocal point transfers. BluChips convert to ALL at a 6:1 ratio, while ALL points convert to BluChips at a 3:2 ratio."
+      }
+    ]
+  },
+  "indigo-sbi": {
+    "updates": [
+      {
+        "title": "Reciprocal points transfer launched with Accor ALL",
+        "summary": "Effective 13 July 2026, IndiGo and Accor launched a reciprocal loyalty partnership. You can now transfer IndiGo BluChips to Accor Live Limitless (ALL) at a 6:1 ratio (6,000 BluChips = 1,000 ALL points).",
+        "sourceType": "manual",
+        "sourceLabel": "IndiGo official announcement",
+        "sourceUrl": "https://www.goindigo.in/bluchip.html",
+        "publishedAt": "2026-07-13",
+        "groupId": "indigo-accor-partnership-2026-07",
+        "groupTitle": "IndiGo and Accor launch reciprocal points transfer",
+        "groupSummary": "Effective 13 July 2026, IndiGo BluChips and Accor Live Limitless (ALL) allow reciprocal point transfers. BluChips convert to ALL at a 6:1 ratio, while ALL points convert to BluChips at a 3:2 ratio."
       }
     ]
   }
