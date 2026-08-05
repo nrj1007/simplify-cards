@@ -39,6 +39,42 @@ function dateLabel(publishedAt: string) {
   });
 }
 
+function UpdateCardTags({ cards }: { cards: Update["cards"] }) {
+  const [expanded, setExpanded] = useState(false);
+  const showCollapse = cards.length > 4;
+  const visibleCards = expanded ? cards : cards.slice(0, 4);
+
+  return (
+    <>
+      {visibleCards.map((card) => (
+        <Link className="updates-card-name" href={`/cards/${card.cardId}` as Route} key={card.cardId}>
+          {card.cardName}
+        </Link>
+      ))}
+      {showCollapse && !expanded && (
+        <button
+          type="button"
+          className="updates-card-name"
+          style={{ border: "none", cursor: "pointer", fontFamily: "inherit" }}
+          onClick={() => setExpanded(true)}
+        >
+          +{cards.length - 4} more
+        </button>
+      )}
+      {showCollapse && expanded && (
+        <button
+          type="button"
+          className="updates-card-name"
+          style={{ border: "none", cursor: "pointer", fontFamily: "inherit" }}
+          onClick={() => setExpanded(false)}
+        >
+          Show less
+        </button>
+      )}
+    </>
+  );
+}
+
 export default function UpdatesBrowser({ updates }: { updates: Update[] }) {
   const [page, setPage] = useState(0);
   const titleRef = useRef<HTMLHeadingElement | null>(null);
@@ -86,11 +122,7 @@ export default function UpdatesBrowser({ updates }: { updates: Update[] }) {
                         <article className="updates-tile" key={`${update.cardId}-${update.publishedAt}-${update.title}`}>
                           <div className="updates-tile-meta">
                             <div className="updates-card-links" aria-label="Affected cards">
-                              {update.cards.map((card) => (
-                                <Link className="updates-card-name" href={`/cards/${card.cardId}` as Route} key={card.cardId}>
-                                  {card.cardName}
-                                </Link>
-                              ))}
+                              <UpdateCardTags cards={update.cards} />
                             </div>
                             <time className="updates-date" dateTime={update.publishedAt}>{dateLabel(update.publishedAt)}</time>
                           </div>
