@@ -20,6 +20,15 @@ const nextConfig: NextConfig = {
     "/calculator": ["./data/cards/**/*.json"],
     "/compare": ["./data/cards/**/*.json"],
     "/finder": ["./data/cards/**/*.json"]
+  },
+  async redirects() {
+    return [
+      {
+        source: "/whatsapp",
+        destination: "https://chat.whatsapp.com/HRIXZtKlzH5B0EAvOag27L",
+        permanent: false,
+      },
+    ];
   }
 };
 
