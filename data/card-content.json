@@ -367,6 +367,16 @@
   "axis-airtel": {
     "updates": [
       {
+        "title": "Axis Bank revised DCC markup and gift card rewards",
+        "summary": "Effective 28 August 2026, Axis Bank has increased the Dynamic Currency Conversion (DCC) markup to 3.5% for most Axis credit cards. Additionally, gift card purchases are excluded from earning reward points/cashback and no longer count towards spend-based fee waivers or milestone benefits. Tolls and FASTag spends will also cease earning rewards.",
+        "sourceType": "manual",
+        "sourceLabel": "Axis Bank official notice",
+        "publishedAt": "2026-08-28",
+        "groupId": "axis-dcc-gift-card-devaluation-general-2026-08-28",
+        "groupTitle": "Axis Bank revised DCC markup and spend exclusions",
+        "groupSummary": "Effective 28 August 2026, Axis Bank revised DCC markup fees (to 3.5% for most cards), excluded gift cards and toll/FASTag payments from earning rewards or counting towards spend milestones, and updated late payment fees across affected cards."
+      },
+      {
         "title": "Axis revised Airtel Axis Bank Credit Card features and terms",
         "summary": "Effective 12 April 2026, Axis ties accelerated cashback more tightly to regular spending: the monthly cap on 25% and 10% cashback is limited to twice the base cashback earned in the same statement month.",
         "sourceType": "manual",
@@ -378,6 +388,16 @@
   },
   "axis-atlas": {
     "updates": [
+      {
+        "title": "Axis Bank revised DCC markup and gift card rewards",
+        "summary": "Effective 28 August 2026, Axis Bank has increased the Dynamic Currency Conversion (DCC) markup to 3.5% for most Axis credit cards. Additionally, gift card purchases are excluded from earning reward points/cashback and no longer count towards spend-based fee waivers or milestone benefits. Tolls and FASTag spends will also cease earning rewards.",
+        "sourceType": "manual",
+        "sourceLabel": "Axis Bank official notice",
+        "publishedAt": "2026-08-28",
+        "groupId": "axis-dcc-gift-card-devaluation-general-2026-08-28",
+        "groupTitle": "Axis Bank revised DCC markup and spend exclusions",
+        "groupSummary": "Effective 28 August 2026, Axis Bank revised DCC markup fees (to 3.5% for most cards), excluded gift cards and toll/FASTag payments from earning rewards or counting towards spend milestones, and updated late payment fees across affected cards."
+      },
       {
         "title": "Axis revised Travel EDGE transfer program for Atlas",
         "summary": "Effective 2 April 2026, Axis Bank revised its Travel EDGE transfer program: Accor Live Limitless, Marriott Bonvoy, and Qatar Airways were removed as transfer partners. Three new airline partners (British Airways, Finnair, Vietnam Airlines) were added at a 2:1 transfer ratio, while legacy partners continue to transfer at 1:2 ratio. Annual caps of 30,000 EDGE Miles for Group A and 120,000 EDGE Miles for Group B apply.",
@@ -426,10 +446,32 @@
         "sourceType": "manual",
         "sourceLabel": "Manual"
       }
+    ],
+    "updates": [
+      {
+        "title": "Axis Bank revised DCC markup and gift card rewards",
+        "summary": "Effective 28 August 2026, Axis Bank has increased the Dynamic Currency Conversion (DCC) markup to 3.5% for most Axis credit cards. Additionally, gift card purchases are excluded from earning reward points/cashback and no longer count towards spend-based fee waivers or milestone benefits. Tolls and FASTag spends will also cease earning rewards.",
+        "sourceType": "manual",
+        "sourceLabel": "Axis Bank official notice",
+        "publishedAt": "2026-08-28",
+        "groupId": "axis-dcc-gift-card-devaluation-general-2026-08-28",
+        "groupTitle": "Axis Bank revised DCC markup and spend exclusions",
+        "groupSummary": "Effective 28 August 2026, Axis Bank revised DCC markup fees (to 3.5% for most cards), excluded gift cards and toll/FASTag payments from earning rewards or counting towards spend milestones, and updated late payment fees across affected cards."
+      }
     ]
   },
   "axis-magnus": {
     "updates": [
+      {
+        "title": "Axis Bank revised DCC markup and gift card rewards",
+        "summary": "Effective 28 August 2026, Axis Bank has increased the Dynamic Currency Conversion (DCC) markup to 2% for Magnus and Magnus for Burgundy. Additionally, gift card purchases are excluded from earning reward points/cashback and no longer count towards spend-based fee waivers or milestone benefits. Tolls and FASTag spends will also cease earning rewards.",
+        "sourceType": "manual",
+        "sourceLabel": "Axis Bank official notice",
+        "publishedAt": "2026-08-28",
+        "groupId": "axis-dcc-gift-card-devaluation-magnus-2026-08-28",
+        "groupTitle": "Axis Bank revised DCC markup and spend exclusions",
+        "groupSummary": "Effective 28 August 2026, Axis Bank revised DCC markup fees (to 2% for Magnus variants), excluded gift cards and toll/FASTag payments from earning rewards or counting towards spend milestones, and updated late payment fees across affected cards."
+      },
       {
         "title": "Axis restored Qatar Airways at a reduced Magnus ratio",
         "summary": "Qatar Airways Privilege Club is again available on Travel EDGE for Magnus at a 5:1 EDGE REWARD Points to Avios ratio. Accor and Marriott remain unavailable.",
@@ -457,6 +499,16 @@
   },
   "axis-magnus-burgundy": {
     "updates": [
+      {
+        "title": "Axis Bank revised DCC markup and gift card rewards",
+        "summary": "Effective 28 August 2026, Axis Bank has increased the Dynamic Currency Conversion (DCC) markup to 2% for Magnus and Magnus for Burgundy. Additionally, gift card purchases are excluded from earning reward points/cashback and no longer count towards spend-based fee waivers or milestone benefits. Tolls and FASTag spends will also cease earning rewards.",
+        "sourceType": "manual",
+        "sourceLabel": "Axis Bank official notice",
+        "publishedAt": "2026-08-28",
+        "groupId": "axis-dcc-gift-card-devaluation-magnus-2026-08-28",
+        "groupTitle": "Axis Bank revised DCC markup and spend exclusions",
+        "groupSummary": "Effective 28 August 2026, Axis Bank revised DCC markup fees (to 2% for Magnus variants), excluded gift cards and toll/FASTag payments from earning rewards or counting towards spend milestones, and updated late payment fees across affected cards."
+      },
       {
         "title": "Axis revised Magnus for Burgundy transfer partners",
         "summary": "Effective 2 April 2026, Axis Bank revised its transfer partner program for Magnus for Burgundy: Accor Live Limitless, Marriott Bonvoy, and Qatar Airways were removed as transfer partners. Three new airline partners (British Airways, Finnair, Vietnam Airlines) were added at a 5:2 transfer ratio, while legacy partners continue to transfer at a 5:4 ratio. Annual caps of 2,00,000 EDGE REWARD Points for Group A and 8,00,000 EDGE REWARD Points for Group B apply.",
@@ -524,6 +576,16 @@
   "axis-reserve": {
     "updates": [
       {
+        "title": "Axis Bank revised DCC markup and gift card rewards",
+        "summary": "Effective 28 August 2026, Axis Bank has increased the Dynamic Currency Conversion (DCC) markup to 3.5% for most Axis credit cards. Additionally, gift card purchases are excluded from earning reward points/cashback and no longer count towards spend-based fee waivers or milestone benefits. Tolls and FASTag spends will also cease earning rewards.",
+        "sourceType": "manual",
+        "sourceLabel": "Axis Bank official notice",
+        "publishedAt": "2026-08-28",
+        "groupId": "axis-dcc-gift-card-devaluation-general-2026-08-28",
+        "groupTitle": "Axis Bank revised DCC markup and spend exclusions",
+        "groupSummary": "Effective 28 August 2026, Axis Bank revised DCC markup fees (to 3.5% for most cards), excluded gift cards and toll/FASTag payments from earning rewards or counting towards spend milestones, and updated late payment fees across affected cards."
+      },
+      {
         "title": "Transfer partner list revised",
         "summary": "Effective April 2, 2026: Marriott Bonvoy, Accor Live Limitless and Qatar Airways Privilege Club removed; British Airways Executive Club, Finnair Plus and Vietnam Airlines Lotusmiles added.",
         "sourceType": "manual",
@@ -555,6 +617,370 @@
         "text": "For Marriott Bonvoy transfers, you can indirectly transfer by converting EDGE Reward Points to Club ITC at a 5:2 ratio, and then Club ITC to Marriott at a 2:3 ratio (capped at 10,000 ITC points per quarter).",
         "sourceType": "manual",
         "sourceLabel": "Manual"
+      }
+    ]
+  },
+  "axis-ace": {
+    "updates": [
+      {
+        "title": "Axis Bank revised DCC markup and gift card rewards",
+        "summary": "Effective 28 August 2026, Axis Bank has increased the Dynamic Currency Conversion (DCC) markup to 3.5% for most Axis credit cards. Additionally, gift card purchases are excluded from earning reward points/cashback and no longer count towards spend-based fee waivers or milestone benefits. Tolls and FASTag spends will also cease earning rewards.",
+        "sourceType": "manual",
+        "sourceLabel": "Axis Bank official notice",
+        "publishedAt": "2026-08-28",
+        "groupId": "axis-dcc-gift-card-devaluation-general-2026-08-28",
+        "groupTitle": "Axis Bank revised DCC markup and spend exclusions",
+        "groupSummary": "Effective 28 August 2026, Axis Bank revised DCC markup fees (to 3.5% for most cards), excluded gift cards and toll/FASTag payments from earning rewards or counting towards spend milestones, and updated late payment fees across affected cards."
+      }
+    ]
+  },
+  "axis-cashback": {
+    "updates": [
+      {
+        "title": "Axis Bank revised DCC markup and gift card rewards",
+        "summary": "Effective 28 August 2026, Axis Bank has increased the Dynamic Currency Conversion (DCC) markup to 3.5% for most Axis credit cards. Additionally, gift card purchases are excluded from earning reward points/cashback and no longer count towards spend-based fee waivers or milestone benefits. Tolls and FASTag spends will also cease earning rewards.",
+        "sourceType": "manual",
+        "sourceLabel": "Axis Bank official notice",
+        "publishedAt": "2026-08-28",
+        "groupId": "axis-dcc-gift-card-devaluation-general-2026-08-28",
+        "groupTitle": "Axis Bank revised DCC markup and spend exclusions",
+        "groupSummary": "Effective 28 August 2026, Axis Bank revised DCC markup fees (to 3.5% for most cards), excluded gift cards and toll/FASTag payments from earning rewards or counting towards spend milestones, and updated late payment fees across affected cards."
+      }
+    ]
+  },
+  "axis-fibe": {
+    "updates": [
+      {
+        "title": "Axis Bank revised DCC markup and gift card rewards",
+        "summary": "Effective 28 August 2026, Axis Bank has increased the Dynamic Currency Conversion (DCC) markup to 3.5% for most Axis credit cards. Additionally, gift card purchases are excluded from earning reward points/cashback and no longer count towards spend-based fee waivers or milestone benefits. Tolls and FASTag spends will also cease earning rewards.",
+        "sourceType": "manual",
+        "sourceLabel": "Axis Bank official notice",
+        "publishedAt": "2026-08-28",
+        "groupId": "axis-dcc-gift-card-devaluation-general-2026-08-28",
+        "groupTitle": "Axis Bank revised DCC markup and spend exclusions",
+        "groupSummary": "Effective 28 August 2026, Axis Bank revised DCC markup fees (to 3.5% for most cards), excluded gift cards and toll/FASTag payments from earning rewards or counting towards spend milestones, and updated late payment fees across affected cards."
+      }
+    ]
+  },
+  "axis-flipkart-super-elite": {
+    "updates": [
+      {
+        "title": "Axis Bank revised DCC markup and gift card rewards",
+        "summary": "Effective 28 August 2026, Axis Bank has increased the Dynamic Currency Conversion (DCC) markup to 3.5% for most Axis credit cards. Additionally, gift card purchases are excluded from earning reward points/cashback and no longer count towards spend-based fee waivers or milestone benefits. Tolls and FASTag spends will also cease earning rewards.",
+        "sourceType": "manual",
+        "sourceLabel": "Axis Bank official notice",
+        "publishedAt": "2026-08-28",
+        "groupId": "axis-dcc-gift-card-devaluation-general-2026-08-28",
+        "groupTitle": "Axis Bank revised DCC markup and spend exclusions",
+        "groupSummary": "Effective 28 August 2026, Axis Bank revised DCC markup fees (to 3.5% for most cards), excluded gift cards and toll/FASTag payments from earning rewards or counting towards spend milestones, and updated late payment fees across affected cards."
+      }
+    ]
+  },
+  "axis-flipkart": {
+    "updates": [
+      {
+        "title": "Axis Bank revised DCC markup and gift card rewards",
+        "summary": "Effective 28 August 2026, Axis Bank has increased the Dynamic Currency Conversion (DCC) markup to 3.5% for most Axis credit cards. Additionally, gift card purchases are excluded from earning reward points/cashback and no longer count towards spend-based fee waivers or milestone benefits. Tolls and FASTag spends will also cease earning rewards.",
+        "sourceType": "manual",
+        "sourceLabel": "Axis Bank official notice",
+        "publishedAt": "2026-08-28",
+        "groupId": "axis-dcc-gift-card-devaluation-general-2026-08-28",
+        "groupTitle": "Axis Bank revised DCC markup and spend exclusions",
+        "groupSummary": "Effective 28 August 2026, Axis Bank revised DCC markup fees (to 3.5% for most cards), excluded gift cards and toll/FASTag payments from earning rewards or counting towards spend milestones, and updated late payment fees across affected cards."
+      }
+    ]
+  },
+  "axis-freecharge-plus": {
+    "updates": [
+      {
+        "title": "Axis Bank revised DCC markup and gift card rewards",
+        "summary": "Effective 28 August 2026, Axis Bank has increased the Dynamic Currency Conversion (DCC) markup to 3.5% for most Axis credit cards. Additionally, gift card purchases are excluded from earning reward points/cashback and no longer count towards spend-based fee waivers or milestone benefits. Tolls and FASTag spends will also cease earning rewards.",
+        "sourceType": "manual",
+        "sourceLabel": "Axis Bank official notice",
+        "publishedAt": "2026-08-28",
+        "groupId": "axis-dcc-gift-card-devaluation-general-2026-08-28",
+        "groupTitle": "Axis Bank revised DCC markup and spend exclusions",
+        "groupSummary": "Effective 28 August 2026, Axis Bank revised DCC markup fees (to 3.5% for most cards), excluded gift cards and toll/FASTag payments from earning rewards or counting towards spend milestones, and updated late payment fees across affected cards."
+      }
+    ]
+  },
+  "axis-freecharge": {
+    "updates": [
+      {
+        "title": "Axis Bank revised DCC markup and gift card rewards",
+        "summary": "Effective 28 August 2026, Axis Bank has increased the Dynamic Currency Conversion (DCC) markup to 3.5% for most Axis credit cards. Additionally, gift card purchases are excluded from earning reward points/cashback and no longer count towards spend-based fee waivers or milestone benefits. Tolls and FASTag spends will also cease earning rewards.",
+        "sourceType": "manual",
+        "sourceLabel": "Axis Bank official notice",
+        "publishedAt": "2026-08-28",
+        "groupId": "axis-dcc-gift-card-devaluation-general-2026-08-28",
+        "groupTitle": "Axis Bank revised DCC markup and spend exclusions",
+        "groupSummary": "Effective 28 August 2026, Axis Bank revised DCC markup fees (to 3.5% for most cards), excluded gift cards and toll/FASTag payments from earning rewards or counting towards spend milestones, and updated late payment fees across affected cards."
+      }
+    ]
+  },
+  "axis-google-pay-flex": {
+    "updates": [
+      {
+        "title": "Axis Bank revised DCC markup and gift card rewards",
+        "summary": "Effective 28 August 2026, Axis Bank has increased the Dynamic Currency Conversion (DCC) markup to 3.5% for most Axis credit cards. Additionally, gift card purchases are excluded from earning reward points/cashback and no longer count towards spend-based fee waivers or milestone benefits. Tolls and FASTag spends will also cease earning rewards.",
+        "sourceType": "manual",
+        "sourceLabel": "Axis Bank official notice",
+        "publishedAt": "2026-08-28",
+        "groupId": "axis-dcc-gift-card-devaluation-general-2026-08-28",
+        "groupTitle": "Axis Bank revised DCC markup and spend exclusions",
+        "groupSummary": "Effective 28 August 2026, Axis Bank revised DCC markup fees (to 3.5% for most cards), excluded gift cards and toll/FASTag payments from earning rewards or counting towards spend milestones, and updated late payment fees across affected cards."
+      }
+    ]
+  },
+  "axis-ikea-family": {
+    "updates": [
+      {
+        "title": "Axis Bank revised DCC markup and gift card rewards",
+        "summary": "Effective 28 August 2026, Axis Bank has increased the Dynamic Currency Conversion (DCC) markup to 3.5% for most Axis credit cards. Additionally, gift card purchases are excluded from earning reward points/cashback and no longer count towards spend-based fee waivers or milestone benefits. Tolls and FASTag spends will also cease earning rewards.",
+        "sourceType": "manual",
+        "sourceLabel": "Axis Bank official notice",
+        "publishedAt": "2026-08-28",
+        "groupId": "axis-dcc-gift-card-devaluation-general-2026-08-28",
+        "groupTitle": "Axis Bank revised DCC markup and spend exclusions",
+        "groupSummary": "Effective 28 August 2026, Axis Bank revised DCC markup fees (to 3.5% for most cards), excluded gift cards and toll/FASTag payments from earning rewards or counting towards spend milestones, and updated late payment fees across affected cards."
+      }
+    ]
+  },
+  "axis-indianoil-easy": {
+    "updates": [
+      {
+        "title": "Axis Bank revised DCC markup and gift card rewards",
+        "summary": "Effective 28 August 2026, Axis Bank has increased the Dynamic Currency Conversion (DCC) markup to 3.5% for most Axis credit cards. Additionally, gift card purchases are excluded from earning reward points/cashback and no longer count towards spend-based fee waivers or milestone benefits. Tolls and FASTag spends will also cease earning rewards.",
+        "sourceType": "manual",
+        "sourceLabel": "Axis Bank official notice",
+        "publishedAt": "2026-08-28",
+        "groupId": "axis-dcc-gift-card-devaluation-general-2026-08-28",
+        "groupTitle": "Axis Bank revised DCC markup and spend exclusions",
+        "groupSummary": "Effective 28 August 2026, Axis Bank revised DCC markup fees (to 3.5% for most cards), excluded gift cards and toll/FASTag payments from earning rewards or counting towards spend milestones, and updated late payment fees across affected cards."
+      }
+    ]
+  },
+  "axis-indianoil-premium": {
+    "updates": [
+      {
+        "title": "Axis Bank revised DCC markup and gift card rewards",
+        "summary": "Effective 28 August 2026, Axis Bank has increased the Dynamic Currency Conversion (DCC) markup to 3.5% for most Axis credit cards. Additionally, gift card purchases are excluded from earning reward points/cashback and no longer count towards spend-based fee waivers or milestone benefits. Tolls and FASTag spends will also cease earning rewards.",
+        "sourceType": "manual",
+        "sourceLabel": "Axis Bank official notice",
+        "publishedAt": "2026-08-28",
+        "groupId": "axis-dcc-gift-card-devaluation-general-2026-08-28",
+        "groupTitle": "Axis Bank revised DCC markup and spend exclusions",
+        "groupSummary": "Effective 28 August 2026, Axis Bank revised DCC markup fees (to 3.5% for most cards), excluded gift cards and toll/FASTag payments from earning rewards or counting towards spend milestones, and updated late payment fees across affected cards."
+      }
+    ]
+  },
+  "axis-indianoil": {
+    "updates": [
+      {
+        "title": "Axis Bank revised DCC markup and gift card rewards",
+        "summary": "Effective 28 August 2026, Axis Bank has increased the Dynamic Currency Conversion (DCC) markup to 3.5% for most Axis credit cards. Additionally, gift card purchases are excluded from earning reward points/cashback and no longer count towards spend-based fee waivers or milestone benefits. Tolls and FASTag spends will also cease earning rewards.",
+        "sourceType": "manual",
+        "sourceLabel": "Axis Bank official notice",
+        "publishedAt": "2026-08-28",
+        "groupId": "axis-dcc-gift-card-devaluation-general-2026-08-28",
+        "groupTitle": "Axis Bank revised DCC markup and spend exclusions",
+        "groupSummary": "Effective 28 August 2026, Axis Bank revised DCC markup fees (to 3.5% for most cards), excluded gift cards and toll/FASTag payments from earning rewards or counting towards spend milestones, and updated late payment fees across affected cards."
+      }
+    ]
+  },
+  "axis-indigo-premium": {
+    "updates": [
+      {
+        "title": "Axis Bank revised DCC markup and gift card rewards",
+        "summary": "Effective 28 August 2026, Axis Bank has increased the Dynamic Currency Conversion (DCC) markup to 3.5% for most Axis credit cards. Additionally, gift card purchases are excluded from earning reward points/cashback and no longer count towards spend-based fee waivers or milestone benefits. Tolls and FASTag spends will also cease earning rewards.",
+        "sourceType": "manual",
+        "sourceLabel": "Axis Bank official notice",
+        "publishedAt": "2026-08-28",
+        "groupId": "axis-dcc-gift-card-devaluation-general-2026-08-28",
+        "groupTitle": "Axis Bank revised DCC markup and spend exclusions",
+        "groupSummary": "Effective 28 August 2026, Axis Bank revised DCC markup fees (to 3.5% for most cards), excluded gift cards and toll/FASTag payments from earning rewards or counting towards spend milestones, and updated late payment fees across affected cards."
+      }
+    ]
+  },
+  "axis-indigo": {
+    "updates": [
+      {
+        "title": "Axis Bank revised DCC markup and gift card rewards",
+        "summary": "Effective 28 August 2026, Axis Bank has increased the Dynamic Currency Conversion (DCC) markup to 3.5% for most Axis credit cards. Additionally, gift card purchases are excluded from earning reward points/cashback and no longer count towards spend-based fee waivers or milestone benefits. Tolls and FASTag spends will also cease earning rewards.",
+        "sourceType": "manual",
+        "sourceLabel": "Axis Bank official notice",
+        "publishedAt": "2026-08-28",
+        "groupId": "axis-dcc-gift-card-devaluation-general-2026-08-28",
+        "groupTitle": "Axis Bank revised DCC markup and spend exclusions",
+        "groupSummary": "Effective 28 August 2026, Axis Bank revised DCC markup fees (to 3.5% for most cards), excluded gift cards and toll/FASTag payments from earning rewards or counting towards spend milestones, and updated late payment fees across affected cards."
+      }
+    ]
+  },
+  "axis-kwik": {
+    "updates": [
+      {
+        "title": "Axis Bank revised DCC markup and gift card rewards",
+        "summary": "Effective 28 August 2026, Axis Bank has increased the Dynamic Currency Conversion (DCC) markup to 3.5% for most Axis credit cards. Additionally, gift card purchases are excluded from earning reward points/cashback and no longer count towards spend-based fee waivers or milestone benefits. Tolls and FASTag spends will also cease earning rewards.",
+        "sourceType": "manual",
+        "sourceLabel": "Axis Bank official notice",
+        "publishedAt": "2026-08-28",
+        "groupId": "axis-dcc-gift-card-devaluation-general-2026-08-28",
+        "groupTitle": "Axis Bank revised DCC markup and spend exclusions",
+        "groupSummary": "Effective 28 August 2026, Axis Bank revised DCC markup fees (to 3.5% for most cards), excluded gift cards and toll/FASTag payments from earning rewards or counting towards spend milestones, and updated late payment fees across affected cards."
+      }
+    ]
+  },
+  "axis-lic-platinum": {
+    "updates": [
+      {
+        "title": "Axis Bank revised DCC markup and gift card rewards",
+        "summary": "Effective 28 August 2026, Axis Bank has increased the Dynamic Currency Conversion (DCC) markup to 3.5% for most Axis credit cards. Additionally, gift card purchases are excluded from earning reward points/cashback and no longer count towards spend-based fee waivers or milestone benefits. Tolls and FASTag spends will also cease earning rewards.",
+        "sourceType": "manual",
+        "sourceLabel": "Axis Bank official notice",
+        "publishedAt": "2026-08-28",
+        "groupId": "axis-dcc-gift-card-devaluation-general-2026-08-28",
+        "groupTitle": "Axis Bank revised DCC markup and spend exclusions",
+        "groupSummary": "Effective 28 August 2026, Axis Bank revised DCC markup fees (to 3.5% for most cards), excluded gift cards and toll/FASTag payments from earning rewards or counting towards spend milestones, and updated late payment fees across affected cards."
+      }
+    ]
+  },
+  "axis-lic-signature": {
+    "updates": [
+      {
+        "title": "Axis Bank revised DCC markup and gift card rewards",
+        "summary": "Effective 28 August 2026, Axis Bank has increased the Dynamic Currency Conversion (DCC) markup to 3.5% for most Axis credit cards. Additionally, gift card purchases are excluded from earning reward points/cashback and no longer count towards spend-based fee waivers or milestone benefits. Tolls and FASTag spends will also cease earning rewards.",
+        "sourceType": "manual",
+        "sourceLabel": "Axis Bank official notice",
+        "publishedAt": "2026-08-28",
+        "groupId": "axis-dcc-gift-card-devaluation-general-2026-08-28",
+        "groupTitle": "Axis Bank revised DCC markup and spend exclusions",
+        "groupSummary": "Effective 28 August 2026, Axis Bank revised DCC markup fees (to 3.5% for most cards), excluded gift cards and toll/FASTag payments from earning rewards or counting towards spend milestones, and updated late payment fees across affected cards."
+      }
+    ]
+  },
+  "axis-miles-and-more": {
+    "updates": [
+      {
+        "title": "Axis Bank revised DCC markup and gift card rewards",
+        "summary": "Effective 28 August 2026, Axis Bank has increased the Dynamic Currency Conversion (DCC) markup to 3.5% for most Axis credit cards. Additionally, gift card purchases are excluded from earning reward points/cashback and no longer count towards spend-based fee waivers or milestone benefits. Tolls and FASTag spends will also cease earning rewards.",
+        "sourceType": "manual",
+        "sourceLabel": "Axis Bank official notice",
+        "publishedAt": "2026-08-28",
+        "groupId": "axis-dcc-gift-card-devaluation-general-2026-08-28",
+        "groupTitle": "Axis Bank revised DCC markup and spend exclusions",
+        "groupSummary": "Effective 28 August 2026, Axis Bank revised DCC markup fees (to 3.5% for most cards), excluded gift cards and toll/FASTag payments from earning rewards or counting towards spend milestones, and updated late payment fees across affected cards."
+      }
+    ]
+  },
+  "axis-my-zone": {
+    "updates": [
+      {
+        "title": "Axis Bank revised DCC markup and gift card rewards",
+        "summary": "Effective 28 August 2026, Axis Bank has increased the Dynamic Currency Conversion (DCC) markup to 3.5% for most Axis credit cards. Additionally, gift card purchases are excluded from earning reward points/cashback and no longer count towards spend-based fee waivers or milestone benefits. Tolls and FASTag spends will also cease earning rewards.",
+        "sourceType": "manual",
+        "sourceLabel": "Axis Bank official notice",
+        "publishedAt": "2026-08-28",
+        "groupId": "axis-dcc-gift-card-devaluation-general-2026-08-28",
+        "groupTitle": "Axis Bank revised DCC markup and spend exclusions",
+        "groupSummary": "Effective 28 August 2026, Axis Bank revised DCC markup fees (to 3.5% for most cards), excluded gift cards and toll/FASTag payments from earning rewards or counting towards spend milestones, and updated late payment fees across affected cards."
+      }
+    ]
+  },
+  "axis-neo": {
+    "updates": [
+      {
+        "title": "Axis Bank revised DCC markup and gift card rewards",
+        "summary": "Effective 28 August 2026, Axis Bank has increased the Dynamic Currency Conversion (DCC) markup to 3.5% for most Axis credit cards. Additionally, gift card purchases are excluded from earning reward points/cashback and no longer count towards spend-based fee waivers or milestone benefits. Tolls and FASTag spends will also cease earning rewards.",
+        "sourceType": "manual",
+        "sourceLabel": "Axis Bank official notice",
+        "publishedAt": "2026-08-28",
+        "groupId": "axis-dcc-gift-card-devaluation-general-2026-08-28",
+        "groupTitle": "Axis Bank revised DCC markup and spend exclusions",
+        "groupSummary": "Effective 28 August 2026, Axis Bank revised DCC markup fees (to 3.5% for most cards), excluded gift cards and toll/FASTag payments from earning rewards or counting towards spend milestones, and updated late payment fees across affected cards."
+      }
+    ]
+  },
+  "axis-platinum": {
+    "updates": [
+      {
+        "title": "Axis Bank revised DCC markup and gift card rewards",
+        "summary": "Effective 28 August 2026, Axis Bank has increased the Dynamic Currency Conversion (DCC) markup to 3.5% for most Axis credit cards. Additionally, gift card purchases are excluded from earning reward points/cashback and no longer count towards spend-based fee waivers or milestone benefits. Tolls and FASTag spends will also cease earning rewards.",
+        "sourceType": "manual",
+        "sourceLabel": "Axis Bank official notice",
+        "publishedAt": "2026-08-28",
+        "groupId": "axis-dcc-gift-card-devaluation-general-2026-08-28",
+        "groupTitle": "Axis Bank revised DCC markup and spend exclusions",
+        "groupSummary": "Effective 28 August 2026, Axis Bank revised DCC markup fees (to 3.5% for most cards), excluded gift cards and toll/FASTag payments from earning rewards or counting towards spend milestones, and updated late payment fees across affected cards."
+      }
+    ]
+  },
+  "axis-privilege-easy": {
+    "updates": [
+      {
+        "title": "Axis Bank revised DCC markup and gift card rewards",
+        "summary": "Effective 28 August 2026, Axis Bank has increased the Dynamic Currency Conversion (DCC) markup to 3.5% for most Axis credit cards. Additionally, gift card purchases are excluded from earning reward points/cashback and no longer count towards spend-based fee waivers or milestone benefits. Tolls and FASTag spends will also cease earning rewards.",
+        "sourceType": "manual",
+        "sourceLabel": "Axis Bank official notice",
+        "publishedAt": "2026-08-28",
+        "groupId": "axis-dcc-gift-card-devaluation-general-2026-08-28",
+        "groupTitle": "Axis Bank revised DCC markup and spend exclusions",
+        "groupSummary": "Effective 28 August 2026, Axis Bank revised DCC markup fees (to 3.5% for most cards), excluded gift cards and toll/FASTag payments from earning rewards or counting towards spend milestones, and updated late payment fees across affected cards."
+      }
+    ]
+  },
+  "axis-privilege": {
+    "updates": [
+      {
+        "title": "Axis Bank revised DCC markup and gift card rewards",
+        "summary": "Effective 28 August 2026, Axis Bank has increased the Dynamic Currency Conversion (DCC) markup to 3.5% for most Axis credit cards. Additionally, gift card purchases are excluded from earning reward points/cashback and no longer count towards spend-based fee waivers or milestone benefits. Tolls and FASTag spends will also cease earning rewards.",
+        "sourceType": "manual",
+        "sourceLabel": "Axis Bank official notice",
+        "publishedAt": "2026-08-28",
+        "groupId": "axis-dcc-gift-card-devaluation-general-2026-08-28",
+        "groupTitle": "Axis Bank revised DCC markup and spend exclusions",
+        "groupSummary": "Effective 28 August 2026, Axis Bank revised DCC markup fees (to 3.5% for most cards), excluded gift cards and toll/FASTag payments from earning rewards or counting towards spend milestones, and updated late payment fees across affected cards."
+      }
+    ]
+  },
+  "axis-rewards": {
+    "updates": [
+      {
+        "title": "Axis Bank revised DCC markup and gift card rewards",
+        "summary": "Effective 28 August 2026, Axis Bank has increased the Dynamic Currency Conversion (DCC) markup to 3.5% for most Axis credit cards. Additionally, gift card purchases are excluded from earning reward points/cashback and no longer count towards spend-based fee waivers or milestone benefits. Tolls and FASTag spends will also cease earning rewards.",
+        "sourceType": "manual",
+        "sourceLabel": "Axis Bank official notice",
+        "publishedAt": "2026-08-28",
+        "groupId": "axis-dcc-gift-card-devaluation-general-2026-08-28",
+        "groupTitle": "Axis Bank revised DCC markup and spend exclusions",
+        "groupSummary": "Effective 28 August 2026, Axis Bank revised DCC markup fees (to 3.5% for most cards), excluded gift cards and toll/FASTag payments from earning rewards or counting towards spend milestones, and updated late payment fees across affected cards."
+      }
+    ]
+  },
+  "axis-samsung-signature": {
+    "updates": [
+      {
+        "title": "Axis Bank revised DCC markup and gift card rewards",
+        "summary": "Effective 28 August 2026, Axis Bank has increased the Dynamic Currency Conversion (DCC) markup to 3.5% for most Axis credit cards. Additionally, gift card purchases are excluded from earning reward points/cashback and no longer count towards spend-based fee waivers or milestone benefits. Tolls and FASTag spends will also cease earning rewards.",
+        "sourceType": "manual",
+        "sourceLabel": "Axis Bank official notice",
+        "publishedAt": "2026-08-28",
+        "groupId": "axis-dcc-gift-card-devaluation-general-2026-08-28",
+        "groupTitle": "Axis Bank revised DCC markup and spend exclusions",
+        "groupSummary": "Effective 28 August 2026, Axis Bank revised DCC markup fees (to 3.5% for most cards), excluded gift cards and toll/FASTag payments from earning rewards or counting towards spend milestones, and updated late payment fees across affected cards."
+      }
+    ]
+  },
+  "axis-select": {
+    "updates": [
+      {
+        "title": "Axis Bank revised DCC markup and gift card rewards",
+        "summary": "Effective 28 August 2026, Axis Bank has increased the Dynamic Currency Conversion (DCC) markup to 3.5% for most Axis credit cards. Additionally, gift card purchases are excluded from earning reward points/cashback and no longer count towards spend-based fee waivers or milestone benefits. Tolls and FASTag spends will also cease earning rewards.",
+        "sourceType": "manual",
+        "sourceLabel": "Axis Bank official notice",
+        "publishedAt": "2026-08-28",
+        "groupId": "axis-dcc-gift-card-devaluation-general-2026-08-28",
+        "groupTitle": "Axis Bank revised DCC markup and spend exclusions",
+        "groupSummary": "Effective 28 August 2026, Axis Bank revised DCC markup fees (to 3.5% for most cards), excluded gift cards and toll/FASTag payments from earning rewards or counting towards spend milestones, and updated late payment fees across affected cards."
       }
     ]
   }
