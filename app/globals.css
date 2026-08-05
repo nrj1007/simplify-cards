@@ -22641,3 +22641,125 @@ html body .seo-comparison-page > .compare-reference-hero h1 {
     letter-spacing: -0.02em !important;
   }
 }
+
+/* Consultation Page Layout */
+.consultation-page {
+  min-height: 80vh;
+  padding: 60px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background: var(--bg);
+}
+
+.consultation-page-hero {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.consultation-page-hero h1 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 900;
+  color: var(--text);
+  line-height: 1.1;
+  margin-bottom: 24px;
+  letter-spacing: -0.02em;
+}
+
+.consultation-page-hero p {
+  font-size: 1.125rem;
+  color: var(--muted);
+  line-height: 1.6;
+  margin-bottom: 40px;
+}
+
+.consultation-card {
+  background: var(--panel);
+  border-radius: var(--radius-xl);
+  padding: 40px;
+  box-shadow: var(--shadow);
+  max-width: 600px;
+  width: 100%;
+  margin: 0 auto;
+  border: 1px solid var(--line);
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+
+.consultation-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: linear-gradient(90deg, var(--brand), var(--gold));
+}
+
+.consultation-price {
+  font-size: 3rem;
+  font-weight: 800;
+  color: var(--brand);
+  margin-bottom: 12px;
+}
+
+.consultation-price span {
+  font-size: 1rem;
+  color: var(--muted);
+  font-weight: 500;
+}
+
+.consultation-features {
+  text-align: left;
+  margin: 30px 0;
+  padding: 0;
+  list-style: none;
+}
+
+.consultation-features li {
+  font-size: 1rem;
+  color: var(--text);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  line-height: 1.5;
+}
+
+.consultation-features li svg {
+  color: var(--green);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.consultation-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--brand);
+  color: #fff;
+  text-decoration: none;
+  padding: 18px 32px;
+  font-size: 1.125rem;
+  font-weight: 800;
+  border-radius: 99px;
+  width: 100%;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 8px 24px rgba(88, 28, 135, 0.2);
+}
+
+.consultation-cta:hover {
+  background: var(--brand-strong);
+  transform: translateY(-2px);
+  box-shadow: 0 14px 32px rgba(88, 28, 135, 0.3);
+  color: #fff;
+}
+
+@media (max-width: 720px) {
+  .consultation-page { padding: 40px 16px; }
+  .consultation-card { padding: 30px 20px; }
+  .consultation-features li { font-size: 0.95rem; }
+  .consultation-price { font-size: 2.5rem; }
+}
