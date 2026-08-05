@@ -51,6 +51,7 @@ export default function CardsCarousel({ title, description, items }: Props) {
               className="cards-tile"
               href={`/cards/${item.card.id}` as Route}
               key={item.card.id}
+              prefetch={false}
             >
               <div className={`cards-tile-art cards-tile-art-${item.tone}`}>
                 <div className="cards-chip-row">

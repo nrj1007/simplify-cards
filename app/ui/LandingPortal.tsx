@@ -365,6 +365,7 @@ function PopularPicks({ cards }: { cards: LandingCard[] }) {
               <Link
                 className="sc-pick-visual"
                 href={cardSlug(card.id)}
+                prefetch={false}
                 style={{ background: `linear-gradient(135deg, ${palette[0]} 0%, ${palette[1]} 58%, ${palette[2]} 100%)` }}
               >
                 <div className="sc-poly-bg" />
@@ -425,7 +426,7 @@ function LatestUpdates({ updates }: { updates: LandingUpdate[] }) {
           <time dateTime={active.publishedAt}>{formatDate(active.publishedAt)}</time>
           <div className="sc-latest-card-links" aria-label="Affected cards">
             {active.cards.map((card) => (
-              <Link href={cardSlug(card.cardId)} className="sc-latest-card-name" key={card.cardId}>
+              <Link href={cardSlug(card.cardId)} className="sc-latest-card-name" key={card.cardId} prefetch={false}>
                 {card.cardName}
               </Link>
             ))}

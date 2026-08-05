@@ -40,7 +40,7 @@ export function TrackedLink({ analyticsEvent, href, onClick, children, ...props 
   const hrefString = typeof href === "string" ? href : href.toString();
 
   return (
-    <Link {...(props as ComponentProps<typeof Link>)} href={trackedHref(analyticsEvent, hrefString, "internal")} onClick={handleClick}>
+    <Link {...(props as ComponentProps<typeof Link>)} href={trackedHref(analyticsEvent, hrefString, "internal")} onClick={handleClick} prefetch={false}>
       {children}
     </Link>
   );

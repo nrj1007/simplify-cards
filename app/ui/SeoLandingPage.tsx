@@ -63,7 +63,7 @@ function RankedCard({ card, rank }: { card: CreditCard; rank: number }) {
             <p className="seo-guide-issuer">{card.issuer}</p>
             <h3>{card.name}</h3>
           </div>
-          <Link className="seo-guide-details" href={summary.href as Route}>
+          <Link className="seo-guide-details" href={summary.href as Route} prefetch={false}>
             Details <ArrowRight aria-hidden="true" size={17} />
           </Link>
         </div>
@@ -169,13 +169,13 @@ function BestCreditCardResult({
               {card.annualFee === 0 ? "Lifetime free" : `₹ ${card.annualFee.toLocaleString("en-IN")} fee`}
             </span>
           </div>
-          <Link className="sc-more-details" href={`/cards/${card.id}` as Route}>
+          <Link className="sc-more-details" href={`/cards/${card.id}` as Route} prefetch={false}>
             Click for more details →
           </Link>
         </div>
       </div>
       <div className="result-actions">
-        <Link className="mini-btn sc-compare-btn" href={`/compare?a=${card.id}` as Route}>
+        <Link className="mini-btn sc-compare-btn" href={`/compare?a=${card.id}` as Route} prefetch={false}>
           Add to compare
         </Link>
         <TrackedExternalLink
