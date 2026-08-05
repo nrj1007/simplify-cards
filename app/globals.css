@@ -481,6 +481,7 @@ html body .updates-reference-page .updates-content-layout {
   grid-template-columns: minmax(0, 760px) minmax(280px, 360px);
   gap: 56px;
   align-items: start;
+  justify-content: space-between;
 }
 
 html body .updates-reference-page .updates-feed-column {
@@ -489,7 +490,9 @@ html body .updates-reference-page .updates-feed-column {
 
 html body .updates-reference-page .updates-whatsapp-rail {
   position: sticky;
+  justify-self: end;
   top: 96px;
+  width: 100%;
   min-height: 0;
 }
 
@@ -9778,7 +9781,7 @@ input[type="number"] {
 .sc-whatsapp-channel-card h3,
 .sc-review-form-card h3 {
   margin: 0;
-  color: var(--sc-ink);
+  color: var(--sc-ink, #1e112c);
   font-size: 22px;
   font-weight: 900;
   letter-spacing: 0;
@@ -9786,7 +9789,7 @@ input[type="number"] {
 
 .sc-whatsapp-channel-card p {
   margin: 8px 0 18px;
-  color: var(--sc-muted);
+  color: var(--sc-muted, #5b5466);
   font-size: 14px;
   font-weight: 600;
   line-height: 1.5;
@@ -9826,7 +9829,7 @@ input[type="number"] {
   gap: 8px;
   border: 0;
   border-radius: 16px;
-  background: var(--sc-purple);
+  background: var(--sc-purple, #581c87);
   color: #fff;
   cursor: pointer;
   font-size: 14px;
@@ -9837,7 +9840,7 @@ input[type="number"] {
 
 .sc-whatsapp-channel-card a:hover,
 .sc-review-form-card button:hover {
-  background: var(--sc-purple-dark);
+  background: var(--sc-purple-dark, #431468);
 }
 
 .sc-whatsapp-channel-disabled {
@@ -9846,7 +9849,7 @@ input[type="number"] {
   justify-content: center;
   border: 1px dashed #d8d3c5;
   border-radius: 16px;
-  color: var(--sc-muted);
+  color: var(--sc-muted, #5b5466);
   font-size: 14px;
   font-weight: 900;
   padding: 13px 16px;
