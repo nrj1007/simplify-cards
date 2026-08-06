@@ -33,8 +33,8 @@ const CONSULTATION_FEATURES = [
 ];
 
 export default function ConsultationPage() {
-  // TODO: Replace with actual Google Form URL
-  const googleFormUrl = "https://docs.google.com/forms/d/e/1FAIpQLSc_PLACEHOLDER/viewform";
+  const googleFormUrl =
+    "https://docs.google.com/forms/d/e/1FAIpQLSdC3KPHX4kNasj2u8eSftRE87etSgrsbdPWqCSblumpHwEcig/viewform?usp=publish-editor";
 
   return (
     <div className="page-shell consultation-page">
