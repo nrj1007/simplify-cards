@@ -518,6 +518,7 @@ function Footer({ onOpenPolicy }: { onOpenPolicy: (policy: PolicyKey) => void })
             <Link href="/finder">Cards</Link>
             <Link href="/compare">Compare</Link>
             <Link href={"/latest" as Route}>Latest Updates</Link>
+            <Link href={"/consultation" as Route}>Consultation</Link>
           </div>
         </div>
         <div>
