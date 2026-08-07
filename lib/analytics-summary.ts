@@ -15,6 +15,8 @@ export type AnalyticsDailySummary = {
   page_counts: Record<string, number>;
   source_counts: Record<string, number>;
   device_counts: Record<string, number>;
+  request_path_counts: Record<string, number>;
+  request_user_agent_family_counts: Record<string, number>;
   ask_queries: Record<string, number>;
   ask_result_count: number;
   ask_anonymous_result_count: number;
@@ -52,6 +54,8 @@ export type AnalyticsReviewSummary = {
   eventsLoaded: number;
   last30DayEvents: number;
   topAskQueries: Array<{ label: string; count: number }>;
+  requestPathRows: Array<{ label: string; count: number }>;
+  requestUserAgentRows: Array<{ label: string; count: number }>;
   cardViewRows: Array<{ cardId: string; cardName: string; count: number }>;
   detailClickRows: Array<{ cardId: string; cardName: string; count: number }>;
   askDetailClickRows: Array<{ cardId: string; cardName: string; count: number }>;
@@ -124,6 +128,8 @@ function emptyDailySummary(date: string, now = new Date().toISOString()): Analyt
     page_counts: {},
     source_counts: {},
     device_counts: {},
+    request_path_counts: {},
+    request_user_agent_family_counts: {},
     ask_queries: {},
     ask_result_count: 0,
     ask_anonymous_result_count: 0,
@@ -254,6 +260,8 @@ export function addEventToDailySummary(summary: AnalyticsDailySummary, event: St
   addCount(summary.page_counts, event.page);
   addCount(summary.source_counts, event.source);
   addCount(summary.device_counts, event.device_type);
+  addCount(summary.request_path_counts, metadataLabel(event, "request_path") ?? event.page);
+  addCount(summary.request_user_agent_family_counts, metadataLabel(event, "request_user_agent_family") ?? "unknown");
 
   if (event.event_name === "ask_query_submitted") {
     addCount(summary.ask_queries, event.query);
@@ -393,6 +401,8 @@ export function mergeDailySummaries(
   eventWindowDateKeys: string[]
 ): AnalyticsReviewSummary {
   const topAskQueryCounts: Record<string, number> = {};
+  const requestPathCounts: Record<string, number> = {};
+  const requestUserAgentCounts: Record<string, number> = {};
   const cardViewCounts: Record<string, number> = {};
   const cardViewReferrerCounts: Record<string, number> = {};
   const cardViewTrafficCounts: Record<string, number> = {};
@@ -434,6 +444,8 @@ export function mergeDailySummaries(
     if (dailyCounts.has(summary.date)) dailyCounts.set(summary.date, summary.total_events);
 
     for (const [query, count] of Object.entries(summary.ask_queries)) addCount(topAskQueryCounts, query, count);
+    for (const [path, count] of Object.entries(summary.request_path_counts ?? {})) addCount(requestPathCounts, path, count);
+    for (const [family, count] of Object.entries(summary.request_user_agent_family_counts ?? {})) addCount(requestUserAgentCounts, family, count);
     for (const [cardId, count] of Object.entries(summary.card_detail_views_by_card ?? {})) addCount(cardViewCounts, cardId, count);
     for (const [label, count] of Object.entries(summary.card_detail_views_by_referrer_host ?? {})) addCount(cardViewReferrerCounts, label, count);
     for (const [label, count] of Object.entries(summary.card_detail_views_by_traffic_class ?? {})) addCount(cardViewTrafficCounts, label, count);
@@ -538,6 +550,8 @@ export function mergeDailySummaries(
     eventsLoaded,
     last30DayEvents,
     topAskQueries: sortedCountRows(topAskQueryCounts).slice(0, 25),
+    requestPathRows: sortedCountRows(requestPathCounts).slice(0, 25),
+    requestUserAgentRows: sortedCountRows(requestUserAgentCounts).slice(0, 25),
     cardViewRows,
     detailClickRows,
     askDetailClickRows,

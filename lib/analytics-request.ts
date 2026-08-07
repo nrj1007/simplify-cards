@@ -33,6 +33,14 @@ function userAgentFamily(userAgent: string | undefined) {
   return "other";
 }
 
+function requestPath(request: Request) {
+  try {
+    return new URL(request.url).pathname;
+  } catch {
+    return undefined;
+  }
+}
+
 export function buildRequestAnalyticsMetadata(request: Request): AnalyticsMetadata {
   const userAgent = headerValue(request.headers, "user-agent");
   const referrer = headerValue(request.headers, "referer");
@@ -40,10 +48,13 @@ export function buildRequestAnalyticsMetadata(request: Request): AnalyticsMetada
   const region = headerValue(request.headers, "x-vercel-ip-country-region");
   const city = headerValue(request.headers, "x-vercel-ip-city");
   const asn = headerValue(request.headers, "x-vercel-ip-as-number");
+  const path = requestPath(request);
 
   return {
     request_user_agent_family: userAgentFamily(userAgent),
     request_user_agent_is_bot: Boolean(userAgent && botUserAgentPattern.test(userAgent)),
+    ...(path ? { request_path: path } : {}),
+    request_method: request.method,
     ...(country ? { request_country: country } : {}),
     ...(region ? { request_region: region } : {}),
     ...(city ? { request_city: city } : {}),

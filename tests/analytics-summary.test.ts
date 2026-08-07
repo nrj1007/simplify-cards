@@ -26,6 +26,7 @@ describe("analytics daily summaries", () => {
         source: "details",
         card_id: "hdfc-infinia-metal",
         metadata: {
+          request_path: "/cards/hdfc-infinia-metal",
           request_referrer_host: "google.com",
           request_user_agent_family: "chrome",
           request_user_agent_is_bot: false,
@@ -38,6 +39,7 @@ describe("analytics daily summaries", () => {
         source: "details",
         card_id: "hdfc-infinia-metal",
         metadata: {
+          request_path: "/cards/hdfc-infinia-metal",
           request_user_agent_family: "googlebot",
           request_user_agent_is_bot: true,
           request_country: "US"
@@ -105,6 +107,16 @@ describe("analytics daily summaries", () => {
 
     expect(summary.total_events).toBe(9);
     expect(summary.ask_queries).toEqual({ "best upi cards": 2 });
+    expect(summary.request_path_counts).toEqual({
+      "/cards/hdfc-infinia-metal": 2,
+      ask: 6,
+      compare: 1
+    });
+    expect(summary.request_user_agent_family_counts).toEqual({
+      chrome: 1,
+      googlebot: 1,
+      unknown: 7
+    });
     expect(summary.card_detail_views_by_card).toEqual({ "hdfc-infinia-metal": 2 });
     expect(summary.card_detail_views_by_referrer_host).toEqual({ direct: 1, "google.com": 1 });
     expect(summary.card_detail_views_by_traffic_class).toEqual({ bot: 1, human: 1 });
@@ -141,6 +153,7 @@ describe("analytics daily summaries", () => {
         source: "details",
         card_id: "axis-atlas",
         metadata: {
+          request_path: "/cards/axis-atlas",
           request_referrer_host: "google.com",
           request_user_agent_family: "chrome",
           request_user_agent_is_bot: false,
@@ -215,6 +228,16 @@ describe("analytics daily summaries", () => {
     expect(review.eventsLoaded).toBe(10);
     expect(review.last30DayEvents).toBe(10);
     expect(review.topAskQueries).toEqual([{ label: "best cashback card", count: 1 }]);
+    expect(review.requestPathRows).toEqual([
+      { label: "ask", count: 4 },
+      { label: "cards/[id]", count: 4 },
+      { label: "/cards/axis-atlas", count: 1 },
+      { label: "finder", count: 1 }
+    ]);
+    expect(review.requestUserAgentRows).toEqual([
+      { label: "unknown", count: 9 },
+      { label: "chrome", count: 1 }
+    ]);
     expect(review.cardViewRows).toEqual([
       expect.objectContaining({ cardId: "axis-atlas", count: 2 }),
       expect.objectContaining({ cardId: "hdfc-infinia-metal", count: 1 })

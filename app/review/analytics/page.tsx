@@ -268,6 +268,23 @@ export default async function AnalyticsReviewPage() {
 
         <article className="panel review-item">
           <div className="review-item-head">
+            <strong>Request diagnostics</strong>
+            <span className="badge">Last 30 days</span>
+          </div>
+          <div className="analytics-review-grid">
+            <div>
+              <h3>Request path</h3>
+              <CountTable labelHeader="Path" rows={summary.requestPathRows} />
+            </div>
+            <div>
+              <h3>User agent family</h3>
+              <CountTable labelHeader="User agent" rows={summary.requestUserAgentRows} />
+            </div>
+          </div>
+        </article>
+
+        <article className="panel review-item">
+          <div className="review-item-head">
             <strong>AI usage</strong>
             <span className="badge">Last 30 days</span>
           </div>
