@@ -582,6 +582,8 @@ exports[`ranking golden (representative queries) > produces stable top-N orderin
     "equitas-selfe",
   ],
   "usecase-entertainment": [
+    "kotak-pvr-inox",
+    "rbl-play",
     "icici-emeralde-private-metal",
     "hsbc-premier",
     "bobcard-eterna",
@@ -592,8 +594,6 @@ exports[`ranking golden (representative queries) > produces stable top-N orderin
     "indusind-eazydiner",
     "idfc-ashva",
     "reliance-sbi-prime",
-    "icici-adani-one-signature",
-    "yes-first-preferred",
   ],
   "usecase-fuel": [
     "bpcl-sbi-octane",
@@ -1349,9 +1349,9 @@ exports[`result split golden (all query modes) > snapshots section membership fo
     "Rewards cards": [
       "hsbc-premier",
       "icici-emeralde-private-metal",
+      "kotak-pvr-inox",
+      "rbl-play",
       "bobcard-eterna",
-      "indusind-eazydiner",
-      "yes-marquee",
     ],
   },
   "usecase-fuel": {

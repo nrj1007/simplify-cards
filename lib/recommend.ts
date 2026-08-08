@@ -641,6 +641,13 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
           }
         }
         
+        // Apply a huge brand co-brand boost for dedicated movie cards (PVR/INOX/BMS) 
+        // to out-rank general premium cards in movie queries.
+        const isMovieCoBrand = /pvr|inox|bookmyshow|bms|play/i.test(card.id) || /pvr|inox|bookmyshow|play/i.test(card.name);
+        if (isMovieCoBrand) {
+          focusBoost += 40000;
+        }
+
         // Prioritize explicit BOGO/discount limits over generic flat percentage rewards (3%, 5%, etc.)
         // by injecting a massive priority constant (+20000) on top of the calculated annual discount value.
         if (maxDiscount > 0) {
