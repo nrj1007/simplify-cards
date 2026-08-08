@@ -607,9 +607,32 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
     const matchesFocus = categoryFocus
       ? cardMatchesCategoryFocus(card, categoryFocus)
       : (fuelFocus ? hasFuelCardSignal(card) : false);
-    const focusBoost = (isFocusedQuery && matchesFocus)
+    let focusBoost = (isFocusedQuery && matchesFocus)
       ? Math.max(0, Math.round(estimatedNetValue * 0.1))
       : 0;
+
+    if (categoryFocus?.key === "entertainment" && matchesFocus) {
+      const textToScan = [
+        ...(card.additionalBenefits || []),
+        ...(card.milestoneBenefits || []),
+        ...(card.rewards.map(r => r.displayCategory + " " + r.displayRate))
+      ].join(" ").toLowerCase();
+
+      let maxDiscount = 0;
+      const regex = /(?:up\s*to|upto|capped\s*at|worth\s*up\s*to|worth)\s*(?:rs\.?|₹|rs)?\s*(\d{2,4})/gi;
+      let match;
+      while ((match = regex.exec(textToScan)) !== null) {
+        const val = parseInt(match[1], 10);
+        if (!isNaN(val) && val > maxDiscount && val <= 2000) {
+          maxDiscount = val;
+        }
+      }
+      
+      // Boost heavily by the maximum discount found (assuming they use it roughly 12 times a year)
+      if (maxDiscount > 0) {
+        focusBoost += (maxDiscount * 12);
+      }
+    }
 
     const envelopeLabel = envelopeMonthlySpend ? formatEnvelopeSpendLabel(envelopeMonthlySpend) : null;
     const feeWaiverReason =
