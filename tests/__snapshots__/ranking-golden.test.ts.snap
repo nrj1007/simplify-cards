@@ -584,7 +584,6 @@ exports[`ranking golden (representative queries) > produces stable top-N orderin
   "usecase-entertainment": [
     "icici-emeralde-private-metal",
     "hsbc-premier",
-    "bobcard-eterna",
     "axis-fibe",
     "amex-smartearn",
     "reliance-sbi",
@@ -594,6 +593,7 @@ exports[`ranking golden (representative queries) > produces stable top-N orderin
     "indusind-tiger",
     "yes-reserv",
     "indusind-eazydiner",
+    "axis-privilege-easy",
   ],
   "usecase-fuel": [
     "bpcl-sbi-octane",
@@ -1351,7 +1351,7 @@ exports[`result split golden (all query modes) > snapshots section membership fo
       "icici-emeralde-private-metal",
       "yes-marquee",
       "indusind-eazydiner",
-      "bobcard-eterna",
+      "hdfc-diners-club-privilege",
     ],
   },
   "usecase-fuel": {
