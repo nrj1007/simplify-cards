@@ -455,7 +455,7 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
     .filter((card) => (categoryFocus ? cardMatchesCategoryFocus(card, categoryFocus) : true))
     .filter((card) =>
       focusedCategory
-        ? netCategoryReward(card, focusedCategory, categoryFocusMonthlySpend[focusedCategory] ?? 8000, includeSmartbuyLikeRewards) > 0
+        ? (card.bestFor?.includes(focusedCategory) || card.bestFor?.includes(categoryFocus?.key ?? "") || netCategoryReward(card, focusedCategory, categoryFocusMonthlySpend[focusedCategory] ?? 8000, includeSmartbuyLikeRewards) > 0)
         : true
     );
 
@@ -616,6 +616,7 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
       const benefitStrings = [
         ...(card.additionalBenefits || []),
         ...(card.milestoneBenefits || []),
+        ...(card.milestones?.map(m => m.label) || []),
         ...(card.rewards.map(r => r.displayCategory + " " + r.displayRate))
       ];
 
