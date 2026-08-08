@@ -44,9 +44,11 @@ export const categoryFocusConfigs: CategoryFocusConfig[] = [
   },
   {
     key: "entertainment",
+    spendCategory: "online",
     rewardPattern: /entertainment|movie/i,
     queryPattern: /\bentertainment\b|\bmovies?\b/i,
-    positioning: ["entertainment", "movies", "movie", "bookmyshow", "pvr", "inox"]
+    positioning: ["entertainment", "movies", "movie", "bookmyshow", "pvr", "inox"],
+    matchPositioning: true
   },
   {
     key: "amazon",
@@ -209,7 +211,7 @@ export function cardEarnsOnSpendCategory(card: CreditCard, category: SpendCatego
 // the scoring engine without needing to appear in dining-filtered result sets.
 // Narrow co-brand rows (partner merchants, airtel) won't trigger this because they don't
 // match the `online` spend-category lookup.
-export const onlineProxyFocusKeys = new Set(["grocery", "entertainment", "amazon", "flipkart", "swiggy"]);
+export const onlineProxyFocusKeys = new Set(["grocery", "amazon", "flipkart", "swiggy"]);
 
 export function cardMatchesCategoryFocus(card: CreditCard, config: CategoryFocusConfig) {
   if (cardHasCategoryFocusTag(card, config)) return true;

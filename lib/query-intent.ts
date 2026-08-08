@@ -84,7 +84,7 @@ const tagKeywords = [
 const spendCategoryAliases: Array<{ category: SpendCategory; aliases: string[] }> = [
   { category: "travel", aliases: ["travel", "cleartrip"] },
   { category: "hotels", aliases: ["hotel", "hotels", "stay", "accommodation"] },
-  { category: "airlines", aliases: ["flight", "flights", "airline", "airlines", "ticket"] },
+  { category: "airlines", aliases: ["flight", "flights", "airline", "airlines"] },
   { category: "grocery", aliases: ["grocery", "groceries", "supermarket", "supermarkets"] },
   { category: "utilities", aliases: ["utilities", "utility", "bill payment", "bill payments", "bills"] },
   { category: "dining", aliases: ["dining", "restaurant", "restaurants", "food delivery", "swiggy", "zomato"] },
