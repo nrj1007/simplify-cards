@@ -612,25 +612,32 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
       : 0;
 
     if (categoryFocus?.key === "entertainment" && matchesFocus) {
-      const textToScan = [
+      const benefitStrings = [
         ...(card.additionalBenefits || []),
         ...(card.milestoneBenefits || []),
         ...(card.rewards.map(r => r.displayCategory + " " + r.displayRate))
-      ].join(" ").toLowerCase();
+      ];
+
+      // Only scan strings that actually talk about movies/ticketing!
+      const movieBenefitStrings = benefitStrings
+        .filter(s => /movie|bookmyshow|pvr|inox|ticket|district/i.test(s))
+        .join(" ")
+        .toLowerCase();
 
       let maxDiscount = 0;
       const regex = /(?:up\s*to|upto|capped\s*at|worth\s*up\s*to|worth)\s*(?:rs\.?|₹|rs)?\s*(\d{2,4})/gi;
       let match;
-      while ((match = regex.exec(textToScan)) !== null) {
+      while ((match = regex.exec(movieBenefitStrings)) !== null) {
         const val = parseInt(match[1], 10);
         if (!isNaN(val) && val > maxDiscount && val <= 2000) {
           maxDiscount = val;
         }
       }
       
-      // Boost heavily by the maximum discount found (assuming they use it roughly 12 times a year)
+      // Prioritize explicit BOGO/discount limits over generic flat percentage rewards (3%, 5%, etc.)
+      // by injecting a massive priority constant (+20000) on top of the calculated annual discount value.
       if (maxDiscount > 0) {
-        focusBoost += (maxDiscount * 12);
+        focusBoost += 20000 + (maxDiscount * 12);
       }
     }
 
