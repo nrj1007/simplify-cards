@@ -72,7 +72,9 @@
     "insurance",
     "cash_advance",
     "outstanding_balance_payment",
-    "fees_and_charges"
+    "fees_and_charges",
+    "gold",
+    "jewellery"
   ],
   "milestoneBenefits": [],
   "joiningBenefitsValued": [

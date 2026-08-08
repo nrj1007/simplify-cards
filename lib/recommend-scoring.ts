@@ -269,6 +269,18 @@ export function shouldHideCardFromGenericRanking(card: CreditCard, input: Recomm
     return true;
   }
 
+  const goldSpend = (input.spend?.gold ?? 0) || (intent.inferredSpend?.gold ?? 0);
+  const goldSpendShare = monthlyTotal > 0 ? goldSpend / monthlyTotal : 0;
+  const isGoldQuery =
+    intent.tags.includes("gold") ||
+    intent.tags.includes("jewellery") ||
+    /\b(gold|jewel|jewellery|jewelry)\b/i.test(input.query ?? "");
+  const isGoldFocused = isGoldQuery || goldSpendShare >= 0.3;
+
+  if (isGoldFocused && isSpendCategoryExcluded(card, "gold")) {
+    return true;
+  }
+
   if (card.id === "axis-atlas") return true;
 
   const isDefenceCard = (card.tags ?? []).includes("defence") || (card.bestFor ?? []).includes("defence");

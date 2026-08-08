@@ -70,7 +70,9 @@
     "cash_withdrawal",
     "fees_and_charges",
     "emi",
-    "education"
+    "education",
+    "gold",
+    "jewellery"
   ],
   "specialSpendRules": [
     {
