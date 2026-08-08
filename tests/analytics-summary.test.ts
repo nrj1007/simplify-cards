@@ -74,7 +74,7 @@ describe("analytics daily summaries", () => {
         event_name: "ask_result_rendered",
         query: "unknown card",
         card_ids: [],
-        metadata: { intent: "unsupported" }
+        metadata: { intent: "unsupported", ask_cache_status: "SKIP" }
       }),
       event({
         event_name: "ask_result_rendered",
@@ -83,6 +83,7 @@ describe("analytics daily summaries", () => {
         card_ids: ["sc-smart"],
         metadata: {
           intent: "best-fit",
+          ask_cache_status: "MISS",
           ai_attempted: true,
           ai_used: false,
           ai_schema_call_count: 1,
@@ -139,6 +140,7 @@ describe("analytics daily summaries", () => {
     expect(summary.ai_provider_attempt_count).toBe(2);
     expect(summary.ai_failed_schema_call_count).toBe(1);
     expect(summary.ai_fallback_result_count).toBe(1);
+    expect(summary.ask_cache_status_counts).toEqual({ MISS: 1, SKIP: 1 });
     expect(summary.ai_calls_by_purpose).toEqual({ answer_summary: 1 });
     expect(summary.ai_provider_attempts).toEqual({ gemini: 1, openai: 1 });
     expect(summary.bot_like_ask_queries).toHaveLength(1);
@@ -228,6 +230,7 @@ describe("analytics daily summaries", () => {
     expect(review.eventsLoaded).toBe(10);
     expect(review.last30DayEvents).toBe(10);
     expect(review.topAskQueries).toEqual([{ label: "best cashback card", count: 1 }]);
+    expect(review.askCacheRows).toEqual([]);
     expect(review.requestPathRows).toEqual([
       { label: "ask", count: 4 },
       { label: "cards/[id]", count: 4 },
@@ -303,6 +306,7 @@ describe("analytics daily summaries", () => {
         card_ids: ["sc-smart"],
         metadata: {
           intent: "best-fit",
+          ask_cache_status: "HIT",
           ai_attempted: true,
           ai_schema_call_count: 1,
           ai_provider_attempt_count: 2,
@@ -337,6 +341,7 @@ describe("analytics daily summaries", () => {
     ]);
     expect(review.aiUsage.callsByPurpose).toEqual([{ label: "answer_summary", count: 1 }]);
     expect(review.aiUsage.resultsByIntent).toEqual([{ label: "best-fit", count: 1 }]);
+    expect(review.askCacheRows).toEqual([{ label: "HIT", count: 1 }]);
     expect(review.askSignals).toEqual({
       resultCount: 1,
       anonymousResultCount: 1,

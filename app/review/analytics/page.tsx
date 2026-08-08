@@ -285,6 +285,14 @@ export default async function AnalyticsReviewPage() {
 
         <article className="panel review-item">
           <div className="review-item-head">
+            <strong>Ask cache</strong>
+            <span className="badge">Last 30 days</span>
+          </div>
+          <CountTable labelHeader="Cache status" rows={summary.askCacheRows} />
+        </article>
+
+        <article className="panel review-item">
+          <div className="review-item-head">
             <strong>AI usage</strong>
             <span className="badge">Last 30 days</span>
           </div>
