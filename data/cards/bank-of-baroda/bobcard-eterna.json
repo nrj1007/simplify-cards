@@ -51,6 +51,7 @@
     "dining",
     "online",
     "lounge",
+    "movies",
     "fitness"
   ],
   "exclusions": [
@@ -69,7 +70,8 @@
   ],
   "additionalBenefits": [
     "Free personal accident death cover: air ₹1 crore, non-air ₹10 lakh",
-    "Up to 3 lifetime free add-on cards"
+    "Up to 3 lifetime free add-on cards",
+    "Buy 1 Get 1 free movie ticket (up to ₹250 off) once a month on the District app"
   ],
   "redemption": {
     "statementBalanceValue": 0.25,
