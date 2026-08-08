@@ -23,7 +23,8 @@ export default function ComparePicker({
   const [second, setSecond] = useState(initialSecond);
 
   function navigate(a: string, b: string) {
-    if (a && b) router.push(`/compare?a=${encodeURIComponent(a)}&b=${encodeURIComponent(b)}`);
+    if (!a || !b) return;
+    router.push(`/compare?a=${encodeURIComponent(a)}&b=${encodeURIComponent(b)}`);
   }
 
   return (

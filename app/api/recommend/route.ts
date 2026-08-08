@@ -1,6 +1,4 @@
 import { NextResponse } from "next/server";
-import { buildRecommendationMetadata } from "@/lib/analytics-events";
-import { logAnalyticsEvent } from "@/lib/analytics-logs";
 import { scoreCards, applyResultStrategy } from "@/lib/recommend";
 import { SPEND_CATEGORIES, rankResults, toRecommendResult } from "@/lib/recommend-result";
 import type { ResultStrategyName } from "@/lib/result-strategies";
@@ -85,19 +83,6 @@ export async function POST(request: Request) {
 
   const scored = scoreCards(input);
   const rankedResults = rankResults(scored);
-  await logAnalyticsEvent({
-    event_name: "recommendation_generated",
-    page: "recommend",
-    source: "recommend",
-    card_ids: rankedResults.slice(0, 3).map((result) => result.id),
-    metadata: buildRecommendationMetadata(
-      input.spend,
-      typeof body.maxAnnualFee === "string" ? body.maxAnnualFee : "",
-      input.wantsLounge,
-      input.wantsLifetimeFree,
-      rankedResults
-    )
-  });
 
   // When a result strategy is requested, return grouped sections; otherwise keep the
   // flat `results` shape for backwards compatibility.

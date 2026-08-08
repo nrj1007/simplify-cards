@@ -7,10 +7,10 @@ import AskResultsLoadingBoundary from "../ui/AskResultsLoadingBoundary";
 import CardTile from "../ui/CardTile";
 import { answerQuestion, resolveDirectCardDetailQuery } from "@/lib/ask-ai";
 import { buildAskResultMetadata } from "@/lib/analytics-events";
-import { logAnalyticsEvent } from "@/lib/analytics-logs";
 import { buildPageMetadata } from "@/lib/seo";
 import { scoreCards } from "@/lib/recommend";
 import type { RecommendationInput } from "@/lib/types";
+import AnalyticsMount from "../ui/AnalyticsMount";
 import AskResultsClient from "./AskResultsClient";
 import { AskQueryComposerProvider, AskQueryExamples } from "./AskQueryComposer";
 
@@ -70,22 +70,6 @@ export default async function AskPage({ searchParams }: Props) {
   // TODO: Check comparison queries (e.g., redirect to /compare/card-a-vs-card-b if query matches two cards)
 
   const result = input ? await answerQuestion(input) : null;
-  if (input?.query && result) {
-    await logAnalyticsEvent({
-      event_name: "ask_query_submitted",
-      page: "ask",
-      source: "ask",
-      query: input.query
-    });
-    await logAnalyticsEvent({
-      event_name: "ask_result_rendered",
-      page: "ask",
-      source: "ask",
-      query: input.query,
-      card_ids: result.cards.map((item) => item.card.id),
-      metadata: buildAskResultMetadata(result)
-    });
-  }
   const savedFeedback = params.feedbackSaved === "up" || params.feedbackSaved === "down" ? params.feedbackSaved : null;
   const feedbackError = params.feedbackError === "1";
   const flatMatchCount = result?.cards.length ?? 0;
@@ -105,6 +89,18 @@ export default async function AskPage({ searchParams }: Props) {
       key={`${input?.query ?? ""}:${input?.maxAnnualFee ?? ""}`}
     >
       <div className="ask-results">
+      {input?.query && result ? (
+        <AnalyticsMount
+          event={{
+            event_name: "ask_result_rendered",
+            page: "ask",
+            source: "ask",
+            query: input.query,
+            card_ids: result.cards.map((item) => item.card.id),
+            metadata: buildAskResultMetadata(result)
+          }}
+        />
+      ) : null}
       <section className="ask-hero">
         <div className="container ask-hero-inner">
           <h1>

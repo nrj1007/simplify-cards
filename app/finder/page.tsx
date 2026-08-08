@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import { cards, getIssuers, getTags } from "@/lib/cards";
-import { logAnalyticsEvent } from "@/lib/analytics-logs";
 import { buildPageMetadata } from "@/lib/seo";
 import CardTile from "../ui/CardTile";
 import FinderFilterForm from "../ui/FinderFilterForm";
 import PageHero from "../ui/PageHero";
+import AnalyticsMount from "../ui/AnalyticsMount";
 
 export const metadata: Metadata = buildPageMetadata({
   title: "Credit Card Finder",
@@ -32,21 +32,22 @@ export default async function FinderPage({ searchParams }: Props) {
     return issuerOk && tagOk && feeOk;
   });
 
-  if (hasFilters) {
-    await logAnalyticsEvent({
-      event_name: "filter_used",
-      page: "finder",
-      source: "finder",
-      metadata: {
-        issuer: params.issuer ?? null,
-        tag: params.tag ?? null,
-        fee: params.fee ?? null
-      }
-    });
-  }
-
   return (
     <div className="page-shell">
+      {hasFilters ? (
+        <AnalyticsMount
+          event={{
+            event_name: "filter_used",
+            page: "finder",
+            source: "finder",
+            metadata: {
+              issuer: params.issuer ?? null,
+              tag: params.tag ?? null,
+              fee: params.fee ?? null
+            }
+          }}
+        />
+      ) : null}
       <PageHero
         eyebrow="✦ Card finder"
         title="Credit Card Finder"

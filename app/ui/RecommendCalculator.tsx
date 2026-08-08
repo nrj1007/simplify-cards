@@ -7,6 +7,7 @@ import { useRouter } from "next/navigation";
 import type { RecommendResult, SpendCategory, SpendProfile } from "@/lib/types";
 import { TrackedExternalLink, TrackedLink } from "./TrackedLink";
 import { cardCtaHref, cardCtaLabel, cardCtaRel } from "@/lib/card-links";
+import { trackEvent } from "@/lib/analytics-client";
 
 // ---------------------------------------------------------------------------
 // Types
@@ -149,6 +150,44 @@ function buildInitialSpend(defaultSpend: SpendProfile): Record<SpendCategory, nu
     spend[category] = defaultSpend[category] ?? 0;
   }
   return spend;
+}
+
+function summarizeSpendProfile(spend: SpendProfile) {
+  return Object.fromEntries(
+    Object.entries(spend)
+      .filter(([, value]) => typeof value === "number" && value > 0)
+      .map(([key, value]) => [key, value])
+  );
+}
+
+function flattenSections(sections: ResultSection[]) {
+  return sections.flatMap((section) => section.results);
+}
+
+function trackRecommendationGenerated(
+  sections: ResultSection[],
+  input: {
+    spend: SpendProfile;
+    maxAnnualFee: string;
+    wantsLounge: boolean;
+    wantsLifetimeFree: boolean;
+  }
+) {
+  const results = flattenSections(sections);
+
+  trackEvent({
+    event_name: "recommendation_generated",
+    page: "recommend",
+    source: "recommend",
+    card_ids: results.slice(0, 3).map((result) => result.id),
+    metadata: {
+      max_annual_fee: input.maxAnnualFee === "" ? null : Number(input.maxAnnualFee),
+      wants_lounge: input.wantsLounge,
+      wants_lifetime_free: input.wantsLifetimeFree,
+      spend_summary: summarizeSpendProfile(input.spend),
+      top_3_card_ids: results.slice(0, 3).map((result) => result.id)
+    }
+  });
 }
 
 // ---------------------------------------------------------------------------
@@ -337,11 +376,21 @@ export default function RecommendCalculator({ defaultSpend, initialSections }: P
           return res.json();
         })
         .then((data: { results?: RecommendResult[]; sections?: ResultSection[] }) => {
+          let nextSections: ResultSection[] | null = null;
           if (data.sections) {
-            setSections(data.sections);
+            nextSections = data.sections;
           } else if (data.results) {
             // Flat results (backwards compat) — wrap as a single untitled section
-            setSections([{ title: "", results: data.results }]);
+            nextSections = [{ title: "", results: data.results }];
+          }
+          if (nextSections) {
+            setSections(nextSections);
+            trackRecommendationGenerated(nextSections, {
+              spend,
+              maxAnnualFee,
+              wantsLounge,
+              wantsLifetimeFree
+            });
           }
           setPending(false);
         })

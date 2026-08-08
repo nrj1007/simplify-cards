@@ -383,7 +383,7 @@ export function addEventToDailySummary(summary: AnalyticsDailySummary, event: St
   addCount(summary.request_path_counts, metadataLabel(event, "request_path") ?? event.page);
   addCount(summary.request_user_agent_family_counts, metadataLabel(event, "request_user_agent_family") ?? "unknown");
 
-  if (event.event_name === "ask_query_submitted") {
+  if (event.event_name === "ask_result_rendered") {
     addCount(summary.ask_queries, event.query);
     summary.ask_queries = pruneCountMap(summary.ask_queries, MAX_STORED_QUERY_LABELS);
   }

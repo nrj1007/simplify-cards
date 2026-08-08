@@ -1,8 +1,8 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { cards } from "@/lib/cards";
-import { logAnalyticsEvent } from "@/lib/analytics-logs";
 import { getLoungeConditions } from "@/lib/lounge";
+import AnalyticsMount from "@/app/ui/AnalyticsMount";
 import LoungeInfo from "@/app/ui/LoungeInfo";
 import ComparePicker from "@/app/ui/ComparePicker";
 import { TrackedExternalLink, TrackedLink } from "@/app/ui/TrackedLink";
@@ -245,17 +245,18 @@ export default async function ComparePage({ searchParams }: Props) {
     .map(({ id, issuer, name }) => ({ id, issuer, name }))
     .sort((a, b) => a.issuer.localeCompare(b.issuer) || a.name.localeCompare(b.name));
 
-  if (first && second) {
-    await logAnalyticsEvent({
-      event_name: "compare_viewed",
-      page: "compare",
-      source: "compare",
-      card_ids: [first.id, second.id]
-    });
-  }
-
   return (
     <div className={`page-shell compare-reference-page${showComparison ? " has-results" : " is-empty"}`}>
+      {first && second ? (
+        <AnalyticsMount
+          event={{
+            event_name: "compare_viewed",
+            page: "compare",
+            source: "compare",
+            card_ids: [first.id, second.id]
+          }}
+        />
+      ) : null}
       <section className="compare-reference-hero">
         <div className="container"><h1>Compare</h1></div>
       </section>

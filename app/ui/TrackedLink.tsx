@@ -4,6 +4,7 @@ import Link from "next/link";
 import type { Route } from "next";
 import type { AnchorHTMLAttributes, ComponentProps, MouseEventHandler, ReactNode } from "react";
 import type { AnalyticsEventPayload } from "@/lib/analytics";
+import { trackEvent } from "@/lib/analytics-client";
 
 type TrackedLinkProps = Omit<ComponentProps<typeof Link>, "href"> &
   Omit<AnchorHTMLAttributes<HTMLAnchorElement>, "href"> & {
@@ -18,29 +19,24 @@ type TrackedExternalLinkProps = AnchorHTMLAttributes<HTMLAnchorElement> & {
   href: string;
 };
 
-function trackedHref(analyticsEvent: AnalyticsEventPayload, href: string, kind: "internal" | "external") {
-  const params = new URLSearchParams({
-    event_name: analyticsEvent.event_name,
-    page: analyticsEvent.page,
-    source: analyticsEvent.source,
-    kind
-  });
-
-  if (analyticsEvent.card_id) params.set("card_id", analyticsEvent.card_id);
-  if (analyticsEvent.query) params.set("query", analyticsEvent.query);
-  if (kind === "internal") params.set("href", href);
-
-  return `/api/track-click?${params.toString()}` as Route;
-}
-
 export function TrackedLink({ analyticsEvent, href, onClick, children, ...props }: TrackedLinkProps) {
   const handleClick: MouseEventHandler<HTMLAnchorElement> = (event) => {
     onClick?.(event);
+    if (!event.defaultPrevented) {
+      trackEvent({
+        ...analyticsEvent,
+        metadata: {
+          ...(analyticsEvent.metadata ?? {}),
+          tracking_mode: "client_beacon",
+          destination_kind: "internal"
+        }
+      });
+    }
   };
-  const hrefString = typeof href === "string" ? href : href.toString();
+  const linkHref = typeof href === "string" ? (href as Route) : href;
 
   return (
-    <Link {...(props as ComponentProps<typeof Link>)} href={trackedHref(analyticsEvent, hrefString, "internal")} onClick={handleClick} prefetch={false}>
+    <Link {...(props as ComponentProps<typeof Link>)} href={linkHref} onClick={handleClick} prefetch={false}>
       {children}
     </Link>
   );
@@ -49,10 +45,20 @@ export function TrackedLink({ analyticsEvent, href, onClick, children, ...props 
 export function TrackedExternalLink({ analyticsEvent, href, onClick, children, ...props }: TrackedExternalLinkProps) {
   const handleClick: MouseEventHandler<HTMLAnchorElement> = (event) => {
     onClick?.(event);
+    if (!event.defaultPrevented) {
+      trackEvent({
+        ...analyticsEvent,
+        metadata: {
+          ...(analyticsEvent.metadata ?? {}),
+          tracking_mode: "client_beacon",
+          destination_kind: "external"
+        }
+      });
+    }
   };
 
   return (
-    <a {...props} href={trackedHref(analyticsEvent, href, "external")} onClick={handleClick}>
+    <a {...props} href={href} onClick={handleClick}>
       {children}
     </a>
   );

@@ -109,7 +109,10 @@ describe("analytics daily summaries", () => {
     expect(summary.schema_version).toBe(2);
     expect(summary.total_events).toBe(9);
     expect(summary.hourly_event_counts).toEqual({ "2026-07-27T03:00:00.000Z": 9 });
-    expect(summary.ask_queries).toEqual({ "best upi cards": 2 });
+    expect(summary.ask_queries).toEqual({
+      "Is the Smart Credit Card a good fit for me? with spend rs 75k+ for travel with spend rs 25k-75k for low annual fee": 1,
+      "unknown card": 1
+    });
     expect(summary.request_path_counts).toEqual({
       "/cards/hdfc-infinia-metal": 2,
       ask: 6,
@@ -224,23 +227,30 @@ describe("analytics daily summaries", () => {
           has_comment: true,
           feedback_source: "details"
         }
+      }),
+      event({
+        event_name: "ask_result_rendered",
+        page: "ask",
+        source: "ask",
+        query: "best cashback card",
+        card_ids: ["axis-atlas"]
       })
     ]);
 
     const review = mergeDailySummaries([summary], ["2026-07-27"], ["2026-07-27"]);
 
-    expect(review.eventsLoaded).toBe(10);
-    expect(review.last30DayEvents).toBe(10);
+    expect(review.eventsLoaded).toBe(11);
+    expect(review.last30DayEvents).toBe(11);
     expect(review.topAskQueries).toEqual([{ label: "best cashback card", count: 1 }]);
-    expect(review.askCacheRows).toEqual([]);
+    expect(review.askCacheRows).toEqual([{ label: "UNKNOWN", count: 1 }]);
     expect(review.requestPathRows).toEqual([
-      { label: "ask", count: 4 },
+      { label: "ask", count: 5 },
       { label: "cards/[id]", count: 4 },
       { label: "/cards/axis-atlas", count: 1 },
       { label: "finder", count: 1 }
     ]);
     expect(review.requestUserAgentRows).toEqual([
-      { label: "unknown", count: 9 },
+      { label: "unknown", count: 10 },
       { label: "chrome", count: 1 }
     ]);
     expect(review.cardViewRows).toEqual([
@@ -296,7 +306,7 @@ describe("analytics daily summaries", () => {
       ]
     });
     expect(review.feedbackEvents).toHaveLength(2);
-    expect(review.dailyUsageRows).toEqual([{ date: "2026-07-27", count: 10 }]);
+    expect(review.dailyUsageRows).toEqual([{ date: "2026-07-27", count: 11 }]);
   });
 
   it("merges AI usage and ask abuse signals into review rows", () => {
