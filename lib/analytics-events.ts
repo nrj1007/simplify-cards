@@ -1,4 +1,4 @@
-import type { AskAiResult } from "./ask-ai";
+import { getAskResultCacheStatus, type AskAiResult } from "./ask-ai";
 import type { AnalyticsDeviceType, AnalyticsEventPayload } from "./analytics";
 import type { CreditCard, RecommendResult, RecommendationInput, SpendProfile } from "./types";
 
@@ -9,6 +9,7 @@ export function isVerifiedByUser(card: CreditCard) {
 export function buildAskResultMetadata(result: AskAiResult) {
   const aiCalls = result.meta?.ai?.calls ?? [];
   const aiProviderAttemptCount = aiCalls.reduce((total, call) => total + 1 + (call.fallback_used ? 1 : 0), 0);
+  const cacheStatus = getAskResultCacheStatus(result);
 
   return {
     intent: result.meta?.intent ?? "unsupported",
@@ -17,6 +18,9 @@ export function buildAskResultMetadata(result: AskAiResult) {
     top_card_id: result.cards[0]?.card.id ?? null,
     needs_database_update: Boolean(result.needsDatabaseUpdate),
     display_mode: result.displayMode ?? "default",
+    ask_cache_status: cacheStatus ?? "UNKNOWN",
+    ask_cache_hit: cacheStatus === "HIT",
+    ask_cache_miss: cacheStatus === "MISS",
     ai_used: result.meta?.ai?.aiUsed ?? false,
     ai_attempted: aiCalls.length > 0,
     ai_schema_call_count: aiCalls.length,

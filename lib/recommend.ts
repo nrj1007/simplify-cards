@@ -645,7 +645,7 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
         // to out-rank general premium cards in movie queries.
         const isMovieCoBrand = /pvr|inox|bookmyshow|bms|play/i.test(card.id) || /pvr|inox|bookmyshow|play/i.test(card.name);
         if (isMovieCoBrand) {
-          focusBoost += 40000;
+          focusBoost += 10000;
         }
 
         // Prioritize explicit BOGO/discount limits over generic flat percentage rewards (3%, 5%, etc.)
