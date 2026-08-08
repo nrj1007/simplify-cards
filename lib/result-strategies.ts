@@ -92,10 +92,16 @@ const rewardTypeSplit: ResultStrategy = {
     // Re-check: rewards may also be short, so give leftover back to cashback.
     const finalCashbackAlloc = Math.min(cashback.length, totalTarget - rewardsAlloc);
 
-    return [
+    const sections = [
       { title: "Cashback cards", cards: cashback.slice(0, finalCashbackAlloc) },
       { title: "Rewards cards", cards: rewards.slice(0, rewardsAlloc) }
     ];
+
+    return sections.sort((a, b) => {
+      const bScore = b.cards.length > 0 ? resultDisplayOrderScore(b.cards[0]!) : -Infinity;
+      const aScore = a.cards.length > 0 ? resultDisplayOrderScore(a.cards[0]!) : -Infinity;
+      return bScore - aScore;
+    });
   }
 };
 
