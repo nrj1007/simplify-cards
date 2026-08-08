@@ -611,6 +611,7 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
       ? Math.max(0, Math.round(estimatedNetValue * 0.1))
       : 0;
 
+    let disqualifyCard = false;
     if (categoryFocus?.key === "entertainment" && matchesFocus) {
       const benefitStrings = [
         ...(card.additionalBenefits || []),
@@ -624,20 +625,26 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
         .join(" ")
         .toLowerCase();
 
-      let maxDiscount = 0;
-      const regex = /(?:up\s*to|upto|capped\s*at|worth\s*up\s*to|worth)\s*(?:rs\.?|₹|rs)?\s*(\d{2,4})/gi;
-      let match;
-      while ((match = regex.exec(movieBenefitStrings)) !== null) {
-        const val = parseInt(match[1], 10);
-        if (!isNaN(val) && val > maxDiscount && val <= 2000) {
-          maxDiscount = val;
+      if (!movieBenefitStrings) {
+        // User rule: "movie should filter only credit cards that have Book my show (BMS), PVR, etc."
+        // If they have NO explicit movie ticketing string, completely disqualify them from movie queries.
+        disqualifyCard = true;
+      } else {
+        let maxDiscount = 0;
+        const regex = /(?:up\s*to|upto|capped\s*at|worth\s*up\s*to|worth)\s*(?:rs\.?|₹|rs)?\s*(\d{2,4})/gi;
+        let match;
+        while ((match = regex.exec(movieBenefitStrings)) !== null) {
+          const val = parseInt(match[1], 10);
+          if (!isNaN(val) && val > maxDiscount && val <= 2000) {
+            maxDiscount = val;
+          }
         }
-      }
-      
-      // Prioritize explicit BOGO/discount limits over generic flat percentage rewards (3%, 5%, etc.)
-      // by injecting a massive priority constant (+20000) on top of the calculated annual discount value.
-      if (maxDiscount > 0) {
-        focusBoost += 20000 + (maxDiscount * 12);
+        
+        // Prioritize explicit BOGO/discount limits over generic flat percentage rewards (3%, 5%, etc.)
+        // by injecting a massive priority constant (+20000) on top of the calculated annual discount value.
+        if (maxDiscount > 0) {
+          focusBoost += 20000 + (maxDiscount * 12);
+        }
       }
     }
 
@@ -707,7 +714,8 @@ export function scoreCards(input: RecommendationInput): CardScore[] {
     const relevanceWeight = isExactCardLookup ? RELEVANCE_WEIGHT_EXACT_MATCH
       : broadGenericRanking ? RELEVANCE_WEIGHT_BROAD_GENERIC
       : RELEVANCE_WEIGHT_DEFAULT;
-    const fitScore = valueScore + relevanceWeight * relevanceScore;
+    const rawFitScore = valueScore + relevanceWeight * relevanceScore;
+    const fitScore = disqualifyCard ? 0 : rawFitScore;
 
     const scoreReasons: ScoreReason[] = [];
     for (const row of rewardBreakdown) {
