@@ -74,6 +74,37 @@ export async function readKeyedDurableRecord<T>(kind: DurableRecordKind, key: st
   return readDurableRecord<T>(`${durableRecordPrefix(kind)}${key}.json`);
 }
 
+export async function readKeyedDurableRecordWithMetadata<T>(kind: DurableRecordKind, key: string) {
+  const pathname = `${durableRecordPrefix(kind)}${key}.json`;
+  const result = await get(pathname, { access: "private", useCache: false });
+  if (!result?.stream) return null;
+
+  const content = await new Response(result.stream).text();
+  return {
+    value: JSON.parse(content) as T,
+    etag: result.blob.etag
+  };
+}
+
+export async function writeKeyedDurableRecord<T>(
+  kind: DurableRecordKind,
+  key: string,
+  value: T,
+  options: { ifMatch?: string; allowOverwrite?: boolean } = {}
+) {
+  const pathname = `${durableRecordPrefix(kind)}${key}.json`;
+
+  await put(pathname, JSON.stringify(value), {
+    access: "private",
+    addRandomSuffix: false,
+    contentType: "application/json",
+    ...(options.ifMatch ? { ifMatch: options.ifMatch } : {}),
+    ...(options.allowOverwrite !== undefined ? { allowOverwrite: options.allowOverwrite } : {})
+  });
+
+  return pathname;
+}
+
 export async function readDurableRecords<T>(kind: DurableRecordKind, limit = 250) {
   const blobs: ListBlobResultBlob[] = [];
   let cursor: string | undefined;

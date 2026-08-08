@@ -4,13 +4,16 @@ import {
   isDurableRecordStorageConfigured,
   isVercelRuntime,
   readKeyedDurableRecord,
-  upsertDurableRecord
+  readKeyedDurableRecordWithMetadata,
+  writeKeyedDurableRecord
 } from "./durable-records";
 
 export type AnalyticsDailySummary = {
+  schema_version: number;
   date: string;
   updated_at: string;
   total_events: number;
+  hourly_event_counts: Record<string, number>;
   event_counts: Record<string, number>;
   page_counts: Record<string, number>;
   source_counts: Record<string, number>;
@@ -120,12 +123,16 @@ const MAX_STORED_QUERY_LABELS = 250;
 const MAX_STORED_ZERO_RESULT_QUERIES = 100;
 const MAX_STORED_BOT_LIKE_QUERIES = 100;
 const MAX_STORED_FEEDBACK_EVENTS = 100;
+const ANALYTICS_DAILY_SUMMARY_SCHEMA_VERSION = 2;
+const ANALYTICS_DAILY_SUMMARY_WRITE_ATTEMPTS = 3;
 
 function emptyDailySummary(date: string, now = new Date().toISOString()): AnalyticsDailySummary {
   return {
+    schema_version: ANALYTICS_DAILY_SUMMARY_SCHEMA_VERSION,
     date,
     updated_at: now,
     total_events: 0,
+    hourly_event_counts: {},
     event_counts: {},
     page_counts: {},
     source_counts: {},
@@ -167,10 +174,116 @@ function emptyDailySummary(date: string, now = new Date().toISOString()): Analyt
   };
 }
 
+function normalizeCountMap(value: unknown): Record<string, number> {
+  if (typeof value !== "object" || value === null || Array.isArray(value)) return {};
+
+  const counts: Record<string, number> = {};
+  for (const [key, rawCount] of Object.entries(value)) {
+    if (typeof rawCount === "number" && Number.isFinite(rawCount)) {
+      counts[key] = rawCount;
+    }
+  }
+  return counts;
+}
+
+function normalizeSourceCountMap(value: unknown): Record<string, Partial<Record<AnalyticsSource, number>>> {
+  if (typeof value !== "object" || value === null || Array.isArray(value)) return {};
+
+  const counts: Record<string, Partial<Record<AnalyticsSource, number>>> = {};
+  for (const [key, rawSourceCounts] of Object.entries(value)) {
+    counts[key] = normalizeCountMap(rawSourceCounts) as Partial<Record<AnalyticsSource, number>>;
+  }
+  return counts;
+}
+
+function normalizeEventList(value: unknown) {
+  return Array.isArray(value) ? (value.filter((item) => typeof item === "object" && item !== null) as StoredAnalyticsEvent[]) : [];
+}
+
+function normalizeDailySummary(value: AnalyticsDailySummary | null | undefined, date: string): AnalyticsDailySummary {
+  const fallback = emptyDailySummary(date);
+  if (typeof value !== "object" || value === null) return fallback;
+
+  return {
+    schema_version: ANALYTICS_DAILY_SUMMARY_SCHEMA_VERSION,
+    date: typeof value.date === "string" && value.date ? value.date : date,
+    updated_at: typeof value.updated_at === "string" && value.updated_at ? value.updated_at : fallback.updated_at,
+    total_events: typeof value.total_events === "number" && Number.isFinite(value.total_events) ? value.total_events : 0,
+    hourly_event_counts: normalizeCountMap(value.hourly_event_counts),
+    event_counts: normalizeCountMap(value.event_counts),
+    page_counts: normalizeCountMap(value.page_counts),
+    source_counts: normalizeCountMap(value.source_counts),
+    device_counts: normalizeCountMap(value.device_counts),
+    request_path_counts: normalizeCountMap(value.request_path_counts),
+    request_user_agent_family_counts: normalizeCountMap(value.request_user_agent_family_counts),
+    ask_queries: normalizeCountMap(value.ask_queries),
+    ask_cache_status_counts: normalizeCountMap(value.ask_cache_status_counts),
+    ask_result_count: typeof value.ask_result_count === "number" && Number.isFinite(value.ask_result_count) ? value.ask_result_count : 0,
+    ask_anonymous_result_count:
+      typeof value.ask_anonymous_result_count === "number" && Number.isFinite(value.ask_anonymous_result_count)
+        ? value.ask_anonymous_result_count
+        : 0,
+    ask_empty_referrer_result_count:
+      typeof value.ask_empty_referrer_result_count === "number" && Number.isFinite(value.ask_empty_referrer_result_count)
+        ? value.ask_empty_referrer_result_count
+        : 0,
+    card_detail_views_by_card: normalizeCountMap(value.card_detail_views_by_card),
+    card_detail_views_by_referrer_host: normalizeCountMap(value.card_detail_views_by_referrer_host),
+    card_detail_views_by_traffic_class: normalizeCountMap(value.card_detail_views_by_traffic_class),
+    card_detail_views_by_user_agent_family: normalizeCountMap(value.card_detail_views_by_user_agent_family),
+    card_detail_views_by_country: normalizeCountMap(value.card_detail_views_by_country),
+    detail_clicks_by_card: normalizeCountMap(value.detail_clicks_by_card),
+    detail_clicks_by_card_source: normalizeSourceCountMap(value.detail_clicks_by_card_source),
+    ask_detail_clicks_by_card: normalizeCountMap(value.ask_detail_clicks_by_card),
+    ask_query_to_card_detail_clicks: normalizeCountMap(value.ask_query_to_card_detail_clicks),
+    apply_clicks_by_card: normalizeCountMap(value.apply_clicks_by_card),
+    apply_clicks_by_card_source: normalizeSourceCountMap(value.apply_clicks_by_card_source),
+    feedback_count: typeof value.feedback_count === "number" && Number.isFinite(value.feedback_count) ? value.feedback_count : 0,
+    feedback_with_comment_count:
+      typeof value.feedback_with_comment_count === "number" && Number.isFinite(value.feedback_with_comment_count)
+        ? value.feedback_with_comment_count
+        : 0,
+    feedback_by_value: normalizeCountMap(value.feedback_by_value),
+    feedback_by_source: normalizeCountMap(value.feedback_by_source),
+    feedback_events: normalizeEventList(value.feedback_events),
+    ai_result_count: typeof value.ai_result_count === "number" && Number.isFinite(value.ai_result_count) ? value.ai_result_count : 0,
+    ai_schema_call_count:
+      typeof value.ai_schema_call_count === "number" && Number.isFinite(value.ai_schema_call_count) ? value.ai_schema_call_count : 0,
+    ai_provider_attempt_count:
+      typeof value.ai_provider_attempt_count === "number" && Number.isFinite(value.ai_provider_attempt_count)
+        ? value.ai_provider_attempt_count
+        : 0,
+    ai_successful_schema_call_count:
+      typeof value.ai_successful_schema_call_count === "number" && Number.isFinite(value.ai_successful_schema_call_count)
+        ? value.ai_successful_schema_call_count
+        : 0,
+    ai_failed_schema_call_count:
+      typeof value.ai_failed_schema_call_count === "number" && Number.isFinite(value.ai_failed_schema_call_count)
+        ? value.ai_failed_schema_call_count
+        : 0,
+    ai_fallback_result_count:
+      typeof value.ai_fallback_result_count === "number" && Number.isFinite(value.ai_fallback_result_count)
+        ? value.ai_fallback_result_count
+        : 0,
+    ai_calls_by_purpose: normalizeCountMap(value.ai_calls_by_purpose),
+    ai_provider_attempts: normalizeCountMap(value.ai_provider_attempts),
+    ai_results_by_intent: normalizeCountMap(value.ai_results_by_intent),
+    zero_result_queries: normalizeEventList(value.zero_result_queries),
+    bot_like_ask_queries: normalizeEventList(value.bot_like_ask_queries)
+  };
+}
+
 function addCount(counts: Record<string, number>, label: string | undefined, amount = 1) {
   const normalized = label?.trim();
   if (!normalized) return;
   counts[normalized] = (counts[normalized] ?? 0) + amount;
+}
+
+function eventHourKey(event: StoredAnalyticsEvent) {
+  const receivedAt = new Date(event.received_at);
+  if (!Number.isFinite(receivedAt.getTime())) return undefined;
+  receivedAt.setUTCMinutes(0, 0, 0);
+  return receivedAt.toISOString();
 }
 
 function sortedCountRows(counts: Record<string, number>) {
@@ -257,8 +370,12 @@ export function getAnalyticsDateKeys(days: number, now = new Date()) {
 }
 
 export function addEventToDailySummary(summary: AnalyticsDailySummary, event: StoredAnalyticsEvent) {
+  const normalizedSummary = normalizeDailySummary(summary, event.received_at.slice(0, 10));
+  normalizedSummary.schema_version = ANALYTICS_DAILY_SUMMARY_SCHEMA_VERSION;
+  summary = normalizedSummary;
   summary.total_events += 1;
   summary.updated_at = new Date().toISOString();
+  addCount(summary.hourly_event_counts, eventHourKey(event));
   addCount(summary.event_counts, event.event_name);
   addCount(summary.page_counts, event.page);
   addCount(summary.source_counts, event.source);
@@ -384,9 +501,17 @@ export async function updateAnalyticsDailySummary(event: StoredAnalyticsEvent) {
   const date = event.received_at.slice(0, 10);
   if (!date) return;
 
-  const existing = await readKeyedDurableRecord<AnalyticsDailySummary>("analytics-daily", date).catch(() => null);
-  const summary = addEventToDailySummary(existing ?? emptyDailySummary(date), event);
-  await upsertDurableRecord("analytics-daily", date, summary);
+  for (let attempt = 0; attempt < ANALYTICS_DAILY_SUMMARY_WRITE_ATTEMPTS; attempt += 1) {
+    const existing = await readKeyedDurableRecordWithMetadata<AnalyticsDailySummary>("analytics-daily", date).catch(() => null);
+    const summary = addEventToDailySummary(normalizeDailySummary(existing?.value, date), event);
+
+    try {
+      await writeKeyedDurableRecord("analytics-daily", date, summary, existing?.etag ? { ifMatch: existing.etag } : { allowOverwrite: false });
+      return;
+    } catch (error) {
+      if (attempt === ANALYTICS_DAILY_SUMMARY_WRITE_ATTEMPTS - 1) throw error;
+    }
+  }
 }
 
 export async function readAnalyticsDailySummaries(dateKeys: string[]) {
@@ -396,7 +521,40 @@ export async function readAnalyticsDailySummaries(dateKeys: string[]) {
     dateKeys.map(async (date) => readKeyedDurableRecord<AnalyticsDailySummary>("analytics-daily", date).catch(() => null))
   );
 
-  return summaries.filter((summary): summary is AnalyticsDailySummary => summary !== null);
+  return summaries
+    .map((summary, index) => (summary === null ? null : normalizeDailySummary(summary, dateKeys[index] ?? "")))
+    .filter((summary): summary is AnalyticsDailySummary => summary !== null);
+}
+
+export function buildLast24HourRowsFromSummaries(summaries: AnalyticsDailySummary[], now: Date) {
+  const hourMs = 60 * 60 * 1000;
+  const currentHourStart = new Date(now);
+  currentHourStart.setUTCMinutes(0, 0, 0);
+
+  const buckets = new Map<string, { label: string; count: number }>();
+  const firstHourStart = new Date(currentHourStart.getTime() - 23 * hourMs);
+
+  for (let index = 0; index < 24; index += 1) {
+    const hour = new Date(firstHourStart.getTime() + index * hourMs);
+    buckets.set(hour.toISOString(), {
+      label: new Intl.DateTimeFormat("en-IN", {
+        day: "2-digit",
+        month: "short",
+        hour: "2-digit",
+        hour12: false
+      }).format(hour),
+      count: 0
+    });
+  }
+
+  for (const summary of summaries) {
+    for (const [hourKey, count] of Object.entries(summary.hourly_event_counts ?? {})) {
+      const bucket = buckets.get(hourKey);
+      if (bucket) bucket.count += count;
+    }
+  }
+
+  return [...buckets.values()];
 }
 
 export function mergeDailySummaries(

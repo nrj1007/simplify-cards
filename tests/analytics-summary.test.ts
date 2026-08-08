@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { buildDailySummaryFromEvents, mergeDailySummaries } from "../lib/analytics-summary";
+import { addEventToDailySummary, buildDailySummaryFromEvents, buildLast24HourRowsFromSummaries, mergeDailySummaries } from "../lib/analytics-summary";
 import type { StoredAnalyticsEvent } from "../lib/analytics";
 
 function event(overrides: Partial<StoredAnalyticsEvent>): StoredAnalyticsEvent {
@@ -106,7 +106,9 @@ describe("analytics daily summaries", () => {
       })
     ]);
 
+    expect(summary.schema_version).toBe(2);
     expect(summary.total_events).toBe(9);
+    expect(summary.hourly_event_counts).toEqual({ "2026-07-27T03:00:00.000Z": 9 });
     expect(summary.ask_queries).toEqual({ "best upi cards": 2 });
     expect(summary.request_path_counts).toEqual({
       "/cards/hdfc-infinia-metal": 2,
@@ -349,5 +351,54 @@ describe("analytics daily summaries", () => {
       botLikeQueryCount: 1
     });
     expect(review.botLikeAskQueries).toHaveLength(1);
+  });
+
+  it("normalizes older summary blobs before adding newer fields", () => {
+    const olderSummary = {
+      date: "2026-07-27",
+      updated_at: "2026-07-27T00:00:00.000Z",
+      total_events: 1,
+      event_counts: { page_view: 1 },
+      page_counts: { ask: 1 },
+      source_counts: { ask: 1 },
+      device_counts: { desktop: 1 },
+      request_path_counts: { ask: 1 },
+      request_user_agent_family_counts: { unknown: 1 },
+      ask_queries: {},
+      apply_clicks_by_card: {},
+      apply_clicks_by_card_source: {},
+      zero_result_queries: []
+    } as never;
+
+    const summary = addEventToDailySummary(
+      olderSummary,
+      event({
+        event_name: "ask_result_rendered",
+        received_at: "2026-07-27T04:22:00.000Z",
+        query: "best travel card",
+        card_ids: ["axis-atlas"],
+        metadata: { ask_cache_status: "MISS" }
+      })
+    );
+
+    expect(summary.total_events).toBe(2);
+    expect(summary.hourly_event_counts).toEqual({ "2026-07-27T04:00:00.000Z": 1 });
+    expect(summary.ask_cache_status_counts).toEqual({ MISS: 1 });
+    expect(summary.bot_like_ask_queries).toEqual([]);
+    expect(summary.feedback_events).toEqual([]);
+  });
+
+  it("builds last 24 hour hit rows from summary hourly buckets", () => {
+    const summary = buildDailySummaryFromEvents("2026-07-27", [
+      event({ received_at: "2026-07-27T02:15:00.000Z" }),
+      event({ received_at: "2026-07-27T02:45:00.000Z" }),
+      event({ received_at: "2026-07-27T03:05:00.000Z" })
+    ]);
+
+    const rows = buildLast24HourRowsFromSummaries([summary], new Date("2026-07-27T03:30:00.000Z"));
+
+    expect(rows).toHaveLength(24);
+    expect(rows.at(-2)?.count).toBe(2);
+    expect(rows.at(-1)?.count).toBe(1);
   });
 });

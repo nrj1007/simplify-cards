@@ -1,6 +1,7 @@
 import { readRecentAnalyticsLogByDatePrefix } from "@/lib/analytics-logs";
 import {
   buildDailySummaryFromEvents,
+  buildLast24HourRowsFromSummaries,
   getAnalyticsDateKeys,
   mergeDailySummaries,
   readAnalyticsDailySummaries
@@ -27,15 +28,6 @@ function formatDateTime(value: string) {
     dateStyle: "medium",
     timeStyle: "short"
   }).format(date);
-}
-
-function formatHourLabel(value: Date) {
-  return new Intl.DateTimeFormat("en-IN", {
-    day: "2-digit",
-    month: "short",
-    hour: "2-digit",
-    hour12: false
-  }).format(value);
 }
 
 function EmptyState({ children }: { children: React.ReactNode }) {
@@ -137,47 +129,15 @@ function CountTable({ rows, labelHeader }: { rows: CountRow[]; labelHeader: stri
   );
 }
 
-function buildLast24HourHitRows(events: Array<{ received_at: string }>, now: Date): HitGraphRow[] {
-  const hourMs = 60 * 60 * 1000;
-  const currentHourStart = new Date(now);
-  currentHourStart.setMinutes(0, 0, 0);
-
-  const buckets = new Map<string, HitGraphRow>();
-  const firstHourStart = new Date(currentHourStart.getTime() - 23 * hourMs);
-  const endExclusive = new Date(currentHourStart.getTime() + hourMs);
-
-  for (let index = 0; index < 24; index += 1) {
-    const hour = new Date(firstHourStart.getTime() + index * hourMs);
-    buckets.set(hour.toISOString(), {
-      label: formatHourLabel(hour),
-      count: 0
-    });
-  }
-
-  for (const event of events) {
-    const receivedAt = new Date(event.received_at);
-    const timestamp = receivedAt.getTime();
-    if (!Number.isFinite(timestamp) || timestamp < firstHourStart.getTime() || timestamp >= endExclusive.getTime()) continue;
-
-    receivedAt.setMinutes(0, 0, 0);
-    const bucket = buckets.get(receivedAt.toISOString());
-    if (bucket) bucket.count += 1;
-  }
-
-  return [...buckets.values()];
-}
-
 export default async function AnalyticsReviewPage() {
   const now = new Date();
   const dailyDateKeys = getAnalyticsDateKeys(14, now);
   const eventWindowDateKeys = getAnalyticsDateKeys(30, now);
-  const hourlyDateKeys = getAnalyticsDateKeys(2, now);
   const storedSummaries = await readAnalyticsDailySummaries(eventWindowDateKeys);
   const summariesByDate = new Map(storedSummaries.map((summary) => [summary.date, summary]));
   const missingSummaryDateKeys = eventWindowDateKeys.filter((date) => !summariesByDate.has(date));
   const recentEvents =
     missingSummaryDateKeys.length > 0 ? await readRecentAnalyticsLogByDatePrefix(missingSummaryDateKeys, 2000).catch(() => []) : [];
-  const recentHourlyEvents = await readRecentAnalyticsLogByDatePrefix(hourlyDateKeys, 5000).catch(() => []);
   const recentEventsByDate = new Map<string, typeof recentEvents>();
 
   for (const event of recentEvents) {
@@ -193,7 +153,7 @@ export default async function AnalyticsReviewPage() {
   }
 
   const summary = mergeDailySummaries([...summariesByDate.values()], dailyDateKeys, eventWindowDateKeys);
-  const last24HourHitRows = buildLast24HourHitRows(recentHourlyEvents, now);
+  const last24HourHitRows = buildLast24HourRowsFromSummaries([...summariesByDate.values()], now);
   const last7DayHitRows = [...summary.dailyUsageRows]
     .slice(0, 7)
     .reverse()

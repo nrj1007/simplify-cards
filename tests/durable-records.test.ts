@@ -12,8 +12,10 @@ import {
   durableRecordPrefix,
   isDurableRecordStorageConfigured,
   readDurableRecords,
+  readKeyedDurableRecordWithMetadata,
   readRecentDurableRecordsByDatePrefix,
   upsertDurableRecord,
+  writeKeyedDurableRecord,
   writeUniqueDurableRecord
 } from "../lib/durable-records";
 
@@ -55,6 +57,28 @@ describe("durable record storage", () => {
       `${durableRecordPrefix("subscriptions")}hashed-email.json`,
       JSON.stringify({ email: "person@example.com" }),
       expect.objectContaining({ access: "private", allowOverwrite: true })
+    );
+  });
+
+  it("reads keyed records with etag metadata for conditional updates", async () => {
+    blobMocks.get.mockResolvedValue({
+      stream: jsonStream({ total: 3 }),
+      blob: { etag: "etag-1" }
+    });
+
+    await expect(readKeyedDurableRecordWithMetadata("analytics-daily", "2026-07-27")).resolves.toEqual({
+      value: { total: 3 },
+      etag: "etag-1"
+    });
+  });
+
+  it("writes keyed records with optimistic concurrency options", async () => {
+    await writeKeyedDurableRecord("analytics-daily", "2026-07-27", { total: 4 }, { ifMatch: "etag-1" });
+
+    expect(blobMocks.put).toHaveBeenCalledWith(
+      `${durableRecordPrefix("analytics-daily")}2026-07-27.json`,
+      JSON.stringify({ total: 4 }),
+      expect.objectContaining({ access: "private", ifMatch: "etag-1" })
     );
   });
 

@@ -6,8 +6,7 @@ import {
   isDurableRecordStorageConfigured,
   isVercelRuntime,
   readDurableRecords,
-  readRecentDurableRecordsByDatePrefix,
-  writeUniqueDurableRecord
+  readRecentDurableRecordsByDatePrefix
 } from "./durable-records";
 
 export function getAnalyticsEventsLogPath() {
@@ -31,7 +30,6 @@ export async function appendAnalyticsEvent(event: StoredAnalyticsEvent) {
   if (!canPersistAnalyticsToFilesystem()) {
     if (isDurableRecordStorageConfigured()) {
       try {
-        await writeUniqueDurableRecord("analytics", event, event.received_at);
         await updateAnalyticsDailySummary(event);
       } catch (error) {
         console.error("Failed to persist analytics event to durable storage:", error);
