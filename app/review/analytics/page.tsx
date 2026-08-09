@@ -20,6 +20,11 @@ type HitGraphRow = {
   count: number;
 };
 
+type LabelCountRow = {
+  label: string;
+  count: number;
+};
+
 function formatDateTime(value: string) {
   const date = new Date(value);
   if (!Number.isFinite(date.getTime())) return value;
@@ -129,6 +134,11 @@ function CountTable({ rows, labelHeader }: { rows: CountRow[]; labelHeader: stri
   );
 }
 
+function formatLabelCounts(rows: LabelCountRow[]) {
+  if (rows.length === 0) return "—";
+  return rows.map((row) => `${row.label}: ${row.count.toLocaleString("en-IN")}`).join(", ");
+}
+
 export default async function AnalyticsReviewPage() {
   const now = new Date();
   const dailyDateKeys = getAnalyticsDateKeys(14, now);
@@ -156,6 +166,9 @@ export default async function AnalyticsReviewPage() {
   const last24HourHitRows = buildLast24HourRowsFromSummaries([...summariesByDate.values()], now);
   const last7DayHitRows = [...summary.dailyUsageRows]
     .slice(0, 7)
+    .reverse()
+    .map((row) => ({ label: row.date, count: row.count }));
+  const last14DayRateLimitRows = [...summary.dailyRateLimitRows]
     .reverse()
     .map((row) => ({ label: row.date, count: row.count }));
 
@@ -228,12 +241,12 @@ export default async function AnalyticsReviewPage() {
 
         <article className="panel review-item">
           <div className="review-item-head">
-            <strong>Request diagnostics</strong>
-            <span className="badge">Last 30 days</span>
+            <strong>API request counts by route</strong>
+            <span className="badge">Analytics-emitting requests · Last 30 days</span>
           </div>
           <div className="analytics-review-grid">
             <div>
-              <h3>Request path</h3>
+              <h3>Route / request path</h3>
               <CountTable labelHeader="Path" rows={summary.requestPathRows} />
             </div>
             <div>
@@ -245,15 +258,47 @@ export default async function AnalyticsReviewPage() {
 
         <article className="panel review-item">
           <div className="review-item-head">
-            <strong>Ask cache</strong>
+            <strong>Ask cache hit rate trend</strong>
             <span className="badge">Last 30 days</span>
           </div>
           <CountTable labelHeader="Cache status" rows={summary.askCacheRows} />
+          {summary.askCacheTrendRows.every((row) => row.total === 0) ? (
+            <EmptyState>No cache data yet</EmptyState>
+          ) : (
+            <div className="analytics-review-table-shell">
+              <table className="compare-table analytics-review-table">
+                <thead>
+                  <tr>
+                    <th>Date</th>
+                    <th>Hit rate</th>
+                    <th>Hits</th>
+                    <th>Misses</th>
+                    <th>Skipped</th>
+                    <th>Unknown</th>
+                    <th>Total Ask results</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {[...summary.askCacheTrendRows].reverse().map((row) => (
+                    <tr key={row.date}>
+                      <td>{row.date}</td>
+                      <td>{(row.hitRate * 100).toFixed(1)}%</td>
+                      <td>{row.hit.toLocaleString("en-IN")}</td>
+                      <td>{row.miss.toLocaleString("en-IN")}</td>
+                      <td>{row.skip.toLocaleString("en-IN")}</td>
+                      <td>{row.unknown.toLocaleString("en-IN")}</td>
+                      <td>{row.total.toLocaleString("en-IN")}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          )}
         </article>
 
         <article className="panel review-item">
           <div className="review-item-head">
-            <strong>AI usage</strong>
+            <strong>AI calls by provider / purpose over time</strong>
             <span className="badge">Last 30 days</span>
           </div>
           <div className="review-summary analytics-review-mini-summary">
@@ -281,6 +326,36 @@ export default async function AnalyticsReviewPage() {
           <CountTable labelHeader="Provider attempts" rows={summary.aiUsage.providerAttempts} />
           <CountTable labelHeader="AI purpose" rows={summary.aiUsage.callsByPurpose} />
           <CountTable labelHeader="Ask intent" rows={summary.aiUsage.resultsByIntent} />
+          {summary.dailyAiUsageRows.every((row) => row.providerAttemptCount === 0 && row.schemaCallCount === 0) ? (
+            <EmptyState>No daily AI usage yet</EmptyState>
+          ) : (
+            <div className="analytics-review-table-shell">
+              <table className="compare-table analytics-review-table">
+                <thead>
+                  <tr>
+                    <th>Date</th>
+                    <th>Ask results with AI</th>
+                    <th>Schema calls</th>
+                    <th>Provider attempts</th>
+                    <th>Providers</th>
+                    <th>Purposes</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {[...summary.dailyAiUsageRows].reverse().map((row) => (
+                    <tr key={row.date}>
+                      <td>{row.date}</td>
+                      <td>{row.resultCount.toLocaleString("en-IN")}</td>
+                      <td>{row.schemaCallCount.toLocaleString("en-IN")}</td>
+                      <td>{row.providerAttemptCount.toLocaleString("en-IN")}</td>
+                      <td>{formatLabelCounts(row.providerAttempts)}</td>
+                      <td>{formatLabelCounts(row.callsByPurpose)}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          )}
         </article>
 
         <article className="panel review-item">
@@ -322,7 +397,7 @@ export default async function AnalyticsReviewPage() {
 
         <article className="panel review-item">
           <div className="review-item-head">
-            <strong>Ask rate limits</strong>
+            <strong>Rate-limited requests</strong>
             <span className="badge">Last 30 days</span>
           </div>
           <div className="review-summary analytics-review-mini-summary">
@@ -331,6 +406,7 @@ export default async function AnalyticsReviewPage() {
               <span>Blocked Ask requests</span>
             </div>
           </div>
+          <HitGraph rows={last14DayRateLimitRows} emptyLabel="No rate-limited requests yet" />
           <div className="analytics-review-grid">
             <div>
               <h3>Block reason</h3>
@@ -341,8 +417,40 @@ export default async function AnalyticsReviewPage() {
               <CountTable labelHeader="IP hash" rows={summary.askRateLimit.byIpHash} />
             </div>
             <div>
-              <h3>Query hash</h3>
+              <h3>Top blocked query hashes</h3>
               <CountTable labelHeader="Query hash" rows={summary.askRateLimit.byQueryHash} />
+            </div>
+          </div>
+        </article>
+
+        <article className="panel review-item">
+          <div className="review-item-head">
+            <strong>Top blocked query hashes / patterns</strong>
+            <span className="badge">Last 30 days</span>
+          </div>
+          <div className="analytics-review-grid">
+            <div>
+              <h3>Blocked query hashes</h3>
+              <CountTable labelHeader="Query hash" rows={summary.askRateLimit.byQueryHash} />
+            </div>
+            <div>
+              <h3>Bot-like query patterns</h3>
+              {summary.botLikeAskQueries.length === 0 ? (
+                <EmptyState>No bot-like ask query patterns detected</EmptyState>
+              ) : (
+                <div className="review-list analytics-query-list">
+                  {summary.botLikeAskQueries.slice(0, 10).map((event, index) => (
+                    <div className="analytics-query-row" key={`${event.received_at}-${event.query}-${index}`}>
+                      <strong>{event.query}</strong>
+                      <div className="meta">
+                        <span>{formatDateTime(event.received_at)}</span>
+                        <span>Intent: {String(event.metadata?.intent ?? "unknown")}</span>
+                        <span>Cache: {String(event.metadata?.ask_cache_status ?? "UNKNOWN")}</span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
             </div>
           </div>
         </article>

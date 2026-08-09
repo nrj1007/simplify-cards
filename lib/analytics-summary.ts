@@ -65,6 +65,7 @@ export type AnalyticsReviewSummary = {
   last30DayEvents: number;
   topAskQueries: Array<{ label: string; count: number }>;
   askCacheRows: Array<{ label: string; count: number }>;
+  askCacheTrendRows: Array<{ date: string; hit: number; miss: number; skip: number; unknown: number; total: number; hitRate: number }>;
   requestPathRows: Array<{ label: string; count: number }>;
   requestUserAgentRows: Array<{ label: string; count: number }>;
   cardViewRows: Array<{ cardId: string; cardName: string; count: number }>;
@@ -99,6 +100,15 @@ export type AnalyticsReviewSummary = {
   zeroResultQueries: StoredAnalyticsEvent[];
   botLikeAskQueries: StoredAnalyticsEvent[];
   dailyUsageRows: Array<{ date: string; count: number }>;
+  dailyRateLimitRows: Array<{ date: string; count: number }>;
+  dailyAiUsageRows: Array<{
+    date: string;
+    resultCount: number;
+    schemaCallCount: number;
+    providerAttemptCount: number;
+    providerAttempts: Array<{ label: string; count: number }>;
+    callsByPurpose: Array<{ label: string; count: number }>;
+  }>;
   aiUsage: {
     resultCount: number;
     schemaCallCount: number;
@@ -135,7 +145,7 @@ const MAX_STORED_QUERY_LABELS = 250;
 const MAX_STORED_ZERO_RESULT_QUERIES = 100;
 const MAX_STORED_BOT_LIKE_QUERIES = 100;
 const MAX_STORED_FEEDBACK_EVENTS = 100;
-const ANALYTICS_DAILY_SUMMARY_SCHEMA_VERSION = 3;
+const ANALYTICS_DAILY_SUMMARY_SCHEMA_VERSION = 4;
 const ANALYTICS_DAILY_SUMMARY_WRITE_ATTEMPTS = 6;
 const ANALYTICS_DAILY_SUMMARY_SHARDS = 16;
 
@@ -637,6 +647,20 @@ export function mergeDailySummaries(
   const zeroResultQueries: StoredAnalyticsEvent[] = [];
   const botLikeAskQueries: StoredAnalyticsEvent[] = [];
   const dailyCounts = new Map(dailyDateKeys.map((date) => [date, 0]));
+  const dailyRateLimitCounts = new Map(dailyDateKeys.map((date) => [date, 0]));
+  const dailyCacheStatusCounts = new Map(dailyDateKeys.map((date) => [date, {} as Record<string, number>]));
+  const dailyAiUsage = new Map(
+    dailyDateKeys.map((date) => [
+      date,
+      {
+        resultCount: 0,
+        schemaCallCount: 0,
+        providerAttemptCount: 0,
+        providerAttempts: {} as Record<string, number>,
+        callsByPurpose: {} as Record<string, number>
+      }
+    ])
+  );
   const eventWindowDateSet = new Set(eventWindowDateKeys);
   let eventsLoaded = 0;
   let last30DayEvents = 0;
@@ -663,6 +687,21 @@ export function mergeDailySummaries(
     eventsLoaded += summary.total_events;
     if (eventWindowDateSet.has(summary.date)) last30DayEvents += summary.total_events;
     if (dailyCounts.has(summary.date)) dailyCounts.set(summary.date, (dailyCounts.get(summary.date) ?? 0) + summary.total_events);
+    if (dailyRateLimitCounts.has(summary.date)) {
+      dailyRateLimitCounts.set(summary.date, (dailyRateLimitCounts.get(summary.date) ?? 0) + (summary.ask_rate_limited_count ?? 0));
+    }
+    const dailyCacheCounts = dailyCacheStatusCounts.get(summary.date);
+    if (dailyCacheCounts) {
+      for (const [status, count] of Object.entries(summary.ask_cache_status_counts ?? {})) addCount(dailyCacheCounts, status, count);
+    }
+    const dailyAi = dailyAiUsage.get(summary.date);
+    if (dailyAi) {
+      dailyAi.resultCount += summary.ai_result_count ?? 0;
+      dailyAi.schemaCallCount += summary.ai_schema_call_count ?? 0;
+      dailyAi.providerAttemptCount += summary.ai_provider_attempt_count ?? 0;
+      for (const [provider, count] of Object.entries(summary.ai_provider_attempts ?? {})) addCount(dailyAi.providerAttempts, provider, count);
+      for (const [purpose, count] of Object.entries(summary.ai_calls_by_purpose ?? {})) addCount(dailyAi.callsByPurpose, purpose, count);
+    }
 
     for (const [query, count] of Object.entries(summary.ask_queries)) addCount(topAskQueryCounts, query, count);
     for (const [status, count] of Object.entries(summary.ask_cache_status_counts ?? {})) addCount(askCacheStatusCounts, status, count);
@@ -811,6 +850,27 @@ export function mergeDailySummaries(
       .sort((left, right) => right.received_at.localeCompare(left.received_at))
       .slice(0, 50),
     dailyUsageRows: dailyDateKeys.map((date) => ({ date, count: dailyCounts.get(date) ?? 0 })),
+    dailyRateLimitRows: dailyDateKeys.map((date) => ({ date, count: dailyRateLimitCounts.get(date) ?? 0 })),
+    askCacheTrendRows: dailyDateKeys.map((date) => {
+      const counts = dailyCacheStatusCounts.get(date) ?? {};
+      const hit = counts.HIT ?? 0;
+      const miss = counts.MISS ?? 0;
+      const skip = counts.SKIP ?? 0;
+      const unknown = counts.UNKNOWN ?? 0;
+      const total = Object.values(counts).reduce((sum, count) => sum + count, 0);
+      return { date, hit, miss, skip, unknown, total, hitRate: total > 0 ? hit / total : 0 };
+    }),
+    dailyAiUsageRows: dailyDateKeys.map((date) => {
+      const usage = dailyAiUsage.get(date);
+      return {
+        date,
+        resultCount: usage?.resultCount ?? 0,
+        schemaCallCount: usage?.schemaCallCount ?? 0,
+        providerAttemptCount: usage?.providerAttemptCount ?? 0,
+        providerAttempts: sortedCountRows(usage?.providerAttempts ?? {}),
+        callsByPurpose: sortedCountRows(usage?.callsByPurpose ?? {})
+      };
+    }),
     aiUsage: {
       resultCount: aiResultCount,
       schemaCallCount: aiSchemaCallCount,

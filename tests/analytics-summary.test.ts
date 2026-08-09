@@ -106,7 +106,7 @@ describe("analytics daily summaries", () => {
       })
     ]);
 
-    expect(summary.schema_version).toBe(3);
+    expect(summary.schema_version).toBe(4);
     expect(summary.total_events).toBe(9);
     expect(summary.hourly_event_counts).toEqual({ "2026-07-27T03:00:00.000Z": 9 });
     expect(summary.ask_queries).toEqual({
@@ -200,6 +200,7 @@ describe("analytics daily summaries", () => {
         { label: "query-hash-2", count: 1 }
       ]
     });
+    expect(review.dailyRateLimitRows).toEqual([{ date: "2026-07-27", count: 2 }]);
   });
 
   it("merges daily summaries into review page rows", () => {
@@ -294,6 +295,17 @@ describe("analytics daily summaries", () => {
     expect(review.last30DayEvents).toBe(11);
     expect(review.topAskQueries).toEqual([{ label: "best cashback card", count: 1 }]);
     expect(review.askCacheRows).toEqual([{ label: "UNKNOWN", count: 1 }]);
+    expect(review.askCacheTrendRows).toEqual([
+      {
+        date: "2026-07-27",
+        hit: 0,
+        miss: 0,
+        skip: 0,
+        unknown: 1,
+        total: 1,
+        hitRate: 0
+      }
+    ]);
     expect(review.requestPathRows).toEqual([
       { label: "ask", count: 5 },
       { label: "cards/[id]", count: 4 },
@@ -358,6 +370,16 @@ describe("analytics daily summaries", () => {
     });
     expect(review.feedbackEvents).toHaveLength(2);
     expect(review.dailyUsageRows).toEqual([{ date: "2026-07-27", count: 11 }]);
+    expect(review.dailyAiUsageRows).toEqual([
+      {
+        date: "2026-07-27",
+        resultCount: 0,
+        schemaCallCount: 0,
+        providerAttemptCount: 0,
+        providerAttempts: [],
+        callsByPurpose: []
+      }
+    ]);
   });
 
   it("adds same-day summary shards in daily usage rows", () => {
@@ -420,6 +442,30 @@ describe("analytics daily summaries", () => {
     expect(review.aiUsage.callsByPurpose).toEqual([{ label: "answer_summary", count: 1 }]);
     expect(review.aiUsage.resultsByIntent).toEqual([{ label: "best-fit", count: 1 }]);
     expect(review.askCacheRows).toEqual([{ label: "HIT", count: 1 }]);
+    expect(review.askCacheTrendRows).toEqual([
+      {
+        date: "2026-07-27",
+        hit: 1,
+        miss: 0,
+        skip: 0,
+        unknown: 0,
+        total: 1,
+        hitRate: 1
+      }
+    ]);
+    expect(review.dailyAiUsageRows).toEqual([
+      {
+        date: "2026-07-27",
+        resultCount: 1,
+        schemaCallCount: 1,
+        providerAttemptCount: 2,
+        providerAttempts: [
+          { label: "gemini", count: 1 },
+          { label: "openai", count: 1 }
+        ],
+        callsByPurpose: [{ label: "answer_summary", count: 1 }]
+      }
+    ]);
     expect(review.askSignals).toEqual({
       resultCount: 1,
       anonymousResultCount: 1,
