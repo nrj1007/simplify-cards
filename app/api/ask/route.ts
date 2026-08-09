@@ -4,11 +4,49 @@ import {
   buildFallbackSummary,
   getAskResultCacheStatus,
   resolveDirectCardDetailQuery,
+  setAskResultCacheStatus,
   type AskAiResult
 } from "@/lib/ask-ai";
+import { askCacheKey, getAskCache, setAskCache } from "@/lib/ask-cache";
 import { buildAskResultMetadata } from "@/lib/analytics-events";
 import { answerFromCards } from "@/lib/recommend";
 import type { RecommendationInput } from "@/lib/types";
+
+const ASK_API_CACHE_SCOPE = "api-ask-response-v1";
+
+function normalizeCacheString(value: string) {
+  return value.trim().replace(/\s+/g, " ").toLowerCase();
+}
+
+function normalizeAskApiCacheInput(input: RecommendationInput) {
+  return {
+    query: normalizeCacheString(input.query ?? ""),
+    maxAnnualFee: input.maxAnnualFee ?? null,
+    wantsLounge: input.wantsLounge ?? null,
+    wantsLifetimeFree: input.wantsLifetimeFree ?? null,
+    rankingStrategy: input.rankingStrategy ?? null,
+    resultStrategy: input.resultStrategy ?? null,
+    spend: input.spend ?? null
+  };
+}
+
+function buildAskApiCacheKey(input: RecommendationInput) {
+  return askCacheKey({
+    scope: ASK_API_CACHE_SCOPE,
+    input: normalizeAskApiCacheInput(input)
+  });
+}
+
+function canUseAskApiCache(input: RecommendationInput) {
+  if (input.previousQuery || input.contextCardIds?.length) return false;
+  return Boolean(normalizeCacheString(input.query ?? ""));
+}
+
+function isCacheableAskApiResult(input: RecommendationInput, result: AskAiResult) {
+  if (!canUseAskApiCache(input)) return false;
+  if (result.needsDatabaseUpdate || result.meta?.intent === "unsupported") return false;
+  return result.cards.length > 0;
+}
 
 function resultResponse(result: AskAiResult) {
   return NextResponse.json(
@@ -44,7 +82,14 @@ export async function POST(request: Request) {
       );
     }
 
+    const apiCacheKey = canUseAskApiCache(input) ? buildAskApiCacheKey(input) : null;
+    if (apiCacheKey) {
+      const cached = getAskCache(apiCacheKey);
+      if (cached) return resultResponse(setAskResultCacheStatus(cached, "HIT"));
+    }
+
     const result = await answerQuestion(input);
+    if (apiCacheKey && isCacheableAskApiResult(input, result)) setAskCache(apiCacheKey, result);
     return resultResponse(result);
   } catch (error) {
     console.error("Error in /api/ask route handler:", error);

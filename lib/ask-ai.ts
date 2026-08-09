@@ -1631,7 +1631,7 @@ function isCacheableAskAnswer(input: RecommendationInput, result: AskAiResult) {
   return true;
 }
 
-function setAskCacheStatus(result: AskAiResult, status: AskCacheStatus): AskAiResult {
+export function setAskResultCacheStatus(result: AskAiResult, status: AskCacheStatus): AskAiResult {
   Object.defineProperty(result, askCacheStatusSymbol, {
     value: status,
     enumerable: false,
@@ -1642,11 +1642,11 @@ function setAskCacheStatus(result: AskAiResult, status: AskCacheStatus): AskAiRe
 
 function finalizeAskAnswer(input: RecommendationInput, cacheKey: string | null, result: AskAiResult): AskAiResult {
   if (!cacheKey || !isCacheableAskAnswer(input, result)) {
-    return setAskCacheStatus(result, "SKIP");
+    return setAskResultCacheStatus(result, "SKIP");
   }
 
   setAskCache(cacheKey, result);
-  return setAskCacheStatus(result, "MISS");
+  return setAskResultCacheStatus(result, "MISS");
 }
 
 export function getAskResultCacheStatus(result: AskAiResult): AskCacheStatus | undefined {
@@ -1739,7 +1739,7 @@ export async function answerQuestion(input: RecommendationInput): Promise<AskAiR
     if (hasFollowUpContext) return null;
     const key = resolvedCacheKey(answerKind);
     const cached = getAskCache(key);
-    return cached ? setAskCacheStatus(cached, "HIT") : null;
+    return cached ? setAskResultCacheStatus(cached, "HIT") : null;
   };
 
   if (!topCard) {
@@ -1758,7 +1758,7 @@ export async function answerQuestion(input: RecommendationInput): Promise<AskAiR
   if (cardFamilyLookup) {
     const cacheKey = resolvedCacheKey("card-family");
     const cached = getAskCache(cacheKey);
-    if (cached) return setAskCacheStatus(cached, "HIT");
+    if (cached) return setAskResultCacheStatus(cached, "HIT");
 
     return finalizeAskAnswer(input, cacheKey, {
       ...answer,
@@ -1821,7 +1821,7 @@ export async function answerQuestion(input: RecommendationInput): Promise<AskAiR
     if (specificAnswer) {
       const cacheKey = resolvedCacheKey("card-detail");
       const cached = getAskCache(cacheKey);
-      if (cached) return setAskCacheStatus(cached, "HIT");
+      if (cached) return setAskResultCacheStatus(cached, "HIT");
 
       return finalizeAskAnswer(input, cacheKey, {
         ...answer,

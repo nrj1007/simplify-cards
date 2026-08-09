@@ -4,15 +4,18 @@ import {
   answerQuestion,
   buildFallbackSummary,
   getAskResultCacheStatus,
-  resolveDirectCardDetailQuery
+  resolveDirectCardDetailQuery,
+  setAskResultCacheStatus
 } from "../lib/ask-ai";
+import { clearAskCache } from "../lib/ask-cache";
 import { answerFromCards } from "../lib/recommend";
 
 vi.mock("../lib/ask-ai", () => ({
   answerQuestion: vi.fn(),
   buildFallbackSummary: vi.fn(),
   getAskResultCacheStatus: vi.fn(),
-  resolveDirectCardDetailQuery: vi.fn()
+  resolveDirectCardDetailQuery: vi.fn(),
+  setAskResultCacheStatus: vi.fn((result) => result)
 }));
 
 vi.mock("../lib/recommend", async () => {
@@ -26,8 +29,10 @@ vi.mock("../lib/recommend", async () => {
 describe("/api/ask Route Handler", () => {
   beforeEach(() => {
     vi.clearAllMocks();
+    clearAskCache();
     vi.mocked(getAskResultCacheStatus).mockReturnValue(undefined);
     vi.mocked(resolveDirectCardDetailQuery).mockReturnValue(null);
+    vi.mocked(setAskResultCacheStatus).mockImplementation((result) => result);
   });
 
   it("successfully returns the AI answer when answerQuestion resolves", async () => {
@@ -56,6 +61,39 @@ describe("/api/ask Route Handler", () => {
       })
     });
     expect(answerQuestion).toHaveBeenCalledWith(mockInput);
+  });
+
+  it("returns repeated normalized Ask API responses from cache before running the Ask engine", async () => {
+    const mockResult = {
+      summary: "Mocked travel cards",
+      cards: [{ card: { id: "axis-atlas", name: "Axis Atlas" } }],
+      meta: { intent: "top-cards" }
+    };
+
+    vi.mocked(answerQuestion).mockResolvedValue(mockResult as any);
+    vi.mocked(getAskResultCacheStatus)
+      .mockReturnValueOnce("MISS")
+      .mockReturnValueOnce("MISS")
+      .mockReturnValueOnce("HIT")
+      .mockReturnValueOnce("HIT");
+
+    const first = await POST(
+      new Request("http://localhost/api/ask", {
+        method: "POST",
+        body: JSON.stringify({ query: " Best   Travel Card " })
+      })
+    );
+    const second = await POST(
+      new Request("http://localhost/api/ask", {
+        method: "POST",
+        body: JSON.stringify({ query: "best travel card" })
+      })
+    );
+
+    expect(first.headers.get("X-Ask-Cache")).toBe("MISS");
+    expect(second.headers.get("X-Ask-Cache")).toBe("HIT");
+    expect(answerQuestion).toHaveBeenCalledTimes(1);
+    expect(setAskResultCacheStatus).toHaveBeenCalledWith(expect.objectContaining({ summary: "Mocked travel cards" }), "HIT");
   });
 
   it("returns a direct-card redirect instruction without running the Ask engine", async () => {

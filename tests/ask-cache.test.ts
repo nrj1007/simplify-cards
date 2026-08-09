@@ -2,7 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { answerQuestion, getAskResultCacheStatus } from "../lib/ask-ai";
-import { clearAskCache } from "../lib/ask-cache";
+import { askCacheSize, clearAskCache, getAskCache, setAskCache } from "../lib/ask-cache";
 
 const logPath = path.join(process.cwd(), "data", "question-logs", "unsupported-questions.ask-cache.test.json");
 const originalApiKey = process.env.OPENAI_API_KEY;
@@ -42,6 +42,7 @@ describe("ask intent cache", () => {
     else delete process.env.OPENAI_API_KEY;
     global.fetch = originalFetch;
     vi.unstubAllEnvs();
+    vi.useRealTimers();
   });
 
   it("reuses answers for different phrasings that resolve to the same intent and card list", async () => {
@@ -72,5 +73,25 @@ describe("ask intent cache", () => {
 
     expect(getAskResultCacheStatus(unsupported)).toBeUndefined();
     expect(getAskResultCacheStatus(followUp)).toBe("SKIP");
+  });
+
+  it("keeps cache entries for 30 days and expires them after the TTL", () => {
+    vi.useFakeTimers();
+    vi.setSystemTime(new Date("2026-08-09T00:00:00.000Z"));
+
+    const result = {
+      summary: "Cached answer",
+      cards: [{ card: { id: "axis-atlas", name: "Axis Atlas" } }],
+      highlights: [],
+      meta: { intent: "top-cards" }
+    };
+
+    setAskCache("ttl-test", result as any);
+    vi.setSystemTime(new Date("2026-09-07T23:59:59.000Z"));
+    expect(getAskCache("ttl-test")?.summary).toBe("Cached answer");
+
+    vi.setSystemTime(new Date("2026-09-08T00:00:01.000Z"));
+    expect(getAskCache("ttl-test")).toBeNull();
+    expect(askCacheSize()).toBe(0);
   });
 });
