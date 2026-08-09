@@ -31,6 +31,11 @@ export function durableRecordPrefix(kind: DurableRecordKind) {
   return `${RECORD_ROOT}/${kind}/`;
 }
 
+export function isDurableRecordWriteConflict(error: unknown) {
+  const message = error instanceof Error ? error.message : String(error);
+  return /precondition failed|etag mismatch|if-?match/i.test(message);
+}
+
 function timestampPathPart(value: string) {
   const date = new Date(value);
   const normalized = Number.isFinite(date.getTime()) ? date.toISOString() : new Date().toISOString();

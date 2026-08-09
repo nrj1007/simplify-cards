@@ -10,6 +10,7 @@ vi.mock("@vercel/blob", () => blobMocks);
 
 import {
   durableRecordPrefix,
+  isDurableRecordWriteConflict,
   isDurableRecordStorageConfigured,
   readDurableRecords,
   readKeyedDurableRecordWithMetadata,
@@ -38,6 +39,11 @@ describe("durable record storage", () => {
   it("recognizes read-write token configuration", () => {
     vi.stubEnv("BLOB_READ_WRITE_TOKEN", "test-token");
     expect(isDurableRecordStorageConfigured()).toBe(true);
+  });
+
+  it("recognizes optimistic write conflicts from blob errors", () => {
+    expect(isDurableRecordWriteConflict(new Error("Vercel Blob: Precondition failed: ETag mismatch."))).toBe(true);
+    expect(isDurableRecordWriteConflict(new Error("network unavailable"))).toBe(false);
   });
 
   it("writes immutable records under the requested private prefix", async () => {

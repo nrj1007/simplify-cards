@@ -309,6 +309,21 @@ describe("analytics daily summaries", () => {
     expect(review.dailyUsageRows).toEqual([{ date: "2026-07-27", count: 11 }]);
   });
 
+  it("adds same-day summary shards in daily usage rows", () => {
+    const firstShard = buildDailySummaryFromEvents("2026-07-27", [
+      event({ event_name: "page_view", page: "/" }),
+      event({ event_name: "page_view", page: "/" })
+    ]);
+    const secondShard = buildDailySummaryFromEvents("2026-07-27", [
+      event({ event_name: "page_view", page: "/ask" })
+    ]);
+
+    const review = mergeDailySummaries([firstShard, secondShard], ["2026-07-27"], ["2026-07-27"]);
+
+    expect(review.eventsLoaded).toBe(3);
+    expect(review.dailyUsageRows).toEqual([{ date: "2026-07-27", count: 3 }]);
+  });
+
   it("merges AI usage and ask abuse signals into review rows", () => {
     const summary = buildDailySummaryFromEvents("2026-07-27", [
       event({

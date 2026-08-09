@@ -1,10 +1,12 @@
 import { getCardById } from "./cards";
 import type { AnalyticsSource, StoredAnalyticsEvent } from "./analytics";
 import {
+  isDurableRecordWriteConflict,
   isDurableRecordStorageConfigured,
   isVercelRuntime,
   readKeyedDurableRecord,
   readKeyedDurableRecordWithMetadata,
+  readRecentDurableRecordsByDatePrefix,
   writeKeyedDurableRecord
 } from "./durable-records";
 
@@ -124,7 +126,28 @@ const MAX_STORED_ZERO_RESULT_QUERIES = 100;
 const MAX_STORED_BOT_LIKE_QUERIES = 100;
 const MAX_STORED_FEEDBACK_EVENTS = 100;
 const ANALYTICS_DAILY_SUMMARY_SCHEMA_VERSION = 2;
-const ANALYTICS_DAILY_SUMMARY_WRITE_ATTEMPTS = 3;
+const ANALYTICS_DAILY_SUMMARY_WRITE_ATTEMPTS = 6;
+const ANALYTICS_DAILY_SUMMARY_SHARDS = 16;
+
+function analyticsDailySummaryShardKey(date: string, event: StoredAnalyticsEvent) {
+  const shardSource = `${event.received_at}:${event.session_id}:${event.event_name}:${event.query ?? ""}:${event.card_id ?? ""}`;
+  let hash = 0;
+
+  for (let index = 0; index < shardSource.length; index += 1) {
+    hash = (hash * 31 + shardSource.charCodeAt(index)) >>> 0;
+  }
+
+  const shard = (hash % ANALYTICS_DAILY_SUMMARY_SHARDS).toString(16).padStart(2, "0");
+  return `${date}/${shard}`;
+}
+
+function retryDelayMs(attempt: number) {
+  return 25 * 2 ** attempt + Math.floor(Math.random() * 25);
+}
+
+function wait(ms: number) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
 
 function emptyDailySummary(date: string, now = new Date().toISOString()): AnalyticsDailySummary {
   return {
@@ -500,16 +523,18 @@ export async function updateAnalyticsDailySummary(event: StoredAnalyticsEvent) {
 
   const date = event.received_at.slice(0, 10);
   if (!date) return;
+  const key = analyticsDailySummaryShardKey(date, event);
 
   for (let attempt = 0; attempt < ANALYTICS_DAILY_SUMMARY_WRITE_ATTEMPTS; attempt += 1) {
-    const existing = await readKeyedDurableRecordWithMetadata<AnalyticsDailySummary>("analytics-daily", date).catch(() => null);
+    const existing = await readKeyedDurableRecordWithMetadata<AnalyticsDailySummary>("analytics-daily", key).catch(() => null);
     const summary = addEventToDailySummary(normalizeDailySummary(existing?.value, date), event);
 
     try {
-      await writeKeyedDurableRecord("analytics-daily", date, summary, existing?.etag ? { ifMatch: existing.etag } : { allowOverwrite: false });
+      await writeKeyedDurableRecord("analytics-daily", key, summary, existing?.etag ? { ifMatch: existing.etag } : { allowOverwrite: false });
       return;
     } catch (error) {
-      if (attempt === ANALYTICS_DAILY_SUMMARY_WRITE_ATTEMPTS - 1) throw error;
+      if (!isDurableRecordWriteConflict(error) || attempt === ANALYTICS_DAILY_SUMMARY_WRITE_ATTEMPTS - 1) throw error;
+      await wait(retryDelayMs(attempt));
     }
   }
 }
@@ -517,12 +542,13 @@ export async function updateAnalyticsDailySummary(event: StoredAnalyticsEvent) {
 export async function readAnalyticsDailySummaries(dateKeys: string[]) {
   if (!isVercelRuntime() || !isDurableRecordStorageConfigured()) return [];
 
-  const summaries = await Promise.all(
-    dateKeys.map(async (date) => readKeyedDurableRecord<AnalyticsDailySummary>("analytics-daily", date).catch(() => null))
+  const summaryLimit = dateKeys.length * (ANALYTICS_DAILY_SUMMARY_SHARDS + 1);
+  const summaries = await readRecentDurableRecordsByDatePrefix<AnalyticsDailySummary>("analytics-daily", dateKeys, summaryLimit).catch(async () =>
+    Promise.all(dateKeys.map(async (date) => readKeyedDurableRecord<AnalyticsDailySummary>("analytics-daily", date).catch(() => null)))
   );
 
   return summaries
-    .map((summary, index) => (summary === null ? null : normalizeDailySummary(summary, dateKeys[index] ?? "")))
+    .map((summary) => (summary === null ? null : normalizeDailySummary(summary, summary.date)))
     .filter((summary): summary is AnalyticsDailySummary => summary !== null);
 }
 
@@ -604,7 +630,7 @@ export function mergeDailySummaries(
   for (const summary of summaries) {
     eventsLoaded += summary.total_events;
     if (eventWindowDateSet.has(summary.date)) last30DayEvents += summary.total_events;
-    if (dailyCounts.has(summary.date)) dailyCounts.set(summary.date, summary.total_events);
+    if (dailyCounts.has(summary.date)) dailyCounts.set(summary.date, (dailyCounts.get(summary.date) ?? 0) + summary.total_events);
 
     for (const [query, count] of Object.entries(summary.ask_queries)) addCount(topAskQueryCounts, query, count);
     for (const [status, count] of Object.entries(summary.ask_cache_status_counts ?? {})) addCount(askCacheStatusCounts, status, count);
