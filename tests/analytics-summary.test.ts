@@ -106,7 +106,7 @@ describe("analytics daily summaries", () => {
       })
     ]);
 
-    expect(summary.schema_version).toBe(2);
+    expect(summary.schema_version).toBe(3);
     expect(summary.total_events).toBe(9);
     expect(summary.hourly_event_counts).toEqual({ "2026-07-27T03:00:00.000Z": 9 });
     expect(summary.ask_queries).toEqual({
@@ -146,9 +146,60 @@ describe("analytics daily summaries", () => {
     expect(summary.ai_failed_schema_call_count).toBe(1);
     expect(summary.ai_fallback_result_count).toBe(1);
     expect(summary.ask_cache_status_counts).toEqual({ MISS: 1, SKIP: 1 });
+    expect(summary.ask_rate_limited_count).toBe(0);
     expect(summary.ai_calls_by_purpose).toEqual({ answer_summary: 1 });
     expect(summary.ai_provider_attempts).toEqual({ gemini: 1, openai: 1 });
     expect(summary.bot_like_ask_queries).toHaveLength(1);
+  });
+
+  it("counts Ask rate-limited requests by reason, IP hash, and query hash", () => {
+    const summary = buildDailySummaryFromEvents("2026-07-27", [
+      event({
+        event_name: "ask_rate_limited",
+        page: "api/ask",
+        source: "ask",
+        metadata: {
+          rate_limit_reason: "ip_query_daily_limit",
+          rate_limit_ip_hash: "ip-hash-1",
+          rate_limit_query_hash: "query-hash-1"
+        }
+      }),
+      event({
+        event_name: "ask_rate_limited",
+        page: "api/ask",
+        source: "ask",
+        metadata: {
+          rate_limit_reason: "ip_daily_limit",
+          rate_limit_ip_hash: "ip-hash-1",
+          rate_limit_query_hash: "query-hash-2"
+        }
+      })
+    ]);
+
+    expect(summary.ask_rate_limited_count).toBe(2);
+    expect(summary.ask_rate_limited_by_reason).toEqual({
+      ip_daily_limit: 1,
+      ip_query_daily_limit: 1
+    });
+    expect(summary.ask_rate_limited_by_ip_hash).toEqual({ "ip-hash-1": 2 });
+    expect(summary.ask_rate_limited_by_query_hash).toEqual({
+      "query-hash-1": 1,
+      "query-hash-2": 1
+    });
+
+    const review = mergeDailySummaries([summary], ["2026-07-27"], ["2026-07-27"]);
+    expect(review.askRateLimit).toEqual({
+      count: 2,
+      byReason: [
+        { label: "ip_daily_limit", count: 1 },
+        { label: "ip_query_daily_limit", count: 1 }
+      ],
+      byIpHash: [{ label: "ip-hash-1", count: 2 }],
+      byQueryHash: [
+        { label: "query-hash-1", count: 1 },
+        { label: "query-hash-2", count: 1 }
+      ]
+    });
   });
 
   it("merges daily summaries into review page rows", () => {

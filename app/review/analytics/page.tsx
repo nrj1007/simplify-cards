@@ -322,6 +322,33 @@ export default async function AnalyticsReviewPage() {
 
         <article className="panel review-item">
           <div className="review-item-head">
+            <strong>Ask rate limits</strong>
+            <span className="badge">Last 30 days</span>
+          </div>
+          <div className="review-summary analytics-review-mini-summary">
+            <div className="stat">
+              <strong>{summary.askRateLimit.count.toLocaleString("en-IN")}</strong>
+              <span>Blocked Ask requests</span>
+            </div>
+          </div>
+          <div className="analytics-review-grid">
+            <div>
+              <h3>Block reason</h3>
+              <CountTable labelHeader="Reason" rows={summary.askRateLimit.byReason} />
+            </div>
+            <div>
+              <h3>IP hash</h3>
+              <CountTable labelHeader="IP hash" rows={summary.askRateLimit.byIpHash} />
+            </div>
+            <div>
+              <h3>Query hash</h3>
+              <CountTable labelHeader="Query hash" rows={summary.askRateLimit.byQueryHash} />
+            </div>
+          </div>
+        </article>
+
+        <article className="panel review-item">
+          <div className="review-item-head">
             <strong>Top ask queries</strong>
             <span className="badge">Last 30 days</span>
           </div>

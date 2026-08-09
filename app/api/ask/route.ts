@@ -8,8 +8,10 @@ import {
   type AskAiResult
 } from "@/lib/ask-ai";
 import { askCacheKey, getAskCache, setAskCache } from "@/lib/ask-cache";
-import { checkAskRateLimit } from "@/lib/ask-rate-limit";
+import { buildAskRateLimitMetadata, checkAskRateLimit } from "@/lib/ask-rate-limit";
 import { buildAskResultMetadata } from "@/lib/analytics-events";
+import { logAnalyticsEvent } from "@/lib/analytics-logs";
+import { buildRequestAnalyticsMetadata } from "@/lib/analytics-request";
 import { answerFromCards } from "@/lib/recommend";
 import type { RecommendationInput } from "@/lib/types";
 
@@ -47,6 +49,22 @@ function isCacheableAskApiResult(input: RecommendationInput, result: AskAiResult
   if (!canUseAskApiCache(input)) return false;
   if (result.needsDatabaseUpdate || result.meta?.intent === "unsupported") return false;
   return result.cards.length > 0;
+}
+
+async function logAskRateLimitEvent(request: Request, input: RecommendationInput, result: Exclude<ReturnType<typeof checkAskRateLimit>, { allowed: true }>) {
+  try {
+    await logAnalyticsEvent({
+      event_name: "ask_rate_limited",
+      page: "api/ask",
+      source: "ask",
+      metadata: {
+        ...buildAskRateLimitMetadata(request, input, result),
+        ...buildRequestAnalyticsMetadata(request)
+      }
+    });
+  } catch (error) {
+    console.error("Failed to log Ask rate limit analytics event:", error);
+  }
 }
 
 function rateLimitedResponse(result: Exclude<ReturnType<typeof checkAskRateLimit>, { allowed: true }>) {
@@ -96,7 +114,10 @@ export async function POST(request: Request) {
 
   try {
     const rateLimit = checkAskRateLimit(request, input);
-    if (!rateLimit.allowed) return rateLimitedResponse(rateLimit);
+    if (!rateLimit.allowed) {
+      await logAskRateLimitEvent(request, input, rateLimit);
+      return rateLimitedResponse(rateLimit);
+    }
 
     const directCardId = resolveDirectCardDetailQuery(input);
     if (directCardId) {

@@ -52,6 +52,19 @@ function hashForLog(value: string) {
   return createHash("sha256").update(value).digest("base64url").slice(0, 16);
 }
 
+export function buildAskRateLimitMetadata(request: Request, input: RecommendationInput, result: Exclude<AskRateLimitResult, { allowed: true }>) {
+  const ip = getAskRateLimitIp(request);
+  const query = normalizeQuery(input.query ?? "");
+
+  return {
+    rate_limit_reason: result.reason,
+    rate_limit_limit: result.limit,
+    rate_limit_retry_after_seconds: result.retryAfterSeconds,
+    rate_limit_ip_hash: hashForLog(ip),
+    rate_limit_query_hash: query ? hashForLog(query) : null
+  };
+}
+
 function bucketFor(key: string, currentTime: number) {
   const existing = buckets.get(key);
   if (existing && existing.resetAt > currentTime) return existing;

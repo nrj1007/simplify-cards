@@ -27,6 +27,10 @@ export type AnalyticsDailySummary = {
   ask_result_count: number;
   ask_anonymous_result_count: number;
   ask_empty_referrer_result_count: number;
+  ask_rate_limited_count: number;
+  ask_rate_limited_by_reason: Record<string, number>;
+  ask_rate_limited_by_ip_hash: Record<string, number>;
+  ask_rate_limited_by_query_hash: Record<string, number>;
   card_detail_views_by_card: Record<string, number>;
   card_detail_views_by_referrer_host: Record<string, number>;
   card_detail_views_by_traffic_class: Record<string, number>;
@@ -112,6 +116,12 @@ export type AnalyticsReviewSummary = {
     emptyReferrerResultCount: number;
     botLikeQueryCount: number;
   };
+  askRateLimit: {
+    count: number;
+    byReason: Array<{ label: string; count: number }>;
+    byIpHash: Array<{ label: string; count: number }>;
+    byQueryHash: Array<{ label: string; count: number }>;
+  };
   feedback: {
     count: number;
     withCommentCount: number;
@@ -125,7 +135,7 @@ const MAX_STORED_QUERY_LABELS = 250;
 const MAX_STORED_ZERO_RESULT_QUERIES = 100;
 const MAX_STORED_BOT_LIKE_QUERIES = 100;
 const MAX_STORED_FEEDBACK_EVENTS = 100;
-const ANALYTICS_DAILY_SUMMARY_SCHEMA_VERSION = 2;
+const ANALYTICS_DAILY_SUMMARY_SCHEMA_VERSION = 3;
 const ANALYTICS_DAILY_SUMMARY_WRITE_ATTEMPTS = 6;
 const ANALYTICS_DAILY_SUMMARY_SHARDS = 16;
 
@@ -167,6 +177,10 @@ function emptyDailySummary(date: string, now = new Date().toISOString()): Analyt
     ask_result_count: 0,
     ask_anonymous_result_count: 0,
     ask_empty_referrer_result_count: 0,
+    ask_rate_limited_count: 0,
+    ask_rate_limited_by_reason: {},
+    ask_rate_limited_by_ip_hash: {},
+    ask_rate_limited_by_query_hash: {},
     card_detail_views_by_card: {},
     card_detail_views_by_referrer_host: {},
     card_detail_views_by_traffic_class: {},
@@ -250,6 +264,13 @@ function normalizeDailySummary(value: AnalyticsDailySummary | null | undefined, 
       typeof value.ask_empty_referrer_result_count === "number" && Number.isFinite(value.ask_empty_referrer_result_count)
         ? value.ask_empty_referrer_result_count
         : 0,
+    ask_rate_limited_count:
+      typeof value.ask_rate_limited_count === "number" && Number.isFinite(value.ask_rate_limited_count)
+        ? value.ask_rate_limited_count
+        : 0,
+    ask_rate_limited_by_reason: normalizeCountMap(value.ask_rate_limited_by_reason),
+    ask_rate_limited_by_ip_hash: normalizeCountMap(value.ask_rate_limited_by_ip_hash),
+    ask_rate_limited_by_query_hash: normalizeCountMap(value.ask_rate_limited_by_query_hash),
     card_detail_views_by_card: normalizeCountMap(value.card_detail_views_by_card),
     card_detail_views_by_referrer_host: normalizeCountMap(value.card_detail_views_by_referrer_host),
     card_detail_views_by_traffic_class: normalizeCountMap(value.card_detail_views_by_traffic_class),
@@ -454,6 +475,13 @@ export function addEventToDailySummary(summary: AnalyticsDailySummary, event: St
     }
   }
 
+  if (event.event_name === "ask_rate_limited") {
+    summary.ask_rate_limited_count = (summary.ask_rate_limited_count ?? 0) + 1;
+    addCount(summary.ask_rate_limited_by_reason, metadataLabel(event, "rate_limit_reason") ?? "unknown");
+    addCount(summary.ask_rate_limited_by_ip_hash, metadataLabel(event, "rate_limit_ip_hash") ?? "unknown");
+    addCount(summary.ask_rate_limited_by_query_hash, metadataLabel(event, "rate_limit_query_hash") ?? "empty");
+  }
+
   if (event.event_name === "card_detail_viewed" && event.card_id) {
     addCount(summary.card_detail_views_by_card, event.card_id);
     addCount(
@@ -615,6 +643,10 @@ export function mergeDailySummaries(
   let askResultCount = 0;
   let askAnonymousResultCount = 0;
   let askEmptyReferrerResultCount = 0;
+  let askRateLimitedCount = 0;
+  const askRateLimitedByReasonCounts: Record<string, number> = {};
+  const askRateLimitedByIpHashCounts: Record<string, number> = {};
+  const askRateLimitedByQueryHashCounts: Record<string, number> = {};
   let feedbackCount = 0;
   let feedbackWithCommentCount = 0;
   let aiResultCount = 0;
@@ -650,6 +682,10 @@ export function mergeDailySummaries(
     askResultCount += summary.ask_result_count ?? 0;
     askAnonymousResultCount += summary.ask_anonymous_result_count ?? 0;
     askEmptyReferrerResultCount += summary.ask_empty_referrer_result_count ?? 0;
+    askRateLimitedCount += summary.ask_rate_limited_count ?? 0;
+    for (const [reason, count] of Object.entries(summary.ask_rate_limited_by_reason ?? {})) addCount(askRateLimitedByReasonCounts, reason, count);
+    for (const [ipHash, count] of Object.entries(summary.ask_rate_limited_by_ip_hash ?? {})) addCount(askRateLimitedByIpHashCounts, ipHash, count);
+    for (const [queryHash, count] of Object.entries(summary.ask_rate_limited_by_query_hash ?? {})) addCount(askRateLimitedByQueryHashCounts, queryHash, count);
     feedbackCount += summary.feedback_count ?? 0;
     feedbackWithCommentCount += summary.feedback_with_comment_count ?? 0;
     aiResultCount += summary.ai_result_count ?? 0;
@@ -791,6 +827,12 @@ export function mergeDailySummaries(
       anonymousResultCount: askAnonymousResultCount,
       emptyReferrerResultCount: askEmptyReferrerResultCount,
       botLikeQueryCount: botLikeAskQueries.length
+    },
+    askRateLimit: {
+      count: askRateLimitedCount,
+      byReason: sortedCountRows(askRateLimitedByReasonCounts),
+      byIpHash: sortedCountRows(askRateLimitedByIpHashCounts).slice(0, 25),
+      byQueryHash: sortedCountRows(askRateLimitedByQueryHashCounts).slice(0, 25)
     },
     feedback: {
       count: feedbackCount,

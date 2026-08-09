@@ -5,6 +5,7 @@ export const analyticsEventNames = [
   "compare_viewed",
   "recommendation_generated",
   "feedback_submitted",
+  "ask_rate_limited",
   "apply_clicked",
   "details_clicked",
   "filter_used"

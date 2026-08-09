@@ -9,6 +9,7 @@ import {
 } from "../lib/ask-ai";
 import { clearAskCache } from "../lib/ask-cache";
 import { clearAskRateLimit } from "../lib/ask-rate-limit";
+import { logAnalyticsEvent } from "../lib/analytics-logs";
 import { answerFromCards } from "../lib/recommend";
 
 vi.mock("../lib/ask-ai", () => ({
@@ -27,6 +28,10 @@ vi.mock("../lib/recommend", async () => {
   };
 });
 
+vi.mock("../lib/analytics-logs", () => ({
+  logAnalyticsEvent: vi.fn()
+}));
+
 describe("/api/ask Route Handler", () => {
   beforeEach(() => {
     vi.clearAllMocks();
@@ -35,6 +40,7 @@ describe("/api/ask Route Handler", () => {
     vi.mocked(getAskResultCacheStatus).mockReturnValue(undefined);
     vi.mocked(resolveDirectCardDetailQuery).mockReturnValue(null);
     vi.mocked(setAskResultCacheStatus).mockImplementation((result) => result);
+    vi.mocked(logAnalyticsEvent).mockResolvedValue({} as any);
   });
 
   it("successfully returns the AI answer when answerQuestion resolves", async () => {
@@ -130,6 +136,15 @@ describe("/api/ask Route Handler", () => {
     expect(blocked.status).toBe(429);
     expect(blocked.headers.get("X-Ask-Rate-Limit")).toBe("ip_daily_limit");
     await expect(blocked.json()).resolves.toMatchObject({ reason: "ip_daily_limit", limit: 100 });
+    expect(logAnalyticsEvent).toHaveBeenCalledWith(
+      expect.objectContaining({
+        event_name: "ask_rate_limited",
+        metadata: expect.objectContaining({
+          rate_limit_reason: "ip_daily_limit",
+          rate_limit_limit: 100
+        })
+      })
+    );
   });
 
   it("rate limits the same query from one IP after 20 requests in one day", async () => {
@@ -164,6 +179,15 @@ describe("/api/ask Route Handler", () => {
     expect(blocked.status).toBe(429);
     expect(blocked.headers.get("X-Ask-Rate-Limit")).toBe("ip_query_daily_limit");
     await expect(blocked.json()).resolves.toMatchObject({ reason: "ip_query_daily_limit", limit: 20 });
+    expect(logAnalyticsEvent).toHaveBeenCalledWith(
+      expect.objectContaining({
+        event_name: "ask_rate_limited",
+        metadata: expect.objectContaining({
+          rate_limit_reason: "ip_query_daily_limit",
+          rate_limit_limit: 20
+        })
+      })
+    );
   });
 
   it("returns a direct-card redirect instruction without running the Ask engine", async () => {
