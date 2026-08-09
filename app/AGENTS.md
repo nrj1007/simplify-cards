@@ -26,8 +26,10 @@ ui/               Shared components
   search with prompt chips).
 - **`AskQueryForm.tsx`** *(client)* — controlled form wrapping `AskBox` for the `/ask` page;
   manages query state and submission.
-- **`AskResultsLoadingBoundary.tsx`** *(client)* — Suspense-style loading shell for ask results
-  while the API call is in flight.
+- **`AskResultsLoadingBoundary.tsx`** *(client)* — loading shell for ask results while the
+  browser-triggered API call is in flight. `/ask` itself is a static shell; `AskPageClient.tsx`
+  reads the query after hydration and calls `POST /api/ask`, so page requests and prefetches do
+  not execute the Q&A engine.
 - **`RewardCalculator.tsx`** *(client)* — the real per-card reward/value calculator (category
   sliders → points, rupee value across redemption options, milestones). Reused on the card detail
   page and `/calculator`. Don't reimplement reward math in pages — pass `card` + `milestones`

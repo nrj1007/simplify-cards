@@ -1,12 +1,18 @@
 import { describe, expect, it, vi, beforeEach } from "vitest";
 import { POST } from "../app/api/ask/route";
-import { answerQuestion, buildFallbackSummary, getAskResultCacheStatus } from "../lib/ask-ai";
+import {
+  answerQuestion,
+  buildFallbackSummary,
+  getAskResultCacheStatus,
+  resolveDirectCardDetailQuery
+} from "../lib/ask-ai";
 import { answerFromCards } from "../lib/recommend";
 
 vi.mock("../lib/ask-ai", () => ({
   answerQuestion: vi.fn(),
   buildFallbackSummary: vi.fn(),
-  getAskResultCacheStatus: vi.fn()
+  getAskResultCacheStatus: vi.fn(),
+  resolveDirectCardDetailQuery: vi.fn()
 }));
 
 vi.mock("../lib/recommend", async () => {
@@ -21,6 +27,7 @@ describe("/api/ask Route Handler", () => {
   beforeEach(() => {
     vi.clearAllMocks();
     vi.mocked(getAskResultCacheStatus).mockReturnValue(undefined);
+    vi.mocked(resolveDirectCardDetailQuery).mockReturnValue(null);
   });
 
   it("successfully returns the AI answer when answerQuestion resolves", async () => {
@@ -40,8 +47,33 @@ describe("/api/ask Route Handler", () => {
     expect(response.headers.get("X-Ask-Cache")).toBe("HIT");
 
     const data = await response.json();
-    expect(data).toEqual(mockResult);
+    expect(data).toEqual({
+      ...mockResult,
+      analyticsMetadata: expect.objectContaining({
+        ask_cache_hit: true,
+        ask_cache_status: "HIT",
+        result_count: 0
+      })
+    });
     expect(answerQuestion).toHaveBeenCalledWith(mockInput);
+  });
+
+  it("returns a direct-card redirect instruction without running the Ask engine", async () => {
+    const mockInput = { query: "Axis Atlas" };
+    vi.mocked(resolveDirectCardDetailQuery).mockReturnValue("axis-atlas");
+
+    const request = new Request("http://localhost/api/ask", {
+      method: "POST",
+      body: JSON.stringify(mockInput)
+    });
+
+    const response = await POST(request);
+
+    expect(response.status).toBe(200);
+    expect(response.headers.get("X-Ask-Cache")).toBe("SKIP");
+    await expect(response.json()).resolves.toEqual({ directCardId: "axis-atlas" });
+    expect(resolveDirectCardDetailQuery).toHaveBeenCalledWith(mockInput);
+    expect(answerQuestion).not.toHaveBeenCalled();
   });
 
   it("returns database fallback when answerQuestion throws an error", async () => {
