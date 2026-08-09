@@ -31,6 +31,12 @@ export type AnalyticsDailySummary = {
   ask_rate_limited_by_reason: Record<string, number>;
   ask_rate_limited_by_ip_hash: Record<string, number>;
   ask_rate_limited_by_query_hash: Record<string, number>;
+  ask_bot_signal_count: number;
+  ask_bot_signal_by_rule: Record<string, number>;
+  ask_bot_signal_by_action: Record<string, number>;
+  ask_bot_signal_by_ip_hash: Record<string, number>;
+  ask_bot_signal_by_query_hash: Record<string, number>;
+  ask_bot_signal_by_query_pattern_hash: Record<string, number>;
   card_detail_views_by_card: Record<string, number>;
   card_detail_views_by_referrer_host: Record<string, number>;
   card_detail_views_by_traffic_class: Record<string, number>;
@@ -132,6 +138,14 @@ export type AnalyticsReviewSummary = {
     byIpHash: Array<{ label: string; count: number }>;
     byQueryHash: Array<{ label: string; count: number }>;
   };
+  askBotSignals: {
+    count: number;
+    byRule: Array<{ label: string; count: number }>;
+    byAction: Array<{ label: string; count: number }>;
+    byIpHash: Array<{ label: string; count: number }>;
+    byQueryHash: Array<{ label: string; count: number }>;
+    byQueryPatternHash: Array<{ label: string; count: number }>;
+  };
   feedback: {
     count: number;
     withCommentCount: number;
@@ -191,6 +205,12 @@ function emptyDailySummary(date: string, now = new Date().toISOString()): Analyt
     ask_rate_limited_by_reason: {},
     ask_rate_limited_by_ip_hash: {},
     ask_rate_limited_by_query_hash: {},
+    ask_bot_signal_count: 0,
+    ask_bot_signal_by_rule: {},
+    ask_bot_signal_by_action: {},
+    ask_bot_signal_by_ip_hash: {},
+    ask_bot_signal_by_query_hash: {},
+    ask_bot_signal_by_query_pattern_hash: {},
     card_detail_views_by_card: {},
     card_detail_views_by_referrer_host: {},
     card_detail_views_by_traffic_class: {},
@@ -281,6 +301,15 @@ function normalizeDailySummary(value: AnalyticsDailySummary | null | undefined, 
     ask_rate_limited_by_reason: normalizeCountMap(value.ask_rate_limited_by_reason),
     ask_rate_limited_by_ip_hash: normalizeCountMap(value.ask_rate_limited_by_ip_hash),
     ask_rate_limited_by_query_hash: normalizeCountMap(value.ask_rate_limited_by_query_hash),
+    ask_bot_signal_count:
+      typeof value.ask_bot_signal_count === "number" && Number.isFinite(value.ask_bot_signal_count)
+        ? value.ask_bot_signal_count
+        : 0,
+    ask_bot_signal_by_rule: normalizeCountMap(value.ask_bot_signal_by_rule),
+    ask_bot_signal_by_action: normalizeCountMap(value.ask_bot_signal_by_action),
+    ask_bot_signal_by_ip_hash: normalizeCountMap(value.ask_bot_signal_by_ip_hash),
+    ask_bot_signal_by_query_hash: normalizeCountMap(value.ask_bot_signal_by_query_hash),
+    ask_bot_signal_by_query_pattern_hash: normalizeCountMap(value.ask_bot_signal_by_query_pattern_hash),
     card_detail_views_by_card: normalizeCountMap(value.card_detail_views_by_card),
     card_detail_views_by_referrer_host: normalizeCountMap(value.card_detail_views_by_referrer_host),
     card_detail_views_by_traffic_class: normalizeCountMap(value.card_detail_views_by_traffic_class),
@@ -375,6 +404,12 @@ function metadataBoolean(event: StoredAnalyticsEvent, key: string) {
 function metadataLabel(event: StoredAnalyticsEvent, key: string) {
   const value = metadataString(event, key)?.trim();
   return value || undefined;
+}
+
+function metadataStringArray(event: StoredAnalyticsEvent, key: string) {
+  const value = event.metadata?.[key];
+  if (!Array.isArray(value)) return [];
+  return value.filter((item): item is string => typeof item === "string" && item.trim().length > 0);
 }
 
 function referrerHost(value: string | undefined) {
@@ -490,6 +525,17 @@ export function addEventToDailySummary(summary: AnalyticsDailySummary, event: St
     addCount(summary.ask_rate_limited_by_reason, metadataLabel(event, "rate_limit_reason") ?? "unknown");
     addCount(summary.ask_rate_limited_by_ip_hash, metadataLabel(event, "rate_limit_ip_hash") ?? "unknown");
     addCount(summary.ask_rate_limited_by_query_hash, metadataLabel(event, "rate_limit_query_hash") ?? "empty");
+  }
+
+  if (event.event_name === "ask_bot_signal_detected") {
+    summary.ask_bot_signal_count = (summary.ask_bot_signal_count ?? 0) + 1;
+    addCount(summary.ask_bot_signal_by_action, metadataLabel(event, "bot_signal_action") ?? "unknown");
+    addCount(summary.ask_bot_signal_by_ip_hash, metadataLabel(event, "bot_signal_ip_hash") ?? "unknown");
+    addCount(summary.ask_bot_signal_by_query_hash, metadataLabel(event, "bot_signal_query_hash") ?? "empty");
+    addCount(summary.ask_bot_signal_by_query_pattern_hash, metadataLabel(event, "bot_signal_query_pattern_hash") ?? "empty");
+    for (const rule of metadataStringArray(event, "bot_signal_rules")) {
+      addCount(summary.ask_bot_signal_by_rule, rule);
+    }
   }
 
   if (event.event_name === "card_detail_viewed" && event.card_id) {
@@ -671,6 +717,12 @@ export function mergeDailySummaries(
   const askRateLimitedByReasonCounts: Record<string, number> = {};
   const askRateLimitedByIpHashCounts: Record<string, number> = {};
   const askRateLimitedByQueryHashCounts: Record<string, number> = {};
+  let askBotSignalCount = 0;
+  const askBotSignalByRuleCounts: Record<string, number> = {};
+  const askBotSignalByActionCounts: Record<string, number> = {};
+  const askBotSignalByIpHashCounts: Record<string, number> = {};
+  const askBotSignalByQueryHashCounts: Record<string, number> = {};
+  const askBotSignalByQueryPatternHashCounts: Record<string, number> = {};
   let feedbackCount = 0;
   let feedbackWithCommentCount = 0;
   let aiResultCount = 0;
@@ -725,6 +777,14 @@ export function mergeDailySummaries(
     for (const [reason, count] of Object.entries(summary.ask_rate_limited_by_reason ?? {})) addCount(askRateLimitedByReasonCounts, reason, count);
     for (const [ipHash, count] of Object.entries(summary.ask_rate_limited_by_ip_hash ?? {})) addCount(askRateLimitedByIpHashCounts, ipHash, count);
     for (const [queryHash, count] of Object.entries(summary.ask_rate_limited_by_query_hash ?? {})) addCount(askRateLimitedByQueryHashCounts, queryHash, count);
+    askBotSignalCount += summary.ask_bot_signal_count ?? 0;
+    for (const [rule, count] of Object.entries(summary.ask_bot_signal_by_rule ?? {})) addCount(askBotSignalByRuleCounts, rule, count);
+    for (const [action, count] of Object.entries(summary.ask_bot_signal_by_action ?? {})) addCount(askBotSignalByActionCounts, action, count);
+    for (const [ipHash, count] of Object.entries(summary.ask_bot_signal_by_ip_hash ?? {})) addCount(askBotSignalByIpHashCounts, ipHash, count);
+    for (const [queryHash, count] of Object.entries(summary.ask_bot_signal_by_query_hash ?? {})) addCount(askBotSignalByQueryHashCounts, queryHash, count);
+    for (const [patternHash, count] of Object.entries(summary.ask_bot_signal_by_query_pattern_hash ?? {})) {
+      addCount(askBotSignalByQueryPatternHashCounts, patternHash, count);
+    }
     feedbackCount += summary.feedback_count ?? 0;
     feedbackWithCommentCount += summary.feedback_with_comment_count ?? 0;
     aiResultCount += summary.ai_result_count ?? 0;
@@ -893,6 +953,14 @@ export function mergeDailySummaries(
       byReason: sortedCountRows(askRateLimitedByReasonCounts),
       byIpHash: sortedCountRows(askRateLimitedByIpHashCounts).slice(0, 25),
       byQueryHash: sortedCountRows(askRateLimitedByQueryHashCounts).slice(0, 25)
+    },
+    askBotSignals: {
+      count: askBotSignalCount,
+      byRule: sortedCountRows(askBotSignalByRuleCounts),
+      byAction: sortedCountRows(askBotSignalByActionCounts),
+      byIpHash: sortedCountRows(askBotSignalByIpHashCounts).slice(0, 25),
+      byQueryHash: sortedCountRows(askBotSignalByQueryHashCounts).slice(0, 25),
+      byQueryPatternHash: sortedCountRows(askBotSignalByQueryPatternHashCounts).slice(0, 25)
     },
     feedback: {
       count: feedbackCount,

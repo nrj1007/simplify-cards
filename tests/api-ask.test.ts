@@ -8,6 +8,7 @@ import {
   setAskResultCacheStatus
 } from "../lib/ask-ai";
 import { clearAskCache } from "../lib/ask-cache";
+import { clearAskBotSignals } from "../lib/ask-bot-signals";
 import { clearAskRateLimit } from "../lib/ask-rate-limit";
 import { logAnalyticsEvent } from "../lib/analytics-logs";
 import { answerFromCards } from "../lib/recommend";
@@ -36,6 +37,7 @@ describe("/api/ask Route Handler", () => {
   beforeEach(() => {
     vi.clearAllMocks();
     clearAskCache();
+    clearAskBotSignals();
     clearAskRateLimit();
     vi.mocked(getAskResultCacheStatus).mockReturnValue(undefined);
     vi.mocked(resolveDirectCardDetailQuery).mockReturnValue(null);
@@ -102,6 +104,49 @@ describe("/api/ask Route Handler", () => {
     expect(second.headers.get("X-Ask-Cache")).toBe("HIT");
     expect(answerQuestion).toHaveBeenCalledTimes(1);
     expect(setAskResultCacheStatus).toHaveBeenCalledWith(expect.objectContaining({ summary: "Mocked travel cards" }), "HIT");
+  });
+
+  it("logs suspicious Ask bot signals without blocking the request", async () => {
+    const mockResult = {
+      summary: "Mocked answer",
+      cards: [{ card: { id: "axis-atlas", name: "Axis Atlas" } }],
+      meta: { intent: "top-cards" }
+    };
+
+    vi.mocked(answerQuestion).mockResolvedValue(mockResult as any);
+    vi.mocked(getAskResultCacheStatus).mockReturnValue("MISS");
+
+    const response = await POST(
+      new Request("http://localhost/api/ask", {
+        method: "POST",
+        headers: {
+          "x-forwarded-for": "203.0.113.30",
+          "user-agent": "Mozilla/5.0 Chrome/120.0"
+        },
+        body: JSON.stringify({
+          query:
+            "Is the Smart Credit Card a good fit for me? with spend rs 75k+ with spend rs 25k-75k for travel for lounge access for low annual fee"
+        })
+      })
+    );
+
+    expect(response.status).toBe(200);
+    expect(logAnalyticsEvent).toHaveBeenCalledWith(
+      expect.objectContaining({
+        event_name: "ask_bot_signal_detected",
+        page: "api/ask",
+        source: "ask",
+        metadata: expect.objectContaining({
+          bot_signal_action: "log",
+          bot_signal_rules: expect.arrayContaining(["generated_query_pattern", "empty_referrer"]),
+          bot_signal_ip_hash: expect.any(String),
+          bot_signal_query_hash: expect.any(String),
+          bot_signal_query_pattern_hash: expect.any(String),
+          request_path: "/api/ask"
+        })
+      })
+    );
+    expect(answerQuestion).toHaveBeenCalledTimes(1);
   });
 
   it("rate limits an IP after 100 Ask requests in one day", async () => {

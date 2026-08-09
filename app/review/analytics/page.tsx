@@ -219,6 +219,10 @@ export default async function AnalyticsReviewPage() {
               <strong>{summary.askSignals.botLikeQueryCount.toLocaleString("en-IN")}</strong>
               <span>Bot-like ask results</span>
             </div>
+            <div className="stat">
+              <strong>{summary.askBotSignals.count.toLocaleString("en-IN")}</strong>
+              <span>Ask bot signals</span>
+            </div>
           </div>
 
           <div className="review-list">
@@ -434,6 +438,10 @@ export default async function AnalyticsReviewPage() {
               <CountTable labelHeader="Query hash" rows={summary.askRateLimit.byQueryHash} />
             </div>
             <div>
+              <h3>Suspicious query pattern hashes</h3>
+              <CountTable labelHeader="Pattern hash" rows={summary.askBotSignals.byQueryPatternHash} />
+            </div>
+            <div>
               <h3>Bot-like query patterns</h3>
               {summary.botLikeAskQueries.length === 0 ? (
                 <EmptyState>No bot-like ask query patterns detected</EmptyState>
@@ -451,6 +459,37 @@ export default async function AnalyticsReviewPage() {
                   ))}
                 </div>
               )}
+            </div>
+          </div>
+        </article>
+
+        <article className="panel review-item">
+          <div className="review-item-head">
+            <strong>Ask bot rule signals</strong>
+            <span className="badge">Log-only · Last 30 days</span>
+          </div>
+          <div className="review-summary analytics-review-mini-summary">
+            <div className="stat">
+              <strong>{summary.askBotSignals.count.toLocaleString("en-IN")}</strong>
+              <span>Suspicious Ask requests logged</span>
+            </div>
+          </div>
+          <div className="analytics-review-grid">
+            <div>
+              <h3>Triggered rules</h3>
+              <CountTable labelHeader="Rule" rows={summary.askBotSignals.byRule} />
+            </div>
+            <div>
+              <h3>Action</h3>
+              <CountTable labelHeader="Action" rows={summary.askBotSignals.byAction} />
+            </div>
+            <div>
+              <h3>IP hash</h3>
+              <CountTable labelHeader="IP hash" rows={summary.askBotSignals.byIpHash} />
+            </div>
+            <div>
+              <h3>Query hash</h3>
+              <CountTable labelHeader="Query hash" rows={summary.askBotSignals.byQueryHash} />
             </div>
           </div>
         </article>

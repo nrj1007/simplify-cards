@@ -8,6 +8,7 @@ import {
   type AskAiResult
 } from "@/lib/ask-ai";
 import { askCacheKey, getAskCache, setAskCache } from "@/lib/ask-cache";
+import { buildAskBotSignalMetadata, detectAskBotSignals } from "@/lib/ask-bot-signals";
 import { buildAskRateLimitMetadata, checkAskRateLimit } from "@/lib/ask-rate-limit";
 import { buildAskResultMetadata } from "@/lib/analytics-events";
 import { logAnalyticsEvent } from "@/lib/analytics-logs";
@@ -67,6 +68,25 @@ async function logAskRateLimitEvent(request: Request, input: RecommendationInput
   }
 }
 
+async function logAskBotSignalEvent(request: Request, input: RecommendationInput, result: ReturnType<typeof detectAskBotSignals>) {
+  if (!result.suspicious) return;
+
+  try {
+    await logAnalyticsEvent({
+      event_name: "ask_bot_signal_detected",
+      page: "api/ask",
+      source: "ask",
+      query: input.query,
+      metadata: {
+        ...buildAskBotSignalMetadata(result),
+        ...buildRequestAnalyticsMetadata(request)
+      }
+    });
+  } catch (error) {
+    console.error("Failed to log Ask bot signal analytics event:", error);
+  }
+}
+
 function rateLimitedResponse(result: Exclude<ReturnType<typeof checkAskRateLimit>, { allowed: true }>) {
   return NextResponse.json(
     {
@@ -113,6 +133,8 @@ export async function POST(request: Request) {
   }
 
   try {
+    await logAskBotSignalEvent(request, input, detectAskBotSignals(request, input));
+
     const rateLimit = checkAskRateLimit(request, input);
     if (!rateLimit.allowed) {
       await logAskRateLimitEvent(request, input, rateLimit);

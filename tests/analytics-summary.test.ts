@@ -203,6 +203,66 @@ describe("analytics daily summaries", () => {
     expect(review.dailyRateLimitRows).toEqual([{ date: "2026-07-27", count: 2 }]);
   });
 
+  it("counts Ask bot signal events by rule, action, IP, query, and pattern hash", () => {
+    const summary = buildDailySummaryFromEvents("2026-07-27", [
+      event({
+        event_name: "ask_bot_signal_detected",
+        page: "api/ask",
+        source: "ask",
+        metadata: {
+          bot_signal_action: "log",
+          bot_signal_rules: ["generated_query_pattern", "empty_referrer"],
+          bot_signal_ip_hash: "ip-hash-1",
+          bot_signal_query_hash: "query-hash-1",
+          bot_signal_query_pattern_hash: "pattern-hash-1"
+        }
+      }),
+      event({
+        event_name: "ask_bot_signal_detected",
+        page: "api/ask",
+        source: "ask",
+        metadata: {
+          bot_signal_action: "log",
+          bot_signal_rules: ["generated_query_pattern", "fast_repeat_ip_activity"],
+          bot_signal_ip_hash: "ip-hash-1",
+          bot_signal_query_hash: "query-hash-2",
+          bot_signal_query_pattern_hash: "pattern-hash-1"
+        }
+      })
+    ]);
+
+    expect(summary.ask_bot_signal_count).toBe(2);
+    expect(summary.ask_bot_signal_by_rule).toEqual({
+      empty_referrer: 1,
+      fast_repeat_ip_activity: 1,
+      generated_query_pattern: 2
+    });
+    expect(summary.ask_bot_signal_by_action).toEqual({ log: 2 });
+    expect(summary.ask_bot_signal_by_ip_hash).toEqual({ "ip-hash-1": 2 });
+    expect(summary.ask_bot_signal_by_query_hash).toEqual({
+      "query-hash-1": 1,
+      "query-hash-2": 1
+    });
+    expect(summary.ask_bot_signal_by_query_pattern_hash).toEqual({ "pattern-hash-1": 2 });
+
+    const review = mergeDailySummaries([summary], ["2026-07-27"], ["2026-07-27"]);
+    expect(review.askBotSignals).toEqual({
+      count: 2,
+      byRule: [
+        { label: "generated_query_pattern", count: 2 },
+        { label: "empty_referrer", count: 1 },
+        { label: "fast_repeat_ip_activity", count: 1 }
+      ],
+      byAction: [{ label: "log", count: 2 }],
+      byIpHash: [{ label: "ip-hash-1", count: 2 }],
+      byQueryHash: [
+        { label: "query-hash-1", count: 1 },
+        { label: "query-hash-2", count: 1 }
+      ],
+      byQueryPatternHash: [{ label: "pattern-hash-1", count: 2 }]
+    });
+  });
+
   it("merges daily summaries into review page rows", () => {
     const summary = buildDailySummaryFromEvents("2026-07-27", [
       event({ query: "best cashback card" }),
