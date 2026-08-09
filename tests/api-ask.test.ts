@@ -8,6 +8,7 @@ import {
   setAskResultCacheStatus
 } from "../lib/ask-ai";
 import { clearAskCache } from "../lib/ask-cache";
+import { clearAskRateLimit } from "../lib/ask-rate-limit";
 import { answerFromCards } from "../lib/recommend";
 
 vi.mock("../lib/ask-ai", () => ({
@@ -30,6 +31,7 @@ describe("/api/ask Route Handler", () => {
   beforeEach(() => {
     vi.clearAllMocks();
     clearAskCache();
+    clearAskRateLimit();
     vi.mocked(getAskResultCacheStatus).mockReturnValue(undefined);
     vi.mocked(resolveDirectCardDetailQuery).mockReturnValue(null);
     vi.mocked(setAskResultCacheStatus).mockImplementation((result) => result);
@@ -94,6 +96,74 @@ describe("/api/ask Route Handler", () => {
     expect(second.headers.get("X-Ask-Cache")).toBe("HIT");
     expect(answerQuestion).toHaveBeenCalledTimes(1);
     expect(setAskResultCacheStatus).toHaveBeenCalledWith(expect.objectContaining({ summary: "Mocked travel cards" }), "HIT");
+  });
+
+  it("rate limits an IP after 100 Ask requests in one day", async () => {
+    const mockResult = {
+      summary: "Mocked answer",
+      cards: [{ card: { id: "axis-atlas", name: "Axis Atlas" } }],
+      meta: { intent: "top-cards" }
+    };
+
+    vi.mocked(answerQuestion).mockResolvedValue(mockResult as any);
+    vi.mocked(getAskResultCacheStatus).mockReturnValue("MISS");
+
+    for (let index = 0; index < 100; index += 1) {
+      const response = await POST(
+        new Request("http://localhost/api/ask", {
+          method: "POST",
+          headers: { "x-forwarded-for": "203.0.113.10" },
+          body: JSON.stringify({ query: `best travel card ${index}` })
+        })
+      );
+      expect(response.status).toBe(200);
+    }
+
+    const blocked = await POST(
+      new Request("http://localhost/api/ask", {
+        method: "POST",
+        headers: { "x-forwarded-for": "203.0.113.10" },
+        body: JSON.stringify({ query: "another travel card" })
+      })
+    );
+
+    expect(blocked.status).toBe(429);
+    expect(blocked.headers.get("X-Ask-Rate-Limit")).toBe("ip_daily_limit");
+    await expect(blocked.json()).resolves.toMatchObject({ reason: "ip_daily_limit", limit: 100 });
+  });
+
+  it("rate limits the same query from one IP after 20 requests in one day", async () => {
+    const mockResult = {
+      summary: "Mocked answer",
+      cards: [{ card: { id: "axis-atlas", name: "Axis Atlas" } }],
+      meta: { intent: "top-cards" }
+    };
+
+    vi.mocked(answerQuestion).mockResolvedValue(mockResult as any);
+    vi.mocked(getAskResultCacheStatus).mockReturnValue("MISS");
+
+    for (let index = 0; index < 20; index += 1) {
+      const response = await POST(
+        new Request("http://localhost/api/ask", {
+          method: "POST",
+          headers: { "x-forwarded-for": "203.0.113.20" },
+          body: JSON.stringify({ query: " Best   Travel Card " })
+        })
+      );
+      expect(response.status).toBe(200);
+    }
+
+    const blocked = await POST(
+      new Request("http://localhost/api/ask", {
+        method: "POST",
+        headers: { "x-forwarded-for": "203.0.113.20" },
+        body: JSON.stringify({ query: "best travel card" })
+      })
+    );
+
+    expect(blocked.status).toBe(429);
+    expect(blocked.headers.get("X-Ask-Rate-Limit")).toBe("ip_query_daily_limit");
+    await expect(blocked.json()).resolves.toMatchObject({ reason: "ip_query_daily_limit", limit: 20 });
   });
 
   it("returns a direct-card redirect instruction without running the Ask engine", async () => {

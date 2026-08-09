@@ -8,6 +8,7 @@ import {
   type AskAiResult
 } from "@/lib/ask-ai";
 import { askCacheKey, getAskCache, setAskCache } from "@/lib/ask-cache";
+import { checkAskRateLimit } from "@/lib/ask-rate-limit";
 import { buildAskResultMetadata } from "@/lib/analytics-events";
 import { answerFromCards } from "@/lib/recommend";
 import type { RecommendationInput } from "@/lib/types";
@@ -48,6 +49,26 @@ function isCacheableAskApiResult(input: RecommendationInput, result: AskAiResult
   return result.cards.length > 0;
 }
 
+function rateLimitedResponse(result: Exclude<ReturnType<typeof checkAskRateLimit>, { allowed: true }>) {
+  return NextResponse.json(
+    {
+      error: "Ask rate limit exceeded",
+      reason: result.reason,
+      limit: result.limit,
+      retryAfterSeconds: result.retryAfterSeconds
+    },
+    {
+      status: 429,
+      headers: {
+        "Cache-Control": "no-store",
+        "Retry-After": String(result.retryAfterSeconds),
+        "X-Ask-Cache": "SKIP",
+        "X-Ask-Rate-Limit": result.reason
+      }
+    }
+  );
+}
+
 function resultResponse(result: AskAiResult) {
   return NextResponse.json(
     {
@@ -74,6 +95,9 @@ export async function POST(request: Request) {
   }
 
   try {
+    const rateLimit = checkAskRateLimit(request, input);
+    if (!rateLimit.allowed) return rateLimitedResponse(rateLimit);
+
     const directCardId = resolveDirectCardDetailQuery(input);
     if (directCardId) {
       return NextResponse.json(
