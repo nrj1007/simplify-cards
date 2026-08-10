@@ -233,7 +233,8 @@ function HeroAskBox() {
 
   function submit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    const trimmed = query.trim();
+    const formData = new FormData(event.currentTarget);
+    const trimmed = String(formData.get("query") ?? query).trim();
     if (!trimmed) {
       inputRef.current?.reportValidity();
       inputRef.current?.focus();
@@ -245,10 +246,11 @@ function HeroAskBox() {
 
   return (
     <div id="ask-widget-container" className="sc-ask-wrap">
-      <form onSubmit={submit} className="sc-ask-form">
+      <form action="/ask" method="GET" onSubmit={submit} className="sc-ask-form">
         <Search className="sc-ask-search" size={22} />
         <input
           id="hero-ask-input"
+          name="query"
           ref={inputRef}
           value={query}
           onChange={(event) => setQuery(event.target.value)}
