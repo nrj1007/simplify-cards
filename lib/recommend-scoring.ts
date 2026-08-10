@@ -343,6 +343,11 @@ export function cardMatchesSegment(card: CreditCard, segment: string) {
       card.annualFee <= 1500
     );
   }
+  if (segment === "secured") {
+    return containsNormalizedPhrase(haystack, "secured") || 
+           containsNormalizedPhrase(haystack, "fixed deposit") ||
+           containsNormalizedPhrase(haystack, "fd based");
+  }
 
   return false;
 }

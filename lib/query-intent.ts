@@ -359,10 +359,17 @@ export function parseQueryIntent(input: RecommendationInput): QueryIntent {
     normalizedQuery.includes("beginner") ||
     normalizedQuery.includes("starter") ||
     normalizedQuery.includes("first card") ||
-    normalizedQuery.includes("credit builder") ||
-    normalizedQuery.includes("secured")
+    normalizedQuery.includes("credit builder")
   ) {
     segments.add("beginner");
+  }
+  if (
+    normalizedQuery.includes("secured") ||
+    normalizedQuery.match(/\bfd\b/) ||
+    normalizedQuery.includes("fixed deposit") ||
+    normalizedQuery.includes("fd based")
+  ) {
+    segments.add("secured");
   }
   if (
     input.wantsLifetimeFree ||
