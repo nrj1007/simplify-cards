@@ -200,19 +200,17 @@ describe("reward calculator", () => {
 
     const rules = milestoneRulesForCard(card!);
     
-    // Amex Platinum Travel has 3 milestone benefits:
-    // 1. 7,500 MR points at ₹1.9L
-    // 2. 10,000 MR points at ₹4.0L
-    // 3. 22,500 MR points + ₹10k Taj voucher at ₹7.0L
-    expect(rules.length).toBe(3);
+    // Should have 2 milestone rules:
+    // 1. 10,000 MR points at ₹4.0L
+    // 2. ₹20k Taj voucher at ₹7.0L
+    expect(rules.length).toBe(2);
 
     const tajMilestone = rules.find(r => r.threshold === 700000);
-    expect(tajMilestone).toBeTruthy();
+    expect(tajMilestone).toBeDefined();
+    // 20000 Taj voucher
+    expect(tajMilestone!.value).toBe(20000);
     expect(tajMilestone!.isVoucher).toBe(true);
-
-    // 22500 MR points * 0.6 = 13500. Taj stay voucher 10000 * 0.5 = 5000. Total value = 18500.
-    expect(tajMilestone!.value).toBe(18500);
-    expect(tajMilestone!.label).toContain("Taj stay voucher");
+    expect(tajMilestone!.label).toContain("Taj Experiences voucher");
 
     // The other two milestones do not contain the word 'voucher'
     const pointMilestones = rules.filter(r => r.threshold < 700000);
