@@ -40,7 +40,7 @@
   "loungeInternational": 0,
   "lounge": {
     "domestic": [
-      "Domestic lounge access is capped at 2 visits per calendar quarter"
+      "Domestic lounge access requires quarterly spending, and is capped at 2 visits per calendar quarter"
     ],
     "international": [
       "Priority Pass membership fee of US$99 is waived; lounge visit charges are payable at actual prevailing rates"
@@ -85,13 +85,6 @@
   ],
   "milestones": [
     {
-      "threshold": 190000,
-      "period": "annual",
-      "value": 4500,
-      "kind": "points",
-      "label": "7,500 Membership Rewards points on spending ₹1.9 lakh in a cardmembership year"
-    },
-    {
       "threshold": 400000,
       "period": "annual",
       "value": 6000,
@@ -101,15 +94,14 @@
     {
       "threshold": 700000,
       "period": "annual",
-      "value": 18500,
+      "value": 20000,
       "kind": "voucher",
-      "label": "22,500 Membership Rewards points and a Taj stay voucher worth ₹10,000 on spending ₹7 lakh in a cardmembership year"
+      "label": "Taj Experiences voucher worth ₹20,000 on spending ₹7 lakh in a cardmembership year"
     }
   ],
   "milestoneBenefits": [
-    "7,500 Membership Rewards points on spending ₹1.9 lakh in a cardmembership year",
     "10,000 Membership Rewards points on spending ₹4 lakh in a cardmembership year",
-    "22,500 Membership Rewards points and a Taj stay voucher worth ₹10,000 on spending ₹7 lakh in a cardmembership year"
+    "Taj Experiences voucher worth ₹20,000 on spending ₹7 lakh in a cardmembership year"
   ],
   "additionalBenefits": [
     "Convenience fee waiver on fuel purchases at HPCL petrol pumps"
@@ -215,14 +207,14 @@
   },
   "sourceUrl": "https://www.americanexpress.com/in/credit-cards/platinum-travel-credit-card/",
   "applyUrl": "https://www.americanexpress.com/in/credit-cards/platinum-travel-credit-card/",
-  "lastVerified": "2026-06-26",
+  "lastVerified": "2026-08-11",
   "verificationStatus": "official-direct",
   "internalNotes": [
-    "Card details manually reviewed and verified by user on 2026-06-26",
-    "Domestic lounge access is capped at 2 visits per calendar quarter",
+    "Card details manually reviewed and verified by user on 2026-08-11",
     "Priority Pass membership fee of US$99 is waived; lounge visit charges are payable at actual prevailing rates",
     "Points do not expire as long as the card account is active and in good standing",
-    "Transfer ratios yield up to 1 point per MR point (Marriott Bonvoy transfers at a 1:1 ratio, while airline partners transfer at 2:1)"
+    "Transfer ratios yield up to 1 point per MR point (Marriott Bonvoy transfers at a 1:1 ratio, while airline partners transfer at 2:1)",
+    "Domestic lounge access requires quarterly spending, and is capped at 2 visits per calendar quarter"
   ],
   "applyLinks": [
     {
