@@ -1050,5 +1050,17 @@
         "groupSummary": "Effective 13 July 2026, IndiGo BluChips and Accor Live Limitless (ALL) allow reciprocal point transfers. BluChips convert to ALL at a 6:1 ratio, while ALL points convert to BluChips at a 3:2 ratio."
       }
     ]
+  },
+  "amex-platinum-travel": {
+    "updates": [
+      {
+        "title": "American Express devalued Platinum Travel milestones and lounge access",
+        "summary": "American Express removed the 7,500 and 22,500 Membership Rewards points from the ₹1.9L and ₹7L spend milestones, respectively. The ₹7L milestone now only offers a ₹20,000 Taj Experiences voucher. Domestic lounge access (2 visits per quarter) will also require meeting a quarterly spend requirement.",
+        "sourceType": "manual",
+        "sourceLabel": "American Express official updates",
+        "sourceUrl": "https://www.americanexpress.com/in/credit-cards/platinum-travel-credit-card/",
+        "publishedAt": "2026-08-11"
+      }
+    ]
   }
 }
