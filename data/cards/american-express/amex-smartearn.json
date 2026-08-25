@@ -139,7 +139,7 @@
       {
         "airline": "Virgin Atlantic",
         "programme": "Flying Club",
-        "ratio": "2:1"
+        "ratio": "5:4"
       },
       {
         "airline": "Air India",
@@ -156,7 +156,7 @@
       {
         "hotelGroup": "Hilton Hotels",
         "programme": "Hilton Honors",
-        "ratio": "1:0.9"
+        "ratio": "1:1.5"
       }
     ]
   },
@@ -185,7 +185,8 @@
     "Card details manually reviewed and verified by user on 2026-06-08",
     "10X rewards are capped at 500 Membership Rewards points per month jointly for Flipkart, Uber, BookMyShow and other listed 10X merchants, and separately capped at 500 Membership Rewards points per month jointly for EaseMyTrip and Zomato.",
     "5X rewards on Amazon are capped at 250 Membership Rewards points per month.",
-    "Welcome cashback is credited as statement credit within 10 working days after completion of eligible spends."
+    "Welcome cashback is credited as statement credit within 10 working days after completion of eligible spends.",
+    "Virgin Atlantic Flying Club transfers now convert at 5 Membership Rewards points to 4 Virgin Points; Hilton Honors transfers now convert at 1,000 Membership Rewards points to 1,500 Hilton Honors points."
   ],
   "applyLinks": [
     {

@@ -143,7 +143,7 @@
       {
         "airline": "Virgin Atlantic",
         "programme": "Flying Club",
-        "ratio": "2:1"
+        "ratio": "5:4"
       },
       {
         "airline": "Air India",
@@ -160,7 +160,7 @@
       {
         "hotelGroup": "Hilton Hotels",
         "programme": "Hilton Honors",
-        "ratio": "1:0.9"
+        "ratio": "1:1.5"
       }
     ]
   },
@@ -189,7 +189,8 @@
   "internalNotes": [
     "Card details manually reviewed and verified by user on 2026-06-08",
     "Golf benefit requires monthly spend of ₹50,000 and allows up to 2 visits per month.",
-    "Airline transfers are currently listed at a 2:1 ratio, while Marriott Bonvoy transfers at 1:1 and Hilton Honors transfers at 1:0.9."
+    "Most airline transfers remain listed at 2:1, with Virgin Atlantic Flying Club improved to 5:4; Marriott Bonvoy transfers at 1:1 and Hilton Honors transfers at 1:1.5.",
+    "Virgin Atlantic Flying Club transfers now convert at 5 Membership Rewards points to 4 Virgin Points; Hilton Honors transfers now convert at 1,000 Membership Rewards points to 1,500 Hilton Honors points."
   ],
   "applyLinks": [
     {

@@ -141,7 +141,7 @@
       {
         "airline": "Virgin Atlantic",
         "programme": "Flying Club",
-        "ratio": "2:1"
+        "ratio": "5:4"
       },
       {
         "airline": "Air India",
@@ -158,7 +158,7 @@
       {
         "hotelGroup": "Hilton Hotels",
         "programme": "Hilton Honors",
-        "ratio": "1:0.9"
+        "ratio": "1:1.5"
       }
     ]
   },
@@ -188,7 +188,8 @@
     "The welcome gift is fulfilled within 6-8 weeks after payment of annual fee and net spends of ₹50,000 in the first 2 months of Cardmembership.",
     "Fuel earns 1 Membership Rewards point per ₹100 spent plus 4 additional bonus Membership Rewards points per ₹100 spent, capped at 5,000 bonus points per calendar month.",
     "Reward Xcelerator on Platinum is presented by American Express as an up to 20X earn benefit on select partner brands rather than a universal online earn rate; the exact multiplier depends on the partner offer.",
-    "Membership Rewards points on the Platinum Card do not expire."
+    "Membership Rewards points on the Platinum Card do not expire.",
+    "Virgin Atlantic Flying Club transfers now convert at 5 Membership Rewards points to 4 Virgin Points; Hilton Honors transfers now convert at 1,000 Membership Rewards points to 1,500 Hilton Honors points."
   ],
   "applyLinks": [
     {
