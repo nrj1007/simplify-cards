@@ -41,6 +41,8 @@ export type LandingUpdate = {
   publishedAt: string;
   sourceLabel: string;
   sourceUrl?: string;
+  ctaLabel?: string;
+  ctaUrl?: string;
   cardId: string;
   cardName: string;
   cardIssuer: string;
@@ -435,6 +437,11 @@ function LatestUpdates({ updates }: { updates: LandingUpdate[] }) {
           </div>
           <h3>{active.title}</h3>
           <p>{active.summary}</p>
+          {active.ctaUrl && active.ctaLabel ? (
+            <Link className="sc-latest-cta" href={active.ctaUrl as Route}>
+              {active.ctaLabel}
+            </Link>
+          ) : null}
           <div className="sc-news-controls">
             <button type="button" onClick={() => setActiveIndex((activeIndex - 1 + updates.length) % updates.length)} aria-label="Previous news">
               <ChevronLeft size={17} />

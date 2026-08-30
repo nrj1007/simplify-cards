@@ -9,6 +9,8 @@ export type CardUpdate = {
   sourceType: CardContentSourceType;
   sourceLabel: string;
   sourceUrl?: string;
+  ctaLabel?: string;
+  ctaUrl?: string;
   publishedAt: string;
   groupId?: string;
   groupTitle?: string;

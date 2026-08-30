@@ -783,10 +783,19 @@ export default async function CardPage({ params }: Props) {
                             ))}
                           </ul>
                         </div>
-                        {update.sourceUrl ? (
-                          <a className="button secondary" href={update.sourceUrl} rel="nofollow" target="_blank">
-                            Open update <ExternalLink size={15} />
-                          </a>
+                        {update.sourceUrl || update.ctaUrl ? (
+                          <div className="content-update-actions">
+                            {update.sourceUrl ? (
+                              <a className="button secondary" href={update.sourceUrl} rel="nofollow" target="_blank">
+                                Open update <ExternalLink size={15} />
+                              </a>
+                            ) : null}
+                            {update.ctaUrl && update.ctaLabel ? (
+                              <Link className="button secondary" href={update.ctaUrl as Route}>
+                                {update.ctaLabel}
+                              </Link>
+                            ) : null}
+                          </div>
                         ) : null}
                       </article>
                     ))}

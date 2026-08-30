@@ -11,7 +11,7 @@ export const metadata: Metadata = buildPageMetadata({
 });
 
 export default function LatestPage() {
-  const updates = getAllUpdates(25);
+  const updates = getAllUpdates();
 
   return (
     <div className="updates-reference-page">

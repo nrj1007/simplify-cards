@@ -574,12 +574,113 @@
   "hsbc-live-plus": {
     "updates": [
       {
+        "title": "HSBC offers 0% forex markup on eligible international spends",
+        "summary": "From 15 August 2026 to 15 September 2026, eligible foreign-currency POS and online transactions on HSBC consumer credit cards carry 0% forex markup. Add-on card transactions are considered, regular card rewards continue, and exclusions include ATM withdrawals, INR-charged transactions, corporate/commercial cards, disputed or reversed transactions, and transactions posted after the offer period. GST, card-network, regulatory, and other non-forex charges may still apply; verify final terms with HSBC.",
+        "sourceType": "manual",
+        "sourceLabel": "HSBC Zero Forex markup offer terms",
+        "sourceUrl": "https://www.hsbc.bank.in/content/dam/hsbc/in/documents/offers/zero-forex-tnc.pdf",
+        "publishedAt": "2026-08-15",
+        "groupId": "hsbc-zero-forex-markup-offer-2026-08-15",
+        "groupTitle": "HSBC offers 0% forex markup on eligible international spends",
+        "groupSummary": "From 15 August 2026 to 15 September 2026, eligible HSBC consumer credit-card foreign-currency POS and online transactions carry 0% forex markup. Add-on card transactions are considered and regular rewards continue, but ATM withdrawals, INR-charged transactions, corporate/commercial cards, disputed or reversed transactions, and transactions posted after the offer period are excluded. GST, network, regulatory, or other non-forex charges may still apply; verify final terms with HSBC."
+      },
+      {
         "title": "HSBC Live+ Visa Infinite upgrade reported from 26 July 2026",
         "summary": "From 26 July 2026, Live+ offers 10% cashback up to ₹1,200/month on food, dining, groceries, shopping and utilities. It also adds contactless fuel cashback, 1.99% forex markup, 2 domestic lounge visits/year, and 1 international lounge visit/year from 1 September 2026.",
         "sourceType": "manual",
         "sourceLabel": "Paisabazaar report based on HSBC Live+ upgrade communication",
         "sourceUrl": "https://www.paisabazaar.com/credit-card/hsbc-live-plus-credit-card-upgrade-july-2026/",
         "publishedAt": "2026-07-10"
+      }
+    ]
+  },
+  "hsbc-premier": {
+    "updates": [
+      {
+        "title": "HSBC offers 0% forex markup on eligible international spends",
+        "summary": "From 15 August 2026 to 15 September 2026, eligible foreign-currency POS and online transactions on HSBC consumer credit cards carry 0% forex markup. Add-on card transactions are considered, regular card rewards continue, and exclusions include ATM withdrawals, INR-charged transactions, corporate/commercial cards, disputed or reversed transactions, and transactions posted after the offer period. GST, card-network, regulatory, and other non-forex charges may still apply; verify final terms with HSBC.",
+        "sourceType": "manual",
+        "sourceLabel": "HSBC Zero Forex markup offer terms",
+        "sourceUrl": "https://www.hsbc.bank.in/content/dam/hsbc/in/documents/offers/zero-forex-tnc.pdf",
+        "publishedAt": "2026-08-15",
+        "groupId": "hsbc-zero-forex-markup-offer-2026-08-15",
+        "groupTitle": "HSBC offers 0% forex markup on eligible international spends",
+        "groupSummary": "From 15 August 2026 to 15 September 2026, eligible HSBC consumer credit-card foreign-currency POS and online transactions carry 0% forex markup. Add-on card transactions are considered and regular rewards continue, but ATM withdrawals, INR-charged transactions, corporate/commercial cards, disputed or reversed transactions, and transactions posted after the offer period are excluded. GST, network, regulatory, or other non-forex charges may still apply; verify final terms with HSBC."
+      }
+    ]
+  },
+  "hsbc-rupay-cashback": {
+    "updates": [
+      {
+        "title": "HSBC offers 0% forex markup on eligible international spends",
+        "summary": "From 15 August 2026 to 15 September 2026, eligible foreign-currency POS and online transactions on HSBC consumer credit cards carry 0% forex markup. Add-on card transactions are considered, regular card rewards continue, and exclusions include ATM withdrawals, INR-charged transactions, corporate/commercial cards, disputed or reversed transactions, and transactions posted after the offer period. GST, card-network, regulatory, and other non-forex charges may still apply; verify final terms with HSBC.",
+        "sourceType": "manual",
+        "sourceLabel": "HSBC Zero Forex markup offer terms",
+        "sourceUrl": "https://www.hsbc.bank.in/content/dam/hsbc/in/documents/offers/zero-forex-tnc.pdf",
+        "publishedAt": "2026-08-15",
+        "groupId": "hsbc-zero-forex-markup-offer-2026-08-15",
+        "groupTitle": "HSBC offers 0% forex markup on eligible international spends",
+        "groupSummary": "From 15 August 2026 to 15 September 2026, eligible HSBC consumer credit-card foreign-currency POS and online transactions carry 0% forex markup. Add-on card transactions are considered and regular rewards continue, but ATM withdrawals, INR-charged transactions, corporate/commercial cards, disputed or reversed transactions, and transactions posted after the offer period are excluded. GST, network, regulatory, or other non-forex charges may still apply; verify final terms with HSBC."
+      }
+    ]
+  },
+  "hsbc-rupay-platinum": {
+    "updates": [
+      {
+        "title": "HSBC offers 0% forex markup on eligible international spends",
+        "summary": "From 15 August 2026 to 15 September 2026, eligible foreign-currency POS and online transactions on HSBC consumer credit cards carry 0% forex markup. Add-on card transactions are considered, regular card rewards continue, and exclusions include ATM withdrawals, INR-charged transactions, corporate/commercial cards, disputed or reversed transactions, and transactions posted after the offer period. GST, card-network, regulatory, and other non-forex charges may still apply; verify final terms with HSBC.",
+        "sourceType": "manual",
+        "sourceLabel": "HSBC Zero Forex markup offer terms",
+        "sourceUrl": "https://www.hsbc.bank.in/content/dam/hsbc/in/documents/offers/zero-forex-tnc.pdf",
+        "publishedAt": "2026-08-15",
+        "groupId": "hsbc-zero-forex-markup-offer-2026-08-15",
+        "groupTitle": "HSBC offers 0% forex markup on eligible international spends",
+        "groupSummary": "From 15 August 2026 to 15 September 2026, eligible HSBC consumer credit-card foreign-currency POS and online transactions carry 0% forex markup. Add-on card transactions are considered and regular rewards continue, but ATM withdrawals, INR-charged transactions, corporate/commercial cards, disputed or reversed transactions, and transactions posted after the offer period are excluded. GST, network, regulatory, or other non-forex charges may still apply; verify final terms with HSBC."
+      }
+    ]
+  },
+  "hsbc-taj": {
+    "updates": [
+      {
+        "title": "HSBC offers 0% forex markup on eligible international spends",
+        "summary": "From 15 August 2026 to 15 September 2026, eligible foreign-currency POS and online transactions on HSBC consumer credit cards carry 0% forex markup. Add-on card transactions are considered, regular card rewards continue, and exclusions include ATM withdrawals, INR-charged transactions, corporate/commercial cards, disputed or reversed transactions, and transactions posted after the offer period. GST, card-network, regulatory, and other non-forex charges may still apply; verify final terms with HSBC.",
+        "sourceType": "manual",
+        "sourceLabel": "HSBC Zero Forex markup offer terms",
+        "sourceUrl": "https://www.hsbc.bank.in/content/dam/hsbc/in/documents/offers/zero-forex-tnc.pdf",
+        "publishedAt": "2026-08-15",
+        "groupId": "hsbc-zero-forex-markup-offer-2026-08-15",
+        "groupTitle": "HSBC offers 0% forex markup on eligible international spends",
+        "groupSummary": "From 15 August 2026 to 15 September 2026, eligible HSBC consumer credit-card foreign-currency POS and online transactions carry 0% forex markup. Add-on card transactions are considered and regular rewards continue, but ATM withdrawals, INR-charged transactions, corporate/commercial cards, disputed or reversed transactions, and transactions posted after the offer period are excluded. GST, network, regulatory, or other non-forex charges may still apply; verify final terms with HSBC."
+      }
+    ]
+  },
+  "hsbc-travelone": {
+    "updates": [
+      {
+        "title": "HSBC offers 0% forex markup on eligible international spends",
+        "summary": "From 15 August 2026 to 15 September 2026, eligible foreign-currency POS and online transactions on HSBC consumer credit cards carry 0% forex markup. Add-on card transactions are considered, regular card rewards continue, and exclusions include ATM withdrawals, INR-charged transactions, corporate/commercial cards, disputed or reversed transactions, and transactions posted after the offer period. GST, card-network, regulatory, and other non-forex charges may still apply; verify final terms with HSBC.",
+        "sourceType": "manual",
+        "sourceLabel": "HSBC Zero Forex markup offer terms",
+        "sourceUrl": "https://www.hsbc.bank.in/content/dam/hsbc/in/documents/offers/zero-forex-tnc.pdf",
+        "publishedAt": "2026-08-15",
+        "groupId": "hsbc-zero-forex-markup-offer-2026-08-15",
+        "groupTitle": "HSBC offers 0% forex markup on eligible international spends",
+        "groupSummary": "From 15 August 2026 to 15 September 2026, eligible HSBC consumer credit-card foreign-currency POS and online transactions carry 0% forex markup. Add-on card transactions are considered and regular rewards continue, but ATM withdrawals, INR-charged transactions, corporate/commercial cards, disputed or reversed transactions, and transactions posted after the offer period are excluded. GST, network, regulatory, or other non-forex charges may still apply; verify final terms with HSBC."
+      }
+    ]
+  },
+  "hsbc-visa-platinum": {
+    "updates": [
+      {
+        "title": "HSBC offers 0% forex markup on eligible international spends",
+        "summary": "From 15 August 2026 to 15 September 2026, eligible foreign-currency POS and online transactions on HSBC consumer credit cards carry 0% forex markup. Add-on card transactions are considered, regular card rewards continue, and exclusions include ATM withdrawals, INR-charged transactions, corporate/commercial cards, disputed or reversed transactions, and transactions posted after the offer period. GST, card-network, regulatory, and other non-forex charges may still apply; verify final terms with HSBC.",
+        "sourceType": "manual",
+        "sourceLabel": "HSBC Zero Forex markup offer terms",
+        "sourceUrl": "https://www.hsbc.bank.in/content/dam/hsbc/in/documents/offers/zero-forex-tnc.pdf",
+        "publishedAt": "2026-08-15",
+        "groupId": "hsbc-zero-forex-markup-offer-2026-08-15",
+        "groupTitle": "HSBC offers 0% forex markup on eligible international spends",
+        "groupSummary": "From 15 August 2026 to 15 September 2026, eligible HSBC consumer credit-card foreign-currency POS and online transactions carry 0% forex markup. Add-on card transactions are considered and regular rewards continue, but ATM withdrawals, INR-charged transactions, corporate/commercial cards, disputed or reversed transactions, and transactions posted after the offer period are excluded. GST, network, regulatory, or other non-forex charges may still apply; verify final terms with HSBC."
       }
     ]
   },
@@ -1136,6 +1237,57 @@
         "groupId": "amex-virgin-hilton-transfer-ratio-improvement-2026-08-25",
         "groupTitle": "American Express improves Virgin Atlantic and Hilton Honors transfer ratios",
         "groupSummary": "American Express India has significantly improved Membership Rewards transfer ratios for Virgin Atlantic Flying Club and Hilton Honors. Virgin Atlantic transfers have improved from 2:1 to 5:4 (60% uplift), while Hilton Honors transfers have increased from 1,000:900 to 1,000:1,500 (67% uplift), making Membership Rewards substantially more valuable for travellers."
+      }
+    ]
+  },
+  "hdfc-swiggy": {
+    "updates": [
+      {
+        "title": "Swiggy HDFC migration to Ornge or BLCK",
+        "summary": "Existing Swiggy HDFC Bank Credit Card holders are being migrated to Swiggy Ornge or Swiggy BLCK. If no choice is submitted, HDFC will move the cardholder to Swiggy Ornge by default. Ornge gives 5% cashback on Swiggy, 5% on online spends and 1% on other spends as a lifetime-free card, while BLCK keeps 10% on Swiggy, 5% online and 1% other spends with a ₹1,000 annual fee. The existing card deactivates after first use of the new card or after 60 days/card expiry, whichever comes first, and the migration cannot be reversed.",
+        "sourceType": "manual",
+        "sourceLabel": "HDFC Bank Swiggy card upgrade FAQ",
+        "sourceUrl": "https://www.hdfc.bank.in/content/dam/hdfc-aem-microsites/credit-card/swiggy-credit-card/pdf/faq-swiggy-card-upgrade-final.pdf",
+        "ctaLabel": "Compare Swiggy BLCK vs Ornge",
+        "ctaUrl": "https://www.simplifycards.in/compare?a=hdfc-swiggy-black&b=hdfc-swiggy-orange",
+        "publishedAt": "2026-08-27",
+        "groupId": "hdfc-swiggy-ornge-blck-migration-2026-08-27",
+        "groupTitle": "Swiggy HDFC cardholders must choose Ornge or BLCK",
+        "groupSummary": "Existing Swiggy HDFC Bank Credit Card holders are being moved to Swiggy Ornge or Swiggy BLCK. No choice means Ornge by default; Ornge is lifetime free with 5% Swiggy cashback, while BLCK keeps 10% Swiggy cashback with a ₹1,000 annual fee. The old card stops after first new-card use or after 60 days/card expiry, whichever comes first, and the migration cannot be reversed."
+      }
+    ]
+  },
+  "hdfc-swiggy-black": {
+    "updates": [
+      {
+        "title": "Swiggy BLCK available as migration option",
+        "summary": "Existing Swiggy HDFC Bank Credit Card holders can migrate to Swiggy BLCK to retain 10% cashback on Swiggy, along with 5% on online spends and 1% on other spends, for a ₹1,000 annual fee. If no choice is submitted, HDFC will move cardholders to Swiggy Ornge instead. The existing card deactivates after first use of the new card or after 60 days/card expiry, whichever comes first, and the migration cannot be reversed.",
+        "sourceType": "manual",
+        "sourceLabel": "HDFC Bank Swiggy card upgrade FAQ",
+        "sourceUrl": "https://www.hdfc.bank.in/content/dam/hdfc-aem-microsites/credit-card/swiggy-credit-card/pdf/faq-swiggy-card-upgrade-final.pdf",
+        "ctaLabel": "Compare Swiggy BLCK vs Ornge",
+        "ctaUrl": "https://www.simplifycards.in/compare?a=hdfc-swiggy-black&b=hdfc-swiggy-orange",
+        "publishedAt": "2026-08-27",
+        "groupId": "hdfc-swiggy-ornge-blck-migration-2026-08-27",
+        "groupTitle": "Swiggy HDFC cardholders must choose Ornge or BLCK",
+        "groupSummary": "Existing Swiggy HDFC Bank Credit Card holders are being moved to Swiggy Ornge or Swiggy BLCK. No choice means Ornge by default; Ornge is lifetime free with 5% Swiggy cashback, while BLCK keeps 10% Swiggy cashback with a ₹1,000 annual fee. The old card stops after first new-card use or after 60 days/card expiry, whichever comes first, and the migration cannot be reversed."
+      }
+    ]
+  },
+  "hdfc-swiggy-orange": {
+    "updates": [
+      {
+        "title": "Swiggy Ornge is the default migration option",
+        "summary": "Existing Swiggy HDFC Bank Credit Card holders who do not submit a choice will be migrated to Swiggy Ornge by default. Ornge gives 5% cashback on Swiggy, 5% on online spends and 1% on other spends, and remains lifetime free for migrating cardholders. The existing card deactivates after first use of the new card or after 60 days/card expiry, whichever comes first, and the migration cannot be reversed.",
+        "sourceType": "manual",
+        "sourceLabel": "HDFC Bank Swiggy card upgrade FAQ",
+        "sourceUrl": "https://www.hdfc.bank.in/content/dam/hdfc-aem-microsites/credit-card/swiggy-credit-card/pdf/faq-swiggy-card-upgrade-final.pdf",
+        "ctaLabel": "Compare Swiggy BLCK vs Ornge",
+        "ctaUrl": "https://www.simplifycards.in/compare?a=hdfc-swiggy-black&b=hdfc-swiggy-orange",
+        "publishedAt": "2026-08-27",
+        "groupId": "hdfc-swiggy-ornge-blck-migration-2026-08-27",
+        "groupTitle": "Swiggy HDFC cardholders must choose Ornge or BLCK",
+        "groupSummary": "Existing Swiggy HDFC Bank Credit Card holders are being moved to Swiggy Ornge or Swiggy BLCK. No choice means Ornge by default; Ornge is lifetime free with 5% Swiggy cashback, while BLCK keeps 10% Swiggy cashback with a ₹1,000 annual fee. The old card stops after first new-card use or after 60 days/card expiry, whichever comes first, and the migration cannot be reversed."
       }
     ]
   }

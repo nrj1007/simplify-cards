@@ -634,6 +634,12 @@ html body .updates-reference-page a.updates-source:hover {
   text-decoration: underline;
 }
 
+html body .updates-reference-page .updates-cta {
+  display: block;
+  margin-top: 8px;
+  color: #581c87;
+}
+
 html body .updates-reference-page .updates-pagination {
   display: flex;
   flex-wrap: wrap;
@@ -4716,6 +4722,13 @@ input[type="number"] {
 .content-item-update:last-child {
   border-bottom: 0;
   padding-bottom: 0;
+}
+
+.content-update-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: flex-end;
 }
 
 .content-update-bullet {
@@ -9721,6 +9734,19 @@ input[type="number"] {
   line-height: 1.55;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
+}
+
+.sc-latest-cta {
+  align-self: flex-start;
+  margin-top: 14px;
+  color: var(--sc-purple);
+  font-size: 13px;
+  font-weight: 900;
+  text-decoration: none;
+}
+
+.sc-latest-cta:hover {
+  text-decoration: underline;
 }
 
 .sc-news-controls {

@@ -79,6 +79,8 @@ function toLandingUpdate(update: CardUpdateWithMeta): LandingUpdate {
     publishedAt: update.publishedAt,
     sourceLabel: update.sourceLabel,
     sourceUrl: update.sourceUrl,
+    ctaLabel: update.ctaLabel,
+    ctaUrl: update.ctaUrl,
     cardId: update.cardId,
     cardName: update.cardName,
     cardIssuer: update.cardIssuer,

@@ -11,6 +11,8 @@ type Update = {
   publishedAt: string;
   sourceLabel: string;
   sourceUrl?: string;
+  ctaLabel?: string;
+  ctaUrl?: string;
   cardId: string;
   cardName: string;
   cardIssuer: string;
@@ -139,6 +141,11 @@ export default function UpdatesBrowser({ updates }: { updates: Update[] }) {
                             ) : (
                               <span className="updates-source updates-source-plain">Source: {update.sourceLabel}</span>
                             )}
+                            {update.ctaUrl && update.ctaLabel ? (
+                              <a className="updates-source updates-cta" href={update.ctaUrl}>
+                                {update.ctaLabel}
+                              </a>
+                            ) : null}
                           </div>
                         </article>
                       ))}
