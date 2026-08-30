@@ -139,6 +139,7 @@
   },
   "sourceUrl": "https://www.hsbc.co.in/credit-cards/products/live-plus/",
   "applyUrl": "https://www.hsbc.co.in/credit-cards/products/live-plus/",
+  "affiliateUrl": "https://bitli.in/oN95OT9",
   "lastVerified": "2026-07-10",
   "verificationStatus": "needs-review",
   "popularityScore": 85,
@@ -154,6 +155,10 @@
     {
       "url": "https://www.hsbc.co.in/credit-cards/products/live-plus/",
       "provider": "official"
+    },
+    {
+      "url": "https://bitli.in/oN95OT9",
+      "provider": "earnkaro"
     }
   ]
 }

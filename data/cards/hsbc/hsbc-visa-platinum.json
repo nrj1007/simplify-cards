@@ -263,6 +263,7 @@
   },
   "sourceUrl": "https://www.hsbc.co.in/credit-cards/products/visa-platinum/",
   "applyUrl": "https://www.hsbc.co.in/credit-cards/products/visa-platinum/",
+  "affiliateUrl": "https://bitli.in/k5whr4W",
   "lastVerified": "2026-06-08",
   "verificationStatus": "official-direct",
   "popularityScore": 68,
@@ -278,6 +279,10 @@
     {
       "url": "https://www.hsbc.co.in/credit-cards/products/visa-platinum/",
       "provider": "official"
+    },
+    {
+      "url": "https://bitli.in/k5whr4W",
+      "provider": "earnkaro"
     }
   ]
 }

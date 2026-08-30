@@ -321,6 +321,7 @@
   },
   "sourceUrl": "https://www.hsbc.co.in/credit-cards/products/travelone/",
   "applyUrl": "https://www.hsbc.co.in/credit-cards/products/travelone/",
+  "affiliateUrl": "https://bitli.in/5pw9NTw",
   "lastVerified": "2026-05-27",
   "verificationStatus": "official-direct",
   "popularityScore": 90,
@@ -330,9 +331,8 @@
       "provider": "official"
     },
     {
-      "url": "https://inr.deals/6EwItQ",
-      "provider": "inrDeals",
-      "earnings": "Flat Rs 1500"
+      "url": "https://bitli.in/5pw9NTw",
+      "provider": "earnkaro"
     }
   ]
 }
