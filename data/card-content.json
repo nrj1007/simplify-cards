@@ -76,6 +76,17 @@
   "hdfc-infinia-metal": {
     "updates": [
       {
+        "title": "HDFC SmartBuy Amazon Pay vouchers return with lower rewards",
+        "summary": "Amazon Pay vouchers had disappeared from HDFC SmartBuy Gyftr for around 2-3 months and have now returned under Gyftr's Insta Deals structure. They no longer earn 5X accelerated rewards; Infinia cardholders now get a 1% upfront discount plus base rewards of about 3.3%, taking the effective value to about 4.3% assuming Rs 1 per Reward Point.",
+        "sourceType": "manual",
+        "sourceLabel": "HDFC SmartBuy terms",
+        "sourceUrl": "https://offers.smartbuy.hdfc.bank.in/offer_details/smartbuy/15282",
+        "publishedAt": "2026-09-03",
+        "groupId": "hdfc-amazon-pay-instadeals-devaluation-2026-09-03",
+        "groupTitle": "HDFC SmartBuy Amazon Pay vouchers return with lower rewards",
+        "groupSummary": "Amazon Pay vouchers had disappeared from HDFC SmartBuy Gyftr for around 2-3 months and have now returned under Gyftr's Insta Deals structure. They no longer earn 5X accelerated rewards; for HDFC Infinia and Diners Club Black, the route now gives a 1% upfront discount plus base rewards of about 3.3%, or about 4.3% effective value assuming Rs 1 per Reward Point."
+      },
+      {
         "title": "HDFC capped Infinia SmartBuy vouchers",
         "summary": "From 1 July 2026, SmartBuy brand vouchers earn accelerated points only up to 3,000 points per month. The overall SmartBuy monthly cap stays 15,000 points.",
         "sourceType": "manual",
@@ -180,6 +191,17 @@
   },
   "hdfc-diners-club-black-metal": {
     "updates": [
+      {
+        "title": "HDFC SmartBuy Amazon Pay vouchers return with lower rewards",
+        "summary": "Amazon Pay vouchers had disappeared from HDFC SmartBuy Gyftr for around 2-3 months and have now returned under Gyftr's Insta Deals structure. They no longer earn 5X accelerated rewards; Diners Club Black cardholders now get a 1% upfront discount plus base rewards of about 3.3%, taking the effective value to about 4.3% assuming Rs 1 per Reward Point.",
+        "sourceType": "manual",
+        "sourceLabel": "HDFC SmartBuy terms",
+        "sourceUrl": "https://offers.smartbuy.hdfc.bank.in/offer_details/smartbuy/15282",
+        "publishedAt": "2026-09-03",
+        "groupId": "hdfc-amazon-pay-instadeals-devaluation-2026-09-03",
+        "groupTitle": "HDFC SmartBuy Amazon Pay vouchers return with lower rewards",
+        "groupSummary": "Amazon Pay vouchers had disappeared from HDFC SmartBuy Gyftr for around 2-3 months and have now returned under Gyftr's Insta Deals structure. They no longer earn 5X accelerated rewards; for HDFC Infinia and Diners Club Black, the route now gives a 1% upfront discount plus base rewards of about 3.3%, or about 4.3% effective value assuming Rs 1 per Reward Point."
+      },
       {
         "title": "HDFC capped Diners Black SmartBuy vouchers",
         "summary": "From 1 July 2026, SmartBuy brand vouchers earn accelerated points only up to 3,000 points per month. The overall SmartBuy monthly cap stays 10,000 points.",
