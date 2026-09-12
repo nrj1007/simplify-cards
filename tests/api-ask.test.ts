@@ -59,6 +59,7 @@ describe("/api/ask Route Handler", () => {
 
     const response = await POST(request);
     expect(response.status).toBe(200);
+    expect(response.headers.get("Cache-Control")).toBe("no-store");
     expect(response.headers.get("X-Ask-Cache")).toBe("HIT");
 
     const data = await response.json();
@@ -104,6 +105,37 @@ describe("/api/ask Route Handler", () => {
     expect(second.headers.get("X-Ask-Cache")).toBe("HIT");
     expect(answerQuestion).toHaveBeenCalledTimes(1);
     expect(setAskResultCacheStatus).toHaveBeenCalledWith(expect.objectContaining({ summary: "Mocked travel cards" }), "HIT");
+  });
+
+  it("keeps consecutive distinct queries in separate Ask API responses", async () => {
+    vi.mocked(answerQuestion).mockImplementation(async (input) => ({
+      summary: `Answer for ${input.query}`,
+      cards: [{ card: { id: input.query === "best cashback card" ? "sbi-cashback" : "axis-atlas" } }]
+    }) as any);
+    vi.mocked(getAskResultCacheStatus).mockReturnValue("MISS");
+
+    const first = await POST(
+      new Request("http://localhost/api/ask", {
+        method: "POST",
+        body: JSON.stringify({ query: "best cashback card" })
+      })
+    );
+    const second = await POST(
+      new Request("http://localhost/api/ask", {
+        method: "POST",
+        body: JSON.stringify({ query: "best travel card" })
+      })
+    );
+
+    await expect(first.json()).resolves.toMatchObject({
+      summary: "Answer for best cashback card",
+      cards: [{ card: { id: "sbi-cashback" } }]
+    });
+    await expect(second.json()).resolves.toMatchObject({
+      summary: "Answer for best travel card",
+      cards: [{ card: { id: "axis-atlas" } }]
+    });
+    expect(answerQuestion).toHaveBeenCalledTimes(2);
   });
 
   it("logs suspicious Ask bot signals without blocking the request", async () => {
@@ -247,6 +279,7 @@ describe("/api/ask Route Handler", () => {
     const response = await POST(request);
 
     expect(response.status).toBe(200);
+    expect(response.headers.get("Cache-Control")).toBe("no-store");
     expect(response.headers.get("X-Ask-Cache")).toBe("SKIP");
     await expect(response.json()).resolves.toEqual({ directCardId: "axis-atlas" });
     expect(resolveDirectCardDetailQuery).toHaveBeenCalledWith(mockInput);

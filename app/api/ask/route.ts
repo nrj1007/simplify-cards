@@ -115,6 +115,7 @@ function resultResponse(result: AskAiResult) {
     },
     {
       headers: {
+        "Cache-Control": "no-store",
         "X-Ask-Cache": getAskResultCacheStatus(result) ?? "SKIP"
       }
     }
@@ -145,7 +146,12 @@ export async function POST(request: Request) {
     if (directCardId) {
       return NextResponse.json(
         { directCardId },
-        { headers: { "X-Ask-Cache": "SKIP" } }
+        {
+          headers: {
+            "Cache-Control": "no-store",
+            "X-Ask-Cache": "SKIP"
+          }
+        }
       );
     }
 

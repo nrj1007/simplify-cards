@@ -2,8 +2,6 @@
 
 import type { ChangeEvent, FormEvent } from "react";
 import { useState } from "react";
-import type { Route } from "next";
-import { useRouter } from "next/navigation";
 import { LoadingButton } from "@/components/LoadingButton";
 import { loadingCopy } from "@/lib/loading-copy";
 import { triggerAskResultsLoading } from "./AskResultsLoadingBoundary";
@@ -30,7 +28,6 @@ export default function AskQueryForm({
   multiline = false,
   contextParams
 }: Props) {
-  const router = useRouter();
   const composer = useAskQueryComposer();
   const [submittedQuery, setSubmittedQuery] = useState<string | null>(null);
   const isLoading = submittedQuery !== null && submittedQuery !== defaultValue.trim();
@@ -68,7 +65,7 @@ export default function AskQueryForm({
 
     setSubmittedQuery(query);
     triggerAskResultsLoading();
-    router.push(nextHref as Route);
+    window.location.assign(nextHref);
   }
 
   return (

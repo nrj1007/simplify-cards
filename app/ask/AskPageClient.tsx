@@ -141,6 +141,7 @@ export default function AskPageClient() {
 
     void fetch("/api/ask", {
       method: "POST",
+      cache: "no-store",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(input),
       signal: controller.signal
