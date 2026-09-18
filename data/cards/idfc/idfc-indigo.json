@@ -14,7 +14,7 @@
     "flights",
     "travel",
     "upi",
-    "low forex"
+    "zero forex"
   ],
   "rewardType": "indigo bluchips",
   "rewardLiquidity": "brand-locked",
@@ -48,7 +48,7 @@
     "domestic": [],
     "international": []
   },
-  "forexMarkup": 1.49,
+  "forexMarkup": 0,
   "tags": [
     "indigo",
     "dual card",
@@ -57,7 +57,7 @@
     "upi",
     "bluchips",
     "travel",
-    "low forex"
+    "zero forex"
   ],
   "exclusions": [
     "EMI transactions",
@@ -112,7 +112,6 @@
     "Welcome benefit of 5,000 IndiGo BluChips voucher plus 1 complimentary IndiGo meal voucher upon fee payment",
     "Activation bonus of 3,000 IndiGo BluChips on spending ₹1 Lakh or more within the first 90 days",
     "Complimentary Mastercard World/Elite privileges including golf rounds/lessons (4 rounds and 12 lessons annually)",
-    "Low forex markup of 1.49%",
     "Up to ₹25,000 reimbursement per year for non-refundable flight and hotel cancellations",
     "RuPay network card enables UPI payments"
   ],
@@ -146,7 +145,8 @@
     "Earns 6 BluChips per ₹100 spent on IndiGo flights, and 3 BluChips per ₹100 spent on other retail transactions.",
     "UPI, insurance, utilities, fuel, rent, and wallet spends earn a reduced rate of 0.5 BluChips per ₹100 spent.",
     "This card does not offer airport lounge access. It offers golf privileges (4 rounds and 12 lessons annually) via Mastercard.",
-    "Fee waiver option available by opening a Fixed Deposit of ₹1 Lakh with the bank."
+    "Fee waiver option available by opening a Fixed Deposit of ₹1 Lakh with the bank.",
+    "Forex markup verified on 2026-09-19: all IDFC FIRST Bank credit cards offer 0% forex markup for existing and new cardholders. Source: https://www.idfcfirst.bank.in/credit-card/forex-cards. Pay in local currency to avoid DCC. Other benefits were not re-audited."
   ],
   "popularityScore": 56,
   "applyLinks": [

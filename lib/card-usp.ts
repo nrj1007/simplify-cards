@@ -150,7 +150,7 @@ export const creditCardUSPs: CardUSPItem[] = [
   {
     cardKey: "idfc-first-wealth",
     cardName: "IDFC FIRST Wealth Credit Card",
-    usp: "A no-fuss premium card for users who want decent lifestyle benefits, airport lounge access, low forex markup, and no annual fee pressure.",
+    usp: "A no-fuss premium card for users who want decent lifestyle benefits, airport lounge access, zero forex markup, and no annual fee pressure.",
     shortUsp: "Low-cost premium"
   },
   {
@@ -613,7 +613,7 @@ export const creditCardUSPs: CardUSPItem[] = [
   {
     cardKey: "idfc-first-select",
     cardName: "Select Credit Card",
-    usp: "A lifetime-free premium card offering reward points that never expire, complimentary domestic airport lounge visits, and low interest rates and forex markup.",
+    usp: "A lifetime-free premium card offering reward points that never expire, complimentary domestic airport lounge visits, low interest rates, and zero forex markup.",
     shortUsp: "Lifetime-free premium rewards"
   },
   {

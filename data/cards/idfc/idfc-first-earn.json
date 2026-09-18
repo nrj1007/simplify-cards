@@ -39,7 +39,7 @@
     "domestic": [],
     "international": []
   },
-  "forexMarkup": 3.5,
+  "forexMarkup": 0,
   "tags": [
     "earn",
     "secured card",
@@ -94,7 +94,8 @@
     "1% cashback on UPI transactions made specifically via IDFC FIRST Bank mobile app QR scans.",
     "0.5% cashback on other spends including utility, insurance, fuel, online/offline, and other third-party UPI apps.",
     "Combined monthly cashback is capped at ₹500 per statement cycle. EMI transactions are excluded.",
-    "Annual fee of ₹499 is waived on spending ₹1,00,000 in the previous anniversary year."
+    "Annual fee of ₹499 is waived on spending ₹1,00,000 in the previous anniversary year.",
+    "Forex markup verified on 2026-09-19: all IDFC FIRST Bank credit cards offer 0% forex markup for existing and new cardholders. Source: https://www.idfcfirst.bank.in/credit-card/forex-cards. Pay in local currency to avoid DCC. Other benefits were not re-audited."
   ],
   "popularityScore": 62,
   "applyLinks": [

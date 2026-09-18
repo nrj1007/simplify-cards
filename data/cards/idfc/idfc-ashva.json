@@ -13,7 +13,7 @@
     "lifestyle",
     "lounge",
     "golf",
-    "low forex"
+    "zero forex"
   ],
   "rewardType": "reward points",
   "rewards": [
@@ -56,7 +56,7 @@
       "2 complimentary international airport lounge visits per quarter, subject to a minimum spend of ₹20,000 in the previous calendar month."
     ]
   },
-  "forexMarkup": 1,
+  "forexMarkup": 0,
   "tags": [
     "ashva",
     "metal card",
@@ -65,7 +65,7 @@
     "lounge",
     "golf",
     "movies",
-    "low forex"
+    "zero forex"
   ],
   "exclusions": [
     "Fuel transactions",
@@ -125,7 +125,8 @@
     "3X reward points (2.0 points per ₹100 spent) on rent, education, wallet load, and government spends.",
     "1X reward points (0.67 points per ₹100 spent) on utilities, insurance, railways, and FASTag recharges.",
     "Airport lounge access requires a minimum spend of ₹20,000 in the previous calendar month.",
-    "Buy 1 Get 1 movie ticket offer is subject to a spend threshold of ₹20,000 in the previous calendar month."
+    "Buy 1 Get 1 movie ticket offer is subject to a spend threshold of ₹20,000 in the previous calendar month.",
+    "Forex markup verified on 2026-09-19: all IDFC FIRST Bank credit cards offer 0% forex markup for existing and new cardholders. Source: https://www.idfcfirst.bank.in/credit-card/forex-cards. Pay in local currency to avoid DCC. Other benefits were not re-audited."
   ],
   "popularityScore": 63,
   "applyLinks": [

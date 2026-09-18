@@ -45,7 +45,7 @@
     "domestic": [],
     "international": []
   },
-  "forexMarkup": 3.5,
+  "forexMarkup": 0,
   "tags": [
     "power",
     "hpcl",
@@ -115,7 +115,8 @@
     "HPCL fuel co-branded credit card. 21X points per ₹150 spent on HPCL fuel (capped at 700 points/cycle).",
     "15X points per ₹150 spent on grocery and utility bills (capped at 400 points/cycle on combined spends up to ₹4,000).",
     "2X points per ₹150 spent on other retail and UPI transactions (value: 0.33% return).",
-    "Annual fee of ₹199 is waived on spending ₹50,000 in the preceding anniversary year."
+    "Annual fee of ₹199 is waived on spending ₹50,000 in the preceding anniversary year.",
+    "Forex markup verified on 2026-09-19: all IDFC FIRST Bank credit cards offer 0% forex markup for existing and new cardholders. Source: https://www.idfcfirst.bank.in/credit-card/forex-cards. Pay in local currency to avoid DCC. Other benefits were not re-audited."
   ],
   "popularityScore": 65,
   "applyLinks": [

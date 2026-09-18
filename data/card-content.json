@@ -1162,6 +1162,17 @@
   "idfc-indigo": {
     "updates": [
       {
+        "title": "All IDFC FIRST credit cards now offer 0% forex markup",
+        "summary": "All IDFC FIRST credit cards, including IndiGo Credit Card, offer 0% forex markup for existing and new cardholders. On ₹1,00,000 of foreign-currency purchases, save about ₹4,130 versus a typical 3.5% forex card (₹3,500 markup + ₹630 GST at 18%). Always pay in local currency abroad to avoid Dynamic Currency Conversion (DCC). Card fees and rewards vary by card; the lifetime-free fees and reward examples in this update refer specifically to FIRST Wealth, FIRST Select and FIRST WOW!.",
+        "sourceType": "manual",
+        "sourceLabel": "IDFC FIRST Bank — all-card zero forex details",
+        "sourceUrl": "https://www.idfcfirst.bank.in/credit-card/forex-cards",
+        "publishedAt": "2026-09-19",
+        "groupId": "idfc-first-zero-forex-2026-09",
+        "groupTitle": "All IDFC FIRST credit cards now offer 0% forex markup",
+        "groupSummary": "All IDFC FIRST credit cards offer 0% forex markup on international spends for existing and new cardholders. On ₹1,00,000 of foreign-currency purchases, you save about ₹4,130 versus a typical 3.5% forex card: ₹3,500 markup + ₹630 GST (18% on the markup). FIRST Wealth, FIRST Select and FIRST WOW! all have ₹0 joining fee and ₹0 annual fee (lifetime free). As checked on 19 September 2026, eligible international spends earn approximately 1.25% reward value on FIRST Wealth and FIRST Select, and 0.5% on FIRST WOW!, at ₹0.25 per Reward Point before redemption fees; exclusions and bank terms apply. Always pay in the local currency abroad: choosing INR can trigger Dynamic Currency Conversion (DCC) charges."
+      },
+      {
         "title": "Reciprocal points transfer launched with Accor ALL",
         "summary": "Effective 13 July 2026, IndiGo and Accor launched a reciprocal loyalty partnership. You can now transfer IndiGo BluChips to Accor Live Limitless (ALL) at a 6:1 ratio (6,000 BluChips = 1,000 ALL points).",
         "sourceType": "manual",
@@ -1336,7 +1347,7 @@
   "idfc-first-wealth": {
     "updates": [
       {
-        "title": "IDFC FIRST credit cards now offer 0% forex markup",
+        "title": "All IDFC FIRST credit cards now offer 0% forex markup",
         "summary": "FIRST Wealth: 0% forex markup for existing and new cardholders; ₹0 joining fee and ₹0 annual fee (lifetime free). Current eligible international spend rewards, checked on 19 September 2026: approximately 1.25% value back (10 Reward Points per ₹200 × ₹0.25 per point), before redemption fees. On ₹1,00,000 of foreign-currency purchases, save about ₹4,130 versus a typical 3.5% forex card (₹3,500 markup + ₹630 GST at 18%). Pay in local currency abroad to avoid Dynamic Currency Conversion (DCC); choosing INR can add conversion charges. Reward exclusions and bank terms apply.",
         "sourceType": "manual",
         "sourceLabel": "IDFC FIRST Bank — FIRST Wealth official details",
@@ -1345,15 +1356,15 @@
         "ctaUrl": "https://simplifycards.in/apply/wealth",
         "publishedAt": "2026-09-19",
         "groupId": "idfc-first-zero-forex-2026-09",
-        "groupTitle": "IDFC FIRST credit cards now offer 0% forex markup",
-        "groupSummary": "IDFC FIRST credit cards offer 0% forex markup on international spends for existing and new cardholders. On ₹1,00,000 of foreign-currency purchases, you save about ₹4,130 versus a typical 3.5% forex card: ₹3,500 markup + ₹630 GST (18% on the markup). FIRST Wealth, FIRST Select and FIRST WOW! all have ₹0 joining fee and ₹0 annual fee (lifetime free). As checked on 19 September 2026, eligible international spends earn approximately 1.25% reward value on FIRST Wealth and FIRST Select, and 0.5% on FIRST WOW!, at ₹0.25 per Reward Point before redemption fees; exclusions and bank terms apply. Always pay in the local currency abroad: choosing INR can trigger Dynamic Currency Conversion (DCC) charges."
+        "groupTitle": "All IDFC FIRST credit cards now offer 0% forex markup",
+        "groupSummary": "All IDFC FIRST credit cards offer 0% forex markup on international spends for existing and new cardholders. On ₹1,00,000 of foreign-currency purchases, you save about ₹4,130 versus a typical 3.5% forex card: ₹3,500 markup + ₹630 GST (18% on the markup). FIRST Wealth, FIRST Select and FIRST WOW! all have ₹0 joining fee and ₹0 annual fee (lifetime free). As checked on 19 September 2026, eligible international spends earn approximately 1.25% reward value on FIRST Wealth and FIRST Select, and 0.5% on FIRST WOW!, at ₹0.25 per Reward Point before redemption fees; exclusions and bank terms apply. Always pay in the local currency abroad: choosing INR can trigger Dynamic Currency Conversion (DCC) charges."
       }
     ]
   },
   "idfc-first-select": {
     "updates": [
       {
-        "title": "IDFC FIRST credit cards now offer 0% forex markup",
+        "title": "All IDFC FIRST credit cards now offer 0% forex markup",
         "summary": "FIRST Select: 0% forex markup for existing and new cardholders; ₹0 joining fee and ₹0 annual fee (lifetime free). Current eligible international spend rewards, checked on 19 September 2026: approximately 1.25% value back (10 Reward Points per ₹200 × ₹0.25 per point), before redemption fees. On ₹1,00,000 of foreign-currency purchases, save about ₹4,130 versus a typical 3.5% forex card (₹3,500 markup + ₹630 GST at 18%). Pay in local currency abroad to avoid Dynamic Currency Conversion (DCC); choosing INR can add conversion charges. Reward exclusions and bank terms apply.",
         "sourceType": "manual",
         "sourceLabel": "IDFC FIRST Bank — FIRST Select official details",
@@ -1362,15 +1373,15 @@
         "ctaUrl": "https://simplifycards.in/apply/select",
         "publishedAt": "2026-09-19",
         "groupId": "idfc-first-zero-forex-2026-09",
-        "groupTitle": "IDFC FIRST credit cards now offer 0% forex markup",
-        "groupSummary": "IDFC FIRST credit cards offer 0% forex markup on international spends for existing and new cardholders. On ₹1,00,000 of foreign-currency purchases, you save about ₹4,130 versus a typical 3.5% forex card: ₹3,500 markup + ₹630 GST (18% on the markup). FIRST Wealth, FIRST Select and FIRST WOW! all have ₹0 joining fee and ₹0 annual fee (lifetime free). As checked on 19 September 2026, eligible international spends earn approximately 1.25% reward value on FIRST Wealth and FIRST Select, and 0.5% on FIRST WOW!, at ₹0.25 per Reward Point before redemption fees; exclusions and bank terms apply. Always pay in the local currency abroad: choosing INR can trigger Dynamic Currency Conversion (DCC) charges."
+        "groupTitle": "All IDFC FIRST credit cards now offer 0% forex markup",
+        "groupSummary": "All IDFC FIRST credit cards offer 0% forex markup on international spends for existing and new cardholders. On ₹1,00,000 of foreign-currency purchases, you save about ₹4,130 versus a typical 3.5% forex card: ₹3,500 markup + ₹630 GST (18% on the markup). FIRST Wealth, FIRST Select and FIRST WOW! all have ₹0 joining fee and ₹0 annual fee (lifetime free). As checked on 19 September 2026, eligible international spends earn approximately 1.25% reward value on FIRST Wealth and FIRST Select, and 0.5% on FIRST WOW!, at ₹0.25 per Reward Point before redemption fees; exclusions and bank terms apply. Always pay in the local currency abroad: choosing INR can trigger Dynamic Currency Conversion (DCC) charges."
       }
     ]
   },
   "idfc-wow": {
     "updates": [
       {
-        "title": "IDFC FIRST credit cards now offer 0% forex markup",
+        "title": "All IDFC FIRST credit cards now offer 0% forex markup",
         "summary": "FIRST WOW!: 0% forex markup for existing and new cardholders; ₹0 joining fee and ₹0 annual fee (lifetime free). Current eligible international spend rewards, checked on 19 September 2026: approximately 0.5% value back (4 Reward Points per ₹200 × ₹0.25 per point), before redemption fees. On ₹1,00,000 of foreign-currency purchases, save about ₹4,130 versus a typical 3.5% forex card (₹3,500 markup + ₹630 GST at 18%). Pay in local currency abroad to avoid Dynamic Currency Conversion (DCC); choosing INR can add conversion charges. Reward exclusions and bank terms apply.",
         "sourceType": "manual",
         "sourceLabel": "IDFC FIRST Bank — FIRST WOW! official details",
@@ -1379,8 +1390,113 @@
         "ctaUrl": "https://simplifycards.in/apply/wow",
         "publishedAt": "2026-09-19",
         "groupId": "idfc-first-zero-forex-2026-09",
-        "groupTitle": "IDFC FIRST credit cards now offer 0% forex markup",
-        "groupSummary": "IDFC FIRST credit cards offer 0% forex markup on international spends for existing and new cardholders. On ₹1,00,000 of foreign-currency purchases, you save about ₹4,130 versus a typical 3.5% forex card: ₹3,500 markup + ₹630 GST (18% on the markup). FIRST Wealth, FIRST Select and FIRST WOW! all have ₹0 joining fee and ₹0 annual fee (lifetime free). As checked on 19 September 2026, eligible international spends earn approximately 1.25% reward value on FIRST Wealth and FIRST Select, and 0.5% on FIRST WOW!, at ₹0.25 per Reward Point before redemption fees; exclusions and bank terms apply. Always pay in the local currency abroad: choosing INR can trigger Dynamic Currency Conversion (DCC) charges."
+        "groupTitle": "All IDFC FIRST credit cards now offer 0% forex markup",
+        "groupSummary": "All IDFC FIRST credit cards offer 0% forex markup on international spends for existing and new cardholders. On ₹1,00,000 of foreign-currency purchases, you save about ₹4,130 versus a typical 3.5% forex card: ₹3,500 markup + ₹630 GST (18% on the markup). FIRST Wealth, FIRST Select and FIRST WOW! all have ₹0 joining fee and ₹0 annual fee (lifetime free). As checked on 19 September 2026, eligible international spends earn approximately 1.25% reward value on FIRST Wealth and FIRST Select, and 0.5% on FIRST WOW!, at ₹0.25 per Reward Point before redemption fees; exclusions and bank terms apply. Always pay in the local currency abroad: choosing INR can trigger Dynamic Currency Conversion (DCC) charges."
+      }
+    ]
+  },
+  "idfc-first-millennia": {
+    "updates": [
+      {
+        "title": "All IDFC FIRST credit cards now offer 0% forex markup",
+        "summary": "All IDFC FIRST credit cards, including Millennia Credit Card, offer 0% forex markup for existing and new cardholders. On ₹1,00,000 of foreign-currency purchases, save about ₹4,130 versus a typical 3.5% forex card (₹3,500 markup + ₹630 GST at 18%). Always pay in local currency abroad to avoid Dynamic Currency Conversion (DCC). Card fees and rewards vary by card; the lifetime-free fees and reward examples in this update refer specifically to FIRST Wealth, FIRST Select and FIRST WOW!.",
+        "sourceType": "manual",
+        "sourceLabel": "IDFC FIRST Bank — all-card zero forex details",
+        "sourceUrl": "https://www.idfcfirst.bank.in/credit-card/forex-cards",
+        "publishedAt": "2026-09-19",
+        "groupId": "idfc-first-zero-forex-2026-09",
+        "groupTitle": "All IDFC FIRST credit cards now offer 0% forex markup",
+        "groupSummary": "All IDFC FIRST credit cards offer 0% forex markup on international spends for existing and new cardholders. On ₹1,00,000 of foreign-currency purchases, you save about ₹4,130 versus a typical 3.5% forex card: ₹3,500 markup + ₹630 GST (18% on the markup). FIRST Wealth, FIRST Select and FIRST WOW! all have ₹0 joining fee and ₹0 annual fee (lifetime free). As checked on 19 September 2026, eligible international spends earn approximately 1.25% reward value on FIRST Wealth and FIRST Select, and 0.5% on FIRST WOW!, at ₹0.25 per Reward Point before redemption fees; exclusions and bank terms apply. Always pay in the local currency abroad: choosing INR can trigger Dynamic Currency Conversion (DCC) charges."
+      }
+    ]
+  },
+  "idfc-first-classic": {
+    "updates": [
+      {
+        "title": "All IDFC FIRST credit cards now offer 0% forex markup",
+        "summary": "All IDFC FIRST credit cards, including Classic Credit Card, offer 0% forex markup for existing and new cardholders. On ₹1,00,000 of foreign-currency purchases, save about ₹4,130 versus a typical 3.5% forex card (₹3,500 markup + ₹630 GST at 18%). Always pay in local currency abroad to avoid Dynamic Currency Conversion (DCC). Card fees and rewards vary by card; the lifetime-free fees and reward examples in this update refer specifically to FIRST Wealth, FIRST Select and FIRST WOW!.",
+        "sourceType": "manual",
+        "sourceLabel": "IDFC FIRST Bank — all-card zero forex details",
+        "sourceUrl": "https://www.idfcfirst.bank.in/credit-card/forex-cards",
+        "publishedAt": "2026-09-19",
+        "groupId": "idfc-first-zero-forex-2026-09",
+        "groupTitle": "All IDFC FIRST credit cards now offer 0% forex markup",
+        "groupSummary": "All IDFC FIRST credit cards offer 0% forex markup on international spends for existing and new cardholders. On ₹1,00,000 of foreign-currency purchases, you save about ₹4,130 versus a typical 3.5% forex card: ₹3,500 markup + ₹630 GST (18% on the markup). FIRST Wealth, FIRST Select and FIRST WOW! all have ₹0 joining fee and ₹0 annual fee (lifetime free). As checked on 19 September 2026, eligible international spends earn approximately 1.25% reward value on FIRST Wealth and FIRST Select, and 0.5% on FIRST WOW!, at ₹0.25 per Reward Point before redemption fees; exclusions and bank terms apply. Always pay in the local currency abroad: choosing INR can trigger Dynamic Currency Conversion (DCC) charges."
+      }
+    ]
+  },
+  "idfc-first-power-plus": {
+    "updates": [
+      {
+        "title": "All IDFC FIRST credit cards now offer 0% forex markup",
+        "summary": "All IDFC FIRST credit cards, including Power+ Credit Card, offer 0% forex markup for existing and new cardholders. On ₹1,00,000 of foreign-currency purchases, save about ₹4,130 versus a typical 3.5% forex card (₹3,500 markup + ₹630 GST at 18%). Always pay in local currency abroad to avoid Dynamic Currency Conversion (DCC). Card fees and rewards vary by card; the lifetime-free fees and reward examples in this update refer specifically to FIRST Wealth, FIRST Select and FIRST WOW!.",
+        "sourceType": "manual",
+        "sourceLabel": "IDFC FIRST Bank — all-card zero forex details",
+        "sourceUrl": "https://www.idfcfirst.bank.in/credit-card/forex-cards",
+        "publishedAt": "2026-09-19",
+        "groupId": "idfc-first-zero-forex-2026-09",
+        "groupTitle": "All IDFC FIRST credit cards now offer 0% forex markup",
+        "groupSummary": "All IDFC FIRST credit cards offer 0% forex markup on international spends for existing and new cardholders. On ₹1,00,000 of foreign-currency purchases, you save about ₹4,130 versus a typical 3.5% forex card: ₹3,500 markup + ₹630 GST (18% on the markup). FIRST Wealth, FIRST Select and FIRST WOW! all have ₹0 joining fee and ₹0 annual fee (lifetime free). As checked on 19 September 2026, eligible international spends earn approximately 1.25% reward value on FIRST Wealth and FIRST Select, and 0.5% on FIRST WOW!, at ₹0.25 per Reward Point before redemption fees; exclusions and bank terms apply. Always pay in the local currency abroad: choosing INR can trigger Dynamic Currency Conversion (DCC) charges."
+      }
+    ]
+  },
+  "idfc-first-earn": {
+    "updates": [
+      {
+        "title": "All IDFC FIRST credit cards now offer 0% forex markup",
+        "summary": "All IDFC FIRST credit cards, including EA₹N Credit Card, offer 0% forex markup for existing and new cardholders. On ₹1,00,000 of foreign-currency purchases, save about ₹4,130 versus a typical 3.5% forex card (₹3,500 markup + ₹630 GST at 18%). Always pay in local currency abroad to avoid Dynamic Currency Conversion (DCC). Card fees and rewards vary by card; the lifetime-free fees and reward examples in this update refer specifically to FIRST Wealth, FIRST Select and FIRST WOW!.",
+        "sourceType": "manual",
+        "sourceLabel": "IDFC FIRST Bank — all-card zero forex details",
+        "sourceUrl": "https://www.idfcfirst.bank.in/credit-card/forex-cards",
+        "publishedAt": "2026-09-19",
+        "groupId": "idfc-first-zero-forex-2026-09",
+        "groupTitle": "All IDFC FIRST credit cards now offer 0% forex markup",
+        "groupSummary": "All IDFC FIRST credit cards offer 0% forex markup on international spends for existing and new cardholders. On ₹1,00,000 of foreign-currency purchases, you save about ₹4,130 versus a typical 3.5% forex card: ₹3,500 markup + ₹630 GST (18% on the markup). FIRST Wealth, FIRST Select and FIRST WOW! all have ₹0 joining fee and ₹0 annual fee (lifetime free). As checked on 19 September 2026, eligible international spends earn approximately 1.25% reward value on FIRST Wealth and FIRST Select, and 0.5% on FIRST WOW!, at ₹0.25 per Reward Point before redemption fees; exclusions and bank terms apply. Always pay in the local currency abroad: choosing INR can trigger Dynamic Currency Conversion (DCC) charges."
+      }
+    ]
+  },
+  "idfc-ashva": {
+    "updates": [
+      {
+        "title": "All IDFC FIRST credit cards now offer 0% forex markup",
+        "summary": "All IDFC FIRST credit cards, including Ashva Credit Card, offer 0% forex markup for existing and new cardholders. On ₹1,00,000 of foreign-currency purchases, save about ₹4,130 versus a typical 3.5% forex card (₹3,500 markup + ₹630 GST at 18%). Always pay in local currency abroad to avoid Dynamic Currency Conversion (DCC). Card fees and rewards vary by card; the lifetime-free fees and reward examples in this update refer specifically to FIRST Wealth, FIRST Select and FIRST WOW!.",
+        "sourceType": "manual",
+        "sourceLabel": "IDFC FIRST Bank — all-card zero forex details",
+        "sourceUrl": "https://www.idfcfirst.bank.in/credit-card/forex-cards",
+        "publishedAt": "2026-09-19",
+        "groupId": "idfc-first-zero-forex-2026-09",
+        "groupTitle": "All IDFC FIRST credit cards now offer 0% forex markup",
+        "groupSummary": "All IDFC FIRST credit cards offer 0% forex markup on international spends for existing and new cardholders. On ₹1,00,000 of foreign-currency purchases, you save about ₹4,130 versus a typical 3.5% forex card: ₹3,500 markup + ₹630 GST (18% on the markup). FIRST Wealth, FIRST Select and FIRST WOW! all have ₹0 joining fee and ₹0 annual fee (lifetime free). As checked on 19 September 2026, eligible international spends earn approximately 1.25% reward value on FIRST Wealth and FIRST Select, and 0.5% on FIRST WOW!, at ₹0.25 per Reward Point before redemption fees; exclusions and bank terms apply. Always pay in the local currency abroad: choosing INR can trigger Dynamic Currency Conversion (DCC) charges."
+      }
+    ]
+  },
+  "idfc-first-power": {
+    "updates": [
+      {
+        "title": "All IDFC FIRST credit cards now offer 0% forex markup",
+        "summary": "All IDFC FIRST credit cards, including Power Credit Card, offer 0% forex markup for existing and new cardholders. On ₹1,00,000 of foreign-currency purchases, save about ₹4,130 versus a typical 3.5% forex card (₹3,500 markup + ₹630 GST at 18%). Always pay in local currency abroad to avoid Dynamic Currency Conversion (DCC). Card fees and rewards vary by card; the lifetime-free fees and reward examples in this update refer specifically to FIRST Wealth, FIRST Select and FIRST WOW!.",
+        "sourceType": "manual",
+        "sourceLabel": "IDFC FIRST Bank — all-card zero forex details",
+        "sourceUrl": "https://www.idfcfirst.bank.in/credit-card/forex-cards",
+        "publishedAt": "2026-09-19",
+        "groupId": "idfc-first-zero-forex-2026-09",
+        "groupTitle": "All IDFC FIRST credit cards now offer 0% forex markup",
+        "groupSummary": "All IDFC FIRST credit cards offer 0% forex markup on international spends for existing and new cardholders. On ₹1,00,000 of foreign-currency purchases, you save about ₹4,130 versus a typical 3.5% forex card: ₹3,500 markup + ₹630 GST (18% on the markup). FIRST Wealth, FIRST Select and FIRST WOW! all have ₹0 joining fee and ₹0 annual fee (lifetime free). As checked on 19 September 2026, eligible international spends earn approximately 1.25% reward value on FIRST Wealth and FIRST Select, and 0.5% on FIRST WOW!, at ₹0.25 per Reward Point before redemption fees; exclusions and bank terms apply. Always pay in the local currency abroad: choosing INR can trigger Dynamic Currency Conversion (DCC) charges."
+      }
+    ]
+  },
+  "idfc-mayura": {
+    "updates": [
+      {
+        "title": "All IDFC FIRST credit cards now offer 0% forex markup",
+        "summary": "All IDFC FIRST credit cards, including Mayura Credit Card, offer 0% forex markup for existing and new cardholders. On ₹1,00,000 of foreign-currency purchases, save about ₹4,130 versus a typical 3.5% forex card (₹3,500 markup + ₹630 GST at 18%). Always pay in local currency abroad to avoid Dynamic Currency Conversion (DCC). Card fees and rewards vary by card; the lifetime-free fees and reward examples in this update refer specifically to FIRST Wealth, FIRST Select and FIRST WOW!.",
+        "sourceType": "manual",
+        "sourceLabel": "IDFC FIRST Bank — all-card zero forex details",
+        "sourceUrl": "https://www.idfcfirst.bank.in/credit-card/forex-cards",
+        "publishedAt": "2026-09-19",
+        "groupId": "idfc-first-zero-forex-2026-09",
+        "groupTitle": "All IDFC FIRST credit cards now offer 0% forex markup",
+        "groupSummary": "All IDFC FIRST credit cards offer 0% forex markup on international spends for existing and new cardholders. On ₹1,00,000 of foreign-currency purchases, you save about ₹4,130 versus a typical 3.5% forex card: ₹3,500 markup + ₹630 GST (18% on the markup). FIRST Wealth, FIRST Select and FIRST WOW! all have ₹0 joining fee and ₹0 annual fee (lifetime free). As checked on 19 September 2026, eligible international spends earn approximately 1.25% reward value on FIRST Wealth and FIRST Select, and 0.5% on FIRST WOW!, at ₹0.25 per Reward Point before redemption fees; exclusions and bank terms apply. Always pay in the local currency abroad: choosing INR can trigger Dynamic Currency Conversion (DCC) charges."
       }
     ]
   }
