@@ -83,7 +83,8 @@
     "Card details manually reviewed and verified by user on 2026-06-14.",
     "Secured credit card issued against a Fixed Deposit (minimum ₹20,000).",
     "4 Reward Points per ₹200 spent (value: 0.5% return), 1 Reward Point per ₹200 spent on utility/insurance/FASTag/railways (value: 0.125% return).",
-    "Reward points are valid for 24 months."
+    "Reward points are valid for 24 months.",
+    "Forex markup, joining/annual fees and international reward value verified on 2026-09-19 at https://www.idfcfirst.bank.in/credit-card/wow: 0% forex for existing and new cardholders, zero joining and annual fees, approximately 0.5% international reward value at ₹0.25 per point before redemption fees. Pay in local currency to avoid DCC. Other benefits were not re-audited."
   ],
   "popularityScore": 84,
   "applyLinks": [
@@ -106,5 +107,6 @@
       "provider": "cuelinks",
       "earnings": "1012/Lead (NTB)"
     }
-  ]
+  ],
+  "affiliateUrl": "https://simplifycards.in/apply/wow"
 }

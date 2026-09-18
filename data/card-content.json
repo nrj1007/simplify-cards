@@ -1332,5 +1332,56 @@
         "groupSummary": "Existing Swiggy HDFC Bank Credit Card holders are being moved to Swiggy Ornge or Swiggy BLCK. No choice means Ornge by default; Ornge is lifetime free with 5% Swiggy cashback, while BLCK keeps 10% Swiggy cashback with a ₹1,000 annual fee. The old card stops after first new-card use or after 60 days/card expiry, whichever comes first, and the migration cannot be reversed."
       }
     ]
+  },
+  "idfc-first-wealth": {
+    "updates": [
+      {
+        "title": "IDFC FIRST credit cards now offer 0% forex markup",
+        "summary": "FIRST Wealth: 0% forex markup for existing and new cardholders; ₹0 joining fee and ₹0 annual fee (lifetime free). Current eligible international spend rewards, checked on 19 September 2026: approximately 1.25% value back (10 Reward Points per ₹200 × ₹0.25 per point), before redemption fees. On ₹1,00,000 of foreign-currency purchases, save about ₹4,130 versus a typical 3.5% forex card (₹3,500 markup + ₹630 GST at 18%). Pay in local currency abroad to avoid Dynamic Currency Conversion (DCC); choosing INR can add conversion charges. Reward exclusions and bank terms apply.",
+        "sourceType": "manual",
+        "sourceLabel": "IDFC FIRST Bank — FIRST Wealth official details",
+        "sourceUrl": "https://www.idfcfirst.bank.in/credit-card/wealth",
+        "ctaLabel": "Apply for FIRST Wealth",
+        "ctaUrl": "https://simplifycards.in/apply/wealth",
+        "publishedAt": "2026-09-19",
+        "groupId": "idfc-first-zero-forex-2026-09",
+        "groupTitle": "IDFC FIRST credit cards now offer 0% forex markup",
+        "groupSummary": "IDFC FIRST credit cards offer 0% forex markup on international spends for existing and new cardholders. On ₹1,00,000 of foreign-currency purchases, you save about ₹4,130 versus a typical 3.5% forex card: ₹3,500 markup + ₹630 GST (18% on the markup). FIRST Wealth, FIRST Select and FIRST WOW! all have ₹0 joining fee and ₹0 annual fee (lifetime free). As checked on 19 September 2026, eligible international spends earn approximately 1.25% reward value on FIRST Wealth and FIRST Select, and 0.5% on FIRST WOW!, at ₹0.25 per Reward Point before redemption fees; exclusions and bank terms apply. Always pay in the local currency abroad: choosing INR can trigger Dynamic Currency Conversion (DCC) charges."
+      }
+    ]
+  },
+  "idfc-first-select": {
+    "updates": [
+      {
+        "title": "IDFC FIRST credit cards now offer 0% forex markup",
+        "summary": "FIRST Select: 0% forex markup for existing and new cardholders; ₹0 joining fee and ₹0 annual fee (lifetime free). Current eligible international spend rewards, checked on 19 September 2026: approximately 1.25% value back (10 Reward Points per ₹200 × ₹0.25 per point), before redemption fees. On ₹1,00,000 of foreign-currency purchases, save about ₹4,130 versus a typical 3.5% forex card (₹3,500 markup + ₹630 GST at 18%). Pay in local currency abroad to avoid Dynamic Currency Conversion (DCC); choosing INR can add conversion charges. Reward exclusions and bank terms apply.",
+        "sourceType": "manual",
+        "sourceLabel": "IDFC FIRST Bank — FIRST Select official details",
+        "sourceUrl": "https://www.idfcfirst.bank.in/credit-card/select",
+        "ctaLabel": "Apply for FIRST Select",
+        "ctaUrl": "https://simplifycards.in/apply/select",
+        "publishedAt": "2026-09-19",
+        "groupId": "idfc-first-zero-forex-2026-09",
+        "groupTitle": "IDFC FIRST credit cards now offer 0% forex markup",
+        "groupSummary": "IDFC FIRST credit cards offer 0% forex markup on international spends for existing and new cardholders. On ₹1,00,000 of foreign-currency purchases, you save about ₹4,130 versus a typical 3.5% forex card: ₹3,500 markup + ₹630 GST (18% on the markup). FIRST Wealth, FIRST Select and FIRST WOW! all have ₹0 joining fee and ₹0 annual fee (lifetime free). As checked on 19 September 2026, eligible international spends earn approximately 1.25% reward value on FIRST Wealth and FIRST Select, and 0.5% on FIRST WOW!, at ₹0.25 per Reward Point before redemption fees; exclusions and bank terms apply. Always pay in the local currency abroad: choosing INR can trigger Dynamic Currency Conversion (DCC) charges."
+      }
+    ]
+  },
+  "idfc-wow": {
+    "updates": [
+      {
+        "title": "IDFC FIRST credit cards now offer 0% forex markup",
+        "summary": "FIRST WOW!: 0% forex markup for existing and new cardholders; ₹0 joining fee and ₹0 annual fee (lifetime free). Current eligible international spend rewards, checked on 19 September 2026: approximately 0.5% value back (4 Reward Points per ₹200 × ₹0.25 per point), before redemption fees. On ₹1,00,000 of foreign-currency purchases, save about ₹4,130 versus a typical 3.5% forex card (₹3,500 markup + ₹630 GST at 18%). Pay in local currency abroad to avoid Dynamic Currency Conversion (DCC); choosing INR can add conversion charges. Reward exclusions and bank terms apply.",
+        "sourceType": "manual",
+        "sourceLabel": "IDFC FIRST Bank — FIRST WOW! official details",
+        "sourceUrl": "https://www.idfcfirst.bank.in/credit-card/wow",
+        "ctaLabel": "Apply for FIRST WOW!",
+        "ctaUrl": "https://simplifycards.in/apply/wow",
+        "publishedAt": "2026-09-19",
+        "groupId": "idfc-first-zero-forex-2026-09",
+        "groupTitle": "IDFC FIRST credit cards now offer 0% forex markup",
+        "groupSummary": "IDFC FIRST credit cards offer 0% forex markup on international spends for existing and new cardholders. On ₹1,00,000 of foreign-currency purchases, you save about ₹4,130 versus a typical 3.5% forex card: ₹3,500 markup + ₹630 GST (18% on the markup). FIRST Wealth, FIRST Select and FIRST WOW! all have ₹0 joining fee and ₹0 annual fee (lifetime free). As checked on 19 September 2026, eligible international spends earn approximately 1.25% reward value on FIRST Wealth and FIRST Select, and 0.5% on FIRST WOW!, at ₹0.25 per Reward Point before redemption fees; exclusions and bank terms apply. Always pay in the local currency abroad: choosing INR can trigger Dynamic Currency Conversion (DCC) charges."
+      }
+    ]
   }
 }

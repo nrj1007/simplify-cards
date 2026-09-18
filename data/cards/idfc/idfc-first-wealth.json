@@ -14,7 +14,7 @@
     "lounge",
     "golf",
     "luxury",
-    "low forex"
+    "zero forex"
   ],
   "rewardType": "reward points",
   "rewards": [
@@ -50,14 +50,14 @@
       "2 complimentary international airport lounge visits per quarter, subject to a minimum spend of ₹20,000 in the previous calendar month."
     ]
   },
-  "forexMarkup": 1.5,
+  "forexMarkup": 0,
   "tags": [
     "wealth",
     "lifetime free",
     "lounge",
     "golf",
     "luxury",
-    "low forex",
+    "zero forex",
     "rewardz"
   ],
   "exclusions": [
@@ -76,7 +76,6 @@
     "4 complimentary railway lounge visits per quarter",
     "Complimentary golf rounds and lessons (2 per month)",
     "Buy 1 Get 1 free movie ticket offer up to ₹500 twice a month via District app",
-    "Low forex markup of 1.5%",
     "1% fuel surcharge waiver up to ₹300 per statement cycle",
     "Reward points are valid for 24 months"
   ],
@@ -106,7 +105,8 @@
     "10X reward points (5.0 per ₹100 spent) on Dining, Travel, International, Birthday spends, and incremental spends above ₹20,000.",
     "1X reward points (0.5 per ₹100 spent) on utility, insurance, FASTag, and railway spends.",
     "Lounge access (airport and railway) is subject to a spend threshold of ₹20,000 in the previous calendar month.",
-    "Buy 1 Get 1 movie ticket offer is subject to a spend threshold of ₹20,000 in the previous calendar month."
+    "Buy 1 Get 1 movie ticket offer is subject to a spend threshold of ₹20,000 in the previous calendar month.",
+    "Forex markup, joining/annual fees and international reward value verified on 2026-09-19 at https://www.idfcfirst.bank.in/credit-card/wealth: 0% forex for existing and new cardholders, zero joining and annual fees, approximately 1.25% international reward value at ₹0.25 per point before redemption fees. Pay in local currency to avoid DCC. Other benefits were not re-audited."
   ],
   "popularityScore": 77,
   "applyLinks": [
@@ -124,5 +124,6 @@
       "provider": "cuelinks",
       "earnings": "1012/Lead (NTB)"
     }
-  ]
+  ],
+  "affiliateUrl": "https://simplifycards.in/apply/wealth"
 }
