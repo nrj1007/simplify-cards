@@ -28,6 +28,21 @@ const nextConfig: NextConfig = {
         destination: "https://chat.whatsapp.com/HRIXZtKlzH5B0EAvOag27L",
         permanent: false,
       },
+      {
+        source: "/apply/wealth",
+        destination: "https://linksredirect.com/?cid=297687&source=linkkit&url=https%3A%2F%2Fwww.idfcfirst.bank.in%2Fcredit-card%2Fntb-diy%2Fapply",
+        permanent: false,
+      },
+      {
+        source: "/apply/select",
+        destination: "https://linksredirect.com/?cid=297687&source=linkkit&url=https%3A%2F%2Fwww.idfcfirst.bank.in%2Fcredit-card%2Fntb-diy%2Fapply",
+        permanent: false,
+      },
+      {
+        source: "/apply/wow",
+        destination: "https://linksredirect.com/?cid=297687&source=linkkit&url=https%3A%2F%2Fwww.idfcfirst.bank.in%2Fcredit-card%2Fntb-diy%2Fapply",
+        permanent: false,
+      },
     ];
   }
 };
