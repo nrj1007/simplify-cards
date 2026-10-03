@@ -2,6 +2,7 @@ import fs from "node:fs/promises";
 import path from "node:path";
 import { buildStoredAnalyticsEvent, type AnalyticsEventPayload, type StoredAnalyticsEvent } from "./analytics";
 import { updateAnalyticsDailySummary } from "./analytics-summary";
+import { isActivityDatabaseConfigured, readActivityEvents, storeActivityEvent } from "./activity-db";
 import {
   isDurableRecordStorageConfigured,
   isVercelRuntime,
@@ -27,6 +28,15 @@ function canPersistAnalyticsToFilesystem() {
 }
 
 export async function appendAnalyticsEvent(event: StoredAnalyticsEvent) {
+  if (isActivityDatabaseConfigured()) {
+    try {
+      await storeActivityEvent(event);
+    } catch {
+      // Keep analytics failures from interrupting the user-facing request.
+      // Avoid logging database errors that may contain connection credentials.
+      console.error("Failed to persist activity event to Turso");
+    }
+  }
   if (!canPersistAnalyticsToFilesystem()) {
     if (isDurableRecordStorageConfigured()) {
       try {
@@ -51,6 +61,7 @@ export async function appendAnalyticsEvent(event: StoredAnalyticsEvent) {
 }
 
 export async function readAnalyticsLog(limit = 5000): Promise<StoredAnalyticsEvent[]> {
+  if (isActivityDatabaseConfigured()) return readActivityEvents(limit);
   if (!canPersistAnalyticsToFilesystem()) {
     if (!isDurableRecordStorageConfigured()) {
       throw new Error("Durable analytics storage is not configured");
@@ -82,6 +93,7 @@ export async function readAnalyticsLog(limit = 5000): Promise<StoredAnalyticsEve
 }
 
 export async function readRecentAnalyticsLogByDatePrefix(dateKeys: string[], limit = 1000) {
+  if (isActivityDatabaseConfigured()) return readActivityEvents(limit, dateKeys);
   if (!canPersistAnalyticsToFilesystem()) {
     if (!isDurableRecordStorageConfigured()) {
       throw new Error("Durable analytics storage is not configured");

@@ -19,6 +19,7 @@
     "fetch:telegram-inbox": "node scripts/fetch-telegram-inbox.js"
   },
   "dependencies": {
+    "@libsql/client": "^0.18.0",
     "@vercel/analytics": "^2.0.1",
     "@vercel/blob": "^2.6.1",
     "@vercel/speed-insights": "^2.0.0",
