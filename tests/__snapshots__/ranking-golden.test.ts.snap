@@ -180,11 +180,11 @@ exports[`ranking golden (representative queries) > produces stable top-N orderin
     "idfc-first-select",
     "idfc-ashva",
     "kotak-solitaire",
+    "yes-niyo",
     "idfc-wow",
     "idfc-mayura",
     "au-ixigo",
     "yes-bank-uni-goldx",
-    "idfc-first-millennia",
   ],
   "guest-lounge-query": [
     "hsbc-premier",
@@ -524,8 +524,8 @@ exports[`ranking golden (representative queries) > produces stable top-N orderin
     "scapia-federal",
     "scapia-bobcard",
     "idfc-first-wealth",
+    "yes-niyo",
     "idfc-first-select",
-    "idfc-first-millennia",
   ],
   "spend-level-heavy": [
     "hsbc-premier",
