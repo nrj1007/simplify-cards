@@ -1,10 +1,8 @@
-import { readRecentAnalyticsLogByDatePrefix } from "@/lib/analytics-logs";
+import { readActivityDailySummaries } from "@/lib/activity-summary";
 import {
-  buildDailySummaryFromEvents,
   buildLast24HourRowsFromSummaries,
   getAnalyticsDateKeys,
-  mergeDailySummaries,
-  readAnalyticsDailySummaries
+  mergeDailySummaries
 } from "@/lib/analytics-summary";
 import PageHero from "@/app/ui/PageHero";
 
@@ -143,27 +141,9 @@ export default async function AnalyticsReviewPage() {
   const now = new Date();
   const dailyDateKeys = getAnalyticsDateKeys(14, now);
   const eventWindowDateKeys = getAnalyticsDateKeys(30, now);
-  const storedSummaries = await readAnalyticsDailySummaries(eventWindowDateKeys);
-  const summariesByDate = new Map(storedSummaries.map((summary) => [summary.date, summary]));
-  const missingSummaryDateKeys = eventWindowDateKeys.filter((date) => !summariesByDate.has(date));
-  const recentEvents =
-    missingSummaryDateKeys.length > 0 ? await readRecentAnalyticsLogByDatePrefix(missingSummaryDateKeys, 2000).catch(() => []) : [];
-  const recentEventsByDate = new Map<string, typeof recentEvents>();
-
-  for (const event of recentEvents) {
-    const date = event.received_at.slice(0, 10);
-    if (!date) continue;
-    recentEventsByDate.set(date, [...(recentEventsByDate.get(date) ?? []), event]);
-  }
-
-  for (const [date, dateEvents] of recentEventsByDate) {
-    if (!summariesByDate.has(date)) {
-      summariesByDate.set(date, buildDailySummaryFromEvents(date, dateEvents));
-    }
-  }
-
-  const summary = mergeDailySummaries([...summariesByDate.values()], dailyDateKeys, eventWindowDateKeys);
-  const last24HourHitRows = buildLast24HourRowsFromSummaries([...summariesByDate.values()], now);
+  const summaries = await readActivityDailySummaries(eventWindowDateKeys);
+  const summary = mergeDailySummaries(summaries, dailyDateKeys, eventWindowDateKeys);
+  const last24HourHitRows = buildLast24HourRowsFromSummaries(summaries, now);
   const last7DayHitRows = [...summary.dailyUsageRows]
     .slice(0, 7)
     .reverse()
@@ -177,7 +157,7 @@ export default async function AnalyticsReviewPage() {
       <PageHero
         eyebrow="Internal review"
         title="Analytics"
-        lead="Review recent product usage stored in the private durable record store."
+        lead="Review product usage from the last 30 days. Tracking starts from the activity database setup."
       />
 
       <section className="page-content">

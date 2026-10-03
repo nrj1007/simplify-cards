@@ -17,6 +17,12 @@ ID. Raw event readers use Turso when configured. Existing Blob daily summaries,
 feedback records and question logs remain in place; historical data is not migrated.
 Without Turso credentials, the existing storage behavior is preserved.
 
+The analytics review page reads exclusively from Turso and derives its daily
+summaries from all events in the 30-day reporting window, using paginated reads
+in a consistent read transaction. It does not use legacy Blob summaries or
+historical logs. Missing credentials or database errors fail the page rather
+than showing misleading zero counts. Existing Blob summary writes continue.
+
 Preview and local environments are not connected to production Turso. Provision a
 separate database and run the same schema script before enabling them. Activity
 has no automatic deletion policy yet; monitor storage usage as events accumulate.
