@@ -15,12 +15,27 @@
     "international"
   ],
   "rewardType": "reward points",
+  "broadOnlineReward": true,
   "rewards": [
     {
-      "category": "base",
-      "displayCategory": "Domestic POS and e-commerce spends",
+      "category": "travel",
+      "displayCategory": "Travel bookings via Niyo App",
       "rate": 5,
       "displayRate": "5 Niyo Coins per ₹100",
+      "capMonthly": null
+    },
+    {
+      "category": "online",
+      "displayCategory": "Domestic e-commerce / online transactions",
+      "rate": 4,
+      "displayRate": "4 Niyo Coins per ₹100",
+      "capMonthly": null
+    },
+    {
+      "category": "base",
+      "displayCategory": "Domestic POS transactions",
+      "rate": 2,
+      "displayRate": "2 Niyo Coins per ₹100",
       "capMonthly": null
     }
   ],
@@ -29,8 +44,8 @@
   "loungeInternational": 1,
   "lounge": {
     "international": [
-      "1 complimentary lounge pass per calendar quarter, unlocked on ≥ ₹50,000 of international (non-INR) spends in that quarter.",
-      "Pass is generated in the Niyo app within 7 days of meeting the spend threshold and is valid for 30 days from generation."
+      "International lounge access is a Niyo Exclusive benefit, available with the Niyo Premium Membership add-on.",
+      "Exact pass count and eligibility conditions are governed by the Premium Membership terms in the Niyo app."
     ]
   },
   "forexMarkup": 0,
@@ -57,9 +72,11 @@
   ],
   "additionalDetails": [
     "Co-branded credit card issued by YES BANK in partnership with Niyo (GoNiyo); applied for and managed via the Niyo app",
-    "Niyo Coins earned on domestic POS and e-commerce spends; international / foreign-currency transactions earn no Niyo Coins",
-    "Redeem Niyo Coins via the Niyo app for flights, visa services, and eligible purchases; 100 Niyo Coins = ₹10 (₹0.10 per coin)",
-    "Niyo Coins are valid for 12 months from date of earning"
+    "Three-tier domestic earn rate: 5 Niyo Coins/₹100 on travel booked via Niyo app; 4 Niyo Coins/₹100 on domestic online/e-commerce; 2 Niyo Coins/₹100 on domestic POS",
+    "International / foreign-currency transactions earn no Niyo Coins",
+    "Redeem Niyo Coins via the Niyo app for travel bookings and exclusive discounts; 10 Niyo Coins = ₹1 (₹0.10 per coin)",
+    "Niyo Coins are valid for 12 months from date of earning",
+    "International lounge access is a Niyo Exclusive benefit tied to the Premium Membership add-on (not available on base card)"
   ],
   "redemption": {
     "statementBalanceValue": 0.10,
@@ -67,12 +84,12 @@
   },
   "eligibility": {
     "salaried": [
-      "Age: 21 to 60 years",
-      "Minimum net monthly salary: ₹25,000"
+      "Resident Indians aged 21 years or above",
+      "Digital onboarding via Niyo app with Video KYC — no salary slips or income proof required per GoNiyo"
     ],
     "selfEmployed": [
-      "Age: 21 to 60 years",
-      "ITR of ₹7.5 lakhs and above"
+      "Resident Indians aged 21 years or above",
+      "Digital onboarding via Niyo app with Video KYC — no income proof required per GoNiyo"
     ]
   },
   "imageUrl": "/images/yes-niyo.webp",
@@ -90,15 +107,16 @@
     "MITC source: CMITC_V18_28092026 (official YES BANK master MITC, verified 2026-10-03).",
     "Zero forex markup and zero DCC charge confirmed: MITC line 1717-1718 explicitly exempts NIYO Credit Card from forex markup and dynamic currency conversion charges.",
     "Lifetime Free confirmed: NIYO listed in fee table with NIL joining and NIL annual fees (MITC line 222).",
-    "Utility & Service transaction fee: 1% + GST on utility spends exceeding ₹50,000 cumulative in a calendar month (NIYO grouped with Marquee/Reserv/Uni — higher ₹50K threshold, not the standard ₹25K for 'other cards'). Cap ₹5,000 per transaction. Effective from the date of the MITC.",
+    "Utility & Service transaction fee: 1% + GST on utility spends exceeding ₹50,000 cumulative in a calendar month (NIYO grouped with Marquee/Reserv/Uni — higher ₹50K threshold, not the standard ₹25K for 'other cards'). Cap ₹5,000 per transaction.",
     "Fuel surcharge waiver: ₹500–₹4,000 transaction range (MITC line 1934-1937, grouped with Reserv/YES Essence). Cap ₹250 per statement cycle (MITC line 2013-2016). Waiver does NOT apply to fuel via UPI.",
-    "Reward rate (5 Niyo Coins / ₹100) and coin value (₹0.10/coin) are sourced from goniyo.com and web sources — not confirmed in the master MITC (which covers charges, not product-specific rewards). Verify from the Niyo product page or app T&Cs.",
-    "International lounge access (1 pass/quarter on ₹50K international spend gate) is sourced from web/community and the Niyo app — not covered in the master MITC. The MITC confirms spend-gating only applies to domestic lounge access; international lounge access on eligible cards has no spend gate per the MITC (line 1895). The lounge pass mechanism for Niyo is managed via the Niyo app, not the standard YES Bank lounge access programme.",
-    "Existing YES BANK credit cardholders are typically not eligible for this co-branded card.",
-    "Finance charge for this card: 3.99% per month / 47.88% p.a. (falls under 'Other Credit Cards' category in the MITC).",
+    "Reward rates confirmed from goniyo.com (2026-10-03): 5 Niyo Coins/₹100 on travel bookings via Niyo app; 4 Niyo Coins/₹100 on domestic e-commerce/online; 2 Niyo Coins/₹100 on domestic POS. International transactions earn 0 coins.",
+    "Coin value confirmed from goniyo.com: 10 Niyo Coins = ₹1 (i.e. ₹0.10 per coin). Redemption is for travel bookings and exclusive discounts via the Niyo app.",
+    "International lounge access is listed as a 'Niyo Exclusive' benefit on goniyo.com, gated behind the Niyo Premium Membership add-on — NOT a standard card feature on the base card. The earlier assumption of a ₹50K quarterly spend gate was incorrect.",
+    "Eligibility per goniyo.com: resident Indians aged 21+ with a credit profile (CIBIL score); fully digital onboarding via Niyo app with Video KYC — no salary slips or income proof required. The YES Bank MITC age range of 21–60 and income criteria (₹25K salary / ₹7.5L ITR) may still apply at bank's discretion.",
+    "Finance charge: 3.99% per month / 47.88% p.a. (falls under 'Other Credit Cards' category in the MITC).",
     "Cash withdrawal suspended for first 6 months from onboarding date.",
-    "Reward points (Niyo Coins) earned on utility spends: the MITC utility rewards capping table does not list Niyo separately — treat as uncapped unless product page specifies otherwise.",
-    "Card operated via Niyo app — applications are digital-first with Video KYC. Card managed entirely through the Niyo app.",
-    "Fuel exclusion from rewards: fuel MCC codes 5541, 5542, 5983, 5172 earn no Niyo Coins. Fuel surcharge waiver still applies separately."
+    "Fuel MCC codes 5541, 5542, 5983, 5172 earn no Niyo Coins. Fuel surcharge waiver still applies separately.",
+    "Premium Membership benefits (₹0 convenience fees on flights, 10% off international hotels, lounge access) are add-on features, not base card benefits — do not surface these as standard card benefits.",
+    "Card managed entirely through the Niyo app — no YES Bank branch or netbanking required."
   ]
 }
